@@ -69,19 +69,19 @@ lua_table.key_notdef6 = "Start"
 
 --Movement
 local mov_speed_x = 0.0
-local mov_speed_y = 500.0
-lua_table.mov_speed_max = 500.0
+local mov_speed_y = 0.0
+lua_table.mov_speed_max = 0.0
 local mov_acc_x = 0.0
 local mov_acc_y = 0.0
-lua_table.mov_acc_max = 500.0
+lua_table.mov_acc_max = 0.0
 
 local rot_speed = 0.0
-lua_table.rot_speed_max = 100.0
-lua_table.rot_acc_max = 500.0
+lua_table.rot_speed_max = 0.0
+lua_table.rot_acc_max = 0.0
 
 --Aiming
-local aim_x = 0
-local aim_y = 0
+local aim_x = 0.0
+local aim_y = 0.0
 
 --Attacks
 lua_table.light_attack_damage = 0
@@ -113,7 +113,7 @@ local rightside = true					-- Last attack side, switches on a succesfully timed 
 
 --Methods
 function push_back(array, array_size, new_val)	--Pushes back all values and inserts a new one
-	for i = 0, array_size - 2, ++i
+	for i = 0, array_size - 2, 1
 	do
 		array[i] = array[i + 1]
 	end
@@ -123,75 +123,100 @@ end
 
 --Main Code
 function lua_table:Awake ()
+    lua_table.Functions:LOG ("This Log was called from LUA testing a table on AWAKE")
 end
 
 function lua_table:Start ()
+    lua_table.Functions:LOG ("This Log was called from LUA testing a table on START")
 end
 
 function lua_table:Update ()
-	dt = lua_table.Functions:dt ()
+    dt = lua_table.Functions:dt ()
 
-	if current_state ~= state.dead
-	then
-		mov_input_x, mov_input_y = lua_table.Functions:GetJoystick (lua_table.key_move);
-		aim_input_x, aim_input_y = lua_table.Functions:GetJoystick (lua_table.key_aim);
-
-		if current_state =< state.move
-		then
-			if mov_input_x ~= 0 | mov_input_y ~= 0
-			then
-				if current_state == state.idle
-				then
-					--Animation to MOVE
-					current_state = state.move
-				end
+	if lua_table.Functions:KeyRepeat ("W") then lua_table.Functions:Translate (0.0, 0.0, 50.0 * dt) end
+	if lua_table.Functions:KeyRepeat ("A") then lua_table.Functions:Translate (50.0 * dt, 0.0 , 0.0) end
+	if lua_table.Functions:KeyRepeat ("S") then lua_table.Functions:Translate (0.0, 0.0, -50.0 * dt) end
+	if lua_table.Functions:KeyRepeat ("D") then lua_table.Functions:Translate(-50.0 * dt,0.0 , 0.0) end
+	if lua_table.Functions:KeyRepeat ("Q") then lua_table.Functions:LOG ("Q is pressed") end
+	if lua_table.Functions:IsGamepadButton(1,"BUTTON_DPAD_LEFT","DOWN") then lua_table.Functions:LOG ("Button BACK DOWN") end
+	if lua_table.Functions:IsGamepadButton(2,"BUTTON_A","DOWN") then lua_table.Functions:LOG ("PLAYER 2 button A DOWN") end
 	
-				desired_speed_x = lua_table.mov_speed_max * mov_input_x	--Joystick input decides desired speed
-				desired_speed_y = lua_table.mov_speed_max * mov_input_y
+	--Testing axis
+	if lua_table.Functions:IsJoystickAxis(1,"AXIS_RIGHTX","POSITIVE_DOWN") then lua_table.Functions:LOG ("Joystick Left X POSITIVE Down") end
+	if lua_table.Functions:IsJoystickAxis(1,"AXIS_RIGHTX","NEGATIVE_DOWN") then lua_table.Functions:LOG ("Joystick Left X NEGATIVE Down") end
+	if lua_table.Functions:IsJoystickAxis(1,"AXIS_RIGHTY","POSITIVE_DOWN") then lua_table.Functions:LOG ("Joystick Left Y POSITIVE Down") end
+	if lua_table.Functions:IsJoystickAxis(1,"AXIS_RIGHTY","NEGATIVE_DOWN") then lua_table.Functions:LOG ("Joystick Left Y NEGATIVE Down") end
 	
-				lua_table.mov_speed_x = desired_speed_x
-				lua_table.mov_speed_y = desired_speed_y
-			else if current_state == state.move
-			then
-				--Animation to IDLE
-				current_state = state.idle
-			end
-		end
+	--lua_table.Functions:LOG ("Joystick Left X: " .. lua_table.Functions:GetAxisValue(1,"AXIS_RIGHTX"))
+	--lua_table.Functions:LOG ("Joystick Left Y: " .. lua_table.Functions:GetAxisValue(1,"AXIS_RIGHTY"))
+	
+	if lua_table.Functions:IsTriggerState(1,"AXIS_TRIGGERLEFT","DOWN") then lua_table.Functions:StopControllerShake(1) end
+	if lua_table.Functions:IsTriggerState(1,"AXIS_TRIGGERRIGHT","DOWN") then lua_table.Functions:ShakeController(1,0.3,2000) end
+	
+	lua_table.Functions:LOG ("Joystick Left X: " .. lua_table.Functions:GetAxisValue(1,"AXIS_LEFTX", 0.3))
 
-		if current_state =< state.move	-- state == idle | move
-		then
-			if lua_table.Functions:KeyDown (lua_table.key_light)		--Light Input
-			then
-				--Animation to LIGHT
-				started_at = lua_table.Functions:GetGameTime ()	--Start timer
-				++combo_num										--Register number of attacks in combo
-				push_back(combo_stack, 4, 'L')					--Register attack to combo_arr
+	--Geralt Code
+	-- if current_state ~= state.dead
+	-- then
+	-- 	mov_input_x, mov_input_y = lua_table.Functions:GetJoystick (lua_table.key_move);
+	-- 	aim_input_x, aim_input_y = lua_table.Functions:GetJoystick (lua_table.key_aim);
 
-				current_state = state.light
+	-- 	if current_state =< state.move
+	-- 	then
+	-- 		if mov_input_x ~= 0 | mov_input_y ~= 0
+	-- 		then
+	-- 			if current_state == state.idle
+	-- 			then
+	-- 				--Animation to MOVE
+	-- 				current_state = state.move
+	-- 			end
+	
+	-- 			desired_speed_x = lua_table.mov_speed_max * mov_input_x	--Joystick input decides desired speed
+	-- 			desired_speed_y = lua_table.mov_speed_max * mov_input_y
+	
+	-- 			lua_table.mov_speed_x = desired_speed_x
+	-- 			lua_table.mov_speed_y = desired_speed_y
+	-- 		else if current_state == state.move
+	-- 		then
+	-- 			--Animation to IDLE
+	-- 			current_state = state.idle
+	-- 		end
+	-- 	end
 
-			else if lua_table.Functions:KeyDown (lua_table.key_heavy)	--Heavy Input
-			then
-				--Do Heavy Attack
-				current_state = state.heavy
+	-- 	if current_state =< state.move	-- state == idle | move
+	-- 	then
+	-- 		if lua_table.Functions:KeyDown (lua_table.key_light)		--Light Input
+	-- 		then
+	-- 			--Animation to LIGHT
+	-- 			started_at = lua_table.Functions:GetGameTime ()	--Start timer
+	-- 			++combo_num										--Register number of attacks in combo
+	-- 			push_back(combo_stack, 4, 'L')					--Register attack to combo_arr
 
-			else if lua_table.Functions:KeyDown (lua_table.key_evade)	--Evade Input
-			then
-				--Do Evade
-				current_state = state.evade
+	-- 			current_state = state.light
 
-			else if lua_table.Functions:KeyDown (lua_table.key_ability)	--Ability Input
-			then
-				--Do Ability
-				current_state = state.ability
+	-- 		else if lua_table.Functions:KeyDown (lua_table.key_heavy)	--Heavy Input
+	-- 		then
+	-- 			--Do Heavy Attack
+	-- 			current_state = state.heavy
 
-			else if lua_table.Functions:KeyDown (lua_table.key_object)	--Object Input
-			then
-				--Do Object
-				current_state = state.object
+	-- 		else if lua_table.Functions:KeyDown (lua_table.key_evade)	--Evade Input
+	-- 		then
+	-- 			--Do Evade
+	-- 			current_state = state.evade
+
+	-- 		else if lua_table.Functions:KeyDown (lua_table.key_ability)	--Ability Input
+	-- 		then
+	-- 			--Do Ability
+	-- 			current_state = state.ability
+
+	-- 		else if lua_table.Functions:KeyDown (lua_table.key_object)	--Object Input
+	-- 		then
+	-- 			--Do Object
+	-- 			current_state = state.object
 		
-			end
-		end
-	end
+	-- 		end
+	-- 	end
+	-- end
 
 	-- mov = lua_table.Functions:GetJoystick (lua_table.key_move);
 	-- lua_table.aim_x, lua_table.aim_y = lua_table.Functions:GetJoystick (lua_table.key_aim);
@@ -204,3 +229,50 @@ end
 
 return lua_table
 end
+
+-- DÍDAC REFERENCE CODE
+-- local Functions = Debug.Scripting ()
+
+-- function	GetTablelua_tabletest ()
+-- local lua_table = {}
+-- lua_table["position_x"] = 0
+-- lua_table["Functions"] = Debug.Scripting ()
+
+-- function lua_table:Awake ()
+-- 	lua_table["position_x"] = 30
+-- 	lua_table["Functions"]:LOG ("This Log was called from LUA testing a table on AWAKE")
+-- end
+
+-- function lua_table:Start ()
+-- 	lua_table["Functions"]:LOG ("This Log was called from LUA testing a table on START")
+-- end
+
+-- function lua_table:Update ()
+	-- dt = lua_table["Functions"]:dt ()
+
+	-- if lua_table["Functions"]:KeyRepeat ("W") then lua_table["Functions"]:Translate (0.0, 0.0, 50.0 * dt) end
+	-- if lua_table["Functions"]:KeyRepeat ("A") then lua_table["Functions"]:Translate (50.0 * dt, 0.0 , 0.0) end
+	-- if lua_table["Functions"]:KeyRepeat ("S") then lua_table["Functions"]:Translate (0.0, 0.0, -50.0 * dt) end
+	-- if lua_table["Functions"]:KeyRepeat ("D") then lua_table["Functions"]:Translate(-50.0 * dt,0.0 , 0.0) end
+	-- if lua_table["Functions"]:KeyRepeat ("Q") then lua_table["Functions"]:LOG ("Q is pressed") end
+	-- if lua_table["Functions"]:IsGamepadButton(1,"BUTTON_DPAD_LEFT","DOWN") then lua_table["Functions"]:LOG ("Button BACK DOWN") end
+	-- if lua_table["Functions"]:IsGamepadButton(2,"BUTTON_A","DOWN") then lua_table["Functions"]:LOG ("PLAYER 2 button A DOWN") end
+	
+	-- --Testing axis
+	-- if lua_table["Functions"]:IsJoystickAxis(1,"AXIS_RIGHTX","POSITIVE_DOWN") then lua_table["Functions"]:LOG ("Joystick Left X POSITIVE Down") end
+	-- if lua_table["Functions"]:IsJoystickAxis(1,"AXIS_RIGHTX","NEGATIVE_DOWN") then lua_table["Functions"]:LOG ("Joystick Left X NEGATIVE Down") end
+	-- if lua_table["Functions"]:IsJoystickAxis(1,"AXIS_RIGHTY","POSITIVE_DOWN") then lua_table["Functions"]:LOG ("Joystick Left Y POSITIVE Down") end
+	-- if lua_table["Functions"]:IsJoystickAxis(1,"AXIS_RIGHTY","NEGATIVE_DOWN") then lua_table["Functions"]:LOG ("Joystick Left Y NEGATIVE Down") end
+	
+	-- --lua_table["Functions"]:LOG ("Joystick Left X: " .. lua_table["Functions"]:GetAxisValue(1,"AXIS_RIGHTX"))
+	-- --lua_table["Functions"]:LOG ("Joystick Left Y: " .. lua_table["Functions"]:GetAxisValue(1,"AXIS_RIGHTY"))
+	
+	-- if lua_table["Functions"]:IsTriggerState(1,"AXIS_TRIGGERLEFT","DOWN") then lua_table["Functions"]:StopControllerShake(1) end
+	-- if lua_table["Functions"]:IsTriggerState(1,"AXIS_TRIGGERRIGHT","DOWN") then lua_table["Functions"]:ShakeController(1,0.3,2000) end
+	
+	-- lua_table["Functions"]:LOG ("Joystick Left X: " .. lua_table["Functions"]:GetAxisValue(1,"AXIS_LEFTX", 0.3))
+	
+-- end
+
+-- return lua_table
+-- end
