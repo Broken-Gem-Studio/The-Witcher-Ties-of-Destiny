@@ -101,14 +101,27 @@ lua_table.evade_acceleration = 0
 lua_table.ability_cost = 0
 lua_table.ability_duration = 0
 
+--Actions
+local started_at = 0	--TIMER
+
 --Combos
 lua_table.combo_timeframe_start = 10	-- Timeframe start to perform next combo attack (since attack start or duration end?)
 lua_table.combo_timeframe_length = 10	-- Timeframe length
-local combo_stack = 0					-- Starting at 0, increases by 1 for each attack well timed, starting at 4, each new attack will be checked for a succesful combo. Bad timing or performing a combo resets to 0
-local combo_arr = { 0, 0, 0, 0 }				-- Last 4 attacks performed (0=none, 1=light, 2=heavy). Use push_back tactic.
-local rightside = true				-- Last attack side, switches on a succesfully timed attack
-	
+local combo_num = 0						-- Starting at 0, increases by 1 for each attack well timed, starting at 4, each new attack will be checked for a succesful combo. Bad timing or performing a combo resets to 0
+local combo_stack = { 'N', 'N', 'N', 'N' }		-- Last 4 attacks performed (0=none, 1=light, 2=heavy). Use push_back tactic.
+local rightside = true					-- Last attack side, switches on a succesfully timed attack
+
 --Methods
+function push_back(array, array_size, new_val)	--Pushes back all values and inserts a new one
+	for i = 0, array_size - 2, ++i
+	do
+		array[i] = array[i + 1]
+	end
+
+	array[array_size - 1] = new_val
+end
+
+--Main Code
 function lua_table:Awake ()
 end
 
@@ -118,11 +131,11 @@ end
 function lua_table:Update ()
 	dt = lua_table.Functions:dt ()
 
-	mov_input_x, mov_input_y = lua_table.Functions:GetJoystick (lua_table.key_move);
-	aim_input_x, aim_input_y = lua_table.Functions:GetJoystick (lua_table.key_aim);
-
 	if current_state ~= state.dead
 	then
+		mov_input_x, mov_input_y = lua_table.Functions:GetJoystick (lua_table.key_move);
+		aim_input_x, aim_input_y = lua_table.Functions:GetJoystick (lua_table.key_aim);
+
 		if current_state =< state.move
 		then
 			if mov_input_x ~= 0 | mov_input_y ~= 0
@@ -149,10 +162,11 @@ function lua_table:Update ()
 		then
 			if lua_table.Functions:KeyDown (lua_table.key_light)		--Light Input
 			then
-				--Execute Animation
-				--Start timer
-				--Register attack to combo_arr
-				--Add +1 on stack
+				--Animation to LIGHT
+				started_at = lua_table.Functions:GetGameTime ()	--Start timer
+				++combo_num										--Register number of attacks in combo
+				push_back(combo_stack, 4, 'L')					--Register attack to combo_arr
+
 				current_state = state.light
 
 			else if lua_table.Functions:KeyDown (lua_table.key_heavy)	--Heavy Input
