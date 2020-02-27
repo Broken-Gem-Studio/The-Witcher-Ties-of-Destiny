@@ -1,8 +1,5 @@
 local Functions = Debug.Scripting ()
 
-
-
-
 function	GetTableCameraScript ()
 local lua_table = {}
 lua_table["Functions"] = Debug.Scripting ()
@@ -16,6 +13,8 @@ lua_table["offset_z"] = 0
 local target_position_x = 0
 local target_position_y = 0
 local target_position_z = 0
+
+lua_table["desired_position"] = 0
 
 -- Smoothing Speed
 lua_table["smooth_speed"] = 0
