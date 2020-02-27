@@ -17,6 +17,10 @@ local target_position_x = 0
 local target_position_y = 0
 local target_position_z = 0
 
+-- Smoothing Speed
+lua_table["smooth_speed"] = 0
+
+
 
 -- lua_table["player_distance_from_target"] = 0 --unused for now
 
