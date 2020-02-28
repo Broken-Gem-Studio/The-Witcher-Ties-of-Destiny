@@ -65,7 +65,7 @@ lua_table.key_ability = "BUTTON_B"
 lua_table.key_move = "AXIS_LEFT"
 lua_table.key_aim = "AXIS_RIGHT"
 lua_table.key_joystick_sensibility = 1.0
-local key_joystick_threshold = 0.3
+local key_joystick_threshold = 0.01
 
 lua_table.key_notdef1 = "BUTTON_DPAD_UP"
 lua_table.key_notdef2 = "BUTTON_DPAD_LEFT"
@@ -95,19 +95,19 @@ local aim_y = 0.0
 lua_table.light_attack_damage = 0
 lua_table.light_attack_cost = 0
 
-lua_table.light_attack_block_time = 0	--Input block duration	(block new attacks)
-lua_table.light_attack_combo_start = 0	--Combo timeframe start
-lua_table.light_attack_combo_end = 0	--Combo timeframe end
-lua_table.light_attack_end_time = 0		--Attack end (return to idle)
+lua_table.light_attack_block_time = 400		--Input block duration	(block new attacks)
+lua_table.light_attack_combo_start = 600	--Combo timeframe start
+lua_table.light_attack_combo_end = 800		--Combo timeframe end
+lua_table.light_attack_end_time = 1000		--Attack end (return to idle)
 
 --Heavy Attack
 lua_table.heavy_attack_damage = 0
 lua_table.heavy_attack_cost = 0
 
-lua_table.heavy_attack_block_time = 0
-lua_table.heavy_attack_combo_start = 0
-lua_table.heavy_attack_combo_end = 0
-lua_table.heavy_attack_end_time = 0
+lua_table.heavy_attack_block_time = 400		--Input block duration	(block new attacks)
+lua_table.heavy_attack_combo_start = 600	--Combo timeframe start
+lua_table.heavy_attack_combo_end = 800		--Combo timeframe end
+lua_table.heavy_attack_end_time = 1000		--Attack end (return to idle)
 
 --Evade
 lua_table.evade_cost = 0
@@ -138,8 +138,19 @@ function PushBack (array, array_size, new_val)	--Pushes back all values and inse
 	array[array_size - 1] = new_val
 end
 
+function FinishAction ()
+	if mov_input_x ~= 0.0 or mov_input_y ~= 0.0
+	then
+		--Animation to MOVE
+		current_state = state.move
+	else
+		--Animation to IDLE
+		current_state = state.idle
+	end
+end
+
 --Methods: Massive
-function KeyboardInputs ()
+function KeyboardInputs ()	--Process Debug Keyboard Inputs
 	mov_input_x = 0.0
 	mov_input_y = 0.0
 	
@@ -163,7 +174,7 @@ function KeyboardInputs ()
 	end
 end
 
-function MovementInputs ()
+function MovementInputs ()	--Process Movement Inputs
 	if mov_input_x ~= 0.0 or mov_input_y ~= 0.0
 	then
 		if current_state == state.idle
@@ -191,11 +202,11 @@ function MovementInputs ()
 	end
 end
 
-function ActionInputs ()
+function ActionInputs ()	--Process Action Inputs
 
 	combo_achieved = false
 
-	if lua_table.Functions:IsGamepadButton (1, lua_table.key_light, key_state.key_down)		--Light Input	(NOTE TO SELF: This section, light attack, is done good, copy-paste for other actions)
+	if lua_table.Functions:IsGamepadButton (1, lua_table.key_light, key_state.key_down)		--Light Input
 	then
 		--started_at = lua_table.Functions:Time ()						--Set timer start mark
 		
@@ -210,13 +221,16 @@ function ActionInputs ()
 			elseif time_since_action > lua_table.light_attack_combo_start	--If inside combo timeframe
 			then
 				combo_num = combo_num + 1
-				combo_achieved = CheckCombo ()	--Check combo performed	(NOTE TO SELF: This should handle the animation, combo_num resseting, setting timers, state, bla bla)
+				if combo_num > 3
+				then
+					--combo_achieved = CheckCombo ()	--Check combo performed	(ATTENTION: This should handle the animation, combo_num resseting, setting timers, state, bla bla)
+				end
 			else															--If too early for combo
 				combo_num = 1
 			end
 		end
 
-		if combo_achieved ~= true
+		if combo_achieved ~= true	--If no combo was achieved with the input, do the attack normally
 		then
 			current_action_block_time = lua_table.light_attack_block_time	--Set duration of input block (no new actions)
 			current_action_duration = lua_table.light_attack_end_time		--Set duration of the current action (to return to idle/move)
@@ -229,8 +243,38 @@ function ActionInputs ()
 
 	elseif lua_table.Functions:IsGamepadButton (1, lua_table.key_heavy, key_state.key_down)	--Heavy Input
 	then
-		--Do Heavy Attack
-		current_state = state.heavy
+		--started_at = lua_table.Functions:Time ()						--Set timer start mark
+		
+		if current_state <= state.move	--IF Idle or Moving
+		then
+			combo_num = 1				--Register combo start
+		elseif current_state == state.heavy or current_state == state.heavy	--IF previous action was a light or heavy (potential combo)
+		then
+			if time_since_action > lua_table.heavy_attack_combo_end			--If too late for combo
+			then
+				combo_num = 1
+			elseif time_since_action > lua_table.heavy_attack_combo_start	--If inside combo timeframe
+			then
+				combo_num = combo_num + 1
+				if combo_num > 3
+				then
+					--combo_achieved = CheckCombo ()	--Check combo performed	(ATTENTION: This should handle the animation, combo_num resseting, setting timers, state, bla bla)
+				end
+			else															--If too early for combo
+				combo_num = 1
+			end
+		end
+
+		if combo_achieved ~= true	--If no combo was achieved with the input, do the attack normally
+		then
+			current_action_block_time = lua_table.heavy_attack_block_time	--Set duration of input block (no new actions)
+			current_action_duration = lua_table.heavy_attack_end_time		--Set duration of the current action (to return to idle/move)
+
+			PushBack(combo_stack, 4, 'L')
+
+			--Animation to LIGHT
+			current_state = state.heavy
+		end
 
 	elseif lua_table.Functions:IsGamepadButton (1, lua_table.key_evade, key_state.key_down)	--Evade Input
 	then
@@ -255,17 +299,6 @@ function ActionInputs ()
 	end
 end
 
-function FinishAction ()
-	if mov_input_x ~= 0.0 or mov_input_y ~= 0.0
-	then
-		--Animation to MOVE
-		current_state = state.move
-	else
-		--Animation to IDLE
-		current_state = state.idle
-	end
-end
-
 --Main Code
 function lua_table:Awake ()
     lua_table.Functions:LOG ("This Log was called from LUA testing a table on AWAKE")
@@ -283,6 +316,9 @@ function lua_table:Update ()
 		--DEBUG
 		--KeyboardInputs ()
 
+		mov_input_x = lua_table.Functions:GetAxisValue(1, lua_table.key_move .. "X", key_joystick_threshold)
+		mov_input_y = lua_table.Functions:GetAxisValue(1, lua_table.key_move .. "Y", key_joystick_threshold)
+
 		aim_input_x = lua_table.Functions:GetAxisValue(1, lua_table.key_aim .. "X", key_joystick_threshold)
 		aim_input_y = lua_table.Functions:GetAxisValue(1, lua_table.key_aim .. "Y", key_joystick_threshold)
 
@@ -291,67 +327,20 @@ function lua_table:Update ()
 			--time_since_action = lua_table.Functions:Time () - started_at
 		end
 
-		if current_state <= state.move --or time_since_action > current_action_block_time	--If inside environment where action inputs are accepted
+		if current_state <= state.move --or time_since_action > current_action_block_time	--IF state == idle/move or action_input_block_time has ended (Input-allowed environment)
 		then
-			ActionInputs ()
+			--ActionInputs ()
 		end
 
-
-
-
-
-	 	if current_state <= state.move	--IF idle or move
+		if current_state <= state.move	--IF there's no action inputs given, go for movement inputs
 		then
+			MovementInputs ()
 
-
-			if time_since_action > current_action_duration
+		else	--ELSE (action being done)
+			if time_since_action > current_action_duration	--IF action duration up, finish action and return to move/idle
 			then
 				FinishAction ()
-			
-			elseif current_state == state.light
-			then
-				if time_since_action > lua_table.light_attack_end_time
-				then
-				
-				elseif time_since_action > lua_table.light_attack_combo_end
-				then
-	
-				elseif time_since_action > lua_table.light_attack_combo_start
-				then
-	
-				elseif time_since_action > lua_table.light_attack_block_time
-				then
-	
-				end
-	
-			elseif current_state == state.heavy
-			then
-	
-			elseif current_state == state.evade
-			then
-	
-			elseif current_state == state.ability
-			then
-	
-			elseif current_state == state.ultimate
-			then
-	
-			elseif current_state == state.object
-			then
-	
 			end
-
-
-		elseif current_state <= state.move	-- state == idle or move
-
-			mov_input_x = lua_table.Functions:GetAxisValue(1, lua_table.key_move .. "X", key_joystick_threshold)
-			mov_input_y = lua_table.Functions:GetAxisValue(1, lua_table.key_move .. "Y", key_joystick_threshold)
-
-			--MovementInputs ()
-			--ActionInputs ()
-
-			lua_table.Functions:LOG ("state:" .. current_state)
-
 		end
 	end
 end
