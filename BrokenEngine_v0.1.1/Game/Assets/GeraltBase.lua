@@ -185,10 +185,10 @@ function KeyboardInputs()	--Process Debug Keyboard Inputs
 	
 	if lua_table.Functions:KeyRepeat("S")
 	then
-		mov_input_z = 2.0
+		mov_input_z = -2.0
 	elseif lua_table.Functions:KeyRepeat("W")
 	then
-		mov_input_z = -2.0
+		mov_input_z = 2.0
 	end
 end
 
@@ -205,7 +205,7 @@ function MovementInputs()	--Process Movement Inputs
 		mov_speed_z = lua_table.mov_speed_max * mov_input_z
 
 		_x, mov_speed_y, _z = lua_table.Functions:GetLinearVelocity()
-		lua_table.Functions:SetLinearVelocity(-mov_speed_x, mov_speed_y, -mov_speed_z)
+		lua_table.Functions:SetLinearVelocity(mov_speed_x, mov_speed_y, mov_speed_z)
 		--lua_table.Functions:RotateObject (0.0, 10.0 * dt, 0.0)
 		--lua_table.Functions:LookAt (mov_speed_x, 0.0, mov_speed_z)
 
@@ -295,7 +295,7 @@ function ActionInputs()	--Process Action Inputs
 		--Do Evade
 		if mov_input_x ~= 0.0 or mov_input_z ~= 0.0
 		then
-			lua_table.Functions:SetLinearVelocity(lua_table.evade_velocity * -mov_input_x, mov_speed_y, lua_table.evade_velocity * -mov_input_z)
+			lua_table.Functions:SetLinearVelocity(lua_table.evade_velocity * mov_input_x, mov_speed_y, lua_table.evade_velocity * mov_input_z)
 		else
 			lua_table.Functions:SetLinearVelocity(0, mov_speed_y, lua_table.evade_velocity)
 		end
