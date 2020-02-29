@@ -4,6 +4,10 @@ function	GetTableCameraScript ()
 local lua_table = {}
 lua_table["Functions"] = Debug.Scripting ()
 
+-- Camera position
+
+local ca,mera_position
+
 -- Camera offset (Distance from target)
 lua_table["offset_x"] = 0
 lua_table["offset_y"] = 0
