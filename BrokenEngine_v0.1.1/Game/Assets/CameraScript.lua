@@ -105,7 +105,7 @@ function lua_table:Awake ()
 	 
 	lua_table["offset_x"] = 0
 	lua_table["offset_y"] = 10
-	lua_table["offset_z"] = 10
+	lua_table["offset_z"] = -10
 
 	lua_table["smooth_speed"] = 0.1
 
@@ -143,28 +143,30 @@ function lua_table:Start ()
 	--Sets camera position
 	lua_table["Functions"]:SetPosition(lua_table["camera_position_x"], lua_table["camera_position_y"], lua_table["camera_position_z"])
 
+	-- LookAt
 
-
+	
 end
 
 function lua_table:Update ()
 	dt = lua_table["Functions"]:dt ()
 
-	--pseudostart
-	-- if gameplay == solo
-	-- then
-	-- 	target_pos = P1
-	-- if gameplay == duo
-	-- then
-	-- 	target_pos = Centroid2P(P1,P2)
-	-- end
+	-- Updating Camera Position
+	lua_table["desired_position_x"] = lua_table["Functions"]:GetGameObjectPosX(lua_table.P1_id) + lua_table["offset_x"]
+	lua_table["desired_position_y"] = lua_table["Functions"]:GetGameObjectPosY(lua_table.P1_id) + lua_table["offset_y"]
+	lua_table["desired_position_z"] = lua_table["Functions"]:GetGameObjectPosZ(lua_table.P1_id) + lua_table["offset_z"]
 
-	-- desired_pos = target_pos + offset
+	-- Smoothing Movement
+	lua_table["camera_position_x"] = Asymptotic_Average(lua_table["camera_position_x"], lua_table["desired_position_x"], lua_table["smooth_speed"])
+	lua_table["camera_position_y"] = Asymptotic_Average(lua_table["camera_position_y"], lua_table["desired_position_y"], lua_table["smooth_speed"])
+	lua_table["camera_position_z"] = Asymptotic_Average(lua_table["camera_position_z"], lua_table["desired_position_z"], lua_table["smooth_speed"])
 
-	-- camera_pos = Asymptotic_Average(desired_pos, target_pos, smooth_speed)
+	-- Setting Position
+	lua_table["Functions"]:SetPosition(lua_table["camera_position_x"], lua_table["camera_position_y"], lua_table["camera_position_z"])
 
-	-- lua_table["Functions"]:LookAt(target_pos)
-	--pseudoend
+	-- LookAt
+
+
 end
 	return lua_table
 end
