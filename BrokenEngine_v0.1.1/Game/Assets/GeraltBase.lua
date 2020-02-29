@@ -113,8 +113,8 @@ lua_table.heavy_attack_end_time = 1000		--Attack end (return to idle)
 
 --Evade
 lua_table.evade_cost = 0
-lua_table.evade_duration = 1000
-lua_table.evade_velocity = 50
+lua_table.evade_duration = 500
+lua_table.evade_velocity = 150
 
 --Ability
 lua_table.ability_cost = 0
@@ -217,7 +217,7 @@ function MovementInputs()	--Process Movement Inputs
 end
 
 function ActionInputs()	--Process Action Inputs
-
+	input_given = false
 	combo_achieved = false
 
 	if lua_table.Functions:IsGamepadButton(1, lua_table.key_light, key_state.key_down)		--Light Input
@@ -239,7 +239,7 @@ function ActionInputs()	--Process Action Inputs
 			combo_num = 1	--Not good timing since last attack
 		end
 
-		if combo_achieved ~= true	--If no combo was achieved with the input, do the attack normally
+		if combo_achieved == false	--If no combo was achieved with the input, do the attack normally
 		then
 			current_action_block_time = lua_table.light_attack_block_time	--Set duration of input block (no new actions)
 			current_action_duration = lua_table.light_attack_end_time		--Set duration of the current action (to return to idle/move)
@@ -249,6 +249,8 @@ function ActionInputs()	--Process Action Inputs
 			--Animation to LIGHT
 			current_state = state.light
 		end
+
+		input_given = true
 
 	elseif lua_table.Functions:IsGamepadButton(1, lua_table.key_heavy, key_state.key_down)	--Heavy Input
 	then
@@ -280,17 +282,26 @@ function ActionInputs()	--Process Action Inputs
 			current_state = state.heavy
 		end
 
+		input_given = true
+
 	elseif lua_table.Functions:IsGamepadButton(1, lua_table.key_evade, key_state.key_down)	--Evade Input
 	then
 		action_started_at = PerfGameTime()							--Set timer start mark
 		current_action_block_time = lua_table.evade_duration
 		current_action_duration = lua_table.evade_duration
 		
+		_x, mov_speed_y, _z = lua_table.Functions:GetLinearVelocity()
+
 		--Do Evade
-		--evade_x, mov_speed_y, evade_z = lua_table.Functions:GetLinearVelocity()
-		--lua_table.Functions:SetLinearVelocity(lua_table.evade_velocity * evade_x / math.abs(evade_x), mov_speed_y, lua_table.evade_velocity * evade_z / math.abs(evade_z))
+		if mov_input_x ~= 0.0 or mov_input_z ~= 0.0
+		then
+			lua_table.Functions:SetLinearVelocity(lua_table.evade_velocity * -mov_input_x, mov_speed_y, lua_table.evade_velocity * -mov_input_z)
+		else
+			lua_table.Functions:SetLinearVelocity(0, mov_speed_y, lua_table.evade_velocity)
+		end
 
 		current_state = state.evade
+		input_given = true
 
 	elseif lua_table.Functions:IsGamepadButton(1, lua_table.key_ability, key_state.key_down)	--Ability Input
 	then
@@ -298,6 +309,7 @@ function ActionInputs()	--Process Action Inputs
 
 		--Do Ability
 		current_state = state.ability
+		input_given = true
 
 	elseif lua_table.Functions:IsTriggerState(1, lua_table.key_ultimate_1, key_state.key_down) and lua_table.Functions:IsTriggerState (1, lua_table.key_ultimate_2, key_state.key_down)	--Ultimate Input
 	then
@@ -305,6 +317,7 @@ function ActionInputs()	--Process Action Inputs
 
 		--Do Ultimate
 		current_state = state.ultimate
+		input_given = true
 
 	elseif lua_table.Functions:IsGamepadButton(1, lua_table.key_use_item, key_state.key_down)	--Object Input
 	then
@@ -312,6 +325,7 @@ function ActionInputs()	--Process Action Inputs
 
 		--Do Use_Object
 		current_state = state.item
+		input_given = true
 
 	elseif lua_table.Functions:IsGamepadButton(1, lua_table.key_interact, key_state.key_down)	--Revive Input
 	then
@@ -319,8 +333,10 @@ function ActionInputs()	--Process Action Inputs
 
 		--Do Revive
 		current_state = state.revive
-
+		input_given = true
 	end
+
+	return input_given
 end
 
 function SecondaryInputs()	--Process Secondary Inputs
@@ -377,9 +393,9 @@ function lua_table:Update()
 				time_since_action = PerfGameTime() - action_started_at
 			end
 
-			if current_state <= state.move --or time_since_action > current_action_block_time	--IF state == idle/move or action_input_block_time has ended (Input-allowed environment)
+			if current_state <= state.move or time_since_action > current_action_block_time	--IF state == idle/move or action_input_block_time has ended (Input-allowed environment)
 			then
-				ActionInputs()	--Process major action inputs (attacks, evade, ability, etc)
+				ActionInputs()
 			end
 
 			if current_state <= state.move	--IF there's no action being performed
@@ -387,7 +403,9 @@ function lua_table:Update()
 				MovementInputs()	--Movement orders
 				--SecondaryInputs()	--Minor ctions with no timer or special animations
 
-			else	--ELSE (action being done)
+			else							--ELSE (action being performed)
+				time_since_action = PerfGameTime() - action_started_at
+
 				if time_since_action > current_action_duration	--IF action duration up
 				then
 					GoDefaultState()	--Return to move or idle
