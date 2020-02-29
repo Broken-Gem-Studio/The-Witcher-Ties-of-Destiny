@@ -1,8 +1,8 @@
-local Functions = Debug.Scripting ()
+local Functions = Debug.Scripting()
 
-function	GetTableGeraltBase ()
+function	GetTableGeraltBase()
 local lua_table = {}
-lua_table.Functions = Debug.Scripting ()
+lua_table.Functions = Debug.Scripting()
 
 --State Machine
 local state = {
@@ -77,21 +77,21 @@ lua_table.key_drop_consumable = "BUTTON_DPAD_DOWN"
 lua_table.key_notdef5 = "BUTTON_BACK"
 lua_table.key_notdef6 = "BUTTON_START"
 
+--Inputs
+local mov_input_x = 0.0
+local mov_input_z = 0.0
+	
+local aim_input_x = 0.0
+local aim_input_z = 0.0
+
 --Movement
 local mov_speed_x = 0.0
-local mov_speed_y = 0.0
-lua_table.mov_speed_max = 5.0
-local mov_acc_x = 0.0
-local mov_acc_y = 0.0
-lua_table.mov_acc_max = 0.0
+local mov_speed_z = 0.0
+lua_table.mov_speed_max = 15.0
 
 local rot_speed = 0.0
 lua_table.rot_speed_max = 0.0
 lua_table.rot_acc_max = 0.0
-
---Aiming
-local aim_x = 0.0
-local aim_y = 0.0
 
 --Light Attack
 lua_table.light_attack_damage = 0
@@ -113,8 +113,8 @@ lua_table.heavy_attack_end_time = 1000		--Attack end (return to idle)
 
 --Evade
 lua_table.evade_cost = 0
-lua_table.evade_duration = 0
-lua_table.evade_acceleration = 0
+lua_table.evade_duration = 1000
+lua_table.evade_velocity = 50
 
 --Ability
 lua_table.ability_cost = 0
@@ -132,17 +132,18 @@ local death_stopped_at = 0		-- Death timer stop
 local revive_started_at = 0		-- Revive timer start
 
 --Actions
-local current_action_block_time	-- Duration of input block from current action/event (accept new action inputs)
-local current_action_duration	-- Duration of current action/event (return to idle)
+local time_since_action = 0			-- Time passed since action performed
+local current_action_block_time = 0	-- Duration of input block from current action/event (accept new action inputs)
+local current_action_duration = 0	-- Duration of current action/event (return to idle)
 local action_started_at = 0			-- Marks start of actions (and getting revived)
 
 --Combos
-local combo_num = 0						-- Starting at 0, increases by 1 for each attack well timed, starting at 4, each new attack will be checked for a succesful combo. Bad timing or performing a combo resets to 0
-local combo_stack = { 'N', 'N', 'N', 'N' }		-- Last 4 attacks performed (0=none, 1=light, 2=heavy). Use push_back tactic.
-local rightside = true					-- Last attack side, switches on a succesfully timed attack
+local combo_num = 0							-- Starting at 0, increases by 1 for each attack well timed, starting at 4, each new attack will be checked for a succesful combo. Bad timing or performing a combo resets to 0
+local combo_stack = { 'N', 'N', 'N', 'N' }	-- Last 4 attacks performed (0=none, 1=light, 2=heavy). Use push_back tactic.
+local rightside = true						-- Last attack side, switches on a succesfully timed attack
 
 --Methods: Short
-function PushBack (array, array_size, new_val)	--Pushes back all values and inserts a new one
+function PushBack(array, array_size, new_val)	--Pushes back all values and inserts a new one
 	for i = 0, array_size - 2, 1
 	do
 		array[i] = array[i + 1]
@@ -151,8 +152,8 @@ function PushBack (array, array_size, new_val)	--Pushes back all values and inse
 	array[array_size - 1] = new_val
 end
 
-function GoDefaultState ()
-	if mov_input_x ~= 0.0 or mov_input_y ~= 0.0
+function GoDefaultState()
+	if mov_input_x ~= 0.0 or mov_input_z ~= 0.0
 	then
 		--Animation to MOVE
 		current_state = state.move
@@ -162,33 +163,37 @@ function GoDefaultState ()
 	end
 end
 
+function PerfGameTime()
+	return lua_table.Functions:GameTime() * 1000
+end
+
 --Methods: Massive
-function KeyboardInputs ()	--Process Debug Keyboard Inputs
+function KeyboardInputs()	--Process Debug Keyboard Inputs
 	mov_input_x = 0.0
-	mov_input_y = 0.0
+	mov_input_z = 0.0
 	
 	aim_input_x = 0.0
-	aim_input_y = 0.0
+	aim_input_z = 0.0
 	
-	if lua_table.Functions:KeyRepeat ("D")
+	if lua_table.Functions:KeyRepeat("D")
 	then
 		mov_input_x = 2.0
-	elseif lua_table.Functions:KeyRepeat ("A")
+	elseif lua_table.Functions:KeyRepeat("A")
 	then
 		mov_input_x = -2.0
 	end
 	
-	if lua_table.Functions:KeyRepeat ("S")
+	if lua_table.Functions:KeyRepeat("S")
 	then
-		mov_input_y = 2.0
-	elseif lua_table.Functions:KeyRepeat ("W")
+		mov_input_z = 2.0
+	elseif lua_table.Functions:KeyRepeat("W")
 	then
-		mov_input_y = -2.0
+		mov_input_z = -2.0
 	end
 end
 
-function MovementInputs ()	--Process Movement Inputs
-	if mov_input_x ~= 0.0 or mov_input_y ~= 0.0
+function MovementInputs()	--Process Movement Inputs
+	if mov_input_x ~= 0.0 or mov_input_z ~= 0.0
 	then
 		if current_state == state.idle
 		then
@@ -197,10 +202,11 @@ function MovementInputs ()	--Process Movement Inputs
 		end
 
 		mov_speed_x = lua_table.mov_speed_max * mov_input_x	--Joystick input directly translates to speed, no acceleration
-		mov_speed_z = lua_table.mov_speed_max * mov_input_y
-		
-		_x, move_speed_y, _z = lua_table.Functions:GetLinearVelocity ()
-		lua_table.Functions:SetLinearVelocity (-mov_speed_x, move_speed_y, -mov_speed_z)
+		mov_speed_z = lua_table.mov_speed_max * mov_input_z
+
+		_x, mov_speed_y, _z = lua_table.Functions:GetLinearVelocity()
+		lua_table.Functions:SetLinearVelocity(-mov_speed_x, mov_speed_y, -mov_speed_z)
+		--lua_table.Functions:RotateObject (0.0, 10.0 * dt, 0.0)
 		--lua_table.Functions:LookAt (mov_speed_x, 0.0, mov_speed_z)
 
 	elseif current_state == state.move
@@ -210,32 +216,27 @@ function MovementInputs ()	--Process Movement Inputs
 	end
 end
 
-function ActionInputs ()	--Process Action Inputs
+function ActionInputs()	--Process Action Inputs
 
 	combo_achieved = false
 
-	if lua_table.Functions:IsGamepadButton (1, lua_table.key_light, key_state.key_down)		--Light Input
+	if lua_table.Functions:IsGamepadButton(1, lua_table.key_light, key_state.key_down)		--Light Input
 	then
-		action_started_at = lua_table.Functions:GameTime ()						--Set timer start mark
+		action_started_at = PerfGameTime()				--Set timer start mark
 		
 		if current_state <= state.move	--IF Idle or Moving
 		then
 			combo_num = 1				--Register combo start
-		elseif current_state == state.light or current_state == state.heavy	--IF previous action was a light or heavy (potential combo)
+		elseif current_state == state.light and time_since_action > lua_table.light_attack_combo_start and time_since_action < lua_table.light_attack_combo_end	--IF prev attack light and input on right light timing
+		or current_state == state.heavy and time_since_action > lua_table.heavy_attack_combo_start and time_since_action < lua_table.heavy_attack_combo_end		--OR, IF prev attack heavy and input on right heavy timing
 		then
-			if time_since_action > lua_table.light_attack_combo_end			--If too late for combo
+			combo_num = combo_num + 1
+			if combo_num > 3			--IF 4+ goods attacks
 			then
-				combo_num = 1
-			elseif time_since_action > lua_table.light_attack_combo_start	--If inside combo timeframe
-			then
-				combo_num = combo_num + 1
-				if combo_num > 3
-				then
-					--combo_achieved = CheckCombo ()	--Check combo performed	(ATTENTION: This should handle the animation, combo_num resseting, setting timers, state, bla bla)
-				end
-			else															--If too early for combo
-				combo_num = 1
+				--combo_achieved = CheckCombo()	--Check combo performed	(ATTENTION: This should handle the animation, combo_num resseting, setting timers, state, bla bla)
 			end
+		else
+			combo_num = 1	--Not good timing since last attack
 		end
 
 		if combo_achieved ~= true	--If no combo was achieved with the input, do the attack normally
@@ -249,28 +250,23 @@ function ActionInputs ()	--Process Action Inputs
 			current_state = state.light
 		end
 
-	elseif lua_table.Functions:IsGamepadButton (1, lua_table.key_heavy, key_state.key_down)	--Heavy Input
+	elseif lua_table.Functions:IsGamepadButton(1, lua_table.key_heavy, key_state.key_down)	--Heavy Input
 	then
-		action_started_at = lua_table.Functions:GameTime ()						--Set timer start mark
+		action_started_at = PerfGameTime()				--Set timer start mark
 		
 		if current_state <= state.move	--IF Idle or Moving
 		then
 			combo_num = 1				--Register combo start
-		elseif current_state == state.heavy or current_state == state.heavy	--IF previous action was a light or heavy (potential combo)
+		elseif current_state == state.light and time_since_action > lua_table.light_attack_combo_start and time_since_action < lua_table.light_attack_combo_end	--IF prev attack light and input on right light timing
+		or current_state == state.heavy and time_since_action > lua_table.heavy_attack_combo_start and time_since_action < lua_table.heavy_attack_combo_end		--OR, IF prev attack heavy and input on right heavy timing
 		then
-			if time_since_action > lua_table.heavy_attack_combo_end			--IF too late for combo
+			combo_num = combo_num + 1
+			if combo_num > 3			--IF 4+ goods attacks
 			then
-				combo_num = 1
-			elseif time_since_action > lua_table.heavy_attack_combo_start	--IF inside combo timeframe
-			then
-				combo_num = combo_num + 1
-				if combo_num > 3
-				then
-					--combo_achieved = CheckCombo ()	--Check combo performed	(ATTENTION: This should handle the animation, combo_num resseting, setting timers, state, bla bla)
-				end
-			else															--If too early for combo
-				combo_num = 1
+				--combo_achieved = CheckCombo()	--Check combo performed	(ATTENTION: This should handle the animation, combo_num resseting, setting timers, state, bla bla)
 			end
+		else
+			combo_num = 1	--Not good timing since last attack
 		end
 
 		if combo_achieved ~= true	--If no combo was achieved with the input, do the attack normally
@@ -280,41 +276,46 @@ function ActionInputs ()	--Process Action Inputs
 
 			PushBack(combo_stack, 4, 'H')
 
-			--Animation to LIGHT
+			--Animation to HEAVY
 			current_state = state.heavy
 		end
 
-	elseif lua_table.Functions:IsGamepadButton (1, lua_table.key_evade, key_state.key_down)	--Evade Input
+	elseif lua_table.Functions:IsGamepadButton(1, lua_table.key_evade, key_state.key_down)	--Evade Input
 	then
-		action_started_at = lua_table.Functions:GameTime ()							--Set timer start mark
-
+		action_started_at = PerfGameTime()							--Set timer start mark
+		current_action_block_time = lua_table.evade_duration
+		current_action_duration = lua_table.evade_duration
+		
 		--Do Evade
+		--evade_x, mov_speed_y, evade_z = lua_table.Functions:GetLinearVelocity()
+		--lua_table.Functions:SetLinearVelocity(lua_table.evade_velocity * evade_x / math.abs(evade_x), mov_speed_y, lua_table.evade_velocity * evade_z / math.abs(evade_z))
+
 		current_state = state.evade
 
-	elseif lua_table.Functions:IsGamepadButton (1, lua_table.key_ability, key_state.key_down)	--Ability Input
+	elseif lua_table.Functions:IsGamepadButton(1, lua_table.key_ability, key_state.key_down)	--Ability Input
 	then
-		action_started_at = lua_table.Functions:GameTime ()							--Set timer start mark
+		action_started_at = PerfGameTime()							--Set timer start mark
 
 		--Do Ability
 		current_state = state.ability
 
-	elseif lua_table.Functions:IsTriggerState (1, lua_table.key_ultimate_1, key_state.key_down) and lua_table.Functions:IsTriggerState (1, lua_table.key_ultimate_2, key_state.key_down)	--Ultimate Input
+	elseif lua_table.Functions:IsTriggerState(1, lua_table.key_ultimate_1, key_state.key_down) and lua_table.Functions:IsTriggerState (1, lua_table.key_ultimate_2, key_state.key_down)	--Ultimate Input
 	then
-		action_started_at = lua_table.Functions:GameTime ()							--Set timer start mark
+		action_started_at = PerfGameTime()							--Set timer start mark
 
 		--Do Ultimate
 		current_state = state.ultimate
 
-	elseif lua_table.Functions:IsGamepadButton (1, lua_table.key_use_item, key_state.key_down)	--Object Input
+	elseif lua_table.Functions:IsGamepadButton(1, lua_table.key_use_item, key_state.key_down)	--Object Input
 	then
-		action_started_at = lua_table.Functions:GameTime ()							--Set timer start mark
+		action_started_at = PerfGameTime()							--Set timer start mark
 
 		--Do Use_Object
 		current_state = state.item
 
-	elseif lua_table.Functions:IsGamepadButton (1, lua_table.key_interact, key_state.key_down)	--Revive Input
+	elseif lua_table.Functions:IsGamepadButton(1, lua_table.key_interact, key_state.key_down)	--Revive Input
 	then
-		action_started_at = lua_table.Functions:GameTime ()							--Set timer start mark
+		action_started_at = PerfGameTime()							--Set timer start mark
 
 		--Do Revive
 		current_state = state.revive
@@ -322,74 +323,74 @@ function ActionInputs ()	--Process Action Inputs
 	end
 end
 
-function SecondaryInputs ()	--Process Secondary Inputs
-	if lua_table.Functions:IsGamepadButton (1, lua_table.key_pickup_item, key_state.key_down)			--Pickup Item
+function SecondaryInputs()	--Process Secondary Inputs
+	if lua_table.Functions:IsGamepadButton(1, lua_table.key_pickup_item, key_state.key_down)			--Pickup Item
 	then
 		--IF consumable (increase counter)
 		--ELSEIF gear (replace current gear)
 	
-	elseif lua_table.Functions:IsGamepadButton (1, lua_table.key_prev_consumable, key_state.key_down)	--Previous Consumable
+	elseif lua_table.Functions:IsGamepadButton(1, lua_table.key_prev_consumable, key_state.key_down)	--Previous Consumable
 	then
 		--GO TO PREV CONSUMABLE
 	
-	elseif lua_table.Functions:IsGamepadButton (1, lua_table.key_next_consumable, key_state.key_down)	--Next Consumable
+	elseif lua_table.Functions:IsGamepadButton(1, lua_table.key_next_consumable, key_state.key_down)	--Next Consumable
 	then
 		--GO TO NEXT CONSUMABLE
 
-	elseif lua_table.Functions:IsGamepadButton (1, lua_table.key_drop_consumable, key_state.key_down)	--Drop Consumable
+	elseif lua_table.Functions:IsGamepadButton(1, lua_table.key_drop_consumable, key_state.key_down)	--Drop Consumable
 	then
 		--DROP CURRENT CONSUMABLE
 	end
 end
 
 --Main Code
-function lua_table:Awake ()
-    lua_table.Functions:LOG ("This Log was called from LUA testing a table on AWAKE")
+function lua_table:Awake()
+    lua_table.Functions:LOG("This Log was called from LUA testing a table on AWAKE")
 end
 
-function lua_table:Start ()
-    lua_table.Functions:LOG ("This Log was called from LUA testing a table on START")
+function lua_table:Start()
+    lua_table.Functions:LOG("This Log was called from LUA testing a table on START")
 end
 
-function lua_table:Update ()
-	dt = lua_table.Functions:dt ()
+function lua_table:Update()
+	dt = lua_table.Functions:dt()
 	if current_state >= state.idle	--IF alive
 	then
 		if current_health <= 0
 		then
 			--Animation to DEATH
-			--lua_table.Functions:SetVelocity (0.0, 0.0, 0.0)
-			--death_started_at = lua_table.Functions:GameTime ()
+			--lua_table.Functions:SetVelocity(0.0, 0.0, 0.0)
+			--death_started_at = PerfGameTime()
 			current_state = state.down
 		else
 			--DEBUG
-			--KeyboardInputs ()
+			--KeyboardInputs()
 
 			mov_input_x = lua_table.Functions:GetAxisValue(1, lua_table.key_move .. "X", key_joystick_threshold)
-			mov_input_y = lua_table.Functions:GetAxisValue(1, lua_table.key_move .. "Y", key_joystick_threshold)
+			mov_input_z = lua_table.Functions:GetAxisValue(1, lua_table.key_move .. "Y", key_joystick_threshold)
 
 			aim_input_x = lua_table.Functions:GetAxisValue(1, lua_table.key_aim .. "X", key_joystick_threshold)
-			aim_input_y = lua_table.Functions:GetAxisValue(1, lua_table.key_aim .. "Y", key_joystick_threshold)
+			aim_input_z = lua_table.Functions:GetAxisValue(1, lua_table.key_aim .. "Y", key_joystick_threshold)
 
 			if current_state > state.move	--IF action currently going on, check action timer
 			then
-				--time_since_action = lua_table.Functions:GameTime () - action_started_at
+				time_since_action = PerfGameTime() - action_started_at
 			end
 
 			if current_state <= state.move --or time_since_action > current_action_block_time	--IF state == idle/move or action_input_block_time has ended (Input-allowed environment)
 			then
-				--ActionInputs ()	--Process major action inputs (attacks, evade, ability, etc)
+				ActionInputs()	--Process major action inputs (attacks, evade, ability, etc)
 			end
 
-			if current_state <= state.move	--IF there's no action inputs given, go for other inputs
+			if current_state <= state.move	--IF there's no action being performed
 			then
-				MovementInputs ()	--Movement orders
-				--SecondaryInputs ()	--Minor ctions with no timer or special animations
+				MovementInputs()	--Movement orders
+				--SecondaryInputs()	--Minor ctions with no timer or special animations
 
 			else	--ELSE (action being done)
 				if time_since_action > current_action_duration	--IF action duration up
 				then
-					--GoDefaultState ()	--Return to move or idle
+					GoDefaultState()	--Return to move or idle
 				end
 			end
 		end
@@ -399,76 +400,31 @@ function lua_table:Update ()
 		then
 			if stopped_death == false		--IF stop mark hasn't been done yet
 			then
-				death_stopped_at = lua_table.Functions:GameTime ()	--Mark revival start (for death timer)
+				death_stopped_at = PerfGameTime()	--Mark revival start (for death timer)
 				stopped_death = true								--Flag death timer stop
 				revive_started_at = death_stopped_at				--Mark revival start (for revival timer)
 
-			elseif lua_table.Functions:GameTime () - revive_started_at > lua_table.revive_time		--IF revival complete
+			elseif PerfGameTime() - revive_started_at > lua_table.revive_time		--IF revival complete
 			then
 				current_health = stat_max_health_base / 2	--Get half health
-				GoDefaultState ()							--Return to move or idle
+				GoDefaultState()							--Return to move or idle
 			end
 		else								--IF other player isn't reviving
 			if stopped_death == true		--IF death timer was stopped
 			then
-				death_started_at = death_started_at + lua_table.Functions:GameTime () - death_stopped_at	--Resume timer
+				death_started_at = death_started_at + PerfGameTime() - death_stopped_at	--Resume timer
 				stopped_death = false																		--Flag timer resuming
 
-			elseif lua_table.Functions:GameTime () - death_started_at > lua_table.down_time	--IF death timer finished
+			elseif PerfGameTime() - death_started_at > lua_table.down_time	--IF death timer finished
 			then
 				current_state = state.dead			--Kill character
-				--lua_table.Functions:Deactivate ()	--Disable character
+				--lua_table.Functions:Deactivate()	--Disable character
 			end
 		end
 	end
+
+	lua_table.Functions:LOG("Current state: " .. current_state)
 end
 
 return lua_table
 end
-
--- DÍDAC REFERENCE CODE
--- local Functions = Debug.Scripting ()
-
--- function	GetTablelua_tabletest ()
--- local lua_table = {}
--- lua_table["position_x"] = 0
--- lua_table["Functions"] = Debug.Scripting ()
-
--- function lua_table:Awake ()
--- 	lua_table["position_x"] = 30
--- 	lua_table["Functions"]:LOG ("This Log was called from LUA testing a table on AWAKE")
--- end
-
--- function lua_table:Start ()
--- 	lua_table["Functions"]:LOG ("This Log was called from LUA testing a table on START")
--- end
-
--- function lua_table:Update ()
-	-- dt = lua_table["Functions"]:dt ()
-
-	-- if lua_table["Functions"]:KeyRepeat ("W") then lua_table["Functions"]:Translate (0.0, 0.0, 50.0 * dt) end
-	-- if lua_table["Functions"]:KeyRepeat ("A") then lua_table["Functions"]:Translate (50.0 * dt, 0.0 , 0.0) end
-	-- if lua_table["Functions"]:KeyRepeat ("S") then lua_table["Functions"]:Translate (0.0, 0.0, -50.0 * dt) end
-	-- if lua_table["Functions"]:KeyRepeat ("D") then lua_table["Functions"]:Translate(-50.0 * dt,0.0 , 0.0) end
-	-- if lua_table["Functions"]:KeyRepeat ("Q") then lua_table["Functions"]:LOG ("Q is pressed") end
-	-- if lua_table["Functions"]:IsGamepadButton(1,"BUTTON_DPAD_LEFT","DOWN") then lua_table["Functions"]:LOG ("Button BACK DOWN") end
-	-- if lua_table["Functions"]:IsGamepadButton(2,"BUTTON_A","DOWN") then lua_table["Functions"]:LOG ("PLAYER 2 button A DOWN") end
-	
-	-- --Testing axis
-	-- if lua_table["Functions"]:IsJoystickAxis(1,"AXIS_RIGHTX","POSITIVE_DOWN") then lua_table["Functions"]:LOG ("Joystick Left X POSITIVE Down") end
-	-- if lua_table["Functions"]:IsJoystickAxis(1,"AXIS_RIGHTX","NEGATIVE_DOWN") then lua_table["Functions"]:LOG ("Joystick Left X NEGATIVE Down") end
-	-- if lua_table["Functions"]:IsJoystickAxis(1,"AXIS_RIGHTY","POSITIVE_DOWN") then lua_table["Functions"]:LOG ("Joystick Left Y POSITIVE Down") end
-	-- if lua_table["Functions"]:IsJoystickAxis(1,"AXIS_RIGHTY","NEGATIVE_DOWN") then lua_table["Functions"]:LOG ("Joystick Left Y NEGATIVE Down") end
-	
-	-- --lua_table["Functions"]:LOG ("Joystick Left X: " .. lua_table["Functions"]:GetAxisValue(1,"AXIS_RIGHTX"))
-	-- --lua_table["Functions"]:LOG ("Joystick Left Y: " .. lua_table["Functions"]:GetAxisValue(1,"AXIS_RIGHTY"))
-	
-	-- if lua_table["Functions"]:IsTriggerState(1,"AXIS_TRIGGERLEFT","DOWN") then lua_table["Functions"]:StopControllerShake(1) end
-	-- if lua_table["Functions"]:IsTriggerState(1,"AXIS_TRIGGERRIGHT","DOWN") then lua_table["Functions"]:ShakeController(1,0.3,2000) end
-	
-	-- lua_table["Functions"]:LOG ("Joystick Left X: " .. lua_table["Functions"]:GetAxisValue(1,"AXIS_LEFTX", 0.3))
-	
--- end
-
--- return lua_table
--- end

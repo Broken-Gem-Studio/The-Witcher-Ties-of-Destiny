@@ -1,59 +1,5 @@
 {
-    "1263517377": {
-        "Components": {
-            "0": {
-                "positionx": "0.000000",
-                "positiony": "0.000000",
-                "positionz": "0.000000",
-                "rotationx": "0.000000",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "1.000000",
-                "scaley": "1.000000",
-                "scalez": "1.000000"
-            },
-            "1": {
-                "Resources": {
-                    "ResourceMesh": "Library/Meshes/1594955453.mesh"
-                }
-            },
-            "2": {
-                "Resources": {
-                    "ResourceMaterial": "Assets/Baker_house.mat"
-                }
-            }
-        },
-        "Name": "Baker_house",
-        "Parent": "416159073"
-    },
-    "2118155703": {
-        "Components": {
-            "0": {
-                "positionx": "0.000000",
-                "positiony": "0.000000",
-                "positionz": "0.000000",
-                "rotationx": "0.000000",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "1.000000",
-                "scaley": "1.000000",
-                "scalez": "1.000000"
-            },
-            "1": {
-                "Resources": {
-                    "ResourceMesh": "Library/Meshes/1114095019.mesh"
-                }
-            },
-            "2": {
-                "Resources": {
-                    "ResourceMaterial": "Assets/Baker_house.mat"
-                }
-            }
-        },
-        "Name": "Chimney",
-        "Parent": "416159073"
-    },
-    "416159073": {
+    "1793332": {
         "Components": {
             "0": {
                 "positionx": "0.000000",
@@ -75,9 +21,9 @@
                 "freezePosition_X": "0",
                 "freezePosition_Y": "0",
                 "freezePosition_Z": "0",
-                "freezeRotation_X": "0",
+                "freezeRotation_X": "1",
                 "freezeRotation_Y": "0",
-                "freezeRotation_Z": "0",
+                "freezeRotation_Z": "1",
                 "is_kinematic": "0",
                 "linear_damping": "0.000000",
                 "linear_velx": "0.000000",
@@ -126,6 +72,60 @@
             }
         },
         "Name": "GameObject (0)",
-        "Parent": "1821420216"
+        "Parent": "1991014063"
+    },
+    "1837179519": {
+        "Components": {
+            "0": {
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "1": {
+                "Resources": {
+                    "ResourceMesh": "Library/Meshes/1114095019.mesh"
+                }
+            },
+            "2": {
+                "Resources": {
+                    "ResourceMaterial": "Assets/Baker_house.mat"
+                }
+            }
+        },
+        "Name": "Chimney",
+        "Parent": "1793332"
+    },
+    "1979742213": {
+        "Components": {
+            "0": {
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "1": {
+                "Resources": {
+                    "ResourceMesh": "Library/Meshes/1594955453.mesh"
+                }
+            },
+            "2": {
+                "Resources": {
+                    "ResourceMaterial": "Assets/Baker_house.mat"
+                }
+            }
+        },
+        "Name": "Baker_house",
+        "Parent": "1793332"
     }
 }
