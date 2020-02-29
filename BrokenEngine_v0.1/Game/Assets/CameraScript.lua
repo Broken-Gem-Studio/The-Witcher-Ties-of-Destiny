@@ -5,44 +5,147 @@ local lua_table = {}
 lua_table["Functions"] = Debug.Scripting ()
 
 -- Camera position
-
-local ca,mera_position
+local camera_position_x = 0
+local camera_position_y = 0
+local camera_position_z = 0
 
 -- Camera offset (Distance from target)
 lua_table["offset_x"] = 0
 lua_table["offset_y"] = 0
 lua_table["offset_z"] = 0
 
+-- Camera rotation
+local camera_rotation_x = 0
+local camera_rotation_y = 0
+local camera_rotation_z = 0
+
+-- Camera FOV
+local fov = 0
+
 -- Camera Target 
 local target_position_x = 0
 local target_position_y = 0
 local target_position_z = 0
 
-lua_table["desired_position"] = 0
+-- Players positions
+luatable.P1_position -- Can I do this?
+P1_position.x 
+P1_position.y 
+P1_position.z 
+
+local P1_Position_x = 0
+local P1_Position_y = 0
+local P1_Position_z = 0
+
+local P2_Position_x = 0
+local P2_Position_y = 0
+local P2_Position_z = 0
+
+local P3_Position_x = 0
+local P3_Position_y = 0
+local P3_Position_z = 0
+
+local P4_Position_x = 0
+local P4_Position_y = 0
+local P4_Position_z = 0
+
+-- Camera desired position (target + offset)
+lua_table["desired_position_x"] = 0
+lua_table["desired_position_y"] = 0
+lua_table["desired_position_z"] = 0
 
 -- Smoothing Speed
 lua_table["smooth_speed"] = 0
 
+-- Player distance from camera target
+lua_table["player_distance_from_camera_target"] = 0 --unused for now
 
+-- Zoom layers
+lua_table["zoom"] = {layer1, layer2, layer3}
 
--- lua_table["player_distance_from_target"] = 0 --unused for now
+-- Gameplay Mode
+lua_table["gameplay"] = {solo, duo, trio, quartet}
 
+-- Camera state
+lua_table["state"] = {static, dynamic}
+
+-- Methods
+function Centroid2P (p1, p2) --pseudo
+	local c
+
+	c.x = (p1.x + p2.x) / 2 
+	c.y = (p1.y + p2.y) / 2
+	c.z = (p1.z + p2.z) / 2
+
+	return c
+end
+
+function Asymptotic_Average (pos, tpos, speed) --pseudo
+	return pos = pos + (tpos - pos)*speed
+end
+
+function getTarget()
+	if gameplay == solo
+	then
+		target_pos = P1_pos
+	end
+
+	if gameplay == duo
+		target_pos = Centroid2P(P1, P2)
+	then
+	end
+
+	if gameplay == trio
+	then
+		target_pos = Centroid3P(P1, P2, P3)
+	end
+
+	if gameplay == quartet
+	then
+		target_pos = Centroid4P(P1, P2, P3, P4)
+	end
+end
+-- Main Code
 function lua_table:Awake ()
 	lua_table["Functions"]:LOG ("This Log was called from Camera Script on AWAKE")
 	 
 	lua_table["offset_x"] = 0
-	lua_table["offset_y"] = 0
-	lua_table["offset_z"] = 0
+	lua_table["offset_y"] = 25
+	lua_table["offset_z"] = 50
+
+	lua_table["smooth_speed"] = 0.1
+
+	gameplay = solo --for now
 end
 
 function lua_table:Start ()
 	lua_table["Functions"]:LOG ("This Log was called from Camera Script on START")
+
+	--pseudostart
+	getTarget()
+
+	camera_pos = target_pos + offset
+	--pseudoend
 end
 
 function lua_table:Update ()
 	dt = lua_table["Functions"]:dt ()
-	
-end
+
+	--pseudostart
+	if gameplay == solo
+	then
+		target_pos = P1
+	if gameplay == duo
+	then
+		target_pos = Centroid2P(P1,P2)
+	end
+
+	desired_pos = target_pos + offset
+
+	camera_pos = Asymptotic_Average(desired_pos, target_pos, smooth_speed)
+
+	lua_table["Functions"]:LookAt(target_pos)
+	--pseudoend
 
 	return lua_table
 end
