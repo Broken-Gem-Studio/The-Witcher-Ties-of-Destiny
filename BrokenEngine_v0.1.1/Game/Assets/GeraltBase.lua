@@ -53,6 +53,8 @@ local key_state = {
 	key_up = "UP"
 }
 
+lua_table.player_ID = 1
+
 lua_table.key_ultimate_1 = "AXIS_TRIGGERLEFT"
 lua_table.key_ultimate_2 = "AXIS_TRIGGERRIGHT"
 
@@ -220,7 +222,7 @@ function ActionInputs()	--Process Action Inputs
 	input_given = false
 	combo_achieved = false
 
-	if lua_table.Functions:IsGamepadButton(1, lua_table.key_light, key_state.key_down)		--Light Input
+	if lua_table.Functions:IsGamepadButton(lua_table.player_ID, lua_table.key_light, key_state.key_down)		--Light Input
 	then
 		action_started_at = PerfGameTime()				--Set timer start mark
 		
@@ -252,7 +254,7 @@ function ActionInputs()	--Process Action Inputs
 
 		input_given = true
 
-	elseif lua_table.Functions:IsGamepadButton(1, lua_table.key_heavy, key_state.key_down)	--Heavy Input
+	elseif lua_table.Functions:IsGamepadButton(lua_table.player_ID, lua_table.key_heavy, key_state.key_down)	--Heavy Input
 	then
 		action_started_at = PerfGameTime()				--Set timer start mark
 		
@@ -284,7 +286,7 @@ function ActionInputs()	--Process Action Inputs
 
 		input_given = true
 
-	elseif lua_table.Functions:IsGamepadButton(1, lua_table.key_evade, key_state.key_down)	--Evade Input
+	elseif lua_table.Functions:IsGamepadButton(lua_table.player_ID, lua_table.key_evade, key_state.key_down)	--Evade Input
 	then
 		if mov_input_x ~= 0.0 or mov_input_z ~= 0.0	-- Evade will not perform without a direction input
 		then
@@ -303,7 +305,7 @@ function ActionInputs()	--Process Action Inputs
 			input_given = true
 		end
 		
-	elseif lua_table.Functions:IsGamepadButton(1, lua_table.key_ability, key_state.key_down)	--Ability Input
+	elseif lua_table.Functions:IsGamepadButton(lua_table.player_ID, lua_table.key_ability, key_state.key_down)	--Ability Input
 	then
 		action_started_at = PerfGameTime()							--Set timer start mark
 
@@ -311,7 +313,7 @@ function ActionInputs()	--Process Action Inputs
 		current_state = state.ability
 		input_given = true
 
-	elseif lua_table.Functions:IsTriggerState(1, lua_table.key_ultimate_1, key_state.key_down) and lua_table.Functions:IsTriggerState (1, lua_table.key_ultimate_2, key_state.key_down)	--Ultimate Input
+	elseif lua_table.Functions:IsTriggerState(lua_table.player_ID, lua_table.key_ultimate_1, key_state.key_down) and lua_table.Functions:IsTriggerState (lua_table.player_ID, lua_table.key_ultimate_2, key_state.key_down)	--Ultimate Input
 	then
 		action_started_at = PerfGameTime()							--Set timer start mark
 
@@ -319,7 +321,7 @@ function ActionInputs()	--Process Action Inputs
 		current_state = state.ultimate
 		input_given = true
 
-	elseif lua_table.Functions:IsGamepadButton(1, lua_table.key_use_item, key_state.key_down)	--Object Input
+	elseif lua_table.Functions:IsGamepadButton(lua_table.player_ID, lua_table.key_use_item, key_state.key_down)	--Object Input
 	then
 		action_started_at = PerfGameTime()							--Set timer start mark
 
@@ -327,7 +329,7 @@ function ActionInputs()	--Process Action Inputs
 		current_state = state.item
 		input_given = true
 
-	elseif lua_table.Functions:IsGamepadButton(1, lua_table.key_interact, key_state.key_down)	--Revive Input
+	elseif lua_table.Functions:IsGamepadButton(lua_table.player_ID, lua_table.key_interact, key_state.key_down)	--Revive Input
 	then
 		action_started_at = PerfGameTime()							--Set timer start mark
 
@@ -340,20 +342,20 @@ function ActionInputs()	--Process Action Inputs
 end
 
 function SecondaryInputs()	--Process Secondary Inputs
-	if lua_table.Functions:IsGamepadButton(1, lua_table.key_pickup_item, key_state.key_down)			--Pickup Item
+	if lua_table.Functions:IsGamepadButton(lua_table.player_ID, lua_table.key_pickup_item, key_state.key_down)			--Pickup Item
 	then
 		--IF consumable (increase counter)
 		--ELSEIF gear (replace current gear)
 	
-	elseif lua_table.Functions:IsGamepadButton(1, lua_table.key_prev_consumable, key_state.key_down)	--Previous Consumable
+	elseif lua_table.Functions:IsGamepadButton(lua_table.player_ID, lua_table.key_prev_consumable, key_state.key_down)	--Previous Consumable
 	then
 		--GO TO PREV CONSUMABLE
 	
-	elseif lua_table.Functions:IsGamepadButton(1, lua_table.key_next_consumable, key_state.key_down)	--Next Consumable
+	elseif lua_table.Functions:IsGamepadButton(lua_table.player_ID, lua_table.key_next_consumable, key_state.key_down)	--Next Consumable
 	then
 		--GO TO NEXT CONSUMABLE
 
-	elseif lua_table.Functions:IsGamepadButton(1, lua_table.key_drop_consumable, key_state.key_down)	--Drop Consumable
+	elseif lua_table.Functions:IsGamepadButton(lua_table.player_ID, lua_table.key_drop_consumable, key_state.key_down)	--Drop Consumable
 	then
 		--DROP CURRENT CONSUMABLE
 	end
@@ -382,11 +384,11 @@ function lua_table:Update()
 			--DEBUG
 			--KeyboardInputs()
 
-			mov_input_x = lua_table.Functions:GetAxisValue(1, lua_table.key_move .. "X", key_joystick_threshold)
-			mov_input_z = lua_table.Functions:GetAxisValue(1, lua_table.key_move .. "Y", key_joystick_threshold)
+			mov_input_x = lua_table.Functions:GetAxisValue(lua_table.player_ID, lua_table.key_move .. "X", key_joystick_threshold)
+			mov_input_z = lua_table.Functions:GetAxisValue(lua_table.player_ID, lua_table.key_move .. "Y", key_joystick_threshold)
 
-			aim_input_x = lua_table.Functions:GetAxisValue(1, lua_table.key_aim .. "X", key_joystick_threshold)
-			aim_input_z = lua_table.Functions:GetAxisValue(1, lua_table.key_aim .. "Y", key_joystick_threshold)
+			aim_input_x = lua_table.Functions:GetAxisValue(lua_table.player_ID, lua_table.key_aim .. "X", key_joystick_threshold)
+			aim_input_z = lua_table.Functions:GetAxisValue(lua_table.player_ID, lua_table.key_aim .. "Y", key_joystick_threshold)
 
 			if current_state > state.move	--IF action currently going on, check action timer
 			then
