@@ -18,7 +18,7 @@ local state = {
 	item = 7,
 	revive = 8
 }
-local current_state = state.idle
+local current_state = state.idle	-- Current State
 
 --LOCAL: Variable Stats
 local current_health = 100.0
