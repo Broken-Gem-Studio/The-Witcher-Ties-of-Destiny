@@ -113,7 +113,7 @@ lua_table.heavy_attack_end_time = 1000		--Attack end (return to idle)
 
 --Evade
 lua_table.evade_cost = 0
-lua_table.evade_duration = 500
+lua_table.evade_duration = 300
 lua_table.evade_velocity = 150
 
 --Ability
@@ -207,7 +207,7 @@ function MovementInputs()	--Process Movement Inputs
 		_x, mov_speed_y, _z = lua_table.Functions:GetLinearVelocity()
 		lua_table.Functions:SetLinearVelocity(mov_speed_x, mov_speed_y, mov_speed_z)
 		--lua_table.Functions:RotateObject (0.0, 10.0 * dt, 0.0)
-		--lua_table.Functions:LookAt (mov_speed_x, 0.0, mov_speed_z)
+		--
 
 	elseif current_state == state.move
 	then
@@ -286,23 +286,23 @@ function ActionInputs()	--Process Action Inputs
 
 	elseif lua_table.Functions:IsGamepadButton(1, lua_table.key_evade, key_state.key_down)	--Evade Input
 	then
-		action_started_at = PerfGameTime()							--Set timer start mark
-		current_action_block_time = lua_table.evade_duration
-		current_action_duration = lua_table.evade_duration
-		
-		_x, mov_speed_y, _z = lua_table.Functions:GetLinearVelocity()
-
-		--Do Evade
-		if mov_input_x ~= 0.0 or mov_input_z ~= 0.0
+		if mov_input_x ~= 0.0 or mov_input_z ~= 0.0	-- Evade will not perform without a direction input
 		then
-			lua_table.Functions:SetLinearVelocity(lua_table.evade_velocity * mov_input_x, mov_speed_y, lua_table.evade_velocity * mov_input_z)
-		else
-			lua_table.Functions:SetLinearVelocity(0, mov_speed_y, lua_table.evade_velocity)
+			action_started_at = PerfGameTime()							--Set timer start mark
+			current_action_block_time = lua_table.evade_duration
+			current_action_duration = lua_table.evade_duration
+			
+			_x, mov_speed_y, _z = lua_table.Functions:GetLinearVelocity()	--TODO: Check if truly needed or remove
+
+			magnitude = math.sqrt(mov_input_x ^ 2 + mov_input_z ^ 2)	--Calculate to use unit vector for direction
+
+			--Do Evade
+			lua_table.Functions:SetLinearVelocity(lua_table.evade_velocity * mov_input_x / magnitude, mov_speed_y, lua_table.evade_velocity * mov_input_z / magnitude)
+
+			current_state = state.evade
+			input_given = true
 		end
-
-		current_state = state.evade
-		input_given = true
-
+		
 	elseif lua_table.Functions:IsGamepadButton(1, lua_table.key_ability, key_state.key_down)	--Ability Input
 	then
 		action_started_at = PerfGameTime()							--Set timer start mark
