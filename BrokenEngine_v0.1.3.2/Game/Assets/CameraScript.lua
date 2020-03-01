@@ -98,6 +98,12 @@ function Asymptotic_Average(position, target_position, speed)
 	return position + (target_position - position)*speed
 end
 
+-- function FindCameraXAngle(y,z)
+-- 	local tan
+-- 	tan = z/y
+-- 	return --inverse tangent or arc tangent
+-- end
+
 -- WILL EVENTUALLY NEED A HOW TO ACCES NUMBER OF PLAYERS ACTUALLY PLAYING
 -- function getTarget() 
 -- 	if gameplay == solo
@@ -125,7 +131,7 @@ end
 function lua_table:Awake ()
 	lua_table["Functions"]:LOG ("This Log was called from Camera Script on AWAKE")
 	 
-	lua_table["offset_x"] = 0
+	lua_table["offset_x"] = 0 -- Should always be 0
 	lua_table["offset_y"] = 10
 	lua_table["offset_z"] = -10
 
