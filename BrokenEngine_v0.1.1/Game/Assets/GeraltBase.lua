@@ -53,6 +53,8 @@ local key_state = {
 	key_up = "UP"
 }
 
+lua_table.player_ID = 1
+
 lua_table.key_ultimate_1 = "AXIS_TRIGGERLEFT"
 lua_table.key_ultimate_2 = "AXIS_TRIGGERRIGHT"
 
@@ -113,8 +115,8 @@ lua_table.heavy_attack_end_time = 1000		--Attack end (return to idle)
 
 --Evade
 lua_table.evade_cost = 0
-lua_table.evade_duration = 1000
-lua_table.evade_velocity = 50
+lua_table.evade_duration = 300
+lua_table.evade_velocity = 150
 
 --Ability
 lua_table.ability_cost = 0
@@ -185,10 +187,10 @@ function KeyboardInputs()	--Process Debug Keyboard Inputs
 	
 	if lua_table.Functions:KeyRepeat("S")
 	then
-		mov_input_z = 2.0
+		mov_input_z = -2.0
 	elseif lua_table.Functions:KeyRepeat("W")
 	then
-		mov_input_z = -2.0
+		mov_input_z = 2.0
 	end
 end
 
@@ -205,9 +207,9 @@ function MovementInputs()	--Process Movement Inputs
 		mov_speed_z = lua_table.mov_speed_max * mov_input_z
 
 		_x, mov_speed_y, _z = lua_table.Functions:GetLinearVelocity()
-		lua_table.Functions:SetLinearVelocity(-mov_speed_x, mov_speed_y, -mov_speed_z)
+		lua_table.Functions:SetLinearVelocity(mov_speed_x, mov_speed_y, mov_speed_z)
 		--lua_table.Functions:RotateObject (0.0, 10.0 * dt, 0.0)
-		--lua_table.Functions:LookAt (mov_speed_x, 0.0, mov_speed_z)
+		--
 
 	elseif current_state == state.move
 	then
@@ -217,10 +219,10 @@ function MovementInputs()	--Process Movement Inputs
 end
 
 function ActionInputs()	--Process Action Inputs
-
+	input_given = false
 	combo_achieved = false
 
-	if lua_table.Functions:IsGamepadButton(1, lua_table.key_light, key_state.key_down)		--Light Input
+	if lua_table.Functions:IsGamepadButton(lua_table.player_ID, lua_table.key_light, key_state.key_down)		--Light Input
 	then
 		action_started_at = PerfGameTime()				--Set timer start mark
 		
@@ -239,7 +241,7 @@ function ActionInputs()	--Process Action Inputs
 			combo_num = 1	--Not good timing since last attack
 		end
 
-		if combo_achieved ~= true	--If no combo was achieved with the input, do the attack normally
+		if combo_achieved == false	--If no combo was achieved with the input, do the attack normally
 		then
 			current_action_block_time = lua_table.light_attack_block_time	--Set duration of input block (no new actions)
 			current_action_duration = lua_table.light_attack_end_time		--Set duration of the current action (to return to idle/move)
@@ -250,7 +252,9 @@ function ActionInputs()	--Process Action Inputs
 			current_state = state.light
 		end
 
-	elseif lua_table.Functions:IsGamepadButton(1, lua_table.key_heavy, key_state.key_down)	--Heavy Input
+		input_given = true
+
+	elseif lua_table.Functions:IsGamepadButton(lua_table.player_ID, lua_table.key_heavy, key_state.key_down)	--Heavy Input
 	then
 		action_started_at = PerfGameTime()				--Set timer start mark
 		
@@ -280,64 +284,78 @@ function ActionInputs()	--Process Action Inputs
 			current_state = state.heavy
 		end
 
-	elseif lua_table.Functions:IsGamepadButton(1, lua_table.key_evade, key_state.key_down)	--Evade Input
+		input_given = true
+
+	elseif lua_table.Functions:IsGamepadButton(lua_table.player_ID, lua_table.key_evade, key_state.key_down)	--Evade Input
 	then
-		action_started_at = PerfGameTime()							--Set timer start mark
-		current_action_block_time = lua_table.evade_duration
-		current_action_duration = lua_table.evade_duration
+		if mov_input_x ~= 0.0 or mov_input_z ~= 0.0	-- Evade will not perform without a direction input
+		then
+			action_started_at = PerfGameTime()							--Set timer start mark
+			current_action_block_time = lua_table.evade_duration
+			current_action_duration = lua_table.evade_duration
+			
+			_x, mov_speed_y, _z = lua_table.Functions:GetLinearVelocity()	--TODO: Check if truly needed or remove
+
+			magnitude = math.sqrt(mov_input_x ^ 2 + mov_input_z ^ 2)	--Calculate to use unit vector for direction
+
+			--Do Evade
+			lua_table.Functions:SetLinearVelocity(lua_table.evade_velocity * mov_input_x / magnitude, mov_speed_y, lua_table.evade_velocity * mov_input_z / magnitude)
+
+			current_state = state.evade
+			input_given = true
+		end
 		
-		--Do Evade
-		--evade_x, mov_speed_y, evade_z = lua_table.Functions:GetLinearVelocity()
-		--lua_table.Functions:SetLinearVelocity(lua_table.evade_velocity * evade_x / math.abs(evade_x), mov_speed_y, lua_table.evade_velocity * evade_z / math.abs(evade_z))
-
-		current_state = state.evade
-
-	elseif lua_table.Functions:IsGamepadButton(1, lua_table.key_ability, key_state.key_down)	--Ability Input
+	elseif lua_table.Functions:IsGamepadButton(lua_table.player_ID, lua_table.key_ability, key_state.key_down)	--Ability Input
 	then
 		action_started_at = PerfGameTime()							--Set timer start mark
 
 		--Do Ability
 		current_state = state.ability
+		input_given = true
 
-	elseif lua_table.Functions:IsTriggerState(1, lua_table.key_ultimate_1, key_state.key_down) and lua_table.Functions:IsTriggerState (1, lua_table.key_ultimate_2, key_state.key_down)	--Ultimate Input
+	elseif lua_table.Functions:IsTriggerState(lua_table.player_ID, lua_table.key_ultimate_1, key_state.key_down) and lua_table.Functions:IsTriggerState (lua_table.player_ID, lua_table.key_ultimate_2, key_state.key_down)	--Ultimate Input
 	then
 		action_started_at = PerfGameTime()							--Set timer start mark
 
 		--Do Ultimate
 		current_state = state.ultimate
+		input_given = true
 
-	elseif lua_table.Functions:IsGamepadButton(1, lua_table.key_use_item, key_state.key_down)	--Object Input
+	elseif lua_table.Functions:IsGamepadButton(lua_table.player_ID, lua_table.key_use_item, key_state.key_down)	--Object Input
 	then
 		action_started_at = PerfGameTime()							--Set timer start mark
 
 		--Do Use_Object
 		current_state = state.item
+		input_given = true
 
-	elseif lua_table.Functions:IsGamepadButton(1, lua_table.key_interact, key_state.key_down)	--Revive Input
+	elseif lua_table.Functions:IsGamepadButton(lua_table.player_ID, lua_table.key_interact, key_state.key_down)	--Revive Input
 	then
 		action_started_at = PerfGameTime()							--Set timer start mark
 
 		--Do Revive
 		current_state = state.revive
-
+		input_given = true
 	end
+
+	return input_given
 end
 
 function SecondaryInputs()	--Process Secondary Inputs
-	if lua_table.Functions:IsGamepadButton(1, lua_table.key_pickup_item, key_state.key_down)			--Pickup Item
+	if lua_table.Functions:IsGamepadButton(lua_table.player_ID, lua_table.key_pickup_item, key_state.key_down)			--Pickup Item
 	then
 		--IF consumable (increase counter)
 		--ELSEIF gear (replace current gear)
 	
-	elseif lua_table.Functions:IsGamepadButton(1, lua_table.key_prev_consumable, key_state.key_down)	--Previous Consumable
+	elseif lua_table.Functions:IsGamepadButton(lua_table.player_ID, lua_table.key_prev_consumable, key_state.key_down)	--Previous Consumable
 	then
 		--GO TO PREV CONSUMABLE
 	
-	elseif lua_table.Functions:IsGamepadButton(1, lua_table.key_next_consumable, key_state.key_down)	--Next Consumable
+	elseif lua_table.Functions:IsGamepadButton(lua_table.player_ID, lua_table.key_next_consumable, key_state.key_down)	--Next Consumable
 	then
 		--GO TO NEXT CONSUMABLE
 
-	elseif lua_table.Functions:IsGamepadButton(1, lua_table.key_drop_consumable, key_state.key_down)	--Drop Consumable
+	elseif lua_table.Functions:IsGamepadButton(lua_table.player_ID, lua_table.key_drop_consumable, key_state.key_down)	--Drop Consumable
 	then
 		--DROP CURRENT CONSUMABLE
 	end
@@ -366,20 +384,20 @@ function lua_table:Update()
 			--DEBUG
 			--KeyboardInputs()
 
-			mov_input_x = lua_table.Functions:GetAxisValue(1, lua_table.key_move .. "X", key_joystick_threshold)
-			mov_input_z = lua_table.Functions:GetAxisValue(1, lua_table.key_move .. "Y", key_joystick_threshold)
+			mov_input_x = lua_table.Functions:GetAxisValue(lua_table.player_ID, lua_table.key_move .. "X", key_joystick_threshold)
+			mov_input_z = lua_table.Functions:GetAxisValue(lua_table.player_ID, lua_table.key_move .. "Y", key_joystick_threshold)
 
-			aim_input_x = lua_table.Functions:GetAxisValue(1, lua_table.key_aim .. "X", key_joystick_threshold)
-			aim_input_z = lua_table.Functions:GetAxisValue(1, lua_table.key_aim .. "Y", key_joystick_threshold)
+			aim_input_x = lua_table.Functions:GetAxisValue(lua_table.player_ID, lua_table.key_aim .. "X", key_joystick_threshold)
+			aim_input_z = lua_table.Functions:GetAxisValue(lua_table.player_ID, lua_table.key_aim .. "Y", key_joystick_threshold)
 
 			if current_state > state.move	--IF action currently going on, check action timer
 			then
 				time_since_action = PerfGameTime() - action_started_at
 			end
 
-			if current_state <= state.move --or time_since_action > current_action_block_time	--IF state == idle/move or action_input_block_time has ended (Input-allowed environment)
+			if current_state <= state.move or time_since_action > current_action_block_time	--IF state == idle/move or action_input_block_time has ended (Input-allowed environment)
 			then
-				ActionInputs()	--Process major action inputs (attacks, evade, ability, etc)
+				ActionInputs()
 			end
 
 			if current_state <= state.move	--IF there's no action being performed
@@ -387,7 +405,9 @@ function lua_table:Update()
 				MovementInputs()	--Movement orders
 				--SecondaryInputs()	--Minor ctions with no timer or special animations
 
-			else	--ELSE (action being done)
+			else							--ELSE (action being performed)
+				time_since_action = PerfGameTime() - action_started_at
+
 				if time_since_action > current_action_duration	--IF action duration up
 				then
 					GoDefaultState()	--Return to move or idle
