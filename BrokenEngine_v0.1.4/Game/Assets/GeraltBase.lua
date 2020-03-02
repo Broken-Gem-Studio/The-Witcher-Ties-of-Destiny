@@ -168,9 +168,11 @@ local function GoDefaultState()
 		if lua_table.input_walk_threshold < math.sqrt(mov_input_x ^ 2 + mov_input_z ^ 2)
 		then
 			lua_table.Functions:PlayAnimation("Run", 30.0)
+			lua_table.Functions:PlayStepSound()
 			current_state = state.run
 		else
 			lua_table.Functions:PlayAnimation("Walk", 30.0)
+			lua_table.Functions:PlayStepSound()
 			current_state = state.walk
 		end
 	else
@@ -217,18 +219,22 @@ local function MovementInputs()	--Process Movement Inputs
 			if lua_table.input_walk_threshold < math.sqrt(mov_input_x ^ 2 + mov_input_z ^ 2)		--IF great input
 			then
 				lua_table.Functions:PlayAnimation("Run", 30.0)
+				lua_table.Functions:PlayStepSound()
 				current_state = state.run
 			else																					--IF small input
 				lua_table.Functions:PlayAnimation("Walk", 30.0)
+				lua_table.Functions:PlayStepSound()
 				current_state = state.walk
 			end
 		elseif current_state == state.walk and lua_table.input_walk_threshold < math.sqrt(mov_input_x ^ 2 + mov_input_z ^ 2)	--IF walking and big input
 		then
 			lua_table.Functions:PlayAnimation("Run", 30.0)
+			lua_table.Functions:PlayStepSound()
 			current_state = state.run
 		elseif current_state == state.run and lua_table.input_walk_threshold > math.sqrt(mov_input_x ^ 2 + mov_input_z ^ 2)	--IF running and small input
 		then
 			lua_table.Functions:PlayAnimation("Walk", 30.0)
+			lua_table.Functions:PlayStepSound()
 			current_state = state.walk
 		end
 
