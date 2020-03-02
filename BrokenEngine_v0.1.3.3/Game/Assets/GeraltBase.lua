@@ -287,6 +287,7 @@ function ActionInputs()	--Process Action Inputs
 			PushBack(combo_stack, 4, 'L')
 
 			lua_table.Functions:PlayAnimation("Light", 30.0)
+			lua_table.Functions:PlayAttackSound()
 			current_state = state.light
 		end
 
@@ -319,6 +320,7 @@ function ActionInputs()	--Process Action Inputs
 			PushBack(combo_stack, 4, 'H')
 
 			lua_table.Functions:PlayAnimation("Heavy", 30.0)
+			lua_table.Functions:PlayAttackSound()
 			current_state = state.heavy
 		end
 
