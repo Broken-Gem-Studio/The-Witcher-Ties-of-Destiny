@@ -267,7 +267,7 @@ function lua_table:Update ()
 
 		-- LookAt
 		-- lua_table["Functions"]:LookAt(camera_position_x - lua_table["offset_x"], 0, 0, false)	
-		-- lua_table["Functions"]:RotateObject(lua_table["rotation_x"], lua_table["rotation_y"], lua_table["rotation_z"])	
+		
 
 	elseif current_gameplay == gameplay.DUO
 	then
@@ -301,8 +301,6 @@ function lua_table:Update ()
 
 		-- LookAt
 		-- lua_table["Functions"]:LookAt(camera_position_x - lua_table["offset_x"], 0, 0, false)	
-		-- lua_table["Functions"]:RotateObject(lua_table["rotation_x"], lua_table["rotation_y"], lua_table["rotation_z"])	
-
 	end
 end
 	return lua_table
