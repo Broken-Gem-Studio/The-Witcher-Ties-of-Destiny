@@ -177,6 +177,7 @@ local function GoDefaultState()
 		end
 	else
 		lua_table.Functions:PlayAnimation("Idle", 30.0)
+		lua_table.Functions:StopStepSound()
 		current_state = state.idle
 		lua_table.Functions:DeactivateParticlesEmission()	--IMPROVE: Make particle emission more complex than de/activating
 	end
@@ -257,6 +258,7 @@ local function MovementInputs()	--Process Movement Inputs
 	then
 		--Animation to IDLE
 		lua_table.Functions:PlayAnimation("Idle", 30.0)
+		lua_table.Functions:StopStepSound()
 		lua_table.Functions:DeactivateParticlesEmission()
 		current_state = state.idle
 	end
