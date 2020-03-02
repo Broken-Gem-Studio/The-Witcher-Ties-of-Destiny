@@ -162,6 +162,7 @@ function GoDefaultState()
 	else
 		--Animation to IDLE
 		current_state = state.idle
+		lua_table.Functions:DeactivateParticlesEmission()	--IMPROVE: Make particle emission more complex than de/activating
 	end
 end
 
@@ -200,6 +201,7 @@ function MovementInputs()	--Process Movement Inputs
 		if current_state == state.idle
 		then
 			--Animation to MOVE
+			lua_table.Functions:ActivateParticlesEmission()
 			current_state = state.move
 		end
 
@@ -219,6 +221,7 @@ function MovementInputs()	--Process Movement Inputs
 	elseif current_state == state.move
 	then
 		--Animation to IDLE
+		lua_table.Functions:DeactivateParticlesEmission()
 		current_state = state.idle
 	end
 end
@@ -341,6 +344,11 @@ function ActionInputs()	--Process Action Inputs
 		--Do Revive
 		current_state = state.revive
 		input_given = true
+	end
+
+	if input_given	--IMPROVE: This is trashy, but it works for the current particle demonstration
+	then
+		lua_table.Functions:ActivateParticlesEmission()
 	end
 
 	return input_given
