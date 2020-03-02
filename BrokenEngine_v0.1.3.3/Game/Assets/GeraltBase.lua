@@ -90,7 +90,7 @@ local aim_input_z = 0.0
 --Movement
 local mov_speed_x = 0.0
 local mov_speed_z = 0.0
-lua_table.mov_speed_max = 500.0
+lua_table.mov_speed_max = 20
 
 local rot_speed = 0.0
 lua_table.rot_speed_max = 0.0
@@ -117,7 +117,7 @@ lua_table.heavy_attack_end_time = 1000		--Attack end (return to idle)
 --Evade
 lua_table.evade_cost = 0
 lua_table.evade_duration = 500
-lua_table.evade_velocity = 800
+lua_table.evade_velocity = 60
 
 --Ability
 lua_table.ability_cost = 0
