@@ -5,38 +5,35 @@ local lua_table = {}
 lua_table["Functions"] = Debug.Scripting ()
 
 -- Camera position
-lua_table["camera_position_x"] = 0
-lua_table["camera_position_y"] = 0
-lua_table["camera_position_z"] = 0
+local camera_position_x = 0
+local camera_position_y = 0
+local camera_position_z = 0
 
 -- Camera offset (Distance from target)
 lua_table["offset_x"] = 0
-lua_table["offset_y"] = 0
-lua_table["offset_z"] = 0
+lua_table["offset_y"] = 150
+lua_table["offset_z"] = 200
 
 -- Camera rotation (hardcoded for now)
-lua_table["rotation_x"] = 0
-
--- Camera rotation
-lua_table["camera_rotation_x"] = 0
-lua_table["camera_rotation_y"] = 0
-lua_table["camera_rotation_z"] = 0
+lua_table["rotation_x"] = 145
+lua_table["rotation_y"] = 0
+lua_table["rotation_z"] = -180
 
 -- Camera FOV
 -- lua_table["fov"] = 0
 
 -- Camera Target 
-lua_table["target_position_x"] = 0
-lua_table["target_position_y"] = 0
-lua_table["target_position_z"] = 0
+local target_position_x = 0
+local target_position_y = 0
+local target_position_z = 0
 
 -- Players Id & Position
-lua_table.P1_id = 0
+local P1_id = 0
 local P1_pos_x = 0
 local P1_pos_y = 0
 local P1_pos_z = 0
 
-lua_table.P2_id = 0
+local P2_id = 0
 local P2_pos_x = 0
 local P2_pos_y = 0
 local P2_pos_z = 0
@@ -52,15 +49,15 @@ local P2_pos_z = 0
 -- lua_table["P4_pos_z"] = 0
 
 -- Camera desired position (target + offset)
-lua_table["desired_position_x"] = 0
-lua_table["desired_position_y"] = 0
-lua_table["desired_position_z"] = 0
+local desired_position_x = 0
+local desired_position_y = 0
+local desired_position_z = 0
 
 -- Smoothing Speed
-lua_table["smooth_speed"] = 0
+lua_table["smooth_speed"] = 0.2
 
 -- Player distance from camera target
-lua_table["player_distance_from_camera_target"] = 0 --unused for now
+local player_distance_from_camera_target_threshold = 0 --unused for now shou
 
 -- Gameplay Mode
 local gameplay = 
@@ -73,15 +70,15 @@ local gameplay =
 local current_gameplay = 0 -- Should AUTOMATICALLY initialize at awake (hardcoded right now)
 
 -- Camera state
-local state = 
+local state = -- not in use rn
 {
 	STATIC = 1, 
-	DYNAMIC = 2
+	DYNAMIC = 2		
 }
 local current_state = state.DYNAMIC -- Should initialize at awake(?)
 
 -- Zoom layers
-local zoom = 
+local zoom = -- not in use rn
 {
 	LAYER_1 = 1, 
 	LAYER_2 = 2, 
@@ -94,8 +91,8 @@ function Centroid2P(p1, p2)
 	return (p1 + p2) / 2 
 end
 
-function Asymptotic_Average(position, target_position, speed)
-	return position + (target_position - position)*speed
+function Asymptotic_Average(pos, target_pos, speed)
+	return pos + (target_pos - pos)*speed
 end
 
 -- function FindCameraXAngle(y,z)
@@ -130,18 +127,10 @@ end
 -- Main Code
 function lua_table:Awake ()
 	lua_table["Functions"]:LOG ("This Log was called from Camera Script on AWAKE")
-	 
-	lua_table["offset_x"] = 0 -- Should always be 0
-	lua_table["offset_y"] = 10
-	lua_table["offset_z"] = -10
-
-	lua_table["rotation_x"] = 45
-
-	lua_table["smooth_speed"] = 0.2
 
 	-- Gameplay mode (Comment/Uncomment for now until we have a way to manage it automatically)
 	-- current_gameplay = gameplay.SOLO
-	current_gameplay = gameplay.DUO
+	current_gameplay = gameplay.DUO --Hardcoded af
 
 	if current_gameplay == 0
 	then 
@@ -152,7 +141,7 @@ function lua_table:Awake ()
 		lua_table["Functions"]:LOG ("Camera: Gameplay mode set to SOLO")
 
 		-- Player 1 id
-		lua_table.P1_id= lua_table["Functions"]:FindGameObject("gerardo1")--exact name of gameobject 
+		P1_id= lua_table["Functions"]:FindGameObject("gerardo1")--exact name of gameobject 
 
 		if P1_id == 0 
 		then
@@ -166,7 +155,7 @@ function lua_table:Awake ()
 		lua_table["Functions"]:LOG ("Camera: Gameplay mode set to DUO")
 		
 		-- Player 1 id
-		lua_table.P1_id= lua_table["Functions"]:FindGameObject("gerardo1")--exact name of gameobject 
+		P1_id= lua_table["Functions"]:FindGameObject("gerardo1")--exact name of gameobject 
 
 		if P1_id == 0 
 		then
@@ -176,7 +165,7 @@ function lua_table:Awake ()
 		end
 
 		-- Player 2 id
-		lua_table.P2_id= lua_table["Functions"]:FindGameObject("gerardo2")--exact name of gameobject 
+		P2_id= lua_table["Functions"]:FindGameObject("gerardo2")--exact name of gameobject 
 
 		if P1_id == 0 
 		then
@@ -194,54 +183,54 @@ function lua_table:Start ()
 	if current_gameplay == gameplay.SOLO
 	then
 		-- Gets position from Player 1 gameobject Id
-		P1_pos_x = lua_table["Functions"]:GetGameObjectPosX(lua_table.P1_id)
-		P1_pos_y = lua_table["Functions"]:GetGameObjectPosY(lua_table.P1_id)
-		P1_pos_z = lua_table["Functions"]:GetGameObjectPosZ(lua_table.P1_id)
+		P1_pos_x = lua_table["Functions"]:GetGameObjectPosX(P1_id)
+		P1_pos_y = lua_table["Functions"]:GetGameObjectPosY(P1_id)
+		P1_pos_z = lua_table["Functions"]:GetGameObjectPosZ(P1_id)
 
 		-- Target is P1 position
-		lua_table["target_position_x"] = P1_pos_x
-		lua_table["target_position_y"] = P1_pos_y		-- Kind of redundant but conceptually organized
-		lua_table["target_position_z"] = P1_pos_z
+		target_position_x = P1_pos_x
+		target_position_y = P1_pos_y		-- Kind of redundant but conceptually organized
+		target_position_z = P1_pos_z
 		
 		-- Camera position is Target + Offset
-		lua_table["camera_position_x"] = lua_table["target_position_x"] + lua_table["offset_x"]
-		lua_table["camera_position_y"] = lua_table["target_position_y"] + lua_table["offset_y"] 	-- Kind of redundant but conceptually organized
-		lua_table["camera_position_z"] = lua_table["target_position_z"] + lua_table["offset_z"]
+		camera_position_x = target_position_x + lua_table["offset_x"]
+		camera_position_y = target_position_y + lua_table["offset_y"] 	-- Kind of redundant but conceptually organized
+		camera_position_z = target_position_z + lua_table["offset_z"]
 
 		-- Sets camera position
-		lua_table["Functions"]:SetPosition(lua_table["camera_position_x"], lua_table["camera_position_y"], lua_table["camera_position_z"])
+		lua_table["Functions"]:SetPosition(camera_position_x, camera_position_y, camera_position_z)
 
 		-- LookAt
-		-- lua_table["Functions"]:LookAt(lua_table["target_position_x"], 0, 0, false)
-		lua_table["Functions"]:RotateObject(lua_table["rotation_x"], 0, 0)	
+		-- lua_table["Functions"]:LookAt(target_position_x, 0, 0, false)
+		lua_table["Functions"]:RotateObject(lua_table["rotation_x"], lua_table["rotation_y"], lua_table["rotation_z"])	
 	
 	elseif current_gameplay == gameplay.DUO
 	then
 		-- Gets position from Player 1 gameobject Id
-		P1_pos_x = lua_table["Functions"]:GetGameObjectPosX(lua_table.P1_id)
-		P1_pos_y = lua_table["Functions"]:GetGameObjectPosY(lua_table.P1_id)
-		P1_pos_z = lua_table["Functions"]:GetGameObjectPosZ(lua_table.P1_id)
+		P1_pos_x = lua_table["Functions"]:GetGameObjectPosX(P1_id)
+		P1_pos_y = lua_table["Functions"]:GetGameObjectPosY(P1_id)
+		P1_pos_z = lua_table["Functions"]:GetGameObjectPosZ(P1_id)
 
 		-- Gets position from Player 2 gameobject Id 
-		P2_pos_x = lua_table["Functions"]:GetGameObjectPosX(lua_table.P2_id)
-		P2_pos_y = lua_table["Functions"]:GetGameObjectPosY(lua_table.P2_id)
-		P2_pos_z = lua_table["Functions"]:GetGameObjectPosZ(lua_table.P2_id)
+		P2_pos_x = lua_table["Functions"]:GetGameObjectPosX(P2_id)
+		P2_pos_y = lua_table["Functions"]:GetGameObjectPosY(P2_id)
+		P2_pos_z = lua_table["Functions"]:GetGameObjectPosZ(P2_id)
 
 		-- Target is Midpoint between P1 and P2 positions
-		lua_table["target_position_x"] = Centroid2P(P1_pos_x, P2_pos_x)
-		lua_table["target_position_y"] = Centroid2P(P1_pos_y, P2_pos_y)
-		lua_table["target_position_z"] = Centroid2P(P1_pos_z, P2_pos_z)
+		target_position_x = Centroid2P(P1_pos_x, P2_pos_x)
+		target_position_y = Centroid2P(P1_pos_y, P2_pos_y)
+		target_position_z = Centroid2P(P1_pos_z, P2_pos_z)
 
 		-- Camera position is Target + Offset
-		lua_table["camera_position_x"] = lua_table["target_position_x"] + lua_table["offset_x"]
-		lua_table["camera_position_y"] = lua_table["target_position_y"] + lua_table["offset_y"]
-		lua_table["camera_position_z"] = lua_table["target_position_z"] + lua_table["offset_z"]
+		camera_position_x = target_position_x + lua_table["offset_x"]
+		camera_position_y = target_position_y + lua_table["offset_y"]
+		camera_position_z = target_position_z + lua_table["offset_z"]
 
-		lua_table["Functions"]:SetPosition(lua_table["camera_position_x"], lua_table["camera_position_y"], lua_table["camera_position_z"])
+		lua_table["Functions"]:SetPosition(camera_position_x, camera_position_y, camera_position_z)
 
 		-- LookAt
-		-- lua_table["Functions"]:LookAt(lua_table["target_position_x"], 0, 0, false)
-		lua_table["Functions"]:RotateObject(lua_table["rotation_x"], 0, 0)		
+		-- lua_table["Functions"]:LookAt(target_position_x, 0, 0, false)
+		lua_table["Functions"]:RotateObject(lua_table["rotation_x"], lua_table["rotation_y"], lua_table["rotation_z"])		
 	
 	end
 	
@@ -254,63 +243,65 @@ function lua_table:Update ()
 	if current_gameplay == gameplay.SOLO
 	then
 		-- Updating Player 1 Position from gameobject Id
-		P1_pos_x = lua_table["Functions"]:GetGameObjectPosX(lua_table.P1_id)
-		P1_pos_y = lua_table["Functions"]:GetGameObjectPosY(lua_table.P1_id)
-		P1_pos_z = lua_table["Functions"]:GetGameObjectPosZ(lua_table.P1_id)
+		P1_pos_x = lua_table["Functions"]:GetGameObjectPosX(P1_id)
+		P1_pos_y = lua_table["Functions"]:GetGameObjectPosY(P1_id)
+		P1_pos_z = lua_table["Functions"]:GetGameObjectPosZ(P1_id)
 
 		-- Target is P1 position 
-		lua_table["target_position_x"] = P1_pos_x
-		lua_table["target_position_y"] = P1_pos_y
-		lua_table["target_position_z"] = P1_pos_z
+		target_position_x = P1_pos_x
+		target_position_y = P1_pos_y
+		target_position_z = P1_pos_z
 
 		-- Desired position is target + offset
-		lua_table["desired_position_x"] = lua_table["target_position_x"] + lua_table["offset_x"]
-		lua_table["desired_position_y"] = lua_table["target_position_y"] + lua_table["offset_y"]
-		lua_table["desired_position_z"] = lua_table["target_position_z"] + lua_table["offset_z"]
+		desired_position_x = target_position_x + lua_table["offset_x"]
+		desired_position_y = target_position_y + lua_table["offset_y"]
+		desired_position_z = target_position_z + lua_table["offset_z"]
 
 		-- Camera position is an averaged position between desired position and self position (the averaging depends on "smooth_speed")
-		lua_table["camera_position_x"] = Asymptotic_Average(lua_table["camera_position_x"], lua_table["desired_position_x"], lua_table["smooth_speed"])
-		lua_table["camera_position_y"] = Asymptotic_Average(lua_table["camera_position_y"], lua_table["desired_position_y"], lua_table["smooth_speed"])
-		lua_table["camera_position_z"] = Asymptotic_Average(lua_table["camera_position_z"], lua_table["desired_position_z"], lua_table["smooth_speed"])
+		camera_position_x = Asymptotic_Average(camera_position_x, desired_position_x, lua_table["smooth_speed"])
+		camera_position_y = Asymptotic_Average(camera_position_y, desired_position_y, lua_table["smooth_speed"])
+		camera_position_z = Asymptotic_Average(camera_position_z, desired_position_z, lua_table["smooth_speed"])
 
 		-- Setting Position
-		lua_table["Functions"]:SetPosition(lua_table["camera_position_x"], lua_table["camera_position_y"], lua_table["camera_position_z"])
+		lua_table["Functions"]:SetPosition(camera_position_x, camera_position_y, camera_position_z)
 
 		-- LookAt
-		-- lua_table["Functions"]:LookAt(lua_table["camera_position_x"] - lua_table["offset_x"], 0, 0, false)		
+		-- lua_table["Functions"]:LookAt(camera_position_x - lua_table["offset_x"], 0, 0, false)	
+		-- lua_table["Functions"]:RotateObject(lua_table["rotation_x"], lua_table["rotation_y"], lua_table["rotation_z"])	
 
 	elseif current_gameplay == gameplay.DUO
 	then
 		-- Gets position from Player 1 gameobject Id
-		P1_pos_x = lua_table["Functions"]:GetGameObjectPosX(lua_table.P1_id)
-		P1_pos_y = lua_table["Functions"]:GetGameObjectPosY(lua_table.P1_id)
-		P1_pos_z = lua_table["Functions"]:GetGameObjectPosZ(lua_table.P1_id)
+		P1_pos_x = lua_table["Functions"]:GetGameObjectPosX(P1_id)
+		P1_pos_y = lua_table["Functions"]:GetGameObjectPosY(P1_id)
+		P1_pos_z = lua_table["Functions"]:GetGameObjectPosZ(P1_id)
 
 		-- Gets position from Player 2 gameobject Id 
-		P2_pos_x = lua_table["Functions"]:GetGameObjectPosX(lua_table.P2_id)
-		P2_pos_y = lua_table["Functions"]:GetGameObjectPosY(lua_table.P2_id)
-		P2_pos_z = lua_table["Functions"]:GetGameObjectPosZ(lua_table.P2_id)
+		P2_pos_x = lua_table["Functions"]:GetGameObjectPosX(P2_id)
+		P2_pos_y = lua_table["Functions"]:GetGameObjectPosY(P2_id)
+		P2_pos_z = lua_table["Functions"]:GetGameObjectPosZ(P2_id)
 
 		-- Target is Midpoint between P1 and P2 positions
-		lua_table["target_position_x"] = Centroid2P(P1_pos_x, P2_pos_x)
-		lua_table["target_position_y"] = Centroid2P(P1_pos_y, P2_pos_y)
-		lua_table["target_position_z"] = Centroid2P(P1_pos_z, P2_pos_z)
+		target_position_x = Centroid2P(P1_pos_x, P2_pos_x)
+		target_position_y = Centroid2P(P1_pos_y, P2_pos_y)
+		target_position_z = Centroid2P(P1_pos_z, P2_pos_z)
 
 		-- Desired position is target + offset
-		lua_table["desired_position_x"] = lua_table["target_position_x"] + lua_table["offset_x"]
-		lua_table["desired_position_y"] = lua_table["target_position_y"] + lua_table["offset_y"]
-		lua_table["desired_position_z"] = lua_table["target_position_z"] + lua_table["offset_z"]
+		desired_position_x = target_position_x + lua_table["offset_x"]
+		desired_position_y = target_position_y + lua_table["offset_y"]
+		desired_position_z = target_position_z + lua_table["offset_z"]
 
 		-- Camera position is an averaged position between desired position and self position (the averaging depends on "smooth_speed")
-		lua_table["camera_position_x"] = Asymptotic_Average(lua_table["camera_position_x"], lua_table["desired_position_x"], lua_table["smooth_speed"])
-		lua_table["camera_position_y"] = Asymptotic_Average(lua_table["camera_position_y"], lua_table["desired_position_y"], lua_table["smooth_speed"])
-		lua_table["camera_position_z"] = Asymptotic_Average(lua_table["camera_position_z"], lua_table["desired_position_z"], lua_table["smooth_speed"])
+		camera_position_x = Asymptotic_Average(camera_position_x, desired_position_x, lua_table["smooth_speed"])
+		camera_position_y = Asymptotic_Average(camera_position_y, desired_position_y, lua_table["smooth_speed"])
+		camera_position_z = Asymptotic_Average(camera_position_z, desired_position_z, lua_table["smooth_speed"])
 
 		-- Setting Position
-		lua_table["Functions"]:SetPosition(lua_table["camera_position_x"], lua_table["camera_position_y"], lua_table["camera_position_z"])
+		lua_table["Functions"]:SetPosition(camera_position_x, camera_position_y, camera_position_z)
 
 		-- LookAt
-		-- lua_table["Functions"]:LookAt(lua_table["camera_position_x"] - lua_table["offset_x"], 0, 0, false)		
+		-- lua_table["Functions"]:LookAt(camera_position_x - lua_table["offset_x"], 0, 0, false)	
+		-- lua_table["Functions"]:RotateObject(lua_table["rotation_x"], lua_table["rotation_y"], lua_table["rotation_z"])	
 
 	end
 end
