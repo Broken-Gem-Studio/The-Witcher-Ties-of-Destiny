@@ -153,7 +153,7 @@ local combo_stack = { 'N', 'N', 'N', 'N' }	-- Last 4 attacks performed (0=none, 
 local rightside = true						-- Last attack side, switches on a succesfully timed attack
 
 --Methods: Short
-function PushBack(array, array_size, new_val)	--Pushes back all values and inserts a new one
+local function PushBack(array, array_size, new_val)	--Pushes back all values and inserts a new one
 	for i = 0, array_size - 2, 1
 	do
 		array[i] = array[i + 1]
@@ -162,7 +162,7 @@ function PushBack(array, array_size, new_val)	--Pushes back all values and inser
 	array[array_size - 1] = new_val
 end
 
-function GoDefaultState()
+local function GoDefaultState()
 	if mov_input_x ~= 0.0 or mov_input_z ~= 0.0
 	then
 		if lua_table.input_walk_threshold < math.sqrt(mov_input_x ^ 2 + mov_input_z ^ 2)
@@ -180,12 +180,12 @@ function GoDefaultState()
 	end
 end
 
-function PerfGameTime()
+local function PerfGameTime()
 	return lua_table.Functions:GameTime() * 1000
 end
 
 --Methods: Massive
-function KeyboardInputs()	--Process Debug Keyboard Inputs
+local function KeyboardInputs()	--Process Debug Keyboard Inputs
 	mov_input_x = 0.0
 	mov_input_z = 0.0
 	
@@ -209,7 +209,7 @@ function KeyboardInputs()	--Process Debug Keyboard Inputs
 	end
 end
 
-function MovementInputs()	--Process Movement Inputs
+local function MovementInputs()	--Process Movement Inputs
 	if mov_input_x ~= 0.0 or mov_input_z ~= 0.0														--IF Movement Input
 	then
 		if current_state == state.idle																--IF Idle
@@ -256,7 +256,7 @@ function MovementInputs()	--Process Movement Inputs
 	end
 end
 
-function ActionInputs()	--Process Action Inputs
+local function ActionInputs()	--Process Action Inputs
 	input_given = false
 	combo_achieved = false
 
@@ -386,7 +386,7 @@ function ActionInputs()	--Process Action Inputs
 	return input_given
 end
 
-function SecondaryInputs()	--Process Secondary Inputs
+local function SecondaryInputs()	--Process Secondary Inputs
 	if lua_table.Functions:IsGamepadButton(lua_table.player_ID, lua_table.key_pickup_item, key_state.key_down)			--Pickup Item
 	then
 		--IF consumable (increase counter)
