@@ -1,6 +1,6 @@
 local Functions = Debug.Scripting()
 
-function	GetTableGeraltScript()
+function	GetTableJaskierScript()
 local lua_table = {}
 lua_table.Functions = Debug.Scripting()
 
@@ -56,7 +56,7 @@ local key_state = {
 	key_up = "UP"
 }
 
-lua_table.player_ID = 1
+lua_table.player_ID = 2
 
 lua_table.key_ultimate_1 = "AXIS_TRIGGERLEFT"
 lua_table.key_ultimate_2 = "AXIS_TRIGGERRIGHT"
@@ -110,8 +110,6 @@ lua_table.light_attack_damage = 0
 lua_table.light_attack_cost = 0
 
 lua_table.light_attack_block_time = 400		--Input block duration	(block new attacks)
-lua_table.light_attack_combo_start = 400	--Combo timeframe start
-lua_table.light_attack_combo_end = 1000		--Combo timeframe end
 lua_table.light_attack_end_time = 1000		--Attack end (return to idle)
 
 --Heavy Attack	--IMPROVE: Add variable animation speed
@@ -119,8 +117,6 @@ lua_table.heavy_attack_damage = 0
 lua_table.heavy_attack_cost = 0
 
 lua_table.heavy_attack_block_time = 400		--Input block duration	(block new attacks)
-lua_table.heavy_attack_combo_start = 400	--Combo timeframe start
-lua_table.heavy_attack_combo_end = 1000		--Combo timeframe end
 lua_table.heavy_attack_end_time = 1000		--Attack end (return to idle)
 
 --Evade			--IMPROVE: Add variable animation speed
@@ -149,22 +145,15 @@ local current_action_block_time = 0	-- Duration of input block from current acti
 local current_action_duration = 0	-- Duration of current action/event (return to idle)
 local action_started_at = 0			-- Marks start of actions (and getting revived)
 
---Combos
-local combo_num = 0							-- Starting at 0, increases by 1 for each attack well timed, starting at 4, each new attack will be checked for a succesful combo. Bad timing or performing a combo resets to 0
-local combo_stack = { 'N', 'N', 'N', 'N' }	-- Last 4 attacks performed (0=none, 1=light, 2=heavy). Use push_back tactic.
-local rightside = true						-- Last attack side, switches on a succesfully timed attack
+--Music
+local song_string = { 'N', 'N', 'N', 'N' }	-- Last 4 attacks performed (0=none, 1=light, 2=heavy). Use push_back tactic.
 
-local combo_1 = { 'H', 'L', 'L', 'L' }	--Side Attack
-lua_table.combo_1_duration = 1000
-
-local combo_2 = { 'L', 'L', 'L', 'H' }	--High Spin
-lua_table.combo_2_duration = 1000
-
-local combo_3 = { 'L', 'H', 'H', 'L' }	--Jump Attack
-lua_table.combo_3_duration = 1000
-
-local combo_4 = { 'H', 'H', 'L', 'H' }	--Concussive Blows
-lua_table.combo_4_duration = 1000
+local song_1 = { 'H', 'H', 'L', 'L' }	--Attack+
+local song_2 = { 'L', 'H', 'H', 'L' }	--Speed+
+local song_3 = { 'L', 'L', 'H', 'H' }	--Healing
+local song_4 = { 'L', 'L', 'L', 'H' }	--Taunt
+lua_table.base_song_duration = 1000
+lua_table.target_song_duration = 1000
 
 --Methods: Utility	--IMPROVE: Consider making useful generic methods part of a global script
 local function TableLength(table)	--Get TableLength
@@ -242,45 +231,33 @@ local function GoDefaultState()
 	end
 end
 
-local function CheckCombo()	--Check combo performed	(ATTENTION: This should handle the animation, setting timers, bla bla)
+local function CheckSong()	--Check combo performed	(ATTENTION: This should handle the animation, setting timers, bla bla)
 	local string_match = false
 
-	if CompareTables(combo_stack, combo_1)
+	if CompareTables(combo_stack, song_1)
 	then
-		current_action_block_time = lua_table.combo_1_duration
-		current_action_duration = lua_table.combo_1_duration
-
-		lua_table.Functions:PlayAnimation("C1_Side", 30.0)
-		--Play Sound
-		
+		--Do song effect
 		string_match = true
-	elseif CompareTables(combo_stack, combo_2)
+	elseif CompareTables(combo_stack, song_2)
 	then
-		current_action_block_time = lua_table.combo_2_duration
-		current_action_duration = lua_table.combo_2_duration
-
-		lua_table.Functions:PlayAnimation("C2_HighSpin", 30.0)
-		--Play Sound
-				
+		--Do song effect
 		string_match = true
-	elseif CompareTables(combo_stack, combo_3)
+	elseif CompareTables(combo_stack, song_3)
 	then
-		current_action_block_time = lua_table.combo_3_duration
-		current_action_duration = lua_table.combo_3_duration
-
-		lua_table.Functions:PlayAnimation("C3_Jump", 30.0)
-		--Play Sound
-				
+		--Do song effect
 		string_match = true
-	elseif CompareTables(combo_stack, combo_4)
+	elseif CompareTables(combo_stack, song_4)
 	then
-		current_action_block_time = lua_table.combo_4_duration
-		current_action_duration = lua_table.combo_4_duration
-
-		lua_table.Functions:PlayAnimation("C4_ConcussiveBlows", 30.0)
-		--Play Sound
-				
+		--Do song effect
 		string_match = true
+	end
+
+	if string_match
+	then
+		current_action_block_time = lua_table.base_song_duration
+		current_action_duration = lua_table.base_song_duration
+		lua_table.Functions:PlayAnimation("Ability_Song", 30.0)
+		--Play Sound
 	end
 
 	return string_match
@@ -361,78 +338,32 @@ end
 
 local function ActionInputs()	--Process Action Inputs
 	local input_given = false
-	local combo_achieved = false
 
 	if lua_table.Functions:IsGamepadButton(lua_table.player_ID, lua_table.key_light, key_state.key_down)		--Light Input
 	then
 		action_started_at = PerfGameTime()	--Set timer start mark
-		PushBack(combo_stack, 'L')			--Add new input to stack
+		PushBack(song_string, 'L')			--Add new input to stack
 
-		if current_state <= state.run then	--IF Idle or Moving
-			combo_num = 1					--Register combo start
-		elseif current_state == state.light and time_since_action > lua_table.light_attack_combo_start and time_since_action < lua_table.light_attack_combo_end	--IF prev attack light and input on right light timing
-		or current_state == state.heavy and time_since_action > lua_table.heavy_attack_combo_start and time_since_action < lua_table.heavy_attack_combo_end		--OR, IF prev attack heavy and input on right heavy timing
-		then
-			combo_num = combo_num + 1
-			if combo_num > 3 then			--IF 4+ goods attacks
-				combo_achieved = CheckCombo()
+		current_action_block_time = lua_table.light_attack_block_time	--Set duration of input block (no new actions)
+		current_action_duration = lua_table.light_attack_end_time		--Set duration of the current action (to return to idle/move)
 
-				if combo_achieved == false then
-					combo_num = 1
-				else
-					current_state = state.light
-				end
-			end
-		else
-			combo_num = 1	--Not good timing since last attack
-		end
-
-		if combo_achieved == false	--If no combo was achieved with the input, do the attack normally
-		then
-			current_action_block_time = lua_table.light_attack_block_time	--Set duration of input block (no new actions)
-			current_action_duration = lua_table.light_attack_end_time		--Set duration of the current action (to return to idle/move)
-
-			lua_table.Functions:PlayAnimation("Light", 30.0)
-			lua_table.Functions:PlayAttackSound()
-			current_state = state.light
-		end
+		lua_table.Functions:PlayAnimation("Light", 30.0)
+		lua_table.Functions:PlayAttackSound()
+		current_state = state.light
 
 		input_given = true
 
 	elseif lua_table.Functions:IsGamepadButton(lua_table.player_ID, lua_table.key_heavy, key_state.key_down)	--Heavy Input
 	then
 		action_started_at = PerfGameTime()	--Set timer start mark
-		PushBack(combo_stack, 'H')			--Add new input to stack
+		PushBack(song_string, 'H')			--Add new input to stack
 
-		if current_state <= state.run	--IF Idle or Moving
-		then
-			combo_num = 1				--Register combo start
-		elseif current_state == state.light and time_since_action > lua_table.light_attack_combo_start and time_since_action < lua_table.light_attack_combo_end	--IF prev attack light and input on right light timing
-		or current_state == state.heavy and time_since_action > lua_table.heavy_attack_combo_start and time_since_action < lua_table.heavy_attack_combo_end		--OR, IF prev attack heavy and input on right heavy timing
-		then
-			combo_num = combo_num + 1
-			if combo_num > 3 then			--IF 4+ goods attacks
-				combo_achieved = CheckCombo()
+		current_action_block_time = lua_table.heavy_attack_block_time	--Set duration of input block (no new actions)
+		current_action_duration = lua_table.heavy_attack_end_time		--Set duration of the current action (to return to idle/move)
 
-				if combo_achieved == false then
-					combo_num = 1
-				else
-					current_state = state.heavy
-				end
-			end
-		else
-			combo_num = 1	--Not good timing since last attack
-		end
-
-		if combo_achieved ~= true	--If no combo was achieved with the input, do the attack normally
-		then
-			current_action_block_time = lua_table.heavy_attack_block_time	--Set duration of input block (no new actions)
-			current_action_duration = lua_table.heavy_attack_end_time		--Set duration of the current action (to return to idle/move)
-
-			lua_table.Functions:PlayAnimation("Heavy", 30.0)
-			lua_table.Functions:PlayAttackSound()
-			current_state = state.heavy
-		end
+		lua_table.Functions:PlayAnimation("Heavy", 30.0)
+		lua_table.Functions:PlayAttackSound()
+		current_state = state.heavy
 
 		input_given = true
 
@@ -603,8 +534,6 @@ function lua_table:Update()
 	end
 
 	--lua_table.Functions:LOG("Current state: " .. current_state)
-	lua_table.Functions:LOG("Combo num: " .. combo_num)
-	lua_table.Functions:LOG("Combo string: " .. combo_stack[1] .. ", " .. combo_stack[2] .. ", " .. combo_stack[3] .. ", " .. combo_stack[4])
 end
 
 return lua_table
