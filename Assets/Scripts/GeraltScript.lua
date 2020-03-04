@@ -8,9 +8,11 @@ lua_table.Functions = Debug.Scripting()
 local state = {
 	dead = -2,
 	down = -1,
+
 	idle = 0,
 	walk = 1,
 	run = 2,
+
 	light = 3,
 	heavy = 4,
 	evade = 5,
@@ -366,7 +368,7 @@ local function ActionInputs()	--Process Action Inputs
 		action_started_at = PerfGameTime()				--Set timer start mark
 		
 		if current_state <= state.run then	--IF Idle or Moving
-			combo_num = 1				--Register combo start
+			combo_num = 1					--Register combo start
 		elseif current_state == state.light and time_since_action > lua_table.light_attack_combo_start and time_since_action < lua_table.light_attack_combo_end	--IF prev attack light and input on right light timing
 		or current_state == state.heavy and time_since_action > lua_table.heavy_attack_combo_start and time_since_action < lua_table.heavy_attack_combo_end		--OR, IF prev attack heavy and input on right heavy timing
 		then
@@ -566,7 +568,7 @@ function lua_table:Update()
 				if time_since_action > current_action_duration	--IF action duration up
 				then
 					GoDefaultState()	--Return to move or idle
-				elseif current_state == state.evade
+				elseif current_state == state.evade				--ELSEIF evading
 				then
 					_x, mov_speed_y, _z = lua_table.Functions:GetLinearVelocity()	--TODO: Check if truly needed or remove
 					lua_table.Functions:SetLinearVelocity(lua_table.evade_velocity * rec_input_x / magnitude, mov_speed_y, lua_table.evade_velocity * rec_input_z / magnitude)	--IMPROVE: Speed set on every frame, it would be better to just remove drag during evade
@@ -579,9 +581,9 @@ function lua_table:Update()
 		then
 			if stopped_death == false		--IF stop mark hasn't been done yet
 			then
-				death_stopped_at = PerfGameTime()	--Mark revival start (for death timer)
-				stopped_death = true								--Flag death timer stop
-				revive_started_at = death_stopped_at				--Mark revival start (for revival timer)
+				death_stopped_at = PerfGameTime()			--Mark revival start (for death timer)
+				stopped_death = true						--Flag death timer stop
+				revive_started_at = death_stopped_at		--Mark revival start (for revival timer)
 
 			elseif PerfGameTime() - revive_started_at > lua_table.revive_time		--IF revival complete
 			then
@@ -602,7 +604,9 @@ function lua_table:Update()
 		end
 	end
 
-	lua_table.Functions:LOG("Current state: " .. current_state)
+	--lua_table.Functions:LOG("Current state: " .. current_state)
+	lua_table.Functions:LOG("Combo num: " .. combo_num)
+	lua_table.Functions:LOG("Combo string: " .. combo_stack[1] .. ", " .. combo_stack[2] .. ", " .. combo_stack[3] .. ", " .. combo_stack[4])
 end
 
 return lua_table
