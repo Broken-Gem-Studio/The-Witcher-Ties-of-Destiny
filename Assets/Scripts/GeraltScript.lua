@@ -195,7 +195,7 @@ local function CompareTables(table_1, table_2)	--Check if table values are equal
 	if TableLength(table_1) ~= TableLength(table_2) then
 		equal = false
 	else
-		for i in pairs(table_1) do
+		for i, j in pairs(table_1) do
 			if table_1[i] ~= table_2[i] then
 				equal = false
 				break
@@ -206,14 +206,14 @@ local function CompareTables(table_1, table_2)	--Check if table values are equal
 	return equal
 end
 
-local function PushBack(array, new_val)	--Pushes back all values and inserts a new one
+local function PushBack(array, new_val)		--Pushes back all values and inserts a new one
 	local array_size = TableLength(array)	--Lua's version of default parameters
 
-	for i = 0, array_size - 2, 1 do
+	for i = 1, array_size - 1, 1 do
 		array[i] = array[i + 1]
 	end
 
-	array[array_size - 1] = new_val
+	array[array_size] = new_val
 end
 
 local function PerfGameTime()
@@ -365,8 +365,9 @@ local function ActionInputs()	--Process Action Inputs
 
 	if lua_table.Functions:IsGamepadButton(lua_table.player_ID, lua_table.key_light, key_state.key_down)		--Light Input
 	then
-		action_started_at = PerfGameTime()				--Set timer start mark
-		
+		action_started_at = PerfGameTime()	--Set timer start mark
+		PushBack(combo_stack, 'L')			--Add new input to stack
+
 		if current_state <= state.run then	--IF Idle or Moving
 			combo_num = 1					--Register combo start
 		elseif current_state == state.light and time_since_action > lua_table.light_attack_combo_start and time_since_action < lua_table.light_attack_combo_end	--IF prev attack light and input on right light timing
@@ -391,8 +392,6 @@ local function ActionInputs()	--Process Action Inputs
 			current_action_block_time = lua_table.light_attack_block_time	--Set duration of input block (no new actions)
 			current_action_duration = lua_table.light_attack_end_time		--Set duration of the current action (to return to idle/move)
 
-			PushBack(combo_stack, 'L')
-
 			lua_table.Functions:PlayAnimation("Light", 30.0)
 			lua_table.Functions:PlayAttackSound()
 			current_state = state.light
@@ -402,8 +401,9 @@ local function ActionInputs()	--Process Action Inputs
 
 	elseif lua_table.Functions:IsGamepadButton(lua_table.player_ID, lua_table.key_heavy, key_state.key_down)	--Heavy Input
 	then
-		action_started_at = PerfGameTime()				--Set timer start mark
-		
+		action_started_at = PerfGameTime()	--Set timer start mark
+		PushBack(combo_stack, 'H')			--Add new input to stack
+
 		if current_state <= state.run	--IF Idle or Moving
 		then
 			combo_num = 1				--Register combo start
@@ -428,8 +428,6 @@ local function ActionInputs()	--Process Action Inputs
 		then
 			current_action_block_time = lua_table.heavy_attack_block_time	--Set duration of input block (no new actions)
 			current_action_duration = lua_table.heavy_attack_end_time		--Set duration of the current action (to return to idle/move)
-
-			PushBack(combo_stack, 'H')
 
 			lua_table.Functions:PlayAnimation("Heavy", 30.0)
 			lua_table.Functions:PlayAttackSound()
