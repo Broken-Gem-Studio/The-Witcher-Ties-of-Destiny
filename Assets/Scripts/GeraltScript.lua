@@ -23,21 +23,25 @@ local state = {
 }
 local current_state = state.idle	-- Current State
 
---LOCAL: Variable Stats
+--LOCAL: Variable Character Stats
 local current_health = 100.0
+local current_energy = 100.0
 
---Stats Base (Character default stats)
+--Stats Base (Character baseline stats)
 lua_table.stat_max_health_base = 100
+lua_table.stat_max_energy_base = 100
 lua_table.stat_damage_base = 100
 lua_table.stat_speed_base = 100
 
---Stats Improved (Stats after modification alterations)
+--Stats Improved (Stats after modification alterations, used for code)
 local stat_max_health_alt = 0
+local stat_max_energy_alt = 0
 local stat_damage_alt = 0
 local stat_speed_alt = 0
 
---Mods: Stats (Multiplier of base Stats)
+--Mods: Stats (Multiplier of base Stats, increased by items and skills)
 local stat_health_mod = 1
+local stat_energy_mod = 1
 local stat_damage_mod = 1
 local stat_speed_mod = 1
 
@@ -71,8 +75,6 @@ lua_table.key_ability = "BUTTON_B"
 
 lua_table.key_move = "AXIS_LEFT"
 lua_table.key_aim = "AXIS_RIGHT"
-lua_table.key_joystick_sensibility = 1.0
-local key_joystick_threshold = 0.1
 
 lua_table.key_pickup_item = "BUTTON_DPAD_UP"
 lua_table.key_prev_consumable = "BUTTON_DPAD_LEFT"
@@ -94,6 +96,7 @@ local aim_input_z = 0.0
 local rec_input_x = 0.0	--Recorded Input (used to save a specific moment's input)
 local rec_input_z = 0.0
 
+local key_joystick_threshold = 0.1
 lua_table.input_walk_threshold = 0.8
 
 --Movement
@@ -109,32 +112,35 @@ lua_table.idle_animation_speed = 30.0
 lua_table.walk_animation_speed = 30.0
 lua_table.run_animation_speed = 20.0
 
---Light Attack	--IMPROVE: Add variable animation speed
+--Energy
+lua_table.energy_regeneration = 10	--Targer: 10 per seconds
+
+--Light Attack
 lua_table.light_attack_damage = 0
-lua_table.light_attack_cost = 0
+lua_table.light_attack_cost = 10
 
 lua_table.light_attack_block_time = 300		--Input block duration	(block new attacks)
 lua_table.light_attack_combo_start = 300	--Combo timeframe start
 lua_table.light_attack_combo_end = 600		--Combo timeframe end
-lua_table.light_attack_end_time = 600		--Attack end (return to idle)
+lua_table.light_attack_duration = 600		--Attack end (return to idle)
 
 lua_table.light_animation_speed = 60.0
 
---Heavy Attack	--IMPROVE: Add variable animation speed
+--Heavy Attack
 lua_table.heavy_attack_damage = 0
-lua_table.heavy_attack_cost = 0
+lua_table.heavy_attack_cost = 20
 
 lua_table.heavy_attack_block_time = 600		--Input block duration	(block new attacks)
 lua_table.heavy_attack_combo_start = 600	--Combo timeframe start
 lua_table.heavy_attack_combo_end = 1000		--Combo timeframe end
-lua_table.heavy_attack_end_time = 1000		--Attack end (return to idle)
+lua_table.heavy_attack_duration = 1000		--Attack end (return to idle)
 
 lua_table.heavy_animation_speed = 50.0
 
---Evade			--IMPROVE: Add variable animation speed
-lua_table.evade_cost = 0
-lua_table.evade_duration = 800
+--Evade		
 lua_table.evade_velocity = 200
+lua_table.evade_cost = 20
+lua_table.evade_duration = 800
 
 lua_table.evade_animation_speed = 40.0
 
@@ -160,9 +166,12 @@ local current_action_duration = 0	-- Duration of current action/event (return to
 local action_started_at = 0			-- Marks start of actions (and getting revived)
 
 --Combos
+local rightside = true						-- Last attack side, marks the animation of next attack
+
+lua_table.combo_cost_divider = 2			-- Reduction of cost of attacks if attack timed correctly
+
 local combo_num = 0							-- Starting at 0, increases by 1 for each attack well timed, starting at 4, each new attack will be checked for a succesful combo. Bad timing or performing a combo resets to 0
 local combo_stack = { 'N', 'N', 'N', 'N' }	-- Last 4 attacks performed (0=none, 1=light, 2=heavy). Use push_back tactic.
-local rightside = true						-- Last attack side, switches on a succesfully timed attack
 
 local combo_1 = { 'H', 'L', 'L', 'L' }	--Slide Attack
 lua_table.combo_1_duration = 1500
@@ -377,7 +386,7 @@ local function ActionInputs()	--Process Action Inputs
 	local input_given = false
 	local combo_achieved = false
 
-	if lua_table.Functions:IsGamepadButton(lua_table.player_ID, lua_table.key_light, key_state.key_down)		--Light Input
+	if current_energy > lua_table.light_attack_cost and lua_table.Functions:IsGamepadButton(lua_table.player_ID, lua_table.key_light, key_state.key_down)		--Light Input
 	then
 		action_started_at = PerfGameTime()	--Set timer start mark
 		PushBack(combo_stack, 'L')			--Add new input to stack
@@ -388,12 +397,13 @@ local function ActionInputs()	--Process Action Inputs
 		or current_state == state.heavy and time_since_action > lua_table.heavy_attack_combo_start and time_since_action < lua_table.heavy_attack_combo_end		--OR, IF prev attack heavy and input on right heavy timing
 		then
 			combo_num = combo_num + 1
+			current_energy = current_energy - lua_table.light_attack_cost / lua_table.combo_cost_divider
+
 			if combo_num > 3 then			--IF 4+ goods attacks
 				combo_achieved = CheckCombo()
-
-				if combo_achieved == false then
-					combo_num = 1
-				else
+				if combo_achieved == true
+				then
+					combo_num = 0
 					current_state = state.light
 				end
 			end
@@ -404,7 +414,9 @@ local function ActionInputs()	--Process Action Inputs
 		if combo_achieved == false	--If no combo was achieved with the input, do the attack normally
 		then
 			current_action_block_time = lua_table.light_attack_block_time	--Set duration of input block (no new actions)
-			current_action_duration = lua_table.light_attack_end_time		--Set duration of the current action (to return to idle/move)
+			current_action_duration = lua_table.light_attack_duration		--Set duration of the current action (to return to idle/move)
+
+			current_energy = current_energy - lua_table.light_attack_cost
 
 			lua_table.Functions:PlayAnimation("Light", lua_table.light_animation_speed)
 			lua_table.Functions:PlayAttackSound()
@@ -413,7 +425,7 @@ local function ActionInputs()	--Process Action Inputs
 
 		input_given = true
 
-	elseif lua_table.Functions:IsGamepadButton(lua_table.player_ID, lua_table.key_heavy, key_state.key_down)	--Heavy Input
+	elseif current_energy > lua_table.heavy_attack_cost and lua_table.Functions:IsGamepadButton(lua_table.player_ID, lua_table.key_heavy, key_state.key_down)	--Heavy Input
 	then
 		action_started_at = PerfGameTime()	--Set timer start mark
 		PushBack(combo_stack, 'H')			--Add new input to stack
@@ -425,12 +437,13 @@ local function ActionInputs()	--Process Action Inputs
 		or current_state == state.heavy and time_since_action > lua_table.heavy_attack_combo_start and time_since_action < lua_table.heavy_attack_combo_end		--OR, IF prev attack heavy and input on right heavy timing
 		then
 			combo_num = combo_num + 1
+			current_energy = current_energy - lua_table.heavy_attack_cost / lua_table.combo_cost_divider
+
 			if combo_num > 3 then			--IF 4+ goods attacks
 				combo_achieved = CheckCombo()
-
-				if combo_achieved == false then
-					combo_num = 1
-				else
+				if combo_achieved == true
+				then
+					combo_num = 0
 					current_state = state.heavy
 				end
 			end
@@ -441,7 +454,9 @@ local function ActionInputs()	--Process Action Inputs
 		if combo_achieved ~= true	--If no combo was achieved with the input, do the attack normally
 		then
 			current_action_block_time = lua_table.heavy_attack_block_time	--Set duration of input block (no new actions)
-			current_action_duration = lua_table.heavy_attack_end_time		--Set duration of the current action (to return to idle/move)
+			current_action_duration = lua_table.heavy_attack_duration		--Set duration of the current action (to return to idle/move)
+
+			current_energy = current_energy - lua_table.heavy_attack_cost
 
 			lua_table.Functions:PlayAnimation("Heavy", lua_table.heavy_animation_speed)
 			lua_table.Functions:PlayAttackSound()
@@ -464,6 +479,7 @@ local function ActionInputs()	--Process Action Inputs
 			magnitude = math.sqrt(rec_input_x ^ 2 + rec_input_x ^ 2)	--Calculate to use unit vector for direction
 			
 			--Do Evade
+			current_energy = current_energy - lua_table.evade_cost
 			lua_table.Functions:PlayAnimation("Evade", lua_table.evade_animation_speed)
 			current_state = state.evade
 			input_given = true
@@ -540,7 +556,9 @@ function lua_table:Start()
 end
 
 function lua_table:Update()
+
 	dt = lua_table.Functions:dt()
+
 	if current_state >= state.idle	--IF alive
 	then
 		if current_health <= 0
@@ -553,28 +571,36 @@ function lua_table:Update()
 			--DEBUG
 			--KeyboardInputs()
 
+			--Joystick Inputs
 			mov_input_x = lua_table.Functions:GetAxisValue(lua_table.player_ID, lua_table.key_move .. "X", key_joystick_threshold)
 			mov_input_z = lua_table.Functions:GetAxisValue(lua_table.player_ID, lua_table.key_move .. "Y", key_joystick_threshold)
 
 			aim_input_x = lua_table.Functions:GetAxisValue(lua_table.player_ID, lua_table.key_aim .. "X", key_joystick_threshold)
 			aim_input_z = lua_table.Functions:GetAxisValue(lua_table.player_ID, lua_table.key_aim .. "Y", key_joystick_threshold)
 
-			if current_state > state.run	--IF action currently going on, check action timer
+			--Energy Regeneration
+			if current_energy < lua_table.stat_max_energy_alt then current_energy = current_energy + lua_table.energy_regeneration * dt end	--IF can increase, increase energy
+			if current_energy > lua_table.stat_max_energy_alt then current_energy = lua_table.stat_max_energy_alt end						--IF above max, set to max
+
+			--IF action currently going on, check action timer
+			if current_state > state.run
 			then
 				time_since_action = PerfGameTime() - action_started_at
 			end
 
-			if current_state <= state.run or time_since_action > current_action_block_time	--IF state == idle/move or action_input_block_time has ended (Input-allowed environment)
+			--IF state == idle/move or action_input_block_time has ended (Input-allowed environment)
+			if current_state <= state.run or time_since_action > current_action_block_time
 			then
 				ActionInputs()
 			end
 
-			if current_state <= state.run	--IF there's no action being performed
+			--IF there's no action being performed
+			if current_state <= state.run
 			then
 				MovementInputs()	--Movement orders
 				--SecondaryInputs()	--Minor ctions with no timer or special animations
 
-			else							--ELSE (action being performed)
+			else	--ELSE (action being performed)
 				time_since_action = PerfGameTime() - action_started_at
 
 				if time_since_action > current_action_duration	--IF action duration up
