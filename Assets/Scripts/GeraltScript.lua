@@ -386,7 +386,7 @@ local function ActionInputs()	--Process Action Inputs
 	local input_given = false
 	local combo_achieved = false
 
-	if current_energy > lua_table.light_attack_cost and lua_table.Functions:IsGamepadButton(lua_table.player_ID, lua_table.key_light, key_state.key_down)		--Light Input
+	if current_energy >= lua_table.light_attack_cost and lua_table.Functions:IsGamepadButton(lua_table.player_ID, lua_table.key_light, key_state.key_down)		--Light Input
 	then
 		action_started_at = PerfGameTime()	--Set timer start mark
 		PushBack(combo_stack, 'L')			--Add new input to stack
@@ -425,7 +425,7 @@ local function ActionInputs()	--Process Action Inputs
 
 		input_given = true
 
-	elseif current_energy > lua_table.heavy_attack_cost and lua_table.Functions:IsGamepadButton(lua_table.player_ID, lua_table.key_heavy, key_state.key_down)	--Heavy Input
+	elseif current_energy >= lua_table.heavy_attack_cost and lua_table.Functions:IsGamepadButton(lua_table.player_ID, lua_table.key_heavy, key_state.key_down)	--Heavy Input
 	then
 		action_started_at = PerfGameTime()	--Set timer start mark
 		PushBack(combo_stack, 'H')			--Add new input to stack
@@ -465,7 +465,7 @@ local function ActionInputs()	--Process Action Inputs
 
 		input_given = true
 
-	elseif lua_table.Functions:IsGamepadButton(lua_table.player_ID, lua_table.key_evade, key_state.key_down)	--Evade Input
+	elseif current_energy >= lua_table.evade_cost and lua_table.Functions:IsGamepadButton(lua_table.player_ID, lua_table.key_evade, key_state.key_down)	--Evade Input
 	then
 		if mov_input_x ~= 0.0 or mov_input_z ~= 0.0	-- Evade will not perform without a direction input
 		then
