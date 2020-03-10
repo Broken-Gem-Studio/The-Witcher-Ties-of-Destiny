@@ -10,14 +10,14 @@ local camera_position_y = 0
 local camera_position_z = 0
 
 -- Camera offset (Distance from target)
-lua_table["offset_x"] = 0
-lua_table["offset_y"] = 150
-lua_table["offset_z"] = 200
+lua_table.offset_x = 0
+lua_table.offset_y = 150
+lua_table.offset_z = 200
 
 -- Camera rotation (hardcoded for now)
-lua_table["rotation_x"] = 145
-lua_table["rotation_y"] = 0
-lua_table["rotation_z"] = -180
+lua_table.rotation_x = 145
+lua_table.rotation_y = 0
+lua_table.rotation_z = -180
 
 -- Camera FOV
 -- lua_table["fov"] = 0
@@ -54,7 +54,7 @@ local desired_position_y = 0
 local desired_position_z = 0
 
 -- Smoothing Speed
-lua_table["smooth_speed"] = 0.2
+lua_table.smooth_speed = 0.2
 
 -- Player distance from camera target
 local player_distance_from_camera_target_threshold = 0 --unused for now shou
@@ -193,16 +193,16 @@ function lua_table:Start ()
 		target_position_z = P1_pos_z
 		
 		-- Camera position is Target + Offset
-		camera_position_x = target_position_x + lua_table["offset_x"]
-		camera_position_y = target_position_y + lua_table["offset_y"] 	-- Kind of redundant but conceptually organized
-		camera_position_z = target_position_z + lua_table["offset_z"]
+		camera_position_x = target_position_x + lua_table.offset_x
+		camera_position_y = target_position_y + lua_table.offset_y 	-- Kind of redundant but conceptually organized
+		camera_position_z = target_position_z + lua_table.offset_z
 
 		-- Sets camera position
 		lua_table["Functions"]:SetPosition(camera_position_x, camera_position_y, camera_position_z)
 
 		-- LookAt
 		-- lua_table["Functions"]:LookAt(target_position_x, 0, 0, false)
-		lua_table["Functions"]:RotateObject(lua_table["rotation_x"], lua_table["rotation_y"], lua_table["rotation_z"])	
+		lua_table["Functions"]:RotateObject(lua_table.rotation_x, lua_table.rotation_y, lua_table.rotation_z)	
 	
 	elseif current_gameplay == gameplay.DUO
 	then
@@ -222,15 +222,15 @@ function lua_table:Start ()
 		target_position_z = Centroid2P(P1_pos_z, P2_pos_z)
 
 		-- Camera position is Target + Offset
-		camera_position_x = target_position_x + lua_table["offset_x"]
-		camera_position_y = target_position_y + lua_table["offset_y"]
-		camera_position_z = target_position_z + lua_table["offset_z"]
+		camera_position_x = target_position_x + lua_table.offset_x
+		camera_position_y = target_position_y + lua_table.offset_y
+		camera_position_z = target_position_z + lua_table.offset_z
 
 		lua_table["Functions"]:SetPosition(camera_position_x, camera_position_y, camera_position_z)
 
 		-- LookAt
 		-- lua_table["Functions"]:LookAt(target_position_x, 0, 0, false)
-		lua_table["Functions"]:RotateObject(lua_table["rotation_x"], lua_table["rotation_y"], lua_table["rotation_z"])		
+		lua_table["Functions"]:RotateObject(lua_table.rotation_x, lua_table.rotation_y, lua_table.rotation_z)		
 	
 	end
 	
@@ -253,14 +253,14 @@ function lua_table:Update ()
 		target_position_z = P1_pos_z
 
 		-- Desired position is target + offset
-		desired_position_x = target_position_x + lua_table["offset_x"]
-		desired_position_y = target_position_y + lua_table["offset_y"]
-		desired_position_z = target_position_z + lua_table["offset_z"]
+		desired_position_x = target_position_x + lua_table.offset_x
+		desired_position_y = target_position_y + lua_table.offset_y
+		desired_position_z = target_position_z + lua_table.offset_z
 
 		-- Camera position is an averaged position between desired position and self position (the averaging depends on "smooth_speed")
-		camera_position_x = Asymptotic_Average(camera_position_x, desired_position_x, lua_table["smooth_speed"])
-		camera_position_y = Asymptotic_Average(camera_position_y, desired_position_y, lua_table["smooth_speed"])
-		camera_position_z = Asymptotic_Average(camera_position_z, desired_position_z, lua_table["smooth_speed"])
+		camera_position_x = Asymptotic_Average(camera_position_x, desired_position_x, lua_table.smooth_speed)
+		camera_position_y = Asymptotic_Average(camera_position_y, desired_position_y, lua_table.smooth_speed)
+		camera_position_z = Asymptotic_Average(camera_position_z, desired_position_z, lua_table.smooth_speed)
 
 		-- Setting Position
 		lua_table["Functions"]:SetPosition(camera_position_x, camera_position_y, camera_position_z)
@@ -287,14 +287,14 @@ function lua_table:Update ()
 		target_position_z = Centroid2P(P1_pos_z, P2_pos_z)
 
 		-- Desired position is target + offset
-		desired_position_x = target_position_x + lua_table["offset_x"]
-		desired_position_y = target_position_y + lua_table["offset_y"]
-		desired_position_z = target_position_z + lua_table["offset_z"]
+		desired_position_x = target_position_x + lua_table.offset_x
+		desired_position_y = target_position_y + lua_table.offset_y
+		desired_position_z = target_position_z + lua_table.offset_z
 
 		-- Camera position is an averaged position between desired position and self position (the averaging depends on "smooth_speed")
-		camera_position_x = Asymptotic_Average(camera_position_x, desired_position_x, lua_table["smooth_speed"])
-		camera_position_y = Asymptotic_Average(camera_position_y, desired_position_y, lua_table["smooth_speed"])
-		camera_position_z = Asymptotic_Average(camera_position_z, desired_position_z, lua_table["smooth_speed"])
+		camera_position_x = Asymptotic_Average(camera_position_x, desired_position_x, lua_table.smooth_speed)
+		camera_position_y = Asymptotic_Average(camera_position_y, desired_position_y, lua_table.smooth_speed)
+		camera_position_z = Asymptotic_Average(camera_position_z, desired_position_z, lua_table.smooth_speed)
 
 		-- Setting Position
 		lua_table["Functions"]:SetPosition(camera_position_x, camera_position_y, camera_position_z)
