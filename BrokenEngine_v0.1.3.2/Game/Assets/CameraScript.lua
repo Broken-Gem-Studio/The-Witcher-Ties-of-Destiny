@@ -4,20 +4,24 @@ function	GetTableCameraScript ()
 local lua_table = {}
 lua_table["Functions"] = Debug.Scripting ()
 
+lua_table.camera_distance = 250 --Absolute distance from Target
+
+lua_table.camera_angle = 65 --in degrees
+
 -- Camera position
 local camera_position_x = 0
 local camera_position_y = 0
 local camera_position_z = 0
 
--- Camera offset (Distance from target)
-lua_table.offset_x = 0
-lua_table.offset_y = 150
-lua_table.offset_z = 200
+-- Camera offset 
+local offset_x = 0
+local offset_y = 150
+local offset_z = 200
 
 -- Camera rotation (hardcoded for now)
-lua_table.rotation_x = 145
-lua_table.rotation_y = 0
-lua_table.rotation_z = -180
+local rotation_x = 145
+local rotation_y = 0
+local rotation_z = -180
 
 -- Camera FOV
 -- lua_table["fov"] = 0
@@ -87,6 +91,14 @@ local zoom = -- not in use rn
 local current_zoom = zoom.LAYER_1 -- Shoul initialize at awake(?)
 
 -- Methods
+function GetAbsYfromDistAndAng(c_distance, c_angle) --given hypotenuse and angle returns contiguous side
+	return c_distance*math.cos(math.rad(c_angle))
+end
+
+function GetAbsXfromDistAndAng(c_distance, c_angle) --given hypotenuse and angle returns opposite side
+	return c_distance*math.sin(math.rad(c_angle))
+end
+
 function Centroid2P(p1, p2)
 	return (p1 + p2) / 2 
 end
@@ -191,18 +203,23 @@ function lua_table:Start ()
 		target_position_x = P1_pos_x
 		target_position_y = P1_pos_y		-- Kind of redundant but conceptually organized
 		target_position_z = P1_pos_z
+
+		-- Offset from Distance and Angle
+		-- offset_x = 
+		-- offset_y = GetAbsYfromDistAndAng(camera_distance, camera_angle)
+		-- offset_z = GetAbsXfromDistAndAng(camera_distance, camera_angle) -- since camera only has a direction for now, only Z is affected. Else the value would be split between x and z depending on direction
 		
 		-- Camera position is Target + Offset
-		camera_position_x = target_position_x + lua_table.offset_x
-		camera_position_y = target_position_y + lua_table.offset_y 	-- Kind of redundant but conceptually organized
-		camera_position_z = target_position_z + lua_table.offset_z
+		camera_position_x = target_position_x + offset_x
+		camera_position_y = target_position_y + offset_y 	-- Kind of redundant but conceptually organized
+		camera_position_z = target_position_z + offset_z
 
 		-- Sets camera position
 		lua_table["Functions"]:SetPosition(camera_position_x, camera_position_y, camera_position_z)
 
 		-- LookAt
 		-- lua_table["Functions"]:LookAt(target_position_x, 0, 0, false)
-		lua_table["Functions"]:RotateObject(lua_table.rotation_x, lua_table.rotation_y, lua_table.rotation_z)	
+		lua_table["Functions"]:RotateObject(rotation_x, rotation_y, rotation_z)	
 	
 	elseif current_gameplay == gameplay.DUO
 	then
@@ -221,16 +238,21 @@ function lua_table:Start ()
 		target_position_y = Centroid2P(P1_pos_y, P2_pos_y)
 		target_position_z = Centroid2P(P1_pos_z, P2_pos_z)
 
+		-- Offset from Distance and Angle
+		-- offset_x = 
+		-- offset_y = GetAbsYfromDistAndAng(camera_distance, camera_angle)
+		-- offset_z = GetAbsXfromDistAndAng(camera_distance, camera_angle) -- since camera only has a direction for now, only Z is affected. Else the value would be split between x and z depending on direction
+
 		-- Camera position is Target + Offset
-		camera_position_x = target_position_x + lua_table.offset_x
-		camera_position_y = target_position_y + lua_table.offset_y
-		camera_position_z = target_position_z + lua_table.offset_z
+		camera_position_x = target_position_x + offset_x
+		camera_position_y = target_position_y + offset_y
+		camera_position_z = target_position_z + offset_z
 
 		lua_table["Functions"]:SetPosition(camera_position_x, camera_position_y, camera_position_z)
 
 		-- LookAt
 		-- lua_table["Functions"]:LookAt(target_position_x, 0, 0, false)
-		lua_table["Functions"]:RotateObject(lua_table.rotation_x, lua_table.rotation_y, lua_table.rotation_z)		
+		lua_table["Functions"]:RotateObject(rotation_x, rotation_y, rotation_z)		
 	
 	end
 	
@@ -253,9 +275,9 @@ function lua_table:Update ()
 		target_position_z = P1_pos_z
 
 		-- Desired position is target + offset
-		desired_position_x = target_position_x + lua_table.offset_x
-		desired_position_y = target_position_y + lua_table.offset_y
-		desired_position_z = target_position_z + lua_table.offset_z
+		desired_position_x = target_position_x + offset_x
+		desired_position_y = target_position_y + offset_y
+		desired_position_z = target_position_z + offset_z
 
 		-- Camera position is an averaged position between desired position and self position (the averaging depends on "smooth_speed")
 		camera_position_x = Asymptotic_Average(camera_position_x, desired_position_x, lua_table.smooth_speed)
@@ -287,9 +309,9 @@ function lua_table:Update ()
 		target_position_z = Centroid2P(P1_pos_z, P2_pos_z)
 
 		-- Desired position is target + offset
-		desired_position_x = target_position_x + lua_table.offset_x
-		desired_position_y = target_position_y + lua_table.offset_y
-		desired_position_z = target_position_z + lua_table.offset_z
+		desired_position_x = target_position_x + offset_x
+		desired_position_y = target_position_y + offset_y
+		desired_position_z = target_position_z + offset_z
 
 		-- Camera position is an averaged position between desired position and self position (the averaging depends on "smooth_speed")
 		camera_position_x = Asymptotic_Average(camera_position_x, desired_position_x, lua_table.smooth_speed)
