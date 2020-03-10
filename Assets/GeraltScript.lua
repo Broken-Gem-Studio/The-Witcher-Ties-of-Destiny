@@ -34,10 +34,10 @@ lua_table.stat_damage_base = 100
 lua_table.stat_speed_base = 100
 
 --Stats Improved (Stats after modification alterations, used for code)
-local stat_max_health_alt = 0
-local stat_max_energy_alt = 0
-local stat_damage_alt = 0
-local stat_speed_alt = 0
+local stat_max_health_alt = 100.0
+local stat_max_energy_alt = 100.0
+local stat_damage_alt = 10.0
+local stat_speed_alt = 10.0
 
 --Mods: Stats (Multiplier of base Stats, increased by items and skills)
 local stat_health_mod = 1
@@ -113,7 +113,7 @@ lua_table.walk_animation_speed = 30.0
 lua_table.run_animation_speed = 20.0
 
 --Energy
-lua_table.energy_regeneration = 10	--Targer: 10 per seconds
+lua_table.energy_regeneration = 10.0	--Targer: 10 per seconds
 
 --Light Attack
 lua_table.light_attack_damage = 0
@@ -391,8 +391,11 @@ local function ActionInputs()	--Process Action Inputs
 		action_started_at = PerfGameTime()	--Set timer start mark
 		PushBack(combo_stack, 'L')			--Add new input to stack
 
-		if current_state <= state.run then	--IF Idle or Moving
+		if current_state <= state.run		--IF Idle or Moving
+		then
 			combo_num = 1					--Register combo start
+			current_energy = current_energy - lua_table.light_attack_cost
+
 		elseif current_state == state.light and time_since_action > lua_table.light_attack_combo_start and time_since_action < lua_table.light_attack_combo_end	--IF prev attack light and input on right light timing
 		or current_state == state.heavy and time_since_action > lua_table.heavy_attack_combo_start and time_since_action < lua_table.heavy_attack_combo_end		--OR, IF prev attack heavy and input on right heavy timing
 		then
@@ -409,14 +412,13 @@ local function ActionInputs()	--Process Action Inputs
 			end
 		else
 			combo_num = 1	--Not good timing since last attack
+			current_energy = current_energy - lua_table.light_attack_cost
 		end
 
 		if combo_achieved == false	--If no combo was achieved with the input, do the attack normally
 		then
 			current_action_block_time = lua_table.light_attack_block_time	--Set duration of input block (no new actions)
 			current_action_duration = lua_table.light_attack_duration		--Set duration of the current action (to return to idle/move)
-
-			current_energy = current_energy - lua_table.light_attack_cost
 
 			lua_table.Functions:PlayAnimation("Light", lua_table.light_animation_speed)
 			lua_table.Functions:PlayAttackSound()
@@ -433,6 +435,8 @@ local function ActionInputs()	--Process Action Inputs
 		if current_state <= state.run	--IF Idle or Moving
 		then
 			combo_num = 1				--Register combo start
+			current_energy = current_energy - lua_table.light_attack_cost
+
 		elseif current_state == state.light and time_since_action > lua_table.light_attack_combo_start and time_since_action < lua_table.light_attack_combo_end	--IF prev attack light and input on right light timing
 		or current_state == state.heavy and time_since_action > lua_table.heavy_attack_combo_start and time_since_action < lua_table.heavy_attack_combo_end		--OR, IF prev attack heavy and input on right heavy timing
 		then
@@ -449,14 +453,13 @@ local function ActionInputs()	--Process Action Inputs
 			end
 		else
 			combo_num = 1	--Not good timing since last attack
+			current_energy = current_energy - lua_table.light_attack_cost
 		end
 
 		if combo_achieved ~= true	--If no combo was achieved with the input, do the attack normally
 		then
 			current_action_block_time = lua_table.heavy_attack_block_time	--Set duration of input block (no new actions)
 			current_action_duration = lua_table.heavy_attack_duration		--Set duration of the current action (to return to idle/move)
-
-			current_energy = current_energy - lua_table.heavy_attack_cost
 
 			lua_table.Functions:PlayAnimation("Heavy", lua_table.heavy_animation_speed)
 			lua_table.Functions:PlayAttackSound()
@@ -579,8 +582,8 @@ function lua_table:Update()
 			aim_input_z = lua_table.Functions:GetAxisValue(lua_table.player_ID, lua_table.key_aim .. "Y", key_joystick_threshold)
 
 			--Energy Regeneration
-			if current_energy < lua_table.stat_max_energy_alt then current_energy = current_energy + lua_table.energy_regeneration * dt end	--IF can increase, increase energy
-			if current_energy > lua_table.stat_max_energy_alt then current_energy = lua_table.stat_max_energy_alt end						--IF above max, set to max
+			if current_energy < stat_max_energy_alt then current_energy = current_energy + lua_table.energy_regeneration * dt end	--IF can increase, increase energy
+			if current_energy > stat_max_energy_alt then current_energy = stat_max_energy_alt end									--IF above max, set to max
 
 			--IF action currently going on, check action timer
 			if current_state > state.run
