@@ -102,7 +102,7 @@ lua_table.input_walk_threshold = 0.8
 --Movement
 local mov_speed_x = 0.0
 local mov_speed_z = 0.0
-lua_table.mov_speed_max = 60
+lua_table.mov_speed_max = 3000.0	--Was 60.0 before dt
 
 local rot_speed = 0.0
 lua_table.rot_speed_max = 0.0
@@ -138,7 +138,7 @@ lua_table.heavy_attack_duration = 1000		--Attack end (return to idle)
 lua_table.heavy_animation_speed = 50.0
 
 --Evade		
-lua_table.evade_velocity = 200
+lua_table.evade_velocity = 10000.0	--Was 200 before dt
 lua_table.evade_cost = 20
 lua_table.evade_duration = 800
 
@@ -182,8 +182,8 @@ lua_table.combo_2_duration = 1400
 lua_table.combo_2_animation_speed = 40.0
 
 local combo_3 = { 'L', 'H', 'H', 'L' }	--Jump Attack
-lua_table.combo_3_duration = 1200
-lua_table.combo_3_animation_speed = 50.0
+lua_table.combo_3_duration = 1800
+lua_table.combo_3_animation_speed = 40.0
 
 local combo_4 = { 'H', 'H', 'L', 'H' }	--Concussive Blows
 lua_table.combo_4_duration = 2000
@@ -363,7 +363,7 @@ local function MovementInputs()	--Process Movement Inputs
 		mov_speed_z = lua_table.mov_speed_max * mov_input_z
 
 		_x, mov_speed_y, _z = lua_table.Functions:GetLinearVelocity()	--Set velocity
-		lua_table.Functions:SetLinearVelocity(mov_speed_x, mov_speed_y, mov_speed_z)
+		lua_table.Functions:SetLinearVelocity(mov_speed_x * dt, mov_speed_y, mov_speed_z * dt)
 
 		dir_x, _y, dir_z = lua_table.Functions:GetPosition()	--Rotate to velocity direction
 
@@ -622,7 +622,7 @@ function lua_table:Update()
 				elseif current_state == state.evade				--ELSEIF evading
 				then
 					_x, mov_speed_y, _z = lua_table.Functions:GetLinearVelocity()	--TODO: Check if truly needed or remove
-					lua_table.Functions:SetLinearVelocity(lua_table.evade_velocity * rec_input_x / magnitude, mov_speed_y, lua_table.evade_velocity * rec_input_z / magnitude)	--IMPROVE: Speed set on every frame, it would be better to just remove drag during evade
+					lua_table.Functions:SetLinearVelocity(lua_table.evade_velocity * rec_input_x / magnitude * dt, mov_speed_y, lua_table.evade_velocity * rec_input_z / magnitude * dt)	--IMPROVE: Speed set on every frame, it would be better to just remove drag during evade
 				end
 			end
 		end
