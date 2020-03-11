@@ -28,16 +28,16 @@ local current_health = 100.0
 local current_energy = 100.0
 
 --Stats Base (Character baseline stats)
-lua_table.stat_max_health_base = 100
-lua_table.stat_max_energy_base = 100
-lua_table.stat_damage_base = 100
-lua_table.stat_speed_base = 100
+lua_table.stat_max_health_orig = 100
+lua_table.stat_max_energy_orig = 100
+lua_table.stat_damage_orig = 100
+lua_table.stat_speed_orig = 100
 
 --Stats Improved (Stats after modification alterations, used for code)
-local stat_max_health_alt = 100.0
-local stat_max_energy_alt = 100.0
-local stat_damage_alt = 10.0
-local stat_speed_alt = 10.0
+local stat_max_health_real = 0.0
+local stat_max_energy_real = 0.0
+local stat_damage_real = 0.0
+local stat_speed_real = 0.0
 
 --Mods: Stats (Multiplier of base Stats, increased by items and skills)
 local stat_health_mod = 1
@@ -407,7 +407,7 @@ local function ActionInputs()	--Process Action Inputs
 				if combo_achieved == true
 				then
 					combo_num = 0
-					current_state = state.light
+					current_state = state.light	--TODO: Maybe we need a "combo" state, at the moment we just have one of the regular ones with different duration times
 				end
 			end
 		else
@@ -435,7 +435,7 @@ local function ActionInputs()	--Process Action Inputs
 		if current_state <= state.run	--IF Idle or Moving
 		then
 			combo_num = 1				--Register combo start
-			current_energy = current_energy - lua_table.light_attack_cost
+			current_energy = current_energy - lua_table.heavy_attack_cost
 
 		elseif current_state == state.light and time_since_action > lua_table.light_attack_combo_start and time_since_action < lua_table.light_attack_combo_end	--IF prev attack light and input on right light timing
 		or current_state == state.heavy and time_since_action > lua_table.heavy_attack_combo_start and time_since_action < lua_table.heavy_attack_combo_end		--OR, IF prev attack heavy and input on right heavy timing
@@ -448,12 +448,12 @@ local function ActionInputs()	--Process Action Inputs
 				if combo_achieved == true
 				then
 					combo_num = 0
-					current_state = state.heavy
+					current_state = state.heavy	--TODO: Maybe we need a "combo" state, at the moment we just have one of the regular ones with different duration times
 				end
 			end
 		else
 			combo_num = 1	--Not good timing since last attack
-			current_energy = current_energy - lua_table.light_attack_cost
+			current_energy = current_energy - lua_table.heavy_attack_cost
 		end
 
 		if combo_achieved ~= true	--If no combo was achieved with the input, do the attack normally
@@ -551,7 +551,17 @@ end
 
 --Main Code
 function lua_table:Awake()
-    lua_table.Functions:LOG("This Log was called from LUA testing a table on AWAKE")
+	lua_table.Functions:LOG("This Log was called from LUA testing a table on AWAKE")
+	
+	stat_max_health_real = lua_table.stat_max_health_orig
+	stat_max_energy_real = lua_table.stat_max_energy_orig
+	stat_damage_real = lua_table.stat_damage_orig
+	stat_speed_real = lua_table.stat_speed_orig
+
+	stat_health_mod = 1
+	stat_energy_mod = 1
+	stat_damage_mod = 1
+	stat_speed_mod = 1
 end
 
 function lua_table:Start()
@@ -582,8 +592,8 @@ function lua_table:Update()
 			aim_input_z = lua_table.Functions:GetAxisValue(lua_table.player_ID, lua_table.key_aim .. "Y", key_joystick_threshold)
 
 			--Energy Regeneration
-			if current_energy < stat_max_energy_alt then current_energy = current_energy + lua_table.energy_regeneration * dt end	--IF can increase, increase energy
-			if current_energy > stat_max_energy_alt then current_energy = stat_max_energy_alt end									--IF above max, set to max
+			if current_energy < stat_max_energy_real then current_energy = current_energy + lua_table.energy_regeneration * dt end	--IF can increase, increase energy
+			if current_energy > stat_max_energy_real then current_energy = stat_max_energy_real end									--IF above max, set to max
 
 			--IF action currently going on, check action timer
 			if current_state > state.run
@@ -628,7 +638,7 @@ function lua_table:Update()
 
 			elseif PerfGameTime() - revive_started_at > lua_table.revive_time		--IF revival complete
 			then
-				current_health = stat_max_health_base / 2	--Get half health
+				current_health = stat_max_health_real / 2	--Get half health
 				GoDefaultState()							--Return to move or idle
 			end
 		else								--IF other player isn't reviving
@@ -646,8 +656,9 @@ function lua_table:Update()
 	end
 
 	--lua_table.Functions:LOG("Current state: " .. current_state)
-	lua_table.Functions:LOG("Combo num: " .. combo_num)
-	lua_table.Functions:LOG("Combo string: " .. combo_stack[1] .. ", " .. combo_stack[2] .. ", " .. combo_stack[3] .. ", " .. combo_stack[4])
+	--lua_table.Functions:LOG("Combo num: " .. combo_num)
+	--lua_table.Functions:LOG("Combo string: " .. combo_stack[1] .. ", " .. combo_stack[2] .. ", " .. combo_stack[3] .. ", " .. combo_stack[4])
+	lua_table.Functions:LOG("Energy: " .. current_energy)
 end
 
 return lua_table
