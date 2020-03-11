@@ -655,10 +655,11 @@ function lua_table:Update()
 		end
 	end
 
+	--DEBUG LOGS
 	--lua_table.Functions:LOG("Current state: " .. current_state)
 	--lua_table.Functions:LOG("Combo num: " .. combo_num)
 	--lua_table.Functions:LOG("Combo string: " .. combo_stack[1] .. ", " .. combo_stack[2] .. ", " .. combo_stack[3] .. ", " .. combo_stack[4])
-	lua_table.Functions:LOG("Energy: " .. current_energy)
+	--lua_table.Functions:LOG("Energy: " .. current_energy)
 end
 
 return lua_table
