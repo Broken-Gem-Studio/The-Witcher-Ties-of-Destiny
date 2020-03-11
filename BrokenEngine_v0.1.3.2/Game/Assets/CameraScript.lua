@@ -15,8 +15,8 @@ local camera_position_z = 0
 
 -- Camera offset 
 local offset_x = 0
-local offset_y = 150
-local offset_z = 200
+local offset_y = 150--0
+local offset_z = 200--0
 
 -- Camera rotation (hardcoded for now)
 local rotation_x = 145
@@ -91,12 +91,28 @@ local zoom = -- not in use rn
 local current_zoom = zoom.LAYER_1 -- Shoul initialize at awake(?)
 
 -- Methods
-function GetAbsYfromDistAndAng(c_distance, c_angle) --given hypotenuse and angle returns contiguous side
-	return c_distance*math.cos(math.rad(c_angle))
+function GetYfromDistAndAng(c_distance, c_angle) --given hypotenuse and angle returns contiguous side
+	local c_angle_rad
+	local c_angle_cos
+	local y_dist 
+
+	c_angle_rad = math.rad(c_angle)
+	c_angle_cos = math.cos(c_angle_rad)
+	y_dist = c_distance*c_angle_cos
+
+	return y_dist
 end
 
-function GetAbsXfromDistAndAng(c_distance, c_angle) --given hypotenuse and angle returns opposite side
-	return c_distance*math.sin(math.rad(c_angle))
+function GetXfromDistAndAng(c_distance, c_angle) --given hypotenuse and angle returns opposite side
+	local c_angle_rad
+	local c_angle_sin
+	local x_dist 
+
+	c_angle_rad = math.rad(c_angle)
+	c_angle_sin = math.sin(c_angle_rad)
+	x_dist = c_distance*c_angle_sin
+
+	return x_dist
 end
 
 function Centroid2P(p1, p2)
@@ -136,9 +152,20 @@ end
 -- 	end
 -- end
 
+-- Debug
+-- local angulo = 65
+-- local dist = 25
+-- local rad = 0 
+-- local cos = 0
+-- local result
+
 -- Main Code
 function lua_table:Awake ()
 	lua_table["Functions"]:LOG ("This Log was called from Camera Script on AWAKE")
+
+	-- result = GetYfromDistAndAng(dist, angulo)
+	-- lua_table["Functions"]:LOG ("function contiguus side of 25")
+	-- lua_table["Functions"]:LOG (result)
 
 	-- Gameplay mode (Comment/Uncomment for now until we have a way to manage it automatically)
 	-- current_gameplay = gameplay.SOLO
@@ -206,8 +233,8 @@ function lua_table:Start ()
 
 		-- Offset from Distance and Angle
 		-- offset_x = 
-		-- offset_y = GetAbsYfromDistAndAng(camera_distance, camera_angle)
-		-- offset_z = GetAbsXfromDistAndAng(camera_distance, camera_angle) -- since camera only has a direction for now, only Z is affected. Else the value would be split between x and z depending on direction
+		offset_y = GetYfromDistAndAng(lua_table.camera_distance, lua_table.camera_angle)
+		offset_z = GetXfromDistAndAng(lua_table.camera_distance, lua_table.camera_angle) -- since camera only has a direction for now, only Z is affected. Else the value would be split between x and z depending on direction
 		
 		-- Camera position is Target + Offset
 		camera_position_x = target_position_x + offset_x
@@ -240,8 +267,8 @@ function lua_table:Start ()
 
 		-- Offset from Distance and Angle
 		-- offset_x = 
-		-- offset_y = GetAbsYfromDistAndAng(camera_distance, camera_angle)
-		-- offset_z = GetAbsXfromDistAndAng(camera_distance, camera_angle) -- since camera only has a direction for now, only Z is affected. Else the value would be split between x and z depending on direction
+		offset_y = GetYfromDistAndAng(lua_table.camera_distance, lua_table.camera_angle)
+		offset_z = GetXfromDistAndAng(lua_table.camera_distance, lua_table.camera_angle) -- since camera only has a direction for now, only Z is affected. Else the value would be split between x and z depending on direction
 
 		-- Camera position is Target + Offset
 		camera_position_x = target_position_x + offset_x
