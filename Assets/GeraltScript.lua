@@ -145,8 +145,13 @@ lua_table.evade_duration = 800
 lua_table.evade_animation_speed = 40.0
 
 --Ability
-lua_table.ability_cost = 0
-lua_table.ability_duration = 0
+lua_table.ability_push_velocity = 0.0
+lua_table.ability_cooldown = 5000.0
+lua_table.ability_duration = 2000.0
+
+local ability_started_at = 0.0
+
+lua_table.ability_animation_speed = 30.0
 
 --Revive/Death
 lua_table.revive_time = 5000	-- Time to revive
@@ -488,11 +493,20 @@ local function ActionInputs()	--Process Action Inputs
 			input_given = true
 		end
 		
-	elseif lua_table.Functions:IsGamepadButton(lua_table.player_ID, lua_table.key_ability, key_state.key_down)	--Ability Input
+	elseif PerfGameTime() - ability_started_at >= lua_table.ability_cooldown and lua_table.Functions:IsGamepadButton(lua_table.player_ID, lua_table.key_ability, key_state.key_down)	--IF cooldown over and Ability Input
 	then
-		action_started_at = PerfGameTime()							--Set timer start mark
+		action_started_at = PerfGameTime()								--Set timer start mark
+		ability_started_at = action_started_at
+
+		current_action_block_time = lua_table.ability_duration
+		current_action_duration = lua_table.ability_duration
 
 		--Do Ability
+		--1. Collect colliders of all enemies inside a radius
+		--2. Discard all colliders that are outside the triangle/arc of effect
+		--3. Apply LinearVelocity (lua_table.ability_push_velocity) to enemies which direction depends on their position in reference to Geralt
+
+		--lua_table.Functions:PlayAnimation("Ability", lua_table.ability_animation_speed)
 		current_state = state.ability
 		input_given = true
 
@@ -521,7 +535,7 @@ local function ActionInputs()	--Process Action Inputs
 		input_given = true
 	end
 
-	if input_given	--IMPROVE: This is trashy, but it works for the current particle demonstration
+	if input_given	--TODO: This is trashy, it works for the current particle demonstration but it isn't the functionality we really want at the moment
 	then
 		lua_table.Functions:ActivateParticlesEmission()
 	end
@@ -656,7 +670,7 @@ function lua_table:Update()
 	end
 
 	--DEBUG LOGS
-	--lua_table.Functions:LOG("Current state: " .. current_state)
+	lua_table.Functions:LOG("Current state: " .. current_state)
 	--lua_table.Functions:LOG("Combo num: " .. combo_num)
 	--lua_table.Functions:LOG("Combo string: " .. combo_stack[1] .. ", " .. combo_stack[2] .. ", " .. combo_stack[3] .. ", " .. combo_stack[4])
 	--lua_table.Functions:LOG("Energy: " .. current_energy)
