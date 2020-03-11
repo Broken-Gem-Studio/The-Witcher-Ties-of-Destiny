@@ -23,34 +23,24 @@ local state = {
 }
 local current_state = state.idle	-- Current State
 
---LOCAL: Variable Character Stats
-local current_health = 100.0
-local current_energy = 100.0
+--Health
+local current_health
+local max_health_real
+local max_health_mod = 1.0
+lua_table.max_health_orig = 100
 
---Stats Base (Character baseline stats)
-lua_table.stat_max_health_orig = 100
-lua_table.stat_max_energy_orig = 100
-lua_table.stat_damage_orig = 100
-lua_table.stat_speed_orig = 100
+--Damage
+local base_damage_real
+local base_damage_mod = 1.0
+lua_table.base_damage_orig = 100
 
---Stats Improved (Stats after modification alterations, used for code)
-local stat_max_health_real = 0.0
-local stat_max_energy_real = 0.0
-local stat_damage_real = 0.0
-local stat_speed_real = 0.0
+local critical_chance_real
+local critical_chance_mod = 1.0
+lua_table.critical_chance_orig = 5
 
---Mods: Stats (Multiplier of base Stats, increased by items and skills)
-local stat_health_mod = 1
-local stat_energy_mod = 1
-local stat_damage_mod = 1
-local stat_speed_mod = 1
-
---Mods: Special Effects (Multiplier of stats for effect application)
-local regen_bool = false
-lua_table.regen_val = 0
-local crit_bool = false
-lua_table.crit_chance = 0
-lua_table.crit_damage = 0
+local critical_damage_real
+local critical_damage_mod = 1.0
+lua_table.critical_damage_orig = 2.0
 
 --Controls
 local key_state = {
@@ -102,18 +92,24 @@ lua_table.input_walk_threshold = 0.8
 --Movement
 local mov_speed_x = 0.0
 local mov_speed_z = 0.0
-lua_table.mov_speed_max = 3000.0	--Was 60.0 before dt
 
-local rot_speed = 0.0
-lua_table.rot_speed_max = 0.0
-lua_table.rot_acc_max = 0.0
+local mov_speed_max_real
+local mov_speed_max_mod = 1.0
+lua_table.mov_speed_max_orig = 3000	--Was 60.0 before dt
 
 lua_table.idle_animation_speed = 30.0
 lua_table.walk_animation_speed = 30.0
 lua_table.run_animation_speed = 20.0
 
 --Energy
-lua_table.energy_regeneration = 10.0	--Targer: 10 per seconds
+local current_energy
+local max_energy_real
+local max_energy_mod = 1.0
+lua_table.max_energy_orig = 100
+
+local energy_reg_real
+local energy_reg_mod = 1.0
+lua_table.energy_reg_orig = 10	--Ideally, 10 per second or something similar
 
 --Light Attack
 lua_table.light_attack_damage = 0
@@ -152,6 +148,23 @@ lua_table.ability_duration = 2000.0
 local ability_started_at = 0.0
 
 lua_table.ability_animation_speed = 30.0
+
+--Ultimate
+local current_ultimate = 0.0
+local max_ultimate = 100.0
+
+local ultimate_reg_real
+local ultimate_reg_mod = 1.0
+lua_table.ultimate_reg_orig = 10	--Ideally, 2 or something similar
+
+local ultimate_started_at = 0.0
+lua_table.ultimate_duration = 2000
+lua_table.ultimate_animation_speed = 35.0
+
+local ultimate_effect_started_at = 0.0
+lua_table.ultimate_effect_duration = 10000
+
+local ultimate_active = false
 
 --Revive/Death
 lua_table.revive_time = 5000	-- Time to revive
@@ -364,8 +377,8 @@ local function MovementInputs()	--Process Movement Inputs
 
 		lua_table.Functions:ActivateParticlesEmission()
 
-		mov_speed_x = lua_table.mov_speed_max * mov_input_x	--Joystick input directly translates to speed, no acceleration
-		mov_speed_z = lua_table.mov_speed_max * mov_input_z
+		mov_speed_x = mov_speed_max_real * mov_input_x	--Joystick input directly translates to speed, no acceleration
+		mov_speed_z = mov_speed_max_real * mov_input_z
 
 		_x, mov_speed_y, _z = lua_table.Functions:GetLinearVelocity()	--Set velocity
 		lua_table.Functions:SetLinearVelocity(mov_speed_x * dt, mov_speed_y, mov_speed_z * dt)
@@ -393,7 +406,7 @@ local function ActionInputs()	--Process Action Inputs
 
 	if current_energy >= lua_table.light_attack_cost and lua_table.Functions:IsGamepadButton(lua_table.player_ID, lua_table.key_light, key_state.key_down)		--Light Input
 	then
-		action_started_at = PerfGameTime()	--Set timer start mark
+		action_started_at = game_time	--Set timer start mark
 		PushBack(combo_stack, 'L')			--Add new input to stack
 
 		if current_state <= state.run		--IF Idle or Moving
@@ -434,7 +447,7 @@ local function ActionInputs()	--Process Action Inputs
 
 	elseif current_energy >= lua_table.heavy_attack_cost and lua_table.Functions:IsGamepadButton(lua_table.player_ID, lua_table.key_heavy, key_state.key_down)	--Heavy Input
 	then
-		action_started_at = PerfGameTime()	--Set timer start mark
+		action_started_at = game_time	--Set timer start mark
 		PushBack(combo_stack, 'H')			--Add new input to stack
 
 		if current_state <= state.run	--IF Idle or Moving
@@ -477,7 +490,7 @@ local function ActionInputs()	--Process Action Inputs
 	then
 		if mov_input_x ~= 0.0 or mov_input_z ~= 0.0	-- Evade will not perform without a direction input
 		then
-			action_started_at = PerfGameTime()							--Set timer start mark
+			action_started_at = game_time							--Set timer start mark
 			current_action_block_time = lua_table.evade_duration
 			current_action_duration = lua_table.evade_duration
 			
@@ -493,9 +506,9 @@ local function ActionInputs()	--Process Action Inputs
 			input_given = true
 		end
 		
-	elseif PerfGameTime() - ability_started_at >= lua_table.ability_cooldown and lua_table.Functions:IsGamepadButton(lua_table.player_ID, lua_table.key_ability, key_state.key_down)	--IF cooldown over and Ability Input
+	elseif game_time - ability_started_at >= lua_table.ability_cooldown and lua_table.Functions:IsGamepadButton(lua_table.player_ID, lua_table.key_ability, key_state.key_down)	--IF cooldown over and Ability Input
 	then
-		action_started_at = PerfGameTime()								--Set timer start mark
+		action_started_at = game_time								--Set timer start mark
 		ability_started_at = action_started_at
 
 		current_action_block_time = lua_table.ability_duration
@@ -510,17 +523,24 @@ local function ActionInputs()	--Process Action Inputs
 		current_state = state.ability
 		input_given = true
 
-	elseif lua_table.Functions:IsTriggerState(lua_table.player_ID, lua_table.key_ultimate_1, key_state.key_down) and lua_table.Functions:IsTriggerState (lua_table.player_ID, lua_table.key_ultimate_2, key_state.key_down)	--Ultimate Input
+	elseif current_ultimate >= max_ultimate
+	and lua_table.Functions:IsTriggerState(lua_table.player_ID, lua_table.key_ultimate_1, key_state.key_repeat)
+	and lua_table.Functions:IsTriggerState(lua_table.player_ID, lua_table.key_ultimate_2, key_state.key_repeat)	--Ultimate Input
 	then
-		action_started_at = PerfGameTime()							--Set timer start mark
+		action_started_at = game_time							--Set timer start mark
+		ultimate_started_at = action_started_at
+
+		current_action_block_time = lua_table.ultimate_duration
+		current_action_duration = lua_table.ultimate_duration
 
 		--Do Ultimate
+		--lua_table.Functions:PlayAnimation("Ultimate", lua_table.ultimate_animation_speed)
 		current_state = state.ultimate
-		input_given = true
+		input_given = true	
 
 	elseif lua_table.Functions:IsGamepadButton(lua_table.player_ID, lua_table.key_use_item, key_state.key_down)	--Object Input
 	then
-		action_started_at = PerfGameTime()							--Set timer start mark
+		action_started_at = game_time							--Set timer start mark
 
 		--Do Use_Object
 		current_state = state.item
@@ -528,7 +548,7 @@ local function ActionInputs()	--Process Action Inputs
 
 	elseif lua_table.Functions:IsGamepadButton(lua_table.player_ID, lua_table.key_interact, key_state.key_down)	--Revive Input
 	then
-		action_started_at = PerfGameTime()							--Set timer start mark
+		action_started_at = game_time							--Set timer start mark
 
 		--Do Revive
 		current_state = state.revive
@@ -566,16 +586,27 @@ end
 --Main Code
 function lua_table:Awake()
 	lua_table.Functions:LOG("This Log was called from LUA testing a table on AWAKE")
-	
-	stat_max_health_real = lua_table.stat_max_health_orig
-	stat_max_energy_real = lua_table.stat_max_energy_orig
-	stat_damage_real = lua_table.stat_damage_orig
-	stat_speed_real = lua_table.stat_speed_orig
 
-	stat_health_mod = 1
-	stat_energy_mod = 1
-	stat_damage_mod = 1
-	stat_speed_mod = 1
+	--Health
+	max_health_real = lua_table.max_health_orig * max_health_mod
+	current_health = max_health_real
+
+	--Damage
+	base_damage_real = lua_table.base_damage_orig * base_damage_mod
+	critical_chance_real = lua_table.critical_chance_orig * critical_chance_mod
+	critical_damage_real = lua_table.critical_damage_orig * critical_damage_mod
+
+	--Speed
+	mov_speed_max_real = lua_table.mov_speed_max_orig * mov_speed_max_mod
+
+	--Energy
+	max_energy_real = lua_table.max_energy_orig * max_energy_mod
+	energy_reg_real = lua_table.energy_reg_orig * energy_reg_mod
+	current_energy = max_energy_real
+
+	--Ultimate
+	ultimate_reg_real = lua_table.ultimate_reg_orig * ultimate_reg_mod
+	current_ultimate = 0.0
 end
 
 function lua_table:Start()
@@ -585,6 +616,7 @@ end
 function lua_table:Update()
 
 	dt = lua_table.Functions:dt()
+	game_time = PerfGameTime()
 
 	if current_state >= state.idle	--IF alive
 	then
@@ -592,7 +624,7 @@ function lua_table:Update()
 		then
 			--Animation to DEATH
 			--lua_table.Functions:SetVelocity(0.0, 0.0, 0.0)
-			--death_started_at = PerfGameTime()
+			--death_started_at = game_time
 			current_state = state.down
 		else
 			--DEBUG
@@ -606,13 +638,25 @@ function lua_table:Update()
 			aim_input_z = lua_table.Functions:GetAxisValue(lua_table.player_ID, lua_table.key_aim .. "Y", key_joystick_threshold)
 
 			--Energy Regeneration
-			if current_energy < stat_max_energy_real then current_energy = current_energy + lua_table.energy_regeneration * dt end	--IF can increase, increase energy
-			if current_energy > stat_max_energy_real then current_energy = stat_max_energy_real end									--IF above max, set to max
+			if current_energy < max_energy_real then current_energy = current_energy + energy_reg_real * dt end	--IF can increase, increase energy
+			if current_energy > max_energy_real then current_energy = max_energy_real end						--IF above max, set to max
+
+			if ultimate_active == false	--IF ultimate offline
+			then
+				--Ultimate Regeneration
+				if current_ultimate < max_ultimate then current_ultimate = current_ultimate + ultimate_reg_real * dt end	--IF can increase, increase ultimate
+				if current_ultimate > max_ultimate then current_ultimate = max_ultimate end									--IF above max, set to max
+
+			elseif game_time - ultimate_effect_started_at >= lua_table.ultimate_effect_duration	--IF ultimate online and time up!
+			then
+				ultimate_active = false
+				--TODO: Return stats to normal
+			end
 
 			--IF action currently going on, check action timer
 			if current_state > state.run
 			then
-				time_since_action = PerfGameTime() - action_started_at
+				time_since_action = game_time - action_started_at
 			end
 
 			--IF state == idle/move or action_input_block_time has ended (Input-allowed environment)
@@ -625,14 +669,23 @@ function lua_table:Update()
 			if current_state <= state.run
 			then
 				MovementInputs()	--Movement orders
-				--SecondaryInputs()	--Minor ctions with no timer or special animations
+				--SecondaryInputs()	--Minor actions with no timer or special animations
 
 			else	--ELSE (action being performed)
-				time_since_action = PerfGameTime() - action_started_at
+				time_since_action = game_time - action_started_at
 
 				if time_since_action > current_action_duration	--IF action duration up
 				then
+					if current_state == state.ultimate			--IF drinking ultimate potion finished
+					then
+						ultimate_active = true
+						current_ultimate = 0.0
+						ultimate_effect_started_at = game_time
+						--TODO: Boost stats
+					end
+
 					GoDefaultState()	--Return to move or idle
+
 				elseif current_state == state.evade				--ELSEIF evading
 				then
 					_x, mov_speed_y, _z = lua_table.Functions:GetLinearVelocity()	--TODO: Check if truly needed or remove
@@ -646,22 +699,22 @@ function lua_table:Update()
 		then
 			if stopped_death == false		--IF stop mark hasn't been done yet
 			then
-				death_stopped_at = PerfGameTime()			--Mark revival start (for death timer)
+				death_stopped_at = game_time			--Mark revival start (for death timer)
 				stopped_death = true						--Flag death timer stop
 				revive_started_at = death_stopped_at		--Mark revival start (for revival timer)
 
-			elseif PerfGameTime() - revive_started_at > lua_table.revive_time		--IF revival complete
+			elseif game_time - revive_started_at > lua_table.revive_time		--IF revival complete
 			then
-				current_health = stat_max_health_real / 2	--Get half health
+				current_health = max_health_real / 2	--Get half health
 				GoDefaultState()							--Return to move or idle
 			end
 		else								--IF other player isn't reviving
 			if stopped_death == true		--IF death timer was stopped
 			then
-				death_started_at = death_started_at + PerfGameTime() - death_stopped_at	--Resume timer
+				death_started_at = death_started_at + game_time - death_stopped_at	--Resume timer
 				stopped_death = false																		--Flag timer resuming
 
-			elseif PerfGameTime() - death_started_at > lua_table.down_time	--IF death timer finished
+			elseif game_time - death_started_at > lua_table.down_time	--IF death timer finished
 			then
 				current_state = state.dead			--Kill character
 				--lua_table.Functions:Deactivate()	--Disable character
@@ -671,6 +724,7 @@ function lua_table:Update()
 
 	--DEBUG LOGS
 	lua_table.Functions:LOG("Current state: " .. current_state)
+	lua_table.Functions:LOG("Ultimate: " .. current_ultimate)
 	--lua_table.Functions:LOG("Combo num: " .. combo_num)
 	--lua_table.Functions:LOG("Combo string: " .. combo_stack[1] .. ", " .. combo_stack[2] .. ", " .. combo_stack[3] .. ", " .. combo_stack[4])
 	--lua_table.Functions:LOG("Energy: " .. current_energy)
