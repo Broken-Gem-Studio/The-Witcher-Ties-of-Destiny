@@ -127,45 +127,45 @@ local rightside = true								-- Last attack side, marks the animation of next a
 lua_table.light_attack_damage = 0
 lua_table.light_attack_cost = 10
 
-lua_table.light_attack_1_block_time = 300			--Input block duration	(block new attacks)
-lua_table.light_attack_1_combo_start = 300			--Combo timeframe start
-lua_table.light_attack_1_combo_end = 600			--Combo timeframe end
-lua_table.light_attack_1_duration = 600				--Attack end (return to idle)
-lua_table.light_attack_1_animation_1_speed = 60.0
+lua_table.light_attack_1_block_time = 500			--Input block duration	(block new attacks)
+lua_table.light_attack_1_combo_start = 500			--Combo timeframe start
+lua_table.light_attack_1_combo_end = 2000			--Combo timeframe end
+lua_table.light_attack_1_duration = 2000			--Attack end (return to idle)
+lua_table.light_attack_1_animation_speed = 30.0
 
-lua_table.light_attack_2_block_time = 300			--Input block duration	(block new attacks)
-lua_table.light_attack_2_combo_start = 300			--Combo timeframe start
-lua_table.light_attack_2_combo_end = 600			--Combo timeframe end
-lua_table.light_attack_2_duration = 600				--Attack end (return to idle)
-lua_table.light_attack_2_animation_1_speed = 60.0
+lua_table.light_attack_2_block_time = 500			--Input block duration	(block new attacks)
+lua_table.light_attack_2_combo_start = 500			--Combo timeframe start
+lua_table.light_attack_2_combo_end = 2000			--Combo timeframe end
+lua_table.light_attack_2_duration = 2000			--Attack end (return to idle)
+lua_table.light_attack_2_animation_speed = 30.0
 
-lua_table.light_attack_3_block_time = 300			--Input block duration	(block new attacks)
-lua_table.light_attack_3_combo_start = 300			--Combo timeframe start
-lua_table.light_attack_3_combo_end = 600			--Combo timeframe end
-lua_table.light_attack_3_duration = 600				--Attack end (return to idle)
-lua_table.light_attack_3_animation_1_speed = 60.0
+lua_table.light_attack_3_block_time = 500			--Input block duration	(block new attacks)
+lua_table.light_attack_3_combo_start = 500			--Combo timeframe start
+lua_table.light_attack_3_combo_end = 2000			--Combo timeframe end
+lua_table.light_attack_3_duration = 2000			--Attack end (return to idle)
+lua_table.light_attack_3_animation_speed = 30.0
 
 --Heavy Attack
 lua_table.heavy_attack_damage = 0
 lua_table.heavy_attack_cost = 20
 
-lua_table.heavy_attack_1_block_time = 600			--Input block duration	(block new attacks)
-lua_table.heavy_attack_1_combo_start = 600			--Combo timeframe start
-lua_table.heavy_attack_1_combo_end = 1000			--Combo timeframe end
-lua_table.heavy_attack_1_duration = 1000			--Attack end (return to idle)
-lua_table.heavy_attack_1_animation_1_speed = 50.0
+lua_table.heavy_attack_1_block_time = 500			--Input block duration	(block new attacks)
+lua_table.heavy_attack_1_combo_start = 500			--Combo timeframe start
+lua_table.heavy_attack_1_combo_end = 2000			--Combo timeframe end
+lua_table.heavy_attack_1_duration = 2000			--Attack end (return to idle)
+lua_table.heavy_attack_1_animation_speed = 30.0
 
-lua_table.heavy_attack_2_block_time = 300			--Input block duration	(block new attacks)
-lua_table.heavy_attack_2_combo_start = 300			--Combo timeframe start
-lua_table.heavy_attack_2_combo_end = 600			--Combo timeframe end
-lua_table.heavy_attack_2_duration = 600				--Attack end (return to idle)
-lua_table.heavy_attack_2_animation_1_speed = 60.0
+lua_table.heavy_attack_2_block_time = 500			--Input block duration	(block new attacks)
+lua_table.heavy_attack_2_combo_start = 500			--Combo timeframe start
+lua_table.heavy_attack_2_combo_end = 2000			--Combo timeframe end
+lua_table.heavy_attack_2_duration = 2000			--Attack end (return to idle)
+lua_table.heavy_attack_2_animation_speed = 30.0
 
-lua_table.heavy_attack_3_block_time = 300			--Input block duration	(block new attacks)
-lua_table.heavy_attack_3_combo_start = 300			--Combo timeframe start
-lua_table.heavy_attack_3_combo_end = 600			--Combo timeframe end
-lua_table.heavy_attack_3_duration = 600				--Attack end (return to idle)
-lua_table.heavy_attack_3_animation_1_speed = 60.0
+lua_table.heavy_attack_3_block_time = 500			--Input block duration	(block new attacks)
+lua_table.heavy_attack_3_combo_start = 500			--Combo timeframe start
+lua_table.heavy_attack_3_combo_end = 2000			--Combo timeframe end
+lua_table.heavy_attack_3_duration = 2000			--Attack end (return to idle)
+lua_table.heavy_attack_3_animation_speed = 30.0
 
 --Evade		
 lua_table.evade_velocity = 10000.0	--Was 200 before dt
@@ -449,12 +449,12 @@ local function TimedAttack(attack_cost)
 		combo_num = 1					--Register combo start
 		current_energy = current_energy - attack_cost
 
-	elseif previous_state == state.light_1 and time_since_action > lua_table.light_attack_1_combo_start and time_since_action < lua_table.light_attack_1_combo_end
-	or previous_state == state.light_2 and time_since_action > lua_table.light_attack_2_combo_start and time_since_action < lua_table.light_attack_2_combo_end
-	or previous_state == state.light_3 and time_since_action > lua_table.light_attack_3_combo_start and time_since_action < lua_table.light_attack_3_combo_end
-	or previous_state == state.heavy_1 and time_since_action > lua_table.heavy_attack_1_combo_start and time_since_action < lua_table.heavy_attack_1_combo_end
-	or previous_state == state.heavy_2 and time_since_action > lua_table.heavy_attack_2_combo_start and time_since_action < lua_table.heavy_attack_2_combo_end
-	or previous_state == state.heavy_3 and time_since_action > lua_table.heavy_attack_3_combo_start and time_since_action < lua_table.heavy_attack_3_combo_end
+	elseif current_state == state.light_1 and time_since_action > lua_table.light_attack_1_combo_start and time_since_action < lua_table.light_attack_1_combo_end
+	or current_state == state.light_2 and time_since_action > lua_table.light_attack_2_combo_start and time_since_action < lua_table.light_attack_2_combo_end
+	or current_state == state.light_3 and time_since_action > lua_table.light_attack_3_combo_start and time_since_action < lua_table.light_attack_3_combo_end
+	or current_state == state.heavy_1 and time_since_action > lua_table.heavy_attack_1_combo_start and time_since_action < lua_table.heavy_attack_1_combo_end
+	or current_state == state.heavy_2 and time_since_action > lua_table.heavy_attack_2_combo_start and time_since_action < lua_table.heavy_attack_2_combo_end
+	or current_state == state.heavy_3 and time_since_action > lua_table.heavy_attack_3_combo_start and time_since_action < lua_table.heavy_attack_3_combo_end
 	then
 		combo_num = combo_num + 1
 		current_energy = current_energy - attack_cost / lua_table.combo_cost_divider
@@ -818,10 +818,10 @@ function lua_table:Update()
 
 	--DEBUG LOGS
 	lua_table.Functions:LOG("Current state: " .. current_state)
-	lua_table.Functions:LOG("Ultimate: " .. current_ultimate)
-	--lua_table.Functions:LOG("Combo num: " .. combo_num)
-	--lua_table.Functions:LOG("Combo string: " .. combo_stack[1] .. ", " .. combo_stack[2] .. ", " .. combo_stack[3] .. ", " .. combo_stack[4])
-	--lua_table.Functions:LOG("Energy: " .. current_energy)
+	--lua_table.Functions:LOG("Ultimate: " .. current_ultimate)
+	lua_table.Functions:LOG("Combo num: " .. combo_num)
+	lua_table.Functions:LOG("Combo string: " .. combo_stack[1] .. ", " .. combo_stack[2] .. ", " .. combo_stack[3] .. ", " .. combo_stack[4])
+	lua_table.Functions:LOG("Energy: " .. current_energy)
 end
 
 return lua_table
