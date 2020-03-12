@@ -295,24 +295,23 @@ end
 
 --Methods: Specific
 local function GoDefaultState()
+	previous_state = current_state
+
 	if mov_input_x ~= 0.0 or mov_input_z ~= 0.0
 	then
 		if lua_table.input_walk_threshold < math.sqrt(mov_input_x ^ 2 + mov_input_z ^ 2)
 		then
 			lua_table.Functions:PlayAnimation("Run", lua_table.run_animation_speed)
 			lua_table.Functions:PlayStepSound()
-			previous_state = current_state
 			current_state = state.run
 		else
 			lua_table.Functions:PlayAnimation("Walk", lua_table.walk_animation_speed)
 			lua_table.Functions:PlayStepSound()
-			previous_state = current_state
 			current_state = state.walk
 		end
 	else
 		lua_table.Functions:PlayAnimation("Idle", lua_table.idle_animation_speed)
 		lua_table.Functions:StopStepSound()
-		previous_state = current_state
 		current_state = state.idle
 		lua_table.Functions:DeactivateParticlesEmission()	--IMPROVE: Make particle emission more complex than de/activating
 	end
@@ -346,16 +345,16 @@ local function MovementInputs()	--Process Movement Inputs
 	then
 		if current_state == state.idle																--IF Idle
 		then
+			previous_state = current_state
+
 			if lua_table.input_walk_threshold < math.sqrt(mov_input_x ^ 2 + mov_input_z ^ 2)		--IF great input
 			then
 				lua_table.Functions:PlayAnimation("Run", lua_table.run_animation_speed)
 				lua_table.Functions:PlayStepSound()
-				previous_state = current_state
 				current_state = state.run
 			else																					--IF small input
 				lua_table.Functions:PlayAnimation("Walk", lua_table.walk_animation_speed)
 				lua_table.Functions:PlayStepSound()
-				previous_state = current_state
 				current_state = state.walk
 			end
 		elseif current_state == state.walk and lua_table.input_walk_threshold < math.sqrt(mov_input_x ^ 2 + mov_input_z ^ 2)	--IF walking and big input
@@ -497,19 +496,31 @@ local function ActionInputs()	--Process Action Inputs
 				then
 					current_action_block_time = lua_table.light_attack_3_block_time	--Set duration of input block (no new actions)
 					current_action_duration = lua_table.light_attack_3_duration		--Set duration of the current action (to return to idle/move)
+
 					lua_table.Functions:PlayAnimation("Light_3", lua_table.light_attack_3_animation_speed)
 					lua_table.Functions:PlayAttackSound()
+
+					previous_state = current_state
+					current_state = state.light_3
 				else
 					current_action_block_time = lua_table.light_attack_1_block_time	--Set duration of input block (no new actions)
 					current_action_duration = lua_table.light_attack_1_duration		--Set duration of the current action (to return to idle/move)
+
 					lua_table.Functions:PlayAnimation("Light_1", lua_table.light_attack_1_animation_speed)
 					lua_table.Functions:PlayAttackSound()
+
+					previous_state = current_state
+					current_state = state.light_1
 				end
 			else			--IF leftside
 				current_action_block_time = lua_table.light_attack_2_block_time	--Set duration of input block (no new actions)
 				current_action_duration = lua_table.light_attack_2_duration		--Set duration of the current action (to return to idle/move)
+
 				lua_table.Functions:PlayAnimation("Light_2", lua_table.light_attack_2_animation_speed)
 				lua_table.Functions:PlayAttackSound()
+
+				previous_state = current_state
+				current_state = state.light_2
 			end
 
 			rightside = not rightside
@@ -532,19 +543,31 @@ local function ActionInputs()	--Process Action Inputs
 				then
 					current_action_block_time = lua_table.heavy_attack_3_block_time	--Set duration of input block (no new actions)
 					current_action_duration = lua_table.heavy_attack_3_duration		--Set duration of the current action (to return to idle/move)
+
 					lua_table.Functions:PlayAnimation("Heavy_3", lua_table.heavy_attack_3_animation_speed)
 					lua_table.Functions:PlayAttackSound()
+
+					previous_state = current_state
+				current_state = state.heavy_3
 				else
 					current_action_block_time = lua_table.heavy_attack_1_block_time	--Set duration of input block (no new actions)
 					current_action_duration = lua_table.heavy_attack_1_duration		--Set duration of the current action (to return to idle/move)
+
 					lua_table.Functions:PlayAnimation("Heavy_1", lua_table.heavy_attack_1_animation_speed)
 					lua_table.Functions:PlayAttackSound()
+
+					previous_state = current_state
+					current_state = state.heavy_1
 				end
 			else			--IF leftside
 				current_action_block_time = lua_table.heavy_attack_2_block_time	--Set duration of input block (no new actions)
 				current_action_duration = lua_table.heavy_attack_2_duration		--Set duration of the current action (to return to idle/move)
+				
 				lua_table.Functions:PlayAnimation("Heavy_2", lua_table.heavy_attack_2_animation_speed)
 				lua_table.Functions:PlayAttackSound()
+
+				previous_state = current_state
+				current_state = state.heavy_2
 			end
 
 			rightside = not rightside
@@ -722,7 +745,7 @@ function lua_table:Update()
 			elseif game_time - ultimate_effect_started_at >= lua_table.ultimate_effect_duration	--IF ultimate online and time up!
 			then
 				ultimate_active = false
-				--TODO: Return stats to normal
+				--TODO: Ultimate return stats to normal
 			end
 
 			--IF action currently going on, check action timer
@@ -753,7 +776,7 @@ function lua_table:Update()
 						ultimate_active = true
 						current_ultimate = 0.0
 						ultimate_effect_started_at = game_time
-						--TODO: Boost stats
+						--TODO: Ultimate Boost stats
 					end
 
 					GoDefaultState()	--Return to move or idle
