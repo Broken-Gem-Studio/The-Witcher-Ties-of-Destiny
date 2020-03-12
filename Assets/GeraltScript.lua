@@ -244,7 +244,7 @@ local function TableLength(table)	--Get TableLength
 	local count = 0
 	for _ in pairs(table) do count = count + 1 end
 	return count
-  end
+end
 
 local function CompareArrays(table_1, table_2, from, to)	--Compare two tables numerically ordered from point A to B
 	local from = from or 1
@@ -445,33 +445,31 @@ local function TimedAttack(attack_cost)
 	local combo_achieved = false
 
 	if current_state <= state.run		--IF Idle or Moving
-		then
-			combo_num = 1					--Register combo start
-			current_energy = current_energy - attack_cost
+	then
+		combo_num = 1					--Register combo start
+		current_energy = current_energy - attack_cost
 
-		elseif previous_state == state.light_1 and time_since_action > lua_table.light_attack_1_combo_start and time_since_action < lua_table.light_attack_1_combo_end
-		or previous_state == state.light_2 and time_since_action > lua_table.light_attack_2_combo_start and time_since_action < lua_table.light_attack_2_combo_end
-		or previous_state == state.light_3 and time_since_action > lua_table.light_attack_3_combo_start and time_since_action < lua_table.light_attack_3_combo_end
-		or previous_state == state.heavy_1 and time_since_action > lua_table.heavy_attack_1_combo_start and time_since_action < lua_table.heavy_attack_1_combo_end
-		or previous_state == state.heavy_2 and time_since_action > lua_table.heavy_attack_2_combo_start and time_since_action < lua_table.heavy_attack_2_combo_end
-		or previous_state == state.heavy_3 and time_since_action > lua_table.heavy_attack_3_combo_start and time_since_action < lua_table.heavy_attack_3_combo_end
-		then
-			combo_num = combo_num + 1
-			current_energy = current_energy - attack_cost / lua_table.combo_cost_divider
+	elseif previous_state == state.light_1 and time_since_action > lua_table.light_attack_1_combo_start and time_since_action < lua_table.light_attack_1_combo_end
+	or previous_state == state.light_2 and time_since_action > lua_table.light_attack_2_combo_start and time_since_action < lua_table.light_attack_2_combo_end
+	or previous_state == state.light_3 and time_since_action > lua_table.light_attack_3_combo_start and time_since_action < lua_table.light_attack_3_combo_end
+	or previous_state == state.heavy_1 and time_since_action > lua_table.heavy_attack_1_combo_start and time_since_action < lua_table.heavy_attack_1_combo_end
+	or previous_state == state.heavy_2 and time_since_action > lua_table.heavy_attack_2_combo_start and time_since_action < lua_table.heavy_attack_2_combo_end
+	or previous_state == state.heavy_3 and time_since_action > lua_table.heavy_attack_3_combo_start and time_since_action < lua_table.heavy_attack_3_combo_end
+	then
+		combo_num = combo_num + 1
+		current_energy = current_energy - attack_cost / lua_table.combo_cost_divider
 
-			if combo_num > 3 then			--IF 4+ goods attacks
-				combo_achieved = CheckCombo()
-				if combo_achieved
-				then
+		if combo_num > 3 then			--IF 4+ goods attacks
+			combo_achieved = CheckCombo()
+			if combo_achieved then
 					combo_num = 0
 					previous_state = current_state
 					current_state = state.combo
-				end
 			end
-		else
-			combo_num = 1	--Not good timing since last attack
-			current_energy = current_energy - attack_cost
 		end
+	else
+		combo_num = 1	--Not good timing since last attack
+		current_energy = current_energy - attack_cost
 	end
 
 	return combo_achieved
