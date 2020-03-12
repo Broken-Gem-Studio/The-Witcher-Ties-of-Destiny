@@ -462,9 +462,9 @@ local function TimedAttack(attack_cost)
 		if combo_num > 3 then			--IF 4+ goods attacks
 			combo_achieved = CheckCombo()
 			if combo_achieved then
-					combo_num = 0
-					previous_state = current_state
-					current_state = state.combo
+				combo_num = 0
+				previous_state = current_state
+				current_state = state.combo
 			end
 		end
 	else
@@ -607,7 +607,7 @@ local function ActionInputs()	--Process Action Inputs
 		--2. Discard all colliders that are outside the triangle/arc of effect
 		--3. Apply LinearVelocity (lua_table.ability_push_velocity) to enemies which direction depends on their position in reference to Geralt
 
-		--lua_table.Functions:PlayAnimation("Ability", lua_table.ability_animation_speed)
+		lua_table.Functions:PlayAnimation("Ability", lua_table.ability_animation_speed)
 		previous_state = current_state
 		current_state = state.ability
 		input_given = true
@@ -783,26 +783,32 @@ function lua_table:Update()
 				then
 					_x, mov_speed_y, _z = lua_table.Functions:GetLinearVelocity()	--TODO: Check if truly needed or remove
 					lua_table.Functions:SetLinearVelocity(lua_table.evade_velocity * rec_input_x / magnitude * dt, mov_speed_y, lua_table.evade_velocity * rec_input_z / magnitude * dt)	--IMPROVE: Speed set on every frame, it would be better to just remove drag during evade
+				elseif current_state == state.light_1 or current_state == state.light_2 or current_state == state.light_3
+				then
+					--TODO: Add velocity for light attacks
+				elseif current_state == state.heavy_1 or current_state == state.heavy_2 or current_state == state.heavy_3
+				then
+					--TODO: Add velocity for heavy attacks (could be the same as light ones)
 				end
 			end
 		end
-	elseif current_state == state.down		--IF currently down
+	elseif current_state == state.down	--IF currently down
 	then
-		if lua_table.being_revived	--IF flag marks that other player is reviving
+		if lua_table.being_revived		--IF flag marks that other player is reviving
 		then
 			if not stopped_death		--IF stop mark hasn't been done yet
 			then
-				death_stopped_at = game_time			--Mark revival start (for death timer)
+				death_stopped_at = game_time				--Mark revival start (for death timer)
 				stopped_death = true						--Flag death timer stop
 				revive_started_at = death_stopped_at		--Mark revival start (for revival timer)
 
 			elseif game_time - revive_started_at > lua_table.revive_time		--IF revival complete
 			then
 				current_health = max_health_real / 2	--Get half health
-				GoDefaultState()							--Return to move or idle
+				GoDefaultState()						--Return to move or idle
 			end
 		else								--IF other player isn't reviving
-			if stopped_death		--IF death timer was stopped
+			if stopped_death				--IF death timer was stopped
 			then
 				death_started_at = death_started_at + game_time - death_stopped_at	--Resume timer
 				stopped_death = false																		--Flag timer resuming
