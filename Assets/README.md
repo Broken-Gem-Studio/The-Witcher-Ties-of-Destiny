@@ -7,4 +7,5 @@ so here I'll stipulate some important details about these:
 	- Uses GeraltScript_Old to function. This pair of .lua and .FBX is the backup for the Vertical Slice in case "_v2" isn't finished.
 **Geralt_v2**: The second version of Geralt, with most of the animations and 3 light and 3 heavy different attacks.
 	- Uses GeraltScript to function, but is under construction and some features might be missing or broken.
-**Geralt_v3**: Currently doesn't work correctly, but includes all animations + requested modifications in some of them.
+**Geralt_v3**: Includes all animations + requested modifications in some of them.
+	- Planned to use GeraltScript, but not done yet.
