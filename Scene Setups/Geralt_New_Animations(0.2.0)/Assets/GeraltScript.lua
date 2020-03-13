@@ -309,16 +309,16 @@ local function GoDefaultState()
 	then
 		if lua_table.input_walk_threshold < math.sqrt(mov_input_x ^ 2 + mov_input_z ^ 2)
 		then
-			lua_table.Functions:PlayAnimation("Run", lua_table.run_animation_speed)
+			lua_table.Functions:PlayAnimation("run", lua_table.run_animation_speed)
 			lua_table.Functions:PlayStepSound()
 			current_state = state.run
 		else
-			lua_table.Functions:PlayAnimation("Walk", lua_table.walk_animation_speed)
+			lua_table.Functions:PlayAnimation("walk", lua_table.walk_animation_speed)
 			lua_table.Functions:PlayStepSound()
 			current_state = state.walk
 		end
 	else
-		lua_table.Functions:PlayAnimation("Idle", lua_table.idle_animation_speed)
+		lua_table.Functions:PlayAnimation("idle", lua_table.idle_animation_speed)
 		lua_table.Functions:StopStepSound()
 		current_state = state.idle
 		lua_table.Functions:DeactivateParticlesEmission()	--IMPROVE: Make particle emission more complex than de/activating
@@ -357,23 +357,23 @@ local function MovementInputs()	--Process Movement Inputs
 
 			if lua_table.input_walk_threshold < math.sqrt(mov_input_x ^ 2 + mov_input_z ^ 2)		--IF great input
 			then
-				lua_table.Functions:PlayAnimation("Run", lua_table.run_animation_speed)
+				lua_table.Functions:PlayAnimation("run", lua_table.run_animation_speed)
 				lua_table.Functions:PlayStepSound()
 				current_state = state.run
 			else																					--IF small input
-				lua_table.Functions:PlayAnimation("Walk", lua_table.walk_animation_speed)
+				lua_table.Functions:PlayAnimation("walk", lua_table.walk_animation_speed)
 				lua_table.Functions:PlayStepSound()
 				current_state = state.walk
 			end
 		elseif current_state == state.walk and lua_table.input_walk_threshold < math.sqrt(mov_input_x ^ 2 + mov_input_z ^ 2)	--IF walking and big input
 		then
-			lua_table.Functions:PlayAnimation("Run", lua_table.run_animation_speed)
+			lua_table.Functions:PlayAnimation("run", lua_table.run_animation_speed)
 			lua_table.Functions:PlayStepSound()
 			previous_state = current_state
 			current_state = state.run
 		elseif current_state == state.run and lua_table.input_walk_threshold > math.sqrt(mov_input_x ^ 2 + mov_input_z ^ 2)	--IF running and small input
 		then
-			lua_table.Functions:PlayAnimation("Walk", lua_table.walk_animation_speed)
+			lua_table.Functions:PlayAnimation("walk", lua_table.walk_animation_speed)
 			lua_table.Functions:PlayStepSound()
 			previous_state = current_state
 			current_state = state.walk
@@ -397,7 +397,7 @@ local function MovementInputs()	--Process Movement Inputs
 	elseif current_state == state.run or current_state == state.walk
 	then
 		--Animation to IDLE
-		lua_table.Functions:PlayAnimation("Idle", lua_table.idle_animation_speed)
+		lua_table.Functions:PlayAnimation("idle", lua_table.idle_animation_speed)
 		lua_table.Functions:StopStepSound()
 		lua_table.Functions:DeactivateParticlesEmission()
 		previous_state = current_state
@@ -413,7 +413,7 @@ local function CheckCombo()	--Check combo performed	(ATTENTION: This should hand
 		current_action_block_time = lua_table.combo_1_duration
 		current_action_duration = lua_table.combo_1_duration
 
-		lua_table.Functions:PlayAnimation("C1_Slide", lua_table.combo_1_animation_speed)
+		lua_table.Functions:PlayAnimation("combo_1", lua_table.combo_1_animation_speed)	--Slide
 		--Play Sound
 		
 		previous_state = current_state
@@ -425,7 +425,7 @@ local function CheckCombo()	--Check combo performed	(ATTENTION: This should hand
 		current_action_block_time = lua_table.combo_2_duration
 		current_action_duration = lua_table.combo_2_duration
 
-		lua_table.Functions:PlayAnimation("C2_HighSpin", lua_table.combo_2_animation_speed)
+		lua_table.Functions:PlayAnimation("combo_2", lua_table.combo_2_animation_speed)	--Spin
 		--Play Sound
 				
 		previous_state = current_state
@@ -437,7 +437,7 @@ local function CheckCombo()	--Check combo performed	(ATTENTION: This should hand
 		current_action_block_time = lua_table.combo_3_duration
 		current_action_duration = lua_table.combo_3_duration
 
-		lua_table.Functions:PlayAnimation("C3_Jump", lua_table.combo_3_animation_speed)
+		lua_table.Functions:PlayAnimation("combo_3", lua_table.combo_3_animation_speed)	--Jump
 		--Play Sound
 
 		previous_state = current_state
@@ -449,7 +449,7 @@ local function CheckCombo()	--Check combo performed	(ATTENTION: This should hand
 		current_action_block_time = lua_table.combo_4_duration
 		current_action_duration = lua_table.combo_4_duration
 
-		lua_table.Functions:PlayAnimation("C4_ConcussiveBlows", lua_table.combo_4_animation_speed)
+		lua_table.Functions:PlayAnimation("combo_4", lua_table.combo_4_animation_speed)	--Blows
 		--Play Sound
 		
 		previous_state = current_state
@@ -493,6 +493,43 @@ local function TimedAttack(attack_cost)
 	return combo_achieved
 end
 
+local function RegularAttack(attack_type)
+	if rightside	--IF rightside
+	then
+		if combo_num > 2	--IF more than 2 succesful attacks
+		then
+			current_action_block_time = lua_table[attack_type .. "_attack_3_block_time"]	--Set duration of input block (no new actions)
+			current_action_duration = lua_table[attack_type .. "_attack_3_duration"]		--Set duration of the current action (to return to idle/move)
+
+			lua_table.Functions:PlayAnimation(attack_type .. "_3", lua_table[attack_type .. "_attack_3_animation_speed"])
+			lua_table.Functions:PlayAttackSound()
+
+			previous_state = current_state
+			current_state = state[attack_type .. "_3"]
+		else
+			current_action_block_time = lua_table[attack_type .. "_attack_1_block_time"]	--Set duration of input block (no new actions)
+			current_action_duration = lua_table[attack_type .. "_attack_1_duration"]		--Set duration of the current action (to return to idle/move)
+
+			lua_table.Functions:PlayAnimation(attack_type .. "_1", lua_table[attack_type .. "_attack_1_animation_speed"])
+			lua_table.Functions:PlayAttackSound()
+
+			previous_state = current_state
+			current_state = state[attack_type .. "_1"]
+		end
+	else			--IF leftside
+		current_action_block_time = lua_table[attack_type .. "_attack_2_block_time"]	--Set duration of input block (no new actions)
+		current_action_duration = lua_table[attack_type .. "_attack_2_duration"]		--Set duration of the current action (to return to idle/move)
+
+		lua_table.Functions:PlayAnimation(attack_type .. "_2", lua_table[attack_type .. "_attack_2_animation_speed"])
+		lua_table.Functions:PlayAttackSound()
+
+		previous_state = current_state
+		current_state = state[attack_type .. "_2"]
+	end
+
+	rightside = not rightside
+end
+
 local function ActionInputs()	--Process Action Inputs
 	local input_given = false
 	local combo_achieved = false
@@ -506,40 +543,7 @@ local function ActionInputs()	--Process Action Inputs
 
 		if not combo_achieved	--If no combo was achieved with the input, do the attack normally
 		then
-			if rightside	--IF rightside
-			then
-				if combo_num > 2	--IF more than 2 succesful attacks
-				then
-					current_action_block_time = lua_table.light_attack_3_block_time	--Set duration of input block (no new actions)
-					current_action_duration = lua_table.light_attack_3_duration		--Set duration of the current action (to return to idle/move)
-
-					lua_table.Functions:PlayAnimation("Light_3", lua_table.light_attack_3_animation_speed)
-					lua_table.Functions:PlayAttackSound()
-
-					previous_state = current_state
-					current_state = state.light_3
-				else
-					current_action_block_time = lua_table.light_attack_1_block_time	--Set duration of input block (no new actions)
-					current_action_duration = lua_table.light_attack_1_duration		--Set duration of the current action (to return to idle/move)
-
-					lua_table.Functions:PlayAnimation("Light_1", lua_table.light_attack_1_animation_speed)
-					lua_table.Functions:PlayAttackSound()
-
-					previous_state = current_state
-					current_state = state.light_1
-				end
-			else			--IF leftside
-				current_action_block_time = lua_table.light_attack_2_block_time	--Set duration of input block (no new actions)
-				current_action_duration = lua_table.light_attack_2_duration		--Set duration of the current action (to return to idle/move)
-
-				lua_table.Functions:PlayAnimation("Light_2", lua_table.light_attack_2_animation_speed)
-				lua_table.Functions:PlayAttackSound()
-
-				previous_state = current_state
-				current_state = state.light_2
-			end
-
-			rightside = not rightside
+			RegularAttack("light")
 		end
 
 		--rot_y = lua_table.Functions:GetRotationY()	--Used to move the character FORWARD when performing attacks	--TODO: Uncomment when ready
@@ -554,40 +558,7 @@ local function ActionInputs()	--Process Action Inputs
 
 		if not combo_achieved	--If no combo was achieved with the input, do the attack normally
 		then
-			if rightside	--IF rightside
-			then
-				if combo_num > 2	--IF more than 2 succesful attacks
-				then
-					current_action_block_time = lua_table.heavy_attack_3_block_time	--Set duration of input block (no new actions)
-					current_action_duration = lua_table.heavy_attack_3_duration		--Set duration of the current action (to return to idle/move)
-
-					lua_table.Functions:PlayAnimation("Heavy_3", lua_table.heavy_attack_3_animation_speed)
-					lua_table.Functions:PlayAttackSound()
-
-					previous_state = current_state
-				current_state = state.heavy_3
-				else
-					current_action_block_time = lua_table.heavy_attack_1_block_time	--Set duration of input block (no new actions)
-					current_action_duration = lua_table.heavy_attack_1_duration		--Set duration of the current action (to return to idle/move)
-
-					lua_table.Functions:PlayAnimation("Heavy_1", lua_table.heavy_attack_1_animation_speed)
-					lua_table.Functions:PlayAttackSound()
-
-					previous_state = current_state
-					current_state = state.heavy_1
-				end
-			else			--IF leftside
-				current_action_block_time = lua_table.heavy_attack_2_block_time	--Set duration of input block (no new actions)
-				current_action_duration = lua_table.heavy_attack_2_duration		--Set duration of the current action (to return to idle/move)
-				
-				lua_table.Functions:PlayAnimation("Heavy_2", lua_table.heavy_attack_2_animation_speed)
-				lua_table.Functions:PlayAttackSound()
-
-				previous_state = current_state
-				current_state = state.heavy_2
-			end
-
-			rightside = not rightside
+			RegularAttack("heavy")
 		end
 
 		--rot_y = lua_table.Functions:GetRotationY()	--Used to move the character FORWARD when performing attacks	--TODO: Uncomment when ready
@@ -603,7 +574,7 @@ local function ActionInputs()	--Process Action Inputs
 			
 		--Do Evade
 		current_energy = current_energy - lua_table.evade_cost
-		lua_table.Functions:PlayAnimation("Evade", lua_table.evade_animation_speed)
+		lua_table.Functions:PlayAnimation("evade", lua_table.evade_animation_speed)
 		previous_state = current_state
 		current_state = state.evade
 		input_given = true
@@ -621,7 +592,7 @@ local function ActionInputs()	--Process Action Inputs
 		--2. Discard all colliders that are outside the triangle/arc of effect
 		--3. Apply LinearVelocity (lua_table.ability_push_velocity) to enemies which direction depends on their position in reference to Geralt
 
-		lua_table.Functions:PlayAnimation("Ability", lua_table.ability_animation_speed)
+		lua_table.Functions:PlayAnimation("ability", lua_table.ability_animation_speed)
 		previous_state = current_state
 		current_state = state.ability
 		input_given = true
@@ -637,7 +608,7 @@ local function ActionInputs()	--Process Action Inputs
 		current_action_duration = lua_table.ultimate_duration
 
 		--Do Ultimate
-		--lua_table.Functions:PlayAnimation("Ultimate", lua_table.ultimate_animation_speed)
+		--lua_table.Functions:PlayAnimation("ultimate", lua_table.ultimate_animation_speed)
 		previous_state = current_state
 		current_state = state.ultimate
 		input_given = true	
