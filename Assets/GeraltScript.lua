@@ -21,13 +21,16 @@ local state = {
 	heavy_2 = 7,
 	heavy_3 = 8,
 
-	combo = 9,
+	combo_1 = 9,
+	combo_2 = 10,
+	combo_3 = 11,
+	combo_4 = 12,
 
-	evade = 10,
-	ability = 11,
-	ultimate = 12,
-	item = 13,
-	revive = 14
+	evade = 13,
+	ability = 14,
+	ultimate = 15,
+	item = 16,
+	revive = 17
 }
 local previous_state = state.idle	-- Previous State
 local current_state = state.idle	-- Current State
@@ -84,16 +87,11 @@ lua_table.key_notdef5 = "BUTTON_BACK"
 lua_table.key_notdef6 = "BUTTON_START"
 
 --Inputs
-local magnitude = 0
-
 local mov_input_x = 0.0	--Movement Input
 local mov_input_z = 0.0
 
 local aim_input_x = 0.0	--Aim Input
 local aim_input_z = 0.0
-
-local rec_input_x = 0.0	--Recorded Input (used to save a specific moment's input)
-local rec_input_z = 0.0
 
 local key_joystick_threshold = 0.1
 lua_table.input_walk_threshold = 0.8
@@ -101,6 +99,8 @@ lua_table.input_walk_threshold = 0.8
 --Movement
 local mov_speed_x = 0.0
 local mov_speed_z = 0.0
+
+local rot_y = 0.0
 
 local mov_speed_max_real
 local mov_speed_max_mod = 1.0
@@ -127,6 +127,8 @@ local rightside = true								-- Last attack side, marks the animation of next a
 lua_table.light_attack_damage = 0
 lua_table.light_attack_cost = 10
 
+lua_table.light_attack_movement_speed = 10.0
+
 lua_table.light_attack_1_block_time = 500			--Input block duration	(block new attacks)
 lua_table.light_attack_1_combo_start = 500			--Combo timeframe start
 lua_table.light_attack_1_combo_end = 2000			--Combo timeframe end
@@ -148,6 +150,8 @@ lua_table.light_attack_3_animation_speed = 30.0
 --Heavy Attack
 lua_table.heavy_attack_damage = 0
 lua_table.heavy_attack_cost = 20
+
+lua_table.heavy_attack_movement_speed = 10.0
 
 lua_table.heavy_attack_1_block_time = 500			--Input block duration	(block new attacks)
 lua_table.heavy_attack_1_combo_start = 500			--Combo timeframe start
@@ -226,18 +230,22 @@ local combo_stack = { 'N', 'N', 'N', 'N' }	-- Last 4 attacks performed (0=none, 
 local combo_1 = { 'H', 'L', 'L', 'L' }	--Slide Attack
 lua_table.combo_1_duration = 1500
 lua_table.combo_1_animation_speed = 35.0
+lua_table.combo_1_movement_speed = 10.0
 
 local combo_2 = { 'L', 'L', 'L', 'H' }	--High Spin
 lua_table.combo_2_duration = 1400
 lua_table.combo_2_animation_speed = 40.0
+lua_table.combo_2_movement_speed = 10.0
 
 local combo_3 = { 'L', 'H', 'H', 'L' }	--Jump Attack
 lua_table.combo_3_duration = 1800
 lua_table.combo_3_animation_speed = 40.0
+lua_table.combo_3_movement_speed = 10.0
 
 local combo_4 = { 'H', 'H', 'L', 'H' }	--Concussive Blows
 lua_table.combo_4_duration = 2000
 lua_table.combo_4_animation_speed = 50.0
+lua_table.combo_4_movement_speed = 10.0
 
 --Methods: Utility	--IMPROVE: Consider making useful generic methods part of a global script
 local function TableLength(table)	--Get TableLength
@@ -408,6 +416,9 @@ local function CheckCombo()	--Check combo performed	(ATTENTION: This should hand
 		lua_table.Functions:PlayAnimation("C1_Slide", lua_table.combo_1_animation_speed)
 		--Play Sound
 		
+		previous_state = current_state
+		current_state = state.combo_1
+
 		string_match = true
 	elseif CompareTables(combo_stack, combo_2)
 	then
@@ -417,6 +428,9 @@ local function CheckCombo()	--Check combo performed	(ATTENTION: This should hand
 		lua_table.Functions:PlayAnimation("C2_HighSpin", lua_table.combo_2_animation_speed)
 		--Play Sound
 				
+		previous_state = current_state
+		current_state = state.combo_2
+
 		string_match = true
 	elseif CompareTables(combo_stack, combo_3)
 	then
@@ -425,7 +439,10 @@ local function CheckCombo()	--Check combo performed	(ATTENTION: This should hand
 
 		lua_table.Functions:PlayAnimation("C3_Jump", lua_table.combo_3_animation_speed)
 		--Play Sound
-				
+
+		previous_state = current_state
+		current_state = state.combo_3
+
 		string_match = true
 	elseif CompareTables(combo_stack, combo_4)
 	then
@@ -434,7 +451,10 @@ local function CheckCombo()	--Check combo performed	(ATTENTION: This should hand
 
 		lua_table.Functions:PlayAnimation("C4_ConcussiveBlows", lua_table.combo_4_animation_speed)
 		--Play Sound
-				
+		
+		previous_state = current_state
+		current_state = state.combo_4
+
 		string_match = true
 	end
 
@@ -463,8 +483,6 @@ local function TimedAttack(attack_cost)
 			combo_achieved = CheckCombo()
 			if combo_achieved then
 				combo_num = 0
-				previous_state = current_state
-				current_state = state.combo
 			end
 		end
 	else
@@ -524,6 +542,7 @@ local function ActionInputs()	--Process Action Inputs
 			rightside = not rightside
 		end
 
+		--rot_y = lua_table.Functions:GetRotationY()	--Used to move the character FORWARD when performing attacks	--TODO: Uncomment when ready
 		input_given = true
 
 	elseif current_energy >= lua_table.heavy_attack_cost and lua_table.Functions:IsGamepadButton(lua_table.player_ID, lua_table.key_heavy, key_state.key_down)	--Heavy Input
@@ -571,28 +590,23 @@ local function ActionInputs()	--Process Action Inputs
 			rightside = not rightside
 		end
 
+		--rot_y = lua_table.Functions:GetRotationY()	--Used to move the character FORWARD when performing attacks	--TODO: Uncomment when ready
 		input_given = true
 
 	elseif current_energy >= lua_table.evade_cost and lua_table.Functions:IsGamepadButton(lua_table.player_ID, lua_table.key_evade, key_state.key_down)	--Evade Input
 	then
-		if mov_input_x ~= 0.0 or mov_input_z ~= 0.0	-- Evade will not perform without a direction input
-		then
-			action_started_at = game_time							--Set timer start mark
-			current_action_block_time = lua_table.evade_duration
-			current_action_duration = lua_table.evade_duration
-			
-			rec_input_x = mov_input_x	--Record evade input
-			rec_input_z = mov_input_z
+		action_started_at = game_time							--Set timer start mark
+		current_action_block_time = lua_table.evade_duration
+		current_action_duration = lua_table.evade_duration
 
-			magnitude = math.sqrt(rec_input_x ^ 2 + rec_input_x ^ 2)	--Calculate to use unit vector for direction
+		--rot_y = lua_table.Functions:GetRotationY()	--TODO: Uncomment when ready
 			
-			--Do Evade
-			current_energy = current_energy - lua_table.evade_cost
-			lua_table.Functions:PlayAnimation("Evade", lua_table.evade_animation_speed)
-			previous_state = current_state
-			current_state = state.evade
-			input_given = true
-		end
+		--Do Evade
+		current_energy = current_energy - lua_table.evade_cost
+		lua_table.Functions:PlayAnimation("Evade", lua_table.evade_animation_speed)
+		previous_state = current_state
+		current_state = state.evade
+		input_given = true
 		
 	elseif game_time - ability_started_at >= lua_table.ability_cooldown and lua_table.Functions:IsGamepadButton(lua_table.player_ID, lua_table.key_ability, key_state.key_down)	--IF cooldown over and Ability Input
 	then
@@ -781,14 +795,45 @@ function lua_table:Update()
 
 				elseif current_state == state.evade				--ELSEIF evading
 				then
-					_x, mov_speed_y, _z = lua_table.Functions:GetLinearVelocity()	--TODO: Check if truly needed or remove
-					lua_table.Functions:SetLinearVelocity(lua_table.evade_velocity * rec_input_x / magnitude * dt, mov_speed_y, lua_table.evade_velocity * rec_input_z / magnitude * dt)	--IMPROVE: Speed set on every frame, it would be better to just remove drag during evade
-				elseif current_state == state.light_1 or current_state == state.light_2 or current_state == state.light_3
+					--_x, mov_speed_y, _z = lua_table.Functions:GetLinearVelocity()	--TODO: Check if truly needed or remove
+					--lua_table.Functions:SetLinearVelocity(lua_table.evade_velocity * math.cos(rot_y) * dt, mov_speed_y, lua_table.evade_velocity * math.sin(rot_y) * dt)	--IMPROVE: Speed set on every frame bad?
+				
+				elseif current_state == state.light_1 or current_state == state.light_2 or current_state == state.light_3	--IF Light Attacking
 				then
-					--TODO: Add velocity for light attacks
-				elseif current_state == state.heavy_1 or current_state == state.heavy_2 or current_state == state.heavy_3
+					--TODO: Add velocity for light attacks (I need the GetRotation method)
+					--_x, mov_speed_y, _z = lua_table.Functions:GetLinearVelocity()	--TODO: Check if truly needed or remove
+					--lua_table.Functions:SetLinearVelocity(lua_table.light_attack_movement_speed * math.cos(rot_y) * dt, mov_speed_y, lua_table.light_attack_movement_speed * math.sin(rot_y) * dt)	--IMPROVE: Speed set on every frame bad?
+				
+				elseif current_state == state.heavy_1 or current_state == state.heavy_2 or current_state == state.heavy_3	--IF Heavy Attacking
 				then
-					--TODO: Add velocity for heavy attacks (could be the same as light ones)
+					--TODO: Add velocity for heavy attacks (I need the GetRotation method)
+					--_x, mov_speed_y, _z = lua_table.Functions:GetLinearVelocity()	--TODO: Check if truly needed or remove
+					--lua_table.Functions:SetLinearVelocity(lua_table.heavy_attack_movement_speed * math.cos(rot_y) * dt, mov_speed_y, lua_table.heavy_attack_movement_speed * math.sin(rot_y) * dt)	--IMPROVE: Speed set on every frame bad?
+				
+				elseif current_state == state.combo_1
+				then
+					--TODO: Add velocity for combo_1 attacks (I need the GetRotation method)
+					--_x, mov_speed_y, _z = lua_table.Functions:GetLinearVelocity()	--TODO: Check if truly needed or remove
+					--lua_table.Functions:SetLinearVelocity(lua_table.combo_1_movement_speed * math.cos(rot_y) * dt, mov_speed_y, lua_table.combo_1_movement_speed * math.sin(rot_y) * dt)	--IMPROVE: Speed set on every frame bad?
+					
+				elseif current_state == state.combo_2
+				then
+					--TODO: Add velocity for combo_1 attacks (I need the GetRotation method)
+					--_x, mov_speed_y, _z = lua_table.Functions:GetLinearVelocity()	--TODO: Check if truly needed or remove
+					--lua_table.Functions:SetLinearVelocity(lua_table.combo_2_movement_speed * math.cos(rot_y) * dt, mov_speed_y, lua_table.combo_2_movement_speed * math.sin(rot_y) * dt)	--IMPROVE: Speed set on every frame bad?
+					
+				elseif current_state == state.combo_3
+				then
+				--TODO: Add velocity for combo_1 attacks (I need the GetRotation method)
+					--_x, mov_speed_y, _z = lua_table.Functions:GetLinearVelocity()	--TODO: Check if truly needed or remove
+					--lua_table.Functions:SetLinearVelocity(lua_table.combo_3_movement_speed * math.cos(rot_y) * dt, mov_speed_y, lua_table.combo_3_movement_speed * math.sin(rot_y) * dt)	--IMPROVE: Speed set on every frame bad?
+					
+				elseif current_state == state.combo_4
+				then
+					--TODO: Add velocity for combo_1 attacks (I need the GetRotation method)
+					--_x, mov_speed_y, _z = lua_table.Functions:GetLinearVelocity()	--TODO: Check if truly needed or remove
+					--lua_table.Functions:SetLinearVelocity(lua_table.combo_4_movement_speed * math.cos(rot_y) * dt, mov_speed_y, lua_table.combo_4_movement_speed * math.sin(rot_y) * dt)	--IMPROVE: Speed set on every frame bad?
+					
 				end
 			end
 		end
