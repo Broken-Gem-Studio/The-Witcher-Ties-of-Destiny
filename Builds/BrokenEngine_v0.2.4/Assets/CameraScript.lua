@@ -282,9 +282,10 @@ function lua_table:Awake ()
 	 rotation_x = 180 - lua_table.camera_angle --because soemthing is wrong with the motor view that is inverted
 end
 
+local is_start = true --idk if this is an aberration or not just a bool to check inside functions
 function lua_table:Start ()
 	lua_table["Functions"]:LOG ("This Log was called from Camera Script on START")
-	local is_start = true
+	
 
 	HandleCameraMovement()
 
@@ -295,9 +296,10 @@ function lua_table:Start ()
 	is_start = false
 end
 
+local is_update = true -- Double sin?
 function lua_table:Update ()
 	dt = lua_table["Functions"]:dt ()
-	is_update = true
+	
 	
 	HandleCameraMovement()
 
