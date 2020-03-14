@@ -4,6 +4,60 @@ function	GetTableEquipmentGenerator()
 local lua_table = {}
 lua_table.Functions = Debug.Scripting()
 
+--Tier parameter setup
+lua_table.num_tiers = 5
+local tier_parameters = {
+	[1] = {
+		name = "Common",
+		item_value_cap = 0,
+
+		upgrade_type_cap = 0,
+		upgrade_level_cap = 0,
+
+		chance_of_effect = 0
+	},
+
+	[2] = {
+		name = "Rare",
+		item_value_cap = 0,
+
+		upgrade_type_cap = 0,
+		upgrade_level_cap = 0,
+
+		chance_of_effect = 0
+	},
+
+	[3] = {
+		name = "Extraordinary",
+		item_value_cap = 0,
+
+		upgrade_type_cap = 0,
+		upgrade_level_cap = 0,
+
+		chance_of_effect = 0
+	},
+
+	[4] = {
+		name = "Epic",
+		item_value_cap = 0,
+
+		upgrade_type_cap = 0,
+		upgrade_level_cap = 0,
+
+		chance_of_effect = 0
+	},
+
+	[5] = {
+		name = "Legendary",
+		item_value_cap = 0,
+
+		upgrade_type_cap = 0,
+		upgrade_level_cap = 0,
+
+		chance_of_effect = 0
+	}
+}
+
 --Item parameters
 local special_effects = {
 	none = 0,
@@ -26,75 +80,84 @@ local special_effects = {
 	energy_cap_boost = 8,
 	energy_reg_boost = 9,
 
-	ability_cd_reduction 10,
+	ability_cd_reduction = 10,
 
 	--On hit
 	health_steal = 11,
 	energy_steal = 12,
 	ability_steal = 13,
-	ultimate_steal = 14
+	ultimate_steal = 14,
+
+	max_effects = 15
+}
+
+local effect_names = {
+	"Boredom",
+	"Immortality",
+	"Luck",
+	"Accuracy",
+	"Power",
+	"Swiftness",
+	"Endurance",
+	"Resurgence",
+	"Capacity",
+	"Recovery",
+	"Mastery",
+	"Lifesteal",
+	"Stamina Drain",
+	"Mastery Drain",
+	"Buildup"
 }
 
 --Generated Item
 local generated_item = {
-	health = 1.0,
-	damage = 1.0,
-	speed = 1.0,
+	name = "none"
+	tier = 0,
 
-	effect_val = 1.0,
-	effect_type = 0
+	health_upgrade_mod = 1.0,
+	health_upgrade_level = 0
+
+	damage_upgrade_mod = 1.0,
+	damage_upgrade_level = 0
+
+	speed_upgrade_mod = 1.0,
+	speed_upgrade_level = 0
+
+	effect_upgrade_mod = 1.0,
+	effect_upgrade_level = 0,
+	effect_upgrade_type = 0
 }
 
---Tier parameter setup
-lua_table.num_tiers = 5
-local tier_parameters = {
-	[1] = {
-		item_value_score = 0
-		item_value_cap = 0
+--Generator Score Values
+local health_upgrade_level = 0
+local health_upgrade_direction = 0
+lua_table.health_mod_per_level = 0.05
+lua_table.health_increase_cost = 2
+lua_table.health_decrease_intake = 2
 
-		upgrade_type_cap = 0
-		upgrade_value_cap = 0
-	},
+local damage_upgrade_level = 0
+local damage_upgrade_direction = 0
+lua_table.damage_mod_per_level = 0.05
+lua_table.damage_increase_cost = 2
+lua_table.damage_decrease_intake = 2
 
-	[2] = {
-		item_value_score = 0
-		item_value_cap = 0
+local speed_upgrade_level = 0
+local speed_upgrade_direction = 0
+lua_table.speed_mod_per_level = 0.05
+lua_table.speed_increase_cost = 2
+lua_table.speed_decrease_intake = 2
 
-		upgrade_type_cap = 0
-		upgrade_value_cap = 0
-	},
-
-	[3] = {
-		item_value_score = 0
-		item_value_cap = 0
-
-		upgrade_type_cap = 0
-		upgrade_value_cap = 0
-	},
-
-	[4] = {
-		item_value_score = 0
-		item_value_cap = 0
-
-		upgrade_type_cap = 0
-		upgrade_value_cap = 0
-	},
-
-	[5] = {
-		item_value_score = 0
-		item_value_cap = 0
-
-		upgrade_type_cap = 0
-		upgrade_value_cap = 0
-	}
-}
+lua_table.effect_increase_cost = 3
+--TODO: Make a "map" of each effect "level up" with its correspondant numerical effect increase
 
 --Generator Parameters
 local item_value_score = 0		--Equipment score
 local item_value_cap = 0		--Equipment max score
 
+local curr_upgrade_types = 0	--Upgrade types
 local upgrade_type_cap = 0		--Upgrade type cap
-local upgrade_value_cap = 0		--Upgrade size cap
+
+local upgrade_level_cap = 0		--Upgrade size cap
 
 --Request item tier to be selected based on a difficulty number
 local function SelectTier(difficulty)	--Use a difficulty NUMBER as parameter
@@ -136,23 +199,136 @@ local function SelectTier(difficulty)	--Use a difficulty NUMBER as parameter
 end
 
 local function SetupGenerator(tier)	--Use the tier's number as parameter
-	item_value_score = tier_parameters[tier].item_value_score
 	item_value_cap = tier_parameters[tier].item_value_cap
 
 	upgrade_type_cap = tier_parameters[tier].upgrade_type_cap
-	upgrade_value_cap = tier_parameters[tier].upgrade_value_cap
+	upgrade_level_cap = tier_parameters[tier].upgrade_level_cap
+
+	chance_of_effect = tier_parameters[tier].chance_of_effect
+end
+
+local function ResetEquipment()
+	generated_item.tier = 0,
+
+	generated_item.health_upgrade_mod = 1.0,
+	generated_item.health_upgrade_level = 0
+
+	generated_item.damage_upgrade_mod = 1.0,
+	generated_item.damage_upgrade_level = 0
+
+	generated_item.speed_upgrade_mod = 1.0,
+	generated_item.speed_upgrade_level = 0
+
+	generated_item.effect_upgrade_mod = 1.0,
+	generated_item.effect_upgrade_level = 0,
+	generated_item.effect_upgrade_type = 0
+end
+
+local function GenerateItemName()
+	--NAME 1: Tier
+	local tier_name = tier_parameters[generated_item.tier].name
+
+	--NAME 2: Highest Stat
+	local obj_name = ""
+
+	if health_upgrade_level > damage_upgrade_level and health_upgrade_level >= speed_upgrade_level
+	then
+		obj_name = "Chestplate"
+	elseif damage_upgrade_level > speed_upgrade_level and damage_upgrade_level >= health_upgrade_level
+	then
+		obj_name = "Gloves"
+	elseif speed_upgrade_level > health_upgrade_level and speed_upgrade_level >= damage_upgrade_level
+	then
+		obj_name = "Boots"
+	else
+		obj_name = "Ring"
+	end
+
+	--NAME 3: Special Effect
+	local eff_name = ""
+
+	if generated_item.effect_upgrade_type == special_effects.none
+	then
+		if health_upgrade_level > damage_upgrade_level and health_upgrade_level >= speed_upgrade_level
+		then
+			eff_name = "Health"
+		elseif damage_upgrade_level > speed_upgrade_level and damage_upgrade_level >= health_upgrade_level
+		then
+			eff_name = "Strength"
+		elseif speed_upgrade_level > health_upgrade_level and speed_upgrade_level >= damage_upgrade_level
+		then
+			eff_name = "Speed"
+		else
+			eff_name = "Balance"
+		end
+	else
+		eff_name = effect_names[generated_item.effect_upgrade_type]
+	end
+
+	--Set name: tier + highest stat + special effect
+	generated_item.name = tier_name .. " " .. obj_name .. " of " .. eff_name
 end
 
 local function GenerateEquipment()
-	--TODO: Rest of equipment generation
+	ResetEquipment()
+	item_value_score = 0
+
+	local rng = lua_table.Functions:RNG(1, 101)
+	if rng <= chance_of_effect
+	then
+		generated_item.effect_upgrade_type = lua_table.Functions:RNG(1, special_effects.max_effects)
+	end
+
+	while item_value_score < item_value_cap
+	do
+		rng = lua_table.Functions:RNG(1, 5)
+
+		if rng == 1 then	--IF health
+			if health_upgrade_direction == 0 and curr_upgrade_types < upgrade_type_cap then	--If first time and room for stat type
+				rng = lua_table.Functions:RNG(1, 3)
+
+				if rng == 1 then
+					health_upgrade_direction = 1
+				else
+					health_upgrade_direction = -1
+				end
+
+				curr_upgrade_types = curr_upgrade_types + 1
+			end
+
+			if health_upgrade_direction > 0 and health_upgrade_level < upgrade_level_cap			--If positive upgrade and positive cap not reached
+			then
+				generated_item.health_upgrade_mod = generated_item.health_upgrade_mod + health_mod_per_level
+				item_value_score = item_value_score + lua_table.health_increase_cost
+				health_upgrade_level = health_upgrade_level + 1
+
+			elseif health_upgrade_direction < 0 and health_upgrade_level > -upgrade_level_cap / 2	--If negative upgrade and negative cap (-positive/2) not reached
+			then
+				generated_item.health_upgrade_mod = generated_item.health_upgrade_mod - health_mod_per_level
+				item_value_score = item_value_score - lua_table.health_decrease_intake
+				health_upgrade_level = health_upgrade_level - 1	
+			end
+
+		elseif rng == 2 then	--Damage
+			--TODO: Damage
+		elseif rng == 3 then	--Speed
+			--TODO: Speed
+		elseif generated_item.effect_type ~= special_effects.none and rng == 4 then
+			--TODO: Effects
+		end
+	end
+
+	GenerateItemName()
 end
 
 function RequestRandomEquipment(curr_difficulty)
-	SetupGenerator(SelectTier(curr_difficulty))
+	generated_item.tier = SelectTier(curr_difficulty)
+	SetupGenerator(generated_item.tier)
 	return GenerateEquipment()
 end
 
 function RequestSpecificEquipment(tier)
+	generated_item.tier = tier
 	SetupGenerator(tier)
 	return GenerateEquipment()
 end
@@ -173,7 +349,7 @@ return lua_table
 end
 
 --For the curious, how SelectTier() works:
-local function Explanation_SelectTier_Explanation(difficulty)	--Use a difficulty number as parameter
+local function _SelectTier_(difficulty)	--Use a difficulty number as parameter
 
 	--0. A random number from 1 to 100 is chosen
 	local selected_tier = 0
