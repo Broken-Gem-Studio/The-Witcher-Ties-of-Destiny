@@ -1,8 +1,9 @@
-local Functions = Debug.Scripting()
-
-function	GetTableGeraltScript()
+function	GetTableGeraltScript_v3()
 local lua_table = {}
-lua_table.Functions = Debug.Scripting()
+lua_table.DebugFunctions = Scripting.Debug()
+lua_table.ElementFunctions = Scripting.Elements()
+lua_table.SystemFunctions = Scripting.Systems()
+lua_table.InputFunctions = Scripting.Inputs()
 
 --State Machine
 local state = {
@@ -314,7 +315,7 @@ local function PushBack(array, new_val)		--Pushes back all values and inserts a 
 end
 
 local function PerfGameTime()
-	return lua_table.Functions:GameTime() * 1000
+	return lua_table.DebugFunctions:GameTime() * 1000
 end
 
 --Methods: Specific
@@ -325,19 +326,19 @@ local function GoDefaultState()
 	then
 		if lua_table.input_walk_threshold < math.sqrt(mov_input.used_input_x ^ 2 + mov_input.used_input_z ^ 2)
 		then
-			lua_table.Functions:PlayAnimation("run", lua_table.run_animation_speed)
-			lua_table.Functions:PlayStepSound()
+			lua_table.SystemFunctions:PlayAnimation("run", lua_table.run_animation_speed)
+			lua_table.SystemFunctions:PlayStepSound()
 			current_state = state.run
 		else
-			lua_table.Functions:PlayAnimation("walk", lua_table.walk_animation_speed)
-			lua_table.Functions:PlayStepSound()
+			lua_table.SystemFunctions:PlayAnimation("walk", lua_table.walk_animation_speed)
+			lua_table.SystemFunctions:PlayStepSound()
 			current_state = state.walk
 		end
 	else
-		lua_table.Functions:PlayAnimation("idle", lua_table.idle_animation_speed)
-		lua_table.Functions:StopStepSound()
+		lua_table.SystemFunctions:PlayAnimation("idle", lua_table.idle_animation_speed)
+		lua_table.SystemFunctions:StopStepSound()
 		current_state = state.idle
-		lua_table.Functions:DeactivateParticlesEmission()	--IMPROVE: Make particle emission more complex than de/activating
+		lua_table.SystemFunctions:DeactivateParticlesEmission()	--IMPROVE: Make particle emission more complex than de/activating
 	end
 
 	rightside = true
@@ -345,8 +346,8 @@ end
 
 --Methods: Inputs
 local function JoystickInputs(key_string, input_table)
-	input_table.real_input_x = lua_table.Functions:GetAxisValue(lua_table.player_ID, key_string .. "X", 0.01)	--Get accurate inputs
-	input_table.real_input_z = lua_table.Functions:GetAxisValue(lua_table.player_ID, key_string .. "Y", 0.01)
+	input_table.real_input_x = lua_table.InputFunctions:GetAxisValue(lua_table.player_ID, key_string .. "X", 0.01)	--Get accurate inputs
+	input_table.real_input_z = lua_table.InputFunctions:GetAxisValue(lua_table.player_ID, key_string .. "Y", 0.01)
 
 	if input_table.real_input_x == input_table.prev_input_x and input_table.real_input_z == input_table.prev_input_z	--IF both inputs exactly the same as last frame
 	and math.abs(input_table.real_input_x) < key_joystick_threshold and math.abs(input_table.real_input_z) < key_joystick_threshold			--and IF  both inputs under joystick threshold
@@ -362,18 +363,18 @@ end
 local function KeyboardInputs()	--Process Debug Keyboard Inputs
 	mov_input.used_input_x, mov_input.used_input_z = 0.0, 0.0
 	
-	if lua_table.Functions:KeyRepeat("D")
+	if lua_table.InputFunctions:KeyRepeat("D")
 	then
 		mov_input.used_input_x = 2.0
-	elseif lua_table.Functions:KeyRepeat("A")
+	elseif lua_table.InputFunctions:KeyRepeat("A")
 	then
 		mov_input.used_input_x = -2.0
 	end
 	
-	if lua_table.Functions:KeyRepeat("S")
+	if lua_table.InputFunctions:KeyRepeat("S")
 	then
 		mov_input.used_input_z = -2.0
-	elseif lua_table.Functions:KeyRepeat("W")
+	elseif lua_table.InputFunctions:KeyRepeat("W")
 	then
 		mov_input.used_input_z = 2.0
 	end
@@ -388,49 +389,49 @@ local function MovementInputs()	--Process Movement Inputs
 
 			if lua_table.input_walk_threshold < math.sqrt(mov_input.used_input_x ^ 2 + mov_input.used_input_z ^ 2)		--IF great input
 			then
-				lua_table.Functions:PlayAnimation("run", lua_table.run_animation_speed)
-				lua_table.Functions:PlayStepSound()
+				lua_table.SystemFunctions:PlayAnimation("run", lua_table.run_animation_speed)
+				lua_table.SystemFunctions:PlayStepSound()
 				current_state = state.run
 			else																					--IF small input
-				lua_table.Functions:PlayAnimation("walk", lua_table.walk_animation_speed)
-				lua_table.Functions:PlayStepSound()
+				lua_table.SystemFunctions:PlayAnimation("walk", lua_table.walk_animation_speed)
+				lua_table.SystemFunctions:PlayStepSound()
 				current_state = state.walk
 			end
 		elseif current_state == state.walk and lua_table.input_walk_threshold < math.sqrt(mov_input.used_input_x ^ 2 + mov_input.used_input_z ^ 2)	--IF walking and big input
 		then
-			lua_table.Functions:PlayAnimation("run", lua_table.run_animation_speed)
-			lua_table.Functions:PlayStepSound()
+			lua_table.SystemFunctions:PlayAnimation("run", lua_table.run_animation_speed)
+			lua_table.SystemFunctions:PlayStepSound()
 			previous_state = current_state
 			current_state = state.run
 		elseif current_state == state.run and lua_table.input_walk_threshold > math.sqrt(mov_input.used_input_x ^ 2 + mov_input.used_input_z ^ 2)	--IF running and small input
 		then
-			lua_table.Functions:PlayAnimation("walk", lua_table.walk_animation_speed)
-			lua_table.Functions:PlayStepSound()
+			lua_table.SystemFunctions:PlayAnimation("walk", lua_table.walk_animation_speed)
+			lua_table.SystemFunctions:PlayStepSound()
 			previous_state = current_state
 			current_state = state.walk
 		end
 
-		lua_table.Functions:ActivateParticlesEmission()
+		lua_table.SystemFunctions:ActivateParticlesEmission()
 
 		mov_speed_x = mov_speed_max_real * mov_input.used_input_x	--Joystick input directly translates to speed, no acceleration
 		mov_speed_z = mov_speed_max_real * mov_input.used_input_z
 
-		_x, mov_speed_y, _z = lua_table.Functions:GetLinearVelocity()	--Set velocity
-		lua_table.Functions:SetLinearVelocity(mov_speed_x * dt, mov_speed_y, mov_speed_z * dt)
+		_x, mov_speed_y, _z = lua_table.SystemFunctions:GetLinearVelocity()	--Set velocity
+		lua_table.SystemFunctions:SetLinearVelocity(mov_speed_x * dt, mov_speed_y, mov_speed_z * dt)
 
-		dir_x, _y, dir_z = lua_table.Functions:GetPosition()	--Rotate to velocity direction
+		dir_x, _y, dir_z = lua_table.ElementFunctions:GetPosition()	--Rotate to velocity direction
 
 		dir_x = dir_x + mov_speed_x
 		dir_z = dir_z + mov_speed_z
 
-		lua_table.Functions:LookAt(dir_x, _y, dir_z)
+		lua_table.ElementFunctions:LookAt(dir_x, _y, dir_z)
 
 	elseif current_state == state.run or current_state == state.walk
 	then
 		--Animation to IDLE
-		lua_table.Functions:PlayAnimation("idle", lua_table.idle_animation_speed)
-		lua_table.Functions:StopStepSound()
-		lua_table.Functions:DeactivateParticlesEmission()
+		lua_table.SystemFunctions:PlayAnimation("idle", lua_table.idle_animation_speed)
+		lua_table.SystemFunctions:StopStepSound()
+		lua_table.SystemFunctions:DeactivateParticlesEmission()
 		previous_state = current_state
 		current_state = state.idle
 	end
@@ -444,7 +445,7 @@ local function CheckCombo()	--Check combo performed	(ATTENTION: This should hand
 		current_action_block_time = lua_table.combo_1_duration
 		current_action_duration = lua_table.combo_1_duration
 
-		lua_table.Functions:PlayAnimation("combo_1", lua_table.combo_1_animation_speed)	--Slide
+		lua_table.SystemFunctions:PlayAnimation("combo_1", lua_table.combo_1_animation_speed)	--Slide
 		--Play Sound
 		
 		previous_state = current_state
@@ -456,7 +457,7 @@ local function CheckCombo()	--Check combo performed	(ATTENTION: This should hand
 		current_action_block_time = lua_table.combo_2_duration
 		current_action_duration = lua_table.combo_2_duration
 
-		lua_table.Functions:PlayAnimation("combo_2", lua_table.combo_2_animation_speed)	--Spin
+		lua_table.SystemFunctions:PlayAnimation("combo_2", lua_table.combo_2_animation_speed)	--Spin
 		--Play Sound
 				
 		previous_state = current_state
@@ -468,7 +469,7 @@ local function CheckCombo()	--Check combo performed	(ATTENTION: This should hand
 		current_action_block_time = lua_table.combo_3_duration
 		current_action_duration = lua_table.combo_3_duration
 
-		lua_table.Functions:PlayAnimation("combo_3", lua_table.combo_3_animation_speed)	--Jump
+		lua_table.SystemFunctions:PlayAnimation("combo_3", lua_table.combo_3_animation_speed)	--Jump
 		--Play Sound
 
 		previous_state = current_state
@@ -480,7 +481,7 @@ local function CheckCombo()	--Check combo performed	(ATTENTION: This should hand
 	-- 	current_action_block_time = lua_table.combo_4_duration
 	-- 	current_action_duration = lua_table.combo_4_duration
 
-	-- 	lua_table.Functions:PlayAnimation("combo_4", lua_table.combo_4_animation_speed)	--Blows
+	-- 	lua_table.SystemFunctions:PlayAnimation("combo_4", lua_table.combo_4_animation_speed)	--Blows
 	-- 	--Play Sound
 		
 	-- 	previous_state = current_state
@@ -532,8 +533,8 @@ local function RegularAttack(attack_type)
 			current_action_block_time = lua_table[attack_type .. "_attack_3_block_time"]	--Set duration of input block (no new actions)
 			current_action_duration = lua_table[attack_type .. "_attack_3_duration"]		--Set duration of the current action (to return to idle/move)
 
-			lua_table.Functions:PlayAnimation(attack_type .. "_3", lua_table[attack_type .. "_attack_3_animation_speed"])
-			lua_table.Functions:PlayAttackSound()
+			lua_table.SystemFunctions:PlayAnimation(attack_type .. "_3", lua_table[attack_type .. "_attack_3_animation_speed"])
+			lua_table.SystemFunctions:PlayAttackSound()
 
 			previous_state = current_state
 			current_state = state[attack_type .. "_3"]
@@ -541,8 +542,8 @@ local function RegularAttack(attack_type)
 			current_action_block_time = lua_table[attack_type .. "_attack_1_block_time"]	--Set duration of input block (no new actions)
 			current_action_duration = lua_table[attack_type .. "_attack_1_duration"]		--Set duration of the current action (to return to idle/move)
 
-			lua_table.Functions:PlayAnimation(attack_type .. "_1", lua_table[attack_type .. "_attack_1_animation_speed"])
-			lua_table.Functions:PlayAttackSound()
+			lua_table.SystemFunctions:PlayAnimation(attack_type .. "_1", lua_table[attack_type .. "_attack_1_animation_speed"])
+			lua_table.SystemFunctions:PlayAttackSound()
 
 			previous_state = current_state
 			current_state = state[attack_type .. "_1"]
@@ -551,8 +552,8 @@ local function RegularAttack(attack_type)
 		current_action_block_time = lua_table[attack_type .. "_attack_2_block_time"]	--Set duration of input block (no new actions)
 		current_action_duration = lua_table[attack_type .. "_attack_2_duration"]		--Set duration of the current action (to return to idle/move)
 
-		lua_table.Functions:PlayAnimation(attack_type .. "_2", lua_table[attack_type .. "_attack_2_animation_speed"])
-		lua_table.Functions:PlayAttackSound()
+		lua_table.SystemFunctions:PlayAnimation(attack_type .. "_2", lua_table[attack_type .. "_attack_2_animation_speed"])
+		lua_table.SystemFunctions:PlayAttackSound()
 
 		previous_state = current_state
 		current_state = state[attack_type .. "_2"]
@@ -565,7 +566,7 @@ local function ActionInputs()	--Process Action Inputs
 	local input_given = false
 	local combo_achieved = false
 	
-	if current_energy >= lua_table.light_attack_cost and lua_table.Functions:IsGamepadButton(lua_table.player_ID, lua_table.key_light, key_state.key_down)		--Light Input
+	if current_energy >= lua_table.light_attack_cost and lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_light, key_state.key_down)		--Light Input
 	then
 		action_started_at = game_time		--Set timer start mark
 		PushBack(combo_stack, 'L')			--Add new input to stack
@@ -577,10 +578,10 @@ local function ActionInputs()	--Process Action Inputs
 			RegularAttack("light")
 		end
 
-		--rot_y = lua_table.Functions:GetRotationY()	--Used to move the character FORWARD when performing attacks	--TODO: Uncomment when ready
+		--rot_y = lua_table.ElementFunctions:GetRotationY()	--Used to move the character FORWARD when performing attacks	--TODO: Uncomment when ready
 		input_given = true
 
-	elseif current_energy >= lua_table.heavy_attack_cost and lua_table.Functions:IsGamepadButton(lua_table.player_ID, lua_table.key_heavy, key_state.key_down)	--Heavy Input
+	elseif current_energy >= lua_table.heavy_attack_cost and lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_heavy, key_state.key_down)	--Heavy Input
 	then
 		action_started_at = game_time		--Set timer start mark
 		PushBack(combo_stack, 'H')			--Add new input to stack
@@ -592,25 +593,25 @@ local function ActionInputs()	--Process Action Inputs
 			RegularAttack("heavy")
 		end
 
-		--rot_y = lua_table.Functions:GetRotationY()	--Used to move the character FORWARD when performing attacks	--TODO: Uncomment when ready
+		--rot_y = lua_table.ElementFunctions:GetRotationY()	--Used to move the character FORWARD when performing attacks	--TODO: Uncomment when ready
 		input_given = true
 
-	elseif current_energy >= lua_table.evade_cost and lua_table.Functions:IsGamepadButton(lua_table.player_ID, lua_table.key_evade, key_state.key_down)	--Evade Input
+	elseif current_energy >= lua_table.evade_cost and lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_evade, key_state.key_down)	--Evade Input
 	then
 		action_started_at = game_time							--Set timer start mark
 		current_action_block_time = lua_table.evade_duration
 		current_action_duration = lua_table.evade_duration
 
-		--rot_y = lua_table.Functions:GetRotationY()	--TODO: Uncomment when ready
+		--rot_y = lua_table.ElementFunctions:GetRotationY()	--TODO: Uncomment when ready
 			
 		--Do Evade
 		current_energy = current_energy - lua_table.evade_cost
-		lua_table.Functions:PlayAnimation("evade", lua_table.evade_animation_speed)
+		lua_table.SystemFunctions:PlayAnimation("evade", lua_table.evade_animation_speed)
 		previous_state = current_state
 		current_state = state.evade
 		input_given = true
 		
-	elseif game_time - ability_started_at >= lua_table.ability_cooldown and lua_table.Functions:IsGamepadButton(lua_table.player_ID, lua_table.key_ability, key_state.key_down)	--IF cooldown over and Ability Input
+	elseif game_time - ability_started_at >= lua_table.ability_cooldown and lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_ability, key_state.key_down)	--IF cooldown over and Ability Input
 	then
 		action_started_at = game_time								--Set timer start mark
 		ability_started_at = action_started_at
@@ -623,14 +624,14 @@ local function ActionInputs()	--Process Action Inputs
 		--2. Discard all colliders that are outside the triangle/arc of effect
 		--3. Apply LinearVelocity (lua_table.ability_push_velocity) to enemies which direction depends on their position in reference to Geralt
 
-		lua_table.Functions:PlayAnimation("ability", lua_table.ability_animation_speed)
+		lua_table.SystemFunctions:PlayAnimation("ability", lua_table.ability_animation_speed)
 		previous_state = current_state
 		current_state = state.ability
 		input_given = true
 
 	elseif current_ultimate >= max_ultimate
-	and lua_table.Functions:IsTriggerState(lua_table.player_ID, lua_table.key_ultimate_1, key_state.key_repeat)
-	and lua_table.Functions:IsTriggerState(lua_table.player_ID, lua_table.key_ultimate_2, key_state.key_repeat)	--Ultimate Input
+	and lua_table.InputFunctions:IsTriggerState(lua_table.player_ID, lua_table.key_ultimate_1, key_state.key_repeat)
+	and lua_table.InputFunctions:IsTriggerState(lua_table.player_ID, lua_table.key_ultimate_2, key_state.key_repeat)	--Ultimate Input
 	then
 		action_started_at = game_time							--Set timer start mark
 		ultimate_started_at = action_started_at
@@ -639,12 +640,12 @@ local function ActionInputs()	--Process Action Inputs
 		current_action_duration = lua_table.ultimate_duration
 
 		--Do Ultimate
-		--lua_table.Functions:PlayAnimation("ultimate", lua_table.ultimate_animation_speed)
+		--lua_table.SystemFunctions:PlayAnimation("ultimate", lua_table.ultimate_animation_speed)
 		previous_state = current_state
 		current_state = state.ultimate
 		input_given = true	
 
-	elseif lua_table.Functions:IsGamepadButton(lua_table.player_ID, lua_table.key_use_item, key_state.key_down)	--Object Input
+	elseif lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_use_item, key_state.key_down)	--Object Input
 	then
 		action_started_at = game_time							--Set timer start mark
 
@@ -653,7 +654,7 @@ local function ActionInputs()	--Process Action Inputs
 		current_state = state.item
 		input_given = true
 
-	elseif lua_table.Functions:IsGamepadButton(lua_table.player_ID, lua_table.key_interact, key_state.key_down)	--Revive Input
+	elseif lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_interact, key_state.key_down)	--Revive Input
 	then
 		action_started_at = game_time							--Set timer start mark
 
@@ -665,27 +666,27 @@ local function ActionInputs()	--Process Action Inputs
 
 	if input_given	--TODO: This is trashy, it works for the current particle demonstration but it isn't the functionality we really want at the moment
 	then
-		lua_table.Functions:ActivateParticlesEmission()
+		lua_table.SystemFunctions:ActivateParticlesEmission()
 	end
 
 	return input_given
 end
 
 local function SecondaryInputs()	--Process Secondary Inputs
-	if lua_table.Functions:IsGamepadButton(lua_table.player_ID, lua_table.key_pickup_item, key_state.key_down)			--Pickup Item
+	if lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_pickup_item, key_state.key_down)			--Pickup Item
 	then
 		--IF consumable (increase counter)
 		--ELSEIF gear (replace current gear)
 	
-	elseif lua_table.Functions:IsGamepadButton(lua_table.player_ID, lua_table.key_prev_consumable, key_state.key_down)	--Previous Consumable
+	elseif lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_prev_consumable, key_state.key_down)	--Previous Consumable
 	then
 		--GO TO PREV CONSUMABLE
 	
-	elseif lua_table.Functions:IsGamepadButton(lua_table.player_ID, lua_table.key_next_consumable, key_state.key_down)	--Next Consumable
+	elseif lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_next_consumable, key_state.key_down)	--Next Consumable
 	then
 		--GO TO NEXT CONSUMABLE
 
-	elseif lua_table.Functions:IsGamepadButton(lua_table.player_ID, lua_table.key_drop_consumable, key_state.key_down)	--Drop Consumable
+	elseif lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_drop_consumable, key_state.key_down)	--Drop Consumable
 	then
 		--DROP CURRENT CONSUMABLE
 	end
@@ -693,7 +694,7 @@ end
 
 --Main Code
 function lua_table:Awake()
-	lua_table.Functions:LOG("This Log was called from LUA testing a table on AWAKE")
+	lua_table.DebugFunctions:LOG("This Log was called from LUA testing a table on AWAKE")
 
 	--Health
 	max_health_real = lua_table.max_health_orig * max_health_mod
@@ -718,12 +719,12 @@ function lua_table:Awake()
 end
 
 function lua_table:Start()
-    lua_table.Functions:LOG("This Log was called from LUA testing a table on START")
+    lua_table.DebugFunctions:LOG("This Log was called from LUA testing a table on START")
 end
 
 function lua_table:Update()
 
-	dt = lua_table.Functions:dt()
+	dt = lua_table.DebugFunctions:DT()
 	game_time = PerfGameTime()
 
 	if current_state >= state.idle	--IF alive
@@ -731,7 +732,7 @@ function lua_table:Update()
 		if current_health <= 0
 		then
 			--Animation to DEATH
-			--lua_table.Functions:SetVelocity(0.0, 0.0, 0.0)
+			--lua_table.SystemFunctions:SetVelocity(0.0, 0.0, 0.0)
 			--death_started_at = game_time
 			previous_state = current_state
 			current_state = state.down
@@ -794,44 +795,44 @@ function lua_table:Update()
 
 				elseif current_state == state.evade				--ELSEIF evading
 				then
-					--_x, mov_speed_y, _z = lua_table.Functions:GetLinearVelocity()	--TODO: Check if truly needed or remove
-					--lua_table.Functions:SetLinearVelocity(lua_table.evade_velocity * math.cos(rot_y) * dt, mov_speed_y, lua_table.evade_velocity * math.sin(rot_y) * dt)	--IMPROVE: Speed set on every frame bad?
+					--_x, mov_speed_y, _z = lua_table.SystemFunctions:GetLinearVelocity()	--TODO: Check if truly needed or remove
+					--lua_table.SystemFunctions:SetLinearVelocity(lua_table.evade_velocity * math.cos(rot_y) * dt, mov_speed_y, lua_table.evade_velocity * math.sin(rot_y) * dt)	--IMPROVE: Speed set on every frame bad?
 				
 				elseif current_state == state.light_1 or current_state == state.light_2 or current_state == state.light_3	--IF Light Attacking
 				then
 					--TODO: Add velocity for light attacks (I need the GetRotation method)
-					--_x, mov_speed_y, _z = lua_table.Functions:GetLinearVelocity()	--TODO: Check if truly needed or remove
-					--lua_table.Functions:SetLinearVelocity(lua_table.light_attack_movement_speed * math.cos(rot_y) * dt, mov_speed_y, lua_table.light_attack_movement_speed * math.sin(rot_y) * dt)	--IMPROVE: Speed set on every frame bad?
+					--_x, mov_speed_y, _z = lua_table.SystemFunctions:GetLinearVelocity()	--TODO: Check if truly needed or remove
+					--lua_table.SystemFunctions:SetLinearVelocity(lua_table.light_attack_movement_speed * math.cos(rot_y) * dt, mov_speed_y, lua_table.light_attack_movement_speed * math.sin(rot_y) * dt)	--IMPROVE: Speed set on every frame bad?
 				
 				elseif current_state == state.heavy_1 or current_state == state.heavy_2 or current_state == state.heavy_3	--IF Heavy Attacking
 				then
 					--TODO: Add velocity for heavy attacks (I need the GetRotation method)
-					--_x, mov_speed_y, _z = lua_table.Functions:GetLinearVelocity()	--TODO: Check if truly needed or remove
-					--lua_table.Functions:SetLinearVelocity(lua_table.heavy_attack_movement_speed * math.cos(rot_y) * dt, mov_speed_y, lua_table.heavy_attack_movement_speed * math.sin(rot_y) * dt)	--IMPROVE: Speed set on every frame bad?
+					--_x, mov_speed_y, _z = lua_table.SystemFunctions:GetLinearVelocity()	--TODO: Check if truly needed or remove
+					--lua_table.SystemFunctions:SetLinearVelocity(lua_table.heavy_attack_movement_speed * math.cos(rot_y) * dt, mov_speed_y, lua_table.heavy_attack_movement_speed * math.sin(rot_y) * dt)	--IMPROVE: Speed set on every frame bad?
 				
 				elseif current_state == state.combo_1
 				then
 					--TODO: Add velocity for combo_1 attacks (I need the GetRotation method)
-					--_x, mov_speed_y, _z = lua_table.Functions:GetLinearVelocity()	--TODO: Check if truly needed or remove
-					--lua_table.Functions:SetLinearVelocity(lua_table.combo_1_movement_speed * math.cos(rot_y) * dt, mov_speed_y, lua_table.combo_1_movement_speed * math.sin(rot_y) * dt)	--IMPROVE: Speed set on every frame bad?
+					--_x, mov_speed_y, _z = lua_table.SystemFunctions:GetLinearVelocity()	--TODO: Check if truly needed or remove
+					--lua_table.SystemFunctions:SetLinearVelocity(lua_table.combo_1_movement_speed * math.cos(rot_y) * dt, mov_speed_y, lua_table.combo_1_movement_speed * math.sin(rot_y) * dt)	--IMPROVE: Speed set on every frame bad?
 					
 				elseif current_state == state.combo_2
 				then
 					--TODO: Add velocity for combo_1 attacks (I need the GetRotation method)
-					--_x, mov_speed_y, _z = lua_table.Functions:GetLinearVelocity()	--TODO: Check if truly needed or remove
-					--lua_table.Functions:SetLinearVelocity(lua_table.combo_2_movement_speed * math.cos(rot_y) * dt, mov_speed_y, lua_table.combo_2_movement_speed * math.sin(rot_y) * dt)	--IMPROVE: Speed set on every frame bad?
+					--_x, mov_speed_y, _z = lua_table.SystemFunctions:GetLinearVelocity()	--TODO: Check if truly needed or remove
+					--lua_table.SystemFunctions:SetLinearVelocity(lua_table.combo_2_movement_speed * math.cos(rot_y) * dt, mov_speed_y, lua_table.combo_2_movement_speed * math.sin(rot_y) * dt)	--IMPROVE: Speed set on every frame bad?
 					
 				elseif current_state == state.combo_3
 				then
 				--TODO: Add velocity for combo_1 attacks (I need the GetRotation method)
-					--_x, mov_speed_y, _z = lua_table.Functions:GetLinearVelocity()	--TODO: Check if truly needed or remove
-					--lua_table.Functions:SetLinearVelocity(lua_table.combo_3_movement_speed * math.cos(rot_y) * dt, mov_speed_y, lua_table.combo_3_movement_speed * math.sin(rot_y) * dt)	--IMPROVE: Speed set on every frame bad?
+					--_x, mov_speed_y, _z = lua_table.SystemFunctions:GetLinearVelocity()	--TODO: Check if truly needed or remove
+					--lua_table.SystemFunctions:SetLinearVelocity(lua_table.combo_3_movement_speed * math.cos(rot_y) * dt, mov_speed_y, lua_table.combo_3_movement_speed * math.sin(rot_y) * dt)	--IMPROVE: Speed set on every frame bad?
 					
 				-- elseif current_state == state.combo_4
 				-- then
 					--TODO: Add velocity for combo_1 attacks (I need the GetRotation method)
-					--_x, mov_speed_y, _z = lua_table.Functions:GetLinearVelocity()	--TODO: Check if truly needed or remove
-					--lua_table.Functions:SetLinearVelocity(lua_table.combo_4_movement_speed * math.cos(rot_y) * dt, mov_speed_y, lua_table.combo_4_movement_speed * math.sin(rot_y) * dt)	--IMPROVE: Speed set on every frame bad?
+					--_x, mov_speed_y, _z = lua_table.SystemFunctions:GetLinearVelocity()	--TODO: Check if truly needed or remove
+					--lua_table.SystemFunctions:SetLinearVelocity(lua_table.combo_4_movement_speed * math.cos(rot_y) * dt, mov_speed_y, lua_table.combo_4_movement_speed * math.sin(rot_y) * dt)	--IMPROVE: Speed set on every frame bad?
 					
 				end
 			end
@@ -867,11 +868,11 @@ function lua_table:Update()
 	end
 
 	--DEBUG LOGS
-	lua_table.Functions:LOG("Current state: " .. current_state)
-	--lua_table.Functions:LOG("Ultimate: " .. current_ultimate)
-	lua_table.Functions:LOG("Combo num: " .. combo_num)
-	lua_table.Functions:LOG("Combo string: " .. combo_stack[1] .. ", " .. combo_stack[2] .. ", " .. combo_stack[3] .. ", " .. combo_stack[4])
-	lua_table.Functions:LOG("Energy: " .. current_energy)
+	lua_table.DebugFunctions:LOG("Current state: " .. current_state)
+	--lua_table.DebugFunctions:LOG("Ultimate: " .. current_ultimate)
+	lua_table.DebugFunctions:LOG("Combo num: " .. combo_num)
+	lua_table.DebugFunctions:LOG("Combo string: " .. combo_stack[1] .. ", " .. combo_stack[2] .. ", " .. combo_stack[3] .. ", " .. combo_stack[4])
+	lua_table.DebugFunctions:LOG("Energy: " .. current_energy)
 end
 
 return lua_table

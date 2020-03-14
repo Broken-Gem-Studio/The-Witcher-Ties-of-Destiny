@@ -1,6 +1,6 @@
 local Functions = Debug.Scripting()
 
-function	GetTableGeraltScript_Old()
+function	GetTableGeraltScript_v1()
 local lua_table = {}
 lua_table.Functions = Debug.Scripting()
 
