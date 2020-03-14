@@ -258,10 +258,10 @@ lua_table.combo_3_duration = 1800
 lua_table.combo_3_animation_speed = 40.0
 lua_table.combo_3_movement_speed = 10.0
 
-local combo_4 = { 'H', 'H', 'L', 'H' }	--Concussive Blows
-lua_table.combo_4_duration = 2000
-lua_table.combo_4_animation_speed = 50.0
-lua_table.combo_4_movement_speed = 10.0
+-- local combo_4 = { 'H', 'H', 'L', 'H' }	--Concussive Blows
+-- lua_table.combo_4_duration = 2000
+-- lua_table.combo_4_animation_speed = 50.0
+-- lua_table.combo_4_movement_speed = 10.0
 
 --Methods: Utility	--IMPROVE: Consider making useful generic methods part of a global script
 local function TableLength(table)	--Get TableLength
@@ -475,18 +475,18 @@ local function CheckCombo()	--Check combo performed	(ATTENTION: This should hand
 		current_state = state.combo_3
 
 		string_match = true
-	elseif CompareTables(combo_stack, combo_4)
-	then
-		current_action_block_time = lua_table.combo_4_duration
-		current_action_duration = lua_table.combo_4_duration
+	-- elseif CompareTables(combo_stack, combo_4)
+	-- then
+	-- 	current_action_block_time = lua_table.combo_4_duration
+	-- 	current_action_duration = lua_table.combo_4_duration
 
-		lua_table.Functions:PlayAnimation("combo_4", lua_table.combo_4_animation_speed)	--Blows
-		--Play Sound
+	-- 	lua_table.Functions:PlayAnimation("combo_4", lua_table.combo_4_animation_speed)	--Blows
+	-- 	--Play Sound
 		
-		previous_state = current_state
-		current_state = state.combo_4
+	-- 	previous_state = current_state
+	-- 	current_state = state.combo_4
 
-		string_match = true
+	-- 	string_match = true
 	end
 
 	return string_match
@@ -827,8 +827,8 @@ function lua_table:Update()
 					--_x, mov_speed_y, _z = lua_table.Functions:GetLinearVelocity()	--TODO: Check if truly needed or remove
 					--lua_table.Functions:SetLinearVelocity(lua_table.combo_3_movement_speed * math.cos(rot_y) * dt, mov_speed_y, lua_table.combo_3_movement_speed * math.sin(rot_y) * dt)	--IMPROVE: Speed set on every frame bad?
 					
-				elseif current_state == state.combo_4
-				then
+				-- elseif current_state == state.combo_4
+				-- then
 					--TODO: Add velocity for combo_1 attacks (I need the GetRotation method)
 					--_x, mov_speed_y, _z = lua_table.Functions:GetLinearVelocity()	--TODO: Check if truly needed or remove
 					--lua_table.Functions:SetLinearVelocity(lua_table.combo_4_movement_speed * math.cos(rot_y) * dt, mov_speed_y, lua_table.combo_4_movement_speed * math.sin(rot_y) * dt)	--IMPROVE: Speed set on every frame bad?
