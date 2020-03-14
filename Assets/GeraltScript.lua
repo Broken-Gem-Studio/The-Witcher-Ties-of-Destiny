@@ -88,24 +88,24 @@ lua_table.key_notdef6 = "BUTTON_START"
 
 --Inputs
 local mov_input = {
-	prev_input_x = 0.0	--Previous frame Input
-	prev_input_z = 0.0
+	prev_input_x = 0.0,	--Previous frame Input
+	prev_input_z = 0.0,
 	
-	real_input_x = 0.0	--Real Input
-	real_input_z = 0.0
+	real_input_x = 0.0,	--Real Input
+	real_input_z = 0.0,
 	
-	used_input_x = 0.0	--Input used on character
+	used_input_x = 0.0,	--Input used on character
 	used_input_z = 0.0
 }
 
 local aim_input = {
-	prev_input_x = 0.0	--Previous frame Input
-	prev_input_z = 0.0
+	prev_input_x = 0.0,	--Previous frame Input
+	prev_input_z = 0.0,
 	
-	real_input_x = 0.0	--Real Input
-	real_input_z = 0.0
+	real_input_x = 0.0,	--Real Input
+	real_input_z = 0.0,
 	
-	used_input_x = 0.0	--Input used on character
+	used_input_x = 0.0,	--Input used on character
 	used_input_z = 0.0
 }
 
@@ -120,7 +120,7 @@ local rot_y = 0.0
 
 local mov_speed_max_real
 local mov_speed_max_mod = 1.0
-lua_table.mov_speed_max_orig = 3000	--Was 60.0 before dt
+lua_table.mov_speed_max_orig = 3500	--Was 60.0 before dt
 
 lua_table.idle_animation_speed = 30.0
 lua_table.walk_animation_speed = 30.0
@@ -348,10 +348,10 @@ local function JoystickInputs(key_string, input_table)
 	input_table.real_input_x = lua_table.Functions:GetAxisValue(lua_table.player_ID, key_string .. "X", 0.01)	--Get accurate inputs
 	input_table.real_input_z = lua_table.Functions:GetAxisValue(lua_table.player_ID, key_string .. "Y", 0.01)
 
-	if input_table.real_input_x == input_table.prev_input_x and input_table.real_input_z == input_table.prev_input_z					--IF both inputs exactly the same as last frame
-	and input_table.real_input_x < key_joystick_threshold and and input_table.real_input_z < key_joystick_threshold		--and IF  both inputs under joystick threshold
+	if input_table.real_input_x == input_table.prev_input_x and input_table.real_input_z == input_table.prev_input_z	--IF both inputs exactly the same as last frame
+	and math.abs(input_table.real_input_x) < key_joystick_threshold and math.abs(input_table.real_input_z) < key_joystick_threshold			--and IF  both inputs under joystick threshold
 	then
-		input_table.used_input_x, input_table.used_input_z = 0.0, 0.0	--Set used input as idle (0)
+	 	input_table.used_input_x, input_table.used_input_z = 0.0, 0.0	--Set used input as idle (0)
 	else
 		input_table.used_input_x, input_table.used_input_z = input_table.real_input_x, input_table.real_input_z	--Use real input
 	end
