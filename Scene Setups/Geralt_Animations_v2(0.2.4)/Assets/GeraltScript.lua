@@ -87,14 +87,30 @@ lua_table.key_notdef5 = "BUTTON_BACK"
 lua_table.key_notdef6 = "BUTTON_START"
 
 --Inputs
-local mov_input_x = 0.0	--Movement Input
-local mov_input_z = 0.0
+local mov_input = {
+	prev_input_x = 0.0	--Previous frame Input
+	prev_input_z = 0.0
+	
+	real_input_x = 0.0	--Real Input
+	real_input_z = 0.0
+	
+	used_input_x = 0.0	--Input used on character
+	used_input_z = 0.0
+}
 
-local aim_input_x = 0.0	--Aim Input
-local aim_input_z = 0.0
+local aim_input = {
+	prev_input_x = 0.0	--Previous frame Input
+	prev_input_z = 0.0
+	
+	real_input_x = 0.0	--Real Input
+	real_input_z = 0.0
+	
+	used_input_x = 0.0	--Input used on character
+	used_input_z = 0.0
+}
 
-local key_joystick_threshold = 0.1
-lua_table.input_walk_threshold = 0.8
+local key_joystick_threshold = 0.25		--As reference, my very fucked up Xbox controller stays at around 2.1 if left IDLE gently (worst), my brand new one stays at 0 no matter what (best)
+lua_table.input_walk_threshold = 0.75
 
 --Movement
 local mov_speed_x = 0.0
@@ -305,9 +321,9 @@ end
 local function GoDefaultState()
 	previous_state = current_state
 
-	if mov_input_x ~= 0.0 or mov_input_z ~= 0.0
+	if mov_input.used_input_x ~= 0.0 or mov_input.used_input_z ~= 0.0
 	then
-		if lua_table.input_walk_threshold < math.sqrt(mov_input_x ^ 2 + mov_input_z ^ 2)
+		if lua_table.input_walk_threshold < math.sqrt(mov_input.used_input_x ^ 2 + mov_input.used_input_z ^ 2)
 		then
 			lua_table.Functions:PlayAnimation("run", lua_table.run_animation_speed)
 			lua_table.Functions:PlayStepSound()
@@ -328,34 +344,49 @@ local function GoDefaultState()
 end
 
 --Methods: Inputs
+local function JoystickInputs(key_string, input_table)
+	input_table.real_input_x = lua_table.Functions:GetAxisValue(lua_table.player_ID, key_string .. "X", 0.01)	--Get accurate inputs
+	input_table.real_input_z = lua_table.Functions:GetAxisValue(lua_table.player_ID, key_string .. "Y", 0.01)
+
+	if input_table.real_input_x == input_table.prev_input_x and input_table.real_input_z == input_table.prev_input_z					--IF both inputs exactly the same as last frame
+	and input_table.real_input_x < key_joystick_threshold and and input_table.real_input_z < key_joystick_threshold		--and IF  both inputs under joystick threshold
+	then
+		input_table.used_input_x, input_table.used_input_z = 0.0, 0.0	--Set used input as idle (0)
+	else
+		input_table.used_input_x, input_table.used_input_z = input_table.real_input_x, input_table.real_input_z	--Use real input
+	end
+
+	input_table.prev_input_x, input_table.prev_input_z = input_table.real_input_x, input_table.real_input_z	--Record previous real input as current one
+end
+
 local function KeyboardInputs()	--Process Debug Keyboard Inputs
-	mov_input_x, mov_input_z, aim_input_x, aim_input_z = 0.0		--CARLES TODO
+	mov_input.used_input_x, mov_input.used_input_z = 0.0, 0.0
 	
 	if lua_table.Functions:KeyRepeat("D")
 	then
-		mov_input_x = 2.0
+		mov_input.used_input_x = 2.0
 	elseif lua_table.Functions:KeyRepeat("A")
 	then
-		mov_input_x = -2.0
+		mov_input.used_input_x = -2.0
 	end
 	
 	if lua_table.Functions:KeyRepeat("S")
 	then
-		mov_input_z = -2.0
+		mov_input.used_input_z = -2.0
 	elseif lua_table.Functions:KeyRepeat("W")
 	then
-		mov_input_z = 2.0
+		mov_input.used_input_z = 2.0
 	end
 end
 
 local function MovementInputs()	--Process Movement Inputs
-	if mov_input_x ~= 0.0 or mov_input_z ~= 0.0														--IF Movement Input
+	if mov_input.used_input_x ~= 0.0 or mov_input.used_input_z ~= 0.0														--IF Movement Input
 	then
 		if current_state == state.idle																--IF Idle
 		then
 			previous_state = current_state
 
-			if lua_table.input_walk_threshold < math.sqrt(mov_input_x ^ 2 + mov_input_z ^ 2)		--IF great input
+			if lua_table.input_walk_threshold < math.sqrt(mov_input.used_input_x ^ 2 + mov_input.used_input_z ^ 2)		--IF great input
 			then
 				lua_table.Functions:PlayAnimation("run", lua_table.run_animation_speed)
 				lua_table.Functions:PlayStepSound()
@@ -365,13 +396,13 @@ local function MovementInputs()	--Process Movement Inputs
 				lua_table.Functions:PlayStepSound()
 				current_state = state.walk
 			end
-		elseif current_state == state.walk and lua_table.input_walk_threshold < math.sqrt(mov_input_x ^ 2 + mov_input_z ^ 2)	--IF walking and big input
+		elseif current_state == state.walk and lua_table.input_walk_threshold < math.sqrt(mov_input.used_input_x ^ 2 + mov_input.used_input_z ^ 2)	--IF walking and big input
 		then
 			lua_table.Functions:PlayAnimation("run", lua_table.run_animation_speed)
 			lua_table.Functions:PlayStepSound()
 			previous_state = current_state
 			current_state = state.run
-		elseif current_state == state.run and lua_table.input_walk_threshold > math.sqrt(mov_input_x ^ 2 + mov_input_z ^ 2)	--IF running and small input
+		elseif current_state == state.run and lua_table.input_walk_threshold > math.sqrt(mov_input.used_input_x ^ 2 + mov_input.used_input_z ^ 2)	--IF running and small input
 		then
 			lua_table.Functions:PlayAnimation("walk", lua_table.walk_animation_speed)
 			lua_table.Functions:PlayStepSound()
@@ -381,8 +412,8 @@ local function MovementInputs()	--Process Movement Inputs
 
 		lua_table.Functions:ActivateParticlesEmission()
 
-		mov_speed_x = mov_speed_max_real * mov_input_x	--Joystick input directly translates to speed, no acceleration
-		mov_speed_z = mov_speed_max_real * mov_input_z
+		mov_speed_x = mov_speed_max_real * mov_input.used_input_x	--Joystick input directly translates to speed, no acceleration
+		mov_speed_z = mov_speed_max_real * mov_input.used_input_z
 
 		_x, mov_speed_y, _z = lua_table.Functions:GetLinearVelocity()	--Set velocity
 		lua_table.Functions:SetLinearVelocity(mov_speed_x * dt, mov_speed_y, mov_speed_z * dt)
@@ -709,11 +740,8 @@ function lua_table:Update()
 			--KeyboardInputs()
 
 			--Joystick Inputs
-			mov_input_x = lua_table.Functions:GetAxisValue(lua_table.player_ID, lua_table.key_move .. "X", key_joystick_threshold)
-			mov_input_z = lua_table.Functions:GetAxisValue(lua_table.player_ID, lua_table.key_move .. "Y", key_joystick_threshold)
-
-			aim_input_x = lua_table.Functions:GetAxisValue(lua_table.player_ID, lua_table.key_aim .. "X", key_joystick_threshold)
-			aim_input_z = lua_table.Functions:GetAxisValue(lua_table.player_ID, lua_table.key_aim .. "Y", key_joystick_threshold)
+			JoystickInputs(lua_table.key_move, mov_input)
+			JoystickInputs(lua_table.key_aim, aim_input)
 
 			--Energy Regeneration
 			if current_energy < max_energy_real then current_energy = current_energy + energy_reg_real * dt end	--IF can increase, increase energy
