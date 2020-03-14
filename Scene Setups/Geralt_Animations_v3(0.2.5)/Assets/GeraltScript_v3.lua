@@ -578,7 +578,8 @@ local function ActionInputs()	--Process Action Inputs
 			RegularAttack("light")
 		end
 
-		--rot_y = lua_table.ElementFunctions:GetRotationY()	--Used to move the character FORWARD when performing attacks	--TODO: Uncomment when ready
+		rot_y = lua_table.ElementFunctions:GetRotationY()	--Used to move the character FORWARD when performing attacks, velocity applied later on Update()
+
 		input_given = true
 
 	elseif current_energy >= lua_table.heavy_attack_cost and lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_heavy, key_state.key_down)	--Heavy Input
@@ -593,7 +594,8 @@ local function ActionInputs()	--Process Action Inputs
 			RegularAttack("heavy")
 		end
 
-		--rot_y = lua_table.ElementFunctions:GetRotationY()	--Used to move the character FORWARD when performing attacks	--TODO: Uncomment when ready
+		rot_y = lua_table.ElementFunctions:GetRotationY()	--Used to move the character FORWARD when performing attacks, velocity applied later on Update()
+
 		input_given = true
 
 	elseif current_energy >= lua_table.evade_cost and lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_evade, key_state.key_down)	--Evade Input
@@ -602,13 +604,14 @@ local function ActionInputs()	--Process Action Inputs
 		current_action_block_time = lua_table.evade_duration
 		current_action_duration = lua_table.evade_duration
 
-		--rot_y = lua_table.ElementFunctions:GetRotationY()	--TODO: Uncomment when ready
-			
+		rot_y = lua_table.ElementFunctions:GetRotationY()	--Used to move the character FORWARD, velocity applied later on Update()
+
 		--Do Evade
 		current_energy = current_energy - lua_table.evade_cost
 		lua_table.SystemFunctions:PlayAnimation("evade", lua_table.evade_animation_speed)
 		previous_state = current_state
 		current_state = state.evade
+
 		input_given = true
 		
 	elseif game_time - ability_started_at >= lua_table.ability_cooldown and lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_ability, key_state.key_down)	--IF cooldown over and Ability Input
@@ -795,44 +798,39 @@ function lua_table:Update()
 
 				elseif current_state == state.evade				--ELSEIF evading
 				then
-					--_x, mov_speed_y, _z = lua_table.SystemFunctions:GetLinearVelocity()	--TODO: Check if truly needed or remove
-					--lua_table.SystemFunctions:SetLinearVelocity(lua_table.evade_velocity * math.cos(rot_y) * dt, mov_speed_y, lua_table.evade_velocity * math.sin(rot_y) * dt)	--IMPROVE: Speed set on every frame bad?
+					_x, mov_speed_y, _z = lua_table.SystemFunctions:GetLinearVelocity()	--TODO: Check if truly needed or remove
+					lua_table.SystemFunctions:SetLinearVelocity(lua_table.evade_velocity * math.sin(rot_y) * dt, mov_speed_y, lua_table.evade_velocity * math.cos(rot_y) * dt)	--IMPROVE: Speed set on every frame bad?
 				
 				elseif current_state == state.light_1 or current_state == state.light_2 or current_state == state.light_3	--IF Light Attacking
 				then
-					--TODO: Add velocity for light attacks (I need the GetRotation method)
-					--_x, mov_speed_y, _z = lua_table.SystemFunctions:GetLinearVelocity()	--TODO: Check if truly needed or remove
-					--lua_table.SystemFunctions:SetLinearVelocity(lua_table.light_attack_movement_speed * math.cos(rot_y) * dt, mov_speed_y, lua_table.light_attack_movement_speed * math.sin(rot_y) * dt)	--IMPROVE: Speed set on every frame bad?
+					_x, mov_speed_y, _z = lua_table.SystemFunctions:GetLinearVelocity()	--TODO: Check if truly needed or remove
+					lua_table.SystemFunctions:SetLinearVelocity(lua_table.light_attack_movement_speed * math.sin(rot_y) * dt, mov_speed_y, lua_table.light_attack_movement_speed * math.cos(rot_y) * dt)	--IMPROVE: Speed set on every frame bad?
 				
 				elseif current_state == state.heavy_1 or current_state == state.heavy_2 or current_state == state.heavy_3	--IF Heavy Attacking
 				then
-					--TODO: Add velocity for heavy attacks (I need the GetRotation method)
-					--_x, mov_speed_y, _z = lua_table.SystemFunctions:GetLinearVelocity()	--TODO: Check if truly needed or remove
-					--lua_table.SystemFunctions:SetLinearVelocity(lua_table.heavy_attack_movement_speed * math.cos(rot_y) * dt, mov_speed_y, lua_table.heavy_attack_movement_speed * math.sin(rot_y) * dt)	--IMPROVE: Speed set on every frame bad?
+					_x, mov_speed_y, _z = lua_table.SystemFunctions:GetLinearVelocity()	--TODO: Check if truly needed or remove
+					lua_table.SystemFunctions:SetLinearVelocity(lua_table.heavy_attack_movement_speed * math.sin(rot_y) * dt, mov_speed_y, lua_table.heavy_attack_movement_speed * math.cos(rot_y) * dt)	--IMPROVE: Speed set on every frame bad?
 				
 				elseif current_state == state.combo_1
 				then
-					--TODO: Add velocity for combo_1 attacks (I need the GetRotation method)
-					--_x, mov_speed_y, _z = lua_table.SystemFunctions:GetLinearVelocity()	--TODO: Check if truly needed or remove
-					--lua_table.SystemFunctions:SetLinearVelocity(lua_table.combo_1_movement_speed * math.cos(rot_y) * dt, mov_speed_y, lua_table.combo_1_movement_speed * math.sin(rot_y) * dt)	--IMPROVE: Speed set on every frame bad?
+					_x, mov_speed_y, _z = lua_table.SystemFunctions:GetLinearVelocity()	--TODO: Check if truly needed or remove
+					lua_table.SystemFunctions:SetLinearVelocity(lua_table.combo_1_movement_speed * math.sin(rot_y) * dt, mov_speed_y, lua_table.combo_1_movement_speed * math.cos(rot_y) * dt)	--IMPROVE: Speed set on every frame bad?
 					
 				elseif current_state == state.combo_2
 				then
-					--TODO: Add velocity for combo_1 attacks (I need the GetRotation method)
-					--_x, mov_speed_y, _z = lua_table.SystemFunctions:GetLinearVelocity()	--TODO: Check if truly needed or remove
-					--lua_table.SystemFunctions:SetLinearVelocity(lua_table.combo_2_movement_speed * math.cos(rot_y) * dt, mov_speed_y, lua_table.combo_2_movement_speed * math.sin(rot_y) * dt)	--IMPROVE: Speed set on every frame bad?
+					_x, mov_speed_y, _z = lua_table.SystemFunctions:GetLinearVelocity()	--TODO: Check if truly needed or remove
+					lua_table.SystemFunctions:SetLinearVelocity(lua_table.combo_2_movement_speed * math.sin(rot_y) * dt, mov_speed_y, lua_table.combo_2_movement_speed * math.cos(rot_y) * dt)	--IMPROVE: Speed set on every frame bad?
 					
 				elseif current_state == state.combo_3
 				then
-				--TODO: Add velocity for combo_1 attacks (I need the GetRotation method)
-					--_x, mov_speed_y, _z = lua_table.SystemFunctions:GetLinearVelocity()	--TODO: Check if truly needed or remove
-					--lua_table.SystemFunctions:SetLinearVelocity(lua_table.combo_3_movement_speed * math.cos(rot_y) * dt, mov_speed_y, lua_table.combo_3_movement_speed * math.sin(rot_y) * dt)	--IMPROVE: Speed set on every frame bad?
+					_x, mov_speed_y, _z = lua_table.SystemFunctions:GetLinearVelocity()	--TODO: Check if truly needed or remove
+					lua_table.SystemFunctions:SetLinearVelocity(lua_table.combo_3_movement_speed * math.sin(rot_y) * dt, mov_speed_y, lua_table.combo_3_movement_speed * math.cos(rot_y) * dt)	--IMPROVE: Speed set on every frame bad?
 					
 				-- elseif current_state == state.combo_4
 				-- then
 					--TODO: Add velocity for combo_1 attacks (I need the GetRotation method)
 					--_x, mov_speed_y, _z = lua_table.SystemFunctions:GetLinearVelocity()	--TODO: Check if truly needed or remove
-					--lua_table.SystemFunctions:SetLinearVelocity(lua_table.combo_4_movement_speed * math.cos(rot_y) * dt, mov_speed_y, lua_table.combo_4_movement_speed * math.sin(rot_y) * dt)	--IMPROVE: Speed set on every frame bad?
+					--lua_table.SystemFunctions:SetLinearVelocity(lua_table.combo_4_movement_speed * math.sin(rot_y) * dt, mov_speed_y, lua_table.combo_4_movement_speed * math.cos(rot_y) * dt)	--IMPROVE: Speed set on every frame bad?
 					
 				end
 			end
@@ -868,11 +866,11 @@ function lua_table:Update()
 	end
 
 	--DEBUG LOGS
-	lua_table.DebugFunctions:LOG("Current state: " .. current_state)
+	lua_table.DebugFunctions:LOG("Angle Y: " .. lua_table.ElementFunctions:GetRotationY())
 	--lua_table.DebugFunctions:LOG("Ultimate: " .. current_ultimate)
-	lua_table.DebugFunctions:LOG("Combo num: " .. combo_num)
-	lua_table.DebugFunctions:LOG("Combo string: " .. combo_stack[1] .. ", " .. combo_stack[2] .. ", " .. combo_stack[3] .. ", " .. combo_stack[4])
-	lua_table.DebugFunctions:LOG("Energy: " .. current_energy)
+	--lua_table.DebugFunctions:LOG("Combo num: " .. combo_num)
+	--lua_table.DebugFunctions:LOG("Combo string: " .. combo_stack[1] .. ", " .. combo_stack[2] .. ", " .. combo_stack[3] .. ", " .. combo_stack[4])
+	--lua_table.DebugFunctions:LOG("Energy: " .. current_energy)
 end
 
 return lua_table
