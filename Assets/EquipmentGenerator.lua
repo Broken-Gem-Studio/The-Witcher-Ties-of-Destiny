@@ -129,19 +129,16 @@ local generated_item = {
 }
 
 --Generator Score Values
-local health_upgrade_level = 0
 local health_upgrade_direction = 0
 lua_table.health_mod_per_level = 0.05
 lua_table.health_increase_cost = 2
 lua_table.health_decrease_intake = 2
 
-local damage_upgrade_level = 0
 local damage_upgrade_direction = 0
 lua_table.damage_mod_per_level = 0.05
 lua_table.damage_increase_cost = 2
 lua_table.damage_decrease_intake = 2
 
-local speed_upgrade_level = 0
 local speed_upgrade_direction = 0
 lua_table.speed_mod_per_level = 0.05
 lua_table.speed_increase_cost = 2
@@ -231,13 +228,13 @@ local function GenerateItemName()
 	--NAME 2: Highest Stat
 	local obj_name = ""
 
-	if health_upgrade_level > damage_upgrade_level and health_upgrade_level >= speed_upgrade_level
+	if generated_item.health_upgrade_level > generated_item.damage_upgrade_level and generated_item.health_upgrade_level >= generated_item.speed_upgrade_level
 	then
 		obj_name = "Chestplate"
-	elseif damage_upgrade_level > speed_upgrade_level and damage_upgrade_level >= health_upgrade_level
+	elseif generated_item.damage_upgrade_level > generated_item.speed_upgrade_level and generated_item.damage_upgrade_level >= generated_item.health_upgrade_level
 	then
 		obj_name = "Gloves"
-	elseif speed_upgrade_level > health_upgrade_level and speed_upgrade_level >= damage_upgrade_level
+	elseif generated_item.speed_upgrade_level > generated_item.health_upgrade_level and generated_item.speed_upgrade_level >= generated_item.damage_upgrade_level
 	then
 		obj_name = "Boots"
 	else
@@ -249,13 +246,13 @@ local function GenerateItemName()
 
 	if generated_item.effect_upgrade_type == special_effects.none
 	then
-		if health_upgrade_level > damage_upgrade_level and health_upgrade_level >= speed_upgrade_level
+		if generated_item.health_upgrade_level > generated_item.damage_upgrade_level and generated_item.health_upgrade_level >= generated_item.speed_upgrade_level
 		then
 			eff_name = "Health"
-		elseif damage_upgrade_level > speed_upgrade_level and damage_upgrade_level >= health_upgrade_level
+		elseif generated_item.damage_upgrade_level > generated_item.speed_upgrade_level and generated_item.damage_upgrade_level >= generated_item.health_upgrade_level
 		then
 			eff_name = "Strength"
-		elseif speed_upgrade_level > health_upgrade_level and speed_upgrade_level >= damage_upgrade_level
+		elseif generated_item.speed_upgrade_level > generated_item.health_upgrade_level and generated_item.speed_upgrade_level >= generated_item.damage_upgrade_level
 		then
 			eff_name = "Speed"
 		else
@@ -296,17 +293,17 @@ local function GenerateEquipment()
 				curr_upgrade_types = curr_upgrade_types + 1
 			end
 
-			if health_upgrade_direction > 0 and health_upgrade_level < upgrade_level_cap			--If positive upgrade and positive cap not reached
+			if health_upgrade_direction > 0 and generated_item.health_upgrade_level < upgrade_level_cap			--If positive upgrade and positive cap not reached
 			then
 				generated_item.health_upgrade_mod = generated_item.health_upgrade_mod + health_mod_per_level
 				item_value_score = item_value_score + lua_table.health_increase_cost
-				health_upgrade_level = health_upgrade_level + 1
+				generated_item.health_upgrade_level = generated_item.health_upgrade_level + 1
 
-			elseif health_upgrade_direction < 0 and health_upgrade_level > -upgrade_level_cap / 2	--If negative upgrade and negative cap (-positive/2) not reached
+			elseif health_upgrade_direction < 0 and generated_item.health_upgrade_level > -upgrade_level_cap / 2	--If negative upgrade and negative cap (-positive/2) not reached
 			then
 				generated_item.health_upgrade_mod = generated_item.health_upgrade_mod - health_mod_per_level
 				item_value_score = item_value_score - lua_table.health_decrease_intake
-				health_upgrade_level = health_upgrade_level - 1	
+				generated_item.health_upgrade_level = generated_item.health_upgrade_level - 1	
 			end
 
 		elseif rng == 2 then	--Damage
