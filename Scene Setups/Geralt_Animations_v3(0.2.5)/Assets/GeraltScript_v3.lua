@@ -150,22 +150,22 @@ lua_table.light_attack_cost = 10
 lua_table.light_attack_movement_speed = 1000.0
 
 lua_table.light_attack_1_block_time = 500			--Input block duration	(block new attacks)
-lua_table.light_attack_1_combo_start = 500			--Combo timeframe start
-lua_table.light_attack_1_combo_end = 2000			--Combo timeframe end
+lua_table.light_attack_1_combo_start = 600			--Combo timeframe start
+lua_table.light_attack_1_combo_end = 900			--Combo timeframe end
 lua_table.light_attack_1_duration = 1100			--Attack end (return to idle)
 lua_table.light_attack_1_animation_speed = 30.0
 
 lua_table.light_attack_2_block_time = 400			--Input block duration	(block new attacks)
 lua_table.light_attack_2_combo_start = 500			--Combo timeframe start
-lua_table.light_attack_2_combo_end = 2000			--Combo timeframe end
+lua_table.light_attack_2_combo_end = 800			--Combo timeframe end
 lua_table.light_attack_2_duration = 1000			--Attack end (return to idle)
 lua_table.light_attack_2_animation_speed = 30.0
 
 lua_table.light_attack_3_block_time = 500			--Input block duration	(block new attacks)
-lua_table.light_attack_3_combo_start = 500			--Combo timeframe start
-lua_table.light_attack_3_combo_end = 2000			--Combo timeframe end
+lua_table.light_attack_3_combo_start = 600			--Combo timeframe start
+lua_table.light_attack_3_combo_end = 900			--Combo timeframe end
 lua_table.light_attack_3_duration = 1500			--Attack end (return to idle)
-lua_table.light_attack_3_animation_speed = 30.0
+lua_table.light_attack_3_animation_speed = 30.0		--IMPROVE: Attack 3 animaton includes a return to idle, which differs from the other animations, we might have to cut it for homogeinity with the rest
 
 --Heavy Attack
 lua_table.heavy_attack_damage = 0
@@ -173,23 +173,23 @@ lua_table.heavy_attack_cost = 20
 
 lua_table.heavy_attack_movement_speed = 700.0
 
-lua_table.heavy_attack_1_block_time = 1000			--Input block duration	(block new attacks)
-lua_table.heavy_attack_1_combo_start = 500			--Combo timeframe start
-lua_table.heavy_attack_1_combo_end = 2000			--Combo timeframe end
+lua_table.heavy_attack_1_block_time = 900			--Input block duration	(block new attacks)
+lua_table.heavy_attack_1_combo_start = 1100			--Combo timeframe start
+lua_table.heavy_attack_1_combo_end = 1500			--Combo timeframe end
 lua_table.heavy_attack_1_duration = 1600			--Attack end (return to idle)
 lua_table.heavy_attack_1_animation_speed = 30.0
 
 lua_table.heavy_attack_2_block_time = 400			--Input block duration	(block new attacks)
-lua_table.heavy_attack_2_combo_start = 500			--Combo timeframe start
-lua_table.heavy_attack_2_combo_end = 2000			--Combo timeframe end
+lua_table.heavy_attack_2_combo_start = 600			--Combo timeframe start
+lua_table.heavy_attack_2_combo_end = 900			--Combo timeframe end
 lua_table.heavy_attack_2_duration = 1000			--Attack end (return to idle)
 lua_table.heavy_attack_2_animation_speed = 30.0
 
 lua_table.heavy_attack_3_block_time = 800			--Input block duration	(block new attacks)
-lua_table.heavy_attack_3_combo_start = 500			--Combo timeframe start
-lua_table.heavy_attack_3_combo_end = 2000			--Combo timeframe end
+lua_table.heavy_attack_3_combo_start = 1000			--Combo timeframe start
+lua_table.heavy_attack_3_combo_end = 1500			--Combo timeframe end
 lua_table.heavy_attack_3_duration = 2200			--Attack end (return to idle)
-lua_table.heavy_attack_3_animation_speed = 30.0
+lua_table.heavy_attack_3_animation_speed = 30.0		--IMPROVE: Attack 3 animaton includes a return to idle, which differs from the other animations, we might have to cut it for homogeinity with the rest
 
 --Evade		
 lua_table.evade_velocity = 10000.0	--Was 200 before dt
@@ -201,7 +201,7 @@ lua_table.evade_animation_speed = 40.0
 --Ability
 lua_table.ability_push_velocity = 0.0
 lua_table.ability_cooldown = 5000.0
-lua_table.ability_duration = 2000.0
+lua_table.ability_duration = 800.0
 
 local ability_started_at = 0.0
 
@@ -259,7 +259,7 @@ lua_table.combo_2_movement_speed = 3000.0
 
 local combo_3 = { 'L', 'H', 'H', 'L' }	--Jump Attack
 lua_table.combo_3_duration = 1800
-lua_table.combo_3_animation_speed = 3.0
+lua_table.combo_3_animation_speed = 30.0
 lua_table.combo_3_movement_speed = 3000.0
 
 -- local combo_4 = { 'H', 'H', 'L', 'H' }	--Concussive Blows
@@ -849,14 +849,19 @@ function lua_table:Update()
 				
 				elseif current_state == state.light_2 or current_state == state.light_3	--IF Light Attacking
 				then
-					_x, mov_speed_y, _z = lua_table.SystemFunctions:GetLinearVelocity()	--TODO: Check if truly needed or remove
-					lua_table.SystemFunctions:SetLinearVelocity(lua_table.light_attack_movement_speed * rec_direction_x * dt, mov_speed_y, lua_table.light_attack_movement_speed * rec_direction_z * dt)	--IMPROVE: Speed set on every frame bad?
-				
+					if not (current_state == state.light_3 and time_since_action > lua_table.light_attack_3_combo_end)	--IF inside return to idle of light_3	--IMPROVE: Maybe just cut the return to idle part?
+					then
+						_x, mov_speed_y, _z = lua_table.SystemFunctions:GetLinearVelocity()	--TODO: Check if truly needed or remove
+						lua_table.SystemFunctions:SetLinearVelocity(lua_table.light_attack_movement_speed * rec_direction_x * dt, mov_speed_y, lua_table.light_attack_movement_speed * rec_direction_z * dt)	--IMPROVE: Speed set on every frame bad?
+					end
 				elseif current_state == state.heavy_1 or current_state == state.heavy_2 or current_state == state.heavy_3	--IF Heavy Attacking
 				then
-					_x, mov_speed_y, _z = lua_table.SystemFunctions:GetLinearVelocity()	--TODO: Check if truly needed or remove
-					lua_table.SystemFunctions:SetLinearVelocity(lua_table.heavy_attack_movement_speed * rec_direction_x * dt, mov_speed_y, lua_table.heavy_attack_movement_speed * rec_direction_z * dt)	--IMPROVE: Speed set on every frame bad?
-				
+					if not (current_state == state.heavy_3 and time_since_action > lua_table.heavy_attack_3_combo_end)	--IF inside return to idle of heavy_3	--IMPROVE: Maybe just cut the return to idle part?
+					then
+						_x, mov_speed_y, _z = lua_table.SystemFunctions:GetLinearVelocity()	--TODO: Check if truly needed or remove
+						lua_table.SystemFunctions:SetLinearVelocity(lua_table.heavy_attack_movement_speed * rec_direction_x * dt, mov_speed_y, lua_table.heavy_attack_movement_speed * rec_direction_z * dt)	--IMPROVE: Speed set on every frame bad?
+					end
+
 				elseif current_state == state.combo_1
 				then
 					_x, mov_speed_y, _z = lua_table.SystemFunctions:GetLinearVelocity()	--TODO: Check if truly needed or remove
@@ -913,11 +918,11 @@ function lua_table:Update()
 
 	--DEBUG LOGS
 	lua_table.DebugFunctions:LOG("State: " .. current_state)
-	--lua_table.DebugFunctions:LOG("Time passed: " .. time_since_action)
+	lua_table.DebugFunctions:LOG("Time passed: " .. time_since_action)
 	--lua_table.DebugFunctions:LOG("Angle Y: " .. rot_y)
 	--lua_table.DebugFunctions:LOG("Ultimate: " .. current_ultimate)
-	--lua_table.DebugFunctions:LOG("Combo num: " .. combo_num)
-	--lua_table.DebugFunctions:LOG("Combo string: " .. combo_stack[1] .. ", " .. combo_stack[2] .. ", " .. combo_stack[3] .. ", " .. combo_stack[4])
+	lua_table.DebugFunctions:LOG("Combo num: " .. combo_num)
+	lua_table.DebugFunctions:LOG("Combo string: " .. combo_stack[1] .. ", " .. combo_stack[2] .. ", " .. combo_stack[3] .. ", " .. combo_stack[4])
 	--lua_table.DebugFunctions:LOG("Energy: " .. current_energy)
 end
 
