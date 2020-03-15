@@ -111,13 +111,16 @@ local aim_input = {
 }
 
 local key_joystick_threshold = 0.25		--As reference, my very fucked up Xbox controller stays at around 2.1 if left IDLE gently (worst), my brand new one stays at 0 no matter what (best)
-lua_table.input_walk_threshold = 0.75
+lua_table.input_walk_threshold = 0.8
 
 --Movement
-local mov_speed_x = 0.0
-local mov_speed_z = 0.0
+local rec_direction_x = 0.0	--Used to save a direction when necessary, given by joystick inputs or character rotation
+local rec_direction_y = 0.0
 
 local rot_y = 0.0
+
+local mov_speed_x = 0.0
+local mov_speed_z = 0.0
 
 local mov_speed_max_real
 local mov_speed_max_mod = 1.0
@@ -144,48 +147,48 @@ local rightside = true								-- Last attack side, marks the animation of next a
 lua_table.light_attack_damage = 0
 lua_table.light_attack_cost = 10
 
-lua_table.light_attack_movement_speed = 10.0
+lua_table.light_attack_movement_speed = 1000.0
 
 lua_table.light_attack_1_block_time = 500			--Input block duration	(block new attacks)
 lua_table.light_attack_1_combo_start = 500			--Combo timeframe start
 lua_table.light_attack_1_combo_end = 2000			--Combo timeframe end
-lua_table.light_attack_1_duration = 2000			--Attack end (return to idle)
+lua_table.light_attack_1_duration = 1100			--Attack end (return to idle)
 lua_table.light_attack_1_animation_speed = 30.0
 
-lua_table.light_attack_2_block_time = 500			--Input block duration	(block new attacks)
+lua_table.light_attack_2_block_time = 400			--Input block duration	(block new attacks)
 lua_table.light_attack_2_combo_start = 500			--Combo timeframe start
 lua_table.light_attack_2_combo_end = 2000			--Combo timeframe end
-lua_table.light_attack_2_duration = 2000			--Attack end (return to idle)
+lua_table.light_attack_2_duration = 1000			--Attack end (return to idle)
 lua_table.light_attack_2_animation_speed = 30.0
 
 lua_table.light_attack_3_block_time = 500			--Input block duration	(block new attacks)
 lua_table.light_attack_3_combo_start = 500			--Combo timeframe start
 lua_table.light_attack_3_combo_end = 2000			--Combo timeframe end
-lua_table.light_attack_3_duration = 2000			--Attack end (return to idle)
+lua_table.light_attack_3_duration = 1500			--Attack end (return to idle)
 lua_table.light_attack_3_animation_speed = 30.0
 
 --Heavy Attack
 lua_table.heavy_attack_damage = 0
 lua_table.heavy_attack_cost = 20
 
-lua_table.heavy_attack_movement_speed = 10.0
+lua_table.heavy_attack_movement_speed = 700.0
 
-lua_table.heavy_attack_1_block_time = 500			--Input block duration	(block new attacks)
+lua_table.heavy_attack_1_block_time = 1000			--Input block duration	(block new attacks)
 lua_table.heavy_attack_1_combo_start = 500			--Combo timeframe start
 lua_table.heavy_attack_1_combo_end = 2000			--Combo timeframe end
-lua_table.heavy_attack_1_duration = 2000			--Attack end (return to idle)
+lua_table.heavy_attack_1_duration = 1600			--Attack end (return to idle)
 lua_table.heavy_attack_1_animation_speed = 30.0
 
-lua_table.heavy_attack_2_block_time = 500			--Input block duration	(block new attacks)
+lua_table.heavy_attack_2_block_time = 400			--Input block duration	(block new attacks)
 lua_table.heavy_attack_2_combo_start = 500			--Combo timeframe start
 lua_table.heavy_attack_2_combo_end = 2000			--Combo timeframe end
-lua_table.heavy_attack_2_duration = 2000			--Attack end (return to idle)
+lua_table.heavy_attack_2_duration = 1000			--Attack end (return to idle)
 lua_table.heavy_attack_2_animation_speed = 30.0
 
-lua_table.heavy_attack_3_block_time = 500			--Input block duration	(block new attacks)
+lua_table.heavy_attack_3_block_time = 800			--Input block duration	(block new attacks)
 lua_table.heavy_attack_3_combo_start = 500			--Combo timeframe start
 lua_table.heavy_attack_3_combo_end = 2000			--Combo timeframe end
-lua_table.heavy_attack_3_duration = 2000			--Attack end (return to idle)
+lua_table.heavy_attack_3_duration = 2200			--Attack end (return to idle)
 lua_table.heavy_attack_3_animation_speed = 30.0
 
 --Evade		
@@ -202,7 +205,7 @@ lua_table.ability_duration = 2000.0
 
 local ability_started_at = 0.0
 
-lua_table.ability_animation_speed = 30.0
+lua_table.ability_animation_speed = 70.0
 
 --Ultimate
 local current_ultimate = 0.0
@@ -247,17 +250,17 @@ local combo_stack = { 'N', 'N', 'N', 'N' }	-- Last 4 attacks performed (0=none, 
 local combo_1 = { 'H', 'L', 'L', 'L' }	--Slide Attack
 lua_table.combo_1_duration = 1500
 lua_table.combo_1_animation_speed = 35.0
-lua_table.combo_1_movement_speed = 10.0
+lua_table.combo_1_movement_speed = 4000.0
 
 local combo_2 = { 'L', 'L', 'L', 'H' }	--High Spin
 lua_table.combo_2_duration = 1400
-lua_table.combo_2_animation_speed = 40.0
-lua_table.combo_2_movement_speed = 10.0
+lua_table.combo_2_animation_speed = 30.0
+lua_table.combo_2_movement_speed = 3000.0
 
 local combo_3 = { 'L', 'H', 'H', 'L' }	--Jump Attack
 lua_table.combo_3_duration = 1800
-lua_table.combo_3_animation_speed = 40.0
-lua_table.combo_3_movement_speed = 10.0
+lua_table.combo_3_animation_speed = 3.0
+lua_table.combo_3_movement_speed = 3000.0
 
 -- local combo_4 = { 'H', 'H', 'L', 'H' }	--Concussive Blows
 -- lua_table.combo_4_duration = 2000
@@ -316,6 +319,17 @@ end
 
 local function PerfGameTime()
 	return lua_table.DebugFunctions:GameTime() * 1000
+end
+
+local function GimbalLockWorkaroundY(param_rot_y)	--TODO: Remove when bug is fixed
+	if math.abs(lua_table.ElementFunctions:GetRotationX()) == 180.0
+	then
+		if param_rot_y >= 0 then param_rot_y = 90 + 90 - param_rot_y
+		elseif param_rot_y < 0 then param_rot_y = -90 + -90 - param_rot_y
+		end
+	end
+
+	return param_rot_y
 end
 
 --Methods: Specific
@@ -380,6 +394,28 @@ local function KeyboardInputs()	--Process Debug Keyboard Inputs
 	end
 end
 
+local function SaveDirection()
+	if mov_input.used_input_x ~= 0 and mov_input.used_input_z ~= 0	--IF input given, use as direction
+	then
+		local magnitude = math.sqrt(mov_input.used_input_x ^ 2 + mov_input.used_input_z ^ 2)
+
+		rec_direction_x = mov_input.used_input_x / magnitude
+		rec_direction_z = mov_input.used_input_z / magnitude
+	else															--IF no input, use Y angle to move FORWARD
+		----------------------------------------------
+		--NOTE: This a more step-by-step of the line below
+		--rot_y = lua_table.ElementFunctions:GetRotationY()	--Used to move the character FORWARD, velocity applied later on Update()
+		--rot_y = GimbalLockWorkaroundY(rot_y)	--TODO: Remove when bug is fixed
+		--rot_y = math.rad(rot_y)
+		----------------------------------------------
+
+		rot_y = math.rad(GimbalLockWorkaroundY(lua_table.ElementFunctions:GetRotationY()))	--TODO: Remove GimbalLock stage when Euler bug is fixed
+
+		rec_direction_x = math.sin(rot_y)
+		rec_direction_z = math.cos(rot_y)
+	end
+end
+
 local function MovementInputs()	--Process Movement Inputs
 	if mov_input.used_input_x ~= 0.0 or mov_input.used_input_z ~= 0.0														--IF Movement Input
 	then
@@ -419,12 +455,8 @@ local function MovementInputs()	--Process Movement Inputs
 		_x, mov_speed_y, _z = lua_table.SystemFunctions:GetLinearVelocity()	--Set velocity
 		lua_table.SystemFunctions:SetLinearVelocity(mov_speed_x * dt, mov_speed_y, mov_speed_z * dt)
 
-		dir_x, _y, dir_z = lua_table.ElementFunctions:GetPosition()	--Rotate to velocity direction
-
-		dir_x = dir_x + mov_speed_x
-		dir_z = dir_z + mov_speed_z
-
-		lua_table.ElementFunctions:LookAt(dir_x, _y, dir_z)
+		pos_x, pos_y, pos_z = lua_table.ElementFunctions:GetPosition()	--Rotate to velocity direction
+		lua_table.ElementFunctions:LookAt(pos_x + mov_speed_x, pos_y, pos_z + mov_speed_z)
 
 	elseif current_state == state.run or current_state == state.walk
 	then
@@ -526,6 +558,11 @@ local function TimedAttack(attack_cost)
 end
 
 local function RegularAttack(attack_type)
+
+	if current_state == state.heavy_3 then	--Heavy_3 animation starts and ends on the right, therefore in this particular case we stay on the right
+		rightside = not rightside
+	end
+
 	if rightside	--IF rightside
 	then
 		if combo_num > 2	--IF more than 2 succesful attacks
@@ -578,7 +615,10 @@ local function ActionInputs()	--Process Action Inputs
 			RegularAttack("light")
 		end
 
-		rot_y = lua_table.ElementFunctions:GetRotationY()	--Used to move the character FORWARD when performing attacks, velocity applied later on Update()
+		SaveDirection()
+
+		pos_x, pos_y, pos_z = lua_table.ElementFunctions:GetPosition()	--Rotate to direction
+		lua_table.ElementFunctions:LookAt(pos_x + rec_direction_x, pos_y, pos_z + rec_direction_z)
 
 		input_given = true
 
@@ -594,7 +634,10 @@ local function ActionInputs()	--Process Action Inputs
 			RegularAttack("heavy")
 		end
 
-		rot_y = lua_table.ElementFunctions:GetRotationY()	--Used to move the character FORWARD when performing attacks, velocity applied later on Update()
+		SaveDirection()
+
+		pos_x, pos_y, pos_z = lua_table.ElementFunctions:GetPosition()	--Rotate to direction
+		lua_table.ElementFunctions:LookAt(pos_x + rec_direction_x, pos_y, pos_z + rec_direction_z)
 
 		input_given = true
 
@@ -604,7 +647,10 @@ local function ActionInputs()	--Process Action Inputs
 		current_action_block_time = lua_table.evade_duration
 		current_action_duration = lua_table.evade_duration
 
-		rot_y = lua_table.ElementFunctions:GetRotationY()	--Used to move the character FORWARD, velocity applied later on Update()
+		SaveDirection()
+
+		pos_x, pos_y, pos_z = lua_table.ElementFunctions:GetPosition()	--Rotate to direction
+		lua_table.ElementFunctions:LookAt(pos_x + rec_direction_x, pos_y, pos_z + rec_direction_z)
 
 		--Do Evade
 		current_energy = current_energy - lua_table.evade_cost
@@ -799,38 +845,38 @@ function lua_table:Update()
 				elseif current_state == state.evade				--ELSEIF evading
 				then
 					_x, mov_speed_y, _z = lua_table.SystemFunctions:GetLinearVelocity()	--TODO: Check if truly needed or remove
-					lua_table.SystemFunctions:SetLinearVelocity(lua_table.evade_velocity * math.sin(rot_y) * dt, mov_speed_y, lua_table.evade_velocity * math.cos(rot_y) * dt)	--IMPROVE: Speed set on every frame bad?
+					lua_table.SystemFunctions:SetLinearVelocity(lua_table.evade_velocity * rec_direction_x * dt, mov_speed_y, lua_table.evade_velocity * rec_direction_z * dt)	--IMPROVE: Speed set on every frame bad?
 				
-				elseif current_state == state.light_1 or current_state == state.light_2 or current_state == state.light_3	--IF Light Attacking
+				elseif current_state == state.light_2 or current_state == state.light_3	--IF Light Attacking
 				then
 					_x, mov_speed_y, _z = lua_table.SystemFunctions:GetLinearVelocity()	--TODO: Check if truly needed or remove
-					lua_table.SystemFunctions:SetLinearVelocity(lua_table.light_attack_movement_speed * math.sin(rot_y) * dt, mov_speed_y, lua_table.light_attack_movement_speed * math.cos(rot_y) * dt)	--IMPROVE: Speed set on every frame bad?
+					lua_table.SystemFunctions:SetLinearVelocity(lua_table.light_attack_movement_speed * rec_direction_x * dt, mov_speed_y, lua_table.light_attack_movement_speed * rec_direction_z * dt)	--IMPROVE: Speed set on every frame bad?
 				
 				elseif current_state == state.heavy_1 or current_state == state.heavy_2 or current_state == state.heavy_3	--IF Heavy Attacking
 				then
 					_x, mov_speed_y, _z = lua_table.SystemFunctions:GetLinearVelocity()	--TODO: Check if truly needed or remove
-					lua_table.SystemFunctions:SetLinearVelocity(lua_table.heavy_attack_movement_speed * math.sin(rot_y) * dt, mov_speed_y, lua_table.heavy_attack_movement_speed * math.cos(rot_y) * dt)	--IMPROVE: Speed set on every frame bad?
+					lua_table.SystemFunctions:SetLinearVelocity(lua_table.heavy_attack_movement_speed * rec_direction_x * dt, mov_speed_y, lua_table.heavy_attack_movement_speed * rec_direction_z * dt)	--IMPROVE: Speed set on every frame bad?
 				
 				elseif current_state == state.combo_1
 				then
 					_x, mov_speed_y, _z = lua_table.SystemFunctions:GetLinearVelocity()	--TODO: Check if truly needed or remove
-					lua_table.SystemFunctions:SetLinearVelocity(lua_table.combo_1_movement_speed * math.sin(rot_y) * dt, mov_speed_y, lua_table.combo_1_movement_speed * math.cos(rot_y) * dt)	--IMPROVE: Speed set on every frame bad?
+					lua_table.SystemFunctions:SetLinearVelocity(lua_table.combo_1_movement_speed * rec_direction_x * dt, mov_speed_y, lua_table.combo_1_movement_speed * rec_direction_z * dt)	--IMPROVE: Speed set on every frame bad?
 					
 				elseif current_state == state.combo_2
 				then
 					_x, mov_speed_y, _z = lua_table.SystemFunctions:GetLinearVelocity()	--TODO: Check if truly needed or remove
-					lua_table.SystemFunctions:SetLinearVelocity(lua_table.combo_2_movement_speed * math.sin(rot_y) * dt, mov_speed_y, lua_table.combo_2_movement_speed * math.cos(rot_y) * dt)	--IMPROVE: Speed set on every frame bad?
+					lua_table.SystemFunctions:SetLinearVelocity(lua_table.combo_2_movement_speed * rec_direction_x * dt, mov_speed_y, lua_table.combo_2_movement_speed * rec_direction_z * dt)	--IMPROVE: Speed set on every frame bad?
 					
 				elseif current_state == state.combo_3
 				then
 					_x, mov_speed_y, _z = lua_table.SystemFunctions:GetLinearVelocity()	--TODO: Check if truly needed or remove
-					lua_table.SystemFunctions:SetLinearVelocity(lua_table.combo_3_movement_speed * math.sin(rot_y) * dt, mov_speed_y, lua_table.combo_3_movement_speed * math.cos(rot_y) * dt)	--IMPROVE: Speed set on every frame bad?
+					lua_table.SystemFunctions:SetLinearVelocity(lua_table.combo_3_movement_speed * rec_direction_x * dt, mov_speed_y, lua_table.combo_3_movement_speed * rec_direction_z * dt)	--IMPROVE: Speed set on every frame bad?
 					
 				-- elseif current_state == state.combo_4
 				-- then
 					--TODO: Add velocity for combo_1 attacks (I need the GetRotation method)
 					--_x, mov_speed_y, _z = lua_table.SystemFunctions:GetLinearVelocity()	--TODO: Check if truly needed or remove
-					--lua_table.SystemFunctions:SetLinearVelocity(lua_table.combo_4_movement_speed * math.sin(rot_y) * dt, mov_speed_y, lua_table.combo_4_movement_speed * math.cos(rot_y) * dt)	--IMPROVE: Speed set on every frame bad?
+					--lua_table.SystemFunctions:SetLinearVelocity(lua_table.combo_4_movement_speed * rec_direction_x * dt, mov_speed_y, lua_table.combo_4_movement_speed * rec_direction_z * dt)	--IMPROVE: Speed set on every frame bad?
 					
 				end
 			end
@@ -841,9 +887,9 @@ function lua_table:Update()
 		then
 			if not stopped_death		--IF stop mark hasn't been done yet
 			then
-				death_stopped_at = game_time				--Mark revival start (for death timer)
-				stopped_death = true						--Flag death timer stop
-				revive_started_at = death_stopped_at		--Mark revival start (for revival timer)
+				death_stopped_at = game_time			--Mark revival start (for death timer)
+				stopped_death = true					--Flag death timer stop
+				revive_started_at = death_stopped_at	--Mark revival start (for revival timer)
 
 			elseif game_time - revive_started_at > lua_table.revive_time		--IF revival complete
 			then
@@ -854,7 +900,7 @@ function lua_table:Update()
 			if stopped_death				--IF death timer was stopped
 			then
 				death_started_at = death_started_at + game_time - death_stopped_at	--Resume timer
-				stopped_death = false																		--Flag timer resuming
+				stopped_death = false					--Flag timer resuming
 
 			elseif game_time - death_started_at > lua_table.down_time	--IF death timer finished
 			then
@@ -866,7 +912,9 @@ function lua_table:Update()
 	end
 
 	--DEBUG LOGS
-	lua_table.DebugFunctions:LOG("Angle Y: " .. lua_table.ElementFunctions:GetRotationY())
+	lua_table.DebugFunctions:LOG("State: " .. current_state)
+	--lua_table.DebugFunctions:LOG("Time passed: " .. time_since_action)
+	--lua_table.DebugFunctions:LOG("Angle Y: " .. rot_y)
 	--lua_table.DebugFunctions:LOG("Ultimate: " .. current_ultimate)
 	--lua_table.DebugFunctions:LOG("Combo num: " .. combo_num)
 	--lua_table.DebugFunctions:LOG("Combo string: " .. combo_stack[1] .. ", " .. combo_stack[2] .. ", " .. combo_stack[3] .. ", " .. combo_stack[4])

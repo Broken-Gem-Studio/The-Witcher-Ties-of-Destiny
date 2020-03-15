@@ -497,7 +497,7 @@ local function ActionInputs()	--Process Action Inputs
 			rec_input_x = mov_input_x	--Record evade input
 			rec_input_z = mov_input_z
 
-			magnitude = math.sqrt(rec_input_x ^ 2 + rec_input_x ^ 2)	--Calculate to use unit vector for direction
+			magnitude = math.sqrt(rec_input_x ^ 2 + rec_input_z ^ 2)	--Calculate to use unit vector for direction
 			
 			--Do Evade
 			current_energy = current_energy - lua_table.evade_cost
