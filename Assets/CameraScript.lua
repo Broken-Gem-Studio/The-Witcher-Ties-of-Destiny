@@ -20,7 +20,7 @@ lua_table.camera_angle = 50
 
 -- Smoothing Speed from (0 to 1)
 lua_table.movement_smooth_speed = 0.2
-lua_table.zoom_smooth_speed = 0.3
+lua_table.zoom_smooth_speed = 0.2
 
 -----------------------------------------------------------------------------------------
 -- Camera Variables
@@ -84,14 +84,14 @@ local zoom = -- not in use rn
 local current_zoom_layer = zoom.LAYER_1 -- Shoul initialize at awake(?)
 
 -- FOV Scales for different layers (from 0 to 1) (should always be smaller than 1) (FOV_1 should always be bigger than FOV_2)
-local Layer_1_FOV_scale_1 = 0.85
-local Layer_1_FOV_scale_2 = 0.85
+local Layer_1_FOV_scale_1 = 0.8
+local Layer_1_FOV_scale_2 = 0.8
 
-local Layer_2_FOV_scale_1 = 0.85
-local Layer_2_FOV_scale_2 = 0.6
+local Layer_2_FOV_scale_1 = 0.8
+local Layer_2_FOV_scale_2 = 0.55
 
 local Layer_3_FOV_scale_1 = 0.85
-local Layer_3_FOV_scale_2 = 0.6
+local Layer_3_FOV_scale_2 = 0.55
 
 -----------------------------------------------------------------------------------------
 -- Gameplay Variables
@@ -188,9 +188,8 @@ end
 
 -- Handle Camera Zoom Layers Method
 function HandleZoomLayers()
-	if current_state == state.DYNAMIC
+	if current_state ~= state.SWITCHING
 	then
-		--lua_table["Functions_Debug"]:LOG ("mama")
 		-- 2 Players Handeling
 		if current_gameplay == gameplay.DUO 
 		then
@@ -201,6 +200,7 @@ function HandleZoomLayers()
 				if lua_table["Functions_Elements"]:GetPositionInFrustum(P1_pos_x, P1_pos_y, P1_pos_z, Layer_1_FOV_scale_1, Layer_1_FOV_scale_2) == 1 or 
 				   lua_table["Functions_Elements"]:GetPositionInFrustum(P2_pos_x, P2_pos_y, P2_pos_z, Layer_1_FOV_scale_1, Layer_1_FOV_scale_2) == 1
 				then
+					-- Switch up to Layer 2
 					current_zoom_layer = zoom.LAYER_2
 					current_state = state.SWITCHING
 					lua_table["Functions_Debug"]:LOG ("Camera: Switching to Zoom Layer 2")
@@ -213,6 +213,7 @@ function HandleZoomLayers()
 				if lua_table["Functions_Elements"]:GetPositionInFrustum(P1_pos_x, P1_pos_y, P1_pos_z, Layer_2_FOV_scale_1, Layer_2_FOV_scale_2) == 3 and
 				   lua_table["Functions_Elements"]:GetPositionInFrustum(P2_pos_x, P2_pos_y, P2_pos_z, Layer_2_FOV_scale_1, Layer_2_FOV_scale_2) == 3
 				then
+					-- Switch down to Layer 1
 					current_zoom_layer = zoom.LAYER_1
 					current_state = state.SWITCHING
 					lua_table["Functions_Debug"]:LOG ("Camera: Switching to Zoom Layer 1")
@@ -220,7 +221,8 @@ function HandleZoomLayers()
 				-- When ONE player gets out of Layer_2_FOV_scale_1
 				elseif lua_table["Functions_Elements"]:GetPositionInFrustum(P1_pos_x, P1_pos_y, P1_pos_z, Layer_2_FOV_scale_1, Layer_2_FOV_scale_2) == 1 or
 					   lua_table["Functions_Elements"]:GetPositionInFrustum(P2_pos_x, P2_pos_y, P2_pos_z, Layer_2_FOV_scale_1, Layer_2_FOV_scale_2) == 1
-			 	then
+				 then
+					-- Switch up to Layer 3
 				 	current_zoom_layer = zoom.LAYER_3
 				 	current_state = state.SWITCHING
 					lua_table["Functions_Debug"]:LOG ("Camera: Switching to Zoom Layer 3")
@@ -233,16 +235,32 @@ function HandleZoomLayers()
 				if lua_table["Functions_Elements"]:GetPositionInFrustum(P1_pos_x, P1_pos_y, P1_pos_z, Layer_3_FOV_scale_1, Layer_3_FOV_scale_2) == 3 and
 				   lua_table["Functions_Elements"]:GetPositionInFrustum(P2_pos_x, P2_pos_y, P2_pos_z, Layer_3_FOV_scale_1, Layer_3_FOV_scale_2) == 3
 				then
+					-- Switch down to Layer 2
 					current_zoom_layer = zoom.LAYER_2
 					current_state = state.SWITCHING
 					lua_table["Functions_Debug"]:LOG ("Camera: Switching to Zoom Layer 2")
 
-				-- When ONE player gets out of Layer_2_FOV_scale_1 (Function == 1)
-				-- elseif lua_table["Functions_Elements"]:GetPositionInFrustum(P1_pos_x, P1_pos_y, P1_pos_z, Layer_3_FOV_scale_1, Layer_3_FOV_scale_2) == 1 or
-				-- 	   lua_table["Functions_Elements"]:GetPositionInFrustum(P2_pos_x, P2_pos_y, P2_pos_z, Layer_3_FOV_scale_1, Layer_3_FOV_scale_2) == 1
-				-- then
-				-- 	-- BLOCK EM
-				-- 	-- current_zoom_layer = zoom.INFINITY 
+				-- When AT LEAST ONE player is between Layer_3_FOV_scale_1 Layer_3_FOV_scale_1 
+				elseif lua_table["Functions_Elements"]:GetPositionInFrustum(P1_pos_x, P1_pos_y, P1_pos_z, Layer_3_FOV_scale_1, Layer_3_FOV_scale_2) == 2 or
+					   lua_table["Functions_Elements"]:GetPositionInFrustum(P2_pos_x, P2_pos_y, P2_pos_z, Layer_3_FOV_scale_1, Layer_3_FOV_scale_2) == 2
+				then
+					if current_state == state.STATIC -- It only triggers once
+					then
+						-- Re-enables Camera Movement
+						current_state = state.DYNAMIC
+						lua_table["Functions_Debug"]:LOG ("Camera: Layer 3 DYNAMIC")
+					end
+
+				-- When ONE player gets out of Layer_3_FOV_scale_1
+				elseif lua_table["Functions_Elements"]:GetPositionInFrustum(P1_pos_x, P1_pos_y, P1_pos_z, Layer_3_FOV_scale_1, Layer_3_FOV_scale_2) == 1 or
+					   lua_table["Functions_Elements"]:GetPositionInFrustum(P2_pos_x, P2_pos_y, P2_pos_z, Layer_3_FOV_scale_1, Layer_3_FOV_scale_2) == 1
+				then
+					if current_state == state.DYNAMIC -- It only triggers once
+					then
+						-- Disables Camera Movement
+						current_state = state.STATIC
+						lua_table["Functions_Debug"]:LOG ("Camera: LAYER 3 STATIC")
+					end
 				else
 					--lua_table["Functions_Debug"]:LOG ("Camera: nothing")
 				end
@@ -288,6 +306,7 @@ function HandleSwitch()
 			if lua_table["Functions_Debug"]:CompareFloats(current_camera_distance, desired_distance) == 1
 			then
 				current_state = state.DYNAMIC
+				-- current_state = state.STATIC
 				lua_table["Functions_Debug"]:LOG ("Camera: Switching to Zoom Layer 3 COMPLETE")
 			end
 		end
@@ -347,30 +366,34 @@ end
 -- Handle Camera Movement Method
 function HandleMovement()
 
-	--Start 
-	if is_start == true
+	-- Camera won't move if is static (3rd layer of zoom for now)
+	if current_state ~= state.STATIC 
 	then
-		-- Camera position is Target + Offset
-		camera_position_x = target_position_x + offset_x
-		camera_position_y = target_position_y + offset_y 	-- Kind of redundant but conceptually organized
-		camera_position_z = target_position_z + offset_z
+		--Start 
+		if is_start == true
+		then
+			-- Camera position is Target + Offset
+			camera_position_x = target_position_x + offset_x
+			camera_position_y = target_position_y + offset_y 	-- Kind of redundant but conceptually organized
+			camera_position_z = target_position_z + offset_z
 		
-	-- Update 
-	elseif is_update == true
-	then
-		-- Desired position is target + offset
-		desired_position_x = target_position_x + offset_x
-		desired_position_y = target_position_y + offset_y
-		desired_position_z = target_position_z + offset_z
+		-- Update 
+		elseif is_update == true
+		then
+			-- Desired position is target + offset
+			desired_position_x = target_position_x + offset_x
+			desired_position_y = target_position_y + offset_y
+			desired_position_z = target_position_z + offset_z
 
-		-- Camera position is an averaged position between desired position and self position (the averaging depends on "smooth_speed")
-		camera_position_x = Asymptotic_Average(camera_position_x, desired_position_x, lua_table.movement_smooth_speed)
-		camera_position_y = Asymptotic_Average(camera_position_y, desired_position_y, lua_table.movement_smooth_speed)
-		camera_position_z = Asymptotic_Average(camera_position_z, desired_position_z, lua_table.movement_smooth_speed)
+			-- Camera position is an averaged position between desired position and self position (the averaging depends on "smooth_speed")
+			camera_position_x = Asymptotic_Average(camera_position_x, desired_position_x, lua_table.movement_smooth_speed)
+			camera_position_y = Asymptotic_Average(camera_position_y, desired_position_y, lua_table.movement_smooth_speed)
+			camera_position_z = Asymptotic_Average(camera_position_z, desired_position_z, lua_table.movement_smooth_speed)
+		end
+
+		-- Setting Camera Position
+		lua_table["Functions_Elements"]:SetPosition(camera_position_x, camera_position_y, camera_position_z)
 	end
-
-	-- Setting Camera Position
-	lua_table["Functions_Elements"]:SetPosition(camera_position_x, camera_position_y, camera_position_z)
 end
 -- Handle Zoom layers method
 
