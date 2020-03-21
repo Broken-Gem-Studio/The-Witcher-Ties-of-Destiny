@@ -111,6 +111,7 @@ local current_gameplay = 0 -- Should AUTOMATICALLY initialize at awake (hardcode
 -----------------------------------------------------------------------------------------
 -- P1
 local P1_id = 0
+local P1_script = 0
 
 local P1_pos_x = 0
 local P1_pos_y = 0
@@ -122,6 +123,7 @@ local prev_P1_pos_z = 0
 
 -- P2
 local P2_id = 0
+local P2_script = 0
 
 local P2_pos_x = 0
 local P2_pos_y = 0
@@ -419,6 +421,16 @@ function lua_table:Awake ()
 		if P1_id == 0 
 		then
 			lua_table["Functions_Debug"]:LOG ("Camera: Null Player 1 id, check name of game object inside script")
+			
+			-- Player 1 script (only if successfull id)
+			P1_script = lua_table["Functions_Elements"]:GetScript(P1_id)
+
+			if P1_script == 0 
+			then
+				lua_table["Functions_Debug"]:LOG ("Camera: Null Player 1 script")
+			else
+				lua_table["Functions_Debug"]:LOG ("Camera: Player 1 script successfully recieved")
+			end
 		else
 			lua_table["Functions_Debug"]:LOG ("Camera: Player 1 id successfully recieved")
 		end
@@ -433,16 +445,36 @@ function lua_table:Awake ()
 		if P1_id == 0 
 		then
 			lua_table["Functions_Debug"]:LOG ("Camera: Null Player 1 id, check name of game object inside script")
+			
+			-- Player 1 script (only if successfull id)
+			P1_script = lua_table["Functions_Elements"]:GetScript(P1_id)
+
+			if P1_script == 0 
+			then
+				lua_table["Functions_Debug"]:LOG ("Camera: Null Player 1 script")
+			else
+				lua_table["Functions_Debug"]:LOG ("Camera: Player 1 script successfully recieved")
+			end
 		else
 			lua_table["Functions_Debug"]:LOG ("Camera: Player 1 id successfully recieved")
 		end
 
 		-- Player 2 id
-		P2_id= lua_table["Functions_Elements"]:FindGameObject("gerardo2")--exact name of gameobject 
+		P2_id = lua_table["Functions_Elements"]:FindGameObject("gerardo2")--exact name of gameobject 
 
-		if P1_id == 0 
+		if P2_id == 0 
 		then
-			lua_table["Functions_Debug"]:LOG ("Camera: Null Player 1 id, check name of game object inside script")
+			lua_table["Functions_Debug"]:LOG ("Camera: Null Player 2 id, check name of game object inside script")
+			
+			-- Player 2 script (only if successfull id)
+			P2_script = lua_table["Functions_Elements"]:GetScript(P2_id)
+
+			if P2_script == 0 
+			then
+				lua_table["Functions_Debug"]:LOG ("Camera: Null Player 2 script")
+			else
+				lua_table["Functions_Debug"]:LOG ("Camera: Player 2 script successfully recieved")
+			end
 		else
 			lua_table["Functions_Debug"]:LOG ("Camera: Player 2 id successfully recieved")
 		end
