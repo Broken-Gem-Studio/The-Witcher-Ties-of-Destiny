@@ -36,16 +36,33 @@ local state = {
 local previous_state = state.idle	-- Previous State
 local current_state = state.idle	-- Current State
 
+--Stats
+	-- Health
+	-- Damage
+	-- Speed
+
+	--Vars
+		-- _orig: The original value of the character, the baseline value, added manually by design
+		-- _mod: The multiplier of the baseline value, the modifier value, always a 0.something
+		-- _stat: mod_value * 100, what the player sees, ex: 1.0 = 100%, 0.8 = 80%, 1.2 = 120%
+		-- _real: The value used for all calculations, the REAL value, calculated on command and both evaluated and modified with frequency
+--
+
 --Health
 local current_health
-local max_health_real
-local max_health_mod = 1.0
-lua_table.max_health_orig = 100
+
+	--Health Stat
+	local max_health_stat
+	local max_health_real
+	local max_health_mod = 1.0
+	lua_table.max_health_orig = 100
 
 --Damage
-local base_damage_real
-local base_damage_mod = 1.0
-lua_table.base_damage_orig = 100
+	--Damage Stat
+	local base_damage_stat
+	local base_damage_real
+	local base_damage_mod = 1.0
+	lua_table.base_damage_orig = 100
 
 local critical_chance_real
 local critical_chance_mod = 1.0
@@ -122,9 +139,11 @@ local rot_y = 0.0
 local mov_speed_x = 0.0
 local mov_speed_z = 0.0
 
-local mov_speed_max_real
-local mov_speed_max_mod = 1.0
-lua_table.mov_speed_max_orig = 3500	--Was 60.0 before dt
+	--Speed Stat
+	local mov_speed_stat
+	local mov_speed_max_real
+	local mov_speed_max_mod = 1.0
+	lua_table.mov_speed_max_orig = 5000	--Was 60.0 before dt
 
 lua_table.idle_animation_speed = 30.0
 lua_table.walk_animation_speed = 30.0
@@ -192,7 +211,7 @@ lua_table.heavy_attack_3_duration = 2200			--Attack end (return to idle)
 lua_table.heavy_attack_3_animation_speed = 30.0		--IMPROVE: Attack 3 animaton includes a return to idle, which differs from the other animations, we might have to cut it for homogeinity with the rest
 
 --Evade		
-lua_table.evade_velocity = 10000.0	--Was 200 before dt
+lua_table.evade_velocity = 12500.0	--Was 200 before dt
 lua_table.evade_cost = 20
 lua_table.evade_duration = 800
 
@@ -741,29 +760,40 @@ local function SecondaryInputs()	--Process Secondary Inputs
 	end
 end
 
---Main Code
-function lua_table:Awake()
-	lua_table.DebugFunctions:LOG("This Log was called from LUA testing a table on AWAKE")
-
+local function CalculateStats()
 	--Health
 	max_health_real = lua_table.max_health_orig * max_health_mod
-	current_health = max_health_real
+	max_health_stat = max_health_mod * 100
 
 	--Damage
 	base_damage_real = lua_table.base_damage_orig * base_damage_mod
+	base_damage_stat = base_damage_mod * 100
+
 	critical_chance_real = lua_table.critical_chance_orig * critical_chance_mod
+
 	critical_damage_real = lua_table.critical_damage_orig * critical_damage_mod
 
 	--Speed
 	mov_speed_max_real = lua_table.mov_speed_max_orig * mov_speed_max_mod
+	mov_speed_stat = mov_speed_max_mod * 100
 
 	--Energy
 	max_energy_real = lua_table.max_energy_orig * max_energy_mod
 	energy_reg_real = lua_table.energy_reg_orig * energy_reg_mod
-	current_energy = max_energy_real
 
 	--Ultimate
 	ultimate_reg_real = lua_table.ultimate_reg_orig * ultimate_reg_mod
+end
+
+--Main Code
+function lua_table:Awake()
+	lua_table.DebugFunctions:LOG("This Log was called from LUA testing a table on AWAKE")
+
+	CalculateStats()	--Calculate stats based on orig values + modifier
+
+	--Set starting values
+	current_health = max_health_real
+	current_energy = max_energy_real
 	current_ultimate = 0.0
 end
 
