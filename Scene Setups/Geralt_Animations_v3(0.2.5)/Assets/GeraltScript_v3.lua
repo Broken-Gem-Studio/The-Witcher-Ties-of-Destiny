@@ -233,8 +233,8 @@ local ultimate_reg_mod = 1.0
 lua_table.ultimate_reg_orig = 10	--Ideally, 2 or something similar
 
 local ultimate_started_at = 0.0
-lua_table.ultimate_duration = 2000
-lua_table.ultimate_animation_speed = 35.0
+lua_table.ultimate_duration = 3600
+lua_table.ultimate_animation_speed = 45.0
 
 local ultimate_effect_started_at = 0.0
 lua_table.ultimate_effect_duration = 10000
@@ -718,7 +718,7 @@ local function ActionInputs()	--Process Action Inputs
 		current_action_duration = lua_table.ultimate_duration
 
 		--Do Ultimate
-		--lua_table.SystemFunctions:PlayAnimation("ultimate", lua_table.ultimate_animation_speed)
+		lua_table.SystemFunctions:PlayAnimation("ultimate", lua_table.ultimate_animation_speed)
 		previous_state = current_state
 		current_state = state.ultimate
 		input_given = true	
@@ -966,9 +966,9 @@ function lua_table:Update()
 	lua_table.DebugFunctions:LOG("State: " .. current_state)
 	lua_table.DebugFunctions:LOG("Time passed: " .. time_since_action)
 	--lua_table.DebugFunctions:LOG("Angle Y: " .. rot_y)
-	--lua_table.DebugFunctions:LOG("Ultimate: " .. current_ultimate)
-	lua_table.DebugFunctions:LOG("Combo num: " .. combo_num)
-	lua_table.DebugFunctions:LOG("Combo string: " .. combo_stack[1] .. ", " .. combo_stack[2] .. ", " .. combo_stack[3] .. ", " .. combo_stack[4])
+	lua_table.DebugFunctions:LOG("Ultimate: " .. current_ultimate)
+	--lua_table.DebugFunctions:LOG("Combo num: " .. combo_num)
+	--lua_table.DebugFunctions:LOG("Combo string: " .. combo_stack[1] .. ", " .. combo_stack[2] .. ", " .. combo_stack[3] .. ", " .. combo_stack[4])
 	--lua_table.DebugFunctions:LOG("Energy: " .. current_energy)
 end
 
