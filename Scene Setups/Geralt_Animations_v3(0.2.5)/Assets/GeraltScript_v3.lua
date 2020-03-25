@@ -36,6 +36,7 @@ local state = {
 local previous_state = state.idle	-- Previous State
 local current_state = state.idle	-- Current State
 
+local must_update_stats = false
 --Stats
 	-- Health
 	-- Damage
@@ -44,32 +45,29 @@ local current_state = state.idle	-- Current State
 	--Vars
 		-- _orig: The original value of the character, the baseline value, added manually by design
 		-- _mod: The multiplier of the baseline value, the modifier value, always a 0.something
-		-- _stat: mod_value * 100, what the player sees, ex: 1.0 = 100%, 0.8 = 80%, 1.2 = 120%
 		-- _real: The value used for all calculations, the REAL value, calculated on command and both evaluated and modified with frequency
 --
 
 --Health
-local current_health
+local current_health = 0
 
 	--Health Stat
-	local max_health_stat
 	local max_health_real
 	local max_health_mod = 1.0
-	lua_table.max_health_orig = 100
+	lua_table.max_health_orig = 500
 
 --Damage
 	--Damage Stat
-	local base_damage_stat
 	local base_damage_real
 	local base_damage_mod = 1.0
-	lua_table.base_damage_orig = 100
+	lua_table.base_damage_orig = 30
 
 local critical_chance_real
-local critical_chance_mod = 1.0
-lua_table.critical_chance_orig = 5
+local critical_chance_add = 0
+lua_table.critical_chance_orig = 0
 
 local critical_damage_real
-local critical_damage_mod = 1.0
+local critical_damage_add = 0
 lua_table.critical_damage_orig = 2.0
 
 --Controls
@@ -140,7 +138,7 @@ local mov_speed_x = 0.0
 local mov_speed_z = 0.0
 
 	--Speed Stat
-	local mov_speed_stat
+	local mov_speed_stat	-- stat = real / 10. Exclusive to speed, as the numeric balancing is dependant on Physics and not only design
 	local mov_speed_max_real
 	local mov_speed_max_mod = 1.0
 	lua_table.mov_speed_max_orig = 5000	--Was 60.0 before dt
@@ -150,21 +148,21 @@ lua_table.walk_animation_speed = 30.0
 lua_table.run_animation_speed = 20.0
 
 --Energy
-local current_energy
+local current_energy = 0
 local max_energy_real
 local max_energy_mod = 1.0
 lua_table.max_energy_orig = 100
 
 local energy_reg_real
 local energy_reg_mod = 1.0
-lua_table.energy_reg_orig = 10	--Ideally, 10 per second or something similar
+lua_table.energy_reg_orig = 10	--This is 5 per second aprox.
 
 --Attacks
 local rightside = true								-- Last attack side, marks the animation of next attack
 
 --Light Attack
-lua_table.light_attack_damage = 0
-lua_table.light_attack_cost = 10
+lua_table.light_attack_damage = 1.0					--Multiplier of Base Damage
+lua_table.light_attack_cost = 5
 
 lua_table.light_attack_movement_speed = 1000.0
 
@@ -187,8 +185,8 @@ lua_table.light_attack_3_duration = 1500			--Attack end (return to idle)
 lua_table.light_attack_3_animation_speed = 30.0		--IMPROVE: Attack 3 animaton includes a return to idle, which differs from the other animations, we might have to cut it for homogeinity with the rest
 
 --Heavy Attack
-lua_table.heavy_attack_damage = 0
-lua_table.heavy_attack_cost = 20
+lua_table.heavy_attack_damage = 1.666				--Multiplier of Base Damage
+lua_table.heavy_attack_cost = 10
 
 lua_table.heavy_attack_movement_speed = 700.0
 
@@ -267,16 +265,22 @@ local combo_num = 0							-- Starting at 0, increases by 1 for each attack well 
 local combo_stack = { 'N', 'N', 'N', 'N' }	-- Last 4 attacks performed (0=none, 1=light, 2=heavy). Use push_back tactic.
 
 local combo_1 = { 'H', 'L', 'L', 'L' }	--Slide Attack
+lua_table.combo_1_damage = 2.0	--slide + 1 hit
+lua_table.combo_1_cost = 25
 lua_table.combo_1_duration = 1500
 lua_table.combo_1_animation_speed = 35.0
 lua_table.combo_1_movement_speed = 4000.0
 
 local combo_2 = { 'L', 'L', 'L', 'H' }	--High Spin
+lua_table.combo_2_damage = 2.5	--1 hit		--IMPROVE: 2 hits
+lua_table.combo_2_cost = 30
 lua_table.combo_2_duration = 1400
 lua_table.combo_2_animation_speed = 30.0
 lua_table.combo_2_movement_speed = 3000.0
 
 local combo_3 = { 'L', 'H', 'H', 'L' }	--Jump Attack
+lua_table.combo_3_damage = 3.0	--1 hit		--IMPROVE: stun
+lua_table.combo_3_cost = 40
 lua_table.combo_3_duration = 1800
 lua_table.combo_3_animation_speed = 30.0
 lua_table.combo_3_movement_speed = 3000.0
@@ -762,20 +766,18 @@ end
 
 local function CalculateStats()
 	--Health
-	max_health_real = lua_table.max_health_orig * max_health_mod
-	max_health_stat = max_health_mod * 100
+	local max_health_increment = lua_table.max_health_orig * max_health_mod / max_health_real
+	max_health_real = max_health_real * max_health_increment
+	current_health = current_health * max_health_increment
 
 	--Damage
 	base_damage_real = lua_table.base_damage_orig * base_damage_mod
-	base_damage_stat = base_damage_mod * 100
-
-	critical_chance_real = lua_table.critical_chance_orig * critical_chance_mod
-
-	critical_damage_real = lua_table.critical_damage_orig * critical_damage_mod
+	critical_chance_real = lua_table.critical_chance_orig + critical_chance_add
+	critical_damage_real = lua_table.critical_damage_orig + critical_damage_add
 
 	--Speed
 	mov_speed_max_real = lua_table.mov_speed_max_orig * mov_speed_max_mod
-	mov_speed_stat = mov_speed_max_mod * 100
+	mov_speed_stat = mov_speed_max_real * 0.1
 
 	--Energy
 	max_energy_real = lua_table.max_energy_orig * max_energy_mod
@@ -783,15 +785,21 @@ local function CalculateStats()
 
 	--Ultimate
 	ultimate_reg_real = lua_table.ultimate_reg_orig * ultimate_reg_mod
+
+	--If current values overflow new maximums, limit them
+	if current_health > max_health_real then current_health = max_health_real end
+	if current_energy > max_energy_real then current_energy = max_energy_real end
 end
 
 --Main Code
 function lua_table:Awake()
 	lua_table.DebugFunctions:LOG("This Log was called from LUA testing a table on AWAKE")
 
+	max_health_real = lua_table.max_health_orig	--Necessary for the first CalculateStats()
+
 	CalculateStats()	--Calculate stats based on orig values + modifier
 
-	--Set starting values
+	--Set initial values
 	current_health = max_health_real
 	current_energy = max_energy_real
 	current_ultimate = 0.0
@@ -805,6 +813,8 @@ function lua_table:Update()
 
 	dt = lua_table.DebugFunctions:DT()
 	game_time = PerfGameTime()
+
+	if must_update_stats then CalculateStats() end
 
 	if current_state >= state.idle	--IF alive
 	then
