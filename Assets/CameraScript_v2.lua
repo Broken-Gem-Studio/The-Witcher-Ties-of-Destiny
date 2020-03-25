@@ -1,7 +1,6 @@
 
-function GetTableCameraScript ()
+function	GetTableCameraScript ()
 local lua_table = {}
-
 lua_table["Functions_System"] = Scripting.System ()
 lua_table["Functions_Transform"] = Scripting.Transform ()
 lua_table["Functions_GameObject"] = Scripting.GameObject ()
@@ -111,7 +110,7 @@ local current_gameplay = 0 -- Should AUTOMATICALLY initialize at awake (hardcode
 -----------------------------------------------------------------------------------------
 -- P1
 local P1_id = 0
---lua_table.P1_script = {}
+local P1_script = 0
 
 local P1_pos_x = 0
 local P1_pos_y = 0
@@ -123,7 +122,7 @@ local prev_P1_pos_z = 0
 
 -- P2
 local P2_id = 0
---lua_table.P2_script = {}
+local P2_script = 0
 
 local P2_pos_x = 0
 local P2_pos_y = 0
@@ -420,10 +419,8 @@ function lua_table:Awake ()
 
 		if P1_id == 0 
 		then
-			lua_table["Functions_System"]:LOG ("Camera: Null Player 1 id, check name of game object inside script")			
-		else
-			lua_table["Functions_System"]:LOG ("Camera: Player 1 id successfully recieved")
-
+			lua_table["Functions_System"]:LOG ("Camera: Null Player 1 id, check name of game object inside script")
+			
 			-- Player 1 script (only if successfull id)
 			-- P1_script = lua_table["Functions_GameObject"]:GetScript(P1_id)
 
@@ -433,6 +430,8 @@ function lua_table:Awake ()
 			else
 				lua_table["Functions_System"]:LOG ("Camera: Player 1 script successfully recieved")
 			end
+		else
+			lua_table["Functions_System"]:LOG ("Camera: Player 1 id successfully recieved")
 		end
 
 	elseif current_gameplay == gameplay.DUO
@@ -440,16 +439,14 @@ function lua_table:Awake ()
 		lua_table["Functions_System"]:LOG ("Camera: Gameplay mode set to DUO")
 		
 		-- Player 1 id
-		P1_id = lua_table["Functions_GameObject"]:FindGameObject("gerardo1")--exact name of gameobject 
+		P1_id= lua_table["Functions_GameObject"]:FindGameObject("gerardo1")--exact name of gameobject 
 
 		if P1_id == 0 
 		then
-			lua_table["Functions_System"]:LOG ("Camera: Null Player 1 id, check name of game object inside script")			
-		else
-			lua_table["Functions_System"]:LOG ("Camera: Player 1 id successfully recieved")
+			lua_table["Functions_System"]:LOG ("Camera: Null Player 1 id, check name of game object inside script")
 			
 			-- Player 1 script (only if successfull id)
-			-- lua_table.P1_script = lua_table["Functions_GameObject"]:GetScript(P1_id)
+			-- P1_script = lua_table["Functions_GameObject"]:GetScript(P1_id)
 
 			if P1_script == 0 
 			then
@@ -457,6 +454,8 @@ function lua_table:Awake ()
 			else
 				lua_table["Functions_System"]:LOG ("Camera: Player 1 script successfully recieved")
 			end
+		else
+			lua_table["Functions_System"]:LOG ("Camera: Player 1 id successfully recieved")
 		end
 
 		-- Player 2 id
@@ -465,8 +464,6 @@ function lua_table:Awake ()
 		if P2_id == 0 
 		then
 			lua_table["Functions_System"]:LOG ("Camera: Null Player 2 id, check name of game object inside script")
-		else
-			lua_table["Functions_System"]:LOG ("Camera: Player 2 id successfully recieved")
 			
 			-- Player 2 script (only if successfull id)
 			-- P2_script = lua_table["Functions_GameObject"]:GetScript(P2_id)
@@ -477,6 +474,8 @@ function lua_table:Awake ()
 			else
 				lua_table["Functions_System"]:LOG ("Camera: Player 2 script successfully recieved")
 			end
+		else
+			lua_table["Functions_System"]:LOG ("Camera: Player 2 id successfully recieved")
 		end
 	end
 	 
@@ -509,10 +508,6 @@ function lua_table:Update ()
 	HandleOffset()
 	HandleMovement()
 
-	--debug
-	-- result = lua_table["Functions_GameObject"]:GetPositionInFrustum(P1_pos_x, P1_pos_y, P1_pos_z, 0.8, 0.5)
-
-	-- lua_table["Functions_System"]:LOG (result)
 	is_update = false
 end
 	return lua_table
