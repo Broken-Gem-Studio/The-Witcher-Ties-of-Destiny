@@ -1,5 +1,5 @@
 
-function	GetTableCameraScript ()
+function	GetTableCameraScript_v2 ()
 local lua_table = {}
 lua_table["Functions_System"] = Scripting.System ()
 lua_table["Functions_Transform"] = Scripting.Transform ()
