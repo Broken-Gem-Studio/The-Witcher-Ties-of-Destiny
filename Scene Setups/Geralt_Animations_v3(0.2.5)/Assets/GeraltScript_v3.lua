@@ -219,6 +219,7 @@ lua_table.evade_duration = 800
 lua_table.evade_animation_speed = 40.0
 
 --Ability
+lua_table.ability_cost = 30
 lua_table.ability_push_velocity = 0.0
 lua_table.ability_cooldown = 5000.0
 lua_table.ability_duration = 800.0
@@ -696,7 +697,9 @@ local function ActionInputs()	--Process Action Inputs
 
 		input_given = true
 		
-	elseif game_time - ability_started_at >= lua_table.ability_cooldown and lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_ability, key_state.key_down)	--IF cooldown over and Ability Input
+	elseif game_time - ability_started_at >= lua_table.ability_cooldown
+	and current_energy > lua_table.ability_cost
+	and lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_ability, key_state.key_down)	--IF cooldown over and Ability Input
 	then
 		action_started_at = game_time								--Set timer start mark
 		ability_started_at = action_started_at
@@ -709,6 +712,7 @@ local function ActionInputs()	--Process Action Inputs
 		--2. Discard all colliders that are outside the triangle/arc of effect
 		--3. Apply LinearVelocity (lua_table.ability_push_velocity) to enemies which direction depends on their position in reference to Geralt
 
+		current_energy = current_energy - lua_table.ability_cost
 		lua_table.SystemFunctions:PlayAnimation("ability", lua_table.ability_animation_speed)
 		previous_state = current_state
 		current_state = state.ability
