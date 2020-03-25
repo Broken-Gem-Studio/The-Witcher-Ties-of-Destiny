@@ -56,6 +56,9 @@ local current_health = 0
 	local max_health_mod = 1.0
 	lua_table.max_health_orig = 500
 
+local health_reg_real
+local health_reg_mod = 0.0	-- mod is applied to max_health (reg 10% of your max health)
+
 --Damage
 	--Damage Stat
 	local base_damage_real
@@ -238,6 +241,10 @@ lua_table.ultimate_animation_speed = 45.0
 
 local ultimate_effect_started_at = 0.0
 lua_table.ultimate_effect_duration = 10000
+
+lua_table.ultimate_health_reg_increase = 0.2
+lua_table.ultimate_energy_reg_increase = 1.0	--These numbers + to their correspondant "_mod" values and stats are calculated again
+lua_table.ultimate_damage_mod_increase = 1.0
 
 local ultimate_active = false
 
@@ -428,7 +435,7 @@ local function SaveDirection()
 		----------------------------------------------
 		--NOTE: This a more step-by-step of the line below
 		--rot_y = lua_table.ElementFunctions:GetRotationY()	--Used to move the character FORWARD, velocity applied later on Update()
-		--rot_y = GimbalLockWorkaroundY(rot_y)	--TODO: Remove when bug is fixed
+		--rot_y = GimbalLockWorkaroundY(rot_y)
 		--rot_y = math.rad(rot_y)
 		----------------------------------------------
 
@@ -770,11 +777,26 @@ local function SecondaryInputs()	--Process Secondary Inputs
 	end
 end
 
+local function UltimateState(active)
+	local ultimate_stat_mod = 1
+	if not active then ultimate_stat_mod = -1 end
+
+	health_reg_mod = health_reg_mod + lua_table.ultimate_health_reg_increase * ultimate_stat_mod
+	energy_reg_mod = energy_reg_mod + lua_table.ultimate_energy_reg_increase * ultimate_stat_mod
+	base_damage_mod = base_damage_mod + lua_table.ultimate_damage_mod_increase * ultimate_stat_mod
+
+	must_update_stats = true
+
+	ultimate_active = active
+end
+
 local function CalculateStats()
 	--Health
 	local max_health_increment = lua_table.max_health_orig * max_health_mod / max_health_real
 	max_health_real = max_health_real * max_health_increment
 	current_health = current_health * max_health_increment
+
+	health_reg_real = max_health_real * health_reg_mod
 
 	--Damage
 	base_damage_real = lua_table.base_damage_orig * base_damage_mod
@@ -831,6 +853,8 @@ function lua_table:Update()
 			--death_started_at = game_time
 			previous_state = current_state
 			current_state = state.down
+
+			if ultimate_active then UltimateState(false) end	--If ultimate on, go off
 		else
 			--DEBUG
 			--KeyboardInputs()
@@ -838,6 +862,13 @@ function lua_table:Update()
 			--Joystick Inputs
 			JoystickInputs(lua_table.key_move, mov_input)
 			JoystickInputs(lua_table.key_aim, aim_input)
+
+			--Health Regeneration
+			if health_reg_real > 0	--IF health regen online
+			then
+				if current_health < max_health_real then current_health = current_health + health_reg_real * dt end	--IF can increase, increase health
+				if current_health > max_health_real then current_health = max_health_real end						--IF above max, set to max
+			end
 
 			--Energy Regeneration
 			if current_energy < max_energy_real then current_energy = current_energy + energy_reg_real * dt end	--IF can increase, increase energy
@@ -851,8 +882,7 @@ function lua_table:Update()
 
 			elseif game_time - ultimate_effect_started_at >= lua_table.ultimate_effect_duration	--IF ultimate online and time up!
 			then
-				ultimate_active = false
-				--TODO: Ultimate return stats to normal
+				UltimateState(false)	--Ultimate turn off (stats back to normal)
 			end
 
 			--IF action currently going on, check action timer
@@ -878,12 +908,12 @@ function lua_table:Update()
 
 				if time_since_action > current_action_duration	--IF action duration up
 				then
-					if current_state == state.ultimate			--IF drinking ultimate potion finished
+					if current_state == state.ultimate				--IF drinking ultimate potion finished
 					then
-						ultimate_active = true
+						UltimateState(true)	--Ultimate turn on (boost stats)
+
 						current_ultimate = 0.0
 						ultimate_effect_started_at = game_time
-						--TODO: Ultimate Boost stats
 					end
 
 					GoDefaultState()	--Return to move or idle
@@ -963,13 +993,24 @@ function lua_table:Update()
 	end
 
 	--DEBUG LOGS
+	--lua_table.DebugFunctions:LOG("Delta Time: " .. dt)
 	lua_table.DebugFunctions:LOG("State: " .. current_state)
 	lua_table.DebugFunctions:LOG("Time passed: " .. time_since_action)
 	--lua_table.DebugFunctions:LOG("Angle Y: " .. rot_y)
 	lua_table.DebugFunctions:LOG("Ultimate: " .. current_ultimate)
 	--lua_table.DebugFunctions:LOG("Combo num: " .. combo_num)
 	--lua_table.DebugFunctions:LOG("Combo string: " .. combo_stack[1] .. ", " .. combo_stack[2] .. ", " .. combo_stack[3] .. ", " .. combo_stack[4])
+	
+	--lua_table.DebugFunctions:LOG("Health: " .. current_health)
 	--lua_table.DebugFunctions:LOG("Energy: " .. current_energy)
+
+	lua_table.DebugFunctions:LOG("Health Reg: " .. health_reg_real)
+	lua_table.DebugFunctions:LOG("Energy Reg: " .. energy_reg_real)
+	lua_table.DebugFunctions:LOG("Damage: " .. base_damage_real)
+
+	lua_table.DebugFunctions:LOG("Health Reg Mod: " .. health_reg_mod)
+	lua_table.DebugFunctions:LOG("Energy Reg Mod: " .. energy_reg_mod)
+	lua_table.DebugFunctions:LOG("Damage Mod: " .. base_damage_mod)
 end
 
 return lua_table
