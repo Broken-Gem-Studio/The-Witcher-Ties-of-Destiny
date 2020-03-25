@@ -495,23 +495,27 @@ end
 local function CheckCombo()	--Check combo performed	(ATTENTION: This should handle the animation, setting timers, bla bla)
 	local string_match = false
 
-	if CompareTables(combo_stack, combo_1)
+	if current_energy > lua_table.combo_1_cost and CompareTables(combo_stack, combo_1)
 	then
 		current_action_block_time = lua_table.combo_1_duration
 		current_action_duration = lua_table.combo_1_duration
 
+		current_energy = current_energy - lua_table.combo_1_cost
+
 		lua_table.SystemFunctions:PlayAnimation("combo_1", lua_table.combo_1_animation_speed)	--Slide
 		--Play Sound
-		
+
 		previous_state = current_state
 		current_state = state.combo_1
 
 		string_match = true
-	elseif CompareTables(combo_stack, combo_2)
+	elseif current_energy > lua_table.combo_2_cost and CompareTables(combo_stack, combo_2)
 	then
 		current_action_block_time = lua_table.combo_2_duration
 		current_action_duration = lua_table.combo_2_duration
 
+		current_energy = current_energy - lua_table.combo_2_cost
+		
 		lua_table.SystemFunctions:PlayAnimation("combo_2", lua_table.combo_2_animation_speed)	--Spin
 		--Play Sound
 				
@@ -519,11 +523,13 @@ local function CheckCombo()	--Check combo performed	(ATTENTION: This should hand
 		current_state = state.combo_2
 
 		string_match = true
-	elseif CompareTables(combo_stack, combo_3)
+	elseif current_energy > lua_table.combo_3_cost and CompareTables(combo_stack, combo_3)
 	then
 		current_action_block_time = lua_table.combo_3_duration
 		current_action_duration = lua_table.combo_3_duration
 
+		current_energy = current_energy - lua_table.combo_3_cost
+		
 		lua_table.SystemFunctions:PlayAnimation("combo_3", lua_table.combo_3_animation_speed)	--Jump
 		--Play Sound
 
