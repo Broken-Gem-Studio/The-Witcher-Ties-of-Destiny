@@ -12,4 +12,5 @@ so here I'll stipulate some important details about these:
 	
 **GeraltScript_v1**: First Script version with Geralt_v1.
 **GeraltScript_v2**: Second Script version, only up to build 0.2.4 with Geralt_v2.
-**GeraltScript_v3**: Third Script version, new namespaces (0.2.5 and up) with Geralt_v3.
+**GeraltScript_v3**: Third Script version, first varied namespaces (0.2.5 and up) with Geralt_v3.
+**GeraltScript_v4**: Fourth Script version, new upgraded namespaces (0.3.0 and up) with Geralt_v3.
