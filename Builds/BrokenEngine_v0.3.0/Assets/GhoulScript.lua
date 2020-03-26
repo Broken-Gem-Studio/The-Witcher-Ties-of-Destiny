@@ -1,10 +1,12 @@
 function	GetTableGhoulScript()
 
 local lua_table = {}
---lua_table.DebugFunctions = Scripting.Debug()
---lua_table.ElementFunctions = Scripting.Elements()
+--lua_table.DebugFunctions = Scripting.Debug() ------------> lua_table.SystemFunctions = Scripting.System()
+--lua_table.ElementFunctions = Scripting.Elements() ------------> lua_table.GameObjectFunctions = Scripting.GameObject()
 --lua_table.SystemFunctions = Scripting.Systems()
 --lua_table.InputFunctions = Scripting.Inputs()
+lua_table.SystemFunctions = Scripting.System()
+lua_table.GameObjectFunctions = Scripting.GameObject()
 -----------------------------------------------------------------------------------------
 -- Inspector Variables
 -----------------------------------------------------------------------------------------
@@ -26,6 +28,7 @@ lua_table.SwipeAttack = 10
 lua_table.Stunned = false
 
 lua_table.StuntTime = 5000 --time that the base stunt is this value should be changed by every character for every different stunt they use //milliseconds
+
 -----------------------------------------------------------------------------------------
 -- Enemy Variables
 -----------------------------------------------------------------------------------------
@@ -35,8 +38,7 @@ local Speed_x = 0.0
 local Speed_z = 0.0
 local Speed_y = 0.0 --up?
 
-local currentState 
-
+lua_table.currentState = State.IDL
 
 ---------------------------------FUNCTIONS------------------------------
 ------------------------------------------------------------------------
@@ -55,22 +57,22 @@ function HandleTheNearestPlayer() --function to know if there is a player in the
 
     if Geralt == 1 --Geralt comprovation
     then 
-        GeraltPos_x = lua_table.ElementFunctions:GetGameObjectPosX(Geralt)
-        GeraltPos_y = lua_table.ElementFunctions:GetGameObjectPosY(Geralt)
-        GeraltPos_z = lua_table.ElementFunctions:GetGameObjectPosZ(Geralt)
+        GeraltPos_x = lua_table.GameObjectFunctions:GetGameObjectPosX(Geralt)
+        GeraltPos_y = lua_table.GameObjectFunctions:GetGameObjectPosY(Geralt)
+        GeraltPos_z = lua_table.GameObjectFunctions:GetGameObjectPosZ(Geralt)
     elseif Geralt == 0
     then
-        lua_table.DebugFunctions:LOG("This Log was called from LUA table from a GhoulScript on HandleTheNearestPlayer function because Geralt is not found")     
+        lua_table.SystemFunctions:LOG("This Log was called from LUA table from a GhoulScript on HandleTheNearestPlayer function because Geralt is not found")     
     end
 
     if Jaskier == 1 --Jaskier comprovation
     then 
-        JaskierPos_x = lua_table.ElementFunctions:GetGameObjectPosX(Jaskier)
-        JaskierPos_y = lua_table.ElementFunctions:GetGameObjectPosY(Jaskier)
-        askierPos_z = lua_table.ElementFunctions:GetGameObjectPosZ(Jaskier)        
+        JaskierPos_x = lua_table.GameObjectFunctions:GetGameObjectPosX(Jaskier)
+        JaskierPos_y = lua_table.GameObjectFunctions:GetGameObjectPosY(Jaskier)
+        askierPos_z = lua_table.GameObjectFunctions:GetGameObjectPosZ(Jaskier)        
     elseif Jaskier == 0 
     then
-        lua_table.DebugFunctions:LOG("This Log was called from LUA table from a GhoulScript on HandleTheNearestPlayer function because Geralt is not found")
+        lua_table.SystemFunctions:LOG("This Log was called from LUA table from a GhoulScript on HandleTheNearestPlayer function because Geralt is not found")
     end
 
     --calculate distances
@@ -88,12 +90,8 @@ function HandleTheNearestPlayer() --function to know if there is a player in the
     return ret
 end
 
-
-
 function HandleIdleState() --handle if necessary to change idle state to patrol.
-
 	
-
     if currentState == State.IDL
     then
 		if Stunned == false
@@ -104,7 +102,7 @@ function HandleIdleState() --handle if necessary to change idle state to patrol.
 			end 
 		else if Stunned == true -- when stunned is true idle state does not change. add a script to add stunned effect in enemy head when stunned
 		then
-			Time
+			Time = 0 --TODO timer
 			--timer for stunt here. dt??? when end Timer controller is false turn stunned to false
 				if Time == StuntTime 
 				then
@@ -113,8 +111,8 @@ function HandleIdleState() --handle if necessary to change idle state to patrol.
 			end
 		end
     end
-
 end
+
 function HandlePatrolState() -- THIS IS NOT A PATROL ITSELF, IS JUST A LITTLE AREA IN WICH THE GHOULS WILL WALK. (little is like 3 meters in a circle)
 
     if currentState ==State.PATROL
@@ -122,17 +120,16 @@ function HandlePatrolState() -- THIS IS NOT A PATROL ITSELF, IS JUST A LITTLE AR
         Patrol()
     end
     
+    JaskierPos_x = lua_table.GameObjectFunctions:GetGameObjectPosX(Jaskier)
+    JaskierPos_y = lua_table.GameObjectFunctions:GetGameObjectPosY(Jaskier)
+    JaskierPos_z = lua_table.GameObjectFunctions:GetGameObjectPosZ(Jaskier)
 
-    JaskierPos_x = lua_table.ElementFunctions:GetGameObjectPosX(Jaskier)
-    JaskierPos_y = lua_table.ElementFunctions:GetGameObjectPosY(Jaskier)
-    JaskierPos_z = lua_table.ElementFunctions:GetGameObjectPosZ(Jaskier)
-
-    GeraltPos_x = lua_table.ElementFunctions:GetGameObjectPosX(Geralt)
-    GeraltPos_y = lua_table.ElementFunctions:GetGameObjectPosY(Geralt)
-    GeraltPos_z = lua_table.ElementFunctions:GetGameObjectPosZ(Geralt)
+    GeraltPos_x = lua_table.GameObjectFunctions:GetGameObjectPosX(Geralt)
+    GeraltPos_y = lua_table.GameObjectFunctions:GetGameObjectPosY(Geralt)
+    GeraltPos_z = lua_table.GameObjectFunctions:GetGameObjectPosZ(Geralt)
 
     JaskierDistance =  math.sqrt(JaskierPos_x ^ 2 + JaskierPos_z ^ 2)
-    GeraltDistance = math.sqrt(GrealtPos_x ^ 2 + GeraltPos_z ^ 2)
+    GeraltDistance = math.sqrt(GeraltPos_x ^ 2 + GeraltPos_z ^ 2)
 
     if JaskierDistance < 7 or GeraltDistance < 7
     then 
@@ -145,8 +142,8 @@ end
 
 function HandleAttackState()
 
--- attack!
--- play 1 time the attack anim=?????
+ --attack!
+ --play 1 time the attack anim=?????
 
 end
 
@@ -156,18 +153,16 @@ end
 
 --Main Code
 function lua_table:Awake()
-
- --   lua_table.DebugFunctions:LOG("This Log was called from LUA table from a GhoulScript on AWAKE")
-
+--   lua_table.SystemFunctions:LOG("This Log was called from LUA table from a GhoulScript on AWAKE")
 
     -------------------- GET PLAYERS id START--------------------
-    Geralt = lua_table.ElementFunctions:FindGameObject("gerardo1")
-    Jaskier = lua_table.ElementFunctions:FindGameObject("jaskier1") 
+    Geralt = lua_table.GameObjectFunctions:FindGameObject("gerardo1")
+    Jaskier = lua_table.GameObjectFunctions:FindGameObject("jaskier1") 
 
-    if Geralt == 0 then lua_table.DebugFunctions:LOG ("A random GhoulScript: Null Geralt id, check the name of game object the script is looking for or add Geralt to the scene if not there already")
+    if Geralt == 0 then lua_table.SystemFunctions:LOG ("A random GhoulScript: Null Geralt id, check the name of game object the script is looking for or add Geralt to the scene if not there already")
     end
     
-    if Jaskier == 0 then lua_table.DebugFunctions:LOG ("A random GhoulScript: Null Jaskier id, check the name of game object the script is looking for or add Jaskier to the scene if not there already")
+    if Jaskier == 0 then lua_table.SystemFunctions:LOG ("A random GhoulScript: Null Jaskier id, check the name of game object the script is looking for or add Jaskier to the scene if not there already")
     end
 
     currentState = State.IDL
@@ -175,13 +170,13 @@ function lua_table:Awake()
 end
 
 function lua_table:Start()
-    lua_table.DebugFunctions:LOG("A random GhoulScript: START")  
+    lua_table.SystemFunctions:LOG("A random GhoulScript: START")  
 end
 
 function lua_table:Update()
 
-	dt = lua_table.Functions:dt()
-    lua_table.Functions:SetCurrentAnimationSpeed(100)
+--	dt = lua_table.Functions:dt()
+--  lua_table.Functions:SetCurrentAnimationSpeed(100)
 	
 	if stunned == true --stunt bool change handled inn HandleIdleState() function
 	then 
@@ -202,8 +197,9 @@ function lua_table:Update()
         HandleAttackState()
     end
 
-    HandleAnimations()
-    HandleMovement()
+--    HandleAnimations()
+--    HandleMovement()
+
 end
 
 return lua_table
