@@ -232,13 +232,24 @@ lua_table.evade_animation_speed = 40.0
 
 --Ability
 lua_table.ability_cost = 30
-lua_table.ability_push_velocity = 0.0
 lua_table.ability_cooldown = 5000.0
 lua_table.ability_duration = 800.0
+lua_table.ability_push_velocity = 10000
 
 local ability_started_at = 0.0
-
 lua_table.ability_animation_speed = 70.0
+
+lua_table.ability_offset_x = 0.1	--Near segment width (Must be > than 0)
+lua_table.ability_offset_z = 10		--Near segment forward distance
+lua_table.ability_range = 100		--Trapezoid height
+lua_table.ability_angle = math.rad(45)
+
+local ability_trapezoid = {
+	point_A = { x = 0, z = 0 },	--Bottom left
+	point_B = { x = 0, z = 0 },	--Bottom right
+	point_C = { x = 0, z = 0 },	--Bottom right
+	point_D = { x = 0, z = 0 }	--Top left
+}
 
 --Ultimate
 local current_ultimate = 0.0
@@ -362,6 +373,18 @@ end
 
 local function PerfGameTime()
 	return lua_table.SystemFunctions:GameTime() * 1000
+end
+
+local function BidimensionalRotate(x, y, angle)
+	local new_x = x * math.cos(angle) - y * math.sin(angle)
+	local new_y = x * math.sin(angle) + y * math.cos(angle)
+
+	return new_x, new_y
+end
+
+local function BidimensionalPointInVectorSide(vec_x1, vec_y1, vec_x2, vec_y2, point_x, point_y)	-- If return > 0: Left, if return < 0: Right, if return == 0: Intersect
+    local D = (vec_x2 - vec_x1) * (point_y - vec_y1) - (point_x - vec_x1) * (vec_y2 - vec_y1);
+	return D		
 end
 
 local function GimbalLockWorkaroundY(param_rot_y)	--TODO: Remove when bug is fixed
@@ -719,10 +742,38 @@ local function ActionInputs()	--Process Action Inputs
 		current_action_block_time = lua_table.ability_duration
 		current_action_duration = lua_table.ability_duration
 
-		--Do Ability
-		--1. Collect colliders of all enemies inside a radius
-		--2. Discard all colliders that are outside the triangle/arc of effect
-		--3. Apply LinearVelocity (lua_table.ability_push_velocity) to enemies which direction depends on their position in reference to Geralt
+		-- --Do Ability
+		-- --1. Collect colliders of all enemies inside a radius
+		-- geralt_pos_x, geralt_pos_y, geralt_pos_z = lua_table.TransformFunctions:GetPosition()
+		-- enemy_list = lua_table.PhysicsFunctions:OverlapSphere(geralt_pos_x, geralt_pos_y, geralt_pos_z, lua_table.ability_range, "enemy", false)
+
+		-- --2. Transform ability trapezoid to Geralt's current rotation
+		-- SaveDirection()
+		-- local A_x, A_z = BidimensionalRotate(ability_trapezoid.point_A.x, ability_trapezoid.point_A.z, rot_y)
+		-- local B_x, B_z = BidimensionalRotate(ability_trapezoid.point_B.x, ability_trapezoid.point_B.z, rot_y)
+		-- local C_x, C_z = BidimensionalRotate(ability_trapezoid.point_C.x, ability_trapezoid.point_C.z, rot_y)
+		-- local D_x, D_z = BidimensionalRotate(ability_trapezoid.point_D.x, ability_trapezoid.point_D.z, rot_y)
+
+		-- --3. Translate the local trapezoid positions to global coordinates
+		-- A_x, A_z = A_x + geralt_pos_x, A_z + geralt_pos_z
+		-- B_x, B_z = B_x + geralt_pos_x, B_z + geralt_pos_z
+		-- C_x, C_z = C_x + geralt_pos_x, C_z + geralt_pos_z
+		-- D_x, D_z = D_x + geralt_pos_x, D_z + geralt_pos_z
+
+		-- --4. We must check that the enemy is inside the AoE
+		-- for k, v in pairs(enemy_list) do
+		-- 	local enemy_pos_x, enemy_pos_y, enemy_pos_z = lua_table.GameObjectFunctions:GetGameObjectPos(v)
+
+		-- 	if BidimensionalPointInVectorSide(A_x, A_z, D_x, D_z, enemy_pos_x, enemy_pos_z) <= 0	--IF on the right side of all vectors + within the OverlapSphere = inside AoE
+		-- 	and BidimensionalPointInVectorSide(D_x, D_z, C_x, C_z, enemy_pos_x, enemy_pos_z) <= 0
+		-- 	and BidimensionalPointInVectorSide(C_x, C_z, B_x, B_z, enemy_pos_x, enemy_pos_z) <= 0
+		-- 	then
+		-- 		local direction_x, direction_z = enemy_pos_x - geralt_pos_x, enemy_pos_z - geralt_pos_z	--4.1. If inside, find direction Geralt->Enemy and apply velocity in that direction
+		-- 		local magnitude = math.sqrt(direction_x ^ 2 + direction_z ^ 2)
+		-- 		lua_table.PhysicsFunctions:SetLinearVelocity(lua_table.ability_push_velocity * direction_x / magnitude * dt, 0.0, lua_table.ability_push_velocity * direction_z / magnitude * dt)
+		-- 	end
+		-- end
+		-- --Finish
 
 		current_energy = current_energy - lua_table.ability_cost
 		lua_table.AnimationFunctions:PlayAnimation("ability", lua_table.ability_animation_speed)
@@ -835,18 +886,35 @@ local function CalculateStats()
 	if current_energy > max_energy_real then current_energy = max_energy_real end
 end
 
+local function CalculateAbilityTrapezoid()
+	ability_trapezoid.point_B.x = lua_table.ability_offset_x + math.tan(lua_table.ability_angle) * (lua_table.ability_range - lua_table.ability_offset_z)
+	ability_trapezoid.point_B.z = lua_table.ability_range
+
+	ability_trapezoid.point_A.x = -ability_trapezoid.point_B.x
+	ability_trapezoid.point_A.z = lua_table.ability_range
+
+	ability_trapezoid.point_C.x = lua_table.ability_offset_x
+	ability_trapezoid.point_C.z = lua_table.ability_offset_z
+
+	ability_trapezoid.point_D.x = -lua_table.ability_offset_x
+	ability_trapezoid.point_D.z = lua_table.ability_offset_z
+end
+
 --Main Code
 function lua_table:Awake()
 	lua_table.SystemFunctions:LOG("This Log was called from LUA testing a table on AWAKE")
+	
+	--lua_table.ability_angle = math.rad(lua_table.ability_angle)
 
 	max_health_real = lua_table.max_health_orig	--Necessary for the first CalculateStats()
-
 	CalculateStats()	--Calculate stats based on orig values + modifier
 
 	--Set initial values
 	current_health = max_health_real
 	current_energy = max_energy_real
 	current_ultimate = 0.0
+
+	CalculateAbilityTrapezoid()
 end
 
 function lua_table:Start()
@@ -1013,20 +1081,22 @@ function lua_table:Update()
 	lua_table.SystemFunctions:LOG("State: " .. current_state)
 	lua_table.SystemFunctions:LOG("Time passed: " .. time_since_action)
 	--lua_table.SystemFunctions:LOG("Angle Y: " .. rot_y)
-	lua_table.SystemFunctions:LOG("Ultimate: " .. current_ultimate)
+	--lua_table.SystemFunctions:LOG("Ultimate: " .. current_ultimate)
 	--lua_table.SystemFunctions:LOG("Combo num: " .. combo_num)
 	--lua_table.SystemFunctions:LOG("Combo string: " .. combo_stack[1] .. ", " .. combo_stack[2] .. ", " .. combo_stack[3] .. ", " .. combo_stack[4])
 	
 	--lua_table.SystemFunctions:LOG("Health: " .. current_health)
 	--lua_table.SystemFunctions:LOG("Energy: " .. current_energy)
 
-	lua_table.SystemFunctions:LOG("Health Reg: " .. health_reg_real)
-	lua_table.SystemFunctions:LOG("Energy Reg: " .. energy_reg_real)
-	lua_table.SystemFunctions:LOG("Damage: " .. base_damage_real)
+	--lua_table.SystemFunctions:LOG("Health Reg: " .. health_reg_real)
+	--lua_table.SystemFunctions:LOG("Energy Reg: " .. energy_reg_real)
+	--lua_table.SystemFunctions:LOG("Damage: " .. base_damage_real)
 
-	lua_table.SystemFunctions:LOG("Health Reg Mod: " .. health_reg_mod)
-	lua_table.SystemFunctions:LOG("Energy Reg Mod: " .. energy_reg_mod)
-	lua_table.SystemFunctions:LOG("Damage Mod: " .. base_damage_mod)
+	--lua_table.SystemFunctions:LOG("Health Reg Mod: " .. health_reg_mod)
+	--lua_table.SystemFunctions:LOG("Energy Reg Mod: " .. energy_reg_mod)
+	--lua_table.SystemFunctions:LOG("Damage Mod: " .. base_damage_mod)
+
+	lua_table.SystemFunctions:LOG("Ability Trapezoid: " .. ability_trapezoid.point_A.x .. "," .. ability_trapezoid.point_A.z .. " / " .. ability_trapezoid.point_B.x .. "," .. ability_trapezoid.point_B.z .. " / " .. ability_trapezoid.point_C.x .. "," .. ability_trapezoid.point_C.z .. " / " .. ability_trapezoid.point_D.x .. "," .. ability_trapezoid.point_D.z)
 end
 
 return lua_table
