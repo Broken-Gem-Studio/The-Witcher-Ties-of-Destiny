@@ -245,10 +245,10 @@ lua_table.ability_range = 100		--Trapezoid height
 lua_table.ability_angle = math.rad(45)
 
 local ability_trapezoid = {
-	point_A = { x = 0, z = 0 },	--Bottom left
-	point_B = { x = 0, z = 0 },	--Bottom right
-	point_C = { x = 0, z = 0 },	--Bottom right
-	point_D = { x = 0, z = 0 }	--Top left
+	point_A = { x = 0, z = 0 },	--Far left
+	point_B = { x = 0, z = 0 },	--Far right
+	point_C = { x = 0, z = 0 },	--Near right
+	point_D = { x = 0, z = 0 }	--Near left
 }
 
 --Ultimate
@@ -375,15 +375,15 @@ local function PerfGameTime()
 	return lua_table.SystemFunctions:GameTime() * 1000
 end
 
-local function BidimensionalRotate(x, y, angle)
+local function BidimensionalRotate(x, y, angle)	--REMEMBER: In 2D it's (x,y), but our 3D space translated into horizontal (ground) 2D it's (z,x). Therefore: 3D (Z,X) to 2D (X,Y)
 	local new_x = x * math.cos(angle) - y * math.sin(angle)
 	local new_y = x * math.sin(angle) + y * math.cos(angle)
 
 	return new_x, new_y
 end
 
-local function BidimensionalPointInVectorSide(vec_x1, vec_y1, vec_x2, vec_y2, point_x, point_y)	-- If return > 0: Left, if return < 0: Right, if return == 0: Intersect
-    local D = (vec_x2 - vec_x1) * (point_y - vec_y1) - (point_x - vec_x1) * (vec_y2 - vec_y1);
+local function BidimensionalPointInVectorSide(vec_x1, vec_y1, vec_x2, vec_y2, point_x, point_y)	--Counter-clockwise: If D > 0, the point is on the right side. If D < 0, the point is on the left side. If D = 0, the point is on the line.
+	local D = (vec_x2 - vec_x1) * (point_y - vec_y1) - (point_x - vec_x1) * (vec_y2 - vec_y1);
 	return D		
 end
 
@@ -742,38 +742,51 @@ local function ActionInputs()	--Process Action Inputs
 		current_action_block_time = lua_table.ability_duration
 		current_action_duration = lua_table.ability_duration
 
-		-- --Do Ability
-		-- --1. Collect colliders of all enemies inside a radius
-		-- geralt_pos_x, geralt_pos_y, geralt_pos_z = lua_table.TransformFunctions:GetPosition()
+		--Do Ability
+		--1. Collect colliders of all enemies inside a radius
+		local geralt_pos_x, geralt_pos_y, geralt_pos_z = lua_table.TransformFunctions:GetPosition()
 		-- enemy_list = lua_table.PhysicsFunctions:OverlapSphere(geralt_pos_x, geralt_pos_y, geralt_pos_z, lua_table.ability_range, "enemy", false)
 
-		-- --2. Transform ability trapezoid to Geralt's current rotation
-		-- SaveDirection()
-		-- local A_x, A_z = BidimensionalRotate(ability_trapezoid.point_A.x, ability_trapezoid.point_A.z, rot_y)
-		-- local B_x, B_z = BidimensionalRotate(ability_trapezoid.point_B.x, ability_trapezoid.point_B.z, rot_y)
-		-- local C_x, C_z = BidimensionalRotate(ability_trapezoid.point_C.x, ability_trapezoid.point_C.z, rot_y)
-		-- local D_x, D_z = BidimensionalRotate(ability_trapezoid.point_D.x, ability_trapezoid.point_D.z, rot_y)
+		--REMOVE: Workaround which artificially places a GO in the list
+		-- local enemy_list = {}
+		-- local target = lua_table.GameObjectFunctions:FindGameObject("gerardo2")
+		-- local target_x = lua_table.GameObjectFunctions:GetGameObjectPosX(target)
+		-- local target_z = lua_table.GameObjectFunctions:GetGameObjectPosZ(target)
 
-		-- --3. Translate the local trapezoid positions to global coordinates
-		-- A_x, A_z = A_x + geralt_pos_x, A_z + geralt_pos_z
-		-- B_x, B_z = B_x + geralt_pos_x, B_z + geralt_pos_z
-		-- C_x, C_z = C_x + geralt_pos_x, C_z + geralt_pos_z
-		-- D_x, D_z = D_x + geralt_pos_x, D_z + geralt_pos_z
-
-		-- --4. We must check that the enemy is inside the AoE
-		-- for k, v in pairs(enemy_list) do
-		-- 	local enemy_pos_x, enemy_pos_y, enemy_pos_z = lua_table.GameObjectFunctions:GetGameObjectPos(v)
-
-		-- 	if BidimensionalPointInVectorSide(A_x, A_z, D_x, D_z, enemy_pos_x, enemy_pos_z) <= 0	--IF on the right side of all vectors + within the OverlapSphere = inside AoE
-		-- 	and BidimensionalPointInVectorSide(D_x, D_z, C_x, C_z, enemy_pos_x, enemy_pos_z) <= 0
-		-- 	and BidimensionalPointInVectorSide(C_x, C_z, B_x, B_z, enemy_pos_x, enemy_pos_z) <= 0
-		-- 	then
-		-- 		local direction_x, direction_z = enemy_pos_x - geralt_pos_x, enemy_pos_z - geralt_pos_z	--4.1. If inside, find direction Geralt->Enemy and apply velocity in that direction
-		-- 		local magnitude = math.sqrt(direction_x ^ 2 + direction_z ^ 2)
-		-- 		lua_table.PhysicsFunctions:SetLinearVelocity(lua_table.ability_push_velocity * direction_x / magnitude * dt, 0.0, lua_table.ability_push_velocity * direction_z / magnitude * dt)
-		-- 	end
+		-- if math.sqrt((target_x - geralt_pos_x) ^ 2 + (target_z - geralt_pos_z) ^ 2) <= lua_table.ability_range then
+		-- 	enemy_list[1] = target
 		-- end
-		-- --Finish
+		
+		--2. Transform ability trapezoid to Geralt's current rotation
+		SaveDirection()
+		local A_z, A_x = BidimensionalRotate(ability_trapezoid.point_A.z, ability_trapezoid.point_A.x, rot_y)
+		local B_z, B_x = BidimensionalRotate(ability_trapezoid.point_B.z, ability_trapezoid.point_B.x, rot_y)
+		local C_z, C_x = BidimensionalRotate(ability_trapezoid.point_C.z, ability_trapezoid.point_C.x, rot_y)
+		local D_z, D_x = BidimensionalRotate(ability_trapezoid.point_D.z, ability_trapezoid.point_D.x, rot_y)
+
+		--3. Translate the local trapezoid positions to global coordinates
+		A_x, A_z = A_x + geralt_pos_x, A_z + geralt_pos_z
+		B_x, B_z = B_x + geralt_pos_x, B_z + geralt_pos_z
+		C_x, C_z = C_x + geralt_pos_x, C_z + geralt_pos_z
+		D_x, D_z = D_x + geralt_pos_x, D_z + geralt_pos_z
+
+		--4. We must check that the enemy is inside the AoE
+		for k, v in pairs(enemy_list) do
+			local enemy_pos_x = lua_table.GameObjectFunctions:GetGameObjectPosX(v)
+			local enemy_pos_z = lua_table.GameObjectFunctions:GetGameObjectPosZ(v)
+
+			if BidimensionalPointInVectorSide(B_x, B_z, C_x, C_z, target_x, target_z) < 0	--If left side of all the trapezoid vectors BC, CD, DA ( \_/ )
+			and BidimensionalPointInVectorSide(C_x, C_z, D_x, D_z, target_x, target_z) < 0
+			and BidimensionalPointInVectorSide(D_x, D_z, A_x, A_z, target_x, target_z) < 0
+			then
+				local direction_x, direction_z = enemy_pos_x - geralt_pos_x, enemy_pos_z - geralt_pos_z	--4.1. If inside, find direction Geralt->Enemy and apply velocity in that direction
+				local magnitude = math.sqrt(direction_x ^ 2 + direction_z ^ 2)
+				--lua_table.PhysicsFunctions:SetLinearVelocity(lua_table.ability_push_velocity * direction_x / magnitude * dt, 0.0, lua_table.ability_push_velocity * direction_z / magnitude * dt)
+				--TODO: Stun enemy
+				--TODO: Set Enemy Linear Velocity
+			end
+		end
+		--Finish
 
 		current_energy = current_energy - lua_table.ability_cost
 		lua_table.AnimationFunctions:PlayAnimation("ability", lua_table.ability_animation_speed)
@@ -1080,11 +1093,13 @@ function lua_table:Update()
 	--lua_table.SystemFunctions:LOG("Delta Time: " .. dt)
 	lua_table.SystemFunctions:LOG("State: " .. current_state)
 	lua_table.SystemFunctions:LOG("Time passed: " .. time_since_action)
-	--lua_table.SystemFunctions:LOG("Angle Y: " .. rot_y)
+	SaveDirection()
+	lua_table.SystemFunctions:LOG("Angle Y: " .. rot_y)
 	--lua_table.SystemFunctions:LOG("Ultimate: " .. current_ultimate)
 	--lua_table.SystemFunctions:LOG("Combo num: " .. combo_num)
 	--lua_table.SystemFunctions:LOG("Combo string: " .. combo_stack[1] .. ", " .. combo_stack[2] .. ", " .. combo_stack[3] .. ", " .. combo_stack[4])
 	
+	--Stats LOGS
 	--lua_table.SystemFunctions:LOG("Health: " .. current_health)
 	--lua_table.SystemFunctions:LOG("Energy: " .. current_energy)
 
@@ -1096,7 +1111,68 @@ function lua_table:Update()
 	--lua_table.SystemFunctions:LOG("Energy Reg Mod: " .. energy_reg_mod)
 	--lua_table.SystemFunctions:LOG("Damage Mod: " .. base_damage_mod)
 
-	lua_table.SystemFunctions:LOG("Ability Trapezoid: " .. ability_trapezoid.point_A.x .. "," .. ability_trapezoid.point_A.z .. " / " .. ability_trapezoid.point_B.x .. "," .. ability_trapezoid.point_B.z .. " / " .. ability_trapezoid.point_C.x .. "," .. ability_trapezoid.point_C.z .. " / " .. ability_trapezoid.point_D.x .. "," .. ability_trapezoid.point_D.z)
+	--Trapezoid Global BEGIN
+	-- local geralt_pos_x, geralt_pos_y, geralt_pos_z = lua_table.TransformFunctions:GetPosition()
+	-- local A_x, A_z = ability_trapezoid.point_A.x + geralt_pos_x, ability_trapezoid.point_A.z + geralt_pos_z
+	-- local B_x, B_z = ability_trapezoid.point_B.x + geralt_pos_x, ability_trapezoid.point_B.z + geralt_pos_z
+	-- local C_x, C_z = ability_trapezoid.point_C.x + geralt_pos_x, ability_trapezoid.point_C.z + geralt_pos_z
+	-- local D_x, D_z = ability_trapezoid.point_D.x + geralt_pos_x, ability_trapezoid.point_D.z + geralt_pos_z
+
+	-- lua_table.SystemFunctions:LOG("Ability Trapezoid: " .. ability_trapezoid.point_A.x .. "," .. ability_trapezoid.point_A.z .. " / " .. ability_trapezoid.point_B.x .. "," .. ability_trapezoid.point_B.z .. " / " .. ability_trapezoid.point_C.x .. "," .. ability_trapezoid.point_C.z .. " / " .. ability_trapezoid.point_D.x .. "," .. ability_trapezoid.point_D.z)
+	-- lua_table.SystemFunctions:LOG("Real Trapezoid: " .. A_x .. "," .. A_z .. " / " .. B_x .. "," .. B_z .. " / " .. C_x .. "," .. C_z .. " / " .. D_x .. "," .. D_z)
+
+	-- local target = lua_table.GameObjectFunctions:FindGameObject("gerardo2")
+	-- local target_x = lua_table.GameObjectFunctions:GetGameObjectPosX(target)
+	-- local target_z = lua_table.GameObjectFunctions:GetGameObjectPosZ(target)
+
+	-- if math.sqrt((target_x - geralt_pos_x) ^ 2 + (target_z - geralt_pos_z) ^ 2) <= lua_table.ability_range	--IF on the left side of all vectors + within the OverlapSphere = inside AoE
+	-- and BidimensionalPointInVectorSide(B_x, B_z, C_x, C_z, target_x, target_z) < 0
+	-- and BidimensionalPointInVectorSide(C_x, C_z, D_x, D_z, target_x, target_z) < 0
+	-- and BidimensionalPointInVectorSide(D_x, D_z, A_x, A_z, target_x, target_z) < 0
+	-- then
+	-- 	lua_table.SystemFunctions:LOG("TARGET INSIDE")
+	-- else
+	-- 	lua_table.SystemFunctions:LOG("TARGET OUTSIDE")
+	-- end
+	--Trapezoid Global END
+
+	--Trapezoid Local BEGIN
+	-- local geralt_pos_x, geralt_pos_y, geralt_pos_z = lua_table.TransformFunctions:GetPosition()
+	-- local A_x, A_z = ability_trapezoid.point_A.x, ability_trapezoid.point_A.z
+	-- local B_x, B_z = ability_trapezoid.point_B.x, ability_trapezoid.point_B.z
+	-- local C_x, C_z = ability_trapezoid.point_C.x, ability_trapezoid.point_C.z
+	-- local D_x, D_z = ability_trapezoid.point_D.x, ability_trapezoid.point_D.z
+
+	-- lua_table.SystemFunctions:LOG("Ability Trapezoid: " .. ability_trapezoid.point_A.x .. "," .. ability_trapezoid.point_A.z .. " / " .. ability_trapezoid.point_B.x .. "," .. ability_trapezoid.point_B.z .. " / " .. ability_trapezoid.point_C.x .. "," .. ability_trapezoid.point_C.z .. " / " .. ability_trapezoid.point_D.x .. "," .. ability_trapezoid.point_D.z)
+	-- lua_table.SystemFunctions:LOG("Real Trapezoid: " .. A_x .. "," .. A_z .. " / " .. B_x .. "," .. B_z .. " / " .. C_x .. "," .. C_z .. " / " .. D_x .. "," .. D_z)
+
+	-- if BidimensionalPointInVectorSide(A_x, A_z, B_x, B_z, geralt_pos_x, geralt_pos_z) < 0	--IF on the left side of all vectors + within the OverlapSphere = inside AoE
+	-- and BidimensionalPointInVectorSide(B_x, B_z, C_x, C_z, geralt_pos_x, geralt_pos_z) < 0
+	-- and BidimensionalPointInVectorSide(C_x, C_z, D_x, D_z, geralt_pos_x, geralt_pos_z) < 0
+	-- and BidimensionalPointInVectorSide(D_x, D_z, A_x, A_z, geralt_pos_x, geralt_pos_z) < 0
+	-- --if geralt_pos_x > A_x and geralt_pos_x < B_x and geralt_pos_z > C_z and geralt_pos_z < A_z
+	-- then
+	-- 	lua_table.SystemFunctions:LOG("TARGET INSIDE")
+	-- else
+	-- 	lua_table.SystemFunctions:LOG("TARGET OUTSIDE")
+	-- end
+	-- lua_table.SystemFunctions:LOG("G_x: " .. geralt_pos_x .. ", G_z: " .. geralt_pos_z)
+	--Trapezoid Local END
+
+	--GameObject Find BEGIN
+	-- local target = lua_table.GameObjectFunctions:FindGameObject("gerardo2")
+	-- lua_table.SystemFunctions:LOG("UID: " .. target)
+	-- target_x, target_y, target_z = lua_table.GameObjectFunctions:GetGameObjectPos(target)
+
+	-- target_x = lua_table.GameObjectFunctions:GetGameObjectPosX(target)
+	-- target_y = lua_table.GameObjectFunctions:GetGameObjectPosY(target)
+	-- target_z = lua_table.GameObjectFunctions:GetGameObjectPosZ(target)
+
+	-- if target_x ~= nil and target_y ~= nil and target_z ~= nil
+	-- then
+	-- 	lua_table.SystemFunctions:LOG("Target_x: " .. target_x .. ", Target_y: " .. target_y .. ", Target_z: " .. target_z)
+	-- end
+	--GameObject Find END
 end
 
 return lua_table
