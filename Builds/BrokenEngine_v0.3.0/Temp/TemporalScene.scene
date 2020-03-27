@@ -1,0 +1,194 @@
+{
+    "1561664470": {
+        "Components": {
+            "0": {
+                "UID": 1839985554,
+                "index": 0,
+                "positionx": "54.828671",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "9.480000",
+                "scaley": "9.480000",
+                "scalez": "9.480000"
+            },
+            "1": {
+                "Resources": {
+                    "ResourceMesh": "Library/Meshes/2.mesh"
+                },
+                "UID": 2087227837,
+                "index": 1
+            },
+            "2": {
+                "Resources": {
+                    "ResourceMaterial": "DefaultMaterial"
+                },
+                "UID": 1113298228,
+                "index": 2
+            }
+        },
+        "Name": "gerardo1",
+        "Parent": "2001976956",
+        "Static": false
+    },
+    "1629848840": {
+        "Components": {
+            "0": {
+                "UID": 817665807,
+                "index": 0,
+                "positionx": "37.514301",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "5.270000",
+                "scaley": "5.270000",
+                "scalez": "5.270000"
+            },
+            "1": {
+                "Resources": {
+                    "ResourceMesh": "Library/Meshes/2.mesh"
+                },
+                "UID": 1214634471,
+                "index": 1
+            },
+            "2": {
+                "Resources": {
+                    "ResourceMaterial": "DefaultMaterial"
+                },
+                "UID": 455453925,
+                "index": 2
+            }
+        },
+        "Name": "jaskier1",
+        "Parent": "2001976956",
+        "Static": false
+    },
+    "248123920": {
+        "Components": {
+            "0": {
+                "UID": 276977852,
+                "index": 0,
+                "positionx": "-24.386368",
+                "positiony": "-0.080824",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "3.154480",
+                "scaley": "3.154480",
+                "scalez": "3.154480"
+            },
+            "1": {
+                "Resources": {
+                    "ResourceMesh": "Library/Meshes/2.mesh"
+                },
+                "UID": 1219367679,
+                "index": 1
+            },
+            "11": {
+                "Resources": {
+                    "ResourceScript": "Assets/GhoulScript.lua"
+                },
+                "Script variables": {
+                    "Count": 11,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "SwipeAttack",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 10.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "StuntTime",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 5000.0
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "currentTarget",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "currentState",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "Stunned",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": false,
+                        "Name": "Jaskier",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": false,
+                        "Name": "MaxSpeed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 150.0
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": false,
+                        "Name": "Geralt",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": false,
+                        "Name": "GeraltDistance",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": false,
+                        "Name": "JaskierDistance",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "Life",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 80.0
+                    }
+                },
+                "UID": 1632246758,
+                "index": 3
+            },
+            "2": {
+                "Resources": {
+                    "ResourceMaterial": "DefaultMaterial"
+                },
+                "UID": 1421130102,
+                "index": 2
+            }
+        },
+        "Name": "Ghoul",
+        "Parent": "2001976956",
+        "Static": false
+    }
+}

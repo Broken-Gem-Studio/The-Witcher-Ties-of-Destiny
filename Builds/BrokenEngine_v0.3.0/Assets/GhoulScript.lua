@@ -44,7 +44,7 @@ lua_table.GeraltDistance = 0
 
 lua_table.Geralt = 0
 lua_table.Jaskier = 0
-+
+
 -----------------------------------------------------------------------------------------
 -- Enemy Variables
 -----------------------------------------------------------------------------------------
@@ -62,11 +62,21 @@ lua_table.currentState = State.IDL
 function HandleAggro()
 	ret = true 
 
-	if currentTarget == 0 and Players()
+	if currentTarget == 0 and Players() --sin objetivo inicial y existen players
 	then 
 			if GeraltDistance < JaskierDistance
 			then
 				currentTarget = Geralt
+			else
+				currentTarget = Jaskier
+			end
+	elseif currentTarget ~= 0 and Players()
+	then	
+		currentTarget = currentTarget
+	elseif not players()
+	then 
+		lua_table.SystemFunctions:LOG("GhoulScript: Log called from HandleAggro Function, no players found")
+		ret = false
 	end
 
 	return ret
@@ -76,74 +86,79 @@ function patrol()
 	-- body
 end
 
-function Players() --function to know if there is a player in the area and where it is
+local function Players() --function to know if there is a player in the area and where it is
 
     ret = true
+	lua_table.SystemFunctions:LOG("YEAHHHH  players()")
 
-    if Geralt == 1 --Geralt comprovation
-    then 
-        GeraltPos_x = lua_table.GameObjectFunctions:GetGameObjectPosX(Geralt)
-        GeraltPos_y = lua_table.GameObjectFunctions:GetGameObjectPosY(Geralt)
-        GeraltPos_z = lua_table.GameObjectFunctions:GetGameObjectPosZ(Geralt)
-    elseif Geralt == 0
-    then
-        lua_table.SystemFunctions:LOG("This Log was called from LUA table from a GhoulScript on HandleTheNearestPlayer function because Geralt is not found")     
-    end
+ --   if Geralt == 1 --Geralt comprovation
+ --   then 
+   --     GeraltPos_x = lua_table.GameObjectFunctions:GetGameObjectPosX(Geralt)
+   --     GeraltPos_y = lua_table.GameObjectFunctions:GetGameObjectPosY(Geralt)
+   --     GeraltPos_z = lua_table.GameObjectFunctions:GetGameObjectPosZ(Geralt)
+		
+ --   elseif Geralt == 0
+--    then
+  --      lua_table.SystemFunctions:LOG("This Log was called from LUA table from a GhoulScript on HandleTheNearestPlayer function because Geralt is not found")     
+  --  end
 
-    if Jaskier == 1 --Jaskier comprovation
-    then 
-        JaskierPos_x = lua_table.GameObjectFunctions:GetGameObjectPosX(Jaskier)
-        JaskierPos_y = lua_table.GameObjectFunctions:GetGameObjectPosY(Jaskier)
-        askierPos_z = lua_table.GameObjectFunctions:GetGameObjectPosZ(Jaskier)        
-    elseif Jaskier == 0 
-    then
-        lua_table.SystemFunctions:LOG("This Log was called from LUA table from a GhoulScript on HandleTheNearestPlayer function because Geralt is not found")
-    end
+ --   if Jaskier == 1 --Jaskier comprovation
+ --   then 
+  --      JaskierPos_x = lua_table.GameObjectFunctions:GetGameObjectPosX(Jaskier)
+ --       JaskierPos_y = lua_table.GameObjectFunctions:GetGameObjectPosY(Jaskier)
+  --      askierPos_z = lua_table.GameObjectFunctions:GetGameObjectPosZ(Jaskier)        
+  --  elseif Jaskier == 0 
+  --  then
+   --     lua_table.SystemFunctions:LOG("This Log was called from LUA table from a GhoulScript on HandleTheNearestPlayer function because Geralt is not found")
+  --  end
 
     --calculate distances
 
-    JaskierDistance =  math.sqrt(JaskierPos_x ^ 2 + JaskierPos_z ^ 2)
-    GeraltDistance = math.sqrt(GrealtPos_x ^ 2 + GeraltPos_z ^ 2)
+   -- JaskierDistance =  math.sqrt(JaskierPos_x ^ 2 + JaskierPos_z ^ 2)
+  --  GeraltDistance = math.sqrt(GrealtPos_x ^ 2 + GeraltPos_z ^ 2)
 
     --calculate if necessary to change ghoul state to idl
 
-    if JaskierDistance != 0 and GeraltDistance != 0 -- HC as fuck
-    then
-        ret = true
-	else
-		lua_table.SystemFunctions:LOG("This Log was called from LUA table from a GhoulScript on HandleTheNearestPlayer function because Gerardo1 or jaskier1 are not in the area or where not detected")
-    end
+  --  if JaskierDistance ~= 0 and GeraltDistance ~= 0 -- HC as fuck
+  --  then
+  --      ret = true
+--	else
+	--	lua_table.SystemFunctions:LOG("This Log was called from LUA table from a GhoulScript on HandleTheNearestPlayer function because Gerardo1 or jaskier1 are not in the area or where not detected")
+  --  end
 
     return ret
 end
 
 function HandleIdleState() --handle if necessary to change idle state to patrol.
 	
-    if currentState == State.IDL
+    if lua_table.currentState == State.IDL
     then
-		if Stunned == false
+		--lua_table.SystemFunctions:LOG("YEAHHHH  0")
+		if lua_table.Stunned == false
 		then
+			lua_table.SystemFunctions:LOG("YEAHHHH  1")
 			if Players() == true
-			then 
-				currentState = State.PATROL
-				lua_table.SystemFunctions:LOG("GhoulScript: New State: PATROL")
+			then
+				lua_table.SystemFunctions:LOG("YEAHHHH  2")
+				lua_table.currentState = State.PATROL --PETA ESTA LINEA
+				--lua_table.SystemFunctions:LOG("GhoulScript: New State: PATROL")
 			end 
-		else if Stunned == true -- when stunned is true idle state does not change. add a script to add stunned effect in enemy head when stunned
-		then
-			Time = 0 --TODO timer
+		--else if lua_table.Stunned == true -- when stunned is true idle state does not change. add a script to add stunned effect in enemy head when stunned
+		--then
+		--	Time = 0 --TODO timer
 			--timer for stunt here. dt??? when end Timer controller is false turn stunned to false
-				if Time == StuntTime 
-				then
-					Stunned = false
-				end
-			end
+		--		if Time == StuntTime 
+		--		then
+			--		lua_table.Stunned = false
+		--		end
+			--end
 		end
     end
 end
 
 function HandlePatrolState() -- THIS IS NOT A PATROL ITSELF, IS JUST A LITTLE AREA IN WICH THE GHOULS WILL WALK. (little is like 3 meters in a circle)
 
-    if currentState ==State.PATROL
+    if lua_table.currentState ==State.PATROL
     then
         Patrol()
     end
@@ -160,12 +175,12 @@ function HandlePatrolState() -- THIS IS NOT A PATROL ITSELF, IS JUST A LITTLE AR
     GeraltDistance = math.sqrt(GeraltPos_x ^ 2 + GeraltPos_z ^ 2)
 
 
-	if JaskierDistance != 0 and GeraltDistance != 0 -- HC as fuck
+	if JaskierDistance ~= 0 and GeraltDistance ~= 0 -- HC as fuck
     then
         if HandleAggro()
         then 
-			currentState = State.ATTACK
-			lua_table.SystemFunctions:LOG("GhoulScript: New State: ATTACK")
+			lua_table.currentState = State.SEEK
+			lua_table.SystemFunctions:LOG("GhoulScript: New State: SEEK")
         end
 	else
 		lua_table.SystemFunctions:LOG("This Log was called from LUA table from a GhoulScript on HandleTheNearestPlayer function because Gerardo1 or jaskier1 are not in the area or where not detected")
@@ -187,6 +202,7 @@ end
 function HandleSeekState()
 
 
+
 end
 ---------------------------------FUNCTIONS END -------------------------
 ------------------------------------------------------------------------
@@ -194,7 +210,7 @@ end
 
 --Main Code
 function lua_table:Awake()
---   lua_table.SystemFunctions:LOG("This Log was called from LUA table from a GhoulScript on AWAKE")
+   lua_table.SystemFunctions:LOG("This Log was called from LUA table from a GhoulScript on AWAKE")
 
     -------------------- GET PLAYERS id START--------------------
     Geralt = lua_table.GameObjectFunctions:FindGameObject("gerardo1")
@@ -206,7 +222,7 @@ function lua_table:Awake()
     if Jaskier == 0 then lua_table.SystemFunctions:LOG ("A random GhoulScript: Null Jaskier id, check the name of game object the script is looking for or add Jaskier to the scene if not there already")
     end
 
-    currentState = State.IDL
+    lua_table.currentState = State.IDL
     -------------------- GET PLAYERS id END --------------------
 end
 
@@ -215,25 +231,25 @@ function lua_table:Start()
 end
 
 function lua_table:Update()
-
+ --lua_table.SystemFunctions:LOG("A random GhoulScript: UPDATE")  
 --	dt = lua_table.Functions:dt()
 --  lua_table.Functions:SetCurrentAnimationSpeed(100)
 	
 	if stunned == true --stunt bool change handled inn HandleIdleState() function
 	then 
-		currentState = State.IDL
+		lua_table.currentState = State.IDL
 	end
 
-    if currentState == State.IDL 
+    if lua_table.currentState == State.IDL 
     then
         HandleIdleState()
-    elseif currentState == State.PATROL
+    elseif lua_table.currentState == State.PATROL
     then
         HandlePatrolState()
-    elseif currentState == State.SEEK
+    elseif lua_table.currentState == State.SEEK
     then
         HandleSeekState()
-    elseif currentState == State.ATTACK
+    elseif lua_table.currentState == State.ATTACK
     then    
         HandleAttackState()
     end
