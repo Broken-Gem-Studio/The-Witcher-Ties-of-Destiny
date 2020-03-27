@@ -29,6 +29,22 @@ lua_table.Stunned = false
 
 lua_table.StuntTime = 5000 --time that the base stunt is this value should be changed by every character for every different stunt they use //milliseconds
 
+lua_table.currentTarget = 0
+
+local GeraltPos_x = 0
+local GeraltPos_y = 0
+local GeraltPos_z = 0
+
+local JaskierPos_x = 0
+local JaskierPos_y = 0
+local JaskierPos_z = 0
+
+lua_table.JaskierDistance = 0
+lua_table.GeraltDistance = 0
+
+lua_table.Geralt = 0
+lua_table.Jaskier = 0
++
 -----------------------------------------------------------------------------------------
 -- Enemy Variables
 -----------------------------------------------------------------------------------------
@@ -44,14 +60,23 @@ lua_table.currentState = State.IDL
 ------------------------------------------------------------------------
 
 function HandleAggro()
+	ret = true 
 
-ret = true
+	if currentTarget == 0 and Players()
+	then 
+			if GeraltDistance < JaskierDistance
+			then
+				currentTarget = Geralt
+	end
 
--- here choose who to attack
-return ret
+	return ret
 end
 
-function HandleTheNearestPlayer() --function to know if there is a player in the area
+function patrol()
+	-- body
+end
+
+function Players() --function to know if there is a player in the area and where it is
 
     ret = true
 
@@ -82,9 +107,11 @@ function HandleTheNearestPlayer() --function to know if there is a player in the
 
     --calculate if necessary to change ghoul state to idl
 
-    if GeraltDistance < 15 or JaskierDistance < 15 -- HC as fuck
+    if JaskierDistance != 0 and GeraltDistance != 0 -- HC as fuck
     then
         ret = true
+	else
+		lua_table.SystemFunctions:LOG("This Log was called from LUA table from a GhoulScript on HandleTheNearestPlayer function because Gerardo1 or jaskier1 are not in the area or where not detected")
     end
 
     return ret
@@ -96,9 +123,10 @@ function HandleIdleState() --handle if necessary to change idle state to patrol.
     then
 		if Stunned == false
 		then
-			if HandleTheNearestPlayer() == true
+			if Players() == true
 			then 
 				currentState = State.PATROL
+				lua_table.SystemFunctions:LOG("GhoulScript: New State: PATROL")
 			end 
 		else if Stunned == true -- when stunned is true idle state does not change. add a script to add stunned effect in enemy head when stunned
 		then
@@ -131,12 +159,21 @@ function HandlePatrolState() -- THIS IS NOT A PATROL ITSELF, IS JUST A LITTLE AR
     JaskierDistance =  math.sqrt(JaskierPos_x ^ 2 + JaskierPos_z ^ 2)
     GeraltDistance = math.sqrt(GeraltPos_x ^ 2 + GeraltPos_z ^ 2)
 
+
+	if JaskierDistance != 0 and GeraltDistance != 0 -- HC as fuck
+    then
+        if HandleAggro()
+        then 
+			currentState = State.ATTACK
+			lua_table.SystemFunctions:LOG("GhoulScript: New State: ATTACK")
+        end
+	else
+		lua_table.SystemFunctions:LOG("This Log was called from LUA table from a GhoulScript on HandleTheNearestPlayer function because Gerardo1 or jaskier1 are not in the area or where not detected")
+    end
+
     if JaskierDistance < 7 or GeraltDistance < 7
     then 
-         if HandleAggro()
-         then 
-            currentState = State.ATTACK
-         end
+         
     end
 end
 
@@ -147,6 +184,10 @@ function HandleAttackState()
 
 end
 
+function HandleSeekState()
+
+
+end
 ---------------------------------FUNCTIONS END -------------------------
 ------------------------------------------------------------------------
 
