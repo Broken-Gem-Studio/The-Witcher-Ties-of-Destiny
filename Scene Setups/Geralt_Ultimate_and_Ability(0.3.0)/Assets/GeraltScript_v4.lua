@@ -546,7 +546,8 @@ end
 local function CheckCameraBounds()	--Check if we're currently outside the camera's bounds
 	--1. Get all necessary data
 	local pos_x, pos_y, pos_z = lua_table.TransformFunctions:GetPosition()
-	local side_left, side_up, side_right, side_down = lua_table.Functions:CheckFrustumPlanes(pos_x, pos_y, pos_z)	--TODO: This name is invented, I need to use the functional one
+	--local side_left, side_up, side_right, side_down = lua_table.Functions:CheckFrustumPlanes(pos_x, pos_y, pos_z)	--TODO: This name is invented, I need to use the functional one
+	local side_left, side_up, side_right, side_down = 0, 0, 0, 0
 
 	--2. Restart camera bounds values
 	bounds_vector.x = 0
@@ -1025,7 +1026,7 @@ function lua_table:Update()
 
 	if must_update_stats then CalculateStats() end
 
-	--CheckCameraBounds()	--TODO: Uncomment when camera bound function working
+	CheckCameraBounds()	--TODO: Uncomment when camera bound function working
 
 	if current_state >= state.idle	--IF alive
 	then
