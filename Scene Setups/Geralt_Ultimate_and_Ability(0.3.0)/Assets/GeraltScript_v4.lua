@@ -119,38 +119,31 @@ lua_table.key_notdef6 = "BUTTON_START"
 
 --Inputs
 local mov_input = {
-	prev_input_x = 0.0,	--Previous frame Input
-	prev_input_z = 0.0,
-	
-	real_input_x = 0.0,	--Real Input
-	real_input_z = 0.0,
-	
-	used_input_x = 0.0,	--Input used on character
-	used_input_z = 0.0
+	prev_input = { x = 0.0, z = 0.0 },	--Previous frame Input
+	real_input = { x = 0.0, z = 0.0 },	--Real Input
+	used_input = { x = 0.0, z = 0.0 }	--Input used on character
 }
 
 local aim_input = {
-	prev_input_x = 0.0,	--Previous frame Input
-	prev_input_z = 0.0,
-	
-	real_input_x = 0.0,	--Real Input
-	real_input_z = 0.0,
-	
-	used_input_x = 0.0,	--Input used on character
-	used_input_z = 0.0
+	prev_input = { x = 0.0, z = 0.0 },	--Previous frame Input
+	real_input = { x = 0.0, z = 0.0 },	--Real Input
+	used_input = { x = 0.0, z = 0.0 }	--Input used on character
 }
 
 local key_joystick_threshold = 0.25		--As reference, my very fucked up Xbox controller stays at around 2.1 if left IDLE gently (worst), my brand new one stays at 0 no matter what (best)
 lua_table.input_walk_threshold = 0.8
 
+--Camera Limitations (IF angle between forward character vector and plane normal > 90º (45º on corners) then all velocities = 0)
+local off_bounds = false
+local bounds_vector = { x = 0, z = 0 }
+local bounds_angle
+
 --Movement
-local rec_direction_x = 0.0	--Used to save a direction when necessary, given by joystick inputs or character rotation
-local rec_direction_y = 0.0
+local rec_direction = { x = 0.0, z = 0.0 }	--Used to save a direction when necessary, given by joystick inputs or character rotation
 
 local rot_y = 0.0
 
-local mov_speed_x = 0.0
-local mov_speed_z = 0.0
+local mov_speed = { x = 0.0, z = 0.0 }
 
 	--Speed Stat
 	local mov_speed_stat	-- stat = real / 10. Exclusive to speed, as the numeric balancing is dependant on Physics and not only design
@@ -321,7 +314,8 @@ lua_table.combo_3_movement_speed = 3000.0
 -- lua_table.combo_4_animation_speed = 50.0
 -- lua_table.combo_4_movement_speed = 10.0
 
---Methods: Utility	--IMPROVE: Consider making useful generic methods part of a global script
+--Utility BEGIN	----------------------------------------------------------------------------	--IMPROVE: Consider making useful generic methods part of a global script
+
 local function TableLength(table)	--Get TableLength
 	local count = 0
 	for _ in pairs(table) do count = count + 1 end
@@ -375,6 +369,10 @@ local function PerfGameTime()
 	return lua_table.SystemFunctions:GameTime() * 1000
 end
 
+--Utility END	----------------------------------------------------------------------------
+
+--Geometry BEGIN	----------------------------------------------------------------------------
+
 local function BidimensionalRotate(x, y, angle)	--REMEMBER: In 2D it's (x,y), but our 3D space translated into horizontal (ground) 2D it's (z,x). Therefore: 3D (Z,X) to 2D (X,Y)
 	local new_x = x * math.cos(angle) - y * math.sin(angle)
 	local new_y = x * math.sin(angle) + y * math.cos(angle)
@@ -385,6 +383,10 @@ end
 local function BidimensionalPointInVectorSide(vec_x1, vec_y1, vec_x2, vec_y2, point_x, point_y)	--Counter-clockwise: If D > 0, the point is on the right side. If D < 0, the point is on the left side. If D = 0, the point is on the line.
 	local D = (vec_x2 - vec_x1) * (point_y - vec_y1) - (point_x - vec_x1) * (vec_y2 - vec_y1);
 	return D		
+end
+
+local function BidimensionalAngleBetweenVectors(vec_x1, vec_y1, vec_x2, vec_y2)
+	return math.acos((vec_x1 * vec_x2 + vec_y1 * vec_y2) / (math.sqrt(vec_x1 ^ 2 + vec_y1 ^ 2) + math.sqrt(vec_x2 ^ 2 * vec_y2 ^ 2)))
 end
 
 local function GimbalLockWorkaroundY(param_rot_y)	--TODO: Remove when bug is fixed
@@ -398,13 +400,16 @@ local function GimbalLockWorkaroundY(param_rot_y)	--TODO: Remove when bug is fix
 	return param_rot_y
 end
 
---Methods: Specific
+--Geometry END	----------------------------------------------------------------------------
+
+--States BEGIN	----------------------------------------------------------------------------
+
 local function GoDefaultState()
 	previous_state = current_state
 
-	if mov_input.used_input_x ~= 0.0 or mov_input.used_input_z ~= 0.0
+	if mov_input.used_input.x ~= 0.0 or mov_input.used_input.z ~= 0.0
 	then
-		if lua_table.input_walk_threshold < math.sqrt(mov_input.used_input_x ^ 2 + mov_input.used_input_z ^ 2)
+		if lua_table.input_walk_threshold < math.sqrt(mov_input.used_input.x ^ 2 + mov_input.used_input.z ^ 2)
 		then
 			lua_table.AnimationFunctions:PlayAnimation("run", lua_table.run_animation_speed)
 			lua_table.AudioFunctions:PlayStepSound()
@@ -424,49 +429,89 @@ local function GoDefaultState()
 	rightside = true
 end
 
---Methods: Inputs
-local function JoystickInputs(key_string, input_table)
-	input_table.real_input_x = lua_table.InputFunctions:GetAxisValue(lua_table.player_ID, key_string .. "X", 0.01)	--Get accurate inputs
-	input_table.real_input_z = lua_table.InputFunctions:GetAxisValue(lua_table.player_ID, key_string .. "Y", 0.01)
+--States END	----------------------------------------------------------------------------
 
-	if input_table.real_input_x == input_table.prev_input_x and input_table.real_input_z == input_table.prev_input_z	--IF both inputs exactly the same as last frame
-	and math.abs(input_table.real_input_x) < key_joystick_threshold and math.abs(input_table.real_input_z) < key_joystick_threshold			--and IF  both inputs under joystick threshold
+--Stats BEGIN	----------------------------------------------------------------------------
+
+local function CalculateStats()
+	--Health
+	local max_health_increment = lua_table.max_health_orig * max_health_mod / max_health_real
+	max_health_real = max_health_real * max_health_increment
+	current_health = current_health * max_health_increment
+
+	health_reg_real = max_health_real * health_reg_mod
+
+	--Damage
+	base_damage_real = lua_table.base_damage_orig * base_damage_mod
+	critical_chance_real = lua_table.critical_chance_orig + critical_chance_add
+	critical_damage_real = lua_table.critical_damage_orig + critical_damage_add
+
+	--Speed
+	mov_speed_max_real = lua_table.mov_speed_max_orig * mov_speed_max_mod
+	mov_speed_stat = mov_speed_max_real * 0.1
+
+	--Energy
+	max_energy_real = lua_table.max_energy_orig * max_energy_mod
+	energy_reg_real = lua_table.energy_reg_orig * energy_reg_mod
+
+	--Ultimate
+	ultimate_reg_real = lua_table.ultimate_reg_orig * ultimate_reg_mod
+
+	--If current values overflow new maximums, limit them
+	if current_health > max_health_real then current_health = max_health_real end
+	if current_energy > max_energy_real then current_energy = max_energy_real end
+end
+
+--Stats END	----------------------------------------------------------------------------
+
+--Inputs BEGIN	----------------------------------------------------------------------------
+
+local function JoystickInputs(key_string, input_table)
+	input_table.real_input.x = lua_table.InputFunctions:GetAxisValue(lua_table.player_ID, key_string .. "X", 0.01)	--Get accurate inputs
+	input_table.real_input.z = lua_table.InputFunctions:GetAxisValue(lua_table.player_ID, key_string .. "Y", 0.01)
+
+	if input_table.real_input.x == input_table.prev_input.x and input_table.real_input.z == input_table.prev_input.z	--IF both inputs exactly the same as last frame
+	and math.abs(input_table.real_input.x) < key_joystick_threshold and math.abs(input_table.real_input.z) < key_joystick_threshold			--and IF  both inputs under joystick threshold
 	then
-	 	input_table.used_input_x, input_table.used_input_z = 0.0, 0.0	--Set used input as idle (0)
+	 	input_table.used_input.x, input_table.used_input.z = 0.0, 0.0	--Set used input as idle (0)
 	else
-		input_table.used_input_x, input_table.used_input_z = input_table.real_input_x, input_table.real_input_z	--Use real input
+		input_table.used_input.x, input_table.used_input.z = input_table.real_input.x, input_table.real_input.z	--Use real input
 	end
 
-	input_table.prev_input_x, input_table.prev_input_z = input_table.real_input_x, input_table.real_input_z	--Record previous real input as current one
+	input_table.prev_input.x, input_table.prev_input.z = input_table.real_input.x, input_table.real_input.z	--Record previous real input as current one
 end
 
 local function KeyboardInputs()	--Process Debug Keyboard Inputs
-	mov_input.used_input_x, mov_input.used_input_z = 0.0, 0.0
+	mov_input.used_input.x, mov_input.used_input.z = 0.0, 0.0
 	
 	if lua_table.InputFunctions:KeyRepeat("D")
 	then
-		mov_input.used_input_x = 2.0
+		mov_input.used_input.x = 2.0
 	elseif lua_table.InputFunctions:KeyRepeat("A")
 	then
-		mov_input.used_input_x = -2.0
+		mov_input.used_input.x = -2.0
 	end
 	
 	if lua_table.InputFunctions:KeyRepeat("S")
 	then
-		mov_input.used_input_z = -2.0
+		mov_input.used_input.z = -2.0
 	elseif lua_table.InputFunctions:KeyRepeat("W")
 	then
-		mov_input.used_input_z = 2.0
+		mov_input.used_input.z = 2.0
 	end
 end
 
-local function SaveDirection()
-	if mov_input.used_input_x ~= 0 and mov_input.used_input_z ~= 0	--IF input given, use as direction
-	then
-		local magnitude = math.sqrt(mov_input.used_input_x ^ 2 + mov_input.used_input_z ^ 2)
+--Inputs END	----------------------------------------------------------------------------
 
-		rec_direction_x = mov_input.used_input_x / magnitude
-		rec_direction_z = mov_input.used_input_z / magnitude
+--Character Movement BEGIN	----------------------------------------------------------------------------
+
+local function SaveDirection()
+	if mov_input.used_input.x ~= 0 and mov_input.used_input.z ~= 0	--IF input given, use as direction
+	then
+		local magnitude = math.sqrt(mov_input.used_input.x ^ 2 + mov_input.used_input.z ^ 2)
+
+		rec_direction.x = mov_input.used_input.x / magnitude
+		rec_direction.z = mov_input.used_input.z / magnitude
 	else															--IF no input, use Y angle to move FORWARD
 		----------------------------------------------
 		--NOTE: This a more step-by-step of the line below
@@ -477,19 +522,74 @@ local function SaveDirection()
 
 		rot_y = math.rad(GimbalLockWorkaroundY(lua_table.TransformFunctions:GetRotationY()))	--TODO: Remove GimbalLock stage when Euler bug is fixed
 
-		rec_direction_x = math.sin(rot_y)
-		rec_direction_z = math.cos(rot_y)
+		rec_direction.x = math.sin(rot_y)
+		rec_direction.z = math.cos(rot_y)
+	end
+end
+
+local function DirectionInBounds()	--Every time we try to set a velocity, this is checked first to allow it
+	local ret = true
+
+	if off_bounds then
+		rot_y = math.rad(GimbalLockWorkaroundY(lua_table.TransformFunctions:GetRotationY()))	--TODO: Remove GimbalLock stage when Euler bug is fixed
+		
+		--IF angle between character Front (Z) and set Bounds Vector > Bounds Angle, in other words, if direction too far away from what camera requires to stay within bounds
+		if BidimensionalAngleBetweenVectors(math.sin(rot_y), math.cos(rot_y), bounds_vector.x, bounds_vector.z) > bounds_angle
+		then
+			ret = false	--Return: movement not approved by camera bounds
+		end
+	end
+
+	return ret
+end
+
+local function CheckCameraBounds()	--Check if we're currently outside the camera's bounds
+	--1. Get all necessary data
+	local pos_x, pos_y, pos_z = lua_table.TransformFunctions:GetPosition()
+	--local side_left, side_up, side_right, side_down = lua_table.Functions:CheckFrustumPlanes(pos_x, pos_y, pos_z)	--TODO: This name is invented, I need to use the functional one
+	local side_left, side_up, side_right, side_down = 0, 0, 0, 0
+
+	--2. Restart camera bounds values
+	bounds_vector.x = 0
+	bounds_vector.z = 0
+	bounds_angle = 45
+
+	--3. Generate a vector and change angle depending on planes that we're traspassing (1 plane = 90º, 2 planes = 45º)
+	--3.1. Check left/right
+	if side_left > 0 then
+		bounds_vector.x = -1
+	elseif side_right > 0 then
+		bounds_vector.x = 1
+	else
+		bounds_angle = bounds_angle + 45
+	end
+
+	--3.2. Check down/up
+	if side_down > 0 then
+		bounds_vector.z = -1
+	elseif side_up > 0 then
+		bounds_vector.z = 1
+	else
+		bounds_angle = bounds_angle + 45
+	end
+
+	--4. If character off bounds, calculate the return angle and flag the off bounds status
+	if bounds_vector.x ~= 0 or bounds_vector.y ~= 0 then
+		bounds_angle = math.rad(bounds_angle)
+		off_bounds = true
+	else
+		off_bounds = false
 	end
 end
 
 local function MovementInputs()	--Process Movement Inputs
-	if mov_input.used_input_x ~= 0.0 or mov_input.used_input_z ~= 0.0														--IF Movement Input
+	if mov_input.used_input.x ~= 0.0 or mov_input.used_input.z ~= 0.0													--IF Movement Input
 	then
 		if current_state == state.idle																--IF Idle
 		then
 			previous_state = current_state
 
-			if lua_table.input_walk_threshold < math.sqrt(mov_input.used_input_x ^ 2 + mov_input.used_input_z ^ 2)		--IF great input
+			if lua_table.input_walk_threshold < math.sqrt(mov_input.used_input.x ^ 2 + mov_input.used_input.z ^ 2)		--IF great input
 			then
 				lua_table.AnimationFunctions:PlayAnimation("run", lua_table.run_animation_speed)
 				lua_table.AudioFunctions:PlayStepSound()
@@ -499,13 +599,13 @@ local function MovementInputs()	--Process Movement Inputs
 				lua_table.AudioFunctions:PlayStepSound()
 				current_state = state.walk
 			end
-		elseif current_state == state.walk and lua_table.input_walk_threshold < math.sqrt(mov_input.used_input_x ^ 2 + mov_input.used_input_z ^ 2)	--IF walking and big input
+		elseif current_state == state.walk and lua_table.input_walk_threshold < math.sqrt(mov_input.used_input.x ^ 2 + mov_input.used_input.z ^ 2)	--IF walking and big input
 		then
 			lua_table.AnimationFunctions:PlayAnimation("run", lua_table.run_animation_speed)
 			lua_table.AudioFunctions:PlayStepSound()
 			previous_state = current_state
 			current_state = state.run
-		elseif current_state == state.run and lua_table.input_walk_threshold > math.sqrt(mov_input.used_input_x ^ 2 + mov_input.used_input_z ^ 2)	--IF running and small input
+		elseif current_state == state.run and lua_table.input_walk_threshold > math.sqrt(mov_input.used_input.x ^ 2 + mov_input.used_input.z ^ 2)	--IF running and small input
 		then
 			lua_table.AnimationFunctions:PlayAnimation("walk", lua_table.walk_animation_speed)
 			lua_table.AudioFunctions:PlayStepSound()
@@ -513,16 +613,20 @@ local function MovementInputs()	--Process Movement Inputs
 			current_state = state.walk
 		end
 
-		lua_table.ParticlesFunctions:ActivateParticlesEmission()
-
-		mov_speed_x = mov_speed_max_real * mov_input.used_input_x	--Joystick input directly translates to speed, no acceleration
-		mov_speed_z = mov_speed_max_real * mov_input.used_input_z
-
-		_x, mov_speed_y, _z = lua_table.PhysicsFunctions:GetLinearVelocity()	--Set velocity
-		lua_table.PhysicsFunctions:SetLinearVelocity(mov_speed_x * dt, mov_speed_y, mov_speed_z * dt)
+		--Move character
+		mov_speed.x = mov_speed_max_real * mov_input.used_input.x	--Joystick input directly translates to speed, no acceleration
+		mov_speed.z = mov_speed_max_real * mov_input.used_input.z
 
 		pos_x, pos_y, pos_z = lua_table.TransformFunctions:GetPosition()	--Rotate to velocity direction
-		lua_table.TransformFunctions:LookAt(pos_x + mov_speed_x, pos_y, pos_z + mov_speed_z)
+		lua_table.TransformFunctions:LookAt(pos_x + mov_speed.x, pos_y, pos_z + mov_speed.z)
+
+		if DirectionInBounds()	--Only allow movement if camera bounds allows it
+		then
+			_x, mov_speed_y, _z = lua_table.PhysicsFunctions:GetLinearVelocity()	--Set velocity
+			lua_table.PhysicsFunctions:SetLinearVelocity(mov_speed.x * dt, mov_speed_y, mov_speed.z * dt)
+		end
+
+		lua_table.ParticlesFunctions:ActivateParticlesEmission()
 
 	elseif current_state == state.run or current_state == state.walk
 	then
@@ -534,6 +638,10 @@ local function MovementInputs()	--Process Movement Inputs
 		current_state = state.idle
 	end
 end
+
+--Character Movement END	----------------------------------------------------------------------------
+
+--Character Actions BEGIN	----------------------------------------------------------------------------
 
 local function CheckCombo()	--Check combo performed	(ATTENTION: This should handle the animation, setting timers, bla bla)
 	local string_match = false
@@ -690,7 +798,7 @@ local function ActionInputs()	--Process Action Inputs
 		SaveDirection()
 
 		pos_x, pos_y, pos_z = lua_table.TransformFunctions:GetPosition()	--Rotate to direction
-		lua_table.TransformFunctions:LookAt(pos_x + rec_direction_x, pos_y, pos_z + rec_direction_z)
+		lua_table.TransformFunctions:LookAt(pos_x + rec_direction.x, pos_y, pos_z + rec_direction.z)
 
 		input_given = true
 
@@ -709,7 +817,7 @@ local function ActionInputs()	--Process Action Inputs
 		SaveDirection()
 
 		pos_x, pos_y, pos_z = lua_table.TransformFunctions:GetPosition()	--Rotate to direction
-		lua_table.TransformFunctions:LookAt(pos_x + rec_direction_x, pos_y, pos_z + rec_direction_z)
+		lua_table.TransformFunctions:LookAt(pos_x + rec_direction.x, pos_y, pos_z + rec_direction.z)
 
 		input_given = true
 
@@ -722,7 +830,7 @@ local function ActionInputs()	--Process Action Inputs
 		SaveDirection()
 
 		pos_x, pos_y, pos_z = lua_table.TransformFunctions:GetPosition()	--Rotate to direction
-		lua_table.TransformFunctions:LookAt(pos_x + rec_direction_x, pos_y, pos_z + rec_direction_z)
+		lua_table.TransformFunctions:LookAt(pos_x + rec_direction.x, pos_y, pos_z + rec_direction.z)
 
 		--Do Evade
 		current_energy = current_energy - lua_table.evade_cost
@@ -732,7 +840,7 @@ local function ActionInputs()	--Process Action Inputs
 
 		input_given = true
 		
-	elseif game_time - ability_started_at >= lua_table.ability_cooldown
+	elseif false and game_time - ability_started_at >= lua_table.ability_cooldown	--TODO: Remove false when ability ready to use
 	and current_energy > lua_table.ability_cost
 	and lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_ability, key_state.key_down)	--IF cooldown over and Ability Input
 	then
@@ -745,7 +853,7 @@ local function ActionInputs()	--Process Action Inputs
 		--Do Ability
 		--1. Collect colliders of all enemies inside a radius
 		local geralt_pos_x, geralt_pos_y, geralt_pos_z = lua_table.TransformFunctions:GetPosition()
-		-- enemy_list = lua_table.PhysicsFunctions:OverlapSphere(geralt_pos_x, geralt_pos_y, geralt_pos_z, lua_table.ability_range, "enemy", false)
+		enemy_list = lua_table.PhysicsFunctions:OverlapSphere(geralt_pos_x, geralt_pos_y, geralt_pos_z, lua_table.ability_range, "enemy", false)
 
 		--REMOVE: Workaround which artificially places a GO in the list
 		-- local enemy_list = {}
@@ -837,6 +945,23 @@ local function ActionInputs()	--Process Action Inputs
 	return input_given
 end
 
+local function UltimateState(active)
+	local ultimate_stat_mod = 1
+	if not active then ultimate_stat_mod = -1 end
+
+	health_reg_mod = health_reg_mod + lua_table.ultimate_health_reg_increase * ultimate_stat_mod
+	energy_reg_mod = energy_reg_mod + lua_table.ultimate_energy_reg_increase * ultimate_stat_mod
+	base_damage_mod = base_damage_mod + lua_table.ultimate_damage_mod_increase * ultimate_stat_mod
+
+	must_update_stats = true
+
+	ultimate_active = active
+end
+
+--Character Actions END	----------------------------------------------------------------------------
+
+--Character Secondaries BEGIN	----------------------------------------------------------------------------
+
 local function SecondaryInputs()	--Process Secondary Inputs
 	if lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_pickup_item, key_state.key_down)			--Pickup Item
 	then
@@ -857,47 +982,7 @@ local function SecondaryInputs()	--Process Secondary Inputs
 	end
 end
 
-local function UltimateState(active)
-	local ultimate_stat_mod = 1
-	if not active then ultimate_stat_mod = -1 end
-
-	health_reg_mod = health_reg_mod + lua_table.ultimate_health_reg_increase * ultimate_stat_mod
-	energy_reg_mod = energy_reg_mod + lua_table.ultimate_energy_reg_increase * ultimate_stat_mod
-	base_damage_mod = base_damage_mod + lua_table.ultimate_damage_mod_increase * ultimate_stat_mod
-
-	must_update_stats = true
-
-	ultimate_active = active
-end
-
-local function CalculateStats()
-	--Health
-	local max_health_increment = lua_table.max_health_orig * max_health_mod / max_health_real
-	max_health_real = max_health_real * max_health_increment
-	current_health = current_health * max_health_increment
-
-	health_reg_real = max_health_real * health_reg_mod
-
-	--Damage
-	base_damage_real = lua_table.base_damage_orig * base_damage_mod
-	critical_chance_real = lua_table.critical_chance_orig + critical_chance_add
-	critical_damage_real = lua_table.critical_damage_orig + critical_damage_add
-
-	--Speed
-	mov_speed_max_real = lua_table.mov_speed_max_orig * mov_speed_max_mod
-	mov_speed_stat = mov_speed_max_real * 0.1
-
-	--Energy
-	max_energy_real = lua_table.max_energy_orig * max_energy_mod
-	energy_reg_real = lua_table.energy_reg_orig * energy_reg_mod
-
-	--Ultimate
-	ultimate_reg_real = lua_table.ultimate_reg_orig * ultimate_reg_mod
-
-	--If current values overflow new maximums, limit them
-	if current_health > max_health_real then current_health = max_health_real end
-	if current_energy > max_energy_real then current_energy = max_energy_real end
-end
+--Character Secondaries END	----------------------------------------------------------------------------
 
 local function CalculateAbilityTrapezoid()
 	ability_trapezoid.point_B.x = lua_table.ability_offset_x + math.tan(lua_table.ability_angle) * (lua_table.ability_range - lua_table.ability_offset_z)
@@ -940,6 +1025,8 @@ function lua_table:Update()
 	game_time = PerfGameTime()
 
 	if must_update_stats then CalculateStats() end
+
+	CheckCameraBounds()	--TODO: Uncomment when camera bound function working
 
 	if current_state >= state.idle	--IF alive
 	then
@@ -1015,46 +1102,46 @@ function lua_table:Update()
 
 					GoDefaultState()	--Return to move or idle
 
-				elseif current_state == state.evade				--ELSEIF evading
+				elseif current_state == state.evade and DirectionInBounds()				--ELSEIF evading
 				then
 					_x, mov_speed_y, _z = lua_table.PhysicsFunctions:GetLinearVelocity()	--TODO: Check if truly needed or remove
-					lua_table.PhysicsFunctions:SetLinearVelocity(lua_table.evade_velocity * rec_direction_x * dt, mov_speed_y, lua_table.evade_velocity * rec_direction_z * dt)	--IMPROVE: Speed set on every frame bad?
+					lua_table.PhysicsFunctions:SetLinearVelocity(lua_table.evade_velocity * rec_direction.x * dt, mov_speed_y, lua_table.evade_velocity * rec_direction.z * dt)	--IMPROVE: Speed set on every frame bad?
 				
 				elseif current_state == state.light_2 or current_state == state.light_3	--IF Light Attacking
 				then
-					if not (current_state == state.light_3 and time_since_action > lua_table.light_attack_3_combo_end)	--IF inside return to idle of light_3	--IMPROVE: Maybe just cut the return to idle part?
+					if not (current_state == state.light_3 and time_since_action > lua_table.light_attack_3_combo_end) and DirectionInBounds()	--IF inside return to idle of light_3	--IMPROVE: Maybe just cut the return to idle part?
 					then
 						_x, mov_speed_y, _z = lua_table.PhysicsFunctions:GetLinearVelocity()	--TODO: Check if truly needed or remove
-						lua_table.PhysicsFunctions:SetLinearVelocity(lua_table.light_attack_movement_speed * rec_direction_x * dt, mov_speed_y, lua_table.light_attack_movement_speed * rec_direction_z * dt)	--IMPROVE: Speed set on every frame bad?
+						lua_table.PhysicsFunctions:SetLinearVelocity(lua_table.light_attack_movement_speed * rec_direction.x * dt, mov_speed_y, lua_table.light_attack_movement_speed * rec_direction.z * dt)	--IMPROVE: Speed set on every frame bad?
 					end
 				elseif current_state == state.heavy_1 or current_state == state.heavy_2 or current_state == state.heavy_3	--IF Heavy Attacking
 				then
-					if not (current_state == state.heavy_3 and time_since_action > lua_table.heavy_attack_3_combo_end)	--IF inside return to idle of heavy_3	--IMPROVE: Maybe just cut the return to idle part?
+					if not (current_state == state.heavy_3 and time_since_action > lua_table.heavy_attack_3_combo_end) and DirectionInBounds()	--IF inside return to idle of heavy_3	--IMPROVE: Maybe just cut the return to idle part?
 					then
 						_x, mov_speed_y, _z = lua_table.PhysicsFunctions:GetLinearVelocity()	--TODO: Check if truly needed or remove
-						lua_table.PhysicsFunctions:SetLinearVelocity(lua_table.heavy_attack_movement_speed * rec_direction_x * dt, mov_speed_y, lua_table.heavy_attack_movement_speed * rec_direction_z * dt)	--IMPROVE: Speed set on every frame bad?
+						lua_table.PhysicsFunctions:SetLinearVelocity(lua_table.heavy_attack_movement_speed * rec_direction.x * dt, mov_speed_y, lua_table.heavy_attack_movement_speed * rec_direction.z * dt)	--IMPROVE: Speed set on every frame bad?
 					end
 
-				elseif current_state == state.combo_1
+				elseif current_state == state.combo_1 and DirectionInBounds()
 				then
 					_x, mov_speed_y, _z = lua_table.PhysicsFunctions:GetLinearVelocity()	--TODO: Check if truly needed or remove
-					lua_table.PhysicsFunctions:SetLinearVelocity(lua_table.combo_1_movement_speed * rec_direction_x * dt, mov_speed_y, lua_table.combo_1_movement_speed * rec_direction_z * dt)	--IMPROVE: Speed set on every frame bad?
+					lua_table.PhysicsFunctions:SetLinearVelocity(lua_table.combo_1_movement_speed * rec_direction.x * dt, mov_speed_y, lua_table.combo_1_movement_speed * rec_direction.z * dt)	--IMPROVE: Speed set on every frame bad?
 					
-				elseif current_state == state.combo_2
+				elseif current_state == state.combo_2 and DirectionInBounds()
 				then
 					_x, mov_speed_y, _z = lua_table.PhysicsFunctions:GetLinearVelocity()	--TODO: Check if truly needed or remove
-					lua_table.PhysicsFunctions:SetLinearVelocity(lua_table.combo_2_movement_speed * rec_direction_x * dt, mov_speed_y, lua_table.combo_2_movement_speed * rec_direction_z * dt)	--IMPROVE: Speed set on every frame bad?
+					lua_table.PhysicsFunctions:SetLinearVelocity(lua_table.combo_2_movement_speed * rec_direction.x * dt, mov_speed_y, lua_table.combo_2_movement_speed * rec_direction.z * dt)	--IMPROVE: Speed set on every frame bad?
 					
-				elseif current_state == state.combo_3
+				elseif current_state == state.combo_3 and DirectionInBounds()
 				then
 					_x, mov_speed_y, _z = lua_table.PhysicsFunctions:GetLinearVelocity()	--TODO: Check if truly needed or remove
-					lua_table.PhysicsFunctions:SetLinearVelocity(lua_table.combo_3_movement_speed * rec_direction_x * dt, mov_speed_y, lua_table.combo_3_movement_speed * rec_direction_z * dt)	--IMPROVE: Speed set on every frame bad?
+					lua_table.PhysicsFunctions:SetLinearVelocity(lua_table.combo_3_movement_speed * rec_direction.x * dt, mov_speed_y, lua_table.combo_3_movement_speed * rec_direction.z * dt)	--IMPROVE: Speed set on every frame bad?
 					
 				-- elseif current_state == state.combo_4
 				-- then
 					--TODO: Add velocity for combo_1 attacks (I need the GetRotation method)
 					--_x, mov_speed_y, _z = lua_table.PhysicsFunctions:GetLinearVelocity()	--TODO: Check if truly needed or remove
-					--lua_table.PhysicsFunctions:SetLinearVelocity(lua_table.combo_4_movement_speed * rec_direction_x * dt, mov_speed_y, lua_table.combo_4_movement_speed * rec_direction_z * dt)	--IMPROVE: Speed set on every frame bad?
+					--lua_table.PhysicsFunctions:SetLinearVelocity(lua_table.combo_4_movement_speed * rec_direction.x * dt, mov_speed_y, lua_table.combo_4_movement_speed * rec_direction.z * dt)	--IMPROVE: Speed set on every frame bad?
 					
 				end
 			end
@@ -1093,8 +1180,8 @@ function lua_table:Update()
 	--lua_table.SystemFunctions:LOG("Delta Time: " .. dt)
 	lua_table.SystemFunctions:LOG("State: " .. current_state)
 	lua_table.SystemFunctions:LOG("Time passed: " .. time_since_action)
-	SaveDirection()
-	lua_table.SystemFunctions:LOG("Angle Y: " .. rot_y)
+	--rot_y = math.rad(GimbalLockWorkaroundY(lua_table.TransformFunctions:GetRotationY()))	--TODO: Remove GimbalLock stage when Euler bug is fixed
+	--lua_table.SystemFunctions:LOG("Angle Y: " .. rot_y)
 	--lua_table.SystemFunctions:LOG("Ultimate: " .. current_ultimate)
 	--lua_table.SystemFunctions:LOG("Combo num: " .. combo_num)
 	--lua_table.SystemFunctions:LOG("Combo string: " .. combo_stack[1] .. ", " .. combo_stack[2] .. ", " .. combo_stack[3] .. ", " .. combo_stack[4])
