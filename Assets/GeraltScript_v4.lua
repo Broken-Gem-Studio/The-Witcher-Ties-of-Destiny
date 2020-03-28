@@ -412,16 +412,16 @@ local function GoDefaultState()
 		if lua_table.input_walk_threshold < math.sqrt(mov_input.used_input.x ^ 2 + mov_input.used_input.z ^ 2)
 		then
 			lua_table.AnimationFunctions:PlayAnimation("run", lua_table.run_animation_speed)
-			lua_table.AudioFunctions:PlayStepSound()
+			lua_table.AudioFunctions:PlayStepSound()	--TODO-AUDIO: Play run sound
 			current_state = state.run
 		else
 			lua_table.AnimationFunctions:PlayAnimation("walk", lua_table.walk_animation_speed)
-			lua_table.AudioFunctions:PlayStepSound()
+			lua_table.AudioFunctions:PlayStepSound()	--TODO-AUDIO: Play walk sound
 			current_state = state.walk
 		end
 	else
 		lua_table.AnimationFunctions:PlayAnimation("idle", lua_table.idle_animation_speed)
-		lua_table.AudioFunctions:StopStepSound()
+		lua_table.AudioFunctions:StopStepSound()	--TODO-AUDIO: Stop current sound event
 		current_state = state.idle
 		lua_table.ParticlesFunctions:DeactivateParticlesEmission()	--IMPROVE: Make particle emission more complex than de/activating
 	end
@@ -592,23 +592,23 @@ local function MovementInputs()	--Process Movement Inputs
 			if lua_table.input_walk_threshold < math.sqrt(mov_input.used_input.x ^ 2 + mov_input.used_input.z ^ 2)		--IF great input
 			then
 				lua_table.AnimationFunctions:PlayAnimation("run", lua_table.run_animation_speed)
-				lua_table.AudioFunctions:PlayStepSound()
+				lua_table.AudioFunctions:PlayStepSound()	--TODO-AUDIO: Play run sound
 				current_state = state.run
 			else																					--IF small input
 				lua_table.AnimationFunctions:PlayAnimation("walk", lua_table.walk_animation_speed)
-				lua_table.AudioFunctions:PlayStepSound()
+				lua_table.AudioFunctions:PlayStepSound()	--TODO-AUDIO: Play walk sound
 				current_state = state.walk
 			end
 		elseif current_state == state.walk and lua_table.input_walk_threshold < math.sqrt(mov_input.used_input.x ^ 2 + mov_input.used_input.z ^ 2)	--IF walking and big input
 		then
 			lua_table.AnimationFunctions:PlayAnimation("run", lua_table.run_animation_speed)
-			lua_table.AudioFunctions:PlayStepSound()
+			lua_table.AudioFunctions:PlayStepSound()	--TODO-AUDIO: Play run sound
 			previous_state = current_state
 			current_state = state.run
 		elseif current_state == state.run and lua_table.input_walk_threshold > math.sqrt(mov_input.used_input.x ^ 2 + mov_input.used_input.z ^ 2)	--IF running and small input
 		then
 			lua_table.AnimationFunctions:PlayAnimation("walk", lua_table.walk_animation_speed)
-			lua_table.AudioFunctions:PlayStepSound()
+			lua_table.AudioFunctions:PlayStepSound()	--TODO-AUDIO: Play walk sound
 			previous_state = current_state
 			current_state = state.walk
 		end
@@ -632,7 +632,7 @@ local function MovementInputs()	--Process Movement Inputs
 	then
 		--Animation to IDLE
 		lua_table.AnimationFunctions:PlayAnimation("idle", lua_table.idle_animation_speed)
-		lua_table.AudioFunctions:StopStepSound()
+		lua_table.AudioFunctions:StopStepSound()	--TODO-AUDIO: Stop current sound event
 		lua_table.ParticlesFunctions:DeactivateParticlesEmission()
 		previous_state = current_state
 		current_state = state.idle
@@ -654,7 +654,7 @@ local function CheckCombo()	--Check combo performed	(ATTENTION: This should hand
 		current_energy = current_energy - lua_table.combo_1_cost
 
 		lua_table.AnimationFunctions:PlayAnimation("combo_1", lua_table.combo_1_animation_speed)	--Slide
-		--Play Sound
+		--TODO-AUDIO: Play sound of combo_1
 
 		previous_state = current_state
 		current_state = state.combo_1
@@ -668,7 +668,7 @@ local function CheckCombo()	--Check combo performed	(ATTENTION: This should hand
 		current_energy = current_energy - lua_table.combo_2_cost
 		
 		lua_table.AnimationFunctions:PlayAnimation("combo_2", lua_table.combo_2_animation_speed)	--Spin
-		--Play Sound
+		--TODO-AUDIO: Play sound of combo_2
 				
 		previous_state = current_state
 		current_state = state.combo_2
@@ -682,7 +682,7 @@ local function CheckCombo()	--Check combo performed	(ATTENTION: This should hand
 		current_energy = current_energy - lua_table.combo_3_cost
 		
 		lua_table.AnimationFunctions:PlayAnimation("combo_3", lua_table.combo_3_animation_speed)	--Jump
-		--Play Sound
+		--TODO-AUDIO: Play sound of combo_3
 
 		previous_state = current_state
 		current_state = state.combo_3
@@ -694,7 +694,6 @@ local function CheckCombo()	--Check combo performed	(ATTENTION: This should hand
 	-- 	current_action_duration = lua_table.combo_4_duration
 
 	-- 	lua_table.AnimationFunctions:PlayAnimation("combo_4", lua_table.combo_4_animation_speed)	--Blows
-	-- 	--Play Sound
 		
 	-- 	previous_state = current_state
 	-- 	current_state = state.combo_4
@@ -751,7 +750,7 @@ local function RegularAttack(attack_type)
 			current_action_duration = lua_table[attack_type .. "_attack_3_duration"]		--Set duration of the current action (to return to idle/move)
 
 			lua_table.AnimationFunctions:PlayAnimation(attack_type .. "_3", lua_table[attack_type .. "_attack_3_animation_speed"])
-			lua_table.AudioFunctions:PlayAttackSound()
+			lua_table.AudioFunctions:PlayAttackSound()	--TODO-AUDIO: Play attack_3 sound (light or heavy)
 
 			previous_state = current_state
 			current_state = state[attack_type .. "_3"]
@@ -760,7 +759,7 @@ local function RegularAttack(attack_type)
 			current_action_duration = lua_table[attack_type .. "_attack_1_duration"]		--Set duration of the current action (to return to idle/move)
 
 			lua_table.AnimationFunctions:PlayAnimation(attack_type .. "_1", lua_table[attack_type .. "_attack_1_animation_speed"])
-			lua_table.AudioFunctions:PlayAttackSound()
+			lua_table.AudioFunctions:PlayAttackSound()	--TODO-AUDIO: Play attack_1 sound (light or heavy)
 
 			previous_state = current_state
 			current_state = state[attack_type .. "_1"]
@@ -770,7 +769,7 @@ local function RegularAttack(attack_type)
 		current_action_duration = lua_table[attack_type .. "_attack_2_duration"]		--Set duration of the current action (to return to idle/move)
 
 		lua_table.AnimationFunctions:PlayAnimation(attack_type .. "_2", lua_table[attack_type .. "_attack_2_animation_speed"])
-		lua_table.AudioFunctions:PlayAttackSound()
+		lua_table.AudioFunctions:PlayAttackSound()	--TODO-AUDIO: Play attack_2 sound (light or heavy)
 
 		previous_state = current_state
 		current_state = state[attack_type .. "_2"]
