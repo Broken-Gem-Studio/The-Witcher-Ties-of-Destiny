@@ -168,6 +168,12 @@ lua_table.energy_reg_orig = 10	--This is 5 per second aprox.
 --Attacks
 local rightside = true								-- Last attack side, marks the animation of next attack
 
+	--Collider Notes (GO X,Y,Z / Coll X,Y,Z / Coll size X,Y,Z)
+	--Front: 0,20,25 / 0,0,0 / 20,25,18
+	--Back: 
+	--Left: -20,20,5 / 0,0,0 / 10,25,20
+	--Right: 20,20,5 / 0,0,0 / 10,25,20
+	
 --Light Attack
 lua_table.light_attack_damage = 1.0					--Multiplier of Base Damage
 lua_table.light_attack_cost = 5
