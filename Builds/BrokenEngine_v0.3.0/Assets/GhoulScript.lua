@@ -113,9 +113,10 @@ local function Players() --function to know if there is a player in the area and
     end
 
     --calculate distances
-
-    --lua_table.JaskierDistance =  math.sqrt(JaskierPos_x ^ 2 + JaskierPos_z ^ 2)
-    --lua_table.GeraltDistance = math.sqrt(GrealtPos_x ^ 2 + GeraltPos_z ^ 2)
+	JaskierPosXPow = JaskierPos_x^2
+	JaskierPosZPow = JaskierPos_z^2
+    lua_table.JaskierDistance =  math.sqrt(JaskierPosXPow + JaskierPosZPow)
+    lua_table.GeraltDistance = math.sqrt(GrealtPos_x ^ 2 + GeraltPos_z ^ 2)
 
     --calculate if necessary to change ghoul state to idl
 
