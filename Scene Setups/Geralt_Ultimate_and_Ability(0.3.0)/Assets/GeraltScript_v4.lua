@@ -1083,11 +1083,15 @@ local function AttackColliderCheck(attack_type, attack_num, collider_side)	--Che
 				--TODO: Deactivate Geralt "side .. _collider" GO
 				active_colliders[collider_side] = false
 			end
+
+			--lua_table.SystemFunctions:LOG("Collider Deactive: " .. attack_type .. "_" .. attack_num .. "_" .. collider_side)
 			
 		elseif not active_colliders[collider_side]	--IF > start time and collider unactive, activate
 		then
 			--TODO: Activate Geralt "side .. _collider" GO
 			active_colliders[collider_side] = true
+		--else
+			--lua_table.SystemFunctions:LOG("Collider Active: " .. attack_type .. "_" .. attack_num .. "_" .. collider_side)
 		end
 	end
 end
