@@ -640,8 +640,8 @@ end
 local function CheckCameraBounds()	--Check if we're currently outside the camera's bounds
 	--1. Get all necessary data
 	local pos_x, pos_y, pos_z = lua_table.TransformFunctions:GetPosition()
-	--local side_left, side_up, side_right, side_down = lua_table.Functions:CheckFrustumPlanes(pos_x, pos_y, pos_z)	--TODO: This name is invented, I need to use the functional one
-	local side_left, side_up, side_right, side_down = 0, 0, 0, 0
+	local side_top, side_bottom, side_left, side_right = lua_table.GameObjectFunctions:GetFrustumPlanesIntersection(pos_x, pos_y, pos_z, 0.8)	--TODO-Camera: This shouldn't be 0.8
+	-- 0 == outside, 1 == inside
 
 	--2. Restart camera bounds values
 	bounds_vector.x = 0
@@ -650,18 +650,18 @@ local function CheckCameraBounds()	--Check if we're currently outside the camera
 
 	--3. Generate a vector and change angle depending on planes that we're traspassing (1 plane = 90º, 2 planes = 45º)
 	--3.1. Check left/right
-	if side_left > 0 then
+	if side_left == 0 then
 		bounds_vector.x = -1
-	elseif side_right > 0 then
+	elseif side_right == 0 then
 		bounds_vector.x = 1
 	else
 		bounds_angle = bounds_angle + 45
 	end
 
 	--3.2. Check down/up
-	if side_down > 0 then
+	if side_bottom == 0 then
 		bounds_vector.z = -1
-	elseif side_up > 0 then
+	elseif side_top == 0 then
 		bounds_vector.z = 1
 	else
 		bounds_angle = bounds_angle + 45
