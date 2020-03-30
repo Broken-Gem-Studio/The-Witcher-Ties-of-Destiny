@@ -136,6 +136,7 @@ local key_joystick_threshold = 0.25		--As reference, my very fucked up Xbox cont
 lua_table.input_walk_threshold = 0.8
 
 --Camera Limitations (IF angle between forward character vector and plane normal > 90º (45º on corners) then all velocities = 0)
+local camera_bounds_ratio = 0.85
 local off_bounds = false
 local bounds_vector = { x = 0, z = 0 }
 local bounds_angle
@@ -640,7 +641,7 @@ end
 local function CheckCameraBounds()	--Check if we're currently outside the camera's bounds
 	--1. Get all necessary data
 	local pos_x, pos_y, pos_z = lua_table.TransformFunctions:GetPosition()
-	local side_top, side_bottom, side_left, side_right = lua_table.GameObjectFunctions:GetFrustumPlanesIntersection(pos_x, pos_y, pos_z, 0.8)	--TODO-Camera: This shouldn't be 0.8
+	local side_top, side_bottom, side_left, side_right = lua_table.GameObjectFunctions:GetFrustumPlanesIntersection(pos_x, pos_y, pos_z, 0.85)	--TODO-Camera: This shouldn't be 0.8
 	-- 0 == outside, 1 == inside
 
 	--2. Restart camera bounds values
@@ -651,9 +652,9 @@ local function CheckCameraBounds()	--Check if we're currently outside the camera
 	--3. Generate a vector and change angle depending on planes that we're traspassing (1 plane = 90º, 2 planes = 45º)
 	--3.1. Check left/right
 	if side_left == 0 then
-		bounds_vector.x = -1
-	elseif side_right == 0 then
 		bounds_vector.x = 1
+	elseif side_right == 0 then
+		bounds_vector.x = -1
 	else
 		bounds_angle = bounds_angle + 45
 	end
@@ -1159,6 +1160,8 @@ end
 function lua_table:Awake()
 	lua_table.SystemFunctions:LOG("This Log was called from LUA testing a table on AWAKE")
 	
+	camera_bounds_ratio = lua_table.GameObjectFunctions:GetScript(lua_table.GameObjectFunctions:FindGameObject("Camera")).Layer_3_FOV_ratio_1
+	
 	lua_table.max_health_real = lua_table.max_health_orig	--Necessary for the first CalculateStats()
 	CalculateStats()	--Calculate stats based on orig values + modifier
 
@@ -1383,7 +1386,7 @@ function lua_table:Update()
 	--lua_table.SystemFunctions:LOG("Ultimate: " .. current_ultimate)
 	--lua_table.SystemFunctions:LOG("Combo num: " .. combo_num)
 	--lua_table.SystemFunctions:LOG("Combo string: " .. combo_stack[1] .. ", " .. combo_stack[2] .. ", " .. combo_stack[3] .. ", " .. combo_stack[4])
-	
+
 	--Stats LOGS
 	--lua_table.SystemFunctions:LOG("Health: " .. lua_table.current_health)
 	--lua_table.SystemFunctions:LOG("Energy: " .. lua_table.current_energy)
