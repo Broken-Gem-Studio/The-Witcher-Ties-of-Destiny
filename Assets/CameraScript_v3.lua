@@ -25,6 +25,12 @@ lua_table.zoom_smooth_speed = 0.2
 -- Camera Variables
 -----------------------------------------------------------------------------------------
 
+-- Camera target GO names
+lua_table.geralt_GO = "Geralt"
+lua_table.jaskier_GO = "Jaskier"
+lua_table.yennefer_GO = "Yennefer"
+lua_table.ciri_GO = "Ciri"
+
 -- Camera distance
 local current_camera_distance = lua_table.camera_distance_layer_1 -- Should initialize at awake(?)
 
@@ -419,7 +425,7 @@ function lua_table:Awake ()
 		lua_table["Functions_System"]:LOG ("Camera: Gameplay mode set to SOLO")
 
 		-- Player 1 id
-		P1_id= lua_table["Functions_GameObject"]:FindGameObject("gerardo1")--exact name of gameobject 
+		P1_id= lua_table["Functions_GameObject"]:FindGameObject(lua_table.geralt_GO)	
 
 		if P1_id == 0 
 		then
@@ -463,7 +469,7 @@ function lua_table:Awake ()
 		end
 
 		-- Player 2 id
-		P2_id = lua_table["Functions_GameObject"]:FindGameObject("gerardo2")--exact name of gameobject 
+		P2_id = lua_table["Functions_GameObject"]:FindGameObject(lua_table.jaskier_GO)
 
 		if P2_id == 0 
 		then
