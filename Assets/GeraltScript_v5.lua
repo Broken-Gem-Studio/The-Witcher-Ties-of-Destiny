@@ -294,8 +294,8 @@ local ability_trapezoid = {
 }
 
 --Ultimate
-local current_ultimate = 0.0
-local max_ultimate = 100.0
+lua_table.current_ultimate = 0.0
+lua_table.max_ultimate = 100.0
 
 local ultimate_reg_real
 lua_table.ultimate_reg_mod = 1.0
@@ -1011,7 +1011,7 @@ local function ActionInputs()	--Process Action Inputs
 		ability_performed = false	--The ability itself and energy cost reduction is done later to fit with the animation, this marks that it needs to be done
 		input_given = true
 
-	elseif current_ultimate >= max_ultimate
+	elseif lua_table.current_ultimate >= lua_table.max_ultimate
 	and lua_table.InputFunctions:IsTriggerState(lua_table.player_ID, lua_table.key_ultimate_1, key_state.key_repeat)
 	and lua_table.InputFunctions:IsTriggerState(lua_table.player_ID, lua_table.key_ultimate_2, key_state.key_repeat)	--Ultimate Input
 	then
@@ -1171,7 +1171,7 @@ function lua_table:Awake()
 	--Set initial values
 	lua_table.current_health = lua_table.max_health_real
 	lua_table.current_energy = lua_table.max_energy_real
-	current_ultimate = 0.0
+	lua_table.current_ultimate = 0.0
 
 	CalculateAbilityTrapezoid()
 end
@@ -1223,8 +1223,8 @@ function lua_table:Update()
 			if not ultimate_active	--IF ultimate offline
 			then
 				--Ultimate Regeneration
-				if current_ultimate < max_ultimate then current_ultimate = current_ultimate + ultimate_reg_real * dt end	--IF can increase, increase ultimate
-				if current_ultimate > max_ultimate then current_ultimate = max_ultimate end									--IF above max, set to max
+				if lua_table.current_ultimate < lua_table.max_ultimate then lua_table.current_ultimate = lua_table.current_ultimate + ultimate_reg_real * dt end	--IF can increase, increase ultimate
+				if lua_table.current_ultimate > lua_table.max_ultimate then lua_table.current_ultimate = lua_table.max_ultimate end									--IF above max, set to max
 
 			elseif game_time - ultimate_effect_started_at >= lua_table.ultimate_effect_duration	--IF ultimate online and time up!
 			then
@@ -1256,7 +1256,7 @@ function lua_table:Update()
 				then
 					UltimateState(true)	--Ultimate turn on (boost stats)
 
-					current_ultimate = 0.0
+					lua_table.current_ultimate = 0.0
 					ultimate_effect_started_at = game_time
 				end
 
@@ -1386,7 +1386,7 @@ function lua_table:Update()
 	lua_table.SystemFunctions:LOG("Time passed: " .. time_since_action)
 	--rot_y = math.rad(GimbalLockWorkaroundY(lua_table.TransformFunctions:GetRotationY()))	--TODO: Remove GimbalLock stage when Euler bug is fixed
 	--lua_table.SystemFunctions:LOG("Angle Y: " .. rot_y)
-	--lua_table.SystemFunctions:LOG("Ultimate: " .. current_ultimate)
+	--lua_table.SystemFunctions:LOG("Ultimate: " .. lua_table.current_ultimate)
 	--lua_table.SystemFunctions:LOG("Combo num: " .. combo_num)
 	--lua_table.SystemFunctions:LOG("Combo string: " .. combo_stack[1] .. ", " .. combo_stack[2] .. ", " .. combo_stack[3] .. ", " .. combo_stack[4])
 
