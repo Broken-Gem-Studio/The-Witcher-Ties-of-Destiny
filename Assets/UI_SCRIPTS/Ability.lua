@@ -1,0 +1,140 @@
+function GetTableAbility()
+    local lua_table = {}
+    lua_table["GameObject"] = Scripting.GameObject()
+    lua_table["Inputs"] = Scripting.Inputs()
+    lua_table["System"] = Scripting.System()
+    lua_table["UI"] = Scripting.Interface()
+    lua_table["Transform"] = Scripting.Transform()
+
+local timer = 0
+--local cd = 3--seconds
+lua_table.cdP1 = {}--cd script carles gerardo1
+lua_table.cdP2 = {}
+local tiempopasado = 0
+local tiempopasado2 = 0
+local used = false
+local used2 = false
+local specialID = 0
+local specialCDID = 0
+local p1ID = 0
+local special2ID = 0
+local specialCD2ID = 0
+local p2ID = 0
+
+
+function AbilityCD(id)
+
+    if id == specialID--P1
+    then
+
+        lua_table["UI"]:MakeElementInvisible(specialID, "Image")
+        lua_table["UI"]:MakeElementVisible(specialCDID, "Image")--escondemos la imagen y enseñamos la de CD
+
+    elseif id == specialCDID
+    then
+
+        lua_table["UI"]:MakeElementInvisible(specialCDID, "Image")
+        lua_table["UI"]:MakeElementVisible(specialID, "Image")--escondemos la CD y volvemos a enseñar la origginal
+
+    elseif id == special2ID--P2
+    then
+
+        lua_table["UI"]:MakeElementInvisible(special2ID, "Image")
+        lua_table["UI"]:MakeElementVisible(specialCD2ID, "Image")--escondemos la CD y volvemos a enseñar la origginal
+
+    elseif id == specialCD2ID
+    then
+
+        lua_table["UI"]:MakeElementInvisible(specialCD2ID, "Image")
+        lua_table["UI"]:MakeElementVisible(special2ID, "Image")--escondemos la CD y volvemos a enseñar la origginal
+
+
+
+    end
+
+
+end
+
+function AbilityUP(id)--INUTIL POR AHORA
+    
+        if id == specialID
+        then
+            lua_table["UI"]:MakeElementVisible(specialID, "Image")
+        end
+    
+end
+
+
+function lua_table:Awake()
+
+    specialID = lua_table["GameObject"]:FindGameObject("Image","SPECIAL")--exact name of gameobject
+    specialCDID = lua_table["GameObject"]:FindGameObject("Image","SPECIALCD")--exact name of gameobject
+    special2ID = lua_table["GameObject"]:FindGameObject("Image","SPECIAL2")--exact name of gameobject
+    specialCD2ID = lua_table["GameObject"]:FindGameObject("Image","SPECIALCD2")--exact name of gameobject
+
+    p1ID = lua_table["GameObject"]:FindGameObject("Geralt")
+    lua_table.cdP1 = lua_table["GameObject"]:GetScript(p1ID)
+
+    p2ID = lua_table["GameObject"]:FindGameObject("Jaskier")
+    lua_table.cdP2 = lua_table["GameObject"]:GetScript(p2ID)
+
+end
+
+function lua_table:Start()
+    
+    
+
+    lua_table["UI"]:MakeElementInvisible(specialCDID, "Image")--imagen del cd de la abilidad en invisible al principio de la escena
+    lua_table["UI"]:MakeElementInvisible(specialCD2ID, "Image")
+
+end
+
+function lua_table:Update()
+    dt = lua_table["System"]:DT()
+    timer = lua_table["System"]:GameTime()
+
+    lua_table["System"]:LOG ("VALUE CD: " .. lua_table.cdP1.ability_cooldown)--CON ESTO DEMOSTRAMOS QUE ESTAMOS PILLANDO LA VARIABLE CD DE CARLES
+    lua_table["System"]:LOG ("VALUE CD2: " .. lua_table.cdP2.ability_cooldown)--LO MISMO PERO PARA EL SEGUNDO PLAYER
+
+    if lua_table["Inputs"]:KeyDown ("A") and used == false
+    then 
+        
+       AbilityCD(specialID)
+       tiempopasado = lua_table["System"]:GameTime()       
+       used = true 
+    end
+
+    if  timer - tiempopasado >= (lua_table.cdP1.ability_cooldown / 1000) -- si pasan CD TIME DE SCRIPT CARLES
+    then
+
+        AbilityCD(specialCDID)
+        used = false
+       
+    end
+
+    if lua_table["Inputs"]:KeyDown ("D") and used2 == false
+    then 
+        
+       AbilityCD(special2ID)
+       tiempopasado2 = lua_table["System"]:GameTime()       
+       used2 = true 
+    end
+
+    if  timer - tiempopasado2 >= (lua_table.cdP2.ability_cooldown / 1000) -- si pasan CD TIME DE SCRIPT CARLES
+    then
+
+        AbilityCD(specialCD2ID)
+        used2 = false
+       
+    end
+
+    if lua_table["Inputs"]:KeyDown ("S")
+    then
+        lua_table["System"]:LOG ("TIME: " .. timer)
+    end
+
+
+end
+
+return lua_table
+end
