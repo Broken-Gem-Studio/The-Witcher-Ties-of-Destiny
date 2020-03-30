@@ -34,10 +34,23 @@ lua_table.ciri_GO = "Ciri"
 -- Camera distance
 local current_camera_distance = lua_table.camera_distance_layer_1 -- Should initialize at awake(?)
 
+-- Camera Desired distance (to be compared with current distnace)
+local desired_distance = 0
+
 -- Camera position
 local camera_position_x = 0
 local camera_position_y = 0 
 local camera_position_z = 0
+
+-- Camera Desired position (target + offset)
+local desired_position_x = 0
+local desired_position_y = 0
+local desired_position_z = 0
+
+-- Camera Target 
+local target_position_x = 0
+local target_position_y = 0
+local target_position_z = 0
 
 -- Camera Distance Offset 
 local offset_a = 0
@@ -55,20 +68,8 @@ local rotation_x = 0 -- 180 - (lua_table.camera_angle)
 local rotation_y = 0 -- If camera ever follows direction this is the one that would need to update
 local rotation_z = -180
 
--- Camera Target 
-local target_position_x = 0
-local target_position_y = 0
-local target_position_z = 0
-
 -- Player distance from camera target (probably won't be used)
 local player_distance_from_camera_target = 0 --unused
-
-local desired_distance = 0
-
--- Camera Desired position (target + offset)
-local desired_position_x = 0
-local desired_position_y = 0
-local desired_position_z = 0
 
 -- Camera state
 local state = -- not in use rn
@@ -95,7 +96,7 @@ local Layer_1_FOV_scale_2 = 0.8
 local Layer_2_FOV_scale_1 = 0.8
 local Layer_2_FOV_scale_2 = 0.55
 
-local Layer_3_FOV_scale_1 = 0.85
+lua_table.Layer_3_FOV_ratio_1 = 0.85 -- lua_table so it can be accessed from player scripts
 local Layer_3_FOV_scale_2 = 0.55
 
 -----------------------------------------------------------------------------------------
@@ -148,7 +149,7 @@ local prev_P2_pos_z = 0
 -- Methods
 -----------------------------------------------------------------------------------------
 
--- Get Position Offset from Distance and Angle Method
+-- Get Position Offset from Distance and Angle Methods
 function GetAfromDistAndAng(c_distance, c_angle) --given hypotenuse and angle returns contiguous side
 	local c_angle_rad
 	local c_angle_cos
@@ -174,13 +175,16 @@ function GetBfromDistAndAng(c_distance, c_angle) --given hypotenuse and angle re
 end
 
 -- Centroid Methods
-
 function Centroid2P(p1, p2)
 	return (p1 + p2) / 2 
 end
 
 function Centroid3P(p1, p2, p3)
 	return (p1 + p2 + p3) / 3 
+end
+
+function Centroid4P(p1, p2, p3, p4)
+	return (p1 + p2 + p3 + p4) / 4
 end
 
 -- Camera Movement smoothing NEEDS A LIMIT WHERE IT STOPS SMOOTHING
@@ -449,7 +453,7 @@ function lua_table:Awake ()
 		lua_table["Functions_System"]:LOG ("Camera: Gameplay mode set to DUO")
 		
 		-- Player 1 id
-		P1_id = lua_table["Functions_GameObject"]:FindGameObject("gerardo1")--exact name of gameobject 
+		P1_id = lua_table["Functions_GameObject"]:FindGameObject(lua_table.geralt_GO)--exact name of gameobject 
 
 		if P1_id == 0 
 		then
@@ -490,7 +494,7 @@ function lua_table:Awake ()
 		end
 	end
 	 
-	camera_angle_for_offset = 90-lua_table.camera_angle
+	camera_angle_for_offset = 90 - lua_table.camera_angle
 	rotation_x = 180 - lua_table.camera_angle --because soemthing is wrong with the motor view that is inverted
 
 	-- Debug
