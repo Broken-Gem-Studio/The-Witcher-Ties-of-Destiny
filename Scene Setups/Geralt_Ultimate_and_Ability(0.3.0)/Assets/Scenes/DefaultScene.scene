@@ -361,9 +361,9 @@
                 "rotationx": "-0.547405",
                 "rotationy": "-0.439212",
                 "rotationz": "0.571911",
-                "scalex": "1.000016",
-                "scaley": "1.000016",
-                "scalez": "1.000016"
+                "scalex": "1.000017",
+                "scaley": "1.000017",
+                "scalez": "1.000017"
             },
             "12": {
                 "Resources": {
@@ -1124,9 +1124,9 @@
                 "rotationx": "0.549070",
                 "rotationy": "-0.435325",
                 "rotationz": "0.570814",
-                "scalex": "0.999984",
-                "scaley": "0.999984",
-                "scalez": "0.999984"
+                "scalex": "0.999983",
+                "scaley": "0.999983",
+                "scalez": "0.999983"
             },
             "12": {
                 "Resources": {
@@ -1957,8 +1957,8 @@
                 "rotationx": "0.000567",
                 "rotationy": "0.006209",
                 "rotationz": "0.999891",
-                "scalex": "0.999984",
-                "scaley": "0.999984",
+                "scalex": "0.999983",
+                "scaley": "0.999983",
                 "scalez": "1.000000"
             },
             "12": {
@@ -2749,8 +2749,8 @@
                 "rotationy": "0.000028",
                 "rotationz": "-0.000027",
                 "scalex": "1.000000",
-                "scaley": "1.000016",
-                "scalez": "1.000016"
+                "scaley": "1.000017",
+                "scalez": "1.000017"
             },
             "12": {
                 "Resources": {
@@ -2804,9 +2804,9 @@
                 "rotationx": "0.549070",
                 "rotationy": "-0.435325",
                 "rotationz": "0.570814",
-                "scalex": "0.999984",
-                "scaley": "0.999984",
-                "scalez": "0.999984"
+                "scalex": "0.999983",
+                "scaley": "0.999983",
+                "scalez": "0.999983"
             },
             "12": {
                 "Resources": {
@@ -3196,9 +3196,9 @@
                 "rotationx": "-0.547405",
                 "rotationy": "-0.439212",
                 "rotationz": "0.571911",
-                "scalex": "1.000016",
-                "scaley": "1.000016",
-                "scalez": "1.000016"
+                "scalex": "1.000017",
+                "scaley": "1.000017",
+                "scalez": "1.000017"
             },
             "12": {
                 "Resources": {
@@ -3253,8 +3253,8 @@
                 "rotationy": "0.000028",
                 "rotationz": "-0.000027",
                 "scalex": "1.000000",
-                "scaley": "1.000016",
-                "scalez": "1.000016"
+                "scaley": "1.000017",
+                "scalez": "1.000017"
             },
             "12": {
                 "Resources": {
@@ -3386,7 +3386,7 @@
             }
         },
         "Name": "camera",
-        "Parent": "1828900474",
+        "Parent": "2045816061",
         "Static": false
     },
     "741901623": {
@@ -3429,8 +3429,8 @@
                 "rotationx": "-0.000473",
                 "rotationy": "0.005722",
                 "rotationz": "0.999893",
-                "scalex": "0.999984",
-                "scaley": "0.999984",
+                "scalex": "0.999983",
+                "scaley": "0.999983",
                 "scalez": "1.000000"
             },
             "12": {
@@ -3611,8 +3611,8 @@
                 "rotationx": "-0.000473",
                 "rotationy": "0.005722",
                 "rotationz": "0.999893",
-                "scalex": "0.999984",
-                "scaley": "0.999984",
+                "scalex": "0.999983",
+                "scaley": "0.999983",
                 "scalez": "1.000000"
             },
             "12": {
@@ -3807,8 +3807,8 @@
                 "rotationx": "0.000567",
                 "rotationy": "0.006209",
                 "rotationz": "0.999891",
-                "scalex": "0.999984",
-                "scaley": "0.999984",
+                "scalex": "0.999983",
+                "scaley": "0.999983",
                 "scalez": "1.000000"
             },
             "12": {
@@ -4208,7 +4208,7 @@
             }
         },
         "Name": "gerardo2",
-        "Parent": "1828900474",
+        "Parent": "2045816061",
         "Static": false
     },
     "933290141": {
@@ -4288,7 +4288,7 @@
                     "ResourceScript": "Assets/GeraltScript_v4.lua"
                 },
                 "Script variables": {
-                    "Count": 142,
+                    "Count": 143,
                     "Variable 0": {
                         "DisplayObjectName": false,
                         "Name": "key_ability",
@@ -4631,6 +4631,13 @@
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 1500.0
+                    },
+                    "Variable 142": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_2_collider_front_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1200.0
                     },
                     "Variable 15": {
                         "DisplayObjectName": false,
@@ -5305,33 +5312,40 @@
                     },
                     "10": {
                         "Default": false,
+                        "End": "420",
+                        "Loop": false,
+                        "Name": "light_1",
+                        "Start": "392"
+                    },
+                    "11": {
+                        "Default": false,
                         "End": "448",
                         "Loop": false,
                         "Name": "light_2",
                         "Start": "420"
                     },
-                    "11": {
+                    "12": {
                         "Default": false,
                         "End": "493",
                         "Loop": false,
                         "Name": "light_3",
                         "Start": "448"
                     },
-                    "12": {
+                    "13": {
                         "Default": false,
                         "End": "391",
                         "Loop": true,
                         "Name": "run",
                         "Start": "373"
                     },
-                    "13": {
+                    "14": {
                         "Default": false,
                         "End": "1044",
                         "Loop": false,
                         "Name": "ultimate",
                         "Start": "877"
                     },
-                    "14": {
+                    "15": {
                         "Default": false,
                         "End": "372",
                         "Loop": true,
@@ -5354,48 +5368,48 @@
                     },
                     "4": {
                         "Default": false,
+                        "End": "876",
+                        "Loop": false,
+                        "Name": "death",
+                        "Start": "798"
+                    },
+                    "5": {
+                        "Default": false,
                         "End": "1077",
                         "Loop": false,
                         "Name": "evade",
                         "Start": "1045"
                     },
-                    "5": {
+                    "6": {
                         "Default": false,
                         "End": "538",
                         "Loop": false,
                         "Name": "heavy_1",
                         "Start": "494"
                     },
-                    "6": {
+                    "7": {
                         "Default": false,
                         "End": "563",
                         "Loop": false,
                         "Name": "heavy_2",
                         "Start": "538"
                     },
-                    "7": {
+                    "8": {
                         "Default": false,
                         "End": "620",
                         "Loop": false,
                         "Name": "heavy_3",
                         "Start": "563"
                     },
-                    "8": {
+                    "9": {
                         "Default": true,
                         "End": "330",
                         "Loop": true,
                         "Name": "idle",
                         "Start": "2"
                     },
-                    "9": {
-                        "Default": false,
-                        "End": "420",
-                        "Loop": false,
-                        "Name": "light_1",
-                        "Start": "392"
-                    },
                     "BlendTime": "0.100000",
-                    "Size": "15"
+                    "Size": "16"
                 },
                 "Resources": {
                     "ResourceAnimation": "Library/Animations/1472146339.anim"
@@ -5488,7 +5502,7 @@
             }
         },
         "Name": "gerardo1",
-        "Parent": "1828900474",
+        "Parent": "2045816061",
         "Static": false
     },
     "960098229": {

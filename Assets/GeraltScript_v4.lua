@@ -1190,8 +1190,8 @@ function lua_table:Update()
 	then
 		if lua_table.current_health <= 0
 		then
-			--TODO-Animations: Animation to DEATH
-			--death_started_at = game_time
+			lua_table.AnimationFunctions:PlayAnimation("death", 30.0)
+			death_started_at = game_time
 			previous_state = current_state
 			current_state = state.down
 
@@ -1348,7 +1348,7 @@ function lua_table:Update()
 		end
 	elseif current_state == state.down	--IF currently down
 	then
-		if lua_table.being_revived		--IF flag marks that other player is reviving
+		if lua_table.being_revived		--IF flag marks that other player is reviving (controlled by another player)
 		then
 			if not stopped_death		--IF stop mark hasn't been done yet
 			then
@@ -1365,7 +1365,7 @@ function lua_table:Update()
 			if stopped_death				--IF death timer was stopped
 			then
 				death_started_at = death_started_at + game_time - death_stopped_at	--Resume timer
-				stopped_death = false					--Flag timer resuming
+				stopped_death = false				--Flag timer resuming
 
 			elseif game_time - death_started_at > lua_table.down_time	--IF death timer finished
 			then
