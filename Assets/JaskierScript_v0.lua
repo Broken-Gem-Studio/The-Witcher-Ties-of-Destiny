@@ -1,4 +1,4 @@
-function	GetTableGeraltScript_v4()
+function	GetTableJaskierScript_v0()
 local lua_table = {}
 lua_table.SystemFunctions = Scripting.System()
 lua_table.TransformFunctions = Scripting.Transform()
@@ -300,15 +300,20 @@ lua_table.ultimate_reg_orig = 10	--Ideally, 2 or something similar
 
 local ultimate_started_at = 0.0
 lua_table.ultimate_duration = 3600
-lua_table.ultimate_scream_start = 2500
-lua_table.ultimate_animation_speed = 45.0
+lua_table.ultimate_animation_speed = 30.0
 
 local ultimate_effect_started_at = 0.0
 lua_table.ultimate_effect_duration = 10000
 
-lua_table.ultimate_health_reg_increase = 0.2
-lua_table.ultimate_energy_reg_increase = 1.0	--These numbers + to their correspondant "_mod" values and stats are calculated again
-lua_table.ultimate_damage_mod_increase = 1.0
+local ultimate_target_UID
+local ultimate_target_script
+
+lua_table.ultimate_health_heal = 0.5
+lua_table.ultimate_damage_mod_increase = 0.25
+lua_table.ultimate_speed_mod_increase = 0.25
+
+lua_table.ultimate_health_reg_increase = 0.2	--These 2 are only used for the ultimate?
+lua_table.ultimate_energy_reg_increase = 1.0
 
 local ultimate_active = false
 
@@ -1051,21 +1056,69 @@ local function ActionInputs()	--Process Action Inputs
 	return input_given
 end
 
-local function UltimateState(active)
+local function UltimateState(active)	--Turn on/off melody effects
 	local ultimate_stat_mod = 1
 	if not active then ultimate_stat_mod = -1 end
 
-	lua_table.health_reg_mod = lua_table.health_reg_mod + lua_table.ultimate_health_reg_increase * ultimate_stat_mod
-	lua_table.energy_reg_mod = lua_table.energy_reg_mod + lua_table.ultimate_energy_reg_increase * ultimate_stat_mod
-	lua_table.base_damage_mod = lua_table.base_damage_mod + lua_table.ultimate_damage_mod_increase * ultimate_stat_mod
+	if active	--IF ultimate activation, select target and all that stuff
+	then
+		local jaskier_pos = { x = lua_table.TransformFunctions:GetPositionX(), z = lua_table.TransformFunctions:GetPositionZ() }
 
+		local default_distance = 100000.0	--The massive value makes sure that on the later value comparison downed or non-present characters are discarded
+		local geralt_distance, yennefer_distance, ciri_distance = default_distance, default_distance, default_distance
+		local geralt_UID, yennefer_UID, ciri_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt"), lua_table.GameObjectFunctions:FindGameObject("Yennefer"), lua_table.GameObjectFunctions:FindGameObject("Ciri")
+
+		--1. Get Distances of All currently present and non-downed characters (non-present or downed characters remain with the default value)
+		if geralt_UID ~= 0 and lua_table.GameObjectFunctions:GetScript(geralt_UID).current_state > state.down
+		then
+			geralt_distance = math.sqrt((lua_table.GameObjectFunctions:GetGameObjectPosX("Geralt") - jaskier_pos.x) ^ 2 + (lua_table.GameObjectFunctions:GetGameObjectPosX("Geralt") - jaskier_pos.y) ^ 2)
+
+		elseif yennefer_UID ~= 0 and lua_table.GameObjectFunctions:GetScript(yennefer_UID).current_state > state.down
+		then
+			yennefer_distance = math.sqrt((lua_table.GameObjectFunctions:GetGameObjectPosX("Yennefer") - jaskier_pos.x) ^ 2 + (lua_table.GameObjectFunctions:GetGameObjectPosX("Yennefer") - jaskier_pos.y) ^ 2)
+
+		elseif ciri_UID ~= 0 and lua_table.GameObjectFunctions:GetScript(ciri_UID).current_state > state.down
+		then
+			ciri_distance = math.sqrt((lua_table.GameObjectFunctions:GetGameObjectPosX("Ciri") - jaskier_pos.x) ^ 2 + (lua_table.GameObjectFunctions:GetGameObjectPosX("Ciri") - jaskier_pos.y) ^ 2)
+		end
+
+		--2. Check closest character (must be present and netiher dead nor downed)
+		if geralt_distance ~= default_distance and geralt_distance < yennefer_distance and geralt_distance < ciri_distance			--IF Geralt
+		then
+			ultimate_target_UID = geralt_UID
+			ultimate_target_script = lua_table.GameObjectFunctions:GetScript(ultimate_target_UID)
+
+		elseif yennefer_distance ~= default_distance and yennefer_distance < geralt_distance and yennefer_distance < ciri_distance	--IF Yennefer
+		then
+			ultimate_target_UID = yennefer_UID
+			ultimate_target_script = lua_table.GameObjectFunctions:GetScript(ultimate_target_UID)
+			
+		elseif ciri_distance ~= default_distance and ciri_distance < yennefer_distance and ciri_distance < geralt_distance			--IF Ciri
+		then
+			ultimate_target_UID = ciri_UID
+			ultimate_target_script = lua_table.GameObjectFunctions:GetScript(ultimate_target_UID)
+
+		else																														--IF all downed or non-present
+			ultimate_target_UID = nil
+			ultimate_target_script = lua_table
+		end
+	end
+
+	--3. Change stats of target character
+	ultimate_target_script.base_damage_mod = ultimate_target_script.base_damage_mod + lua_table.ultimate_damage_mod_increase * ultimate_stat_mod
+	ultimate_target_script.mov_speed_max_mod = ultimate_target_script.mov_speed_max_mod + lua_table.ultimate_speed_mod_increase * ultimate_stat_mod
+	ultimate_target_script.health_reg_mod = ultimate_target_script.health_reg_mod + lua_table.ultimate_health_reg_increase * ultimate_stat_mod
+	ultimate_target_script.energy_reg_mod = ultimate_target_script.energy_reg_mod + lua_table.ultimate_energy_reg_increase * ultimate_stat_mod
+
+	ultimate_target_script.must_update_stats = true
+	
+	--4. Change active state of target Jaskier-Ultimate particles
 	if active then
 		--TODO-Particles: Activate ultimate particles
 	else
 		--TODO-Particles: Deactivate ultimate particles
 	end
 
-	must_update_stats = true
 	ultimate_active = active
 end
 
@@ -1157,8 +1210,8 @@ end
 
 --Main Code
 function lua_table:Awake()
-	lua_table.SystemFunctions:LOG("This Log was called from LUA testing a table on AWAKE")
-	
+	--lua_table.ability_angle = math.rad(lua_table.ability_angle)
+
 	lua_table.max_health_real = lua_table.max_health_orig	--Necessary for the first CalculateStats()
 	CalculateStats()	--Calculate stats based on orig values + modifier
 
@@ -1166,8 +1219,6 @@ function lua_table:Awake()
 	lua_table.current_health = lua_table.max_health_real
 	lua_table.current_energy = lua_table.max_energy_real
 	current_ultimate = 0.0
-
-	CalculateAbilityTrapezoid()
 end
 
 function lua_table:Start()
@@ -1193,7 +1244,6 @@ function lua_table:Update()
 			lua_table.previous_state = lua_table.current_state
 			lua_table.current_state = state.down
 
-			if ultimate_active then UltimateState(false) end	--IF ultimate on, go off
 			AttackColliderShutdown()							--IF any attack colliders on, turn off
 		else
 			--DEBUG
@@ -1246,17 +1296,16 @@ function lua_table:Update()
 			else	--ELSE (action being performed)
 				time_since_action = game_time - action_started_at
 
-				if lua_table.current_state == state.ultimate and not ultimate_active and time_since_action > lua_table.ultimate_scream_start	--IF ultimate state, ultimate unactive, and scream started
-				then
-					UltimateState(true)	--Ultimate turn on (boost stats)
-
-					current_ultimate = 0.0
-					ultimate_effect_started_at = game_time
-				end
-
 				if time_since_action > current_action_duration	--IF action duration up
 				then
-					if lua_table.current_state >= state.light_1 and lua_table.current_state <= state.combo_3	--IF attack finished
+					if lua_table.current_state == state.ultimate	--IF ultimate finished
+					then
+						UltimateState(true)	--Ultimate turn on (boost stats)
+
+						current_ultimate = 0.0
+						ultimate_effect_started_at = game_time
+
+					elseif lua_table.current_state >= state.light_1 and lua_table.current_state <= state.combo_3	--IF attack finished
 					then
 						--TODO-Particles: Deactivate Particles on Sword
 					elseif lua_table.current_state == state.ability

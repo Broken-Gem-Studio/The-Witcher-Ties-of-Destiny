@@ -45,8 +45,8 @@ local state = {	--The order of the states is relevant to the code, CAREFUL CHANG
 	item = 16,
 	revive = 17
 }
-local previous_state = state.idle	-- Previous State
-local current_state = state.idle	-- Current State
+lua_table.previous_state = state.idle	-- Previous State
+lua_table.current_state = state.idle	-- Current State
 
 --Stats
 local must_update_stats = false
@@ -67,24 +67,24 @@ lua_table.current_health = 0
 
 	--Health Stat
 	lua_table.max_health_real = 0
-	local max_health_mod = 1.0
+	lua_table.max_health_mod = 1.0
 	lua_table.max_health_orig = 500
 
 local health_reg_real
-local health_reg_mod = 0.0	-- mod is applied to max_health (reg 10% of your max health)
+lua_table.health_reg_mod = 0.0	-- mod is applied to max_health (reg 10% of your max health)
 
 --Damage
 	--Damage Stat
 	local base_damage_real
-	local base_damage_mod = 1.0
+	lua_table.base_damage_mod = 1.0
 	lua_table.base_damage_orig = 30
 
 local critical_chance_real
-local critical_chance_add = 0
+lua_table.critical_chance_add = 0
 lua_table.critical_chance_orig = 0
 
 local critical_damage_real
-local critical_damage_add = 0
+lua_table.critical_damage_add = 0
 lua_table.critical_damage_orig = 2.0
 
 --Controls
@@ -150,7 +150,7 @@ local mov_speed = { x = 0.0, z = 0.0 }
 	--Speed Stat
 	local mov_speed_stat	-- stat = real / 10. Exclusive to speed, as the numeric balancing is dependant on Physics and not only design
 	local mov_speed_max_real
-	local mov_speed_max_mod = 1.0
+	lua_table.mov_speed_max_mod = 1.0
 	lua_table.mov_speed_max_orig = 5000	--Was 60.0 before dt
 
 lua_table.idle_animation_speed = 30.0
@@ -160,11 +160,11 @@ lua_table.run_animation_speed = 20.0
 --Energy
 lua_table.current_energy = 0
 lua_table.max_energy_real = 0
-local max_energy_mod = 1.0
+lua_table.max_energy_mod = 1.0
 lua_table.max_energy_orig = 100
 
 local energy_reg_real
-local energy_reg_mod = 1.0
+lua_table.energy_reg_mod = 1.0
 lua_table.energy_reg_orig = 10	--This is 5 per second aprox.
 
 --Attacks
@@ -295,7 +295,7 @@ local current_ultimate = 0.0
 local max_ultimate = 100.0
 
 local ultimate_reg_real
-local ultimate_reg_mod = 1.0
+lua_table.ultimate_reg_mod = 1.0
 lua_table.ultimate_reg_orig = 10	--Ideally, 2 or something similar
 
 local ultimate_started_at = 0.0
@@ -471,7 +471,7 @@ end
 --States BEGIN	----------------------------------------------------------------------------
 
 local function GoDefaultState()
-	previous_state = current_state
+	lua_table.previous_state = lua_table.current_state
 
 	if mov_input.used_input.x ~= 0.0 or mov_input.used_input.z ~= 0.0
 	then
@@ -479,16 +479,16 @@ local function GoDefaultState()
 		then
 			lua_table.AnimationFunctions:PlayAnimation("run", lua_table.run_animation_speed)
 			lua_table.AudioFunctions:PlayStepSound()	--TODO-AUDIO: Play run sound
-			current_state = state.run
+			lua_table.current_state = state.run
 		else
 			lua_table.AnimationFunctions:PlayAnimation("walk", lua_table.walk_animation_speed)
 			lua_table.AudioFunctions:PlayStepSound()	--TODO-AUDIO: Play walk sound
-			current_state = state.walk
+			lua_table.current_state = state.walk
 		end
 	else
 		lua_table.AnimationFunctions:PlayAnimation("idle", lua_table.idle_animation_speed)
 		lua_table.AudioFunctions:StopStepSound()	--TODO-AUDIO: Stop current sound event
-		current_state = state.idle
+		lua_table.current_state = state.idle
 		lua_table.ParticlesFunctions:DeactivateParticlesEmission()	--Deactivate movement dust particles
 	end
 	
@@ -529,27 +529,27 @@ end
 
 local function CalculateStats()
 	--Health
-	local max_health_increment = lua_table.max_health_orig * max_health_mod / lua_table.max_health_real
+	local max_health_increment = lua_table.max_health_orig * lua_table.max_health_mod / lua_table.max_health_real
 	lua_table.max_health_real = lua_table.max_health_real * max_health_increment
 	lua_table.current_health = lua_table.current_health * max_health_increment
 
-	health_reg_real = lua_table.max_health_real * health_reg_mod
+	health_reg_real = lua_table.max_health_real * lua_table.health_reg_mod
 
 	--Damage
-	base_damage_real = lua_table.base_damage_orig * base_damage_mod
-	critical_chance_real = lua_table.critical_chance_orig + critical_chance_add
-	critical_damage_real = lua_table.critical_damage_orig + critical_damage_add
+	base_damage_real = lua_table.base_damage_orig * lua_table.base_damage_mod
+	critical_chance_real = lua_table.critical_chance_orig + lua_table.critical_chance_add
+	critical_damage_real = lua_table.critical_damage_orig + lua_table.critical_damage_add
 
 	--Speed
-	mov_speed_max_real = lua_table.mov_speed_max_orig * mov_speed_max_mod
+	mov_speed_max_real = lua_table.mov_speed_max_orig * lua_table.mov_speed_max_mod
 	mov_speed_stat = mov_speed_max_real * 0.1
 
 	--Energy
-	lua_table.max_energy_real = lua_table.max_energy_orig * max_energy_mod
-	energy_reg_real = lua_table.energy_reg_orig * energy_reg_mod
+	lua_table.max_energy_real = lua_table.max_energy_orig * lua_table.max_energy_mod
+	energy_reg_real = lua_table.energy_reg_orig * lua_table.energy_reg_mod
 
 	--Ultimate
-	ultimate_reg_real = lua_table.ultimate_reg_orig * ultimate_reg_mod
+	ultimate_reg_real = lua_table.ultimate_reg_orig * lua_table.ultimate_reg_mod
 
 	--If current values overflow new maximums, limit them
 	if lua_table.current_health > lua_table.max_health_real then lua_table.current_health = lua_table.max_health_real end
@@ -679,32 +679,32 @@ end
 local function MovementInputs()	--Process Movement Inputs
 	if mov_input.used_input.x ~= 0.0 or mov_input.used_input.z ~= 0.0													--IF Movement Input
 	then
-		if current_state == state.idle																--IF Idle
+		if lua_table.current_state == state.idle																--IF Idle
 		then
-			previous_state = current_state
+			lua_table.previous_state = lua_table.current_state
 
 			if lua_table.input_walk_threshold < math.sqrt(mov_input.used_input.x ^ 2 + mov_input.used_input.z ^ 2)		--IF great input
 			then
 				lua_table.AnimationFunctions:PlayAnimation("run", lua_table.run_animation_speed)
 				lua_table.AudioFunctions:PlayStepSound()	--TODO-AUDIO: Play run sound
-				current_state = state.run
+				lua_table.current_state = state.run
 			else																					--IF small input
 				lua_table.AnimationFunctions:PlayAnimation("walk", lua_table.walk_animation_speed)
 				lua_table.AudioFunctions:PlayStepSound()	--TODO-AUDIO: Play walk sound
-				current_state = state.walk
+				lua_table.current_state = state.walk
 			end
-		elseif current_state == state.walk and lua_table.input_walk_threshold < math.sqrt(mov_input.used_input.x ^ 2 + mov_input.used_input.z ^ 2)	--IF walking and big input
+		elseif lua_table.current_state == state.walk and lua_table.input_walk_threshold < math.sqrt(mov_input.used_input.x ^ 2 + mov_input.used_input.z ^ 2)	--IF walking and big input
 		then
 			lua_table.AnimationFunctions:PlayAnimation("run", lua_table.run_animation_speed)
 			lua_table.AudioFunctions:PlayStepSound()	--TODO-AUDIO: Play run sound
-			previous_state = current_state
-			current_state = state.run
-		elseif current_state == state.run and lua_table.input_walk_threshold > math.sqrt(mov_input.used_input.x ^ 2 + mov_input.used_input.z ^ 2)	--IF running and small input
+			lua_table.previous_state = lua_table.current_state
+			lua_table.current_state = state.run
+		elseif lua_table.current_state == state.run and lua_table.input_walk_threshold > math.sqrt(mov_input.used_input.x ^ 2 + mov_input.used_input.z ^ 2)	--IF running and small input
 		then
 			lua_table.AnimationFunctions:PlayAnimation("walk", lua_table.walk_animation_speed)
 			lua_table.AudioFunctions:PlayStepSound()	--TODO-AUDIO: Play walk sound
-			previous_state = current_state
-			current_state = state.walk
+			lua_table.previous_state = lua_table.current_state
+			lua_table.current_state = state.walk
 		end
 
 		--Move character
@@ -722,14 +722,14 @@ local function MovementInputs()	--Process Movement Inputs
 
 		lua_table.ParticlesFunctions:ActivateParticlesEmission()	--Activate movement dust particles
 
-	elseif current_state == state.run or current_state == state.walk
+	elseif lua_table.current_state == state.run or lua_table.current_state == state.walk
 	then
 		--Animation to IDLE
 		lua_table.AnimationFunctions:PlayAnimation("idle", lua_table.idle_animation_speed)
 		lua_table.AudioFunctions:StopStepSound()	--TODO-AUDIO: Stop current sound event
 		lua_table.ParticlesFunctions:DeactivateParticlesEmission()	--Deactivate movement dust particles
-		previous_state = current_state
-		current_state = state.idle
+		lua_table.previous_state = lua_table.current_state
+		lua_table.current_state = state.idle
 	end
 end
 
@@ -752,8 +752,8 @@ local function CheckCombo()	--Check combo performed	(ATTENTION: This should hand
 
 		lua_table.collider_damage = base_damage_real * lua_table.combo_1_damage
 
-		previous_state = current_state
-		current_state = state.combo_1
+		lua_table.previous_state = lua_table.current_state
+		lua_table.current_state = state.combo_1
 
 		string_match = true
 	elseif lua_table.current_energy > lua_table.combo_2_cost and CompareTables(combo_stack, combo_2)
@@ -768,8 +768,8 @@ local function CheckCombo()	--Check combo performed	(ATTENTION: This should hand
 		
 		lua_table.collider_damage = base_damage_real * lua_table.combo_2_damage
 
-		previous_state = current_state
-		current_state = state.combo_2
+		lua_table.previous_state = lua_table.current_state
+		lua_table.current_state = state.combo_2
 
 		string_match = true
 	elseif lua_table.current_energy > lua_table.combo_3_cost and CompareTables(combo_stack, combo_3)
@@ -784,8 +784,8 @@ local function CheckCombo()	--Check combo performed	(ATTENTION: This should hand
 		
 		lua_table.collider_damage = base_damage_real * lua_table.combo_3_damage
 
-		previous_state = current_state
-		current_state = state.combo_3
+		lua_table.previous_state = lua_table.current_state
+		lua_table.current_state = state.combo_3
 
 		string_match = true
 	-- elseif CompareTables(combo_stack, combo_4)
@@ -795,8 +795,8 @@ local function CheckCombo()	--Check combo performed	(ATTENTION: This should hand
 
 	-- 	lua_table.AnimationFunctions:PlayAnimation("combo_4", lua_table.combo_4_animation_speed)	--Blows
 		
-	-- 	previous_state = current_state
-	-- 	current_state = state.combo_4
+	-- 	lua_table.previous_state = lua_table.current_state
+	-- 	lua_table.current_state = state.combo_4
 
 	-- 	string_match = true
 	end
@@ -807,17 +807,17 @@ end
 local function TimedAttack(attack_cost)
 	local combo_achieved = false
 
-	if current_state <= state.run		--IF Idle or Moving
+	if lua_table.current_state <= state.run		--IF Idle or Moving
 	then
 		combo_num = 1					--Register combo start
 		lua_table.current_energy = lua_table.current_energy - attack_cost
 
-	elseif current_state == state.light_1 and time_since_action > lua_table.light_1_combo_start and time_since_action < lua_table.light_1_combo_end
-	or current_state == state.light_2 and time_since_action > lua_table.light_2_combo_start and time_since_action < lua_table.light_2_combo_end
-	or current_state == state.light_3 and time_since_action > lua_table.light_3_combo_start and time_since_action < lua_table.light_3_combo_end
-	or current_state == state.heavy_1 and time_since_action > lua_table.heavy_1_combo_start and time_since_action < lua_table.heavy_1_combo_end
-	or current_state == state.heavy_2 and time_since_action > lua_table.heavy_2_combo_start and time_since_action < lua_table.heavy_2_combo_end
-	or current_state == state.heavy_3 and time_since_action > lua_table.heavy_3_combo_start and time_since_action < lua_table.heavy_3_combo_end
+	elseif lua_table.current_state == state.light_1 and time_since_action > lua_table.light_1_combo_start and time_since_action < lua_table.light_1_combo_end
+	or lua_table.current_state == state.light_2 and time_since_action > lua_table.light_2_combo_start and time_since_action < lua_table.light_2_combo_end
+	or lua_table.current_state == state.light_3 and time_since_action > lua_table.light_3_combo_start and time_since_action < lua_table.light_3_combo_end
+	or lua_table.current_state == state.heavy_1 and time_since_action > lua_table.heavy_1_combo_start and time_since_action < lua_table.heavy_1_combo_end
+	or lua_table.current_state == state.heavy_2 and time_since_action > lua_table.heavy_2_combo_start and time_since_action < lua_table.heavy_2_combo_end
+	or lua_table.current_state == state.heavy_3 and time_since_action > lua_table.heavy_3_combo_start and time_since_action < lua_table.heavy_3_combo_end
 	then
 		combo_num = combo_num + 1
 		lua_table.current_energy = lua_table.current_energy - attack_cost / lua_table.combo_cost_divider
@@ -841,7 +841,7 @@ end
 
 local function RegularAttack(attack_type)
 
-	if current_state == state.heavy_3 then	--Heavy_3 animation starts and ends on the right, therefore in this particular case we stay on the right
+	if lua_table.current_state == state.heavy_3 then	--Heavy_3 animation starts and ends on the right, therefore in this particular case we stay on the right
 		rightside = not rightside
 	end
 
@@ -855,8 +855,8 @@ local function RegularAttack(attack_type)
 			lua_table.AnimationFunctions:PlayAnimation(attack_type .. "_3", lua_table[attack_type .. "_3_animation_speed"])
 			lua_table.AudioFunctions:PlayAttackSound()	--TODO-AUDIO: Play attack_3 sound (light or heavy)
 
-			previous_state = current_state
-			current_state = state[attack_type .. "_3"]
+			lua_table.previous_state = lua_table.current_state
+			lua_table.current_state = state[attack_type .. "_3"]
 		else
 			current_action_block_time = lua_table[attack_type .. "_1_block_time"]	--Set duration of input block (no new actions)
 			current_action_duration = lua_table[attack_type .. "_1_duration"]		--Set duration of the current action (to return to idle/move)
@@ -864,8 +864,8 @@ local function RegularAttack(attack_type)
 			lua_table.AnimationFunctions:PlayAnimation(attack_type .. "_1", lua_table[attack_type .. "_1_animation_speed"])
 			lua_table.AudioFunctions:PlayAttackSound()	--TODO-AUDIO: Play attack_1 sound (light or heavy)
 
-			previous_state = current_state
-			current_state = state[attack_type .. "_1"]
+			lua_table.previous_state = lua_table.current_state
+			lua_table.current_state = state[attack_type .. "_1"]
 		end
 	else			--IF leftside
 		current_action_block_time = lua_table[attack_type .. "_2_block_time"]	--Set duration of input block (no new actions)
@@ -874,8 +874,8 @@ local function RegularAttack(attack_type)
 		lua_table.AnimationFunctions:PlayAnimation(attack_type .. "_2", lua_table[attack_type .. "_2_animation_speed"])
 		lua_table.AudioFunctions:PlayAttackSound()	--TODO-AUDIO: Play attack_2 sound (light or heavy)
 
-		previous_state = current_state
-		current_state = state[attack_type .. "_2"]
+		lua_table.previous_state = lua_table.current_state
+		lua_table.current_state = state[attack_type .. "_2"]
 	end
 
 	lua_table.collider_damage = base_damage_real * lua_table[attack_type .. "_damage"]
@@ -982,8 +982,8 @@ local function ActionInputs()	--Process Action Inputs
 		lua_table.TransformFunctions:LookAt(pos_x + rec_direction.x, pos_y, pos_z + rec_direction.z)
 
 		lua_table.AnimationFunctions:PlayAnimation("evade", lua_table.evade_animation_speed)
-		previous_state = current_state
-		current_state = state.evade
+		lua_table.previous_state = lua_table.current_state
+		lua_table.current_state = state.evade
 		
 		lua_table.current_energy = lua_table.current_energy - lua_table.evade_cost
 
@@ -1002,8 +1002,8 @@ local function ActionInputs()	--Process Action Inputs
 		current_action_duration = lua_table.ability_duration
 
 		lua_table.AnimationFunctions:PlayAnimation("ability", lua_table.ability_animation_speed)
-		previous_state = current_state
-		current_state = state.ability
+		lua_table.previous_state = lua_table.current_state
+		lua_table.current_state = state.ability
 
 		ability_performed = false	--The ability itself and energy cost reduction is done later to fit with the animation, this marks that it needs to be done
 		input_given = true
@@ -1020,8 +1020,8 @@ local function ActionInputs()	--Process Action Inputs
 
 		--Do Ultimate
 		lua_table.AnimationFunctions:PlayAnimation("ultimate", lua_table.ultimate_animation_speed)
-		previous_state = current_state
-		current_state = state.ultimate
+		lua_table.previous_state = lua_table.current_state
+		lua_table.current_state = state.ultimate
 		input_given = true
 
 	elseif lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_use_item, key_state.key_down)	--Object Input
@@ -1029,8 +1029,8 @@ local function ActionInputs()	--Process Action Inputs
 		action_started_at = game_time							--Set timer start mark
 
 		--Do Use_Object
-		previous_state = current_state
-		current_state = state.item
+		lua_table.previous_state = lua_table.current_state
+		lua_table.current_state = state.item
 		input_given = true
 
 	elseif lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_interact, key_state.key_down)	--Revive Input
@@ -1038,12 +1038,12 @@ local function ActionInputs()	--Process Action Inputs
 		action_started_at = game_time							--Set timer start mark
 
 		--Do Revive
-		previous_state = current_state
-		current_state = state.revive
+		lua_table.previous_state = lua_table.current_state
+		lua_table.current_state = state.revive
 		input_given = true
 	end
 
-	if input_given and not (current_state <= state.combo_3 and current_state >= state.light_1)	--IF input given and is not an attack
+	if input_given and not (lua_table.current_state <= state.combo_3 and lua_table.current_state >= state.light_1)	--IF input given and is not an attack
 	then
 		--TODO-Particles: Deactivate Particles on Sword
 	end
@@ -1055,9 +1055,9 @@ local function UltimateState(active)
 	local ultimate_stat_mod = 1
 	if not active then ultimate_stat_mod = -1 end
 
-	health_reg_mod = health_reg_mod + lua_table.ultimate_health_reg_increase * ultimate_stat_mod
-	energy_reg_mod = energy_reg_mod + lua_table.ultimate_energy_reg_increase * ultimate_stat_mod
-	base_damage_mod = base_damage_mod + lua_table.ultimate_damage_mod_increase * ultimate_stat_mod
+	lua_table.health_reg_mod = lua_table.health_reg_mod + lua_table.ultimate_health_reg_increase * ultimate_stat_mod
+	lua_table.energy_reg_mod = lua_table.energy_reg_mod + lua_table.ultimate_energy_reg_increase * ultimate_stat_mod
+	lua_table.base_damage_mod = lua_table.base_damage_mod + lua_table.ultimate_damage_mod_increase * ultimate_stat_mod
 
 	if active then
 		--TODO-Particles: Activate ultimate particles
@@ -1159,8 +1159,6 @@ end
 function lua_table:Awake()
 	lua_table.SystemFunctions:LOG("This Log was called from LUA testing a table on AWAKE")
 	
-	--lua_table.ability_angle = math.rad(lua_table.ability_angle)
-
 	lua_table.max_health_real = lua_table.max_health_orig	--Necessary for the first CalculateStats()
 	CalculateStats()	--Calculate stats based on orig values + modifier
 
@@ -1186,14 +1184,14 @@ function lua_table:Update()
 	CheckCameraBounds()
 	CheckIncomingDamage()
 
-	if current_state >= state.idle	--IF alive
+	if lua_table.current_state >= state.idle	--IF alive
 	then
 		if lua_table.current_health <= 0
 		then
 			lua_table.AnimationFunctions:PlayAnimation("death", 30.0)
 			death_started_at = game_time
-			previous_state = current_state
-			current_state = state.down
+			lua_table.previous_state = lua_table.current_state
+			lua_table.current_state = state.down
 
 			if ultimate_active then UltimateState(false) end	--IF ultimate on, go off
 			AttackColliderShutdown()							--IF any attack colliders on, turn off
@@ -1228,19 +1226,19 @@ function lua_table:Update()
 			end
 
 			--IF action currently going on, check action timer
-			if current_state > state.run
+			if lua_table.current_state > state.run
 			then
 				time_since_action = game_time - action_started_at
 			end
 
 			--IF state == idle/move or action_input_block_time has ended (Input-allowed environment)
-			if current_state <= state.run or time_since_action > current_action_block_time
+			if lua_table.current_state <= state.run or time_since_action > current_action_block_time
 			then
 				ActionInputs()
 			end
 
 			--IF there's no action being performed
-			if current_state <= state.run
+			if lua_table.current_state <= state.run
 			then
 				MovementInputs()	--Movement orders
 				--SecondaryInputs()	--Minor actions with no timer or special animations
@@ -1248,7 +1246,7 @@ function lua_table:Update()
 			else	--ELSE (action being performed)
 				time_since_action = game_time - action_started_at
 
-				if current_state == state.ultimate and not ultimate_active and time_since_action > lua_table.ultimate_scream_start	--IF ultimate state, ultimate unactive, and scream started
+				if lua_table.current_state == state.ultimate and not ultimate_active and time_since_action > lua_table.ultimate_scream_start	--IF ultimate state, ultimate unactive, and scream started
 				then
 					UltimateState(true)	--Ultimate turn on (boost stats)
 
@@ -1258,32 +1256,32 @@ function lua_table:Update()
 
 				if time_since_action > current_action_duration	--IF action duration up
 				then
-					if current_state >= state.light_1 and current_state <= state.combo_3	--IF attack finished
+					if lua_table.current_state >= state.light_1 and lua_table.current_state <= state.combo_3	--IF attack finished
 					then
 						--TODO-Particles: Deactivate Particles on Sword
-					elseif current_state == state.ability
+					elseif lua_table.current_state == state.ability
 					then
 						--TODO-Particles: Deactivate Aard particles on hand
 					end
 
 					GoDefaultState()	--Return to move or idle
 
-				elseif current_state == state.ability and not ability_performed and time_since_action > lua_table.ability_start
+				elseif lua_table.current_state == state.ability and not ability_performed and time_since_action > lua_table.ability_start
 				then
 					--AardPush()	--TODO: Uncomment when it works
 					--TODO-Particles: Activate Aard particles on hand
 					lua_table.current_energy = lua_table.current_energy - lua_table.ability_cost
 					ability_performed = true
 
-				elseif current_state == state.evade and DirectionInBounds()				--ELSEIF evading
+				elseif lua_table.current_state == state.evade and DirectionInBounds()				--ELSEIF evading
 				then
 					--Set Attack Linear Velocity
 					_x, mov_speed_y, _z = lua_table.PhysicsFunctions:GetLinearVelocity()	--TODO: Check if truly needed or remove
 					lua_table.PhysicsFunctions:SetLinearVelocity(lua_table.evade_velocity * rec_direction.x * dt, mov_speed_y, lua_table.evade_velocity * rec_direction.z * dt)	--IMPROVE: Speed set on every frame bad?
 
-				elseif current_state == state.light_1 or current_state == state.light_2 or current_state == state.light_3	--IF Light Attacking
+				elseif lua_table.current_state == state.light_1 or lua_table.current_state == state.light_2 or lua_table.current_state == state.light_3	--IF Light Attacking
 				then
-					if current_state ~= state.light_1 and not (current_state == state.light_3 and time_since_action > lua_table.light_3_combo_end) and DirectionInBounds()	--IF not light_1 and outside return to idle of light_3	--IMPROVE: Maybe just cut the return to idle part?
+					if lua_table.current_state ~= state.light_1 and not (lua_table.current_state == state.light_3 and time_since_action > lua_table.light_3_combo_end) and DirectionInBounds()	--IF not light_1 and outside return to idle of light_3	--IMPROVE: Maybe just cut the return to idle part?
 					then
 						--Set Attack Linear Velocity
 						_x, mov_speed_y, _z = lua_table.PhysicsFunctions:GetLinearVelocity()	--TODO: Check if truly needed or remove
@@ -1291,14 +1289,14 @@ function lua_table:Update()
 					end
 
 					--Collider Evaluation
-					if current_state == state.light_1 then AttackColliderCheck("light", 1, "front")
-					elseif current_state == state.light_2 then AttackColliderCheck("light", 2, "front")
-					elseif current_state == state.light_3 then AttackColliderCheck("light", 3, "front")
+					if lua_table.current_state == state.light_1 then AttackColliderCheck("light", 1, "front")
+					elseif lua_table.current_state == state.light_2 then AttackColliderCheck("light", 2, "front")
+					elseif lua_table.current_state == state.light_3 then AttackColliderCheck("light", 3, "front")
 					end
 
-				elseif current_state == state.heavy_1 or current_state == state.heavy_2 or current_state == state.heavy_3	--IF Heavy Attacking
+				elseif lua_table.current_state == state.heavy_1 or lua_table.current_state == state.heavy_2 or lua_table.current_state == state.heavy_3	--IF Heavy Attacking
 				then
-					if not (current_state == state.heavy_3 and time_since_action > lua_table.heavy_3_combo_end) and DirectionInBounds()	--IF outside return to idle of heavy_3	--IMPROVE: Maybe just cut the return to idle part?
+					if not (lua_table.current_state == state.heavy_3 and time_since_action > lua_table.heavy_3_combo_end) and DirectionInBounds()	--IF outside return to idle of heavy_3	--IMPROVE: Maybe just cut the return to idle part?
 					then
 						--Set Attack Linear Velocity
 						_x, mov_speed_y, _z = lua_table.PhysicsFunctions:GetLinearVelocity()	--TODO: Check if truly needed or remove
@@ -1306,12 +1304,12 @@ function lua_table:Update()
 					end
 
 					--Collider Evaluation
-					if current_state == state.heavy_1 then AttackColliderCheck("heavy", 1, "front")
-					elseif current_state == state.heavy_2 then AttackColliderCheck("heavy", 2, "front")
-					elseif current_state == state.heavy_3 then AttackColliderCheck("heavy", 3, "front")
+					if lua_table.current_state == state.heavy_1 then AttackColliderCheck("heavy", 1, "front")
+					elseif lua_table.current_state == state.heavy_2 then AttackColliderCheck("heavy", 2, "front")
+					elseif lua_table.current_state == state.heavy_3 then AttackColliderCheck("heavy", 3, "front")
 					end
 
-				elseif current_state == state.combo_1 and DirectionInBounds()
+				elseif lua_table.current_state == state.combo_1 and DirectionInBounds()
 				then
 					--Set Attack Linear Velocity
 					_x, mov_speed_y, _z = lua_table.PhysicsFunctions:GetLinearVelocity()	--TODO: Check if truly needed or remove
@@ -1323,7 +1321,7 @@ function lua_table:Update()
 					AttackColliderCheck("combo", 1, "left")
 					AttackColliderCheck("combo", 1, "back")
 
-				elseif current_state == state.combo_2 and DirectionInBounds()
+				elseif lua_table.current_state == state.combo_2 and DirectionInBounds()
 				then
 					--Set Attack Linear Velocity
 					_x, mov_speed_y, _z = lua_table.PhysicsFunctions:GetLinearVelocity()	--TODO: Check if truly needed or remove
@@ -1334,7 +1332,7 @@ function lua_table:Update()
 					AttackColliderCheck("combo", 2, "right")
 					AttackColliderCheck("combo", 2, "front")
 
-				elseif current_state == state.combo_3 and DirectionInBounds()
+				elseif lua_table.current_state == state.combo_3 and DirectionInBounds()
 				then
 					--Set Attack Linear Velocity
 					_x, mov_speed_y, _z = lua_table.PhysicsFunctions:GetLinearVelocity()	--TODO: Check if truly needed or remove
@@ -1346,7 +1344,7 @@ function lua_table:Update()
 				end
 			end
 		end
-	elseif current_state == state.down	--IF currently down
+	elseif lua_table.current_state == state.down	--IF currently down
 	then
 		if lua_table.being_revived		--IF flag marks that other player is reviving (controlled by another player)
 		then
@@ -1369,8 +1367,8 @@ function lua_table:Update()
 
 			elseif game_time - death_started_at > lua_table.down_time	--IF death timer finished
 			then
-				previous_state = current_state
-				current_state = state.dead			--Kill character
+				lua_table.previous_state = lua_table.current_state
+				lua_table.current_state = state.dead			--Kill character
 				--lua_table.Functions:Deactivate()	--Disable character
 			end
 		end
@@ -1378,7 +1376,7 @@ function lua_table:Update()
 
 	--DEBUG LOGS
 	--lua_table.SystemFunctions:LOG("Delta Time: " .. dt)
-	lua_table.SystemFunctions:LOG("State: " .. current_state)
+	lua_table.SystemFunctions:LOG("State: " .. lua_table.current_state)
 	lua_table.SystemFunctions:LOG("Time passed: " .. time_since_action)
 	--rot_y = math.rad(GimbalLockWorkaroundY(lua_table.TransformFunctions:GetRotationY()))	--TODO: Remove GimbalLock stage when Euler bug is fixed
 	--lua_table.SystemFunctions:LOG("Angle Y: " .. rot_y)
@@ -1394,9 +1392,9 @@ function lua_table:Update()
 	--lua_table.SystemFunctions:LOG("Energy Reg: " .. energy_reg_real)
 	--lua_table.SystemFunctions:LOG("Damage: " .. base_damage_real)
 
-	--lua_table.SystemFunctions:LOG("Health Reg Mod: " .. health_reg_mod)
-	--lua_table.SystemFunctions:LOG("Energy Reg Mod: " .. energy_reg_mod)
-	--lua_table.SystemFunctions:LOG("Damage Mod: " .. base_damage_mod)
+	--lua_table.SystemFunctions:LOG("Health Reg Mod: " .. lua_table.health_reg_mod)
+	--lua_table.SystemFunctions:LOG("Energy Reg Mod: " .. lua_table.energy_reg_mod)
+	--lua_table.SystemFunctions:LOG("Damage Mod: " .. lua_table.base_damage_mod)
 
 	--Trapezoid Global BEGIN
 	-- local geralt_pos_x, geralt_pos_y, geralt_pos_z = lua_table.TransformFunctions:GetPosition()
