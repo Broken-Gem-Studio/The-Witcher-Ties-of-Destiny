@@ -641,7 +641,7 @@ end
 local function CheckCameraBounds()	--Check if we're currently outside the camera's bounds
 	--1. Get all necessary data
 	local pos_x, pos_y, pos_z = lua_table.TransformFunctions:GetPosition()
-	local side_top, side_bottom, side_left, side_right = lua_table.GameObjectFunctions:GetFrustumPlanesIntersection(pos_x, pos_y, pos_z, 0.85)	--TODO-Camera: This shouldn't be 0.8
+	local side_top, side_bottom, side_left, side_right = lua_table.GameObjectFunctions:GetFrustumPlanesIntersection(pos_x, pos_y, pos_z, camera_bounds_ratio)
 	-- 0 == outside, 1 == inside
 
 	--2. Restart camera bounds values
@@ -1159,7 +1159,7 @@ end
 --Main Code
 function lua_table:Awake()
 	lua_table.SystemFunctions:LOG("This Log was called from LUA testing a table on AWAKE")
-	
+
 	camera_bounds_ratio = lua_table.GameObjectFunctions:GetScript(lua_table.GameObjectFunctions:FindGameObject("Camera")).Layer_3_FOV_ratio_1
 	
 	lua_table.max_health_real = lua_table.max_health_orig	--Necessary for the first CalculateStats()
