@@ -246,8 +246,8 @@ function HandleZoomLayers()
 			elseif current_zoom_layer == zoom.LAYER_3
 			then
 				-- When ALL players get in of Layer_3_FOV_scale_2
-				if lua_table["Functions_GameObject"]:GetPositionInFrustum(P1_pos_x, P1_pos_y, P1_pos_z, Layer_3_FOV_scale_1, Layer_3_FOV_scale_2) == 3 and
-				   lua_table["Functions_GameObject"]:GetPositionInFrustum(P2_pos_x, P2_pos_y, P2_pos_z, Layer_3_FOV_scale_1, Layer_3_FOV_scale_2) == 3
+				if lua_table["Functions_GameObject"]:GetPositionInFrustum(P1_pos_x, P1_pos_y, P1_pos_z, lua_table.Layer_3_FOV_ratio_1, Layer_3_FOV_scale_2) == 3 and
+				   lua_table["Functions_GameObject"]:GetPositionInFrustum(P2_pos_x, P2_pos_y, P2_pos_z, lua_table.Layer_3_FOV_ratio_1, Layer_3_FOV_scale_2) == 3
 				then
 					-- Switch down to Layer 2
 					current_zoom_layer = zoom.LAYER_2
@@ -255,8 +255,8 @@ function HandleZoomLayers()
 					lua_table["Functions_System"]:LOG ("Camera: Switching to Zoom Layer 2")
 
 				-- When AT LEAST ONE player is between Layer_3_FOV_scale_1 Layer_3_FOV_scale_2 
-				-- elseif lua_table["Functions_GameObject"]:GetPositionInFrustum(P1_pos_x, P1_pos_y, P1_pos_z, Layer_3_FOV_scale_1, Layer_3_FOV_scale_2) == 2 or
-				-- 	   lua_table["Functions_GameObject"]:GetPositionInFrustum(P2_pos_x, P2_pos_y, P2_pos_z, Layer_3_FOV_scale_1, Layer_3_FOV_scale_2) == 2
+				-- elseif lua_table["Functions_GameObject"]:GetPositionInFrustum(P1_pos_x, P1_pos_y, P1_pos_z, lua_table.Layer_3_FOV_ratio_1, Layer_3_FOV_scale_2) == 2 or
+				-- 	   lua_table["Functions_GameObject"]:GetPositionInFrustum(P2_pos_x, P2_pos_y, P2_pos_z, lua_table.Layer_3_FOV_ratio_1, Layer_3_FOV_scale_2) == 2
 				-- then
 				-- 	if current_state == state.STATIC -- It only triggers once
 				-- 	then
