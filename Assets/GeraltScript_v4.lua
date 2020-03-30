@@ -300,6 +300,7 @@ lua_table.ultimate_reg_orig = 10	--Ideally, 2 or something similar
 
 local ultimate_started_at = 0.0
 lua_table.ultimate_duration = 3600
+lua_table.ultimate_scream_start = 2500
 lua_table.ultimate_animation_speed = 45.0
 
 local ultimate_effect_started_at = 0.0
@@ -488,9 +489,9 @@ local function GoDefaultState()
 		lua_table.AnimationFunctions:PlayAnimation("idle", lua_table.idle_animation_speed)
 		lua_table.AudioFunctions:StopStepSound()	--TODO-AUDIO: Stop current sound event
 		current_state = state.idle
-		lua_table.ParticlesFunctions:DeactivateParticlesEmission()	--IMPROVE: Make particle emission more complex than de/activating
+		lua_table.ParticlesFunctions:DeactivateParticlesEmission()	--Deactivate movement dust particles
 	end
-
+	
 	rightside = true
 end
 
@@ -719,14 +720,14 @@ local function MovementInputs()	--Process Movement Inputs
 			lua_table.PhysicsFunctions:SetLinearVelocity(mov_speed.x * dt, mov_speed_y, mov_speed.z * dt)
 		end
 
-		lua_table.ParticlesFunctions:ActivateParticlesEmission()
+		lua_table.ParticlesFunctions:ActivateParticlesEmission()	--Activate movement dust particles
 
 	elseif current_state == state.run or current_state == state.walk
 	then
 		--Animation to IDLE
 		lua_table.AnimationFunctions:PlayAnimation("idle", lua_table.idle_animation_speed)
 		lua_table.AudioFunctions:StopStepSound()	--TODO-AUDIO: Stop current sound event
-		lua_table.ParticlesFunctions:DeactivateParticlesEmission()
+		lua_table.ParticlesFunctions:DeactivateParticlesEmission()	--Deactivate movement dust particles
 		previous_state = current_state
 		current_state = state.idle
 	end
@@ -831,6 +832,9 @@ local function TimedAttack(attack_cost)
 		combo_num = 1	--Not good timing since last attack
 		lua_table.current_energy = lua_table.current_energy - attack_cost
 	end
+
+	--TODO-Particles: Turn on particles on Sword
+	lua_table.ParticlesFunctions:DeactivateParticlesEmission()	--Deactivate movement dust particles
 
 	return combo_achieved
 end
@@ -983,6 +987,8 @@ local function ActionInputs()	--Process Action Inputs
 		
 		lua_table.current_energy = lua_table.current_energy - lua_table.evade_cost
 
+		lua_table.ParticlesFunctions:ActivateParticlesEmission()	--Activate movement dust particles
+
 		input_given = true
 		
 	elseif game_time - ability_started_at >= lua_table.ability_cooldown
@@ -1016,7 +1022,7 @@ local function ActionInputs()	--Process Action Inputs
 		lua_table.AnimationFunctions:PlayAnimation("ultimate", lua_table.ultimate_animation_speed)
 		previous_state = current_state
 		current_state = state.ultimate
-		input_given = true	
+		input_given = true
 
 	elseif lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_use_item, key_state.key_down)	--Object Input
 	then
@@ -1037,9 +1043,9 @@ local function ActionInputs()	--Process Action Inputs
 		input_given = true
 	end
 
-	if input_given	--TODO: This is trashy, it works for the current particle demonstration but it isn't the functionality we really want at the moment
+	if input_given and not (current_state <= state.combo_3 and current_state >= state.light_1)	--IF input given and is not an attack
 	then
-		lua_table.ParticlesFunctions:ActivateParticlesEmission()
+		--TODO-Particles: Deactivate Particles on Sword
 	end
 
 	return input_given
@@ -1053,8 +1059,13 @@ local function UltimateState(active)
 	energy_reg_mod = energy_reg_mod + lua_table.ultimate_energy_reg_increase * ultimate_stat_mod
 	base_damage_mod = base_damage_mod + lua_table.ultimate_damage_mod_increase * ultimate_stat_mod
 
-	must_update_stats = true
+	if active then
+		--TODO-Particles: Activate ultimate particles
+	else
+		--TODO-Particles: Deactivate ultimate particles
+	end
 
+	must_update_stats = true
 	ultimate_active = active
 end
 
@@ -1175,8 +1186,7 @@ function lua_table:Update()
 	then
 		if lua_table.current_health <= 0
 		then
-			--Animation to DEATH
-			--lua_table.PhysicsFunctions:SetVelocity(0.0, 0.0, 0.0)
+			--TODO-Animations: Animation to DEATH
 			--death_started_at = game_time
 			previous_state = current_state
 			current_state = state.down
@@ -1234,14 +1244,22 @@ function lua_table:Update()
 			else	--ELSE (action being performed)
 				time_since_action = game_time - action_started_at
 
+				if current_state == state.ultimate and not ultimate_active and time_since_action > lua_table.ultimate_scream_start	--IF ultimate state, ultimate unactive, and scream started
+				then
+					UltimateState(true)	--Ultimate turn on (boost stats)
+
+					current_ultimate = 0.0
+					ultimate_effect_started_at = game_time
+				end
+
 				if time_since_action > current_action_duration	--IF action duration up
 				then
-					if current_state == state.ultimate				--IF drinking ultimate potion finished
+					if current_state >= state.light_1 and current_state <= state.combo_3	--IF attack finished
 					then
-						UltimateState(true)	--Ultimate turn on (boost stats)
-
-						current_ultimate = 0.0
-						ultimate_effect_started_at = game_time
+						--TODO-Particles: Deactivate Particles on Sword
+					elseif current_state == state.ability
+					then
+						--TODO-Particles: Deactivate Aard particles on hand
 					end
 
 					GoDefaultState()	--Return to move or idle
@@ -1249,6 +1267,7 @@ function lua_table:Update()
 				elseif current_state == state.ability and not ability_performed and time_since_action > lua_table.ability_start
 				then
 					--AardPush()	--TODO: Uncomment when it works
+					--TODO-Particles: Activate Aard particles on hand
 					lua_table.current_energy = lua_table.current_energy - lua_table.ability_cost
 					ability_performed = true
 
