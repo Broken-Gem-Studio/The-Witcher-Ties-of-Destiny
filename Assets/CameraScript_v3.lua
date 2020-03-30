@@ -266,8 +266,8 @@ function HandleZoomLayers()
 				-- 	end
 
 				-- When ONE player gets out of Layer_3_FOV_scale_1
-				elseif lua_table["Functions_GameObject"]:GetPositionInFrustum(P1_pos_x, P1_pos_y, P1_pos_z, lua_table.Layer_3_FOV_scale_1, Layer_3_FOV_scale_2) == 1 or
-					   lua_table["Functions_GameObject"]:GetPositionInFrustum(P2_pos_x, P2_pos_y, P2_pos_z, lua_table.Layer_3_FOV_scale_1, Layer_3_FOV_scale_2) == 1
+				elseif lua_table["Functions_GameObject"]:GetPositionInFrustum(P1_pos_x, P1_pos_y, P1_pos_z, lua_table.Layer_3_FOV_ratio_1, Layer_3_FOV_scale_2) == 1 or
+					   lua_table["Functions_GameObject"]:GetPositionInFrustum(P2_pos_x, P2_pos_y, P2_pos_z, lua_table.Layer_3_FOV_ratio_1, Layer_3_FOV_scale_2) == 1
 				then
 					-- if current_state == state.DYNAMIC -- It only triggers once
 					-- then
