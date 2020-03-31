@@ -649,7 +649,7 @@ local function CheckCameraBounds()	--Check if we're currently outside the camera
 	side_right = lua_table.GameObjectFunctions:GetRightFrustumIntersection(pos_x, pos_y, pos_z, camera_bounds_ratio)
 	-- 0 == outside, 1 == inside
 
-	lua_table.SystemFunctions:LOG("Cam Planes: " .. side_top .. "_" .. side_bottom .. "_" .. side_left .. "_" .. side_right)
+	--lua_table.SystemFunctions:LOG("Cam Planes: " .. side_top .. "_" .. side_bottom .. "_" .. side_left .. "_" .. side_right)
 
 	--2. Restart camera bounds values
 	bounds_vector.x = 0
