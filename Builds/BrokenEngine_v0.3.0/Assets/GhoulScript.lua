@@ -37,6 +37,10 @@ lua_table.PatrolPoint = 0
 
 lua_table.AggroDistance = 30
 
+lua_table.minDistance = 5
+
+local DistanceMagnitude = 0 
+
 local GeraltPos_x = 0
 local GeraltPos_y = 0
 local GeraltPos_z = 0
@@ -79,13 +83,6 @@ local function Players() --function to know if there is a player in the area and
 	
     ret = true
 
-	JaskierPos_x = 0
-	JaskierPos_y = 0
-	JaskierPos_z = 0
-
-	GeraltPos_x = 0
-	GeraltPos_y = 0
-	GeraltPos_z = 0
 
     if lua_table.Geralt ~= 0 --Geralt comprovation
     then 
@@ -217,8 +214,8 @@ end
 
 function HandleAttackState()
 
- --attack!
- --play 1 time the attack anim=?????
+
+ 
 
 end
 
@@ -257,20 +254,20 @@ function Seek()
 	vec3ypow = vec3y * vec3y -- pre calculus
 	vec3zpow = vec3z * vec3z
 
-	magnitude = math.sqrt( vec3xpow + vec3zpow) --y not used
-	lua_table.SystemFunctions:LOG ("Target Distance Magnitude: " .. magnitude)
+	DistanceMagnitude = math.sqrt( vec3xpow + vec3zpow) --y not used
+	lua_table.SystemFunctions:LOG ("Target Distance Magnitude: " ..DistanceMagnitude)
 
-	Nvec3x = vec3x / magnitude
-	Nvec3y = vec3y / magnitude -- Normalized values
-	Nvec3z = vec3z / magnitude
+	if DistanceMagnitude > lua_table.minDistance + 3
+	then
+		Nvec3x = vec3x / DistanceMagnitude
+		Nvec3y = vec3y / DistanceMagnitude -- Normalized values
+		Nvec3z = vec3z / DistanceMagnitude
 
-
-	lua_table.TransformFunctions:Translate(Nvec3x,Nvec3y,Nvec3z,false)
-	--lua_table.PhysicsSystem:SetLinearVelocity(Nvecx * 15,Nvecy * 15,Nvecz * 15) --move
-	
-	--then
-	--	lua_table.PhysicsSystem:SetLinearVelocity()
-	--end
+		lua_table.TransformFunctions:Translate(Nvec3x,Nvec3y,Nvec3z,false)
+	elseif DistanceMagnitude <= lua_table.minDistance
+	then
+		currentState = State.ATTACK
+	end
 end
 ---------------------------------FUNCTIONS END -------------------------
 ------------------------------------------------------------------------
