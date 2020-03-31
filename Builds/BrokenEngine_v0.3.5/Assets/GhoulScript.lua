@@ -32,9 +32,15 @@ lua_table.currentTarget = 0
 
 lua_table.PatrolPoint = 0
 
-lua_table.AggroDistance = 30
+lua_table.AggroDistance = 25
 
 lua_table.minDistance = 5  
+
+lua_table.MyUID = 0
+
+lua_table.Nvec3x = 0
+lua_table.Nvec3y = 0
+lua_table.Nvec3z = 0
 
 local DistanceMagnitude = 0 
 
@@ -59,7 +65,7 @@ lua_table.Jaskier = 0
 --Movement
 local Speed_x = 0.0
 local Speed_z = 0.0
-local Speed_y = 0.0 --up?
+local Speed_y = 0.0 --up
 
 lua_table.currentState = State.IDL
 
@@ -258,11 +264,9 @@ function Seek()
 
 	if DistanceMagnitude > lua_table.minDistance + 3
 	then
-		Nvec3x = vec3x / DistanceMagnitude
-		Nvec3y = vec3y / DistanceMagnitude -- Normalized values
-		Nvec3z = vec3z / DistanceMagnitude
-
-		lua_table.TransformFunctions:Translate(Nvec3x,Nvec3y,Nvec3z,false)
+		lua_table.Nvec3x = vec3x / DistanceMagnitude
+		lua_table.Nvec3y = vec3y / DistanceMagnitude -- Normalized values
+		lua_table.Nvec3z = vec3z / DistanceMagnitude	
 	elseif DistanceMagnitude <= lua_table.minDistance
 	then
 		currentState = State.ATTACK
@@ -270,6 +274,16 @@ function Seek()
 end
 ---------------------------------FUNCTIONS END -------------------------
 ------------------------------------------------------------------------
+
+function lua_table:OnTriggerEnter()	
+	local collider = lua_table.PhysicsSystem:OnTriggerEnter(lua_table.MyUID)
+	--lua_table.SystemFunctions:LOG("T: ".. collider)
+end
+
+function lua_table:OnCollisionEnter()
+	local collider = lua_table.PhysicsSystem:OnCollisionEnter(lua_table.MyUID)
+	--lua_table.SystemFunctions:LOG("T: ".. collider)
+end
 
 
 --Main Code
@@ -288,6 +302,12 @@ function lua_table:Awake()
 
    lua_table.currentState = State.IDL
    -------------------- GET PLAYERS id END --------------------
+
+   --------------------GET MY UID---------------------------
+
+   lua_table.MyUID = lua_table.GameObjectFunctions:GetMyUID()
+
+
 end
 
 function lua_table:Start()
@@ -302,7 +322,7 @@ function lua_table:Update()
 		lua_table.currentState = State.IDL
 	end
 
-    if lua_table.currentState == State.IDL 
+    if lua_table.currentState == State.IDL --and lua_table.Jaskier ~= 0 and lua_table.Geralt ~= 0
     then
         HandleIdleState()
     elseif lua_table.currentState == State.PATROL
@@ -317,7 +337,7 @@ function lua_table:Update()
         HandleAttackState()
     end
 
-	
+	lua_table.PhysicsSystem:Move(lua_table.Nvec3x,lua_table.Nvec3z)
 --    HandleAnimations()
 --    HandleMovement()
 
