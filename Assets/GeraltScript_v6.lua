@@ -17,6 +17,8 @@ lua_table.InputFunctions = Scripting.Inputs()
 --lua_table.SystemFunctions = Scripting.Systems()
 --lua_table.InputFunctions = Scripting.Inputs()
 
+local my_GO_UID
+
 --State Machine
 local state = {	--The order of the states is relevant to the code, CAREFUL CHANGING IT (Ex: if curr_state >= state.run)
 	dead = -2,
@@ -168,7 +170,9 @@ lua_table.energy_reg_mod = 1.0
 lua_table.energy_reg_orig = 10	--This is 5 per second aprox.
 
 --Attacks
-local rightside = true								-- Last attack side, marks the animation of next attack
+	--Layers: 1_player, 2_player_attack, 3_enemy, 4_enemy_attack
+
+local rightside = true		-- Last attack side, marks the animation of next attack
 
 local attack_effects = {	--Not definitive, but as showcase
 	none = 0,
@@ -180,11 +184,11 @@ local attack_effects = {	--Not definitive, but as showcase
 lua_table.collider_damage = 0
 lua_table.collider_effect = attack_effects.none
 
-local active_colliders = {
-	front = false,
-	back = false,
-	left = false,
-	right = false
+local attack_colliders = {
+	front = { GO_name = "Geralt_Front", GO_UID = 0, active = false },
+	back = { GO_name = "Geralt_Back", GO_UID = 0, active = false },
+	left = { GO_name = "Geralt_Left", GO_UID = 0, active = false },
+	right = { GO_name = "Geralt_Right", GO_UID = 0, active = false }
 }
 
 	--Collider Notes (GO X,Y,Z / Coll size X,Y,Z)
@@ -493,34 +497,6 @@ local function GoDefaultState()
 	end
 	
 	rightside = true
-end
-
-local function CheckIncomingDamage()
-	local collision_enter = {}--lua_table.PhysicsFunctions:OnCollisionEnter()	--TODO: Uncomment when working
-
-	for num, go_uid in ipairs(collision_enter) do	--Iterate all UIDs of collisions that Geralt collider has entered for the first time
-		local layer = lua_table.GameObjectFunctions:GetGameObjectLayer()
-
-		if layer == "enemy_attack"	--IF collider is tagged as an enemy attack
-		then
-			local collider_parent = lua_table.GameObjectFunctions:GetGameObjectParent(go_uid)
-			local enemy_script = {}
-
-			if collider_parent ~= 0 then	--IF collider has parent, data is saved on parent (it means the collider is repurposed)
-				enemy_script = lua_table.GameObjectFunctions:GetScript(collider_parent)
-			else							--IF collider has no parent, data is saved within collider
-				enemy_script = lua_table.GameObjectFunctions:GetScript(go_uid)
-			end
-
-			lua_table.current_health = lua_table.current_health - enemy_script.collider_damage
-
-			if enemy_script.collider_effect ~= attack_effects.none
-			then
-				--TODO: React to special effect
-			end
-		end
-	end
-
 end
 
 --States END	----------------------------------------------------------------------------
@@ -1077,18 +1053,18 @@ local function AttackColliderCheck(attack_type, attack_num, collider_side)	--Che
 	then
 		if time_since_action > lua_table[attack_type .. "_" .. attack_num .. "_collider_" .. collider_side .. "_end"]	--IF time > end collider
 		then
-			if active_colliders[collider_side]	--IF > end time and collider active, deactivate
+			if attack_colliders[collider_side].active	--IF > end time and collider active, deactivate
 			then
-				--TODO: Deactivate Geralt "side .. _collider" GO
-				active_colliders[collider_side] = false
+				lua_table.GameObjectFunctions:SetActiveGameObject(attack_colliders[collider_side].GO_UID, false)
+				attack_colliders[collider_side].active = false
 			end
 
-			--lua_table.SystemFunctions:LOG("Collider Deactive: " .. attack_type .. "_" .. attack_num .. "_" .. collider_side)
+			--lua_table.SystemFunctions:LOG("Collider Deactivate: " .. attack_type .. "_" .. attack_num .. "_" .. collider_side)
 			
-		elseif not active_colliders[collider_side]	--IF > start time and collider unactive, activate
+		elseif not attack_colliders[collider_side].active	--IF > start time and collider unactive, activate
 		then
-			--TODO: Activate Geralt "side .. _collider" GO
-			active_colliders[collider_side] = true
+			lua_table.GameObjectFunctions:SetActiveGameObject(attack_colliders[collider_side].GO_UID, true)
+			attack_colliders[collider_side].active = true
 		--else
 			--lua_table.SystemFunctions:LOG("Collider Active: " .. attack_type .. "_" .. attack_num .. "_" .. collider_side)
 		end
@@ -1096,21 +1072,21 @@ local function AttackColliderCheck(attack_type, attack_num, collider_side)	--Che
 end
 
 local function AttackColliderShutdown()
-	if active_colliders.front then
-		--TODO: Deactivate front collider
-		active_colliders.front = false
+	if attack_colliders.front.active then
+		--TODO-Collider: Deactivate front collider
+		attack_colliders.front.active = false
 	end
-	if active_colliders.back then
-		--TODO: Deactivate back collider
-		active_colliders.back = false
+	if attack_colliders.back.active then
+		--TODO-Collider: Deactivate back collider
+		attack_colliders.back.active = false
 	end
-	if active_colliders.left then
-		--TODO: Deactivate left collider
-		active_colliders.left = false
+	if attack_colliders.left.active then
+		--TODO-Collider: Deactivate left collider
+		attack_colliders.left.active = false
 	end
-	if active_colliders.right then
-		--TODO: Deactivate right collider
-		active_colliders.right = false
+	if attack_colliders.right.active then
+		--TODO-Collider: Deactivate right collider
+		attack_colliders.right.active = false
 	end
 end
 
@@ -1142,7 +1118,30 @@ end
 
 --Collider Calls BEGIN
 function lua_table:OnTriggerEnter()
+	-- local collider_GO = lua_table.PhysicsFunctions:OnTriggerEnter(my_GO_UID)
+	
 	lua_table.SystemFunctions:LOG("On Trigger Enter")
+
+	-- if lua_table.GameObjectFunctions:GetGameObjectLayer(collider_GO) == 4	--IF collider is tagged as an enemy attack
+	-- then
+	-- 	local collider_parent = lua_table.GameObjectFunctions:GetGameObjectParent(collider_GO)
+	-- 	local enemy_script = {}
+
+	-- 	if collider_parent ~= 0 then	--IF collider has parent, data is saved on parent (it means the collider is repurposed)
+	-- 		enemy_script = lua_table.GameObjectFunctions:GetScript(collider_parent)
+	-- 	else							--IF collider has no parent, data is saved within collider
+	-- 		enemy_script = lua_table.GameObjectFunctions:GetScript(go_uid)
+	-- 	end
+
+	-- 	lua_table.current_health = lua_table.current_health - enemy_script.collider_damage
+
+	-- 	if enemy_script.collider_effect ~= attack_effects.none
+	-- 	then
+	-- 		--TODO: React to special effect
+	-- 	end
+	-- end
+
+	lua_table.current_health = lua_table.current_health - enemy_script.collider_damage
 end
 
 function lua_table:OnCollisionEnter()
@@ -1169,6 +1168,15 @@ end
 function lua_table:Awake()
 	lua_table.SystemFunctions:LOG("GeraltScript AWAKE")
 
+	--Get Self GO_UID
+	my_GO_UID = lua_table.GameObjectFunctions:GetMyUID()
+
+	--Get attack_colliders GO_UIDs by name
+	attack_colliders.front.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.front.GO_name)
+	attack_colliders.back.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.back.GO_name)
+	attack_colliders.left.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.left.GO_name)
+	attack_colliders.right.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.right.GO_name)
+
 	camera_bounds_ratio = lua_table.GameObjectFunctions:GetScript(lua_table.GameObjectFunctions:FindGameObject("Camera")).Layer_3_FOV_ratio_1
 
 	lua_table.max_health_real = lua_table.max_health_orig	--Necessary for the first CalculateStats()
@@ -1194,7 +1202,6 @@ function lua_table:Update()
 	if must_update_stats then CalculateStats() end
 
 	CheckCameraBounds()
-	CheckIncomingDamage()
 
 	if lua_table.current_state ~= state.dead	--IF not dead (stuff done while downed too)
 	then
