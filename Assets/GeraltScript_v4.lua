@@ -1158,7 +1158,7 @@ end
 
 --Main Code
 function lua_table:Awake()
-	lua_table.SystemFunctions:LOG("This Log was called from LUA testing a table on AWAKE")
+	lua_table.SystemFunctions:LOG("GeraltScript AWAKE")
 
 	camera_bounds_ratio = lua_table.GameObjectFunctions:GetScript(lua_table.GameObjectFunctions:FindGameObject("Camera")).Layer_3_FOV_ratio_1
 	
@@ -1174,7 +1174,7 @@ function lua_table:Awake()
 end
 
 function lua_table:Start()
-    lua_table.SystemFunctions:LOG("This Log was called from LUA testing a table on START")
+    lua_table.SystemFunctions:LOG("GeraltScript START")
 end
 
 function lua_table:Update()

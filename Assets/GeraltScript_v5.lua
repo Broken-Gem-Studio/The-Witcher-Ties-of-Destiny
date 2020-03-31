@@ -17,8 +17,6 @@ lua_table.InputFunctions = Scripting.Inputs()
 --lua_table.SystemFunctions = Scripting.Systems()
 --lua_table.InputFunctions = Scripting.Inputs()
 
-local my_GO_UID
-
 --State Machine
 local state = {	--The order of the states is relevant to the code, CAREFUL CHANGING IT (Ex: if curr_state >= state.run)
 	dead = -2,
@@ -28,24 +26,23 @@ local state = {	--The order of the states is relevant to the code, CAREFUL CHANG
 	walk = 1,
 	run = 2,
 
-	light_1 = 3,
-	light_2 = 4,
-	light_3 = 5,
+	evade = 3,
+	ability = 4,
+	ultimate = 5,
+	item = 6,
+	revive = 7,
 
-	heavy_1 = 6,
-	heavy_2 = 7,
-	heavy_3 = 8,
+	light_1 = 8,
+	light_2 = 9,
+	light_3 = 10,
 
-	combo_1 = 9,
-	combo_2 = 10,
-	combo_3 = 11,
-	combo_4 = 12,
+	heavy_1 = 11,
+	heavy_2 = 12,
+	heavy_3 = 13,
 
-	evade = 13,
-	ability = 14,
-	ultimate = 15,
-	item = 16,
-	revive = 17
+	combo_1 = 14,
+	combo_2 = 15,
+	combo_3 = 16
 }
 lua_table.previous_state = state.idle	-- Previous State
 lua_table.current_state = state.idle	-- Current State
@@ -294,8 +291,8 @@ local ability_trapezoid = {
 }
 
 --Ultimate
-lua_table.current_ultimate = 0.0
-lua_table.max_ultimate = 100.0
+local current_ultimate = 0.0
+local max_ultimate = 100.0
 
 local ultimate_reg_real
 lua_table.ultimate_reg_mod = 1.0
@@ -642,8 +639,8 @@ end
 
 local function CheckCameraBounds()	--Check if we're currently outside the camera's bounds
 	--1. Get all necessary data
-	local pos_x, pos_y, pos_z = lua_table.TransformFunctions:GetPosition(my_GO_UID)
-	local side_top, side_bottom, side_left, side_right = 1,1,1,1--lua_table.GameObjectFunctions:GetFrustumPlanesIntersection(pos_x, pos_y, pos_z, camera_bounds_ratio)
+	local pos_x, pos_y, pos_z = lua_table.TransformFunctions:GetPosition()
+	local side_top, side_bottom, side_left, side_right = lua_table.GameObjectFunctions:GetFrustumPlanesIntersection(pos_x, pos_y, pos_z, camera_bounds_ratio)
 	-- 0 == outside, 1 == inside
 
 	--2. Restart camera bounds values
@@ -714,12 +711,12 @@ local function MovementInputs()	--Process Movement Inputs
 		mov_speed.x = mov_speed_max_real * mov_input.used_input.x	--Joystick input directly translates to speed, no acceleration
 		mov_speed.z = mov_speed_max_real * mov_input.used_input.z
 
-		pos_x, pos_y, pos_z = lua_table.TransformFunctions:GetPosition(my_GO_UID)	--Rotate to velocity direction
+		pos_x, pos_y, pos_z = lua_table.TransformFunctions:GetPosition()	--Rotate to velocity direction
 		lua_table.TransformFunctions:LookAt(pos_x + mov_speed.x, pos_y, pos_z + mov_speed.z)
 
 		if DirectionInBounds()	--Only allow movement if camera bounds allows it
 		then
-			_x, mov_speed_y, _z = lua_table.PhysicsFunctions:GetLinearVelocity(my_GO_UID)	--Set velocity
+			_x, mov_speed_y, _z = lua_table.PhysicsFunctions:GetLinearVelocity()	--Set velocity
 			lua_table.PhysicsFunctions:SetLinearVelocity(mov_speed.x * dt, mov_speed_y, mov_speed.z * dt)
 		end
 
@@ -887,8 +884,8 @@ end
 
 local function AardPush()
 	--1. Collect colliders of all enemies inside a radius
-	local geralt_pos_x, geralt_pos_y, geralt_pos_z = lua_table.TransformFunctions:GetPosition(my_GO_UID)
-	enemy_list = lua_table.PhysicsFunctions:OverlapSphere(geralt_pos_x, geralt_pos_y, geralt_pos_z, lua_table.ability_range, "enemy", false)
+	local geralt_pos_x, geralt_pos_y, geralt_pos_z = lua_table.TransformFunctions:GetPosition()
+	local enemy_list = lua_table.PhysicsFunctions:OverlapSphere(geralt_pos_x, geralt_pos_y, geralt_pos_z, lua_table.ability_range, "enemy", false)
 
 	--REMOVE: Workaround which artificially places a GO in the list
 	-- local enemy_list = {}
@@ -918,9 +915,9 @@ local function AardPush()
 		local enemy_pos_x = lua_table.GameObjectFunctions:GetGameObjectPosX(v)
 		local enemy_pos_z = lua_table.GameObjectFunctions:GetGameObjectPosZ(v)
 
-		if BidimensionalPointInVectorSide(B_x, B_z, C_x, C_z, target_x, target_z) < 0	--If left side of all the trapezoid vectors BC, CD, DA ( \_/ )
-		and BidimensionalPointInVectorSide(C_x, C_z, D_x, D_z, target_x, target_z) < 0
-		and BidimensionalPointInVectorSide(D_x, D_z, A_x, A_z, target_x, target_z) < 0
+		if BidimensionalPointInVectorSide(B_x, B_z, C_x, C_z, enemy_pos_x, enemy_pos_z) < 0	--If left side of all the trapezoid vectors BC, CD, DA ( \_/ )
+		and BidimensionalPointInVectorSide(C_x, C_z, D_x, D_z, enemy_pos_x, enemy_pos_z) < 0
+		and BidimensionalPointInVectorSide(D_x, D_z, A_x, A_z, enemy_pos_x, enemy_pos_z) < 0
 		then
 			local direction_x, direction_z = enemy_pos_x - geralt_pos_x, enemy_pos_z - geralt_pos_z	--4.1. If inside, find direction Geralt->Enemy and apply velocity in that direction
 			local magnitude = math.sqrt(direction_x ^ 2 + direction_z ^ 2)
@@ -949,7 +946,7 @@ local function ActionInputs()	--Process Action Inputs
 
 		SaveDirection()
 
-		pos_x, pos_y, pos_z = lua_table.TransformFunctions:GetPosition(my_GO_UID)	--Rotate to direction
+		pos_x, pos_y, pos_z = lua_table.TransformFunctions:GetPosition()	--Rotate to direction
 		lua_table.TransformFunctions:LookAt(pos_x + rec_direction.x, pos_y, pos_z + rec_direction.z)
 
 		input_given = true
@@ -968,7 +965,7 @@ local function ActionInputs()	--Process Action Inputs
 
 		SaveDirection()
 
-		pos_x, pos_y, pos_z = lua_table.TransformFunctions:GetPosition(my_GO_UID)	--Rotate to direction
+		pos_x, pos_y, pos_z = lua_table.TransformFunctions:GetPosition()	--Rotate to direction
 		lua_table.TransformFunctions:LookAt(pos_x + rec_direction.x, pos_y, pos_z + rec_direction.z)
 
 		input_given = true
@@ -981,7 +978,7 @@ local function ActionInputs()	--Process Action Inputs
 
 		SaveDirection()
 
-		pos_x, pos_y, pos_z = lua_table.TransformFunctions:GetPosition(my_GO_UID)	--Rotate to direction
+		pos_x, pos_y, pos_z = lua_table.TransformFunctions:GetPosition()	--Rotate to direction
 		lua_table.TransformFunctions:LookAt(pos_x + rec_direction.x, pos_y, pos_z + rec_direction.z)
 
 		lua_table.AnimationFunctions:PlayAnimation("evade", lua_table.evade_animation_speed)
@@ -1011,7 +1008,7 @@ local function ActionInputs()	--Process Action Inputs
 		ability_performed = false	--The ability itself and energy cost reduction is done later to fit with the animation, this marks that it needs to be done
 		input_given = true
 
-	elseif lua_table.current_ultimate >= lua_table.max_ultimate
+	elseif current_ultimate >= max_ultimate
 	and lua_table.InputFunctions:IsTriggerState(lua_table.player_ID, lua_table.key_ultimate_1, key_state.key_repeat)
 	and lua_table.InputFunctions:IsTriggerState(lua_table.player_ID, lua_table.key_ultimate_2, key_state.key_repeat)	--Ultimate Input
 	then
@@ -1160,9 +1157,8 @@ end
 
 --Main Code
 function lua_table:Awake()
-	lua_table.SystemFunctions:LOG("This Log was called from LUA testing a table on AWAKE")
+	lua_table.SystemFunctions:LOG("GeraltScript AWAKE")
 
-	my_GO_UID = lua_table.GameObjectFunctions:GetMyUID()
 	camera_bounds_ratio = lua_table.GameObjectFunctions:GetScript(lua_table.GameObjectFunctions:FindGameObject("Camera")).Layer_3_FOV_ratio_1
 	
 	lua_table.max_health_real = lua_table.max_health_orig	--Necessary for the first CalculateStats()
@@ -1171,13 +1167,13 @@ function lua_table:Awake()
 	--Set initial values
 	lua_table.current_health = lua_table.max_health_real
 	lua_table.current_energy = lua_table.max_energy_real
-	lua_table.current_ultimate = 0.0
+	current_ultimate = 0.0
 
 	CalculateAbilityTrapezoid()
 end
 
 function lua_table:Start()
-    lua_table.SystemFunctions:LOG("This Log was called from LUA testing a table on START")
+    lua_table.SystemFunctions:LOG("GeraltScript START")
 end
 
 function lua_table:Update()
@@ -1223,8 +1219,8 @@ function lua_table:Update()
 			if not ultimate_active	--IF ultimate offline
 			then
 				--Ultimate Regeneration
-				if lua_table.current_ultimate < lua_table.max_ultimate then lua_table.current_ultimate = lua_table.current_ultimate + ultimate_reg_real * dt end	--IF can increase, increase ultimate
-				if lua_table.current_ultimate > lua_table.max_ultimate then lua_table.current_ultimate = lua_table.max_ultimate end									--IF above max, set to max
+				if current_ultimate < max_ultimate then current_ultimate = current_ultimate + ultimate_reg_real * dt end	--IF can increase, increase ultimate
+				if current_ultimate > max_ultimate then current_ultimate = max_ultimate end									--IF above max, set to max
 
 			elseif game_time - ultimate_effect_started_at >= lua_table.ultimate_effect_duration	--IF ultimate online and time up!
 			then
@@ -1256,7 +1252,7 @@ function lua_table:Update()
 				then
 					UltimateState(true)	--Ultimate turn on (boost stats)
 
-					lua_table.current_ultimate = 0.0
+					current_ultimate = 0.0
 					ultimate_effect_started_at = game_time
 				end
 
@@ -1282,7 +1278,7 @@ function lua_table:Update()
 				elseif lua_table.current_state == state.evade and DirectionInBounds()				--ELSEIF evading
 				then
 					--Set Attack Linear Velocity
-					_x, mov_speed_y, _z = lua_table.PhysicsFunctions:GetLinearVelocity(my_GO_UID)	--TODO: Check if truly needed or remove
+					_x, mov_speed_y, _z = lua_table.PhysicsFunctions:GetLinearVelocity()	--TODO: Check if truly needed or remove
 					lua_table.PhysicsFunctions:SetLinearVelocity(lua_table.evade_velocity * rec_direction.x * dt, mov_speed_y, lua_table.evade_velocity * rec_direction.z * dt)	--IMPROVE: Speed set on every frame bad?
 
 				elseif lua_table.current_state == state.light_1 or lua_table.current_state == state.light_2 or lua_table.current_state == state.light_3	--IF Light Attacking
@@ -1290,7 +1286,7 @@ function lua_table:Update()
 					if lua_table.current_state ~= state.light_1 and not (lua_table.current_state == state.light_3 and time_since_action > lua_table.light_3_combo_end) and DirectionInBounds()	--IF not light_1 and outside return to idle of light_3	--IMPROVE: Maybe just cut the return to idle part?
 					then
 						--Set Attack Linear Velocity
-						_x, mov_speed_y, _z = lua_table.PhysicsFunctions:GetLinearVelocity(my_GO_UID)	--TODO: Check if truly needed or remove
+						_x, mov_speed_y, _z = lua_table.PhysicsFunctions:GetLinearVelocity()	--TODO: Check if truly needed or remove
 						lua_table.PhysicsFunctions:SetLinearVelocity(lua_table.light_movement_speed * rec_direction.x * dt, mov_speed_y, lua_table.light_movement_speed * rec_direction.z * dt)
 					end
 
@@ -1305,7 +1301,7 @@ function lua_table:Update()
 					if not (lua_table.current_state == state.heavy_3 and time_since_action > lua_table.heavy_3_combo_end) and DirectionInBounds()	--IF outside return to idle of heavy_3	--IMPROVE: Maybe just cut the return to idle part?
 					then
 						--Set Attack Linear Velocity
-						_x, mov_speed_y, _z = lua_table.PhysicsFunctions:GetLinearVelocity(my_GO_UID)	--TODO: Check if truly needed or remove
+						_x, mov_speed_y, _z = lua_table.PhysicsFunctions:GetLinearVelocity()	--TODO: Check if truly needed or remove
 						lua_table.PhysicsFunctions:SetLinearVelocity(lua_table.heavy_movement_speed * rec_direction.x * dt, mov_speed_y, lua_table.heavy_movement_speed * rec_direction.z * dt)
 					end
 
@@ -1318,7 +1314,7 @@ function lua_table:Update()
 				elseif lua_table.current_state == state.combo_1 and DirectionInBounds()
 				then
 					--Set Attack Linear Velocity
-					_x, mov_speed_y, _z = lua_table.PhysicsFunctions:GetLinearVelocity(my_GO_UID)	--TODO: Check if truly needed or remove
+					_x, mov_speed_y, _z = lua_table.PhysicsFunctions:GetLinearVelocity()	--TODO: Check if truly needed or remove
 					lua_table.PhysicsFunctions:SetLinearVelocity(lua_table.combo_1_movement_speed * rec_direction.x * dt, mov_speed_y, lua_table.combo_1_movement_speed * rec_direction.z * dt)
 					
 					--Collider Evaluation
@@ -1330,7 +1326,7 @@ function lua_table:Update()
 				elseif lua_table.current_state == state.combo_2 and DirectionInBounds()
 				then
 					--Set Attack Linear Velocity
-					_x, mov_speed_y, _z = lua_table.PhysicsFunctions:GetLinearVelocity(my_GO_UID)	--TODO: Check if truly needed or remove
+					_x, mov_speed_y, _z = lua_table.PhysicsFunctions:GetLinearVelocity()	--TODO: Check if truly needed or remove
 					lua_table.PhysicsFunctions:SetLinearVelocity(lua_table.combo_2_movement_speed * rec_direction.x * dt, mov_speed_y, lua_table.combo_2_movement_speed * rec_direction.z * dt)
 					
 					--Collider Evaluation
@@ -1341,7 +1337,7 @@ function lua_table:Update()
 				elseif lua_table.current_state == state.combo_3 and DirectionInBounds()
 				then
 					--Set Attack Linear Velocity
-					_x, mov_speed_y, _z = lua_table.PhysicsFunctions:GetLinearVelocity(my_GO_UID)	--TODO: Check if truly needed or remove
+					_x, mov_speed_y, _z = lua_table.PhysicsFunctions:GetLinearVelocity()	--TODO: Check if truly needed or remove
 					lua_table.PhysicsFunctions:SetLinearVelocity(lua_table.combo_3_movement_speed * rec_direction.x * dt, mov_speed_y, lua_table.combo_3_movement_speed * rec_direction.z * dt)
 
 					--Collider Evaluation
@@ -1386,7 +1382,7 @@ function lua_table:Update()
 	lua_table.SystemFunctions:LOG("Time passed: " .. time_since_action)
 	--rot_y = math.rad(GimbalLockWorkaroundY(lua_table.TransformFunctions:GetRotationY()))	--TODO: Remove GimbalLock stage when Euler bug is fixed
 	--lua_table.SystemFunctions:LOG("Angle Y: " .. rot_y)
-	--lua_table.SystemFunctions:LOG("Ultimate: " .. lua_table.current_ultimate)
+	--lua_table.SystemFunctions:LOG("Ultimate: " .. current_ultimate)
 	--lua_table.SystemFunctions:LOG("Combo num: " .. combo_num)
 	--lua_table.SystemFunctions:LOG("Combo string: " .. combo_stack[1] .. ", " .. combo_stack[2] .. ", " .. combo_stack[3] .. ", " .. combo_stack[4])
 
@@ -1403,7 +1399,7 @@ function lua_table:Update()
 	--lua_table.SystemFunctions:LOG("Damage Mod: " .. lua_table.base_damage_mod)
 
 	--Trapezoid Global BEGIN
-	-- local geralt_pos_x, geralt_pos_y, geralt_pos_z = lua_table.TransformFunctions:GetPosition(my_GO_UID)
+	-- local geralt_pos_x, geralt_pos_y, geralt_pos_z = lua_table.TransformFunctions:GetPosition()
 	-- local A_x, A_z = ability_trapezoid.point_A.x + geralt_pos_x, ability_trapezoid.point_A.z + geralt_pos_z
 	-- local B_x, B_z = ability_trapezoid.point_B.x + geralt_pos_x, ability_trapezoid.point_B.z + geralt_pos_z
 	-- local C_x, C_z = ability_trapezoid.point_C.x + geralt_pos_x, ability_trapezoid.point_C.z + geralt_pos_z
@@ -1428,7 +1424,7 @@ function lua_table:Update()
 	--Trapezoid Global END
 
 	--Trapezoid Local BEGIN
-	-- local geralt_pos_x, geralt_pos_y, geralt_pos_z = lua_table.TransformFunctions:GetPosition(my_GO_UID)
+	-- local geralt_pos_x, geralt_pos_y, geralt_pos_z = lua_table.TransformFunctions:GetPosition()
 	-- local A_x, A_z = ability_trapezoid.point_A.x, ability_trapezoid.point_A.z
 	-- local B_x, B_z = ability_trapezoid.point_B.x, ability_trapezoid.point_B.z
 	-- local C_x, C_z = ability_trapezoid.point_C.x, ability_trapezoid.point_C.z
