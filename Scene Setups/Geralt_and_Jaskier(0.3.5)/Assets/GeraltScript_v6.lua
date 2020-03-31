@@ -272,7 +272,7 @@ lua_table.ability_cost = 30
 lua_table.ability_cooldown = 5000.0
 
 local ability_started_at = 0.0
-local ability_performed = false
+lua_table.ability_performed = false
 lua_table.ability_start = 300.0
 lua_table.ability_duration = 800.0
 
@@ -291,8 +291,8 @@ local ability_trapezoid = {
 }
 
 --Ultimate
-local current_ultimate = 0.0
-local max_ultimate = 100.0
+lua_table.current_ultimate = 0.0
+lua_table.max_ultimate = 100.0
 
 local ultimate_reg_real
 lua_table.ultimate_reg_mod = 1.0
@@ -1004,10 +1004,10 @@ local function ActionInputs()	--Process Action Inputs
 		lua_table.previous_state = lua_table.current_state
 		lua_table.current_state = state.ability
 
-		ability_performed = false	--The ability itself and energy cost reduction is done later to fit with the animation, this marks that it needs to be done
+		lua_table.ability_performed = false	--The ability itself and energy cost reduction is done later to fit with the animation, this marks that it needs to be done
 		input_given = true
 
-	elseif current_ultimate >= max_ultimate
+	elseif lua_table.current_ultimate >= lua_table.max_ultimate
 	and lua_table.InputFunctions:IsTriggerState(lua_table.player_ID, lua_table.key_ultimate_1, key_state.key_repeat)
 	and lua_table.InputFunctions:IsTriggerState(lua_table.player_ID, lua_table.key_ultimate_2, key_state.key_repeat)	--Ultimate Input
 	then
@@ -1177,7 +1177,7 @@ function lua_table:Awake()
 	--Set initial values
 	lua_table.current_health = lua_table.max_health_real
 	lua_table.current_energy = lua_table.max_energy_real
-	current_ultimate = 0.0
+	lua_table.current_ultimate = 0.0
 
 	CalculateAbilityTrapezoid()
 end
@@ -1195,6 +1195,25 @@ function lua_table:Update()
 
 	CheckCameraBounds()
 	CheckIncomingDamage()
+
+	if lua_table.current_state ~= state.dead	--IF not dead (stuff done while downed too)
+	then
+		--Energy Regeneration
+		if lua_table.current_energy < lua_table.max_energy_real then lua_table.current_energy = lua_table.current_energy + energy_reg_real * dt end	--IF can increase, increase energy
+		if lua_table.current_energy > lua_table.max_energy_real then lua_table.current_energy = lua_table.max_energy_real end						--IF above max, set to max
+		
+		if not ultimate_active	--IF ultimate offline
+		then
+			--Ultimate Regeneration
+			if lua_table.current_ultimate < lua_table.max_ultimate then lua_table.current_ultimate = lua_table.current_ultimate + ultimate_reg_real * dt end	--IF can increase, increase ultimate
+			if lua_table.current_ultimate > lua_table.max_ultimate then lua_table.current_ultimate = lua_table.max_ultimate end									--IF above max, set to max
+		end
+
+		if lua_table.ability_performed and game_time - ability_started_at >= lua_table.ability_cooldown	--IF ability cooldown finished, mark for UI
+		then
+			lua_table.ability_performed = false
+		end
+	end
 
 	if lua_table.current_state >= state.idle	--IF alive
 	then
@@ -1222,17 +1241,7 @@ function lua_table:Update()
 				if lua_table.current_health > lua_table.max_health_real then lua_table.current_health = lua_table.max_health_real end						--IF above max, set to max
 			end
 
-			--Energy Regeneration
-			if lua_table.current_energy < lua_table.max_energy_real then lua_table.current_energy = lua_table.current_energy + energy_reg_real * dt end	--IF can increase, increase energy
-			if lua_table.current_energy > lua_table.max_energy_real then lua_table.current_energy = lua_table.max_energy_real end						--IF above max, set to max
-
-			if not ultimate_active	--IF ultimate offline
-			then
-				--Ultimate Regeneration
-				if current_ultimate < max_ultimate then current_ultimate = current_ultimate + ultimate_reg_real * dt end	--IF can increase, increase ultimate
-				if current_ultimate > max_ultimate then current_ultimate = max_ultimate end									--IF above max, set to max
-
-			elseif game_time - ultimate_effect_started_at >= lua_table.ultimate_effect_duration	--IF ultimate online and time up!
+			if ultimate_active and game_time - ultimate_effect_started_at >= lua_table.ultimate_effect_duration	--IF ultimate online and time up!
 			then
 				UltimateState(false)	--Ultimate turn off (stats back to normal)
 			end
@@ -1262,7 +1271,7 @@ function lua_table:Update()
 				then
 					UltimateState(true)	--Ultimate turn on (boost stats)
 
-					current_ultimate = 0.0
+					lua_table.current_ultimate = 0.0
 					ultimate_effect_started_at = game_time
 				end
 
@@ -1278,12 +1287,12 @@ function lua_table:Update()
 
 					GoDefaultState()	--Return to move or idle
 
-				elseif lua_table.current_state == state.ability and not ability_performed and time_since_action > lua_table.ability_start
+				elseif lua_table.current_state == state.ability and not lua_table.ability_performed and time_since_action > lua_table.ability_start
 				then
 					--AardPush()	--TODO: Uncomment when it works
 					--TODO-Particles: Activate Aard particles on hand
 					lua_table.current_energy = lua_table.current_energy - lua_table.ability_cost
-					ability_performed = true
+					lua_table.ability_performed = true
 
 				elseif lua_table.current_state == state.evade and DirectionInBounds()				--ELSEIF evading
 				then
@@ -1380,7 +1389,7 @@ function lua_table:Update()
 	lua_table.SystemFunctions:LOG("Time passed: " .. time_since_action)
 	--rot_y = math.rad(GimbalLockWorkaroundY(lua_table.TransformFunctions:GetRotationY()))	--TODO: Remove GimbalLock stage when Euler bug is fixed
 	--lua_table.SystemFunctions:LOG("Angle Y: " .. rot_y)
-	--lua_table.SystemFunctions:LOG("Ultimate: " .. current_ultimate)
+	--lua_table.SystemFunctions:LOG("Ultimate: " .. lua_table.current_ultimate)
 	--lua_table.SystemFunctions:LOG("Combo num: " .. combo_num)
 	--lua_table.SystemFunctions:LOG("Combo string: " .. combo_stack[1] .. ", " .. combo_stack[2] .. ", " .. combo_stack[3] .. ", " .. combo_stack[4])
 
