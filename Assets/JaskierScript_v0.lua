@@ -26,24 +26,17 @@ local state = {	--The order of the states is relevant to the code, CAREFUL CHANG
 	walk = 1,
 	run = 2,
 
-	light_1 = 3,
-	light_2 = 4,
-	light_3 = 5,
+	evade = 3,
+	ability = 4,
+	ultimate = 5,
+	item = 6,
+	revive = 7,
 
-	heavy_1 = 6,
-	heavy_2 = 7,
-	heavy_3 = 8,
+	light_1 = 8,
+	light_2 = 9,
 
-	combo_1 = 9,
-	combo_2 = 10,
-	combo_3 = 11,
-	combo_4 = 12,
-
-	evade = 13,
-	ability = 14,
-	ultimate = 15,
-	item = 16,
-	revive = 17
+	heavy_1 = 10,
+	heavy_2 = 11
 }
 lua_table.previous_state = state.idle	-- Previous State
 lua_table.current_state = state.idle	-- Current State
@@ -193,11 +186,6 @@ local active_colliders = {
 	--Left: 20,20,5 / 10,25,20
 	--Right: -20,20,5 / 10,25,20
 	--Body: 0,20,0 / 20,40,20
-
-	--Light and Heavy Attacks: Front
-	--Combo 1: Body -> Right -> Front -> Left -> Back
-	--Combo 2: Left -> Right -> Front
-	--Combo 3: Front -> Right?
 	
 --Light Attack
 lua_table.light_damage = 1.0					--Multiplier of Base Damage
@@ -887,50 +875,35 @@ local function RegularAttack(attack_type)
 	rightside = not rightside
 end
 
-local function AardPush()
+local function PerformSong(activation, type, ultimate)	--vars: range, ultimate, 
 	--1. Collect colliders of all enemies inside a radius
-	local geralt_pos_x, geralt_pos_y, geralt_pos_z = lua_table.TransformFunctions:GetPosition()
-	enemy_list = lua_table.PhysicsFunctions:OverlapSphere(geralt_pos_x, geralt_pos_y, geralt_pos_z, lua_table.ability_range, "enemy", false)
+	local jaskier_pos = {}
+	jaskier_pos.x, jaskier_pos.y, jaskier_pos.z = lua_table.TransformFunctions:GetPosition()
+	local player_list = lua_table.PhysicsFunctions:OverlapSphere(jaskier_pos.x, jaskier_pos.y, jaskier_pos.z, range, "player", false)
 
-	--REMOVE: Workaround which artificially places a GO in the list
-	-- local enemy_list = {}
-	-- local target = lua_table.GameObjectFunctions:FindGameObject("gerardo2")
-	-- local target_x = lua_table.GameObjectFunctions:GetGameObjectPosX(target)
-	-- local target_z = lua_table.GameObjectFunctions:GetGameObjectPosZ(target)
+	--2. We must check that the enemy is inside the AoE
+	if ultimate
+	then
+		local closest_player = lua_table.GameObjectFunctions:GetMyUID()
+		local closest_distance = 100000.0 --Massive value to make sure it's overwritten
 
-	-- if math.sqrt((target_x - geralt_pos_x) ^ 2 + (target_z - geralt_pos_z) ^ 2) <= lua_table.ability_range then
-	-- 	enemy_list[1] = target
-	-- end
+		for k, v in pairs(player_list) do
+			--IF not Jaskier and closer than current closest_distance
+			if v ~= lua_table.GameObjectFunctions:GetMyUID() and math.sqrt((lua_table.GameObjectFunctions:GetGameObjectPosX(v) - jaskier_pos.x) ^ 2 + (lua_table.GameObjectFunctions:GetGameObjectPosZ(v) - jaskier_pos.z) ^ 2) < closest_distance
+			then
+				closest_player = lua_table.GameObjectFunctions:GetScript(v)
+			end
+		end
+	else
+		for k, v in pairs(player_list) do
+			local player_script 
 
-	--2. Transform ability trapezoid to Geralt's current rotation
-	SaveDirection()
-	local A_z, A_x = BidimensionalRotate(ability_trapezoid.point_A.z, ability_trapezoid.point_A.x, rot_y)
-	local B_z, B_x = BidimensionalRotate(ability_trapezoid.point_B.z, ability_trapezoid.point_B.x, rot_y)
-	local C_z, C_x = BidimensionalRotate(ability_trapezoid.point_C.z, ability_trapezoid.point_C.x, rot_y)
-	local D_z, D_x = BidimensionalRotate(ability_trapezoid.point_D.z, ability_trapezoid.point_D.x, rot_y)
-
-	--3. Translate the local trapezoid positions to global coordinates
-	A_x, A_z = A_x + geralt_pos_x, A_z + geralt_pos_z
-	B_x, B_z = B_x + geralt_pos_x, B_z + geralt_pos_z
-	C_x, C_z = C_x + geralt_pos_x, C_z + geralt_pos_z
-	D_x, D_z = D_x + geralt_pos_x, D_z + geralt_pos_z
-
-	--4. We must check that the enemy is inside the AoE
-	for k, v in pairs(enemy_list) do
-		local enemy_pos_x = lua_table.GameObjectFunctions:GetGameObjectPosX(v)
-		local enemy_pos_z = lua_table.GameObjectFunctions:GetGameObjectPosZ(v)
-
-		if BidimensionalPointInVectorSide(B_x, B_z, C_x, C_z, target_x, target_z) < 0	--If left side of all the trapezoid vectors BC, CD, DA ( \_/ )
-		and BidimensionalPointInVectorSide(C_x, C_z, D_x, D_z, target_x, target_z) < 0
-		and BidimensionalPointInVectorSide(D_x, D_z, A_x, A_z, target_x, target_z) < 0
-		then
-			local direction_x, direction_z = enemy_pos_x - geralt_pos_x, enemy_pos_z - geralt_pos_z	--4.1. If inside, find direction Geralt->Enemy and apply velocity in that direction
-			local magnitude = math.sqrt(direction_x ^ 2 + direction_z ^ 2)
-			--lua_table.PhysicsFunctions:SetLinearVelocity(lua_table.ability_push_velocity * direction_x / magnitude * dt, 0.0, lua_table.ability_push_velocity * direction_z / magnitude * dt)
-			--TODO: Stun enemy
-			--TODO: Set Enemy Linear Velocity
+			--TODO: Give ability buff
+			--TODO-Particles: Activate Particles jaskier buff on players
 		end
 	end
+
+
 end
 
 local function ActionInputs()	--Process Action Inputs
@@ -1056,56 +1029,60 @@ local function ActionInputs()	--Process Action Inputs
 	return input_given
 end
 
---JASKIER-RECYCLE BEGIN
 local function UltimateState(active)	--Turn on/off melody effects
 	local ultimate_stat_mod = 1
-	if not active then ultimate_stat_mod = -1 end
 
-	if active	--IF ultimate activation, select target and all that stuff
+	if not active	--IF disabling, set buffs to reverse
 	then
+		ultimate_stat_mod = -1
+
+	else	--1. IF ultimate activation, select closest present player
 		local jaskier_pos = { x = lua_table.TransformFunctions:GetPositionX(), z = lua_table.TransformFunctions:GetPositionZ() }
 
 		local default_distance = 100000.0	--The massive value makes sure that on the later value comparison downed or non-present characters are discarded
 		local geralt_distance, yennefer_distance, ciri_distance = default_distance, default_distance, default_distance
 		local geralt_UID, yennefer_UID, ciri_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt"), lua_table.GameObjectFunctions:FindGameObject("Yennefer"), lua_table.GameObjectFunctions:FindGameObject("Ciri")
 
-		--1. Get Distances of All currently present and non-downed characters (non-present or downed characters remain with the default value)
+		--1.1. Get Distances of All currently present and non-downed characters (non-present or downed characters remain with the default value)
 		if geralt_UID ~= 0 and lua_table.GameObjectFunctions:GetScript(geralt_UID).current_state > state.down
 		then
-			geralt_distance = math.sqrt((lua_table.GameObjectFunctions:GetGameObjectPosX("Geralt") - jaskier_pos.x) ^ 2 + (lua_table.GameObjectFunctions:GetGameObjectPosX("Geralt") - jaskier_pos.y) ^ 2)
+			geralt_distance = math.sqrt((lua_table.GameObjectFunctions:GetGameObjectPosX("Geralt") - jaskier_pos.x) ^ 2 + (lua_table.GameObjectFunctions:GetGameObjectPosZ("Geralt") - jaskier_pos.z) ^ 2)
 
 		elseif yennefer_UID ~= 0 and lua_table.GameObjectFunctions:GetScript(yennefer_UID).current_state > state.down
 		then
-			yennefer_distance = math.sqrt((lua_table.GameObjectFunctions:GetGameObjectPosX("Yennefer") - jaskier_pos.x) ^ 2 + (lua_table.GameObjectFunctions:GetGameObjectPosX("Yennefer") - jaskier_pos.y) ^ 2)
+			yennefer_distance = math.sqrt((lua_table.GameObjectFunctions:GetGameObjectPosX("Yennefer") - jaskier_pos.x) ^ 2 + (lua_table.GameObjectFunctions:GetGameObjectPosZ("Yennefer") - jaskier_pos.z) ^ 2)
 
 		elseif ciri_UID ~= 0 and lua_table.GameObjectFunctions:GetScript(ciri_UID).current_state > state.down
 		then
-			ciri_distance = math.sqrt((lua_table.GameObjectFunctions:GetGameObjectPosX("Ciri") - jaskier_pos.x) ^ 2 + (lua_table.GameObjectFunctions:GetGameObjectPosX("Ciri") - jaskier_pos.y) ^ 2)
+			ciri_distance = math.sqrt((lua_table.GameObjectFunctions:GetGameObjectPosX("Ciri") - jaskier_pos.x) ^ 2 + (lua_table.GameObjectFunctions:GetGameObjectPosZ("Ciri") - jaskier_pos.z) ^ 2)
 		end
 
-		--2. Check closest character (must be present and netiher dead nor downed)
+		--1.2. Check closest character (must be present and netiher dead nor downed)
 		if geralt_distance ~= default_distance and geralt_distance < yennefer_distance and geralt_distance < ciri_distance			--IF Geralt
 		then
 			ultimate_target_UID = geralt_UID
-			ultimate_target_script = lua_table.GameObjectFunctions:GetScript(ultimate_target_UID)
 
 		elseif yennefer_distance ~= default_distance and yennefer_distance < geralt_distance and yennefer_distance < ciri_distance	--IF Yennefer
 		then
 			ultimate_target_UID = yennefer_UID
-			ultimate_target_script = lua_table.GameObjectFunctions:GetScript(ultimate_target_UID)
-			
+
 		elseif ciri_distance ~= default_distance and ciri_distance < yennefer_distance and ciri_distance < geralt_distance			--IF Ciri
 		then
 			ultimate_target_UID = ciri_UID
-			ultimate_target_script = lua_table.GameObjectFunctions:GetScript(ultimate_target_UID)
 
 		else																														--IF all downed or non-present
 			ultimate_target_UID = nil
+		end
+
+		if ultimate_target_UID ~= nil	--IF target ~= Jaskier, get target lua_table
+		then
+			ultimate_target_script = lua_table.GameObjectFunctions:GetScript(ultimate_target_UID) end
+		else
 			ultimate_target_script = lua_table
 		end
 	end
 
-	--3. Change stats of target character
+	--2. Change stats of target character
 	ultimate_target_script.base_damage_mod = ultimate_target_script.base_damage_mod + lua_table.ultimate_damage_mod_increase * ultimate_stat_mod
 	ultimate_target_script.mov_speed_max_mod = ultimate_target_script.mov_speed_max_mod + lua_table.ultimate_speed_mod_increase * ultimate_stat_mod
 	ultimate_target_script.health_reg_mod = ultimate_target_script.health_reg_mod + lua_table.ultimate_health_reg_increase * ultimate_stat_mod
@@ -1113,7 +1090,7 @@ local function UltimateState(active)	--Turn on/off melody effects
 
 	ultimate_target_script.must_update_stats = true
 	
-	--4. Change active state of target Jaskier-Ultimate particles
+	--3. Change active state of target Jaskier-Ultimate particles
 	if active then
 		--TODO-Particles: Activate ultimate particles
 	else
@@ -1122,7 +1099,6 @@ local function UltimateState(active)	--Turn on/off melody effects
 
 	ultimate_active = active
 end
---JASKIER-RECYCLE END
 
 --Character Actions END	----------------------------------------------------------------------------
 
@@ -1212,6 +1188,7 @@ end
 
 --Main Code
 function lua_table:Awake()
+	lua_table.SystemFunctions:LOG("JaskierScript AWAKE")
 	--lua_table.ability_angle = math.rad(lua_table.ability_angle)
 
 	lua_table.max_health_real = lua_table.max_health_orig	--Necessary for the first CalculateStats()
@@ -1224,7 +1201,7 @@ function lua_table:Awake()
 end
 
 function lua_table:Start()
-    lua_table.SystemFunctions:LOG("This Log was called from LUA testing a table on START")
+    lua_table.SystemFunctions:LOG("JaskierScript START")
 end
 
 function lua_table:Update()
@@ -1234,8 +1211,8 @@ function lua_table:Update()
 
 	if must_update_stats then CalculateStats() end
 
-	CheckCameraBounds()
-	CheckIncomingDamage()
+	CheckCameraBounds()		--TODO-Rework: Change when implemented correctly
+	CheckIncomingDamage()	--TODO-Rework: Change when implemented correctly
 
 	if lua_table.current_state >= state.idle	--IF alive
 	then
@@ -1246,6 +1223,7 @@ function lua_table:Update()
 			lua_table.previous_state = lua_table.current_state
 			lua_table.current_state = state.down
 
+			if ultimate_active then UltimateState(false) end	--IF ultimate on, go off
 			AttackColliderShutdown()							--IF any attack colliders on, turn off
 		else
 			--DEBUG
@@ -1274,7 +1252,7 @@ function lua_table:Update()
 
 			elseif game_time - ultimate_effect_started_at >= lua_table.ultimate_effect_duration	--IF ultimate online and time up!
 			then
-				UltimateState(false)	--Ultimate turn off (stats back to normal)
+				UltimateState(false)	--Ultimate turn off (target stats back to normal)
 			end
 
 			--IF action currently going on, check action timer
@@ -1286,13 +1264,13 @@ function lua_table:Update()
 			--IF state == idle/move or action_input_block_time has ended (Input-allowed environment)
 			if lua_table.current_state <= state.run or time_since_action > current_action_block_time
 			then
-				ActionInputs()
+				ActionInputs()	--TODO-Rework: Check content
 			end
 
 			--IF there's no action being performed
 			if lua_table.current_state <= state.run
 			then
-				MovementInputs()	--Movement orders
+				MovementInputs()	--Movement orders	--TODO-Rework: Check content
 				--SecondaryInputs()	--Minor actions with no timer or special animations
 
 			else	--ELSE (action being performed)
@@ -1300,6 +1278,10 @@ function lua_table:Update()
 
 				if time_since_action > current_action_duration	--IF action duration up
 				then
+					if lua_table.current_state == state.ability	--IF ability finished
+					then
+						PerformSong()	--TODO-Rework: Needs to be done
+						lua_table.current_energy = lua_table.current_energy - lua_table.ability_cost
 					if lua_table.current_state == state.ultimate	--IF ultimate finished
 					then
 						UltimateState(true)	--Ultimate turn on (boost stats)
@@ -1307,22 +1289,15 @@ function lua_table:Update()
 						current_ultimate = 0.0
 						ultimate_effect_started_at = game_time
 
-					elseif lua_table.current_state >= state.light_1 and lua_table.current_state <= state.combo_3	--IF attack finished
+					elseif lua_table.current_state >= state.light_1 and lua_table.current_state <= state.heavy_2	--IF attack finished
 					then
-						--TODO-Particles: Deactivate Particles on Sword
+						--TODO-Particles: Deactivate Particles on Weapon
 					elseif lua_table.current_state == state.ability
 					then
-						--TODO-Particles: Deactivate Aard particles on hand
+						--TODO-Particles: Deactivate Particles song
 					end
 
 					GoDefaultState()	--Return to move or idle
-
-				elseif lua_table.current_state == state.ability and not ability_performed and time_since_action > lua_table.ability_start
-				then
-					--AardPush()	--TODO: Uncomment when it works
-					--TODO-Particles: Activate Aard particles on hand
-					lua_table.current_energy = lua_table.current_energy - lua_table.ability_cost
-					ability_performed = true
 
 				elseif lua_table.current_state == state.evade and DirectionInBounds()				--ELSEIF evading
 				then
