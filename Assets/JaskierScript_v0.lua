@@ -1056,6 +1056,7 @@ local function ActionInputs()	--Process Action Inputs
 	return input_given
 end
 
+--JASKIER-RECYCLE BEGIN
 local function UltimateState(active)	--Turn on/off melody effects
 	local ultimate_stat_mod = 1
 	if not active then ultimate_stat_mod = -1 end
@@ -1121,6 +1122,7 @@ local function UltimateState(active)	--Turn on/off melody effects
 
 	ultimate_active = active
 end
+--JASKIER-RECYCLE END
 
 --Character Actions END	----------------------------------------------------------------------------
 
