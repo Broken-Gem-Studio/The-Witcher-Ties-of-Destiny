@@ -627,6 +627,8 @@ local function DirectionInBounds()	--Every time we try to set a velocity, this i
 	if off_bounds then
 		rot_y = math.rad(GimbalLockWorkaroundY(lua_table.TransformFunctions:GetRotationY()))	--TODO: Remove GimbalLock stage when Euler bug is fixed
 		
+		lua_table.SystemFunctions:LOG("Angle Between: " .. math.deg(BidimensionalAngleBetweenVectors(math.sin(rot_y), math.cos(rot_y), bounds_vector.x, bounds_vector.z)))
+
 		--IF angle between character Front (Z) and set Bounds Vector > Bounds Angle, in other words, if direction too far away from what camera requires to stay within bounds
 		if BidimensionalAngleBetweenVectors(math.sin(rot_y), math.cos(rot_y), bounds_vector.x, bounds_vector.z) > bounds_angle
 		then
@@ -640,35 +642,41 @@ end
 local function CheckCameraBounds()	--Check if we're currently outside the camera's bounds
 	--1. Get all necessary data
 	local pos_x, pos_y, pos_z = lua_table.TransformFunctions:GetPosition()
-	local side_top, side_bottom, side_left, side_right = 1,1,1,1--lua_table.GameObjectFunctions:GetFrustumPlanesIntersection(pos_x, pos_y, pos_z, camera_bounds_ratio)
+	local side_top, side_bottom, side_left, side_right
+	side_top = lua_table.GameObjectFunctions:GetTopFrustumIntersection(pos_x, pos_y, pos_z, camera_bounds_ratio)
+	side_bottom = lua_table.GameObjectFunctions:GetBottomFrustumIntersection(pos_x, pos_y, pos_z, camera_bounds_ratio)
+	side_left = lua_table.GameObjectFunctions:GetLeftFrustumIntersection(pos_x, pos_y, pos_z, camera_bounds_ratio)
+	side_right = lua_table.GameObjectFunctions:GetRightFrustumIntersection(pos_x, pos_y, pos_z, camera_bounds_ratio)
 	-- 0 == outside, 1 == inside
+
+	lua_table.SystemFunctions:LOG("Cam Planes: " .. side_top .. "_" .. side_bottom .. "_" .. side_left .. "_" .. side_right)
 
 	--2. Restart camera bounds values
 	bounds_vector.x = 0
 	bounds_vector.z = 0
-	bounds_angle = 45
+	bounds_angle = 90
 
 	--3. Generate a vector and change angle depending on planes that we're traspassing (1 plane = 90º, 2 planes = 45º)
-	--3.1. Check left/right
-	if side_left == 0 then
-		bounds_vector.x = 1
-	elseif side_right == 0 then
-		bounds_vector.x = -1
-	else
-		bounds_angle = bounds_angle + 45
-	end
-
-	--3.2. Check down/up
+	--3.1. Check down/up
 	if side_bottom == 0 then
 		bounds_vector.z = -1
 	elseif side_top == 0 then
 		bounds_vector.z = 1
 	else
-		bounds_angle = bounds_angle + 45
+		--bounds_angle = bounds_angle + 45
+	end
+
+	--3.2. Check left/right
+	if side_left == 0 then
+		bounds_vector.x = 1
+	elseif side_right == 0 then
+		bounds_vector.x = -1
+	else
+		--bounds_angle = bounds_angle + 45
 	end
 
 	--4. If character off bounds, calculate the return angle and flag the off bounds status
-	if bounds_vector.x ~= 0 or bounds_vector.y ~= 0 then
+	if bounds_vector.x ~= 0 or bounds_vector.z ~= 0 then
 		bounds_angle = math.rad(bounds_angle)
 		off_bounds = true
 	else
@@ -1161,8 +1169,8 @@ end
 function lua_table:Awake()
 	lua_table.SystemFunctions:LOG("GeraltScript AWAKE")
 
-	--camera_bounds_ratio = lua_table.GameObjectFunctions:GetScript(lua_table.GameObjectFunctions:FindGameObject("Camera")).Layer_3_FOV_ratio_1	TODO: Uncomment when camera working
-	
+	camera_bounds_ratio = lua_table.GameObjectFunctions:GetScript(lua_table.GameObjectFunctions:FindGameObject("Camera")).Layer_3_FOV_ratio_1
+
 	lua_table.max_health_real = lua_table.max_health_orig	--Necessary for the first CalculateStats()
 	CalculateStats()	--Calculate stats based on orig values + modifier
 
