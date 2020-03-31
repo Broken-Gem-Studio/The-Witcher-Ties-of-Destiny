@@ -32,17 +32,17 @@ lua_table.currentTarget = 0
 
 lua_table.PatrolPoint = 0
 
-lua_table.AggroDistance = 25
+lua_table.AggroDistance = 50
 
 lua_table.minDistance = 5  
 
 lua_table.MyUID = 0
 
+lua_table.DistanceMagnitude = 0
+
 lua_table.Nvec3x = 0
 lua_table.Nvec3y = 0
 lua_table.Nvec3z = 0
-
-local DistanceMagnitude = 0 
 
 local GeraltPos_x = 0
 local GeraltPos_y = 0
@@ -63,9 +63,8 @@ lua_table.Jaskier = 0
 -----------------------------------------------------------------------------------------
 
 --Movement
-local Speed_x = 0.0
-local Speed_z = 0.0
-local Speed_y = 0.0 --up
+local Speed = 10
+
 
 lua_table.currentState = State.IDL
 
@@ -225,17 +224,7 @@ function HandleAttackState()
 end
 
 function HandleSeekState()
-	
-     --elseif lua_table.Stunned == true -- when stunned is true idle state does not change. add a script to add stunned effect in enemy head when stunned
-	 --		then
-	 --			lua_table.SystemFunctions:LOG("Stunned - YES")	
-	 --			local Time = 0 --TODO timer
-				--timer for stunt here. dt??? when end Timer controller is false turn stunned to false
-	 --			if Time == StuntTime 
-		--		then
-	 --				lua_table.Stunned = false
-	 --			end
-	 --		end
+     
 end
 
 
@@ -259,19 +248,20 @@ function Seek()
 	vec3ypow = vec3y * vec3y -- pre calculus
 	vec3zpow = vec3z * vec3z
 
-	DistanceMagnitude = math.sqrt( vec3xpow + vec3zpow) --y not used
-	lua_table.SystemFunctions:LOG ("Target Distance Magnitude: " ..DistanceMagnitude)
+	lua_table.DistanceMagnitude = math.sqrt( vec3xpow + vec3zpow) --y not used
+	lua_table.SystemFunctions:LOG ("Target Distance Magnitude: " ..lua_table.DistanceMagnitude)
 
-	if DistanceMagnitude > lua_table.minDistance + 3
+	if lua_table.DistanceMagnitude > lua_table.minDistance + 3
 	then
-		lua_table.Nvec3x = vec3x / DistanceMagnitude
-		lua_table.Nvec3y = vec3y / DistanceMagnitude -- Normalized values
-		lua_table.Nvec3z = vec3z / DistanceMagnitude	
-	elseif DistanceMagnitude <= lua_table.minDistance
+		lua_table.Nvec3x = vec3x / lua_table.DistanceMagnitude
+		lua_table.Nvec3y = vec3y / lua_table.DistanceMagnitude -- Normalized values
+		lua_table.Nvec3z = vec3z / lua_table.DistanceMagnitude	
+	elseif lua_table.DistanceMagnitude <= lua_table.minDistance
 	then
 		currentState = State.ATTACK
 	end
 end
+
 ---------------------------------FUNCTIONS END -------------------------
 ------------------------------------------------------------------------
 
@@ -337,10 +327,15 @@ function lua_table:Update()
         HandleAttackState()
     end
 
-	lua_table.PhysicsSystem:Move(lua_table.Nvec3x,lua_table.Nvec3z)
+	if lua_table.DistanceMagnitude > 3.0
+	then
+		Speed = 10
+	else 
+		Speed = 0
+	end
 --    HandleAnimations()
 --    HandleMovement()
-
+	lua_table.PhysicsSystem:Move(lua_table.Nvec3x*Speed,lua_table.Nvec3z*Speed)
 end
 
 return lua_table
