@@ -875,7 +875,7 @@ local function RegularAttack(attack_type)
 	rightside = not rightside
 end
 
-local function PerformSong(activation, type, ultimate)	--vars: range, ultimate, 
+local function PerformSong(type, range, ultimate)	--vars: range, ultimate, 
 	--1. Collect colliders of all enemies inside a radius
 	local jaskier_pos = {}
 	jaskier_pos.x, jaskier_pos.y, jaskier_pos.z = lua_table.TransformFunctions:GetPosition()
@@ -894,9 +894,12 @@ local function PerformSong(activation, type, ultimate)	--vars: range, ultimate,
 				closest_player = lua_table.GameObjectFunctions:GetScript(v)
 			end
 		end
+
+		BuffPlayer(ultimate_values)
+
 	else
 		for k, v in pairs(player_list) do
-			local player_script 
+			local player_script = lua_table.GameObjectFunctions:GetScript(v)
 
 			--TODO: Give ability buff
 			--TODO-Particles: Activate Particles jaskier buff on players

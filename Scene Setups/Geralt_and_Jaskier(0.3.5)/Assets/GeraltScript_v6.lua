@@ -1,4 +1,4 @@
-function	GetTableGeraltScript_v5()
+function	GetTableGeraltScript_v4()
 local lua_table = {}
 lua_table.SystemFunctions = Scripting.System()
 lua_table.TransformFunctions = Scripting.Transform()
@@ -26,23 +26,24 @@ local state = {	--The order of the states is relevant to the code, CAREFUL CHANG
 	walk = 1,
 	run = 2,
 
-	evade = 3,
-	ability = 4,
-	ultimate = 5,
-	item = 6,
-	revive = 7,
+	light_1 = 3,
+	light_2 = 4,
+	light_3 = 5,
 
-	light_1 = 8,
-	light_2 = 9,
-	light_3 = 10,
+	heavy_1 = 6,
+	heavy_2 = 7,
+	heavy_3 = 8,
 
-	heavy_1 = 11,
-	heavy_2 = 12,
-	heavy_3 = 13,
+	combo_1 = 9,
+	combo_2 = 10,
+	combo_3 = 11,
+	combo_4 = 12,
 
-	combo_1 = 14,
-	combo_2 = 15,
-	combo_3 = 16
+	evade = 13,
+	ability = 14,
+	ultimate = 15,
+	item = 16,
+	revive = 17
 }
 lua_table.previous_state = state.idle	-- Previous State
 lua_table.current_state = state.idle	-- Current State
@@ -885,7 +886,7 @@ end
 local function AardPush()
 	--1. Collect colliders of all enemies inside a radius
 	local geralt_pos_x, geralt_pos_y, geralt_pos_z = lua_table.TransformFunctions:GetPosition()
-	local enemy_list = lua_table.PhysicsFunctions:OverlapSphere(geralt_pos_x, geralt_pos_y, geralt_pos_z, lua_table.ability_range, "enemy", false)
+	enemy_list = lua_table.PhysicsFunctions:OverlapSphere(geralt_pos_x, geralt_pos_y, geralt_pos_z, lua_table.ability_range, "enemy", false)
 
 	--REMOVE: Workaround which artificially places a GO in the list
 	-- local enemy_list = {}
@@ -915,9 +916,9 @@ local function AardPush()
 		local enemy_pos_x = lua_table.GameObjectFunctions:GetGameObjectPosX(v)
 		local enemy_pos_z = lua_table.GameObjectFunctions:GetGameObjectPosZ(v)
 
-		if BidimensionalPointInVectorSide(B_x, B_z, C_x, C_z, enemy_pos_x, enemy_pos_z) < 0	--If left side of all the trapezoid vectors BC, CD, DA ( \_/ )
-		and BidimensionalPointInVectorSide(C_x, C_z, D_x, D_z, enemy_pos_x, enemy_pos_z) < 0
-		and BidimensionalPointInVectorSide(D_x, D_z, A_x, A_z, enemy_pos_x, enemy_pos_z) < 0
+		if BidimensionalPointInVectorSide(B_x, B_z, C_x, C_z, target_x, target_z) < 0	--If left side of all the trapezoid vectors BC, CD, DA ( \_/ )
+		and BidimensionalPointInVectorSide(C_x, C_z, D_x, D_z, target_x, target_z) < 0
+		and BidimensionalPointInVectorSide(D_x, D_z, A_x, A_z, target_x, target_z) < 0
 		then
 			local direction_x, direction_z = enemy_pos_x - geralt_pos_x, enemy_pos_z - geralt_pos_z	--4.1. If inside, find direction Geralt->Enemy and apply velocity in that direction
 			local magnitude = math.sqrt(direction_x ^ 2 + direction_z ^ 2)
