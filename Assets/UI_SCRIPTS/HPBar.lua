@@ -39,7 +39,7 @@ function lua_table:Awake()
     lua_table["System"]:LOG ("This Log was called from HPBAR Script on AWAKE")
 
     HPID = lua_table["GameObject"]:FindGameObject("HP")
-    P1ID = lua_table["GameObject"]:FindGameObject("Geralt")
+    P1ID = lua_table["GameObject"]:FindGameObject("Jaskier")
     lua_table.hpP1 = lua_table["GameObject"]:GetScript(P1ID)
 
 
@@ -55,7 +55,7 @@ end
 
 function lua_table:Update()
     dt = lua_table["System"]:DT ()
-    
+    ua_table.hplocal = lua_table.hpP1.current_health
     lua_table["System"]:LOG (" HP IN UPDATE BEFORE FUNCTION : " .. lua_table.hplocal)
     
         

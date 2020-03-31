@@ -18,7 +18,7 @@ function UpdateUltimate(id, percentage)
 
     if id == ULTID
     then
-        lua_table.ultimatelocal = lua_table.ultimatelocal + percentage--sumamos la barra de la ulti PUEDE HABER PROBLEMAS DE QUE SALGA EL DOBLE, SI ES ASI DIVIDIR ENTRE 2
+        lua_table.ultimatelocal = (lua_table.ultimatelocal + percentage) / 2--sumamos la barra de la ulti PUEDE HABER PROBLEMAS DE QUE SALGA EL DOBLE, SI ES ASI DIVIDIR ENTRE 2
         lua_table["System"]:LOG ("ULTI AFTER ACTION: " .. lua_table.ultimatelocal)
         lua_table["UI"]:SetUICircularBarPercentage(id, lua_table.ultimatelocal)
          
@@ -46,10 +46,11 @@ function lua_table:Start()
 end
 
 function lua_table:Update()
+    lua_table.ultimatelocal = lua_table.ultiP1.current_ultimate
+    lua_table["System"]:LOG ("ULTIMATE UPDATE: " .. lua_table.ultimatelocal)
 
     if lua_table.ultimatelocal < 100--MIENTRAS NO LLEGEU AL TOPE, ACTUALIZAMOS BARRA ULTI
     then
-        --lua_table.ultimate = UpdateUltimate(ULTID, 10)
         lua_table.ultimatelocal = UpdateUltimate(ULTID, lua_table.ultimatelocal)
     end
 

@@ -59,7 +59,8 @@ end
 
 function lua_table:Update()
     dt = lua_table["System"]:DT ()
-    
+    lua_table.energylocal = lua_table.engP1.current_energy
+    lua_table["System"]:LOG ("ENG IN UPDATE BEFORE FUNCTION : " .. lua_table.energylocal)
    
     
         if lua_table.energylocal > 0
@@ -68,9 +69,6 @@ function lua_table:Update()
         end
       
 
-      
-
-      
 
 end
 
