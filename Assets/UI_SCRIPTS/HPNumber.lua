@@ -37,15 +37,13 @@ function lua_table:Update()
     lua_table["System"]:LOG ("VALUE HP FROM TEXT SCRIPT: " .. lua_table.hpValue.hplocal)
     lua_table["System"]:LOG ("VALUE ENG FROM TEXT SCRIPT: " .. lua_table.engValue.energylocal)
     
-    if lua_table["Inputs"]:KeyDown ("D")
-    then
-    lua_table["UI"]:SetTextNumber(ENGNUMBER, lua_table.engValue.energylocal)
-    end
     
-    if lua_table["Inputs"]:KeyDown ("A")--CAMBIAR POR CUANDO RECIBE DAÑO DESDE SCRIPT CARLES, LO MISMO QUE CON LA BARRA
-    then
+    lua_table["UI"]:SetTextNumber(ENGNUMBER, lua_table.engValue.energylocal)
+    
+    
+    
     lua_table["UI"]:SetTextNumber(HPNUMBER, lua_table.hpValue.hplocal)
-    end
+    
 end
 
     return lua_table
