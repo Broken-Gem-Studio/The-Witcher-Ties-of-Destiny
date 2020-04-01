@@ -3,6 +3,7 @@ local lua_table = {}
 lua_table.System = Scripting.System()
 lua_table.Transform = Scripting.Transform()
 lua_table.GameObjectFunctions = Scripting.GameObject()
+lua_table.Audio = Scripting.Audio()
 
 -- Camera target GO names
 lua_table.cube = "Cube"
@@ -86,6 +87,7 @@ function lua_table:Update()
     if time > 1.76 and not music_played -- Accurate time when sound starts playing
     then
         lua_table.System:LOG ("PlayMusic") --Play conversation audio
+        lua_table.Audio:PlayAudioEvent("lvl1_Conversation_Cutscene")
         music_played = true
     end
 
