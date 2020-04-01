@@ -78,7 +78,7 @@ lua_table.current_health = 0
 	--Health Stat
 	lua_table.max_health_real = 0
 	lua_table.max_health_mod = 1.0
-	lua_table.max_health_orig = 500
+	lua_table.max_health_orig = 200--500
 
 local health_reg_real
 lua_table.health_reg_mod = 0.0	-- mod is applied to max_health (reg 10% of your max health)
@@ -1133,7 +1133,7 @@ function lua_table:OnTriggerEnter()
 	
 	local collider_GO = lua_table.PhysicsFunctions:OnTriggerEnter(my_GO_UID)
 
-	if lua_table.GameObjectFunctions:GetLayerByID(collider_GO) == layers.enemy_attack	--IF collider is tagged as an enemy attack
+	if lua_table.current_state >= state.idle and lua_table.GameObjectFunctions:GetLayerByID(collider_GO) == layers.enemy_attack	--IF collider is tagged as an enemy attack
 	then
 		local collider_parent = lua_table.GameObjectFunctions:GetGameObjectParent(collider_GO)
 		local enemy_script = {}
@@ -1215,6 +1215,8 @@ function lua_table:Start()
 end
 
 function lua_table:Update()
+
+	lua_table.SystemFunctions:LOG("G_Collider Dmg: " .. lua_table.collider_damage)
 
 	dt = lua_table.SystemFunctions:DT()
 	game_time = PerfGameTime()

@@ -72,7 +72,7 @@ lua_table.current_health = 0
 	--Health Stat
 	lua_table.max_health_real = 0
 	lua_table.max_health_mod = 1.0
-	lua_table.max_health_orig = 500
+	lua_table.max_health_orig = 200--500
 
 local health_reg_real
 lua_table.health_reg_mod = 0.0	-- mod is applied to max_health (reg 10% of your max health)
@@ -247,7 +247,7 @@ lua_table.heavy_2_duration = 1500			--Attack end (return to idle)
 lua_table.heavy_2_animation_speed = 30.0
 
 --Evade		
-lua_table.evade_velocity = 12500.0	--Was 200 before dt
+lua_table.evade_velocity = 3000.0	--Was 200 before dt
 lua_table.evade_cost = 20
 lua_table.evade_duration = 2000
 
@@ -1090,7 +1090,7 @@ function lua_table:OnTriggerEnter()
 	
 	local collider_GO = lua_table.PhysicsFunctions:OnTriggerEnter(my_GO_UID)
 
-	if lua_table.GameObjectFunctions:GetLayerByID(collider_GO) == layers.enemy_attack	--IF collider is tagged as an enemy attack
+	if lua_table.current_state >= state.idle and lua_table.GameObjectFunctions:GetLayerByID(collider_GO) == layers.enemy_attack	--IF collider is tagged as an enemy attack
 	then
 		local collider_parent = lua_table.GameObjectFunctions:GetGameObjectParent(collider_GO)
 		local enemy_script = {}

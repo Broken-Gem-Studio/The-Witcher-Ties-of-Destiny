@@ -90,6 +90,7 @@ local Speed = 10
 
 
 lua_table.currentState = State.IDL
+lua_table.dead = false
 
 ---------------------------------FUNCTIONS------------------------------
 ------------------------------------------------------------------------
@@ -307,11 +308,6 @@ function HandleAttackState()
 
 	--lua_table.SystemFunctions:LOG("DISTANCE WHEN ATTACK IS:"..lua_table.DistanceMagnitude)
 
-
-	if lua_table.DistanceMagnitude > lua_table.minDistance
-	then
-		lua_table.currentState = State.SEEK
-	end
 	local Timer = PerfGameTime()
 
 	if TimeController == 0
@@ -362,49 +358,59 @@ function HandleAttackState()
 	--	end
 	--end
 	---------------
-	
 
 	if TimeElapse > 1800
 	then
-		TimeController = 0
+		if lua_table.DistanceMagnitude > lua_table.minDistance
+		then
+			lua_table.currentState = State.SEEK
+		else
+			TimeController = 0
+		end
 	end
 end
 
 function Die()
-	if dead == false
+	if lua_table.dead == false
     then
-        lua_table.AnimationSystem:PlayAnimation("DEATH", 30)
+        lua_table.AnimationSystem:PlayAnimation("DEATH", 30.0)
         lua_table.SystemFunctions:LOG("DEATH")
-        dead = true
+        lua_table.dead = true
     end
 end
 
 --------------------------------FUNCTIONS END -------------------------
 ------------------------------------------------------------------------
 
+lua_table.last_layer = -1
+
 function lua_table:OnTriggerEnter()	
 	local collider_GO = lua_table.PhysicsSystem:OnTriggerEnter(lua_table.MyUID)
 
+	lua_table.last_layer = lua_table.GameObjectFunctions:GetLayerByID(collider_GO)
+
 	lua_table.SystemFunctions:LOG("OnTriggerEnter()".. collider_GO)
 
-	if lua_table.GameObjectFunctions:GetLayerByID(collider_GO) == 2 --enemy attack
+	if lua_table.currentState ~= State.DEATH and lua_table.GameObjectFunctions:GetLayerByID(collider_GO) == 2 --enemy attack
 	then
-		local collider_parent = lua_table.GameObjectFunctions:GetGameObjectParent(collider_GO)
-		local enemy_script = {}
+		lua_table.current_health = lua_table.current_health - 50.0
 
-		if collider_parent ~= 0 
-		then
-			enemy_script = lua_table.GameObjectFunctions:GetScript(collider_parent)
-		else
-			enemy_script = lua_table.GameObjectFunctions:GetScript(collider_GO)
-		end
+		-- local collider_parent = lua_table.GameObjectFunctions:GetGameObjectParent(collider_GO)
+		-- local enemy_script = {}
 
-		lua_table.current_health = lua_table.current_health - enemy_script.collider_damage
+		-- if collider_parent ~= 0 
+		-- then
+		-- 	enemy_script = lua_table.GameObjectFunctions:GetScript(collider_parent)
+		-- else
+		-- 	enemy_script = lua_table.GameObjectFunctions:GetScript(collider_GO)
+		-- end
 
-		if enemy_script.collider_effect ~= 0
-		then
-			--todo react to effect
-		end
+		-- --lua_table.current_health = lua_table.current_health - enemy_script.collider_damage
+
+		-- if enemy_script.collider_effect ~= 0
+		-- then
+		-- 	--todo react to effect
+		-- end
 	end
 end
 
@@ -447,8 +453,19 @@ end
 
 function lua_table:Update()
  
-	
-	if lua_table.current_health < 0
+	if lua_table.MyUID ~= nil
+	then
+		lua_table.SystemFunctions:LOG("ENEMY UID: " .. lua_table.MyUID)
+	end
+
+	if lua_table.last_layer ~= nil
+	then
+		lua_table.SystemFunctions:LOG("ENEMY LAST LAYER: " .. lua_table.last_layer)
+	end
+
+	lua_table.SystemFunctions:LOG("ENEMY HEALTH: " .. lua_table.current_health) 
+
+	if lua_table.current_health <= 0
 	then 
 		lua_table.currentState = State.DEATH
 	end
@@ -477,7 +494,7 @@ function lua_table:Update()
     end
 
 
-	if lua_table.DistanceMagnitude > 20 and lua_table.currentTarget ~= 0 and lua_table.currentState ~= State.ATTACK
+	if lua_table.currentState ~= State.DEATH and lua_table.DistanceMagnitude > 20 and lua_table.currentTarget ~= 0 and lua_table.currentState ~= State.ATTACK
 	then
 		Speed = 30
 		if RUNcontroller == 0
@@ -501,7 +518,6 @@ function lua_table:Update()
 		lua_table.TransformFunctions:LookAt(pos_x + lua_table.Nvec3x,pos_y,pos_z + lua_table.Nvec3z,true)
 		 --lua_table.TransformFunctions:RotateObject(lua_table.GameObjectFunctions:GetGameObjectPosX(lua_table.currentTarget),lua_table.GameObjectFunctions:GetGameObjectPosY(lua_table.currentTarget),lua_table.GameObjectFunctions:GetGameObjectPosZ(lua_table.currentTarget))
 	end
-
 end
 
 return lua_table
