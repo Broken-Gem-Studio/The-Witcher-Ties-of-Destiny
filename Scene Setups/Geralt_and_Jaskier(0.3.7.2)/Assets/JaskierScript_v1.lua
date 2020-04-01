@@ -160,7 +160,7 @@ local mov_speed = { x = 0.0, z = 0.0 }
 
 lua_table.idle_animation_speed = 30.0
 lua_table.walk_animation_speed = 30.0
-lua_table.run_animation_speed = 20.0
+lua_table.run_animation_speed = 35.0
 
 --Energy
 lua_table.current_energy = 0
@@ -216,29 +216,17 @@ lua_table.light_cost = 5
 
 lua_table.light_movement_speed = 1000.0
 
-lua_table.light_1_block_time = 500			--Input block duration	(block new attacks)
-lua_table.light_1_collider_front_start = 500	--Collider activation time
-lua_table.light_1_collider_front_end = 600	--Collider deactivation time
-lua_table.light_1_combo_start = 600			--Combo timeframe start
-lua_table.light_1_combo_end = 900			--Combo timeframe end
-lua_table.light_1_duration = 1100			--Attack end (return to idle)
+lua_table.light_1_block_time = 700			--Input block duration	(block new attacks)
+lua_table.light_1_collider_front_start = 700	--Collider activation time
+lua_table.light_1_collider_front_end = 800	--Collider deactivation time
+lua_table.light_1_duration = 1000			--Attack end (return to idle)
 lua_table.light_1_animation_speed = 30.0
 
-lua_table.light_2_block_time = 400			--Input block duration	(block new attacks)
-lua_table.light_2_collider_front_start = 400	--Collider activation time
-lua_table.light_2_collider_front_end = 500	--Collider deactivation time
-lua_table.light_2_combo_start = 500			--Combo timeframe start
-lua_table.light_2_combo_end = 800			--Combo timeframe end
-lua_table.light_2_duration = 1000			--Attack end (return to idle)
+lua_table.light_2_block_time = 900			--Input block duration	(block new attacks)
+lua_table.light_2_collider_front_start = 800	--Collider activation time
+lua_table.light_2_collider_front_end = 900	--Collider deactivation time
+lua_table.light_2_duration = 2000			--Attack end (return to idle)
 lua_table.light_2_animation_speed = 30.0
-
-lua_table.light_3_block_time = 500			--Input block duration	(block new attacks)
-lua_table.light_3_collider_front_start = 450	--Collider activation time
-lua_table.light_3_collider_front_end = 550	--Collider deactivation time
-lua_table.light_3_combo_start = 600			--Combo timeframe start
-lua_table.light_3_combo_end = 900			--Combo timeframe end
-lua_table.light_3_duration = 1500			--Attack end (return to idle)
-lua_table.light_3_animation_speed = 30.0		--IMPROVE: Attack 3 animaton includes a return to idle, which differs from the other animations, we might have to cut it for homogeinity with the rest
 
 --Heavy Attack
 lua_table.heavy_damage = 1.666				--Multiplier of Base Damage
@@ -246,36 +234,24 @@ lua_table.heavy_cost = 10
 
 lua_table.heavy_movement_speed = 700.0
 
-lua_table.heavy_1_block_time = 900			--Input block duration	(block new attacks)
-lua_table.heavy_1_collider_front_start = 900	--Collider activation time
-lua_table.heavy_1_collider_front_end = 1000	--Collider deactivation time
-lua_table.heavy_1_combo_start = 1100			--Combo timeframe start
-lua_table.heavy_1_combo_end = 1500			--Combo timeframe end
-lua_table.heavy_1_duration = 1600			--Attack end (return to idle)
+lua_table.heavy_1_block_time = 1700			--Input block duration	(block new attacks)
+lua_table.heavy_1_collider_front_start = 1600	--Collider activation time
+lua_table.heavy_1_collider_front_end = 1800	--Collider deactivation time
+lua_table.heavy_1_duration = 2500			--Attack end (return to idle)
 lua_table.heavy_1_animation_speed = 30.0
 
-lua_table.heavy_2_block_time = 400			--Input block duration	(block new attacks)
-lua_table.heavy_2_collider_front_start = 350	--Collider activation time
-lua_table.heavy_2_collider_front_end = 450	--Collider deactivation time
-lua_table.heavy_2_combo_start = 600			--Combo timeframe start
-lua_table.heavy_2_combo_end = 900			--Combo timeframe end
-lua_table.heavy_2_duration = 1000			--Attack end (return to idle)
+lua_table.heavy_2_block_time = 600			--Input block duration	(block new attacks)
+lua_table.heavy_2_collider_front_start = 600	--Collider activation time
+lua_table.heavy_2_collider_front_end = 700	--Collider deactivation time
+lua_table.heavy_2_duration = 1500			--Attack end (return to idle)
 lua_table.heavy_2_animation_speed = 30.0
-
-lua_table.heavy_3_block_time = 800			--Input block duration	(block new attacks)
-lua_table.heavy_3_collider_front_start = 700	--Collider activation time
-lua_table.heavy_3_collider_front_end = 800	--Collider deactivation time
-lua_table.heavy_3_combo_start = 1000			--Combo timeframe start
-lua_table.heavy_3_combo_end = 1500			--Combo timeframe end
-lua_table.heavy_3_duration = 2200			--Attack end (return to idle)
-lua_table.heavy_3_animation_speed = 30.0		--IMPROVE: Attack 3 animaton includes a return to idle, which differs from the other animations, we might have to cut it for homogeinity with the rest
 
 --Evade		
 lua_table.evade_velocity = 12500.0	--Was 200 before dt
 lua_table.evade_cost = 20
-lua_table.evade_duration = 800
+lua_table.evade_duration = 2000
 
-lua_table.evade_animation_speed = 40.0
+lua_table.evade_animation_speed = 30.0
 
 --Ability
 lua_table.ability_push_velocity = 100000
@@ -285,9 +261,9 @@ lua_table.ability_cooldown = 5000.0
 local ability_started_at = 0.0
 lua_table.ability_performed = false
 lua_table.ability_start = 300.0
-lua_table.ability_duration = 800.0
+lua_table.ability_duration = 5000
 
-lua_table.ability_animation_speed = 70.0
+lua_table.ability_animation_speed = 30.0
 
 lua_table.ability_offset_x = 0.1	--Near segment width (Must be > than 0)
 lua_table.ability_offset_z = 10		--Near segment forward distance
@@ -310,9 +286,9 @@ lua_table.ultimate_reg_mod = 1.0
 lua_table.ultimate_reg_orig = 10	--Ideally, 2 or something similar
 
 local ultimate_started_at = 0.0
-lua_table.ultimate_duration = 3600
+lua_table.ultimate_duration = 5000
 lua_table.ultimate_scream_start = 2500
-lua_table.ultimate_animation_speed = 45.0
+lua_table.ultimate_animation_speed = 30.0
 
 local ultimate_effect_started_at = 0.0
 lua_table.ultimate_effect_duration = 10000
@@ -1292,10 +1268,10 @@ function lua_table:Update()
 
 				elseif lua_table.current_state == state.light_1 or lua_table.current_state == state.light_2	--IF Light Attacking
 				then
-					if DirectionInBounds()	--IF not light_1 and outside return to idle of light_3	--IMPROVE: Maybe just cut the return to idle part?
-					then
-						lua_table.PhysicsFunctions:Move(lua_table.light_movement_speed * rec_direction.x * dt, lua_table.light_movement_speed * rec_direction.z * dt)
-					end
+					-- if DirectionInBounds()	--IF not light_1 and outside return to idle of light_3	--IMPROVE: Maybe just cut the return to idle part?
+					-- then
+					-- 	lua_table.PhysicsFunctions:Move(lua_table.light_movement_speed * rec_direction.x * dt, lua_table.light_movement_speed * rec_direction.z * dt)
+					-- end
 
 					--Collider Evaluation
 					if lua_table.current_state == state.light_1 then AttackColliderCheck("light", 1, "front")
@@ -1304,10 +1280,10 @@ function lua_table:Update()
 
 				elseif lua_table.current_state == state.heavy_1 or lua_table.current_state == state.heavy_2	--IF Heavy Attacking
 				then
-					if DirectionInBounds()	--IF outside return to idle of heavy_3	--IMPROVE: Maybe just cut the return to idle part?
-					then
-						lua_table.PhysicsFunctions:Move(lua_table.heavy_movement_speed * rec_direction.x * dt, lua_table.heavy_movement_speed * rec_direction.z * dt)
-					end
+					-- if DirectionInBounds()	--IF outside return to idle of heavy_3	--IMPROVE: Maybe just cut the return to idle part?
+					-- then
+					-- 	lua_table.PhysicsFunctions:Move(lua_table.heavy_movement_speed * rec_direction.x * dt, lua_table.heavy_movement_speed * rec_direction.z * dt)
+					-- end
 
 					--Collider Evaluation
 					if lua_table.current_state == state.heavy_1 then AttackColliderCheck("heavy", 1, "front")
@@ -1384,8 +1360,8 @@ function lua_table:Update()
 	--lua_table.SystemFunctions:LOG("Combo string: " .. combo_stack[1] .. ", " .. combo_stack[2] .. ", " .. combo_stack[3] .. ", " .. combo_stack[4])
 
 	--Stats LOGS
-	lua_table.SystemFunctions:LOG("Health: " .. lua_table.current_health)
-	lua_table.SystemFunctions:LOG("Energy: " .. lua_table.current_energy)
+	--lua_table.SystemFunctions:LOG("Health: " .. lua_table.current_health)
+	--lua_table.SystemFunctions:LOG("Energy: " .. lua_table.current_energy)
 
 	--lua_table.SystemFunctions:LOG("Health Reg: " .. health_reg_real)
 	--lua_table.SystemFunctions:LOG("Energy Reg: " .. energy_reg_real)
