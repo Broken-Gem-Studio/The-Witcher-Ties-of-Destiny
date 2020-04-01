@@ -170,10 +170,12 @@ lua_table.energy_reg_mod = 1.0
 lua_table.energy_reg_orig = 10	--This is 5 per second aprox.
 
 --Attacks
-	--Layers: 1_player, 2_player_attack, 3_enemy, 4_enemy_attack
-
-local rightside = true		-- Last attack side, marks the animation of next attack
-
+local layers = {
+	player = 1,
+	player_attack = 2,
+	enemy = 3,
+	enemy_attack = 4
+}
 local attack_effects = {	--Not definitive, but as showcase
 	none = 0,
 	stun = 1,
@@ -202,7 +204,9 @@ local attack_colliders = {
 	--Combo 1: Body -> Right -> Front -> Left -> Back
 	--Combo 2: Left -> Right -> Front
 	--Combo 3: Front -> Right?
-	
+
+local rightside = true		-- Last attack side, marks the animation of next attack
+
 --Light Attack
 lua_table.light_damage = 1.0					--Multiplier of Base Damage
 lua_table.light_cost = 5
@@ -536,7 +540,7 @@ end
 
 --Inputs BEGIN	----------------------------------------------------------------------------
 
-local function JoystickInputs(key_string, input_table)
+local function JoystickInputs(key_string, input_table)	--TODO-Inputs: The whole "if same input as last frame, mark forward" doesn't work properly
 	input_table.real_input.x = lua_table.InputFunctions:GetAxisValue(lua_table.player_ID, key_string .. "X", 0.01)	--Get accurate inputs
 	input_table.real_input.z = lua_table.InputFunctions:GetAxisValue(lua_table.player_ID, key_string .. "Y", 0.01)
 
@@ -860,17 +864,7 @@ end
 local function AardPush()
 	--1. Collect colliders of all enemies inside a radius
 	local geralt_pos_x, geralt_pos_y, geralt_pos_z = lua_table.TransformFunctions:GetPosition()
-	enemy_list = lua_table.PhysicsFunctions:OverlapSphere(geralt_pos_x, geralt_pos_y, geralt_pos_z, lua_table.ability_range, "enemy", false)
-
-	--REMOVE: Workaround which artificially places a GO in the list
-	-- local enemy_list = {}
-	-- local target = lua_table.GameObjectFunctions:FindGameObject("gerardo2")
-	-- local target_x = lua_table.GameObjectFunctions:GetGameObjectPosX(target)
-	-- local target_z = lua_table.GameObjectFunctions:GetGameObjectPosZ(target)
-
-	-- if math.sqrt((target_x - geralt_pos_x) ^ 2 + (target_z - geralt_pos_z) ^ 2) <= lua_table.ability_range then
-	-- 	enemy_list[1] = target
-	-- end
+	enemy_list = lua_table.PhysicsFunctions:OverlapSphere(geralt_pos_x, geralt_pos_y, geralt_pos_z, lua_table.ability_range, layers.enemy)
 
 	--2. Transform ability trapezoid to Geralt's current rotation
 	SaveDirection()
@@ -896,9 +890,8 @@ local function AardPush()
 		then
 			local direction_x, direction_z = enemy_pos_x - geralt_pos_x, enemy_pos_z - geralt_pos_z	--4.1. If inside, find direction Geralt->Enemy and apply velocity in that direction
 			local magnitude = math.sqrt(direction_x ^ 2 + direction_z ^ 2)
-			--lua_table.PhysicsFunctions:Move(lua_table.ability_push_velocity * direction_x / magnitude * dt, lua_table.ability_push_velocity * direction_z / magnitude * dt)
-			--TODO: Stun enemy
-			--TODO: Set Enemy Linear Velocity
+			lua_table.PhysicsFunctions:MoveGameObject(lua_table.ability_push_velocity * direction_x / magnitude * dt, lua_table.ability_push_velocity * direction_z / magnitude * dt, v)
+			--TODO-Ability: Knock down enemy
 		end
 	end
 end
@@ -1055,7 +1048,7 @@ local function AttackColliderCheck(attack_type, attack_num, collider_side)	--Che
 		then
 			if attack_colliders[collider_side].active	--IF > end time and collider active, deactivate
 			then
-				lua_table.GameObjectFunctions:SetActiveGameObject(attack_colliders[collider_side].GO_UID, false)
+				--lua_table.GameObjectFunctions:SetActiveGameObject(attack_colliders[collider_side].GO_UID, false)	--TODO-Colliders: Enable
 				attack_colliders[collider_side].active = false
 			end
 
@@ -1063,7 +1056,7 @@ local function AttackColliderCheck(attack_type, attack_num, collider_side)	--Che
 			
 		elseif not attack_colliders[collider_side].active	--IF > start time and collider unactive, activate
 		then
-			lua_table.GameObjectFunctions:SetActiveGameObject(attack_colliders[collider_side].GO_UID, true)
+			--lua_table.GameObjectFunctions:SetActiveGameObject(attack_colliders[collider_side].GO_UID, true)	--TODO-Colliders: Enable
 			attack_colliders[collider_side].active = true
 		--else
 			--lua_table.SystemFunctions:LOG("Collider Active: " .. attack_type .. "_" .. attack_num .. "_" .. collider_side)
@@ -1122,7 +1115,7 @@ function lua_table:OnTriggerEnter()
 	
 	lua_table.SystemFunctions:LOG("On Trigger Enter")
 
-	-- if lua_table.GameObjectFunctions:GetGameObjectLayer(collider_GO) == 4	--IF collider is tagged as an enemy attack
+	-- if lua_table.GameObjectFunctions:GetGameObjectLayer(collider_GO) == layers.enemy_attack	--IF collider is tagged as an enemy attack
 	-- then
 	-- 	local collider_parent = lua_table.GameObjectFunctions:GetGameObjectParent(collider_GO)
 	-- 	local enemy_script = {}
