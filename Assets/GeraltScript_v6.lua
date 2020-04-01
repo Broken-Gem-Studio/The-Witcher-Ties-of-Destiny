@@ -506,7 +506,7 @@ local function GoDefaultState()
 		lua_table.AnimationFunctions:PlayAnimation("idle", lua_table.idle_animation_speed)
 		--lua_table.AudioFunctions:StopStepSound()	--TODO-AUDIO: Stop current sound event
 		lua_table.current_state = state.idle
-		lua_table.ParticlesFunctions:DeactivateParticlesEmission()	--TODO-Particles: Deactivate movement dust particles
+		lua_table.ParticlesFunctions:StopParticleEmitter()	--TODO-Particles: Deactivate movement dust particles
 	end
 	
 	rightside = true
@@ -574,7 +574,7 @@ local function KeyboardInputs()	--Process Debug Keyboard Inputs
 	then
 		mov_input.used_input.x = -2.0
 	end
-	
+
 	if lua_table.InputFunctions:KeyRepeat("S")
 	then
 		mov_input.used_input.z = -2.0
@@ -585,6 +585,52 @@ local function KeyboardInputs()	--Process Debug Keyboard Inputs
 end
 
 --Inputs END	----------------------------------------------------------------------------
+
+--Character Colliders BEGIN	----------------------------------------------------------------------------
+
+local function AttackColliderCheck(attack_type, attack_num, collider_side)	--Checks timeframe of current action and activates or deactivates a speficied side collider depending on it
+	if time_since_action > lua_table[attack_type .. "_" .. attack_num .. "_collider_" .. collider_side .. "_start"]		--IF time > start collider
+	then
+		if time_since_action > lua_table[attack_type .. "_" .. attack_num .. "_collider_" .. collider_side .. "_end"]	--IF time > end collider
+		then
+			if attack_colliders[collider_side].active	--IF > end time and collider active, deactivate
+			then
+				lua_table.GameObjectFunctions:SetActiveGameObject(attack_colliders[collider_side].GO_UID, false)	--TODO-Colliders: Check
+				attack_colliders[collider_side].active = false
+			end
+
+			--lua_table.SystemFunctions:LOG("Collider Deactivate: " .. attack_type .. "_" .. attack_num .. "_" .. collider_side)
+			
+		elseif not attack_colliders[collider_side].active	--IF > start time and collider unactive, activate
+		then
+			lua_table.GameObjectFunctions:SetActiveGameObject(attack_colliders[collider_side].GO_UID, true)	--TODO-Colliders: Check
+			attack_colliders[collider_side].active = true
+		--else
+			--lua_table.SystemFunctions:LOG("Collider Active: " .. attack_type .. "_" .. attack_num .. "_" .. collider_side)
+		end
+	end
+end
+
+local function AttackColliderShutdown()
+	if attack_colliders.front.active then
+		lua_table.GameObjectFunctions:SetActiveGameObject(attack_colliders.front.GO_UID, false)	--TODO-Colliders: Check
+		attack_colliders.front.active = false
+	end
+	if attack_colliders.back.active then
+		lua_table.GameObjectFunctions:SetActiveGameObject(attack_colliders.back.GO_UID, false)	--TODO-Colliders: Check
+		attack_colliders.back.active = false
+	end
+	if attack_colliders.left.active then
+		lua_table.GameObjectFunctions:SetActiveGameObject(attack_colliders.left.GO_UID, false)	--TODO-Colliders: Check
+		attack_colliders.left.active = false
+	end
+	if attack_colliders.right.active then
+		lua_table.GameObjectFunctions:SetActiveGameObject(attack_colliders.right.GO_UID, false)	--TODO-Colliders: Check
+		attack_colliders.right.active = false
+	end
+end
+
+--Character Colliders END	----------------------------------------------------------------------------
 
 --Character Movement BEGIN	----------------------------------------------------------------------------
 
@@ -692,7 +738,7 @@ local function MovementInputs()	--Process Movement Inputs
 				lua_table.current_state = state.walk
 			end
 
-			lua_table.ParticlesFunctions:ActivateParticlesEmission()	--TODO-Particles: Activate movement dust particles
+			lua_table.ParticlesFunctions:PlayParticleEmitter()	--TODO-Particles: Activate movement dust particles
 
 		--Swap between walking and running
 		elseif lua_table.current_state == state.walk and lua_table.input_walk_threshold < math.sqrt(mov_input.used_input.x ^ 2 + mov_input.used_input.z ^ 2)	--IF walking and big input
@@ -726,7 +772,7 @@ local function MovementInputs()	--Process Movement Inputs
 		--Animation to IDLE
 		lua_table.AnimationFunctions:PlayAnimation("idle", lua_table.idle_animation_speed)
 		--lua_table.AudioFunctions:StopStepSound()	--TODO-AUDIO: Stop current sound event
-		lua_table.ParticlesFunctions:DeactivateParticlesEmission()	--TODO-Particles: Deactivate movement dust particles
+		lua_table.ParticlesFunctions:StopParticleEmitter()	--TODO-Particles: Deactivate movement dust particles
 		lua_table.previous_state = lua_table.current_state
 		lua_table.current_state = state.idle
 	end
@@ -821,8 +867,8 @@ local function TimedAttack(attack_cost)
 		lua_table.current_energy = lua_table.current_energy - attack_cost
 	end
 
-	lua_table.ParticlesFunctions:DeactivateParticlesEmission()				--TODO-Particles: Deactivate movement dust particles
-	lua_table.ParticlesFunctions:ActivateParticlesEmission_GO(sword_GO_UID)	--TODO-Particles: Turn on particles on Sword
+	lua_table.ParticlesFunctions:StopParticleEmitter()				--TODO-Particles: Deactivate movement dust particles
+	lua_table.ParticlesFunctions:PlayParticleEmitter_GO(sword_GO_UID)	--TODO-Particles: Turn on particles on Sword
 
 	return combo_achieved
 end
@@ -964,7 +1010,7 @@ local function ActionInputs()	--Process Action Inputs
 		
 		lua_table.current_energy = lua_table.current_energy - lua_table.evade_cost
 
-		lua_table.ParticlesFunctions:ActivateParticlesEmission()	--TODO-Particles: Activate movement dust particles
+		lua_table.ParticlesFunctions:PlayParticleEmitter()	--TODO-Particles: Activate movement dust particles
 
 		input_given = true
 		
@@ -1020,9 +1066,14 @@ local function ActionInputs()	--Process Action Inputs
 		input_given = true
 	end
 
-	if input_given and not (lua_table.current_state <= state.combo_3 and lua_table.current_state >= state.light_1)	--IF input given and is not an attack
+	if input_given 	--IF input given
 	then
-		lua_table.ParticlesFunctions:DeactivateParticlesEmission_GO(sword_GO_UID)	--TODO-Particles: Deactivate Particles on Sword
+		AttackColliderShutdown()
+
+		if not (lua_table.current_state <= state.combo_3 and lua_table.current_state >= state.light_1)	--IF input not attack
+		then
+			lua_table.ParticlesFunctions:StopParticleEmitter_GO(sword_GO_UID)	--TODO-Particles: Deactivate Particles on Sword
+		end
 	end
 
 	return input_given
@@ -1037,9 +1088,9 @@ local function UltimateState(active)
 	lua_table.base_damage_mod = lua_table.base_damage_mod + lua_table.ultimate_damage_mod_increase * ultimate_stat_mod
 
 	if active then
-		lua_table.ParticlesFunctions:ActivateParticlesEmission_GO(geralt_ultimate_GO_UID)	--TODO-Particles: Activate ultimate particles
+		lua_table.ParticlesFunctions:PlayParticleEmitter_GO(geralt_ultimate_GO_UID)	--TODO-Particles: Activate ultimate particles
 	else
-		lua_table.ParticlesFunctions:DeactivateParticlesEmission_GO(geralt_ultimate_GO_UID)	--TODO-Particles: Deactivate ultimate particles
+		lua_table.ParticlesFunctions:StopParticleEmitter_GO(geralt_ultimate_GO_UID)	--TODO-Particles: Deactivate ultimate particles
 	end
 
 	must_update_stats = true
@@ -1047,52 +1098,6 @@ local function UltimateState(active)
 end
 
 --Character Actions END	----------------------------------------------------------------------------
-
---Character Colliders BEGIN	----------------------------------------------------------------------------
-
-local function AttackColliderCheck(attack_type, attack_num, collider_side)	--Checks timeframe of current action and activates or deactivates a speficied side collider depending on it
-	if time_since_action > lua_table[attack_type .. "_" .. attack_num .. "_collider_" .. collider_side .. "_start"]		--IF time > start collider
-	then
-		if time_since_action > lua_table[attack_type .. "_" .. attack_num .. "_collider_" .. collider_side .. "_end"]	--IF time > end collider
-		then
-			if attack_colliders[collider_side].active	--IF > end time and collider active, deactivate
-			then
-				lua_table.GameObjectFunctions:SetActiveGameObject(attack_colliders[collider_side].GO_UID, false)
-				attack_colliders[collider_side].active = false
-			end
-
-			--lua_table.SystemFunctions:LOG("Collider Deactivate: " .. attack_type .. "_" .. attack_num .. "_" .. collider_side)
-			
-		elseif not attack_colliders[collider_side].active	--IF > start time and collider unactive, activate
-		then
-			lua_table.GameObjectFunctions:SetActiveGameObject(attack_colliders[collider_side].GO_UID, true)
-			attack_colliders[collider_side].active = true
-		--else
-			--lua_table.SystemFunctions:LOG("Collider Active: " .. attack_type .. "_" .. attack_num .. "_" .. collider_side)
-		end
-	end
-end
-
-local function AttackColliderShutdown()
-	if attack_colliders.front.active then
-		lua_table.GameObjectFunctions:SetActiveGameObject(attack_colliders.front.GO_UID, true)	--TODO-Colliders: Check
-		attack_colliders.front.active = false
-	end
-	if attack_colliders.back.active then
-		lua_table.GameObjectFunctions:SetActiveGameObject(attack_colliders.back.GO_UID, true)	--TODO-Colliders: Check
-		attack_colliders.back.active = false
-	end
-	if attack_colliders.left.active then
-		lua_table.GameObjectFunctions:SetActiveGameObject(attack_colliders.left.GO_UID, true)	--TODO-Colliders: Check
-		attack_colliders.left.active = false
-	end
-	if attack_colliders.right.active then
-		lua_table.GameObjectFunctions:SetActiveGameObject(attack_colliders.right.GO_UID, true)	--TODO-Colliders: Check
-		attack_colliders.right.active = false
-	end
-end
-
---Character Colliders END	----------------------------------------------------------------------------
 
 --Character Secondaries BEGIN	----------------------------------------------------------------------------
 
@@ -1121,27 +1126,26 @@ end
 --Collider Calls BEGIN
 function lua_table:OnTriggerEnter()
 	lua_table.SystemFunctions:LOG("On Trigger Enter")
-
+	
 	local collider_GO = lua_table.PhysicsFunctions:OnTriggerEnter(my_GO_UID)
 
 	if lua_table.GameObjectFunctions:GetLayerByID(collider_GO) == layers.enemy_attack	--IF collider is tagged as an enemy attack
 	then
-		--local collider_parent = lua_table.GameObjectFunctions:GetGameObjectParent(collider_GO)
-		-- local enemy_script = {}	--TODO-Colliders: Uncomment when Jaume has it ready
+		local collider_parent = lua_table.GameObjectFunctions:GetGameObjectParent(collider_GO)
+		local enemy_script = {}
 
-		-- if collider_parent ~= 0 then	--IF collider has parent, data is saved on parent (it means the collider is repurposed)
-		-- 	enemy_script = lua_table.GameObjectFunctions:GetScript(collider_parent)
-		-- else							--IF collider has no parent, data is saved within collider
-		-- 	enemy_script = lua_table.GameObjectFunctions:GetScript(go_uid)
-		-- end
-		
-		lua_table.current_health = lua_table.current_health - 40.0
-		-- lua_table.current_health = lua_table.current_health - enemy_script.collider_damage	--TODO-Colliders: Uncomment when Jaume has it ready
+		if collider_parent ~= 0 then	--IF collider has parent, data is saved on parent (it means the collider is repurposed for different damages)
+			enemy_script = lua_table.GameObjectFunctions:GetScript(collider_parent)
+		else							--IF collider has no parent, data is saved within collider
+			enemy_script = lua_table.GameObjectFunctions:GetScript(collider_GO)
+		end
 
-		-- if enemy_script.collider_effect ~= attack_effects.none
-		-- then
-		-- 	--TODO: React to special effect
-		-- end
+		lua_table.current_health = lua_table.current_health - enemy_script.collider_damage
+
+		if enemy_script.collider_effect ~= attack_effects.none
+		then
+			--TODO: React to special effect
+		end
 	end
 end
 
@@ -1178,10 +1182,10 @@ function lua_table:Awake()
 	geralt_ultimate_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt_Ultimate")
 
 	--Stop Particle Emitters
-	lua_table.ParticlesFunctions:DeactivateParticlesEmission()
-	lua_table.ParticlesFunctions:DeactivateParticlesEmission_GO(sword_GO_UID)				--TODO-Particles: Uncomment when ready
-	lua_table.ParticlesFunctions:DeactivateParticlesEmission_GO(geralt_ability_GO_UID)	--TODO-Particles: Uncomment when ready
-	lua_table.ParticlesFunctions:DeactivateParticlesEmission_GO(geralt_ultimate_GO_UID)	--TODO-Particles: Uncomment when ready
+	lua_table.ParticlesFunctions:StopParticleEmitter()
+	lua_table.ParticlesFunctions:StopParticleEmitter_GO(sword_GO_UID)			--TODO-Particles: Uncomment when ready
+	lua_table.ParticlesFunctions:StopParticleEmitter_GO(geralt_ability_GO_UID)	--TODO-Particles: Uncomment when ready
+	lua_table.ParticlesFunctions:StopParticleEmitter_GO(geralt_ultimate_GO_UID)	--TODO-Particles: Uncomment when ready
 
 	--Get attack_colliders GO_UIDs by name
 	attack_colliders.front.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.front.GO_name)
@@ -1298,10 +1302,10 @@ function lua_table:Update()
 				then
 					if lua_table.current_state >= state.light_1 and lua_table.current_state <= state.combo_3	--IF attack finished
 					then
-						lua_table.ParticlesFunctions:DeactivateParticlesEmission_GO(sword_GO_UID)	--TODO-Particles: Deactivate Particles on Sword
+						lua_table.ParticlesFunctions:StopParticleEmitter_GO(sword_GO_UID)	--TODO-Particles: Deactivate Particles on Sword
 					elseif lua_table.current_state == state.ability
 					then
-						lua_table.ParticlesFunctions:DeactivateParticlesEmission_GO(geralt_ultimate_GO_UID)	--TODO-Particles: Deactivate Aard particles on hand
+						lua_table.ParticlesFunctions:StopParticleEmitter_GO(geralt_ultimate_GO_UID)	--TODO-Particles: Deactivate Aard particles on hand
 					end
 
 					GoDefaultState()	--Return to move or idle
@@ -1309,7 +1313,7 @@ function lua_table:Update()
 				elseif lua_table.current_state == state.ability and not lua_table.ability_performed and time_since_action > lua_table.ability_start
 				then
 					AardPush()	--TODO: Uncomment when it works
-					lua_table.ParticlesFunctions:ActivateParticlesEmission_GO(geralt_ultimate_GO_UID)	--TODO-Particles: Activate Aard particles on hand
+					lua_table.ParticlesFunctions:PlayParticleEmitter_GO(geralt_ultimate_GO_UID)	--TODO-Particles: Activate Aard particles on hand
 					lua_table.current_energy = lua_table.current_energy - lua_table.ability_cost
 					lua_table.ability_performed = true
 
@@ -1343,9 +1347,9 @@ function lua_table:Update()
 					elseif lua_table.current_state == state.heavy_3 then AttackColliderCheck("heavy", 3, "front")
 					end
 
-				elseif lua_table.current_state == state.combo_1 and DirectionInBounds()
+				elseif lua_table.current_state == state.combo_1
 				then
-					lua_table.PhysicsFunctions:Move(lua_table.combo_1_movement_speed * rec_direction.x * dt, lua_table.combo_1_movement_speed * rec_direction.z * dt)
+					if DirectionInBounds() then lua_table.PhysicsFunctions:Move(lua_table.combo_1_movement_speed * rec_direction.x * dt, lua_table.combo_1_movement_speed * rec_direction.z * dt) end
 					
 					--Collider Evaluation
 					AttackColliderCheck("combo", 1, "right")
@@ -1353,18 +1357,18 @@ function lua_table:Update()
 					AttackColliderCheck("combo", 1, "left")
 					AttackColliderCheck("combo", 1, "back")
 
-				elseif lua_table.current_state == state.combo_2 and DirectionInBounds()
+				elseif lua_table.current_state == state.combo_2
 				then
-					lua_table.PhysicsFunctions:Move(lua_table.combo_2_movement_speed * rec_direction.x * dt, lua_table.combo_2_movement_speed * rec_direction.z * dt)
+					if DirectionInBounds() then lua_table.PhysicsFunctions:Move(lua_table.combo_2_movement_speed * rec_direction.x * dt, lua_table.combo_2_movement_speed * rec_direction.z * dt) end
 					
 					--Collider Evaluation
 					AttackColliderCheck("combo", 2, "left")
 					AttackColliderCheck("combo", 2, "right")
 					AttackColliderCheck("combo", 2, "front")
 
-				elseif lua_table.current_state == state.combo_3 and DirectionInBounds()
+				elseif lua_table.current_state == state.combo_3
 				then
-					lua_table.PhysicsFunctions:Move(lua_table.combo_3_movement_speed * rec_direction.x * dt, lua_table.combo_3_movement_speed * rec_direction.z * dt)
+					if DirectionInBounds() then lua_table.PhysicsFunctions:Move(lua_table.combo_3_movement_speed * rec_direction.x * dt, lua_table.combo_3_movement_speed * rec_direction.z * dt) end
 
 					--Collider Evaluation
 					AttackColliderCheck("combo", 3, "front")
