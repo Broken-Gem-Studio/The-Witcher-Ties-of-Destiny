@@ -39,7 +39,7 @@ function lua_table:Awake()
     lua_table["System"]:LOG ("This Log was called from HPBAR Script on AWAKE")
 
     HPID = lua_table["GameObject"]:FindGameObject("HP")
-    P1ID = lua_table["GameObject"]:FindGameObject("Jaskier")
+    P1ID = lua_table["GameObject"]:FindGameObject("Geralt")
     lua_table.hpP1 = lua_table["GameObject"]:GetScript(P1ID)
 
 
