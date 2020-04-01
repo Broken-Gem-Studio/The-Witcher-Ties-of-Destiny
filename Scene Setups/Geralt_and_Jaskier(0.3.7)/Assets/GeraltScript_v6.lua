@@ -25,7 +25,8 @@ local geralt_ability_GO_UID
 
 	--Particles
 	--Geralt_Sword (Child of "Sword"): 70/25/0
-	
+	--Geralt_Ultimate (Child of Geralt): 0/0/0
+	--Geralt_Ability (Child of Left Hand): 0/0/0
 
 --State Machine
 local state = {	--The order of the states is relevant to the code, CAREFUL CHANGING IT (Ex: if curr_state >= state.run)
@@ -1074,19 +1075,19 @@ end
 
 local function AttackColliderShutdown()
 	if attack_colliders.front.active then
-		--TODO-Collider: Deactivate front collider
+		lua_table.GameObjectFunctions:SetActiveGameObject(attack_colliders.front.GO_UID, true)	--TODO-Colliders: Check
 		attack_colliders.front.active = false
 	end
 	if attack_colliders.back.active then
-		--TODO-Collider: Deactivate back collider
+		lua_table.GameObjectFunctions:SetActiveGameObject(attack_colliders.back.GO_UID, true)	--TODO-Colliders: Check
 		attack_colliders.back.active = false
 	end
 	if attack_colliders.left.active then
-		--TODO-Collider: Deactivate left collider
+		lua_table.GameObjectFunctions:SetActiveGameObject(attack_colliders.left.GO_UID, true)	--TODO-Colliders: Check
 		attack_colliders.left.active = false
 	end
 	if attack_colliders.right.active then
-		--TODO-Collider: Deactivate right collider
+		lua_table.GameObjectFunctions:SetActiveGameObject(attack_colliders.right.GO_UID, true)	--TODO-Colliders: Check
 		attack_colliders.right.active = false
 	end
 end
@@ -1122,9 +1123,10 @@ function lua_table:OnTriggerEnter()
 	lua_table.SystemFunctions:LOG("On Trigger Enter")
 
 	local collider_GO = lua_table.PhysicsFunctions:OnTriggerEnter(my_GO_UID)
-	if true or lua_table.GameObjectFunctions:GetLayerByID(collider_GO) == layers.enemy_attack	--IF collider is tagged as an enemy attack
+
+	if lua_table.GameObjectFunctions:GetLayerByID(collider_GO) == layers.enemy_attack	--IF collider is tagged as an enemy attack
 	then
-		local collider_parent = lua_table.GameObjectFunctions:GetGameObjectParent(collider_GO)
+		--local collider_parent = lua_table.GameObjectFunctions:GetGameObjectParent(collider_GO)
 		-- local enemy_script = {}	--TODO-Colliders: Uncomment when Jaume has it ready
 
 		-- if collider_parent ~= 0 then	--IF collider has parent, data is saved on parent (it means the collider is repurposed)
@@ -1132,7 +1134,8 @@ function lua_table:OnTriggerEnter()
 		-- else							--IF collider has no parent, data is saved within collider
 		-- 	enemy_script = lua_table.GameObjectFunctions:GetScript(go_uid)
 		-- end
-
+		
+		lua_table.current_health = lua_table.current_health - 40.0
 		-- lua_table.current_health = lua_table.current_health - enemy_script.collider_damage	--TODO-Colliders: Uncomment when Jaume has it ready
 
 		-- if enemy_script.collider_effect ~= attack_effects.none
@@ -1204,11 +1207,6 @@ function lua_table:Start()
 end
 
 function lua_table:Update()
-
-	lua_table.SystemFunctions:LOG("My UID: " .. my_GO_UID)
-	lua_table.SystemFunctions:LOG("Sword: " .. sword_GO_UID)
-	lua_table.SystemFunctions:LOG("Ability: " .. geralt_ability_GO_UID)
-	lua_table.SystemFunctions:LOG("Ultimate: " .. geralt_ultimate_GO_UID)
 
 	dt = lua_table.SystemFunctions:DT()
 	game_time = PerfGameTime()
