@@ -371,7 +371,12 @@ function HandleAttackState()
 end
 
 function Die()
-
+	if dead == false
+    then
+        lua_table.AnimationSystem:PlayAnimation("DEATH", 30)
+        lua_table.SystemFunctions:LOG("DEATH")
+        dead = true
+    end
 end
 
 --------------------------------FUNCTIONS END -------------------------
