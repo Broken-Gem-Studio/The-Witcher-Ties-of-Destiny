@@ -284,7 +284,7 @@ lua_table.evade_duration = 800
 lua_table.evade_animation_speed = 40.0
 
 --Ability
-lua_table.ability_push_velocity = 10000
+lua_table.ability_push_velocity = 100000
 lua_table.ability_cost = 30
 lua_table.ability_cooldown = 5000.0
 
@@ -945,7 +945,7 @@ local function AardPush()
 		then
 			local direction_x, direction_z = enemy_pos_x - geralt_pos_x, enemy_pos_z - geralt_pos_z	--4.1. If inside, find direction Geralt->Enemy and apply velocity in that direction
 			local magnitude = math.sqrt(direction_x ^ 2 + direction_z ^ 2)
-			--lua_table.PhysicsFunctions:MoveGameObject(lua_table.ability_push_velocity * direction_x / magnitude * dt, lua_table.ability_push_velocity * direction_z / magnitude * dt, enemy_list[i])
+			lua_table.PhysicsFunctions:MoveGameObject(enemy_list[i], lua_table.ability_push_velocity * direction_x / magnitude * dt, lua_table.ability_push_velocity * direction_z / magnitude * dt)
 			--TODO-Ability: Knock down enemy
 		end
 	end
