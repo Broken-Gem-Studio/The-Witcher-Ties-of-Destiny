@@ -586,6 +586,52 @@ end
 
 --Inputs END	----------------------------------------------------------------------------
 
+--Character Colliders BEGIN	----------------------------------------------------------------------------
+
+local function AttackColliderCheck(attack_type, attack_num, collider_side)	--Checks timeframe of current action and activates or deactivates a speficied side collider depending on it
+	if time_since_action > lua_table[attack_type .. "_" .. attack_num .. "_collider_" .. collider_side .. "_start"]		--IF time > start collider
+	then
+		if time_since_action > lua_table[attack_type .. "_" .. attack_num .. "_collider_" .. collider_side .. "_end"]	--IF time > end collider
+		then
+			if attack_colliders[collider_side].active	--IF > end time and collider active, deactivate
+			then
+				lua_table.GameObjectFunctions:SetActiveGameObject(attack_colliders[collider_side].GO_UID, false)	--TODO-Colliders: Check
+				attack_colliders[collider_side].active = false
+			end
+
+			--lua_table.SystemFunctions:LOG("Collider Deactivate: " .. attack_type .. "_" .. attack_num .. "_" .. collider_side)
+			
+		elseif not attack_colliders[collider_side].active	--IF > start time and collider unactive, activate
+		then
+			lua_table.GameObjectFunctions:SetActiveGameObject(attack_colliders[collider_side].GO_UID, true)	--TODO-Colliders: Check
+			attack_colliders[collider_side].active = true
+		--else
+			--lua_table.SystemFunctions:LOG("Collider Active: " .. attack_type .. "_" .. attack_num .. "_" .. collider_side)
+		end
+	end
+end
+
+local function AttackColliderShutdown()
+	if attack_colliders.front.active then
+		lua_table.GameObjectFunctions:SetActiveGameObject(attack_colliders.front.GO_UID, false)	--TODO-Colliders: Check
+		attack_colliders.front.active = false
+	end
+	if attack_colliders.back.active then
+		lua_table.GameObjectFunctions:SetActiveGameObject(attack_colliders.back.GO_UID, false)	--TODO-Colliders: Check
+		attack_colliders.back.active = false
+	end
+	if attack_colliders.left.active then
+		lua_table.GameObjectFunctions:SetActiveGameObject(attack_colliders.left.GO_UID, false)	--TODO-Colliders: Check
+		attack_colliders.left.active = false
+	end
+	if attack_colliders.right.active then
+		lua_table.GameObjectFunctions:SetActiveGameObject(attack_colliders.right.GO_UID, false)	--TODO-Colliders: Check
+		attack_colliders.right.active = false
+	end
+end
+
+--Character Colliders END	----------------------------------------------------------------------------
+
 --Character Movement BEGIN	----------------------------------------------------------------------------
 
 local function SaveDirection()
@@ -1020,9 +1066,14 @@ local function ActionInputs()	--Process Action Inputs
 		input_given = true
 	end
 
-	if input_given and not (lua_table.current_state <= state.combo_3 and lua_table.current_state >= state.light_1)	--IF input given and is not an attack
+	if input_given 	--IF input given
 	then
-		lua_table.ParticlesFunctions:DeactivateParticlesEmission_GO(sword_GO_UID)	--TODO-Particles: Deactivate Particles on Sword
+		AttackColliderShutdown()
+
+		if not (lua_table.current_state <= state.combo_3 and lua_table.current_state >= state.light_1)	--IF input not attack
+		then
+			lua_table.ParticlesFunctions:DeactivateParticlesEmission_GO(sword_GO_UID)	--TODO-Particles: Deactivate Particles on Sword
+		end
 	end
 
 	return input_given
@@ -1047,52 +1098,6 @@ local function UltimateState(active)
 end
 
 --Character Actions END	----------------------------------------------------------------------------
-
---Character Colliders BEGIN	----------------------------------------------------------------------------
-
-local function AttackColliderCheck(attack_type, attack_num, collider_side)	--Checks timeframe of current action and activates or deactivates a speficied side collider depending on it
-	if time_since_action > lua_table[attack_type .. "_" .. attack_num .. "_collider_" .. collider_side .. "_start"]		--IF time > start collider
-	then
-		if time_since_action > lua_table[attack_type .. "_" .. attack_num .. "_collider_" .. collider_side .. "_end"]	--IF time > end collider
-		then
-			if attack_colliders[collider_side].active	--IF > end time and collider active, deactivate
-			then
-				lua_table.GameObjectFunctions:SetActiveGameObject(attack_colliders[collider_side].GO_UID, false)
-				attack_colliders[collider_side].active = false
-			end
-
-			--lua_table.SystemFunctions:LOG("Collider Deactivate: " .. attack_type .. "_" .. attack_num .. "_" .. collider_side)
-			
-		elseif not attack_colliders[collider_side].active	--IF > start time and collider unactive, activate
-		then
-			lua_table.GameObjectFunctions:SetActiveGameObject(attack_colliders[collider_side].GO_UID, true)
-			attack_colliders[collider_side].active = true
-		--else
-			--lua_table.SystemFunctions:LOG("Collider Active: " .. attack_type .. "_" .. attack_num .. "_" .. collider_side)
-		end
-	end
-end
-
-local function AttackColliderShutdown()
-	if attack_colliders.front.active then
-		lua_table.GameObjectFunctions:SetActiveGameObject(attack_colliders.front.GO_UID, true)	--TODO-Colliders: Check
-		attack_colliders.front.active = false
-	end
-	if attack_colliders.back.active then
-		lua_table.GameObjectFunctions:SetActiveGameObject(attack_colliders.back.GO_UID, true)	--TODO-Colliders: Check
-		attack_colliders.back.active = false
-	end
-	if attack_colliders.left.active then
-		lua_table.GameObjectFunctions:SetActiveGameObject(attack_colliders.left.GO_UID, true)	--TODO-Colliders: Check
-		attack_colliders.left.active = false
-	end
-	if attack_colliders.right.active then
-		lua_table.GameObjectFunctions:SetActiveGameObject(attack_colliders.right.GO_UID, true)	--TODO-Colliders: Check
-		attack_colliders.right.active = false
-	end
-end
-
---Character Colliders END	----------------------------------------------------------------------------
 
 --Character Secondaries BEGIN	----------------------------------------------------------------------------
 
