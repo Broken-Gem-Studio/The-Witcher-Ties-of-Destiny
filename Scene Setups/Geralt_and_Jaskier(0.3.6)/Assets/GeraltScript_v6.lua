@@ -1048,7 +1048,7 @@ local function AttackColliderCheck(attack_type, attack_num, collider_side)	--Che
 		then
 			if attack_colliders[collider_side].active	--IF > end time and collider active, deactivate
 			then
-				--lua_table.GameObjectFunctions:SetActiveGameObject(attack_colliders[collider_side].GO_UID, false)	--TODO-Colliders: Enable
+				lua_table.GameObjectFunctions:SetActiveGameObject(attack_colliders[collider_side].GO_UID, false)
 				attack_colliders[collider_side].active = false
 			end
 
@@ -1056,7 +1056,7 @@ local function AttackColliderCheck(attack_type, attack_num, collider_side)	--Che
 			
 		elseif not attack_colliders[collider_side].active	--IF > start time and collider unactive, activate
 		then
-			--lua_table.GameObjectFunctions:SetActiveGameObject(attack_colliders[collider_side].GO_UID, true)	--TODO-Colliders: Enable
+			lua_table.GameObjectFunctions:SetActiveGameObject(attack_colliders[collider_side].GO_UID, true)
 			attack_colliders[collider_side].active = true
 		--else
 			--lua_table.SystemFunctions:LOG("Collider Active: " .. attack_type .. "_" .. attack_num .. "_" .. collider_side)
@@ -1111,30 +1111,27 @@ end
 
 --Collider Calls BEGIN
 function lua_table:OnTriggerEnter()
-	-- local collider_GO = lua_table.PhysicsFunctions:OnTriggerEnter(my_GO_UID)
-	
 	lua_table.SystemFunctions:LOG("On Trigger Enter")
 
-	-- if lua_table.GameObjectFunctions:GetGameObjectLayer(collider_GO) == layers.enemy_attack	--IF collider is tagged as an enemy attack
-	-- then
-	-- 	local collider_parent = lua_table.GameObjectFunctions:GetGameObjectParent(collider_GO)
-	-- 	local enemy_script = {}
+	local collider_GO = lua_table.PhysicsFunctions:OnTriggerEnter(my_GO_UID)
+	if true or lua_table.GameObjectFunctions:GetLayerByID(collider_GO) == layers.enemy_attack	--IF collider is tagged as an enemy attack
+	then
+		local collider_parent = lua_table.GameObjectFunctions:GetGameObjectParent(collider_GO)
+		-- local enemy_script = {}	--TODO-Colliders: Uncomment when Jaume has it ready
 
-	-- 	if collider_parent ~= 0 then	--IF collider has parent, data is saved on parent (it means the collider is repurposed)
-	-- 		enemy_script = lua_table.GameObjectFunctions:GetScript(collider_parent)
-	-- 	else							--IF collider has no parent, data is saved within collider
-	-- 		enemy_script = lua_table.GameObjectFunctions:GetScript(go_uid)
-	-- 	end
+		-- if collider_parent ~= 0 then	--IF collider has parent, data is saved on parent (it means the collider is repurposed)
+		-- 	enemy_script = lua_table.GameObjectFunctions:GetScript(collider_parent)
+		-- else							--IF collider has no parent, data is saved within collider
+		-- 	enemy_script = lua_table.GameObjectFunctions:GetScript(go_uid)
+		-- end
 
-	-- 	lua_table.current_health = lua_table.current_health - enemy_script.collider_damage
+		-- lua_table.current_health = lua_table.current_health - enemy_script.collider_damage	--TODO-Colliders: Uncomment when Jaume has it ready
 
-	-- 	if enemy_script.collider_effect ~= attack_effects.none
-	-- 	then
-	-- 		--TODO: React to special effect
-	-- 	end
-	-- end
-
-	lua_table.current_health = lua_table.current_health - enemy_script.collider_damage
+		-- if enemy_script.collider_effect ~= attack_effects.none
+		-- then
+		-- 	--TODO: React to special effect
+		-- end
+	end
 end
 
 function lua_table:OnCollisionEnter()
@@ -1394,8 +1391,8 @@ function lua_table:Update()
 	--lua_table.SystemFunctions:LOG("Combo string: " .. combo_stack[1] .. ", " .. combo_stack[2] .. ", " .. combo_stack[3] .. ", " .. combo_stack[4])
 
 	--Stats LOGS
-	--lua_table.SystemFunctions:LOG("Health: " .. lua_table.current_health)
-	--lua_table.SystemFunctions:LOG("Energy: " .. lua_table.current_energy)
+	lua_table.SystemFunctions:LOG("Health: " .. lua_table.current_health)
+	lua_table.SystemFunctions:LOG("Energy: " .. lua_table.current_energy)
 
 	--lua_table.SystemFunctions:LOG("Health Reg: " .. health_reg_real)
 	--lua_table.SystemFunctions:LOG("Energy Reg: " .. energy_reg_real)
