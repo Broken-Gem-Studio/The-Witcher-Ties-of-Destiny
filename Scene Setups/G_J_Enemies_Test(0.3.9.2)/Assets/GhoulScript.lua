@@ -27,7 +27,7 @@ local State = {
 }
 
 local attack_colliders = {
-	front = { GO_name = "Lamberjak Front", GO_UID = 0 , active = false}
+	front = { GO_name = "Lumberjack_Front", GO_UID = 0 , active = false}
 }
 
 lua_table.frontColliderActive = false
