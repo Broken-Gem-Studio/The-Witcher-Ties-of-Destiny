@@ -1123,11 +1123,15 @@ end
 
 --Character Secondaries END	----------------------------------------------------------------------------
 
+lua_table.triggered = false
+
 --Collider Calls BEGIN
 function lua_table:OnTriggerEnter()
 	lua_table.SystemFunctions:LOG("On Trigger Enter")
 	
 	local collider_GO = lua_table.PhysicsFunctions:OnTriggerEnter(my_GO_UID)
+
+	lua_table.triggered = true
 
 	if lua_table.GameObjectFunctions:GetLayerByID(collider_GO) == layers.enemy_attack	--IF collider is tagged as an enemy attack
 	then
@@ -1212,6 +1216,7 @@ end
 
 function lua_table:Update()
 
+	if lua_table.triggered then lua_table.SystemFunctions:LOG("TRIGGERED") end
 	dt = lua_table.SystemFunctions:DT()
 	game_time = PerfGameTime()
 
