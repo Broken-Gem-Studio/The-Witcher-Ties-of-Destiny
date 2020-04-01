@@ -19,6 +19,9 @@ local State = {
     ATTACK = 4
 }
 
+lua_table.player_1 = "Geralt"
+lua_table.player_2 = "Jaskier"
+
 local AnimIDLE = "IDLE"
 
 lua_table.Life = 80
@@ -236,7 +239,7 @@ end
 function Seek()
 
 	--lua_table.SystemFunctions:LOG("SEEKKKKKKKKKKKKKK")
-	-- vec3 = x1-xº,y1-yº,z1-zº
+	-- vec3 = x1-xï¿½,y1-yï¿½,z1-zï¿½
 	posX,posY,posZ = lua_table.TransformFunctions:GetPosition()
 
 	tarX = lua_table.GameObjectFunctions:GetGameObjectPosX(lua_table.currentTarget)
@@ -337,8 +340,8 @@ function lua_table:Awake()
    lua_table.SystemFunctions:LOG("This Log was called from LUA table from a GhoulScript on AWAKE")
 
    -------------------- GET PLAYERS id START--------------------
-   lua_table.Geralt = lua_table.GameObjectFunctions:FindGameObject("gerardo1")
-   lua_table.Jaskier = lua_table.GameObjectFunctions:FindGameObject("jaskier1") 
+   lua_table.Geralt = lua_table.GameObjectFunctions:FindGameObject(lua_table.player_1)
+   lua_table.Jaskier = lua_table.GameObjectFunctions:FindGameObject(lua_table.player_2) 
 
    if lua_table.Geralt == 0 then lua_table.SystemFunctions:LOG ("A random GhoulScript: Null Geralt id, check the name of game object the script is looking for or add Geralt to the scene if not there already")
    end
