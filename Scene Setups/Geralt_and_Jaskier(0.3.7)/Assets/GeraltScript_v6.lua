@@ -873,7 +873,7 @@ end
 local function AardPush()
 	--1. Collect colliders of all enemies inside a radius
 	local geralt_pos_x, geralt_pos_y, geralt_pos_z = lua_table.TransformFunctions:GetPosition()
-	enemy_list = lua_table.PhysicsFunctions:OverlapSphere(geralt_pos_x, geralt_pos_y, geralt_pos_z, lua_table.ability_range, layers.enemy)
+	local enemy_list = lua_table.PhysicsFunctions:OverlapSphere(geralt_pos_x, geralt_pos_y, geralt_pos_z, lua_table.ability_range, layers.enemy)
 
 	--2. Transform ability trapezoid to Geralt's current rotation
 	SaveDirection()
@@ -889,17 +889,17 @@ local function AardPush()
 	D_x, D_z = D_x + geralt_pos_x, D_z + geralt_pos_z
 
 	--4. We must check that the enemy is inside the AoE
-	for k, v in pairs(enemy_list) do
-		local enemy_pos_x = lua_table.GameObjectFunctions:GetGameObjectPosX(v)
-		local enemy_pos_z = lua_table.GameObjectFunctions:GetGameObjectPosZ(v)
+	for i = 1, #enemy_list do
+		local enemy_pos_x = lua_table.GameObjectFunctions:GetGameObjectPosX(enemy_list[i])
+		local enemy_pos_z = lua_table.GameObjectFunctions:GetGameObjectPosZ(enemy_list[i])
 
-		if BidimensionalPointInVectorSide(B_x, B_z, C_x, C_z, target_x, target_z) < 0	--If left side of all the trapezoid vectors BC, CD, DA ( \_/ )
-		and BidimensionalPointInVectorSide(C_x, C_z, D_x, D_z, target_x, target_z) < 0
-		and BidimensionalPointInVectorSide(D_x, D_z, A_x, A_z, target_x, target_z) < 0
+		if BidimensionalPointInVectorSide(B_x, B_z, C_x, C_z, enemy_pos_x, enemy_pos_z) < 0	--If left side of all the trapezoid vectors BC, CD, DA ( \_/ )
+		and BidimensionalPointInVectorSide(C_x, C_z, D_x, D_z, enemy_pos_x, enemy_pos_z) < 0
+		and BidimensionalPointInVectorSide(D_x, D_z, A_x, A_z, enemy_pos_x, enemy_pos_z) < 0
 		then
 			local direction_x, direction_z = enemy_pos_x - geralt_pos_x, enemy_pos_z - geralt_pos_z	--4.1. If inside, find direction Geralt->Enemy and apply velocity in that direction
 			local magnitude = math.sqrt(direction_x ^ 2 + direction_z ^ 2)
-			lua_table.PhysicsFunctions:MoveGameObject(lua_table.ability_push_velocity * direction_x / magnitude * dt, lua_table.ability_push_velocity * direction_z / magnitude * dt, v)
+			--lua_table.PhysicsFunctions:MoveGameObject(lua_table.ability_push_velocity * direction_x / magnitude * dt, lua_table.ability_push_velocity * direction_z / magnitude * dt, enemy_list[i])
 			--TODO-Ability: Knock down enemy
 		end
 	end
@@ -1308,7 +1308,7 @@ function lua_table:Update()
 
 				elseif lua_table.current_state == state.ability and not lua_table.ability_performed and time_since_action > lua_table.ability_start
 				then
-					--AardPush()	--TODO: Uncomment when it works
+					AardPush()	--TODO: Uncomment when it works
 					lua_table.ParticlesFunctions:ActivateParticlesEmission_GO(geralt_ultimate_GO_UID)	--TODO-Particles: Activate Aard particles on hand
 					lua_table.current_energy = lua_table.current_energy - lua_table.ability_cost
 					lua_table.ability_performed = true
