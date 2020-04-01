@@ -23,7 +23,7 @@
                 "colliderType": "1",
                 "firstCreation": "1",
                 "globalMatrixw": "1.000000",
-                "globalMatrixx": "30.000000",
+                "globalMatrixx": "1.010000",
                 "globalMatrixy": "20.000000",
                 "globalMatrixz": "25.000000",
                 "globalPositionx": "1.000000",
@@ -602,7 +602,7 @@
                 "colliderType": "1",
                 "firstCreation": "1",
                 "globalMatrixw": "1.000000",
-                "globalMatrixx": "30.000000",
+                "globalMatrixx": "1.010000",
                 "globalMatrixy": "20.000000",
                 "globalMatrixz": "-20.000000",
                 "globalPositionx": "1.000000",
@@ -804,7 +804,7 @@
             }
         },
         "Name": "Ground",
-        "Parent": "1549730136",
+        "Parent": "931207298",
         "Static": false
     },
     "1498997446": {
@@ -914,8 +914,8 @@
                 "rotationx": "0.000567",
                 "rotationy": "0.006209",
                 "rotationz": "0.999891",
-                "scalex": "0.999981",
-                "scaley": "0.999981",
+                "scalex": "0.999936",
+                "scaley": "0.999936",
                 "scalez": "1.000000"
             },
             "13": {
@@ -1117,6 +1117,61 @@
         "Parent": "624113097",
         "Static": false
     },
+    "1855888900": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1192517851,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "18": {
+                "Active": true,
+                "ColorB": "1.000000",
+                "ColorG": "1.000000",
+                "ColorR": "1.000000",
+                "Duration": "1000",
+                "Loop": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/2096693375.dds"
+                },
+                "UID": 420027804,
+                "emisionRate": "500.000000",
+                "externalAccelerationX": "0.000000",
+                "externalAccelerationY": "10.000000",
+                "externalAccelerationZ": "0.000000",
+                "index": 1,
+                "particleScaleRandomFactor": "1.000000",
+                "particlesLifeTime": "1000",
+                "particlesPerCreation": "1",
+                "particlesScaleX": "1.000000",
+                "particlesScaleY": "1.000000",
+                "particlesSize": "1.000000",
+                "particlesVelocityX": "0.000000",
+                "particlesVelocityY": "0.000000",
+                "particlesVelocityZ": "0.000000",
+                "sizeX": "0.000000",
+                "sizeY": "0.000000",
+                "sizeZ": "0.000000",
+                "velocityRandomFactorX": "5.000000",
+                "velocityRandomFactorY": "5.000000",
+                "velocityRandomFactorZ": "5.000000"
+            }
+        },
+        "Name": "Geralt_Ability",
+        "Parent": "1223745658",
+        "Static": false
+    },
     "1859663179": {
         "Active": true,
         "Components": {
@@ -1176,18 +1231,18 @@
             },
             "3": {
                 "ACTIVECAM": false,
-                "ASPECTRATIO": 1.0,
+                "ASPECTRATIO": 1.600000023841858,
                 "Active": true,
                 "CULLINGCAM": false,
-                "FARPLANE": 10.0,
-                "FOV": 57.295780181884766,
+                "FARPLANE": 1000.0,
+                "FOV": 60.000003814697266,
                 "NEARPLANE": 0.10000000149011612,
                 "UID": 759747548,
                 "index": 1
             }
         },
         "Name": "Camera",
-        "Parent": "1549730136",
+        "Parent": "931207298",
         "Static": false
     },
     "1932088021": {
@@ -1259,8 +1314,8 @@
                 "rotationy": "0.000028",
                 "rotationz": "-0.000027",
                 "scalex": "1.000000",
-                "scaley": "1.000019",
-                "scalez": "1.000019"
+                "scaley": "1.000064",
+                "scalez": "1.000064"
             },
             "13": {
                 "Active": true,
@@ -1322,7 +1377,7 @@
                 "colliderType": "1",
                 "firstCreation": "1",
                 "globalMatrixw": "1.000000",
-                "globalMatrixx": "50.000000",
+                "globalMatrixx": "21.010000",
                 "globalMatrixy": "20.000000",
                 "globalMatrixz": "5.000000",
                 "globalPositionx": "1.000000",
@@ -1411,8 +1466,8 @@
                 "rotationx": "-0.000473",
                 "rotationy": "0.005722",
                 "rotationz": "0.999893",
-                "scalex": "0.999981",
-                "scaley": "0.999981",
+                "scalex": "0.999936",
+                "scaley": "0.999936",
                 "scalez": "1.000000"
             },
             "13": {
@@ -1534,7 +1589,7 @@
             }
         },
         "Name": "Jaskier",
-        "Parent": "1549730136",
+        "Parent": "931207298",
         "Static": false
     },
     "2102743051": {
@@ -1760,9 +1815,9 @@
                 "rotationx": "-0.547405",
                 "rotationy": "-0.439212",
                 "rotationz": "0.571911",
-                "scalex": "1.000019",
-                "scaley": "1.000019",
-                "scalez": "1.000019"
+                "scalex": "1.000064",
+                "scaley": "1.000064",
+                "scalez": "1.000064"
             },
             "13": {
                 "Active": true,
@@ -1775,6 +1830,61 @@
         },
         "Name": "mixamorig:LeftShoulder",
         "Parent": "683901440",
+        "Static": false
+    },
+    "364020036": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 984408109,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "25.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "18": {
+                "Active": true,
+                "ColorB": "1.000000",
+                "ColorG": "1.000000",
+                "ColorR": "1.000000",
+                "Duration": "1000",
+                "Loop": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/405601625.dds"
+                },
+                "UID": 683846331,
+                "emisionRate": "500.000000",
+                "externalAccelerationX": "0.000000",
+                "externalAccelerationY": "10.000000",
+                "externalAccelerationZ": "0.000000",
+                "index": 1,
+                "particleScaleRandomFactor": "1.000000",
+                "particlesLifeTime": "1000",
+                "particlesPerCreation": "1",
+                "particlesScaleX": "1.000000",
+                "particlesScaleY": "1.000000",
+                "particlesSize": "1.000000",
+                "particlesVelocityX": "0.000000",
+                "particlesVelocityY": "0.000000",
+                "particlesVelocityZ": "0.000000",
+                "sizeX": "0.000000",
+                "sizeY": "0.000000",
+                "sizeZ": "0.000000",
+                "velocityRandomFactorX": "5.000000",
+                "velocityRandomFactorY": "5.000000",
+                "velocityRandomFactorZ": "5.000000"
+            }
+        },
+        "Name": "Geralt_Ultimate",
+        "Parent": "914122457",
         "Static": false
     },
     "403269927": {
@@ -1930,9 +2040,9 @@
                 "rotationx": "0.549070",
                 "rotationy": "-0.435325",
                 "rotationz": "0.570814",
-                "scalex": "0.999981",
-                "scaley": "0.999981",
-                "scalez": "0.999981"
+                "scalex": "0.999936",
+                "scaley": "0.999936",
+                "scalez": "0.999936"
             },
             "13": {
                 "Active": true,
@@ -2033,7 +2143,7 @@
                 "colliderType": "1",
                 "firstCreation": "1",
                 "globalMatrixw": "1.000000",
-                "globalMatrixx": "10.000000",
+                "globalMatrixx": "-18.990000",
                 "globalMatrixy": "20.000000",
                 "globalMatrixz": "0.000000",
                 "globalPositionx": "1.000000",
@@ -2230,6 +2340,69 @@
         },
         "Name": "mixamorig:LeftHandPinky4",
         "Parent": "1427130542",
+        "Static": false
+    },
+    "66127377": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1796658596,
+                "index": 0,
+                "layer": "0",
+                "positionx": "70.000000",
+                "positiony": "25.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "10.000000",
+                "scaley": "10.000000",
+                "scalez": "10.000000"
+            },
+            "18": {
+                "Active": true,
+                "ColorB": "1.000000",
+                "ColorG": "1.000000",
+                "ColorR": "1.000000",
+                "Duration": "1000",
+                "Loop": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1930370315.dds"
+                },
+                "UID": 1566114444,
+                "emisionRate": "500.000000",
+                "externalAccelerationX": "0.000000",
+                "externalAccelerationY": "10.000000",
+                "externalAccelerationZ": "0.000000",
+                "index": 2,
+                "particleScaleRandomFactor": "1.000000",
+                "particlesLifeTime": "1000",
+                "particlesPerCreation": "1",
+                "particlesScaleX": "1.000000",
+                "particlesScaleY": "1.000000",
+                "particlesSize": "1.000000",
+                "particlesVelocityX": "0.000000",
+                "particlesVelocityY": "0.000000",
+                "particlesVelocityZ": "0.000000",
+                "sizeX": "0.000000",
+                "sizeY": "0.000000",
+                "sizeZ": "0.000000",
+                "velocityRandomFactorX": "5.000000",
+                "velocityRandomFactorY": "5.000000",
+                "velocityRandomFactorZ": "5.000000"
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": "DefaultMaterial"
+                },
+                "UID": 1906801371,
+                "index": 1
+            }
+        },
+        "Name": "Geralt_Sword",
+        "Parent": "2009037223",
         "Static": false
     },
     "681867608": {
@@ -2533,7 +2706,7 @@
                 "UID": 646023974,
                 "index": 0,
                 "layer": "1",
-                "positionx": "30.000000",
+                "positionx": "1.010000",
                 "positiony": "0.000000",
                 "positionz": "0.000000",
                 "rotationw": "1.000000",
@@ -2675,7 +2848,7 @@
                 "height": "2.000000",
                 "index": 2,
                 "nonWalkableMode": "1",
-                "positionX": "30.000000",
+                "positionX": "1.010000",
                 "positionY": "1.510000",
                 "positionZ": "0.000000",
                 "radius": "0.500000",
@@ -2690,7 +2863,7 @@
                 "Duration": "1000",
                 "Loop": true,
                 "Resources": {
-                    "ResourceTexture": "Library/Textures/481599607.dds"
+                    "ResourceTexture": "Library/Textures/1502702554.dds"
                 },
                 "UID": 1907181725,
                 "emisionRate": "500.000000",
@@ -2721,7 +2894,7 @@
             }
         },
         "Name": "Geralt",
-        "Parent": "1549730136",
+        "Parent": "931207298",
         "Static": false
     },
     "982689731": {

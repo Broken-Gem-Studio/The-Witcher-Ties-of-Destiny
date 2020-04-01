@@ -16,4 +16,4 @@ so here I'll stipulate some important details about these:
 **GeraltScript_v4**: New upgraded namespaces, **works with 0.3.1** (0.3.0 and 0.3.1) with Geralt_v3.
 **GeraltScript_v4.5**: Dani's new Scripting Functions (0.3.2 and 0.3.3) with Geralt_v3.
 **GeraltScript_v5**: New version made to sinchronize with Jaskier (Experimental, should not compile)
-**GeraltScript_v6**: Script adapted to work with new Scripting from 0.3.5 and above.
+**GeraltScript_v6**: Script adapted to work with new Scripting and all features from 0.3.5 and above.

@@ -17,7 +17,15 @@ lua_table.InputFunctions = Scripting.Inputs()
 --lua_table.SystemFunctions = Scripting.Systems()
 --lua_table.InputFunctions = Scripting.Inputs()
 
+--GO UIDs
 local my_GO_UID
+local sword_GO_UID
+local geralt_ultimate_GO_UID
+local geralt_ability_GO_UID
+
+	--Particles
+	--Geralt_Sword (Child of "Sword"): 70/25/0
+	
 
 --State Machine
 local state = {	--The order of the states is relevant to the code, CAREFUL CHANGING IT (Ex: if curr_state >= state.run)
@@ -497,7 +505,7 @@ local function GoDefaultState()
 		lua_table.AnimationFunctions:PlayAnimation("idle", lua_table.idle_animation_speed)
 		--lua_table.AudioFunctions:StopStepSound()	--TODO-AUDIO: Stop current sound event
 		lua_table.current_state = state.idle
-		lua_table.ParticlesFunctions:DeactivateParticlesEmission()	--Deactivate movement dust particles
+		lua_table.ParticlesFunctions:DeactivateParticlesEmission()	--TODO-Particles: Deactivate movement dust particles
 	end
 	
 	rightside = true
@@ -683,7 +691,7 @@ local function MovementInputs()	--Process Movement Inputs
 				lua_table.current_state = state.walk
 			end
 
-			lua_table.ParticlesFunctions:ActivateParticlesEmission()	--Activate movement dust particles
+			lua_table.ParticlesFunctions:ActivateParticlesEmission()	--TODO-Particles: Activate movement dust particles
 
 		--Swap between walking and running
 		elseif lua_table.current_state == state.walk and lua_table.input_walk_threshold < math.sqrt(mov_input.used_input.x ^ 2 + mov_input.used_input.z ^ 2)	--IF walking and big input
@@ -717,7 +725,7 @@ local function MovementInputs()	--Process Movement Inputs
 		--Animation to IDLE
 		lua_table.AnimationFunctions:PlayAnimation("idle", lua_table.idle_animation_speed)
 		--lua_table.AudioFunctions:StopStepSound()	--TODO-AUDIO: Stop current sound event
-		lua_table.ParticlesFunctions:DeactivateParticlesEmission()	--Deactivate movement dust particles
+		lua_table.ParticlesFunctions:DeactivateParticlesEmission()	--TODO-Particles: Deactivate movement dust particles
 		lua_table.previous_state = lua_table.current_state
 		lua_table.current_state = state.idle
 	end
@@ -812,8 +820,8 @@ local function TimedAttack(attack_cost)
 		lua_table.current_energy = lua_table.current_energy - attack_cost
 	end
 
-	--TODO-Particles: Turn on particles on Sword
-	lua_table.ParticlesFunctions:DeactivateParticlesEmission()	--Deactivate movement dust particles
+	lua_table.ParticlesFunctions:DeactivateParticlesEmission()				--TODO-Particles: Deactivate movement dust particles
+	lua_table.ParticlesFunctions:ActivateParticlesEmission_GO(sword_GO_UID)	--TODO-Particles: Turn on particles on Sword
 
 	return combo_achieved
 end
@@ -955,7 +963,7 @@ local function ActionInputs()	--Process Action Inputs
 		
 		lua_table.current_energy = lua_table.current_energy - lua_table.evade_cost
 
-		lua_table.ParticlesFunctions:ActivateParticlesEmission()	--Activate movement dust particles
+		lua_table.ParticlesFunctions:ActivateParticlesEmission()	--TODO-Particles: Activate movement dust particles
 
 		input_given = true
 		
@@ -1013,7 +1021,7 @@ local function ActionInputs()	--Process Action Inputs
 
 	if input_given and not (lua_table.current_state <= state.combo_3 and lua_table.current_state >= state.light_1)	--IF input given and is not an attack
 	then
-		--TODO-Particles: Deactivate Particles on Sword
+		lua_table.ParticlesFunctions:DeactivateParticlesEmission_GO(sword_GO_UID)	--TODO-Particles: Deactivate Particles on Sword
 	end
 
 	return input_given
@@ -1028,9 +1036,9 @@ local function UltimateState(active)
 	lua_table.base_damage_mod = lua_table.base_damage_mod + lua_table.ultimate_damage_mod_increase * ultimate_stat_mod
 
 	if active then
-		--TODO-Particles: Activate ultimate particles
+		lua_table.ParticlesFunctions:ActivateParticlesEmission_GO(geralt_ultimate_GO_UID)	--TODO-Particles: Activate ultimate particles
 	else
-		--TODO-Particles: Deactivate ultimate particles
+		lua_table.ParticlesFunctions:DeactivateParticlesEmission_GO(geralt_ultimate_GO_UID)	--TODO-Particles: Deactivate ultimate particles
 	end
 
 	must_update_stats = true
@@ -1158,8 +1166,19 @@ end
 function lua_table:Awake()
 	lua_table.SystemFunctions:LOG("GeraltScript AWAKE")
 
-	--Get Self GO_UID
+	--Get self GO_UID
 	my_GO_UID = lua_table.GameObjectFunctions:GetMyUID()
+
+	--Get Particle Emitters GO_UID
+	sword_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt_Sword")
+	geralt_ability_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt_Ability")
+	geralt_ultimate_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt_Ultimate")
+
+	--Stop Particle Emitters
+	lua_table.ParticlesFunctions:DeactivateParticlesEmission()
+	lua_table.ParticlesFunctions:DeactivateParticlesEmission_GO(sword_GO_UID)				--TODO-Particles: Uncomment when ready
+	lua_table.ParticlesFunctions:DeactivateParticlesEmission_GO(geralt_ability_GO_UID)	--TODO-Particles: Uncomment when ready
+	lua_table.ParticlesFunctions:DeactivateParticlesEmission_GO(geralt_ultimate_GO_UID)	--TODO-Particles: Uncomment when ready
 
 	--Get attack_colliders GO_UIDs by name
 	attack_colliders.front.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.front.GO_name)
@@ -1185,6 +1204,11 @@ function lua_table:Start()
 end
 
 function lua_table:Update()
+
+	lua_table.SystemFunctions:LOG("My UID: " .. my_GO_UID)
+	lua_table.SystemFunctions:LOG("Sword: " .. sword_GO_UID)
+	lua_table.SystemFunctions:LOG("Ability: " .. geralt_ability_GO_UID)
+	lua_table.SystemFunctions:LOG("Ultimate: " .. geralt_ultimate_GO_UID)
 
 	dt = lua_table.SystemFunctions:DT()
 	game_time = PerfGameTime()
@@ -1276,10 +1300,10 @@ function lua_table:Update()
 				then
 					if lua_table.current_state >= state.light_1 and lua_table.current_state <= state.combo_3	--IF attack finished
 					then
-						--TODO-Particles: Deactivate Particles on Sword
+						lua_table.ParticlesFunctions:DeactivateParticlesEmission_GO(sword_GO_UID)	--TODO-Particles: Deactivate Particles on Sword
 					elseif lua_table.current_state == state.ability
 					then
-						--TODO-Particles: Deactivate Aard particles on hand
+						lua_table.ParticlesFunctions:DeactivateParticlesEmission_GO(geralt_ultimate_GO_UID)	--TODO-Particles: Deactivate Aard particles on hand
 					end
 
 					GoDefaultState()	--Return to move or idle
@@ -1287,7 +1311,7 @@ function lua_table:Update()
 				elseif lua_table.current_state == state.ability and not lua_table.ability_performed and time_since_action > lua_table.ability_start
 				then
 					--AardPush()	--TODO: Uncomment when it works
-					--TODO-Particles: Activate Aard particles on hand
+					lua_table.ParticlesFunctions:ActivateParticlesEmission_GO(geralt_ultimate_GO_UID)	--TODO-Particles: Activate Aard particles on hand
 					lua_table.current_energy = lua_table.current_energy - lua_table.ability_cost
 					lua_table.ability_performed = true
 
