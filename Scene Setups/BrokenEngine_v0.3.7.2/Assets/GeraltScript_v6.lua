@@ -1121,27 +1121,26 @@ end
 --Collider Calls BEGIN
 function lua_table:OnTriggerEnter()
 	lua_table.SystemFunctions:LOG("On Trigger Enter")
-
+	
 	local collider_GO = lua_table.PhysicsFunctions:OnTriggerEnter(my_GO_UID)
 
 	if lua_table.GameObjectFunctions:GetLayerByID(collider_GO) == layers.enemy_attack	--IF collider is tagged as an enemy attack
 	then
-		--local collider_parent = lua_table.GameObjectFunctions:GetGameObjectParent(collider_GO)
-		-- local enemy_script = {}	--TODO-Colliders: Uncomment when Jaume has it ready
+		local collider_parent = lua_table.GameObjectFunctions:GetGameObjectParent(collider_GO)
+		local enemy_script = {}
 
-		-- if collider_parent ~= 0 then	--IF collider has parent, data is saved on parent (it means the collider is repurposed)
-		-- 	enemy_script = lua_table.GameObjectFunctions:GetScript(collider_parent)
-		-- else							--IF collider has no parent, data is saved within collider
-		-- 	enemy_script = lua_table.GameObjectFunctions:GetScript(go_uid)
-		-- end
-		
-		lua_table.current_health = lua_table.current_health - 40.0
-		-- lua_table.current_health = lua_table.current_health - enemy_script.collider_damage	--TODO-Colliders: Uncomment when Jaume has it ready
+		if collider_parent ~= 0 then	--IF collider has parent, data is saved on parent (it means the collider is repurposed for different damages)
+			enemy_script = lua_table.GameObjectFunctions:GetScript(collider_parent)
+		else							--IF collider has no parent, data is saved within collider
+			enemy_script = lua_table.GameObjectFunctions:GetScript(collider_GO)
+		end
 
-		-- if enemy_script.collider_effect ~= attack_effects.none
-		-- then
-		-- 	--TODO: React to special effect
-		-- end
+		lua_table.current_health = lua_table.current_health - enemy_script.collider_damage
+
+		if enemy_script.collider_effect ~= attack_effects.none
+		then
+			--TODO: React to special effect
+		end
 	end
 end
 
@@ -1343,9 +1342,9 @@ function lua_table:Update()
 					elseif lua_table.current_state == state.heavy_3 then AttackColliderCheck("heavy", 3, "front")
 					end
 
-				elseif lua_table.current_state == state.combo_1 and DirectionInBounds()
+				elseif lua_table.current_state == state.combo_1
 				then
-					lua_table.PhysicsFunctions:Move(lua_table.combo_1_movement_speed * rec_direction.x * dt, lua_table.combo_1_movement_speed * rec_direction.z * dt)
+					if DirectionInBounds() then lua_table.PhysicsFunctions:Move(lua_table.combo_1_movement_speed * rec_direction.x * dt, lua_table.combo_1_movement_speed * rec_direction.z * dt) end
 					
 					--Collider Evaluation
 					AttackColliderCheck("combo", 1, "right")
@@ -1353,18 +1352,18 @@ function lua_table:Update()
 					AttackColliderCheck("combo", 1, "left")
 					AttackColliderCheck("combo", 1, "back")
 
-				elseif lua_table.current_state == state.combo_2 and DirectionInBounds()
+				elseif lua_table.current_state == state.combo_2
 				then
-					lua_table.PhysicsFunctions:Move(lua_table.combo_2_movement_speed * rec_direction.x * dt, lua_table.combo_2_movement_speed * rec_direction.z * dt)
+					if DirectionInBounds() then lua_table.PhysicsFunctions:Move(lua_table.combo_2_movement_speed * rec_direction.x * dt, lua_table.combo_2_movement_speed * rec_direction.z * dt) end
 					
 					--Collider Evaluation
 					AttackColliderCheck("combo", 2, "left")
 					AttackColliderCheck("combo", 2, "right")
 					AttackColliderCheck("combo", 2, "front")
 
-				elseif lua_table.current_state == state.combo_3 and DirectionInBounds()
+				elseif lua_table.current_state == state.combo_3
 				then
-					lua_table.PhysicsFunctions:Move(lua_table.combo_3_movement_speed * rec_direction.x * dt, lua_table.combo_3_movement_speed * rec_direction.z * dt)
+					if DirectionInBounds() then lua_table.PhysicsFunctions:Move(lua_table.combo_3_movement_speed * rec_direction.x * dt, lua_table.combo_3_movement_speed * rec_direction.z * dt) end
 
 					--Collider Evaluation
 					AttackColliderCheck("combo", 3, "front")
