@@ -190,10 +190,10 @@ lua_table.collider_damage = 0
 lua_table.collider_effect = attack_effects.none
 
 local attack_colliders = {
-	front = { GO_name = "Geralt_Front", GO_UID = 0, active = false },
-	back = { GO_name = "Geralt_Back", GO_UID = 0, active = false },
-	left = { GO_name = "Geralt_Left", GO_UID = 0, active = false },
-	right = { GO_name = "Geralt_Right", GO_UID = 0, active = false }
+	front = { GO_name = "Jaskier_Front", GO_UID = 0, active = false },
+	back = { GO_name = "Jaskier_Back", GO_UID = 0, active = false },
+	left = { GO_name = "Jaskier_Left", GO_UID = 0, active = false },
+	right = { GO_name = "Jaskier_Right", GO_UID = 0, active = false }
 }
 
 	--Collider Notes (GO X,Y,Z / Coll size X,Y,Z)
@@ -862,39 +862,28 @@ local function TimedAttack(attack_cost)
 	end
 
 	lua_table.ParticlesFunctions:StopParticleEmitter()				--TODO-Particles: Deactivate movement dust particles
-	lua_table.ParticlesFunctions:PlayParticleEmitter_GO(guitar_GO_UID)	--TODO-Particles: Turn on particles on Sword
+	--lua_table.ParticlesFunctions:PlayParticleEmitter_GO(guitar_GO_UID)	--TODO-Particles: Turn on particles on Sword
 
 	return combo_achieved
 end
 
 local function RegularAttack(attack_type)
 
-	if lua_table.current_state == state.heavy_3 then	--Heavy_3 animation starts and ends on the right, therefore in this particular case we stay on the right
-		rightside = not rightside
-	end
+	-- if lua_table.current_state == state.heavy_3 then	--Heavy_3 animation starts and ends on the right, therefore in this particular case we stay on the right
+	-- 	rightside = not rightside
+	-- end
 
 	if rightside	--IF rightside
 	then
-		if combo_num > 2	--IF more than 2 succesful attacks
-		then
-			current_action_block_time = lua_table[attack_type .. "_3_block_time"]	--Set duration of input block (no new actions)
-			current_action_duration = lua_table[attack_type .. "_3_duration"]		--Set duration of the current action (to return to idle/move)
+		current_action_block_time = lua_table[attack_type .. "_1_block_time"]	--Set duration of input block (no new actions)
+		current_action_duration = lua_table[attack_type .. "_1_duration"]		--Set duration of the current action (to return to idle/move)
 
-			lua_table.AnimationFunctions:PlayAnimation(attack_type .. "_3", lua_table[attack_type .. "_3_animation_speed"])
-			--lua_table.AudioFunctions:PlayAttackSound()	--TODO-AUDIO: Play attack_3 sound (light or heavy)
+		lua_table.AnimationFunctions:PlayAnimation(attack_type .. "_1", lua_table[attack_type .. "_1_animation_speed"])
+		--lua_table.AudioFunctions:PlayAttackSound()	--TODO-AUDIO: Play attack_1 sound (light or heavy)
 
-			lua_table.previous_state = lua_table.current_state
-			lua_table.current_state = state[attack_type .. "_3"]
-		else
-			current_action_block_time = lua_table[attack_type .. "_1_block_time"]	--Set duration of input block (no new actions)
-			current_action_duration = lua_table[attack_type .. "_1_duration"]		--Set duration of the current action (to return to idle/move)
+		lua_table.previous_state = lua_table.current_state
+		lua_table.current_state = state[attack_type .. "_1"]
 
-			lua_table.AnimationFunctions:PlayAnimation(attack_type .. "_1", lua_table[attack_type .. "_1_animation_speed"])
-			--lua_table.AudioFunctions:PlayAttackSound()	--TODO-AUDIO: Play attack_1 sound (light or heavy)
-
-			lua_table.previous_state = lua_table.current_state
-			lua_table.current_state = state[attack_type .. "_1"]
-		end
 	else			--IF leftside
 		current_action_block_time = lua_table[attack_type .. "_2_block_time"]	--Set duration of input block (no new actions)
 		current_action_duration = lua_table[attack_type .. "_2_duration"]		--Set duration of the current action (to return to idle/move)
@@ -952,14 +941,15 @@ local function ActionInputs()	--Process Action Inputs
 	if lua_table.current_energy >= lua_table.light_cost and lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_light, key_state.key_down)		--Light Input
 	then
 		action_started_at = game_time		--Set timer start mark
-		PushBack(combo_stack, 'L')			--Add new input to stack
+		--PushBack(combo_stack, 'L')			--Add new input to stack
 
-		combo_achieved = TimedAttack(lua_table.light_cost)
+		--combo_achieved = TimedAttack(lua_table.light_cost)
 
-		if not combo_achieved	--If no combo was achieved with the input, do the attack normally
-		then
+		--if not combo_achieved	--If no combo was achieved with the input, do the attack normally
+		--then
 			RegularAttack("light")
-		end
+			lua_table.current_energy = lua_table.current_energy - lua_table.light_cost
+		--end
 
 		SaveDirection()
 
@@ -971,14 +961,15 @@ local function ActionInputs()	--Process Action Inputs
 	elseif lua_table.current_energy >= lua_table.heavy_cost and lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_heavy, key_state.key_down)	--Heavy Input
 	then
 		action_started_at = game_time		--Set timer start mark
-		PushBack(combo_stack, 'H')			--Add new input to stack
+		--PushBack(combo_stack, 'H')			--Add new input to stack
 
-		combo_achieved = TimedAttack(lua_table.heavy_cost)
+		--combo_achieved = TimedAttack(lua_table.heavy_cost)
 
-		if not combo_achieved	--If no combo was achieved with the input, do the attack normally
-		then
+		--if not combo_achieved	--If no combo was achieved with the input, do the attack normally
+		--then
 			RegularAttack("heavy")
-		end
+			lua_table.current_energy = lua_table.current_energy - lua_table.heavy_cost
+		--end
 
 		SaveDirection()
 
@@ -1018,7 +1009,7 @@ local function ActionInputs()	--Process Action Inputs
 		current_action_block_time = lua_table.ability_duration
 		current_action_duration = lua_table.ability_duration
 
-		lua_table.AnimationFunctions:PlayAnimation("ability", lua_table.ability_animation_speed)
+		lua_table.AnimationFunctions:PlayAnimation("guitar_light", lua_table.ability_animation_speed)
 		lua_table.previous_state = lua_table.current_state
 		lua_table.current_state = state.ability
 
@@ -1036,7 +1027,7 @@ local function ActionInputs()	--Process Action Inputs
 		current_action_duration = lua_table.ultimate_duration
 
 		--Do Ultimate
-		lua_table.AnimationFunctions:PlayAnimation("ultimate", lua_table.ultimate_animation_speed)
+		lua_table.AnimationFunctions:PlayAnimation("guitar_heavy", lua_table.ultimate_animation_speed)
 		lua_table.previous_state = lua_table.current_state
 		lua_table.current_state = state.ultimate
 		input_given = true
@@ -1064,9 +1055,9 @@ local function ActionInputs()	--Process Action Inputs
 	then
 		AttackColliderShutdown()
 
-		if not (lua_table.current_state <= state.combo_3 and lua_table.current_state >= state.light_1)	--IF input not attack
+		if not (lua_table.current_state <= state.heavy_2 and lua_table.current_state >= state.light_1)	--IF input not attack
 		then
-			lua_table.ParticlesFunctions:StopParticleEmitter_GO(guitar_GO_UID)	--TODO-Particles: Deactivate Particles on Sword
+			--lua_table.ParticlesFunctions:StopParticleEmitter_GO(guitar_GO_UID)	--TODO-Particles: Deactivate Particles on Sword
 		end
 	end
 
@@ -1157,7 +1148,7 @@ function lua_table:Awake()
 	my_GO_UID = lua_table.GameObjectFunctions:GetMyUID()
 
 	--Get Particle Emitters GO_UID
-	guitar_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt_Sword")
+	--guitar_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Guitar")
 	--geralt_ability_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt_Ability")
 	--geralt_ultimate_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt_Ultimate")
 
@@ -1280,7 +1271,7 @@ function lua_table:Update()
 				then
 					if lua_table.current_state >= state.light_1 and lua_table.current_state <= state.heavy_2	--IF attack finished
 					then
-						lua_table.ParticlesFunctions:StopParticleEmitter_GO(guitar_GO_UID)	--TODO-Particles: Deactivate Particles on Sword
+					--	lua_table.ParticlesFunctions:StopParticleEmitter_GO(guitar_GO_UID)	--TODO-Particles: Deactivate Particles on Sword
 					-- elseif lua_table.current_state == state.ability
 					-- then
 					-- 	lua_table.ParticlesFunctions:StopParticleEmitter_GO(geralt_ultimate_GO_UID)	--TODO-Particles: Deactivate Aard particles on hand
