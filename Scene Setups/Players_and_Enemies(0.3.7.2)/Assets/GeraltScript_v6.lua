@@ -202,6 +202,8 @@ local attack_colliders = {
 	right = { GO_name = "Geralt_Right", GO_UID = 0, active = false }
 }
 
+	--Player Controller: 10/25
+	
 	--Collider Notes (GO X,Y,Z / Coll size X,Y,Z)
 	--Front: 0,20,25 / 20,25,18
 	--Back: 0,20,-20 / 20,25,10
