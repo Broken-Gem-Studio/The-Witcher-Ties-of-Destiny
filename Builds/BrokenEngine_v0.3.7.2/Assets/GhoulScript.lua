@@ -315,42 +315,54 @@ function HandleAttackState()
 	if TimeController == 0
 	then
 		TimePassed = Timer
-		lua_table.AnimationSystem:PlayAnimation("ATTACK_2",30)
+		lua_table.AnimationSystem:PlayAnimation("ATTACK_1",30)
 		--lua_table.SystemFunctions:LOG("----------------------------------------------------------------------------------------------") 
 		TimeController = 1
 	end
 
 	TimeElapse = Timer - TimePassed
-
-	if TimeElapse > 800 -- attack_1_start
+	-----
+	if TimeElapse > 400 and TimeElapse < 800
 	then
-		if TimeElapse > 1000-- attack_1_end
-		then
-			if TimeElapse > 1800 -- attack_2_start
-			then
-				if TimeElapse > 2000 -- attack_2_end and collider == true
-				then
-					--DEACTIVATE COLLIDER 1
-					lua_table.GameObjectFunctions:SetActiveGameObject(attack_colliders.front.GO_UID,false)
-					lua_table.frontColliderActive = false
-				elseif collider == false
-					--ACTIVATE COLLIDER 1
-					lua_table.GameObjectFunctions:SetActiveGameObject(attack_colliders.front.GO_UID,true)
-					lua_table.frontColliderActive = true
-				end
-			elseif collider == true
-				--DEACTIVATE COLLIDER 1
-				lua_table.GameObjectFunctions:SetActiveGameObject(attack_colliders.front.GO_UID,false)
-				lua_table.frontColliderActive = false
-			end
-		elseif collider == false
-			--ACTIVATE COLLIDER 1
-			lua_table.GameObjectFunctions:SetActiveGameObject(attack_colliders.front.GO_UID,true)
-			lua_table.frontColliderActive = true
-		end
+		lua_table.GameObjectFunctions:SetActiveGameObject(attack_colliders.front.GO_UID,true)
+	else 
+		lua_table.GameObjectFunctions:SetActiveGameObject(attack_colliders.front.GO_UID,false)
 	end
+	-----
 
-	if TimeElapse > 3000
+
+    ---------------
+	--if TimeElapse > 800 -- attack_1_start
+	--then
+	--	if TimeElapse > 1000-- attack_1_end
+	--	then
+	--		if TimeElapse > 1800 -- attack_2_start
+	--		then
+	--			if TimeElapse > 2000 and lua_table.frontColliderActive == true-- attack_2_end and collider == true
+	--			then
+	--				--DEACTIVATE COLLIDER 1
+	--				lua_table.GameObjectFunctions:SetActiveGameObject(attack_colliders.front.GO_UID,false)
+	--				lua_table.frontColliderActive = false
+	--			elseif lua_table.frontColliderActive == false
+	--				--ACTIVATE COLLIDER 1
+	--				lua_table.GameObjectFunctions:SetActiveGameObject(attack_colliders.front.GO_UID,true)
+	--				lua_table.frontColliderActive = true
+	--			end
+	--		elseif lua_table.frontColliderActive == true
+	--			--DEACTIVATE COLLIDER 1
+	--			lua_table.GameObjectFunctions:SetActiveGameObject(attack_colliders.front.GO_UID,false)
+	--			lua_table.frontColliderActive = false
+	--		end
+	--	elseif lua_table.frontColliderActive == false
+	--		--ACTIVATE COLLIDER 1
+	--		lua_table.GameObjectFunctions:SetActiveGameObject(attack_colliders.front.GO_UID,true)
+	--		lua_table.frontColliderActive = true
+	--	end
+	--end
+	---------------
+	
+
+	if TimeElapse > 1800
 	then
 		TimeController = 0
 	end
