@@ -249,9 +249,9 @@ lua_table.heavy_2_duration = 1500			--Attack end (return to idle)
 lua_table.heavy_2_animation_speed = 30.0
 
 --Evade		
-lua_table.evade_velocity = 12500.0	--Was 200 before dt
+lua_table.evade_velocity = 5000.0	--Was 200 before dt
 lua_table.evade_cost = 20
-lua_table.evade_duration = 2000
+lua_table.evade_duration = 1600
 
 lua_table.evade_animation_speed = 30.0
 

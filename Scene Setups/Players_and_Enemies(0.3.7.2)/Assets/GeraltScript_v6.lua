@@ -203,7 +203,7 @@ local attack_colliders = {
 }
 
 	--Player Controller: 10/25
-	
+
 	--Collider Notes (GO X,Y,Z / Coll size X,Y,Z)
 	--Front: 0,20,25 / 20,25,18
 	--Back: 0,20,-20 / 20,25,10
@@ -497,16 +497,18 @@ local function GoDefaultState()
 		if lua_table.input_walk_threshold < math.sqrt(mov_input.used_input.x ^ 2 + mov_input.used_input.z ^ 2)
 		then
 			lua_table.AnimationFunctions:PlayAnimation("run", lua_table.run_animation_speed)
-			--lua_table.AudioFunctions:PlayStepSound()	--TODO-AUDIO: Play run sound
+			lua_table.AudioFunctions:PlayAudioEvent("Run_fx")	--TODO-AUDIO: Play run sound
 			lua_table.current_state = state.run
 		else
 			lua_table.AnimationFunctions:PlayAnimation("walk", lua_table.walk_animation_speed)
-			--lua_table.AudioFunctions:PlayStepSound()	--TODO-AUDIO: Play walk sound
+			lua_table.AudioFunctions:PlayAudioEvent("Walk_fx")	--TODO-AUDIO: Play walk sound
 			lua_table.current_state = state.walk
 		end
 	else
 		lua_table.AnimationFunctions:PlayAnimation("idle", lua_table.idle_animation_speed)
-		--lua_table.AudioFunctions:StopStepSound()	--TODO-AUDIO: Stop current sound event
+		--TODO-AUDIO: Stop current sound event
+		lua_table.AudioFunctions:StopAudioEvent("Walk_fx")
+		lua_table.AudioFunctions:StopAudioEvent("Run_fx")
 		lua_table.current_state = state.idle
 		lua_table.ParticlesFunctions:StopParticleEmitter()	--TODO-Particles: Deactivate movement dust particles
 	end
@@ -732,11 +734,11 @@ local function MovementInputs()	--Process Movement Inputs
 			if lua_table.input_walk_threshold < math.sqrt(mov_input.used_input.x ^ 2 + mov_input.used_input.z ^ 2)	--IF great input
 			then
 				lua_table.AnimationFunctions:PlayAnimation("run", lua_table.run_animation_speed)
-				--lua_table.AudioFunctions:PlayStepSound()	--TODO-AUDIO: Play run sound
+				lua_table.AudioFunctions:PlayAudioEvent("Run_fx")	--TODO-AUDIO: Play run sound
 				lua_table.current_state = state.run
 			else																					--IF small input
 				lua_table.AnimationFunctions:PlayAnimation("walk", lua_table.walk_animation_speed)
-				--lua_table.AudioFunctions:PlayStepSound()	--TODO-AUDIO: Play walk sound
+				lua_table.AudioFunctions:PlayAudioEvent("Walk_fx")	--TODO-AUDIO: Play walk sound
 				lua_table.current_state = state.walk
 			end
 
@@ -746,13 +748,13 @@ local function MovementInputs()	--Process Movement Inputs
 		elseif lua_table.current_state == state.walk and lua_table.input_walk_threshold < math.sqrt(mov_input.used_input.x ^ 2 + mov_input.used_input.z ^ 2)	--IF walking and big input
 		then
 			lua_table.AnimationFunctions:PlayAnimation("run", lua_table.run_animation_speed)
-			--lua_table.AudioFunctions:PlayStepSound()	--TODO-AUDIO: Play run sound
+			lua_table.AudioFunctions:PlayAudioEvent("Run_fx")	--TODO-AUDIO: Play run sound
 			lua_table.previous_state = lua_table.current_state
 			lua_table.current_state = state.run
 		elseif lua_table.current_state == state.run and lua_table.input_walk_threshold > math.sqrt(mov_input.used_input.x ^ 2 + mov_input.used_input.z ^ 2)	--IF running and small input
 		then
 			lua_table.AnimationFunctions:PlayAnimation("walk", lua_table.walk_animation_speed)
-			--lua_table.AudioFunctions:PlayStepSound()	--TODO-AUDIO: Play walk sound
+			lua_table.AudioFunctions:PlayAudioEvent("Walk_fx")	--TODO-AUDIO: Play walk sound
 			lua_table.previous_state = lua_table.current_state
 			lua_table.current_state = state.walk
 		end
@@ -773,7 +775,9 @@ local function MovementInputs()	--Process Movement Inputs
 	then
 		--Animation to IDLE
 		lua_table.AnimationFunctions:PlayAnimation("idle", lua_table.idle_animation_speed)
-		--lua_table.AudioFunctions:StopStepSound()	--TODO-AUDIO: Stop current sound event
+		--TODO-AUDIO: Stop current sound event
+		lua_table.AudioFunctions:StopAudioEvent("Walk_fx")
+		lua_table.AudioFunctions:StopAudioEvent("Run_fx")
 		lua_table.ParticlesFunctions:StopParticleEmitter()	--TODO-Particles: Deactivate movement dust particles
 		lua_table.previous_state = lua_table.current_state
 		lua_table.current_state = state.idle
@@ -889,7 +893,7 @@ local function RegularAttack(attack_type)
 			current_action_duration = lua_table[attack_type .. "_3_duration"]		--Set duration of the current action (to return to idle/move)
 
 			lua_table.AnimationFunctions:PlayAnimation(attack_type .. "_3", lua_table[attack_type .. "_3_animation_speed"])
-			--lua_table.AudioFunctions:PlayAttackSound()	--TODO-AUDIO: Play attack_3 sound (light or heavy)
+			lua_table.AudioFunctions:PlayAudioEvent("Attack_3_fx")	--TODO-AUDIO: Play attack_3 sound (light or heavy)
 
 			lua_table.previous_state = lua_table.current_state
 			lua_table.current_state = state[attack_type .. "_3"]
@@ -898,7 +902,7 @@ local function RegularAttack(attack_type)
 			current_action_duration = lua_table[attack_type .. "_1_duration"]		--Set duration of the current action (to return to idle/move)
 
 			lua_table.AnimationFunctions:PlayAnimation(attack_type .. "_1", lua_table[attack_type .. "_1_animation_speed"])
-			--lua_table.AudioFunctions:PlayAttackSound()	--TODO-AUDIO: Play attack_1 sound (light or heavy)
+			lua_table.AudioFunctions:PlayAudioEvent("Attack_1_fx")	--TODO-AUDIO: Play attack_1 sound (light or heavy)
 
 			lua_table.previous_state = lua_table.current_state
 			lua_table.current_state = state[attack_type .. "_1"]
@@ -908,7 +912,7 @@ local function RegularAttack(attack_type)
 		current_action_duration = lua_table[attack_type .. "_2_duration"]		--Set duration of the current action (to return to idle/move)
 
 		lua_table.AnimationFunctions:PlayAnimation(attack_type .. "_2", lua_table[attack_type .. "_2_animation_speed"])
-		--lua_table.AudioFunctions:PlayAttackSound()	--TODO-AUDIO: Play attack_2 sound (light or heavy)
+		lua_table.AudioFunctions:PlayAudioEvent("Attack_2_fx")	--TODO-AUDIO: Play attack_2 sound (light or heavy)
 
 		lua_table.previous_state = lua_table.current_state
 		lua_table.current_state = state[attack_type .. "_2"]
