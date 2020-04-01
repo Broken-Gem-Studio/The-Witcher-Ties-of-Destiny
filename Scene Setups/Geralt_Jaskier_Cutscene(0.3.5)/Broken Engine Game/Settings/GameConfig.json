@@ -1,0 +1,88 @@
+{
+    "Application": {
+        "Organization": "CITM - UPC",
+        "Title": "Broken Engine Game"
+    },
+    "Camera3D": {
+        "MainCamera": "CinematicCamera"
+    },
+    "Input": null,
+    "Physics": {
+        "Layer0": {
+            "0": true,
+            "1": true,
+            "2": true,
+            "3": true,
+            "4": true,
+            "Group": 31,
+            "GroupSize": 5,
+            "Layer": 0,
+            "Name": "Default"
+        },
+        "Layer1": {
+            "0": true,
+            "1": true,
+            "2": true,
+            "3": true,
+            "4": true,
+            "Group": 31,
+            "GroupSize": 5,
+            "Layer": 1,
+            "Name": "Player"
+        },
+        "Layer2": {
+            "0": true,
+            "1": true,
+            "2": true,
+            "3": true,
+            "4": true,
+            "Group": 31,
+            "GroupSize": 5,
+            "Layer": 2,
+            "Name": "Enemy"
+        },
+        "Layer3": {
+            "0": true,
+            "1": true,
+            "2": true,
+            "3": true,
+            "4": true,
+            "Group": 31,
+            "GroupSize": 5,
+            "Layer": 3,
+            "Name": "UI"
+        },
+        "Layer4": {
+            "0": true,
+            "1": true,
+            "2": true,
+            "3": true,
+            "4": true,
+            "Group": 31,
+            "GroupSize": 5,
+            "Layer": 4,
+            "Name": "Ignore Raycast"
+        },
+        "count": 5,
+        "dynamicFriction": 1.0,
+        "gravity": 9.800000190734863,
+        "restitution": 1.0,
+        "staticFriction": 1.0
+    },
+    "Renderer3D": {
+        "VSync": true
+    },
+    "SceneManager": {
+        "MainScene": "Assets/Scenes/DefaultScene.scene"
+    },
+    "Window": {
+        "borderless": false,
+        "fullscreen": false,
+        "fullscreenDesktop": false,
+        "height": 720,
+        "resizable": true,
+        "sceneX": 782.0399780273438,
+        "sceneY": 450.0,
+        "width": 1024
+    }
+}
