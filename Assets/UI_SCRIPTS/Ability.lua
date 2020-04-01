@@ -104,7 +104,7 @@ function lua_table:Update()
     lua_table["System"]:LOG ("VALUE CD2: " .. lua_table.cdP2.ability_cooldown)--LO MISMO PERO PARA EL SEGUNDO PLAYER
 
     --if lua_table["Inputs"]:KeyDown ("A") and used == false
-    if lua_table.cdP1.ability_performed== true and used == false--booleana que utilice carles
+    if lua_table.cdP1.ability_performed == true and used == false--booleana que utilice carles
     then 
         
        AbilityCD(specialID)
@@ -112,7 +112,7 @@ function lua_table:Update()
        used = true 
     end
 
-    if lua_table.cdP1.ability_performed== false and timer - tiempopasado >= (lua_table.cdP1.ability_cooldown / 1000) -- si pasan CD TIME DE SCRIPT CARLES
+    if lua_table.cdP1.ability_performed == false and timer - tiempopasado >= (lua_table.cdP1.ability_cooldown / 1000) -- si pasan CD TIME DE SCRIPT CARLES
     then
 
         AbilityCD(specialCDID)
@@ -121,7 +121,7 @@ function lua_table:Update()
        
     end
 
-    if lua_table.cdP2.used_ability == true and used2 == false--esta fallando por que estamos utilizando el mismo script que el de geralt, cuando jaskier tenga el suyo propio, en teoria de esta manera las dos abilidades no cogeran el input a la vez
+    if lua_table.cdP2.ability_performed == true and used2 == false--esta fallando por que estamos utilizando el mismo script que el de geralt, cuando jaskier tenga el suyo propio, en teoria de esta manera las dos abilidades no cogeran el input a la vez
     then 
         
        AbilityCD(special2ID)
@@ -129,12 +129,12 @@ function lua_table:Update()
        used2 = true 
     end
 
-    if  timer - tiempopasado2 >= (lua_table.cdP2.ability_cooldown / 1000) -- si pasan CD TIME DE SCRIPT CARLES
+    if lua_table.cdP2.ability_performed == false and timer - tiempopasado2 >= (lua_table.cdP2.ability_cooldown / 1000) -- si pasan CD TIME DE SCRIPT CARLES
     then
 
         AbilityCD(specialCD2ID)
         used2 = false
-        lua_table.cdP2.used_ability = false
+        --lua_table.cdP2.used_ability = false
        
     end
 
