@@ -37,13 +37,17 @@ lua_table.PatrolPoint = 0
 
 lua_table.AggroDistance = 150
 
-lua_table.minDistance = 5  
+lua_table.minDistance = 30  
 
 lua_table.MyUID = 0
 
 lua_table.DistanceMagnitude = 0
 
 local RUNcontroller = 0
+
+local TimeController = 0
+
+local TimePassed = 0
 
 lua_table.Nvec3x = 0
 lua_table.Nvec3y = 0
@@ -77,11 +81,11 @@ lua_table.currentState = State.IDL
 ------------------------------------------------------------------------
 
 local function PerfGameTime()
-	return lua_table.DebugFunctions:GameTime() * 1000
+	return lua_table.SystemFunctions:GameTime() * 1000
 end
 
 function Patrol()
-	lua_table.SystemFunctions:LOG("Patrol()")
+	--lua_table.SystemFunctions:LOG("Patrol()")
 	
 	--
 end
@@ -145,18 +149,18 @@ end
 
 function HandleAggro()
 	ret = true 
-	lua_table.SystemFunctions:LOG("Aggro()?")													
+	--lua_table.SystemFunctions:LOG("Aggro()?")													
 	if lua_table.currentTarget == 0 and Players() == true --sin objetivo inicial y existen players
 	then	
 			if lua_table.GeraltDistance < lua_table.AggroDistance  
 			then
 				lua_table.currentTarget = lua_table.Geralt
-				lua_table.SystemFunctions:LOG("GERALT IN AGGRO")
+				--lua_table.SystemFunctions:LOG("GERALT IN AGGRO")
 				return true			
 			elseif lua_table.JaskierDistance < lua_table.AggroDistance  
 			then
 				lua_table.currentTarget = lua_table.Jaskier
-				lua_table.SystemFunctions:LOG("JASKIER IN AGGRO")
+				--lua_table.SystemFunctions:LOG("JASKIER IN AGGRO")
 			else
 				lua_table.SystemFunctions:LOG("NO PLAYERS INSIDE AGGRO DISTANCE")
 				return false
@@ -165,7 +169,7 @@ function HandleAggro()
 	end
 	if ret == true
 	then
-		lua_table.SystemFunctions:LOG("Aggro() - YES")		
+		--lua_table.SystemFunctions:LOG("Aggro() - YES")		
 	end
 	return ret
 end
@@ -177,12 +181,12 @@ function HandleIdleState() --handle if necessary to change idle state to patrol.
     then		
 		if lua_table.Stunned == false
 		then
-			lua_table.SystemFunctions:LOG("Players()?")
+			--lua_table.SystemFunctions:LOG("Players()?")
 			if Players() == true
 			then				
-				lua_table.SystemFunctions:LOG("Players()? - YES")	
+				--lua_table.SystemFunctions:LOG("Players()? - YES")	
 				lua_table.currentState = State.PATROL 
-				lua_table.SystemFunctions:LOG("GhoulScript: New State: PATROL")	
+				--lua_table.SystemFunctions:LOG("GhoulScript: New State: PATROL")	
 			end
 		end
     end
@@ -208,32 +212,30 @@ function HandlePatrolState() -- THIS IS NOT A PATROL ITSELF, IS JUST A LITTLE AR
     lua_table.JaskierDistance =  math.sqrt(JaskierPos_x ^ 2 + JaskierPos_z ^ 2)
     lua_table.GeraltDistance = math.sqrt(GeraltPos_x ^ 2 + GeraltPos_z ^ 2)
 
-	lua_table.SystemFunctions:LOG ("Distance from Jaskier: " .. lua_table.JaskierDistance)
-	lua_table.SystemFunctions:LOG ("Distance from Geralt: " .. lua_table.GeraltDistance)
+	--lua_table.SystemFunctions:LOG ("Distance from Jaskier: " .. lua_table.JaskierDistance)
+	--lua_table.SystemFunctions:LOG ("Distance from Geralt: " .. lua_table.GeraltDistance)
 
 	if HandleAggro() == true
 	then
 		lua_table.currentState = State.SEEK
 		lua_table.AnimationSystem:PlayAnimation("RUN",30)
-		lua_table.SystemFunctions:LOG("GhoulScript: New State: SEEK")
+		--lua_table.SystemFunctions:LOG("GhoulScript: New State: SEEK")
 	end
 
 
    
 end
 
-function HandleAttackState()
 
-end
 
 function HandleSeekState()
-     
+
 end
 
 
 function Seek()
 
-	
+	--lua_table.SystemFunctions:LOG("SEEKKKKKKKKKKKKKK")
 	-- vec3 = x1-xº,y1-yº,z1-zº
 	posX,posY,posZ = lua_table.TransformFunctions:GetPosition()
 
@@ -252,20 +254,68 @@ function Seek()
 	vec3zpow = vec3z * vec3z
 
 	lua_table.DistanceMagnitude = math.sqrt( vec3xpow + vec3zpow) --y not used
-	lua_table.SystemFunctions:LOG ("Target Distance Magnitude: " ..lua_table.DistanceMagnitude)
+	--lua_table.SystemFunctions:LOG ("Target Distance Magnitude: " ..lua_table.DistanceMagnitude)
 
-	if lua_table.DistanceMagnitude > lua_table.minDistance + 3
+	if lua_table.DistanceMagnitude > lua_table.minDistance 
 	then
+		--lua_table.SystemFunctions:LOG ("CALCULATE DIRECTION VECTORS") 
 		lua_table.Nvec3x = vec3x / lua_table.DistanceMagnitude
 		lua_table.Nvec3y = vec3y / lua_table.DistanceMagnitude -- Normalized values
 		lua_table.Nvec3z = vec3z / lua_table.DistanceMagnitude	
-	elseif lua_table.DistanceMagnitude <= lua_table.minDistance
+	elseif lua_table.DistanceMagnitude < lua_table.minDistance
 	then
-		currentState = State.ATTACK
+		lua_table.currentState = State.ATTACK
+		--lua_table.SystemFunctions:LOG ("New state: ATTACK") 		
 	end
 end
 
+function HandleAttackState()
 
+--------------------------CALCULATE DISTANCE MAGNITUDE-----------------
+
+	posX,posY,posZ = lua_table.TransformFunctions:GetPosition()
+
+	tarX = lua_table.GameObjectFunctions:GetGameObjectPosX(lua_table.currentTarget)
+	tarY = lua_table.GameObjectFunctions:GetGameObjectPosY(lua_table.currentTarget)
+	tarZ = lua_table.GameObjectFunctions:GetGameObjectPosZ(lua_table.currentTarget)
+
+	--Now we get the direction vector and then we normalize it and aply a velocity in every component
+
+	vec3x = tarX - posX
+	vec3y = tarY - posY  -- Direction
+	vec3z = tarZ - posZ
+
+	vec3xpow = vec3x * vec3x
+	vec3ypow = vec3y * vec3y -- pre calculus
+	vec3zpow = vec3z * vec3z
+
+	lua_table.DistanceMagnitude = math.sqrt( vec3xpow + vec3zpow) 
+
+	--lua_table.SystemFunctions:LOG("DISTANCE WHEN ATTACK IS:"..lua_table.DistanceMagnitude)
+
+
+	if lua_table.DistanceMagnitude > lua_table.minDistance
+	then
+		lua_table.currentState = State.SEEK
+	end
+	local Timer = PerfGameTime()
+
+	if TimeController == 0
+	then
+		TimePassed = Timer
+		lua_table.AnimationSystem:PlayAnimation("ATTACK_2",30)
+		--lua_table.SystemFunctions:LOG("----------------------------------------------------------------------------------------------") 
+		TimeController = 1
+	end
+
+	TimeElapse = Timer - TimePassed
+
+	if TimeElapse > 3000
+	then
+		TimeController = 0
+	end
+
+end
 
 
 --------------------------------FUNCTIONS END -------------------------
@@ -333,11 +383,12 @@ function lua_table:Update()
 		Seek()
     elseif lua_table.currentState == State.ATTACK
     then    
+		
         HandleAttackState()
     end
 
 
-	if lua_table.DistanceMagnitude > 3.0 and lua_table.currentTarget ~= 0 and lua_table.currentState ~= State.ATTACK
+	if lua_table.DistanceMagnitude > 20 and lua_table.currentTarget ~= 0 and lua_table.currentState ~= State.ATTACK
 	then
 		Speed = 30
 		if RUNcontroller == 0
@@ -348,15 +399,17 @@ function lua_table:Update()
 	else 
 		Speed = 0
 		RUNcontroller = 0
-		--lua_table.AnimationSystem:PlayAnimation("IDLE",30)
 	end
   
-	lua_table.PhysicsSystem:Move(lua_table.Nvec3x*Speed,lua_table.Nvec3z*Speed)
+	if lua_table.currentState == State.SEEK
+	then
+		lua_table.PhysicsSystem:Move(lua_table.Nvec3x*Speed,lua_table.Nvec3z*Speed)
+	end
 
 	if lua_table.currentState == State.SEEK or lua_table.currentState == State.ATTACK
 	then
-
-		lua_table.TransformFunctions:LookAt(lua_table.Nvec3x,lua_table.Nvec3y,lua_table.Nvec3z,true)
+		pos_x, pos_y, pos_z = lua_table.TransformFunctions:GetPosition()
+		lua_table.TransformFunctions:LookAt(pos_x + lua_table.Nvec3x,pos_y,pos_z + lua_table.Nvec3z,true)
 		 --lua_table.TransformFunctions:RotateObject(lua_table.GameObjectFunctions:GetGameObjectPosX(lua_table.currentTarget),lua_table.GameObjectFunctions:GetGameObjectPosY(lua_table.currentTarget),lua_table.GameObjectFunctions:GetGameObjectPosZ(lua_table.currentTarget))
 	end
 
