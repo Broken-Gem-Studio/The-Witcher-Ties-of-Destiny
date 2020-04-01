@@ -6,6 +6,7 @@ lua_table.SystemFunctions = Scripting.System()
 lua_table.GameObjectFunctions = Scripting.GameObject()
 lua_table.TransformFunctions = Scripting.Transform()
 lua_table.PhysicsSystem =  Scripting.Physics()
+lua_table.AnimationSystem = Scripting.Animations()
 -----------------------------------------------------------------------------------------
 -- Inspector Variables
 -----------------------------------------------------------------------------------------
@@ -17,6 +18,8 @@ local State = {
     SEEK = 3,
     ATTACK = 4
 }
+
+local AnimIDLE = "IDLE"
 
 lua_table.Life = 80
 
@@ -32,7 +35,7 @@ lua_table.currentTarget = 0
 
 lua_table.PatrolPoint = 0
 
-lua_table.AggroDistance = 50
+lua_table.AggroDistance = 80
 
 lua_table.minDistance = 5  
 
@@ -218,9 +221,6 @@ end
 
 function HandleAttackState()
 
-
- 
-
 end
 
 function HandleSeekState()
@@ -262,6 +262,24 @@ function Seek()
 	end
 end
 
+function HandleAnimations()
+
+    if lua_table.currentState == State.IDL --and lua_table.Jaskier ~= 0 and lua_table.Geralt ~= 0
+    then
+        
+		lua_table.SystemFunctions:LOG ("ANIMATION IDLE " )
+    elseif lua_table.currentState == State.PATROL
+    then
+        
+    elseif lua_table.currentState == State.SEEK
+    then
+        
+    elseif lua_table.currentState == State.ATTACK
+    then    
+        
+    end
+
+end
 ---------------------------------FUNCTIONS END -------------------------
 ------------------------------------------------------------------------
 
@@ -301,7 +319,10 @@ function lua_table:Awake()
 end
 
 function lua_table:Start()
-    lua_table.SystemFunctions:LOG("A random GhoulScript: START")  
+    lua_table.SystemFunctions:LOG("A random GhoulScript: START") 
+	
+	--lua_table.AnimationSystem.StartAnimation(Lumberjack,30.0)
+
 end
 
 function lua_table:Update()
@@ -327,13 +348,14 @@ function lua_table:Update()
         HandleAttackState()
     end
 
+
 	if lua_table.DistanceMagnitude > 3.0
 	then
 		Speed = 10
 	else 
 		Speed = 0
 	end
---    HandleAnimations()
+    HandleAnimations()
 --    HandleMovement()
 	lua_table.PhysicsSystem:Move(lua_table.Nvec3x*Speed,lua_table.Nvec3z*Speed)
 end
