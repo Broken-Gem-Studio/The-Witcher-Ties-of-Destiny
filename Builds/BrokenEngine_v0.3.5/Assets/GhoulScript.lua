@@ -35,13 +35,15 @@ lua_table.currentTarget = 0
 
 lua_table.PatrolPoint = 0
 
-lua_table.AggroDistance = 80
+lua_table.AggroDistance = 150
 
 lua_table.minDistance = 5  
 
 lua_table.MyUID = 0
 
 lua_table.DistanceMagnitude = 0
+
+local RUNcontroller = 0
 
 lua_table.Nvec3x = 0
 lua_table.Nvec3y = 0
@@ -212,6 +214,7 @@ function HandlePatrolState() -- THIS IS NOT A PATROL ITSELF, IS JUST A LITTLE AR
 	if HandleAggro() == true
 	then
 		lua_table.currentState = State.SEEK
+		lua_table.AnimationSystem:PlayAnimation("RUN",30)
 		lua_table.SystemFunctions:LOG("GhoulScript: New State: SEEK")
 	end
 
@@ -262,25 +265,10 @@ function Seek()
 	end
 end
 
-function HandleAnimations()
 
-    if lua_table.currentState == State.IDL --and lua_table.Jaskier ~= 0 and lua_table.Geralt ~= 0
-    then
-        
-		lua_table.SystemFunctions:LOG ("ANIMATION IDLE " )
-    elseif lua_table.currentState == State.PATROL
-    then
-        
-    elseif lua_table.currentState == State.SEEK
-    then
-        
-    elseif lua_table.currentState == State.ATTACK
-    then    
-        
-    end
 
-end
----------------------------------FUNCTIONS END -------------------------
+
+--------------------------------FUNCTIONS END -------------------------
 ------------------------------------------------------------------------
 
 function lua_table:OnTriggerEnter()	
@@ -309,6 +297,7 @@ function lua_table:Awake()
    end
 
    lua_table.currentState = State.IDL
+   lua_table.AnimationSystem:PlayAnimation("IDLE",30)
    -------------------- GET PLAYERS id END --------------------
 
    --------------------GET MY UID---------------------------
@@ -322,7 +311,6 @@ function lua_table:Start()
     lua_table.SystemFunctions:LOG("A random GhoulScript: START") 
 	
 	--lua_table.AnimationSystem.StartAnimation(Lumberjack,30.0)
-
 end
 
 function lua_table:Update()
@@ -349,15 +337,29 @@ function lua_table:Update()
     end
 
 
-	if lua_table.DistanceMagnitude > 3.0
+	if lua_table.DistanceMagnitude > 3.0 and lua_table.currentTarget ~= 0 and lua_table.currentState ~= State.ATTACK
 	then
-		Speed = 10
+		Speed = 30
+		if RUNcontroller == 0
+		then
+			lua_table.AnimationSystem:PlayAnimation("RUN",30)
+			RUNcontroller = 1
+		end
 	else 
 		Speed = 0
+		RUNcontroller = 0
+		--lua_table.AnimationSystem:PlayAnimation("IDLE",30)
 	end
-    HandleAnimations()
---    HandleMovement()
+  
 	lua_table.PhysicsSystem:Move(lua_table.Nvec3x*Speed,lua_table.Nvec3z*Speed)
+
+	if lua_table.currentState == State.SEEK or lua_table.currentState == State.ATTACK
+	then
+
+		lua_table.TransformFunctions:LookAt(lua_table.Nvec3x,lua_table.Nvec3y,lua_table.Nvec3z,true)
+		 --lua_table.TransformFunctions:RotateObject(lua_table.GameObjectFunctions:GetGameObjectPosX(lua_table.currentTarget),lua_table.GameObjectFunctions:GetGameObjectPosY(lua_table.currentTarget),lua_table.GameObjectFunctions:GetGameObjectPosZ(lua_table.currentTarget))
+	end
+
 end
 
 return lua_table

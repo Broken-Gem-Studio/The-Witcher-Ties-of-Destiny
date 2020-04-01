@@ -491,7 +491,7 @@
             }
         },
         "Name": "jaskier1",
-        "Parent": "1980904183",
+        "Parent": "242647428",
         "Static": false
     },
     "1460639896": {
@@ -571,8 +571,8 @@
                 "rotationy": "0.000117",
                 "rotationz": "-0.000109",
                 "scalex": "1.000000",
-                "scaley": "1.000003",
-                "scalez": "1.000003"
+                "scaley": "1.000020",
+                "scalez": "1.000020"
             },
             "13": {
                 "Active": true,
@@ -1058,7 +1058,7 @@
                 "UID": 246209304,
                 "index": 0,
                 "layer": "0",
-                "positionx": "0.000000",
+                "positionx": "50.559055",
                 "positiony": "8.529516",
                 "positionz": "0.000000",
                 "rotationw": "1.000000",
@@ -1068,6 +1068,150 @@
                 "scalex": "1.000000",
                 "scaley": "1.000000",
                 "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/GhoulScript.lua"
+                },
+                "Script variables": {
+                    "Count": 19,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "Jaskier",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "MaxSpeed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 150.0
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "Geralt",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "GeraltDistance",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "AggroDistance",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 100.0
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "JaskierDistance",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 14": {
+                        "DisplayObjectName": false,
+                        "Name": "Nvec3z",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 15": {
+                        "DisplayObjectName": false,
+                        "Name": "Nvec3y",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 16": {
+                        "DisplayObjectName": false,
+                        "Name": "Nvec3x",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 17": {
+                        "DisplayObjectName": false,
+                        "Name": "SwipeAttack",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 10.0
+                    },
+                    "Variable 18": {
+                        "DisplayObjectName": false,
+                        "Name": "DistanceMagnitude",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "MyUID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "currentTarget",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": false,
+                        "Name": "minDistance",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 5.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": false,
+                        "Name": "PatrolPoint",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": false,
+                        "Name": "Life",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 80.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": false,
+                        "Name": "Stunned",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": false,
+                        "Name": "StuntTime",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 5000.0
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "currentState",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    }
+                },
+                "UID": 142391609,
+                "index": 3
             },
             "14": {
                 "Active": true,
@@ -1130,7 +1274,7 @@
                 "height": "2.000000",
                 "index": 2,
                 "nonWalkableMode": "1",
-                "positionX": "0.000000",
+                "positionX": "50.559055",
                 "positionY": "10.039516",
                 "positionZ": "0.000000",
                 "radius": "0.500000",
@@ -1139,7 +1283,7 @@
             }
         },
         "Name": "Lamberjack",
-        "Parent": "1980904183",
+        "Parent": "242647428",
         "Static": false
     },
     "197429810": {
@@ -1156,9 +1300,9 @@
                 "rotationx": "0.000000",
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
-                "scalex": "195.212387",
+                "scalex": "501.625214",
                 "scaley": "4.700000",
-                "scalez": "126.930046"
+                "scalez": "507.517975"
             },
             "1": {
                 "Active": true,
@@ -1201,9 +1345,9 @@
                 "scalex": "1.000000",
                 "scaley": "1.000000",
                 "scalez": "1.000000",
-                "tmpScalex": "195.212387",
+                "tmpScalex": "501.625214",
                 "tmpScaley": "4.700000",
-                "tmpScalez": "126.930046"
+                "tmpScalez": "507.517975"
             },
             "2": {
                 "Active": true,
@@ -1215,7 +1359,7 @@
             }
         },
         "Name": "ground",
-        "Parent": "1980904183",
+        "Parent": "242647428",
         "Static": false
     },
     "1982171242": {
@@ -1232,8 +1376,8 @@
                 "rotationx": "0.001040",
                 "rotationy": "0.000158",
                 "rotationz": "0.999974",
-                "scalex": "0.999995",
-                "scaley": "0.999995",
+                "scalex": "0.999978",
+                "scaley": "0.999978",
                 "scalez": "1.000000"
             },
             "13": {
@@ -1604,9 +1748,9 @@
                 "UID": 196459102,
                 "index": 0,
                 "layer": "0",
-                "positionx": "-100.392723",
-                "positiony": "27.706577",
-                "positionz": "37.686226",
+                "positionx": "-62.616295",
+                "positiony": "6.742349",
+                "positionz": "-7.420057",
                 "rotationw": "1.000000",
                 "rotationx": "0.000000",
                 "rotationy": "0.000000",
@@ -1632,8 +1776,8 @@
                 "index": 2
             }
         },
-        "Name": "geralt1",
-        "Parent": "1980904183",
+        "Name": "gerardo1",
+        "Parent": "242647428",
         "Static": false
     },
     "458585399": {
@@ -2177,8 +2321,8 @@
                 "rotationx": "-0.000428",
                 "rotationy": "0.009280",
                 "rotationz": "0.999929",
-                "scalex": "0.999995",
-                "scaley": "0.999995",
+                "scalex": "0.999978",
+                "scaley": "0.999978",
                 "scalez": "1.000000"
             },
             "13": {
