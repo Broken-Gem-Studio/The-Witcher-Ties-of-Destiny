@@ -9,6 +9,7 @@ function GetTableExperience()
 
 local experience = 1
 local ID = 0
+local percentage = 30
 
 function LevelUp(id)
 
@@ -36,6 +37,13 @@ function lua_table:Update()
     then 
 
        LevelUp(ID)
+
+    end
+
+    if lua_table["Inputs"]:KeyDown ("D") --simple testeo de progress bar, borrar
+    then
+
+        lua_table["UI"]:SetUIBarPercentage(ID, percentage)
 
     end
 

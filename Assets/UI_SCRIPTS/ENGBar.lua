@@ -9,7 +9,7 @@ function    GetTableENGBar()
 --VARIABLES
 
 
-lua_table.energylocal = energy
+lua_table.energylocal = 0--he cambiado energy por 0, ya que no hacia nada, si peta devolverlo
 local ENGID = 0--ID BARRA ENERGIA INGAME
 
 
@@ -19,17 +19,16 @@ lua_table.engP1 = {}
 
 --FUNCTIONS
 
-function UpdateEnergyBar(id, wasted)
+function UpdateEnergyBar(id, percentage)
 
     local result = 0
 
     if id == ENGID
     then
-        lua_table.energylocal = lua_table.energylocal - wasted--mismo que con hp
-        lua_table["System"]:LOG ("ENG AFTER ACTION: " .. lua_table.energylocal)
-        lua_table["UI"]:SetUIBarPercentage(id, lua_table.energylocal)
+        lua_table["System"]:LOG ("ENG BEFORE PAINTING BAR: " .. percentage)
+        lua_table["UI"]:SetUIBarPercentage(id, percentage)
 
-        result =  lua_table.energylocal
+        result = percentage
         
     end
 
@@ -53,27 +52,23 @@ function lua_table:Start()
     lua_table["System"]:LOG ("This Log was called from ENG Script on START")
     
     lua_table.energylocal = lua_table.engP1.current_energy
-    lua_table["System"]:LOG ("INITIAL ENG BEFORE RECEIVING DAMAGE : " .. lua_table.energylocal)
+    lua_table["System"]:LOG ("INITIAL ENG IN START : " .. lua_table.energylocal)
     
 
 end
 
 function lua_table:Update()
     dt = lua_table["System"]:DT ()
-    
+    lua_table.energylocal = lua_table.engP1.current_energy
+    lua_table["System"]:LOG ("ENG IN UPDATE BEFORE FUNCTION : " .. lua_table.energylocal)
    
     
-        if lua_table["Inputs"]:KeyDown ("D") --we simulate receiving a hit
-        then 
-            if lua_table.energylocal > 0
-            then
-                lua_table.energylocal = UpdateEnergyBar(ENGID, 10)--10% energy
-            end
+        if lua_table.energylocal > 0
+        then
+            lua_table.energylocal = UpdateEnergyBar(ENGID, lua_table.energylocal)
+        end
       
 
-        end    
-
-      
 
 end
 

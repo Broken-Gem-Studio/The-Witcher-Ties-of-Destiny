@@ -22,6 +22,7 @@ local specialCD2ID = 0
 local p2ID = 0
 
 
+
 function AbilityCD(id)
 
     if id == specialID--P1
@@ -67,21 +68,27 @@ end
 
 function lua_table:Awake()
 
-    specialID = lua_table["GameObject"]:FindGameObject("Image","SPECIAL")--exact name of gameobject
-    specialCDID = lua_table["GameObject"]:FindGameObject("Image","SPECIALCD")--exact name of gameobject
-    special2ID = lua_table["GameObject"]:FindGameObject("Image","SPECIAL2")--exact name of gameobject
-    specialCD2ID = lua_table["GameObject"]:FindGameObject("Image","SPECIALCD2")--exact name of gameobject
+    specialID = lua_table["GameObject"]:FindGameObject("SPECIAL")--exact name of gameobject
+    specialCDID = lua_table["GameObject"]:FindGameObject("SPECIALCD")--exact name of gameobject
+    special2ID = lua_table["GameObject"]:FindGameObject("SPECIAL2")--exact name of gameobject
+    specialCD2ID = lua_table["GameObject"]:FindGameObject("SPECIALCD2")--exact name of gameobject
 
+    
     p1ID = lua_table["GameObject"]:FindGameObject("Geralt")
     lua_table.cdP1 = lua_table["GameObject"]:GetScript(p1ID)
 
     p2ID = lua_table["GameObject"]:FindGameObject("Jaskier")
     lua_table.cdP2 = lua_table["GameObject"]:GetScript(p2ID)
 
+
 end
 
 function lua_table:Start()
     
+    if specialCDID == 0
+    then
+    lua_table["System"]:LOG ("FAILED TO FIND")
+    end
     
 
     lua_table["UI"]:MakeElementInvisible(specialCDID, "Image")--imagen del cd de la abilidad en invisible al principio de la escena
@@ -96,7 +103,8 @@ function lua_table:Update()
     lua_table["System"]:LOG ("VALUE CD: " .. lua_table.cdP1.ability_cooldown)--CON ESTO DEMOSTRAMOS QUE ESTAMOS PILLANDO LA VARIABLE CD DE CARLES
     lua_table["System"]:LOG ("VALUE CD2: " .. lua_table.cdP2.ability_cooldown)--LO MISMO PERO PARA EL SEGUNDO PLAYER
 
-    if lua_table["Inputs"]:KeyDown ("A") and used == false
+    --if lua_table["Inputs"]:KeyDown ("A") and used == false
+    if lua_table.cdP1.ability_performed== true and used == false--booleana que utilice carles
     then 
         
        AbilityCD(specialID)
@@ -104,15 +112,16 @@ function lua_table:Update()
        used = true 
     end
 
-    if  timer - tiempopasado >= (lua_table.cdP1.ability_cooldown / 1000) -- si pasan CD TIME DE SCRIPT CARLES
+    if lua_table.cdP1.ability_performed== false and timer - tiempopasado >= (lua_table.cdP1.ability_cooldown / 1000) -- si pasan CD TIME DE SCRIPT CARLES
     then
 
         AbilityCD(specialCDID)
         used = false
+        --lua_table.cdP1.used_ability = false
        
     end
 
-    if lua_table["Inputs"]:KeyDown ("D") and used2 == false
+    if lua_table.cdP2.used_ability == true and used2 == false--esta fallando por que estamos utilizando el mismo script que el de geralt, cuando jaskier tenga el suyo propio, en teoria de esta manera las dos abilidades no cogeran el input a la vez
     then 
         
        AbilityCD(special2ID)
@@ -125,6 +134,7 @@ function lua_table:Update()
 
         AbilityCD(specialCD2ID)
         used2 = false
+        lua_table.cdP2.used_ability = false
        
     end
 
