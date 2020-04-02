@@ -1215,9 +1215,7 @@ function lua_table:Start()
 end
 
 function lua_table:Update()
-
-	lua_table.SystemFunctions:LOG("G_Collider Dmg: " .. lua_table.collider_damage)
-
+	
 	dt = lua_table.SystemFunctions:DT()
 	game_time = PerfGameTime()
 
