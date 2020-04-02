@@ -382,36 +382,32 @@ end
 --------------------------------FUNCTIONS END -------------------------
 ------------------------------------------------------------------------
 
-lua_table.last_layer = -1
-
 function lua_table:OnTriggerEnter()	
 	local collider_GO = lua_table.PhysicsSystem:OnTriggerEnter(lua_table.MyUID)
 
-	lua_table.last_layer = lua_table.GameObjectFunctions:GetLayerByID(collider_GO)
-
 	lua_table.SystemFunctions:LOG("OnTriggerEnter()".. collider_GO)
 
-	if lua_table.currentState ~= State.DEATH and lua_table.GameObjectFunctions:GetLayerByID(collider_GO) == 2 --enemy attack
-	then
-		lua_table.current_health = lua_table.current_health - 50.0
+	lua_table.current_health = lua_table.current_health - 50.0
 
-		-- local collider_parent = lua_table.GameObjectFunctions:GetGameObjectParent(collider_GO)
-		-- local enemy_script = {}
+	-- if lua_table.currentState ~= State.DEATH --and lua_table.GameObjectFunctions:GetLayerByID(collider_GO) == 2 --enemy attack
+	-- then
+	-- 	local collider_parent = lua_table.GameObjectFunctions:GetGameObjectParent(collider_GO)
+	-- 	local enemy_script = {}
 
-		-- if collider_parent ~= 0 
-		-- then
-		-- 	enemy_script = lua_table.GameObjectFunctions:GetScript(collider_parent)
-		-- else
-		-- 	enemy_script = lua_table.GameObjectFunctions:GetScript(collider_GO)
-		-- end
+	-- 	if collider_parent ~= 0 
+	-- 	then
+	-- 		enemy_script = lua_table.GameObjectFunctions:GetScript(collider_parent)
+	-- 	else
+	-- 		enemy_script = lua_table.GameObjectFunctions:GetScript(collider_GO)
+	-- 	end
 
-		-- --lua_table.current_health = lua_table.current_health - enemy_script.collider_damage
+	-- 	lua_table.current_health = lua_table.current_health - enemy_script.collider_damage
 
-		-- if enemy_script.collider_effect ~= 0
-		-- then
-		-- 	--todo react to effect
-		-- end
-	end
+	-- 	if enemy_script.collider_effect ~= 0
+	-- 	then
+	-- 		--todo react to effect
+	-- 	end
+	-- end
 end
 
 function lua_table:OnCollisionEnter()
@@ -452,18 +448,6 @@ function lua_table:Start()
 end
 
 function lua_table:Update()
- 
-	if lua_table.MyUID ~= nil
-	then
-		lua_table.SystemFunctions:LOG("ENEMY UID: " .. lua_table.MyUID)
-	end
-
-	if lua_table.last_layer ~= nil
-	then
-		lua_table.SystemFunctions:LOG("ENEMY LAST LAYER: " .. lua_table.last_layer)
-	end
-
-	lua_table.SystemFunctions:LOG("ENEMY HEALTH: " .. lua_table.current_health) 
 
 	if lua_table.current_health <= 0
 	then 
