@@ -98,9 +98,9 @@ function lua_table:OnTriggerEnter()
 	local collider = lua_table.PhysicsFunctions:OnTriggerEnter(lua_table.myUID)
 	lua_table.SystemFunctions:LOG("T:" .. collider)
 
-	local layer = lua_table.GameObjectFunctions:GetLayerByID(collider)
-	if layer == 2 or layer == 4 --Checks if its player/enemy attack collider layer
-	then
+	-- local layer = lua_table.GameObjectFunctions:GetLayerByID(collider)
+	-- if layer == 2 or layer == 4 --Checks if its player/enemy attack collider layer
+	-- then
 
 		-- local parent_UID = lua_table.GameObjectFunctions:GetGameObjectParent(collider)
 		-- local parent_script = lua_table.GameObjectFunctions:GetScript(parent_UID)
@@ -126,7 +126,7 @@ function lua_table:OnTriggerEnter()
 				current_state = state.DESTROYED
 			end
 		end
-	end
+	-- end
 end
 
 function lua_table:OnCollisionEnter() -- NOT FINISHED
