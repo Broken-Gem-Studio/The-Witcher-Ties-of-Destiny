@@ -10,6 +10,7 @@ lua_table.AnimationFunctions = Scripting.Animations()
 lua_table.InterfaceFunctions = Scripting.Interface()
 lua_table.SceneFunctions = Scripting.Scenes()
 lua_table.InputFunctions = Scripting.Inputs()
+lua_table.CameraFunctions = Scripting.Camera()
 
 --LEGACY NAMESPACES
 --lua_table.DebugFunctions = Scripting.Debug()
@@ -327,7 +328,7 @@ lua_table.ultimate_health_reg_increase = 0.2
 lua_table.ultimate_energy_reg_increase = 1.0	--These numbers + to their correspondant "_mod" values and stats are calculated again
 lua_table.ultimate_damage_mod_increase = 1.0
 
-local ultimate_active = false
+lua_table.ultimate_active = false
 
 --Revive/Death
 lua_table.revive_time = 5000	-- Time to revive
@@ -508,7 +509,7 @@ local function GoDefaultState()
 		lua_table.AudioFunctions:StopAudioEvent("Walk_fx")
 		lua_table.AudioFunctions:StopAudioEvent("Run_fx")
 		lua_table.current_state = state.idle
-		lua_table.ParticlesFunctions:StopParticleEmitter()	--TODO-Particles: Deactivate movement dust particles
+		lua_table.ParticlesFunctions:StopParticleEmitter(my_GO_UID)	--TODO-Particles: Deactivate movement dust particles
 	end
 	
 	rightside = true
@@ -678,15 +679,12 @@ end
 
 local function CheckCameraBounds()	--Check if we're currently outside the camera's bounds
 	--1. Get all necessary data
-	local pos_x, pos_y, pos_z = lua_table.TransformFunctions:GetPosition()
-	local side_top, side_bottom, side_left, side_right
-	side_top = lua_table.GameObjectFunctions:GetTopFrustumIntersection(pos_x, pos_y, pos_z, camera_bounds_ratio)
-	side_bottom = lua_table.GameObjectFunctions:GetBottomFrustumIntersection(pos_x, pos_y, pos_z, camera_bounds_ratio)
-	side_left = lua_table.GameObjectFunctions:GetLeftFrustumIntersection(pos_x, pos_y, pos_z, camera_bounds_ratio)
-	side_right = lua_table.GameObjectFunctions:GetRightFrustumIntersection(pos_x, pos_y, pos_z, camera_bounds_ratio)
+	local position = lua_table.TransformFunctions:GetPosition(my_GO_UID)
+	local sides = lua_table.CameraFunctions:GetFrustumPlanesIntersection(position[1], position[2], position[3], camera_bounds_ratio)
+	-- { Top, Bot, Left, Right }
 	-- 0 == outside, 1 == inside
 
-	--lua_table.SystemFunctions:LOG("Cam Planes: " .. side_top .. "_" .. side_bottom .. "_" .. side_left .. "_" .. side_right)
+	--lua_table.SystemFunctions:LOG("Cam Planes: " .. sides[1] .. "_" .. sides[2] .. "_" .. sides[3] .. "_" .. sides[4])
 
 	--2. Restart camera bounds values
 	bounds_vector.x = 0
@@ -695,18 +693,18 @@ local function CheckCameraBounds()	--Check if we're currently outside the camera
 
 	--3. Generate a vector and change angle depending on planes that we're traspassing (1 plane = 90º, 2 planes = 45º)
 	--3.1. Check down/up
-	if side_bottom == 0 then
+	if sides[2] == 0 then
 		bounds_vector.z = -1
-	elseif side_top == 0 then
+	elseif sides[1] == 0 then
 		bounds_vector.z = 1
 	else
 		--bounds_angle = bounds_angle + 45
 	end
 
 	--3.2. Check left/right
-	if side_left == 0 then
+	if sides[3] == 0 then
 		bounds_vector.x = 1
-	elseif side_right == 0 then
+	elseif sides[4] == 0 then
 		bounds_vector.x = -1
 	else
 		--bounds_angle = bounds_angle + 45
@@ -740,7 +738,7 @@ local function MovementInputs()	--Process Movement Inputs
 				lua_table.current_state = state.walk
 			end
 
-			lua_table.ParticlesFunctions:PlayParticleEmitter()	--TODO-Particles: Activate movement dust particles
+			lua_table.ParticlesFunctions:PlayParticleEmitter(my_GO_UID)	--TODO-Particles: Activate movement dust particles
 
 		--Swap between walking and running
 		elseif lua_table.current_state == state.walk and lua_table.input_walk_threshold < math.sqrt(mov_input.used_input.x ^ 2 + mov_input.used_input.z ^ 2)	--IF walking and big input
@@ -761,8 +759,8 @@ local function MovementInputs()	--Process Movement Inputs
 		mov_speed.x = mov_speed_max_real * mov_input.used_input.x	--Joystick input directly translates to speed, no acceleration
 		mov_speed.z = mov_speed_max_real * mov_input.used_input.z
 
-		pos_x, pos_y, pos_z = lua_table.TransformFunctions:GetPosition()	--Rotate to velocity direction
-		lua_table.TransformFunctions:LookAt(pos_x + mov_speed.x, pos_y, pos_z + mov_speed.z)
+		local position = lua_table.TransformFunctions:GetPosition(my_GO_UID)	--Rotate to velocity direction
+		lua_table.TransformFunctions:LookAt(position[1] + mov_speed.x, position[2], position[3] + mov_speed.z)
 
 		if DirectionInBounds()	--Only allow movement if camera bounds allows it
 		then
@@ -776,7 +774,7 @@ local function MovementInputs()	--Process Movement Inputs
 		--TODO-AUDIO: Stop current sound event
 		lua_table.AudioFunctions:StopAudioEvent("Walk_fx")
 		lua_table.AudioFunctions:StopAudioEvent("Run_fx")
-		lua_table.ParticlesFunctions:StopParticleEmitter()	--TODO-Particles: Deactivate movement dust particles
+		lua_table.ParticlesFunctions:StopParticleEmitter(my_GO_UID)	--TODO-Particles: Deactivate movement dust particles
 		lua_table.previous_state = lua_table.current_state
 		lua_table.current_state = state.idle
 	end
@@ -871,8 +869,8 @@ local function TimedAttack(attack_cost)
 		lua_table.current_energy = lua_table.current_energy - attack_cost
 	end
 
-	lua_table.ParticlesFunctions:StopParticleEmitter()				--TODO-Particles: Deactivate movement dust particles
-	lua_table.ParticlesFunctions:PlayParticleEmitter_GO(sword_GO_UID)	--TODO-Particles: Turn on particles on Sword
+	lua_table.ParticlesFunctions:StopParticleEmitter(my_GO_UID)				--TODO-Particles: Deactivate movement dust particles
+	lua_table.ParticlesFunctions:PlayParticleEmitter(sword_GO_UID)	--TODO-Particles: Turn on particles on Sword
 
 	return combo_achieved
 end
@@ -922,8 +920,8 @@ end
 
 local function AardPush()
 	--1. Collect colliders of all enemies inside a radius
-	local geralt_pos_x, geralt_pos_y, geralt_pos_z = lua_table.TransformFunctions:GetPosition()
-	local enemy_list = lua_table.PhysicsFunctions:OverlapSphere(geralt_pos_x, geralt_pos_y, geralt_pos_z, lua_table.ability_range, layers.enemy)
+	local geralt_pos = lua_table.TransformFunctions:GetPosition(my_GO_UID)
+	local enemy_list = lua_table.PhysicsFunctions:OverlapSphere(geralt_pos[1], geralt_pos[2], geralt_pos[3], lua_table.ability_range, layers.enemy)
 
 	--2. Transform ability trapezoid to Geralt's current rotation
 	SaveDirection()
@@ -933,23 +931,22 @@ local function AardPush()
 	local D_z, D_x = BidimensionalRotate(ability_trapezoid.point_D.z, ability_trapezoid.point_D.x, rot_y)
 
 	--3. Translate the local trapezoid positions to global coordinates
-	A_x, A_z = A_x + geralt_pos_x, A_z + geralt_pos_z
-	B_x, B_z = B_x + geralt_pos_x, B_z + geralt_pos_z
-	C_x, C_z = C_x + geralt_pos_x, C_z + geralt_pos_z
-	D_x, D_z = D_x + geralt_pos_x, D_z + geralt_pos_z
+	A_x, A_z = A_x + geralt_pos[1], A_z + geralt_pos[3]
+	B_x, B_z = B_x + geralt_pos[1], B_z + geralt_pos[3]
+	C_x, C_z = C_x + geralt_pos[1], C_z + geralt_pos[3]
+	D_x, D_z = D_x + geralt_pos[1], D_z + geralt_pos[3]
 
 	--4. We must check that the enemy is inside the AoE
 	for i = 1, #enemy_list do
-		local enemy_pos_x = lua_table.GameObjectFunctions:GetGameObjectPosX(enemy_list[i])
-		local enemy_pos_z = lua_table.GameObjectFunctions:GetGameObjectPosZ(enemy_list[i])
+		local enemy_pos = lua_table.TransformFunctions:GetPosition(enemy_list[i])
 
-		if BidimensionalPointInVectorSide(B_x, B_z, C_x, C_z, enemy_pos_x, enemy_pos_z) < 0	--If left side of all the trapezoid vectors BC, CD, DA ( \_/ )
-		and BidimensionalPointInVectorSide(C_x, C_z, D_x, D_z, enemy_pos_x, enemy_pos_z) < 0
-		and BidimensionalPointInVectorSide(D_x, D_z, A_x, A_z, enemy_pos_x, enemy_pos_z) < 0
+		if BidimensionalPointInVectorSide(B_x, B_z, C_x, C_z, enemy_pos[1], enemy_pos[3]) < 0	--If left side of all the trapezoid vectors BC, CD, DA ( \_/ )
+		and BidimensionalPointInVectorSide(C_x, C_z, D_x, D_z, enemy_pos[1], enemy_pos[3]) < 0
+		and BidimensionalPointInVectorSide(D_x, D_z, A_x, A_z, enemy_pos[1], enemy_pos[3]) < 0
 		then
-			local direction_x, direction_z = enemy_pos_x - geralt_pos_x, enemy_pos_z - geralt_pos_z	--4.1. If inside, find direction Geralt->Enemy and apply velocity in that direction
+			local direction_x, direction_z = enemy_pos[1] - geralt_pos[1], enemy_pos[3] - geralt_pos[3]	--4.1. If inside, find direction Geralt->Enemy and apply velocity in that direction
 			local magnitude = math.sqrt(direction_x ^ 2 + direction_z ^ 2)
-			lua_table.PhysicsFunctions:MoveGameObject(enemy_list[i], lua_table.ability_push_velocity * direction_x / magnitude * dt, lua_table.ability_push_velocity * direction_z / magnitude * dt)
+			lua_table.PhysicsFunctions:Move(lua_table.ability_push_velocity * direction_x / magnitude * dt, lua_table.ability_push_velocity * direction_z / magnitude * dt, enemy_list[i])
 			--TODO-Ability: Knock down enemy
 		end
 	end
@@ -973,8 +970,8 @@ local function ActionInputs()	--Process Action Inputs
 
 		SaveDirection()
 
-		pos_x, pos_y, pos_z = lua_table.TransformFunctions:GetPosition()	--Rotate to direction
-		lua_table.TransformFunctions:LookAt(pos_x + rec_direction.x, pos_y, pos_z + rec_direction.z)
+		local position = lua_table.TransformFunctions:GetPosition(my_GO_UID)	--Rotate to direction
+		lua_table.TransformFunctions:LookAt(position[1] + rec_direction.x, position[2], position[3] + rec_direction.z)
 
 		input_given = true
 
@@ -992,8 +989,8 @@ local function ActionInputs()	--Process Action Inputs
 
 		SaveDirection()
 
-		pos_x, pos_y, pos_z = lua_table.TransformFunctions:GetPosition()	--Rotate to direction
-		lua_table.TransformFunctions:LookAt(pos_x + rec_direction.x, pos_y, pos_z + rec_direction.z)
+		local position = lua_table.TransformFunctions:GetPosition(my_GO_UID)	--Rotate to direction
+		lua_table.TransformFunctions:LookAt(position[1] + rec_direction.x, position[2], position[3] + rec_direction.z)
 
 		input_given = true
 
@@ -1005,8 +1002,8 @@ local function ActionInputs()	--Process Action Inputs
 
 		SaveDirection()
 
-		pos_x, pos_y, pos_z = lua_table.TransformFunctions:GetPosition()	--Rotate to direction
-		lua_table.TransformFunctions:LookAt(pos_x + rec_direction.x, pos_y, pos_z + rec_direction.z)
+		local position = lua_table.TransformFunctions:GetPosition(my_GO_UID)	--Rotate to direction
+		lua_table.TransformFunctions:LookAt(position[1] + rec_direction.x, position[2], position[3] + rec_direction.z)
 
 		lua_table.AnimationFunctions:PlayAnimation("evade", lua_table.evade_animation_speed)
 		lua_table.previous_state = lua_table.current_state
@@ -1014,7 +1011,7 @@ local function ActionInputs()	--Process Action Inputs
 		
 		lua_table.current_energy = lua_table.current_energy - lua_table.evade_cost
 
-		lua_table.ParticlesFunctions:PlayParticleEmitter()	--TODO-Particles: Activate movement dust particles
+		lua_table.ParticlesFunctions:PlayParticleEmitter(my_GO_UID)	--TODO-Particles: Activate movement dust particles
 
 		input_given = true
 		
@@ -1076,7 +1073,7 @@ local function ActionInputs()	--Process Action Inputs
 
 		if not (lua_table.current_state <= state.combo_3 and lua_table.current_state >= state.light_1)	--IF input not attack
 		then
-			lua_table.ParticlesFunctions:StopParticleEmitter_GO(sword_GO_UID)	--TODO-Particles: Deactivate Particles on Sword
+			lua_table.ParticlesFunctions:StopParticleEmitter(sword_GO_UID)	--TODO-Particles: Deactivate Particles on Sword
 		end
 	end
 
@@ -1092,13 +1089,13 @@ local function UltimateState(active)
 	lua_table.base_damage_mod = lua_table.base_damage_mod + lua_table.ultimate_damage_mod_increase * ultimate_stat_mod
 
 	if active then
-		lua_table.ParticlesFunctions:PlayParticleEmitter_GO(geralt_ultimate_GO_UID)	--TODO-Particles: Activate ultimate particles
+		lua_table.ParticlesFunctions:PlayParticleEmitter(geralt_ultimate_GO_UID)	--TODO-Particles: Activate ultimate particles
 	else
-		lua_table.ParticlesFunctions:StopParticleEmitter_GO(geralt_ultimate_GO_UID)	--TODO-Particles: Deactivate ultimate particles
+		lua_table.ParticlesFunctions:StopParticleEmitter(geralt_ultimate_GO_UID)	--TODO-Particles: Deactivate ultimate particles
 	end
 
 	must_update_stats = true
-	ultimate_active = active
+	lua_table.ultimate_active = active
 end
 
 --Character Actions END	----------------------------------------------------------------------------
@@ -1186,10 +1183,10 @@ function lua_table:Awake()
 	geralt_ultimate_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt_Ultimate")
 
 	--Stop Particle Emitters
-	lua_table.ParticlesFunctions:StopParticleEmitter()
-	lua_table.ParticlesFunctions:StopParticleEmitter_GO(sword_GO_UID)			--TODO-Particles: Uncomment when ready
-	lua_table.ParticlesFunctions:StopParticleEmitter_GO(geralt_ability_GO_UID)	--TODO-Particles: Uncomment when ready
-	lua_table.ParticlesFunctions:StopParticleEmitter_GO(geralt_ultimate_GO_UID)	--TODO-Particles: Uncomment when ready
+	lua_table.ParticlesFunctions:StopParticleEmitter(my_GO_UID)
+	lua_table.ParticlesFunctions:StopParticleEmitter(sword_GO_UID)			--TODO-Particles: Uncomment when ready
+	lua_table.ParticlesFunctions:StopParticleEmitter(geralt_ability_GO_UID)	--TODO-Particles: Uncomment when ready
+	lua_table.ParticlesFunctions:StopParticleEmitter(geralt_ultimate_GO_UID)	--TODO-Particles: Uncomment when ready
 
 	--Get attack_colliders GO_UIDs by name
 	attack_colliders.front.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.front.GO_name)
@@ -1197,7 +1194,7 @@ function lua_table:Awake()
 	attack_colliders.left.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.left.GO_name)
 	attack_colliders.right.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.right.GO_name)
 
-	camera_bounds_ratio = lua_table.GameObjectFunctions:GetScript(lua_table.GameObjectFunctions:FindGameObject("Camera")).Layer_3_FOV_ratio_1
+	--camera_bounds_ratio = lua_table.GameObjectFunctions:GetScript(lua_table.GameObjectFunctions:FindGameObject("Camera")).Layer_3_FOV_ratio_1	--TODO: Uncomment when camera fixed
 
 	lua_table.max_health_real = lua_table.max_health_orig	--Necessary for the first CalculateStats()
 	CalculateStats()	--Calculate stats based on orig values + modifier
@@ -1215,7 +1212,7 @@ function lua_table:Start()
 end
 
 function lua_table:Update()
-	
+
 	dt = lua_table.SystemFunctions:DT()
 	game_time = PerfGameTime()
 
@@ -1229,10 +1226,10 @@ function lua_table:Update()
 		if lua_table.current_energy < lua_table.max_energy_real then lua_table.current_energy = lua_table.current_energy + energy_reg_real * dt end	--IF can increase, increase energy
 		if lua_table.current_energy > lua_table.max_energy_real then lua_table.current_energy = lua_table.max_energy_real end						--IF above max, set to max
 		
-		if not ultimate_active	--IF ultimate offline
+		if not lua_table.ultimate_active	--IF ultimate offline
 		then
 			--Ultimate Regeneration
-			if lua_table.current_ultimate < lua_table.max_ultimate then lua_table.current_ultimate = lua_table.current_ultimate + ultimate_reg_real * dt end	--IF can increase, increase ultimate
+			if lua_table.current_ultimate < lua_table.max_ultimate then lua_table.current_ultimate = lua_table.current_ultimate + 1 * dt end	--IF can increase, increase ultimate
 			if lua_table.current_ultimate > lua_table.max_ultimate then lua_table.current_ultimate = lua_table.max_ultimate end									--IF above max, set to max
 		end
 
@@ -1251,7 +1248,7 @@ function lua_table:Update()
 			lua_table.previous_state = lua_table.current_state
 			lua_table.current_state = state.down
 
-			if ultimate_active then UltimateState(false) end	--IF ultimate on, go off
+			if lua_table.ultimate_active then UltimateState(false) end	--IF ultimate on, go off
 			AttackColliderShutdown()							--IF any attack colliders on, turn off
 		else
 			--DEBUG
@@ -1268,7 +1265,7 @@ function lua_table:Update()
 				if lua_table.current_health > lua_table.max_health_real then lua_table.current_health = lua_table.max_health_real end						--IF above max, set to max
 			end
 
-			if ultimate_active and game_time - ultimate_effect_started_at >= lua_table.ultimate_effect_duration	--IF ultimate online and time up!
+			if lua_table.ultimate_active and game_time - ultimate_effect_started_at >= lua_table.ultimate_effect_duration	--IF ultimate online and time up!
 			then
 				UltimateState(false)	--Ultimate turn off (stats back to normal)
 			end
@@ -1294,7 +1291,7 @@ function lua_table:Update()
 			else	--ELSE (action being performed)
 				time_since_action = game_time - action_started_at
 
-				if lua_table.current_state == state.ultimate and not ultimate_active and time_since_action > lua_table.ultimate_scream_start	--IF ultimate state, ultimate unactive, and scream started
+				if lua_table.current_state == state.ultimate and not lua_table.ultimate_active and time_since_action > lua_table.ultimate_scream_start	--IF ultimate state, ultimate unactive, and scream started
 				then
 					UltimateState(true)	--Ultimate turn on (boost stats)
 
@@ -1306,10 +1303,10 @@ function lua_table:Update()
 				then
 					if lua_table.current_state >= state.light_1 and lua_table.current_state <= state.combo_3	--IF attack finished
 					then
-						lua_table.ParticlesFunctions:StopParticleEmitter_GO(sword_GO_UID)	--TODO-Particles: Deactivate Particles on Sword
+						lua_table.ParticlesFunctions:StopParticleEmitter(sword_GO_UID)	--TODO-Particles: Deactivate Particles on Sword
 					elseif lua_table.current_state == state.ability
 					then
-						lua_table.ParticlesFunctions:StopParticleEmitter_GO(geralt_ultimate_GO_UID)	--TODO-Particles: Deactivate Aard particles on hand
+						lua_table.ParticlesFunctions:StopParticleEmitter(geralt_ultimate_GO_UID)	--TODO-Particles: Deactivate Aard particles on hand
 					end
 
 					GoDefaultState()	--Return to move or idle
@@ -1317,7 +1314,7 @@ function lua_table:Update()
 				elseif lua_table.current_state == state.ability and not lua_table.ability_performed and time_since_action > lua_table.ability_start
 				then
 					AardPush()	--TODO: Uncomment when it works
-					lua_table.ParticlesFunctions:PlayParticleEmitter_GO(geralt_ultimate_GO_UID)	--TODO-Particles: Activate Aard particles on hand
+					lua_table.ParticlesFunctions:PlayParticleEmitter(geralt_ultimate_GO_UID)	--TODO-Particles: Activate Aard particles on hand
 					lua_table.current_energy = lua_table.current_energy - lua_table.ability_cost
 					lua_table.ability_performed = true
 
@@ -1433,11 +1430,11 @@ function lua_table:Update()
 	--lua_table.SystemFunctions:LOG("Damage Mod: " .. lua_table.base_damage_mod)
 
 	--Trapezoid Global BEGIN
-	-- local geralt_pos_x, geralt_pos_y, geralt_pos_z = lua_table.TransformFunctions:GetPosition()
-	-- local A_x, A_z = ability_trapezoid.point_A.x + geralt_pos_x, ability_trapezoid.point_A.z + geralt_pos_z
-	-- local B_x, B_z = ability_trapezoid.point_B.x + geralt_pos_x, ability_trapezoid.point_B.z + geralt_pos_z
-	-- local C_x, C_z = ability_trapezoid.point_C.x + geralt_pos_x, ability_trapezoid.point_C.z + geralt_pos_z
-	-- local D_x, D_z = ability_trapezoid.point_D.x + geralt_pos_x, ability_trapezoid.point_D.z + geralt_pos_z
+	-- local geralt_pos = lua_table.TransformFunctions:GetPosition(my_GO_UID)
+	-- local A_x, A_z = ability_trapezoid.point_A.x + geralt_pos[1], ability_trapezoid.point_A.z + geralt_pos[3]
+	-- local B_x, B_z = ability_trapezoid.point_B.x + geralt_pos[1], ability_trapezoid.point_B.z + geralt_pos[3]
+	-- local C_x, C_z = ability_trapezoid.point_C.x + geralt_pos[1], ability_trapezoid.point_C.z + geralt_pos[3]
+	-- local D_x, D_z = ability_trapezoid.point_D.x + geralt_pos[1], ability_trapezoid.point_D.z + geralt_pos[3]
 
 	-- lua_table.SystemFunctions:LOG("Ability Trapezoid: " .. ability_trapezoid.point_A.x .. "," .. ability_trapezoid.point_A.z .. " / " .. ability_trapezoid.point_B.x .. "," .. ability_trapezoid.point_B.z .. " / " .. ability_trapezoid.point_C.x .. "," .. ability_trapezoid.point_C.z .. " / " .. ability_trapezoid.point_D.x .. "," .. ability_trapezoid.point_D.z)
 	-- lua_table.SystemFunctions:LOG("Real Trapezoid: " .. A_x .. "," .. A_z .. " / " .. B_x .. "," .. B_z .. " / " .. C_x .. "," .. C_z .. " / " .. D_x .. "," .. D_z)
@@ -1446,7 +1443,7 @@ function lua_table:Update()
 	-- local target_x = lua_table.GameObjectFunctions:GetGameObjectPosX(target)
 	-- local target_z = lua_table.GameObjectFunctions:GetGameObjectPosZ(target)
 
-	-- if math.sqrt((target_x - geralt_pos_x) ^ 2 + (target_z - geralt_pos_z) ^ 2) <= lua_table.ability_range	--IF on the left side of all vectors + within the OverlapSphere = inside AoE
+	-- if math.sqrt((target_x - geralt_pos[1]) ^ 2 + (target_z - geralt_pos[3]) ^ 2) <= lua_table.ability_range	--IF on the left side of all vectors + within the OverlapSphere = inside AoE
 	-- and BidimensionalPointInVectorSide(B_x, B_z, C_x, C_z, target_x, target_z) < 0
 	-- and BidimensionalPointInVectorSide(C_x, C_z, D_x, D_z, target_x, target_z) < 0
 	-- and BidimensionalPointInVectorSide(D_x, D_z, A_x, A_z, target_x, target_z) < 0
@@ -1458,7 +1455,7 @@ function lua_table:Update()
 	--Trapezoid Global END
 
 	--Trapezoid Local BEGIN
-	-- local geralt_pos_x, geralt_pos_y, geralt_pos_z = lua_table.TransformFunctions:GetPosition()
+	-- local geralt_pos = lua_table.TransformFunctions:GetPosition(my_GO_UID)
 	-- local A_x, A_z = ability_trapezoid.point_A.x, ability_trapezoid.point_A.z
 	-- local B_x, B_z = ability_trapezoid.point_B.x, ability_trapezoid.point_B.z
 	-- local C_x, C_z = ability_trapezoid.point_C.x, ability_trapezoid.point_C.z
@@ -1467,17 +1464,17 @@ function lua_table:Update()
 	-- lua_table.SystemFunctions:LOG("Ability Trapezoid: " .. ability_trapezoid.point_A.x .. "," .. ability_trapezoid.point_A.z .. " / " .. ability_trapezoid.point_B.x .. "," .. ability_trapezoid.point_B.z .. " / " .. ability_trapezoid.point_C.x .. "," .. ability_trapezoid.point_C.z .. " / " .. ability_trapezoid.point_D.x .. "," .. ability_trapezoid.point_D.z)
 	-- lua_table.SystemFunctions:LOG("Real Trapezoid: " .. A_x .. "," .. A_z .. " / " .. B_x .. "," .. B_z .. " / " .. C_x .. "," .. C_z .. " / " .. D_x .. "," .. D_z)
 
-	-- if BidimensionalPointInVectorSide(A_x, A_z, B_x, B_z, geralt_pos_x, geralt_pos_z) < 0	--IF on the left side of all vectors + within the OverlapSphere = inside AoE
-	-- and BidimensionalPointInVectorSide(B_x, B_z, C_x, C_z, geralt_pos_x, geralt_pos_z) < 0
-	-- and BidimensionalPointInVectorSide(C_x, C_z, D_x, D_z, geralt_pos_x, geralt_pos_z) < 0
-	-- and BidimensionalPointInVectorSide(D_x, D_z, A_x, A_z, geralt_pos_x, geralt_pos_z) < 0
-	-- --if geralt_pos_x > A_x and geralt_pos_x < B_x and geralt_pos_z > C_z and geralt_pos_z < A_z
+	-- if BidimensionalPointInVectorSide(A_x, A_z, B_x, B_z, geralt_pos[1], geralt_pos[3]) < 0	--IF on the left side of all vectors + within the OverlapSphere = inside AoE
+	-- and BidimensionalPointInVectorSide(B_x, B_z, C_x, C_z, geralt_pos[1], geralt_pos[3]) < 0
+	-- and BidimensionalPointInVectorSide(C_x, C_z, D_x, D_z, geralt_pos[1], geralt_pos[3]) < 0
+	-- and BidimensionalPointInVectorSide(D_x, D_z, A_x, A_z, geralt_pos[1], geralt_pos[3]) < 0
+	-- --if geralt_pos[1] > A_x and geralt_pos[1] < B_x and geralt_pos[3] > C_z and geralt_pos[3] < A_z
 	-- then
 	-- 	lua_table.SystemFunctions:LOG("TARGET INSIDE")
 	-- else
 	-- 	lua_table.SystemFunctions:LOG("TARGET OUTSIDE")
 	-- end
-	-- lua_table.SystemFunctions:LOG("G_x: " .. geralt_pos_x .. ", G_z: " .. geralt_pos_z)
+	-- lua_table.SystemFunctions:LOG("G_x: " .. geralt_pos[1] .. ", G_z: " .. geralt_pos[3])
 	--Trapezoid Local END
 
 	--GameObject Find BEGIN
