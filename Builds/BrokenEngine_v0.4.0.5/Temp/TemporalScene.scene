@@ -287,6 +287,51 @@
         "Parent": "163624485",
         "Static": false
     },
+    "1447221688": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1383390302,
+                "index": 0,
+                "layer": "0",
+                "positionx": "92.015518",
+                "positiony": "8.880535",
+                "positionz": "154.419983",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "5.359200",
+                "scaley": "5.359200",
+                "scalez": "5.359200"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2.mesh"
+                    }
+                },
+                "UID": 522131239,
+                "index": 1
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "DefaultMaterial"
+                    }
+                },
+                "UID": 843297650,
+                "index": 2
+            }
+        },
+        "Index": 3,
+        "Name": "Jaskier",
+        "Parent": "-1",
+        "Static": false
+    },
     "1448594732": {
         "Active": true,
         "Components": {
@@ -510,8 +555,8 @@
                 "rotationy": "0.000117",
                 "rotationz": "-0.000109",
                 "scalex": "1.000000",
-                "scaley": "1.000004",
-                "scalez": "1.000004"
+                "scaley": "1.000005",
+                "scalez": "1.000005"
             },
             "13": {
                 "Active": true,
@@ -901,8 +946,8 @@
                 "rotationx": "-0.000428",
                 "rotationy": "0.009280",
                 "rotationz": "0.999929",
-                "scalex": "0.999994",
-                "scaley": "0.999994",
+                "scalex": "0.999993",
+                "scaley": "0.999993",
                 "scalez": "1.000000"
             },
             "13": {
@@ -1122,8 +1167,8 @@
                 "rotationx": "0.001040",
                 "rotationy": "0.000158",
                 "rotationz": "0.999974",
-                "scalex": "0.999994",
-                "scaley": "0.999994",
+                "scalex": "0.999993",
+                "scaley": "0.999993",
                 "scalez": "1.000000"
             },
             "13": {
@@ -1412,100 +1457,107 @@
                     "ResourceScript": "Assets/Lumberjack_v01.lua"
                 },
                 "Script variables": {
-                    "Count": 13,
+                    "Count": 14,
                     "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "MinDistanceFromPlayer",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 3.0
+                    },
+                    "Variable 1": {
                         "DisplayObjectName": false,
                         "Name": "MaxHealth",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 100.0
                     },
-                    "Variable 1": {
-                        "DisplayObjectName": false,
-                        "Name": "collider_effect",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
                     "Variable 10": {
-                        "DisplayObjectName": false,
-                        "Name": "CurrentSubState",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 11": {
-                        "DisplayObjectName": false,
-                        "Name": "CurrentHealth",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 12": {
-                        "DisplayObjectName": false,
-                        "Name": "CurrentTarget",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 2": {
-                        "DisplayObjectName": false,
-                        "Name": "player_2",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "Jaskier"
-                    },
-                    "Variable 3": {
-                        "DisplayObjectName": false,
-                        "Name": "MaxSpeed",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 150.0
-                    },
-                    "Variable 4": {
-                        "DisplayObjectName": false,
-                        "Name": "CurrentState",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 5": {
                         "DisplayObjectName": false,
                         "Name": "player_1",
                         "ObjectName": "",
                         "Type": "String",
                         "Value": "Geralt"
                     },
-                    "Variable 6": {
+                    "Variable 11": {
                         "DisplayObjectName": false,
                         "Name": "Pos",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
                     },
-                    "Variable 7": {
+                    "Variable 12": {
                         "DisplayObjectName": false,
-                        "Name": "AggroDistance",
+                        "Name": "collider_damage",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 150.0
+                        "Value": 40.0
                     },
-                    "Variable 8": {
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "collider_effect",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "CurrentHealth",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "MaxSpeed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 100.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": false,
+                        "Name": "CurrentTarget",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": false,
+                        "Name": "CurrentState",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": false,
+                        "Name": "CurrentSubState",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 7": {
                         "DisplayObjectName": false,
                         "Name": "CurrentAnim",
                         "ObjectName": "",
                         "Type": "String",
                         "Value": "RUN"
                     },
-                    "Variable 9": {
+                    "Variable 8": {
                         "DisplayObjectName": false,
-                        "Name": "collider_damage",
+                        "Name": "AggroDistance",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 40.0
+                        "Value": 150.0
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "player_2",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Jaskier"
                     }
                 },
-                "UID": 1630431044,
+                "UID": 1012343117,
                 "index": 3
             },
             "14": {
@@ -2230,6 +2282,51 @@
         "Index": 0,
         "Name": "mixamorig:RightHand",
         "Parent": "673672941",
+        "Static": false
+    },
+    "761633669": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 31457725,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "156.428162",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "11.084416",
+                "scaley": "55.728996",
+                "scalez": "11.084416"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2.mesh"
+                    }
+                },
+                "UID": 1832435932,
+                "index": 1
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "DefaultMaterial"
+                    }
+                },
+                "UID": 461004443,
+                "index": 2
+            }
+        },
+        "Index": 2,
+        "Name": "Geralt",
+        "Parent": "-1",
         "Static": false
     },
     "787977830": {
