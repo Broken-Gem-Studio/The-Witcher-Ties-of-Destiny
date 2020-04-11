@@ -86,14 +86,14 @@ function lua_table:Update ()
 	dt = lua_table.SystemFunctions:DT ()
 
 	timer2 = lua_table.SystemFunctions:GameTime()
-	lua_table.SystemFunctions:LOG("Time: " .. timer2 .. "Saved Time: " .. timer)
+	-- lua_table.SystemFunctions:LOG("Time: " .. timer2 .. "Saved Time: " .. timer)
 
 	if lua_table.health <= 0 and current_state == state.DESTROYED
 	then
 		-- HandleDeath()
 		if timer + lua_table.particles_duration/1000 <= timer2
 		then
-			lua_table.SystemFunctions:LOG("SHOULD GO BOOM")
+			lua_table.SystemFunctions:LOG("Prop: SHOULD DISAPPEAR")
 			lua_table.GameObjectFunctions:SetActiveGameObject(false, lua_table.myUID)
 			-- lua_table.GameObject:DestroyGameObject(lua_table.myUID)
 			-- lua_table.TransformFunctions:SetPosition(-696969,-696969,-696969) --YEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEET
@@ -105,9 +105,9 @@ function lua_table:OnTriggerEnter()
 	local collider = lua_table.PhysicsFunctions:OnTriggerEnter(lua_table.myUID)
 	lua_table.SystemFunctions:LOG("T:" .. collider)
 
-	-- local layer = lua_table.GameObjectFunctions:GetLayerByID(collider)
-	-- if layer == 2 or layer == 4 --Checks if its player/enemy attack collider layer
-	-- then
+	local layer = lua_table.GameObjectFunctions:GetLayerByID(collider)
+	if layer == 2 or layer == 4 --Checks if its player/enemy attack collider layer
+	then
 
 		-- local parent_UID = lua_table.GameObjectFunctions:GetGameObjectParent(collider)
 		-- local parent_script = lua_table.GameObjectFunctions:GetScript(parent_UID)
@@ -122,18 +122,17 @@ function lua_table:OnTriggerEnter()
 			-- HandleHit()
 		elseif lua_table.health <= 0
 		then
-			
 			-- HandleDeath()
-			ParticleBigExplosion()
 			--lua_table.GameObject:DestroyGameObject(lua_table.myUID)
 			if current_state == state.FULL
 			then
 				timer = lua_table.SystemFunctions:GameTime()
-				lua_table.SystemFunctions:LOG("BOOM TIME: " .. timer)
+				--  lua_table.SystemFunctions:LOG("BOOM TIME: " .. timer)
+				ParticleBigExplosion()
 				current_state = state.DESTROYED
 			end
 		end
-	-- end
+	end
 end
 
 function lua_table:OnCollisionEnter() -- NOT FINISHED
