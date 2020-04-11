@@ -1,9 +1,10 @@
 
-function	GetTableCameraScript_v3 ()
+function	GetTableCameraScript_v4 ()
 local lua_table = {}
-lua_table["Functions_System"] = Scripting.System ()
-lua_table["Functions_Transform"] = Scripting.Transform ()
-lua_table["Functions_GameObject"] = Scripting.GameObject ()
+lua_table.SystemFunctions = Scripting.System ()
+lua_table.TransformFunctions = Scripting.Transform ()
+lua_table.GameObjectFunctions = Scripting.GameObject ()
+lua_table.CameraFunctions = Scripting.Camera ()
 
 -----------------------------------------------------------------------------------------
 -- Inspector Variables
@@ -24,6 +25,9 @@ lua_table.zoom_smooth_speed = 0.2
 -----------------------------------------------------------------------------------------
 -- Camera Variables
 -----------------------------------------------------------------------------------------
+
+-- Camera GO UID
+lua_table.myUID = 0
 
 -- Camera target GO names
 lua_table.geralt_GO = "Geralt"
@@ -89,15 +93,15 @@ local zoom = -- not in use rn
 }
 local current_zoom_layer = zoom.LAYER_1 -- Shoul initialize at awake(?)
 
--- FOV Scales for different layers (from 0 to 1) (should always be smaller than 1) (FOV_1 should always be bigger than FOV_2)
-local Layer_1_FOV_scale_1 = 0.8
-local Layer_1_FOV_scale_2 = 0.8
+-- FOV ratio for different layers (from 0 to 1) (should always be smaller than 1) (FOV_1 should always be bigger than FOV_2)
+lua_table.Layer_1_FOV_ratio_1 = 0.8 
+lua_table.Layer_1_FOV_ratio_2 = 0.8
 
-local Layer_2_FOV_scale_1 = 0.8
-local Layer_2_FOV_scale_2 = 0.55
+lua_table.Layer_2_FOV_ratio_1 = 0.8 
+lua_table.Layer_2_FOV_ratio_2 = 0.55
 
-lua_table.Layer_3_FOV_ratio_1 = 0.85 -- lua_table so it can be accessed from player scripts
-local Layer_3_FOV_scale_2 = 0.55
+lua_table.Layer_3_FOV_ratio_1 = 0.85 
+lua_table.Layer_3_FOV_ratio_2 = 0.55
 
 -----------------------------------------------------------------------------------------
 -- Gameplay Variables
@@ -115,35 +119,22 @@ local current_gameplay = 0 -- Should AUTOMATICALLY initialize at awake (hardcode
 -----------------------------------------------------------------------------------------
 -- Player Variables
 -----------------------------------------------------------------------------------------
+
 -- P1
 local P1_id = 0
-lua_table.P1_script = {}
-
-local P1_pos_x = 0
-local P1_pos_y = 0
-local P1_pos_z = 0
-
-local prev_P1_pos_x = 0
-local prev_P1_pos_y = 0
-local prev_P1_pos_z = 0
+lua_table.P1_pos = {}
 
 -- P2
 local P2_id = 0
-lua_table.P2_script = {}
+lua_table.P2_pos = {}
 
-local P2_pos_x = 0
-local P2_pos_y = 0
-local P2_pos_z = 0
+-- P3 I still have hope
+-- P4 Yeet hopes
 
-local prev_P2_pos_x = 0
-local prev_P2_pos_y = 0
-local prev_P2_pos_z = 0
-
--- P3
--- P4
-
--- Debug
--- local Health = 5
+-- I use this for visual pleasure (so I can write lua_table.P1_pos[x] instead of lua_table.P1_pos[1])  )
+local x = 1
+local y = 2
+local z = 3
 
 -----------------------------------------------------------------------------------------
 -- Methods
@@ -189,7 +180,7 @@ end
 
 -- Camera Movement smoothing NEEDS A LIMIT WHERE IT STOPS SMOOTHING
 function Asymptotic_Average(pos, target_pos, speed)
-	if lua_table["Functions_System"]:CompareFloats(pos, target_pos) == 0
+	if lua_table.SystemFunctions:CompareFloats(pos, target_pos) == 0
 	then
 		return pos + (target_pos - pos)*speed
 	else
@@ -210,74 +201,57 @@ function HandleZoomLayers()
 			-- Layer 1
 			if current_zoom_layer == zoom.LAYER_1
 			then
-				-- When ONE player get out of Layer_1_FOV_scale_1
-				if lua_table["Functions_GameObject"]:GetPositionInFrustum(P1_pos_x, P1_pos_y, P1_pos_z, Layer_1_FOV_scale_1, Layer_1_FOV_scale_2) == 1 or 
-				   lua_table["Functions_GameObject"]:GetPositionInFrustum(P2_pos_x, P2_pos_y, P2_pos_z, Layer_1_FOV_scale_1, Layer_1_FOV_scale_2) == 1
+				-- When ONE player get out of lua_table.Layer_1_FOV_ratio_1
+				if lua_table.CameraFunctions:GetPositionInFrustum(lua_table.P1_pos[x], lua_table.P1_pos[y], lua_table.P1_pos[z], lua_table.Layer_1_FOV_ratio_1, lua_table.Layer_1_FOV_ratio_2) == 1 or 
+				lua_table.CameraFunctions:GetPositionInFrustum(lua_table.P2_pos[x], lua_table.P2_pos[y], lua_table.P2_pos[z], lua_table.Layer_1_FOV_ratio_1, lua_table.Layer_1_FOV_ratio_2) == 1
 				then
 					-- Switch up to Layer 2
 					current_zoom_layer = zoom.LAYER_2
 					current_state = state.SWITCHING
-					lua_table["Functions_System"]:LOG ("Camera: Switching to Zoom Layer 2")
+					lua_table.SystemFunctions:LOG ("Camera: Switching to Zoom Layer 2")
 				end
 
 			-- Layer 2
 			elseif current_zoom_layer == zoom.LAYER_2
 			then
-				-- When ALL players get in of Layer_2_FOV_scale_2 
-				if lua_table["Functions_GameObject"]:GetPositionInFrustum(P1_pos_x, P1_pos_y, P1_pos_z, Layer_2_FOV_scale_1, Layer_2_FOV_scale_2) == 3 and
-				   lua_table["Functions_GameObject"]:GetPositionInFrustum(P2_pos_x, P2_pos_y, P2_pos_z, Layer_2_FOV_scale_1, Layer_2_FOV_scale_2) == 3
+				-- When ALL players get in of lua_table.Layer_2_FOV_ratio_2 
+				if lua_table.CameraFunctions:GetPositionInFrustum(lua_table.P1_pos[x], lua_table.P1_pos[y], lua_table.P1_pos[z], lua_table.Layer_2_FOV_ratio_1, lua_table.Layer_2_FOV_ratio_2) == 3 and
+				lua_table.CameraFunctions:GetPositionInFrustum(lua_table.P2_pos[x], lua_table.P2_pos[y], lua_table.P2_pos[z], lua_table.Layer_2_FOV_ratio_1, lua_table.Layer_2_FOV_ratio_2) == 3
 				then
 					-- Switch down to Layer 1
 					current_zoom_layer = zoom.LAYER_1
 					current_state = state.SWITCHING
-					lua_table["Functions_System"]:LOG ("Camera: Switching to Zoom Layer 1")
+					lua_table.SystemFunctions:LOG ("Camera: Switching to Zoom Layer 1")
 					
-				-- When ONE player gets out of Layer_2_FOV_scale_1
-				elseif lua_table["Functions_GameObject"]:GetPositionInFrustum(P1_pos_x, P1_pos_y, P1_pos_z, Layer_2_FOV_scale_1, Layer_2_FOV_scale_2) == 1 or
-					   lua_table["Functions_GameObject"]:GetPositionInFrustum(P2_pos_x, P2_pos_y, P2_pos_z, Layer_2_FOV_scale_1, Layer_2_FOV_scale_2) == 1
+				-- When ONE player gets out of lua_table.Layer_2_FOV_ratio_1
+				elseif lua_table.CameraFunctions:GetPositionInFrustum(lua_table.P1_pos[x], lua_table.P1_pos[y], lua_table.P1_pos[z], lua_table.Layer_2_FOV_ratio_1, lua_table.Layer_2_FOV_ratio_2) == 1 or
+				lua_table.CameraFunctions:GetPositionInFrustum(lua_table.P2_pos[x], lua_table.P2_pos[y], lua_table.P2_pos[z], lua_table.Layer_2_FOV_ratio_1, lua_table.Layer_2_FOV_ratio_2) == 1
 				 then
 					-- Switch up to Layer 3
 				 	current_zoom_layer = zoom.LAYER_3
 				 	current_state = state.SWITCHING
-					lua_table["Functions_System"]:LOG ("Camera: Switching to Zoom Layer 3")
+					 lua_table.SystemFunctions:LOG ("Camera: Switching to Zoom Layer 3")
 				end
 
 			-- Layer 3
 			elseif current_zoom_layer == zoom.LAYER_3
 			then
-				-- When ALL players get in of Layer_3_FOV_scale_2
-				if lua_table["Functions_GameObject"]:GetPositionInFrustum(P1_pos_x, P1_pos_y, P1_pos_z, lua_table.Layer_3_FOV_ratio_1, Layer_3_FOV_scale_2) == 3 and
-				   lua_table["Functions_GameObject"]:GetPositionInFrustum(P2_pos_x, P2_pos_y, P2_pos_z, lua_table.Layer_3_FOV_ratio_1, Layer_3_FOV_scale_2) == 3
+				-- When ALL players get in of lua_table.Layer_3_FOV_ratio_2
+				if lua_table.CameraFunctions:GetPositionInFrustum(lua_table.P1_pos[x], lua_table.P1_pos[y], lua_table.P1_pos[z], lua_table.Layer_3_FOV_ratio_1, lua_table.Layer_3_FOV_ratio_2) == 3 and
+				lua_table.CameraFunctions:GetPositionInFrustum(lua_table.P2_pos[x], lua_table.P2_pos[y], lua_table.P2_pos[z], lua_table.Layer_3_FOV_ratio_1, lua_table.Layer_3_FOV_ratio_2) == 3
 				then
 					-- Switch down to Layer 2
 					current_zoom_layer = zoom.LAYER_2
 					current_state = state.SWITCHING
-					lua_table["Functions_System"]:LOG ("Camera: Switching to Zoom Layer 2")
+					lua_table.SystemFunctions:LOG ("Camera: Switching to Zoom Layer 2")
 
-				-- When AT LEAST ONE player is between Layer_3_FOV_scale_1 Layer_3_FOV_scale_2 
-				-- elseif lua_table["Functions_GameObject"]:GetPositionInFrustum(P1_pos_x, P1_pos_y, P1_pos_z, lua_table.Layer_3_FOV_ratio_1, Layer_3_FOV_scale_2) == 2 or
-				-- 	   lua_table["Functions_GameObject"]:GetPositionInFrustum(P2_pos_x, P2_pos_y, P2_pos_z, lua_table.Layer_3_FOV_ratio_1, Layer_3_FOV_scale_2) == 2
-				-- then
-				-- 	if current_state == state.STATIC -- It only triggers once
-				-- 	then
-				-- 		-- Re-enables Camera Movement
-				-- 		current_state = state.DYNAMIC
-				-- 		lua_table["Functions_System"]:LOG ("Camera: Layer 3 DYNAMIC")
-				-- 	end
-
-				-- When ONE player gets out of Layer_3_FOV_scale_1
-				elseif lua_table["Functions_GameObject"]:GetPositionInFrustum(P1_pos_x, P1_pos_y, P1_pos_z, lua_table.Layer_3_FOV_ratio_1, Layer_3_FOV_scale_2) == 1 or
-					   lua_table["Functions_GameObject"]:GetPositionInFrustum(P2_pos_x, P2_pos_y, P2_pos_z, lua_table.Layer_3_FOV_ratio_1, Layer_3_FOV_scale_2) == 1
+				-- When ONE player gets out of lua_table.Layer_3_FOV_ratio_1
+				elseif lua_table.CameraFunctions:GetPositionInFrustum(lua_table.P1_pos[x], lua_table.P1_pos[y], lua_table.P1_pos[z], lua_table.Layer_3_FOV_ratio_1, lua_table.Layer_3_FOV_ratio_2) == 1 or
+				lua_table.CameraFunctions:GetPositionInFrustum(lua_table.P2_pos[x], lua_table.P2_pos[y], lua_table.P2_pos[z], lua_table.Layer_3_FOV_ratio_1, lua_table.Layer_3_FOV_ratio_2) == 1
 				then
-					-- if current_state == state.DYNAMIC -- It only triggers once
-					-- then
-					-- 	-- Disables Camera Movement
-					-- 	current_state = state.STATIC
-					-- 	lua_table["Functions_System"]:LOG ("Camera: LAYER 3 STATIC")
-					-- end
-					lua_table["Functions_System"]:LOG ("Camera: SHOULD BLOCK PLAYER")
+					lua_table.SystemFunctions:LOG ("Camera: SHOULD BLOCK PLAYER")
 				else
-					--lua_table["Functions_System"]:LOG ("Camera: nothing")
+					--lua_table.SystemFunctions:LOG ("Camera: nothing")
 				end
 			end
 		end
@@ -296,10 +270,10 @@ function HandleSwitch()
 			desired_distance = lua_table.camera_distance_layer_1
 			current_camera_distance = Asymptotic_Average(current_camera_distance, desired_distance, lua_table.zoom_smooth_speed) --Smoothens transition
 			
-			if lua_table["Functions_System"]:CompareFloats(current_camera_distance, desired_distance) == 1 -- Smoothing eeventually ends (already checked from Asymptotic function)
+			if lua_table.SystemFunctions:CompareFloats(current_camera_distance, desired_distance) == 1 -- Smoothing eeventually ends (already checked from Asymptotic function)
 			then
 				current_state = state.DYNAMIC -- Enables Position Checking again
-				lua_table["Functions_System"]:LOG ("Camera: Switching to Zoom Layer 1 COMPLETE")
+				lua_table.SystemFunctions:LOG ("Camera: Switching to Zoom Layer 1 COMPLETE")
 			end
 			
 		elseif current_zoom_layer == zoom.LAYER_2
@@ -307,10 +281,10 @@ function HandleSwitch()
 			desired_distance = lua_table.camera_distance_layer_2 -- No need to know if switching layers up or down since the layers change immediately even though the state is "SWITCHING"
 			current_camera_distance = Asymptotic_Average(current_camera_distance, desired_distance, lua_table.zoom_smooth_speed)
 			
-			if lua_table["Functions_System"]:CompareFloats(current_camera_distance, desired_distance) == 1
+			if lua_table.SystemFunctions:CompareFloats(current_camera_distance, desired_distance) == 1
 			then
 				current_state = state.DYNAMIC
-				lua_table["Functions_System"]:LOG ("Camera: Switching to Zoom Layer 2 COMPLETE")
+				lua_table.SystemFunctions:LOG ("Camera: Switching to Zoom Layer 2 COMPLETE")
 			end
 
 		elseif current_zoom_layer == zoom.LAYER_3
@@ -318,11 +292,11 @@ function HandleSwitch()
 			desired_distance = lua_table.camera_distance_layer_3
 			current_camera_distance = Asymptotic_Average(current_camera_distance, desired_distance, lua_table.zoom_smooth_speed)
 			
-			if lua_table["Functions_System"]:CompareFloats(current_camera_distance, desired_distance) == 1
+			if lua_table.SystemFunctions:CompareFloats(current_camera_distance, desired_distance) == 1
 			then
 				current_state = state.DYNAMIC
 				-- current_state = state.STATIC
-				lua_table["Functions_System"]:LOG ("Camera: Switching to Zoom Layer 3 COMPLETE")
+				lua_table.SystemFunctions:LOG ("Camera: Switching to Zoom Layer 3 COMPLETE")
 			end
 		end
 	end
@@ -335,32 +309,41 @@ function HandleTarget()
 	if current_gameplay == gameplay.SOLO
 	then
 		-- Gets position from Player 1 gameobject Id
-		P1_pos_x = lua_table["Functions_GameObject"]:GetGameObjectPosX(P1_id)
-		P1_pos_y = lua_table["Functions_GameObject"]:GetGameObjectPosY(P1_id)
-		P1_pos_z = lua_table["Functions_GameObject"]:GetGameObjectPosZ(P1_id)
+		lua_table.P1_pos = lua_table.TransformFunctions:GetPosition(P1_id)
+
+		if lua_table.P1_pos[x] == nil or lua_table.P1_pos[y] == nil or lua_table.P1_pos[z] == nil
+		then
+			lua_table.SystemFunctions:LOG ("Camera: Player 1 position nil")
+		end
 
 		-- Target is P1 position
-		target_position_x = P1_pos_x
-		target_position_y = P1_pos_y		-- Kind of redundant but organized
-		target_position_z = P1_pos_z
+		target_position_x = lua_table.P1_pos[x]
+		target_position_y = lua_table.P1_pos[y]		-- Kind of redundant but organized
+		target_position_z = lua_table.P1_pos[z]
 	
 	-- 2 Players Target Calculations
 	elseif current_gameplay == gameplay.DUO
 	then
 		-- Gets position from Player 1 gameobject Id
-		P1_pos_x = lua_table["Functions_GameObject"]:GetGameObjectPosX(P1_id)
-		P1_pos_y = lua_table["Functions_GameObject"]:GetGameObjectPosY(P1_id)
-		P1_pos_z = lua_table["Functions_GameObject"]:GetGameObjectPosZ(P1_id)
+		lua_table.P1_pos = lua_table.TransformFunctions:GetPosition(P1_id)
+		
+		if lua_table.P1_pos[x] == nil or lua_table.P1_pos[y] == nil or lua_table.P1_pos[z] == nil
+		then
+			lua_table.SystemFunctions:LOG ("Camera: Player 1 position nil")
+		end
 
 		-- Gets position from Player 2 gameobject Id 
-		P2_pos_x = lua_table["Functions_GameObject"]:GetGameObjectPosX(P2_id)
-		P2_pos_y = lua_table["Functions_GameObject"]:GetGameObjectPosY(P2_id)
-		P2_pos_z = lua_table["Functions_GameObject"]:GetGameObjectPosZ(P2_id)
+		lua_table.P2_pos = lua_table.TransformFunctions:GetPosition(P2_id)
 
+		if lua_table.P2_pos[x] == nil or lua_table.P2_pos[y] == nil or lua_table.P2_pos[z] == nil
+		then
+			lua_table.SystemFunctions:LOG ("Camera: Player 2 position nil")
+		end
+	
 		-- Target is Midpoint between P1 and P2 positions
-		target_position_x = Centroid2P(P1_pos_x, P2_pos_x)
-		target_position_y = Centroid2P(P1_pos_y, P2_pos_y)
-		target_position_z = Centroid2P(P1_pos_z, P2_pos_z)
+		target_position_x = Centroid2P(lua_table.P1_pos[x], lua_table.P2_pos[x])
+		target_position_y = Centroid2P(lua_table.P1_pos[y], lua_table.P2_pos[y])
+		target_position_z = Centroid2P(lua_table.P1_pos[z], lua_table.P2_pos[z])
 	end
 	-- 3 Players Target Calculations
 	-- 4 Players Target Calculations
@@ -373,7 +356,7 @@ function HandleOffset()
 	offset_a = GetAfromDistAndAng(current_camera_distance, camera_angle_for_offset)
 	offset_b = GetBfromDistAndAng(current_camera_distance, camera_angle_for_offset)
 	
-	-- offset_x = -- since camera only has a direction for now, only Z is affected. Else the value would be split between x and z depending on direction
+	-- offset_x = -- since camera only has a direction for now, only Z is affected. Else the value (offset b) would be split between x and z depending on direction
 	offset_y = offset_a  
 	offset_z = offset_b -- in case we need the camera to follow the direction too this value would be split with x accordingly
 end
@@ -407,14 +390,17 @@ function HandleMovement()
 		end
 
 		-- Setting Camera Position
-		lua_table["Functions_Transform"]:SetPosition(camera_position_x, camera_position_y, camera_position_z)
+		lua_table.TransformFunctions:SetPosition(camera_position_x, camera_position_y, camera_position_z, lua_table.myUID)
 	end
 end
 -- Handle Zoom layers method
 
 -- Main Code
 function lua_table:Awake ()
-	lua_table["Functions_System"]:LOG ("This Log was called from Camera Script on AWAKE")
+	lua_table.SystemFunctions:LOG ("This Log was called from Camera Script on AWAKE")
+
+	-- Get my own UID
+	lua_table.myUID = lua_table.GameObjectFunctions:GetMyUID()
 
 	-- Gameplay mode (Comment/Uncomment for now until we have a way to manage it automatically)
 	-- current_gameplay = gameplay.SOLO
@@ -422,74 +408,74 @@ function lua_table:Awake ()
 
 	if current_gameplay == 0
 	then 
-		lua_table["Functions_System"]:LOG ("Camera: Gameplay mode set to NULL")
+		lua_table.SystemFunctions:LOG ("Camera: Gameplay mode set to NULL")
 
 	elseif current_gameplay == gameplay.SOLO
 	then
-		lua_table["Functions_System"]:LOG ("Camera: Gameplay mode set to SOLO")
+		lua_table.SystemFunctions:LOG ("Camera: Gameplay mode set to SOLO")
 
 		-- Player 1 id
-		P1_id= lua_table["Functions_GameObject"]:FindGameObject(lua_table.geralt_GO)	
+		P1_id = lua_table.GameObjectFunctions:FindGameObject(lua_table.geralt_GO)	
 
 		if P1_id == 0 
 		then
-			lua_table["Functions_System"]:LOG ("Camera: Null Player 1 id, check name of game object inside script")
+			lua_table.SystemFunctions:LOG ("Camera: Null Player 1 id, check name of game object inside script")
 		else
-			lua_table["Functions_System"]:LOG ("Camera: Player 1 id successfully recieved")
+			lua_table.SystemFunctions:LOG ("Camera: Player 1 id successfully recieved")
 
 			-- Player 1 script (only if successfull id)
-			-- lua_table.P1_script = lua_table["Functions_GameObject"]:GetScript(P1_id)
+			-- lua_table.P1_script = lua_table.GameObjectFunctions:GetScript(P1_id)
 
 			-- if P1_script == NIL
 			-- then
-			-- 	lua_table["Functions_System"]:LOG ("Camera: Null Player 1 script")
+			-- 	lua_table.SystemFunctions:LOG ("Camera: Null Player 1 script")
 			-- else
-			-- 	lua_table["Functions_System"]:LOG ("Camera: Player 1 script successfully recieved")
+			-- 	lua_table.SystemFunctions:LOG ("Camera: Player 1 script successfully recieved")
 			-- end
 		end
 
 	elseif current_gameplay == gameplay.DUO
 	then
-		lua_table["Functions_System"]:LOG ("Camera: Gameplay mode set to DUO")
+		lua_table.SystemFunctions:LOG ("Camera: Gameplay mode set to DUO")
 		
 		-- Player 1 id
-		P1_id = lua_table["Functions_GameObject"]:FindGameObject(lua_table.geralt_GO)--exact name of gameobject 
+		P1_id = lua_table.GameObjectFunctions:FindGameObject(lua_table.geralt_GO)--exact name of gameobject 
 
 		if P1_id == 0 
 		then
-			lua_table["Functions_System"]:LOG ("Camera: Null Player 1 id, check name of game object inside script")
+			lua_table.SystemFunctions:LOG ("Camera: Null Player 1 id, check name of game object inside script")
 		else
-			lua_table["Functions_System"]:LOG ("Camera: Player 1 id successfully recieved")
+			lua_table.SystemFunctions:LOG ("Camera: Player 1 id successfully recieved")
 			
 			-- Player 1 script (only if successfull id)
-			-- lua_table.P1_script = lua_table["Functions_GameObject"]:GetScript(P1_id)
+			-- lua_table.P1_script = lua_table.GameObjectFunctions:GetScript(P1_id)
 
 			-- if lua_table.P1_script == NIL 
 			-- then
-			-- 	lua_table["Functions_System"]:LOG ("Camera: Null Player 1 script")
+			-- 	lua_table.SystemFunctions:LOG ("Camera: Null Player 1 script")
 			-- else
-			-- 	lua_table["Functions_System"]:LOG ("Camera: Player 1 script successfully recieved")
+			-- 	lua_table.SystemFunctions:LOG ("Camera: Player 1 script successfully recieved")
 			-- end
 		end
 
 		-- Player 2 id
-		P2_id = lua_table["Functions_GameObject"]:FindGameObject(lua_table.jaskier_GO)
+		P2_id = lua_table.GameObjectFunctions:FindGameObject(lua_table.jaskier_GO)
 
 		if P2_id == 0 
 		then
-			lua_table["Functions_System"]:LOG ("Camera: Null Player 2 id, check name of game object inside script")
+			lua_table.SystemFunctions:LOG ("Camera: Null Player 2 id, check name of game object inside script")
 			
 		else
-			lua_table["Functions_System"]:LOG ("Camera: Player 2 id successfully recieved")
+			lua_table.SystemFunctions:LOG ("Camera: Player 2 id successfully recieved")
 			
 			-- Player 2 script (only if successfull id)
-			-- lua_table.P2_script = lua_table["Functions_GameObject"]:GetScript(P2_id)
+			-- lua_table.P2_script = lua_table.GameObjectFunctions:GetScript(P2_id)
 
 			-- if lua_table.P2_script == NIL 
 			-- then
-			-- 	lua_table["Functions_System"]:LOG ("Camera: Null Player 2 script")
+			-- 	lua_table.SystemFunctions:LOG ("Camera: Null Player 2 script")
 			-- else
-			-- 	lua_table["Functions_System"]:LOG ("Camera: Player 2 script successfully recieved")
+			-- 	lua_table.SystemFunctions:LOG ("Camera: Player 2 script successfully recieved")
 			-- end
 		end
 	end
@@ -502,7 +488,7 @@ function lua_table:Awake ()
 end
 
 function lua_table:Start ()
-	lua_table["Functions_System"]:LOG ("This Log was called from Camera Script on START")
+	lua_table.SystemFunctions:LOG ("This Log was called from Camera Script on START")
 	local is_start = true
 
 	HandleTarget()
@@ -511,13 +497,13 @@ function lua_table:Start ()
 
 	-- LookAt
 	-- lua_table["Functions"]:LookAt(target_position_x, 0, 0, false)
-	lua_table["Functions_Transform"]:RotateObject(rotation_x, rotation_y, rotation_z)	
+	lua_table.TransformFunctions:RotateObject(rotation_x, rotation_y, rotation_z, lua_table.myUID)	
 
 	is_start = false
 end
 
 function lua_table:Update ()
-	dt = lua_table["Functions_System"]:DT ()
+	dt = lua_table.SystemFunctions:DT ()
 	is_update = true
 	
 	HandleZoomLayers()
@@ -528,12 +514,12 @@ function lua_table:Update ()
 
 	-- Debug
 
-	lua_table["Functions_System"]:LOG ("Camera Layer: " .. current_zoom_layer)
-	lua_table["Functions_System"]:LOG ("Camera State: " .. current_state)
+	lua_table.SystemFunctions:LOG ("Camera Layer: " .. current_zoom_layer)
+	lua_table.SystemFunctions:LOG ("Camera State: " .. current_state)
 	
-	-- lua_table["Functions_System"]:LOG ("Camera: Max Health is " .. Health)
-	-- lua_table["Functions_System"]:LOG ("Camera: Health x5 is " .. Health * 5)
-	-- lua_table["Functions_System"]:LOG ("Camera: 1")
+	-- lua_table.SystemFunctions:LOG ("Camera: Max Health is " .. Health)
+	-- lua_table.SystemFunctions:LOG ("Camera: Health x5 is " .. Health * 5)
+	-- lua_table.SystemFunctions:LOG ("Camera: 1")
 
 	is_update = false
 end
