@@ -1,4 +1,4 @@
-function GetTablePropScript_v3 ()
+function GetTablePropScript_v4 ()
 local lua_table = {}
 lua_table.SystemFunctions = Scripting.System ()
 lua_table.TransformFunctions = Scripting.Transform ()
@@ -21,6 +21,7 @@ lua_table.particles_duration = 1000
 -----------------------------------------------------------------------------------------
 
 lua_table.myUID = 0
+lua_table.parentUID = 0
 
 local timer = 0
 local timer2 = 0
@@ -43,42 +44,47 @@ local current_state = state.FULL -- Should initialize at awake(?)
 -----------------------------------------------------------------------------------------
 
 function ParticleBigExplosion()
-	lua_table.ParticlesFunctions:SetParticlesLooping(false)
-	lua_table.ParticlesFunctions:SetParticlesDuration(lua_table.particles_duration)
+	lua_table.ParticlesFunctions:SetParticlesLooping(false, lua_table.parentUID)
+	lua_table.ParticlesFunctions:SetParticlesDuration(lua_table.particles_duration, lua_table.parentUID)
 
-	lua_table.ParticlesFunctions:SetEmissionRate(10)
-	lua_table.ParticlesFunctions:SetParticlesPerCreation(300)
-	lua_table.ParticlesFunctions:SetParticlesLifeTime(2000)
+	lua_table.ParticlesFunctions:SetEmissionRate(10, lua_table.parentUID)
+	lua_table.ParticlesFunctions:SetParticlesPerCreation(300, lua_table.parentUID)
+	lua_table.ParticlesFunctions:SetParticlesLifeTime(2000, lua_table.parentUID)
 
-	lua_table.ParticlesFunctions:SetExternalAcceleration(0, 10, 0)
-	lua_table.ParticlesFunctions:SetParticlesVelocity(0, 30, 0)
-	lua_table.ParticlesFunctions:SetRandomParticlesVelocity(50,50,50)
+	lua_table.ParticlesFunctions:SetExternalAcceleration(0, 10, 0, lua_table.parentUID)
+	lua_table.ParticlesFunctions:SetParticlesVelocity(0, 30, 0, lua_table.parentUID)
+	lua_table.ParticlesFunctions:SetRandomParticlesVelocity(50,50,50, lua_table.parentUID)
 	
-	lua_table.ParticlesFunctions:SetParticlesScale(1, 1)
-	lua_table.ParticlesFunctions:SetRandomParticlesScale(15, 15)
+	lua_table.ParticlesFunctions:SetParticlesScale(1, 1, lua_table.parentUID)
+	lua_table.ParticlesFunctions:SetRandomParticlesScale(15, 15, lua_table.parentUID)
 
-	lua_table.ParticlesFunctions:PlayParticleEmitter()
+	lua_table.ParticlesFunctions:PlayParticleEmitter(lua_table.parentUID)
 end
 
 -- Main Code
 function lua_table:Awake ()
 	lua_table.SystemFunctions:LOG ("This Log was called from Camera Script on AWAKE")
+	
 	-- Get my own UID
 	lua_table.myUID = lua_table.GameObjectFunctions:GetMyUID()
+	lua_table.parentUID = lua_table.GameObjectFunctions:GetGameObjectParent(lua_table.myUID)
 end
 
 function lua_table:Start ()
 	lua_table.SystemFunctions:LOG ("This Log was called from Camera Script on START")
 	-- set particles parameters
-	lua_table.ParticlesFunctions:ActivateParticlesEmission()
+	lua_table.ParticlesFunctions:ActivateParticlesEmission(lua_table.parentUID)
 
 	-- ParticleIdle()
 	-- ParticleBigExplosion()
 	-- lua_table.ParticlesFunctions:StopParticleEmitter()
+
+	lua_table.TransformFunctions:RotateObject(-90, 0, 0, lua_table.myUID)
 end
 
 function lua_table:Update ()
 	dt = lua_table.SystemFunctions:DT ()
+
 	timer2 = lua_table.SystemFunctions:GameTime()
 	lua_table.SystemFunctions:LOG("Time: " .. timer2 .. "Saved Time: " .. timer)
 
@@ -88,8 +94,9 @@ function lua_table:Update ()
 		if timer + lua_table.particles_duration/1000 <= timer2
 		then
 			lua_table.SystemFunctions:LOG("SHOULD GO BOOM")
+			lua_table.GameObjectFunctions:SetActiveGameObject(false, lua_table.myUID)
 			-- lua_table.GameObject:DestroyGameObject(lua_table.myUID)
-			lua_table.TransformFunctions:SetPosition(-696969,-696969,-696969) --YEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEET
+			-- lua_table.TransformFunctions:SetPosition(-696969,-696969,-696969) --YEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEET
 		end
 	end
 end
