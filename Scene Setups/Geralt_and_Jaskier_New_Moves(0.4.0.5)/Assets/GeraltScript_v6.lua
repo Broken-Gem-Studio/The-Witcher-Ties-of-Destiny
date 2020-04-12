@@ -48,13 +48,17 @@ local state = {	--The order of the states is relevant to the code, CAREFUL CHANG
 	light_2 = 9,
 	light_3 = 10,
 
-	heavy_1 = 11,
-	heavy_2 = 12,
-	heavy_3 = 13,
+	medium_1 = 11,
+	medium_2 = 12,
+	medium_3 = 13,
 
-	combo_1 = 14,
-	combo_2 = 15,
-	combo_3 = 16,
+	heavy_1 = 14,
+	heavy_2 = 15,
+	heavy_3 = 16,
+
+	combo_1 = 17,
+	combo_2 = 18,
+	combo_3 = 19
 }
 lua_table.previous_state = state.idle	-- Previous State
 lua_table.current_state = state.idle	-- Current State
@@ -246,6 +250,36 @@ lua_table.light_3_combo_start = 600			--Combo timeframe start
 lua_table.light_3_combo_end = 900			--Combo timeframe end
 lua_table.light_3_duration = 1500			--Attack end (return to idle)
 lua_table.light_3_animation_speed = 30.0		--IMPROVE: Attack 3 animaton includes a return to idle, which differs from the other animations, we might have to cut it for homogeinity with the rest
+
+--Medium Attack
+lua_table.medium_damage = 1.0					--Multiplier of Base Damage
+lua_table.medium_cost = 5
+
+lua_table.medium_movement_speed = 1000.0
+
+lua_table.medium_1_block_time = 500			--Input block duration	(block new attacks)
+lua_table.medium_1_collider_front_start = 500	--Collider activation time
+lua_table.medium_1_collider_front_end = 600	--Collider deactivation time
+lua_table.medium_1_combo_start = 600			--Combo timeframe start
+lua_table.medium_1_combo_end = 900			--Combo timeframe end
+lua_table.medium_1_duration = 1100			--Attack end (return to idle)
+lua_table.medium_1_animation_speed = 30.0
+
+lua_table.medium_2_block_time = 400			--Input block duration	(block new attacks)
+lua_table.medium_2_collider_front_start = 400	--Collider activation time
+lua_table.medium_2_collider_front_end = 500	--Collider deactivation time
+lua_table.medium_2_combo_start = 500			--Combo timeframe start
+lua_table.medium_2_combo_end = 800			--Combo timeframe end
+lua_table.medium_2_duration = 1000			--Attack end (return to idle)
+lua_table.medium_2_animation_speed = 30.0
+
+lua_table.medium_3_block_time = 500			--Input block duration	(block new attacks)
+lua_table.medium_3_collider_front_start = 450	--Collider activation time
+lua_table.medium_3_collider_front_end = 550	--Collider deactivation time
+lua_table.medium_3_combo_start = 600			--Combo timeframe start
+lua_table.medium_3_combo_end = 900			--Combo timeframe end
+lua_table.medium_3_duration = 1500			--Attack end (return to idle)
+lua_table.medium_3_animation_speed = 30.0		--IMPROVE: Attack 3 animaton includes a return to idle, which differs from the other animations, we might have to cut it for homogeinity with the rest
 
 --Heavy Attack
 lua_table.heavy_damage = 1.666				--Multiplier of Base Damage
@@ -474,7 +508,7 @@ local function BidimensionalAngleBetweenVectors(vec_x1, vec_y1, vec_x2, vec_y2)
 end
 
 local function GimbalLockWorkaroundY(param_rot_y)	--TODO: Remove when bug is fixed
-	if math.abs(lua_table.TransformFunctions:GetRotationX()) == 180.0
+	if math.abs(lua_table.TransformFunctions:GetRotation(my_GO_UID)[1]) == 180.0
 	then
 		if param_rot_y >= 0 then param_rot_y = 90 + 90 - param_rot_y
 		elseif param_rot_y < 0 then param_rot_y = -90 + -90 - param_rot_y
@@ -496,18 +530,18 @@ local function GoDefaultState()
 		if lua_table.input_walk_threshold < math.sqrt(mov_input.used_input.x ^ 2 + mov_input.used_input.z ^ 2)
 		then
 			lua_table.AnimationFunctions:PlayAnimation("run", lua_table.run_animation_speed)
-			lua_table.AudioFunctions:PlayAudioEvent("Run_fx")	--TODO-AUDIO: Play run sound
+			--lua_table.AudioFunctions:PlayAudioEvent("Run_fx")	--TODO-AUDIO: Play run sound
 			lua_table.current_state = state.run
 		else
 			lua_table.AnimationFunctions:PlayAnimation("walk", lua_table.walk_animation_speed)
-			lua_table.AudioFunctions:PlayAudioEvent("Walk_fx")	--TODO-AUDIO: Play walk sound
+			--lua_table.AudioFunctions:PlayAudioEvent("Walk_fx")	--TODO-AUDIO: Play walk sound
 			lua_table.current_state = state.walk
 		end
 	else
 		lua_table.AnimationFunctions:PlayAnimation("idle", lua_table.idle_animation_speed)
 		--TODO-AUDIO: Stop current sound event
-		lua_table.AudioFunctions:StopAudioEvent("Walk_fx")
-		lua_table.AudioFunctions:StopAudioEvent("Run_fx")
+		--lua_table.AudioFunctions:StopAudioEvent("Walk_fx")
+		--lua_table.AudioFunctions:StopAudioEvent("Run_fx")
 		lua_table.current_state = state.idle
 		lua_table.ParticlesFunctions:StopParticleEmitter(my_GO_UID)	--TODO-Particles: Deactivate movement dust particles
 	end
@@ -598,7 +632,7 @@ local function AttackColliderCheck(attack_type, attack_num, collider_side)	--Che
 		then
 			if attack_colliders[collider_side].active	--IF > end time and collider active, deactivate
 			then
-				lua_table.GameObjectFunctions:SetActiveGameObject(attack_colliders[collider_side].GO_UID, false)	--TODO-Colliders: Check
+				lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders[collider_side].GO_UID)	--TODO-Colliders: Check
 				attack_colliders[collider_side].active = false
 			end
 
@@ -606,7 +640,7 @@ local function AttackColliderCheck(attack_type, attack_num, collider_side)	--Che
 			
 		elseif not attack_colliders[collider_side].active	--IF > start time and collider unactive, activate
 		then
-			lua_table.GameObjectFunctions:SetActiveGameObject(attack_colliders[collider_side].GO_UID, true)	--TODO-Colliders: Check
+			lua_table.GameObjectFunctions:SetActiveGameObject(true, attack_colliders[collider_side].GO_UID)	--TODO-Colliders: Check
 			attack_colliders[collider_side].active = true
 		--else
 			--lua_table.SystemFunctions:LOG("Collider Active: " .. attack_type .. "_" .. attack_num .. "_" .. collider_side)
@@ -616,19 +650,19 @@ end
 
 local function AttackColliderShutdown()
 	if attack_colliders.front.active then
-		lua_table.GameObjectFunctions:SetActiveGameObject(attack_colliders.front.GO_UID, false)	--TODO-Colliders: Check
+		lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.front.GO_UID)	--TODO-Colliders: Check
 		attack_colliders.front.active = false
 	end
 	if attack_colliders.back.active then
-		lua_table.GameObjectFunctions:SetActiveGameObject(attack_colliders.back.GO_UID, false)	--TODO-Colliders: Check
+		lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.back.GO_UID)	--TODO-Colliders: Check
 		attack_colliders.back.active = false
 	end
 	if attack_colliders.left.active then
-		lua_table.GameObjectFunctions:SetActiveGameObject(attack_colliders.left.GO_UID, false)	--TODO-Colliders: Check
+		lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.left.GO_UID)	--TODO-Colliders: Check
 		attack_colliders.left.active = false
 	end
 	if attack_colliders.right.active then
-		lua_table.GameObjectFunctions:SetActiveGameObject(attack_colliders.right.GO_UID, false)	--TODO-Colliders: Check
+		lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.right.GO_UID)	--TODO-Colliders: Check
 		attack_colliders.right.active = false
 	end
 end
@@ -652,7 +686,7 @@ local function SaveDirection()
 		--rot_y = math.rad(rot_y)
 		----------------------------------------------
 
-		rot_y = math.rad(GimbalLockWorkaroundY(lua_table.TransformFunctions:GetRotationY()))	--TODO: Remove GimbalLock stage when Euler bug is fixed
+		rot_y = math.rad(GimbalLockWorkaroundY(lua_table.TransformFunctions:GetRotation(my_GO_UID)[2]))	--TODO: Remove GimbalLock stage when Euler bug is fixed
 
 		rec_direction.x = math.sin(rot_y)
 		rec_direction.z = math.cos(rot_y)
@@ -663,7 +697,7 @@ local function DirectionInBounds()	--Every time we try to set a velocity, this i
 	local ret = true
 
 	if off_bounds then
-		rot_y = math.rad(GimbalLockWorkaroundY(lua_table.TransformFunctions:GetRotationY()))	--TODO: Remove GimbalLock stage when Euler bug is fixed
+		rot_y = math.rad(GimbalLockWorkaroundY(lua_table.TransformFunctions:GetRotation(my_GO_UID)[2]))	--TODO: Remove GimbalLock stage when Euler bug is fixed
 		
 		lua_table.SystemFunctions:LOG("Angle Between: " .. math.deg(BidimensionalAngleBetweenVectors(math.sin(rot_y), math.cos(rot_y), bounds_vector.x, bounds_vector.z)))
 
@@ -730,11 +764,11 @@ local function MovementInputs()	--Process Movement Inputs
 			if lua_table.input_walk_threshold < math.sqrt(mov_input.used_input.x ^ 2 + mov_input.used_input.z ^ 2)	--IF great input
 			then
 				lua_table.AnimationFunctions:PlayAnimation("run", lua_table.run_animation_speed)
-				lua_table.AudioFunctions:PlayAudioEvent("Run_fx")	--TODO-AUDIO: Play run sound
+				--lua_table.AudioFunctions:PlayAudioEvent("Run_fx")	--TODO-AUDIO: Play run sound
 				lua_table.current_state = state.run
 			else																					--IF small input
 				lua_table.AnimationFunctions:PlayAnimation("walk", lua_table.walk_animation_speed)
-				lua_table.AudioFunctions:PlayAudioEvent("Walk_fx")	--TODO-AUDIO: Play walk sound
+				--lua_table.AudioFunctions:PlayAudioEvent("Walk_fx")	--TODO-AUDIO: Play walk sound
 				lua_table.current_state = state.walk
 			end
 
@@ -744,13 +778,13 @@ local function MovementInputs()	--Process Movement Inputs
 		elseif lua_table.current_state == state.walk and lua_table.input_walk_threshold < math.sqrt(mov_input.used_input.x ^ 2 + mov_input.used_input.z ^ 2)	--IF walking and big input
 		then
 			lua_table.AnimationFunctions:PlayAnimation("run", lua_table.run_animation_speed)
-			lua_table.AudioFunctions:PlayAudioEvent("Run_fx")	--TODO-AUDIO: Play run sound
+			--lua_table.AudioFunctions:PlayAudioEvent("Run_fx")	--TODO-AUDIO: Play run sound
 			lua_table.previous_state = lua_table.current_state
 			lua_table.current_state = state.run
 		elseif lua_table.current_state == state.run and lua_table.input_walk_threshold > math.sqrt(mov_input.used_input.x ^ 2 + mov_input.used_input.z ^ 2)	--IF running and small input
 		then
 			lua_table.AnimationFunctions:PlayAnimation("walk", lua_table.walk_animation_speed)
-			lua_table.AudioFunctions:PlayAudioEvent("Walk_fx")	--TODO-AUDIO: Play walk sound
+			--lua_table.AudioFunctions:PlayAudioEvent("Walk_fx")	--TODO-AUDIO: Play walk sound
 			lua_table.previous_state = lua_table.current_state
 			lua_table.current_state = state.walk
 		end
@@ -760,11 +794,11 @@ local function MovementInputs()	--Process Movement Inputs
 		mov_speed.z = mov_speed_max_real * mov_input.used_input.z
 
 		local position = lua_table.TransformFunctions:GetPosition(my_GO_UID)	--Rotate to velocity direction
-		lua_table.TransformFunctions:LookAt(position[1] + mov_speed.x, position[2], position[3] + mov_speed.z)
+		lua_table.TransformFunctions:LookAt(position[1] + mov_speed.x, position[2], position[3] + mov_speed.z, my_GO_UID)
 
 		if DirectionInBounds()	--Only allow movement if camera bounds allows it
 		then
-			lua_table.PhysicsFunctions:Move(mov_speed.x * dt, mov_speed.z * dt)
+			lua_table.PhysicsFunctions:Move(mov_speed.x * dt, mov_speed.z * dt, my_GO_UID)
 		end
 
 	elseif lua_table.current_state == state.run or lua_table.current_state == state.walk
@@ -772,8 +806,8 @@ local function MovementInputs()	--Process Movement Inputs
 		--Animation to IDLE
 		lua_table.AnimationFunctions:PlayAnimation("idle", lua_table.idle_animation_speed)
 		--TODO-AUDIO: Stop current sound event
-		lua_table.AudioFunctions:StopAudioEvent("Walk_fx")
-		lua_table.AudioFunctions:StopAudioEvent("Run_fx")
+		--lua_table.AudioFunctions:StopAudioEvent("Walk_fx")
+		--lua_table.AudioFunctions:StopAudioEvent("Run_fx")
 		lua_table.ParticlesFunctions:StopParticleEmitter(my_GO_UID)	--TODO-Particles: Deactivate movement dust particles
 		lua_table.previous_state = lua_table.current_state
 		lua_table.current_state = state.idle
@@ -889,7 +923,7 @@ local function RegularAttack(attack_type)
 			current_action_duration = lua_table[attack_type .. "_3_duration"]		--Set duration of the current action (to return to idle/move)
 
 			lua_table.AnimationFunctions:PlayAnimation(attack_type .. "_3", lua_table[attack_type .. "_3_animation_speed"])
-			lua_table.AudioFunctions:PlayAudioEvent("Attack_3_fx")	--TODO-AUDIO: Play attack_3 sound (light or heavy)
+			--lua_table.AudioFunctions:PlayAudioEvent("Attack_3_fx")	--TODO-AUDIO: Play attack_3 sound (light or heavy)
 
 			lua_table.previous_state = lua_table.current_state
 			lua_table.current_state = state[attack_type .. "_3"]
@@ -898,7 +932,7 @@ local function RegularAttack(attack_type)
 			current_action_duration = lua_table[attack_type .. "_1_duration"]		--Set duration of the current action (to return to idle/move)
 
 			lua_table.AnimationFunctions:PlayAnimation(attack_type .. "_1", lua_table[attack_type .. "_1_animation_speed"])
-			lua_table.AudioFunctions:PlayAudioEvent("Attack_1_fx")	--TODO-AUDIO: Play attack_1 sound (light or heavy)
+			--lua_table.AudioFunctions:PlayAudioEvent("Attack_1_fx")	--TODO-AUDIO: Play attack_1 sound (light or heavy)
 
 			lua_table.previous_state = lua_table.current_state
 			lua_table.current_state = state[attack_type .. "_1"]
@@ -908,7 +942,7 @@ local function RegularAttack(attack_type)
 		current_action_duration = lua_table[attack_type .. "_2_duration"]		--Set duration of the current action (to return to idle/move)
 
 		lua_table.AnimationFunctions:PlayAnimation(attack_type .. "_2", lua_table[attack_type .. "_2_animation_speed"])
-		lua_table.AudioFunctions:PlayAudioEvent("Attack_2_fx")	--TODO-AUDIO: Play attack_2 sound (light or heavy)
+		--lua_table.AudioFunctions:PlayAudioEvent("Attack_2_fx")	--TODO-AUDIO: Play attack_2 sound (light or heavy)
 
 		lua_table.previous_state = lua_table.current_state
 		lua_table.current_state = state[attack_type .. "_2"]
@@ -971,7 +1005,7 @@ local function ActionInputs()	--Process Action Inputs
 		SaveDirection()
 
 		local position = lua_table.TransformFunctions:GetPosition(my_GO_UID)	--Rotate to direction
-		lua_table.TransformFunctions:LookAt(position[1] + rec_direction.x, position[2], position[3] + rec_direction.z)
+		lua_table.TransformFunctions:LookAt(position[1] + rec_direction.x, position[2], position[3] + rec_direction.z, my_GO_UID)
 
 		input_given = true
 
@@ -990,7 +1024,7 @@ local function ActionInputs()	--Process Action Inputs
 		SaveDirection()
 
 		local position = lua_table.TransformFunctions:GetPosition(my_GO_UID)	--Rotate to direction
-		lua_table.TransformFunctions:LookAt(position[1] + rec_direction.x, position[2], position[3] + rec_direction.z)
+		lua_table.TransformFunctions:LookAt(position[1] + rec_direction.x, position[2], position[3] + rec_direction.z, my_GO_UID)
 
 		input_given = true
 
@@ -1003,7 +1037,7 @@ local function ActionInputs()	--Process Action Inputs
 		SaveDirection()
 
 		local position = lua_table.TransformFunctions:GetPosition(my_GO_UID)	--Rotate to direction
-		lua_table.TransformFunctions:LookAt(position[1] + rec_direction.x, position[2], position[3] + rec_direction.z)
+		lua_table.TransformFunctions:LookAt(position[1] + rec_direction.x, position[2], position[3] + rec_direction.z, my_GO_UID)
 
 		lua_table.AnimationFunctions:PlayAnimation("evade", lua_table.evade_animation_speed)
 		lua_table.previous_state = lua_table.current_state
@@ -1320,13 +1354,13 @@ function lua_table:Update()
 
 				elseif lua_table.current_state == state.evade and DirectionInBounds()				--ELSEIF evading
 				then
-					lua_table.PhysicsFunctions:Move(lua_table.evade_velocity * rec_direction.x * dt, lua_table.evade_velocity * rec_direction.z * dt)	--IMPROVE: Speed set on every frame bad?
+					lua_table.PhysicsFunctions:Move(lua_table.evade_velocity * rec_direction.x * dt, lua_table.evade_velocity * rec_direction.z * dt, my_GO_UID)	--IMPROVE: Speed set on every frame bad?
 
 				elseif lua_table.current_state == state.light_1 or lua_table.current_state == state.light_2 or lua_table.current_state == state.light_3	--IF Light Attacking
 				then
 					if lua_table.current_state ~= state.light_1 and not (lua_table.current_state == state.light_3 and time_since_action > lua_table.light_3_combo_end) and DirectionInBounds()	--IF not light_1 and outside return to idle of light_3	--IMPROVE: Maybe just cut the return to idle part?
 					then
-						lua_table.PhysicsFunctions:Move(lua_table.light_movement_speed * rec_direction.x * dt, lua_table.light_movement_speed * rec_direction.z * dt)
+						lua_table.PhysicsFunctions:Move(lua_table.light_movement_speed * rec_direction.x * dt, lua_table.light_movement_speed * rec_direction.z * dt, my_GO_UID)
 					end
 
 					--Collider Evaluation
@@ -1339,7 +1373,7 @@ function lua_table:Update()
 				then
 					if not (lua_table.current_state == state.heavy_3 and time_since_action > lua_table.heavy_3_combo_end) and DirectionInBounds()	--IF outside return to idle of heavy_3	--IMPROVE: Maybe just cut the return to idle part?
 					then
-						lua_table.PhysicsFunctions:Move(lua_table.heavy_movement_speed * rec_direction.x * dt, lua_table.heavy_movement_speed * rec_direction.z * dt)
+						lua_table.PhysicsFunctions:Move(lua_table.heavy_movement_speed * rec_direction.x * dt, lua_table.heavy_movement_speed * rec_direction.z * dt, my_GO_UID)
 					end
 
 					--Collider Evaluation
@@ -1350,7 +1384,7 @@ function lua_table:Update()
 
 				elseif lua_table.current_state == state.combo_1
 				then
-					if DirectionInBounds() then lua_table.PhysicsFunctions:Move(lua_table.combo_1_movement_speed * rec_direction.x * dt, lua_table.combo_1_movement_speed * rec_direction.z * dt) end
+					if DirectionInBounds() then lua_table.PhysicsFunctions:Move(lua_table.combo_1_movement_speed * rec_direction.x * dt, lua_table.combo_1_movement_speed * rec_direction.z * dt, my_GO_UID) end
 					
 					--Collider Evaluation
 					AttackColliderCheck("combo", 1, "right")
@@ -1360,7 +1394,7 @@ function lua_table:Update()
 
 				elseif lua_table.current_state == state.combo_2
 				then
-					if DirectionInBounds() then lua_table.PhysicsFunctions:Move(lua_table.combo_2_movement_speed * rec_direction.x * dt, lua_table.combo_2_movement_speed * rec_direction.z * dt) end
+					if DirectionInBounds() then lua_table.PhysicsFunctions:Move(lua_table.combo_2_movement_speed * rec_direction.x * dt, lua_table.combo_2_movement_speed * rec_direction.z * dt, my_GO_UID) end
 					
 					--Collider Evaluation
 					AttackColliderCheck("combo", 2, "left")
@@ -1369,7 +1403,7 @@ function lua_table:Update()
 
 				elseif lua_table.current_state == state.combo_3
 				then
-					if DirectionInBounds() then lua_table.PhysicsFunctions:Move(lua_table.combo_3_movement_speed * rec_direction.x * dt, lua_table.combo_3_movement_speed * rec_direction.z * dt) end
+					if DirectionInBounds() then lua_table.PhysicsFunctions:Move(lua_table.combo_3_movement_speed * rec_direction.x * dt, lua_table.combo_3_movement_speed * rec_direction.z * dt, my_GO_UID) end
 
 					--Collider Evaluation
 					AttackColliderCheck("combo", 3, "front")
@@ -1411,7 +1445,7 @@ function lua_table:Update()
 	--lua_table.SystemFunctions:LOG("Delta Time: " .. dt)
 	lua_table.SystemFunctions:LOG("State: " .. lua_table.current_state)
 	lua_table.SystemFunctions:LOG("Time passed: " .. time_since_action)
-	--rot_y = math.rad(GimbalLockWorkaroundY(lua_table.TransformFunctions:GetRotationY()))	--TODO: Remove GimbalLock stage when Euler bug is fixed
+	--rot_y = math.rad(GimbalLockWorkaroundY(lua_table.TransformFunctions:GetRotation()[2]))	--TODO: Remove GimbalLock stage when Euler bug is fixed
 	--lua_table.SystemFunctions:LOG("Angle Y: " .. rot_y)
 	--lua_table.SystemFunctions:LOG("Ultimate: " .. lua_table.current_ultimate)
 	--lua_table.SystemFunctions:LOG("Combo num: " .. combo_num)
