@@ -48,13 +48,17 @@ local state = {	--The order of the states is relevant to the code, CAREFUL CHANG
 	light_2 = 9,
 	light_3 = 10,
 
-	heavy_1 = 11,
-	heavy_2 = 12,
-	heavy_3 = 13,
+	medium_1 = 11,
+	medium_2 = 12,
+	medium_3 = 13,
 
-	combo_1 = 14,
-	combo_2 = 15,
-	combo_3 = 16,
+	heavy_1 = 14,
+	heavy_2 = 15,
+	heavy_3 = 16,
+
+	combo_1 = 17,
+	combo_2 = 18,
+	combo_3 = 19
 }
 lua_table.previous_state = state.idle	-- Previous State
 lua_table.current_state = state.idle	-- Current State
@@ -246,6 +250,36 @@ lua_table.light_3_combo_start = 600			--Combo timeframe start
 lua_table.light_3_combo_end = 900			--Combo timeframe end
 lua_table.light_3_duration = 1500			--Attack end (return to idle)
 lua_table.light_3_animation_speed = 30.0		--IMPROVE: Attack 3 animaton includes a return to idle, which differs from the other animations, we might have to cut it for homogeinity with the rest
+
+--Medium Attack
+lua_table.medium_damage = 1.0					--Multiplier of Base Damage
+lua_table.medium_cost = 5
+
+lua_table.medium_movement_speed = 1000.0
+
+lua_table.medium_1_block_time = 500			--Input block duration	(block new attacks)
+lua_table.medium_1_collider_front_start = 500	--Collider activation time
+lua_table.medium_1_collider_front_end = 600	--Collider deactivation time
+lua_table.medium_1_combo_start = 600			--Combo timeframe start
+lua_table.medium_1_combo_end = 900			--Combo timeframe end
+lua_table.medium_1_duration = 1100			--Attack end (return to idle)
+lua_table.medium_1_animation_speed = 30.0
+
+lua_table.medium_2_block_time = 400			--Input block duration	(block new attacks)
+lua_table.medium_2_collider_front_start = 400	--Collider activation time
+lua_table.medium_2_collider_front_end = 500	--Collider deactivation time
+lua_table.medium_2_combo_start = 500			--Combo timeframe start
+lua_table.medium_2_combo_end = 800			--Combo timeframe end
+lua_table.medium_2_duration = 1000			--Attack end (return to idle)
+lua_table.medium_2_animation_speed = 30.0
+
+lua_table.medium_3_block_time = 500			--Input block duration	(block new attacks)
+lua_table.medium_3_collider_front_start = 450	--Collider activation time
+lua_table.medium_3_collider_front_end = 550	--Collider deactivation time
+lua_table.medium_3_combo_start = 600			--Combo timeframe start
+lua_table.medium_3_combo_end = 900			--Combo timeframe end
+lua_table.medium_3_duration = 1500			--Attack end (return to idle)
+lua_table.medium_3_animation_speed = 30.0		--IMPROVE: Attack 3 animaton includes a return to idle, which differs from the other animations, we might have to cut it for homogeinity with the rest
 
 --Heavy Attack
 lua_table.heavy_damage = 1.666				--Multiplier of Base Damage
