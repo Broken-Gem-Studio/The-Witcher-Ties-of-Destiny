@@ -12,6 +12,7 @@ function GetTableNewUlti()
     local ULTIDSIXTY = 0
     local ULTIDEIGHTY = 0
     local ULTIDHUNDRED = 0
+    local ULTIDUSING = 0
 
     local ULTID2CERO = 0
     local ULTID2TWENTY = 0
@@ -19,6 +20,8 @@ function GetTableNewUlti()
     local ULTID2SIXTY = 0
     local ULTID2EIGHTY = 0
     local ULTID2HUNDRED = 0
+    local ULTID2USING = 0
+    
 
 
     lua_table.ultimatelocal = 0
@@ -38,6 +41,8 @@ function GetTableNewUlti()
         ULTIDSIXTY = lua_table["GameObject"]:FindGameObject("ULTISIXTY")
         ULTIDEIGHTY = lua_table["GameObject"]:FindGameObject("ULTIEIGHTY")
         ULTIDHUNDRED = lua_table["GameObject"]:FindGameObject("ULTIHUNDRED")
+        ULTIDUSING = lua_table["GameObject"]:FindGameObject("ULTIUSING")
+        
 
         ULTID2CERO = lua_table["GameObject"]:FindGameObject("ULTICERO2")
         ULTID2TWENTY = lua_table["GameObject"]:FindGameObject("ULTITWENTY2")
@@ -45,6 +50,8 @@ function GetTableNewUlti()
         ULTID2SIXTY = lua_table["GameObject"]:FindGameObject("ULTISIXTY2")
         ULTID2EIGHTY = lua_table["GameObject"]:FindGameObject("ULTIEIGHTY2")
         ULTID2HUNDRED = lua_table["GameObject"]:FindGameObject("ULTIHUNDRED2")
+        ULTID2USING = lua_table["GameObject"]:FindGameObject("ULTIUSING2")
+        
         
 
         P1ID = lua_table["GameObject"]:FindGameObject("Geralt")
@@ -61,12 +68,14 @@ function GetTableNewUlti()
         lua_table["UI"]:MakeElementInvisible("Image", ULTID2SIXTY)
         lua_table["UI"]:MakeElementInvisible("Image", ULTID2EIGHTY)
         lua_table["UI"]:MakeElementInvisible("Image", ULTID2HUNDRED)
+        lua_table["UI"]:MakeElementInvisible("Image", ULTID2USING)
 
         lua_table["UI"]:MakeElementInvisible("Image", ULTIDTWENTY)
         lua_table["UI"]:MakeElementInvisible("Image", ULTIDFORTY)
         lua_table["UI"]:MakeElementInvisible("Image", ULTIDSIXTY)
         lua_table["UI"]:MakeElementInvisible("Image", ULTIDEIGHTY)
         lua_table["UI"]:MakeElementInvisible("Image", ULTIDHUNDRED)
+        lua_table["UI"]:MakeElementInvisible("Image", ULTIDUSING)
      
         lua_table.ultimatelocal2 = lua_table.ultiP2.current_ultimate
         lua_table.ultimatelocal = lua_table.ultiP1.current_ultimate
@@ -80,9 +89,9 @@ function GetTableNewUlti()
         lua_table["System"]:LOG ("ULTIMATE2 UPDATE: " .. lua_table.ultimatelocal2)
 
         --ULTI GERALT
-        if lua_table.ultimatelocal == 0--WHEN ULTIMATE IS USED, WE PUT IMAGE AS 0%
+        if lua_table.ultimatelocal == 0 and lua_table.ultiP1.ultimate_active == false--WHEN ULTIMATE IS USED, WE PUT IMAGE AS 0%
         then
-            lua_table["UI"]:MakeElementInvisible("Image", ULTIDHUNDRED)
+            lua_table["UI"]:MakeElementInvisible("Image", ULTIDUSING)
             lua_table["UI"]:MakeElementVisible("Image", ULTIDCERO)
         end
 
@@ -118,14 +127,15 @@ function GetTableNewUlti()
 
         if lua_table.ultiP1.ultimate_active == true--SI ESTA USANDO LA ULTI MOSTRAR IMAGEN 100% ULTIMATE ACTIVE TIENE QUE SER LUA_TABLE
         then
-            lua_table["UI"]:MakeElementVisible("Image", ULTIDHUNDRED)--poner otra imagen en vez de la de 100
+            lua_table["UI"]:MakeElementInvisible("Image", ULTIDHUNDRED)
+            lua_table["UI"]:MakeElementVisible("Image", ULTIDUSING)--poner otra imagen en vez de la de 100
         end
 
         --ULTI JASKIER
 
-        if lua_table.ultimatelocal2 == 0--WHEN ULTIMATE IS USED, WE PUT IMAGE AS 0%
+        if lua_table.ultimatelocal2 == 0 and lua_table.ultiP2.ultimate_active == false--WHEN ULTIMATE IS USED, WE PUT IMAGE AS 0%
         then
-            lua_table["UI"]:MakeElementInvisible("Image", ULTID2HUNDRED)
+            lua_table["UI"]:MakeElementInvisible("Image", ULTID2USING)
             lua_table["UI"]:MakeElementVisible("Image", ULTID2CERO)
         end
 
@@ -161,7 +171,8 @@ function GetTableNewUlti()
 
         if lua_table.ultiP2.ultimate_active == true--EN EL CASO DE JASKIER IGUAL NO HACE FALTA QUE SE MANTENGA LA IMAGEN PORQUE SU ULTI NO DURA TIEMPO
         then
-            lua_table["UI"]:MakeElementVisible("Image", ULTID2HUNDRED)
+            lua_table["UI"]:MakeElementInvisible("Image", ULTID2HUNDRED)
+            lua_table["UI"]:MakeElementVisible("Image", ULTID2USING)
         end
 
     
