@@ -58,7 +58,8 @@ local state = {	--The order of the states is relevant to the code, CAREFUL CHANG
 
 	combo_1 = 17,
 	combo_2 = 18,
-	combo_3 = 19
+	combo_3 = 19,
+	combo_4 = 20
 }
 lua_table.previous_state = state.idle	-- Previous State
 lua_table.current_state = state.idle	-- Current State
@@ -1263,7 +1264,7 @@ function lua_table:Update()
 		if not lua_table.ultimate_active	--IF ultimate offline
 		then
 			--Ultimate Regeneration
-			if lua_table.current_ultimate < lua_table.max_ultimate then lua_table.current_ultimate = lua_table.current_ultimate + 1 * dt end	--IF can increase, increase ultimate
+			if lua_table.current_ultimate < lua_table.max_ultimate then lua_table.current_ultimate = lua_table.current_ultimate + ultimate_reg_real * dt end	--IF can increase, increase ultimate
 			if lua_table.current_ultimate > lua_table.max_ultimate then lua_table.current_ultimate = lua_table.max_ultimate end									--IF above max, set to max
 		end
 
