@@ -56,7 +56,7 @@ function ParticleBigExplosion()
 	lua_table.ParticlesFunctions:SetRandomParticlesVelocity(50,50,50, lua_table.parentUID)
 	
 	lua_table.ParticlesFunctions:SetParticlesScale(1, 1, lua_table.parentUID)
-	lua_table.ParticlesFunctions:SetRandomParticlesScale(15, 15, lua_table.parentUID)
+	lua_table.ParticlesFunctions:SetRandomParticlesScale(15, lua_table.parentUID)
 
 	lua_table.ParticlesFunctions:PlayParticleEmitter(lua_table.parentUID)
 end
@@ -129,6 +129,7 @@ function lua_table:OnTriggerEnter()
 				timer = lua_table.SystemFunctions:GameTime()
 				--  lua_table.SystemFunctions:LOG("BOOM TIME: " .. timer)
 				ParticleBigExplosion()
+				-- lua_table.AudioFunctions:PlayBrakePropSound()
 				current_state = state.DESTROYED
 			end
 		end
