@@ -1,23 +1,12 @@
 {
     "Application": {
         "Organization": "CITM - UPC",
-        "Title": "Broken Engine"
+        "Title": "Test2Build"
     },
-    "EditorUI": {
-        "About": false,
-        "Build": false,
-        "Console": true,
-        "Hierarchy": true,
-        "Inspector": true,
-        "Physics": true,
-        "Project": true,
-        "Rendering": false,
-        "Resources": true,
-        "Scene": true,
-        "Settings": true,
-        "ShaderEditor": false,
-        "Toolbar": true
+    "Camera3D": {
+        "MainCamera": "Camera"
     },
+    "Input": null,
     "Physics": {
         "Layer0": {
             "0": true,
@@ -198,14 +187,17 @@
     "Renderer3D": {
         "GammaCorrection": 1.8650000095367432
     },
+    "SceneManager": {
+        "MainScene": "DefaultScene.scene"
+    },
     "Window": {
         "borderless": false,
         "fullscreen": false,
         "fullscreenDesktop": false,
-        "height": 1017,
+        "height": 720,
         "resizable": true,
-        "sceneX": 480,
-        "sceneY": 640,
-        "width": 1920
+        "sceneX": 1305.3599853515625,
+        "sceneY": 523.7999877929688,
+        "width": 1024
     }
 }
