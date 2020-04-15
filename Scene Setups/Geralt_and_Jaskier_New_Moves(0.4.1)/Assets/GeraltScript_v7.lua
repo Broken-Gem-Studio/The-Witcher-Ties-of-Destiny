@@ -120,7 +120,7 @@ lua_table.key_interact = "BUTTON_LEFTSHOULDER"
 lua_table.key_use_item = "BUTTON_RIGHTSHOULDER"
 
 lua_table.key_light = "BUTTON_Y"
-lua_table.key_heavy = "BUTTON_B"
+lua_table.key_medium = "BUTTON_B"
 lua_table.key_evade = "BUTTON_A"
 lua_table.key_ability = "BUTTON_X"
 
@@ -230,7 +230,7 @@ lua_table.energy_reg_orig = 10	--This is 5 per second aprox.
 
 	local attack_inputs = {}
 	attack_inputs[lua_table.key_light] = false
-	attack_inputs[lua_table.key_heavy] = false
+	attack_inputs[lua_table.key_medium] = false
 
 	local attack_input_given = false
 	local attack_input_timeframe = 70	--Milisecond timeframe for a double input (70ms allows by a small margin to have at least 2 frames of input registering on 30fps before overpasing the time limit)
@@ -246,7 +246,7 @@ lua_table.light_1_block_time = 500			--Input block duration	(block new attacks)
 lua_table.light_1_collider_front_start = 500	--Collider activation time
 lua_table.light_1_collider_front_end = 600	--Collider deactivation time
 lua_table.light_1_combo_start = 600			--Combo timeframe start
-lua_table.light_1_combo_end = 900			--Combo timeframe end
+lua_table.light_1_combo_end = 1100			--Combo timeframe end
 lua_table.light_1_duration = 1100			--Attack end (return to idle)
 lua_table.light_1_animation_speed = 30.0
 
@@ -254,7 +254,7 @@ lua_table.light_2_block_time = 400			--Input block duration	(block new attacks)
 lua_table.light_2_collider_front_start = 400	--Collider activation time
 lua_table.light_2_collider_front_end = 500	--Collider deactivation time
 lua_table.light_2_combo_start = 500			--Combo timeframe start
-lua_table.light_2_combo_end = 800			--Combo timeframe end
+lua_table.light_2_combo_end = 1000			--Combo timeframe end
 lua_table.light_2_duration = 1000			--Attack end (return to idle)
 lua_table.light_2_animation_speed = 30.0
 
@@ -262,7 +262,7 @@ lua_table.light_3_block_time = 500			--Input block duration	(block new attacks)
 lua_table.light_3_collider_front_start = 450	--Collider activation time
 lua_table.light_3_collider_front_end = 550	--Collider deactivation time
 lua_table.light_3_combo_start = 600			--Combo timeframe start
-lua_table.light_3_combo_end = 900			--Combo timeframe end
+lua_table.light_3_combo_end = 1500			--Combo timeframe end
 lua_table.light_3_duration = 1500			--Attack end (return to idle)
 lua_table.light_3_animation_speed = 30.0		--IMPROVE: Attack 3 animaton includes a return to idle, which differs from the other animations, we might have to cut it for homogeinity with the rest
 
@@ -276,7 +276,7 @@ lua_table.medium_1_block_time = 500			--Input block duration	(block new attacks)
 lua_table.medium_1_collider_front_start = 500	--Collider activation time
 lua_table.medium_1_collider_front_end = 600	--Collider deactivation time
 lua_table.medium_1_combo_start = 600			--Combo timeframe start
-lua_table.medium_1_combo_end = 900			--Combo timeframe end
+lua_table.medium_1_combo_end = 1100			--Combo timeframe end
 lua_table.medium_1_duration = 1100			--Attack end (return to idle)
 lua_table.medium_1_animation_speed = 30.0
 
@@ -284,7 +284,7 @@ lua_table.medium_2_block_time = 400			--Input block duration	(block new attacks)
 lua_table.medium_2_collider_front_start = 400	--Collider activation time
 lua_table.medium_2_collider_front_end = 500	--Collider deactivation time
 lua_table.medium_2_combo_start = 500			--Combo timeframe start
-lua_table.medium_2_combo_end = 800			--Combo timeframe end
+lua_table.medium_2_combo_end = 1000			--Combo timeframe end
 lua_table.medium_2_duration = 1000			--Attack end (return to idle)
 lua_table.medium_2_animation_speed = 30.0
 
@@ -292,7 +292,7 @@ lua_table.medium_3_block_time = 500			--Input block duration	(block new attacks)
 lua_table.medium_3_collider_front_start = 450	--Collider activation time
 lua_table.medium_3_collider_front_end = 550	--Collider deactivation time
 lua_table.medium_3_combo_start = 600			--Combo timeframe start
-lua_table.medium_3_combo_end = 900			--Combo timeframe end
+lua_table.medium_3_combo_end = 1500			--Combo timeframe end
 lua_table.medium_3_duration = 1500			--Attack end (return to idle)
 lua_table.medium_3_animation_speed = 30.0		--IMPROVE: Attack 3 animaton includes a return to idle, which differs from the other animations, we might have to cut it for homogeinity with the rest
 
@@ -643,8 +643,8 @@ local function RegisterAttackInputs()	--This is used to give a timeframe to pres
 			attack_input_given = true
 		end
 	end
-	if not attack_inputs[lua_table.key_heavy] and lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_heavy, key_state.key_down) then
-		attack_inputs[lua_table.key_heavy] = true
+	if not attack_inputs[lua_table.key_medium] and lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_medium, key_state.key_down) then
+		attack_inputs[lua_table.key_medium] = true
 		if not attack_input_given then
 			attack_input_started_at = game_time
 			attack_input_given = true
@@ -1025,9 +1025,30 @@ local function ActionInputs()	--Process Action Inputs
 
 	if attack_input_given then	--IF attack input made
 		if game_time - attack_input_started_at > attack_input_timeframe		--IF surpassed double press timeframe
-		or attack_inputs[lua_table.key_light] and attack_inputs[lua_table.key_heavy]				--IF both buttons have been pressed
+		or attack_inputs[lua_table.key_light] and attack_inputs[lua_table.key_medium]				--IF both buttons have been pressed
 		then
-			if lua_table.current_energy >= lua_table.light_cost and attack_inputs[lua_table.key_light]		--Light Input
+			if attack_inputs[lua_table.key_light] and attack_inputs[lua_table.key_medium]		--Both inputs (Heavy)
+			then
+				if lua_table.current_energy >= lua_table.heavy_cost	--Note: Energy cost is evaluated here so that the prev condition prevents other single-input attacks from tirggering
+				then
+					action_started_at = game_time		--Set timer start mark
+					PushBack(lua_table.combo_stack, 'H')			--Add new input to stack
+
+					combo_achieved = TimedAttack(lua_table.heavy_cost)
+
+					if not combo_achieved	--If no combo was achieved with the input, do the attack normally
+					then
+						RegularAttack("heavy")
+					end
+
+					SaveDirection()
+
+					local position = lua_table.TransformFunctions:GetPosition(my_GO_UID)	--Rotate to direction
+					lua_table.TransformFunctions:LookAt(position[1] + rec_direction.x, position[2], position[3] + rec_direction.z, my_GO_UID)
+
+					action_made = true
+				end
+			elseif lua_table.current_energy >= lua_table.light_cost and attack_inputs[lua_table.key_light]		--Light Input
 			then
 				action_started_at = game_time		--Set timer start mark
 				PushBack(lua_table.combo_stack, 'L')			--Add new input to stack
@@ -1046,16 +1067,16 @@ local function ActionInputs()	--Process Action Inputs
 
 				action_made = true
 
-			elseif lua_table.current_energy >= lua_table.heavy_cost and attack_inputs[lua_table.key_heavy]	--Heavy Input
+			elseif lua_table.current_energy >= lua_table.medium_cost and attack_inputs[lua_table.key_medium]	--Medium Input
 			then
 				action_started_at = game_time		--Set timer start mark
-				PushBack(lua_table.combo_stack, 'H')			--Add new input to stack
+				PushBack(lua_table.combo_stack, 'M')			--Add new input to stack
 
-				combo_achieved = TimedAttack(lua_table.heavy_cost)
+				combo_achieved = TimedAttack(lua_table.medium_cost)
 
 				if not combo_achieved	--If no combo was achieved with the input, do the attack normally
 				then
-					RegularAttack("heavy")
+					RegularAttack("medium")
 				end
 
 				SaveDirection()
@@ -1067,7 +1088,7 @@ local function ActionInputs()	--Process Action Inputs
 
 			end
 
-			attack_input_given, attack_inputs[lua_table.key_light], attack_inputs[lua_table.key_heavy] = false, false, false
+			attack_input_given, attack_inputs[lua_table.key_light], attack_inputs[lua_table.key_medium] = false, false, false
 			--local time_between = game_time - attack_input_started_at
 			--lua_table.SystemFunctions:LOG("Time Between inputs: " .. time_between)
 		end
