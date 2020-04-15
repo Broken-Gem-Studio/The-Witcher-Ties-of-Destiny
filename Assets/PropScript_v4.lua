@@ -43,22 +43,22 @@ local current_state = state.FULL -- Should initialize at awake(?)
 -- Methods
 -----------------------------------------------------------------------------------------
 
-function ParticleBigExplosion()
-	lua_table.ParticlesFunctions:SetParticlesLooping(false, lua_table.parentUID)
-	lua_table.ParticlesFunctions:SetParticlesDuration(lua_table.particles_duration, lua_table.parentUID)
+function ParticleBigExplosion(particleduration, pUID)
+	lua_table.ParticlesFunctions:SetParticlesLooping(false, pUID)
+	lua_table.ParticlesFunctions:SetParticlesDuration(particleduration, pUID)
 
-	lua_table.ParticlesFunctions:SetEmissionRate(10, lua_table.parentUID)
-	lua_table.ParticlesFunctions:SetParticlesPerCreation(300, lua_table.parentUID)
-	lua_table.ParticlesFunctions:SetParticlesLifeTime(2000, lua_table.parentUID)
+	lua_table.ParticlesFunctions:SetEmissionRate(10, pUID)
+	lua_table.ParticlesFunctions:SetParticlesPerCreation(300, pUID)
+	lua_table.ParticlesFunctions:SetParticlesLifeTime(2000, pUID)
 
-	lua_table.ParticlesFunctions:SetExternalAcceleration(0, 10, 0, lua_table.parentUID)
-	lua_table.ParticlesFunctions:SetParticlesVelocity(0, 30, 0, lua_table.parentUID)
-	lua_table.ParticlesFunctions:SetRandomParticlesVelocity(50,50,50, lua_table.parentUID)
+	lua_table.ParticlesFunctions:SetExternalAcceleration(0, 10, 0, pUID)
+	lua_table.ParticlesFunctions:SetParticlesVelocity(0, 30, 0, pUID)
+	lua_table.ParticlesFunctions:SetRandomParticlesVelocity(50,50,50, pUID)
 	
-	lua_table.ParticlesFunctions:SetParticlesScale(1, 1, lua_table.parentUID)
-	lua_table.ParticlesFunctions:SetRandomParticlesScale(15, lua_table.parentUID)
+	lua_table.ParticlesFunctions:SetParticlesScale(1, 1, pUID)
+	lua_table.ParticlesFunctions:SetRandomParticlesScale(15, pUID)
 
-	lua_table.ParticlesFunctions:PlayParticleEmitter(lua_table.parentUID)
+	lua_table.ParticlesFunctions:PlayParticleEmitter(pUID)
 end
 
 -- Main Code
@@ -128,7 +128,7 @@ function lua_table:OnTriggerEnter()
 			then
 				timer = lua_table.SystemFunctions:GameTime()
 				--  lua_table.SystemFunctions:LOG("BOOM TIME: " .. timer)
-				ParticleBigExplosion()
+				ParticleBigExplosion(lua_table.particles_duration, lua_table.parentUID)
 				-- lua_table.AudioFunctions:PlayBrakePropSound()
 				current_state = state.DESTROYED
 			end
