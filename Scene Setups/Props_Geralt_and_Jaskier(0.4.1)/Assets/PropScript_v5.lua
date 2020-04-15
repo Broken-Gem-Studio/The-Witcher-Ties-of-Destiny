@@ -1,4 +1,4 @@
-function GetTablePropScript_v4 ()
+function GetTablePropScript_v5 ()
 local lua_table = {}
 lua_table.SystemFunctions = Scripting.System ()
 lua_table.TransformFunctions = Scripting.Transform ()
@@ -25,6 +25,8 @@ lua_table.parentUID = 0
 
 local timer = 0
 local timer2 = 0
+
+local randy = 0
 
 -- Prop position
 local prop_position_x = 0
@@ -59,6 +61,15 @@ function ParticleBigExplosion(particleduration, pUID)
 	lua_table.ParticlesFunctions:SetRandomParticlesScale(15, pUID)
 
 	lua_table.ParticlesFunctions:PlayParticleEmitter(pUID)
+
+	-- Audio SFX (randomized)
+	randy = lua_table.SystemFunctions:RandomNumberInRange(1, 2)
+	if (randy == 1)
+	then
+		lua_table.AudioFunctions:PlayAudioEvent("Event_Play_BrokenWoodSound")
+	else
+		lua_table.AudioFunctions:PlayAudioEvent("Event_Play_BrokenWoodSound2")
+	end
 end
 
 -- Main Code
@@ -79,7 +90,9 @@ function lua_table:Start ()
 	-- ParticleBigExplosion()
 	-- lua_table.ParticlesFunctions:StopParticleEmitter()
 
-	lua_table.TransformFunctions:RotateObject(-90, 0, 0, lua_table.myUID)
+	-- lua_table.TransformFunctions:RotateObject(-90, 0, 0, lua_table.myUID)
+
+	lua_table.AudioFunctions:PlayAudioEvent("Event_Play_BrokenWoodSound")
 end
 
 function lua_table:Update ()
@@ -117,6 +130,18 @@ function lua_table:OnTriggerEnter()
 
 		lua_table.health = lua_table.health - 1
 
+		-- Audio SFX (randomized)
+		randy = lua_table.SystemFunctions:RandomNumberInRange(1, 3)
+		if (randy == 1)
+		then
+			lua_table.AudioFunctions:PlayAudioEvent("Event_Play_HitWoodSound")
+		elseif (randy == 2)
+		then
+			lua_table.AudioFunctions:PlayAudioEvent("Event_Play_HitWoodSound2")
+		else
+			lua_table.AudioFunctions:PlayAudioEvent("Event_Play_HitWoodSound3")
+		end
+
 		if lua_table.health > 0
 		then 
 			-- HandleHit()
@@ -137,7 +162,7 @@ function lua_table:OnTriggerEnter()
 end
 
 function lua_table:OnCollisionEnter() -- NOT FINISHED
-	local collider = lua_table.PhysicsFunctions:OnCollisionEnter(lua_table.UID)
+	local collider = lua_table.PhysicsFunctions:OnCollisionEnter(lua_table.myUID)
 	lua_table.SystemFunctions:LOG("T:" .. collider)
 end
 

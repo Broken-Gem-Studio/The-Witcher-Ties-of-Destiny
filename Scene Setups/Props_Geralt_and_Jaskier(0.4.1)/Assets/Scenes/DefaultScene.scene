@@ -25,7 +25,7 @@
                 "Duration": "1000",
                 "Loop": true,
                 "Resources": {
-                    "ResourceTexture": "Library/Textures/1621361888.dds"
+                    "ResourceTexture": "Library/Textures/1298195729.dds"
                 },
                 "UID": 1661991544,
                 "emisionRate": "500.000000",
@@ -135,9 +135,9 @@
                 "rotationx": "0.549070",
                 "rotationy": "-0.435325",
                 "rotationz": "0.570814",
-                "scalex": "0.999992",
-                "scaley": "0.999992",
-                "scalez": "0.999992"
+                "scalex": "0.999990",
+                "scaley": "0.999990",
+                "scalez": "0.999990"
             },
             "13": {
                 "Active": true,
@@ -167,8 +167,8 @@
                 "rotationx": "0.000266",
                 "rotationy": "0.002586",
                 "rotationz": "0.999902",
-                "scalex": "1.000008",
-                "scaley": "1.000008",
+                "scalex": "1.000010",
+                "scaley": "1.000010",
                 "scalez": "1.000000"
             },
             "13": {
@@ -343,8 +343,8 @@
                 "rotationx": "-0.000473",
                 "rotationy": "0.005722",
                 "rotationz": "0.999893",
-                "scalex": "0.999992",
-                "scaley": "0.999992",
+                "scalex": "0.999990",
+                "scaley": "0.999990",
                 "scalez": "1.000000"
             },
             "13": {
@@ -408,8 +408,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.070461",
-                "scaley": "15.153825",
-                "scalez": "1.367658"
+                "scaley": "15.153842",
+                "scalez": "1.367660"
             },
             "1": {
                 "Active": true,
@@ -930,8 +930,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000008",
-                "scalez": "1.000008"
+                "scaley": "1.000010",
+                "scalez": "1.000010"
             }
         },
         "Index": 0,
@@ -985,9 +985,9 @@
                 "rotationx": "0.549008",
                 "rotationy": "-0.437302",
                 "rotationz": "0.569519",
-                "scalex": "1.000008",
-                "scaley": "1.000008",
-                "scalez": "1.000008"
+                "scalex": "1.000010",
+                "scaley": "1.000010",
+                "scalez": "1.000010"
             },
             "13": {
                 "Active": true,
@@ -1049,9 +1049,9 @@
                 "rotationx": "-0.547405",
                 "rotationy": "-0.439212",
                 "rotationz": "0.571911",
-                "scalex": "1.000008",
-                "scaley": "1.000008",
-                "scalez": "1.000008"
+                "scalex": "1.000010",
+                "scaley": "1.000010",
+                "scalez": "1.000010"
             },
             "13": {
                 "Active": true,
@@ -1173,6 +1173,1291 @@
                 "scaley": "1.000000",
                 "scalez": "1.000000"
             },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/GeraltScript_v7.lua"
+                },
+                "Script variables": {
+                    "Count": 182,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "ability_cost",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 30.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "light_1_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 30.0
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_1_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1100.0
+                    },
+                    "Variable 100": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_3_combo_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 600.0
+                    },
+                    "Variable 101": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_1_collider_left_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1150.0
+                    },
+                    "Variable 102": {
+                        "DisplayObjectName": false,
+                        "Name": "ability_push_velocity",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 100000.0
+                    },
+                    "Variable 103": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_1_movement_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 4000.0
+                    },
+                    "Variable 104": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_effect_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 10000.0
+                    },
+                    "Variable 105": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_1_collider_front_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 500.0
+                    },
+                    "Variable 106": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_2_cost",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 30.0
+                    },
+                    "Variable 107": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_1_combo_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 900.0
+                    },
+                    "Variable 108": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_movement_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1000.0
+                    },
+                    "Variable 109": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 3600.0
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "light_1_combo_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 600.0
+                    },
+                    "Variable 110": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_reg_orig",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 10.0
+                    },
+                    "Variable 111": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_reg_mod",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 112": {
+                        "DisplayObjectName": false,
+                        "Name": "critical_damage_add",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 113": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_movement_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 700.0
+                    },
+                    "Variable 114": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_3_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2200.0
+                    },
+                    "Variable 115": {
+                        "DisplayObjectName": false,
+                        "Name": "base_damage_mod",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 116": {
+                        "DisplayObjectName": false,
+                        "Name": "key_light",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "BUTTON_X"
+                    },
+                    "Variable 117": {
+                        "DisplayObjectName": false,
+                        "Name": "light_3_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 30.0
+                    },
+                    "Variable 118": {
+                        "DisplayObjectName": false,
+                        "Name": "current_ultimate",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 119": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_1_collider_front_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1000.0
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "key_notdef6",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "BUTTON_START"
+                    },
+                    "Variable 120": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_3_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 30.0
+                    },
+                    "Variable 121": {
+                        "DisplayObjectName": false,
+                        "Name": "ability_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 800.0
+                    },
+                    "Variable 122": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_1_block_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 500.0
+                    },
+                    "Variable 123": {
+                        "DisplayObjectName": false,
+                        "Name": "collider_effect",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 124": {
+                        "DisplayObjectName": false,
+                        "Name": "ability_cooldown",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 5000.0
+                    },
+                    "Variable 125": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_3_collider_front_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 700.0
+                    },
+                    "Variable 126": {
+                        "DisplayObjectName": false,
+                        "Name": "energy_reg_mod",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 127": {
+                        "DisplayObjectName": false,
+                        "Name": "max_health_real",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 128": {
+                        "DisplayObjectName": false,
+                        "Name": "evade_cost",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 20.0
+                    },
+                    "Variable 129": {
+                        "DisplayObjectName": false,
+                        "Name": "evade_velocity",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 12500.0
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "max_health_mod",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 130": {
+                        "DisplayObjectName": false,
+                        "Name": "previous_state",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 131": {
+                        "DisplayObjectName": false,
+                        "Name": "key_prev_consumable",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "BUTTON_DPAD_LEFT"
+                    },
+                    "Variable 132": {
+                        "DisplayObjectName": false,
+                        "Name": "key_heavy",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "BUTTON_Y"
+                    },
+                    "Variable 133": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_3_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 30.0
+                    },
+                    "Variable 134": {
+                        "DisplayObjectName": false,
+                        "Name": "evade_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 40.0
+                    },
+                    "Variable 135": {
+                        "DisplayObjectName": false,
+                        "Name": "ability_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 70.0
+                    },
+                    "Variable 136": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_2_block_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 400.0
+                    },
+                    "Variable 137": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_3_combo_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1500.0
+                    },
+                    "Variable 138": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_2_combo_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 500.0
+                    },
+                    "Variable 139": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_3_block_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 800.0
+                    },
+                    "Variable 14": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_1_collider_front_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1080.0
+                    },
+                    "Variable 140": {
+                        "DisplayObjectName": false,
+                        "Name": "revive_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 5000.0
+                    },
+                    "Variable 141": {
+                        "DisplayObjectName": false,
+                        "Name": "energy_reg_orig",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 10.0
+                    },
+                    "Variable 142": {
+                        "DisplayObjectName": false,
+                        "Name": "base_damage_orig",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 30.0
+                    },
+                    "Variable 143": {
+                        "DisplayObjectName": false,
+                        "Name": "key_ultimate_2",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "AXIS_TRIGGERRIGHT"
+                    },
+                    "Variable 144": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_2_combo_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 600.0
+                    },
+                    "Variable 145": {
+                        "DisplayObjectName": false,
+                        "Name": "health_reg_mod",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 146": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_2_collider_front_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 450.0
+                    },
+                    "Variable 147": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_damage",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.666
+                    },
+                    "Variable 148": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_1_combo_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 600.0
+                    },
+                    "Variable 149": {
+                        "DisplayObjectName": false,
+                        "Name": "key_next_consumable",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "BUTTON_DPAD_RIGHT"
+                    },
+                    "Variable 15": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_2_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1000.0
+                    },
+                    "Variable 150": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_2_damage",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2.5
+                    },
+                    "Variable 151": {
+                        "DisplayObjectName": false,
+                        "Name": "light_2_combo_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 800.0
+                    },
+                    "Variable 152": {
+                        "DisplayObjectName": false,
+                        "Name": "key_drop_consumable",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "BUTTON_DPAD_DOWN"
+                    },
+                    "Variable 153": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_1_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1600.0
+                    },
+                    "Variable 154": {
+                        "DisplayObjectName": false,
+                        "Name": "light_1_collider_front_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 600.0
+                    },
+                    "Variable 155": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_1_combo_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1500.0
+                    },
+                    "Variable 156": {
+                        "DisplayObjectName": false,
+                        "Name": "light_2_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 30.0
+                    },
+                    "Variable 157": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_1_combo_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1100.0
+                    },
+                    "Variable 158": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_2_collider_front_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 400.0
+                    },
+                    "Variable 159": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_2_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 30.0
+                    },
+                    "Variable 16": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_2_combo_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 900.0
+                    },
+                    "Variable 160": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_3_collider_front_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 450.0
+                    },
+                    "Variable 161": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_3_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1500.0
+                    },
+                    "Variable 162": {
+                        "DisplayObjectName": false,
+                        "Name": "key_ability",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "BUTTON_B"
+                    },
+                    "Variable 163": {
+                        "DisplayObjectName": false,
+                        "Name": "light_1_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1100.0
+                    },
+                    "Variable 164": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_3_collider_front_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 550.0
+                    },
+                    "Variable 165": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_2_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1000.0
+                    },
+                    "Variable 166": {
+                        "DisplayObjectName": false,
+                        "Name": "light_2_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1000.0
+                    },
+                    "Variable 167": {
+                        "DisplayObjectName": false,
+                        "Name": "light_2_block_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 400.0
+                    },
+                    "Variable 168": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_1_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 30.0
+                    },
+                    "Variable 169": {
+                        "DisplayObjectName": false,
+                        "Name": "idle_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 30.0
+                    },
+                    "Variable 17": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_3_combo_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 900.0
+                    },
+                    "Variable 170": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_1_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 30.0
+                    },
+                    "Variable 171": {
+                        "DisplayObjectName": false,
+                        "Name": "light_2_combo_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 500.0
+                    },
+                    "Variable 172": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_1_collider_front_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 600.0
+                    },
+                    "Variable 173": {
+                        "DisplayObjectName": false,
+                        "Name": "max_ultimate",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 100.0
+                    },
+                    "Variable 174": {
+                        "DisplayObjectName": false,
+                        "Name": "light_3_collider_front_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 450.0
+                    },
+                    "Variable 175": {
+                        "DisplayObjectName": false,
+                        "Name": "player_ID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 176": {
+                        "DisplayObjectName": false,
+                        "Name": "light_movement_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1000.0
+                    },
+                    "Variable 177": {
+                        "DisplayObjectName": false,
+                        "Name": "light_3_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1500.0
+                    },
+                    "Variable 178": {
+                        "DisplayObjectName": false,
+                        "Name": "light_3_collider_front_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 550.0
+                    },
+                    "Variable 179": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_3_block_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 500.0
+                    },
+                    "Variable 18": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 45.0
+                    },
+                    "Variable 180": {
+                        "DisplayObjectName": false,
+                        "Name": "key_move",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "AXIS_LEFT"
+                    },
+                    "Variable 181": {
+                        "DisplayObjectName": false,
+                        "Name": "light_2_collider_front_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 400.0
+                    },
+                    "Variable 19": {
+                        "DisplayObjectName": false,
+                        "Name": "light_3_combo_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 600.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "max_energy_real",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 20": {
+                        "DisplayObjectName": false,
+                        "Name": "current_energy",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 21": {
+                        "DisplayObjectName": false,
+                        "Name": "current_state",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 22": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_2_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 30.0
+                    },
+                    "Variable 23": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_2_collider_front_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 500.0
+                    },
+                    "Variable 24": {
+                        "DisplayObjectName": false,
+                        "Name": "key_aim",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "AXIS_RIGHT"
+                    },
+                    "Variable 25": {
+                        "DisplayObjectName": false,
+                        "Name": "key_evade",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "BUTTON_A"
+                    },
+                    "Variable 26": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_3_combo_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1000.0
+                    },
+                    "Variable 27": {
+                        "DisplayObjectName": false,
+                        "Name": "light_damage",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 28": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_2_block_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 400.0
+                    },
+                    "Variable 29": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_cost",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 5.0
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_1_collider_body_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 700.0
+                    },
+                    "Variable 30": {
+                        "DisplayObjectName": false,
+                        "Name": "key_notdef5",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "BUTTON_BACK"
+                    },
+                    "Variable 31": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_cost",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 10.0
+                    },
+                    "Variable 32": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_active",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 33": {
+                        "DisplayObjectName": false,
+                        "Name": "current_health",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 34": {
+                        "DisplayObjectName": false,
+                        "Name": "ability_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 300.0
+                    },
+                    "Variable 35": {
+                        "DisplayObjectName": false,
+                        "Name": "run_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 20.0
+                    },
+                    "Variable 36": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_damage",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 37": {
+                        "DisplayObjectName": false,
+                        "Name": "being_revived",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 38": {
+                        "DisplayObjectName": false,
+                        "Name": "ability_offset_z",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 10.0
+                    },
+                    "Variable 39": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_2_collider_front_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 350.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": false,
+                        "Name": "max_energy_orig",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 100.0
+                    },
+                    "Variable 40": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_2_combo_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 800.0
+                    },
+                    "Variable 41": {
+                        "DisplayObjectName": false,
+                        "Name": "critical_chance_add",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 42": {
+                        "DisplayObjectName": false,
+                        "Name": "collider_damage",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 43": {
+                        "DisplayObjectName": false,
+                        "Name": "light_1_block_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 500.0
+                    },
+                    "Variable 44": {
+                        "DisplayObjectName": false,
+                        "Name": "light_2_collider_front_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 500.0
+                    },
+                    "Variable 45": {
+                        "DisplayObjectName": false,
+                        "Name": "max_energy_mod",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 46": {
+                        "DisplayObjectName": false,
+                        "Name": "key_use_item",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "BUTTON_RIGHTSHOULDER"
+                    },
+                    "Variable 47": {
+                        "DisplayObjectName": false,
+                        "Name": "key_interact",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "BUTTON_LEFTSHOULDER"
+                    },
+                    "Variable 48": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_1_collider_front_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1000.0
+                    },
+                    "Variable 49": {
+                        "DisplayObjectName": false,
+                        "Name": "critical_damage_orig",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_3_collider_right_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1200.0
+                    },
+                    "Variable 50": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_1_cost",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 25.0
+                    },
+                    "Variable 51": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_3_collider_right_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1300.0
+                    },
+                    "Variable 52": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_3_collider_front_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1200.0
+                    },
+                    "Variable 53": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_3_collider_front_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1100.0
+                    },
+                    "Variable 54": {
+                        "DisplayObjectName": false,
+                        "Name": "max_health_orig",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 200.0
+                    },
+                    "Variable 55": {
+                        "DisplayObjectName": false,
+                        "Name": "input_walk_threshold",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.8
+                    },
+                    "Variable 56": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_3_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 30.0
+                    },
+                    "Variable 57": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_health_reg_increase",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.2
+                    },
+                    "Variable 58": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_3_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1800.0
+                    },
+                    "Variable 59": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_3_collider_front_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 800.0
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": false,
+                        "Name": "key_ultimate_1",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "AXIS_TRIGGERLEFT"
+                    },
+                    "Variable 60": {
+                        "DisplayObjectName": false,
+                        "Name": "critical_chance_orig",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 61": {
+                        "DisplayObjectName": false,
+                        "Name": "ability_offset_x",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.1
+                    },
+                    "Variable 62": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_3_cost",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 40.0
+                    },
+                    "Variable 63": {
+                        "DisplayObjectName": false,
+                        "Name": "ability_performed",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 64": {
+                        "DisplayObjectName": false,
+                        "Name": "light_3_combo_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 900.0
+                    },
+                    "Variable 65": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_1_block_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 900.0
+                    },
+                    "Variable 66": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_3_damage",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 3.0
+                    },
+                    "Variable 67": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_2_collider_front_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1200.0
+                    },
+                    "Variable 68": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_1_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1500.0
+                    },
+                    "Variable 69": {
+                        "DisplayObjectName": false,
+                        "Name": "light_cost",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 5.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": false,
+                        "Name": "ability_range",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 100.0
+                    },
+                    "Variable 70": {
+                        "DisplayObjectName": false,
+                        "Name": "walk_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 30.0
+                    },
+                    "Variable 71": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_2_collider_right_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 900.0
+                    },
+                    "Variable 72": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_1_collider_back_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1150.0
+                    },
+                    "Variable 73": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_2_collider_left_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 600.0
+                    },
+                    "Variable 74": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_2_collider_left_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 500.0
+                    },
+                    "Variable 75": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_2_movement_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 3000.0
+                    },
+                    "Variable 76": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_2_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1400.0
+                    },
+                    "Variable 77": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_scream_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2500.0
+                    },
+                    "Variable 78": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_3_movement_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 3000.0
+                    },
+                    "Variable 79": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_1_collider_back_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1220.0
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_2_collider_front_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1400.0
+                    },
+                    "Variable 80": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_1_collider_front_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 900.0
+                    },
+                    "Variable 81": {
+                        "DisplayObjectName": false,
+                        "Name": "key_pickup_item",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "BUTTON_DPAD_UP"
+                    },
+                    "Variable 82": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_2_collider_right_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 800.0
+                    },
+                    "Variable 83": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_damage_mod_increase",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 84": {
+                        "DisplayObjectName": false,
+                        "Name": "mov_speed_max_mod",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 85": {
+                        "DisplayObjectName": false,
+                        "Name": "light_1_combo_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 900.0
+                    },
+                    "Variable 86": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_1_collider_left_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1080.0
+                    },
+                    "Variable 87": {
+                        "DisplayObjectName": false,
+                        "Name": "ability_angle",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.78539816339745
+                    },
+                    "Variable 88": {
+                        "DisplayObjectName": false,
+                        "Name": "mov_speed_max_orig",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 5000.0
+                    },
+                    "Variable 89": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_1_collider_right_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1000.0
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "down_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 10000.0
+                    },
+                    "Variable 90": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_1_collider_right_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 900.0
+                    },
+                    "Variable 91": {
+                        "DisplayObjectName": false,
+                        "Name": "light_3_block_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 500.0
+                    },
+                    "Variable 92": {
+                        "DisplayObjectName": false,
+                        "Name": "light_1_collider_front_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 500.0
+                    },
+                    "Variable 93": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_1_collider_body_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 200.0
+                    },
+                    "Variable 94": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_energy_reg_increase",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 95": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_1_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 35.0
+                    },
+                    "Variable 96": {
+                        "DisplayObjectName": false,
+                        "Name": "evade_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 800.0
+                    },
+                    "Variable 97": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_1_damage",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2.0
+                    },
+                    "Variable 98": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_cost_divider",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2.0
+                    },
+                    "Variable 99": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_2_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 30.0
+                    }
+                },
+                "UID": 552256153,
+                "index": 5
+            },
             "14": {
                 "Active": true,
                 "Resources": {
@@ -1204,7 +2489,7 @@
                 "Duration": "1000",
                 "Loop": true,
                 "Resources": {
-                    "ResourceTexture": "Library/Textures/698382912.dds"
+                    "ResourceTexture": "Library/Textures/1123999888.dds"
                 },
                 "UID": 1998221727,
                 "emisionRate": "500.000000",
@@ -1286,8 +2571,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000008",
-                "scalez": "1.000008"
+                "scaley": "1.000010",
+                "scalez": "1.000010"
             }
         },
         "Index": 0,
@@ -1309,8 +2594,8 @@
                 "rotationx": "0.000567",
                 "rotationy": "0.006209",
                 "rotationz": "0.999891",
-                "scalex": "0.999992",
-                "scaley": "0.999992",
+                "scalex": "0.999990",
+                "scaley": "0.999990",
                 "scalez": "1.000000"
             },
             "13": {
@@ -1438,8 +2723,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000008",
-                "scalez": "1.000008"
+                "scaley": "1.000010",
+                "scalez": "1.000010"
             }
         },
         "Index": 0,
@@ -1678,8 +2963,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "0.999696",
-                "scalez": "0.999696"
+                "scaley": "0.999274",
+                "scalez": "0.999274"
             },
             "1": {
                 "Active": true,
@@ -1691,6 +2976,45 @@
                 },
                 "UID": 451583812,
                 "index": 1
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/PropScript_v4.lua"
+                },
+                "Script variables": {
+                    "Count": 4,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "myUID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "health",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 3.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "parentUID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "particles_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1000.0
+                    }
+                },
+                "UID": 1803163915,
+                "index": 5
             },
             "15": {
                 "Active": true,
@@ -1722,8 +3046,8 @@
                 "firstCreation": "1",
                 "globalMatrixw": "1.000000",
                 "globalMatrixx": "-57.304798",
-                "globalMatrixy": "11.078690",
-                "globalMatrixz": "-66.762169",
+                "globalMatrixy": "11.074018",
+                "globalMatrixz": "-66.762032",
                 "globalPositionx": "49.698189",
                 "globalPositiony": "49.849369",
                 "globalPositionz": "55.367035",
@@ -1752,6 +3076,11 @@
                 "tmpScalex": "24.849094",
                 "tmpScaley": "24.924700",
                 "tmpScalez": "27.683535"
+            },
+            "19": {
+                "Active": true,
+                "UID": 1962259921,
+                "index": 6
             },
             "2": {
                 "Active": true,
@@ -2048,8 +3377,8 @@
                 "rotationy": "0.000028",
                 "rotationz": "-0.000027",
                 "scalex": "1.000000",
-                "scaley": "1.000008",
-                "scalez": "1.000008"
+                "scaley": "1.000010",
+                "scalez": "1.000010"
             },
             "13": {
                 "Active": true,
@@ -2328,8 +3657,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "0.999927",
-                "scalez": "0.999927"
+                "scaley": "0.999731",
+                "scalez": "0.999731"
             },
             "1": {
                 "Active": true,
@@ -2341,6 +3670,45 @@
                 },
                 "UID": 1172552644,
                 "index": 1
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/PropScript_v4.lua"
+                },
+                "Script variables": {
+                    "Count": 4,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "myUID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "health",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 3.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "parentUID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "particles_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1000.0
+                    }
+                },
+                "UID": 475889889,
+                "index": 5
             },
             "15": {
                 "Active": true,
@@ -2372,8 +3740,8 @@
                 "firstCreation": "1",
                 "globalMatrixw": "1.000000",
                 "globalMatrixx": "50.248043",
-                "globalMatrixy": "11.081260",
-                "globalMatrixz": "-65.926720",
+                "globalMatrixy": "11.079077",
+                "globalMatrixz": "-65.926659",
                 "globalPositionx": "49.698189",
                 "globalPositiony": "49.849369",
                 "globalPositionz": "55.367035",
@@ -2402,6 +3770,11 @@
                 "tmpScalex": "24.849094",
                 "tmpScaley": "24.924700",
                 "tmpScalez": "27.683535"
+            },
+            "19": {
+                "Active": true,
+                "UID": 178272389,
+                "index": 6
             },
             "2": {
                 "Active": true,
@@ -2554,8 +3927,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000008",
-                "scalez": "1.000008"
+                "scaley": "1.000010",
+                "scalez": "1.000010"
             }
         },
         "Index": 0,
@@ -2690,8 +4063,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000008",
-                "scalez": "1.000008"
+                "scaley": "1.000010",
+                "scalez": "1.000010"
             }
         },
         "Index": 0,
@@ -2714,8 +4087,8 @@
                 "rotationy": "0.000040",
                 "rotationz": "-0.000037",
                 "scalex": "1.000000",
-                "scaley": "1.000008",
-                "scalez": "1.000008"
+                "scaley": "1.000010",
+                "scalez": "1.000010"
             },
             "13": {
                 "Active": true,
@@ -2746,8 +4119,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000008",
-                "scalez": "1.000008"
+                "scaley": "1.000010",
+                "scalez": "1.000010"
             }
         },
         "Index": 0,
@@ -3026,8 +4399,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000008",
-                "scalez": "1.000008"
+                "scaley": "1.000010",
+                "scalez": "1.000010"
             }
         },
         "Index": 0,
@@ -3546,8 +4919,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000008",
-                "scalez": "1.000008"
+                "scaley": "1.000010",
+                "scalez": "1.000010"
             }
         },
         "Index": 0,
@@ -3693,6 +5066,1165 @@
                 "scaley": "1.000000",
                 "scalez": "1.000000"
             },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/JaskierScript_v3.lua"
+                },
+                "Script variables": {
+                    "Count": 164,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "ability_cost",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 30.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "light_1_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 30.0
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_1_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1100.0
+                    },
+                    "Variable 100": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_1_collider_front_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1000.0
+                    },
+                    "Variable 101": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_3_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 30.0
+                    },
+                    "Variable 102": {
+                        "DisplayObjectName": false,
+                        "Name": "mov_speed_max_orig",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 5000.0
+                    },
+                    "Variable 103": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_1_block_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 500.0
+                    },
+                    "Variable 104": {
+                        "DisplayObjectName": false,
+                        "Name": "collider_effect",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 105": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_damage_mod_increase",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 106": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_3_collider_front_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 700.0
+                    },
+                    "Variable 107": {
+                        "DisplayObjectName": false,
+                        "Name": "energy_reg_mod",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 108": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_energy_reg_increase",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 109": {
+                        "DisplayObjectName": false,
+                        "Name": "max_health_real",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_1_collider_back_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1220.0
+                    },
+                    "Variable 110": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_effect_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 10000.0
+                    },
+                    "Variable 111": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_scream_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2500.0
+                    },
+                    "Variable 112": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 3600.0
+                    },
+                    "Variable 113": {
+                        "DisplayObjectName": false,
+                        "Name": "key_prev_consumable",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "BUTTON_DPAD_LEFT"
+                    },
+                    "Variable 114": {
+                        "DisplayObjectName": false,
+                        "Name": "key_heavy",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "BUTTON_Y"
+                    },
+                    "Variable 115": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_3_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 30.0
+                    },
+                    "Variable 116": {
+                        "DisplayObjectName": false,
+                        "Name": "evade_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 40.0
+                    },
+                    "Variable 117": {
+                        "DisplayObjectName": false,
+                        "Name": "ability_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 70.0
+                    },
+                    "Variable 118": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_2_block_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 400.0
+                    },
+                    "Variable 119": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_cost",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 10.0
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "key_notdef6",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "BUTTON_START"
+                    },
+                    "Variable 120": {
+                        "DisplayObjectName": false,
+                        "Name": "previous_state",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 121": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_reg_mod",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 122": {
+                        "DisplayObjectName": false,
+                        "Name": "revive_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 5000.0
+                    },
+                    "Variable 123": {
+                        "DisplayObjectName": false,
+                        "Name": "energy_reg_orig",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 10.0
+                    },
+                    "Variable 124": {
+                        "DisplayObjectName": false,
+                        "Name": "key_drop_consumable",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "BUTTON_DPAD_DOWN"
+                    },
+                    "Variable 125": {
+                        "DisplayObjectName": false,
+                        "Name": "key_ultimate_2",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "AXIS_TRIGGERRIGHT"
+                    },
+                    "Variable 126": {
+                        "DisplayObjectName": false,
+                        "Name": "current_ultimate",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 127": {
+                        "DisplayObjectName": false,
+                        "Name": "health_reg_mod",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 128": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_3_block_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 800.0
+                    },
+                    "Variable 129": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_damage",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.666
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "max_health_mod",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 130": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_3_damage",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 3.0
+                    },
+                    "Variable 131": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_1_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 30.0
+                    },
+                    "Variable 132": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_2_damage",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2.5
+                    },
+                    "Variable 133": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_3_collider_front_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 450.0
+                    },
+                    "Variable 134": {
+                        "DisplayObjectName": false,
+                        "Name": "key_next_consumable",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "BUTTON_DPAD_RIGHT"
+                    },
+                    "Variable 135": {
+                        "DisplayObjectName": false,
+                        "Name": "ability_cooldown",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 5000.0
+                    },
+                    "Variable 136": {
+                        "DisplayObjectName": false,
+                        "Name": "light_1_collider_front_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 600.0
+                    },
+                    "Variable 137": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_3_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1500.0
+                    },
+                    "Variable 138": {
+                        "DisplayObjectName": false,
+                        "Name": "light_2_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 30.0
+                    },
+                    "Variable 139": {
+                        "DisplayObjectName": false,
+                        "Name": "light_3_block_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 500.0
+                    },
+                    "Variable 14": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_1_collider_front_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1080.0
+                    },
+                    "Variable 140": {
+                        "DisplayObjectName": false,
+                        "Name": "evade_cost",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 20.0
+                    },
+                    "Variable 141": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_2_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 30.0
+                    },
+                    "Variable 142": {
+                        "DisplayObjectName": false,
+                        "Name": "base_damage_orig",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 30.0
+                    },
+                    "Variable 143": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_2_collider_front_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 400.0
+                    },
+                    "Variable 144": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_2_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 30.0
+                    },
+                    "Variable 145": {
+                        "DisplayObjectName": false,
+                        "Name": "light_1_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1100.0
+                    },
+                    "Variable 146": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_1_collider_front_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 600.0
+                    },
+                    "Variable 147": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_2_collider_front_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 450.0
+                    },
+                    "Variable 148": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_2_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1000.0
+                    },
+                    "Variable 149": {
+                        "DisplayObjectName": false,
+                        "Name": "light_2_block_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 400.0
+                    },
+                    "Variable 15": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_2_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1000.0
+                    },
+                    "Variable 150": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_1_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 30.0
+                    },
+                    "Variable 151": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_1_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1600.0
+                    },
+                    "Variable 152": {
+                        "DisplayObjectName": false,
+                        "Name": "idle_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 30.0
+                    },
+                    "Variable 153": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_reg_orig",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 10.0
+                    },
+                    "Variable 154": {
+                        "DisplayObjectName": false,
+                        "Name": "run_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 20.0
+                    },
+                    "Variable 155": {
+                        "DisplayObjectName": false,
+                        "Name": "max_ultimate",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 100.0
+                    },
+                    "Variable 156": {
+                        "DisplayObjectName": false,
+                        "Name": "light_3_collider_front_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 450.0
+                    },
+                    "Variable 157": {
+                        "DisplayObjectName": false,
+                        "Name": "player_ID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2.0
+                    },
+                    "Variable 158": {
+                        "DisplayObjectName": false,
+                        "Name": "light_movement_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1000.0
+                    },
+                    "Variable 159": {
+                        "DisplayObjectName": false,
+                        "Name": "light_3_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1500.0
+                    },
+                    "Variable 16": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_cost_divider",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2.0
+                    },
+                    "Variable 160": {
+                        "DisplayObjectName": false,
+                        "Name": "light_3_collider_front_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 550.0
+                    },
+                    "Variable 161": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_3_block_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 500.0
+                    },
+                    "Variable 162": {
+                        "DisplayObjectName": false,
+                        "Name": "key_move",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "AXIS_LEFT"
+                    },
+                    "Variable 163": {
+                        "DisplayObjectName": false,
+                        "Name": "light_2_collider_front_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 400.0
+                    },
+                    "Variable 17": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 45.0
+                    },
+                    "Variable 18": {
+                        "DisplayObjectName": false,
+                        "Name": "light_3_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 30.0
+                    },
+                    "Variable 19": {
+                        "DisplayObjectName": false,
+                        "Name": "current_energy",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "max_energy_real",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 20": {
+                        "DisplayObjectName": false,
+                        "Name": "current_state",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 21": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_2_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 30.0
+                    },
+                    "Variable 22": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_2_collider_front_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 500.0
+                    },
+                    "Variable 23": {
+                        "DisplayObjectName": false,
+                        "Name": "key_aim",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "AXIS_RIGHT"
+                    },
+                    "Variable 24": {
+                        "DisplayObjectName": false,
+                        "Name": "key_evade",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "BUTTON_A"
+                    },
+                    "Variable 25": {
+                        "DisplayObjectName": false,
+                        "Name": "light_damage",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 26": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_2_block_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 400.0
+                    },
+                    "Variable 27": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_cost",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 5.0
+                    },
+                    "Variable 28": {
+                        "DisplayObjectName": false,
+                        "Name": "key_notdef5",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "BUTTON_BACK"
+                    },
+                    "Variable 29": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_active",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_1_collider_body_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 700.0
+                    },
+                    "Variable 30": {
+                        "DisplayObjectName": false,
+                        "Name": "current_health",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 31": {
+                        "DisplayObjectName": false,
+                        "Name": "ability_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 300.0
+                    },
+                    "Variable 32": {
+                        "DisplayObjectName": false,
+                        "Name": "light_2_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1000.0
+                    },
+                    "Variable 33": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_damage",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 34": {
+                        "DisplayObjectName": false,
+                        "Name": "being_revived",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 35": {
+                        "DisplayObjectName": false,
+                        "Name": "ability_offset_z",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 10.0
+                    },
+                    "Variable 36": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_2_collider_front_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 350.0
+                    },
+                    "Variable 37": {
+                        "DisplayObjectName": false,
+                        "Name": "critical_chance_add",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 38": {
+                        "DisplayObjectName": false,
+                        "Name": "collider_damage",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 39": {
+                        "DisplayObjectName": false,
+                        "Name": "light_1_block_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 500.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": false,
+                        "Name": "max_energy_orig",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 100.0
+                    },
+                    "Variable 40": {
+                        "DisplayObjectName": false,
+                        "Name": "light_2_collider_front_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 500.0
+                    },
+                    "Variable 41": {
+                        "DisplayObjectName": false,
+                        "Name": "max_energy_mod",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 42": {
+                        "DisplayObjectName": false,
+                        "Name": "key_use_item",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "BUTTON_RIGHTSHOULDER"
+                    },
+                    "Variable 43": {
+                        "DisplayObjectName": false,
+                        "Name": "key_interact",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "BUTTON_LEFTSHOULDER"
+                    },
+                    "Variable 44": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_1_collider_front_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1000.0
+                    },
+                    "Variable 45": {
+                        "DisplayObjectName": false,
+                        "Name": "critical_damage_orig",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2.0
+                    },
+                    "Variable 46": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_1_cost",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 25.0
+                    },
+                    "Variable 47": {
+                        "DisplayObjectName": false,
+                        "Name": "max_health_orig",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 200.0
+                    },
+                    "Variable 48": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_health_reg_increase",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.2
+                    },
+                    "Variable 49": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_3_collider_front_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 800.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_3_collider_right_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1200.0
+                    },
+                    "Variable 50": {
+                        "DisplayObjectName": false,
+                        "Name": "critical_chance_orig",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 51": {
+                        "DisplayObjectName": false,
+                        "Name": "ability_offset_x",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.1
+                    },
+                    "Variable 52": {
+                        "DisplayObjectName": false,
+                        "Name": "ability_performed",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 53": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_1_block_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 900.0
+                    },
+                    "Variable 54": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_1_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1500.0
+                    },
+                    "Variable 55": {
+                        "DisplayObjectName": false,
+                        "Name": "light_cost",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 5.0
+                    },
+                    "Variable 56": {
+                        "DisplayObjectName": false,
+                        "Name": "walk_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 30.0
+                    },
+                    "Variable 57": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_3_collider_right_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1300.0
+                    },
+                    "Variable 58": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_3_collider_front_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1200.0
+                    },
+                    "Variable 59": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_3_movement_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 3000.0
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": false,
+                        "Name": "key_ultimate_1",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "AXIS_TRIGGERLEFT"
+                    },
+                    "Variable 60": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_3_collider_front_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1100.0
+                    },
+                    "Variable 61": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_1_collider_front_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 900.0
+                    },
+                    "Variable 62": {
+                        "DisplayObjectName": false,
+                        "Name": "key_pickup_item",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "BUTTON_DPAD_UP"
+                    },
+                    "Variable 63": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_2_collider_right_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 800.0
+                    },
+                    "Variable 64": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_3_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 30.0
+                    },
+                    "Variable 65": {
+                        "DisplayObjectName": false,
+                        "Name": "mov_speed_max_mod",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 66": {
+                        "DisplayObjectName": false,
+                        "Name": "input_walk_threshold",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.8
+                    },
+                    "Variable 67": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_3_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1800.0
+                    },
+                    "Variable 68": {
+                        "DisplayObjectName": false,
+                        "Name": "ability_angle",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.78539816339745
+                    },
+                    "Variable 69": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_3_cost",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 40.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": false,
+                        "Name": "ability_range",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 100.0
+                    },
+                    "Variable 70": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_3_collider_front_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 550.0
+                    },
+                    "Variable 71": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_2_collider_front_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1200.0
+                    },
+                    "Variable 72": {
+                        "DisplayObjectName": false,
+                        "Name": "evade_velocity",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 12500.0
+                    },
+                    "Variable 73": {
+                        "DisplayObjectName": false,
+                        "Name": "light_1_collider_front_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 500.0
+                    },
+                    "Variable 74": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_2_collider_right_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 900.0
+                    },
+                    "Variable 75": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_2_collider_left_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 600.0
+                    },
+                    "Variable 76": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_2_collider_left_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 500.0
+                    },
+                    "Variable 77": {
+                        "DisplayObjectName": false,
+                        "Name": "evade_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 800.0
+                    },
+                    "Variable 78": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_2_movement_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 3000.0
+                    },
+                    "Variable 79": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_2_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1400.0
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_2_collider_front_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1400.0
+                    },
+                    "Variable 80": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_1_collider_left_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1080.0
+                    },
+                    "Variable 81": {
+                        "DisplayObjectName": false,
+                        "Name": "ability_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 800.0
+                    },
+                    "Variable 82": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_1_collider_left_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1150.0
+                    },
+                    "Variable 83": {
+                        "DisplayObjectName": false,
+                        "Name": "ability_push_velocity",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 100000.0
+                    },
+                    "Variable 84": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_1_movement_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 4000.0
+                    },
+                    "Variable 85": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_1_collider_back_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1150.0
+                    },
+                    "Variable 86": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_1_collider_front_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 500.0
+                    },
+                    "Variable 87": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_2_cost",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 30.0
+                    },
+                    "Variable 88": {
+                        "DisplayObjectName": false,
+                        "Name": "key_ability",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "BUTTON_B"
+                    },
+                    "Variable 89": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_movement_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1000.0
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "down_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 10000.0
+                    },
+                    "Variable 90": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_1_damage",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2.0
+                    },
+                    "Variable 91": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_1_collider_right_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1000.0
+                    },
+                    "Variable 92": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_1_collider_right_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 900.0
+                    },
+                    "Variable 93": {
+                        "DisplayObjectName": false,
+                        "Name": "critical_damage_add",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 94": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_movement_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 700.0
+                    },
+                    "Variable 95": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_3_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2200.0
+                    },
+                    "Variable 96": {
+                        "DisplayObjectName": false,
+                        "Name": "base_damage_mod",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 97": {
+                        "DisplayObjectName": false,
+                        "Name": "key_light",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "BUTTON_X"
+                    },
+                    "Variable 98": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_1_collider_body_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 200.0
+                    },
+                    "Variable 99": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_1_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 35.0
+                    }
+                },
+                "UID": 78412125,
+                "index": 5
+            },
             "14": {
                 "Active": true,
                 "Resources": {
@@ -3724,7 +6256,7 @@
                 "Duration": "1000",
                 "Loop": true,
                 "Resources": {
-                    "ResourceTexture": "Library/Textures/1732852394.dds"
+                    "ResourceTexture": "Library/Textures/504714310.dds"
                 },
                 "UID": 1274892568,
                 "emisionRate": "500.000000",
@@ -3851,8 +6383,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000008",
-                "scalez": "1.000008"
+                "scaley": "1.000010",
+                "scalez": "1.000010"
             }
         },
         "Index": 0,
@@ -3886,7 +6418,7 @@
                 "Duration": "1000",
                 "Loop": true,
                 "Resources": {
-                    "ResourceTexture": "Library/Textures/323600576.dds"
+                    "ResourceTexture": "Library/Textures/240637934.dds"
                 },
                 "UID": 1693013425,
                 "emisionRate": "500.000000",
@@ -4050,8 +6582,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "0.999389",
-                "scalez": "0.999389"
+                "scaley": "0.998967",
+                "scalez": "0.998967"
             },
             "1": {
                 "Active": true,
@@ -4063,6 +6595,45 @@
                 },
                 "UID": 781252739,
                 "index": 1
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/PropScript_v4.lua"
+                },
+                "Script variables": {
+                    "Count": 4,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "myUID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "particles_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1000.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "health",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 3.0
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "parentUID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    }
+                },
+                "UID": 993543352,
+                "index": 5
             },
             "15": {
                 "Active": true,
@@ -4094,8 +6665,8 @@
                 "firstCreation": "1",
                 "globalMatrixw": "1.000000",
                 "globalMatrixx": "-2.629368",
-                "globalMatrixy": "11.075294",
-                "globalMatrixz": "-62.222576",
+                "globalMatrixy": "11.070615",
+                "globalMatrixz": "-62.222439",
                 "globalPositionx": "49.698189",
                 "globalPositiony": "49.849369",
                 "globalPositionz": "55.367035",
@@ -4124,6 +6695,11 @@
                 "tmpScalex": "24.849094",
                 "tmpScaley": "24.923325",
                 "tmpScalez": "27.682007"
+            },
+            "19": {
+                "Active": true,
+                "UID": 1033439722,
+                "index": 6
             },
             "2": {
                 "Active": true,
@@ -4556,6 +7132,136 @@
                 "scaley": "1.000000",
                 "scalez": "1.000000"
             },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/CameraScript_v4.lua"
+                },
+                "Script variables": {
+                    "Count": 17,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "myUID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_angle",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 70.0
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "jaskier_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Jaskier"
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "Layer_2_FOV_ratio_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.55
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "Layer_2_FOV_ratio_1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.8
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "movement_smooth_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.2
+                    },
+                    "Variable 14": {
+                        "DisplayObjectName": false,
+                        "Name": "ciri_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Ciri"
+                    },
+                    "Variable 15": {
+                        "DisplayObjectName": false,
+                        "Name": "geralt_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Geralt"
+                    },
+                    "Variable 16": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_distance_layer_1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 150.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "Layer_1_FOV_ratio_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.8
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_distance_layer_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 200.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": false,
+                        "Name": "zoom_smooth_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.2
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": false,
+                        "Name": "yennefer_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Yennefer"
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": false,
+                        "Name": "Layer_1_FOV_ratio_1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.8
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": false,
+                        "Name": "Layer_3_FOV_ratio_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.55
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": false,
+                        "Name": "Layer_3_FOV_ratio_1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.85
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_distance_layer_3",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 250.0
+                    }
+                },
+                "UID": 227123951,
+                "index": 3
+            },
             "2": {
                 "Active": true,
                 "Resources": {
@@ -4630,8 +7336,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000008",
-                "scalez": "1.000008"
+                "scaley": "1.000010",
+                "scalez": "1.000010"
             }
         },
         "Index": 0,
@@ -4654,8 +7360,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000008",
-                "scalez": "1.000008"
+                "scaley": "1.000010",
+                "scalez": "1.000010"
             }
         },
         "Index": 0,
@@ -4742,8 +7448,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000008",
-                "scalez": "1.000008"
+                "scaley": "1.000010",
+                "scalez": "1.000010"
             }
         },
         "Index": 0,
@@ -5462,7 +8168,7 @@
                 "Duration": "1000",
                 "Loop": true,
                 "Resources": {
-                    "ResourceTexture": "Library/Textures/1645886968.dds"
+                    "ResourceTexture": "Library/Textures/64791656.dds"
                 },
                 "UID": 2114129195,
                 "emisionRate": "500.000000",
@@ -5549,8 +8255,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000008",
-                "scalez": "1.000008"
+                "scaley": "1.000010",
+                "scalez": "1.000010"
             }
         },
         "Index": 0,
