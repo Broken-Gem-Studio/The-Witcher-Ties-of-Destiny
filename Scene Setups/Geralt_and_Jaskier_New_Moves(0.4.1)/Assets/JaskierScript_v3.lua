@@ -70,7 +70,7 @@ local must_update_stats = false
 --Stats Info
 	-- Health
 	-- Damage
-	-- Speed
+	-- Velocity	--NOTE: Codewise, both terms "velocity" and "speed" are used, the first for physical movement, the 2nd for timings and animations
 
 	--Vars
 		-- _orig: The original value of the character, the baseline value, added manually by design
@@ -119,10 +119,10 @@ lua_table.key_ultimate_2 = "AXIS_TRIGGERRIGHT"
 lua_table.key_interact = "BUTTON_LEFTSHOULDER"
 lua_table.key_use_item = "BUTTON_RIGHTSHOULDER"
 
-lua_table.key_light = "BUTTON_X"
-lua_table.key_heavy = "BUTTON_Y"
+lua_table.key_light = "BUTTON_Y"
+lua_table.key_heavy = "BUTTON_B"
 lua_table.key_evade = "BUTTON_A"
-lua_table.key_ability = "BUTTON_B"
+lua_table.key_ability = "BUTTON_X"
 
 lua_table.key_move = "AXIS_LEFT"
 lua_table.key_aim = "AXIS_RIGHT"
@@ -162,13 +162,13 @@ local rec_direction = { x = 0.0, z = 0.0 }	--Used to save a direction when neces
 
 local rot_y = 0.0
 
-local mov_speed = { x = 0.0, z = 0.0 }
+local mov_velocity = { x = 0.0, z = 0.0 }
 
-	--Speed Stat
-	local mov_speed_stat	-- stat = real / 10. Exclusive to speed, as the numeric balancing is dependant on Physics and not only design
-	local mov_speed_max_real
-	lua_table.mov_speed_max_mod = 1.0
-	lua_table.mov_speed_max_orig = 5000	--Was 60.0 before dt
+	--Velocity Stat
+	local mov_velocity_stat	-- stat = real / 10. Exclusive to speed, as the numeric balancing is dependant on Physics and not only design
+	local mov_velocity_max_real
+	lua_table.mov_velocity_max_mod = 1.0
+	lua_table.mov_velocity_max_orig = 500	--Was 60.0 before dt
 
 lua_table.idle_animation_speed = 30.0
 lua_table.walk_animation_speed = 30.0
@@ -226,7 +226,7 @@ local rightside = true		-- Last attack side, marks the animation of next attack
 lua_table.light_damage = 1.0					--Multiplier of Base Damage
 lua_table.light_cost = 5
 
-lua_table.light_movement_speed = 1000.0
+lua_table.light_movement_velocity = 100.0
 
 lua_table.light_1_block_time = 500			--Input block duration	(block new attacks)
 lua_table.light_1_collider_front_start = 500	--Collider activation time
@@ -250,7 +250,7 @@ lua_table.light_3_animation_speed = 30.0		--IMPROVE: Attack 3 animaton includes 
 lua_table.medium_damage = 1.0					--Multiplier of Base Damage
 lua_table.medium_cost = 5
 
-lua_table.medium_movement_speed = 1000.0
+lua_table.medium_movement_velocity = 100.0
 
 lua_table.medium_1_block_time = 500			--Input block duration	(block new attacks)
 lua_table.medium_1_collider_front_start = 500	--Collider activation time
@@ -274,7 +274,7 @@ lua_table.medium_3_animation_speed = 30.0		--IMPROVE: Attack 3 animaton includes
 lua_table.heavy_damage = 1.666				--Multiplier of Base Damage
 lua_table.heavy_cost = 10
 
-lua_table.heavy_movement_speed = 700.0
+lua_table.heavy_movement_velocity = 70.0
 
 lua_table.heavy_1_block_time = 900			--Input block duration	(block new attacks)
 lua_table.heavy_1_collider_front_start = 900	--Collider activation time
@@ -295,14 +295,14 @@ lua_table.heavy_3_duration = 2200			--Attack end (return to idle)
 lua_table.heavy_3_animation_speed = 30.0		--IMPROVE: Attack 3 animaton includes a return to idle, which differs from the other animations, we might have to cut it for homogeinity with the rest
 
 --Evade		
-lua_table.evade_velocity = 12500.0	--Was 200 before dt
+lua_table.evade_velocity = 300.0	--Was 200 before dt
 lua_table.evade_cost = 20
-lua_table.evade_duration = 800
+lua_table.evade_duration = 2000
 
-lua_table.evade_animation_speed = 40.0
+lua_table.evade_animation_speed = 30.0
 
 --Ability
-lua_table.ability_push_velocity = 100000
+lua_table.ability_push_velocity = 10000
 lua_table.ability_cost = 30
 lua_table.ability_cooldown = 5000.0
 
@@ -375,7 +375,7 @@ lua_table.combo_1_damage = 2.0	--slide + 4 hits
 lua_table.combo_1_cost = 25
 lua_table.combo_1_duration = 1500
 lua_table.combo_1_animation_speed = 35.0
-lua_table.combo_1_movement_speed = 4000.0
+lua_table.combo_1_movement_velocity = 400.0
 
 lua_table.combo_1_collider_body_start = 200		--Collider activation time
 lua_table.combo_1_collider_body_end = 700		--Collider deactivation time
@@ -394,7 +394,7 @@ lua_table.combo_2_damage = 2.5	--3 hit
 lua_table.combo_2_cost = 30
 lua_table.combo_2_duration = 1400
 lua_table.combo_2_animation_speed = 30.0
-lua_table.combo_2_movement_speed = 3000.0
+lua_table.combo_2_movement_velocity = 300.0
 
 lua_table.combo_2_collider_left_start = 500		--Collider activation time
 lua_table.combo_2_collider_left_end = 600		--Collider deactivation time
@@ -408,7 +408,7 @@ lua_table.combo_3_damage = 3.0	--1 hit		--IMPROVE: + stun
 lua_table.combo_3_cost = 40
 lua_table.combo_3_duration = 1800
 lua_table.combo_3_animation_speed = 30.0
-lua_table.combo_3_movement_speed = 3000.0
+lua_table.combo_3_movement_velocity = 300.0
 
 lua_table.combo_3_collider_front_start = 1100	--Collider activation time
 lua_table.combo_3_collider_front_end = 1200		--Collider deactivation time
@@ -550,8 +550,8 @@ local function CalculateStats()
 	critical_damage_real = lua_table.critical_damage_orig + lua_table.critical_damage_add
 
 	--Speed
-	mov_speed_max_real = lua_table.mov_speed_max_orig * lua_table.mov_speed_max_mod
-	mov_speed_stat = mov_speed_max_real * 0.1
+	mov_velocity_max_real = lua_table.mov_velocity_max_orig * lua_table.mov_velocity_max_mod
+	mov_velocity_stat = mov_velocity_max_real * 0.1
 
 	--Energy
 	lua_table.max_energy_real = lua_table.max_energy_orig * lua_table.max_energy_mod
@@ -773,15 +773,15 @@ local function MovementInputs()	--Process Movement Inputs
 		end
 
 		--Move character
-		mov_speed.x = mov_speed_max_real * mov_input.used_input.x	--Joystick input directly translates to speed, no acceleration
-		mov_speed.z = mov_speed_max_real * mov_input.used_input.z
+		mov_velocity.x = mov_velocity_max_real * mov_input.used_input.x	--Joystick input directly translates to speed, no acceleration
+		mov_velocity.z = mov_velocity_max_real * mov_input.used_input.z
 
 		local position = lua_table.TransformFunctions:GetPosition(my_GO_UID)	--Rotate to velocity direction
-		lua_table.TransformFunctions:LookAt(position[1] + mov_speed.x, position[2], position[3] + mov_speed.z, my_GO_UID)
+		lua_table.TransformFunctions:LookAt(position[1] + mov_velocity.x, position[2], position[3] + mov_velocity.z, my_GO_UID)
 
 		if DirectionInBounds()	--Only allow movement if camera bounds allows it
 		then
-			lua_table.PhysicsFunctions:Move(mov_speed.x * dt, mov_speed.z * dt, my_GO_UID)
+			lua_table.PhysicsFunctions:Move(mov_velocity.x * dt, mov_velocity.z * dt, my_GO_UID)
 		end
 
 	elseif lua_table.current_state == state.run or lua_table.current_state == state.walk
@@ -1032,7 +1032,7 @@ local function ActionInputs()	--Process Action Inputs
 		current_action_block_time = lua_table.ability_duration
 		current_action_duration = lua_table.ability_duration
 
-		lua_table.AnimationFunctions:PlayAnimation("ability", lua_table.ability_animation_speed)
+		lua_table.AnimationFunctions:PlayAnimation("guitar_play_1", lua_table.ability_animation_speed)
 		lua_table.previous_state = lua_table.current_state
 		lua_table.current_state = state.ability
 
@@ -1050,7 +1050,7 @@ local function ActionInputs()	--Process Action Inputs
 		current_action_duration = lua_table.ultimate_duration
 
 		--Do Ultimate
-		lua_table.AnimationFunctions:PlayAnimation("ultimate", lua_table.ultimate_animation_speed)
+		lua_table.AnimationFunctions:PlayAnimation("guitar_play_2", lua_table.ultimate_animation_speed)
 		lua_table.previous_state = lua_table.current_state
 		lua_table.current_state = state.ultimate
 		input_given = true
@@ -1331,7 +1331,7 @@ function lua_table:Update()
 				then
 					-- if DirectionInBounds()	--IF inside bounds
 					-- then
-					-- 	lua_table.PhysicsFunctions:Move(lua_table.light_movement_speed * rec_direction.x * dt, lua_table.light_movement_speed * rec_direction.z * dt, my_GO_UID)
+					-- 	lua_table.PhysicsFunctions:Move(lua_table.light_movement_velocity * rec_direction.x * dt, lua_table.light_movement_velocity * rec_direction.z * dt, my_GO_UID)
 					-- end
 
 					--Collider Evaluation
@@ -1344,7 +1344,7 @@ function lua_table:Update()
 				then
 					-- if DirectionInBounds()	--IF in bounds	--IMPROVE: Maybe just cut the return to idle part?
 					-- then
-					-- 	lua_table.PhysicsFunctions:Move(lua_table.heavy_movement_speed * rec_direction.x * dt, lua_table.heavy_movement_speed * rec_direction.z * dt, my_GO_UID)
+					-- 	lua_table.PhysicsFunctions:Move(lua_table.heavy_movement_velocity * rec_direction.x * dt, lua_table.heavy_movement_velocity * rec_direction.z * dt, my_GO_UID)
 					-- end
 
 					--Collider Evaluation
@@ -1355,7 +1355,7 @@ function lua_table:Update()
 
 				-- elseif lua_table.current_state == state.combo_1
 				-- then
-				-- 	if DirectionInBounds() then lua_table.PhysicsFunctions:Move(lua_table.combo_1_movement_speed * rec_direction.x * dt, lua_table.combo_1_movement_speed * rec_direction.z * dt, my_GO_UID) end
+				-- 	if DirectionInBounds() then lua_table.PhysicsFunctions:Move(lua_table.combo_1_movement_velocity * rec_direction.x * dt, lua_table.combo_1_movement_velocity * rec_direction.z * dt, my_GO_UID) end
 					
 				-- 	--Collider Evaluation
 				-- 	AttackColliderCheck("combo", 1, "right")
@@ -1365,7 +1365,7 @@ function lua_table:Update()
 
 				-- elseif lua_table.current_state == state.combo_2
 				-- then
-				-- 	if DirectionInBounds() then lua_table.PhysicsFunctions:Move(lua_table.combo_2_movement_speed * rec_direction.x * dt, lua_table.combo_2_movement_speed * rec_direction.z * dt, my_GO_UID) end
+				-- 	if DirectionInBounds() then lua_table.PhysicsFunctions:Move(lua_table.combo_2_movement_velocity * rec_direction.x * dt, lua_table.combo_2_movement_velocity * rec_direction.z * dt, my_GO_UID) end
 					
 				-- 	--Collider Evaluation
 				-- 	AttackColliderCheck("combo", 2, "left")
@@ -1374,7 +1374,7 @@ function lua_table:Update()
 
 				-- elseif lua_table.current_state == state.combo_3
 				-- then
-				-- 	if DirectionInBounds() then lua_table.PhysicsFunctions:Move(lua_table.combo_3_movement_speed * rec_direction.x * dt, lua_table.combo_3_movement_speed * rec_direction.z * dt, my_GO_UID) end
+				-- 	if DirectionInBounds() then lua_table.PhysicsFunctions:Move(lua_table.combo_3_movement_velocity * rec_direction.x * dt, lua_table.combo_3_movement_velocity * rec_direction.z * dt, my_GO_UID) end
 
 				-- 	--Collider Evaluation
 				-- 	AttackColliderCheck("combo", 3, "front")
