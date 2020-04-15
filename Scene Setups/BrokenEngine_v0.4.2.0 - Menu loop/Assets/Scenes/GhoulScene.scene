@@ -1,0 +1,425 @@
+{
+    "1279414969": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 822846483,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-0.061344",
+                "positiony": "4.221960",
+                "positionz": "-12.120319",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "3.880000",
+                "scaley": "3.880000",
+                "scalez": "3.880000"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2.mesh"
+                    }
+                },
+                "UID": 1121225571,
+                "index": 1
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/WalkerGhoul_v01.lua"
+                },
+                "Script variables": {
+                    "Count": 11,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "dead",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "evadeDistance",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 25.0
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "evadeSpeed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 40.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": true,
+                        "Name": "ghoul_UUID",
+                        "ObjectName": "PrefabGhoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 1829342344.0
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "health",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": false,
+                        "Name": "maxHealth",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 100.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": false,
+                        "Name": "attackDistance",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 40.0
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": false,
+                        "Name": "maxEvades",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": false,
+                        "Name": "movementSpeed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 20.0
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": false,
+                        "Name": "seekDistance",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 70.0
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "stunned",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    }
+                },
+                "UID": 850953672,
+                "index": 3
+            },
+            "17": {
+                "UID": 1704579423,
+                "contactOffset": "0.010000",
+                "height": "1.000000",
+                "index": 4,
+                "nonWalkableMode": "1",
+                "positionX": "-0.061344",
+                "positionY": "5.231960",
+                "positionZ": "-12.120319",
+                "radius": "0.500000",
+                "slopeLimit": "45.000000",
+                "stepOffset": "0.300000"
+            },
+            "18": {
+                "Active": true,
+                "ColorB": "1.000000",
+                "ColorG": "1.000000",
+                "ColorR": "1.000000",
+                "Duration": "5000",
+                "Loop": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1151750521.dds"
+                },
+                "UID": 328118460,
+                "emisionRate": "50.000000",
+                "externalAccelerationX": "0.000000",
+                "externalAccelerationY": "10.000000",
+                "externalAccelerationZ": "0.000000",
+                "index": 5,
+                "particleScaleRandomFactor": "1.000000",
+                "particlesLifeTime": "5000",
+                "particlesPerCreation": "1",
+                "particlesScaleX": "1.000000",
+                "particlesScaleY": "1.000000",
+                "particlesSize": "1.000000",
+                "particlesVelocityX": "0.000000",
+                "particlesVelocityY": "0.000000",
+                "particlesVelocityZ": "0.000000",
+                "sizeX": "0.000000",
+                "sizeY": "0.000000",
+                "sizeZ": "0.000000",
+                "velocityRandomFactorX": "5.000000",
+                "velocityRandomFactorY": "5.000000",
+                "velocityRandomFactorZ": "5.000000"
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/New material 2.mat"
+                    }
+                },
+                "UID": 1962393788,
+                "index": 2
+            }
+        },
+        "Index": 0,
+        "Name": "Ghoul",
+        "Parent": "-1",
+        "Static": false
+    },
+    "1714064028": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1332913245,
+                "index": 0,
+                "layer": "0",
+                "positionx": "72.354401",
+                "positiony": "4.451985",
+                "positionz": "-80.023781",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "3.720000",
+                "scaley": "3.720000",
+                "scalez": "3.720000"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2.mesh"
+                    }
+                },
+                "UID": 1689675981,
+                "index": 1
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/Geralt.lua"
+                },
+                "Script variables": {
+                    "Count": 0
+                },
+                "UID": 1366991220,
+                "index": 5
+            },
+            "15": {
+                "Active": true,
+                "UID": 685718124,
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "1.000000",
+                "freezePosition_X": "0",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "0",
+                "freezeRotation_X": "1",
+                "freezeRotation_Y": "0",
+                "freezeRotation_Z": "1",
+                "index": 3,
+                "is_kinematic": "0",
+                "linear_damping": "20.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "0.000000",
+                "linear_velz": "0.000000",
+                "mass": "10.000000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": true,
+                "UID": 1820038194,
+                "colliderType": "1",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "72.354401",
+                "globalMatrixy": "4.451985",
+                "globalMatrixz": "-80.023781",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "index": 4,
+                "isTrigger": "0",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "-0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "3.720000",
+                "tmpScaley": "3.720000",
+                "tmpScalez": "3.720000"
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/New material 3.mat"
+                    }
+                },
+                "UID": 2072257835,
+                "index": 2
+            }
+        },
+        "Index": 3,
+        "Name": "Geralt",
+        "Parent": "-1",
+        "Static": false
+    },
+    "2010175945": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1097675502,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "224.504181",
+                "scaley": "2.129387",
+                "scalez": "195.950806"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2.mesh"
+                    }
+                },
+                "UID": 913062600,
+                "index": 1
+            },
+            "16": {
+                "Active": true,
+                "UID": 503002416,
+                "colliderType": "1",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "0.000000",
+                "globalMatrixy": "0.000000",
+                "globalMatrixz": "0.000000",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "index": 3,
+                "isTrigger": "0",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "-0.000000",
+                "offsety": "-0.000000",
+                "offsetz": "-0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "224.504181",
+                "tmpScaley": "2.129387",
+                "tmpScalez": "195.950806"
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/2.mat"
+                    }
+                },
+                "UID": 667839753,
+                "index": 2
+            }
+        },
+        "Index": 1,
+        "Name": "Floor",
+        "Parent": "-1",
+        "Static": false
+    },
+    "732528018": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 891492222,
+                "index": 0,
+                "layer": "0",
+                "positionx": "93.128845",
+                "positiony": "30.102179",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2.mesh"
+                    }
+                },
+                "UID": 7622268,
+                "index": 1
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "DefaultMaterial"
+                    }
+                },
+                "UID": 241459619,
+                "index": 2
+            }
+        },
+        "Index": 2,
+        "Name": "Jaskier",
+        "Parent": "-1",
+        "Static": false
+    }
+}
