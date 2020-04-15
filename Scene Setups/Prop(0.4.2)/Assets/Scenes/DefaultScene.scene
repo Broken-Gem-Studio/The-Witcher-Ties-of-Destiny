@@ -8,14 +8,14 @@
                 "layer": "2",
                 "positionx": "0.000000",
                 "positiony": "11.496141",
-                "positionz": "-21.658073",
+                "positionz": "-15.238337",
                 "rotationw": "1.000000",
                 "rotationx": "0.000000",
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
-                "scalex": "1.000000",
-                "scaley": "1.000000",
-                "scalez": "1.000000"
+                "scalex": "10.000000",
+                "scaley": "10.000000",
+                "scalez": "10.000000"
             },
             "1": {
                 "Active": true,
@@ -36,7 +36,7 @@
                 "globalMatrixw": "1.000000",
                 "globalMatrixx": "0.000000",
                 "globalMatrixy": "11.496141",
-                "globalMatrixz": "-21.658073",
+                "globalMatrixz": "-15.238337",
                 "globalPositionx": "1.000000",
                 "globalPositiony": "1.000000",
                 "globalPositionz": "1.000000",
@@ -62,9 +62,9 @@
                 "scalex": "1.000000",
                 "scaley": "1.000000",
                 "scalez": "1.000000",
-                "tmpScalex": "1.000000",
-                "tmpScaley": "1.000000",
-                "tmpScalez": "1.000000"
+                "tmpScalex": "10.000000",
+                "tmpScaley": "10.000000",
+                "tmpScalez": "10.000000"
             },
             "2": {
                 "Active": true,
@@ -78,7 +78,7 @@
             }
         },
         "Index": 1,
-        "Name": "GameObject (3)",
+        "Name": "Sword",
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "-1",
@@ -136,7 +136,7 @@
             }
         },
         "Index": 0,
-        "Name": "GameObject (0)",
+        "Name": "Barrel",
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "-1",
@@ -157,8 +157,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000003",
-                "scalez": "1.000003"
+                "scaley": "1.000010",
+                "scalez": "1.000010"
             },
             "1": {
                 "Active": true,
@@ -196,7 +196,7 @@
                 "UID": 1361843151,
                 "index": 0,
                 "layer": "0",
-                "positionx": "66.359955",
+                "positionx": "164.078110",
                 "positiony": "1.113565",
                 "positionz": "17.463240",
                 "rotationw": "1.000000",
@@ -241,7 +241,7 @@
             }
         },
         "Index": 2,
-        "Name": "GameObject (0)",
+        "Name": "Test_Barrel",
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "-1",
@@ -262,8 +262,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "0.998602",
-                "scalez": "0.998602"
+                "scaley": "0.997544",
+                "scalez": "0.997544"
             },
             "1": {
                 "Active": true,
@@ -345,8 +345,8 @@
                 "firstCreation": "1",
                 "globalMatrixw": "1.000000",
                 "globalMatrixx": "-2.629368",
-                "globalMatrixy": "11.066566",
-                "globalMatrixz": "19.469313",
+                "globalMatrixy": "11.054840",
+                "globalMatrixz": "19.469654",
                 "globalPositionx": "49.698189",
                 "globalPositiony": "49.849369",
                 "globalPositionz": "55.367035",
@@ -397,6 +397,58 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1448486392",
+        "Static": false
+    },
+    "929719809": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 718218162,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-1.858488",
+                "positiony": "225.709396",
+                "positionz": "-99.340553",
+                "rotationw": "0.866025",
+                "rotationx": "0.500000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000003",
+                "scalez": "1.000003"
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "DefaultMaterial"
+                    }
+                },
+                "UID": 740752527,
+                "index": 2
+            },
+            "20": {
+                "Active": true,
+                "UID": 111899562,
+                "index": 3
+            },
+            "3": {
+                "ACTIVECAM": true,
+                "ASPECTRATIO": 2.760274887084961,
+                "Active": true,
+                "CULLINGCAM": false,
+                "FARPLANE": 1000.0,
+                "FOV": 37.006919860839844,
+                "NEARPLANE": 0.10000000149011612,
+                "UID": 1057419854,
+                "index": 1
+            }
+        },
+        "Index": 3,
+        "Name": "Camera",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "-1",
         "Static": false
     },
     "Navigation Data": {
