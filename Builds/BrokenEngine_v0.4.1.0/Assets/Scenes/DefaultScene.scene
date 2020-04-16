@@ -77,8 +77,197 @@
                 "index": 2
             }
         },
-        "Index": 3,
+        "Index": 2,
         "Name": "Floor",
+        "Parent": "-1",
+        "Static": false
+    },
+    "1901617596": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "UID": 151813566,
+                "index": 0,
+                "layer": "0",
+                "positionx": "20.000000",
+                "positiony": "1.100000",
+                "positionz": "12.250000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "1": {
+                "Active": false,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2.mesh"
+                    }
+                },
+                "UID": 1645251599,
+                "index": 1
+            },
+            "12": {
+                "Active": false,
+                "Resources": {
+                    "ResourceScript": "Assets/TankGhoulScript.lua"
+                },
+                "Script variables": {
+                    "Count": 17,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "max_hp",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 500.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "distance_to_target",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "minDistance",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 5.0
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "is_stunned",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "currentState",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 5.0
+                    },
+                    "Variable 14": {
+                        "DisplayObjectName": false,
+                        "Name": "AggroRange",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 100.0
+                    },
+                    "Variable 15": {
+                        "DisplayObjectName": false,
+                        "Name": "currentTargetDir",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 16": {
+                        "DisplayObjectName": false,
+                        "Name": "currentTarget",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "GeraltDistance",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "jaskier",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": false,
+                        "Name": "JaskierDistance",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": false,
+                        "Name": "geralt",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": false,
+                        "Name": "is_dead",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": false,
+                        "Name": "currentTargetPos",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": false,
+                        "Name": "MyUID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "health",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    }
+                },
+                "UID": 1902677552,
+                "index": 4
+            },
+            "17": {
+                "UID": 1548420905,
+                "contactOffset": "0.010000",
+                "gravity": "1",
+                "height": "2.000000",
+                "index": 3,
+                "nonWalkableMode": "1",
+                "positionX": "20.000000",
+                "positionY": "2.610000",
+                "positionZ": "12.250000",
+                "radius": "0.500000",
+                "slopeLimit": "45.000000",
+                "stepOffset": "0.300000"
+            },
+            "2": {
+                "Active": false,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "DefaultMaterial"
+                    }
+                },
+                "UID": 1578810293,
+                "index": 2
+            }
+        },
+        "Index": 4,
+        "Name": "New",
         "Parent": "-1",
         "Static": false
     },
@@ -210,7 +399,7 @@
                 "height": "1.000000",
                 "index": 3,
                 "isTrigger": "0",
-                "lastIndex": "1",
+                "lastIndex": "0",
                 "localMatrixw": "1.000000",
                 "localMatrixx": "0.000000",
                 "localMatrixy": "0.000000",
@@ -248,16 +437,16 @@
         "Parent": "-1",
         "Static": false
     },
-    "573227246": {
+    "932566244": {
         "Active": true,
         "Components": {
             "0": {
-                "UID": 1965481565,
+                "UID": 1321373773,
                 "index": 0,
                 "layer": "0",
-                "positionx": "24.921000",
+                "positionx": "20.000000",
                 "positiony": "1.100000",
-                "positionz": "0.000000",
+                "positionz": "-4.961982",
                 "rotationw": "1.000000",
                 "rotationx": "0.000000",
                 "rotationy": "0.000000",
@@ -274,207 +463,19 @@
                         "path": "Library/Meshes/2.mesh"
                     }
                 },
-                "UID": 1134050025,
+                "UID": 1458979847,
                 "index": 1
             },
-            "12": {
-                "Active": true,
-                "Resources": {
-                    "ResourceScript": "Assets/TankGhoulScript.lua"
-                },
-                "Script variables": {
-                    "Count": 20,
-                    "Variable 0": {
-                        "DisplayObjectName": false,
-                        "Name": "Punch",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 10.0
-                    },
-                    "Variable 1": {
-                        "DisplayObjectName": false,
-                        "Name": "force_x",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 10": {
-                        "DisplayObjectName": false,
-                        "Name": "force_y",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 11": {
-                        "DisplayObjectName": false,
-                        "Name": "force_z",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 12": {
-                        "DisplayObjectName": false,
-                        "Name": "JaskierDistance",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 13": {
-                        "DisplayObjectName": false,
-                        "Name": "currentTarget",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 14": {
-                        "DisplayObjectName": false,
-                        "Name": "GeraltDistance",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 15": {
-                        "DisplayObjectName": false,
-                        "Name": "minDistance",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 2.0
-                    },
-                    "Variable 16": {
-                        "DisplayObjectName": false,
-                        "Name": "AggroRange",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 7.0
-                    },
-                    "Variable 17": {
-                        "DisplayObjectName": false,
-                        "Name": "Crush",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 150.0
-                    },
-                    "Variable 18": {
-                        "DisplayObjectName": false,
-                        "Name": "player_2",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "Jaskier"
-                    },
-                    "Variable 19": {
-                        "DisplayObjectName": false,
-                        "Name": "player_1",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "Geralt"
-                    },
-                    "Variable 2": {
-                        "DisplayObjectName": false,
-                        "Name": "jaskier",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 3": {
-                        "DisplayObjectName": false,
-                        "Name": "currentState",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 4": {
-                        "DisplayObjectName": false,
-                        "Name": "Swipe",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 50.0
-                    },
-                    "Variable 5": {
-                        "DisplayObjectName": false,
-                        "Name": "distance_to_target",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 6": {
-                        "DisplayObjectName": false,
-                        "Name": "speed",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 20.0
-                    },
-                    "Variable 7": {
-                        "DisplayObjectName": false,
-                        "Name": "MyUID",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 8": {
-                        "DisplayObjectName": false,
-                        "Name": "health",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 500.0
-                    },
-                    "Variable 9": {
-                        "DisplayObjectName": false,
-                        "Name": "geralt",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    }
-                },
-                "UID": 1207102634,
-                "index": 3
-            },
-            "16": {
-                "Active": true,
-                "UID": 2119086825,
-                "colliderType": "1",
-                "firstCreation": "1",
-                "globalMatrixw": "1.000000",
-                "globalMatrixx": "24.921000",
-                "globalMatrixy": "1.100000",
-                "globalMatrixz": "0.000000",
-                "globalPositionx": "1.000000",
-                "globalPositiony": "1.000000",
-                "globalPositionz": "1.000000",
-                "hasBeenDeactivated": "0",
-                "height": "1.000000",
-                "index": 4,
-                "isTrigger": "0",
-                "lastIndex": "1",
-                "localMatrixw": "1.000000",
-                "localMatrixx": "0.000000",
-                "localMatrixy": "0.000000",
-                "localMatrixz": "0.000000",
-                "localPositionx": "0.000000",
-                "localPositiony": "0.000000",
-                "localPositionz": "0.000000",
-                "offsetx": "0.000000",
-                "offsety": "0.000000",
-                "offsetz": "-0.000000",
-                "originalScalex": "1.000000",
-                "originalScaley": "1.000000",
-                "originalScalez": "1.000000",
-                "radius": "1.000000",
-                "scalex": "1.000000",
-                "scaley": "1.000000",
-                "scalez": "1.000000",
-                "tmpScalex": "1.000000",
-                "tmpScaley": "1.000000",
-                "tmpScalez": "1.000000"
-            },
             "17": {
-                "UID": 1128452013,
+                "UID": 1804097460,
                 "contactOffset": "0.010000",
+                "gravity": "1",
                 "height": "2.000000",
-                "index": 5,
+                "index": 3,
                 "nonWalkableMode": "1",
-                "positionX": "24.921000",
+                "positionX": "20.000000",
                 "positionY": "2.610000",
-                "positionZ": "0.000000",
+                "positionZ": "-4.961982",
                 "radius": "0.500000",
                 "slopeLimit": "45.000000",
                 "stepOffset": "0.300000"
@@ -486,12 +487,12 @@
                         "path": "DefaultMaterial"
                     }
                 },
-                "UID": 1460508570,
+                "UID": 1806908534,
                 "index": 2
             }
         },
-        "Index": 2,
-        "Name": "GameObject (2)",
+        "Index": 5,
+        "Name": "Old",
         "Parent": "-1",
         "Static": false
     },
@@ -573,7 +574,7 @@
                 "index": 2
             }
         },
-        "Index": 4,
+        "Index": 3,
         "Name": "Jaskier",
         "Parent": "-1",
         "Static": false
