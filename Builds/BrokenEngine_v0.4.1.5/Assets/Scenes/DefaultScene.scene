@@ -81,9 +81,9 @@
                 "rotationx": "0.534209",
                 "rotationy": "-0.455339",
                 "rotationz": "0.553834",
-                "scalex": "0.999980",
-                "scaley": "0.999981",
-                "scalez": "0.999981"
+                "scalex": "0.999977",
+                "scaley": "0.999978",
+                "scalez": "0.999978"
             },
             "13": {
                 "Active": true,
@@ -175,8 +175,8 @@
                 "rotationx": "0.000791",
                 "rotationy": "0.016521",
                 "rotationz": "0.999855",
-                "scalex": "1.000021",
-                "scaley": "1.000021",
+                "scalex": "1.000024",
+                "scaley": "1.000024",
                 "scalez": "1.000000"
             },
             "13": {
@@ -2223,7 +2223,7 @@
                 "rotationy": "0.017731",
                 "rotationz": "0.999833",
                 "scalex": "1.000000",
-                "scaley": "0.999979",
+                "scaley": "0.999976",
                 "scalez": "1.000000"
             },
             "13": {
@@ -2359,8 +2359,8 @@
                 "rotationy": "0.000117",
                 "rotationz": "-0.000109",
                 "scalex": "1.000000",
-                "scaley": "1.000019",
-                "scalez": "1.000019"
+                "scaley": "1.000022",
+                "scalez": "1.000022"
             },
             "13": {
                 "Active": true,
@@ -2428,13 +2428,13 @@
                     "ResourceScript": "Assets/Lumberjack_v01.lua"
                 },
                 "Script variables": {
-                    "Count": 14,
+                    "Count": 16,
                     "Variable 0": {
                         "DisplayObjectName": false,
                         "Name": "MaxSpeed",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 4.0
+                        "Value": 5.0
                     },
                     "Variable 1": {
                         "DisplayObjectName": false,
@@ -2470,6 +2470,20 @@
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
+                    },
+                    "Variable 14": {
+                        "DisplayObjectName": false,
+                        "Name": "JumpAttackSpeed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 10.0
+                    },
+                    "Variable 15": {
+                        "DisplayObjectName": false,
+                        "Name": "JumpAttackDone",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
                     },
                     "Variable 2": {
                         "DisplayObjectName": false,

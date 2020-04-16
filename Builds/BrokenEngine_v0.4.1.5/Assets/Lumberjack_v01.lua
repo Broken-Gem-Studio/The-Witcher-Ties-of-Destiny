@@ -25,8 +25,9 @@ local SubState = {
 	NONE = 0,
 	IDL = 1,				-- SubState for: PRE_DETECTION or maybe ATTACK State
 	PATROL = 2,				-- Substate for: PRE_DETECTION
-	ALERT = 3,			-- SubState for: SEEK
-	SEEK_TARGET = 4
+	ALERT = 3,			    -- SubState for: SEEK
+	SEEK_TARGET = 4,		-- SubState for: SEEK
+	JUMP_ATTACK = 5			-- SubState for: SEEK
 }
 
 local Anim = {
@@ -57,6 +58,8 @@ local MyUID = 0
 
 local Geralt = 0
 local Jaskier = 0
+
+
 
 local Nvec3x = 0
 local Nvec3z = 0  -->Movement
@@ -100,7 +103,9 @@ local FirstSeekCalled = false
 
 --HandleSEEK()
 local Alert_AnimController = false
-
+local Run_AnimController = false
+local vec3x = 0 --dirvector
+local vec3z = 0 --dirvector
 -----------------------------------------------------------------------------------------
 -- Inspector Variables
 -----------------------------------------------------------------------------------------
@@ -113,7 +118,10 @@ lua_table.collider_effect = 0
 
 lua_table.MaxHealth = 100
 lua_table.CurrentHealth = 0
-lua_table.MaxSpeed = 4
+lua_table.MaxSpeed = 5
+lua_table.JumpAttackSpeed = 10
+lua_table.JumpAttackDone = false
+
 lua_table.CurrentTarget = 0
 lua_table.CurrentPatrolTarget = {}
 
@@ -161,6 +169,11 @@ local function CalculateDistanceToPosition(targetPos) --distance from a position
 
 	return Distance
 end
+local function NormalizeDirVector()
+	Nvec3x = vec3x / DistanceMagnitude
+	Nvec3z = vec3z / DistanceMagnitude -- Normalized values
+end
+
 -----------------------------------------------------------------------------------------
 -- SUB FUNCTIONS
 -----------------------------------------------------------------------------------------
@@ -169,11 +182,13 @@ function ApplyVelocity( )
 
 	if lua_table.CurrentState == State.PRE_DETECTION and lua_table.CurrentSubState == SubState.PATROL
 	then 
-		if FirstSeekCalled == true and DistanceMagnitude > 0.3 --do this because if not then lumberjack shakes
+		if FirstSeekCalled == true and DistanceMagnitude > 0.3 --do this because if not then lumberjack shakes --error lumberjack
 		then
 			Nvec3x = Nvec3x*PatrolSpeed
 			Nvec3z = Nvec3z*PatrolSpeed
-			lua_table.SystemFunctions:LOG("DistanceMagnitude: ------>".. DistanceMagnitude)
+			--lua_table.SystemFunctions:LOG("PATROL speed X : "..Nvec3x)
+			--lua_table.SystemFunctions:LOG("PATROL speed Z -----------------: "..Nvec3z)
+			--lua_table.SystemFunctions:LOG("DistanceMagnitude: ------>".. DistanceMagnitude)
 		elseif Arrived2PatrolTarget == false and LookLeftRight_AnimController == false and FirstSeekCalled == true and DistanceMagnitude <= lua_table.MinDistanceFromPlayer 
 		then
 			Nvec3x = Nvec3x * 0.0001 --this is to don't convert the lookAt vector to 0 but do not move the dir vector
@@ -183,16 +198,24 @@ function ApplyVelocity( )
 		end
 	elseif lua_table.CurrentState == State.SEEK
 	then
-		if DistanceMagnitude > lua_table.MinDistanceFromPlayer 
+		if DistanceMagnitude > lua_table.MinDistanceFromPlayer and lua_table.CurrentSubState == SubState.SEEK_TARGET 
 		then
 			Nvec3x = Nvec3x*lua_table.MaxSpeed
 			Nvec3z = Nvec3z*lua_table.MaxSpeed
-		else
-			Nvec3x =  0
-			Nvec3z = 0
-			Arrived2PatrolTarget = true
+			--lua_table.SystemFunctions:LOG("SEEK_TARGET speed: X : "..Nvec3x)
+			--lua_table.SystemFunctions:LOG("SEEK_TARGET speed: Z -----------------: "..Nvec3z)
+		elseif DistanceMagnitude > lua_table.MinDistanceFromPlayer and lua_table.CurrentSubState == SubState.ALERT
+		then
+			Nvec3x = Nvec3x * 0.001
+			Nvec3z = Nvec3z * 0.001
+			--Arrived2PatrolTarget = true
+		elseif lua_table.CurrentSubState == SubState.JUMP_ATTACK
+		then
+			Nvec3x = Nvec3x*lua_table.JumpAttackSpeed
+			Nvec3z = Nvec3z*lua_table.JumpAttackSpeed
 		end
-	else
+	elseif lua_table.CurrentState == State.ATTACK
+	then
 		Nvec3x = 0
 		Nvec3z = 0
 	end
@@ -201,20 +224,14 @@ end
 function seekPatrolTarget()	 	
 	
 	FirstSeekCalled = true
-	
 	DistanceMagnitude = CalculateDistanceToPosition(lua_table.CurrentPatrolTarget) --y not used
-	
-	Nvec3x = vec3x / DistanceMagnitude
-	Nvec3z = vec3z / DistanceMagnitude -- Normalized values
-
+	NormalizeDirVector()
 end
 
 function seekTarget()	 	
 	
 	DistanceMagnitude = CalculateDistanceToTarget( lua_table.CurrentTarget) --y not used
-	
-	Nvec3x = vec3x / DistanceMagnitude
-	Nvec3z = vec3z / DistanceMagnitude -- Normalized values
+	NormalizeDirVector()
 end
 
 function Players()
@@ -267,6 +284,23 @@ function HandleAggro()
 			end	
 	end --TODO when a current target dies need to change current atrget for a new one
 	return ret
+end
+
+function jumpAttack()
+
+	DistanceMagnitude = CalculateDistanceToTarget(lua_table.CurrentTarget)
+	NormalizeDirVector()
+	lua_table.SystemFunctions:LOG("DistanceMagnitudeJUMPATTACK: ------>".. DistanceMagnitude)
+
+	if lua_table.CurrentSubState == SubState.SEEK_TARGET
+	then
+		lua_table.CurrentSubState = SubState.JUMP_ATTACK
+	end
+
+	if DistanceMagnitude <= lua_table.MinDistanceFromPlayer and lua_table.CurrentSubState == SubState.JUMP_ATTACK
+	then	
+		lua_table.JumpAttackDone = true
+	end
 end
 
 -----------------------------------------------------------------------------------------
@@ -324,7 +358,6 @@ function HandlePRE_DETECTION()
 				Timer = PerfGameTime()
 				if Timer - LookLeftRight_TimeController > 6000 --TODO change value for a animation duration
 				then
-					
 					lua_table.CurrentPatrolTarget[1] = lua_table.SystemFunctions:RandomNumberInRange(SpawnPos[1]-10,SpawnPos[1]+10)
 					lua_table.CurrentPatrolTarget[3] = lua_table.SystemFunctions:RandomNumberInRange(SpawnPos[3]-10,SpawnPos[3]+10)
 					Arrived2PatrolTarget = false
@@ -363,6 +396,7 @@ function HandleSEEK()
 			lua_table.AnimationSystem:PlayAnimation("ALERT",30.0)
 			Alert_AnimController = true
 			Alert_TimeController = PerfGameTime()
+			--lua_table.TransformFunctions:LookAt(lua_table.Pos[1] + Nvec3x,lua_table.Pos[2],lua_table.Pos[3] + Nvec3z,MyUID)
 		end
 		Time = PerfGameTime()
 		if Time - Alert_TimeController >= 2000
@@ -373,14 +407,31 @@ function HandleSEEK()
 
 	if lua_table.CurrentSubState == SubState.SEEK_TARGET
 	then
-		seekTarget()
+		if Run_AnimController == false
+		then
+			lua_table.AnimationSystem:PlayAnimation("RUN",30.0)
+			Run_AnimController = true
+		end
+		seekTarget()----------------------------------11111111111111111111111111
 	end
 
-	if DistanceMagnitude <= lua_table.MinDistanceFromPlayer and lua_table.CurrentSubState == SubState.SEEK_TARGET
+	if DistanceMagnitude < 10 and lua_table.JumpAttackDone == false and lua_table.CurrentSubState ~= SubState.ALERT
 	then
+		jumpAttack()
+	end
+
+	if DistanceMagnitude <= lua_table.MinDistanceFromPlayer and lua_table.JumpAttackDone == true
+	then
+		lua_table.AnimationSystem:PlayAnimation("IDLE",30.0)
 		CurrentState = State.ATTACK
 	end
 end
+
+function HandleAttack()
+	Nvec3x =0
+	Nvec3y = 0
+end
+
 -----------------------------------------------------------------------------------------
 -- Main Code
 -----------------------------------------------------------------------------------------
@@ -443,11 +494,21 @@ function lua_table:Update()
 	elseif lua_table.CurrentState == State.SEEK
 	then
 		HandleSEEK()
+	elseif lua_table.CurrentState == State.ATTACK
+	then
+		HandleAttack()
 	end
 
+	lua_table.TransformFunctions:LookAt(lua_table.Pos[1] + vec3x,lua_table.Pos[2],lua_table.Pos[3] + vec3z,MyUID) -- PROVISIONAL, QUEDA MUY ARTIFICIAL
 	ApplyVelocity() --decides if move function will move or not in x and z axis
+
+		
+	--lua_table.SystemFunctions:LOG("move speed: X : "..Nvec3x)
+	--lua_table.SystemFunctions:LOG("move speed: Z -----------------: "..Nvec3z)
 	lua_table.PhysicsSystem:Move(Nvec3x,Nvec3z,MyUID)
-	lua_table.TransformFunctions:LookAt(lua_table.Pos[1] + Nvec3x,lua_table.Pos[2],lua_table.Pos[3] + Nvec3z,MyUID) -- PROVISIONAL, QUEDA MUY ARTIFICIAL
+	
+	
+	
 
 end
 
