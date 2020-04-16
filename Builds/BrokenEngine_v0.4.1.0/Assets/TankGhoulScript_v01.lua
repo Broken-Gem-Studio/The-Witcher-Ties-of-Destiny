@@ -20,13 +20,27 @@ lua_table.GeraltDistance = 0
 lua_table.JaskierDistance = 0
 
 local State = {
-	IDLE = 1,
-	SEEK = 2,
-	JUMP = 3, 
-	PUNCH = 4,
-	SWIPE = 5,
-	CRUSH = 6,
-	DEATH = 7
+	IDLE = 0,
+	SEEK = 1,
+	JUMP = 2, 
+	COMBO = 3,
+	DEATH = 4
+}
+
+local layers = {
+	default = 0,
+	player = 1,
+	player_attack = 2,
+	enemy = 3,
+	enemy_attack = 4
+}
+
+local attack_effects = {
+	none = 0, 
+	stun = 1,
+	knockback = 2,
+	taunt = 3,
+	venom = 4
 }
 
 ------------   All the values below are placeholders, will change them when testing
@@ -49,15 +63,12 @@ local Swipe = 50
 local Crush = 150
 
 -- Time management
-local start_timer = true
+local start_timer = false
 local time = 0
 
 -- Flow control conditionals
-local running = false
-
 local jumping = false
 local stunning = false
-
 local punching = false
 local swiping = false
 local crushing = false
@@ -103,14 +114,14 @@ local function Idle()
 		if lua_table.currentTargetDir <= lua_table.AggroRange
 		then
 			lua_table.currentState = State.SEEK
-			lua_table.System:LOG("Tank Ghoul state: SEEK (2)") 
+			lua_table.System:LOG("Tank Ghoul state: SEEK (1)") 
 		end
 
 	end
 
 end
 
-function Seek()
+local function Seek()
 
 	--Now we get the direction vector and then we normalize it and aply a velocity in every component
 
@@ -131,62 +142,82 @@ function Seek()
 	end
 
 	if lua_table.currentTargetDir <= lua_table.minDistance then
-		lua_table.currentState = State.JUMP	
-		lua_table.System:LOG("Tank Ghoul state: JUMP (3)") 
+		lua_table.currentState = State.COMBO
+		
+		--lua_table.System:LOG("Tank Ghoul state: JUMP (2)")
+		lua_table.System:LOG("Tank Ghoul state: COMBO (3)")  
 	end
 end
 
-function JumpStun() -- Smash the ground with a jump, then stun
+local function JumpStun() -- Smash the ground with a jump, then stun
 
-	local tmp = 0
-	if lua_table.currentTargetDir <= lua_table.minDistance then
-		lua_table.System:LOG("Jump")
-		
-	local tmp = lua_table.System:GameTime() * 1000
-	end
 
-	if start_timer and not jumping then 
-		time = tmp
-		lua_table.System:LOG("Jump")
-		start_timer = false
-		jumping = true
-	end
+	-- time = lua_table.System:GameTime()
+	-- local tmp = 0
+	-- if lua_table.currentTargetDir <= lua_table.minDistance then
+	-- 	lua_table.System:LOG("Jump")
 
-	elapsed_time = tmp - time
-	if elapsed_time > 2000 and not stunning then
-		lua_table.System:LOG("Smash the ground and stun")
-		stunning = true
-		lua_table.currentState = State.PUNCH
-		lua_table.System:LOG("Tank Ghoul state: PUNCH (4)") 
-	else 
-		-- jumping = false
-		-- stunning = false
-	end
+	-- local tmp = lua_table.System:GameTime() * 1000
+	-- end
+
+	-- if start_timer and then 
+	-- 	time = tmp
+	-- 	lua_table.System:LOG("Jump")
+	-- 	start_timer = false
+	-- 	jumping = true
+	-- end
+
+	-- elapsed_time = tmp - time
+	-- if elapsed_time > 2000 and not stunning then
+	-- 	lua_table.System:LOG("Smash the ground and stun")
+	-- 	stunning = true
+	-- 	lua_table.currentState = State.PUNCH
+	-- 	lua_table.System:LOG("Tank Ghoul state: PUNCH (3)") 
+	-- else 
+	-- 	-- jumping = false
+	-- 	-- stunning = false
+	-- end
 
 	
 end
 
-function Punch() -- Stoppable attack 1/2
+local function ResetJumpStun()
+	if jumping == true then jumping = false end
+	if stunning == true then stunning = false end
+end
 
-	-- -- Punch and swipe that can be stopped
+local function Combo() -- Stoppable attack 1/2
+
+	-- -- -- Punch and swipe that can be stopped
 	-- if not damaged then -- Checks if target is being damaged by the players
-	-- 	local tmp = PerfGameTime()
-
+	
+	-- end
 	-- 	-- Do combo shit
-	-- 	if not start_timer then 
-	-- 		time = tmp
-	-- 		start_timer = true
-			
-	-- 	end
+	if not start_timer then 
+		time = lua_table.System:GameTime() * 1000
+		start_timer = true
+	end
 
 	-- 	lua_table.tmp_time = tmp - time
 		
-	-- 	if lua_table.tmp_time > 1000 and not punching then
-	-- 		lua_table.System:LOG("Punch to target")
-	-- 		if lua_table.tmp_time > 2000 and not swiping then
-	-- 			lua_table.System:LOG("Swipe to target")
-	-- 			if lua_table.tmp_time > 3000 and not crushing then
-	-- 				lua_table.System:LOG("Crush to target")
+	if time + 500 <= lua_table.System:GameTime() * 1000 and not punching then
+		lua_table.System:LOG("Punch to target")
+		punching = true
+	end
+	if time + 1500 <= lua_table.System:GameTime() * 1000 and not swiping then
+		lua_table.System:LOG("Swipe to target")
+		swiping = true
+	end
+	if time + 2500 <= lua_table.System:GameTime() * 1000 and not crushing then
+		lua_table.System:LOG("Crush to target")
+		crushing = true
+	end
+		--lua_table.currentState = State.JUMP	
+	if time + 4000 <= lua_table.System:GameTime() * 1000 then
+		-- ResetJumpStun()
+		-- lua_table.System:LOG("Resetting shit")
+
+	end
 	-- 				lua_table.currentState = State.SEEK
 	-- 			end
 	-- 		end 
@@ -198,6 +229,16 @@ function Punch() -- Stoppable attack 1/2
 	-- end
 	-- -- When combo is done, then switch state
 	
+end
+
+local function ResetCombo()
+	if punching == true then punching = false end
+	if swiping == true then swiping = false end
+	if crushing == true then crushing = false end
+end
+
+local function Die()
+	--Die shit
 end
 
 -- ______________________MAIN CODE______________________
@@ -227,6 +268,7 @@ function lua_table:Start()
 	end
 
 	lua_table.currentState = State.IDLE
+	lua_table.System:LOG("Tank Ghoul state: IDLE (0)") 
 	lua_table.health = lua_table.max_hp
 	
 end
@@ -251,9 +293,9 @@ function lua_table:Update()
 	elseif lua_table.currentState == State.JUMP
     then    	
         JumpStun()
-    -- elseif lua_table.currentState == State.PUNCH
-    -- then    	
-	-- 	Punch()
+    elseif lua_table.currentState == State.COMBO
+    then    	
+		Combo()
 	-- elseif lua_table.currentState == State.SWIPE
     -- then    	
 	-- 	Swipe()
