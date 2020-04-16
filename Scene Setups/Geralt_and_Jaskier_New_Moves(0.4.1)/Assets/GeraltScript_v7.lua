@@ -199,7 +199,7 @@ lua_table.energy_reg_orig = 5
 		none = 0,
 		stun = 1,
 		knockback = 2,
-		provoke = 3,
+		taunt = 3,
 		venom = 4
 	}
 	lua_table.collider_damage = 0
@@ -396,6 +396,7 @@ lua_table.combo_num = 0							-- Starting at 0, increases by 1 for each attack w
 lua_table.combo_stack = { 'N', 'N', 'N', 'N' }	-- Last 4 attacks performed (0=none, 1=light, 2=heavy). Use push_back tactic.
 
 lua_table.combo_1 = { 'H', 'L', 'L', 'L' }	--Slide Attack
+lua_table.combo_1_size = 4
 lua_table.combo_1_damage = 2.0	--slide + 4 hits
 lua_table.combo_1_duration = 1500
 lua_table.combo_1_animation_speed = 35.0
@@ -413,6 +414,7 @@ lua_table.combo_1_collider_back_start = 1150	--Collider activation time
 lua_table.combo_1_collider_back_end = 1220		--Collider deactivation time
 
 lua_table.combo_2 = { 'L', 'L', 'L', 'H' }	--High Spin
+lua_table.combo_2_size = 4
 lua_table.combo_2_damage = 2.5	--3 hit
 lua_table.combo_2_duration = 1400
 lua_table.combo_2_animation_speed = 30.0
@@ -426,6 +428,7 @@ lua_table.combo_2_collider_front_start = 1200	--Collider activation time
 lua_table.combo_2_collider_front_end = 1400		--Collider deactivation time
 
 lua_table.combo_3 = { 'L', 'H', 'H', 'L' }	--Jump Attack
+lua_table.combo_3_size = 4
 lua_table.combo_3_damage = 3.0	--1 hit		--IMPROVE: + stun
 lua_table.combo_3_duration = 1800
 lua_table.combo_3_animation_speed = 30.0
@@ -514,8 +517,8 @@ end
 local function GimbalLockWorkaroundY(param_rot_y)	--TODO: Remove when bug is fixed
 	if math.abs(lua_table.TransformFunctions:GetRotation(my_GO_UID)[1]) == 180.0
 	then
-		if param_rot_y >= 0 then param_rot_y = 90 + 90 - param_rot_y
-		elseif param_rot_y < 0 then param_rot_y = -90 + -90 - param_rot_y
+		if param_rot_y >= 0 then param_rot_y = 180 - param_rot_y
+		elseif param_rot_y < 0 then param_rot_y = -180 - param_rot_y
 		end
 	end
 
@@ -550,6 +553,7 @@ local function GoDefaultState()
 		lua_table.ParticlesFunctions:StopParticleEmitter(my_GO_UID)	--TODO-Particles: Deactivate movement dust particles
 	end
 	
+	lua_table.combo_num = 0
 	rightside = true
 end
 
@@ -853,54 +857,37 @@ end
 
 --Character Actions BEGIN	----------------------------------------------------------------------------
 
-local function CheckCombo()	--Check combo performed	(ATTENTION: This should handle the animation, setting timers, bla bla)
+local function PerformCombo(combo_type)
 	local string_match = false
 
-	if CompareTables(lua_table.combo_stack, lua_table.combo_1)
+	if lua_table.combo_num == lua_table[combo_type .. "_size"] and CompareTables(lua_table.combo_stack, lua_table[combo_type])
 	then
-		current_action_block_time = lua_table.combo_1_duration
-		current_action_duration = lua_table.combo_1_duration
+		current_action_block_time = lua_table[combo_type .. "_duration"]
+		current_action_duration = current_action_block_time
 
-		lua_table.AnimationFunctions:PlayAnimation("combo_1", lua_table.combo_1_animation_speed)	--Slide
-		--TODO-AUDIO: Play sound of combo_1
+		lua_table.AnimationFunctions:PlayAnimation(combo_type, lua_table[combo_type .. "_animation_speed"])
+		--TODO-AUDIO: Play sound of combo_type
 
-		lua_table.collider_damage = base_damage_real * lua_table.combo_1_damage
+		lua_table.collider_damage = base_damage_real * lua_table[combo_type .. "_damage"]
+		lua_table.collider_effect = attack_effects.none
 
 		lua_table.previous_state = lua_table.current_state
-		lua_table.current_state = state.combo_1
-
-		string_match = true
-	elseif CompareTables(lua_table.combo_stack, lua_table.combo_2)
-	then
-		current_action_block_time = lua_table.combo_2_duration
-		current_action_duration = lua_table.combo_2_duration
-		
-		lua_table.AnimationFunctions:PlayAnimation("combo_2", lua_table.combo_2_animation_speed)	--Spin
-		--TODO-AUDIO: Play sound of combo_2
-		
-		lua_table.collider_damage = base_damage_real * lua_table.combo_2_damage
-
-		lua_table.previous_state = lua_table.current_state
-		lua_table.current_state = state.combo_2
-
-		string_match = true
-	elseif CompareTables(lua_table.combo_stack, lua_table.combo_3)
-	then
-		current_action_block_time = lua_table.combo_3_duration
-		current_action_duration = lua_table.combo_3_duration
-		
-		lua_table.AnimationFunctions:PlayAnimation("combo_3", lua_table.combo_3_animation_speed)	--Jump
-		--TODO-AUDIO: Play sound of combo_3
-		
-		lua_table.collider_damage = base_damage_real * lua_table.combo_3_damage
-
-		lua_table.previous_state = lua_table.current_state
-		lua_table.current_state = state.combo_3
+		lua_table.current_state = state[combo_type]
 
 		string_match = true
 	end
 
 	return string_match
+end
+
+local function CheckCombos()	--Check combo performed	(ATTENTION: This should handle the animation, setting timers, bla bla)
+	local combo_succesful = false
+
+	if PerformCombo("combo_1") or PerformCombo("combo_2") or PerformCombo("combo_3") then
+		combo_succesful = true
+	end
+
+	return combo_succesful
 end
 
 local function TimedAttack()
@@ -923,7 +910,7 @@ local function TimedAttack()
 		lua_table.combo_num = lua_table.combo_num + 1
 
 		if lua_table.combo_num > 3 then			--IF 4+ goods attacks
-			combo_achieved = CheckCombo()
+			combo_achieved = CheckCombos()
 			if combo_achieved then
 				lua_table.combo_num = 0
 			end
@@ -978,6 +965,7 @@ local function RegularAttack(attack_type)
 	end
 
 	lua_table.collider_damage = base_damage_real * lua_table[attack_type .. "_damage"]
+	lua_table.collider_effect = attack_effects.none
 	rightside = not rightside
 end
 
@@ -1019,7 +1007,7 @@ local function ActionInputs()	--Process Action Inputs
 	local action_made = false
 	local combo_achieved = false
 
-	RegisterAttackInputs()	--Check for attack inputs
+	RegisterAttackInputs()	--Check for Attack Inputs
 
 	if attack_input_given then	--IF attack input made
 		if game_time - attack_input_started_at > attack_input_timeframe		--IF surpassed double press timeframe
@@ -1520,8 +1508,8 @@ function lua_table:Update()
 	--rot_y = math.rad(GimbalLockWorkaroundY(lua_table.TransformFunctions:GetRotation()[2]))	--TODO: Remove GimbalLock stage when Euler bug is fixed
 	--lua_table.SystemFunctions:LOG("Angle Y: " .. rot_y)
 	--lua_table.SystemFunctions:LOG("Ultimate: " .. lua_table.current_ultimate)
-	--lua_table.SystemFunctions:LOG("Combo num: " .. lua_table.combo_num)
-	--lua_table.SystemFunctions:LOG("Combo string: " .. lua_table.combo_stack[1] .. ", " .. lua_table.combo_stack[2] .. ", " .. lua_table.combo_stack[3] .. ", " .. lua_table.combo_stack[4])
+	lua_table.SystemFunctions:LOG("Combo num: " .. lua_table.combo_num)
+	lua_table.SystemFunctions:LOG("Combo string: " .. lua_table.combo_stack[1] .. ", " .. lua_table.combo_stack[2] .. ", " .. lua_table.combo_stack[3] .. ", " .. lua_table.combo_stack[4])
 
 	--Stats LOGS
 	lua_table.SystemFunctions:LOG("Health: " .. lua_table.current_health)
