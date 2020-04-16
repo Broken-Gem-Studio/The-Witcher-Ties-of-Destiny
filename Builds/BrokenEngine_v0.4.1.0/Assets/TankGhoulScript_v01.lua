@@ -1,4 +1,4 @@
-function GetTableTankGhoulScript()
+function GetTableTankGhoulScript_v01()
 local lua_table = {}
 lua_table.System = Scripting.System()
 lua_table.GameObject = Scripting.GameObject()
@@ -41,8 +41,7 @@ lua_table.is_dead = false
 
 -- Aggro values 
 lua_table.AggroRange = 100
-lua_table.minDistance = 5 -- If entity is inside this distance, then attack
-lua_table.distance_to_target = 0
+lua_table.minDistance = 3 -- If entity is inside this distance, then attack
 
 -- Combo attack values
 local Punch = 10
@@ -64,16 +63,6 @@ local swiping = false
 local crushing = false
 
 -- ______________________SCRIPT FUNCTIONS______________________
-local function NormalizeVector(vector)
-	local module = math.sqrt(vector[1] ^ 2 + vector[3] ^ 2)
-
-    newVector = {0, 0, 0}
-    newVector[1] = vector[1] / module
-    newVector[2] = vector[2]
-    newVector[3] = vector[3] / module
-    return newVector
-end
-
 local function SearchPlayers() -- Check if targets are within range
 
 	lua_table.GeraltPos = lua_table.Transform:GetPosition(lua_table.geralt)
@@ -109,15 +98,15 @@ end
 
 local function Idle() 
 	
-	-- if lua_table.is_stunned == false
-	-- then 
+	if lua_table.is_stunned == false
+	then 
 		if lua_table.currentTargetDir <= lua_table.AggroRange
 		then
 			lua_table.currentState = State.SEEK
-			lua_table.System:LOG("Ghoul state is SEEK") 
+			lua_table.System:LOG("Tank Ghoul state: SEEK (2)") 
 		end
 
-	--end
+	end
 
 end
 
@@ -126,35 +115,53 @@ function Seek()
 	--Now we get the direction vector and then we normalize it and aply a velocity in every component
 
 	if lua_table.currentTargetDir < lua_table.AggroRange and lua_table.currentTargetDir > lua_table.minDistance then
-		local velocity = NormalizeVector(lua_table.MoveVector)
-		lua_table.Physics:Move(velocity[1] * lua_table.speed, velocity[3] * lua_table.speed, lua_table.MyUID)
-		lua_table.currentState = State.JUMP -- Begin jumping attack when it reaches the target      >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> CHANGE TO JUMP
+		
+		local dis = math.sqrt(lua_table.MoveVector[1] ^ 2 + lua_table.MoveVector[3] ^ 2)
+
+		-- Normalize the vector
+   		vec = { 0, 0, 0 }
+    	vec[1] = lua_table.MoveVector[1] / dis
+   		vec[2] = lua_table.MoveVector[2]
+		vec[3] = lua_table.MoveVector[3] / dis
+		
+		-- Apply movement vector to move character
+		lua_table.Physics:Move(vec[1] * lua_table.speed, vec[3] * lua_table.speed, lua_table.MyUID)
 	else 
 		currentState = State.IDLE	
+	end
+
+	if lua_table.currentTargetDir <= lua_table.minDistance then
+		lua_table.currentState = State.JUMP	
+		lua_table.System:LOG("Tank Ghoul state: JUMP (3)") 
 	end
 end
 
 function JumpStun() -- Smash the ground with a jump, then stun
-	-- Reset combo conditionals
-	
-	-- local tmp = PerfGameTime()
 
-	-- if start_timer and not jumping then 
-	-- 	time = tmp
-	-- 	lua_table.System:LOG("Jump")
-	-- 	start_timer = false
-	-- 	jumping = true
-	-- end
+	local tmp = 0
+	if lua_table.currentTargetDir <= lua_table.minDistance then
+		lua_table.System:LOG("Jump")
+		
+	local tmp = lua_table.System:GameTime() * 1000
+	end
 
-	-- elapsed_time = tmp - time
-	-- if elapsed_time > 2000 and not stunning then
-	-- 	lua_table.System:LOG("Smash the ground and stun")
-	-- 	stunning = true
-	-- 	lua_table.currentState = State.COMBO
-	-- else 
-	-- 	-- jumping = false
-	-- 	-- stunning = false
-	-- end
+	if start_timer and not jumping then 
+		time = tmp
+		lua_table.System:LOG("Jump")
+		start_timer = false
+		jumping = true
+	end
+
+	elapsed_time = tmp - time
+	if elapsed_time > 2000 and not stunning then
+		lua_table.System:LOG("Smash the ground and stun")
+		stunning = true
+		lua_table.currentState = State.PUNCH
+		lua_table.System:LOG("Tank Ghoul state: PUNCH (4)") 
+	else 
+		-- jumping = false
+		-- stunning = false
+	end
 
 	
 end
@@ -241,12 +248,18 @@ function lua_table:Update()
     elseif lua_table.currentState == State.SEEK
     then
 		Seek()
-	-- elseif lua_table.currentState == State.JUMP
-    -- then    	
-    --     JumpStun()
+	elseif lua_table.currentState == State.JUMP
+    then    	
+        JumpStun()
     -- elseif lua_table.currentState == State.PUNCH
     -- then    	
 	-- 	Punch()
+	-- elseif lua_table.currentState == State.SWIPE
+    -- then    	
+	-- 	Swipe()
+	-- elseif lua_table.currentState == State.CRUSH
+    -- then    	
+	-- 	Crush()
 	elseif lua_table.currentState == State.DEATH
 	then	
 		Die()
