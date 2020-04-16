@@ -81,9 +81,9 @@
                 "rotationx": "0.534209",
                 "rotationy": "-0.455339",
                 "rotationz": "0.553834",
-                "scalex": "0.999977",
-                "scaley": "0.999978",
-                "scalez": "0.999978"
+                "scalex": "0.999967",
+                "scaley": "0.999968",
+                "scalez": "0.999968"
             },
             "13": {
                 "Active": true,
@@ -175,8 +175,8 @@
                 "rotationx": "0.000791",
                 "rotationy": "0.016521",
                 "rotationz": "0.999855",
-                "scalex": "1.000024",
-                "scaley": "1.000024",
+                "scalex": "1.000034",
+                "scaley": "1.000034",
                 "scalez": "1.000000"
             },
             "13": {
@@ -1658,7 +1658,7 @@
                 "layer": "0",
                 "positionx": "0.000000",
                 "positiony": "0.000000",
-                "positionz": "49.562366",
+                "positionz": "40.312000",
                 "rotationw": "1.000000",
                 "rotationx": "0.000000",
                 "rotationy": "0.000000",
@@ -2223,7 +2223,7 @@
                 "rotationy": "0.017731",
                 "rotationz": "0.999833",
                 "scalex": "1.000000",
-                "scaley": "0.999976",
+                "scaley": "0.999966",
                 "scalez": "1.000000"
             },
             "13": {
@@ -2359,8 +2359,8 @@
                 "rotationy": "0.000117",
                 "rotationz": "-0.000109",
                 "scalex": "1.000000",
-                "scaley": "1.000022",
-                "scalez": "1.000022"
+                "scaley": "1.000032",
+                "scalez": "1.000032"
             },
             "13": {
                 "Active": true,
@@ -2431,118 +2431,118 @@
                     "Count": 16,
                     "Variable 0": {
                         "DisplayObjectName": false,
-                        "Name": "MaxSpeed",
+                        "Name": "CurrentHealth",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 5.0
+                        "Value": 0.0
                     },
                     "Variable 1": {
-                        "DisplayObjectName": false,
-                        "Name": "collider_damage",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 40.0
-                    },
-                    "Variable 10": {
                         "DisplayObjectName": false,
                         "Name": "CurrentAnim",
                         "ObjectName": "",
                         "Type": "String",
                         "Value": "NONE"
                     },
-                    "Variable 11": {
-                        "DisplayObjectName": false,
-                        "Name": "AggroDistance",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 30.0
-                    },
-                    "Variable 12": {
-                        "DisplayObjectName": false,
-                        "Name": "MinDistanceFromPlayer",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 3.0
-                    },
-                    "Variable 13": {
-                        "DisplayObjectName": false,
-                        "Name": "CurrentHealth",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 14": {
-                        "DisplayObjectName": false,
-                        "Name": "JumpAttackSpeed",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 10.0
-                    },
-                    "Variable 15": {
+                    "Variable 10": {
                         "DisplayObjectName": false,
                         "Name": "JumpAttackDone",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": false
                     },
-                    "Variable 2": {
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "JumpAttackSpeed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 10.0
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "collider_damage",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 40.0
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "CurrentSubState",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 14": {
                         "DisplayObjectName": false,
                         "Name": "collider_effect",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
                     },
-                    "Variable 3": {
-                        "DisplayObjectName": false,
-                        "Name": "Pos",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 4": {
-                        "DisplayObjectName": false,
-                        "Name": "player_2",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "Jaskier"
-                    },
-                    "Variable 5": {
-                        "DisplayObjectName": false,
-                        "Name": "CurrentState",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 6": {
-                        "DisplayObjectName": false,
-                        "Name": "player_1",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "Geralt"
-                    },
-                    "Variable 7": {
+                    "Variable 15": {
                         "DisplayObjectName": false,
                         "Name": "MaxHealth",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 100.0
                     },
-                    "Variable 8": {
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "AggroDistance",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 30.0
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "MinDistanceFromPlayer",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 3.0
+                    },
+                    "Variable 4": {
                         "DisplayObjectName": false,
                         "Name": "CurrentTarget",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
                     },
-                    "Variable 9": {
+                    "Variable 5": {
                         "DisplayObjectName": false,
-                        "Name": "CurrentSubState",
+                        "Name": "Pos",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": false,
+                        "Name": "player_2",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Jaskier"
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": false,
+                        "Name": "CurrentState",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": false,
+                        "Name": "player_1",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Geralt"
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "MaxSpeed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 5.0
                     }
                 },
-                "UID": 1571989658,
+                "UID": 761490840,
                 "index": 3
             },
             "14": {

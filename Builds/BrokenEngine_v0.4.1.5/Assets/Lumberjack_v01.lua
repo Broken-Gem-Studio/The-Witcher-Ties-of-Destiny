@@ -106,6 +106,13 @@ local Alert_AnimController = false
 local Run_AnimController = false
 local vec3x = 0 --dirvector
 local vec3z = 0 --dirvector
+local JumpAttack_AnimController = false
+
+--HandleAttack()
+local Attack1_AnimController = false
+local Attack1_TimeController = false
+local IdleArmed_AnimController = false 
+
 -----------------------------------------------------------------------------------------
 -- Inspector Variables
 -----------------------------------------------------------------------------------------
@@ -292,15 +299,45 @@ function jumpAttack()
 	NormalizeDirVector()
 	lua_table.SystemFunctions:LOG("DistanceMagnitudeJUMPATTACK: ------>".. DistanceMagnitude)
 
-	if lua_table.CurrentSubState == SubState.SEEK_TARGET
+	if JumpAttack_AnimController == false
 	then
-		lua_table.CurrentSubState = SubState.JUMP_ATTACK
+		lua_table.SystemFunctions:LOG(" JUMP_ATTACK! ")
+		lua_table.AnimationSystem:PlayAnimation("JUMP_ATTACK",30.0)
+		JumpAttack_AnimController = true
 	end
 
 	if DistanceMagnitude <= lua_table.MinDistanceFromPlayer and lua_table.CurrentSubState == SubState.JUMP_ATTACK
 	then	
+		--cambiar q se ponga aqui el state atack y el sub estate
 		lua_table.JumpAttackDone = true
 	end
+end
+function Attack()
+	
+	if Attack1_AnimController == false
+	then
+		Attack1_TimeController = PerfGameTime()
+		lua_table.AnimationSystem:PlayAnimation("ATTACK_1",30.0)
+		Attack1_AnimController = true
+	end
+
+	Time = PerfGameTime()
+	TimeSinceLastAttack = Time - Attack1_TimeController
+
+	if TimeSinceLastAttack >= 1800
+	then
+		if IdleArmed_AnimController == false
+		then 
+			lua_table.AnimationSystem:PlayAnimation("IDLE",30.0)
+		    IdleArmed_AnimController = true
+		end	
+	end
+	if TimeSinceLastAttack >= 2500
+	then
+		Attack1_AnimController = false
+		IdleArmed_AnimController = false
+	end
+		
 end
 
 -----------------------------------------------------------------------------------------
@@ -423,13 +460,24 @@ function HandleSEEK()
 	if DistanceMagnitude <= lua_table.MinDistanceFromPlayer and lua_table.JumpAttackDone == true
 	then
 		lua_table.AnimationSystem:PlayAnimation("IDLE",30.0)
-		CurrentState = State.ATTACK
+		lua_table.CurrentState = State.ATTACK
+		lua_table.CurrentSubState = SubState.NONE
 	end
 end
 
 function HandleAttack()
-	Nvec3x =0
-	Nvec3y = 0
+
+	DistanceMagnitude = CalculateDistanceToTarget(lua_table.CurrentTarget)
+	--lua_table.SystemFunctions:LOG("DistanceMagnitude    >   "..DistanceMagnitude)
+	--lua_table.SystemFunctions:LOG("lua_table.MinDistanceFromPlayer    <   "..lua_table.MinDistanceFromPlayer)
+	if DistanceMagnitude >= lua_table.MinDistanceFromPlayer - 1 --   -1 bc lumberjac distance is 2.93
+	then
+		Attack()
+	else	
+		lua_table.CurrentState = State.SEEK
+		lua_table.CurrentSubState = State.SEEK_TARGET
+	end
+
 end
 
 -----------------------------------------------------------------------------------------
@@ -497,19 +545,13 @@ function lua_table:Update()
 	elseif lua_table.CurrentState == State.ATTACK
 	then
 		HandleAttack()
+		Nvec3x = Nvec3x * 0.00001
+		Nvec3z = Nvec3z * 0.00001
 	end
 
 	lua_table.TransformFunctions:LookAt(lua_table.Pos[1] + vec3x,lua_table.Pos[2],lua_table.Pos[3] + vec3z,MyUID) -- PROVISIONAL, QUEDA MUY ARTIFICIAL
-	ApplyVelocity() --decides if move function will move or not in x and z axis
-
-		
-	--lua_table.SystemFunctions:LOG("move speed: X : "..Nvec3x)
-	--lua_table.SystemFunctions:LOG("move speed: Z -----------------: "..Nvec3z)
+	ApplyVelocity() --decides if move function will move or not in x and z axis		
 	lua_table.PhysicsSystem:Move(Nvec3x,Nvec3z,MyUID)
-	
-	
-	
-
 end
 
 return lua_table
