@@ -49,16 +49,16 @@ function ParticleBigExplosion(particleduration, pUID)
 	lua_table.ParticlesFunctions:SetParticlesLooping(false, pUID)
 	lua_table.ParticlesFunctions:SetParticlesDuration(particleduration, pUID)
 
-	lua_table.ParticlesFunctions:SetEmissionRate(10, pUID)
-	lua_table.ParticlesFunctions:SetParticlesPerCreation(200, pUID)
-	lua_table.ParticlesFunctions:SetParticlesLifeTime(2000, pUID)
+	lua_table.ParticlesFunctions:SetEmissionRate(600, pUID)
+	lua_table.ParticlesFunctions:SetParticlesPerCreation(20, pUID)
+	lua_table.ParticlesFunctions:SetParticlesLifeTime(1000, pUID)
 
-	lua_table.ParticlesFunctions:SetExternalAcceleration(0, 10, 0, pUID)
-	lua_table.ParticlesFunctions:SetParticlesVelocity(0, 20, 0, pUID)
-	lua_table.ParticlesFunctions:SetRandomParticlesVelocity(50,50,50, pUID)
+	lua_table.ParticlesFunctions:SetExternalAcceleration(0, -80, 0, pUID)
+	lua_table.ParticlesFunctions:SetParticlesVelocity(0, 60, 0, pUID)
+	lua_table.ParticlesFunctions:SetRandomParticlesVelocity(20,30,20, pUID)
 	
-	lua_table.ParticlesFunctions:SetParticlesScale(1, 1, pUID)
-	lua_table.ParticlesFunctions:SetRandomParticlesScale(15, pUID)
+	lua_table.ParticlesFunctions:SetParticlesScale(30, 30, pUID)
+	lua_table.ParticlesFunctions:SetRandomParticlesScale(0.5, pUID)
 
 	lua_table.ParticlesFunctions:PlayParticleEmitter(pUID)
 
