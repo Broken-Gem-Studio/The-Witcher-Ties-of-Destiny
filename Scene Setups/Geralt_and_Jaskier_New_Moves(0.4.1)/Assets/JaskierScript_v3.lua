@@ -39,7 +39,7 @@ local state = {	--The order of the states is relevant to the code, CAREFUL CHANG
 	run = 2,
 
 	evade = 3,
-	ability = 4,
+	ability = 4,	--NOTE: Not used for jaskier
 	ultimate = 5,
 	item = 6,
 	revive = 7,
@@ -207,9 +207,10 @@ lua_table.energy_reg_orig = 5
 
 	local attack_colliders = {
 		front = { GO_name = "Jaskier_Front", GO_UID = 0, active = false },
-		back = { GO_name = "Jaskier_Back", GO_UID = 0, active = false },
-		left = { GO_name = "Jaskier_Left", GO_UID = 0, active = false },
-		right = { GO_name = "Jaskier_Right", GO_UID = 0, active = false }
+		line_1 = { GO_name = "Jaskier_Line_1", GO_UID = 0, active = false },
+		line_2 = { GO_name = "Jaskier_Line_2", GO_UID = 0, active = false },
+		line_3 = { GO_name = "Jaskier_Line_3", GO_UID = 0, active = false },
+		line_4 = { GO_name = "Jaskier_Line_4", GO_UID = 0, active = false }
 	}
 
 	--Collider Notes (GO X,Y,Z / Coll size X,Y,Z)
@@ -316,7 +317,7 @@ lua_table.evade_animation_speed = 30.0
 lua_table.ability_cooldown = 5.0
 
 local ability_started_at = 0.0
-lua_table.ability_performed = false
+lua_table.ability_performed = false	--Marks the ability as used, = true while in cooldown (pretty much only used for UI)
 
 --Songs
 lua_table.chained_attacks_num = 0				-- Number of attacks done one after the other, chained
@@ -327,29 +328,33 @@ lua_table.note_stack = { 'N', 'N', 'N', 'N' }	-- Last 4 attacks performed (0=non
 	lua_table.song_1 = { 'H', 'L', 'L', 'L' }	--Penetrating Line of Damage (Row of colliders in front of jaskier get turned on one right after the other)
 	lua_table.song_1_size = 4
 	lua_table.song_1_effect_start = 0
+	lua_table.song_1_effect_active = false
 	lua_table.song_1_duration = 1500
 	lua_table.song_1_animation_speed = 35.0
 	lua_table.song_1_damage = 2.0
+	lua_table.song_1_status_effect = attack_effects.none
 
-	lua_table.song_1_collider_1_start = 0
-	lua_table.song_1_collider_1_end = 0
+	lua_table.song_1_collider_line_1_start = 0
+	lua_table.song_1_collider_line_1_end = 0
 
-	lua_table.song_1_collider_2_start = 0
-	lua_table.song_1_collider_2_end = 0
+	lua_table.song_1_collider_line_2_start = 0
+	lua_table.song_1_collider_line_2_end = 0
 
-	lua_table.song_1_collider_3_start = 0
-	lua_table.song_1_collider_3_end = 0
+	lua_table.song_1_collider_line_3_start = 0
+	lua_table.song_1_collider_line_3_end = 0
 
-	lua_table.song_1_collider_4_start = 0
-	lua_table.song_1_collider_4_end = 0
+	lua_table.song_1_collider_line_4_start = 0
+	lua_table.song_1_collider_line_4_end = 0
 
 	--Song 2
 	lua_table.song_2 = { 'L', 'L', 'L', 'H' }	--Large Stun Cone (AoE applied once, gives "stun" effect)
 	lua_table.song_2_size = 4
 	lua_table.song_2_effect_start = 0
+	lua_table.song_2_effect_active = false
 	lua_table.song_2_duration = 1400
 	lua_table.song_2_animation_speed = 30.0
 	lua_table.song_2_damage = 2.5
+	lua_table.song_2_status_effect = attack_effects.stun
 
 	lua_table.song_2_cone_offset_x = 0	--Near segment width (Must be > than 0)
 	lua_table.song_2_cone_offset_z = 0		--Near segment forward distance
@@ -367,9 +372,20 @@ lua_table.note_stack = { 'N', 'N', 'N', 'N' }	-- Last 4 attacks performed (0=non
 	lua_table.song_3 = { 'L', 'L', 'L', 'H' }	--Taunt Moonwalk + Circle Knockback (Both use a circle AoE, first "taunt" scond "knockback")
 	lua_table.song_3_size = 4
 	lua_table.song_3_effect_start = 0
+	lua_table.song_3_effect_active = false
 	lua_table.song_3_duration = 1400
 	lua_table.song_3_animation_speed = 30.0
 	lua_table.song_3_damage = 2.5
+	lua_table.song_3_status_effect = attack_effects.taunt
+
+	lua_table.song_3_first_radius_size = 50
+
+	lua_table.song_3_secondary_radius_size = 100
+	lua_table.song_3_secondary_effect_start = 0
+	lua_table.song_3_secondary_effect_active = false
+	lua_table.song_3_secondary_animation_speed = 30.0
+	lua_table.song_3_secondary_damage = 2.5
+	lua_table.song_3_secondary_status_effect = attack_effects.knockback
 
 	--Song 4 (Unused)
 	lua_table.song_4 = { 'L', 'L', 'L', 'H' }	--NOT IMPLEMENTED
@@ -625,25 +641,25 @@ end
 
 --Character Colliders BEGIN	----------------------------------------------------------------------------
 
-local function AttackColliderCheck(attack_type, attack_num, collider_side)	--Checks timeframe of current action and activates or deactivates a speficied side collider depending on it
-	if time_since_action > lua_table[attack_type .. "_" .. attack_num .. "_collider_" .. collider_side .. "_start"]		--IF time > start collider
+local function AttackColliderCheck(attack_type, collider_id)	--Checks timeframe of current action and activates or deactivates a speficied side collider depending on it
+	if time_since_action > lua_table[attack_type .. "_collider_" .. collider_id .. "_start"]	--IF time > start collider
 	then
-		if time_since_action > lua_table[attack_type .. "_" .. attack_num .. "_collider_" .. collider_side .. "_end"]	--IF time > end collider
+		if time_since_action > lua_table[attack_type .. "_collider_" .. collider_id .. "_end"]	--IF time > end collider
 		then
-			if attack_colliders[collider_side].active	--IF > end time and collider active, deactivate
+			if attack_colliders[collider_id].active	--IF > end time and collider active, deactivate
 			then
-				lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders[collider_side].GO_UID)	--TODO-Colliders: Check
-				attack_colliders[collider_side].active = false
+				lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders[collider_id].GO_UID)	--TODO-Colliders: Check
+				attack_colliders[collider_id].active = false
 			end
 
-			--lua_table.SystemFunctions:LOG("Collider Deactivate: " .. attack_type .. "_" .. attack_num .. "_" .. collider_side)
+			--lua_table.SystemFunctions:LOG("Collider Deactivate: " .. attack_type .. "_" .. collider_id)
 			
-		elseif not attack_colliders[collider_side].active	--IF > start time and collider unactive, activate
+		elseif not attack_colliders[collider_id].active	--IF > start time and collider unactive, activate
 		then
-			lua_table.GameObjectFunctions:SetActiveGameObject(true, attack_colliders[collider_side].GO_UID)	--TODO-Colliders: Check
-			attack_colliders[collider_side].active = true
+			lua_table.GameObjectFunctions:SetActiveGameObject(true, attack_colliders[collider_id].GO_UID)	--TODO-Colliders: Check
+			attack_colliders[collider_id].active = true
 		--else
-			--lua_table.SystemFunctions:LOG("Collider Active: " .. attack_type .. "_" .. attack_num .. "_" .. collider_side)
+			--lua_table.SystemFunctions:LOG("Collider Active: " .. attack_type .. "_" .. collider_id)
 		end
 	end
 end
@@ -831,6 +847,51 @@ end
 
 --Character Actions BEGIN	----------------------------------------------------------------------------
 
+local function Song_3_Stage_2()
+	if time_since_action > lua_table.song_3_secondary_effect_end	--IF time > end collider
+	then
+		if lua_table.song_3_secondary_effect_active	--IF > end time and stage_1 effect active, deactivate
+		then
+			--lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_song_3_GO_UID)	--TODO-Particles:
+			lua_table.song_3_secondary_effect_active = false
+		end
+		
+	else	--IF > start time and < end time
+		if not lua_table.song_3_secondary_effect_active	--IF effect unactive, activate
+		then
+			--lua_table.ParticlesFunctions:PlayParticleEmitter(jaskier_song_3_GO_UID)	--TODO-Particles:
+			lua_table.song_3_secondary_effect_active = true
+		end
+
+		--TODO: APPLY KNOCKBACK AREA
+	end
+end
+
+local function Song_3_Stage_1()
+	if time_since_action > lua_table.song_3_effect_end	--IF time > end collider
+	then
+		if lua_table.song_3_effect_active	--IF > end time and stage_1 effect active, deactivate
+		then
+			--lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_song_3_GO_UID)	--TODO-Particles:
+			lua_table.song_3_effect_active = false
+
+			--Setup for stage_2
+			lua_table.AnimationFunctions:PlayAnimation("song_3_secondary", lua_table.song_3_secondary_animation_speed)
+			lua_table.collider_damage = lua_table.song_3_secondary_damage
+			lua_table.collider_effect = lua_table.song_3_secondary_status_effect
+		end
+		
+	else	--IF > start time and < end time
+		if not lua_table.song_3_effect_active	--IF effect unactive, activate
+		then
+			--lua_table.ParticlesFunctions:PlayParticleEmitter(jaskier_song_3_GO_UID)	--TODO-Particles:
+			lua_table.song_3_effect_active = true
+		end
+
+		--TODO: APPLY TAUNT AREA
+	end
+end
+
 local function PerformSong(song_type)
 	local string_match = false
 
@@ -843,9 +904,12 @@ local function PerformSong(song_type)
 		--TODO-AUDIO: Play sound of song_type
 
 		lua_table.collider_damage = base_damage_real * lua_table[song_type .. "_damage"]
+		lua_table.collider_effect = lua_table[song_type .. "_status_effect"]
 
 		lua_table.previous_state = lua_table.current_state
 		lua_table.current_state = state[song_type]
+
+		lua_table[song_type .. "_effect_active"] = false
 
 		string_match = true
 	end
@@ -860,14 +924,8 @@ local function CheckSongs()
 		song_succesful = true
 	end
 
-	if song_succesful then
-		if lua_table.current_state = lua_table.song_1 then
-			lua_table.collider_effect = attack_effects.none
-		elseif lua_table.current_state = lua_table.song_2 then
-			lua_table.collider_effect = attack_effects.stun
-		elseif lua_table.current_state = lua_table.song_3 then
-			lua_table.collider_effect = attack_effects.knockback
-		end
+	if lua_table.current_state == state.song_3 then
+		lua_table.song_3_secondary_effect_active = false
 	end
 
 	return song_succesful
@@ -1015,7 +1073,7 @@ local function ActionInputs()	--Process Action Inputs
 				action_started_at = game_time								--Set timer start mark
 				ability_started_at = action_started_at
 
-				lua_table.ability_performed = false	--The ability itself is done later to fit with the animation, this marks that it needs to be done
+				lua_table.ability_performed = true	--This marks for the UI that the ability is on cooldown
 			end
 			
 			lua_table.note_num = 0
@@ -1278,18 +1336,15 @@ function lua_table:Update()
 					if lua_table.current_state >= state.light_1 and lua_table.current_state <= state.heavy_3	--IF attack finished
 					then
 					-- 	lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_guitar_particles_GO_UID)	--TODO-Particles: Deactivate Particles on Sword
-					-- elseif lua_table.current_state == state.ability
-					-- then
-					-- 	lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_ultimate_GO_UID)	--TODO-Particles: Deactivate Aard particles on hand
+					elseif lua_table.current_state == state.song_1
+					then
+						lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_ultimate_GO_UID)	--TODO-Particles: Deactivate Aard particles on hand
+						lua_table.song_1_effect_active = false
 					end
 
 					GoDefaultState()	--Return to move or idle
 
-				-- elseif lua_table.current_state == state.ability and not lua_table.ability_performed and time_since_action > lua_table.song_1_effect_start
-				-- then
-				-- 	lua_table.ParticlesFunctions:PlayParticleEmitter(jaskier_ultimate_GO_UID)	--TODO-Particles: Activate Aard particles on hand
-				-- 	lua_table.ability_performed = true
-
+				--ELSE (For all the following): IF action ongoing at the moment
 				elseif lua_table.current_state == state.evade and DirectionInBounds()				--ELSEIF evading
 				then
 					lua_table.PhysicsFunctions:Move(lua_table.evade_velocity * rec_direction.x * dt, lua_table.evade_velocity * rec_direction.z * dt, my_GO_UID)	--IMPROVE: Speed set on every frame bad?
@@ -1297,59 +1352,70 @@ function lua_table:Update()
 				elseif lua_table.current_state == state.light_1 or lua_table.current_state == state.light_2 or lua_table.current_state == state.light_3	--IF Light Attacking
 				then
 					--Collider Evaluation
-					if lua_table.current_state == state.light_1 then AttackColliderCheck("light", 1, "front")
-					elseif lua_table.current_state == state.light_2 then AttackColliderCheck("light", 2, "front")
-					elseif lua_table.current_state == state.light_3 then AttackColliderCheck("light", 3, "front")
+					if lua_table.current_state == state.light_1 then AttackColliderCheck("light_1", "front")
+					elseif lua_table.current_state == state.light_2 then AttackColliderCheck("light_2", "front")
+					elseif lua_table.current_state == state.light_3 then AttackColliderCheck("light_3", "front")
 					end
 
 				elseif lua_table.current_state == state.medium_1 or lua_table.current_state == state.medium_2 or lua_table.current_state == state.medium_3	--IF Medium Attacking
 				then
 					--Collider Evaluation
-					if lua_table.current_state == state.medium_1 then AttackColliderCheck("medium", 1, "front")
-					elseif lua_table.current_state == state.medium_2 then AttackColliderCheck("medium", 2, "front")
-					elseif lua_table.current_state == state.medium_3 then AttackColliderCheck("medium", 3, "front")
+					if lua_table.current_state == state.medium_1 then AttackColliderCheck("medium_1", "front")
+					elseif lua_table.current_state == state.medium_2 then AttackColliderCheck("medium_2", "front")
+					elseif lua_table.current_state == state.medium_3 then AttackColliderCheck("medium_3", "front")
 					end
 
 				elseif lua_table.current_state == state.heavy_1 or lua_table.current_state == state.heavy_2 or lua_table.current_state == state.heavy_3	--IF Heavy Attacking
 				then
 					--Collider Evaluation
-					if lua_table.current_state == state.heavy_1 then AttackColliderCheck("heavy", 1, "front")
-					elseif lua_table.current_state == state.heavy_2 then AttackColliderCheck("heavy", 2, "front")
-					elseif lua_table.current_state == state.heavy_3 then AttackColliderCheck("heavy", 3, "front")
+					if lua_table.current_state == state.heavy_1 then AttackColliderCheck("heavy_1", "front")
+					elseif lua_table.current_state == state.heavy_2 then AttackColliderCheck("heavy_2", "front")
+					elseif lua_table.current_state == state.heavy_3 then AttackColliderCheck("heavy_3", "front")
 					end
 
-				-- elseif lua_table.current_state == state.song_1
-				-- then
-				-- 	if DirectionInBounds() then lua_table.PhysicsFunctions:Move(lua_table.combo_1_movement_velocity * rec_direction.x * dt, lua_table.combo_1_movement_velocity * rec_direction.z * dt, my_GO_UID) end
-					
-				-- 	--Collider Evaluation
-				-- 	AttackColliderCheck("combo", 1, "right")
-				-- 	AttackColliderCheck("combo", 1, "front")
-				-- 	AttackColliderCheck("combo", 1, "left")
-				-- 	AttackColliderCheck("combo", 1, "back")
+				elseif lua_table.current_state == state.song_1 and time_since_action > lua_table.song_1_effect_start
+				then
+					if not lua_table.song_1_effect_active then
+						--lua_table.ParticlesFunctions:PlayParticleEmitter(jaskier_song_1_GO_UID)	--TODO-Particles:
+						lua_table.song_1_effect_active = true
+					end
 
-				-- elseif lua_table.current_state == state.song_2
-				-- then
-				-- 	if DirectionInBounds() then lua_table.PhysicsFunctions:Move(lua_table.combo_2_movement_velocity * rec_direction.x * dt, lua_table.combo_2_movement_velocity * rec_direction.z * dt, my_GO_UID) end
-					
-				-- 	--Collider Evaluation
-				-- 	AttackColliderCheck("combo", 2, "left")
-				-- 	AttackColliderCheck("combo", 2, "right")
-				-- 	AttackColliderCheck("combo", 2, "front")
+					--Collider Evaluation
+					AttackColliderCheck("song_1", "line_1")
+					AttackColliderCheck("song_1", "line_2")
+					AttackColliderCheck("song_1", "line_3")
+					AttackColliderCheck("song_1", "line_4")
 
-				-- elseif lua_table.current_state == state.song_3
-				-- then
-				-- 	if DirectionInBounds() then lua_table.PhysicsFunctions:Move(lua_table.combo_3_movement_velocity * rec_direction.x * dt, lua_table.combo_3_movement_velocity * rec_direction.z * dt, my_GO_UID) end
+				elseif lua_table.current_state == state.song_2 and time_since_action > lua_table.song_2_effect_start
+				then
+					if not lua_table.song_2_effect_active then
+						--lua_table.ParticlesFunctions:PlayParticleEmitter(jaskier_song_2_GO_UID)	--TODO-Particles:
+						lua_table.song_2_effect_active = true
+					end
 
-				-- 	--Collider Evaluation
-				-- 	AttackColliderCheck("combo", 3, "front")
+					--Collider Evaluation
+					AttackColliderCheck("combo_2", "left")
+					AttackColliderCheck("combo_2", "right")
+					AttackColliderCheck("combo_2", "front")
+
+				elseif lua_table.current_state == state.song_3
+				then
+					if time_since_action > lua_table.song_3_effect_start	--IF > effect_start
+					then
+						if lua_table.song_3_effect_active == false and time_since_action > lua_table.song_3_secondary_effect_start	--IF stage_1 effect ended and > secondary_effect_start
+						then
+							Song_3_Stage_2()
+						else
+							Song_3_Stage_1()
+						end
+					end
 
 				-- elseif lua_table.current_state == state.song_4
 				-- then
 				-- 	if DirectionInBounds() then lua_table.PhysicsFunctions:Move(lua_table.combo_3_movement_velocity * rec_direction.x * dt, lua_table.combo_3_movement_velocity * rec_direction.z * dt, my_GO_UID) end
 
 				-- 	--Collider Evaluation
-				-- 	AttackColliderCheck("combo", 3, "front")
+				-- 	AttackColliderCheck("combo_4", "front")
 
 				end
 			end

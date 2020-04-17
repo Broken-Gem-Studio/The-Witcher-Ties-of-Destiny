@@ -651,25 +651,25 @@ end
 
 --Character Colliders BEGIN	----------------------------------------------------------------------------
 
-local function AttackColliderCheck(attack_type, attack_num, collider_side)	--Checks timeframe of current action and activates or deactivates a speficied side collider depending on it
-	if time_since_action > lua_table[attack_type .. "_" .. attack_num .. "_collider_" .. collider_side .. "_start"]		--IF time > start collider
+local function AttackColliderCheck(attack_type, collider_id)	--Checks timeframe of current action and activates or deactivates a speficied side collider depending on it
+	if time_since_action > lua_table[attack_type .. "_collider_" .. collider_id .. "_start"]		--IF time > start collider
 	then
-		if time_since_action > lua_table[attack_type .. "_" .. attack_num .. "_collider_" .. collider_side .. "_end"]	--IF time > end collider
+		if time_since_action > lua_table[attack_type .. "_collider_" .. collider_id .. "_end"]	--IF time > end collider
 		then
-			if attack_colliders[collider_side].active	--IF > end time and collider active, deactivate
+			if attack_colliders[collider_id].active	--IF > end time and collider active, deactivate
 			then
-				lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders[collider_side].GO_UID)	--TODO-Colliders: Check
-				attack_colliders[collider_side].active = false
+				lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders[collider_id].GO_UID)	--TODO-Colliders: Check
+				attack_colliders[collider_id].active = false
 			end
 
-			--lua_table.SystemFunctions:LOG("Collider Deactivate: " .. attack_type .. "_" .. attack_num .. "_" .. collider_side)
+			--lua_table.SystemFunctions:LOG("Collider Deactivate: " .. attack_type .. "_" .. collider_id)
 			
-		elseif not attack_colliders[collider_side].active	--IF > start time and collider unactive, activate
+		elseif not attack_colliders[collider_id].active	--IF > start time and collider unactive, activate
 		then
-			lua_table.GameObjectFunctions:SetActiveGameObject(true, attack_colliders[collider_side].GO_UID)	--TODO-Colliders: Check
-			attack_colliders[collider_side].active = true
+			lua_table.GameObjectFunctions:SetActiveGameObject(true, attack_colliders[collider_id].GO_UID)	--TODO-Colliders: Check
+			attack_colliders[collider_id].active = true
 		--else
-			--lua_table.SystemFunctions:LOG("Collider Active: " .. attack_type .. "_" .. attack_num .. "_" .. collider_side)
+			--lua_table.SystemFunctions:LOG("Collider Active: " .. attack_type .. "_" .. collider_id)
 		end
 	end
 end
@@ -1110,7 +1110,7 @@ local function ActionInputs()	--Process Action Inputs
 			lua_table.previous_state = lua_table.current_state
 			lua_table.current_state = state.ability
 
-			lua_table.ability_performed = false	--The ability itself and energy cost reduction is done later to fit with the animation, this marks that it needs to be done
+			lua_table.ability_performed = false	--The ability itself is done later to fit with the animation, this marks that it needs to be done
 			action_made = true
 
 		elseif lua_table.current_ultimate >= lua_table.max_ultimate
@@ -1395,7 +1395,7 @@ function lua_table:Update()
 
 				elseif lua_table.current_state == state.ability and not lua_table.ability_performed and time_since_action > lua_table.ability_start
 				then
-					AardPush()	--TODO: Uncomment when it works
+					AardPush()
 					lua_table.ParticlesFunctions:PlayParticleEmitter(ultimate_particles_GO_UID)	--TODO-Particles: Activate Aard particles on hand
 					lua_table.ability_performed = true
 
@@ -1411,9 +1411,9 @@ function lua_table:Update()
 					end
 
 					--Collider Evaluation
-					if lua_table.current_state == state.light_1 then AttackColliderCheck("light", 1, "front")
-					elseif lua_table.current_state == state.light_2 then AttackColliderCheck("light", 2, "front")
-					elseif lua_table.current_state == state.light_3 then AttackColliderCheck("light", 3, "front")
+					if lua_table.current_state == state.light_1 then AttackColliderCheck("light_1", "front")
+					elseif lua_table.current_state == state.light_2 then AttackColliderCheck("light_2", "front")
+					elseif lua_table.current_state == state.light_3 then AttackColliderCheck("light_3", "front")
 					end
 
 				elseif lua_table.current_state == state.medium_1 or lua_table.current_state == state.medium_2 or lua_table.current_state == state.medium_3	--IF Medium Attacking
@@ -1424,9 +1424,9 @@ function lua_table:Update()
 					end
 
 					--Collider Evaluation
-					if lua_table.current_state == state.medium_1 then AttackColliderCheck("medium", 1, "front")
-					elseif lua_table.current_state == state.medium_2 then AttackColliderCheck("medium", 2, "front")
-					elseif lua_table.current_state == state.medium_3 then AttackColliderCheck("medium", 3, "front")
+					if lua_table.current_state == state.medium_1 then AttackColliderCheck("medium_1", "front")
+					elseif lua_table.current_state == state.medium_2 then AttackColliderCheck("medium_2", "front")
+					elseif lua_table.current_state == state.medium_3 then AttackColliderCheck("medium_3", "front")
 					end
 
 				elseif lua_table.current_state == state.heavy_1 or lua_table.current_state == state.heavy_2 or lua_table.current_state == state.heavy_3	--IF Heavy Attacking
@@ -1437,9 +1437,9 @@ function lua_table:Update()
 					end
 
 					--Collider Evaluation
-					if lua_table.current_state == state.heavy_1 then AttackColliderCheck("heavy", 1, "front")
-					elseif lua_table.current_state == state.heavy_2 then AttackColliderCheck("heavy", 2, "front")
-					elseif lua_table.current_state == state.heavy_3 then AttackColliderCheck("heavy", 3, "front")
+					if lua_table.current_state == state.heavy_1 then AttackColliderCheck("heavy_1", "front")
+					elseif lua_table.current_state == state.heavy_2 then AttackColliderCheck("heavy_2", "front")
+					elseif lua_table.current_state == state.heavy_3 then AttackColliderCheck("heavy_3", "front")
 					end
 
 				elseif lua_table.current_state == state.combo_1
@@ -1447,26 +1447,26 @@ function lua_table:Update()
 					if DirectionInBounds() then lua_table.PhysicsFunctions:Move(lua_table.combo_1_movement_velocity * rec_direction.x * dt, lua_table.combo_1_movement_velocity * rec_direction.z * dt, my_GO_UID) end
 					
 					--Collider Evaluation
-					AttackColliderCheck("combo", 1, "right")
-					AttackColliderCheck("combo", 1, "front")
-					AttackColliderCheck("combo", 1, "left")
-					AttackColliderCheck("combo", 1, "back")
+					AttackColliderCheck("combo_1", "right")
+					AttackColliderCheck("combo_1", "front")
+					AttackColliderCheck("combo_1", "left")
+					AttackColliderCheck("combo_1", "back")
 
 				elseif lua_table.current_state == state.combo_2
 				then
 					if DirectionInBounds() then lua_table.PhysicsFunctions:Move(lua_table.combo_2_movement_velocity * rec_direction.x * dt, lua_table.combo_2_movement_velocity * rec_direction.z * dt, my_GO_UID) end
 					
 					--Collider Evaluation
-					AttackColliderCheck("combo", 2, "left")
-					AttackColliderCheck("combo", 2, "right")
-					AttackColliderCheck("combo", 2, "front")
+					AttackColliderCheck("combo_2", "left")
+					AttackColliderCheck("combo_2", "right")
+					AttackColliderCheck("combo_2", "front")
 
 				elseif lua_table.current_state == state.combo_3
 				then
 					if DirectionInBounds() then lua_table.PhysicsFunctions:Move(lua_table.combo_3_movement_velocity * rec_direction.x * dt, lua_table.combo_3_movement_velocity * rec_direction.z * dt, my_GO_UID) end
 
 					--Collider Evaluation
-					AttackColliderCheck("combo", 3, "front")
+					AttackColliderCheck("combo_3", "front")
 
 				end
 			end
