@@ -1,9 +1,113 @@
 {
-    "1327101744": {
+    "1777342801": {
         "Active": true,
         "Components": {
             "0": {
-                "UID": 814090496,
+                "UID": 227924634,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "1.250000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2.mesh"
+                    }
+                },
+                "UID": 584276031,
+                "index": 1
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "DefaultMaterial"
+                    }
+                },
+                "UID": 246312777,
+                "index": 2
+            }
+        },
+        "Index": 1,
+        "Name": "Geralt",
+        "Parent": "-1",
+        "Static": false
+    },
+    "2123984853": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 373001940,
+                "index": 0,
+                "layer": "0",
+                "positionx": "20.750000",
+                "positiony": "1.250000",
+                "positionz": "15.750000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2.mesh"
+                    }
+                },
+                "UID": 1395805216,
+                "index": 1
+            },
+            "17": {
+                "UID": 2065848800,
+                "contactOffset": "0.010000",
+                "gravity": "1",
+                "height": "2.000000",
+                "index": 3,
+                "nonWalkableMode": "1",
+                "positionX": "20.750000",
+                "positionY": "2.760000",
+                "positionZ": "15.750000",
+                "radius": "0.500000",
+                "slopeLimit": "45.000000",
+                "stepOffset": "0.300000"
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "DefaultMaterial"
+                    }
+                },
+                "UID": 1572432739,
+                "index": 2
+            }
+        },
+        "Index": 3,
+        "Name": "TankGhoul",
+        "Parent": "-1",
+        "Static": false
+    },
+    "788894760": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1747813935,
                 "index": 0,
                 "layer": "0",
                 "positionx": "0.000000",
@@ -25,18 +129,18 @@
                         "path": "Library/Meshes/2.mesh"
                     }
                 },
-                "UID": 1406010392,
+                "UID": 1688078674,
                 "index": 1
             },
             "16": {
                 "Active": true,
-                "UID": 1374145677,
+                "UID": 904874118,
                 "colliderType": "1",
                 "firstCreation": "1",
                 "globalMatrixw": "1.000000",
-                "globalMatrixx": "0.000000",
-                "globalMatrixy": "0.000000",
-                "globalMatrixz": "0.000000",
+                "globalMatrixx": "-0.000002",
+                "globalMatrixy": "-0.000000",
+                "globalMatrixz": "-0.000002",
                 "globalPositionx": "1.000000",
                 "globalPositiony": "1.000000",
                 "globalPositionz": "1.000000",
@@ -46,9 +150,9 @@
                 "isTrigger": "0",
                 "lastIndex": "1",
                 "localMatrixw": "1.000000",
-                "localMatrixx": "0.000000",
-                "localMatrixy": "0.000000",
-                "localMatrixz": "0.000000",
+                "localMatrixx": "-0.000000",
+                "localMatrixy": "-0.000000",
+                "localMatrixz": "-0.000000",
                 "localPositionx": "0.000000",
                 "localPositiony": "0.000000",
                 "localPositionz": "0.000000",
@@ -73,7 +177,7 @@
                         "path": "Assets/New material 1.mat"
                     }
                 },
-                "UID": 1249903878,
+                "UID": 387813185,
                 "index": 2
             }
         },
@@ -82,16 +186,16 @@
         "Parent": "-1",
         "Static": false
     },
-    "1373030151": {
+    "884926222": {
         "Active": true,
         "Components": {
             "0": {
-                "UID": 792563860,
+                "UID": 290153079,
                 "index": 0,
                 "layer": "0",
-                "positionx": "0.000000",
+                "positionx": "-20.500000",
                 "positiony": "1.250000",
-                "positionz": "0.000000",
+                "positionz": "19.500000",
                 "rotationw": "1.000000",
                 "rotationx": "0.000000",
                 "rotationy": "0.000000",
@@ -108,7 +212,7 @@
                         "path": "Library/Meshes/2.mesh"
                     }
                 },
-                "UID": 1643671042,
+                "UID": 1516329377,
                 "index": 1
             },
             "2": {
@@ -118,234 +222,7 @@
                         "path": "DefaultMaterial"
                     }
                 },
-                "UID": 1060517393,
-                "index": 2
-            }
-        },
-        "Index": 1,
-        "Name": "Geralt",
-        "Parent": "-1",
-        "Static": false
-    },
-    "1458468666": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "UID": 577714485,
-                "index": 0,
-                "layer": "0",
-                "positionx": "18.266300",
-                "positiony": "2.010000",
-                "positionz": "12.715780",
-                "rotationw": "1.000000",
-                "rotationx": "0.000000",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "1.000000",
-                "scaley": "1.000000",
-                "scalez": "1.000000"
-            },
-            "1": {
-                "Active": true,
-                "Resources": {
-                    "ResourceMesh": {
-                        "PreviewTexture": "",
-                        "path": "Library/Meshes/2.mesh"
-                    }
-                },
-                "UID": 838935522,
-                "index": 1
-            },
-            "12": {
-                "Active": true,
-                "Resources": {
-                    "ResourceScript": "Assets/TankGhoulScript_v01.lua"
-                },
-                "Script variables": {
-                    "Count": 16,
-                    "Variable 0": {
-                        "DisplayObjectName": false,
-                        "Name": "MyUID",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 1": {
-                        "DisplayObjectName": false,
-                        "Name": "health",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 10": {
-                        "DisplayObjectName": false,
-                        "Name": "minDistance",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 3.0
-                    },
-                    "Variable 11": {
-                        "DisplayObjectName": false,
-                        "Name": "AggroRange",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 100.0
-                    },
-                    "Variable 12": {
-                        "DisplayObjectName": false,
-                        "Name": "speed",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 5.0
-                    },
-                    "Variable 13": {
-                        "DisplayObjectName": false,
-                        "Name": "JaskierDistance",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 14": {
-                        "DisplayObjectName": false,
-                        "Name": "geralt",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 15": {
-                        "DisplayObjectName": false,
-                        "Name": "jaskier",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 2": {
-                        "DisplayObjectName": false,
-                        "Name": "currentTarget",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 3": {
-                        "DisplayObjectName": false,
-                        "Name": "currentTargetDir",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 4": {
-                        "DisplayObjectName": false,
-                        "Name": "is_dead",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    },
-                    "Variable 5": {
-                        "DisplayObjectName": false,
-                        "Name": "currentTargetPos",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 6": {
-                        "DisplayObjectName": false,
-                        "Name": "GeraltDistance",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 7": {
-                        "DisplayObjectName": false,
-                        "Name": "is_stunned",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    },
-                    "Variable 8": {
-                        "DisplayObjectName": false,
-                        "Name": "currentState",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 9": {
-                        "DisplayObjectName": false,
-                        "Name": "max_hp",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 500.0
-                    }
-                },
-                "UID": 875679792,
-                "index": 4
-            },
-            "17": {
-                "UID": 245671761,
-                "contactOffset": "0.010000",
-                "gravity": "1",
-                "height": "2.000000",
-                "index": 3,
-                "nonWalkableMode": "1",
-                "positionX": "18.266300",
-                "positionY": "3.520000",
-                "positionZ": "12.715780",
-                "radius": "0.500000",
-                "slopeLimit": "45.000000",
-                "stepOffset": "0.300000"
-            },
-            "2": {
-                "Active": true,
-                "Resources": {
-                    "ResourceMaterial": {
-                        "path": "DefaultMaterial"
-                    }
-                },
-                "UID": 269746056,
-                "index": 2
-            }
-        },
-        "Index": 3,
-        "Name": "GameObject (3)",
-        "Parent": "-1",
-        "Static": false
-    },
-    "1646150546": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "UID": 1887373617,
-                "index": 0,
-                "layer": "0",
-                "positionx": "-21.250000",
-                "positiony": "1.250000",
-                "positionz": "16.250000",
-                "rotationw": "1.000000",
-                "rotationx": "0.000000",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "1.000000",
-                "scaley": "1.000000",
-                "scalez": "1.000000"
-            },
-            "1": {
-                "Active": true,
-                "Resources": {
-                    "ResourceMesh": {
-                        "PreviewTexture": "",
-                        "path": "Library/Meshes/2.mesh"
-                    }
-                },
-                "UID": 609196521,
-                "index": 1
-            },
-            "2": {
-                "Active": true,
-                "Resources": {
-                    "ResourceMaterial": {
-                        "path": "DefaultMaterial"
-                    }
-                },
-                "UID": 68960291,
+                "UID": 218953244,
                 "index": 2
             }
         },
