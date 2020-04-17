@@ -848,38 +848,25 @@ end
 --Character Actions BEGIN	----------------------------------------------------------------------------
 
 local function Song_3_Stage_2()
-	if time_since_action > lua_table.song_3_secondary_effect_end	--IF time > end collider
-	then
-		if lua_table.song_3_secondary_effect_active	--IF > end time and stage_1 effect active, deactivate
-		then
-			--lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_song_3_GO_UID)	--TODO-Particles:
-			lua_table.song_3_secondary_effect_active = false
-		end
-		
-	else	--IF > start time and < end time
-		if not lua_table.song_3_secondary_effect_active	--IF effect unactive, activate
+	if not lua_table.song_3_secondary_effect_active	--IF effect unactive, activate
 		then
 			--lua_table.ParticlesFunctions:PlayParticleEmitter(jaskier_song_3_GO_UID)	--TODO-Particles:
 			lua_table.song_3_secondary_effect_active = true
 		end
 
-		--TODO: APPLY KNOCKBACK AREA
-	end
+		--TODO-Jaskier: APPLY KNOCKBACK AREA
 end
 
 local function Song_3_Stage_1()
-	if time_since_action > lua_table.song_3_effect_end	--IF time > end collider
+	if time_since_action > lua_table.song_3_secondary_effect_start	--IF stage_2 has to start
 	then
-		if lua_table.song_3_effect_active	--IF > end time and stage_1 effect active, deactivate
-		then
-			--lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_song_3_GO_UID)	--TODO-Particles:
-			lua_table.song_3_effect_active = false
+		--lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_song_3_GO_UID)	--TODO-Particles:
+		lua_table.song_3_effect_active = false
 
-			--Setup for stage_2
-			lua_table.AnimationFunctions:PlayAnimation("song_3_secondary", lua_table.song_3_secondary_animation_speed)
-			lua_table.collider_damage = lua_table.song_3_secondary_damage
-			lua_table.collider_effect = lua_table.song_3_secondary_status_effect
-		end
+		--Setup for stage_2
+		lua_table.AnimationFunctions:PlayAnimation("song_3_secondary", lua_table.song_3_secondary_animation_speed)
+		lua_table.collider_damage = lua_table.song_3_secondary_damage
+		lua_table.collider_effect = lua_table.song_3_secondary_status_effect
 		
 	else	--IF > start time and < end time
 		if not lua_table.song_3_effect_active	--IF effect unactive, activate
@@ -888,7 +875,7 @@ local function Song_3_Stage_1()
 			lua_table.song_3_effect_active = true
 		end
 
-		--TODO: APPLY TAUNT AREA
+		--TODO-Jaskier: APPLY TAUNT AREA
 	end
 end
 
@@ -1282,6 +1269,7 @@ function lua_table:Update()
 
 			--if lua_table.ultimate_active then UltimateState(false) end	--IF ultimate on, go off
 			AttackColliderShutdown()							--IF any attack colliders on, turn off
+			--TODO-Particles: Particle Shutdown
 		else
 			--DEBUG
 			--KeyboardInputs()
@@ -1338,8 +1326,16 @@ function lua_table:Update()
 					-- 	lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_guitar_particles_GO_UID)	--TODO-Particles: Deactivate Particles on Sword
 					elseif lua_table.current_state == state.song_1
 					then
-						lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_ultimate_GO_UID)	--TODO-Particles: Deactivate Aard particles on hand
+						--lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_ultimate_GO_UID)	--TODO-Particles: Deactivate Aard particles on hand
 						lua_table.song_1_effect_active = false
+					elseif lua_table.current_state == state.song_2
+					then
+						--lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_ultimate_GO_UID)	--TODO-Particles: Deactivate Aard particles on hand
+						lua_table.song_2_effect_active = false
+					elseif lua_table.current_state == state.song_3
+					then
+						--lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_ultimate_GO_UID)	--TODO-Particles: Deactivate Aard particles on hand
+						lua_table.song_3_secondary_effect_active = false
 					end
 
 					GoDefaultState()	--Return to move or idle
@@ -1391,32 +1387,21 @@ function lua_table:Update()
 					if not lua_table.song_2_effect_active then
 						--lua_table.ParticlesFunctions:PlayParticleEmitter(jaskier_song_2_GO_UID)	--TODO-Particles:
 						lua_table.song_2_effect_active = true
+					else
+						--TODO--Jaskier: Apply cone stun
 					end
-
-					--Collider Evaluation
-					AttackColliderCheck("combo_2", "left")
-					AttackColliderCheck("combo_2", "right")
-					AttackColliderCheck("combo_2", "front")
 
 				elseif lua_table.current_state == state.song_3
 				then
 					if time_since_action > lua_table.song_3_effect_start	--IF > effect_start
 					then
-						if lua_table.song_3_effect_active == false and time_since_action > lua_table.song_3_secondary_effect_start	--IF stage_1 effect ended and > secondary_effect_start
+						if time_since_action > lua_table.song_3_secondary_effect_start and lua_table.song_3_effect_active == false 	--IF > secondary_effect_start and stage_1 effect ended
 						then
 							Song_3_Stage_2()
 						else
 							Song_3_Stage_1()
 						end
 					end
-
-				-- elseif lua_table.current_state == state.song_4
-				-- then
-				-- 	if DirectionInBounds() then lua_table.PhysicsFunctions:Move(lua_table.combo_3_movement_velocity * rec_direction.x * dt, lua_table.combo_3_movement_velocity * rec_direction.z * dt, my_GO_UID) end
-
-				-- 	--Collider Evaluation
-				-- 	AttackColliderCheck("combo_4", "front")
-
 				end
 			end
 		end

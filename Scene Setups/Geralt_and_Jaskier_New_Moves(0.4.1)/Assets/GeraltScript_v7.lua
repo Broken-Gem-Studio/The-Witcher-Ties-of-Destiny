@@ -1332,6 +1332,7 @@ function lua_table:Update()
 
 			if lua_table.ultimate_active then UltimateState(false) end	--IF ultimate on, go off
 			AttackColliderShutdown()							--IF any attack colliders on, turn off
+			--TODO-Particles: Particle Shutdown
 		else
 			--DEBUG
 			--KeyboardInputs()
