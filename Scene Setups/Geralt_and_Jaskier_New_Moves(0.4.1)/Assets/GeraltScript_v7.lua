@@ -205,27 +205,20 @@ lua_table.energy_reg_orig = 5
 	lua_table.collider_damage = 0
 	lua_table.collider_effect = attack_effects.none
 
-	local attack_colliders = {
-		front = { GO_name = "Geralt_Front", GO_UID = 0, active = false },
-		back = { GO_name = "Geralt_Back", GO_UID = 0, active = false },
-		left = { GO_name = "Geralt_Left", GO_UID = 0, active = false },
-		right = { GO_name = "Geralt_Right", GO_UID = 0, active = false }
+	local attack_colliders = {												--Transform / Collider Scale	--TODO-Colliders: Fix for new scale
+		front = { GO_name = "Geralt_Front", GO_UID = 0, active = false },	--0,20,25 / 20,25,18
+		back = { GO_name = "Geralt_Back", GO_UID = 0, active = false },		--0,20,-20 / 20,25,10
+		left = { GO_name = "Geralt_Left", GO_UID = 0, active = false },		--20,20,5 / 10,25,20
+		right = { GO_name = "Geralt_Right", GO_UID = 0, active = false }	--20,20,5 / 10,25,20
 	}
+	--Character Controller: 1.0/2.5/0.05/0.3/45.0
 
-	--Collider Notes (GO X,Y,Z / Coll size X,Y,Z)
-	--Front: 0,20,25 / 20,25,18
-	--Back: 0,20,-20 / 20,25,10
-	--Left: 20,20,5 / 10,25,20
-	--Right: -20,20,5 / 10,25,20
-	--Body: 0,20,0 / 20,40,20
-
+	--Attack collider activation
 	--Light and Heavy Attacks: Front
 	--Combo 1: Body -> Right -> Front -> Left -> Back
 	--Combo 2: Left -> Right -> Front
 	--Combo 3: Front -> Right?
 	--Combo 4: ???
-
-	--Character Controller: 1.0/2.5/0.05/0.3/45.0
 
 	--Attack Inputs
 	local rightside = true		-- Last attack side, marks the animation of next attack
@@ -779,6 +772,24 @@ local function CheckCameraBounds()	--Check if we're currently outside the camera
 	end
 end
 
+local function MoveCharacter()
+	local magnitude = math.sqrt(mov_input.used_input.x ^ 2 + mov_input.used_input.z ^ 2)
+
+	--Move character
+	local mov_velocity = {	--Magnitude into vectorial values through input values
+		x = lua_table.current_velocity * mov_input.used_input.x / magnitude,
+		z = lua_table.current_velocity * mov_input.used_input.z / magnitude
+	}
+
+	local position = lua_table.TransformFunctions:GetPosition(my_GO_UID)	--Rotate to velocity direction
+	lua_table.TransformFunctions:LookAt(position[1] + mov_velocity.x, position[2], position[3] + mov_velocity.z, my_GO_UID)
+
+	if DirectionInBounds()	--Only allow movement if camera bounds allows it
+	then
+		lua_table.PhysicsFunctions:Move(mov_velocity.x * dt, mov_velocity.z * dt, my_GO_UID)
+	end		
+end
+
 local function MovementInputs()	--Process Movement Inputs
 	if mov_input.used_input.x ~= 0.0 or mov_input.used_input.z ~= 0.0												--IF Movement Input
 	then
@@ -823,22 +834,8 @@ local function MovementInputs()	--Process Movement Inputs
 			lua_table.previous_state = lua_table.current_state
 			lua_table.current_state = state.walk
 		end
-
-		local magnitude = math.sqrt(mov_input.used_input.x ^ 2 + mov_input.used_input.z ^ 2)
-
-		--Move character
-		local mov_velocity = {	--Magnitude into vectorial values through input values
-			x = lua_table.current_velocity * mov_input.used_input.x / magnitude,
-			z = lua_table.current_velocity * mov_input.used_input.z / magnitude
-		}
-
-		local position = lua_table.TransformFunctions:GetPosition(my_GO_UID)	--Rotate to velocity direction
-		lua_table.TransformFunctions:LookAt(position[1] + mov_velocity.x, position[2], position[3] + mov_velocity.z, my_GO_UID)
-
-		if DirectionInBounds()	--Only allow movement if camera bounds allows it
-		then
-			lua_table.PhysicsFunctions:Move(mov_velocity.x * dt, mov_velocity.z * dt, my_GO_UID)
-		end
+		
+		MoveCharacter()
 
 	elseif lua_table.current_state == state.run or lua_table.current_state == state.walk
 	then
@@ -1504,17 +1501,17 @@ function lua_table:Update()
 
 	--DEBUG LOGS
 	--lua_table.SystemFunctions:LOG("Delta Time: " .. dt)
-	lua_table.SystemFunctions:LOG("State: " .. lua_table.current_state)
-	lua_table.SystemFunctions:LOG("Time passed: " .. time_since_action)
+	--lua_table.SystemFunctions:LOG("State: " .. lua_table.current_state)
+	--lua_table.SystemFunctions:LOG("Time passed: " .. time_since_action)
 	--rot_y = math.rad(GimbalLockWorkaroundY(lua_table.TransformFunctions:GetRotation()[2]))	--TODO: Remove GimbalLock stage when Euler bug is fixed
 	--lua_table.SystemFunctions:LOG("Angle Y: " .. rot_y)
 	--lua_table.SystemFunctions:LOG("Ultimate: " .. lua_table.current_ultimate)
-	lua_table.SystemFunctions:LOG("Combo num: " .. lua_table.combo_num)
-	lua_table.SystemFunctions:LOG("Combo string: " .. lua_table.combo_stack[1] .. ", " .. lua_table.combo_stack[2] .. ", " .. lua_table.combo_stack[3] .. ", " .. lua_table.combo_stack[4])
+	--lua_table.SystemFunctions:LOG("Combo num: " .. lua_table.combo_num)
+	--lua_table.SystemFunctions:LOG("Combo string: " .. lua_table.combo_stack[1] .. ", " .. lua_table.combo_stack[2] .. ", " .. lua_table.combo_stack[3] .. ", " .. lua_table.combo_stack[4])
 
 	--Stats LOGS
-	lua_table.SystemFunctions:LOG("Health: " .. lua_table.current_health)
-	lua_table.SystemFunctions:LOG("Energy: " .. lua_table.current_energy)
+	--lua_table.SystemFunctions:LOG("Health: " .. lua_table.current_health)
+	--lua_table.SystemFunctions:LOG("Energy: " .. lua_table.current_energy)
 
 	--lua_table.SystemFunctions:LOG("Health Reg: " .. health_reg_real)
 	--lua_table.SystemFunctions:LOG("Energy Reg: " .. energy_reg_real)
