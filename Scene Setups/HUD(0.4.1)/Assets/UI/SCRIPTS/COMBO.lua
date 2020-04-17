@@ -14,6 +14,10 @@ function GetTableCOMBO()
     local COMBO_HEAVY3_ID = 0
     local COMBO_LIGHT4_ID = 0
     local COMBO_HEAVY4_ID = 0
+    local COMBO_MEDIUM_ID = 0
+    local COMBO_MEDIUM2_ID = 0
+    local COMBO_MEDIUM3_ID = 0
+    local COMBO_MEDIUM4_ID = 0
 
     local SWORD_UP_ID = 0
     local SWORD_DOWN_ID = 0
@@ -43,6 +47,11 @@ function GetTableCOMBO()
         COMBO_HEAVY3_ID = lua_table["GameObject"]:FindGameObject("COMBO6")--exact name of gameobject
         COMBO_LIGHT4_ID = lua_table["GameObject"]:FindGameObject("COMBO7")--exact name of gameobject
         COMBO_HEAVY4_ID = lua_table["GameObject"]:FindGameObject("COMBO8")--exact name of gameobject
+        COMBO_MEDIUM_ID = lua_table["GameObject"]:FindGameObject("COMBO1.5")--exact name of gameobject
+        COMBO_MEDIUM2_ID = lua_table["GameObject"]:FindGameObject("COMBO3.5")--exact name of gameobject
+        COMBO_MEDIUM3_ID = lua_table["GameObject"]:FindGameObject("COMBO5.5")--exact name of gameobject
+        COMBO_MEDIUM4_ID = lua_table["GameObject"]:FindGameObject("COMBO7.5")--exact name of gameobject
+
         SWORD_UP_ID = lua_table["GameObject"]:FindGameObject("SWORDUP")
         SWORD_DOWN_ID = lua_table["GameObject"]:FindGameObject("SWORDOWN")
         SWORD_FIRE_ID = lua_table["GameObject"]:FindGameObject("SWORDCOMBO")
@@ -60,6 +69,10 @@ function GetTableCOMBO()
         lua_table["UI"]:MakeElementInvisible("Image", COMBO_HEAVY3_ID)
         lua_table["UI"]:MakeElementInvisible("Image", COMBO_LIGHT4_ID)
         lua_table["UI"]:MakeElementInvisible("Image", COMBO_HEAVY4_ID)
+        lua_table["UI"]:MakeElementInvisible("Image", COMBO_MEDIUM_ID)
+        lua_table["UI"]:MakeElementInvisible("Image", COMBO_MEDIUM2_ID)
+        lua_table["UI"]:MakeElementInvisible("Image", COMBO_MEDIUM3_ID)
+        lua_table["UI"]:MakeElementInvisible("Image", COMBO_MEDIUM4_ID)
 
         sword_off = true--la espada empieza envainada
         combo = false
@@ -82,6 +95,10 @@ function GetTableCOMBO()
             lua_table["UI"]:MakeElementInvisible("Image", COMBO_HEAVY3_ID)
             lua_table["UI"]:MakeElementInvisible("Image", COMBO_LIGHT4_ID)
             lua_table["UI"]:MakeElementInvisible("Image", COMBO_HEAVY4_ID)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_MEDIUM_ID)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_MEDIUM2_ID)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_MEDIUM3_ID)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_MEDIUM4_ID)
 
             first = false
             second = false
@@ -133,6 +150,13 @@ function GetTableCOMBO()
             first = true
             
         end 
+
+        if lua_table.p1.current_state == 11 and first == false--PRIMER MEDIUM
+        then
+            lua_table["UI"]:MakeElementVisible("Image", COMBO_MEDIUM_ID)
+            first = true
+            
+        end 
 -----------------------------
         if lua_table.p1.current_state == 9 and second == false --SECGUNDO LIGHT
         then
@@ -148,6 +172,13 @@ function GetTableCOMBO()
             second  = true
             
         end 
+
+        if lua_table.p1.current_state == 12  and second == false --SECGUNDO MEDIUM
+        then
+            lua_table["UI"]:MakeElementVisible("Image", COMBO_MEDIUM2_ID)
+            second  = true
+            
+        end
 --------------------------------
         if lua_table.p1.current_state == 10 and third == false--tercer LIGHT
         then
@@ -159,6 +190,13 @@ function GetTableCOMBO()
         if lua_table.p1.current_state == 16  and third == false --tercer HEAVY
         then
             lua_table["UI"]:MakeElementVisible("Image", COMBO_HEAVY3_ID)
+            third  = true
+            
+        end 
+
+        if lua_table.p1.current_state == 13  and third == false --tercer MEDIUM
+        then
+            lua_table["UI"]:MakeElementVisible("Image", COMBO_MEDIUM3_ID)
             third  = true
             
         end 
