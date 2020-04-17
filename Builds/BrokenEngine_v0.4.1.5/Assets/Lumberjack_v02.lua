@@ -1,4 +1,4 @@
-function GetTableLumberjack_v01()
+function GetTableLumberjack_v02()
 
 local lua_table = {}
 
