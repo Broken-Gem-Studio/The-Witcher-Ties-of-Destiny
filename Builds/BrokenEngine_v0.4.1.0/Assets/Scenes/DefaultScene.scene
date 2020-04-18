@@ -52,7 +52,7 @@
                 "index": 0,
                 "layer": "0",
                 "positionx": "20.750000",
-                "positiony": "1.250000",
+                "positiony": "2.010000",
                 "positionz": "15.750000",
                 "rotationw": "1.000000",
                 "rotationx": "0.000000",
@@ -73,6 +73,174 @@
                 "UID": 1395805216,
                 "index": 1
             },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/TankGhoulScript_v01.lua"
+                },
+                "Script variables": {
+                    "Count": 17,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "geralt",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "max_hp",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 500.0
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "is_stunned",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 5.0
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "currentState",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "health",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 14": {
+                        "DisplayObjectName": false,
+                        "Name": "MyUID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 15": {
+                        "DisplayObjectName": false,
+                        "Name": "currentTargetPos",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 16": {
+                        "DisplayObjectName": false,
+                        "Name": "jaskier",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "AggroRange",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 100.0
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "jumpDistance",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 10.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": false,
+                        "Name": "currentTargetDir",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": false,
+                        "Name": "currentTarget",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": false,
+                        "Name": "GeraltDistance",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": false,
+                        "Name": "is_dead",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": false,
+                        "Name": "minDistance",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 5.0
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "JaskierDistance",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    }
+                },
+                "UID": 1457654803,
+                "index": 5
+            },
+            "16": {
+                "Active": true,
+                "UID": 1629229207,
+                "colliderType": "2",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "20.750000",
+                "globalMatrixy": "2.010000",
+                "globalMatrixz": "15.750000",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "index": 4,
+                "isTrigger": "1",
+                "lastIndex": "2",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "10.000000",
+                "scalex": "10.000000",
+                "scaley": "10.000000",
+                "scalez": "10.000000",
+                "tmpScalex": "10.000000",
+                "tmpScaley": "10.000000",
+                "tmpScalez": "10.000000"
+            },
             "17": {
                 "UID": 2065848800,
                 "contactOffset": "0.010000",
@@ -81,7 +249,7 @@
                 "index": 3,
                 "nonWalkableMode": "1",
                 "positionX": "20.750000",
-                "positionY": "2.760000",
+                "positionY": "3.520000",
                 "positionZ": "15.750000",
                 "radius": "0.500000",
                 "slopeLimit": "45.000000",
@@ -138,9 +306,9 @@
                 "colliderType": "1",
                 "firstCreation": "1",
                 "globalMatrixw": "1.000000",
-                "globalMatrixx": "-0.000002",
-                "globalMatrixy": "-0.000000",
-                "globalMatrixz": "-0.000002",
+                "globalMatrixx": "0.000000",
+                "globalMatrixy": "0.000000",
+                "globalMatrixz": "0.000000",
                 "globalPositionx": "1.000000",
                 "globalPositiony": "1.000000",
                 "globalPositionz": "1.000000",
@@ -150,9 +318,9 @@
                 "isTrigger": "0",
                 "lastIndex": "1",
                 "localMatrixw": "1.000000",
-                "localMatrixx": "-0.000000",
-                "localMatrixy": "-0.000000",
-                "localMatrixz": "-0.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
                 "localPositionx": "0.000000",
                 "localPositiony": "0.000000",
                 "localPositionz": "0.000000",

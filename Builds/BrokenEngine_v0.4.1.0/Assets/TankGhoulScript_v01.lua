@@ -55,7 +55,8 @@ lua_table.is_dead = false
 	
 -- Aggro values 
 lua_table.AggroRange = 100
-lua_table.minDistance = 3 -- If entity is inside this distance, then attack
+lua_table.minDistance = 5 -- If entity is inside this distance, then attack
+lua_table.jumpDistance = 10
 
 -- Combo attack values
 local Punch = 10
@@ -100,8 +101,6 @@ local function SearchPlayers() -- Check if targets are within range
 		lua_table.currentTarget = lua_table.jaskier
 		lua_table.currentTargetDir = lua_table.JaskierDistance
 		lua_table.currentTargetPos = lua_table.JaskierPos
-	
-		lua_table.System:LOG("Jaskier in aggro range")
 	end 
 		
 	lua_table.MoveVector = {0, 0, 0}
@@ -146,9 +145,8 @@ local function Seek()
 	
 	if lua_table.currentTargetDir <= lua_table.minDistance then
 		lua_table.currentState = State.JUMP
-			
-			--lua_table.System:LOG("Tank Ghoul state: JUMP (2)")
-		lua_table.System:LOG("Tank Ghoul state: COMBO (3)")  
+		lua_table.System:LOG("Tank Ghoul state: JUMP (2)")
+		--lua_table.System:LOG("Tank Ghoul state: COMBO (3)")  
 	end
 end
 
@@ -173,7 +171,6 @@ end
 	
 local function JumpStun() -- Smash the ground with a jump, then stun
 	
-	
 	if not start_jump then 
 		jump_timer = lua_table.System:GameTime() * 1000
 		start_jump = true
@@ -193,27 +190,6 @@ local function JumpStun() -- Smash the ground with a jump, then stun
 		ResetCombo()
 	end
 	
-		-- local tmp = lua_table.System:GameTime() * 1000
-		-- end
-	
-		-- if start_timer and then 
-		-- 	time = tmp
-		-- 	lua_table.System:LOG("Jump")
-		-- 	start_timer = false
-		-- 	jumping = true
-		-- end
-	
-		-- elapsed_time = tmp - time
-		-- if elapsed_time > 2000 and not stunning then
-		-- 	lua_table.System:LOG("Smash the ground and stun")
-		-- 	stunning = true
-		-- 	lua_table.currentState = State.PUNCH
-		-- 	lua_table.System:LOG("Tank Ghoul state: PUNCH (3)") 
-		-- else 
-		-- 	-- jumping = false
-		-- 	-- stunning = false
-		-- end
-	
 		
 end
 	
@@ -221,17 +197,19 @@ end
 	
 local function Combo() -- Stoppable attack 1/2
 
-	-- -- -- Punch and swipe that can be stopped
-	-- if not damaged then -- Checks if target is being damaged by the players
-	
-	-- end
-	-- 	Start timer
+	if lua_table.currentTargetDir >= lua_table.jumpDistance then
+		lua_table.currentState = State.SEEK	
+		lua_table.System:LOG("Tank Ghoul state: SEEK (1), target out of range")    
+		ResetJumpStun()
+		
+		return
+	end
+
 	if not start_combo then 
 		combo_timer = lua_table.System:GameTime() * 1000
 		start_combo = true
 	end
 
-	
 	if combo_timer + 500 <= lua_table.System:GameTime() * 1000 and not punching then
 		lua_table.System:LOG("Punch to target")
 		punching = true
@@ -247,7 +225,7 @@ local function Combo() -- Stoppable attack 1/2
 	
 	-- After he finished, switch state and reset jump values
 	if combo_timer + 3000 <= lua_table.System:GameTime() * 1000 then
-		lua_table.currentState = State.JUMP	
+		lua_table.currentState = State.SEEK	
 		lua_table.System:LOG("Tank Ghoul state: JUMP (2)")  
 		ResetJumpStun()
 	end
@@ -301,26 +279,15 @@ function lua_table:Update()
 	SearchPlayers()
 
 	-- Check which state the entity is in and then handle them accordingly
-	if lua_table.currentState == State.IDLE -- Initial state is always idle
-	then
+	if lua_table.currentState == State.IDLE then -- Initial state is always idle
 		Idle()
-	elseif lua_table.currentState == State.SEEK
-	then
+	elseif lua_table.currentState == State.SEEK then
 		Seek()
-	elseif lua_table.currentState == State.JUMP
-	then    	
+	elseif lua_table.currentState == State.JUMP then    	
 		JumpStun()
-	elseif lua_table.currentState == State.COMBO
-	then    	
+	elseif lua_table.currentState == State.COMBO then    	
 		Combo()
-	-- elseif lua_table.currentState == State.SWIPE
-	-- then    	
-	-- 	Swipe()
-	-- elseif lua_table.currentState == State.CRUSH
-	-- then    	
-	-- 	Crush()
-	elseif lua_table.currentState == State.DEATH
-	then	
+	elseif lua_table.currentState == State.DEATH then	
 		Die()
 	end
 	
