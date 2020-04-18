@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="11" SoundbankVersion="134">
+	<RootPaths>
+		<ProjectRoot>C:\Users\W10\Documents\GitHub\The-Witcher-Ties-of-Destiny\Wwise-The-Witcher-Project\</ProjectRoot>
+		<SourceFilesRoot>C:\Users\W10\Documents\GitHub\The-Witcher-Ties-of-Destiny\Wwise-The-Witcher-Project\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>C:\Users\W10\Documents\GitHub\The-Witcher-Ties-of-Destiny\Assets\Sounds\</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>C:\Users\W10\Documents\GitHub\The-Witcher-Ties-of-Destiny\Wwise-The-Witcher-Project\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<StreamedFiles/>
+	<MediaFilesNotInAnyBank/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" GUID="{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}" Language="SFX">
+			<ObjectPath>Init</ObjectPath>
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="3161908922" GUID="{9811AB40-4CE0-4556-B885-F6A892345129}" Language="SFX">
+			<ObjectPath>\SoundBanks\Default Work Unit\Main</ObjectPath>
+			<ShortName>Main</ShortName>
+			<Path>Main.bnk</Path>
+			<IncludedEvents>
+				<Event Id="259332932" Name="PlayBrokenWoodSound" ObjectPath="\Events\Default Work Unit\PlayBrokenWoodSound" GUID="{18DF4746-81DC-4186-BCC2-EC98431AA383}"/>
+				<Event Id="2572807230" Name="PlayBrokenWoodSound2" ObjectPath="\Events\Default Work Unit\PlayBrokenWoodSound2" GUID="{0DB2AC61-4619-4598-B917-96A4D25CAF0C}"/>
+				<Event Id="98667022" Name="PlayHitWoodSound" ObjectPath="\Events\Default Work Unit\PlayHitWoodSound" GUID="{FE71CCBA-5160-4B40-B1C2-130C195E4C5C}"/>
+				<Event Id="1342985272" Name="PlayHitWoodSound2" ObjectPath="\Events\Default Work Unit\PlayHitWoodSound2" GUID="{A63B9461-D7D9-46BB-98E2-2A169424BE99}"/>
+				<Event Id="1342985273" Name="PlayHitWoodSound3" ObjectPath="\Events\Default Work Unit\PlayHitWoodSound3" GUID="{C1EB4B1F-BCFB-49D1-9F59-D7A15B35ACB6}"/>
+			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="319620761" Language="SFX">
+					<ShortName>BrokenWoodSound2.wav</ShortName>
+					<Path>SFX\BrokenWoodSound2_10C4C929.wem</Path>
+				</File>
+				<File Id="449028315" Language="SFX">
+					<ShortName>HitWoodSound3.wav</ShortName>
+					<Path>SFX\HitWoodSound3_10C4C929.wem</Path>
+				</File>
+				<File Id="573846980" Language="SFX">
+					<ShortName>HitWoodSound2.wav</ShortName>
+					<Path>SFX\HitWoodSound2_10C4C929.wem</Path>
+				</File>
+				<File Id="720348152" Language="SFX">
+					<ShortName>BrokenWoodSound.wav</ShortName>
+					<Path>SFX\BrokenWoodSound_10C4C929.wem</Path>
+				</File>
+				<File Id="978938461" Language="SFX">
+					<ShortName>HitWoodSound.wav</ShortName>
+					<Path>SFX\HitWoodSound_10C4C929.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
+		</SoundBank>
+	</SoundBanks>
+</SoundBanksInfo>
