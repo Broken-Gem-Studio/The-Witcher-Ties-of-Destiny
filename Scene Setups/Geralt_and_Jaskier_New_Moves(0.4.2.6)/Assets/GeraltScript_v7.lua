@@ -206,10 +206,10 @@ lua_table.energy_reg_orig = 5
 	lua_table.collider_effect = attack_effects.none
 
 	local attack_colliders = {												--Transform / Collider Scale	--TODO-Colliders: Fix for new scale
-		front = { GO_name = "Geralt_Front", GO_UID = 0, active = false },	--0,20,25 / 20,25,18
-		back = { GO_name = "Geralt_Back", GO_UID = 0, active = false },		--0,20,-20 / 20,25,10
-		left = { GO_name = "Geralt_Left", GO_UID = 0, active = false },		--20,20,5 / 10,25,20
-		right = { GO_name = "Geralt_Right", GO_UID = 0, active = false }	--20,20,5 / 10,25,20
+		front = { GO_name = "Geralt_Front", GO_UID = 0, active = false },	--0,2,2.5 / 2,2.5,1.8
+		back = { GO_name = "Geralt_Back", GO_UID = 0, active = false },		--0,2,-2 / 2,2.5,1
+		left = { GO_name = "Geralt_Left", GO_UID = 0, active = false },		--2,2,0.5 / 1,2.5,2
+		right = { GO_name = "Geralt_Right", GO_UID = 0, active = false }	--2,2,0.5 / 1,2.5,2
 	}
 	--Character Controller: 1.0/2.5/0.05/0.3/45.0
 
@@ -231,61 +231,63 @@ lua_table.energy_reg_orig = 5
 	local attack_input_timeframe = 70	--Milisecond timeframe for a double input (70ms allows by a small margin to have at least 2 frames of input registering on 30fps before overpasing the time limit)
 	local attack_input_started_at = 0	--Start of any of the two inputs
 
+--NOTE: The visual slow for both characters lasts ~430ms * 30/anim_speed
 --Light Attack
 lua_table.light_damage = 1.0					--Multiplier of Base Damage
 lua_table.light_movement_velocity = 100.0
 
-lua_table.light_1_block_time = 500			--Input block duration	(block new attacks)
-lua_table.light_1_collider_front_start = 500	--Collider activation time
-lua_table.light_1_collider_front_end = 600	--Collider deactivation time
-lua_table.light_1_combo_start = 600			--Combo timeframe start
-lua_table.light_1_combo_end = 1100			--Combo timeframe end
-lua_table.light_1_duration = 1100			--Attack end (return to idle)
-lua_table.light_1_animation_speed = 30.0
+lua_table.light_1_block_time = 300			--Input block duration	(block new attacks)
+lua_table.light_1_collider_front_start = 375	--Collider activation time
+lua_table.light_1_collider_front_end = 450	--Collider deactivation time
+lua_table.light_1_combo_start = 450			--Combo timeframe start
+lua_table.light_1_combo_end = 750			--Combo timeframe end
+lua_table.light_1_duration = 750			--Attack end (return to idle)
+lua_table.light_1_animation_speed = 40.0	--Slow time: 320ms
 
-lua_table.light_2_block_time = 400			--Input block duration	(block new attacks)
-lua_table.light_2_collider_front_start = 400	--Collider activation time
-lua_table.light_2_collider_front_end = 500	--Collider deactivation time
-lua_table.light_2_combo_start = 500			--Combo timeframe start
-lua_table.light_2_combo_end = 1000			--Combo timeframe end
-lua_table.light_2_duration = 1000			--Attack end (return to idle)
-lua_table.light_2_animation_speed = 30.0
+lua_table.light_2_block_time = 300			--Input block duration	(block new attacks)
+lua_table.light_2_collider_front_start = 300	--Collider activation time
+lua_table.light_2_collider_front_end = 375	--Collider deactivation time
+lua_table.light_2_combo_start = 430			--Combo timeframe start
+lua_table.light_2_combo_end = 750			--Combo timeframe end
+lua_table.light_2_duration = 750			--Attack end (return to idle)
+lua_table.light_2_animation_speed = 40.0	--Slow time: 320ms
 
-lua_table.light_3_block_time = 500			--Input block duration	(block new attacks)
-lua_table.light_3_collider_front_start = 450	--Collider activation time
-lua_table.light_3_collider_front_end = 550	--Collider deactivation time
-lua_table.light_3_combo_start = 600			--Combo timeframe start
-lua_table.light_3_combo_end = 1500			--Combo timeframe end
-lua_table.light_3_duration = 1500			--Attack end (return to idle)
-lua_table.light_3_animation_speed = 30.0		--IMPROVE: Attack 3 animaton includes a return to idle, which differs from the other animations, we might have to cut it for homogeinity with the rest
+lua_table.light_3_block_time = 300			--Input block duration	(block new attacks)
+lua_table.light_3_collider_front_start = 340	--Collider activation time
+lua_table.light_3_collider_front_end = 440	--Collider deactivation time
+lua_table.light_3_combo_start = 530			--Combo timeframe start
+lua_table.light_3_combo_end = 850			--Combo timeframe end
+lua_table.light_3_duration = 850			--Attack end (return to idle)
+lua_table.light_3_animation_speed = 40.0	--Slow time: 320ms
 
 --Medium Attack
 lua_table.medium_damage = 1.0					--Multiplier of Base Damage
-lua_table.medium_movement_velocity = 100.0
+lua_table.medium_movement_velocity = 35.0
+lua_table.medium_3_movement_velocity = 100.0
 
-lua_table.medium_1_block_time = 500			--Input block duration	(block new attacks)
-lua_table.medium_1_collider_front_start = 500	--Collider activation time
-lua_table.medium_1_collider_front_end = 600	--Collider deactivation time
-lua_table.medium_1_combo_start = 600			--Combo timeframe start
+lua_table.medium_1_block_time = 550			--Input block duration	(block new attacks)
+lua_table.medium_1_collider_front_start = 550	--Collider activation time
+lua_table.medium_1_collider_front_end = 650	--Collider deactivation time
+lua_table.medium_1_combo_start = 750			--Combo timeframe start
 lua_table.medium_1_combo_end = 1100			--Combo timeframe end
 lua_table.medium_1_duration = 1100			--Attack end (return to idle)
-lua_table.medium_1_animation_speed = 30.0
+lua_table.medium_1_animation_speed = 35.0	--Slow time: 370ms
 
 lua_table.medium_2_block_time = 400			--Input block duration	(block new attacks)
 lua_table.medium_2_collider_front_start = 400	--Collider activation time
 lua_table.medium_2_collider_front_end = 500	--Collider deactivation time
-lua_table.medium_2_combo_start = 500			--Combo timeframe start
-lua_table.medium_2_combo_end = 1000			--Combo timeframe end
-lua_table.medium_2_duration = 1000			--Attack end (return to idle)
-lua_table.medium_2_animation_speed = 30.0
+lua_table.medium_2_combo_start = 550			--Combo timeframe start
+lua_table.medium_2_combo_end = 900			--Combo timeframe end
+lua_table.medium_2_duration = 900			--Attack end (return to idle)
+lua_table.medium_2_animation_speed = 35.0	--Slow time: 370ms
 
-lua_table.medium_3_block_time = 500			--Input block duration	(block new attacks)
-lua_table.medium_3_collider_front_start = 450	--Collider activation time
-lua_table.medium_3_collider_front_end = 550	--Collider deactivation time
-lua_table.medium_3_combo_start = 600			--Combo timeframe start
-lua_table.medium_3_combo_end = 1500			--Combo timeframe end
-lua_table.medium_3_duration = 1500			--Attack end (return to idle)
-lua_table.medium_3_animation_speed = 30.0		--IMPROVE: Attack 3 animaton includes a return to idle, which differs from the other animations, we might have to cut it for homogeinity with the rest
+lua_table.medium_3_block_time = 800			--Input block duration	(block new attacks)
+lua_table.medium_3_collider_front_start = 800	--Collider activation time
+lua_table.medium_3_collider_front_end = 900	--Collider deactivation time
+lua_table.medium_3_combo_start = 950			--Combo timeframe start
+lua_table.medium_3_combo_end = 1300			--Combo timeframe end
+lua_table.medium_3_duration = 1300			--Attack end (return to idle)
+lua_table.medium_3_animation_speed = 35.0	--Slow time: 370ms
 
 --Heavy Attack
 lua_table.heavy_damage = 1.666				--Multiplier of Base Damage
@@ -297,7 +299,7 @@ lua_table.heavy_1_collider_front_end = 1000	--Collider deactivation time
 lua_table.heavy_1_combo_start = 1100			--Combo timeframe start
 lua_table.heavy_1_combo_end = 1600			--Combo timeframe end
 lua_table.heavy_1_duration = 1600			--Attack end (return to idle)
-lua_table.heavy_1_animation_speed = 30.0
+lua_table.heavy_1_animation_speed = 30.0	--Slow time: 430ms
 
 lua_table.heavy_2_block_time = 400			--Input block duration	(block new attacks)
 lua_table.heavy_2_collider_front_start = 350	--Collider activation time
@@ -305,15 +307,15 @@ lua_table.heavy_2_collider_front_end = 450	--Collider deactivation time
 lua_table.heavy_2_combo_start = 600			--Combo timeframe start
 lua_table.heavy_2_combo_end = 1000			--Combo timeframe end
 lua_table.heavy_2_duration = 1000			--Attack end (return to idle)
-lua_table.heavy_2_animation_speed = 30.0
+lua_table.heavy_2_animation_speed = 30.0	--Slow time: 430ms
 
 lua_table.heavy_3_block_time = 800			--Input block duration	(block new attacks)
 lua_table.heavy_3_collider_front_start = 700	--Collider activation time
 lua_table.heavy_3_collider_front_end = 800	--Collider deactivation time
-lua_table.heavy_3_combo_start = 1000			--Combo timeframe start
-lua_table.heavy_3_combo_end = 2200			--Combo timeframe end
-lua_table.heavy_3_duration = 2200			--Attack end (return to idle)
-lua_table.heavy_3_animation_speed = 30.0		--IMPROVE: Attack 3 animaton includes a return to idle, which differs from the other animations, we might have to cut it for homogeinity with the rest
+lua_table.heavy_3_combo_start = 1200		--Combo timeframe start
+lua_table.heavy_3_combo_end = 1600			--Combo timeframe end
+lua_table.heavy_3_duration = 1600			--Attack end (return to idle)
+lua_table.heavy_3_animation_speed = 30.0	--Slow time: 430ms
 
 --Evade		
 lua_table.evade_velocity = 1250.0	--Was 200 before dt
@@ -395,8 +397,6 @@ lua_table.combo_1_duration = 1500
 lua_table.combo_1_animation_speed = 35.0
 lua_table.combo_1_movement_velocity = 400.0
 
-lua_table.combo_1_collider_body_start = 200		--Collider activation time
-lua_table.combo_1_collider_body_end = 700		--Collider deactivation time
 lua_table.combo_1_collider_right_start = 900	--Collider activation time
 lua_table.combo_1_collider_right_end = 1000		--Collider deactivation time
 lua_table.combo_1_collider_front_start = 1000	--Collider activation time
@@ -924,7 +924,7 @@ end
 
 local function RegularAttack(attack_type)
 
-	if lua_table.current_state == state.heavy_3 then	--Heavy_3 animation starts and ends on the right, therefore in this particular case we stay on the right
+	if lua_table.current_state == state.heavy_3 or lua_table.current_state == state.medium_3 then	--Exceptions that don't change side
 		rightside = not rightside
 	end
 
@@ -1253,6 +1253,8 @@ end
 function lua_table:Awake()
 	lua_table.SystemFunctions:LOG("GeraltScript AWAKE")
 
+	lua_table.AnimationFunctions:SetBlendTime(0.1)
+
 	--Get self GO_UID
 	my_GO_UID = lua_table.GameObjectFunctions:GetMyUID()
 
@@ -1418,7 +1420,11 @@ function lua_table:Update()
 				then
 					if DirectionInBounds()	--IF in bounds
 					then
-						lua_table.PhysicsFunctions:Move(lua_table.light_movement_velocity * rec_direction.x * dt, lua_table.light_movement_velocity * rec_direction.z * dt, my_GO_UID)
+						if lua_table.current_state == state.medium_3 then
+							lua_table.PhysicsFunctions:Move(lua_table.medium_3_movement_velocity * rec_direction.x * dt, lua_table.medium_3_movement_velocity * rec_direction.z * dt, my_GO_UID)
+						else
+							lua_table.PhysicsFunctions:Move(lua_table.medium_movement_velocity * rec_direction.x * dt, lua_table.medium_movement_velocity * rec_direction.z * dt, my_GO_UID)
+						end
 					end
 
 					--Collider Evaluation
@@ -1501,12 +1507,12 @@ function lua_table:Update()
 
 	--DEBUG LOGS
 	--lua_table.SystemFunctions:LOG("Delta Time: " .. dt)
-	--lua_table.SystemFunctions:LOG("State: " .. lua_table.current_state)
-	--lua_table.SystemFunctions:LOG("Time passed: " .. time_since_action)
+	lua_table.SystemFunctions:LOG("State: " .. lua_table.current_state)
+	lua_table.SystemFunctions:LOG("Time passed: " .. time_since_action)
 	--rot_y = math.rad(GimbalLockWorkaroundY(lua_table.TransformFunctions:GetRotation()[2]))	--TODO: Remove GimbalLock stage when Euler bug is fixed
 	--lua_table.SystemFunctions:LOG("Angle Y: " .. rot_y)
 	--lua_table.SystemFunctions:LOG("Ultimate: " .. lua_table.current_ultimate)
-	--lua_table.SystemFunctions:LOG("Combo num: " .. lua_table.combo_num)
+	lua_table.SystemFunctions:LOG("Combo num: " .. lua_table.combo_num)
 	--lua_table.SystemFunctions:LOG("Combo string: " .. lua_table.combo_stack[1] .. ", " .. lua_table.combo_stack[2] .. ", " .. lua_table.combo_stack[3] .. ", " .. lua_table.combo_stack[4])
 
 	--Stats LOGS

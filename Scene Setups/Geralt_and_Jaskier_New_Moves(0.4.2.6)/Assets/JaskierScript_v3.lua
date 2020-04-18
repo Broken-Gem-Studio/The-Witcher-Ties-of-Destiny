@@ -1262,6 +1262,8 @@ end
 function lua_table:Awake()
 	lua_table.SystemFunctions:LOG("JaskierScript AWAKE")
 
+	lua_table.AnimationFunctions:SetBlendTime(0.1)
+	
 	--Get self GO_UID
 	my_GO_UID = lua_table.GameObjectFunctions:GetMyUID()
 
