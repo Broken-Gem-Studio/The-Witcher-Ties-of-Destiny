@@ -206,7 +206,7 @@ lua_table.energy_reg_orig = 5
 	lua_table.collider_effect = attack_effects.none
 
 	local attack_colliders = {													--Transform / Collider Scale
-		front = { GO_name = "Jaskier_Front", GO_UID = 0, active = false },		--0,20,25 / 20,25,18
+		front = { GO_name = "Jaskier_Front", GO_UID = 0, active = false },		--0,2,2.5 / 2,2.5,1.8
 		line_1 = { GO_name = "Jaskier_Line_1", GO_UID = 0, active = false },	--0,2,4 / 4,3,4
 		line_2 = { GO_name = "Jaskier_Line_2", GO_UID = 0, active = false },	--0,2,8 / 4,3,4
 		line_3 = { GO_name = "Jaskier_Line_3", GO_UID = 0, active = false },	--0,2,12 / 4,3,4
@@ -231,67 +231,67 @@ lua_table.energy_reg_orig = 5
 --Light Attack
 lua_table.light_damage = 1.0					--Multiplier of Base Damage
 lua_table.light_movement_velocity = 100.0
-
-lua_table.light_1_block_time = 500			--Input block duration	(block new attacks)
-lua_table.light_1_collider_front_start = 500	--Collider activation time
-lua_table.light_1_collider_front_end = 600	--Collider deactivation time
-lua_table.light_1_duration = 1100			--Attack end (return to idle)
+--BLOCKTIME + COLLIDER START/END
+lua_table.light_1_block_time = 600			--Input block duration	(block new attacks)
+lua_table.light_1_collider_front_start = 650	--Collider activation time
+lua_table.light_1_collider_front_end = 750	--Collider deactivation time
+lua_table.light_1_duration = 1000			--Attack end (return to idle)
 lua_table.light_1_animation_speed = 30.0
 
-lua_table.light_2_block_time = 400			--Input block duration	(block new attacks)
-lua_table.light_2_collider_front_start = 400	--Collider activation time
-lua_table.light_2_collider_front_end = 500	--Collider deactivation time
-lua_table.light_2_duration = 1000			--Attack end (return to idle)
+lua_table.light_2_block_time = 500			--Input block duration	(block new attacks)
+lua_table.light_2_collider_front_start = 450	--Collider activation time
+lua_table.light_2_collider_front_end = 550	--Collider deactivation time
+lua_table.light_2_duration = 900			--Attack end (return to idle)
 lua_table.light_2_animation_speed = 30.0
 
-lua_table.light_3_block_time = 500			--Input block duration	(block new attacks)
-lua_table.light_3_collider_front_start = 450	--Collider activation time
-lua_table.light_3_collider_front_end = 550	--Collider deactivation time
-lua_table.light_3_duration = 1500			--Attack end (return to idle)
+lua_table.light_3_block_time = 600			--Input block duration	(block new attacks)
+lua_table.light_3_collider_front_start = 500	--Collider activation time
+lua_table.light_3_collider_front_end = 600	--Collider deactivation time
+lua_table.light_3_duration = 1100			--Attack end (return to idle)
 lua_table.light_3_animation_speed = 30.0		--IMPROVE: Attack 3 animaton includes a return to idle, which differs from the other animations, we might have to cut it for homogeinity with the rest
 
 --Medium Attack
 lua_table.medium_damage = 1.0					--Multiplier of Base Damage
 lua_table.medium_movement_velocity = 100.0
 
-lua_table.medium_1_block_time = 500			--Input block duration	(block new attacks)
-lua_table.medium_1_collider_front_start = 500	--Collider activation time
-lua_table.medium_1_collider_front_end = 600	--Collider deactivation time
-lua_table.medium_1_duration = 1100			--Attack end (return to idle)
+lua_table.medium_1_block_time = 300			--Input block duration	(block new attacks)
+lua_table.medium_1_collider_front_start = 350	--Collider activation time
+lua_table.medium_1_collider_front_end = 500	--Collider deactivation time
+lua_table.medium_1_duration = 700			--Attack end (return to idle)
 lua_table.medium_1_animation_speed = 30.0
 
 lua_table.medium_2_block_time = 400			--Input block duration	(block new attacks)
-lua_table.medium_2_collider_front_start = 400	--Collider activation time
-lua_table.medium_2_collider_front_end = 500	--Collider deactivation time
-lua_table.medium_2_duration = 1000			--Attack end (return to idle)
+lua_table.medium_2_collider_front_start = 550	--Collider activation time
+lua_table.medium_2_collider_front_end = 650	--Collider deactivation time
+lua_table.medium_2_duration = 800			--Attack end (return to idle)
 lua_table.medium_2_animation_speed = 30.0
 
 lua_table.medium_3_block_time = 500			--Input block duration	(block new attacks)
-lua_table.medium_3_collider_front_start = 450	--Collider activation time
-lua_table.medium_3_collider_front_end = 550	--Collider deactivation time
-lua_table.medium_3_duration = 1500			--Attack end (return to idle)
+lua_table.medium_3_collider_front_start = 600	--Collider activation time
+lua_table.medium_3_collider_front_end = 700	--Collider deactivation time
+lua_table.medium_3_duration = 900			--Attack end (return to idle)
 lua_table.medium_3_animation_speed = 30.0		--IMPROVE: Attack 3 animaton includes a return to idle, which differs from the other animations, we might have to cut it for homogeinity with the rest
 
 --Heavy Attack
 lua_table.heavy_damage = 1.666				--Multiplier of Base Damage
 lua_table.heavy_movement_velocity = 70.0
 
-lua_table.heavy_1_block_time = 900			--Input block duration	(block new attacks)
-lua_table.heavy_1_collider_front_start = 900	--Collider activation time
-lua_table.heavy_1_collider_front_end = 1000	--Collider deactivation time
+lua_table.heavy_1_block_time = 1100			--Input block duration	(block new attacks)
+lua_table.heavy_1_collider_front_start = 1000	--Collider activation time
+lua_table.heavy_1_collider_front_end = 1150	--Collider deactivation time
 lua_table.heavy_1_duration = 1600			--Attack end (return to idle)
 lua_table.heavy_1_animation_speed = 30.0
 
-lua_table.heavy_2_block_time = 400			--Input block duration	(block new attacks)
-lua_table.heavy_2_collider_front_start = 350	--Collider activation time
-lua_table.heavy_2_collider_front_end = 450	--Collider deactivation time
-lua_table.heavy_2_duration = 1000			--Attack end (return to idle)
+lua_table.heavy_2_block_time = 500			--Input block duration	(block new attacks)
+lua_table.heavy_2_collider_front_start = 400	--Collider activation time
+lua_table.heavy_2_collider_front_end = 500	--Collider deactivation time
+lua_table.heavy_2_duration = 1050			--Attack end (return to idle)
 lua_table.heavy_2_animation_speed = 30.0
 
-lua_table.heavy_3_block_time = 800			--Input block duration	(block new attacks)
-lua_table.heavy_3_collider_front_start = 700	--Collider activation time
-lua_table.heavy_3_collider_front_end = 800	--Collider deactivation time
-lua_table.heavy_3_duration = 2200			--Attack end (return to idle)
+lua_table.heavy_3_block_time = 900			--Input block duration	(block new attacks)
+lua_table.heavy_3_collider_front_start = 850	--Collider activation time
+lua_table.heavy_3_collider_front_end = 950	--Collider deactivation time
+lua_table.heavy_3_duration = 1300			--Attack end (return to idle)
 lua_table.heavy_3_animation_speed = 30.0		--IMPROVE: Attack 3 animaton includes a return to idle, which differs from the other animations, we might have to cut it for homogeinity with the rest
 
 --Evade		
@@ -536,6 +536,7 @@ local function GoDefaultState()
 	end
 	
 	rightside = true
+	lua_table.chained_attacks_num = 0
 end
 
 --States END	----------------------------------------------------------------------------
@@ -973,19 +974,15 @@ end
 
 local function RegularAttack(attack_type)
 
-	-- if lua_table.current_state == state.heavy_3 then	--Heavy_3 animation starts and ends on the right, therefore in this particular case we stay on the right
-	-- 	rightside = not rightside
-	-- end
+	if lua_table.current_state == state.heavy_3 then	--Heavy_3 animation starts and ends on the right, therefore in this particular case we stay on the right
+		rightside = not rightside
+	end
 
 	if lua_table.note_num < 4 then
 		lua_table.note_num = lua_table.note_num + 1
 	end
 
-	if lua_table.current_state >= state.light_1 and lua_table.current_state <= state.heavy_3 then	--IF this attack comes right after another
-		lua_table.chained_attacks_num = lua_table.chained_attacks_num + 1
-	else
-		lua_table.chained_attacks_num = 0
-	end
+	lua_table.chained_attacks_num = lua_table.chained_attacks_num + 1
 
 	if rightside	--IF rightside
 	then
@@ -1263,7 +1260,7 @@ function lua_table:Awake()
 	lua_table.SystemFunctions:LOG("JaskierScript AWAKE")
 
 	lua_table.AnimationFunctions:SetBlendTime(0.1)
-	
+
 	--Get self GO_UID
 	my_GO_UID = lua_table.GameObjectFunctions:GetMyUID()
 
@@ -1517,6 +1514,7 @@ function lua_table:Update()
 	--rot_y = math.rad(GimbalLockWorkaroundY(lua_table.TransformFunctions:GetRotation()[2]))	--TODO: Remove GimbalLock stage when Euler bug is fixed
 	--lua_table.SystemFunctions:LOG("Angle Y: " .. rot_y)
 	--lua_table.SystemFunctions:LOG("Ultimate: " .. lua_table.current_ultimate)
+	lua_table.SystemFunctions:LOG("Chain num: " .. lua_table.chained_attacks_num)
 	lua_table.SystemFunctions:LOG("Note num: " .. lua_table.note_num)
 	lua_table.SystemFunctions:LOG("Song string: " .. lua_table.note_stack[1] .. ", " .. lua_table.note_stack[2] .. ", " .. lua_table.note_stack[3] .. ", " .. lua_table.note_stack[4])
 
