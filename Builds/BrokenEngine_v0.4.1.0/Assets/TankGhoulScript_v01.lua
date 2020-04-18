@@ -130,6 +130,8 @@ local function Seek()
 	if lua_table.currentTargetDir < lua_table.AggroRange and lua_table.currentTargetDir > lua_table.minDistance then
 			
 		local dis = math.sqrt(lua_table.MoveVector[1] ^ 2 + lua_table.MoveVector[3] ^ 2)
+
+		local tmp = lua_table.Transform:GetPosition(lua_table.currentTarget)
 	
 		-- Normalize the vector
 		vec = { 0, 0, 0 }
@@ -139,6 +141,7 @@ local function Seek()
 			
 			-- Apply movement vector to move character
 		lua_table.Physics:Move(vec[1] * lua_table.speed, vec[3] * lua_table.speed, lua_table.MyUID)
+		lua_table.Transform:LookAt(tmp[1], lua_table.GhoulPos[2], tmp[3], lua_table.MyUID)
 	else 
 		currentState = State.IDLE	
 	end
@@ -193,9 +196,7 @@ local function JumpStun() -- Smash the ground with a jump, then stun
 		
 end
 	
-
-	
-local function Combo() -- Stoppable attack 1/2
+local function Combo()
 
 	if lua_table.currentTargetDir >= lua_table.jumpDistance then
 		lua_table.currentState = State.SEEK	
