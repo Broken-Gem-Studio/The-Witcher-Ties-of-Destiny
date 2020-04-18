@@ -5,6 +5,7 @@ lua_table.GameObject = Scripting.GameObject()
 lua_table.Transform = Scripting.Transform()
 lua_table.Physics =  Scripting.Physics()
 lua_table.Animations = Scripting.Animations()
+-- lua_table.Recast = Scripting.Navigation()
 -----------------------------------------------------------------------------------------
 -- Inspector Variables
 -----------------------------------------------------------------------------------------
@@ -70,6 +71,9 @@ local jump_timer = 0
 local start_combo = false
 local combo_timer = 0
 
+local start_death = false
+local death_timer = 0
+
 -- Flow control conditionals
 local jumping = false
 local stunning = false
@@ -125,13 +129,13 @@ end
 	
 local function Seek()
 	
-	--Now we get the direction vector and then we normalize it and aply a velocity in every component
+	-- Now we get the direction vector and then we normalize it and aply a velocity in every component
 	
 	if lua_table.currentTargetDir < lua_table.AggroRange and lua_table.currentTargetDir > lua_table.minDistance then
 			
 		local dis = math.sqrt(lua_table.MoveVector[1] ^ 2 + lua_table.MoveVector[3] ^ 2)
 
-		local tmp = lua_table.Transform:GetPosition(lua_table.currentTarget)
+		local tmp = lua_table.Transform:GetPosition(lua_table.currentTarget) -- For LookAt
 	
 		-- Normalize the vector
 		vec = { 0, 0, 0 }
@@ -149,7 +153,7 @@ local function Seek()
 	if lua_table.currentTargetDir <= lua_table.minDistance then
 		lua_table.currentState = State.JUMP
 		lua_table.System:LOG("Tank Ghoul state: JUMP (2)")
-		--lua_table.System:LOG("Tank Ghoul state: COMBO (3)")  
+		 
 	end
 end
 
@@ -234,7 +238,38 @@ local function Combo()
 end
 
 local function Die()
-	--Die shit
+	if is_dead == true and not start_death then 
+		death_timer = lua_table.System:GameTime() * 1000
+		-- Play dead animation
+		lua_table.System:LOG("Im fucking dead")
+		start_death = true
+	end
+
+	if death_timer + 3000 <= lua_table.System:GameTime() * 1000 then
+		lua_table.GameObject:DestroyGameObject(lua_table.MyUID) -- Delete GO from scene
+	end
+	
+end
+
+-- ______________________COLLISIONS______________________
+function lua_table:OnTriggerEnter()	
+	local collider = lua_table.Physics:OnTriggerEnter(lua_table.MyUID)
+	
+    local layer = lua_table.GameObject:GetLayerByID(collider)
+
+    if layer == layers.player_attack
+    then
+    	lua_table.health = lua_table.health - 250.0
+        lua_table.is_stunned = true
+		lua_table.currentState = State.IDLE
+		lua_table.System:LOG("Hit registered")
+        -- HIT GOES HERE
+    end
+end
+
+function lua_table:OnCollisionEnter()
+	local collider = lua_table.Physics:OnCollisionEnter(lua_table.MyUID)
+	
 end
 
 -- ______________________MAIN CODE______________________
@@ -275,6 +310,8 @@ function lua_table:Update()
 	if lua_table.health <= 0
 	then 
 		lua_table.currentState = State.DEATH
+		lua_table.System:LOG("Tank Ghoul state: Death (4)")
+		lua_table.is_dead = true
 	end
 
 	SearchPlayers()
