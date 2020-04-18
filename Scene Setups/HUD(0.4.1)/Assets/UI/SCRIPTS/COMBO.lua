@@ -56,7 +56,7 @@ function GetTableCOMBO()
         SWORD_DOWN_ID = lua_table["GameObject"]:FindGameObject("SWORDOWN")
         SWORD_FIRE_ID = lua_table["GameObject"]:FindGameObject("SWORDCOMBO")
 
-        p1ID = lua_table["GameObject"]:FindGameObject("Jaskier")
+        p1ID = lua_table["GameObject"]:FindGameObject("Geralt")
         lua_table.p1 = lua_table["GameObject"]:GetScript(p1ID)
     end
     
