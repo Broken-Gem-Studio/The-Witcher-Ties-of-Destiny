@@ -230,8 +230,8 @@ lua_table.energy_reg_orig = 5
 
 --Light Attack
 lua_table.light_damage = 1.0					--Multiplier of Base Damage
-lua_table.light_movement_velocity = 100.0
---BLOCKTIME + COLLIDER START/END
+lua_table.light_movement_velocity = 50.0
+
 lua_table.light_1_block_time = 600			--Input block duration	(block new attacks)
 lua_table.light_1_collider_front_start = 650	--Collider activation time
 lua_table.light_1_collider_front_end = 750	--Collider deactivation time
@@ -252,7 +252,7 @@ lua_table.light_3_animation_speed = 30.0		--IMPROVE: Attack 3 animaton includes 
 
 --Medium Attack
 lua_table.medium_damage = 1.0					--Multiplier of Base Damage
-lua_table.medium_movement_velocity = 100.0
+lua_table.medium_movement_velocity = 50.0
 
 lua_table.medium_1_block_time = 300			--Input block duration	(block new attacks)
 lua_table.medium_1_collider_front_start = 350	--Collider activation time
@@ -274,7 +274,7 @@ lua_table.medium_3_animation_speed = 30.0		--IMPROVE: Attack 3 animaton includes
 
 --Heavy Attack
 lua_table.heavy_damage = 1.666				--Multiplier of Base Damage
-lua_table.heavy_movement_velocity = 70.0
+lua_table.heavy_movement_velocity = 50.0
 
 lua_table.heavy_1_block_time = 1100			--Input block duration	(block new attacks)
 lua_table.heavy_1_collider_front_start = 1000	--Collider activation time
@@ -1419,6 +1419,11 @@ function lua_table:Update()
 
 				elseif lua_table.current_state == state.light_1 or lua_table.current_state == state.light_2 or lua_table.current_state == state.light_3	--IF Light Attacking
 				then
+					if DirectionInBounds() and lua_table.current_state == state.light_3
+					then
+						lua_table.PhysicsFunctions:Move(lua_table.heavy_movement_velocity * rec_direction.x * dt, lua_table.heavy_movement_velocity * rec_direction.z * dt, my_GO_UID)
+					end
+
 					--Collider Evaluation
 					if lua_table.current_state == state.light_1 then AttackColliderCheck("light_1", "front")
 					elseif lua_table.current_state == state.light_2 then AttackColliderCheck("light_2", "front")
@@ -1427,6 +1432,11 @@ function lua_table:Update()
 
 				elseif lua_table.current_state == state.medium_1 or lua_table.current_state == state.medium_2 or lua_table.current_state == state.medium_3	--IF Medium Attacking
 				then
+					if DirectionInBounds()
+					then
+						lua_table.PhysicsFunctions:Move(lua_table.heavy_movement_velocity * rec_direction.x * dt, lua_table.heavy_movement_velocity * rec_direction.z * dt, my_GO_UID)
+					end
+
 					--Collider Evaluation
 					if lua_table.current_state == state.medium_1 then AttackColliderCheck("medium_1", "front")
 					elseif lua_table.current_state == state.medium_2 then AttackColliderCheck("medium_2", "front")
@@ -1435,6 +1445,13 @@ function lua_table:Update()
 
 				elseif lua_table.current_state == state.heavy_1 or lua_table.current_state == state.heavy_2 or lua_table.current_state == state.heavy_3	--IF Heavy Attacking
 				then
+					if DirectionInBounds() then
+						if lua_table.current_state == state.heavy_2 or lua_table.current_state == state.heavy_3
+						then
+						lua_table.PhysicsFunctions:Move(lua_table.heavy_movement_velocity * rec_direction.x * dt, lua_table.heavy_movement_velocity * rec_direction.z * dt, my_GO_UID)
+						end
+					end
+
 					--Collider Evaluation
 					if lua_table.current_state == state.heavy_1 then AttackColliderCheck("heavy_1", "front")
 					elseif lua_table.current_state == state.heavy_2 then AttackColliderCheck("heavy_2", "front")
