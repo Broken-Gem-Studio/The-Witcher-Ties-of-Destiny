@@ -65,7 +65,7 @@ function GetTablePOTIS()
        HPPOTID = lua_table["GameObject"]:FindGameObject("HPPOTINUMBER")
 
        p1ID = lua_table["GameObject"]:FindGameObject("Geralt")
-       --lua_table.p1 = lua_table["GameObject"]:GetScript(p1ID)
+       lua_table.p1 = lua_table["GameObject"]:GetScript(p1ID)
 
        POTID_J = lua_table["GameObject"]:FindGameObject("POTI9")--vida
        POTID2_J = lua_table["GameObject"]:FindGameObject("POTI10")--energia
@@ -80,7 +80,7 @@ function GetTablePOTIS()
        HPPOTID_J = lua_table["GameObject"]:FindGameObject("HPPOTINUMBER2")
 
        p2ID = lua_table["GameObject"]:FindGameObject("Jaskier")
-       --lua_table.p1 = lua_table["GameObject"]:GetScript(p1ID)
+       lua_table.p2 = lua_table["GameObject"]:GetScript(p2ID)
 
     end
     
@@ -95,9 +95,13 @@ function GetTablePOTIS()
         lua_table["UI"]:MakeElementInvisible("Image", POTID7)
         lua_table["UI"]:MakeElementInvisible("Image", POTID8)
 
-        hp_potis = 3 --igualarlas a potis available desde codigo carles
-        eng_potis = 3
-        on_hp = true--PLAYER EMPIEZA CON HOP POTIS SELECIONADA
+        hp_potis = lua_table.p1.inventory[1] 
+        eng_potis = lua_table.p1.inventory[2]
+        if lua_table.p1.item_selected == lua_table.p1.item_library.health_potion
+        then
+            on_hp = true--PLAYER EMPIEZA CON HOP POTIS SELECIONADA
+            on_energy = false
+        end
 
         lua_table["UI"]:MakeElementInvisible("Image", POTID2_J)--ESCONDEMOS LA ENERGY POTI AL PRINCIPIO
         lua_table["UI"]:MakeElementInvisible("Text", ENGPOTID_J)--ESCONDEMOS NUMERO ENG POTIS
@@ -108,39 +112,83 @@ function GetTablePOTIS()
         lua_table["UI"]:MakeElementInvisible("Image", POTID7_J)
         lua_table["UI"]:MakeElementInvisible("Image", POTID8_J)
 
-        hp_potis2 = 3 --igualarlas a potis available desde codigo carles
-        eng_potis2 = 3
-        on_hp2 = true--PLAYER EMPIEZA CON HOP POTIS SELECIONADA
+        hp_potis2 = lua_table.p2.inventory[1] 
+        eng_potis2 = lua_table.p2.inventory[2]
+        if lua_table.p2.item_selected == lua_table.p2.item_library.health_potion
+        then
+            on_hp2 = true--PLAYER EMPIEZA CON HOP POTIS SELECIONADA
+            on_energy2 = false
+        end
+        
 
     end
     
     function lua_table:Update()
+
+        hp_potis = lua_table.p1.inventory[1] 
+        eng_potis = lua_table.p1.inventory[2]
+        lua_table["System"]:LOG("HP POTIS: " .. hp_potis)
+        lua_table["System"]:LOG("ENG POTIS: " .. eng_potis)
+        lua_table["System"]:LOG("SELECTED: " .. lua_table.p1.item_selected)
+        hp_potis2 = lua_table.p2.inventory[1] 
+        eng_potis2 = lua_table.p2.inventory[2]
+        lua_table["System"]:LOG("HP2 POTIS: " .. hp_potis2)
+        lua_table["System"]:LOG("ENG2 POTIS: " .. eng_potis2)
+        lua_table["System"]:LOG("SELECTED2: " .. lua_table.p2.item_selected)
 
         lua_table["UI"]:SetTextNumber(hp_potis, HPPOTID)
         lua_table["UI"]:SetTextNumber(eng_potis, ENGPOTID)
         lua_table["UI"]:SetTextNumber(hp_potis2, HPPOTID_J)
         lua_table["UI"]:SetTextNumber(eng_potis2, ENGPOTID_J)
 
-        --consumo
-        if lua_table["Inputs"]:KeyDown("F") and hp_potis > 0 and on_hp == true--condicion para consumir poti de hp
+        if lua_table.p1.item_selected == lua_table.p1.item_library.health_potion
         then
-            hp_potis = hp_potis - 1
+            on_hp = true
+            on_energy = false
+
+            lua_table["UI"]:MakeElementInvisible("Image", POTID2)
+            lua_table["UI"]:MakeElementVisible("Image", POTID)
+            lua_table["UI"]:MakeElementInvisible("Image", POTID4)
+            lua_table["UI"]:MakeElementInvisible("Text", ENGPOTID)
+            lua_table["UI"]:MakeElementVisible("Text", HPPOTID)
         end
 
-        if lua_table["Inputs"]:KeyDown("G") and eng_potis > 0 and on_energy == true--condicion para consumir poti de energy
+        if lua_table.p1.item_selected == lua_table.p1.item_library.energy_potion
         then
-            eng_potis = eng_potis - 1
+            on_energy = true
+            on_hp = true
+
+            lua_table["UI"]:MakeElementInvisible("Image", POTID)
+            lua_table["UI"]:MakeElementVisible("Image", POTID2)
+            lua_table["UI"]:MakeElementInvisible("Image", POTID3)
+            lua_table["UI"]:MakeElementInvisible("Text", HPPOTID)
+            lua_table["UI"]:MakeElementVisible("Text", ENGPOTID)
         end
 
-        if lua_table["Inputs"]:KeyDown("F") and hp_potis2 > 0 and on_hp2 == true--condicion para consumir poti de hp
+        if lua_table.p2.item_selected == lua_table.p2.item_library.health_potion
         then
-            hp_potis2 = hp_potis2 - 1
+            on_hp2 = true
+            on_energy2 = false
+
+            lua_table["UI"]:MakeElementInvisible("Image", POTID2_J)
+            lua_table["UI"]:MakeElementVisible("Image", POTID_J)
+            lua_table["UI"]:MakeElementInvisible("Image", POTID4_J)
+            lua_table["UI"]:MakeElementInvisible("Text", ENGPOTID_J)
+            lua_table["UI"]:MakeElementVisible("Text", HPPOTID_J)
         end
 
-        if lua_table["Inputs"]:KeyDown("G") and eng_potis2 > 0 and on_energy2 == true--condicion para consumir poti de energy
+        if lua_table.p2.item_selected == lua_table.p2.item_library.energy_potion
         then
-            eng_potis2 = eng_potis2 - 1
+            on_energy2 = true
+            on_hp2 = true
+
+            lua_table["UI"]:MakeElementInvisible("Image", POTID_J)
+            lua_table["UI"]:MakeElementVisible("Image", POTID2_J)
+            lua_table["UI"]:MakeElementInvisible("Image", POTID3_J)
+            lua_table["UI"]:MakeElementInvisible("Text", HPPOTID_J)
+            lua_table["UI"]:MakeElementVisible("Text", ENGPOTID_J)
         end
+
         -------------------
         --GERALT
         ------------------
@@ -234,53 +282,6 @@ function GetTablePOTIS()
             lua_table["UI"]:MakeElementInvisible("Image", POTID_J)
             lua_table["UI"]:MakeElementInvisible("Image", POTID8_J)
             lua_table["UI"]:MakeElementVisible("Image", POTID3_J)
-        end
-
-        --movimiento entre potis
-        if lua_table["Inputs"]:KeyDown("D") and on_energy == false--booleana desde codigo Geralt para cuando cambia a ENERGY poti
-        then
-            on_energy = true
-            on_hp = false
-            lua_table["UI"]:MakeElementInvisible("Image", POTID)
-            lua_table["UI"]:MakeElementVisible("Image", POTID2)
-            lua_table["UI"]:MakeElementInvisible("Image", POTID3)
-            lua_table["UI"]:MakeElementInvisible("Text", HPPOTID)
-            lua_table["UI"]:MakeElementVisible("Text", ENGPOTID)
-
-        end
-        if lua_table["Inputs"]:KeyDown("A") and on_hp == false--booleana desde codigo Geralt para cuando cambia a hp poti
-        then
-            on_hp = true
-            on_energy = false
-            lua_table["UI"]:MakeElementInvisible("Image", POTID2)
-            lua_table["UI"]:MakeElementVisible("Image", POTID)
-            lua_table["UI"]:MakeElementInvisible("Image", POTID4)
-            lua_table["UI"]:MakeElementInvisible("Text", ENGPOTID)
-            lua_table["UI"]:MakeElementVisible("Text", HPPOTID)
-        
-        end
-
-        if lua_table["Inputs"]:KeyDown("D") and on_energy2 == false--booleana desde codigo Geralt para cuando cambia a ENERGY poti
-        then
-            on_energy2 = true
-            on_hp2 = false
-            lua_table["UI"]:MakeElementInvisible("Image", POTID_J)
-            lua_table["UI"]:MakeElementVisible("Image", POTID2_J)
-            lua_table["UI"]:MakeElementInvisible("Image", POTID3_J)
-            lua_table["UI"]:MakeElementInvisible("Text", HPPOTID_J)
-            lua_table["UI"]:MakeElementVisible("Text", ENGPOTID_J)
-
-        end
-        if lua_table["Inputs"]:KeyDown("A") and on_hp2 == false--booleana desde codigo Geralt para cuando cambia a hp poti
-        then
-            on_hp2 = true
-            on_energy2 = false
-            lua_table["UI"]:MakeElementInvisible("Image", POTID2_J)
-            lua_table["UI"]:MakeElementVisible("Image", POTID_J)
-            lua_table["UI"]:MakeElementInvisible("Image", POTID4_J)
-            lua_table["UI"]:MakeElementInvisible("Text", ENGPOTID_J)
-            lua_table["UI"]:MakeElementVisible("Text", HPPOTID_J)
-        
         end
     
     
