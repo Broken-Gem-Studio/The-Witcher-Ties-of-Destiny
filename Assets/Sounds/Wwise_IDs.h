@@ -13,11 +13,27 @@ namespace AK
 {
     namespace EVENTS
     {
-        static const AkUniqueID EVENT_PLAY_BROKENWOODSOUND = 1516831756U;
-        static const AkUniqueID EVENT_PLAY_BROKENWOODSOUND2 = 1599168214U;
-        static const AkUniqueID EVENT_PLAY_HITWOODSOUND = 2821018806U;
-        static const AkUniqueID EVENT_PLAY_HITWOODSOUND2 = 1757698736U;
-        static const AkUniqueID EVENT_PLAY_HITWOODSOUND3 = 1757698737U;
+        static const AkUniqueID PLAY_BANDITARROWHIT = 4252011554U;
+        static const AkUniqueID PLAY_BANDITDEATH1 = 1478220843U;
+        static const AkUniqueID PLAY_BANDITDEATH2 = 1478220840U;
+        static const AkUniqueID PLAY_BANDITDEATH3 = 1478220841U;
+        static const AkUniqueID PLAY_BANDITHURT = 2246250019U;
+        static const AkUniqueID PLAY_BANDITRANDOMMVOICE3 = 3043161467U;
+        static const AkUniqueID PLAY_BANDITRANDOMVOICE1 = 3255479682U;
+        static const AkUniqueID PLAY_BANDITRANDOMVOICE2 = 3255479681U;
+        static const AkUniqueID PLAY_BANDITTHROWARROW = 2890425059U;
+        static const AkUniqueID PLAY_BROKENWOODSOUND = 2779536415U;
+        static const AkUniqueID PLAY_BROKENWOODSOUND2 = 3981772031U;
+        static const AkUniqueID PLAY_GHOULDEATH0 = 3661127879U;
+        static const AkUniqueID PLAY_GHOULDEATH1 = 3661127878U;
+        static const AkUniqueID PLAY_GHOULHURT0 = 1874053818U;
+        static const AkUniqueID PLAY_GHOULHURT1 = 1874053819U;
+        static const AkUniqueID PLAY_GHOULSCREAM0 = 80703006U;
+        static const AkUniqueID PLAY_GHOULSCREAM1 = 80703007U;
+        static const AkUniqueID PLAY_HITWOODSOUND = 2694878711U;
+        static const AkUniqueID PLAY_HITWOODSOUND2 = 3553367015U;
+        static const AkUniqueID PLAY_HITWOODSOUND3 = 3553367014U;
+        static const AkUniqueID PLAY_LUMBERJACKATTACK = 4180307474U;
     } // namespace EVENTS
 
     namespace GAME_PARAMETERS

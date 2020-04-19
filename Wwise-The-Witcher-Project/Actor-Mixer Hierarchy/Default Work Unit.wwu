@@ -98,6 +98,310 @@
 						<ActiveSource Name="HitWoodSound3" ID="{149A5F91-F766-47E4-A89A-88D6A5F486DA}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
+				<Sound Name="BanditHurt" ID="{4BD929BB-10D0-44D2-B1E4-5003C8DFA3A8}" ShortID="41338759">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2329853E-759E-4EB8-A52E-64D0D40691DA}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7862D06F-4D04-4B26-9663-208CCA5DA595}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Getting hit" ID="{DCA3890C-26B4-4C83-90D6-6A6DD9CBDFBC}" ShortID="361345053">
+							<Language>SFX</Language>
+							<AudioFile>Getting hit.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Getting hit" ID="{DCA3890C-26B4-4C83-90D6-6A6DD9CBDFBC}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="LumberjackAttack" ID="{545FD580-9B7F-4A2D-A7BD-640FCEB32A8F}" ShortID="944234042">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2329853E-759E-4EB8-A52E-64D0D40691DA}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7862D06F-4D04-4B26-9663-208CCA5DA595}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Lumberjack attack" ID="{53999F95-6EE7-43F5-AA8B-E804B03BE92F}" ShortID="790268568">
+							<Language>SFX</Language>
+							<AudioFile>Lumberjack attack.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Lumberjack attack" ID="{53999F95-6EE7-43F5-AA8B-E804B03BE92F}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="BanditRandomVoice1" ID="{B4FB60A8-67B5-45FE-AA9F-A936C6ACAA6D}" ShortID="684586741">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2329853E-759E-4EB8-A52E-64D0D40691DA}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7862D06F-4D04-4B26-9663-208CCA5DA595}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Random voice 1" ID="{2E0CD65A-3FAE-4BBA-A06F-1A19ACAF98DF}" ShortID="517372347">
+							<Language>SFX</Language>
+							<AudioFile>Random voice 1.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Random voice 1" ID="{2E0CD65A-3FAE-4BBA-A06F-1A19ACAF98DF}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="BanditRandomVoice2" ID="{CDC2F0A0-63A6-4733-B6A0-650EC6D925E6}" ShortID="800201570">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2329853E-759E-4EB8-A52E-64D0D40691DA}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7862D06F-4D04-4B26-9663-208CCA5DA595}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Random voice 2" ID="{73DCB07F-1230-4779-A5C3-DAA3B4B94FB4}" ShortID="601052313">
+							<Language>SFX</Language>
+							<AudioFile>Random voice 2.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Random voice 2" ID="{73DCB07F-1230-4779-A5C3-DAA3B4B94FB4}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="BanditRandommVoice3" ID="{AA27052B-B380-4E91-9BCF-8C9D11A112AF}" ShortID="652729093">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2329853E-759E-4EB8-A52E-64D0D40691DA}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7862D06F-4D04-4B26-9663-208CCA5DA595}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Randomm voice 3" ID="{6FE43E95-80A4-4329-8BC1-B01743779AA0}" ShortID="469550767">
+							<Language>SFX</Language>
+							<AudioFile>Randomm voice 3.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Randomm voice 3" ID="{6FE43E95-80A4-4329-8BC1-B01743779AA0}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="BanditThrowArrow" ID="{461F2114-161D-457B-8183-B50019838CC4}" ShortID="376636025">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2329853E-759E-4EB8-A52E-64D0D40691DA}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7862D06F-4D04-4B26-9663-208CCA5DA595}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Throw arrow" ID="{5E546A2C-B5E3-4DFA-AFF0-4BB923E7A342}" ShortID="2190703">
+							<Language>SFX</Language>
+							<AudioFile>Throw arrow.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Throw arrow" ID="{5E546A2C-B5E3-4DFA-AFF0-4BB923E7A342}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="BanditArrowHit" ID="{741E8B35-9A58-4F16-B191-78861605FDE7}" ShortID="677261372">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2329853E-759E-4EB8-A52E-64D0D40691DA}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7862D06F-4D04-4B26-9663-208CCA5DA595}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Arrow hit" ID="{8CE7D270-9811-4E3A-9DFA-0453378A7019}" ShortID="318061717">
+							<Language>SFX</Language>
+							<AudioFile>Arrow hit.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Arrow hit" ID="{8CE7D270-9811-4E3A-9DFA-0453378A7019}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="BanditDeath1" ID="{25B8CA3A-88F0-44DC-B889-C4589FEB411A}" ShortID="358621834">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2329853E-759E-4EB8-A52E-64D0D40691DA}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7862D06F-4D04-4B26-9663-208CCA5DA595}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Death 1" ID="{3BB14F4A-E447-4149-8AAF-43F208CA7CF1}" ShortID="304394248">
+							<Language>SFX</Language>
+							<AudioFile>Death 1.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Death 1" ID="{3BB14F4A-E447-4149-8AAF-43F208CA7CF1}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="BanditDeath2" ID="{59EB67BF-0583-4413-9D67-20EDE4DEE9B6}" ShortID="137152329">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2329853E-759E-4EB8-A52E-64D0D40691DA}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7862D06F-4D04-4B26-9663-208CCA5DA595}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Death 2" ID="{8A8EC14E-1BCC-4FA6-B36C-A0714E7511FF}" ShortID="969775713">
+							<Language>SFX</Language>
+							<AudioFile>Death 2.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Death 2" ID="{8A8EC14E-1BCC-4FA6-B36C-A0714E7511FF}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="BanditDeath3" ID="{989BAB04-4FE2-47B8-A8DF-539FDFF812DD}" ShortID="98047298">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2329853E-759E-4EB8-A52E-64D0D40691DA}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7862D06F-4D04-4B26-9663-208CCA5DA595}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Death 3" ID="{1BB56BD0-8AE7-42BD-B295-5EE2C8C0C2BC}" ShortID="879958447">
+							<Language>SFX</Language>
+							<AudioFile>Death 3.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Death 3" ID="{1BB56BD0-8AE7-42BD-B295-5EE2C8C0C2BC}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="GhoulDeath1" ID="{64630929-AC2B-4834-976F-68153D584402}" ShortID="526987654">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2329853E-759E-4EB8-A52E-64D0D40691DA}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7862D06F-4D04-4B26-9663-208CCA5DA595}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Die1" ID="{55B329FC-3FE5-418F-9002-C443F0EDC495}" ShortID="1014504744">
+							<Language>SFX</Language>
+							<AudioFile>Die1.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Die1" ID="{55B329FC-3FE5-418F-9002-C443F0EDC495}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="GhoulHurt0" ID="{86572CC1-84EC-48A2-A9B9-52C06A9484D6}" ShortID="543927725">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2329853E-759E-4EB8-A52E-64D0D40691DA}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7862D06F-4D04-4B26-9663-208CCA5DA595}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Hurt0" ID="{279690A2-4CD5-402E-BED6-C52EFDD22B75}" ShortID="453033087">
+							<Language>SFX</Language>
+							<AudioFile>Hurt0.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Hurt0" ID="{279690A2-4CD5-402E-BED6-C52EFDD22B75}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="GhoulHurt1" ID="{852D11B0-0279-4861-B422-36F731DB5D57}" ShortID="1004101921">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2329853E-759E-4EB8-A52E-64D0D40691DA}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7862D06F-4D04-4B26-9663-208CCA5DA595}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Hurt1" ID="{73BE55B3-EC1D-4123-9D2A-BCD0D3D3BE35}" ShortID="342447384">
+							<Language>SFX</Language>
+							<AudioFile>Hurt1.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Hurt1" ID="{73BE55B3-EC1D-4123-9D2A-BCD0D3D3BE35}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="GhoulScream0" ID="{2E61C182-9A83-40E2-844E-D18BD81B9B6B}" ShortID="475972120">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2329853E-759E-4EB8-A52E-64D0D40691DA}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7862D06F-4D04-4B26-9663-208CCA5DA595}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Scream0" ID="{F17FDA16-BB9C-49FC-99C8-B82CAA7DDD8E}" ShortID="34966600">
+							<Language>SFX</Language>
+							<AudioFile>Scream0.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Scream0" ID="{F17FDA16-BB9C-49FC-99C8-B82CAA7DDD8E}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="GhoulScream1" ID="{0BF7E3E4-38A3-4CAA-9981-8E8233A60654}" ShortID="595293665">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2329853E-759E-4EB8-A52E-64D0D40691DA}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7862D06F-4D04-4B26-9663-208CCA5DA595}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Scream1" ID="{E823CFE5-4CC6-4E32-9237-E5B66E53A188}" ShortID="651005804">
+							<Language>SFX</Language>
+							<AudioFile>Scream1.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Scream1" ID="{E823CFE5-4CC6-4E32-9237-E5B66E53A188}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="GhoulDeath0" ID="{782E2EB2-5F78-4DD4-98BE-5CF25CD40EDE}" ShortID="832300427">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2329853E-759E-4EB8-A52E-64D0D40691DA}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7862D06F-4D04-4B26-9663-208CCA5DA595}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Die0" ID="{7D722AD7-0FC4-41A3-9E39-497ABEC68529}" ShortID="60372665">
+							<Language>SFX</Language>
+							<AudioFile>Die0.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Die0" ID="{7D722AD7-0FC4-41A3-9E39-497ABEC68529}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>
