@@ -36,6 +36,36 @@ function GetTableCOMBO()
     local p1ID = 0
     lua_table.p1 = {}
 
+    ------------------
+
+    local COMBO_LIGHT_ID_J = 0
+    local COMBO_HEAVY_ID_J = 0
+    local COMBO_LIGHT2_ID_J = 0
+    local COMBO_HEAVY2_ID_J = 0
+    local COMBO_LIGHT3_ID_J = 0
+    local COMBO_HEAVY3_ID_J = 0
+    local COMBO_LIGHT4_ID_J = 0
+    local COMBO_HEAVY4_ID_J = 0
+    local COMBO_MEDIUM_ID_J = 0
+    local COMBO_MEDIUM2_ID_J = 0
+    local COMBO_MEDIUM3_ID_J = 0
+    local COMBO_MEDIUM4_ID_J = 0
+
+    local SWORD_UP_ID_J = 0
+    local SWORD_DOWN_ID_J = 0
+    local SWORD_FIRE_ID_J = 0
+    local sword_on_J = false
+    local sword_off_J = false
+    local combo_J = false
+
+    local first_J = false--spaces
+    local second_J = false
+    local third_J = false
+    local fourth_J = false
+
+    local p2ID = 0
+    lua_table.p2 = {}
+
     function lua_table:Awake()
         lua_table["System"]:LOG ("WORKING")
     
@@ -58,6 +88,28 @@ function GetTableCOMBO()
 
         p1ID = lua_table["GameObject"]:FindGameObject("Geralt")
         lua_table.p1 = lua_table["GameObject"]:GetScript(p1ID)
+        --------------
+
+        COMBO_LIGHT_ID_J = lua_table["GameObject"]:FindGameObject("COMBO1J")--exact name of gameobject
+        COMBO_HEAVY_ID_J = lua_table["GameObject"]:FindGameObject("COMBO2J")--exact name of gameobject
+        COMBO_LIGHT2_ID_J = lua_table["GameObject"]:FindGameObject("COMBO3J")--exact name of gameobject
+        COMBO_HEAVY2_ID_J = lua_table["GameObject"]:FindGameObject("COMBO4J")--exact name of gameobject
+        COMBO_LIGHT3_ID_J = lua_table["GameObject"]:FindGameObject("COMBO5J")--exact name of gameobject
+        COMBO_HEAVY3_ID_J = lua_table["GameObject"]:FindGameObject("COMBO6J")--exact name of gameobject
+        COMBO_LIGHT4_ID_J = lua_table["GameObject"]:FindGameObject("COMBO7J")--exact name of gameobject
+        COMBO_HEAVY4_ID_J = lua_table["GameObject"]:FindGameObject("COMBO8J")--exact name of gameobject
+        COMBO_MEDIUM_ID_J = lua_table["GameObject"]:FindGameObject("COMBO1.5J")--exact name of gameobject
+        COMBO_MEDIUM2_ID_J = lua_table["GameObject"]:FindGameObject("COMBO3.5J")--exact name of gameobject
+        COMBO_MEDIUM3_ID_J = lua_table["GameObject"]:FindGameObject("COMBO5.5J")--exact name of gameobject
+        COMBO_MEDIUM4_ID_J = lua_table["GameObject"]:FindGameObject("COMBO7.5J")--exact name of gameobject
+
+        SWORD_UP_ID_J = lua_table["GameObject"]:FindGameObject("GUITARUP")
+        SWORD_DOWN_ID_J = lua_table["GameObject"]:FindGameObject("GUITARDOWN")
+        SWORD_FIRE_ID_J = lua_table["GameObject"]:FindGameObject("GUITARCOMBO")
+
+        p2ID = lua_table["GameObject"]:FindGameObject("Jaskier")
+        lua_table.p2 = lua_table["GameObject"]:GetScript(p2ID)
+
     end
     
     function lua_table:Start()
@@ -78,13 +130,38 @@ function GetTableCOMBO()
         combo = false
         lua_table["UI"]:MakeElementInvisible("Image", SWORD_UP_ID)--SWORD ENFUNDADA AL COMIENZO
         lua_table["UI"]:MakeElementInvisible("Image", SWORD_FIRE_ID)--SWORD ENFUNDADA AL COMIENZO
+
+        --------------------------
+
+        lua_table["UI"]:MakeElementInvisible("Image", COMBO_LIGHT_ID_J)
+        lua_table["UI"]:MakeElementInvisible("Image", COMBO_HEAVY_ID_J)
+        lua_table["UI"]:MakeElementInvisible("Image", COMBO_LIGHT2_ID_J)
+        lua_table["UI"]:MakeElementInvisible("Image", COMBO_HEAVY2_ID_J)
+        lua_table["UI"]:MakeElementInvisible("Image", COMBO_LIGHT3_ID_J)
+        lua_table["UI"]:MakeElementInvisible("Image", COMBO_HEAVY3_ID_J)
+        lua_table["UI"]:MakeElementInvisible("Image", COMBO_LIGHT4_ID_J)
+        lua_table["UI"]:MakeElementInvisible("Image", COMBO_HEAVY4_ID_J)
+        lua_table["UI"]:MakeElementInvisible("Image", COMBO_MEDIUM_ID_J)
+        lua_table["UI"]:MakeElementInvisible("Image", COMBO_MEDIUM2_ID_J)
+        lua_table["UI"]:MakeElementInvisible("Image", COMBO_MEDIUM3_ID_J)
+        lua_table["UI"]:MakeElementInvisible("Image", COMBO_MEDIUM4_ID_J)
+
+        sword_off_J = true--la espada empieza envainada
+        combo_J = false
+        lua_table["UI"]:MakeElementInvisible("Image", SWORD_UP_ID_J)--SWORD ENFUNDADA AL COMIENZO
+        lua_table["UI"]:MakeElementInvisible("Image", SWORD_FIRE_ID_J)--SWORD ENFUNDADA AL COMIENZO
+
+
     end
     
     function lua_table:Update()
         timer = lua_table["System"]:GameTime()
         lua_table["System"]:LOG("COMBO: " .. lua_table.p1.combo_num )
         lua_table["System"]:LOG("STATE: " .. lua_table.p1.current_state )
+        lua_table["System"]:LOG("COMBO2: " .. lua_table.p2.note_num )
+        lua_table["System"]:LOG("STATE2: " .. lua_table.p2.current_state )
 
+        --GERALT
         if lua_table.p1.current_state < 8 and sword_on == true and combo == false
         then
             lua_table["UI"]:MakeElementInvisible("Image", COMBO_LIGHT_ID)
@@ -244,6 +321,168 @@ function GetTableCOMBO()
             lua_table["UI"]:MakeElementVisible("Image", COMBO_LIGHT4_ID)
             fourth = true
             combo = true
+        end
+
+        --JASKIER
+        if lua_table.p2.current_state < 8 and sword_on_J == true and combo_J == false
+        then
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_LIGHT_ID_J)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_HEAVY_ID_J)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_LIGHT2_ID_J)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_HEAVY2_ID_J)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_LIGHT3_ID_J)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_HEAVY3_ID_J)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_LIGHT4_ID_J)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_HEAVY4_ID_J)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_MEDIUM_ID_J)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_MEDIUM2_ID_J)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_MEDIUM3_ID_J)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_MEDIUM4_ID_J)
+
+            first_J = false
+            second_J = false
+            third_J = false
+            fourth_J = false
+
+            lua_table["UI"]:MakeElementInvisible("Image", SWORD_UP_ID_J)
+            lua_table["UI"]:MakeElementInvisible("Image", SWORD_FIRE_ID_J)
+            lua_table["UI"]:MakeElementVisible("Image", SWORD_DOWN_ID_J)
+
+            sword_off_J = true
+            sword_on_J = false
+            combo_J = false
+            
+        end
+
+        if lua_table.p2.note_num >= 4 and combo_J == false--para borrar al cuarto input si no hace combo
+        then
+
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_LIGHT_ID_J)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_HEAVY_ID_J)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_LIGHT2_ID_J)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_HEAVY2_ID_J)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_LIGHT3_ID_J)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_HEAVY3_ID_J)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_LIGHT4_ID_J)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_HEAVY4_ID_J)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_MEDIUM_ID_J)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_MEDIUM2_ID_J)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_MEDIUM3_ID_J)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_MEDIUM4_ID_J)
+
+            first_J = false
+            second_J = false
+            third_J = false
+            fourth_J = false
+            lua_table.p2.note_num = 0--ojo con esto
+
+        end
+
+
+        --COMPORTAMIENTO SWORD/GUITAR
+        if lua_table.p2.current_state >= 8 and lua_table.p2.current_state <= 16 and sword_off_J == true--cambiar por condicion de entrar en combate
+        then
+            lua_table["UI"]:MakeElementInvisible("Image", SWORD_DOWN_ID_J)
+            lua_table["UI"]:MakeElementVisible("Image", SWORD_UP_ID_J)
+            sword_off_J = false
+            sword_on_J = true
+        end
+
+        if combo_J == true
+        then
+
+            lua_table["UI"]:MakeElementInvisible("Image", SWORD_DOWN_ID_J)
+            lua_table["UI"]:MakeElementInvisible("Image", SWORD_UP_ID_J)
+            lua_table["UI"]:MakeElementVisible("Image", SWORD_FIRE_ID_J)
+            combo_J = false
+
+        end
+
+    -------------------------------------
+        if lua_table.p2.current_state == 8 and first_J == false and lua_table.p2.note_num == 1--PRIMER LIGHT
+        then
+            lua_table["UI"]:MakeElementVisible("Image", COMBO_LIGHT_ID_J)
+            first_J = true
+            
+            
+        end 
+
+        if lua_table.p2.current_state == 14 and first_J == false and lua_table.p2.note_num == 1 --PRIMER HEAVY
+        then
+            lua_table["UI"]:MakeElementVisible("Image", COMBO_HEAVY_ID_J)
+            first_J = true
+            
+        end 
+
+        if lua_table.p2.current_state == 11 and first_J == false and lua_table.p2.note_num == 1---PRIMER MEDIUM
+        then
+            lua_table["UI"]:MakeElementVisible("Image", COMBO_MEDIUM_ID_J)
+            first_J = true
+            
+        end 
+-----------------------------
+        if lua_table.p2.current_state == 9 and second_J == false and first_J == true and lua_table.p2.note_num == 2 --SECGUNDO LIGHT
+        then
+            lua_table["UI"]:MakeElementVisible("Image", COMBO_LIGHT2_ID_J)
+            second_J = true
+            
+        end 
+
+
+        if lua_table.p2.current_state == 15  and second_J == false and first_J == true and lua_table.p2.note_num == 2 --SECGUNDO HEAVY
+        then
+            lua_table["UI"]:MakeElementVisible("Image", COMBO_HEAVY2_ID_J)
+            second_J  = true
+            
+        end 
+
+        if lua_table.p2.current_state == 12  and second_J == false and first_J == true and lua_table.p2.note_num == 2 --SECGUNDO MEDIUM
+        then
+            lua_table["UI"]:MakeElementVisible("Image", COMBO_MEDIUM2_ID_J)
+            second_J  = true
+            
+        end
+--------------------------------
+        if lua_table.p2.current_state == 10 and third_J == false and lua_table.p2.note_num == 3--tercer LIGHT
+        then
+            lua_table["UI"]:MakeElementVisible("Image", COMBO_LIGHT3_ID_J)
+            third_J = true
+            
+        end 
+
+        if lua_table.p2.current_state == 16  and third_J == false and lua_table.p2.note_num == 3 --tercer HEAVY
+        then
+            lua_table["UI"]:MakeElementVisible("Image", COMBO_HEAVY3_ID_J)
+            third_J  = true
+            
+        end 
+
+        if lua_table.p2.current_state == 13  and third_J == false and lua_table.p2.note_num == 3--tercer MEDIUM
+        then
+            lua_table["UI"]:MakeElementVisible("Image", COMBO_MEDIUM3_ID_J)
+            third_J  = true
+            
+        end 
+---------------------------------
+        if lua_table.p2.current_state == 17 and fourth_J == false--fourth LIGHT if first combo
+        then
+            lua_table["UI"]:MakeElementVisible("Image", COMBO_LIGHT4_ID_J)
+            fourth_J = true
+            combo_J = true
+        end 
+
+        if lua_table.p2.current_state == 18  and fourth_J == false --fourth HEAVY
+        then
+            lua_table["UI"]:MakeElementVisible("Image", COMBO_HEAVY4_ID_J)
+            fourth_J  = true
+            combo_J = true
+        end 
+
+        if lua_table.p2.current_state == 19 and fourth_J == false--fourth LIGHT if third combo
+        then
+            lua_table["UI"]:MakeElementVisible("Image", COMBO_LIGHT4_ID_J)
+            fourth_J = true
+            combo_J = true
         end
 
     
