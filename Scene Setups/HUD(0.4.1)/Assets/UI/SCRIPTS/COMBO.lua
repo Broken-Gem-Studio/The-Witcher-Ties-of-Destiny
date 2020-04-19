@@ -351,6 +351,7 @@ function GetTableCOMBO()
             sword_off_J = true
             sword_on_J = false
             combo_J = false
+            lua_table.p2.note_num = 0
             
         end
 
