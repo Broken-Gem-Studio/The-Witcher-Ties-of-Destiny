@@ -11,9 +11,9 @@ lua_table.CameraFunctions = Scripting.Camera ()
 -----------------------------------------------------------------------------------------
 
 -- Absolute Distance from Target
-lua_table.camera_distance_layer_1 = 150 
-lua_table.camera_distance_layer_2 = 200
-lua_table.camera_distance_layer_3 = 250
+lua_table.camera_distance_layer_1 = 230 
+lua_table.camera_distance_layer_2 = 330
+lua_table.camera_distance_layer_3 = 550
 
 -- Angle of the camera in degrees (0 Horizontal 90 Vertical)
 lua_table.camera_angle = 70
