@@ -1215,15 +1215,15 @@ local function NextItem()	--Jump to next item you have num > 0 in inventory
 			new_item = 1
 		end
 
-		--if lua_table.inventory[new_item] > 0 then
+		if true then--lua_table.inventory[new_item] > 0 then
 			lua_table.item_selected = new_item
 			return true
-		--end
+		end
 
 		new_item = new_item + 1
 	end
 
-	return true
+	return false
 end
 
 local function PrevItem()	--Jump to prev item you have num > 0 in inventory
@@ -1234,10 +1234,10 @@ local function PrevItem()	--Jump to prev item you have num > 0 in inventory
 			new_item = item_library_size
 		end
 
-		--if lua_table.inventory[new_item] > 0 then
+		if true then--lua_table.inventory[new_item] > 0 then
 			lua_table.item_selected = new_item
 			return true
-		--end
+		end
 
 		new_item = new_item - 1
 	end
