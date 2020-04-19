@@ -350,7 +350,7 @@ function HandlePRE_DETECTION()
 		---
 		if isSelectedSubState == false ---Will enter 1 time to decide SubState
 		then
-			SelectedSubState = lua_table.SystemFunctions:RandomNumberInRange(0,4)
+			SelectedSubState = lua_table.SystemFunctions:RandomNumberInRange(0,10)
 			if SelectedSubState <= 10 and SelectedSubState >= 5
 			then
 				lua_table.CurrentSubState = SubState.IDL
