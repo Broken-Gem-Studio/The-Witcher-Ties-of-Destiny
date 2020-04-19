@@ -5,7 +5,7 @@ lua_table.GameObject = Scripting.GameObject()
 lua_table.Transform = Scripting.Transform()
 lua_table.Physics =  Scripting.Physics()
 lua_table.Animations = Scripting.Animations()
--- lua_table.Recast = Scripting.Navigation()
+lua_table.Recast = Scripting.Navigation()
 -----------------------------------------------------------------------------------------
 -- Inspector Variables
 -----------------------------------------------------------------------------------------
@@ -49,15 +49,15 @@ local attack_effects = {
 lua_table.MyUID = 0 --Entity UID
 lua_table.max_hp = 500
 lua_table.health = 0
-lua_table.speed = 5 
+lua_table.speed = 10
 lua_table.currentState = 0
 lua_table.is_stunned = false
 lua_table.is_dead = false
 	
 -- Aggro values 
 lua_table.AggroRange = 100
-lua_table.minDistance = 5 -- If entity is inside this distance, then attack
-lua_table.jumpDistance = 10
+lua_table.minDistance = 2.5 -- If entity is inside this distance, then attack
+lua_table.jumpDistance = 7
 
 -- Combo attack values
 local Punch = 10
@@ -74,6 +74,9 @@ local combo_timer = 0
 local start_death = false
 local death_timer = 0
 
+local start_navigation = false
+local navigation_timer = 0
+
 -- Flow control conditionals
 local jumping = false
 local stunning = false
@@ -81,84 +84,12 @@ local punching = false
 local swiping = false
 local crushing = false
 
+-- Recast navigation
+local navID = 0
+local corners = {}
+lua_table.currCorner = 2
+
 -- ______________________SCRIPT FUNCTIONS______________________
-local function SearchPlayers() -- Check if targets are within range
-
-	lua_table.GeraltPos = lua_table.Transform:GetPosition(lua_table.geralt)
-	lua_table.JaskierPos = lua_table.Transform:GetPosition(lua_table.jaskier)
-	lua_table.GhoulPos = lua_table.Transform:GetPosition(lua_table.MyUID)
-	
-	local GC1 = lua_table.GeraltPos[1] - lua_table.GhoulPos[1]
-	local GC2 = lua_table.GeraltPos[3] - lua_table.GhoulPos[3]
-	lua_table.GeraltDistance = math.sqrt(GC1 ^ 2 + GC2 ^ 2)
-
-	local JC1 = lua_table.JaskierPos[1] - lua_table.GhoulPos[1]
-	local JC2 = lua_table.JaskierPos[3] - lua_table.GhoulPos[3]
-	lua_table.JaskierDistance =  math.sqrt(JC1 ^ 2 + JC2 ^ 2)
-	
-	
-	lua_table.currentTarget = lua_table.geralt
-	lua_table.currentTargetDir = lua_table.GeraltDistance
-	lua_table.currentTargetPos = lua_table.GeraltPos
-					
-	if lua_table.JaskierDistance < lua_table.GeraltDistance then
-		lua_table.currentTarget = lua_table.jaskier
-		lua_table.currentTargetDir = lua_table.JaskierDistance
-		lua_table.currentTargetPos = lua_table.JaskierPos
-	end 
-		
-	lua_table.MoveVector = {0, 0, 0}
-	lua_table.MoveVector[1] = lua_table.currentTargetPos[1] - lua_table.GhoulPos[1]
-	lua_table.MoveVector[2] = lua_table.currentTargetPos[2] - lua_table.GhoulPos[2]
-	lua_table.MoveVector[3] = lua_table.currentTargetPos[3] - lua_table.GhoulPos[3]
-end
-	
-local function Idle() 
-		
-	if lua_table.is_stunned == false
-	then 
-		if lua_table.currentTargetDir <= lua_table.AggroRange
-		then
-			lua_table.currentState = State.SEEK
-			lua_table.Animations:PlayAnimation("Walk", 60.0)
-			lua_table.System:LOG("Tank Ghoul state: SEEK (1)") 
-		end
-
-	end
-	
-end
-	
-local function Seek()
-	
-	-- Now we get the direction vector and then we normalize it and aply a velocity in every component
-	
-	if lua_table.currentTargetDir < lua_table.AggroRange and lua_table.currentTargetDir > lua_table.minDistance then
-			
-		local dis = math.sqrt(lua_table.MoveVector[1] ^ 2 + lua_table.MoveVector[3] ^ 2)
-
-		local tmp = lua_table.Transform:GetPosition(lua_table.currentTarget) -- For LookAt
-	
-		-- Normalize the vector
-		vec = { 0, 0, 0 }
-		vec[1] = lua_table.MoveVector[1] / dis
-		vec[2] = lua_table.MoveVector[2]
-		vec[3] = lua_table.MoveVector[3] / dis
-			
-			-- Apply movement vector to move character
-		lua_table.Physics:Move(vec[1] * lua_table.speed, vec[3] * lua_table.speed, lua_table.MyUID)
-		lua_table.Transform:LookAt(tmp[1], lua_table.GhoulPos[2], tmp[3], lua_table.MyUID)
-		
-	else 
-		currentState = State.IDLE	
-	end
-	
-	if lua_table.currentTargetDir <= lua_table.minDistance then
-		lua_table.currentState = State.JUMP
-		lua_table.System:LOG("Tank Ghoul state: JUMP (2)")
-		 
-	end
-end
-
 local function ResetJumpStun()
 	-- Timer
 	if start_jump == true then start_jump = false end
@@ -177,6 +108,104 @@ local function ResetCombo()
 	if swiping == true then swiping = false end
 	if crushing == true then crushing = false end
 end
+
+local function ResetNavigation()
+	lua_table.currCorner = 2
+	start_navigation = false
+end
+
+local function SearchPlayers() -- Check if targets are within range
+
+	lua_table.GeraltPos = lua_table.Transform:GetPosition(lua_table.geralt)
+	lua_table.JaskierPos = lua_table.Transform:GetPosition(lua_table.jaskier)
+	lua_table.GhoulPos = lua_table.Transform:GetPosition(lua_table.MyUID)
+	
+	local GC1 = lua_table.GeraltPos[1] - lua_table.GhoulPos[1]
+	local GC2 = lua_table.GeraltPos[3] - lua_table.GhoulPos[3]
+	lua_table.GeraltDistance = math.sqrt(GC1 ^ 2 + GC2 ^ 2)
+
+	local JC1 = lua_table.JaskierPos[1] - lua_table.GhoulPos[1]
+	local JC2 = lua_table.JaskierPos[3] - lua_table.GhoulPos[3]
+	lua_table.JaskierDistance =  math.sqrt(JC1 ^ 2 + JC2 ^ 2)
+	
+	lua_table.currentTarget = lua_table.geralt
+	lua_table.currentTargetDir = lua_table.GeraltDistance
+	lua_table.currentTargetPos = lua_table.GeraltPos
+					
+	if lua_table.JaskierDistance < lua_table.GeraltDistance then
+		lua_table.currentTarget = lua_table.jaskier
+		lua_table.currentTargetDir = lua_table.JaskierDistance
+		lua_table.currentTargetPos = lua_table.JaskierPos
+	end 
+end
+	
+local function Idle() 
+		
+	if lua_table.is_stunned == false
+	then 
+		if lua_table.currentTargetDir <= lua_table.AggroRange then
+			lua_table.currentState = State.SEEK
+			lua_table.Animations:PlayAnimation("Walk", 40.0)
+			lua_table.System:LOG("Tank Ghoul state: SEEK (1)") 
+		end
+
+	end
+	
+end
+	
+local function Seek()
+	
+	-- Now we get the direction vector and then we normalize it and aply a velocity in every component
+	
+	if lua_table.currentTargetDir < lua_table.AggroRange and lua_table.currentTargetDir > lua_table.minDistance then
+			
+		local tmp = lua_table.Transform:GetPosition(lua_table.currentTarget) -- For LookAt
+
+		-- Wait 4 second to recalculate path
+
+		if not start_navigation then
+			corners = lua_table.Recast:CalculatePath(lua_table.GhoulPos[1], lua_table.GhoulPos[2], lua_table.GhoulPos[3], tmp[1], tmp[2], tmp[3], 1 << navID)
+			navigation_timer = lua_table.System:GameTime() * 1000
+			ResetNavigation()
+		end
+		if navigation_timer + 4000 <= lua_table.System:GameTime() * 1000 then
+			start_navigation = false
+		end
+
+		local nextCorner = {}
+		nextCorner[1] = corners[lua_table.currCorner][1] - lua_table.GhoulPos[1]
+		nextCorner[2] = corners[lua_table.currCorner][2] - lua_table.GhoulPos[2]
+		nextCorner[3] = corners[lua_table.currCorner][3] - lua_table.GhoulPos[3]
+
+		local dis = math.sqrt(nextCorner[1] ^ 2 + nextCorner[3] ^ 2)
+		
+		if dis > 0.1 then 
+
+			local vec = { 0, 0, 0 }
+			vec[1] = nextCorner[1] / dis
+			vec[2] = nextCorner[2]
+			vec[3] = nextCorner[3] / dis
+				
+			-- Apply movement vector to move character
+			lua_table.Physics:Move(vec[1] * lua_table.speed, vec[3] * lua_table.speed, lua_table.MyUID)
+			
+			lua_table.Transform:LookAt(corners[lua_table.currCorner][1], lua_table.GhoulPos[2], corners[lua_table.currCorner][3], lua_table.MyUID)
+			else
+				lua_table.currCorner = lua_table.currCorner + 1
+		end
+		
+		else 
+			currentState = State.IDLE	
+			
+	end
+	
+	if lua_table.currentTargetDir <= lua_table.minDistance then
+		lua_table.currentState = State.JUMP
+		lua_table.System:LOG("Tank Ghoul state: JUMP (2)")
+		ResetNavigation()
+	end
+end
+
 	
 local function JumpStun() -- Smash the ground with a jump, then stun
 	
@@ -199,6 +228,7 @@ local function JumpStun() -- Smash the ground with a jump, then stun
 		lua_table.currentState = State.COMBO
 		lua_table.System:LOG("Tank Ghoul state: COMBO (3)")  
 		ResetCombo()
+		ResetNavigation()
 	end
 	
 		
@@ -209,6 +239,7 @@ local function Combo()
 	if lua_table.currentTargetDir >= lua_table.jumpDistance then
 		lua_table.currentState = State.SEEK	
 		lua_table.System:LOG("Tank Ghoul state: SEEK (1), target out of range")    
+		lua_table.Animations:PlayAnimation("Walk", 60.0)
 		ResetJumpStun()
 		
 		return
@@ -239,6 +270,7 @@ local function Combo()
 	if combo_timer + 5000 <= lua_table.System:GameTime() * 1000 then
 		lua_table.currentState = State.SEEK	
 		lua_table.System:LOG("Tank Ghoul state: JUMP (2)")  
+		ResetNavigation()
 		ResetJumpStun()
 	end
 	
@@ -247,7 +279,6 @@ end
 local function Die()
 	if is_dead == true and not start_death then 
 		death_timer = lua_table.System:GameTime() * 1000
-		lua_table.System:LOG("Im fucking dead")
 		lua_table.Animations:PlayAnimation("Death", 30.0)
 		start_death = true
 	end
@@ -295,27 +326,30 @@ function lua_table:Start()
 	-- Check if both players are in the scene
 	if lua_table.geralt == 0 then 
 		lua_table.System:LOG ("Geralt not found in scene, add it")
-	else 
-		lua_table.System:LOG ("Geralt detected")
+		else 
+			lua_table.System:LOG ("Geralt detected")
 	end
 	   
 	if lua_table.jaskier == 0 then 
 		lua_table.System:LOG ("Jaskier not found in scene, add it")
-	else 
-		lua_table.System:LOG ("Jaskier detected")
+		else 
+			lua_table.System:LOG ("Jaskier detected")
 	end
 
 	lua_table.currentState = State.IDLE
+	lua_table.Animations:PlayAnimation("Idle", 30.0)
 	lua_table.System:LOG("Tank Ghoul state: IDLE (0)") 
 	lua_table.health = lua_table.max_hp
+
+	-- Initialize Nav
+	navID = lua_table.Recast:GetAreaFromName("Walkable")
 	
 end
 
 function lua_table:Update()
 
 	-- Check if our entity is dead
-	if lua_table.health <= 0
-	then 
+	if lua_table.health <= 0 then 
 		lua_table.currentState = State.DEATH
 		lua_table.System:LOG("Tank Ghoul state: Death (4)")
 		lua_table.is_dead = true
