@@ -429,7 +429,7 @@ lua_table.ultimate_reg_mod = 1.0
 lua_table.ultimate_reg_orig = 10	--Ideally, 2 or something similar
 
 local ultimate_started_at = 0.0
-lua_table.ultimate_concert_start = 2500
+lua_table.ultimate_concert_finish = 2500
 lua_table.ultimate_duration = 3600
 lua_table.ultimate_animation_speed = 45.0
 
@@ -1227,10 +1227,10 @@ local function NextItem()	--Jump to next item you have num > 0 in inventory
 			new_item = 1
 		end
 
-		if lua_table.inventory[new_item] > 0 then
+		--if lua_table.inventory[new_item] > 0 then
 			lua_table.item_selected = new_item
 			return true
-		end
+		--end
 
 		new_item = new_item + 1
 	end
@@ -1246,10 +1246,10 @@ local function PrevItem()	--Jump to prev item you have num > 0 in inventory
 			new_item = item_library_size
 		end
 
-		if lua_table.inventory[new_item] > 0 then
+		--if lua_table.inventory[new_item] > 0 then
 			lua_table.item_selected = new_item
 			return true
-		end
+		--end
 
 		new_item = new_item - 1
 	end
@@ -1285,7 +1285,7 @@ local function SecondaryInputs()	--Process Secondary Inputs
 		then
 			TakePotion(lua_table.item_selected)
 
-			if lua_table.inventory[lua_table.item_selected] == 0 then NextItem() end	--IF no more if that type of item, jump to next
+			--if lua_table.inventory[lua_table.item_selected] == 0 then NextItem() end	--IF no more if that type of item, jump to next
 		end
 	end
 

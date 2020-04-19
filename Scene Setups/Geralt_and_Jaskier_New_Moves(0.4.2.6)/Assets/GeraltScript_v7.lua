@@ -1215,10 +1215,10 @@ local function NextItem()	--Jump to next item you have num > 0 in inventory
 			new_item = 1
 		end
 
-		if lua_table.inventory[new_item] > 0 then
+		--if lua_table.inventory[new_item] > 0 then
 			lua_table.item_selected = new_item
 			return true
-		end
+		--end
 
 		new_item = new_item + 1
 	end
@@ -1234,10 +1234,10 @@ local function PrevItem()	--Jump to prev item you have num > 0 in inventory
 			new_item = item_library_size
 		end
 
-		if lua_table.inventory[new_item] > 0 then
+		--if lua_table.inventory[new_item] > 0 then
 			lua_table.item_selected = new_item
 			return true
-		end
+		--end
 
 		new_item = new_item - 1
 	end
@@ -1271,10 +1271,9 @@ local function SecondaryInputs()	--Process Secondary Inputs
 	if not lua_table.potion_active then
 		if lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, "BUTTON_RIGHTSHOULDER", key_state.key_down)		--Pickup Item
 		then
-			lua_table.SystemFunctions:LOG("I GOT THIS FAR -----------------------")
 			TakePotion(lua_table.item_selected)
 
-			if lua_table.inventory[lua_table.item_selected] == 0 then NextItem() end	--IF no more if that type of item, jump to next
+			--if lua_table.inventory[lua_table.item_selected] == 0 then NextItem() end	--IF no more if that type of item, jump to next
 		end
 	end
 
