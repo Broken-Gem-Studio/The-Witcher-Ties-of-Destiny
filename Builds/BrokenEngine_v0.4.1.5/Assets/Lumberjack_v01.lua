@@ -121,6 +121,11 @@ local Aux_TargetPos = {}
 local Aux_TargetExist = false
 local DistanceMagnitudeAux_Target = 0
 local UseAuxVariables = false
+
+--Die()
+
+lua_table.Dead = false
+local DeadTime = 0
 -----------------------------------------------------------------------------------------
 -- Inspector Variables
 -----------------------------------------------------------------------------------------
@@ -357,6 +362,10 @@ local function Attack()
 	end
 		
 end
+function Die()
+	lua_table.Dead = true
+	lua_table.AnimationSystem:PlayAnimation("DEATH",35.0)
+end
 
 -----------------------------------------------------------------------------------------
 -- MAIN FUNCTIONS
@@ -547,6 +556,19 @@ local function HandleAttack()
 	end
 end
 
+function HandleDeath()
+	if lua_table.Dead == false
+	then	
+		Die()
+		DeadTime = PerfGameTime()
+	end
+
+	TiMe = PerfGameTime()
+	if TiMe -DeadTime > 5
+	then
+		lua_table.GameObjectFunctions:DestroyGOFromScript()
+	end
+end
 -----------------------------------------------------------------------------------------
 -- Main Code
 -----------------------------------------------------------------------------------------
@@ -554,7 +576,29 @@ end
 function lua_table:OnTriggerEnter()	
 	local collider_GO = lua_table.PhysicsSystem:OnTriggerEnter(MyUID)
 
-	--lua_table.SystemFunctions:LOG("OnTriggerEnter()".. collider_GO)
+	lua_table.current_health = lua_table.current_health - 210.0
+	lua_table.SystemFunctions:LOG("-210")
+	--if lua_table.CurrentState ~= State.DEATH --and lua_table.GameObjectFunctions:GetLayerByID(collider_GO) == 2 --enemy attack
+	--then
+	--	local collider_parent = lua_table.GameObjectFunctions:GetGameObjectParent(collider_GO)
+ 	--	local enemy_script = {}
+ 	--if collider_parent ~= 0 
+	 --	then
+	 --		enemy_script = lua_table.GameObjectFunctions:GetScript(collider_parent)
+	 --	else
+	 --		enemy_script = lua_table.GameObjectFunctions:GetScript(collider_GO)
+	 --	end
+--
+	 --	lua_table.current_health = lua_table.current_health - enemy_script.collider_damage
+
+	 --	if enemy_script.collider_effect ~= 0
+	 --	then
+	 		--todo react to effect
+	 --	end
+   -- end
+
+
+	lua_table.SystemFunctions:LOG("OnTriggerEnter()".. collider_GO)
 end
 function lua_table:OnCollisionEnter()
 	local collider = lua_table.PhysicsSystem:OnCollisionEnter(MyUID)
@@ -605,7 +649,6 @@ function lua_table:Update()
 	then
 		lua_table.CurrentState = State.DEATH
 	end
-
 	if lua_table.CurrentState == State.PRE_DETECTION
 	then
 		HandlePRE_DETECTION()	
@@ -617,7 +660,9 @@ function lua_table:Update()
 		HandleAttack()
 		Nvec3x = Nvec3x * 0.00001
 		Nvec3z = Nvec3z * 0.00001
-	elseif lua_table.CurrentSubState
+	elseif lua_table.CurrentState == State.DEATH
+	then
+		HandleDeath()
 	end
 
 	lua_table.TransformFunctions:LookAt(lua_table.Pos[1] + vec3x,lua_table.Pos[2],lua_table.Pos[3] + vec3z,MyUID) -- PROVISIONAL, QUEDA MUY ARTIFICIAL
