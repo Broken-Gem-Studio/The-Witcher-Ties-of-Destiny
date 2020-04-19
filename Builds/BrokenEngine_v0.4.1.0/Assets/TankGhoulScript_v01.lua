@@ -120,6 +120,7 @@ local function Idle()
 		if lua_table.currentTargetDir <= lua_table.AggroRange
 		then
 			lua_table.currentState = State.SEEK
+			lua_table.Animations:PlayAnimation("Walk", 60.0)
 			lua_table.System:LOG("Tank Ghoul state: SEEK (1)") 
 		end
 
@@ -146,6 +147,7 @@ local function Seek()
 			-- Apply movement vector to move character
 		lua_table.Physics:Move(vec[1] * lua_table.speed, vec[3] * lua_table.speed, lua_table.MyUID)
 		lua_table.Transform:LookAt(tmp[1], lua_table.GhoulPos[2], tmp[3], lua_table.MyUID)
+		
 	else 
 		currentState = State.IDLE	
 	end
@@ -183,15 +185,17 @@ local function JumpStun() -- Smash the ground with a jump, then stun
 		start_jump = true
 	end
 
-	if jump_timer + 500 <= lua_table.System:GameTime() * 1000 and not jumping then
+	if jump_timer + 250 <= lua_table.System:GameTime() * 1000 and not jumping then
 		lua_table.System:LOG("Jump")
+		lua_table.Animations:PlayAnimation("Jump_Stun", 30.0)
 		jumping = true
 	end
-	if jump_timer + 1500 <= lua_table.System:GameTime() * 1000 and not stunning then
+	if jump_timer + 3000 <= lua_table.System:GameTime() * 1000 and not stunning then
 		lua_table.System:LOG("Land and stun")
+		lua_table.Animations:PlayAnimation("Crush", 30.0)
 		stunning = true
 	end
-	if jump_timer + 2000 <= lua_table.System:GameTime() * 1000 then
+	if jump_timer + 5500 <= lua_table.System:GameTime() * 1000 then
 		lua_table.currentState = State.COMBO
 		lua_table.System:LOG("Tank Ghoul state: COMBO (3)")  
 		ResetCombo()
@@ -215,21 +219,24 @@ local function Combo()
 		start_combo = true
 	end
 
-	if combo_timer + 500 <= lua_table.System:GameTime() * 1000 and not punching then
+	if combo_timer + 250 <= lua_table.System:GameTime() * 1000 and not punching then
 		lua_table.System:LOG("Punch to target")
+		lua_table.Animations:PlayAnimation("Punch", 30.0)
 		punching = true
 	end
-	if combo_timer + 1500 <= lua_table.System:GameTime() * 1000 and not swiping then
+	if combo_timer + 1750 <= lua_table.System:GameTime() * 1000 and not swiping then
 		lua_table.System:LOG("Swipe to target")
+		lua_table.Animations:PlayAnimation("Swipe", 30.0)
 		swiping = true
 	end
-	if combo_timer + 2500 <= lua_table.System:GameTime() * 1000 and not crushing then
+	if combo_timer + 3500 <= lua_table.System:GameTime() * 1000 and not crushing then
 		lua_table.System:LOG("Crush to target")
+		lua_table.Animations:PlayAnimation("Smash", 30.0)
 		crushing = true
 	end
 	
 	-- After he finished, switch state and reset jump values
-	if combo_timer + 3000 <= lua_table.System:GameTime() * 1000 then
+	if combo_timer + 5000 <= lua_table.System:GameTime() * 1000 then
 		lua_table.currentState = State.SEEK	
 		lua_table.System:LOG("Tank Ghoul state: JUMP (2)")  
 		ResetJumpStun()
@@ -240,8 +247,8 @@ end
 local function Die()
 	if is_dead == true and not start_death then 
 		death_timer = lua_table.System:GameTime() * 1000
-		-- Play dead animation
 		lua_table.System:LOG("Im fucking dead")
+		lua_table.Animations:PlayAnimation("Death", 30.0)
 		start_death = true
 	end
 
