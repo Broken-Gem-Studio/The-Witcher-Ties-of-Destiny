@@ -67,10 +67,10 @@ function ParticleBigExplosion(particleduration, pUID)
 	if (randy == 1)
 	then
 		lua_table.AudioFunctions:PlayAudioEvent("Event_Play_BrokenWoodSound")
-		lua_table.SystemFunctions:LOG ("Prop : playing kill 1")
+		--lua_table.SystemFunctions:LOG ("Prop : playing kill 1")
 	else
 		lua_table.AudioFunctions:PlayAudioEvent("Event_Play_BrokenWoodSound2")
-		lua_table.SystemFunctions:LOG ("Prop : playing kill 2")
+		--lua_table.SystemFunctions:LOG ("Prop : playing kill 2")
 
 	end
 end
