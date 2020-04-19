@@ -103,6 +103,32 @@ local critical_damage_real
 lua_table.critical_damage_add = 0
 lua_table.critical_damage_orig = 2.0
 
+--Items
+lua_table.item_library = {	--Used to flag a readable name with a number id, allows for item indexing based on number
+	health_potion = 1,
+	energy_potion = 2,
+	power_potion = 3
+}
+local item_library_size = 3
+
+local item_effects = {		--Item library and required data to operate
+	{ item_effect = 2, stat_affected = "health_reg_mod" },
+	{ item_effect = 2, stat_affected = "energy_reg_mod" },
+	{ item_effect = 2, stat_affected = "base_damage_mod" }
+}
+lua_table.inventory = {	--Character inventory (number of each item)
+	3,
+	3,
+	0
+}
+lua_table.item_selected = lua_table.item_library.health_potion
+
+	--Potions
+	lua_table.potion_in_effect = 0
+	lua_table.potion_duration = 5000	--Duration in ms
+	local potion_taken_at = 0
+	lua_table.potion_active = false
+
 --Controls
 local key_state = {
 	key_idle = "IDLE",
@@ -127,10 +153,10 @@ lua_table.key_ability = "BUTTON_X"
 lua_table.key_move = "AXIS_LEFT"
 lua_table.key_aim = "AXIS_RIGHT"
 
-lua_table.key_pickup_item = "BUTTON_DPAD_UP"
+--lua_table.key_pickup_item = "BUTTON_DPAD_UP"
 lua_table.key_prev_consumable = "BUTTON_DPAD_LEFT"
 lua_table.key_next_consumable = "BUTTON_DPAD_RIGHT"
-lua_table.key_drop_consumable = "BUTTON_DPAD_DOWN"
+--lua_table.key_drop_consumable = "BUTTON_DPAD_DOWN"
 
 lua_table.key_notdef5 = "BUTTON_BACK"
 lua_table.key_notdef6 = "BUTTON_START"
@@ -1126,14 +1152,14 @@ local function ActionInputs()	--Process Action Inputs
 			lua_table.current_state = state.ultimate
 			action_made = true
 
-		elseif lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_use_item, key_state.key_down)	--Object Input
-		then
-			action_started_at = game_time							--Set timer start mark
+		-- elseif lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_use_item, key_state.key_down)	--Object Input
+		-- then
+		-- 	action_started_at = game_time							--Set timer start mark
 
-			--Do Use_Object
-			lua_table.previous_state = lua_table.current_state
-			lua_table.current_state = state.item
-			action_made = true
+		-- 	--Do Use_Object
+		-- 	lua_table.previous_state = lua_table.current_state
+		-- 	lua_table.current_state = state.item
+		-- 	action_made = true
 
 		elseif lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_interact, key_state.key_down)	--Revive Input
 		then
@@ -1181,23 +1207,86 @@ end
 
 --Character Secondaries BEGIN	----------------------------------------------------------------------------
 
+local function NextItem()	--Jump to next item you have num > 0 in inventory
+	local new_item = lua_table.item_selected + 1
+
+	while new_item ~= lua_table.item_selected do
+		if new_item > item_library_size then
+			new_item = 1
+		end
+
+		if lua_table.inventory[new_item] > 0 then
+			lua_table.item_selected = new_item
+			return true
+		end
+
+		new_item = new_item + 1
+	end
+
+	return true
+end
+
+local function PrevItem()	--Jump to prev item you have num > 0 in inventory
+	local new_item = lua_table.item_selected - 1
+
+	while new_item ~= lua_table.item_selected do
+		if new_item < 1 then
+			new_item = item_library_size
+		end
+
+		if lua_table.inventory[new_item] > 0 then
+			lua_table.item_selected = new_item
+			return true
+		end
+
+		new_item = new_item - 1
+	end
+
+	return false
+end
+
+local function TakePotion(potion_id)
+	if lua_table.inventory[potion_id] > 0 then	--IF potions of type left
+
+		lua_table[item_effects[potion_id].stat_affected] = lua_table[item_effects[potion_id].stat_affected] + item_effects[potion_id].item_effect	-- Apply effect
+		lua_table.potion_in_effect = potion_id	-- Save Potion number id to later use
+
+		potion_taken_at = game_time		--Mark drink time
+		lua_table.potion_active = true	--Mark potion in effect
+
+		lua_table.inventory[potion_id] = lua_table.inventory[potion_id] - 1	--Remove potion from inventory
+		must_update_stats = true	--Flag stats for update
+	else
+		--TODO-Audio: Play some sound to indicate not possible
+	end
+end
+
+local function EndPotion(potion_id)
+	lua_table[item_effects[potion_id].stat_affected] = lua_table[item_effects[potion_id].stat_affected] - item_effects[potion_id].item_effect	-- Apply effect
+	lua_table.potion_active = false	--Mark potion off effect
+	must_update_stats = true	--Flag stats for update
+end
+
 local function SecondaryInputs()	--Process Secondary Inputs
-	if lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_pickup_item, key_state.key_down)			--Pickup Item
+	if not lua_table.potion_active then
+		if lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, "BUTTON_RIGHTSHOULDER", key_state.key_down)		--Pickup Item
+		then
+			lua_table.SystemFunctions:LOG("I GOT THIS FAR -----------------------")
+			TakePotion(lua_table.item_selected)
+
+			if lua_table.inventory[lua_table.item_selected] == 0 then NextItem() end	--IF no more if that type of item, jump to next
+		end
+	end
+
+	if lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_prev_consumable, key_state.key_down)	--Previous Consumable
 	then
-		--IF consumable (increase counter)
-		--ELSEIF gear (replace current gear)
-	
-	elseif lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_prev_consumable, key_state.key_down)	--Previous Consumable
-	then
-		--GO TO PREV CONSUMABLE
+		if not PrevItem() then	--TODO-Audio: Make not possible sound
+		end
 	
 	elseif lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_next_consumable, key_state.key_down)	--Next Consumable
 	then
-		--GO TO NEXT CONSUMABLE
-
-	elseif lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_drop_consumable, key_state.key_down)	--Drop Consumable
-	then
-		--DROP CURRENT CONSUMABLE
+		if not NextItem() then	--TODO-Audio: Make not possible sound
+		end
 	end
 end
 
@@ -1318,6 +1407,8 @@ function lua_table:Update()
 		then
 			lua_table.ability_performed = false
 		end
+
+		if lua_table.potion_active and game_time - potion_taken_at > lua_table.potion_duration then EndPotion(lua_table.potion_in_effect) end
 	end
 
 	if lua_table.current_state >= state.idle	--IF alive
@@ -1329,6 +1420,7 @@ function lua_table:Update()
 			lua_table.previous_state = lua_table.current_state
 			lua_table.current_state = state.down
 
+			if lua_table.potion_active then EndPotion(lua_table.potion_in_effect) end				--IF potion in effect, turn off
 			if lua_table.ultimate_active then UltimateState(false) end	--IF ultimate on, go off
 			AttackColliderShutdown()							--IF any attack colliders on, turn off
 			--TODO-Particles: Particle Shutdown
@@ -1368,7 +1460,7 @@ function lua_table:Update()
 			if lua_table.current_state <= state.run
 			then
 				MovementInputs()	--Movement orders
-				--SecondaryInputs()	--Minor actions with no timer or special animations
+				SecondaryInputs()	--Minor actions with no timer or special animations
 
 			else	--ELSE (action being performed)
 				time_since_action = game_time - action_started_at
@@ -1507,19 +1599,23 @@ function lua_table:Update()
 
 	--DEBUG LOGS
 	--lua_table.SystemFunctions:LOG("Delta Time: " .. dt)
-	lua_table.SystemFunctions:LOG("State: " .. lua_table.current_state)
-	lua_table.SystemFunctions:LOG("Time passed: " .. time_since_action)
+	--lua_table.SystemFunctions:LOG("State: " .. lua_table.current_state)
+	--lua_table.SystemFunctions:LOG("Time passed: " .. time_since_action)
 	--rot_y = math.rad(GimbalLockWorkaroundY(lua_table.TransformFunctions:GetRotation()[2]))	--TODO: Remove GimbalLock stage when Euler bug is fixed
 	--lua_table.SystemFunctions:LOG("Angle Y: " .. rot_y)
 	--lua_table.SystemFunctions:LOG("Ultimate: " .. lua_table.current_ultimate)
-	lua_table.SystemFunctions:LOG("Combo num: " .. lua_table.combo_num)
+	--lua_table.SystemFunctions:LOG("Combo num: " .. lua_table.combo_num)
 	--lua_table.SystemFunctions:LOG("Combo string: " .. lua_table.combo_stack[1] .. ", " .. lua_table.combo_stack[2] .. ", " .. lua_table.combo_stack[3] .. ", " .. lua_table.combo_stack[4])
+
+	--Item LOGS
+	lua_table.SystemFunctions:LOG("Current Item: " .. lua_table.item_selected)
+	lua_table.SystemFunctions:LOG("Health Potions Left: " .. lua_table.inventory[1])
 
 	--Stats LOGS
 	--lua_table.SystemFunctions:LOG("Health: " .. lua_table.current_health)
 	--lua_table.SystemFunctions:LOG("Energy: " .. lua_table.current_energy)
 
-	--lua_table.SystemFunctions:LOG("Health Reg: " .. health_reg_real)
+	lua_table.SystemFunctions:LOG("Health Reg: " .. health_reg_real)
 	--lua_table.SystemFunctions:LOG("Energy Reg: " .. energy_reg_real)
 	--lua_table.SystemFunctions:LOG("Damage: " .. base_damage_real)
 
