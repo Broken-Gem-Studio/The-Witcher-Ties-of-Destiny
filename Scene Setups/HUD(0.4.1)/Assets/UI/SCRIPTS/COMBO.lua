@@ -475,17 +475,17 @@ function GetTableCOMBO()
         
 
         --COMBOS
-        if lua_table.p2.note_num == 4 and combo_J == false and  lua_table.p2.note_stack[4] == 'L' and  lua_table.p2.note_stack[3] == 'L' and  lua_table.p2.note_stack[2] == 'L' and  lua_table.p2.note_stack[1] == 'L'
+        if lua_table.p2.note_num == 4 and combo_J == false and  lua_table.p2.note_stack[4] == 'M' and  lua_table.p2.note_stack[3] == 'L' and  lua_table.p2.note_stack[2] == 'L' and  lua_table.p2.note_stack[1] == 'L'
         then
             combo_J = true
         end
 
-        if lua_table.p2.note_num == 4 and combo_J == false and  lua_table.p2.note_stack[4] == 'M' and  lua_table.p2.note_stack[3] == 'M' and  lua_table.p2.note_stack[2] == 'M' and  lua_table.p2.note_stack[1] == 'M'
+        if lua_table.p2.note_num == 4 and combo_J == false and  lua_table.p2.note_stack[4] == 'L' and  lua_table.p2.note_stack[3] == 'H' and  lua_table.p2.note_stack[2] == 'M' and  lua_table.p2.note_stack[1] == 'M'
         then
             combo_J = true
         end
 
-        if lua_table.p2.note_num == 4 and combo_J == false and  lua_table.p2.note_stack[4] == 'H' and  lua_table.p2.note_stack[3] == 'H' and  lua_table.p2.note_stack[2] == 'H' and  lua_table.p2.note_stack[1] == 'H'
+        if lua_table.p2.note_num == 4 and combo_J == false and  lua_table.p2.note_stack[4] == 'H' and  lua_table.p2.note_stack[3] == 'M' and  lua_table.p2.note_stack[2] == 'H' and  lua_table.p2.note_stack[1] == 'H'
         then
             combo_J = true
         end
