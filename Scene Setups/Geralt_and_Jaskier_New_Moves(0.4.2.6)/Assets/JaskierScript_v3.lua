@@ -723,6 +723,14 @@ end
 
 --Character Colliders END	----------------------------------------------------------------------------
 
+--Character Particles BEGIN	----------------------------------------------------------------------------
+
+local function ParticlesShutdown()
+
+end
+
+--Character Particles END	----------------------------------------------------------------------------
+
 --Character Movement BEGIN	----------------------------------------------------------------------------
 
 local function SaveDirection()
@@ -1462,7 +1470,7 @@ function lua_table:Update()
 
 			if lua_table.potion_active then EndPotion(lua_table.potion_in_effect) end				--IF potion in effect, turn off
 			AttackColliderShutdown()							--IF any attack colliders on, turn off
-			--TODO-Particles: Particle Shutdown
+			ParticlesShutdown()
 		else
 			--DEBUG
 			--KeyboardInputs()

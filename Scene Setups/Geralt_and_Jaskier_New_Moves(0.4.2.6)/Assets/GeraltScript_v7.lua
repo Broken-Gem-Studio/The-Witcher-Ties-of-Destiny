@@ -361,9 +361,9 @@ lua_table.ability_duration = 800.0
 
 lua_table.ability_animation_speed = 70.0
 
-lua_table.ability_offset_x = 0.1	--Near segment width (Must be > than 0)
-lua_table.ability_offset_z = 10		--Near segment forward distance
-lua_table.ability_range = 100		--Trapezoid height
+lua_table.ability_offset_x = 2		--Near segment width (Must be > than 0)
+lua_table.ability_offset_z = 1		--Near segment forward distance
+lua_table.ability_range = 12		--Trapezoid height
 lua_table.ability_angle = math.rad(45)
 
 local ability_trapezoid = {
@@ -713,6 +713,16 @@ local function AttackColliderShutdown()
 end
 
 --Character Colliders END	----------------------------------------------------------------------------
+
+--Character Particles BEGIN	----------------------------------------------------------------------------
+
+local function ParticlesShutdown()
+	lua_table.ParticlesFunctions:StopParticleEmitter(sword_particles_GO_UID)
+	lua_table.ParticlesFunctions:StopParticleEmitter(aard_hand_particles_GO_UID)
+	lua_table.ParticlesFunctions:StopParticleEmitter(ultimate_particles_GO_UID)
+end
+
+--Character Particles END	----------------------------------------------------------------------------
 
 --Character Movement BEGIN	----------------------------------------------------------------------------
 
@@ -1422,7 +1432,7 @@ function lua_table:Update()
 			if lua_table.potion_active then EndPotion(lua_table.potion_in_effect) end				--IF potion in effect, turn off
 			if lua_table.ultimate_active then UltimateState(false) end	--IF ultimate on, go off
 			AttackColliderShutdown()							--IF any attack colliders on, turn off
-			--TODO-Particles: Particle Shutdown
+			ParticlesShutdown()
 		else
 			--DEBUG
 			--KeyboardInputs()
@@ -1479,7 +1489,7 @@ function lua_table:Update()
 						lua_table.ParticlesFunctions:StopParticleEmitter(sword_particles_GO_UID)	--TODO-Particles: Deactivate Particles on Sword
 					elseif lua_table.current_state == state.ability
 					then
-						lua_table.ParticlesFunctions:StopParticleEmitter(ultimate_particles_GO_UID)	--TODO-Particles: Deactivate Aard particles on hand
+						lua_table.ParticlesFunctions:StopParticleEmitter(aard_hand_particles_GO_UID)	--TODO-Particles: Deactivate Aard particles on hand
 					end
 
 					GoDefaultState()	--Return to move or idle
@@ -1487,7 +1497,10 @@ function lua_table:Update()
 				elseif lua_table.current_state == state.ability and not lua_table.ability_performed and time_since_action > lua_table.ability_start
 				then
 					AardPush()
-					lua_table.ParticlesFunctions:PlayParticleEmitter(ultimate_particles_GO_UID)	--TODO-Particles: Activate Aard particles on hand
+					SaveDirection()
+					lua_table.ParticlesFunctions:SetParticlesVelocity(50 * rec_direction.x, 0, 50 * rec_direction.z, aard_hand_particles_GO_UID)
+					lua_table.ParticlesFunctions:SetRandomParticlesVelocity(50 * rec_direction.z, 0, 50 * rec_direction.x, aard_hand_particles_GO_UID)
+					lua_table.ParticlesFunctions:PlayParticleEmitter(aard_hand_particles_GO_UID)	--TODO-Particles: Activate Aard particles on hand
 					lua_table.ability_performed = true
 
 				elseif lua_table.current_state == state.evade and DirectionInBounds()				--ELSEIF evading
