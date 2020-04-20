@@ -20,17 +20,17 @@ lua_table.CameraFunctions = Scripting.Camera()
 
 --GO UIDs
 local my_GO_UID
-local sword_GO_UID
-local geralt_ultimate_GO_UID
-local geralt_ability_GO_UID
+local jaskier_guitar_particles_GO_UID
+local jaskier_ultimate_GO_UID
+local jaskier_ability_GO_UID
 
 	--Particles
-	--Geralt_Sword (Child of "Sword"): 70/25/0
-	--Geralt_Ultimate (Child of Geralt): 0/0/0
-	--Geralt_Ability (Child of Left Hand): 0/0/0
+	--Jaskier_Guitar (Child of "???"): 0/0/0
+	--Jaskier_Ultimate (Child of Jaskier): 0/0/0
+	--Jaskier_Ability (Child of ???): 0/0/0
 
 --State Machine
-local state = {	--The order of the states is relevant to the code, CAREFUL CHANGING IT (Ex: if curr_state >= state.run)
+local state = {	--The order of the states is relevant to the code, CAREFUL CHANGING IT (Ex: if current_state >= state.run)
 	dead = -2,
 	down = -1,
 
@@ -39,7 +39,7 @@ local state = {	--The order of the states is relevant to the code, CAREFUL CHANG
 	run = 2,
 
 	evade = 3,
-	ability = 4,
+	ability = 4,	--NOTE: Not used for jaskier
 	ultimate = 5,
 	item = 6,
 	revive = 7,
@@ -103,6 +103,40 @@ local critical_damage_real
 lua_table.critical_damage_add = 0
 lua_table.critical_damage_orig = 2.0
 
+--Items
+lua_table.item_library = {	--Used to flag a readable name with a number id, allows for item indexing based on number
+	health_potion = 1,
+	energy_potion = 2,
+	power_potion = 3
+}
+local item_library_size = 3
+
+local item_effects = {		--Item library and required data to operate
+	{ item_effect = 2, stat_affected = "health_reg_mod" },
+	{ item_effect = 2, stat_affected = "energy_reg_mod" },
+	{ item_effect = 2, stat_affected = "base_damage_mod" }
+}
+lua_table.inventory = {	--Character inventory (number of each item)
+	3,
+	3,
+	0
+}
+lua_table.item_selected = lua_table.item_library.health_potion
+
+	--Potions
+	lua_table.potion_in_effect = 0
+	lua_table.potion_duration = 5000	--Duration in ms
+	local potion_taken_at = 0
+	lua_table.potion_active = false
+
+--Controls
+local key_state = {
+	key_idle = "IDLE",
+	key_down = "DOWN",
+	key_repeat = "REPEAT",
+	key_up = "UP"
+}
+
 --Controls
 local key_state = {
 	key_idle = "IDLE",
@@ -120,17 +154,17 @@ lua_table.key_interact = "BUTTON_LEFTSHOULDER"
 lua_table.key_use_item = "BUTTON_RIGHTSHOULDER"
 
 lua_table.key_light = "BUTTON_Y"
-lua_table.key_heavy = "BUTTON_B"
+lua_table.key_medium = "BUTTON_B"
 lua_table.key_evade = "BUTTON_A"
 lua_table.key_ability = "BUTTON_X"
 
 lua_table.key_move = "AXIS_LEFT"
 lua_table.key_aim = "AXIS_RIGHT"
 
-lua_table.key_pickup_item = "BUTTON_DPAD_UP"
+--lua_table.key_pickup_item = "BUTTON_DPAD_UP"
 lua_table.key_prev_consumable = "BUTTON_DPAD_LEFT"
 lua_table.key_next_consumable = "BUTTON_DPAD_RIGHT"
-lua_table.key_drop_consumable = "BUTTON_DPAD_DOWN"
+--lua_table.key_drop_consumable = "BUTTON_DPAD_DOWN"
 
 lua_table.key_notdef5 = "BUTTON_BACK"
 lua_table.key_notdef6 = "BUTTON_START"
@@ -149,7 +183,7 @@ local aim_input = {
 }
 
 local key_joystick_threshold = 0.25		--As reference, my very fucked up Xbox controller stays at around 2.1 if left IDLE gently (worst), my brand new one stays at 0 no matter what (best)
-lua_table.input_walk_threshold = 0.8
+lua_table.input_walk_threshold = 0.95
 
 --Camera Limitations (IF angle between forward character vector and plane normal > 90º (45º on corners) then all velocities = 0)
 local camera_bounds_ratio = 0.85
@@ -157,22 +191,24 @@ local off_bounds = false
 local bounds_vector = { x = 0, z = 0 }
 local bounds_angle
 
---Movement
+--Direction
+local rot_y = 0.0
 local rec_direction = { x = 0.0, z = 0.0 }	--Used to save a direction when necessary, given by joystick inputs or character rotation
 
-local rot_y = 0.0
-
-local mov_velocity = { x = 0.0, z = 0.0 }
+--Movement
+lua_table.current_velocity = 0
 
 	--Velocity Stat
 	local mov_velocity_stat	-- stat = real / 10. Exclusive to speed, as the numeric balancing is dependant on Physics and not only design
-	local mov_velocity_max_real
+	local run_velocity
+	local walk_velocity
+	local walk_mod = 0.4
 	lua_table.mov_velocity_max_mod = 1.0
-	lua_table.mov_velocity_max_orig = 500	--Was 60.0 before dt
+	lua_table.mov_velocity_max_orig = 500
 
 lua_table.idle_animation_speed = 30.0
-lua_table.walk_animation_speed = 30.0
-lua_table.run_animation_speed = 20.0
+lua_table.walk_animation_speed = 35.0
+lua_table.run_animation_speed = 40.0
 
 --Energy
 lua_table.current_energy = 0
@@ -182,148 +218,208 @@ lua_table.max_energy_orig = 100
 
 local energy_reg_real
 lua_table.energy_reg_mod = 1.0
-lua_table.energy_reg_orig = 10	--This is 5 per second aprox.
+lua_table.energy_reg_orig = 5
 
 --Attacks
-local layers = {
-	player = 1,
-	player_attack = 2,
-	enemy = 3,
-	enemy_attack = 4
-}
-local attack_effects = {	--Not definitive, but as showcase
-	none = 0,
-	stun = 1,
-	knockback = 2,
-	provoke = 3,
-	venom = 4
-}
-lua_table.collider_damage = 0
-lua_table.collider_effect = attack_effects.none
+	--Colliders
+	local layers = {
+		default = 0,
+		player = 1,
+		player_attack = 2,
+		enemy = 3,
+		enemy_attack = 4
+	}
+	local attack_effects = {	--Not definitive, but as showcase
+		none = 0,
+		stun = 1,
+		knockback = 2,
+		taunt = 3,
+		venom = 4
+	}
+	lua_table.collider_damage = 0
+	lua_table.collider_effect = attack_effects.none
 
-local attack_colliders = {
-	front = { GO_name = "Jaskier_Front", GO_UID = 0, active = false },
-	back = { GO_name = "Jaskier_Back", GO_UID = 0, active = false },
-	left = { GO_name = "Jaskier_Left", GO_UID = 0, active = false },
-	right = { GO_name = "Jaskier_Right", GO_UID = 0, active = false }
-}
+	local attack_colliders = {													--Transform / Collider Scale
+		front = { GO_name = "Jaskier_Front", GO_UID = 0, active = false },		--0,2,2.5 / 2,2.5,1.8
+		line_1 = { GO_name = "Jaskier_Line_1", GO_UID = 0, active = false },	--0,2,4 / 4,3,4
+		line_2 = { GO_name = "Jaskier_Line_2", GO_UID = 0, active = false },	--0,2,8 / 4,3,4
+		line_3 = { GO_name = "Jaskier_Line_3", GO_UID = 0, active = false },	--0,2,12 / 4,3,4
+		line_4 = { GO_name = "Jaskier_Line_4", GO_UID = 0, active = false }		--0,2,16 / 4,3,4
+	}
+	--Character Controller: 1.0/2.5/0.05/0.3/45.0
 
 	--Collider Notes (GO X,Y,Z / Coll size X,Y,Z)
-	--Front: 0,20,25 / 20,25,18
-	--Back: 0,20,-20 / 20,25,10
-	--Left: 20,20,5 / 10,25,20
-	--Right: -20,20,5 / 10,25,20
-	--Body: 0,20,0 / 20,40,20
 
-	--Light and Heavy Attacks: Front
-	--Combo 1: Body -> Right -> Front -> Left -> Back
-	--Combo 2: Left -> Right -> Front
-	--Combo 3: Front -> Right?
+	--Attack Inputs
+	local rightside = true		-- Last attack side, marks the animation of next attack
 
-local rightside = true		-- Last attack side, marks the animation of next attack
+	local attack_inputs = {}
+	attack_inputs[lua_table.key_light] = false
+	attack_inputs[lua_table.key_medium] = false
+
+	local attack_input_given = false
+	local attack_input_timeframe = 70	--Milisecond timeframe for a double input (70ms allows by a small margin to have at least 2 frames of input registering on 30fps before overpasing the time limit)
+	local attack_input_started_at = 0	--Start of any of the two inputs
+
 
 --Light Attack
 lua_table.light_damage = 1.0					--Multiplier of Base Damage
-lua_table.light_cost = 5
+lua_table.light_movement_velocity = 50.0
 
-lua_table.light_movement_velocity = 100.0
+lua_table.light_1_block_time = 450			--Input block duration	(block new attacks)
+lua_table.light_1_collider_front_start = 460	--Collider activation time
+lua_table.light_1_collider_front_end = 560	--Collider deactivation time
+lua_table.light_1_duration = 750			--Attack end (return to idle)
+lua_table.light_1_animation_speed = 40.0
 
-lua_table.light_1_block_time = 500			--Input block duration	(block new attacks)
-lua_table.light_1_collider_front_start = 500	--Collider activation time
-lua_table.light_1_collider_front_end = 600	--Collider deactivation time
-lua_table.light_1_duration = 1100			--Attack end (return to idle)
-lua_table.light_1_animation_speed = 30.0
+lua_table.light_2_block_time = 370			--Input block duration	(block new attacks)
+lua_table.light_2_collider_front_start = 340	--Collider activation time
+lua_table.light_2_collider_front_end = 440	--Collider deactivation time
+lua_table.light_2_duration = 670			--Attack end (return to idle)
+lua_table.light_2_animation_speed = 40.0
 
-lua_table.light_2_block_time = 400			--Input block duration	(block new attacks)
-lua_table.light_2_collider_front_start = 400	--Collider activation time
-lua_table.light_2_collider_front_end = 500	--Collider deactivation time
-lua_table.light_2_duration = 1000			--Attack end (return to idle)
-lua_table.light_2_animation_speed = 30.0
-
-lua_table.light_3_block_time = 500			--Input block duration	(block new attacks)
-lua_table.light_3_collider_front_start = 450	--Collider activation time
-lua_table.light_3_collider_front_end = 550	--Collider deactivation time
-lua_table.light_3_duration = 1500			--Attack end (return to idle)
-lua_table.light_3_animation_speed = 30.0		--IMPROVE: Attack 3 animaton includes a return to idle, which differs from the other animations, we might have to cut it for homogeinity with the rest
+lua_table.light_3_block_time = 420			--Input block duration	(block new attacks)
+lua_table.light_3_collider_front_start = 350	--Collider activation time
+lua_table.light_3_collider_front_end = 450	--Collider deactivation time
+lua_table.light_3_duration = 820			--Attack end (return to idle)
+lua_table.light_3_animation_speed = 40.0		--IMPROVE: Attack 3 animaton includes a return to idle, which differs from the other animations, we might have to cut it for homogeinity with the rest
 
 --Medium Attack
 lua_table.medium_damage = 1.0					--Multiplier of Base Damage
-lua_table.medium_cost = 5
+lua_table.medium_movement_velocity = 50.0
 
-lua_table.medium_movement_velocity = 100.0
-
-lua_table.medium_1_block_time = 500			--Input block duration	(block new attacks)
-lua_table.medium_1_collider_front_start = 500	--Collider activation time
-lua_table.medium_1_collider_front_end = 600	--Collider deactivation time
-lua_table.medium_1_duration = 1100			--Attack end (return to idle)
+lua_table.medium_1_block_time = 300			--Input block duration	(block new attacks)
+lua_table.medium_1_collider_front_start = 350	--Collider activation time
+lua_table.medium_1_collider_front_end = 500	--Collider deactivation time
+lua_table.medium_1_duration = 700			--Attack end (return to idle)
 lua_table.medium_1_animation_speed = 30.0
 
 lua_table.medium_2_block_time = 400			--Input block duration	(block new attacks)
-lua_table.medium_2_collider_front_start = 400	--Collider activation time
-lua_table.medium_2_collider_front_end = 500	--Collider deactivation time
-lua_table.medium_2_duration = 1000			--Attack end (return to idle)
+lua_table.medium_2_collider_front_start = 550	--Collider activation time
+lua_table.medium_2_collider_front_end = 650	--Collider deactivation time
+lua_table.medium_2_duration = 800			--Attack end (return to idle)
 lua_table.medium_2_animation_speed = 30.0
 
 lua_table.medium_3_block_time = 500			--Input block duration	(block new attacks)
-lua_table.medium_3_collider_front_start = 450	--Collider activation time
-lua_table.medium_3_collider_front_end = 550	--Collider deactivation time
-lua_table.medium_3_duration = 1500			--Attack end (return to idle)
+lua_table.medium_3_collider_front_start = 600	--Collider activation time
+lua_table.medium_3_collider_front_end = 700	--Collider deactivation time
+lua_table.medium_3_duration = 900			--Attack end (return to idle)
 lua_table.medium_3_animation_speed = 30.0		--IMPROVE: Attack 3 animaton includes a return to idle, which differs from the other animations, we might have to cut it for homogeinity with the rest
 
 --Heavy Attack
 lua_table.heavy_damage = 1.666				--Multiplier of Base Damage
-lua_table.heavy_cost = 10
+lua_table.heavy_movement_velocity = 50.0
 
-lua_table.heavy_movement_velocity = 70.0
-
-lua_table.heavy_1_block_time = 900			--Input block duration	(block new attacks)
-lua_table.heavy_1_collider_front_start = 900	--Collider activation time
-lua_table.heavy_1_collider_front_end = 1000	--Collider deactivation time
+lua_table.heavy_1_block_time = 1100			--Input block duration	(block new attacks)
+lua_table.heavy_1_collider_front_start = 1000	--Collider activation time
+lua_table.heavy_1_collider_front_end = 1150	--Collider deactivation time
 lua_table.heavy_1_duration = 1600			--Attack end (return to idle)
 lua_table.heavy_1_animation_speed = 30.0
 
-lua_table.heavy_2_block_time = 400			--Input block duration	(block new attacks)
-lua_table.heavy_2_collider_front_start = 350	--Collider activation time
-lua_table.heavy_2_collider_front_end = 450	--Collider deactivation time
-lua_table.heavy_2_duration = 1000			--Attack end (return to idle)
+lua_table.heavy_2_block_time = 500			--Input block duration	(block new attacks)
+lua_table.heavy_2_collider_front_start = 400	--Collider activation time
+lua_table.heavy_2_collider_front_end = 500	--Collider deactivation time
+lua_table.heavy_2_duration = 1050			--Attack end (return to idle)
 lua_table.heavy_2_animation_speed = 30.0
 
-lua_table.heavy_3_block_time = 800			--Input block duration	(block new attacks)
-lua_table.heavy_3_collider_front_start = 700	--Collider activation time
-lua_table.heavy_3_collider_front_end = 800	--Collider deactivation time
-lua_table.heavy_3_duration = 2200			--Attack end (return to idle)
+lua_table.heavy_3_block_time = 900			--Input block duration	(block new attacks)
+lua_table.heavy_3_collider_front_start = 850	--Collider activation time
+lua_table.heavy_3_collider_front_end = 950	--Collider deactivation time
+lua_table.heavy_3_duration = 1300			--Attack end (return to idle)
 lua_table.heavy_3_animation_speed = 30.0		--IMPROVE: Attack 3 animaton includes a return to idle, which differs from the other animations, we might have to cut it for homogeinity with the rest
 
 --Evade		
-lua_table.evade_velocity = 300.0	--Was 200 before dt
-lua_table.evade_cost = 20
-lua_table.evade_duration = 2000
+lua_table.evade_velocity = 900.0
+lua_table.evade_cost = 33
+lua_table.evade_duration = 900
 
-lua_table.evade_animation_speed = 30.0
+lua_table.evade_animation_speed = 50.0
 
 --Ability
-lua_table.ability_push_velocity = 10000
-lua_table.ability_cost = 30
-lua_table.ability_cooldown = 5000.0
+lua_table.ability_cooldown = 5.0
 
 local ability_started_at = 0.0
-lua_table.ability_performed = false
-lua_table.ability_start = 300.0
-lua_table.ability_duration = 800.0
+lua_table.ability_performed = false	--Marks the ability as used, = true while in cooldown (pretty much only used for UI)
 
-lua_table.ability_animation_speed = 70.0
+--Songs
+lua_table.chained_attacks_num = 0				-- Number of attacks done one after the other, chained
+lua_table.note_num = 0							-- Starting at 0, increases by 1 for each attack well timed, starting at 4, each new attack will be checked for a succesful combo. Bad timing or performing a combo resets to 0
+lua_table.note_stack = { 'N', 'N', 'N', 'N' }	-- Last 4 attacks performed (0=none, 1=light, 2=heavy). Use push_back tactic.
 
-lua_table.ability_offset_x = 0.1	--Near segment width (Must be > than 0)
-lua_table.ability_offset_z = 10		--Near segment forward distance
-lua_table.ability_range = 100		--Trapezoid height
-lua_table.ability_angle = math.rad(45)
+	--Song 1
+	lua_table.song_1 = { 'L', 'L', 'L', 'L' }	--Penetrating Line of Damage (Row of colliders in front of jaskier get turned on one right after the other)
+	lua_table.song_1_size = 4
+	lua_table.song_1_effect_start = 750
+	lua_table.song_1_effect_active = false
+	lua_table.song_1_duration = 1440
+	lua_table.song_1_animation_name = "guitar_slam_one_handed"
+	lua_table.song_1_animation_speed = 50.0
+	lua_table.song_1_damage = 2.0
+	lua_table.song_1_status_effect = attack_effects.none
 
-local ability_trapezoid = {
-	point_A = { x = 0, z = 0 },	--Far left
-	point_B = { x = 0, z = 0 },	--Far right
-	point_C = { x = 0, z = 0 },	--Near right
-	point_D = { x = 0, z = 0 }	--Near left
-}
+	lua_table.song_1_collider_line_1_start = 800
+	lua_table.song_1_collider_line_1_end = 900
+
+	lua_table.song_1_collider_line_2_start = 900
+	lua_table.song_1_collider_line_2_end = 1000
+
+	lua_table.song_1_collider_line_3_start = 1000
+	lua_table.song_1_collider_line_3_end = 1100
+
+	lua_table.song_1_collider_line_4_start = 1100
+	lua_table.song_1_collider_line_4_end = 1200
+
+	--Song 2
+	lua_table.song_2 = { 'M', 'M', 'M', 'M' }	--Large Stun Cone (AoE applied once, gives "stun" effect)
+	lua_table.song_2_size = 4
+	lua_table.song_2_effect_start = 850
+	lua_table.song_2_effect_active = false
+	lua_table.song_2_duration = 1700
+	lua_table.song_2_animation_name = "guitar_slam_two_handed"
+	lua_table.song_2_animation_speed = 50.0
+	lua_table.song_2_damage = 2.5
+	lua_table.song_2_status_effect = attack_effects.stun
+
+	local song_2_trapezoid = {
+		offset_x = 0.1,			--Near segment width (Must be > than 0)
+		offset_z = 0.1,			--Near segment forward distance
+		range = 20,				--Trapezoid height
+		angle = math.rad(60),	--Trapezoid side angles
+		point_A = { x = 0, z = 0 },	--Far left
+		point_B = { x = 0, z = 0 },	--Far right
+		point_C = { x = 0, z = 0 },	--Near right
+		point_D = { x = 0, z = 0 }	--Near left
+	}
+
+	--Song 3
+	lua_table.song_3 = { 'H', 'H', 'H', 'H' }	--Taunt Moonwalk + Circle Knockback (Both use a circle AoE, first "taunt" scond "knockback")
+	lua_table.song_3_size = 4
+	lua_table.song_3_effect_start = 0
+	lua_table.song_3_effect_end = 2000
+	lua_table.song_3_effect_active = false
+	lua_table.song_3_duration = 3700
+	lua_table.song_3_animation_name = "death"	--"moonwalk", current is placeholder
+	lua_table.song_3_animation_speed = 30.0
+	lua_table.song_3_damage = 2.5
+	lua_table.song_3_status_effect = attack_effects.taunt
+
+	lua_table.song_3_range = 20
+
+	lua_table.song_3_secondary_range = 30
+	lua_table.song_3_secondary_effect_start = 2850
+	lua_table.song_3_secondary_effect_active = false
+	lua_table.song_3_secondary_animation_name = "guitar_slam_two_handed"
+	lua_table.song_3_secondary_animation_speed = 50.0
+	lua_table.song_3_secondary_damage = 2.5
+	lua_table.song_3_secondary_status_effect = attack_effects.knockback
+
+	--Song 4 (Unused)
+	lua_table.song_4 = { 'L', 'L', 'L', 'H' }	--NOT IMPLEMENTED
+	lua_table.song_4_size = 4
+	lua_table.song_4_effect_start = 0
+	lua_table.song_4_duration = 1400
+	lua_table.song_4_animation_speed = 30.0
+	lua_table.song_4_damage = 2.5
 
 --Ultimate
 lua_table.current_ultimate = 0.0
@@ -333,19 +429,22 @@ local ultimate_reg_real
 lua_table.ultimate_reg_mod = 1.0
 lua_table.ultimate_reg_orig = 10	--Ideally, 2 or something similar
 
-local ultimate_started_at = 0.0
-lua_table.ultimate_duration = 3600
-lua_table.ultimate_scream_start = 2500
-lua_table.ultimate_animation_speed = 45.0
-
-local ultimate_effect_started_at = 0.0
-lua_table.ultimate_effect_duration = 10000
-
-lua_table.ultimate_health_reg_increase = 0.2
-lua_table.ultimate_energy_reg_increase = 1.0	--These numbers + to their correspondant "_mod" values and stats are calculated again
-lua_table.ultimate_damage_mod_increase = 1.0
-
 lua_table.ultimate_active = false
+
+lua_table.ultimate_range = 20
+
+lua_table.ultimate_concert_end = 3000
+lua_table.ultimate_effect_active = false
+lua_table.ultimate_duration = 4700
+lua_table.ultimate_animation_speed = 30.0
+lua_table.ultimate_damage = 2.0
+lua_table.ultimate_status_effect = attack_effects.knockback
+
+lua_table.ultimate_secondary_effect_start = 3850
+lua_table.ultimate_secondary_effect_active = false
+lua_table.ultimate_secondary_animation_speed = 50.0
+lua_table.ultimate_secondary_damage = 2.5
+lua_table.ultimate_secondary_status_effect = attack_effects.knockback
 
 --Revive/Death
 lua_table.revive_time = 5000	-- Time to revive
@@ -363,57 +462,6 @@ local time_since_action = 0			-- Time passed since action performed
 local current_action_block_time = 0	-- Duration of input block from current action/event (accept new action inputs)
 local current_action_duration = 0	-- Duration of current action/event (return to idle)
 local action_started_at = 0			-- Marks start of actions (and getting revived)
-
---Combos
-lua_table.combo_cost_divider = 2			-- Reduction of cost of attacks if attack timed correctly
-
-local combo_num = 0							-- Starting at 0, increases by 1 for each attack well timed, starting at 4, each new attack will be checked for a succesful combo. Bad timing or performing a combo resets to 0
-local combo_stack = { 'N', 'N', 'N', 'N' }	-- Last 4 attacks performed (0=none, 1=light, 2=heavy). Use push_back tactic.
-
-local combo_1 = { 'H', 'L', 'L', 'L' }	--Slide Attack
-lua_table.combo_1_damage = 2.0	--slide + 4 hits
-lua_table.combo_1_cost = 25
-lua_table.combo_1_duration = 1500
-lua_table.combo_1_animation_speed = 35.0
-lua_table.combo_1_movement_velocity = 400.0
-
-lua_table.combo_1_collider_body_start = 200		--Collider activation time
-lua_table.combo_1_collider_body_end = 700		--Collider deactivation time
-lua_table.combo_1_collider_right_start = 900	--Collider activation time
-lua_table.combo_1_collider_right_end = 1000		--Collider deactivation time
-lua_table.combo_1_collider_front_start = 1000	--Collider activation time
-lua_table.combo_1_collider_front_end = 1080		--Collider deactivation time
-lua_table.combo_1_collider_left_start = 1080	--Collider activation time
-lua_table.combo_1_collider_left_end = 1150		--Collider deactivation time
-lua_table.combo_1_collider_back_start = 1150	--Collider activation time
-lua_table.combo_1_collider_back_end = 1220		--Collider deactivation time
-
-
-local combo_2 = { 'L', 'L', 'L', 'H' }	--High Spin
-lua_table.combo_2_damage = 2.5	--3 hit
-lua_table.combo_2_cost = 30
-lua_table.combo_2_duration = 1400
-lua_table.combo_2_animation_speed = 30.0
-lua_table.combo_2_movement_velocity = 300.0
-
-lua_table.combo_2_collider_left_start = 500		--Collider activation time
-lua_table.combo_2_collider_left_end = 600		--Collider deactivation time
-lua_table.combo_2_collider_right_start = 800	--Collider activation time
-lua_table.combo_2_collider_right_end = 900		--Collider deactivation time
-lua_table.combo_2_collider_front_start = 1200	--Collider activation time
-lua_table.combo_2_collider_front_end = 1400		--Collider deactivation time
-
-local combo_3 = { 'L', 'H', 'H', 'L' }	--Jump Attack
-lua_table.combo_3_damage = 3.0	--1 hit		--IMPROVE: + stun
-lua_table.combo_3_cost = 40
-lua_table.combo_3_duration = 1800
-lua_table.combo_3_animation_speed = 30.0
-lua_table.combo_3_movement_velocity = 300.0
-
-lua_table.combo_3_collider_front_start = 1100	--Collider activation time
-lua_table.combo_3_collider_front_end = 1200		--Collider deactivation time
-lua_table.combo_3_collider_right_start = 1200	--Collider activation time
-lua_table.combo_3_collider_right_end = 1300		--Collider deactivation time
 
 --Utility BEGIN	----------------------------------------------------------------------------	--IMPROVE: Consider making useful generic methods part of a global script
 
@@ -493,8 +541,8 @@ end
 local function GimbalLockWorkaroundY(param_rot_y)	--TODO: Remove when bug is fixed
 	if math.abs(lua_table.TransformFunctions:GetRotation(my_GO_UID)[1]) == 180.0
 	then
-		if param_rot_y >= 0 then param_rot_y = 90 + 90 - param_rot_y
-		elseif param_rot_y < 0 then param_rot_y = -90 + -90 - param_rot_y
+		if param_rot_y >= 0 then param_rot_y = 180 - param_rot_y
+		elseif param_rot_y < 0 then param_rot_y = -180 - param_rot_y
 		end
 	end
 
@@ -530,6 +578,7 @@ local function GoDefaultState()
 	end
 	
 	rightside = true
+	lua_table.chained_attacks_num = 0
 end
 
 --States END	----------------------------------------------------------------------------
@@ -550,8 +599,9 @@ local function CalculateStats()
 	critical_damage_real = lua_table.critical_damage_orig + lua_table.critical_damage_add
 
 	--Speed
-	mov_velocity_max_real = lua_table.mov_velocity_max_orig * lua_table.mov_velocity_max_mod
-	mov_velocity_stat = mov_velocity_max_real * 0.1
+	run_velocity = lua_table.mov_velocity_max_orig * lua_table.mov_velocity_max_mod
+	walk_velocity = run_velocity * walk_mod
+	mov_velocity_stat = run_velocity * 0.1
 
 	--Energy
 	lua_table.max_energy_real = lua_table.max_energy_orig * lua_table.max_energy_mod
@@ -604,29 +654,46 @@ local function KeyboardInputs()	--Process Debug Keyboard Inputs
 	end
 end
 
+local function RegisterAttackInputs()	--This is used to give a timeframe to press the two attack buttons at the same time, without being necesarily on the exact same frame
+	if not attack_inputs[lua_table.key_light] and lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_light, key_state.key_down) then
+		attack_inputs[lua_table.key_light] = true
+		if not attack_input_given then
+			attack_input_started_at = game_time
+			attack_input_given = true
+		end
+	end
+	if not attack_inputs[lua_table.key_medium] and lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_medium, key_state.key_down) then
+		attack_inputs[lua_table.key_medium] = true
+		if not attack_input_given then
+			attack_input_started_at = game_time
+			attack_input_given = true
+		end
+	end
+end
+
 --Inputs END	----------------------------------------------------------------------------
 
 --Character Colliders BEGIN	----------------------------------------------------------------------------
 
-local function AttackColliderCheck(attack_type, attack_num, collider_side)	--Checks timeframe of current action and activates or deactivates a speficied side collider depending on it
-	if time_since_action > lua_table[attack_type .. "_" .. attack_num .. "_collider_" .. collider_side .. "_start"]		--IF time > start collider
+local function AttackColliderCheck(attack_type, collider_id)	--Checks timeframe of current action and activates or deactivates a speficied side collider depending on it
+	if time_since_action > lua_table[attack_type .. "_collider_" .. collider_id .. "_start"]	--IF time > start collider
 	then
-		if time_since_action > lua_table[attack_type .. "_" .. attack_num .. "_collider_" .. collider_side .. "_end"]	--IF time > end collider
+		if time_since_action > lua_table[attack_type .. "_collider_" .. collider_id .. "_end"]	--IF time > end collider
 		then
-			if attack_colliders[collider_side].active	--IF > end time and collider active, deactivate
+			if attack_colliders[collider_id].active	--IF > end time and collider active, deactivate
 			then
-				lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders[collider_side].GO_UID)	--TODO-Colliders: Check
-				attack_colliders[collider_side].active = false
+				lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders[collider_id].GO_UID)	--TODO-Colliders: Check
+				attack_colliders[collider_id].active = false
 			end
 
-			--lua_table.SystemFunctions:LOG("Collider Deactivate: " .. attack_type .. "_" .. attack_num .. "_" .. collider_side)
+			--lua_table.SystemFunctions:LOG("Collider Deactivate: " .. attack_type .. "_" .. collider_id)
 			
-		elseif not attack_colliders[collider_side].active	--IF > start time and collider unactive, activate
+		elseif not attack_colliders[collider_id].active	--IF > start time and collider unactive, activate
 		then
-			lua_table.GameObjectFunctions:SetActiveGameObject(true, attack_colliders[collider_side].GO_UID)	--TODO-Colliders: Check
-			attack_colliders[collider_side].active = true
+			lua_table.GameObjectFunctions:SetActiveGameObject(true, attack_colliders[collider_id].GO_UID)	--TODO-Colliders: Check
+			attack_colliders[collider_id].active = true
 		--else
-			--lua_table.SystemFunctions:LOG("Collider Active: " .. attack_type .. "_" .. attack_num .. "_" .. collider_side)
+			--lua_table.SystemFunctions:LOG("Collider Active: " .. attack_type .. "_" .. collider_id)
 		end
 	end
 end
@@ -636,18 +703,22 @@ local function AttackColliderShutdown()
 		lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.front.GO_UID)	--TODO-Colliders: Check
 		attack_colliders.front.active = false
 	end
-	-- if attack_colliders.back.active then
-	-- 	lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.back.GO_UID)	--TODO-Colliders: Check
-	-- 	attack_colliders.back.active = false
-	-- end
-	-- if attack_colliders.left.active then
-	-- 	lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.left.GO_UID)	--TODO-Colliders: Check
-	-- 	attack_colliders.left.active = false
-	-- end
-	-- if attack_colliders.right.active then
-	-- 	lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.right.GO_UID)	--TODO-Colliders: Check
-	-- 	attack_colliders.right.active = false
-	-- end
+	if attack_colliders.line_1.active then
+		lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.line_1.GO_UID)	--TODO-Colliders: Check
+		attack_colliders.line_1.active = false
+	end
+	if attack_colliders.line_2.active then
+		lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.line_2.GO_UID)	--TODO-Colliders: Check
+		attack_colliders.line_2.active = false
+	end
+	if attack_colliders.line_3.active then
+		lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.line_3.GO_UID)	--TODO-Colliders: Check
+		attack_colliders.line_3.active = false
+	end
+	if attack_colliders.line_4.active then
+		lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.line_4.GO_UID)	--TODO-Colliders: Check
+		attack_colliders.line_4.active = false
+	end
 end
 
 --Character Colliders END	----------------------------------------------------------------------------
@@ -736,6 +807,29 @@ local function CheckCameraBounds()	--Check if we're currently outside the camera
 	end
 end
 
+local function MoveCharacter(reversed_rotation)	--Bool param used to mark moonwalk mainly
+	local magnitude = math.sqrt(mov_input.used_input.x ^ 2 + mov_input.used_input.z ^ 2)
+
+	--Move character
+	local mov_velocity = {	--Magnitude into vectorial values through input values
+		x = lua_table.current_velocity * mov_input.used_input.x / magnitude,
+		z = lua_table.current_velocity * mov_input.used_input.z / magnitude
+	}
+
+	local position = lua_table.TransformFunctions:GetPosition(my_GO_UID)	--Rotate to velocity direction
+
+	if not reversed_rotation then
+		lua_table.TransformFunctions:LookAt(position[1] + mov_velocity.x, position[2], position[3] + mov_velocity.z, my_GO_UID)
+	else
+		lua_table.TransformFunctions:LookAt(position[1] - mov_velocity.x, position[2], position[3] - mov_velocity.z, my_GO_UID)
+	end
+
+	if DirectionInBounds()	--Only allow movement if camera bounds allows it
+	then
+		lua_table.PhysicsFunctions:Move(mov_velocity.x * dt, mov_velocity.z * dt, my_GO_UID)
+	end		
+end
+
 local function MovementInputs()	--Process Movement Inputs
 	if mov_input.used_input.x ~= 0.0 or mov_input.used_input.z ~= 0.0												--IF Movement Input
 	then
@@ -746,12 +840,16 @@ local function MovementInputs()	--Process Movement Inputs
 
 			if lua_table.input_walk_threshold < math.sqrt(mov_input.used_input.x ^ 2 + mov_input.used_input.z ^ 2)	--IF great input
 			then
+				lua_table.current_velocity = run_velocity
 				lua_table.AnimationFunctions:PlayAnimation("run", lua_table.run_animation_speed)
 				--lua_table.AudioFunctions:PlayAudioEvent("Run_fx")	--TODO-AUDIO: Play run sound
+				
 				lua_table.current_state = state.run
 			else																					--IF small input
+				lua_table.current_velocity = walk_velocity
 				lua_table.AnimationFunctions:PlayAnimation("walk", lua_table.walk_animation_speed)
 				--lua_table.AudioFunctions:PlayAudioEvent("Walk_fx")	--TODO-AUDIO: Play walk sound
+
 				lua_table.current_state = state.walk
 			end
 
@@ -760,29 +858,24 @@ local function MovementInputs()	--Process Movement Inputs
 		--Swap between walking and running
 		elseif lua_table.current_state == state.walk and lua_table.input_walk_threshold < math.sqrt(mov_input.used_input.x ^ 2 + mov_input.used_input.z ^ 2)	--IF walking and big input
 		then
+			lua_table.current_velocity = run_velocity
 			lua_table.AnimationFunctions:PlayAnimation("run", lua_table.run_animation_speed)
 			--lua_table.AudioFunctions:PlayAudioEvent("Run_fx")	--TODO-AUDIO: Play run sound
+
 			lua_table.previous_state = lua_table.current_state
 			lua_table.current_state = state.run
+			
 		elseif lua_table.current_state == state.run and lua_table.input_walk_threshold > math.sqrt(mov_input.used_input.x ^ 2 + mov_input.used_input.z ^ 2)	--IF running and small input
 		then
+			lua_table.current_velocity = walk_velocity
 			lua_table.AnimationFunctions:PlayAnimation("walk", lua_table.walk_animation_speed)
 			--lua_table.AudioFunctions:PlayAudioEvent("Walk_fx")	--TODO-AUDIO: Play walk sound
+			
 			lua_table.previous_state = lua_table.current_state
 			lua_table.current_state = state.walk
 		end
 
-		--Move character
-		mov_velocity.x = mov_velocity_max_real * mov_input.used_input.x	--Joystick input directly translates to speed, no acceleration
-		mov_velocity.z = mov_velocity_max_real * mov_input.used_input.z
-
-		local position = lua_table.TransformFunctions:GetPosition(my_GO_UID)	--Rotate to velocity direction
-		lua_table.TransformFunctions:LookAt(position[1] + mov_velocity.x, position[2], position[3] + mov_velocity.z, my_GO_UID)
-
-		if DirectionInBounds()	--Only allow movement if camera bounds allows it
-		then
-			lua_table.PhysicsFunctions:Move(mov_velocity.x * dt, mov_velocity.z * dt, my_GO_UID)
-		end
+		MoveCharacter(false)
 
 	elseif lua_table.current_state == state.run or lua_table.current_state == state.walk
 	then
@@ -801,55 +894,137 @@ end
 
 --Character Actions BEGIN	----------------------------------------------------------------------------
 
-local function CheckCombo()	--Check combo performed	(ATTENTION: This should handle the animation, setting timers, bla bla)
+local function Song_Circle_Effect(area_range)
+	local jaskier_pos = lua_table.TransformFunctions:GetPosition(my_GO_UID)
+	local enemy_list = lua_table.PhysicsFunctions:OverlapSphere(jaskier_pos[1], jaskier_pos[2], jaskier_pos[3], area_range, layers.enemy)
+
+	for i = 1, #enemy_list do
+		--local enemy_pos = lua_table.TransformFunctions:GetPosition(enemy_list[i])
+		--local enemy_script = lua_table.GameObjectFunctions:GetScript(enemy_list[i])
+		--TODO-Ability: Give collider_damage and collider_effect to enemy
+	end
+end
+
+local function Song_Cone_Effect(trapezoid_table)	--Uses trapezoid because it can adpot varied shapes, including a basic cone
+	local jaskier_pos = lua_table.TransformFunctions:GetPosition(my_GO_UID)
+	local enemy_list = lua_table.PhysicsFunctions:OverlapSphere(jaskier_pos[1], jaskier_pos[2], jaskier_pos[3], trapezoid_table.range, layers.enemy)
+	local enemy_script = {}
+
+	SaveDirection()
+	local A_z, A_x = BidimensionalRotate(trapezoid_table.point_A.z, trapezoid_table.point_A.x, rot_y)
+	local B_z, B_x = BidimensionalRotate(trapezoid_table.point_B.z, trapezoid_table.point_B.x, rot_y)
+	local C_z, C_x = BidimensionalRotate(trapezoid_table.point_C.z, trapezoid_table.point_C.x, rot_y)
+	local D_z, D_x = BidimensionalRotate(trapezoid_table.point_D.z, trapezoid_table.point_D.x, rot_y)
+
+	A_x, A_z = A_x + jaskier_pos[1], A_z + jaskier_pos[3]
+	B_x, B_z = B_x + jaskier_pos[1], B_z + jaskier_pos[3]
+	C_x, C_z = C_x + jaskier_pos[1], C_z + jaskier_pos[3]
+	D_x, D_z = D_x + jaskier_pos[1], D_z + jaskier_pos[3]
+
+	for i = 1, #enemy_list do
+		local enemy_pos = lua_table.TransformFunctions:GetPosition(enemy_list[i])
+		--enemy_script = lua_table.GameObjectFunctions:GetScript(enemy_list[i])
+
+		if BidimensionalPointInVectorSide(B_x, B_z, C_x, C_z, enemy_pos[1], enemy_pos[3]) < 0	--If left side of all the trapezoid vectors BC, CD, DA ( \_/ )
+		and BidimensionalPointInVectorSide(C_x, C_z, D_x, D_z, enemy_pos[1], enemy_pos[3]) < 0
+		and BidimensionalPointInVectorSide(D_x, D_z, A_x, A_z, enemy_pos[1], enemy_pos[3]) < 0
+		then
+			--local enemy_pos = lua_table.TransformFunctions:GetPosition(enemy_list[i])
+			--local enemy_script = lua_table.GameObjectFunctions:GetScript(enemy_list[i])
+			--TODO-Ability: Give collider_damage and collider_effect to enemy
+		end
+	end
+end
+
+local function UltimateConcert()
+	if time_since_action > lua_table.ultimate_concert_end	--IF stage_2 has to start
+	then
+		--lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_song_3_GO_UID)	--TODO-Particles:
+		lua_table.ultimate_effect_active = false
+
+		--Setup for stage_2
+		lua_table.AnimationFunctions:PlayAnimation("guitar_slam_two_handed", lua_table.ultimate_secondary_animation_speed)
+		lua_table.collider_damage = lua_table.ultimate_secondary_damage
+		lua_table.collider_effect = lua_table.ultimate_secondary_status_effect
+		
+	else	--IF > start time and < end time
+		if not lua_table.ultimate_effect_active	--IF effect unactive, activate
+		then
+			--lua_table.ParticlesFunctions:PlayParticleEmitter(jaskier_song_3_GO_UID)	--TODO-Particles:
+			lua_table.ultimate_effect_active = true
+		end
+
+		Song_Circle_Effect(lua_table.ultimate_range)
+	end
+end
+
+local function UltimateFinish()
+	if not lua_table.ultimate_secondary_effect_active	--IF effect unactive, activate
+	then
+		--lua_table.ParticlesFunctions:PlayParticleEmitter(jaskier_song_3_GO_UID)	--TODO-Particles:
+		lua_table.ultimate_secondary_effect_active = true
+	end
+
+	Song_Circle_Effect(lua_table.ultimate_range)
+end
+
+local function Song_3_Taunt()
+	if time_since_action > lua_table.song_3_effect_end	--IF stage_2 has to start
+	then
+		--lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_song_3_GO_UID)	--TODO-Particles:
+		lua_table.song_3_effect_active = false
+
+		--Setup for stage_2
+		lua_table.AnimationFunctions:PlayAnimation(lua_table.song_3_secondary_animation_name, lua_table.song_3_secondary_animation_speed)
+		lua_table.collider_damage = lua_table.song_3_secondary_damage
+		lua_table.collider_effect = lua_table.song_3_secondary_status_effect
+
+		--lua_table.TransformFunctions:RotateObject(0, 180, 0, my_GO_UID)	--Do 180 to return from moonwalk	--TODO: Uncomment when fixed (currently works as SetRotation())
+		
+	else	--IF > start time and < end time
+		if not lua_table.song_3_effect_active	--IF effect unactive, activate
+		then
+			--lua_table.ParticlesFunctions:PlayParticleEmitter(jaskier_song_3_GO_UID)	--TODO-Particles:
+			lua_table.song_3_effect_active = true
+			lua_table.current_velocity = walk_velocity	--To mark speed of moonwalk
+		end
+
+		if mov_input.used_input.x ~= 0.0 or mov_input.used_input.z ~= 0.0 then
+			MoveCharacter(true)
+		end
+
+		Song_Circle_Effect(lua_table.song_3_range)
+	end
+end
+
+local function Song_3_Knockback()
+	if not lua_table.song_3_secondary_effect_active	--IF effect unactive, activate
+	then
+		--lua_table.ParticlesFunctions:PlayParticleEmitter(jaskier_song_3_GO_UID)	--TODO-Particles:
+		lua_table.song_3_secondary_effect_active = true
+	end
+
+	Song_Circle_Effect(lua_table.song_3_secondary_range)
+end
+
+local function PerformSong(song_type)
 	local string_match = false
 
-	if lua_table.current_energy > lua_table.combo_1_cost and CompareTables(combo_stack, combo_1)
+	if lua_table.note_num == lua_table[song_type .. "_size"] and CompareTables(lua_table.note_stack, lua_table[song_type])
 	then
-		current_action_block_time = lua_table.combo_1_duration
-		current_action_duration = lua_table.combo_1_duration
+		current_action_block_time = lua_table[song_type .. "_duration"]
+		current_action_duration = current_action_block_time
 
-		lua_table.current_energy = lua_table.current_energy - lua_table.combo_1_cost
+		lua_table.AnimationFunctions:PlayAnimation(lua_table[song_type .. "_animation_name"], lua_table[song_type .. "_animation_speed"])
+		--TODO-AUDIO: Play sound of song_type
 
-		lua_table.AnimationFunctions:PlayAnimation("combo_1", lua_table.combo_1_animation_speed)	--Slide
-		--TODO-AUDIO: Play sound of combo_1
-
-		lua_table.collider_damage = base_damage_real * lua_table.combo_1_damage
+		lua_table.collider_damage = base_damage_real * lua_table[song_type .. "_damage"]
+		lua_table.collider_effect = lua_table[song_type .. "_status_effect"]
 
 		lua_table.previous_state = lua_table.current_state
-		lua_table.current_state = state.combo_1
+		lua_table.current_state = state[song_type]
 
-		string_match = true
-	elseif lua_table.current_energy > lua_table.combo_2_cost and CompareTables(combo_stack, combo_2)
-	then
-		current_action_block_time = lua_table.combo_2_duration
-		current_action_duration = lua_table.combo_2_duration
-
-		lua_table.current_energy = lua_table.current_energy - lua_table.combo_2_cost
-		
-		lua_table.AnimationFunctions:PlayAnimation("combo_2", lua_table.combo_2_animation_speed)	--Spin
-		--TODO-AUDIO: Play sound of combo_2
-		
-		lua_table.collider_damage = base_damage_real * lua_table.combo_2_damage
-
-		lua_table.previous_state = lua_table.current_state
-		lua_table.current_state = state.combo_2
-
-		string_match = true
-	elseif lua_table.current_energy > lua_table.combo_3_cost and CompareTables(combo_stack, combo_3)
-	then
-		current_action_block_time = lua_table.combo_3_duration
-		current_action_duration = lua_table.combo_3_duration
-
-		lua_table.current_energy = lua_table.current_energy - lua_table.combo_3_cost
-		
-		lua_table.AnimationFunctions:PlayAnimation("combo_3", lua_table.combo_3_animation_speed)	--Jump
-		--TODO-AUDIO: Play sound of combo_3
-		
-		lua_table.collider_damage = base_damage_real * lua_table.combo_3_damage
-
-		lua_table.previous_state = lua_table.current_state
-		lua_table.current_state = state.combo_3
+		lua_table[song_type .. "_effect_active"] = false
 
 		string_match = true
 	end
@@ -857,275 +1032,300 @@ local function CheckCombo()	--Check combo performed	(ATTENTION: This should hand
 	return string_match
 end
 
-local function TimedAttack(attack_cost)
-	local combo_achieved = false
+local function CheckSongs()
+	local song_succesful = false
 
-	if lua_table.current_state <= state.run		--IF Idle or Moving
-	then
-		combo_num = 1					--Register combo start
-		lua_table.current_energy = lua_table.current_energy - attack_cost
-
-	elseif lua_table.current_state == state.light_1 and time_since_action > lua_table.light_1_combo_start and time_since_action < lua_table.light_1_combo_end
-	or lua_table.current_state == state.light_2 and time_since_action > lua_table.light_2_combo_start and time_since_action < lua_table.light_2_combo_end
-	or lua_table.current_state == state.light_3 and time_since_action > lua_table.light_3_combo_start and time_since_action < lua_table.light_3_combo_end
-	or lua_table.current_state == state.heavy_1 and time_since_action > lua_table.heavy_1_combo_start and time_since_action < lua_table.heavy_1_combo_end
-	or lua_table.current_state == state.heavy_2 and time_since_action > lua_table.heavy_2_combo_start and time_since_action < lua_table.heavy_2_combo_end
-	or lua_table.current_state == state.heavy_3 and time_since_action > lua_table.heavy_3_combo_start and time_since_action < lua_table.heavy_3_combo_end
-	then
-		combo_num = combo_num + 1
-		lua_table.current_energy = lua_table.current_energy - attack_cost / lua_table.combo_cost_divider
-
-		if combo_num > 3 then			--IF 4+ goods attacks
-			combo_achieved = CheckCombo()
-			if combo_achieved then
-				combo_num = 0
-			end
-		end
-	else
-		combo_num = 1	--Not good timing since last attack
-		lua_table.current_energy = lua_table.current_energy - attack_cost
+	if PerformSong("song_1") or PerformSong("song_2") or PerformSong("song_3") then
+		song_succesful = true
 	end
 
-	lua_table.ParticlesFunctions:StopParticleEmitter(my_GO_UID)				--TODO-Particles: Deactivate movement dust particles
-	lua_table.ParticlesFunctions:PlayParticleEmitter(sword_GO_UID)	--TODO-Particles: Turn on particles on Sword
+	if lua_table.current_state == state.song_3 then
+		lua_table.song_3_secondary_effect_active = false
+	end
 
-	return combo_achieved
+	return song_succesful
 end
 
 local function RegularAttack(attack_type)
 
-	-- if lua_table.current_state == state.heavy_3 then	--Heavy_3 animation starts and ends on the right, therefore in this particular case we stay on the right
-	-- 	rightside = not rightside
-	-- end
+	if lua_table.current_state == state.heavy_3 then	--Heavy_3 animation starts and ends on the right, therefore in this particular case we stay on the right
+		rightside = not rightside
+	end
+
+	if lua_table.note_num < 4 then
+		lua_table.note_num = lua_table.note_num + 1
+	end
+
+	lua_table.chained_attacks_num = lua_table.chained_attacks_num + 1
 
 	if rightside	--IF rightside
 	then
-		current_action_block_time = lua_table[attack_type .. "_1_block_time"]	--Set duration of input block (no new actions)
-		current_action_duration = lua_table[attack_type .. "_1_duration"]		--Set duration of the current action (to return to idle/move)
+		if lua_table.chained_attacks_num > 2	--IF more than 2 attacks chained
+		then
+			current_action_block_time = lua_table[attack_type .. "_3_block_time"]	--Set duration of input block (no new actions)
+			current_action_duration = lua_table[attack_type .. "_3_duration"]		--Set duration of the current action (to return to idle/move)
 
-		lua_table.AnimationFunctions:PlayAnimation(attack_type .. "_1", lua_table[attack_type .. "_1_animation_speed"])
-		--lua_table.AudioFunctions:PlayAttackSound()	--TODO-AUDIO: Play attack_1 sound (light or heavy)
+			lua_table.AnimationFunctions:PlayAnimation(attack_type .. "_3", lua_table[attack_type .. "_3_animation_speed"])
+			--lua_table.AudioFunctions:PlayAudioEvent("Attack_3_fx")	--TODO-AUDIO: Play attack_3 sound (light or heavy)
 
-		lua_table.previous_state = lua_table.current_state
-		lua_table.current_state = state[attack_type .. "_1"]
+			lua_table.previous_state = lua_table.current_state
+			lua_table.current_state = state[attack_type .. "_3"]
+		else
+			current_action_block_time = lua_table[attack_type .. "_1_block_time"]	--Set duration of input block (no new actions)
+			current_action_duration = lua_table[attack_type .. "_1_duration"]		--Set duration of the current action (to return to idle/move)
 
+			lua_table.AnimationFunctions:PlayAnimation(attack_type .. "_1", lua_table[attack_type .. "_1_animation_speed"])
+			--lua_table.AudioFunctions:PlayAudioEvent("Attack_1_fx")	--TODO-AUDIO: Play attack_1 sound (light or heavy)
+
+			lua_table.previous_state = lua_table.current_state
+			lua_table.current_state = state[attack_type .. "_1"]
+		end
 	else			--IF leftside
 		current_action_block_time = lua_table[attack_type .. "_2_block_time"]	--Set duration of input block (no new actions)
 		current_action_duration = lua_table[attack_type .. "_2_duration"]		--Set duration of the current action (to return to idle/move)
 
 		lua_table.AnimationFunctions:PlayAnimation(attack_type .. "_2", lua_table[attack_type .. "_2_animation_speed"])
-		--lua_table.AudioFunctions:PlayAttackSound()	--TODO-AUDIO: Play attack_2 sound (light or heavy)
+		--lua_table.AudioFunctions:PlayAudioEvent("Attack_2_fx")	--TODO-AUDIO: Play attack_2 sound (light or heavy)
 
 		lua_table.previous_state = lua_table.current_state
 		lua_table.current_state = state[attack_type .. "_2"]
 	end
 
 	lua_table.collider_damage = base_damage_real * lua_table[attack_type .. "_damage"]
+	lua_table.collider_effect = attack_effects.none
 	rightside = not rightside
-end
 
-local function AardPush()
-	--1. Collect colliders of all enemies inside a radius
-	local geralt_pos = lua_table.TransformFunctions:GetPosition(my_GO_UID)
-	local enemy_list = lua_table.PhysicsFunctions:OverlapSphere(geralt_pos[1], geralt_pos[2], geralt_pos[3], lua_table.ability_range, layers.enemy)
-
-	--2. Transform ability trapezoid to Geralt's current rotation
-	SaveDirection()
-	local A_z, A_x = BidimensionalRotate(ability_trapezoid.point_A.z, ability_trapezoid.point_A.x, rot_y)
-	local B_z, B_x = BidimensionalRotate(ability_trapezoid.point_B.z, ability_trapezoid.point_B.x, rot_y)
-	local C_z, C_x = BidimensionalRotate(ability_trapezoid.point_C.z, ability_trapezoid.point_C.x, rot_y)
-	local D_z, D_x = BidimensionalRotate(ability_trapezoid.point_D.z, ability_trapezoid.point_D.x, rot_y)
-
-	--3. Translate the local trapezoid positions to global coordinates
-	A_x, A_z = A_x + geralt_pos[1], A_z + geralt_pos[3]
-	B_x, B_z = B_x + geralt_pos[1], B_z + geralt_pos[3]
-	C_x, C_z = C_x + geralt_pos[1], C_z + geralt_pos[3]
-	D_x, D_z = D_x + geralt_pos[1], D_z + geralt_pos[3]
-
-	--4. We must check that the enemy is inside the AoE
-	for i = 1, #enemy_list do
-		local enemy_pos = lua_table.TransformFunctions:GetPosition(enemy_list[i])
-
-		if BidimensionalPointInVectorSide(B_x, B_z, C_x, C_z, enemy_pos[1], enemy_pos[3]) < 0	--If left side of all the trapezoid vectors BC, CD, DA ( \_/ )
-		and BidimensionalPointInVectorSide(C_x, C_z, D_x, D_z, enemy_pos[1], enemy_pos[3]) < 0
-		and BidimensionalPointInVectorSide(D_x, D_z, A_x, A_z, enemy_pos[1], enemy_pos[3]) < 0
-		then
-			local direction_x, direction_z = enemy_pos[1] - geralt_pos[1], enemy_pos[3] - geralt_pos[3]	--4.1. If inside, find direction Geralt->Enemy and apply velocity in that direction
-			local magnitude = math.sqrt(direction_x ^ 2 + direction_z ^ 2)
-			lua_table.PhysicsFunctions:Move(lua_table.ability_push_velocity * direction_x / magnitude * dt, lua_table.ability_push_velocity * direction_z / magnitude * dt, enemy_list[i])
-			--TODO-Ability: Knock down enemy
-		end
-	end
+	lua_table.ParticlesFunctions:StopParticleEmitter(my_GO_UID)				--TODO-Particles: Deactivate movement dust particles
+	--lua_table.ParticlesFunctions:PlayParticleEmitter(jaskier_guitar_particles_GO_UID)	--TODO-Particles: Turn on particles on Sword
 end
 
 local function ActionInputs()	--Process Action Inputs
-	local input_given = false
+	local action_made = false
 	local combo_achieved = false
 	
-	if lua_table.current_energy >= lua_table.light_cost and lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_light, key_state.key_down)		--Light Input
-	then
-		action_started_at = game_time		--Set timer start mark
-		--PushBack(combo_stack, 'L')			--Add new input to stack
+	RegisterAttackInputs()	--Check for Attack Inputs
 
-		--combo_achieved = TimedAttack(lua_table.light_cost)
+	if attack_input_given then	--IF attack input made
+		if game_time - attack_input_started_at > attack_input_timeframe		--IF surpassed double press timeframe
+		or attack_inputs[lua_table.key_light] and attack_inputs[lua_table.key_medium]				--IF both buttons have been pressed
+		then
+			if attack_inputs[lua_table.key_light] and attack_inputs[lua_table.key_medium]		--Both inputs (Heavy)
+			then
+				action_started_at = game_time		--Set timer start mark
+				PushBack(lua_table.note_stack, 'H')			--Add new input to stack
 
-		--if not combo_achieved	--If no combo was achieved with the input, do the attack normally
-		--then
-			RegularAttack("light")
-		--end
+				RegularAttack("heavy")
 
-		SaveDirection()
+				SaveDirection()
 
-		local position = lua_table.TransformFunctions:GetPosition(my_GO_UID)	--Rotate to direction
-		lua_table.TransformFunctions:LookAt(position[1] + rec_direction.x, position[2], position[3] + rec_direction.z, my_GO_UID)
+				local position = lua_table.TransformFunctions:GetPosition(my_GO_UID)	--Rotate to direction
+				lua_table.TransformFunctions:LookAt(position[1] + rec_direction.x, position[2], position[3] + rec_direction.z, my_GO_UID)
 
-		input_given = true
+				action_made = true
 
-	elseif lua_table.current_energy >= lua_table.heavy_cost and lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_heavy, key_state.key_down)	--Heavy Input
-	then
-		action_started_at = game_time		--Set timer start mark
-		--PushBack(combo_stack, 'H')			--Add new input to stack
+			elseif attack_inputs[lua_table.key_light]		--Light Input
+			then
+				action_started_at = game_time		--Set timer start mark
+				PushBack(lua_table.note_stack, 'L')			--Add new input to stack
 
-		--combo_achieved = TimedAttack(lua_table.heavy_cost)
+				RegularAttack("light")
 
-		--if not combo_achieved	--If no combo was achieved with the input, do the attack normally
-		--then
-			RegularAttack("heavy")
-			lua_table.current_energy = lua_table.current_energy - lua_table.heavy_cost
-		--end
+				SaveDirection()
 
-		SaveDirection()
+				local position = lua_table.TransformFunctions:GetPosition(my_GO_UID)	--Rotate to direction
+				lua_table.TransformFunctions:LookAt(position[1] + rec_direction.x, position[2], position[3] + rec_direction.z, my_GO_UID)
 
-		local position = lua_table.TransformFunctions:GetPosition(my_GO_UID)	--Rotate to direction
-		lua_table.TransformFunctions:LookAt(position[1] + rec_direction.x, position[2], position[3] + rec_direction.z, my_GO_UID)
+				action_made = true
 
-		input_given = true
-
-	elseif lua_table.current_energy >= lua_table.evade_cost and lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_evade, key_state.key_down)	--Evade Input
-	then
-		action_started_at = game_time							--Set timer start mark
-		current_action_block_time = lua_table.evade_duration
-		current_action_duration = lua_table.evade_duration
-
-		SaveDirection()
-
-		local position = lua_table.TransformFunctions:GetPosition(my_GO_UID)	--Rotate to direction
-		lua_table.TransformFunctions:LookAt(position[1] + rec_direction.x, position[2], position[3] + rec_direction.z, my_GO_UID)
-
-		lua_table.AnimationFunctions:PlayAnimation("evade", lua_table.evade_animation_speed)
-		lua_table.previous_state = lua_table.current_state
-		lua_table.current_state = state.evade
+			elseif attack_inputs[lua_table.key_medium]	--Medium Input
+			then
+				action_started_at = game_time		--Set timer start mark
+				PushBack(lua_table.note_stack, 'M')			--Add new input to stack
 		
-		lua_table.current_energy = lua_table.current_energy - lua_table.evade_cost
-
-		lua_table.ParticlesFunctions:PlayParticleEmitter(my_GO_UID)	--TODO-Particles: Activate movement dust particles
-
-		input_given = true
+				RegularAttack("medium")
 		
-	elseif game_time - ability_started_at >= lua_table.ability_cooldown
-	and lua_table.current_energy > lua_table.ability_cost
-	and lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_ability, key_state.key_down)	--IF cooldown over and Ability Input
-	then
-		action_started_at = game_time								--Set timer start mark
-		ability_started_at = action_started_at
+				SaveDirection()
+		
+				local position = lua_table.TransformFunctions:GetPosition(my_GO_UID)	--Rotate to direction
+				lua_table.TransformFunctions:LookAt(position[1] + rec_direction.x, position[2], position[3] + rec_direction.z, my_GO_UID)
+		
+				action_made = true
+			end
 
-		current_action_block_time = lua_table.ability_duration
-		current_action_duration = lua_table.ability_duration
+			attack_input_given, attack_inputs[lua_table.key_light], attack_inputs[lua_table.key_medium] = false, false, false
+			--local time_between = game_time - attack_input_started_at
+			--lua_table.SystemFunctions:LOG("Time Between inputs: " .. time_between)
+		end
+	else	--IF attack input not made, allow for any other kind of input
+		if lua_table.current_energy > lua_table.evade_cost and lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_evade, key_state.key_down)	--Evade Input
+		then
+			action_started_at = game_time							--Set timer start mark
+			current_action_block_time = lua_table.evade_duration
+			current_action_duration = lua_table.evade_duration
 
-		lua_table.AnimationFunctions:PlayAnimation("guitar_play_1", lua_table.ability_animation_speed)
-		lua_table.previous_state = lua_table.current_state
-		lua_table.current_state = state.ability
+			SaveDirection()
 
-		lua_table.ability_performed = false	--The ability itself and energy cost reduction is done later to fit with the animation, this marks that it needs to be done
-		input_given = true
+			local position = lua_table.TransformFunctions:GetPosition(my_GO_UID)	--Rotate to direction
+			lua_table.TransformFunctions:LookAt(position[1] + rec_direction.x, position[2], position[3] + rec_direction.z, my_GO_UID)
 
-	elseif lua_table.current_ultimate >= lua_table.max_ultimate
-	and lua_table.InputFunctions:IsTriggerState(lua_table.player_ID, lua_table.key_ultimate_1, key_state.key_repeat)
-	and lua_table.InputFunctions:IsTriggerState(lua_table.player_ID, lua_table.key_ultimate_2, key_state.key_repeat)	--Ultimate Input
-	then
-		action_started_at = game_time							--Set timer start mark
-		ultimate_started_at = action_started_at
+			lua_table.AnimationFunctions:PlayAnimation("evade", lua_table.evade_animation_speed)
+			lua_table.current_energy = lua_table.current_energy - lua_table.evade_cost
 
-		current_action_block_time = lua_table.ultimate_duration
-		current_action_duration = lua_table.ultimate_duration
+			lua_table.previous_state = lua_table.current_state
+			lua_table.current_state = state.evade
 
-		--Do Ultimate
-		lua_table.AnimationFunctions:PlayAnimation("guitar_play_2", lua_table.ultimate_animation_speed)
-		lua_table.previous_state = lua_table.current_state
-		lua_table.current_state = state.ultimate
-		input_given = true
+			lua_table.ParticlesFunctions:PlayParticleEmitter(my_GO_UID)	--TODO-Particles: Activate movement dust particles
 
-	elseif lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_use_item, key_state.key_down)	--Object Input
-	then
-		action_started_at = game_time							--Set timer start mark
+			action_made = true
+			
+		elseif game_time - ability_started_at >= lua_table.ability_cooldown and lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_ability, key_state.key_down)	--IF cooldown over and Ability Input
+		then
+			if CheckSongs() then
+				action_started_at = game_time								--Set timer start mark
+				ability_started_at = action_started_at
 
-		--Do Use_Object
-		lua_table.previous_state = lua_table.current_state
-		lua_table.current_state = state.item
-		input_given = true
+				lua_table.ability_performed = true	--This marks for the UI that the ability is on cooldown
+			end
+			
+			lua_table.note_num = 0
+			action_made = true
 
-	elseif lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_interact, key_state.key_down)	--Revive Input
-	then
-		action_started_at = game_time							--Set timer start mark
+		elseif lua_table.current_ultimate >= lua_table.max_ultimate
+		and lua_table.InputFunctions:IsTriggerState(lua_table.player_ID, lua_table.key_ultimate_1, key_state.key_repeat)
+		and lua_table.InputFunctions:IsTriggerState(lua_table.player_ID, lua_table.key_ultimate_2, key_state.key_repeat)	--Ultimate Input
+		then
+			action_started_at = game_time							--Set timer start mark
+			ultimate_started_at = action_started_at
 
-		--Do Revive
-		lua_table.previous_state = lua_table.current_state
-		lua_table.current_state = state.revive
-		input_given = true
+			current_action_block_time = lua_table.ultimate_duration
+			current_action_duration = lua_table.ultimate_duration
+
+			--Do Ultimate
+			lua_table.AnimationFunctions:PlayAnimation("guitar_play_2", lua_table.ultimate_animation_speed)
+			lua_table.collider_damage = lua_table.ultimate_damage
+			lua_table.collider_effect = lua_table.ultimate_status_effect
+
+			lua_table.ultimate_active = true
+			lua_table.current_ultimate = 0.0
+
+			lua_table.previous_state = lua_table.current_state
+			lua_table.current_state = state.ultimate
+			action_made = true
+
+		-- elseif lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_use_item, key_state.key_down)	--Object Input
+		-- then
+		-- 	action_started_at = game_time							--Set timer start mark
+
+		-- 	--Do Use_Object
+		-- 	lua_table.previous_state = lua_table.current_state
+		-- 	lua_table.current_state = state.item
+		-- 	action_made = true
+
+		elseif lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_interact, key_state.key_down)	--Revive Input
+		then
+			action_started_at = game_time							--Set timer start mark
+
+			--Do Revive
+			lua_table.previous_state = lua_table.current_state
+			lua_table.current_state = state.revive
+			action_made = true
+		end
 	end
 
-	if input_given 	--IF input given
+	if action_made 	--IF action performed
 	then
 		AttackColliderShutdown()
 
-		if not (lua_table.current_state <= state.heavy_2 and lua_table.current_state >= state.light_1)	--IF input not attack
+		if not (lua_table.current_state >= state.light_1 and lua_table.current_state <= state.heavy_3)	--IF input not attack
 		then
 			--lua_table.ParticlesFunctions:StopParticleEmitter_GO(guitar_GO_UID)	--TODO-Particles: Deactivate Particles on Sword
 		end
 	end
 
-	return input_given
+	return action_made
 end
-
-local function UltimateState(active)
-	local ultimate_stat_mod = 1
-	if not active then ultimate_stat_mod = -1 end
-
-	lua_table.health_reg_mod = lua_table.health_reg_mod + lua_table.ultimate_health_reg_increase * ultimate_stat_mod
-	lua_table.energy_reg_mod = lua_table.energy_reg_mod + lua_table.ultimate_energy_reg_increase * ultimate_stat_mod
-	lua_table.base_damage_mod = lua_table.base_damage_mod + lua_table.ultimate_damage_mod_increase * ultimate_stat_mod
-
-	if active then
-		lua_table.ParticlesFunctions:PlayParticleEmitter(geralt_ultimate_GO_UID)	--TODO-Particles: Activate ultimate particles
-	else
-		lua_table.ParticlesFunctions:StopParticleEmitter(geralt_ultimate_GO_UID)	--TODO-Particles: Deactivate ultimate particles
-	end
-
-	must_update_stats = true
-	lua_table.ultimate_active = active
-end
-
---Character Actions END	----------------------------------------------------------------------------
 
 --Character Secondaries BEGIN	----------------------------------------------------------------------------
 
+local function NextItem()	--Jump to next item you have num > 0 in inventory
+	local new_item = lua_table.item_selected + 1
+
+	while new_item ~= lua_table.item_selected do
+		if new_item > item_library_size then
+			new_item = 1
+		end
+
+		if true then--lua_table.inventory[new_item] > 0 then
+			lua_table.item_selected = new_item
+			return true
+		end
+
+		new_item = new_item + 1
+	end
+
+	return false
+end
+
+local function PrevItem()	--Jump to prev item you have num > 0 in inventory
+	local new_item = lua_table.item_selected - 1
+
+	while new_item ~= lua_table.item_selected do
+		if new_item < 1 then
+			new_item = item_library_size
+		end
+
+		if true then--lua_table.inventory[new_item] > 0 then
+			lua_table.item_selected = new_item
+			return true
+		end
+
+		new_item = new_item - 1
+	end
+
+	return false
+end
+
+local function TakePotion(potion_id)
+	if lua_table.inventory[potion_id] > 0 then	--IF potions of type left
+
+		lua_table[item_effects[potion_id].stat_affected] = lua_table[item_effects[potion_id].stat_affected] + item_effects[potion_id].item_effect	-- Apply effect
+		lua_table.potion_in_effect = potion_id	-- Save Potion number id to later use
+
+		potion_taken_at = game_time		--Mark drink time
+		lua_table.potion_active = true	--Mark potion in effect
+
+		lua_table.inventory[potion_id] = lua_table.inventory[potion_id] - 1	--Remove potion from inventory
+		must_update_stats = true	--Flag stats for update
+	else
+		--TODO-Audio: Play some sound to indicate not possible
+	end
+end
+
+local function EndPotion(potion_id)
+	lua_table[item_effects[potion_id].stat_affected] = lua_table[item_effects[potion_id].stat_affected] - item_effects[potion_id].item_effect	-- Apply effect
+	lua_table.potion_active = false	--Mark potion off effect
+	must_update_stats = true	--Flag stats for update
+end
+
 local function SecondaryInputs()	--Process Secondary Inputs
-	if lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_pickup_item, key_state.key_down)			--Pickup Item
+	if not lua_table.potion_active then
+		if lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_use_item, key_state.key_down)		--Pickup Item
+		then
+			TakePotion(lua_table.item_selected)
+
+			--if lua_table.inventory[lua_table.item_selected] == 0 then NextItem() end	--IF no more if that type of item, jump to next
+		end
+	end
+
+	if lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_prev_consumable, key_state.key_down)	--Previous Consumable
 	then
-		--IF consumable (increase counter)
-		--ELSEIF gear (replace current gear)
-	
-	elseif lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_prev_consumable, key_state.key_down)	--Previous Consumable
-	then
-		--GO TO PREV CONSUMABLE
+		if not PrevItem() then	--TODO-Audio: Make not possible sound
+		end
 	
 	elseif lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_next_consumable, key_state.key_down)	--Next Consumable
 	then
-		--GO TO NEXT CONSUMABLE
-
-	elseif lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_drop_consumable, key_state.key_down)	--Drop Consumable
-	then
-		--DROP CURRENT CONSUMABLE
+		if not NextItem() then	--TODO-Audio: Make not possible sound
+		end
 	end
 end
 
@@ -1163,48 +1363,53 @@ end
 
 --Collider Calls END
 
-local function CalculateAbilityTrapezoid()
-	ability_trapezoid.point_B.x = lua_table.ability_offset_x + math.tan(lua_table.ability_angle) * (lua_table.ability_range - lua_table.ability_offset_z)
-	ability_trapezoid.point_B.z = lua_table.ability_range
+local function CalculateTrapezoid(trapezoid_table)
+	trapezoid_table.point_B.x = trapezoid_table.offset_x + math.tan(trapezoid_table.angle) * (trapezoid_table.range - trapezoid_table.offset_z)
+	trapezoid_table.point_B.z = trapezoid_table.range
 
-	ability_trapezoid.point_A.x = -ability_trapezoid.point_B.x
-	ability_trapezoid.point_A.z = lua_table.ability_range
+	trapezoid_table.point_A.x = -trapezoid_table.point_B.x
+	trapezoid_table.point_A.z = trapezoid_table.range
 
-	ability_trapezoid.point_C.x = lua_table.ability_offset_x
-	ability_trapezoid.point_C.z = lua_table.ability_offset_z
+	trapezoid_table.point_C.x = trapezoid_table.offset_x
+	trapezoid_table.point_C.z = trapezoid_table.offset_z
 
-	ability_trapezoid.point_D.x = -lua_table.ability_offset_x
-	ability_trapezoid.point_D.z = lua_table.ability_offset_z
+	trapezoid_table.point_D.x = -trapezoid_table.offset_x
+	trapezoid_table.point_D.z = trapezoid_table.offset_z
 end
 
 --Main Code
 function lua_table:Awake()
 	lua_table.SystemFunctions:LOG("JaskierScript AWAKE")
 
+	lua_table.AnimationFunctions:SetBlendTime(0.1)
+
 	--Get self GO_UID
 	my_GO_UID = lua_table.GameObjectFunctions:GetMyUID()
 
 	--Get Particle Emitters GO_UID
-	--guitar_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt_Sword")
-	--geralt_ability_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt_Ability")
-	--geralt_ultimate_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt_Ultimate")
+	--guitar_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Guitar")
+	--jaskier_ultimate_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Ultimate")
+	jaskier_ultimate_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Ultimate")
 
 	--Stop Particle Emitters
 	lua_table.ParticlesFunctions:StopParticleEmitter(my_GO_UID)
 	--lua_table.ParticlesFunctions:StopParticleEmitter_GO(guitar_GO_UID)			--TODO-Particles: Uncomment when ready
-	--lua_table.ParticlesFunctions:StopParticleEmitter_GO(geralt_ability_GO_UID)	--TODO-Particles: Uncomment when ready
-	--lua_table.ParticlesFunctions:StopParticleEmitter_GO(geralt_ultimate_GO_UID)	--TODO-Particles: Uncomment when ready
+	--lua_table.ParticlesFunctions:StopParticleEmitter_GO(jaskier_ability_GO_UID)	--TODO-Particles: Uncomment when ready
+	--lua_table.ParticlesFunctions:StopParticleEmitter_GO(jaskier_ultimate_GO_UID)	--TODO-Particles: Uncomment when ready
 
 	--Get attack_colliders GO_UIDs by name
 	attack_colliders.front.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.front.GO_name)
-	--attack_colliders.back.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.back.GO_name)
-	--attack_colliders.left.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.left.GO_name)
-	--attack_colliders.right.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.right.GO_name)
+	attack_colliders.line_1.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.line_1.GO_name)
+	attack_colliders.line_2.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.line_2.GO_name)
+	attack_colliders.line_3.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.line_3.GO_name)
+	attack_colliders.line_4.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.line_4.GO_name)
 
 	--camera_bounds_ratio = lua_table.GameObjectFunctions:GetScript(lua_table.GameObjectFunctions:FindGameObject("Camera")).Layer_3_FOV_ratio_1
 
 	lua_table.max_health_real = lua_table.max_health_orig	--Necessary for the first CalculateStats()
 	CalculateStats()	--Calculate stats based on orig values + modifier
+
+	CalculateTrapezoid(song_2_trapezoid)
 
 	--Set initial values
 	lua_table.current_health = lua_table.max_health_real
@@ -1213,7 +1418,7 @@ function lua_table:Awake()
 end
 
 function lua_table:Start()
-    lua_table.SystemFunctions:LOG("GeraltScript START")
+    lua_table.SystemFunctions:LOG("JaskierScript START")
 end
 
 function lua_table:Update()
@@ -1238,10 +1443,12 @@ function lua_table:Update()
 			if lua_table.current_ultimate > lua_table.max_ultimate then lua_table.current_ultimate = lua_table.max_ultimate end									--IF above max, set to max
 		end
 
-		-- if lua_table.ability_performed and game_time - ability_started_at >= lua_table.ability_cooldown	--IF ability cooldown finished, mark for UI
-		-- then
-		-- 	lua_table.ability_performed = false
-		-- end
+		if lua_table.ability_performed and game_time - ability_started_at >= lua_table.ability_cooldown	--IF ability cooldown finished, mark for UI
+		then
+			lua_table.ability_performed = false
+		end
+
+		if lua_table.potion_active and game_time - potion_taken_at > lua_table.potion_duration then EndPotion(lua_table.potion_in_effect) end
 	end
 
 	if lua_table.current_state >= state.idle	--IF alive
@@ -1253,8 +1460,9 @@ function lua_table:Update()
 			lua_table.previous_state = lua_table.current_state
 			lua_table.current_state = state.down
 
-			--if lua_table.ultimate_active then UltimateState(false) end	--IF ultimate on, go off
+			if lua_table.potion_active then EndPotion(lua_table.potion_in_effect) end				--IF potion in effect, turn off
 			AttackColliderShutdown()							--IF any attack colliders on, turn off
+			--TODO-Particles: Particle Shutdown
 		else
 			--DEBUG
 			--KeyboardInputs()
@@ -1269,11 +1477,6 @@ function lua_table:Update()
 				if lua_table.current_health < lua_table.max_health_real then lua_table.current_health = lua_table.current_health + health_reg_real * dt end	--IF can increase, increase health
 				if lua_table.current_health > lua_table.max_health_real then lua_table.current_health = lua_table.max_health_real end						--IF above max, set to max
 			end
-
-			-- if lua_table.ultimate_active and game_time - ultimate_effect_started_at >= lua_table.ultimate_effect_duration	--IF ultimate online and time up!
-			-- then
-			-- 	UltimateState(false)	--Ultimate turn off (stats back to normal)
-			-- end
 
 			--IF action currently going on, check action timer
 			if lua_table.current_state > state.run
@@ -1296,89 +1499,123 @@ function lua_table:Update()
 			else	--ELSE (action being performed)
 				time_since_action = game_time - action_started_at
 
-				-- if lua_table.current_state == state.ultimate and not lua_table.ultimate_active and time_since_action > lua_table.ultimate_scream_start	--IF ultimate state, ultimate unactive, and scream started
-				-- then
-				-- 	UltimateState(true)	--Ultimate turn on (boost stats)
-
-				-- 	lua_table.current_ultimate = 0.0
-				-- 	ultimate_effect_started_at = game_time
-				-- end
-
 				if time_since_action > current_action_duration	--IF action duration up
 				then
 					if lua_table.current_state >= state.light_1 and lua_table.current_state <= state.heavy_3	--IF attack finished
 					then
-					-- 	lua_table.ParticlesFunctions:StopParticleEmitter(sword_GO_UID)	--TODO-Particles: Deactivate Particles on Sword
-					-- elseif lua_table.current_state == state.ability
-					-- then
-					-- 	lua_table.ParticlesFunctions:StopParticleEmitter(geralt_ultimate_GO_UID)	--TODO-Particles: Deactivate Aard particles on hand
+					-- 	lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_guitar_particles_GO_UID)	--TODO-Particles: Deactivate Particles on Sword
+					elseif lua_table.current_state == state.song_1
+					then
+						--lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_ultimate_GO_UID)	--TODO-Particles: Deactivate Aard particles on hand
+						lua_table.song_1_effect_active = false
+
+					elseif lua_table.current_state == state.song_2
+					then
+						--lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_ultimate_GO_UID)	--TODO-Particles: Deactivate Aard particles on hand
+						lua_table.song_2_effect_active = false
+					elseif lua_table.current_state == state.song_3
+					then
+						--lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_ultimate_GO_UID)	--TODO-Particles: Deactivate Aard particles on hand
+						lua_table.song_3_secondary_effect_active = false
+					elseif lua_table.current_state == state.ultimate
+					then
+						--lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_ultimate_GO_UID)	--TODO-Particles: Deactivate Aard particles on hand
+						lua_table.ultimate_secondary_effect_active = false
+						lua_table.ultimate_active = false
 					end
 
+					AttackColliderShutdown()
+					--ParticleEmitterShutdown()
 					GoDefaultState()	--Return to move or idle
 
-				-- elseif lua_table.current_state == state.ability and not lua_table.ability_performed and time_since_action > lua_table.ability_start
-				-- then
-				-- 	AardPush()	--TODO: Uncomment when it works
-				-- 	lua_table.ParticlesFunctions:PlayParticleEmitter(geralt_ultimate_GO_UID)	--TODO-Particles: Activate Aard particles on hand
-				-- 	lua_table.current_energy = lua_table.current_energy - lua_table.ability_cost
-				-- 	lua_table.ability_performed = true
-
+				--ELSE (For all the following): IF action ongoing at the moment
 				elseif lua_table.current_state == state.evade and DirectionInBounds()				--ELSEIF evading
 				then
 					lua_table.PhysicsFunctions:Move(lua_table.evade_velocity * rec_direction.x * dt, lua_table.evade_velocity * rec_direction.z * dt, my_GO_UID)	--IMPROVE: Speed set on every frame bad?
 
 				elseif lua_table.current_state == state.light_1 or lua_table.current_state == state.light_2 or lua_table.current_state == state.light_3	--IF Light Attacking
 				then
-					-- if DirectionInBounds()	--IF inside bounds
-					-- then
-					-- 	lua_table.PhysicsFunctions:Move(lua_table.light_movement_velocity * rec_direction.x * dt, lua_table.light_movement_velocity * rec_direction.z * dt, my_GO_UID)
-					-- end
+					if DirectionInBounds() and lua_table.current_state == state.light_3
+					then
+						lua_table.PhysicsFunctions:Move(lua_table.heavy_movement_velocity * rec_direction.x * dt, lua_table.heavy_movement_velocity * rec_direction.z * dt, my_GO_UID)
+					end
 
 					--Collider Evaluation
-					if lua_table.current_state == state.light_1 then AttackColliderCheck("light", 1, "front")
-					elseif lua_table.current_state == state.light_2 then AttackColliderCheck("light", 2, "front")
-					elseif lua_table.current_state == state.light_3 then AttackColliderCheck("light", 3, "front")
+					if lua_table.current_state == state.light_1 then AttackColliderCheck("light_1", "front")
+					elseif lua_table.current_state == state.light_2 then AttackColliderCheck("light_2", "front")
+					elseif lua_table.current_state == state.light_3 then AttackColliderCheck("light_3", "front")
+					end
+
+				elseif lua_table.current_state == state.medium_1 or lua_table.current_state == state.medium_2 or lua_table.current_state == state.medium_3	--IF Medium Attacking
+				then
+					if DirectionInBounds()
+					then
+						lua_table.PhysicsFunctions:Move(lua_table.heavy_movement_velocity * rec_direction.x * dt, lua_table.heavy_movement_velocity * rec_direction.z * dt, my_GO_UID)
+					end
+
+					--Collider Evaluation
+					if lua_table.current_state == state.medium_1 then AttackColliderCheck("medium_1", "front")
+					elseif lua_table.current_state == state.medium_2 then AttackColliderCheck("medium_2", "front")
+					elseif lua_table.current_state == state.medium_3 then AttackColliderCheck("medium_3", "front")
 					end
 
 				elseif lua_table.current_state == state.heavy_1 or lua_table.current_state == state.heavy_2 or lua_table.current_state == state.heavy_3	--IF Heavy Attacking
 				then
-					-- if DirectionInBounds()	--IF in bounds	--IMPROVE: Maybe just cut the return to idle part?
-					-- then
-					-- 	lua_table.PhysicsFunctions:Move(lua_table.heavy_movement_velocity * rec_direction.x * dt, lua_table.heavy_movement_velocity * rec_direction.z * dt, my_GO_UID)
-					-- end
-
-					--Collider Evaluation
-					if lua_table.current_state == state.heavy_1 then AttackColliderCheck("heavy", 1, "front")
-					elseif lua_table.current_state == state.heavy_2 then AttackColliderCheck("heavy", 2, "front")
-					elseif lua_table.current_state == state.heavy_3 then AttackColliderCheck("heavy", 3, "front")
+					if DirectionInBounds() then
+						if lua_table.current_state == state.heavy_2 or lua_table.current_state == state.heavy_3
+						then
+						lua_table.PhysicsFunctions:Move(lua_table.heavy_movement_velocity * rec_direction.x * dt, lua_table.heavy_movement_velocity * rec_direction.z * dt, my_GO_UID)
+						end
 					end
 
-				-- elseif lua_table.current_state == state.combo_1
-				-- then
-				-- 	if DirectionInBounds() then lua_table.PhysicsFunctions:Move(lua_table.combo_1_movement_velocity * rec_direction.x * dt, lua_table.combo_1_movement_velocity * rec_direction.z * dt, my_GO_UID) end
-					
-				-- 	--Collider Evaluation
-				-- 	AttackColliderCheck("combo", 1, "right")
-				-- 	AttackColliderCheck("combo", 1, "front")
-				-- 	AttackColliderCheck("combo", 1, "left")
-				-- 	AttackColliderCheck("combo", 1, "back")
+					--Collider Evaluation
+					if lua_table.current_state == state.heavy_1 then AttackColliderCheck("heavy_1", "front")
+					elseif lua_table.current_state == state.heavy_2 then AttackColliderCheck("heavy_2", "front")
+					elseif lua_table.current_state == state.heavy_3 then AttackColliderCheck("heavy_3", "front")
+					end
 
-				-- elseif lua_table.current_state == state.combo_2
-				-- then
-				-- 	if DirectionInBounds() then lua_table.PhysicsFunctions:Move(lua_table.combo_2_movement_velocity * rec_direction.x * dt, lua_table.combo_2_movement_velocity * rec_direction.z * dt, my_GO_UID) end
-					
-				-- 	--Collider Evaluation
-				-- 	AttackColliderCheck("combo", 2, "left")
-				-- 	AttackColliderCheck("combo", 2, "right")
-				-- 	AttackColliderCheck("combo", 2, "front")
+				elseif lua_table.current_state == state.song_1 and time_since_action > lua_table.song_1_effect_start
+				then
+					if not lua_table.song_1_effect_active then
+						--lua_table.ParticlesFunctions:PlayParticleEmitter(jaskier_song_1_GO_UID)	--TODO-Particles:
+						lua_table.song_1_effect_active = true
+					end
 
-				-- elseif lua_table.current_state == state.combo_3
-				-- then
-				-- 	if DirectionInBounds() then lua_table.PhysicsFunctions:Move(lua_table.combo_3_movement_velocity * rec_direction.x * dt, lua_table.combo_3_movement_velocity * rec_direction.z * dt, my_GO_UID) end
+					--Collider Evaluation
+					AttackColliderCheck("song_1", "line_1")
+					AttackColliderCheck("song_1", "line_2")
+					AttackColliderCheck("song_1", "line_3")
+					AttackColliderCheck("song_1", "line_4")
 
-				-- 	--Collider Evaluation
-				-- 	AttackColliderCheck("combo", 3, "front")
+				elseif lua_table.current_state == state.song_2 and time_since_action > lua_table.song_2_effect_start
+				then
+					if not lua_table.song_2_effect_active then
+						--lua_table.ParticlesFunctions:PlayParticleEmitter(jaskier_song_2_GO_UID)	--TODO-Particles:
+						lua_table.song_2_effect_active = true
+					else
+						Song_Cone_Effect(song_2_trapezoid)
+					end
 
+				elseif lua_table.current_state == state.song_3
+				then
+					if time_since_action > lua_table.song_3_effect_start	--IF > effect_start
+					then
+						if time_since_action > lua_table.song_3_secondary_effect_start and not lua_table.song_3_effect_active 	--IF > secondary_effect_start and stage_1 effect ended
+						then
+							Song_3_Knockback()
+						else
+							Song_3_Taunt()
+						end
+					end
+
+				elseif lua_table.current_state == state.ultimate
+				then
+					if time_since_action > lua_table.ultimate_concert_end and not lua_table.ultimate_effect_active 	--IF > secondary_effect_start and stage_1 effect ended
+					then
+						UltimateFinish()
+					else
+						UltimateConcert()
+					end
 				end
 			end
 		end
@@ -1418,9 +1655,10 @@ function lua_table:Update()
 	lua_table.SystemFunctions:LOG("Time passed: " .. time_since_action)
 	--rot_y = math.rad(GimbalLockWorkaroundY(lua_table.TransformFunctions:GetRotation()[2]))	--TODO: Remove GimbalLock stage when Euler bug is fixed
 	--lua_table.SystemFunctions:LOG("Angle Y: " .. rot_y)
-	--lua_table.SystemFunctions:LOG("Ultimate: " .. lua_table.current_ultimate)
-	--lua_table.SystemFunctions:LOG("Combo num: " .. combo_num)
-	--lua_table.SystemFunctions:LOG("Combo string: " .. combo_stack[1] .. ", " .. combo_stack[2] .. ", " .. combo_stack[3] .. ", " .. combo_stack[4])
+	lua_table.SystemFunctions:LOG("Ultimate: " .. lua_table.current_ultimate)
+	--lua_table.SystemFunctions:LOG("Chain num: " .. lua_table.chained_attacks_num)
+	--lua_table.SystemFunctions:LOG("Note num: " .. lua_table.note_num)
+	--lua_table.SystemFunctions:LOG("Song string: " .. lua_table.note_stack[1] .. ", " .. lua_table.note_stack[2] .. ", " .. lua_table.note_stack[3] .. ", " .. lua_table.note_stack[4])
 
 	--Stats LOGS
 	--lua_table.SystemFunctions:LOG("Health: " .. lua_table.current_health)
@@ -1433,54 +1671,6 @@ function lua_table:Update()
 	--lua_table.SystemFunctions:LOG("Health Reg Mod: " .. lua_table.health_reg_mod)
 	--lua_table.SystemFunctions:LOG("Energy Reg Mod: " .. lua_table.energy_reg_mod)
 	--lua_table.SystemFunctions:LOG("Damage Mod: " .. lua_table.base_damage_mod)
-
-	--Trapezoid Global BEGIN
-	-- local geralt_pos = lua_table.TransformFunctions:GetPosition(my_GO_UID)
-	-- local A_x, A_z = ability_trapezoid.point_A.x + geralt_pos[1], ability_trapezoid.point_A.z + geralt_pos[3]
-	-- local B_x, B_z = ability_trapezoid.point_B.x + geralt_pos[1], ability_trapezoid.point_B.z + geralt_pos[3]
-	-- local C_x, C_z = ability_trapezoid.point_C.x + geralt_pos[1], ability_trapezoid.point_C.z + geralt_pos[3]
-	-- local D_x, D_z = ability_trapezoid.point_D.x + geralt_pos[1], ability_trapezoid.point_D.z + geralt_pos[3]
-
-	-- lua_table.SystemFunctions:LOG("Ability Trapezoid: " .. ability_trapezoid.point_A.x .. "," .. ability_trapezoid.point_A.z .. " / " .. ability_trapezoid.point_B.x .. "," .. ability_trapezoid.point_B.z .. " / " .. ability_trapezoid.point_C.x .. "," .. ability_trapezoid.point_C.z .. " / " .. ability_trapezoid.point_D.x .. "," .. ability_trapezoid.point_D.z)
-	-- lua_table.SystemFunctions:LOG("Real Trapezoid: " .. A_x .. "," .. A_z .. " / " .. B_x .. "," .. B_z .. " / " .. C_x .. "," .. C_z .. " / " .. D_x .. "," .. D_z)
-
-	-- local target = lua_table.GameObjectFunctions:FindGameObject("gerardo2")
-	-- local target_x = lua_table.GameObjectFunctions:GetGameObjectPosX(target)
-	-- local target_z = lua_table.GameObjectFunctions:GetGameObjectPosZ(target)
-
-	-- if math.sqrt((target_x - geralt_pos[1]) ^ 2 + (target_z - geralt_pos[3]) ^ 2) <= lua_table.ability_range	--IF on the left side of all vectors + within the OverlapSphere = inside AoE
-	-- and BidimensionalPointInVectorSide(B_x, B_z, C_x, C_z, target_x, target_z) < 0
-	-- and BidimensionalPointInVectorSide(C_x, C_z, D_x, D_z, target_x, target_z) < 0
-	-- and BidimensionalPointInVectorSide(D_x, D_z, A_x, A_z, target_x, target_z) < 0
-	-- then
-	-- 	lua_table.SystemFunctions:LOG("TARGET INSIDE")
-	-- else
-	-- 	lua_table.SystemFunctions:LOG("TARGET OUTSIDE")
-	-- end
-	--Trapezoid Global END
-
-	--Trapezoid Local BEGIN
-	-- local geralt_pos = lua_table.TransformFunctions:GetPosition(my_GO_UID)
-	-- local A_x, A_z = ability_trapezoid.point_A.x, ability_trapezoid.point_A.z
-	-- local B_x, B_z = ability_trapezoid.point_B.x, ability_trapezoid.point_B.z
-	-- local C_x, C_z = ability_trapezoid.point_C.x, ability_trapezoid.point_C.z
-	-- local D_x, D_z = ability_trapezoid.point_D.x, ability_trapezoid.point_D.z
-
-	-- lua_table.SystemFunctions:LOG("Ability Trapezoid: " .. ability_trapezoid.point_A.x .. "," .. ability_trapezoid.point_A.z .. " / " .. ability_trapezoid.point_B.x .. "," .. ability_trapezoid.point_B.z .. " / " .. ability_trapezoid.point_C.x .. "," .. ability_trapezoid.point_C.z .. " / " .. ability_trapezoid.point_D.x .. "," .. ability_trapezoid.point_D.z)
-	-- lua_table.SystemFunctions:LOG("Real Trapezoid: " .. A_x .. "," .. A_z .. " / " .. B_x .. "," .. B_z .. " / " .. C_x .. "," .. C_z .. " / " .. D_x .. "," .. D_z)
-
-	-- if BidimensionalPointInVectorSide(A_x, A_z, B_x, B_z, geralt_pos[1], geralt_pos[3]) < 0	--IF on the left side of all vectors + within the OverlapSphere = inside AoE
-	-- and BidimensionalPointInVectorSide(B_x, B_z, C_x, C_z, geralt_pos[1], geralt_pos[3]) < 0
-	-- and BidimensionalPointInVectorSide(C_x, C_z, D_x, D_z, geralt_pos[1], geralt_pos[3]) < 0
-	-- and BidimensionalPointInVectorSide(D_x, D_z, A_x, A_z, geralt_pos[1], geralt_pos[3]) < 0
-	-- --if geralt_pos[1] > A_x and geralt_pos[1] < B_x and geralt_pos[3] > C_z and geralt_pos[3] < A_z
-	-- then
-	-- 	lua_table.SystemFunctions:LOG("TARGET INSIDE")
-	-- else
-	-- 	lua_table.SystemFunctions:LOG("TARGET OUTSIDE")
-	-- end
-	-- lua_table.SystemFunctions:LOG("G_x: " .. geralt_pos[1] .. ", G_z: " .. geralt_pos[3])
-	--Trapezoid Local END
 
 	--GameObject Find BEGIN
 	-- local target = lua_table.GameObjectFunctions:FindGameObject("gerardo2")
@@ -1496,6 +1686,61 @@ function lua_table:Update()
 	-- 	lua_table.SystemFunctions:LOG("Target_x: " .. target_x .. ", Target_y: " .. target_y .. ", Target_z: " .. target_z)
 	-- end
 	--GameObject Find END
+
+	--Trapezoid Static BEGIN
+	-- local jaskier_pos = lua_table.TransformFunctions:GetPosition(my_GO_UID)
+
+	-- SaveDirection()
+	-- local A_z, A_x = BidimensionalRotate(song_2_trapezoid.point_A.z, song_2_trapezoid.point_A.x, 0)
+	-- local B_z, B_x = BidimensionalRotate(song_2_trapezoid.point_B.z, song_2_trapezoid.point_B.x, 0)
+	-- local C_z, C_x = BidimensionalRotate(song_2_trapezoid.point_C.z, song_2_trapezoid.point_C.x, 0)
+	-- local D_z, D_x = BidimensionalRotate(song_2_trapezoid.point_D.z, song_2_trapezoid.point_D.x, 0)
+
+	-- --A_x, A_z = A_x + jaskier_pos[1], A_z + jaskier_pos[3]
+	-- --B_x, B_z = B_x + jaskier_pos[1], B_z + jaskier_pos[3]
+	-- --C_x, C_z = C_x + jaskier_pos[1], C_z + jaskier_pos[3]
+	-- --D_x, D_z = D_x + jaskier_pos[1], D_z + jaskier_pos[3]
+
+	-- local magnitude = math.sqrt(jaskier_pos[1] ^ 2 + jaskier_pos[3] ^ 2)
+
+	-- if magnitude < song_2_trapezoid.range
+	-- and BidimensionalPointInVectorSide(B_x, B_z, C_x, C_z, jaskier_pos[1], jaskier_pos[3]) < 0	--If left side of all the trapezoid vectors BC, CD, DA ( \_/ )
+	-- and BidimensionalPointInVectorSide(C_x, C_z, D_x, D_z, jaskier_pos[1], jaskier_pos[3]) < 0
+	-- and BidimensionalPointInVectorSide(D_x, D_z, A_x, A_z, jaskier_pos[1], jaskier_pos[3]) < 0
+	-- then
+	-- 	lua_table.SystemFunctions:LOG("Jaskier in Area!!!")
+	-- end
+
+	--lua_table.SystemFunctions:LOG("Static Trapezoid: " .. song_2_trapezoid.point_A.x .. "," .. song_2_trapezoid.point_A.z .. " / " .. song_2_trapezoid.point_B.x .. "," .. song_2_trapezoid.point_B.z .. " / " .. song_2_trapezoid.point_C.x .. "," .. song_2_trapezoid.point_C.z .. " / " .. song_2_trapezoid.point_D.x .. "," .. song_2_trapezoid.point_D.z)
+	--lua_table.SystemFunctions:LOG("Real Trapezoid: " .. A_x .. "," .. A_z .. " / " .. B_x .. "," .. B_z .. " / " .. C_x .. "," .. C_z .. " / " .. D_x .. "," .. D_z)
+	--Trapezoid Static END
+
+	--Trapezoid Dynamic BEGIN
+	-- local jaskier_pos = lua_table.TransformFunctions:GetPosition(my_GO_UID)
+	-- local enemy_list = lua_table.PhysicsFunctions:OverlapSphere(jaskier_pos[1], jaskier_pos[2], jaskier_pos[3], 10, layers.enemy)
+
+	-- SaveDirection()
+	-- local A_z, A_x = BidimensionalRotate(song_2_trapezoid.point_A.z, song_2_trapezoid.point_A.x, rot_y)
+	-- local B_z, B_x = BidimensionalRotate(song_2_trapezoid.point_B.z, song_2_trapezoid.point_B.x, rot_y)
+	-- local C_z, C_x = BidimensionalRotate(song_2_trapezoid.point_C.z, song_2_trapezoid.point_C.x, rot_y)
+	-- local D_z, D_x = BidimensionalRotate(song_2_trapezoid.point_D.z, song_2_trapezoid.point_D.x, rot_y)
+
+	-- A_x, A_z = A_x + jaskier_pos[1], A_z + jaskier_pos[3]
+	-- B_x, B_z = B_x + jaskier_pos[1], B_z + jaskier_pos[3]
+	-- C_x, C_z = C_x + jaskier_pos[1], C_z + jaskier_pos[3]
+	-- D_x, D_z = D_x + jaskier_pos[1], D_z + jaskier_pos[3]
+
+	-- for i = 1, #enemy_list do
+	-- 	local enemy_pos = lua_table.TransformFunctions:GetPosition(enemy_list[i])
+
+	-- 	if BidimensionalPointInVectorSide(B_x, B_z, C_x, C_z, enemy_pos[1], enemy_pos[3]) < 0	--If left side of all the trapezoid vectors BC, CD, DA ( \_/ )
+	-- 	and BidimensionalPointInVectorSide(C_x, C_z, D_x, D_z, enemy_pos[1], enemy_pos[3]) < 0
+	-- 	and BidimensionalPointInVectorSide(D_x, D_z, A_x, A_z, enemy_pos[1], enemy_pos[3]) < 0
+	-- 	then
+	-- 		lua_table.SystemFunctions:LOG("Enemy in Area!!!")
+	-- 	end
+	-- end
+	--Trapezoid Dynamic END
 end
 
 return lua_table
