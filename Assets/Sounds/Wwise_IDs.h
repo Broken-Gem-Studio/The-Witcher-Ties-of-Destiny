@@ -114,6 +114,7 @@ namespace AK
         static const AkUniqueID PLAY_KIKIMORA_SOUND_5 = 2489507369U;
         static const AkUniqueID PLAY_KIKIMORA_SOUND_6 = 2489507370U;
         static const AkUniqueID PLAY_KIKIMORA_SWEEP = 287198644U;
+        static const AkUniqueID PLAY_LVL1_INTRO_CONVERSATION_CUTSCENE = 160635907U;
         static const AkUniqueID PLAY_MENU_1 = 4155944947U;
         static const AkUniqueID PLAY_MENU_2 = 4155944944U;
         static const AkUniqueID PLAY_NILFGAARDIAN_DEATH_1 = 1506867313U;
@@ -138,6 +139,8 @@ namespace AK
         static const AkUniqueID PLAY_SELECT_1 = 2927391090U;
         static const AkUniqueID PLAY_SELECT_2 = 2927391089U;
         static const AkUniqueID PLAY_SELECT_3 = 2927391088U;
+        static const AkUniqueID PLAY_SILVER_FOR_MONSTERS_MUSIC = 3329043269U;
+        static const AkUniqueID PLAY_SPIKEROOG_MUSIC = 562633715U;
         static const AkUniqueID PLAY_WOODEN_OBJECT_BREAK_1 = 152572334U;
         static const AkUniqueID PLAY_WOODEN_OBJECT_BREAK_2 = 152572333U;
         static const AkUniqueID PLAY_WOODEN_OBJECT_BREAK_3 = 152572332U;

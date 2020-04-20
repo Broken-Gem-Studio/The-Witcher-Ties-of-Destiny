@@ -1488,6 +1488,47 @@
 						</Event>
 					</ChildrenList>
 				</Folder>
+				<Folder Name="Dialogues" ID="{11F87743-A2D8-437F-82FA-AD62A281EBD4}" ShortID="1070709453">
+					<ChildrenList>
+						<Event Name="Play_lvl1_Intro_conversation_Cutscene" ID="{6F03570E-E8B3-4EDE-892A-6D09F36880EF}">
+							<ChildrenList>
+								<Action Name="" ID="{D3B9FE79-FCF8-4F8F-AD91-A9FD48587D37}" ShortID="818265865">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="lvl1_Intro_conversation_Cutscene" ID="{648C4C16-B90E-40D9-955E-B6F1B967F494}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="BGM" ID="{186A412B-668D-4E34-9AC5-775119D4AEE5}" ShortID="342200071">
+					<ChildrenList>
+						<Event Name="Play_Silver_for_Monsters_Music" ID="{7304625C-F9C9-4C79-96BB-DD461A690D70}">
+							<ChildrenList>
+								<Action Name="" ID="{B12F3E7E-BC2F-48CE-AB5C-DBEE1A45F391}" ShortID="318469191">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Silver for Monsters_Music" ID="{899AE689-E8F1-4721-A8A5-9E069C9422FC}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Spikeroog_Music" ID="{933D0AF9-4CBE-4D9E-B129-4607DDF7B116}">
+							<ChildrenList>
+								<Action Name="" ID="{B76FBEDE-97B1-402C-8855-57A5DE5A0489}" ShortID="355314521">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Spikeroog_Music" ID="{ACEDA678-3A3D-427A-97AB-956864968FD1}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
