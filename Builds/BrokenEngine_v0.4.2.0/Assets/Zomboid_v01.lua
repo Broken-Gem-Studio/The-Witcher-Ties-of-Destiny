@@ -87,7 +87,7 @@ local crushing = false
 -- Recast navigation
 local navID = 0
 local corners = {}
-lua_table.currCorner = 2
+local currCorner = 1
 
 -- ______________________SCRIPT FUNCTIONS______________________
 local function ResetJumpStun()
@@ -159,28 +159,28 @@ local function Seek()
 	
 	if lua_table.currentTargetDir < lua_table.AggroRange and lua_table.currentTargetDir > lua_table.minDistance then
 			
-		local tmp = lua_table.Transform:GetPosition(lua_table.currentTarget) -- For LookAt
-
 		-- Wait 4 second to recalculate path
-
 		if not start_navigation then
-			corners = lua_table.Recast:CalculatePath(lua_table.GhoulPos[1], lua_table.GhoulPos[2], lua_table.GhoulPos[3], tmp[1], tmp[2], tmp[3], 1 << navID)
-			navigation_timer = lua_table.System:GameTime() * 1000
-			ResetNavigation()
+			
 		end
 
 		if navigation_timer + 4000 <= lua_table.System:GameTime() * 1000 then
 			start_navigation = false
 		end
 
+		corners = lua_table.Recast:CalculatePath(lua_table.GhoulPos[1], lua_table.GhoulPos[2], lua_table.GhoulPos[3], lua_table.currentTargetPos[1], lua_table.currentTargetPos[2], lua_table.currentTargetPos[3], 1 << navID)
+
+			-- navigation_timer = lua_table.System:GameTime() * 1000
+			ResetNavigation()
+
 		local nextCorner = {}
-		nextCorner[1] = corners[lua_table.currCorner][1] - lua_table.GhoulPos[1]
-		nextCorner[2] = corners[lua_table.currCorner][2] - lua_table.GhoulPos[2]
-		nextCorner[3] = corners[lua_table.currCorner][3] - lua_table.GhoulPos[3]
+		nextCorner[1] = corners[currCorner][1] - lua_table.GhoulPos[1]
+		nextCorner[2] = corners[currCorner][2] - lua_table.GhoulPos[2]
+		nextCorner[3] = corners[currCorner][3] - lua_table.GhoulPos[3]
 
 		local dis = math.sqrt(nextCorner[1] ^ 2 + nextCorner[3] ^ 2)
 		
-		if dis > 0.5 then 
+		if dis > 0.1 then 
 
 			local vec = { 0, 0, 0 }
 			vec[1] = nextCorner[1] / dis
@@ -188,13 +188,11 @@ local function Seek()
 			vec[3] = nextCorner[3] / dis
 				
 			-- Apply movement vector to move character
-
-			lua_table.Transform:LookAt(corners[lua_table.currCorner][1], lua_table.GhoulPos[2], corners[lua_table.currCorner][3], lua_table.MyUID)
+			lua_table.Transform:LookAt(corners[currCorner][1], lua_table.GhoulPos[2], corners[currCorner][3], lua_table.MyUID)
 			lua_table.Physics:Move(vec[1] * lua_table.speed, vec[3] * lua_table.speed, lua_table.MyUID)
 			
-			
 			else
-				lua_table.currCorner = lua_table.currCorner + 1
+				currCorner = currCorner + 1
 		end
 		
 		else 
@@ -233,8 +231,6 @@ local function JumpStun() -- Smash the ground with a jump, then stun
 		ResetCombo()
 		--ResetNavigation()
 	end
-	
-		
 end
 	
 local function Combo()
@@ -319,6 +315,19 @@ function lua_table:OnCollisionEnter()
 	local collider = lua_table.Physics:OnCollisionEnter(lua_table.MyUID)
 	
 end
+
+-- function lua_table:RequestedTrigger(collider_GO)
+-- 	lua_table.System:LOG("RequestedTrigger activated")
+
+-- 	if lua_table.currentState ~= State.DEATH then
+-- 		local player_script = lua_table.GameObject:GetScript(collider_GO)
+-- 		lua_table.health = lua_table.health - player_script.collider_damage
+
+-- 		if player_script.collider_effect ~= attack_effects.none then
+-- 			-- React to attack effect
+-- 		end
+-- 	end
+-- end
 
 -- ______________________MAIN CODE______________________
 function lua_table:Awake()
