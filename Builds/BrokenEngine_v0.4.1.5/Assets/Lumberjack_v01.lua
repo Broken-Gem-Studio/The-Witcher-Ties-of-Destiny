@@ -197,8 +197,8 @@ local function NormalizeDirVector()
 	Nvec3x = vec3x / DistanceMagnitude
 	Nvec3z = vec3z / DistanceMagnitude -- Normalized values
 
-	lua_table.SystemFunctions:LOG("Nvec3x NormalizeDirVector():"..Nvec3x)
-	lua_table.SystemFunctions:LOG("Nvec3z NormalizeDirVector():"..Nvec3z)
+	--lua_table.SystemFunctions:LOG("Nvec3x NormalizeDirVector():"..Nvec3x)
+	--lua_table.SystemFunctions:LOG("Nvec3z NormalizeDirVector():"..Nvec3z)
 
 end
 local function NormalizeDirVector_AuxTarget()
@@ -206,8 +206,8 @@ local function NormalizeDirVector_AuxTarget()
 	
 	Nvec3x = vec3x / DistanceMagnitudeAux_Target
 	Nvec3z = vec3z / DistanceMagnitudeAux_Target -- Normalized values for jumpattack
-	lua_table.SystemFunctions:LOG("Nvec3x after NormalizedirVector_AuxTarget:------------"..Nvec3x)
-	lua_table.SystemFunctions:LOG("Nvec3z after NormalizedirVector_AuxTarget:------------"..Nvec3z)
+	--lua_table.SystemFunctions:LOG("Nvec3x after NormalizedirVector_AuxTarget:------------"..Nvec3x)
+	--lua_table.SystemFunctions:LOG("Nvec3z after NormalizedirVector_AuxTarget:------------"..Nvec3z)
 end
 -----------------------------------------------------------------------------------------
 -- SUB FUNCTIONS
@@ -452,7 +452,7 @@ local function HandlePRE_DETECTION()
 end
 
 local function HandleSEEK()
-	lua_table.SystemFunctions:LOG("DistanceMagnitude-->"..DistanceMagnitude)
+	--lua_table.SystemFunctions:LOG("DistanceMagnitude-->"..DistanceMagnitude)
 
 	if lua_table.CurrentSubState == SubState.ALERT
 	then
@@ -476,7 +476,7 @@ local function HandleSEEK()
 			lua_table.AnimationSystem:PlayAnimation("RUN",30.0)
 			Run_AnimController = true
 		end
-		lua_table.SystemFunctions:LOG("seekTarget()")
+		--lua_table.SystemFunctions:LOG("seekTarget()")
 		seekTarget()----------------------------------11111111111111111111111111
 	end
 	--#####################################################################################   SEEK DONE
@@ -494,8 +494,8 @@ local function HandleSEEK()
 			Aux_TargetPos = lua_table.TransformFunctions:GetPosition(lua_table.CurrentTarget)
 			Aux_TargetExist = true
 		end
-		lua_table.SystemFunctions:LOG("DistanceMagnitudeAuxTarget-->"..DistanceMagnitudeAux_Target)
-		lua_table.SystemFunctions:LOG("jumpAttack()")
+		--lua_table.SystemFunctions:LOG("DistanceMagnitudeAuxTarget-->"..DistanceMagnitudeAux_Target)
+		--lua_table.SystemFunctions:LOG("jumpAttack()")
 		jumpAttack()
 	end
 
@@ -546,7 +546,7 @@ local function HandleAttack()
 	if DistanceMagnitude <= lua_table.MinDistanceFromPlayer   --   -1 bc lumberjac distance is 2.93
 	then
 		Attack()
-		lua_table.SystemFunctions:LOG("attack()")
+		--lua_table.SystemFunctions:LOG("attack()")
 	elseif DistanceMagnitude >= lua_table.MinDistanceFromPlayer +2
 	then 
 		lua_table.CurrentState = State.SEEK
@@ -576,8 +576,8 @@ end
 function lua_table:OnTriggerEnter()	
 	local collider_GO = lua_table.PhysicsSystem:OnTriggerEnter(MyUID)
 
-	lua_table.current_health = lua_table.current_health - 210.0
-	lua_table.SystemFunctions:LOG("-210")
+	lua_table.CurrentHealth = lua_table.CurrentHealth - 210.0
+	lua_table.SystemFunctions:LOG("-210##########################################################d###")
 	--if lua_table.CurrentState ~= State.DEATH --and lua_table.GameObjectFunctions:GetLayerByID(collider_GO) == 2 --enemy attack
 	--then
 	--	local collider_parent = lua_table.GameObjectFunctions:GetGameObjectParent(collider_GO)
