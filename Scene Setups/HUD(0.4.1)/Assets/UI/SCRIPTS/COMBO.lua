@@ -306,21 +306,21 @@ function GetTableCOMBO()
 ---------------------------------
         if lua_table.p1.current_state == 17 and fourth == false--fourth LIGHT if first combo
         then
-            lua_table["UI"]:MakeElementVisible("Image", COMBO_LIGHT4_ID)
+            lua_table["UI"]:MakeElementVisible("Image", COMBO_MEDIUM4_ID)
             fourth = true
             combo = true
         end 
 
         if lua_table.p1.current_state == 18  and fourth == false --fourth HEAVY
         then
-            lua_table["UI"]:MakeElementVisible("Image", COMBO_HEAVY4_ID)
+            lua_table["UI"]:MakeElementVisible("Image", COMBO_LIGHT4_ID)
             fourth  = true
             combo = true
         end 
 
         if lua_table.p1.current_state == 19 and fourth == false--fourth LIGHT if third combo
         then
-            lua_table["UI"]:MakeElementVisible("Image", COMBO_LIGHT4_ID)
+            lua_table["UI"]:MakeElementVisible("Image", COMBO_HEAVY4_ID)
             fourth = true
             combo = true
         end
