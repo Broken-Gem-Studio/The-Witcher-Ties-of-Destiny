@@ -168,6 +168,7 @@ local function Seek()
 			navigation_timer = lua_table.System:GameTime() * 1000
 			ResetNavigation()
 		end
+
 		if navigation_timer + 4000 <= lua_table.System:GameTime() * 1000 then
 			start_navigation = false
 		end
@@ -179,7 +180,7 @@ local function Seek()
 
 		local dis = math.sqrt(nextCorner[1] ^ 2 + nextCorner[3] ^ 2)
 		
-		if dis > 0.1 then 
+		if dis > 0.5 then 
 
 			local vec = { 0, 0, 0 }
 			vec[1] = nextCorner[1] / dis
@@ -187,9 +188,11 @@ local function Seek()
 			vec[3] = nextCorner[3] / dis
 				
 			-- Apply movement vector to move character
+
+			lua_table.Transform:LookAt(corners[lua_table.currCorner][1], lua_table.GhoulPos[2], corners[lua_table.currCorner][3], lua_table.MyUID)
 			lua_table.Physics:Move(vec[1] * lua_table.speed, vec[3] * lua_table.speed, lua_table.MyUID)
 			
-			lua_table.Transform:LookAt(corners[lua_table.currCorner][1], lua_table.GhoulPos[2], corners[lua_table.currCorner][3], lua_table.MyUID)
+			
 			else
 				lua_table.currCorner = lua_table.currCorner + 1
 		end
@@ -202,7 +205,7 @@ local function Seek()
 	if lua_table.currentTargetDir <= lua_table.minDistance then
 		lua_table.currentState = State.JUMP
 		lua_table.System:LOG("Tank Ghoul state: JUMP (2)")
-		ResetNavigation()
+		--ResetNavigation()
 	end
 end
 
@@ -228,7 +231,7 @@ local function JumpStun() -- Smash the ground with a jump, then stun
 		lua_table.currentState = State.COMBO
 		lua_table.System:LOG("Tank Ghoul state: COMBO (3)")  
 		ResetCombo()
-		ResetNavigation()
+		--ResetNavigation()
 	end
 	
 		
@@ -270,20 +273,23 @@ local function Combo()
 	if combo_timer + 5000 <= lua_table.System:GameTime() * 1000 then
 		lua_table.currentState = State.SEEK	
 		lua_table.System:LOG("Tank Ghoul state: JUMP (2)")  
-		ResetNavigation()
-		ResetJumpStun()
+		--ResetNavigation()
+		--ResetJumpStun()
+		ResetCombo()
 	end
 	
 end
 
 local function Die()
-	if is_dead == true and not start_death then 
+	if not start_death then 
 		death_timer = lua_table.System:GameTime() * 1000
+		lua_table.System:LOG("Im dying")  
 		lua_table.Animations:PlayAnimation("Death", 30.0)
 		start_death = true
 	end
 
-	if death_timer + 3000 <= lua_table.System:GameTime() * 1000 then
+	if death_timer + 7000 <= lua_table.System:GameTime() * 1000 then
+		lua_table.System:LOG("Im dead!!!!!!!!!")  
 		lua_table.GameObject:DestroyGameObject(lua_table.MyUID) -- Delete GO from scene
 	end
 	
@@ -297,11 +303,15 @@ function lua_table:OnTriggerEnter()
 
     if layer == layers.player_attack
     then
-    	lua_table.health = lua_table.health - 250.0
-        lua_table.is_stunned = true
-		lua_table.currentState = State.IDLE
+    	lua_table.health = lua_table.health - 125.0
+		--lua_table.is_stunned = true
+		lua_table.Animations:PlayAnimation("Hit", 30.0)
 		lua_table.System:LOG("Hit registered")
-        -- HIT GOES HERE
+		lua_table.currentState = State.SEEK
+		-- HIT GOES HERE
+		-- Get parent
+		-- Access parent script 
+		-- - HP depending on attack, inside script
     end
 end
 
@@ -350,9 +360,14 @@ function lua_table:Update()
 
 	-- Check if our entity is dead
 	if lua_table.health <= 0 then 
+
 		lua_table.currentState = State.DEATH
 		lua_table.System:LOG("Tank Ghoul state: Death (4)")
-		lua_table.is_dead = true
+		
+	end
+
+	if lua_table.currentState ~= State.SEEK then
+		ResetNavigation()
 	end
 
 	SearchPlayers()
