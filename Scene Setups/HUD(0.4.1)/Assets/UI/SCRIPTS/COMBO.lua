@@ -161,7 +161,7 @@ function GetTableCOMBO()
         timer = lua_table["System"]:GameTime()
         --lua_table["System"]:LOG("COMBO: " .. lua_table.p1.combo_num )
         --lua_table["System"]:LOG("STATE: " .. lua_table.p1.current_state )
-        lua_table["System"]:LOG("COMBO2: " .. lua_table.p2.note_num )
+        lua_table["System"]:LOG("NOTES: " .. lua_table.p2.note_num )
         lua_table["System"]:LOG("STATE2: " .. lua_table.p2.current_state )
 
         --GERALT
@@ -330,10 +330,30 @@ function GetTableCOMBO()
 
         --COMPORTAMIENTO SWORD/GUITAR
 
-        if lua_table.p2.ability_performed == true and combo_J == true--if ability is activated and combo is true(note_stack)
+        if lua_table.p2.note_num == 0 and lua_table.p2.current_state < 17
+        then
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_LIGHT_ID_J)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_HEAVY_ID_J)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_LIGHT2_ID_J)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_HEAVY2_ID_J)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_LIGHT3_ID_J)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_HEAVY3_ID_J)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_LIGHT4_ID_J)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_HEAVY4_ID_J)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_MEDIUM_ID_J)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_MEDIUM2_ID_J)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_MEDIUM3_ID_J)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_MEDIUM4_ID_J)
+
+            first_J = false
+            second_J = false
+            third_J = false
+            fourth_J = false
+        end
+
+        if lua_table.p2.ability_performed == true and combo_J == true and lua_table.p2.current_state >= 17
         then
 
-            lua_table["UI"]:MakeElementInvisible("Image", SWORD_DOWN_ID_J)
             lua_table["UI"]:MakeElementInvisible("Image", SWORD_UP_ID_J)
             lua_table["UI"]:MakeElementVisible("Image", SWORD_FIRE_ID_J)
             combo_J = false
@@ -344,11 +364,22 @@ function GetTableCOMBO()
             fourth_J = false
 
         end
+
+        if lua_table.p2.current_state < 17
+        then
+            lua_table["UI"]:MakeElementInvisible("Image", SWORD_FIRE_ID_J)
+            lua_table["UI"]:MakeElementVisible("Image", SWORD_UP_ID_J)
+        end
         -------------------------------------
 
-        lua_table["System"]:LOG("STACK 1: " .. lua_table.p2.note_stack[1])
+        lua_table["System"]:LOG("STACK 1: " .. lua_table.p2.note_stack[4])
+        lua_table["System"]:LOG("STACK 2: " .. lua_table.p2.note_stack[3])
+        lua_table["System"]:LOG("STACK 3: " .. lua_table.p2.note_stack[2])
+        lua_table["System"]:LOG("STACK 4: " .. lua_table.p2.note_stack[1])
 
-        if first_J == false and lua_table.p2.note_stack[1] == 'N'
+
+
+        if first_J == false and lua_table.p2.note_stack[4] ~= 'N' and lua_table.p2.note_num == 1
         then
             if lua_table.p2.current_state == 8 or lua_table.p2.current_state == 9 or lua_table.p2.current_state == 10
             then
@@ -365,9 +396,9 @@ function GetTableCOMBO()
             end
         end
         
-        lua_table["System"]:LOG("STACK 2: " .. lua_table.p2.note_stack[2])
+        
 
-        if second_J == false and lua_table.p2.note_stack[2] == 'N' and lua_table.p2.note_stack[1] ~= 'N'--AHORA SIEMPRE ENTRA , PENSAR SOLUCION PARA QUE NO ENTRE HASTA QUE FIRST ESTE OCUPADA Y HAGA OTRO NUEVO INPUT
+        if second_J == false and lua_table.p2.note_stack[3] ~= 'N' and first_J == true and lua_table.p2.note_num == 2--AHORA SIEMPRE ENTRA , PENSAR SOLUCION PARA QUE NO ENTRE HASTA QUE FIRST ESTE OCUPADA Y HAGA OTRO NUEVO INPUT
         then
             if lua_table.p2.current_state == 8 or lua_table.p2.current_state == 9 or lua_table.p2.current_state == 10
             then
@@ -383,7 +414,56 @@ function GetTableCOMBO()
                 second_J = true
             end
         end
-        
+       
+        if third_J == false and lua_table.p2.note_stack[2] ~= 'N' and second_J == true and lua_table.p2.note_num == 3--AHORA SIEMPRE ENTRA , PENSAR SOLUCION PARA QUE NO ENTRE HASTA QUE FIRST ESTE OCUPADA Y HAGA OTRO NUEVO INPUT
+        then
+            if lua_table.p2.current_state == 8 or lua_table.p2.current_state == 9 or lua_table.p2.current_state == 10
+            then
+                lua_table["UI"]:MakeElementVisible("Image", COMBO_LIGHT3_ID_J)
+                third_J = true
+            elseif lua_table.p2.current_state == 11 or lua_table.p2.current_state == 12 or lua_table.p2.current_state == 13
+            then
+                lua_table["UI"]:MakeElementVisible("Image", COMBO_MEDIUM3_ID_J)
+                third_J = true
+            elseif lua_table.p2.current_state == 14 or lua_table.p2.current_state == 15 or lua_table.p2.current_state == 16
+            then
+                lua_table["UI"]:MakeElementVisible("Image", COMBO_HEAVY3_ID_J)
+                third_J = true
+            end
+        end
+
+        if fourth_J == false and lua_table.p2.note_stack[1] ~= 'N' and third_J == true and lua_table.p2.note_num == 4--AHORA SIEMPRE ENTRA , PENSAR SOLUCION PARA QUE NO ENTRE HASTA QUE FIRST ESTE OCUPADA Y HAGA OTRO NUEVO INPUT
+        then
+            if lua_table.p2.current_state == 8 or lua_table.p2.current_state == 9 or lua_table.p2.current_state == 10
+            then
+                lua_table["UI"]:MakeElementVisible("Image", COMBO_LIGHT4_ID_J)
+                fourth_J = true
+            elseif lua_table.p2.current_state == 11 or lua_table.p2.current_state == 12 or lua_table.p2.current_state == 13
+            then
+                lua_table["UI"]:MakeElementVisible("Image", COMBO_MEDIUM4_ID_J)
+                fourth_J = true
+            elseif lua_table.p2.current_state == 14 or lua_table.p2.current_state == 15 or lua_table.p2.current_state == 16
+            then
+                lua_table["UI"]:MakeElementVisible("Image", COMBO_HEAVY4_ID_J)
+                fourth_J = true
+            end
+        end
+
+        --COMBOS
+        if fourth_J == true and combo_J == false and  lua_table.p2.note_stack[4] == 'L' and  lua_table.p2.note_stack[3] == 'L' and  lua_table.p2.note_stack[2] == 'L' and  lua_table.p2.note_stack[1] == 'L'
+        then
+            combo_J = true
+        end
+
+        if fourth_J == true and combo_J == false and  lua_table.p2.note_stack[4] == 'M' and  lua_table.p2.note_stack[3] == 'M' and  lua_table.p2.note_stack[2] == 'M' and  lua_table.p2.note_stack[1] == 'M'
+        then
+            combo_J = true
+        end
+
+        if fourth_J == true and combo_J == false and  lua_table.p2.note_stack[4] == 'H' and  lua_table.p2.note_stack[3] == 'H' and  lua_table.p2.note_stack[2] == 'H' and  lua_table.p2.note_stack[1] == 'H'
+        then
+            combo_J = true
+        end
 
     
     end
