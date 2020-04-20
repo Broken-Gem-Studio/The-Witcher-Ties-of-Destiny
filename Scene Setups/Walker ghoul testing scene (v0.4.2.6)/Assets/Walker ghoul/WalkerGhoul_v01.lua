@@ -372,6 +372,7 @@ function lua_table:OnTriggerEnter()
     if layer == Layer.PLAYER_ATTACK
     then
         lua_table.AnimationFunctions:PlayAnimation("Hit", 30)
+        lua_table.ParticleFunctions:DeactivateParticlesEmission(lua_table.Emitter_UUID)   
         --lua_table.AudioFunctions:PlayAudioEvent("Play_Ghoul_hurt_1")
         lua_table.hit = true
 
@@ -415,6 +416,7 @@ end
 
 function lua_table:RequestedTrigger(collider_object)
 	lua_table.SystemFunctions:LOG("Walker Ghooul's OnRequestedTrigger has been called")
+    lua_table.ParticleFunctions:DeactivateParticlesEmission(lua_table.Emitter_UUID)   
 
 	if currentState ~= State.DEATH	
 	then
