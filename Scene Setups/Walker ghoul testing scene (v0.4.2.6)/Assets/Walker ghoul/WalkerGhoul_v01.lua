@@ -188,6 +188,7 @@ local function Idle()
         if lua_table.taunted == true
         then
             currentState = State.SEEK                 
+            lua_table.ObjectivePosition = lua_table.TransformFunctions:GetPosition(lua_table.ObjectivePlayer_UUID)
             lua_table.PathCorners = lua_table.NavigationFunctions:CalculatePath(lua_table.MyPosition[1], lua_table.MyPosition[2], lua_table.MyPosition[3], lua_table.ObjectivePosition[1], lua_table.ObjectivePosition[2], lua_table.ObjectivePosition[3], 1 << lua_table.WalkableID)
             lua_table.AnimationFunctions:PlayAnimation("Run", 30)                             
             lua_table.SystemFunctions:LOG("Ghoul state is TAUNTED") 
@@ -387,7 +388,7 @@ function lua_table:OnTriggerEnter()
         end
         
 		lua_table.health = lua_table.health - player_table.collider_damage
-        lua_table.ObjectivePosition = lua_table.TransformFunctions:GetPosition(collider)
+        lua_table.ObjectivePlayer_UUID = collider
 
         if player_table.control_effect == Effect.STUN
         then
@@ -422,7 +423,7 @@ function lua_table:RequestedTrigger(collider_object)
 	then
 		local player_table = lua_table.ObjectFunctions:GetScript(collider_object)
 		lua_table.health = lua_table.health - player_table.collider_damage   
-        lua_table.ObjectivePosition = lua_table.TransformFunctions:GetPosition(collider_object)
+        lua_table.ObjectivePlayer_UUID = collider_object
 
         if player_table.control_effect == Effect.STUN
         then
