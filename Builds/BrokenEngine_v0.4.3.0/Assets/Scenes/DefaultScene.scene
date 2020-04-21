@@ -193,8 +193,8 @@
                 "rotationx": "0.011688",
                 "rotationy": "0.141292",
                 "rotationz": "0.989187",
-                "scalex": "1.000035",
-                "scaley": "1.000035",
+                "scalex": "1.000059",
+                "scaley": "1.000059",
                 "scalez": "1.000001"
             },
             "13": {
@@ -485,73 +485,6 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1975665945",
-        "Static": false
-    },
-    "1540100323": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "UID": 1613576520,
-                "index": 0,
-                "layer": "0",
-                "positionx": "0.000000",
-                "positiony": "0.000000",
-                "positionz": "0.000000",
-                "rotationw": "1.000000",
-                "rotationx": "0.000000",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "1.000000",
-                "scaley": "1.000000",
-                "scalez": "1.000000"
-            },
-            "16": {
-                "Active": true,
-                "UID": 1793840703,
-                "colliderType": "2",
-                "draggedUID": "0",
-                "draw": "0",
-                "firstCreation": "0",
-                "globalMatrixw": "1.000000",
-                "globalMatrixx": "0.000000",
-                "globalMatrixy": "0.000000",
-                "globalMatrixz": "0.000000",
-                "globalPositionx": "1.000000",
-                "globalPositiony": "1.000000",
-                "globalPositionz": "1.000000",
-                "hasBeenDeactivated": "0",
-                "height": "1.000000",
-                "index": 1,
-                "isConvex": "0",
-                "isTrigger": "1",
-                "lastIndex": "2",
-                "localMatrixw": "1.000000",
-                "localMatrixx": "0.000000",
-                "localMatrixy": "0.000000",
-                "localMatrixz": "0.000000",
-                "localPositionx": "0.000000",
-                "localPositiony": "0.000000",
-                "localPositionz": "0.000000",
-                "offsetx": "0.000000",
-                "offsety": "0.000000",
-                "offsetz": "0.000000",
-                "originalScalex": "1.000000",
-                "originalScaley": "1.000000",
-                "originalScalez": "1.000000",
-                "radius": "8.625000",
-                "scalex": "8.625000",
-                "scaley": "8.625000",
-                "scalez": "8.625000",
-                "tmpScalex": "1.000000",
-                "tmpScaley": "1.000000",
-                "tmpScalez": "1.000000"
-            }
-        },
-        "Index": 3,
-        "Name": "Zombie_Stun_Area",
-        "Navigation Area": 0,
-        "Navigation Static": false,
-        "Parent": "2135338349",
         "Static": false
     },
     "1551198218": {
@@ -1294,7 +1227,7 @@
                 "index": 0,
                 "layer": "3",
                 "positionx": "0.000000",
-                "positiony": "0.000000",
+                "positiony": "0.320842",
                 "positionz": "0.000000",
                 "rotationw": "1.000000",
                 "rotationx": "0.000000",
@@ -1310,7 +1243,7 @@
                     "ResourceScript": "Assets/Zomboid_v01.lua"
                 },
                 "Script variables": {
-                    "Count": 21,
+                    "Count": 22,
                     "Variable 0": {
                         "DisplayObjectName": false,
                         "Name": "JaskierDistance",
@@ -1409,6 +1342,13 @@
                         "Type": "Boolean",
                         "Value": false
                     },
+                    "Variable 21": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_timer",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
                     "Variable 3": {
                         "DisplayObjectName": false,
                         "Name": "MyUID",
@@ -1480,7 +1420,7 @@
                 "index": 2,
                 "nonWalkableMode": "1",
                 "positionX": "0.000000",
-                "positionY": "0.000000",
+                "positionY": "0.320842",
                 "positionZ": "0.000000",
                 "radius": "0.500000",
                 "slopeLimit": "45.000000",
@@ -1586,6 +1526,53 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "747540336",
+        "Static": false
+    },
+    "287073494": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "UID": 1860906792,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "2.000000",
+                "positionz": "2.500000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.500000",
+                "scaley": "2.000000",
+                "scalez": "2.000000"
+            },
+            "1": {
+                "Active": false,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2.mesh"
+                    }
+                },
+                "UID": 503342322,
+                "index": 1
+            },
+            "2": {
+                "Active": false,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "DefaultMaterial"
+                    }
+                },
+                "UID": 557648216,
+                "index": 2
+            }
+        },
+        "Index": 2,
+        "Name": "Zomboid_Front_Att",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "2135338349",
         "Static": false
     },
     "289055056": {
@@ -2251,8 +2238,8 @@
                 "rotationx": "-0.010050",
                 "rotationy": "0.117448",
                 "rotationz": "0.992281",
-                "scalex": "0.999965",
-                "scaley": "0.999965",
+                "scalex": "0.999941",
+                "scaley": "0.999941",
                 "scalez": "1.000000"
             },
             "13": {
@@ -2561,73 +2548,6 @@
         "Parent": "1964768046",
         "Static": false
     },
-    "888366739": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "UID": 1451702319,
-                "index": 0,
-                "layer": "0",
-                "positionx": "0.000000",
-                "positiony": "2.000000",
-                "positionz": "1.798491",
-                "rotationw": "1.000000",
-                "rotationx": "0.000000",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "1.600000",
-                "scaley": "1.800000",
-                "scalez": "1.700000"
-            },
-            "16": {
-                "Active": true,
-                "UID": 30190718,
-                "colliderType": "1",
-                "draggedUID": "0",
-                "draw": "0",
-                "firstCreation": "1",
-                "globalMatrixw": "1.000000",
-                "globalMatrixx": "0.000000",
-                "globalMatrixy": "2.000000",
-                "globalMatrixz": "1.798491",
-                "globalPositionx": "0.625000",
-                "globalPositiony": "0.555556",
-                "globalPositionz": "0.588235",
-                "hasBeenDeactivated": "0",
-                "height": "1.000000",
-                "index": 1,
-                "isConvex": "0",
-                "isTrigger": "1",
-                "lastIndex": "1",
-                "localMatrixw": "1.000000",
-                "localMatrixx": "0.000000",
-                "localMatrixy": "0.000000",
-                "localMatrixz": "0.000000",
-                "localPositionx": "0.000000",
-                "localPositiony": "0.000000",
-                "localPositionz": "0.000000",
-                "offsetx": "0.000000",
-                "offsety": "0.000000",
-                "offsetz": "0.000000",
-                "originalScalex": "0.625000",
-                "originalScaley": "0.555556",
-                "originalScalez": "0.588235",
-                "radius": "1.000000",
-                "scalex": "1.000000",
-                "scaley": "1.000000",
-                "scalez": "1.000000",
-                "tmpScalex": "1.000000",
-                "tmpScaley": "1.000000",
-                "tmpScalez": "1.000000"
-            }
-        },
-        "Index": 2,
-        "Name": "Zomboid_Front_Att",
-        "Navigation Area": 0,
-        "Navigation Static": false,
-        "Parent": "2135338349",
-        "Static": false
-    },
     "893391545": {
         "Active": true,
         "Components": {
@@ -2771,8 +2691,8 @@
                 "rotationy": "-0.000126",
                 "rotationz": "0.000118",
                 "scalex": "39.370079",
-                "scaley": "39.371014",
-                "scalez": "39.370880"
+                "scaley": "39.371655",
+                "scalez": "39.371429"
             },
             "13": {
                 "Active": true,

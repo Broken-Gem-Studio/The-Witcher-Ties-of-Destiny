@@ -81,7 +81,7 @@ local start_jump = false
 local jump_timer = 0
 
 local start_combo = false
-local combo_timer = 0
+lua_table.combo_timer = 0
 
 local start_stun = false
 local stun_timer = 0
@@ -104,6 +104,10 @@ local navID = 0
 local corners = {}
 local currCorner = 2
 
+-- Entity colliders
+local Front_Att_Coll = 0
+local stun_col = 0
+
 -- ______________________SCRIPT FUNCTIONS______________________
 
 local function ResetNavigation()
@@ -124,7 +128,7 @@ end
 local function ResetCombo()
 	-- Combo Timer
 	if start_combo == true then start_combo = false end
-	if combo_timer > 0 then combo_timer = 0 end
+	if lua_table.combo_timer > 0 then lua_table.combo_timer = 0 end
 	-- Combo control bools
 	if punching == true then punching = false end
 	if swiping == true then swiping = false end
@@ -170,6 +174,15 @@ local function SearchPlayers() -- Check if targets are within range
 		lua_table.currentTargetDir = lua_table.GeraltDistance
 		lua_table.currentTargetPos = lua_table.GeraltPos
 	end 
+end
+
+local function ToggleCollider(start, finish, timer, ID)
+	if timer + start < lua_table.System:GameTime() * 1000 then
+		lua_table.GameObject:SetActiveGameObject(true, ID)
+	end
+	if timer + finish < lua_table.System:GameTime() * 1000 then
+		lua_table.GameObject:SetActiveGameObject(false, ID)
+	end
 end
 	
 local function Idle() 
@@ -240,12 +253,12 @@ local function JumpStun() -- Smash the ground with a jump, then stun
 		lua_table.Animations:PlayAnimation("Jump_Stun_1", 10.0, lua_table.MyUID)
 		jumping = true
 	end
-	if jump_timer + 1500 <= lua_table.System:GameTime() * 1000 and not stunning then
+	if jump_timer + 1000 <= lua_table.System:GameTime() * 1000 and not stunning then
 		lua_table.System:LOG("Land and stun")
 		lua_table.Animations:PlayAnimation("Jump_Stun_2", 40.0, lua_table.MyUID)
 		stunning = true
 	end
-	if jump_timer + 2000 <= lua_table.System:GameTime() * 1000 then
+	if jump_timer + 2250 <= lua_table.System:GameTime() * 1000 then
 		lua_table.currentState = State.COMBO
 		lua_table.System:LOG("Zomboid state: COMBO (3)")  
 	end
@@ -263,30 +276,35 @@ local function Combo()
 	--lua_table.Transform:LookAt(lua_table.currentTargetPos[1], lua_table.GhoulPos[2], lua_table.currentTargetPos[3], lua_table.MyUID)
 
 	if not start_combo then 
-		combo_timer = lua_table.System:GameTime() * 1000
+		lua_table.combo_timer = lua_table.System:GameTime() * 1000
 		start_combo = true
 	end
 
 	lua_table.Transform:LookAt(lua_table.currentTargetPos[1], lua_table.GhoulPos[2], lua_table.currentTargetPos[3], lua_table.MyUID)
 
-	if combo_timer + 250 <= lua_table.System:GameTime() * 1000 and not punching then
+	if lua_table.combo_timer + 250 <= lua_table.System:GameTime() * 1000 and not punching then
 		lua_table.System:LOG("Punch to target")
 		lua_table.Animations:PlayAnimation("Punch", 30.0, lua_table.MyUID)
 		punching = true
 	end
-	if combo_timer + 1750 <= lua_table.System:GameTime() * 1000 and not swiping then
+	ToggleCollider(1000, 1100, lua_table.combo_timer, Front_Att_Coll)
+	
+	if lua_table.combo_timer + 1750 <= lua_table.System:GameTime() * 1000 and not swiping then
 		lua_table.System:LOG("Swipe to target")
 		lua_table.Animations:PlayAnimation("Swipe", 30.0, lua_table.MyUID)
 		swiping = true
 	end
-	if combo_timer + 3500 <= lua_table.System:GameTime() * 1000 and not crushing then
+	ToggleCollider(3300, 3400, lua_table.combo_timer, Front_Att_Coll)
+
+	if lua_table.combo_timer + 3500 <= lua_table.System:GameTime() * 1000 and not crushing then
 		lua_table.System:LOG("Crush to target")
 		lua_table.Animations:PlayAnimation("Smash", 45.0, lua_table.MyUID)
 		crushing = true
 	end
+	ToggleCollider(4800, 4900, lua_table.combo_timer, Front_Att_Coll)
 	
 	-- After he finished, switch state and reset jump values
-	if combo_timer + 5000 <= lua_table.System:GameTime() * 1000 then
+	if lua_table.combo_timer + 5000 <= lua_table.System:GameTime() * 1000 then
 		lua_table.currentState = State.SEEK	
 		lua_table.Animations:PlayAnimation("Walk", 40.0, lua_table.MyUID)
 		lua_table.System:LOG("Zomboid state: SEEK (1), cycle to jump")
@@ -480,6 +498,10 @@ function lua_table:Start()
 	lua_table.Animations:PlayAnimation("Idle", 30.0, lua_table.MyUID)
 	lua_table.System:LOG("Zomboid state: IDLE (0)") 
 	lua_table.health = lua_table.max_hp
+
+	-- Get colliders
+	Front_Att_Coll = lua_table.GameObject:FindGameObject("Zomboid_Front_Att")
+	-- stun_col = lua_table.GameObject:FindGameObject("Zomboid_Stun_Area")
 
 	-- Initialize Nav
 	navID = lua_table.Recast:GetAreaFromName("Walkable")
