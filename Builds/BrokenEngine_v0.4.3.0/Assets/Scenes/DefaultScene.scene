@@ -240,8 +240,8 @@
                 "rotationx": "0.011688",
                 "rotationy": "0.141292",
                 "rotationz": "0.989187",
-                "scalex": "1.000004",
-                "scaley": "1.000004",
+                "scalex": "1.000023",
+                "scaley": "1.000023",
                 "scalez": "1.000001"
             },
             "13": {
@@ -1337,7 +1337,7 @@
                     "ResourceScript": "Assets/Zomboid_v01.lua"
                 },
                 "Script variables": {
-                    "Count": 17,
+                    "Count": 18,
                     "Variable 0": {
                         "DisplayObjectName": false,
                         "Name": "JaskierDistance",
@@ -1400,6 +1400,13 @@
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
+                    },
+                    "Variable 17": {
+                        "DisplayObjectName": false,
+                        "Name": "is_taunt",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
                     },
                     "Variable 2": {
                         "DisplayObjectName": false,
@@ -1973,6 +1980,94 @@
         "Parent": "2135338349",
         "Static": false
     },
+    "545884325": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 994489866,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.536099",
+                "positionz": "1.861013",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.783857",
+                "scaley": "4.888420",
+                "scalez": "2.295646"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2.mesh"
+                    }
+                },
+                "UID": 358697859,
+                "index": 1
+            },
+            "16": {
+                "Active": true,
+                "UID": 1764251128,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "0",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "-0.000000",
+                "globalMatrixy": "1.615134",
+                "globalMatrixz": "1.861013",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "index": 3,
+                "isConvex": "0",
+                "isTrigger": "1",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "-0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "-0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "-0.000000",
+                "offsety": "0.000000",
+                "offsetz": "-0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "1.000000",
+                "tmpScaley": "1.000000",
+                "tmpScalez": "1.000000"
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "DefaultMaterial"
+                    }
+                },
+                "UID": 1963794123,
+                "index": 2
+            }
+        },
+        "Index": 0,
+        "Name": "GameObject (73)",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "587374468",
+        "Static": false
+    },
     "552303010": {
         "Active": true,
         "Components": {
@@ -2162,8 +2257,8 @@
                 "rotationx": "-0.010050",
                 "rotationy": "0.117448",
                 "rotationz": "0.992281",
-                "scalex": "0.999996",
-                "scaley": "0.999996",
+                "scalex": "0.999977",
+                "scaley": "0.999977",
                 "scalez": "1.000000"
             },
             "13": {
@@ -2615,8 +2710,8 @@
                 "rotationy": "-0.000126",
                 "rotationz": "0.000118",
                 "scalex": "39.370079",
-                "scaley": "39.370186",
-                "scalez": "39.370171"
+                "scaley": "39.370693",
+                "scalez": "39.370605"
             },
             "13": {
                 "Active": true,
