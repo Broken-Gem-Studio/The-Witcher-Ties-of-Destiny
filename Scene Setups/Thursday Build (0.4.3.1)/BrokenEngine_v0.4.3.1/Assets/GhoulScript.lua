@@ -99,7 +99,7 @@ local function PerfGameTime()
 	return lua_table.SystemFunctions:GameTime() * 1000
 end
 
-function Patrol()
+local function Patrol()
 	--lua_table.SystemFunctions:LOG("Patrol()")
 	
 	--
@@ -180,7 +180,6 @@ function HandleAggro()
 				lua_table.SystemFunctions:LOG("NO PLAYERS INSIDE AGGRO DISTANCE")
 				return false
 			end
-	
 	end
 	if ret == true
 	then
@@ -190,7 +189,7 @@ function HandleAggro()
 end
 
 
-function HandleIdleState() --handle if necessary to change idle state to patrol.
+local function HandleIdleState() --handle if necessary to change idle state to patrol.
 	
     if lua_table.currentState == State.IDL
     then		
@@ -207,7 +206,7 @@ function HandleIdleState() --handle if necessary to change idle state to patrol.
     end
 end
 
-function HandlePatrolState() -- THIS IS NOT A PATROL ITSELF, IS JUST A LITTLE AREA IN WICH THE GHOULS WILL WALK. (little is like 3 meters in a circle)
+local function HandlePatrolState() -- THIS IS NOT A PATROL ITSELF, IS JUST A LITTLE AREA IN WICH THE GHOULS WILL WALK. (little is like 3 meters in a circle)
 
     --if lua_table.currentState ==State.PATROL
     --then
@@ -235,20 +234,17 @@ function HandlePatrolState() -- THIS IS NOT A PATROL ITSELF, IS JUST A LITTLE AR
 		lua_table.currentState = State.SEEK
 		lua_table.AnimationSystem:PlayAnimation("RUN",30)
 		--lua_table.SystemFunctions:LOG("GhoulScript: New State: SEEK")
-	end
-
-
-   
+	end   
 end
 
 
 
-function HandleSeekState()
+local function HandleSeekState()
 
 end
 
 
-function Seek()
+local function Seek()
 
 	--lua_table.SystemFunctions:LOG("SEEKKKKKKKKKKKKKK")
 	-- vec3 = x1-x�,y1-y�,z1-z�
@@ -284,7 +280,7 @@ function Seek()
 	end
 end
 
-function HandleAttackState()
+local function HandleAttackState()
 
 --------------------------CALCULATE DISTANCE MAGNITUDE-----------------
 
@@ -370,7 +366,7 @@ function HandleAttackState()
 	end
 end
 
-function Die()
+local function Die()
 	if lua_table.dead == false
     then
         lua_table.AnimationSystem:PlayAnimation("DEATH", 30.0)
@@ -382,7 +378,7 @@ end
 --------------------------------FUNCTIONS END -------------------------
 ------------------------------------------------------------------------
 
-function lua_table:OnTriggerEnter()	
+local function lua_table:OnTriggerEnter()	
 	local collider_GO = lua_table.PhysicsSystem:OnTriggerEnter(lua_table.MyUID)
 
 	lua_table.SystemFunctions:LOG("OnTriggerEnter()".. collider_GO)
@@ -410,7 +406,7 @@ function lua_table:OnTriggerEnter()
 	-- end
 end
 
-function lua_table:OnCollisionEnter()
+local function lua_table:OnCollisionEnter()
 	local collider = lua_table.PhysicsSystem:OnCollisionEnter(lua_table.MyUID)
 	--lua_table.SystemFunctions:LOG("T: ".. collider)
 end
