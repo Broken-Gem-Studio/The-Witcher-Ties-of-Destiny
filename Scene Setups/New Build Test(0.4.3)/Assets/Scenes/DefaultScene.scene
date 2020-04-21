@@ -19,10 +19,20 @@
             },
             "18": {
                 "Active": true,
+                "Color2A": "0.000000",
+                "Color2B": "0.000000",
+                "Color2G": "0.000000",
+                "Color2R": "0.000000",
+                "ColorA": "0.000000",
                 "ColorB": "0.349481",
                 "ColorG": "0.000000",
                 "ColorR": "0.990196",
+                "ColorVariationA": "0.000000",
+                "ColorVariationB": "0.000000",
+                "ColorVariationG": "0.000000",
+                "ColorVariationR": "0.000000",
                 "Duration": "500",
+                "GradientColor": false,
                 "Loop": true,
                 "Resources": {
                     "ResourceTexture": "Library/Textures/572986970.dds"
@@ -33,15 +43,21 @@
                 "externalAccelerationY": "20.000000",
                 "externalAccelerationZ": "0.000000",
                 "index": 2,
+                "particleScaleOverTime": "0.000000",
                 "particleScaleRandomFactor": "1.000000",
                 "particlesLifeTime": "1000",
                 "particlesPerCreation": "1",
                 "particlesScaleX": "1.000000",
                 "particlesScaleY": "1.000000",
-                "particlesSize": "1.000000",
                 "particlesVelocityX": "0.000000",
                 "particlesVelocityY": "0.000000",
                 "particlesVelocityZ": "0.000000",
+                "positionX": "0.000000",
+                "positionY": "0.000000",
+                "positionZ": "0.000000",
+                "rotationX": "0.000000",
+                "rotationY": "0.000000",
+                "rotationZ": "0.000000",
                 "sizeX": "0.000000",
                 "sizeY": "0.000000",
                 "sizeZ": "0.000000",
@@ -169,6 +185,63 @@
         "Parent": "1922728661",
         "Static": false
     },
+    "1048526504": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 52122513,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/COMBO.lua"
+                },
+                "Script variables": {
+                    "Count": 0
+                },
+                "UID": 2102336334,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 1854947579,
+                "index": 1,
+                "priority": "-1",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/636574497.dds"
+                },
+                "UID": 1721597790,
+                "index": 2,
+                "position2Dx": "-0.461000",
+                "position2Dy": "0.269000",
+                "size2Dx": "400.000000",
+                "size2Dy": "138.476563",
+                "visible": "1"
+            }
+        },
+        "Index": 0,
+        "Name": "COMBO1",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1899123434",
+        "Static": false
+    },
     "1054478549": {
         "Active": true,
         "Components": {
@@ -237,6 +310,77 @@
         "Parent": "356818366",
         "Static": false
     },
+    "1065989403": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 360869590,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/NewUlti.lua"
+                },
+                "Script variables": {
+                    "Count": 2,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimatelocal2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimatelocal",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    }
+                },
+                "UID": 467306982,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 308851688,
+                "index": 1,
+                "priority": "1",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1369582079.dds"
+                },
+                "UID": 690539137,
+                "index": 2,
+                "position2Dx": "-0.505000",
+                "position2Dy": "0.238000",
+                "size2Dx": "500.000000",
+                "size2Dy": "173.095703",
+                "visible": "1"
+            }
+        },
+        "Index": 5,
+        "Name": "ULTIHUNDRED",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1737678383",
+        "Static": false
+    },
     "107234748": {
         "Active": true,
         "Components": {
@@ -261,6 +405,120 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "132050455",
+        "Static": false
+    },
+    "1078689061": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1907980291,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/POTIS.lua"
+                },
+                "Script variables": {
+                    "Count": 0
+                },
+                "UID": 1109823829,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 1326683696,
+                "index": 1,
+                "priority": "0",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1282349755.dds"
+                },
+                "UID": 747370879,
+                "index": 2,
+                "position2Dx": "-0.509000",
+                "position2Dy": "0.251000",
+                "size2Dx": "500.000000",
+                "size2Dy": "173.095703",
+                "visible": "1"
+            }
+        },
+        "Index": 7,
+        "Name": "POTI8",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1671894062",
+        "Static": false
+    },
+    "1079778284": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 431363482,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/COMBO.lua"
+                },
+                "Script variables": {
+                    "Count": 0
+                },
+                "UID": 476061642,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 36233384,
+                "index": 1,
+                "priority": "-1",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/2041857242.dds"
+                },
+                "UID": 1545660674,
+                "index": 2,
+                "position2Dx": "0.161000",
+                "position2Dy": "0.304000",
+                "size2Dx": "300.000000",
+                "size2Dy": "103.857422",
+                "visible": "1"
+            }
+        },
+        "Index": 11,
+        "Name": "COMBO1.5J",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "377055773",
         "Static": false
     },
     "1088383012": {
@@ -365,6 +623,63 @@
         "Parent": "909182330",
         "Static": false
     },
+    "1103670572": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1684003552,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/POTIS.lua"
+                },
+                "Script variables": {
+                    "Count": 0
+                },
+                "UID": 229596166,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 396921837,
+                "index": 1,
+                "priority": "0",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/791417662.dds"
+                },
+                "UID": 141585827,
+                "index": 2,
+                "position2Dx": "0.097000",
+                "position2Dy": "0.222000",
+                "size2Dx": "500.000000",
+                "size2Dy": "173.095703",
+                "visible": "1"
+            }
+        },
+        "Index": 3,
+        "Name": "POTI12",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "2125942451",
+        "Static": false
+    },
     "1107711410": {
         "Active": true,
         "Components": {
@@ -397,6 +712,63 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "544066076",
+        "Static": false
+    },
+    "1112301009": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1248236769,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/COMBO.lua"
+                },
+                "Script variables": {
+                    "Count": 0
+                },
+                "UID": 61079016,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 2069824648,
+                "index": 1,
+                "priority": "-1",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/325972071.dds"
+                },
+                "UID": 1271351400,
+                "index": 2,
+                "position2Dx": "0.194000",
+                "position2Dy": "0.304000",
+                "size2Dx": "300.000000",
+                "size2Dy": "103.857422",
+                "visible": "1"
+            }
+        },
+        "Index": 3,
+        "Name": "COMBO1J",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "377055773",
         "Static": false
     },
     "1130894700": {
@@ -456,13 +828,13 @@
                 "positionx": "3.422800",
                 "positiony": "7.809100",
                 "positionz": "-0.071300",
-                "rotationw": "0.726776",
+                "rotationw": "0.726777",
                 "rotationx": "0.681273",
                 "rotationy": "-0.083799",
                 "rotationz": "0.025312",
                 "scalex": "1.000000",
-                "scaley": "1.000000",
-                "scalez": "1.000000"
+                "scaley": "0.999999",
+                "scalez": "0.999999"
             },
             "13": {
                 "Active": true,
@@ -478,6 +850,63 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1802944279",
+        "Static": false
+    },
+    "1133054535": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 872975984,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/POTIS.lua"
+                },
+                "Script variables": {
+                    "Count": 0
+                },
+                "UID": 2140255619,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 2080580650,
+                "index": 1,
+                "priority": "0",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1921302176.dds"
+                },
+                "UID": 1526288317,
+                "index": 2,
+                "position2Dx": "-0.509000",
+                "position2Dy": "0.251000",
+                "size2Dx": "500.000000",
+                "size2Dy": "173.095703",
+                "visible": "1"
+            }
+        },
+        "Index": 2,
+        "Name": "POTI3",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1671894062",
         "Static": false
     },
     "1137233536": {
@@ -496,7 +925,7 @@
                 "rotationz": "-0.047697",
                 "scalex": "1.000000",
                 "scaley": "1.000010",
-                "scalez": "1.000154"
+                "scalez": "1.000157"
             },
             "13": {
                 "Active": true,
@@ -555,8 +984,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.070461",
-                "scaley": "15.155748",
-                "scalez": "1.367882"
+                "scaley": "15.155774",
+                "scalez": "1.367885"
             },
             "1": {
                 "Active": true,
@@ -585,6 +1014,52 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1719171936",
+        "Static": false
+    },
+    "1175375563": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 957702688,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "4": {
+                "Active": true,
+                "UID": 1179073595,
+                "index": 1,
+                "priority": "0",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1369974712.dds"
+                },
+                "UID": 1146569192,
+                "index": 2,
+                "position2Dx": "0.101000",
+                "position2Dy": "0.232000",
+                "size2Dx": "500.000000",
+                "size2Dy": "173.095703",
+                "visible": "1"
+            }
+        },
+        "Index": 3,
+        "Name": "FUNDA2",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "2131086026",
         "Static": false
     },
     "1177461659": {
@@ -689,6 +1164,63 @@
         "Parent": "1663879399",
         "Static": false
     },
+    "1190816738": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 98440216,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/Ability.lua"
+                },
+                "Script variables": {
+                    "Count": 0
+                },
+                "UID": 2127791349,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 1434769005,
+                "index": 1,
+                "priority": "0",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/2000616266.dds"
+                },
+                "UID": 885960559,
+                "index": 2,
+                "position2Dx": "-0.457000",
+                "position2Dy": "0.268000",
+                "size2Dx": "300.000000",
+                "size2Dy": "103.857422",
+                "visible": "1"
+            }
+        },
+        "Index": 8,
+        "Name": "SPECIALCD",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1569201167",
+        "Static": false
+    },
     "1201592651": {
         "Active": true,
         "Components": {
@@ -704,8 +1236,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000232",
-                "scalez": "1.000232"
+                "scaley": "1.000235",
+                "scalez": "1.000235"
             }
         },
         "Index": 0,
@@ -783,6 +1315,134 @@
         "Parent": "463758558",
         "Static": false
     },
+    "1234592124": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 505293829,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/COMBO.lua"
+                },
+                "Script variables": {
+                    "Count": 0
+                },
+                "UID": 1376285360,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 1615367642,
+                "index": 1,
+                "priority": "-1",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/325972071.dds"
+                },
+                "UID": 1132047302,
+                "index": 2,
+                "position2Dx": "0.244000",
+                "position2Dy": "0.304000",
+                "size2Dx": "300.000000",
+                "size2Dy": "103.857422",
+                "visible": "1"
+            }
+        },
+        "Index": 7,
+        "Name": "COMBO5J",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "377055773",
+        "Static": false
+    },
+    "1239227624": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1110892279,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/NewUlti.lua"
+                },
+                "Script variables": {
+                    "Count": 2,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimatelocal2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimatelocal",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    }
+                },
+                "UID": 141168673,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 479563491,
+                "index": 1,
+                "priority": "1",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/898116277.dds"
+                },
+                "UID": 1955293201,
+                "index": 2,
+                "position2Dx": "0.098000",
+                "position2Dy": "0.234000",
+                "size2Dx": "500.000000",
+                "size2Dy": "173.095703",
+                "visible": "1"
+            }
+        },
+        "Index": 1,
+        "Name": "ULTITWENTY2",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1312750465",
+        "Static": false
+    },
     "1276344796": {
         "Active": true,
         "Components": {
@@ -807,6 +1467,93 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1797037189",
+        "Static": false
+    },
+    "1283729274": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 541364308,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/POTIS.lua"
+                },
+                "Script variables": {
+                    "Count": 0
+                },
+                "UID": 782080130,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 798073131,
+                "index": 1,
+                "priority": "0",
+                "visible": "1"
+            },
+            "6": {
+                "Active": true,
+                "UID": 1986482418,
+                "colorA": "1.000000",
+                "colorB": "1.000000",
+                "colorG": "1.000000",
+                "colorR": "1.000000",
+                "font": "7",
+                "index": 2,
+                "position2Dx": "0.282000",
+                "position2Dy": "0.249000",
+                "rotation2D": "0.000000",
+                "scale2Dx": "0.012800",
+                "scale2Dy": "0.023400",
+                "text": "SampleText",
+                "visible": "1"
+            }
+        },
+        "Index": 9,
+        "Name": "ENGPOTINUMBER2",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "2125942451",
+        "Static": false
+    },
+    "1312750465": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 243591092,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Index": 0,
+        "Name": "ULTI2",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "2131086026",
         "Static": false
     },
     "132050455": {
@@ -841,6 +1588,63 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "623016141",
+        "Static": false
+    },
+    "1330736862": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 491570428,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/POTIS.lua"
+                },
+                "Script variables": {
+                    "Count": 0
+                },
+                "UID": 1543002971,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 451450420,
+                "index": 1,
+                "priority": "0",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1301115023.dds"
+                },
+                "UID": 1325369196,
+                "index": 2,
+                "position2Dx": "-0.509000",
+                "position2Dy": "0.251000",
+                "size2Dx": "500.000000",
+                "size2Dy": "173.095703",
+                "visible": "1"
+            }
+        },
+        "Index": 4,
+        "Name": "POTI5",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1671894062",
         "Static": false
     },
     "133185518": {
@@ -911,6 +1715,63 @@
         "Parent": "40856147",
         "Static": false
     },
+    "1357799823": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1298819790,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/POTIS.lua"
+                },
+                "Script variables": {
+                    "Count": 0
+                },
+                "UID": 1401545790,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 1400462750,
+                "index": 1,
+                "priority": "0",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/2129462325.dds"
+                },
+                "UID": 1038675361,
+                "index": 2,
+                "position2Dx": "-0.509000",
+                "position2Dy": "0.251000",
+                "size2Dx": "500.000000",
+                "size2Dy": "173.095703",
+                "visible": "1"
+            }
+        },
+        "Index": 0,
+        "Name": "POTI1",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1671894062",
+        "Static": false
+    },
     "1384751305": {
         "Active": true,
         "Components": {
@@ -969,7 +1830,7 @@
                 "colliderType": "1",
                 "draggedUID": "0",
                 "draw": "0",
-                "firstCreation": "1",
+                "firstCreation": "0",
                 "globalMatrixw": "1.000000",
                 "globalMatrixx": "-5.000000",
                 "globalMatrixy": "2.000000",
@@ -1012,6 +1873,63 @@
         "Parent": "468290711",
         "Static": false
     },
+    "1393716178": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 12922490,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/Ability.lua"
+                },
+                "Script variables": {
+                    "Count": 0
+                },
+                "UID": 1244571375,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 2056013463,
+                "index": 1,
+                "priority": "0",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1241708031.dds"
+                },
+                "UID": 2028511844,
+                "index": 2,
+                "position2Dx": "-0.492000",
+                "position2Dy": "0.248000",
+                "size2Dx": "500.000000",
+                "size2Dy": "173.095703",
+                "visible": "1"
+            }
+        },
+        "Index": 7,
+        "Name": "SPECIAL",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1569201167",
+        "Static": false
+    },
     "1412847809": {
         "Active": true,
         "Components": {
@@ -1046,6 +1964,77 @@
         "Parent": "2108114437",
         "Static": false
     },
+    "1416838093": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1318515102,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/NewUlti.lua"
+                },
+                "Script variables": {
+                    "Count": 2,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimatelocal2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimatelocal",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    }
+                },
+                "UID": 1688168211,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 1693280111,
+                "index": 1,
+                "priority": "1",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/108086662.dds"
+                },
+                "UID": 3941680,
+                "index": 2,
+                "position2Dx": "-0.505000",
+                "position2Dy": "0.238000",
+                "size2Dx": "500.000000",
+                "size2Dy": "173.095703",
+                "visible": "1"
+            }
+        },
+        "Index": 1,
+        "Name": "ULTITWENTY",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1737678383",
+        "Static": false
+    },
     "142114995": {
         "Active": true,
         "Components": {
@@ -1054,7 +2043,7 @@
                 "index": 0,
                 "layer": "1",
                 "positionx": "5.000000",
-                "positiony": "0.000000",
+                "positiony": "2.260000",
                 "positionz": "0.000000",
                 "rotationw": "1.000000",
                 "rotationx": "0.000000",
@@ -2347,6 +3336,7 @@
             "17": {
                 "UID": 510397548,
                 "contactOffset": "0.010000",
+                "draw": "0",
                 "gravity": "1",
                 "height": "2.500000",
                 "index": 2,
@@ -2360,10 +3350,20 @@
             },
             "18": {
                 "Active": true,
+                "Color2A": "0.000000",
+                "Color2B": "0.000000",
+                "Color2G": "0.000000",
+                "Color2R": "0.000000",
+                "ColorA": "0.000000",
                 "ColorB": "1.000000",
                 "ColorG": "1.000000",
                 "ColorR": "1.000000",
+                "ColorVariationA": "0.000000",
+                "ColorVariationB": "0.000000",
+                "ColorVariationG": "0.000000",
+                "ColorVariationR": "0.000000",
                 "Duration": "1000",
+                "GradientColor": false,
                 "Loop": true,
                 "Resources": {
                     "ResourceTexture": "Library/Textures/572986970.dds"
@@ -2374,15 +3374,21 @@
                 "externalAccelerationY": "10.000000",
                 "externalAccelerationZ": "0.000000",
                 "index": 3,
+                "particleScaleOverTime": "0.000000",
                 "particleScaleRandomFactor": "1.000000",
                 "particlesLifeTime": "800",
                 "particlesPerCreation": "2",
                 "particlesScaleX": "1.000000",
                 "particlesScaleY": "1.000000",
-                "particlesSize": "1.000000",
                 "particlesVelocityX": "0.000000",
                 "particlesVelocityY": "0.000000",
                 "particlesVelocityZ": "0.000000",
+                "positionX": "0.000000",
+                "positionY": "0.000000",
+                "positionZ": "0.000000",
+                "rotationX": "0.000000",
+                "rotationY": "0.000000",
+                "rotationZ": "0.000000",
                 "sizeX": "0.000000",
                 "sizeY": "0.000000",
                 "sizeZ": "0.000000",
@@ -2437,6 +3443,120 @@
         "Parent": "928156800",
         "Static": false
     },
+    "1443696002": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 734741054,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/POTIS.lua"
+                },
+                "Script variables": {
+                    "Count": 0
+                },
+                "UID": 1438231778,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 1736571817,
+                "index": 1,
+                "priority": "0",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1615474533.dds"
+                },
+                "UID": 346448994,
+                "index": 2,
+                "position2Dx": "0.097000",
+                "position2Dy": "0.222000",
+                "size2Dx": "500.000000",
+                "size2Dy": "173.095703",
+                "visible": "1"
+            }
+        },
+        "Index": 5,
+        "Name": "POTI14",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "2125942451",
+        "Static": false
+    },
+    "1452820080": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 307015980,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/COMBO.lua"
+                },
+                "Script variables": {
+                    "Count": 0
+                },
+                "UID": 1766200457,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 1311313505,
+                "index": 1,
+                "priority": "-1",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/2041857242.dds"
+                },
+                "UID": 854804989,
+                "index": 2,
+                "position2Dx": "0.236000",
+                "position2Dy": "0.304000",
+                "size2Dx": "300.000000",
+                "size2Dy": "103.857422",
+                "visible": "1"
+            }
+        },
+        "Index": 14,
+        "Name": "COMBO7.5J",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "377055773",
+        "Static": false
+    },
     "1457382694": {
         "Active": true,
         "Components": {
@@ -2461,6 +3581,63 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1805275496",
+        "Static": false
+    },
+    "1458625886": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 786109870,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/COMBO.lua"
+                },
+                "Script variables": {
+                    "Count": 0
+                },
+                "UID": 1772453531,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 1653348315,
+                "index": 1,
+                "priority": "-1",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/2041857242.dds"
+                },
+                "UID": 1134515475,
+                "index": 2,
+                "position2Dx": "0.184000",
+                "position2Dy": "0.304000",
+                "size2Dx": "300.000000",
+                "size2Dy": "103.857422",
+                "visible": "1"
+            }
+        },
+        "Index": 12,
+        "Name": "COMBO3.5J",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "377055773",
         "Static": false
     },
     "1458746224": {
@@ -2599,6 +3776,52 @@
         "Parent": "1014246873",
         "Static": false
     },
+    "1479173194": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1086131236,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "4": {
+                "Active": true,
+                "UID": 1404059685,
+                "index": 1,
+                "priority": "0",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1555692279.dds"
+                },
+                "UID": 348603392,
+                "index": 2,
+                "position2Dx": "-0.506000",
+                "position2Dy": "0.237000",
+                "size2Dx": "500.000000",
+                "size2Dy": "173.095703",
+                "visible": "1"
+            }
+        },
+        "Index": 3,
+        "Name": "FUNDAS",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1569201167",
+        "Static": false
+    },
     "1509596238": {
         "Active": true,
         "Components": {
@@ -2609,7 +3832,7 @@
                 "positionx": "-2.486900",
                 "positiony": "2.206700",
                 "positionz": "1.784900",
-                "rotationw": "0.925331",
+                "rotationw": "0.925332",
                 "rotationx": "0.340217",
                 "rotationy": "0.103439",
                 "rotationz": "0.131584",
@@ -2727,6 +3950,63 @@
         "Parent": "1061564425",
         "Static": false
     },
+    "1536139438": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 730708751,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/COMBO.lua"
+                },
+                "Script variables": {
+                    "Count": 0
+                },
+                "UID": 692747218,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 1926026870,
+                "index": 1,
+                "priority": "-1",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1402254506.dds"
+                },
+                "UID": 933839588,
+                "index": 2,
+                "position2Dx": "-0.481000",
+                "position2Dy": "0.269000",
+                "size2Dx": "400.000000",
+                "size2Dy": "138.476563",
+                "visible": "1"
+            }
+        },
+        "Index": 8,
+        "Name": "COMBO1.5",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1899123434",
+        "Static": false
+    },
     "1540680467": {
         "Active": true,
         "Components": {
@@ -2761,6 +4041,63 @@
         "Parent": "1852112715",
         "Static": false
     },
+    "1548598430": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 554797395,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/COMBO.lua"
+                },
+                "Script variables": {
+                    "Count": 0
+                },
+                "UID": 35718860,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 888755828,
+                "index": 1,
+                "priority": "-2",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1665681753.dds"
+                },
+                "UID": 908562353,
+                "index": 2,
+                "position2Dx": "-0.450000",
+                "position2Dy": "0.233000",
+                "size2Dx": "500.000000",
+                "size2Dy": "173.095703",
+                "visible": "1"
+            }
+        },
+        "Index": 13,
+        "Name": "SWORDUP",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1899123434",
+        "Static": false
+    },
     "1564104253": {
         "Active": false,
         "Components": {
@@ -2785,7 +4122,7 @@
                 "colliderType": "1",
                 "draggedUID": "0",
                 "draw": "0",
-                "firstCreation": "1",
+                "firstCreation": "0",
                 "globalMatrixw": "1.000000",
                 "globalMatrixx": "-5.000000",
                 "globalMatrixy": "3.760000",
@@ -2828,6 +4165,89 @@
         "Parent": "468290711",
         "Static": false
     },
+    "1564576656": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 578340595,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/POTIS.lua"
+                },
+                "Script variables": {
+                    "Count": 0
+                },
+                "UID": 1804976851,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 1098141342,
+                "index": 1,
+                "priority": "0",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1134636124.dds"
+                },
+                "UID": 1479666892,
+                "index": 2,
+                "position2Dx": "-0.509000",
+                "position2Dy": "0.251000",
+                "size2Dx": "500.000000",
+                "size2Dy": "173.095703",
+                "visible": "1"
+            }
+        },
+        "Index": 1,
+        "Name": "POTI2",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1671894062",
+        "Static": false
+    },
+    "1569201167": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 418873876,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Index": 5,
+        "Name": "GER",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "-1",
+        "Static": false
+    },
     "1575373183": {
         "Active": true,
         "Components": {
@@ -2838,7 +4258,7 @@
                 "positionx": "-0.000600",
                 "positiony": "3.217400",
                 "positionz": "0.000000",
-                "rotationw": "0.868295",
+                "rotationw": "0.868294",
                 "rotationx": "0.495376",
                 "rotationy": "-0.012597",
                 "rotationz": "0.022554",
@@ -2860,6 +4280,157 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "304342785",
+        "Static": false
+    },
+    "1576386910": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 333797528,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/NewUlti.lua"
+                },
+                "Script variables": {
+                    "Count": 2,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimatelocal2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimatelocal",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    }
+                },
+                "UID": 871102038,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 896405456,
+                "index": 1,
+                "priority": "1",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1532351593.dds"
+                },
+                "UID": 1397152701,
+                "index": 2,
+                "position2Dx": "0.098000",
+                "position2Dy": "0.234000",
+                "size2Dx": "500.000000",
+                "size2Dy": "173.095703",
+                "visible": "1"
+            }
+        },
+        "Index": 5,
+        "Name": "ULTIHUNDRED2",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1312750465",
+        "Static": false
+    },
+    "1594985818": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 275732255,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "10": {
+                "Active": true,
+                "Color1_A": "1.000000",
+                "Color1_B": "1.000000",
+                "Color1_G": "1.000000",
+                "Color1_R": "1.000000",
+                "Color2_A": "1.000000",
+                "Color2_B": "0.008891",
+                "Color2_G": "0.008891",
+                "Color2_R": "0.906863",
+                "Percentage": 100.0,
+                "Resources": {
+                    "ResourceTexture": null
+                },
+                "UID": 399004822,
+                "index": 2,
+                "position2Dx": "0.203000",
+                "position2Dy": "0.376000",
+                "size2Dx": "169.500000",
+                "size2Dy": "24.500000",
+                "visible": "1"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/TESTHP.lua"
+                },
+                "Script variables": {
+                    "Count": 2,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "hplocal2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "hplocal",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    }
+                },
+                "UID": 331974425,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 1413738517,
+                "index": 1,
+                "priority": "1",
+                "visible": "1"
+            }
+        },
+        "Index": 9,
+        "Name": "HP2",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "2131086026",
         "Static": false
     },
     "1596087343": {
@@ -2972,7 +4543,7 @@
                 "colliderType": "1",
                 "draggedUID": "0",
                 "draw": "1",
-                "firstCreation": "1",
+                "firstCreation": "0",
                 "globalMatrixw": "1.000000",
                 "globalMatrixx": "3.000000",
                 "globalMatrixy": "2.000000",
@@ -3135,7 +4706,7 @@
                 "index": 0,
                 "layer": "3",
                 "positionx": "-5.000000",
-                "positiony": "0.000000",
+                "positiony": "1.510000",
                 "positionz": "5.000000",
                 "rotationw": "1.000000",
                 "rotationx": "0.000000",
@@ -3148,6 +4719,7 @@
             "17": {
                 "UID": 673695511,
                 "contactOffset": "0.010000",
+                "draw": "0",
                 "gravity": "1",
                 "height": "2.000000",
                 "index": 1,
@@ -3201,6 +4773,103 @@
         "Parent": "1879399822",
         "Static": false
     },
+    "1671894062": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1027855808,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Index": 1,
+        "Name": "POTIS",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1569201167",
+        "Static": false
+    },
+    "1688205884": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 654366007,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/NewUlti.lua"
+                },
+                "Script variables": {
+                    "Count": 2,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimatelocal2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimatelocal",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    }
+                },
+                "UID": 354168493,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 1720183075,
+                "index": 1,
+                "priority": "1",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/887683471.dds"
+                },
+                "UID": 897685889,
+                "index": 2,
+                "position2Dx": "0.098000",
+                "position2Dy": "0.234000",
+                "size2Dx": "500.000000",
+                "size2Dy": "173.095703",
+                "visible": "1"
+            }
+        },
+        "Index": 3,
+        "Name": "ULTISIXTY2",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1312750465",
+        "Static": false
+    },
     "1689030935": {
         "Active": true,
         "Components": {
@@ -3242,8 +4911,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000232",
-                "scalez": "1.000232"
+                "scaley": "1.000235",
+                "scalez": "1.000235"
             }
         },
         "Index": 0,
@@ -3251,6 +4920,63 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1107711410",
+        "Static": false
+    },
+    "171692298": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 495499856,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/COMBO.lua"
+                },
+                "Script variables": {
+                    "Count": 0
+                },
+                "UID": 1988723178,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 87777245,
+                "index": 1,
+                "priority": "-2",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/331440024.dds"
+                },
+                "UID": 18169168,
+                "index": 2,
+                "position2Dx": "-0.513000",
+                "position2Dy": "0.233000",
+                "size2Dx": "500.000000",
+                "size2Dy": "173.095703",
+                "visible": "1"
+            }
+        },
+        "Index": 12,
+        "Name": "SWORDOWN",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1899123434",
         "Static": false
     },
     "1719171936": {
@@ -3305,6 +5031,103 @@
         "Parent": "142114995",
         "Static": false
     },
+    "1737678383": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 415449098,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Index": 2,
+        "Name": "ULTI",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1569201167",
+        "Static": false
+    },
+    "1739805866": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 356571398,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/NewUlti.lua"
+                },
+                "Script variables": {
+                    "Count": 2,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimatelocal2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimatelocal",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    }
+                },
+                "UID": 179017721,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 817028178,
+                "index": 1,
+                "priority": "1",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/318796014.dds"
+                },
+                "UID": 2093824485,
+                "index": 2,
+                "position2Dx": "-0.505000",
+                "position2Dy": "0.238000",
+                "size2Dx": "500.000000",
+                "size2Dy": "173.095703",
+                "visible": "1"
+            }
+        },
+        "Index": 2,
+        "Name": "ULTIFORTY",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1737678383",
+        "Static": false
+    },
     "1741751367": {
         "Active": true,
         "Components": {
@@ -3329,6 +5152,77 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "142114995",
+        "Static": false
+    },
+    "1748196849": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 429646857,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/NewUlti.lua"
+                },
+                "Script variables": {
+                    "Count": 2,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimatelocal2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimatelocal",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    }
+                },
+                "UID": 380162259,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 187282430,
+                "index": 1,
+                "priority": "1",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/2125338243.dds"
+                },
+                "UID": 144112134,
+                "index": 2,
+                "position2Dx": "-0.505000",
+                "position2Dy": "0.238000",
+                "size2Dx": "500.000000",
+                "size2Dy": "173.095703",
+                "visible": "1"
+            }
+        },
+        "Index": 0,
+        "Name": "ULTICERO",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1737678383",
         "Static": false
     },
     "1750001618": {
@@ -3399,6 +5293,170 @@
         "Parent": "866954467",
         "Static": false
     },
+    "1773941746": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1813759296,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/POTIS.lua"
+                },
+                "Script variables": {
+                    "Count": 0
+                },
+                "UID": 583179749,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 711667952,
+                "index": 1,
+                "priority": "0",
+                "visible": "1"
+            },
+            "6": {
+                "Active": true,
+                "UID": 1550019569,
+                "colorA": "1.000000",
+                "colorB": "1.000000",
+                "colorG": "1.000000",
+                "colorR": "1.000000",
+                "font": "7",
+                "index": 2,
+                "position2Dx": "-0.319000",
+                "position2Dy": "0.272000",
+                "rotation2D": "0.000000",
+                "scale2Dx": "0.012800",
+                "scale2Dy": "0.023400",
+                "text": "SampleText",
+                "visible": "1"
+            }
+        },
+        "Index": 8,
+        "Name": "HPPOTINUMBER",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1671894062",
+        "Static": false
+    },
+    "1785169767": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1835761829,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/COMBO.lua"
+                },
+                "Script variables": {
+                    "Count": 0
+                },
+                "UID": 119557428,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 347581305,
+                "index": 1,
+                "priority": "-2",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/290378118.dds"
+                },
+                "UID": 85045604,
+                "index": 2,
+                "position2Dx": "0.176000",
+                "position2Dy": "0.230000",
+                "size2Dx": "500.000000",
+                "size2Dy": "173.095703",
+                "visible": "1"
+            }
+        },
+        "Index": 2,
+        "Name": "GUITARCOMBO",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "377055773",
+        "Static": false
+    },
+    "1786458018": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1330771526,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "4": {
+                "Active": true,
+                "UID": 1512159540,
+                "index": 1,
+                "priority": "1",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1913213298.dds"
+                },
+                "UID": 757429125,
+                "index": 2,
+                "position2Dx": "-0.492000",
+                "position2Dy": "0.244000",
+                "size2Dx": "500.000000",
+                "size2Dy": "173.095703",
+                "visible": "1"
+            }
+        },
+        "Index": 5,
+        "Name": "ENGMARKER",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1569201167",
+        "Static": false
+    },
     "1797037189": {
         "Active": true,
         "Components": {
@@ -3431,6 +5489,109 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "32845257",
+        "Static": false
+    },
+    "179923148": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 157373957,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/POTIS.lua"
+                },
+                "Script variables": {
+                    "Count": 0
+                },
+                "UID": 1875873224,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 1853412886,
+                "index": 1,
+                "priority": "0",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/2129462325.dds"
+                },
+                "UID": 70693303,
+                "index": 2,
+                "position2Dx": "0.097000",
+                "position2Dy": "0.222000",
+                "size2Dx": "500.000000",
+                "size2Dy": "173.095703",
+                "visible": "1"
+            }
+        },
+        "Index": 0,
+        "Name": "POTI9",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "2125942451",
+        "Static": false
+    },
+    "1800637596": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 684693844,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "4": {
+                "Active": true,
+                "UID": 1513176353,
+                "index": 1,
+                "priority": "2",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1252511612.dds"
+                },
+                "UID": 1375600665,
+                "index": 2,
+                "position2Dx": "0.095000",
+                "position2Dy": "0.242000",
+                "size2Dx": "500.000000",
+                "size2Dy": "173.095703",
+                "visible": "1"
+            }
+        },
+        "Index": 6,
+        "Name": "LEVEL2",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "2131086026",
         "Static": false
     },
     "1802944279": {
@@ -3569,6 +5730,63 @@
         "Parent": "1802944279",
         "Static": false
     },
+    "1833355407": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 51264008,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/POTIS.lua"
+                },
+                "Script variables": {
+                    "Count": 0
+                },
+                "UID": 730464516,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 1948515831,
+                "index": 1,
+                "priority": "0",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1463117756.dds"
+                },
+                "UID": 2081163301,
+                "index": 2,
+                "position2Dx": "-0.509000",
+                "position2Dy": "0.251000",
+                "size2Dx": "500.000000",
+                "size2Dy": "173.095703",
+                "visible": "1"
+            }
+        },
+        "Index": 6,
+        "Name": "POTI7",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1671894062",
+        "Static": false
+    },
     "1835006172": {
         "Active": true,
         "Components": {
@@ -3613,7 +5831,7 @@
                 "positionx": "0.000001",
                 "positiony": "34.904800",
                 "positionz": "0.000000",
-                "rotationw": "0.872124",
+                "rotationw": "0.872123",
                 "rotationx": "0.443311",
                 "rotationy": "-0.181690",
                 "rotationz": "0.099321",
@@ -3746,8 +5964,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000232",
-                "scalez": "1.000232"
+                "scaley": "1.000235",
+                "scalez": "1.000235"
             }
         },
         "Index": 0,
@@ -3755,6 +5973,146 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1046455383",
+        "Static": false
+    },
+    "1889696536": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1271866695,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/COMBO.lua"
+                },
+                "Script variables": {
+                    "Count": 0
+                },
+                "UID": 905401082,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 531159278,
+                "index": 1,
+                "priority": "-1",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1402254506.dds"
+                },
+                "UID": 1437955844,
+                "index": 2,
+                "position2Dx": "-0.428000",
+                "position2Dy": "0.269000",
+                "size2Dx": "400.000000",
+                "size2Dy": "138.476563",
+                "visible": "1"
+            }
+        },
+        "Index": 11,
+        "Name": "COMBO7.5",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1899123434",
+        "Static": false
+    },
+    "1893084981": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 955594870,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/Ability.lua"
+                },
+                "Script variables": {
+                    "Count": 0
+                },
+                "UID": 1900344692,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 447787695,
+                "index": 1,
+                "priority": "0",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/102819353.dds"
+                },
+                "UID": 427060210,
+                "index": 2,
+                "position2Dx": "0.104000",
+                "position2Dy": "0.236000",
+                "size2Dx": "500.000000",
+                "size2Dy": "173.095703",
+                "visible": "1"
+            }
+        },
+        "Index": 7,
+        "Name": "SPECIAL2",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "2131086026",
+        "Static": false
+    },
+    "1899123434": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 451936371,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Index": 0,
+        "Name": "COMBOS",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1569201167",
         "Static": false
     },
     "1903730631": {
@@ -3772,8 +6130,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000232",
-                "scalez": "1.000232"
+                "scaley": "1.000235",
+                "scalez": "1.000235"
             }
         },
         "Index": 0,
@@ -3864,6 +6222,134 @@
         "Parent": "468290711",
         "Static": false
     },
+    "1919422449": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 645419960,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/NewUlti.lua"
+                },
+                "Script variables": {
+                    "Count": 2,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimatelocal2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimatelocal",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    }
+                },
+                "UID": 1545150200,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 415709353,
+                "index": 1,
+                "priority": "1",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/653798949.dds"
+                },
+                "UID": 835205332,
+                "index": 2,
+                "position2Dx": "-0.505000",
+                "position2Dy": "0.238000",
+                "size2Dx": "500.000000",
+                "size2Dy": "173.095703",
+                "visible": "1"
+            }
+        },
+        "Index": 3,
+        "Name": "ULTISIXTY",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1737678383",
+        "Static": false
+    },
+    "192105890": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 76014174,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/COMBO.lua"
+                },
+                "Script variables": {
+                    "Count": 0
+                },
+                "UID": 1504418750,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 18790330,
+                "index": 1,
+                "priority": "-1",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/325972071.dds"
+                },
+                "UID": 783101846,
+                "index": 2,
+                "position2Dx": "0.218000",
+                "position2Dy": "0.304000",
+                "size2Dx": "300.000000",
+                "size2Dy": "103.857422",
+                "visible": "1"
+            }
+        },
+        "Index": 5,
+        "Name": "COMBO3J",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "377055773",
+        "Static": false
+    },
     "1922728661": {
         "Active": true,
         "Components": {
@@ -3874,13 +6360,13 @@
                 "positionx": "-0.002558",
                 "positiony": "3.794365",
                 "positionz": "0.000008",
-                "rotationw": "0.747085",
+                "rotationw": "0.747086",
                 "rotationx": "0.664093",
                 "rotationy": "0.006250",
                 "rotationz": "0.028367",
                 "scalex": "1.000000",
-                "scaley": "1.000001",
-                "scalez": "1.000001"
+                "scaley": "1.000000",
+                "scalez": "1.000000"
             },
             "13": {
                 "Active": true,
@@ -3896,6 +6382,63 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "820667976",
+        "Static": false
+    },
+    "1939493939": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 30771053,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/COMBO.lua"
+                },
+                "Script variables": {
+                    "Count": 0
+                },
+                "UID": 1937686714,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 830269580,
+                "index": 1,
+                "priority": "-1",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/670726294.dds"
+                },
+                "UID": 1270284854,
+                "index": 2,
+                "position2Dx": "0.232000",
+                "position2Dy": "0.306000",
+                "size2Dx": "300.000000",
+                "size2Dy": "103.857422",
+                "visible": "1"
+            }
+        },
+        "Index": 8,
+        "Name": "COMBO6J",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "377055773",
         "Static": false
     },
     "1943667259": {
@@ -3976,13 +6519,13 @@
                 "positionx": "-0.003584",
                 "positiony": "3.399673",
                 "positionz": "-0.000008",
-                "rotationw": "0.732331",
+                "rotationw": "0.732332",
                 "rotationx": "0.680327",
                 "rotationy": "-0.005875",
                 "rotationz": "0.028483",
                 "scalex": "1.000000",
-                "scaley": "1.000001",
-                "scalez": "1.000001"
+                "scaley": "1.000000",
+                "scalez": "1.000000"
             },
             "13": {
                 "Active": true,
@@ -3998,6 +6541,77 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "2032366069",
+        "Static": false
+    },
+    "1957096484": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1471877708,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/NewUlti.lua"
+                },
+                "Script variables": {
+                    "Count": 2,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimatelocal2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimatelocal",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    }
+                },
+                "UID": 2141772,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 1035960358,
+                "index": 1,
+                "priority": "1",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1369582079.dds"
+                },
+                "UID": 2120724769,
+                "index": 2,
+                "position2Dx": "-0.505000",
+                "position2Dy": "0.238000",
+                "size2Dx": "500.000000",
+                "size2Dy": "173.095703",
+                "visible": "1"
+            }
+        },
+        "Index": 6,
+        "Name": "ULTIUSING",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1737678383",
         "Static": false
     },
     "1962148044": {
@@ -4024,7 +6638,7 @@
                 "colliderType": "1",
                 "draggedUID": "0",
                 "draw": "1",
-                "firstCreation": "1",
+                "firstCreation": "0",
                 "globalMatrixw": "1.000000",
                 "globalMatrixx": "2.500072",
                 "globalMatrixy": "1.500000",
@@ -4077,6 +6691,269 @@
         "Parent": "142114995",
         "Static": false
     },
+    "1968507459": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1346418793,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "4": {
+                "Active": true,
+                "UID": 1445216889,
+                "index": 1,
+                "priority": "2",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1252511612.dds"
+                },
+                "UID": 1361595903,
+                "index": 2,
+                "position2Dx": "-0.503000",
+                "position2Dy": "0.246000",
+                "size2Dx": "500.000000",
+                "size2Dy": "173.095703",
+                "visible": "1"
+            }
+        },
+        "Index": 6,
+        "Name": "LEVEL",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1569201167",
+        "Static": false
+    },
+    "1998540547": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 630966263,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "10": {
+                "Active": true,
+                "Color1_A": "1.000000",
+                "Color1_B": "1.000000",
+                "Color1_G": "1.000000",
+                "Color1_R": "1.000000",
+                "Color2_A": "1.000000",
+                "Color2_B": "0.023789",
+                "Color2_G": "0.023789",
+                "Color2_R": "0.970588",
+                "Percentage": 100.0,
+                "Resources": {
+                    "ResourceTexture": null
+                },
+                "UID": 1724196938,
+                "index": 2,
+                "position2Dx": "-0.404000",
+                "position2Dy": "0.383000",
+                "size2Dx": "169.000000",
+                "size2Dy": "23.000000",
+                "visible": "1"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/TESTHP.lua"
+                },
+                "Script variables": {
+                    "Count": 2,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "hplocal2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "hplocal",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    }
+                },
+                "UID": 935936769,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 274120492,
+                "index": 1,
+                "priority": "1",
+                "visible": "1"
+            }
+        },
+        "Index": 9,
+        "Name": "HP",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1569201167",
+        "Static": false
+    },
+    "2003086290": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1430043557,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "10": {
+                "Active": true,
+                "Color1_A": "1.000000",
+                "Color1_B": "1.000000",
+                "Color1_G": "1.000000",
+                "Color1_R": "1.000000",
+                "Color2_A": "1.000000",
+                "Color2_B": "0.036524",
+                "Color2_G": "0.851475",
+                "Color2_R": "0.931373",
+                "Percentage": 100.0,
+                "Resources": {
+                    "ResourceTexture": null
+                },
+                "UID": 1573123330,
+                "index": 2,
+                "position2Dx": "-0.389000",
+                "position2Dy": "0.332000",
+                "size2Dx": "151.000000",
+                "size2Dy": "14.000000",
+                "visible": "1"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/TESTENG.lua"
+                },
+                "Script variables": {
+                    "Count": 2,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "energylocal2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "energylocal",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    }
+                },
+                "UID": 1904977275,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 753360930,
+                "index": 1,
+                "priority": "0",
+                "visible": "1"
+            }
+        },
+        "Index": 10,
+        "Name": "ENG",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1569201167",
+        "Static": false
+    },
+    "2006516975": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1907079125,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/POTIS.lua"
+                },
+                "Script variables": {
+                    "Count": 0
+                },
+                "UID": 1835370110,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 1185412877,
+                "index": 1,
+                "priority": "0",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1615474533.dds"
+                },
+                "UID": 284318556,
+                "index": 2,
+                "position2Dx": "-0.509000",
+                "position2Dy": "0.251000",
+                "size2Dx": "500.000000",
+                "size2Dy": "173.095703",
+                "visible": "1"
+            }
+        },
+        "Index": 5,
+        "Name": "POTI6",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1671894062",
+        "Static": false
+    },
     "2010341400": {
         "Active": true,
         "Components": {
@@ -4087,12 +6964,12 @@
                 "positionx": "0.000000",
                 "positiony": "34.919907",
                 "positionz": "0.000000",
-                "rotationw": "0.797515",
+                "rotationw": "0.797514",
                 "rotationx": "0.567873",
                 "rotationy": "-0.031569",
                 "rotationz": "0.201232",
                 "scalex": "1.000000",
-                "scaley": "0.999999",
+                "scaley": "1.000000",
                 "scalez": "1.000000"
             },
             "13": {
@@ -4109,6 +6986,63 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1234535305",
+        "Static": false
+    },
+    "2015859099": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1627549088,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/POTIS.lua"
+                },
+                "Script variables": {
+                    "Count": 0
+                },
+                "UID": 190133994,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 312448335,
+                "index": 1,
+                "priority": "0",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1921302176.dds"
+                },
+                "UID": 1767905340,
+                "index": 2,
+                "position2Dx": "0.097000",
+                "position2Dy": "0.222000",
+                "size2Dx": "500.000000",
+                "size2Dy": "173.095703",
+                "visible": "1"
+            }
+        },
+        "Index": 2,
+        "Name": "POTI11",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "2125942451",
         "Static": false
     },
     "2032366069": {
@@ -4190,9 +7124,9 @@
                 "localPositionx": "0.000000",
                 "localPositiony": "0.000000",
                 "localPositionz": "0.000000",
-                "offsetx": "-0.000000",
-                "offsety": "-0.000000",
-                "offsetz": "-0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
                 "originalScalex": "1.000000",
                 "originalScaley": "1.000000",
                 "originalScalez": "1.000000",
@@ -4246,7 +7180,7 @@
                 "colliderType": "1",
                 "draggedUID": "0",
                 "draw": "1",
-                "firstCreation": "1",
+                "firstCreation": "0",
                 "globalMatrixw": "1.000000",
                 "globalMatrixx": "5.000000",
                 "globalMatrixy": "2.000000",
@@ -4314,8 +7248,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000232",
-                "scalez": "1.000232"
+                "scaley": "1.000235",
+                "scalez": "1.000235"
             }
         },
         "Index": 0,
@@ -4485,7 +7419,7 @@
                 "colliderType": "1",
                 "draggedUID": "0",
                 "draw": "1",
-                "firstCreation": "1",
+                "firstCreation": "0",
                 "globalMatrixw": "1.000000",
                 "globalMatrixx": "-7.515130",
                 "globalMatrixy": "1.500000",
@@ -4604,6 +7538,129 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1054478549",
+        "Static": false
+    },
+    "2125942451": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1371462537,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Index": 2,
+        "Name": "POTIS2",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "2131086026",
+        "Static": false
+    },
+    "2131086026": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 842528563,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Index": 6,
+        "Name": "JASK",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "-1",
+        "Static": false
+    },
+    "2145322326": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1998009596,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/NewUlti.lua"
+                },
+                "Script variables": {
+                    "Count": 2,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimatelocal2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimatelocal",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    }
+                },
+                "UID": 157416299,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 1547841970,
+                "index": 1,
+                "priority": "1",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1126541125.dds"
+                },
+                "UID": 172848691,
+                "index": 2,
+                "position2Dx": "0.098000",
+                "position2Dy": "0.234000",
+                "size2Dx": "500.000000",
+                "size2Dy": "173.095703",
+                "visible": "1"
+            }
+        },
+        "Index": 4,
+        "Name": "ULTIEIGHTY2",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1312750465",
         "Static": false
     },
     "215524113": {
@@ -4802,6 +7859,86 @@
         "Parent": "1421634570",
         "Static": false
     },
+    "271299106": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 996383461,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "10": {
+                "Active": true,
+                "Color1_A": "1.000000",
+                "Color1_B": "1.000000",
+                "Color1_G": "1.000000",
+                "Color1_R": "1.000000",
+                "Color2_A": "1.000000",
+                "Color2_B": "0.008795",
+                "Color2_G": "0.817750",
+                "Color2_R": "0.897059",
+                "Percentage": 100.0,
+                "Resources": {
+                    "ResourceTexture": null
+                },
+                "UID": 1196172887,
+                "index": 2,
+                "position2Dx": "0.216000",
+                "position2Dy": "0.313000",
+                "size2Dx": "150.500000",
+                "size2Dy": "12.500000",
+                "visible": "1"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/TESTENG.lua"
+                },
+                "Script variables": {
+                    "Count": 2,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "energylocal2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "energylocal",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    }
+                },
+                "UID": 1172433911,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 1484218814,
+                "index": 1,
+                "priority": "0",
+                "visible": "1"
+            }
+        },
+        "Index": 10,
+        "Name": "ENG2",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "2131086026",
+        "Static": false
+    },
     "272343573": {
         "Active": true,
         "Components": {
@@ -4817,8 +7954,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000232",
-                "scalez": "1.000232"
+                "scaley": "1.000235",
+                "scalez": "1.000235"
             }
         },
         "Index": 0,
@@ -4826,6 +7963,63 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "3705353",
+        "Static": false
+    },
+    "275644181": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 709655809,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/POTIS.lua"
+                },
+                "Script variables": {
+                    "Count": 0
+                },
+                "UID": 993888465,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 346599014,
+                "index": 1,
+                "priority": "0",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1301115023.dds"
+                },
+                "UID": 1938295507,
+                "index": 2,
+                "position2Dx": "0.097000",
+                "position2Dy": "0.222000",
+                "size2Dx": "500.000000",
+                "size2Dy": "173.095703",
+                "visible": "1"
+            }
+        },
+        "Index": 4,
+        "Name": "POTI13",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "2125942451",
         "Static": false
     },
     "283746900": {
@@ -4862,6 +8056,67 @@
         "Parent": "671190428",
         "Static": false
     },
+    "291782608": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1149134595,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/POTIS.lua"
+                },
+                "Script variables": {
+                    "Count": 0
+                },
+                "UID": 1231474947,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 896627500,
+                "index": 1,
+                "priority": "0",
+                "visible": "1"
+            },
+            "6": {
+                "Active": true,
+                "UID": 1543853157,
+                "colorA": "1.000000",
+                "colorB": "1.000000",
+                "colorG": "1.000000",
+                "colorR": "1.000000",
+                "font": "7",
+                "index": 2,
+                "position2Dx": "-0.319000",
+                "position2Dy": "0.272000",
+                "rotation2D": "0.000000",
+                "scale2Dx": "0.012800",
+                "scale2Dy": "0.023400",
+                "text": "SampleText",
+                "visible": "1"
+            }
+        },
+        "Index": 9,
+        "Name": "ENGPOTINUMBER",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1671894062",
+        "Static": false
+    },
     "292146128": {
         "Active": true,
         "Components": {
@@ -4877,8 +8132,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000232",
-                "scalez": "1.000232"
+                "scaley": "1.000235",
+                "scalez": "1.000235"
             }
         },
         "Index": 0,
@@ -5007,8 +8262,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000232",
-                "scalez": "1.000232"
+                "scaley": "1.000235",
+                "scalez": "1.000235"
             }
         },
         "Index": 0,
@@ -5214,6 +8469,63 @@
         "Parent": "1955452992",
         "Static": false
     },
+    "367592936": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 625175957,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/COMBO.lua"
+                },
+                "Script variables": {
+                    "Count": 0
+                },
+                "UID": 287637216,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 75455211,
+                "index": 1,
+                "priority": "-1",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1333032498.dds"
+                },
+                "UID": 176744901,
+                "index": 2,
+                "position2Dx": "-0.478000",
+                "position2Dy": "0.269000",
+                "size2Dx": "400.000000",
+                "size2Dy": "138.476563",
+                "visible": "1"
+            }
+        },
+        "Index": 3,
+        "Name": "COMBO4",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1899123434",
+        "Static": false
+    },
     "3705353": {
         "Active": true,
         "Components": {
@@ -5274,6 +8586,203 @@
         "Parent": "1471266509",
         "Static": false
     },
+    "377055773": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 159871105,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Index": 1,
+        "Name": "COMBOS2",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "2131086026",
+        "Static": false
+    },
+    "381102881": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 603219416,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/COMBO.lua"
+                },
+                "Script variables": {
+                    "Count": 0
+                },
+                "UID": 911494501,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 1527930954,
+                "index": 1,
+                "priority": "-1",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/325972071.dds"
+                },
+                "UID": 548760604,
+                "index": 2,
+                "position2Dx": "0.270000",
+                "position2Dy": "0.304000",
+                "size2Dx": "300.000000",
+                "size2Dy": "103.857422",
+                "visible": "1"
+            }
+        },
+        "Index": 9,
+        "Name": "COMBO7J",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "377055773",
+        "Static": false
+    },
+    "384023907": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 2104507744,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/COMBO.lua"
+                },
+                "Script variables": {
+                    "Count": 0
+                },
+                "UID": 2065362266,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 713655596,
+                "index": 1,
+                "priority": "-1",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/670726294.dds"
+                },
+                "UID": 1566861155,
+                "index": 2,
+                "position2Dx": "0.207000",
+                "position2Dy": "0.310000",
+                "size2Dx": "300.000000",
+                "size2Dy": "103.857422",
+                "visible": "1"
+            }
+        },
+        "Index": 6,
+        "Name": "COMBO4J",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "377055773",
+        "Static": false
+    },
+    "38476206": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 839830117,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/POTIS.lua"
+                },
+                "Script variables": {
+                    "Count": 0
+                },
+                "UID": 1436119657,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 1677789873,
+                "index": 1,
+                "priority": "0",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/791417662.dds"
+                },
+                "UID": 275318788,
+                "index": 2,
+                "position2Dx": "-0.509000",
+                "position2Dy": "0.251000",
+                "size2Dx": "500.000000",
+                "size2Dy": "173.095703",
+                "visible": "1"
+            }
+        },
+        "Index": 3,
+        "Name": "POTI4",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1671894062",
+        "Static": false
+    },
     "402540980": {
         "Active": true,
         "Components": {
@@ -5306,6 +8815,63 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "787240634",
+        "Static": false
+    },
+    "407010096": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 403171451,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/Ability.lua"
+                },
+                "Script variables": {
+                    "Count": 0
+                },
+                "UID": 1725277356,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 314522030,
+                "index": 1,
+                "priority": "0",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1769968967.dds"
+                },
+                "UID": 1588323781,
+                "index": 2,
+                "position2Dx": "0.136000",
+                "position2Dy": "0.253000",
+                "size2Dx": "300.000000",
+                "size2Dy": "103.857422",
+                "visible": "1"
+            }
+        },
+        "Index": 8,
+        "Name": "SPECIALCD2",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "2131086026",
         "Static": false
     },
     "40856147": {
@@ -5400,7 +8966,7 @@
                 "colliderType": "1",
                 "draggedUID": "0",
                 "draw": "1",
-                "firstCreation": "1",
+                "firstCreation": "0",
                 "globalMatrixw": "1.000000",
                 "globalMatrixx": "7.000000",
                 "globalMatrixy": "2.000000",
@@ -5453,6 +9019,77 @@
         "Parent": "142114995",
         "Static": false
     },
+    "463754594": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1789439876,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/NewUlti.lua"
+                },
+                "Script variables": {
+                    "Count": 2,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimatelocal2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimatelocal",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    }
+                },
+                "UID": 1003745029,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 1472911300,
+                "index": 1,
+                "priority": "1",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/73246517.dds"
+                },
+                "UID": 624793585,
+                "index": 2,
+                "position2Dx": "-0.505000",
+                "position2Dy": "0.238000",
+                "size2Dx": "500.000000",
+                "size2Dy": "173.095703",
+                "visible": "1"
+            }
+        },
+        "Index": 4,
+        "Name": "ULTIEIGHTY",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1737678383",
+        "Static": false
+    },
     "463758558": {
         "Active": true,
         "Components": {
@@ -5467,8 +9104,8 @@
                 "rotationx": "-0.122380",
                 "rotationy": "-0.048104",
                 "rotationz": "0.925152",
-                "scalex": "1.000113",
-                "scaley": "1.000113",
+                "scalex": "1.000116",
+                "scaley": "1.000116",
                 "scalez": "1.000000"
             },
             "13": {
@@ -5487,6 +9124,67 @@
         "Parent": "1943667259",
         "Static": false
     },
+    "46701279": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 99503701,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/POTIS.lua"
+                },
+                "Script variables": {
+                    "Count": 0
+                },
+                "UID": 705351699,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 1761811913,
+                "index": 1,
+                "priority": "0",
+                "visible": "1"
+            },
+            "6": {
+                "Active": true,
+                "UID": 1912405746,
+                "colorA": "1.000000",
+                "colorB": "1.000000",
+                "colorG": "1.000000",
+                "colorR": "1.000000",
+                "font": "7",
+                "index": 2,
+                "position2Dx": "0.282000",
+                "position2Dy": "0.249000",
+                "rotation2D": "0.000000",
+                "scale2Dx": "0.012800",
+                "scale2Dy": "0.023400",
+                "text": "SampleText",
+                "visible": "1"
+            }
+        },
+        "Index": 8,
+        "Name": "HPPOTINUMBER2",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "2125942451",
+        "Static": false
+    },
     "468290711": {
         "Active": true,
         "Components": {
@@ -5495,7 +9193,7 @@
                 "index": 0,
                 "layer": "1",
                 "positionx": "-5.000000",
-                "positiony": "0.000000",
+                "positiony": "2.260000",
                 "positionz": "0.000000",
                 "rotationw": "1.000000",
                 "rotationx": "0.000000",
@@ -5643,7 +9341,7 @@
                         "Name": "player_ID",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 2.0
+                        "Value": 1.0
                     },
                     "Variable 115": {
                         "DisplayObjectName": false,
@@ -6732,6 +10430,7 @@
             "17": {
                 "UID": 1868547321,
                 "contactOffset": "0.010000",
+                "draw": "0",
                 "gravity": "1",
                 "height": "2.500000",
                 "index": 2,
@@ -6745,10 +10444,20 @@
             },
             "18": {
                 "Active": true,
+                "Color2A": "0.000000",
+                "Color2B": "0.000000",
+                "Color2G": "0.000000",
+                "Color2R": "0.000000",
+                "ColorA": "0.000000",
                 "ColorB": "1.000000",
                 "ColorG": "1.000000",
                 "ColorR": "1.000000",
+                "ColorVariationA": "0.000000",
+                "ColorVariationB": "0.000000",
+                "ColorVariationG": "0.000000",
+                "ColorVariationR": "0.000000",
                 "Duration": "1000",
+                "GradientColor": false,
                 "Loop": true,
                 "Resources": {
                     "ResourceTexture": "Library/Textures/572986970.dds"
@@ -6759,15 +10468,21 @@
                 "externalAccelerationY": "10.000000",
                 "externalAccelerationZ": "0.000000",
                 "index": 3,
+                "particleScaleOverTime": "0.000000",
                 "particleScaleRandomFactor": "1.000000",
                 "particlesLifeTime": "800",
                 "particlesPerCreation": "2",
                 "particlesScaleX": "1.000000",
                 "particlesScaleY": "1.000000",
-                "particlesSize": "1.000000",
                 "particlesVelocityX": "0.000000",
                 "particlesVelocityY": "0.000000",
                 "particlesVelocityZ": "0.000000",
+                "positionX": "0.000000",
+                "positionY": "0.000000",
+                "positionZ": "0.000000",
+                "rotationX": "0.000000",
+                "rotationY": "0.000000",
+                "rotationZ": "0.000000",
                 "sizeX": "0.000000",
                 "sizeY": "0.000000",
                 "sizeZ": "0.000000",
@@ -6788,6 +10503,63 @@
         "Parent": "-1",
         "Static": false
     },
+    "478494289": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1484562205,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/COMBO.lua"
+                },
+                "Script variables": {
+                    "Count": 0
+                },
+                "UID": 1016885271,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 1348111239,
+                "index": 1,
+                "priority": "-1",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/670726294.dds"
+                },
+                "UID": 464827842,
+                "index": 2,
+                "position2Dx": "0.258000",
+                "position2Dy": "0.307000",
+                "size2Dx": "300.000000",
+                "size2Dy": "103.857422",
+                "visible": "1"
+            }
+        },
+        "Index": 10,
+        "Name": "COMBO8J",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "377055773",
+        "Static": false
+    },
     "480445414": {
         "Active": true,
         "Components": {
@@ -6803,8 +10575,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000232",
-                "scalez": "1.000232"
+                "scaley": "1.000235",
+                "scalez": "1.000235"
             }
         },
         "Index": 0,
@@ -6812,6 +10584,120 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1873923198",
+        "Static": false
+    },
+    "484166862": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1277775990,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/COMBO.lua"
+                },
+                "Script variables": {
+                    "Count": 0
+                },
+                "UID": 960155564,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 682108718,
+                "index": 1,
+                "priority": "-2",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1315548470.dds"
+                },
+                "UID": 532122815,
+                "index": 2,
+                "position2Dx": "0.176000",
+                "position2Dy": "0.230000",
+                "size2Dx": "500.000000",
+                "size2Dy": "173.095703",
+                "visible": "1"
+            }
+        },
+        "Index": 1,
+        "Name": "GUITARUP",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "377055773",
+        "Static": false
+    },
+    "492075768": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 423337,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/COMBO.lua"
+                },
+                "Script variables": {
+                    "Count": 0
+                },
+                "UID": 1281957837,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 1305334106,
+                "index": 1,
+                "priority": "-1",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/2041857242.dds"
+                },
+                "UID": 1555857866,
+                "index": 2,
+                "position2Dx": "0.209000",
+                "position2Dy": "0.304000",
+                "size2Dx": "300.000000",
+                "size2Dy": "103.857422",
+                "visible": "1"
+            }
+        },
+        "Index": 13,
+        "Name": "COMBO5.5J",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "377055773",
         "Static": false
     },
     "495688304": {
@@ -6829,7 +10715,7 @@
                 "rotationy": "-0.028436",
                 "rotationz": "0.055476",
                 "scalex": "1.000000",
-                "scaley": "0.999889",
+                "scaley": "0.999886",
                 "scalez": "0.999999"
             },
             "13": {
@@ -6897,8 +10783,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000232",
-                "scalez": "1.000232"
+                "scaley": "1.000235",
+                "scalez": "1.000235"
             }
         },
         "Index": 0,
@@ -6906,6 +10792,63 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1617814867",
+        "Static": false
+    },
+    "522244469": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 136548892,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/COMBO.lua"
+                },
+                "Script variables": {
+                    "Count": 0
+                },
+                "UID": 305606861,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 266363560,
+                "index": 1,
+                "priority": "-1",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/636574497.dds"
+                },
+                "UID": 1907788310,
+                "index": 2,
+                "position2Dx": "-0.427000",
+                "position2Dy": "0.269000",
+                "size2Dx": "400.000000",
+                "size2Dy": "138.476563",
+                "visible": "1"
+            }
+        },
+        "Index": 4,
+        "Name": "COMBO5",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1899123434",
         "Static": false
     },
     "536029584": {
@@ -6992,7 +10935,7 @@
                 "colliderType": "1",
                 "draggedUID": "0",
                 "draw": "0",
-                "firstCreation": "1",
+                "firstCreation": "0",
                 "globalMatrixw": "1.000000",
                 "globalMatrixx": "-5.000000",
                 "globalMatrixy": "3.760000",
@@ -7084,8 +11027,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000232",
-                "scalez": "1.000232"
+                "scaley": "1.000235",
+                "scalez": "1.000235"
             }
         },
         "Index": 0,
@@ -7110,8 +11053,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000232",
-                "scalez": "1.000232"
+                "scaley": "1.000235",
+                "scalez": "1.000235"
             }
         },
         "Index": 0,
@@ -7193,10 +11136,20 @@
             },
             "18": {
                 "Active": true,
+                "Color2A": "0.000000",
+                "Color2B": "0.000000",
+                "Color2G": "0.000000",
+                "Color2R": "0.000000",
+                "ColorA": "0.000000",
                 "ColorB": "0.000000",
                 "ColorG": "0.000000",
                 "ColorR": "1.000000",
+                "ColorVariationA": "0.000000",
+                "ColorVariationB": "0.000000",
+                "ColorVariationG": "0.000000",
+                "ColorVariationR": "0.000000",
                 "Duration": "10",
+                "GradientColor": false,
                 "Loop": false,
                 "Resources": {
                     "ResourceTexture": "Library/Textures/572986970.dds"
@@ -7207,15 +11160,21 @@
                 "externalAccelerationY": "5.000000",
                 "externalAccelerationZ": "0.000000",
                 "index": 1,
+                "particleScaleOverTime": "0.000000",
                 "particleScaleRandomFactor": "1.000000",
                 "particlesLifeTime": "1000",
                 "particlesPerCreation": "100",
                 "particlesScaleX": "1.000000",
                 "particlesScaleY": "1.000000",
-                "particlesSize": "1.000000",
                 "particlesVelocityX": "0.000000",
                 "particlesVelocityY": "0.000000",
                 "particlesVelocityZ": "0.000000",
+                "positionX": "0.000000",
+                "positionY": "0.000000",
+                "positionZ": "0.000000",
+                "rotationX": "0.000000",
+                "rotationY": "0.000000",
+                "rotationZ": "0.000000",
                 "sizeX": "0.000000",
                 "sizeY": "0.000000",
                 "sizeZ": "0.000000",
@@ -7229,6 +11188,134 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "142114995",
+        "Static": false
+    },
+    "608638917": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 2050201500,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/POTIS.lua"
+                },
+                "Script variables": {
+                    "Count": 0
+                },
+                "UID": 951735799,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 2052478099,
+                "index": 1,
+                "priority": "0",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1134636124.dds"
+                },
+                "UID": 283066351,
+                "index": 2,
+                "position2Dx": "0.097000",
+                "position2Dy": "0.222000",
+                "size2Dx": "500.000000",
+                "size2Dy": "173.095703",
+                "visible": "1"
+            }
+        },
+        "Index": 1,
+        "Name": "POTI10",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "2125942451",
+        "Static": false
+    },
+    "621986709": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1476409181,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/NewUlti.lua"
+                },
+                "Script variables": {
+                    "Count": 2,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimatelocal2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimatelocal",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    }
+                },
+                "UID": 2056796318,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 1302115903,
+                "index": 1,
+                "priority": "1",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1532351593.dds"
+                },
+                "UID": 1926310393,
+                "index": 2,
+                "position2Dx": "0.098000",
+                "position2Dy": "0.234000",
+                "size2Dx": "500.000000",
+                "size2Dy": "173.095703",
+                "visible": "1"
+            }
+        },
+        "Index": 6,
+        "Name": "ULTIUSING2",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1312750465",
         "Static": false
     },
     "623016141": {
@@ -7265,6 +11352,63 @@
         "Parent": "517007748",
         "Static": false
     },
+    "623180177": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 814982576,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/COMBO.lua"
+                },
+                "Script variables": {
+                    "Count": 0
+                },
+                "UID": 2144172481,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 1383845247,
+                "index": 1,
+                "priority": "-2",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/164903966.dds"
+                },
+                "UID": 1236486309,
+                "index": 2,
+                "position2Dx": "-0.450000",
+                "position2Dy": "0.233000",
+                "size2Dx": "500.000000",
+                "size2Dy": "173.095703",
+                "visible": "1"
+            }
+        },
+        "Index": 14,
+        "Name": "SWORDCOMBO",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1899123434",
+        "Static": false
+    },
     "624070412": {
         "Active": true,
         "Components": {
@@ -7291,6 +11435,52 @@
         "Parent": "1575373183",
         "Static": false
     },
+    "631132258": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 396032951,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "4": {
+                "Active": true,
+                "UID": 951252571,
+                "index": 1,
+                "priority": "1",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1913213298.dds"
+                },
+                "UID": 667537738,
+                "index": 2,
+                "position2Dx": "0.113000",
+                "position2Dy": "0.229000",
+                "size2Dx": "500.000000",
+                "size2Dy": "173.095703",
+                "visible": "1"
+            }
+        },
+        "Index": 5,
+        "Name": "ENGMARKER2",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "2131086026",
+        "Static": false
+    },
     "643975230": {
         "Active": true,
         "Components": {
@@ -7306,8 +11496,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000232",
-                "scalez": "1.000232"
+                "scaley": "1.000235",
+                "scalez": "1.000235"
             }
         },
         "Index": 0,
@@ -7315,6 +11505,63 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "402540980",
+        "Static": false
+    },
+    "666653767": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1685333343,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/COMBO.lua"
+                },
+                "Script variables": {
+                    "Count": 0
+                },
+                "UID": 364551876,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 857009778,
+                "index": 1,
+                "priority": "-1",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/670726294.dds"
+                },
+                "UID": 381168217,
+                "index": 2,
+                "position2Dx": "0.183000",
+                "position2Dy": "0.307000",
+                "size2Dx": "300.000000",
+                "size2Dy": "103.857422",
+                "visible": "1"
+            }
+        },
+        "Index": 4,
+        "Name": "COMBO2J",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "377055773",
         "Static": false
     },
     "671190428": {
@@ -7375,6 +11622,63 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "142114995",
+        "Static": false
+    },
+    "684628904": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1149380219,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/POTIS.lua"
+                },
+                "Script variables": {
+                    "Count": 0
+                },
+                "UID": 414607469,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 329934978,
+                "index": 1,
+                "priority": "0",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1463117756.dds"
+                },
+                "UID": 1464572485,
+                "index": 2,
+                "position2Dx": "0.097000",
+                "position2Dy": "0.222000",
+                "size2Dx": "500.000000",
+                "size2Dy": "173.095703",
+                "visible": "1"
+            }
+        },
+        "Index": 6,
+        "Name": "POTI15",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "2125942451",
         "Static": false
     },
     "686030901": {
@@ -7503,7 +11807,7 @@
                 "colliderType": "1",
                 "draggedUID": "0",
                 "draw": "0",
-                "firstCreation": "1",
+                "firstCreation": "0",
                 "globalMatrixw": "1.000000",
                 "globalMatrixx": "-5.000000",
                 "globalMatrixy": "3.760000",
@@ -7614,6 +11918,52 @@
         "Parent": "856486386",
         "Static": false
     },
+    "720350920": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1365792929,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "4": {
+                "Active": true,
+                "UID": 1532837556,
+                "index": 1,
+                "priority": "2",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/389968970.dds"
+                },
+                "UID": 1588588043,
+                "index": 2,
+                "position2Dx": "0.100000",
+                "position2Dy": "0.233000",
+                "size2Dx": "500.000000",
+                "size2Dy": "173.095703",
+                "visible": "1"
+            }
+        },
+        "Index": 4,
+        "Name": "HPMARKER2",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "2131086026",
+        "Static": false
+    },
     "730905166": {
         "Active": true,
         "Components": {
@@ -7661,6 +12011,109 @@
         "Parent": "142114995",
         "Static": false
     },
+    "731201592": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 886184497,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "4": {
+                "Active": true,
+                "UID": 458079008,
+                "index": 1,
+                "priority": "2",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/389968970.dds"
+                },
+                "UID": 1993170974,
+                "index": 2,
+                "position2Dx": "-0.507000",
+                "position2Dy": "0.239000",
+                "size2Dx": "500.000000",
+                "size2Dy": "173.095703",
+                "visible": "1"
+            }
+        },
+        "Index": 4,
+        "Name": "HPMARKER",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1569201167",
+        "Static": false
+    },
+    "736608305": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1497312045,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/COMBO.lua"
+                },
+                "Script variables": {
+                    "Count": 0
+                },
+                "UID": 2006873518,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 873454541,
+                "index": 1,
+                "priority": "-2",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/3900420.dds"
+                },
+                "UID": 1210692271,
+                "index": 2,
+                "position2Dx": "0.082000",
+                "position2Dy": "0.230000",
+                "size2Dx": "500.000000",
+                "size2Dy": "173.095703",
+                "visible": "1"
+            }
+        },
+        "Index": 0,
+        "Name": "GUITARDOWN",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "377055773",
+        "Static": false
+    },
     "740611839": {
         "Active": true,
         "Components": {
@@ -7695,6 +12148,63 @@
         "Parent": "1412847809",
         "Static": false
     },
+    "743839565": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 286207460,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/COMBO.lua"
+                },
+                "Script variables": {
+                    "Count": 0
+                },
+                "UID": 1696229279,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 1241274603,
+                "index": 1,
+                "priority": "-1",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1402254506.dds"
+                },
+                "UID": 1696295794,
+                "index": 2,
+                "position2Dx": "-0.446000",
+                "position2Dy": "0.269000",
+                "size2Dx": "400.000000",
+                "size2Dy": "138.476563",
+                "visible": "1"
+            }
+        },
+        "Index": 10,
+        "Name": "COMBO5.5",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1899123434",
+        "Static": false
+    },
     "759621050": {
         "Active": true,
         "Components": {
@@ -7705,7 +12215,7 @@
                 "positionx": "0.000000",
                 "positiony": "34.603600",
                 "positionz": "0.000000",
-                "rotationw": "0.946522",
+                "rotationw": "0.946521",
                 "rotationx": "-0.321020",
                 "rotationy": "0.010589",
                 "rotationz": "0.030513",
@@ -7729,6 +12239,134 @@
         "Parent": "2092333745",
         "Static": false
     },
+    "761547002": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 440065459,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/NewUlti.lua"
+                },
+                "Script variables": {
+                    "Count": 2,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimatelocal2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimatelocal",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    }
+                },
+                "UID": 1419014261,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 902744066,
+                "index": 1,
+                "priority": "1",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1619454965.dds"
+                },
+                "UID": 1795612937,
+                "index": 2,
+                "position2Dx": "0.098000",
+                "position2Dy": "0.234000",
+                "size2Dx": "500.000000",
+                "size2Dy": "173.095703",
+                "visible": "1"
+            }
+        },
+        "Index": 2,
+        "Name": "ULTIFORTY2",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1312750465",
+        "Static": false
+    },
+    "783525800": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1617604353,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/COMBO.lua"
+                },
+                "Script variables": {
+                    "Count": 0
+                },
+                "UID": 1826362728,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 1381276538,
+                "index": 1,
+                "priority": "-1",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1333032498.dds"
+                },
+                "UID": 895244239,
+                "index": 2,
+                "position2Dx": "-0.443000",
+                "position2Dy": "0.269000",
+                "size2Dx": "400.000000",
+                "size2Dy": "138.476563",
+                "visible": "1"
+            }
+        },
+        "Index": 7,
+        "Name": "COMBO8",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1899123434",
+        "Static": false
+    },
     "786400058": {
         "Active": true,
         "Components": {
@@ -7739,7 +12377,7 @@
                 "positionx": "0.000000",
                 "positiony": "9.054760",
                 "positionz": "-0.000008",
-                "rotationw": "0.856053",
+                "rotationw": "0.856052",
                 "rotationx": "0.158220",
                 "rotationy": "0.481426",
                 "rotationz": "-0.101832",
@@ -7831,6 +12469,77 @@
         "Parent": "1822044579",
         "Static": false
     },
+    "805054520": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1525033867,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/NewUlti.lua"
+                },
+                "Script variables": {
+                    "Count": 2,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimatelocal2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimatelocal",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    }
+                },
+                "UID": 1633509719,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 1965328849,
+                "index": 1,
+                "priority": "1",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1750894206.dds"
+                },
+                "UID": 643863080,
+                "index": 2,
+                "position2Dx": "0.098000",
+                "position2Dy": "0.234000",
+                "size2Dx": "500.000000",
+                "size2Dy": "173.095703",
+                "visible": "1"
+            }
+        },
+        "Index": 0,
+        "Name": "ULTICERO2",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1312750465",
+        "Static": false
+    },
     "810692946": {
         "Active": true,
         "Components": {
@@ -7863,6 +12572,63 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "113183209",
+        "Static": false
+    },
+    "81317920": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 668014828,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/COMBO.lua"
+                },
+                "Script variables": {
+                    "Count": 0
+                },
+                "UID": 714980835,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 1898388615,
+                "index": 1,
+                "priority": "-1",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1333032498.dds"
+                },
+                "UID": 1954480756,
+                "index": 2,
+                "position2Dx": "-0.495000",
+                "position2Dy": "0.269000",
+                "size2Dx": "400.000000",
+                "size2Dy": "138.476563",
+                "visible": "1"
+            }
+        },
+        "Index": 1,
+        "Name": "COMBO2",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1899123434",
         "Static": false
     },
     "81633022": {
@@ -8019,6 +12785,63 @@
         "Parent": "1412847809",
         "Static": false
     },
+    "832710300": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 655261888,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/COMBO.lua"
+                },
+                "Script variables": {
+                    "Count": 0
+                },
+                "UID": 1157259722,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 209352625,
+                "index": 1,
+                "priority": "-1",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/636574497.dds"
+                },
+                "UID": 992791227,
+                "index": 2,
+                "position2Dx": "-0.445000",
+                "position2Dy": "0.269000",
+                "size2Dx": "400.000000",
+                "size2Dy": "138.476563",
+                "visible": "1"
+            }
+        },
+        "Index": 2,
+        "Name": "COMBO3",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1899123434",
+        "Static": false
+    },
     "841819950": {
         "Active": true,
         "Components": {
@@ -8059,9 +12882,9 @@
                 "rotationx": "0.555985",
                 "rotationy": "-0.516106",
                 "rotationz": "0.453164",
-                "scalex": "1.000113",
-                "scaley": "1.000113",
-                "scalez": "1.000113"
+                "scalex": "1.000116",
+                "scaley": "1.000116",
+                "scalez": "1.000116"
             },
             "13": {
                 "Active": true,
@@ -8127,8 +12950,8 @@
                 "rotationx": "-0.116165",
                 "rotationy": "0.318562",
                 "rotationz": "0.930541",
-                "scalex": "1.000154",
-                "scaley": "1.000163",
+                "scalex": "1.000150",
+                "scaley": "1.000160",
                 "scalez": "1.000000"
             },
             "13": {
@@ -8201,10 +13024,20 @@
             },
             "18": {
                 "Active": true,
+                "Color2A": "0.000000",
+                "Color2B": "0.000000",
+                "Color2G": "0.000000",
+                "Color2R": "0.000000",
+                "ColorA": "0.000000",
                 "ColorB": "0.789216",
                 "ColorG": "0.563748",
                 "ColorR": "0.197304",
+                "ColorVariationA": "0.000000",
+                "ColorVariationB": "0.000000",
+                "ColorVariationG": "0.000000",
+                "ColorVariationR": "0.000000",
                 "Duration": "200",
+                "GradientColor": false,
                 "Loop": false,
                 "Resources": {
                     "ResourceTexture": "Library/Textures/572986970.dds"
@@ -8215,15 +13048,21 @@
                 "externalAccelerationY": "9.800000",
                 "externalAccelerationZ": "50.000000",
                 "index": 2,
+                "particleScaleOverTime": "0.000000",
                 "particleScaleRandomFactor": "1.000000",
                 "particlesLifeTime": "180",
                 "particlesPerCreation": "50",
                 "particlesScaleX": "1.000000",
                 "particlesScaleY": "1.000000",
-                "particlesSize": "1.000000",
                 "particlesVelocityX": "0.000000",
                 "particlesVelocityY": "0.000000",
                 "particlesVelocityZ": "50.000000",
+                "positionX": "0.000000",
+                "positionY": "0.000000",
+                "positionZ": "0.000000",
+                "rotationX": "0.000000",
+                "rotationY": "0.000000",
+                "rotationZ": "0.000000",
                 "sizeX": "1.000000",
                 "sizeY": "0.000000",
                 "sizeZ": "0.000000",
@@ -8283,6 +13122,63 @@
         "Parent": "2010341400",
         "Static": false
     },
+    "890313943": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1726522242,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/COMBO.lua"
+                },
+                "Script variables": {
+                    "Count": 0
+                },
+                "UID": 1566320052,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 1614610180,
+                "index": 1,
+                "priority": "-1",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1402254506.dds"
+                },
+                "UID": 1102836751,
+                "index": 2,
+                "position2Dx": "-0.462000",
+                "position2Dy": "0.269000",
+                "size2Dx": "400.000000",
+                "size2Dy": "138.476563",
+                "visible": "1"
+            }
+        },
+        "Index": 9,
+        "Name": "COMBO3.5",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1899123434",
+        "Static": false
+    },
     "909182330": {
         "Active": true,
         "Components": {
@@ -8315,6 +13211,120 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "687956751",
+        "Static": false
+    },
+    "918015026": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1863306779,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/POTIS.lua"
+                },
+                "Script variables": {
+                    "Count": 0
+                },
+                "UID": 1058899922,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 40809060,
+                "index": 1,
+                "priority": "0",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1282349755.dds"
+                },
+                "UID": 89112783,
+                "index": 2,
+                "position2Dx": "0.097000",
+                "position2Dy": "0.222000",
+                "size2Dx": "500.000000",
+                "size2Dy": "173.095703",
+                "visible": "1"
+            }
+        },
+        "Index": 7,
+        "Name": "POTI16",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "2125942451",
+        "Static": false
+    },
+    "926321651": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 358261214,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/COMBO.lua"
+                },
+                "Script variables": {
+                    "Count": 0
+                },
+                "UID": 494631313,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 1583611180,
+                "index": 1,
+                "priority": "-1",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/636574497.dds"
+                },
+                "UID": 1628903636,
+                "index": 2,
+                "position2Dx": "-0.410000",
+                "position2Dy": "0.269000",
+                "size2Dx": "400.000000",
+                "size2Dy": "138.476563",
+                "visible": "1"
+            }
+        },
+        "Index": 6,
+        "Name": "COMBO7",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1899123434",
         "Static": false
     },
     "928156800": {
@@ -8430,6 +13440,63 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "333614605",
+        "Static": false
+    },
+    "976118915": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1254971900,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/COMBO.lua"
+                },
+                "Script variables": {
+                    "Count": 0
+                },
+                "UID": 1534778852,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 1753416846,
+                "index": 1,
+                "priority": "-1",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1333032498.dds"
+                },
+                "UID": 2026471705,
+                "index": 2,
+                "position2Dx": "-0.460000",
+                "position2Dy": "0.269000",
+                "size2Dx": "400.000000",
+                "size2Dy": "138.476563",
+                "visible": "1"
+            }
+        },
+        "Index": 5,
+        "Name": "COMBO6",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1899123434",
         "Static": false
     },
     "Navigation Data": {
