@@ -1188,7 +1188,7 @@
             }
         },
         "Index": 2,
-        "Name": "Lumberjack_Jump_Attack",
+        "Name": "JumpAttack",
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "406904123",
@@ -2131,152 +2131,12 @@
             "12": {
                 "Active": true,
                 "Resources": {
-                    "ResourceScript": "Assets/Lumberjack_v012.lua"
+                    "ResourceScript": "Assets/Lumberjack_v013.lua"
                 },
                 "Script variables": {
-                    "Count": 20,
-                    "Variable 0": {
-                        "DisplayObjectName": false,
-                        "Name": "collider_effect",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 1": {
-                        "DisplayObjectName": false,
-                        "Name": "player_2",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "Jaskier"
-                    },
-                    "Variable 10": {
-                        "DisplayObjectName": false,
-                        "Name": "JumpAttackSpeed",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 3.5
-                    },
-                    "Variable 11": {
-                        "DisplayObjectName": false,
-                        "Name": "collider_damage",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 12": {
-                        "DisplayObjectName": false,
-                        "Name": "Dead",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    },
-                    "Variable 13": {
-                        "DisplayObjectName": false,
-                        "Name": "CurrentTarget",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 14": {
-                        "DisplayObjectName": false,
-                        "Name": "CurrentState",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 15": {
-                        "DisplayObjectName": false,
-                        "Name": "player_1",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "Geralt"
-                    },
-                    "Variable 16": {
-                        "DisplayObjectName": false,
-                        "Name": "JumpAttackDone",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    },
-                    "Variable 17": {
-                        "DisplayObjectName": false,
-                        "Name": "CurrentAnim",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "NONE"
-                    },
-                    "Variable 18": {
-                        "DisplayObjectName": false,
-                        "Name": "MaxHealth",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 100.0
-                    },
-                    "Variable 19": {
-                        "DisplayObjectName": false,
-                        "Name": "player_2_Dead",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    },
-                    "Variable 2": {
-                        "DisplayObjectName": false,
-                        "Name": "MaxSpeed",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 5.0
-                    },
-                    "Variable 3": {
-                        "DisplayObjectName": false,
-                        "Name": "CurrentSpecialEffect",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 4": {
-                        "DisplayObjectName": false,
-                        "Name": "AggroDistance",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 20.0
-                    },
-                    "Variable 5": {
-                        "DisplayObjectName": false,
-                        "Name": "MinDistanceFromPlayer",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 3.0
-                    },
-                    "Variable 6": {
-                        "DisplayObjectName": false,
-                        "Name": "player_1_Dead",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    },
-                    "Variable 7": {
-                        "DisplayObjectName": false,
-                        "Name": "Pos",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 8": {
-                        "DisplayObjectName": false,
-                        "Name": "CurrentHealth",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 9": {
-                        "DisplayObjectName": false,
-                        "Name": "CurrentSubState",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    }
+                    "Count": 0
                 },
-                "UID": 358801323,
+                "UID": 794552591,
                 "index": 3
             },
             "14": {
