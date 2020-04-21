@@ -347,7 +347,7 @@ lua_table.note_num = 0							-- Starting at 0, increases by 1 for each attack we
 lua_table.note_stack = { 'N', 'N', 'N', 'N' }	-- Last 4 attacks performed (0=none, 1=light, 2=heavy). Use push_back tactic.
 
 	--Song 1
-	lua_table.song_1 = { 'L', 'L', 'L', 'L' }	--Penetrating Line of Damage (Row of colliders in front of jaskier get turned on one right after the other)
+	lua_table.song_1 = { 'L', 'L', 'L', 'M' }	--Penetrating Line of Damage (Row of colliders in front of jaskier get turned on one right after the other)
 	lua_table.song_1_size = 4
 	lua_table.song_1_effect_start = 750
 	lua_table.song_1_effect_active = false
@@ -370,7 +370,7 @@ lua_table.note_stack = { 'N', 'N', 'N', 'N' }	-- Last 4 attacks performed (0=non
 	lua_table.song_1_collider_line_4_end = 1200
 
 	--Song 2
-	lua_table.song_2 = { 'M', 'M', 'M', 'M' }	--Large Stun Cone (AoE applied once, gives "stun" effect)
+	lua_table.song_2 = { 'M', 'M', 'H', 'L' }	--Large Stun Cone (AoE applied once, gives "stun" effect)
 	lua_table.song_2_size = 4
 	lua_table.song_2_effect_start = 850
 	lua_table.song_2_effect_active = false
@@ -392,7 +392,7 @@ lua_table.note_stack = { 'N', 'N', 'N', 'N' }	-- Last 4 attacks performed (0=non
 	}
 
 	--Song 3
-	lua_table.song_3 = { 'H', 'H', 'H', 'H' }	--Taunt Moonwalk + Circle Knockback (Both use a circle AoE, first "taunt" scond "knockback")
+	lua_table.song_3 = { 'H', 'H', 'M', 'H' }	--Taunt Moonwalk + Circle Knockback (Both use a circle AoE, first "taunt" scond "knockback")
 	lua_table.song_3_size = 4
 	lua_table.song_3_effect_start = 0
 	lua_table.song_3_effect_end = 2000
@@ -568,6 +568,8 @@ local function GoDefaultState()
 			--lua_table.AudioFunctions:PlayAudioEvent("Walk_fx")	--TODO-AUDIO: Play walk sound
 			lua_table.current_state = state.walk
 		end
+
+		lua_table.ParticlesFunctions:PlayParticleEmitter(my_GO_UID)	--TODO-Particles: Activate movement dust particles
 	else
 		lua_table.AnimationFunctions:PlayAnimation("idle", lua_table.idle_animation_speed)
 		--TODO-AUDIO: Stop current sound event
@@ -907,16 +909,14 @@ local function Song_Circle_Effect(area_range)
 	local enemy_list = lua_table.PhysicsFunctions:OverlapSphere(jaskier_pos[1], jaskier_pos[2], jaskier_pos[3], area_range, layers.enemy)
 
 	for i = 1, #enemy_list do
-		--local enemy_pos = lua_table.TransformFunctions:GetPosition(enemy_list[i])
-		--local enemy_script = lua_table.GameObjectFunctions:GetScript(enemy_list[i])
-		--TODO-Ability: Give collider_damage and collider_effect to enemy
+		local enemy_script = lua_table.GameObjectFunctions:GetScript(enemy_list[i])
+		enemy_script:RequestTrigger(my_GO_UID)	--TODO-Ability:
 	end
 end
 
 local function Song_Cone_Effect(trapezoid_table)	--Uses trapezoid because it can adpot varied shapes, including a basic cone
 	local jaskier_pos = lua_table.TransformFunctions:GetPosition(my_GO_UID)
 	local enemy_list = lua_table.PhysicsFunctions:OverlapSphere(jaskier_pos[1], jaskier_pos[2], jaskier_pos[3], trapezoid_table.range, layers.enemy)
-	local enemy_script = {}
 
 	SaveDirection()
 	local A_z, A_x = BidimensionalRotate(trapezoid_table.point_A.z, trapezoid_table.point_A.x, rot_y)
@@ -931,15 +931,13 @@ local function Song_Cone_Effect(trapezoid_table)	--Uses trapezoid because it can
 
 	for i = 1, #enemy_list do
 		local enemy_pos = lua_table.TransformFunctions:GetPosition(enemy_list[i])
-		--enemy_script = lua_table.GameObjectFunctions:GetScript(enemy_list[i])
 
 		if BidimensionalPointInVectorSide(B_x, B_z, C_x, C_z, enemy_pos[1], enemy_pos[3]) < 0	--If left side of all the trapezoid vectors BC, CD, DA ( \_/ )
 		and BidimensionalPointInVectorSide(C_x, C_z, D_x, D_z, enemy_pos[1], enemy_pos[3]) < 0
 		and BidimensionalPointInVectorSide(D_x, D_z, A_x, A_z, enemy_pos[1], enemy_pos[3]) < 0
 		then
-			--local enemy_pos = lua_table.TransformFunctions:GetPosition(enemy_list[i])
-			--local enemy_script = lua_table.GameObjectFunctions:GetScript(enemy_list[i])
-			--TODO-Ability: Give collider_damage and collider_effect to enemy
+			local enemy_script = lua_table.GameObjectFunctions:GetScript(enemy_list[i])
+			enemy_script:RequestTrigger(my_GO_UID)	--TODO-Ability:
 		end
 	end
 end
@@ -1247,6 +1245,10 @@ local function ActionInputs()	--Process Action Inputs
 		if not (lua_table.current_state >= state.light_1 and lua_table.current_state <= state.heavy_3)	--IF input not attack
 		then
 			--lua_table.ParticlesFunctions:StopParticleEmitter_GO(guitar_GO_UID)	--TODO-Particles: Deactivate Particles on Sword
+		end
+
+		if lua_table.current_state > state.run or lua_table.current_state < state.walk then
+			lua_table.ParticlesFunctions:StopParticleEmitter(my_GO_UID)	--TODO-Particles: Deactivate Dust Particles
 		end
 	end
 

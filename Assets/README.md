@@ -26,9 +26,11 @@ so here I'll stipulate some important details about these:
 **GeraltScript_v4.5**: Dani's new Scripting Functions (0.3.2 and 0.3.3) with Geralt_v3.
 **GeraltScript_v5**: New version made to sinchronize with Jaskier (Experimental, should not compile)
 **GeraltScript_v6**: Script adapted to work with new Scripting and all features from 0.4.1 and above.
-**GeraltScript_v7**: Geralt new 3 attack system.
+**GeraltScript_v7**: Geralt new 3 attack system, up to 0.4.2.6.
+**GeraltScript_v8**: New Animation functions, since 0.4.3.0.
 
 **JaskierScript_v0**: Straight up copy of Geralt Code.
 **JaskierScript_v1**: Jaskier from the Vertical Slice 2. Movement, evade, basic attacks.
 **JaskierScript_v2**: Script adapted to work with new Scripting and all features from 0.4.1 and above.
-**JaskierScript_v3**: Jaskier cleanup of geralt code, new 3 attack system, and song system + abilities.
+**JaskierScript_v3**: Jaskier cleanup of geralt code, new 3 attack system, and song system + abilities, up to 0.4.2.6.
+**GeraltScript_v4**: New Animation functions, since 0.4.3.0.
