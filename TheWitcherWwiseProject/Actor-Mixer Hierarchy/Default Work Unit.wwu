@@ -2605,6 +2605,98 @@
 						</Sound>
 					</ChildrenList>
 				</Folder>
+				<Folder Name="Music" ID="{24B467A6-F7B2-4475-9206-B9521D47396F}" ShortID="640484707">
+					<ChildrenList>
+						<Sound Name="Spikeroog" ID="{2FE3D6BF-6044-463C-AC4F-A6AF56150836}" ShortID="908194624">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{33080FFE-AFF8-4DB4-BFBC-870234ABF1E9}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{F6EAB31E-CDB2-437A-BACF-4A2313B7463D}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Spikeroog" ID="{36170AEB-B6F2-43CA-A5F2-25D340057475}" ShortID="851588382">
+									<Language>SFX</Language>
+									<AudioFile>Spikeroog.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Spikeroog" ID="{36170AEB-B6F2-43CA-A5F2-25D340057475}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Geralt de Rivia" ID="{6C807AEE-F13C-4ED9-8B7E-CA3C63F9B1D6}" ShortID="427651119">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{33080FFE-AFF8-4DB4-BFBC-870234ABF1E9}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{F6EAB31E-CDB2-437A-BACF-4A2313B7463D}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Geralt de Rivia" ID="{209A5C2B-0FDD-4826-93B8-F6916611C46C}" ShortID="170516764">
+									<Language>SFX</Language>
+									<AudioFile>Geralt de Rivia.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Geralt de Rivia" ID="{209A5C2B-0FDD-4826-93B8-F6916611C46C}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Silver for Monsters" ID="{771479CE-5DF6-4151-878A-57D4D3D126E0}" ShortID="15639387">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{33080FFE-AFF8-4DB4-BFBC-870234ABF1E9}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{F6EAB31E-CDB2-437A-BACF-4A2313B7463D}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Silver for Monsters" ID="{C5D8DD7E-2836-4057-9964-EAAB56C1E579}" ShortID="1001641021">
+									<Language>SFX</Language>
+									<AudioFile>Silver for Monsters.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Silver for Monsters" ID="{C5D8DD7E-2836-4057-9964-EAAB56C1E579}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Trial Of The Grasses" ID="{0F348F0D-A671-4C57-BB8D-0B0DD1C051CF}" ShortID="141976000">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{33080FFE-AFF8-4DB4-BFBC-870234ABF1E9}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{F6EAB31E-CDB2-437A-BACF-4A2313B7463D}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Trial Of The Grasses" ID="{8DD943AB-0F24-4B37-BE51-C1993993C34A}" ShortID="198708703">
+									<Language>SFX</Language>
+									<AudioFile>Trial Of The Grasses.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Trial Of The Grasses" ID="{8DD943AB-0F24-4B37-BE51-C1993993C34A}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>

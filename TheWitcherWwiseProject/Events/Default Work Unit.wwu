@@ -1529,6 +1529,54 @@
 						</Event>
 					</ChildrenList>
 				</Folder>
+				<Folder Name="Music" ID="{6C5B0E3E-4855-45A3-8FAE-39FA7DFDAE11}" ShortID="435262344">
+					<ChildrenList>
+						<Event Name="Default" ID="{113CF462-7B3F-44D8-9375-6EE0296E8CF8}">
+							<ChildrenList>
+								<Action Name="" ID="{236B0630-1438-4650-A4EE-DD5BA3F67095}" ShortID="836506711">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Trial Of The Grasses" ID="{0F348F0D-A671-4C57-BB8D-0B0DD1C051CF}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Rest" ID="{795A7452-E1E8-4992-80B8-174AEBF691E1}">
+							<ChildrenList>
+								<Action Name="" ID="{0CE90711-010D-4472-8040-F8ECC8C13221}" ShortID="715904776">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Spikeroog" ID="{2FE3D6BF-6044-463C-AC4F-A6AF56150836}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Main_Menu" ID="{421FF3F6-A14B-497F-A3A3-B52E03958E7D}">
+							<ChildrenList>
+								<Action Name="" ID="{10CC178B-1DDB-4C64-B689-EDFFB6F3968A}" ShortID="758712551">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Geralt de Rivia" ID="{6C807AEE-F13C-4ED9-8B7E-CA3C63F9B1D6}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Combat" ID="{91144C3D-DB4C-4615-9B78-E7C7D60DD5E4}">
+							<ChildrenList>
+								<Action Name="" ID="{90971654-5AA9-48E6-8012-EF950B1C08FD}" ShortID="936050694">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Silver for Monsters" ID="{771479CE-5DF6-4151-878A-57D4D3D126E0}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
