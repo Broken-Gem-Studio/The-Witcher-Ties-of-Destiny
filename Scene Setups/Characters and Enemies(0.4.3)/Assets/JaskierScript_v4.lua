@@ -30,7 +30,7 @@ local jaskier_ability_GO_UID
 	--Jaskier_Ability (Child of ???): 0/0/0
 
 --State Machine
-local state = {	--The order of the states is relevant to the code, CAREFUL CHANGING IT (Ex: if current_state >= state.run)
+local state = {	--The order of the states is relevant to the code, CAREFUL CHANGING IT (Ex: if current_state >= state.idle)
 	dead = -4,
 	down = -3,
 
@@ -447,13 +447,13 @@ lua_table.ultimate_reg_orig = 10	--Ideally, 2 or something similar
 
 lua_table.ultimate_active = false
 
-lua_table.ultimate_range = 20
+lua_table.ultimate_range = 15
 
 lua_table.ultimate_concert_end = 3000
 lua_table.ultimate_effect_active = false
 lua_table.ultimate_duration = 4700
 lua_table.ultimate_animation_speed = 30.0
-lua_table.ultimate_damage = 2.0
+lua_table.ultimate_damage = 5.0
 lua_table.ultimate_status_effect = attack_effects_ID.knockback
 
 lua_table.ultimate_secondary_effect_start = 3850
@@ -930,7 +930,7 @@ local function Song_Circle_Effect(area_range)
 
 	for i = 1, #enemy_list do
 		local enemy_script = lua_table.GameObjectFunctions:GetScript(enemy_list[i])
-		enemy_script:RequestTrigger(my_GO_UID)	--TODO-Ability:
+		enemy_script:RequestedTrigger(my_GO_UID)	--TODO-Ability:
 	end
 end
 
@@ -957,7 +957,7 @@ local function Song_Cone_Effect(trapezoid_table)	--Uses trapezoid because it can
 		and BidimensionalPointInVectorSide(D_x, D_z, A_x, A_z, enemy_pos[1], enemy_pos[3]) < 0
 		then
 			local enemy_script = lua_table.GameObjectFunctions:GetScript(enemy_list[i])
-			enemy_script:RequestTrigger(my_GO_UID)	--TODO-Ability:
+			enemy_script:RequestedTrigger(my_GO_UID)	--TODO-Ability:
 		end
 	end
 end
@@ -970,7 +970,7 @@ local function UltimateConcert()
 
 		--Setup for stage_2
 		lua_table.AnimationFunctions:PlayAnimation("guitar_slam_two_handed", lua_table.ultimate_secondary_animation_speed, my_GO_UID)
-		lua_table.collider_damage = lua_table.ultimate_secondary_damage
+		lua_table.collider_damage = base_damage_real * lua_table.ultimate_secondary_damage
 		lua_table.collider_effect = lua_table.ultimate_secondary_status_effect
 		
 	else	--IF > start time and < end time
@@ -988,10 +988,9 @@ local function UltimateFinish()
 	if not lua_table.ultimate_secondary_effect_active	--IF effect unactive, activate
 	then
 		--lua_table.ParticlesFunctions:PlayParticleEmitter(jaskier_song_3_GO_UID)	--TODO-Particles:
+		Song_Circle_Effect(lua_table.ultimate_range)
 		lua_table.ultimate_secondary_effect_active = true
 	end
-
-	Song_Circle_Effect(lua_table.ultimate_range)
 end
 
 local function Song_3_Taunt()
@@ -1002,7 +1001,7 @@ local function Song_3_Taunt()
 
 		--Setup for stage_2
 		lua_table.AnimationFunctions:PlayAnimation(lua_table.song_3_secondary_animation_name, lua_table.song_3_secondary_animation_speed, my_GO_UID)
-		lua_table.collider_damage = lua_table.song_3_secondary_damage
+		lua_table.collider_damage = base_damage_real * lua_table.song_3_secondary_damage
 		lua_table.collider_effect = lua_table.song_3_secondary_status_effect
 
 		--lua_table.TransformFunctions:RotateObject(0, 180, 0, my_GO_UID)	--Do 180 to return from moonwalk	--TODO: Uncomment when fixed (currently works as SetRotation())
@@ -1027,10 +1026,9 @@ local function Song_3_Knockback()
 	if not lua_table.song_3_secondary_effect_active	--IF effect unactive, activate
 	then
 		--lua_table.ParticlesFunctions:PlayParticleEmitter(jaskier_song_3_GO_UID)	--TODO-Particles:
+		Song_Circle_Effect(lua_table.song_3_secondary_range)
 		lua_table.song_3_secondary_effect_active = true
 	end
-
-	Song_Circle_Effect(lua_table.song_3_secondary_range)
 end
 
 local function PerformSong(song_type)
@@ -1228,7 +1226,7 @@ local function ActionInputs()	--Process Action Inputs
 
 			--Do Ultimate
 			lua_table.AnimationFunctions:PlayAnimation("guitar_play_2", lua_table.ultimate_animation_speed, my_GO_UID)
-			lua_table.collider_damage = lua_table.ultimate_damage
+			lua_table.collider_damage = base_damage_real * lua_table.ultimate_damage
 			lua_table.collider_effect = lua_table.ultimate_status_effect
 
 			lua_table.ultimate_active = true
@@ -1554,7 +1552,7 @@ function lua_table:Update()
 				if lua_table.current_state <= state.run
 				then
 					MovementInputs()	--Movement orders
-					--SecondaryInputs()	--Minor actions with no timer or special animations
+					SecondaryInputs()	--Minor actions with no timer or special animations
 
 				else	--ELSE (action being performed)
 					time_since_action = game_time - action_started_at
@@ -1651,9 +1649,8 @@ function lua_table:Update()
 					then
 						if not lua_table.song_2_effect_active then
 							--lua_table.ParticlesFunctions:PlayParticleEmitter(jaskier_song_2_GO_UID)	--TODO-Particles:
-							lua_table.song_2_effect_active = true
-						else
 							Song_Cone_Effect(song_2_trapezoid)
+							lua_table.song_2_effect_active = true
 						end
 
 					elseif lua_table.current_state == state.song_3
@@ -1751,6 +1748,10 @@ function lua_table:Update()
 	--Stats LOGS
 	--lua_table.SystemFunctions:LOG("Health: " .. lua_table.current_health)
 	--lua_table.SystemFunctions:LOG("Energy: " .. lua_table.current_energy)
+
+	--Item LOGS
+	--lua_table.SystemFunctions:LOG("Jaskier Item: " .. lua_table.item_selected)
+	--lua_table.SystemFunctions:LOG("Jaskier Potions Left: " .. lua_table.inventory[1])
 
 	--lua_table.SystemFunctions:LOG("Health Reg: " .. health_reg_real)
 	--lua_table.SystemFunctions:LOG("Energy Reg: " .. energy_reg_real)
