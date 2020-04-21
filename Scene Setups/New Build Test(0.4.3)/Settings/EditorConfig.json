@@ -9,7 +9,7 @@
         "Console": true,
         "Hierarchy": true,
         "Inspector": true,
-        "Navigation": false,
+        "Navigation": true,
         "Physics": true,
         "Project": true,
         "Rendering": false,
@@ -69,7 +69,7 @@
             "Group": 1023,
             "GroupSize": 10,
             "Layer": 2,
-            "Name": "Enemy"
+            "Name": "Player_Attack"
         },
         "Layer3": {
             "0": true,
@@ -86,7 +86,7 @@
             "Group": 1023,
             "GroupSize": 10,
             "Layer": 3,
-            "Name": "UI"
+            "Name": "Enemy"
         },
         "Layer4": {
             "0": true,
@@ -103,7 +103,7 @@
             "Group": 1023,
             "GroupSize": 10,
             "Layer": 4,
-            "Name": "Ignore Raycast"
+            "Name": "Enemy_Attack"
         },
         "Layer5": {
             "0": true,
@@ -203,10 +203,10 @@
         "borderless": false,
         "fullscreen": false,
         "fullscreenDesktop": false,
-        "height": 1080,
+        "height": 810,
         "resizable": true,
         "sceneX": 480,
         "sceneY": 640,
-        "width": 1920
+        "width": 1440
     }
 }
