@@ -133,7 +133,7 @@ function lua_table:OnTriggerEnter()
 
     if layer == Layers.PLAYER_ATTACK and lua_table.health > 0
     then
-        local parent = lua_table.GameObjectFunctions:GetGOParentFromUID(collider_GO)
+        local parent = lua_table.GameObjectFunctions:GetGameObjectParent(collider_GO)
         local script = lua_table.GameObjectFunctions:GetScript(parent)
 
         lua_table.health = lua_table.health - script.collider_damage
@@ -159,7 +159,7 @@ end
 
 -- Collider Calls 2.0 
 function lua_table:RequestedTrigger(collider_GO)
-	lua_table.System:LOG("On RequestedTrigger")
+	--lua_table.System:LOG("On RequestedTrigger")
 
 	if lua_table.health > 0		
 	then
@@ -287,21 +287,21 @@ local function Shoot()
     then
         shoot_time = PerfGameTime()
         -- PLAY ANIMATION TAKING ARROW (lasts 1s)
-        lua_table.System:LOG ("TAKING ARROW")
+        --lua_table.System:LOG ("TAKING ARROW")
         lua_table.AnimationSystem:PlayAnimation("DrawArrow",30.0, MyUID)
         lua_table.start_taking_arrow = false
     end
 
     if shoot_time + 1000 <= PerfGameTime() and lua_table.start_aiming == true 
     then
-        lua_table.System:LOG ("AIMING")
+       -- lua_table.System:LOG ("AIMING")
         lua_table.AnimationSystem:PlayAnimation("Aim",30.0, MyUID)
         lua_table.start_aiming = false
     end
 
     if shoot_time + 2000 <= PerfGameTime() and lua_table.start_shooting == true 
     then
-        lua_table.System:LOG ("SHOOT")
+        --lua_table.System:LOG ("SHOOT")
         
         local rotation = lua_table.Transform:GetRotation(MyUID)
         local pos = lua_table.Transform:GetPosition(MyUID)
@@ -353,7 +353,7 @@ local function MeleeHit()
             lua_table.AnimationSystem:PlayAnimation("MeleePunch",30.0, MyUID)
         end
         
-        lua_table.System:LOG ("MELEE ATTACK")
+        --lua_table.System:LOG ("MELEE ATTACK")
         start_melee = false
     end
 
