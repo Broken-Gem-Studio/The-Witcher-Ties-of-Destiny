@@ -1,4 +1,4 @@
-function GetTableLumberjack_v01()
+function GetTableLumberjack_v013()
 
 local lua_table = {}
 
@@ -358,7 +358,7 @@ local function jumpAttack()
 		lua_table.CurrentSubState = SubState.JUMP_ATTACK
 		JumpAttack_AnimController = true
 		JumpAttack_TimeController = PerfGameTime()
-
+	
 		lua_table.attack_effects = attack_effects.stun
 		lua_table.collider_damage = 30
 	end
@@ -367,7 +367,8 @@ local function jumpAttack()
 		--cambiar q se ponga aqui el state atack y el sub estate
 		lua_table.JumpAttackDone = true
 		UseAuxVariables = false
-		AfterJumpAttackTimer = PerfGameTime()		
+		AfterJumpAttackTimer = PerfGameTime()	
+		
 	end
 end
 local function Attack()
@@ -467,8 +468,8 @@ local function HandlePRE_DETECTION()
 				Timer = PerfGameTime()
 				if Timer - LookLeftRight_TimeController > 6000 --TODO change value for a animation duration
 				then
-					lua_table.CurrentPatrolTarget[1] = lua_table.SystemFunctions:RandomNumberInRange(SpawnPos[1]-10,SpawnPos[1]+10)
-					lua_table.CurrentPatrolTarget[3] = lua_table.SystemFunctions:RandomNumberInRange(SpawnPos[3]-10,SpawnPos[3]+10)
+					lua_table.CurrentPatrolTarget[1] = lua_table.SystemFunctions:RandomNumberInRange(SpawnPos[1]-5,SpawnPos[1]+5)
+					lua_table.CurrentPatrolTarget[3] = lua_table.SystemFunctions:RandomNumberInRange(SpawnPos[3]-5,SpawnPos[3]+5)
 					Arrived2PatrolTarget = false
 					PatrolWalk_AnimController = false
 				end
@@ -608,7 +609,7 @@ local function HandleDeath()
 	end
 
 	TiMe = PerfGameTime()
-	if TiMe - DeadTime > 20000
+	if TiMe - DeadTime > 10000
 	then
 		lua_table.GameObjectFunctions:DestroyGameObject(MyUID)
 	end
@@ -620,6 +621,8 @@ end
 function lua_table:OnTriggerEnter()	
 	local collider_GO = lua_table.PhysicsSystem:OnTriggerEnter(MyUID)
 
+
+	lua_table.Current_Health = lua_table.Current_Health - 120
 	if lua_table.CurrentState ~= State.DEATH and lua_table.GameObjectFunctions:GetLayerByID(collider_GO) == 2 --player attack
 	then
 		local collider_parent = lua_table.GameObjectFunctions:GetGameObjectParent(collider_GO)
@@ -632,7 +635,7 @@ function lua_table:OnTriggerEnter()
 		 	player_script = lua_table.GameObjectFunctions:GetScript(collider_GO)
 		end
 	
-		lua_table.current_health = lua_table.current_health - player_script.collider_damage
+		lua_table.Current_Health = lua_table.Current_Health - player_script.collider_damage
 	
 		if player_script.collider_effect ~= 0
 		then
@@ -723,21 +726,21 @@ function lua_table:Update()
 		if lua_table.CurrentState == State.PRE_DETECTION
 		then
 			HandlePRE_DETECTION()	
-			--lua_table.SystemFunctions:LOG("1") 
+			lua_table.SystemFunctions:LOG("1") 
 		elseif lua_table.CurrentState == State.SEEK
 		then
 			HandleSEEK()
-			--lua_table.SystemFunctions:LOG("2") 
+			lua_table.SystemFunctions:LOG("2") 
 		elseif lua_table.CurrentState == State.ATTACK
 		then
 			HandleAttack()
 			Nvec3x = Nvec3x * 0.00001
 			Nvec3z = Nvec3z * 0.00001
-			--lua_table.SystemFunctions:LOG("3") 
+			lua_table.SystemFunctions:LOG("3") 
 		elseif lua_table.CurrentState == State.DEATH
 		then
 			HandleDeath()
-			--lua_table.SystemFunctions:LOG("4") 
+			lua_table.SystemFunctions:LOG("4") 
 		end
 	elseif lua_table.CurrentSpecialEffect == SpecialEffect.STUNNED
 	then
