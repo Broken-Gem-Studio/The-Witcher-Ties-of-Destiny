@@ -73,8 +73,8 @@ local knock_force = {0, 0, 0}
 
 -- Combo attack values
 local Punch = 10
-local Swipe = 50
-local Crush = 150
+local Swipe = 20
+local Crush = 50 -- crit
 
 -- Time management
 local start_jump = false
@@ -106,7 +106,8 @@ local currCorner = 2
 
 -- Entity colliders
 local Front_Att_Coll = 0
-local stun_col = 0
+local Stun_Coll = 0
+lua_table.collider_damage = 0
 
 -- ______________________SCRIPT FUNCTIONS______________________
 
@@ -176,7 +177,10 @@ local function SearchPlayers() -- Check if targets are within range
 	end 
 end
 
-local function ToggleCollider(start, finish, timer, ID)
+local function ToggleCollider(start, finish, timer, dmg, ID)
+
+	lua_table.collider_damage = dmg
+
 	if timer + start < lua_table.System:GameTime() * 1000 then
 		lua_table.GameObject:SetActiveGameObject(true, ID)
 	end
@@ -287,21 +291,21 @@ local function Combo()
 		lua_table.Animations:PlayAnimation("Punch", 30.0, lua_table.MyUID)
 		punching = true
 	end
-	ToggleCollider(1000, 1100, lua_table.combo_timer, Front_Att_Coll)
+	ToggleCollider(1000, 1100, lua_table.combo_timer, Punch, Front_Att_Coll)
 	
 	if lua_table.combo_timer + 1750 <= lua_table.System:GameTime() * 1000 and not swiping then
 		lua_table.System:LOG("Swipe to target")
 		lua_table.Animations:PlayAnimation("Swipe", 30.0, lua_table.MyUID)
 		swiping = true
 	end
-	ToggleCollider(3300, 3400, lua_table.combo_timer, Front_Att_Coll)
+	ToggleCollider(3300, 3400, lua_table.combo_timer, Swipe, Front_Att_Coll)
 
 	if lua_table.combo_timer + 3500 <= lua_table.System:GameTime() * 1000 and not crushing then
 		lua_table.System:LOG("Crush to target")
 		lua_table.Animations:PlayAnimation("Smash", 45.0, lua_table.MyUID)
 		crushing = true
 	end
-	ToggleCollider(4800, 4900, lua_table.combo_timer, Front_Att_Coll)
+	ToggleCollider(4800, 4900, lua_table.combo_timer, Crush, Front_Att_Coll)
 	
 	-- After he finished, switch state and reset jump values
 	if lua_table.combo_timer + 5000 <= lua_table.System:GameTime() * 1000 then
