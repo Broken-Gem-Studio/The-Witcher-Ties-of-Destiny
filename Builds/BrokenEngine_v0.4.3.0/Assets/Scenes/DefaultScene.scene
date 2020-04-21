@@ -134,8 +134,8 @@
                 "rotationy": "0.000117",
                 "rotationz": "-0.000109",
                 "scalex": "1.000000",
-                "scaley": "1.000013",
-                "scalez": "1.000013"
+                "scaley": "1.000022",
+                "scalez": "1.000022"
             },
             "13": {
                 "Active": true,
@@ -1014,7 +1014,7 @@
                 "rotationy": "0.017731",
                 "rotationz": "0.999833",
                 "scalex": "1.000000",
-                "scaley": "0.999985",
+                "scaley": "0.999976",
                 "scalez": "1.000000"
             },
             "13": {
@@ -1128,7 +1128,7 @@
         "Static": false
     },
     "161606896": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 566879783,
@@ -1146,25 +1146,25 @@
                 "scalez": "236.146500"
             },
             "16": {
-                "Active": true,
+                "Active": false,
                 "UID": 155745194,
                 "colliderType": "1",
                 "draggedUID": "0",
                 "draw": "1",
-                "firstCreation": "1",
+                "firstCreation": "0",
                 "globalMatrixw": "1.000000",
                 "globalMatrixx": "0.000000",
                 "globalMatrixy": "2.631257",
                 "globalMatrixz": "2.150435",
-                "globalPositionx": "0.027508",
+                "globalPositionx": "0.009811",
                 "globalPositiony": "1.000000",
-                "globalPositionz": "0.016326",
+                "globalPositionz": "0.004235",
                 "hasBeenDeactivated": "0",
                 "height": "1.000000",
                 "index": 1,
                 "isConvex": "0",
                 "isTrigger": "1",
-                "lastIndex": "1",
+                "lastIndex": "0",
                 "localMatrixw": "1.000000",
                 "localMatrixx": "0.000000",
                 "localMatrixy": "0.000000",
@@ -1175,9 +1175,9 @@
                 "offsetx": "0.000000",
                 "offsety": "0.000000",
                 "offsetz": "0.000000",
-                "originalScalex": "0.027508",
+                "originalScalex": "0.009811",
                 "originalScaley": "1.000000",
-                "originalScalez": "0.016326",
+                "originalScalez": "0.004235",
                 "radius": "1.000000",
                 "scalex": "1.000000",
                 "scaley": "1.000000",
@@ -1856,7 +1856,7 @@
         "Static": false
     },
     "282907677": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1742853780,
@@ -1874,25 +1874,25 @@
                 "scalez": "7.688677"
             },
             "16": {
-                "Active": true,
+                "Active": false,
                 "UID": 517402653,
                 "colliderType": "1",
                 "draggedUID": "0",
                 "draw": "1",
-                "firstCreation": "1",
+                "firstCreation": "0",
                 "globalMatrixw": "1.000000",
                 "globalMatrixx": "-0.007453",
                 "globalMatrixy": "3.676984",
                 "globalMatrixz": "1.672010",
                 "globalPositionx": "0.097564",
-                "globalPositiony": "20.197969",
+                "globalPositiony": "20.197935",
                 "globalPositionz": "0.130061",
                 "hasBeenDeactivated": "0",
                 "height": "1.000000",
                 "index": 1,
                 "isConvex": "0",
                 "isTrigger": "1",
-                "lastIndex": "1",
+                "lastIndex": "0",
                 "localMatrixw": "1.000000",
                 "localMatrixx": "-0.000000",
                 "localMatrixy": "-0.000005",
@@ -1904,7 +1904,7 @@
                 "offsety": "-0.000005",
                 "offsetz": "0.000000",
                 "originalScalex": "0.097564",
-                "originalScaley": "20.197969",
+                "originalScaley": "20.197935",
                 "originalScalez": "0.130061",
                 "radius": "1.000000",
                 "scalex": "2.345000",
@@ -2137,122 +2137,122 @@
                     "Count": 20,
                     "Variable 0": {
                         "DisplayObjectName": false,
-                        "Name": "JumpAttackDone",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    },
-                    "Variable 1": {
-                        "DisplayObjectName": false,
-                        "Name": "Dead",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    },
-                    "Variable 10": {
-                        "DisplayObjectName": false,
-                        "Name": "CurrentAnim",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "NONE"
-                    },
-                    "Variable 11": {
-                        "DisplayObjectName": false,
-                        "Name": "collider_damage",
+                        "Name": "CurrentHealth",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
                     },
-                    "Variable 12": {
+                    "Variable 1": {
                         "DisplayObjectName": false,
                         "Name": "collider_effect",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
                     },
-                    "Variable 13": {
-                        "DisplayObjectName": false,
-                        "Name": "player_2_Dead",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    },
-                    "Variable 14": {
-                        "DisplayObjectName": false,
-                        "Name": "player_1_Dead",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    },
-                    "Variable 15": {
+                    "Variable 10": {
                         "DisplayObjectName": false,
                         "Name": "AggroDistance",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 20.0
                     },
-                    "Variable 16": {
-                        "DisplayObjectName": false,
-                        "Name": "JumpAttackSpeed",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 3.5
-                    },
-                    "Variable 17": {
-                        "DisplayObjectName": false,
-                        "Name": "player_2",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "Jaskier"
-                    },
-                    "Variable 18": {
-                        "DisplayObjectName": false,
-                        "Name": "CurrentTarget",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 19": {
-                        "DisplayObjectName": false,
-                        "Name": "MaxHealth",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 100.0
-                    },
-                    "Variable 2": {
-                        "DisplayObjectName": false,
-                        "Name": "CurrentHealth",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 3": {
-                        "DisplayObjectName": false,
-                        "Name": "MaxSpeed",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 5.0
-                    },
-                    "Variable 4": {
+                    "Variable 11": {
                         "DisplayObjectName": false,
                         "Name": "CurrentState",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
                     },
-                    "Variable 5": {
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "CurrentTarget",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "CurrentAnim",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "NONE"
+                    },
+                    "Variable 14": {
+                        "DisplayObjectName": false,
+                        "Name": "player_1",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Geralt"
+                    },
+                    "Variable 15": {
+                        "DisplayObjectName": false,
+                        "Name": "MaxSpeed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 5.0
+                    },
+                    "Variable 16": {
                         "DisplayObjectName": false,
                         "Name": "CurrentSubState",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
                     },
-                    "Variable 6": {
+                    "Variable 17": {
+                        "DisplayObjectName": false,
+                        "Name": "Dead",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 18": {
+                        "DisplayObjectName": false,
+                        "Name": "MaxHealth",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 100.0
+                    },
+                    "Variable 19": {
+                        "DisplayObjectName": false,
+                        "Name": "collider_damage",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "JumpAttackDone",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "JumpAttackSpeed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 3.5
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": false,
+                        "Name": "Pos",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 5": {
                         "DisplayObjectName": false,
                         "Name": "CurrentSpecialEffect",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": false,
+                        "Name": "player_2",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Jaskier"
                     },
                     "Variable 7": {
                         "DisplayObjectName": false,
@@ -2263,20 +2263,20 @@
                     },
                     "Variable 8": {
                         "DisplayObjectName": false,
-                        "Name": "player_1",
+                        "Name": "player_1_Dead",
                         "ObjectName": "",
-                        "Type": "String",
-                        "Value": "Geralt"
+                        "Type": "Boolean",
+                        "Value": false
                     },
                     "Variable 9": {
                         "DisplayObjectName": false,
-                        "Name": "Pos",
+                        "Name": "player_2_Dead",
                         "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
+                        "Type": "Boolean",
+                        "Value": false
                     }
                 },
-                "UID": 1178176165,
+                "UID": 1547921550,
                 "index": 3
             },
             "14": {
@@ -2419,9 +2419,9 @@
                 "rotationx": "0.534209",
                 "rotationy": "-0.455339",
                 "rotationz": "0.553834",
-                "scalex": "0.999986",
-                "scaley": "0.999987",
-                "scalez": "0.999987"
+                "scalex": "0.999977",
+                "scaley": "0.999978",
+                "scalez": "0.999978"
             },
             "13": {
                 "Active": true,
@@ -2602,8 +2602,8 @@
                 "rotationx": "0.000791",
                 "rotationy": "0.016521",
                 "rotationz": "0.999855",
-                "scalex": "1.000015",
-                "scaley": "1.000015",
+                "scalex": "1.000024",
+                "scaley": "1.000024",
                 "scalez": "1.000000"
             },
             "13": {

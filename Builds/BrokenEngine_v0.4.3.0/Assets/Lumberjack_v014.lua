@@ -136,7 +136,7 @@ local vec3z = 0 --dirvector
 local Attack1_AnimController = false
 local Attack1_TimeController = 0
 local IdleArmed_AnimController = false 
-
+local DelayIlde_AnimController = false
 --JumpAttack()
 local AfterJumpAttackTimer = 0
 local JumpAttack_TimeController = 0
@@ -367,12 +367,35 @@ local function jumpAttack()
 		--cambiar q se ponga aqui el state atack y el sub estate
 		lua_table.JumpAttackDone = true
 		UseAuxVariables = false
-		AfterJumpAttackTimer = PerfGameTime()	
+		AfterJumpAttackTimer = PerfGameTime()
 		
+		if attack_colliders.jump_attack.active == false
+		then
+			lua_table.GameObjectFunctions:SetActiveGameObject(true, attack_colliders.jump_attack.GO_UID)
+			attack_colliders.jump_attack.active = true
+			lua_table.SystemFunctions:LOG("jump_attack collider")
+		end	
 	end
 end
 local function Attack()
 	Time = PerfGameTime()
+
+	if DelayIlde_AnimController == false 
+	then 
+		goto here --magic starts here
+
+
+		--empty space
+
+
+		::here:: --magic ends here
+
+		
+		lua_table.AnimationSystem:PlayAnimation("IDLE",30.0,MyUID)
+		DelayIlde_AnimController = true
+	end
+		
+
 	if Attack1_AnimController == false and Time - AfterJumpAttackTimer > 1500 --delay para q caiga y no insta ataque
 	then
 		Attack1_TimeController = PerfGameTime()
@@ -386,10 +409,24 @@ local function Attack()
 	Time = PerfGameTime()
 	TimeSinceLastAttack = Time - Attack1_TimeController
 
-	if TimeSinceLastAttack > 900 and attack_colliders.front.active == false
+	if TimeSinceLastAttack > 900 and TimeSinceLastAttack < 1100
 	then
-		lua_table.GameObjectFunctions:SetActiveGameObject(true, attack_colliders.front.GO_UID)
-		lua_table.SystemFunctions:LOG("MECANO EN LA PUTA")
+		if attack_colliders.front.active == false
+		then
+			lua_table.GameObjectFunctions:SetActiveGameObject(true, attack_colliders.front.GO_UID)
+			attack_colliders.front.active = true
+			lua_table.SystemFunctions:LOG("attack collider   ##########################################")
+		end
+	end
+
+	if TimeSinceLastAttack > 1100 and TimeSinceLastAttack < 1300
+	then
+		if attack_colliders.front.active == true
+		then
+			lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.front.GO_UID)
+			attack_colliders.front.active = false
+		
+		end
 	end
 
 	if TimeSinceLastAttack >= 1800
@@ -593,7 +630,14 @@ end
 local function HandleAttack()
 	
 	DistanceMagnitude = CalculateDistanceToTarget(lua_table.CurrentTarget)
-		
+	
+	if AfterJumpAttackTimer > 100 and attack_colliders.jump_attack.active == true
+	then 
+		lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.jump_attack.GO_UID)
+		attack_colliders.jump_attack.active = false
+		lua_table.SystemFunctions:LOG("jump attack collider   ##########################################")
+	end
+
 	if DistanceMagnitude <= lua_table.MinDistanceFromPlayer   --   -1 bc lumberjac distance is 2.93
 	then
 		Attack()
@@ -605,6 +649,7 @@ local function HandleAttack()
 		lua_table.CurrentSubState = SubState.SEEK_TARGET
 		lua_table.JumpAttackDone = true
 		lua_table.SystemFunctions:LOG("ATTACK----->SEEK")
+		DelayIlde_AnimController = false 
 	end
 end
 
