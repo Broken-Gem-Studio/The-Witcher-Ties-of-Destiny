@@ -43,7 +43,7 @@ local current_state = state.FULL -- Should initialize at awake(?)
 -- Methods
 -----------------------------------------------------------------------------------------
 
-function ParticleBigExplosion(particleduration, pUID)
+local function ParticleBigExplosion(particleduration, pUID)
 	lua_table.ParticlesFunctions:SetParticlesLooping(false, pUID)
 	lua_table.ParticlesFunctions:SetParticlesDuration(particleduration, pUID)
 

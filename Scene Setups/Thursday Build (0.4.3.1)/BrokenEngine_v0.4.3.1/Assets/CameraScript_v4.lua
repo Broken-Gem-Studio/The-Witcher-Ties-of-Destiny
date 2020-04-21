@@ -141,7 +141,7 @@ local z = 3
 -----------------------------------------------------------------------------------------
 
 -- Get Position Offset from Distance and Angle Methods
-function GetAfromDistAndAng(c_distance, c_angle) --given hypotenuse and angle returns contiguous side
+local function GetAfromDistAndAng(c_distance, c_angle) --given hypotenuse and angle returns contiguous side
 	local c_angle_rad
 	local c_angle_cos
 	local y_dist 
@@ -153,7 +153,7 @@ function GetAfromDistAndAng(c_distance, c_angle) --given hypotenuse and angle re
 	return y_dist
 end
 
-function GetBfromDistAndAng(c_distance, c_angle) --given hypotenuse and angle returns opposite side
+local function GetBfromDistAndAng(c_distance, c_angle) --given hypotenuse and angle returns opposite side
 	local c_angle_rad
 	local c_angle_sin
 	local x_dist 
@@ -166,20 +166,20 @@ function GetBfromDistAndAng(c_distance, c_angle) --given hypotenuse and angle re
 end
 
 -- Centroid Methods
-function Centroid2P(p1, p2)
+local function Centroid2P(p1, p2)
 	return (p1 + p2) / 2 
 end
 
-function Centroid3P(p1, p2, p3)
+local function Centroid3P(p1, p2, p3)
 	return (p1 + p2 + p3) / 3 
 end
 
-function Centroid4P(p1, p2, p3, p4)
+local function Centroid4P(p1, p2, p3, p4)
 	return (p1 + p2 + p3 + p4) / 4
 end
 
 -- Camera Movement smoothing NEEDS A LIMIT WHERE IT STOPS SMOOTHING
-function Asymptotic_Average(pos, target_pos, speed)
+local function Asymptotic_Average(pos, target_pos, speed)
 	if lua_table.SystemFunctions:CompareFloats(pos, target_pos) == 0
 	then
 		return pos + (target_pos - pos)*speed
@@ -192,7 +192,7 @@ end
 -- function GetCurrentGameplay()
 
 -- Handle Camera Zoom Layers Method
-function HandleZoomLayers()
+local function HandleZoomLayers()
 	if current_state ~= state.SWITCHING
 	then
 		-- 2 Players Handeling
@@ -261,7 +261,7 @@ function HandleZoomLayers()
 end
 
 -- Handles Camera Switching between Zoom Layers Method
-function HandleSwitch()
+local function HandleSwitch()
 	if current_state == state.SWITCHING
 	then
 		if current_zoom_layer == zoom.LAYER_1
@@ -303,7 +303,7 @@ function HandleSwitch()
 end
 
 -- Handle Target Position Method
-function HandleTarget()
+local function HandleTarget()
 
 	-- 1 Player Target Calculations
 	if current_gameplay == gameplay.SOLO
@@ -350,7 +350,7 @@ function HandleTarget()
 end
 
 -- Handle Camera Offset Method
-function HandleOffset()
+local function HandleOffset()
 
 	-- Offset from Distance and Angle
 	offset_a = GetAfromDistAndAng(current_camera_distance, camera_angle_for_offset)
@@ -362,7 +362,7 @@ function HandleOffset()
 end
 
 -- Handle Camera Movement Method
-function HandleMovement()
+local function HandleMovement()
 
 	-- Camera won't move if is static (3rd layer of zoom for now)
 	if current_state ~= state.STATIC 
