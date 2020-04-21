@@ -156,7 +156,7 @@ function GetTablePOTIS()
         if lua_table.p1.item_selected == lua_table.p1.item_library.energy_potion
         then
             on_energy = true
-            on_hp = true
+            on_hp = false
 
             lua_table["UI"]:MakeElementInvisible("Image", POTID)
             lua_table["UI"]:MakeElementVisible("Image", POTID2)
@@ -180,7 +180,7 @@ function GetTablePOTIS()
         if lua_table.p2.item_selected == lua_table.p2.item_library.energy_potion
         then
             on_energy2 = true
-            on_hp2 = true
+            on_hp2 = false
 
             lua_table["UI"]:MakeElementInvisible("Image", POTID_J)
             lua_table["UI"]:MakeElementVisible("Image", POTID2_J)
@@ -199,6 +199,8 @@ function GetTablePOTIS()
             lua_table["UI"]:MakeElementInvisible("Image", POTID5)
             lua_table["UI"]:MakeElementInvisible("Image", POTID8)
             lua_table["UI"]:MakeElementVisible("Image", POTID6)
+            
+            lua_table["System"]:LOG("ON ENG EMPTY")
         end 
 
         if eng_potis == 0 and hp_potis == 0 and on_hp == true--BOTH EMPTY WHEN WE HAVE SELECTED THE HP POTIS
@@ -208,6 +210,8 @@ function GetTablePOTIS()
             lua_table["UI"]:MakeElementInvisible("Image", POTID6)
             lua_table["UI"]:MakeElementInvisible("Image", POTID7)
             lua_table["UI"]:MakeElementVisible("Image", POTID5)
+
+            lua_table["System"]:LOG("ON HP EMPTY")
         end 
 
         if eng_potis == 0 and on_hp == true and hp_potis ~= 0--SI NO HAY POTIS DE ENG pero si hay de vida desde perspectiva HP

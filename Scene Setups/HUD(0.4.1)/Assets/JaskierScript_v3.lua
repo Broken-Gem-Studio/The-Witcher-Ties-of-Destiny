@@ -30,7 +30,7 @@ local jaskier_ability_GO_UID
 	--Jaskier_Ability (Child of ???): 0/0/0
 
 --State Machine
-local state = {	--The order of the states is relevant to the code, CAREFUL CHANGING IT (Ex: if curr_state >= state.run)
+local state = {	--The order of the states is relevant to the code, CAREFUL CHANGING IT (Ex: if current_state >= state.run)
 	dead = -2,
 	down = -1,
 
@@ -207,8 +207,8 @@ lua_table.current_velocity = 0
 	lua_table.mov_velocity_max_orig = 500
 
 lua_table.idle_animation_speed = 30.0
-lua_table.walk_animation_speed = 30.0
-lua_table.run_animation_speed = 20.0
+lua_table.walk_animation_speed = 35.0
+lua_table.run_animation_speed = 40.0
 
 --Energy
 lua_table.current_energy = 0
@@ -266,23 +266,23 @@ lua_table.energy_reg_orig = 5
 lua_table.light_damage = 1.0					--Multiplier of Base Damage
 lua_table.light_movement_velocity = 50.0
 
-lua_table.light_1_block_time = 600			--Input block duration	(block new attacks)
-lua_table.light_1_collider_front_start = 650	--Collider activation time
-lua_table.light_1_collider_front_end = 750	--Collider deactivation time
-lua_table.light_1_duration = 1000			--Attack end (return to idle)
-lua_table.light_1_animation_speed = 30.0
+lua_table.light_1_block_time = 450			--Input block duration	(block new attacks)
+lua_table.light_1_collider_front_start = 460	--Collider activation time
+lua_table.light_1_collider_front_end = 560	--Collider deactivation time
+lua_table.light_1_duration = 750			--Attack end (return to idle)
+lua_table.light_1_animation_speed = 40.0
 
-lua_table.light_2_block_time = 500			--Input block duration	(block new attacks)
-lua_table.light_2_collider_front_start = 450	--Collider activation time
-lua_table.light_2_collider_front_end = 550	--Collider deactivation time
-lua_table.light_2_duration = 900			--Attack end (return to idle)
-lua_table.light_2_animation_speed = 30.0
+lua_table.light_2_block_time = 370			--Input block duration	(block new attacks)
+lua_table.light_2_collider_front_start = 340	--Collider activation time
+lua_table.light_2_collider_front_end = 440	--Collider deactivation time
+lua_table.light_2_duration = 670			--Attack end (return to idle)
+lua_table.light_2_animation_speed = 40.0
 
-lua_table.light_3_block_time = 600			--Input block duration	(block new attacks)
-lua_table.light_3_collider_front_start = 500	--Collider activation time
-lua_table.light_3_collider_front_end = 600	--Collider deactivation time
-lua_table.light_3_duration = 1100			--Attack end (return to idle)
-lua_table.light_3_animation_speed = 30.0		--IMPROVE: Attack 3 animaton includes a return to idle, which differs from the other animations, we might have to cut it for homogeinity with the rest
+lua_table.light_3_block_time = 420			--Input block duration	(block new attacks)
+lua_table.light_3_collider_front_start = 350	--Collider activation time
+lua_table.light_3_collider_front_end = 450	--Collider deactivation time
+lua_table.light_3_duration = 820			--Attack end (return to idle)
+lua_table.light_3_animation_speed = 40.0		--IMPROVE: Attack 3 animaton includes a return to idle, which differs from the other animations, we might have to cut it for homogeinity with the rest
 
 --Medium Attack
 lua_table.medium_damage = 1.0					--Multiplier of Base Damage
@@ -329,11 +329,11 @@ lua_table.heavy_3_duration = 1300			--Attack end (return to idle)
 lua_table.heavy_3_animation_speed = 30.0		--IMPROVE: Attack 3 animaton includes a return to idle, which differs from the other animations, we might have to cut it for homogeinity with the rest
 
 --Evade		
-lua_table.evade_velocity = 300.0	--Was 200 before dt
+lua_table.evade_velocity = 900.0
 lua_table.evade_cost = 33
-lua_table.evade_duration = 2000
+lua_table.evade_duration = 900
 
-lua_table.evade_animation_speed = 30.0
+lua_table.evade_animation_speed = 50.0
 
 --Ability
 lua_table.ability_cooldown = 5.0
@@ -349,34 +349,34 @@ lua_table.note_stack = { 'N', 'N', 'N', 'N' }	-- Last 4 attacks performed (0=non
 	--Song 1
 	lua_table.song_1 = { 'L', 'L', 'L', 'L' }	--Penetrating Line of Damage (Row of colliders in front of jaskier get turned on one right after the other)
 	lua_table.song_1_size = 4
-	lua_table.song_1_effect_start = 500
+	lua_table.song_1_effect_start = 750
 	lua_table.song_1_effect_active = false
-	lua_table.song_1_duration = 3000
+	lua_table.song_1_duration = 1440
 	lua_table.song_1_animation_name = "guitar_slam_one_handed"
-	lua_table.song_1_animation_speed = 30.0
+	lua_table.song_1_animation_speed = 50.0
 	lua_table.song_1_damage = 2.0
 	lua_table.song_1_status_effect = attack_effects.none
 
-	lua_table.song_1_collider_line_1_start = 1000
-	lua_table.song_1_collider_line_1_end = 1500
+	lua_table.song_1_collider_line_1_start = 800
+	lua_table.song_1_collider_line_1_end = 900
 
-	lua_table.song_1_collider_line_2_start = 1500
-	lua_table.song_1_collider_line_2_end = 2000
+	lua_table.song_1_collider_line_2_start = 900
+	lua_table.song_1_collider_line_2_end = 1000
 
-	lua_table.song_1_collider_line_3_start = 2000
-	lua_table.song_1_collider_line_3_end = 2500
+	lua_table.song_1_collider_line_3_start = 1000
+	lua_table.song_1_collider_line_3_end = 1100
 
-	lua_table.song_1_collider_line_4_start = 2500
-	lua_table.song_1_collider_line_4_end = 3000
+	lua_table.song_1_collider_line_4_start = 1100
+	lua_table.song_1_collider_line_4_end = 1200
 
 	--Song 2
 	lua_table.song_2 = { 'M', 'M', 'M', 'M' }	--Large Stun Cone (AoE applied once, gives "stun" effect)
 	lua_table.song_2_size = 4
-	lua_table.song_2_effect_start = 500
+	lua_table.song_2_effect_start = 850
 	lua_table.song_2_effect_active = false
-	lua_table.song_2_duration = 3000
+	lua_table.song_2_duration = 1700
 	lua_table.song_2_animation_name = "guitar_slam_two_handed"
-	lua_table.song_2_animation_speed = 30.0
+	lua_table.song_2_animation_speed = 50.0
 	lua_table.song_2_damage = 2.5
 	lua_table.song_2_status_effect = attack_effects.stun
 
@@ -395,8 +395,9 @@ lua_table.note_stack = { 'N', 'N', 'N', 'N' }	-- Last 4 attacks performed (0=non
 	lua_table.song_3 = { 'H', 'H', 'H', 'H' }	--Taunt Moonwalk + Circle Knockback (Both use a circle AoE, first "taunt" scond "knockback")
 	lua_table.song_3_size = 4
 	lua_table.song_3_effect_start = 0
+	lua_table.song_3_effect_end = 2000
 	lua_table.song_3_effect_active = false
-	lua_table.song_3_duration = 4000
+	lua_table.song_3_duration = 3700
 	lua_table.song_3_animation_name = "death"	--"moonwalk", current is placeholder
 	lua_table.song_3_animation_speed = 30.0
 	lua_table.song_3_damage = 2.5
@@ -405,10 +406,10 @@ lua_table.note_stack = { 'N', 'N', 'N', 'N' }	-- Last 4 attacks performed (0=non
 	lua_table.song_3_range = 20
 
 	lua_table.song_3_secondary_range = 30
-	lua_table.song_3_secondary_effect_start = 2000
+	lua_table.song_3_secondary_effect_start = 2850
 	lua_table.song_3_secondary_effect_active = false
 	lua_table.song_3_secondary_animation_name = "guitar_slam_two_handed"
-	lua_table.song_3_secondary_animation_speed = 30.0
+	lua_table.song_3_secondary_animation_speed = 50.0
 	lua_table.song_3_secondary_damage = 2.5
 	lua_table.song_3_secondary_status_effect = attack_effects.knockback
 
@@ -428,15 +429,22 @@ local ultimate_reg_real
 lua_table.ultimate_reg_mod = 1.0
 lua_table.ultimate_reg_orig = 10	--Ideally, 2 or something similar
 
-local ultimate_started_at = 0.0
-lua_table.ultimate_concert_start = 2500
-lua_table.ultimate_duration = 3600
-lua_table.ultimate_animation_speed = 45.0
-
-lua_table.ultimate_damage = 0
-lua_table.ultimate_knockback_velocity = 0
-
 lua_table.ultimate_active = false
+
+lua_table.ultimate_range = 20
+
+lua_table.ultimate_concert_end = 3000
+lua_table.ultimate_effect_active = false
+lua_table.ultimate_duration = 4700
+lua_table.ultimate_animation_speed = 30.0
+lua_table.ultimate_damage = 2.0
+lua_table.ultimate_status_effect = attack_effects.knockback
+
+lua_table.ultimate_secondary_effect_start = 3850
+lua_table.ultimate_secondary_effect_active = false
+lua_table.ultimate_secondary_animation_speed = 50.0
+lua_table.ultimate_secondary_damage = 2.5
+lua_table.ultimate_secondary_status_effect = attack_effects.knockback
 
 --Revive/Death
 lua_table.revive_time = 5000	-- Time to revive
@@ -928,8 +936,40 @@ local function Song_Cone_Effect(trapezoid_table)	--Uses trapezoid because it can
 	end
 end
 
+local function UltimateConcert()
+	if time_since_action > lua_table.ultimate_concert_end	--IF stage_2 has to start
+	then
+		--lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_song_3_GO_UID)	--TODO-Particles:
+		lua_table.ultimate_effect_active = false
+
+		--Setup for stage_2
+		lua_table.AnimationFunctions:PlayAnimation("guitar_slam_two_handed", lua_table.ultimate_secondary_animation_speed)
+		lua_table.collider_damage = lua_table.ultimate_secondary_damage
+		lua_table.collider_effect = lua_table.ultimate_secondary_status_effect
+		
+	else	--IF > start time and < end time
+		if not lua_table.ultimate_effect_active	--IF effect unactive, activate
+		then
+			--lua_table.ParticlesFunctions:PlayParticleEmitter(jaskier_song_3_GO_UID)	--TODO-Particles:
+			lua_table.ultimate_effect_active = true
+		end
+
+		Song_Circle_Effect(lua_table.ultimate_range)
+	end
+end
+
+local function UltimateFinish()
+	if not lua_table.ultimate_secondary_effect_active	--IF effect unactive, activate
+	then
+		--lua_table.ParticlesFunctions:PlayParticleEmitter(jaskier_song_3_GO_UID)	--TODO-Particles:
+		lua_table.ultimate_secondary_effect_active = true
+	end
+
+	Song_Circle_Effect(lua_table.ultimate_range)
+end
+
 local function Song_3_Taunt()
-	if time_since_action > lua_table.song_3_secondary_effect_start	--IF stage_2 has to start
+	if time_since_action > lua_table.song_3_effect_end	--IF stage_2 has to start
 	then
 		--lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_song_3_GO_UID)	--TODO-Particles:
 		lua_table.song_3_effect_active = false
@@ -1162,6 +1202,12 @@ local function ActionInputs()	--Process Action Inputs
 
 			--Do Ultimate
 			lua_table.AnimationFunctions:PlayAnimation("guitar_play_2", lua_table.ultimate_animation_speed)
+			lua_table.collider_damage = lua_table.ultimate_damage
+			lua_table.collider_effect = lua_table.ultimate_status_effect
+
+			lua_table.ultimate_active = true
+			lua_table.current_ultimate = 0.0
+
 			lua_table.previous_state = lua_table.current_state
 			lua_table.current_state = state.ultimate
 			action_made = true
@@ -1199,24 +1245,6 @@ local function ActionInputs()	--Process Action Inputs
 	return action_made
 end
 
-local function UltimateState(active)
-	local ultimate_stat_mod = 1
-	if not active then ultimate_stat_mod = -1 end
-
-	lua_table.health_reg_mod = lua_table.health_reg_mod + lua_table.ultimate_health_reg_increase * ultimate_stat_mod
-	lua_table.energy_reg_mod = lua_table.energy_reg_mod + lua_table.ultimate_energy_reg_increase * ultimate_stat_mod
-	lua_table.base_damage_mod = lua_table.base_damage_mod + lua_table.ultimate_damage_mod_increase * ultimate_stat_mod
-
-	if active then
-		lua_table.ParticlesFunctions:PlayParticleEmitter(jaskier_ultimate_GO_UID)	--TODO-Particles: Activate ultimate particles
-	else
-		lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_ultimate_GO_UID)	--TODO-Particles: Deactivate ultimate particles
-	end
-
-	must_update_stats = true
-	lua_table.ultimate_active = active
-end
-
 --Character Secondaries BEGIN	----------------------------------------------------------------------------
 
 local function NextItem()	--Jump to next item you have num > 0 in inventory
@@ -1227,7 +1255,7 @@ local function NextItem()	--Jump to next item you have num > 0 in inventory
 			new_item = 1
 		end
 
-		if lua_table.inventory[new_item] > 0 then
+		if true then--lua_table.inventory[new_item] > 0 then
 			lua_table.item_selected = new_item
 			return true
 		end
@@ -1235,7 +1263,7 @@ local function NextItem()	--Jump to next item you have num > 0 in inventory
 		new_item = new_item + 1
 	end
 
-	return true
+	return false
 end
 
 local function PrevItem()	--Jump to prev item you have num > 0 in inventory
@@ -1246,7 +1274,7 @@ local function PrevItem()	--Jump to prev item you have num > 0 in inventory
 			new_item = item_library_size
 		end
 
-		if lua_table.inventory[new_item] > 0 then
+		if true then--lua_table.inventory[new_item] > 0 then
 			lua_table.item_selected = new_item
 			return true
 		end
@@ -1285,7 +1313,7 @@ local function SecondaryInputs()	--Process Secondary Inputs
 		then
 			TakePotion(lua_table.item_selected)
 
-			if lua_table.inventory[lua_table.item_selected] == 0 then NextItem() end	--IF no more if that type of item, jump to next
+			--if lua_table.inventory[lua_table.item_selected] == 0 then NextItem() end	--IF no more if that type of item, jump to next
 		end
 	end
 
@@ -1450,11 +1478,6 @@ function lua_table:Update()
 				if lua_table.current_health > lua_table.max_health_real then lua_table.current_health = lua_table.max_health_real end						--IF above max, set to max
 			end
 
-			-- if lua_table.ultimate_active and game_time - ultimate_effect_started_at >= lua_table.ultimate_effect_duration	--IF ultimate online and time up!
-			-- then
-			-- 	UltimateState(false)	--Ultimate turn off (stats back to normal)
-			-- end
-
 			--IF action currently going on, check action timer
 			if lua_table.current_state > state.run
 			then
@@ -1476,14 +1499,6 @@ function lua_table:Update()
 			else	--ELSE (action being performed)
 				time_since_action = game_time - action_started_at
 
-				-- if lua_table.current_state == state.ultimate and not lua_table.ultimate_active and time_since_action > lua_table.ultimate_scream_start	--IF ultimate state, ultimate unactive, and scream started
-				-- then
-				-- 	UltimateState(true)	--Ultimate turn on (boost stats)
-
-				-- 	lua_table.current_ultimate = 0.0
-				-- 	ultimate_effect_started_at = game_time
-				-- end
-
 				if time_since_action > current_action_duration	--IF action duration up
 				then
 					if lua_table.current_state >= state.light_1 and lua_table.current_state <= state.heavy_3	--IF attack finished
@@ -1502,6 +1517,11 @@ function lua_table:Update()
 					then
 						--lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_ultimate_GO_UID)	--TODO-Particles: Deactivate Aard particles on hand
 						lua_table.song_3_secondary_effect_active = false
+					elseif lua_table.current_state == state.ultimate
+					then
+						--lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_ultimate_GO_UID)	--TODO-Particles: Deactivate Aard particles on hand
+						lua_table.ultimate_secondary_effect_active = false
+						lua_table.ultimate_active = false
 					end
 
 					AttackColliderShutdown()
@@ -1580,12 +1600,21 @@ function lua_table:Update()
 				then
 					if time_since_action > lua_table.song_3_effect_start	--IF > effect_start
 					then
-						if time_since_action > lua_table.song_3_secondary_effect_start and lua_table.song_3_effect_active == false 	--IF > secondary_effect_start and stage_1 effect ended
+						if time_since_action > lua_table.song_3_secondary_effect_start and not lua_table.song_3_effect_active 	--IF > secondary_effect_start and stage_1 effect ended
 						then
 							Song_3_Knockback()
 						else
 							Song_3_Taunt()
 						end
+					end
+
+				elseif lua_table.current_state == state.ultimate
+				then
+					if time_since_action > lua_table.ultimate_concert_end and not lua_table.ultimate_effect_active 	--IF > secondary_effect_start and stage_1 effect ended
+					then
+						UltimateFinish()
+					else
+						UltimateConcert()
 					end
 				end
 			end
@@ -1626,10 +1655,10 @@ function lua_table:Update()
 	lua_table.SystemFunctions:LOG("Time passed: " .. time_since_action)
 	--rot_y = math.rad(GimbalLockWorkaroundY(lua_table.TransformFunctions:GetRotation()[2]))	--TODO: Remove GimbalLock stage when Euler bug is fixed
 	--lua_table.SystemFunctions:LOG("Angle Y: " .. rot_y)
-	--lua_table.SystemFunctions:LOG("Ultimate: " .. lua_table.current_ultimate)
-	lua_table.SystemFunctions:LOG("Chain num: " .. lua_table.chained_attacks_num)
-	lua_table.SystemFunctions:LOG("Note num: " .. lua_table.note_num)
-	lua_table.SystemFunctions:LOG("Song string: " .. lua_table.note_stack[1] .. ", " .. lua_table.note_stack[2] .. ", " .. lua_table.note_stack[3] .. ", " .. lua_table.note_stack[4])
+	lua_table.SystemFunctions:LOG("Ultimate: " .. lua_table.current_ultimate)
+	--lua_table.SystemFunctions:LOG("Chain num: " .. lua_table.chained_attacks_num)
+	--lua_table.SystemFunctions:LOG("Note num: " .. lua_table.note_num)
+	--lua_table.SystemFunctions:LOG("Song string: " .. lua_table.note_stack[1] .. ", " .. lua_table.note_stack[2] .. ", " .. lua_table.note_stack[3] .. ", " .. lua_table.note_stack[4])
 
 	--Stats LOGS
 	--lua_table.SystemFunctions:LOG("Health: " .. lua_table.current_health)
