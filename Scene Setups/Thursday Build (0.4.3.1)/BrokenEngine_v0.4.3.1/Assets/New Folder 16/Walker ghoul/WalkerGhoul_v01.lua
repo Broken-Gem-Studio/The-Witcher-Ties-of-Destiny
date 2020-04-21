@@ -372,7 +372,7 @@ function lua_table:OnTriggerEnter()
     then
         lua_table.AnimationFunctions:PlayAnimation("Hit", 30, MyUUID)
         lua_table.ParticleFunctions:DeactivateParticlesEmission(lua_table.Emitter_UUID)   
-        lua_table.AudioFunctions:PlayAudioEvent("Play_Ghoul_hurt_1")                          
+        --lua_table.AudioFunctions:PlayAudioEvent("Play_Ghoul_hurt_1")                          
         lua_table.SystemFunctions:LOG("Ghoul has been HIT") 
 
         local player_table = {}        
