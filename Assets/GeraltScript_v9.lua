@@ -1011,7 +1011,7 @@ local function RegularAttack(attack_type)
 			current_action_duration = lua_table[attack_type .. "_1_duration"]		--Set duration of the current action (to return to idle/move)
 
 			lua_table.AnimationFunctions:PlayAnimation(attack_type .. "_1", lua_table[attack_type .. "_1_animation_speed"], my_GO_UID)
-			lua_table.AnimationFunctions:PlayAnimation(attack_type .. "_3", lua_table[attack_type .. "_1_animation_speed"], slash_GO_UID)
+			lua_table.AnimationFunctions:PlayAnimation(attack_type .. "_1", lua_table[attack_type .. "_1_animation_speed"], slash_GO_UID)
 			--lua_table.AudioFunctions:PlayAudioEvent("Attack_1_fx")	--TODO-AUDIO: Play attack_1 sound (light or heavy)
 
 			lua_table.previous_state = lua_table.current_state
@@ -1022,7 +1022,7 @@ local function RegularAttack(attack_type)
 		current_action_duration = lua_table[attack_type .. "_2_duration"]		--Set duration of the current action (to return to idle/move)
 
 		lua_table.AnimationFunctions:PlayAnimation(attack_type .. "_2", lua_table[attack_type .. "_2_animation_speed"], my_GO_UID)
-		lua_table.AnimationFunctions:PlayAnimation(attack_type .. "_3", lua_table[attack_type .. "_2_animation_speed"], slash_GO_UID)
+		lua_table.AnimationFunctions:PlayAnimation(attack_type .. "_2", lua_table[attack_type .. "_2_animation_speed"], slash_GO_UID)
 		--lua_table.AudioFunctions:PlayAudioEvent("Attack_2_fx")	--TODO-AUDIO: Play attack_2 sound (light or heavy)
 
 		lua_table.previous_state = lua_table.current_state

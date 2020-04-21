@@ -245,11 +245,11 @@ lua_table.energy_reg_orig = 5
 		lua_table.knockback_acceleration = -0.5
 
 	--Attack Colliders
-	local attack_colliders = {												--Transform / Collider Scale
-		front = { GO_name = "Geralt_Front", GO_UID = 0, active = false },	--0,2,2.5 / 2,2.5,1.8
-		back = { GO_name = "Geralt_Back", GO_UID = 0, active = false },		--0,2,-2 / 2,2.5,1
-		left = { GO_name = "Geralt_Left", GO_UID = 0, active = false },		--2,2,0.5 / 1,2.5,2
-		right = { GO_name = "Geralt_Right", GO_UID = 0, active = false }	--2,2,0.5 / 1,2.5,2
+	local attack_colliders = {												-- Transform / Collider Scale
+		front = { GO_name = "Geralt_Front", GO_UID = 0, active = false },	-- 0,2,3 / 4,3,3
+		back = { GO_name = "Geralt_Back", GO_UID = 0, active = false },		-- 0,2,-2 / 3,3,2
+		left = { GO_name = "Geralt_Left", GO_UID = 0, active = false },		-- 3,2,0.5 / 2,3,4
+		right = { GO_name = "Geralt_Right", GO_UID = 0, active = false }	-- -3,2,0.5 / 2,3,4
 	}
 	--Character Controller: 1.0/2.5/0.05/0.3/45.0
 
@@ -600,6 +600,8 @@ local function GoDefaultState()
 	
 	lua_table.combo_num = 0
 	rightside = true
+
+	lua_table.AnimationFunctions:PlayAnimation("idle", lua_table.idle_animation_speed, slash_GO_UID)
 end
 
 --States END	----------------------------------------------------------------------------
@@ -1011,7 +1013,7 @@ local function RegularAttack(attack_type)
 			current_action_duration = lua_table[attack_type .. "_1_duration"]		--Set duration of the current action (to return to idle/move)
 
 			lua_table.AnimationFunctions:PlayAnimation(attack_type .. "_1", lua_table[attack_type .. "_1_animation_speed"], my_GO_UID)
-			lua_table.AnimationFunctions:PlayAnimation(attack_type .. "_3", lua_table[attack_type .. "_1_animation_speed"], slash_GO_UID)
+			lua_table.AnimationFunctions:PlayAnimation(attack_type .. "_1", lua_table[attack_type .. "_1_animation_speed"], slash_GO_UID)
 			--lua_table.AudioFunctions:PlayAudioEvent("Attack_1_fx")	--TODO-AUDIO: Play attack_1 sound (light or heavy)
 
 			lua_table.previous_state = lua_table.current_state
@@ -1022,7 +1024,7 @@ local function RegularAttack(attack_type)
 		current_action_duration = lua_table[attack_type .. "_2_duration"]		--Set duration of the current action (to return to idle/move)
 
 		lua_table.AnimationFunctions:PlayAnimation(attack_type .. "_2", lua_table[attack_type .. "_2_animation_speed"], my_GO_UID)
-		lua_table.AnimationFunctions:PlayAnimation(attack_type .. "_3", lua_table[attack_type .. "_2_animation_speed"], slash_GO_UID)
+		lua_table.AnimationFunctions:PlayAnimation(attack_type .. "_2", lua_table[attack_type .. "_2_animation_speed"], slash_GO_UID)
 		--lua_table.AudioFunctions:PlayAudioEvent("Attack_2_fx")	--TODO-AUDIO: Play attack_2 sound (light or heavy)
 
 		lua_table.previous_state = lua_table.current_state

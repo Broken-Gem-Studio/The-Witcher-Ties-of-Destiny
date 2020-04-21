@@ -20,6 +20,7 @@ lua_table.CameraFunctions = Scripting.Camera()
 
 --GO UIDs
 local my_GO_UID
+local slash_GO_UID
 local jaskier_guitar_particles_GO_UID
 local jaskier_ultimate_GO_UID
 local jaskier_ability_GO_UID
@@ -252,7 +253,7 @@ lua_table.energy_reg_orig = 5
 
 	--Attack Colliders
 	local attack_colliders = {												--Transform / Collider Scale
-		front = { GO_name = "Jaskier_Front", GO_UID = 0, active = false },		--0,2,2.5 / 2,2.5,1.8
+		front = { GO_name = "Jaskier_Front", GO_UID = 0, active = false },		--0,2,3 / 4,3,3
 		line_1 = { GO_name = "Jaskier_Line_1", GO_UID = 0, active = false },	--0,2,4 / 4,3,4
 		line_2 = { GO_name = "Jaskier_Line_2", GO_UID = 0, active = false },	--0,2,8 / 4,3,4
 		line_3 = { GO_name = "Jaskier_Line_3", GO_UID = 0, active = false },	--0,2,12 / 4,3,4
@@ -601,6 +602,8 @@ local function GoDefaultState()
 	
 	rightside = true
 	lua_table.chained_attacks_num = 0
+
+	lua_table.AnimationFunctions:PlayAnimation("idle", lua_table.idle_animation_speed, slash_GO_UID)
 end
 
 --States END	----------------------------------------------------------------------------
@@ -970,6 +973,7 @@ local function UltimateConcert()
 
 		--Setup for stage_2
 		lua_table.AnimationFunctions:PlayAnimation("guitar_slam_two_handed", lua_table.ultimate_secondary_animation_speed, my_GO_UID)
+		lua_table.AnimationFunctions:PlayAnimation("guitar_slam_two_handed", lua_table.ultimate_secondary_animation_speed, slash_GO_UID)
 		lua_table.collider_damage = base_damage_real * lua_table.ultimate_secondary_damage
 		lua_table.collider_effect = lua_table.ultimate_secondary_status_effect
 		
@@ -1001,6 +1005,7 @@ local function Song_3_Taunt()
 
 		--Setup for stage_2
 		lua_table.AnimationFunctions:PlayAnimation(lua_table.song_3_secondary_animation_name, lua_table.song_3_secondary_animation_speed, my_GO_UID)
+		--lua_table.AnimationFunctions:PlayAnimation(lua_table.song_3_secondary_animation_name, lua_table.song_3_secondary_animation_speed, slash_GO_UID)
 		lua_table.collider_damage = base_damage_real * lua_table.song_3_secondary_damage
 		lua_table.collider_effect = lua_table.song_3_secondary_status_effect
 
@@ -1040,6 +1045,7 @@ local function PerformSong(song_type)
 		current_action_duration = current_action_block_time
 
 		lua_table.AnimationFunctions:PlayAnimation(lua_table[song_type .. "_animation_name"], lua_table[song_type .. "_animation_speed"], my_GO_UID)
+		lua_table.AnimationFunctions:PlayAnimation(lua_table[song_type .. "_animation_name"], lua_table[song_type .. "_animation_speed"], slash_GO_UID)
 		--TODO-AUDIO: Play sound of song_type
 
 		lua_table.collider_damage = base_damage_real * lua_table[song_type .. "_damage"]
@@ -1090,6 +1096,7 @@ local function RegularAttack(attack_type)
 			current_action_duration = lua_table[attack_type .. "_3_duration"]		--Set duration of the current action (to return to idle/move)
 
 			lua_table.AnimationFunctions:PlayAnimation(attack_type .. "_3", lua_table[attack_type .. "_3_animation_speed"], my_GO_UID)
+			lua_table.AnimationFunctions:PlayAnimation(attack_type .. "_3", lua_table[attack_type .. "_3_animation_speed"], slash_GO_UID)
 			--lua_table.AudioFunctions:PlayAudioEvent("Attack_3_fx")	--TODO-AUDIO: Play attack_3 sound (light or heavy)
 
 			lua_table.previous_state = lua_table.current_state
@@ -1099,6 +1106,7 @@ local function RegularAttack(attack_type)
 			current_action_duration = lua_table[attack_type .. "_1_duration"]		--Set duration of the current action (to return to idle/move)
 
 			lua_table.AnimationFunctions:PlayAnimation(attack_type .. "_1", lua_table[attack_type .. "_1_animation_speed"], my_GO_UID)
+			lua_table.AnimationFunctions:PlayAnimation(attack_type .. "_1", lua_table[attack_type .. "_1_animation_speed"], slash_GO_UID)
 			--lua_table.AudioFunctions:PlayAudioEvent("Attack_1_fx")	--TODO-AUDIO: Play attack_1 sound (light or heavy)
 
 			lua_table.previous_state = lua_table.current_state
@@ -1109,6 +1117,7 @@ local function RegularAttack(attack_type)
 		current_action_duration = lua_table[attack_type .. "_2_duration"]		--Set duration of the current action (to return to idle/move)
 
 		lua_table.AnimationFunctions:PlayAnimation(attack_type .. "_2", lua_table[attack_type .. "_2_animation_speed"], my_GO_UID)
+		lua_table.AnimationFunctions:PlayAnimation(attack_type .. "_2", lua_table[attack_type .. "_2_animation_speed"], slash_GO_UID)
 		--lua_table.AudioFunctions:PlayAudioEvent("Attack_2_fx")	--TODO-AUDIO: Play attack_2 sound (light or heavy)
 
 		lua_table.previous_state = lua_table.current_state
@@ -1436,9 +1445,11 @@ function lua_table:Awake()
 
 	--Get self GO_UID
 	my_GO_UID = lua_table.GameObjectFunctions:GetMyUID()
+	slash_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Slash")
 
 	--Set Animation Default BlendTime
 	lua_table.AnimationFunctions:SetBlendTime(0.1, my_GO_UID)
+	lua_table.AnimationFunctions:SetBlendTime(0.1, slash_GO_UID)
 
 	--Get Particle Emitters GO_UID
 	--guitar_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Guitar")
@@ -1475,6 +1486,7 @@ function lua_table:Start()
 	lua_table.SystemFunctions:LOG("JaskierScript START")
 	
 	lua_table.AnimationFunctions:PlayAnimation("idle", lua_table.idle_animation_speed, my_GO_UID)
+	lua_table.AnimationFunctions:PlayAnimation("idle", lua_table.idle_animation_speed, slash_GO_UID)
 end
 
 function lua_table:Update()
