@@ -306,7 +306,7 @@ lua_table.light_3_duration = 850			--Attack end (return to idle)
 lua_table.light_3_animation_speed = 40.0	--Slow time: 320ms
 
 --Medium Attack
-lua_table.medium_damage = 1.0					--Multiplier of Base Damage
+lua_table.medium_damage = 1.5					--Multiplier of Base Damage
 lua_table.medium_movement_velocity = 35.0
 lua_table.medium_3_movement_velocity = 100.0
 
@@ -335,7 +335,7 @@ lua_table.medium_3_duration = 1300			--Attack end (return to idle)
 lua_table.medium_3_animation_speed = 35.0	--Slow time: 370ms
 
 --Heavy Attack
-lua_table.heavy_damage = 1.666				--Multiplier of Base Damage
+lua_table.heavy_damage = 2.0				--Multiplier of Base Damage
 lua_table.heavy_movement_velocity = 70.0
 
 lua_table.heavy_1_block_time = 900			--Input block duration	(block new attacks)
@@ -457,7 +457,7 @@ lua_table.combo_1_collider_back_end = 1220		--Collider deactivation time
 
 lua_table.combo_2 = { 'M', 'H', 'M', 'L' }	--High Spin
 lua_table.combo_2_size = 4
-lua_table.combo_2_damage = 2.5	--3 hit
+lua_table.combo_2_damage = 3.5	--3 hit
 lua_table.combo_2_duration = 1400
 lua_table.combo_2_animation_speed = 30.0
 lua_table.combo_2_movement_velocity = 300.0
@@ -471,7 +471,7 @@ lua_table.combo_2_collider_front_end = 1400		--Collider deactivation time
 
 lua_table.combo_3 = { 'H', 'M', 'L', 'H' }	--Jump Attack
 lua_table.combo_3_size = 4
-lua_table.combo_3_damage = 3.0	--1 hit		--IMPROVE: + stun
+lua_table.combo_3_damage = 4.0	--1 hit		--IMPROVE: + stun
 lua_table.combo_3_duration = 1800
 lua_table.combo_3_animation_speed = 30.0
 lua_table.combo_3_movement_velocity = 300.0

@@ -29,7 +29,8 @@ local State = {
 	SEEK = 1,
 	JUMP = 2, 
 	COMBO = 3,
-	DEATH = 4
+	STUNNED = 4,
+	DEATH = 5
 }
 
 local layers = {
@@ -82,8 +83,8 @@ local stun_timer = 0
 local start_death = false
 local death_timer = 0
 
-local start_navigation = false
-local navigation_timer = 0
+-- local start_navigation = false
+-- local navigation_timer = 0
 
 -- Flow control conditionals
 local jumping = false
@@ -97,10 +98,14 @@ local navID = 0
 local corners = {}
 local currCorner = 2
 
--- Combat
-local collider_GO = 0
-
 -- ______________________SCRIPT FUNCTIONS______________________
+
+local function ResetNavigation()
+	currCorner = 2
+	-- navigation_timer = 0
+	-- start_navigation = false
+end
+
 local function ResetJumpStun()
 	-- Timer
 	if start_jump == true then start_jump = false end
@@ -120,10 +125,9 @@ local function ResetCombo()
 	if crushing == true then crushing = false end
 end
 
-local function ResetNavigation()
-	currCorner = 2
-	navigation_timer = 0
-	start_navigation = false
+local function ResetStun()
+	if start_stun == true then start_stun = false end
+	if stun_timer > 0 then stun_timer = 0 end
 end
 
 local function SearchPlayers() -- Check if targets are within range
@@ -167,7 +171,7 @@ local function Idle()
 	if lua_table.currentTargetDir <= lua_table.AggroRange then
 		lua_table.currentState = State.SEEK
 		lua_table.Animations:PlayAnimation("Walk", 40.0, lua_table.MyUID)
-		lua_table.System:LOG("Tank Ghoul state: SEEK (1)") 
+		lua_table.System:LOG("Zomboid state: SEEK (1)") 
 	end
 	
 end
@@ -179,15 +183,10 @@ local function Seek()
 	if lua_table.currentTargetDir < lua_table.AggroRange and lua_table.currentTargetDir > lua_table.minDistance then
 			
 		-- Wait 4 second to recalculate path
-		if not start_navigation then
-			navigation_timer = lua_table.System:GameTime() * 1000
-			corners = lua_table.Recast:CalculatePath(lua_table.GhoulPos[1], lua_table.GhoulPos[2], lua_table.GhoulPos[3], lua_table.currentTargetPos[1], lua_table.currentTargetPos[2], lua_table.currentTargetPos[3], 1 << navID)
-			start_navigation = true
-		end
 
-		if navigation_timer + 1000 <= lua_table.System:GameTime() * 1000 then
-			ResetNavigation()
-		end
+		--navigation_timer = lua_table.System:GameTime() * 1000
+		corners = lua_table.Recast:CalculatePath(lua_table.GhoulPos[1], lua_table.GhoulPos[2], lua_table.GhoulPos[3], lua_table.currentTargetPos[1], lua_table.currentTargetPos[2], lua_table.currentTargetPos[3], 1 << navID)
+		--start_navigation = true
 
 		local nextCorner = {}
 		nextCorner[1] = corners[currCorner][1] - lua_table.GhoulPos[1]
@@ -212,13 +211,13 @@ local function Seek()
 		end
 		
 		else 
-			currentState = State.IDLE	
+			lua_table.currentState = State.IDLE	
 			
 	end
 	
 	if lua_table.currentTargetDir <= lua_table.minDistance then
 		lua_table.currentState = State.JUMP
-		lua_table.System:LOG("Tank Ghoul state: JUMP (2)")
+		lua_table.System:LOG("Zomboid state: JUMP (2)")
 	end
 end
 
@@ -242,8 +241,7 @@ local function JumpStun() -- Smash the ground with a jump, then stun
 	end
 	if jump_timer + 5500 <= lua_table.System:GameTime() * 1000 then
 		lua_table.currentState = State.COMBO
-		lua_table.System:LOG("Tank Ghoul state: COMBO (3)")  
-		ResetCombo()
+		lua_table.System:LOG("Zomboid state: COMBO (3)")  
 	end
 end
 	
@@ -251,12 +249,12 @@ local function Combo()
 
 	if lua_table.currentTargetDir >= lua_table.jumpDistance then
 		lua_table.currentState = State.SEEK	
-		lua_table.System:LOG("Tank Ghoul state: SEEK (1), target out of range")    
+		lua_table.System:LOG("Zomboid state: SEEK (1), target out of range")    
 		lua_table.Animations:PlayAnimation("Walk", 60.0, lua_table.MyUID)
-		ResetJumpStun()
-		
 		return
 	end
+
+	--lua_table.Transform:LookAt(lua_table.currentTargetPos[1], lua_table.GhoulPos[2], lua_table.currentTargetPos[3], lua_table.MyUID)
 
 	if not start_combo then 
 		combo_timer = lua_table.System:GameTime() * 1000
@@ -282,9 +280,23 @@ local function Combo()
 	-- After he finished, switch state and reset jump values
 	if combo_timer + 5000 <= lua_table.System:GameTime() * 1000 then
 		lua_table.currentState = State.SEEK	
-		lua_table.System:LOG("Tank Ghoul state: JUMP (2)")  
-		ResetJumpStun()
-		--ResetCombo()
+		lua_table.Animations:PlayAnimation("Walk", 40.0, lua_table.MyUID)
+		lua_table.System:LOG("Zomboid state: SEEK (1), cycle to jump")
+	end
+	
+end
+
+local function Stun()
+	if start_stun then 
+		stun_timer = lua_table.System:GameTime() * 1000
+		lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
+		start_stun = false
+	end
+
+	if stun_timer + 4000 <= lua_table.System:GameTime() * 1000 then
+		lua_table.currentState = State.SEEK	
+		lua_table.Animations:PlayAnimation("Walk", 40.0, lua_table.MyUID)
+		lua_table.System:LOG("Zomboid state: SEEK (1), from stun")
 	end
 	
 end
@@ -307,20 +319,22 @@ end
 -- ______________________COLLISIONS______________________
 function lua_table:OnTriggerEnter()	
 	local collider = lua_table.Physics:OnTriggerEnter(lua_table.MyUID)
-	local layer = lua_table.GameObject:GetLayerByID(collider)
-	
-    if layer == layers.player_attack then
-		local parent = lua_table.GameObject:GetGameObjectParent(collider_GO)
-        local script = lua_table.GameObject:GetScript(parent)
+    local layer = lua_table.GameObject:GetLayerByID(collider)
 
-		if lua_table.currentState ~= State.DEATH and lua_table.currentState ~= State.JUMP then
+    if layer == layers.player_attack then 
+		local parent = lua_table.GameObject:GetGameObjectParent(collider)
+		local script = lua_table.GameObject:GetScript(parent)
+		
+		if lua_table.currentState ~= State.DEATH then
 
 			lua_table.health = lua_table.health - script.collider_damage
 	
 			if script.collider_effect ~= attack_effects.none then
-
+				
 				if script.collider_effect == attack_effects.stun then -- React to stun effect
-					--start_stun = true
+					start_stun = true
+					lua_table.currentState = State.STUNNED
+					lua_table.System:LOG("Zomboid state: STUNNED (5)")  
 				end
 		
 				if script.collider_effect == attack_effects.knockback then -- React to kb effect
@@ -345,35 +359,35 @@ function lua_table:OnCollisionEnter()
 end
 
 function lua_table:RequestedTrigger(collider_GO)
-	-- lua_table.System:LOG("RequestedTrigger activated")
+	lua_table.System:LOG("RequestedTrigger activated")
 
-	-- local parent = lua_table.GameObjectFunctions:GetGOParentFromUID(collider_GO)
-	-- local player_script = lua_table.GameObject:GetScript(collider_GO)
-
-	-- if lua_table.currentState ~= State.DEATH and lua_table.currentState ~= State.JUMP then
-
-	-- 	lua_table.health = lua_table.health - player_script.collider_damage
-
-	-- 	if script.collider_effect ~= attack_effects.none then
-	-- 		if script.collider_effect == attack_effects.stun then -- React to stun effect
-	-- 			-- stun_timer = lua_table.System:GameTime() * 1000
-	-- 			-- lua_table.is_stunned = true
-	-- 		end
+	local script = lua_table.GameObject:GetScript(collider_GO)
 	
-	-- 		if script.collider_effect == attack_effects.knockback then -- React to kb effect
-				
-	-- 		end
+	if lua_table.currentState ~= State.DEATH then
+
+		lua_table.health = lua_table.health - script.collider_damage
+
+		if script.collider_effect ~= attack_effects.none then
+			
+			if script.collider_effect == attack_effects.stun then -- React to stun effect
+				start_stun = true
+				lua_table.currentState = State.STUNNED
+				lua_table.System:LOG("Zomboid state: STUNNED (5)")  
+			end
 	
-	-- 		if script.collider_effect == attack_effects.taunt then -- React to taunt effect
+			if script.collider_effect == attack_effects.knockback then -- React to kb effect
 				
-	-- 		end
+			end
+	
+			if script.collider_effect == attack_effects.taunt then -- React to taunt effect
+				
+			end
 
-	-- 	else
-	-- 		lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
-	-- 		lua_table.System:LOG("Hit registered")
-	-- 	end
-
-	-- end
+		else
+			lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
+			lua_table.System:LOG("Hit registered")
+		end
+	end
 end
 
 -- ______________________MAIN CODE______________________
@@ -404,7 +418,7 @@ function lua_table:Start()
 
 	lua_table.currentState = State.IDLE
 	lua_table.Animations:PlayAnimation("Idle", 30.0, lua_table.MyUID)
-	lua_table.System:LOG("Tank Ghoul state: IDLE (0)") 
+	lua_table.System:LOG("Zomboid state: IDLE (0)") 
 	lua_table.health = lua_table.max_hp
 
 	-- Initialize Nav
@@ -420,35 +434,26 @@ function lua_table:Update()
 	if lua_table.health <= 0 then 
 
 		lua_table.currentState = State.DEATH
-		lua_table.System:LOG("Tank Ghoul state: Death (4)")
+		lua_table.System:LOG("Zomboid state: Death (5)")
 		
 	end
+	-- Stun player
+	
 
-	-- Reset Navigation when entity State is not SEEK
+	-- Reset values -- Reset Navigation when entity State is not SEEK
 	if lua_table.currentState ~= State.SEEK then
 		ResetNavigation()
 	end
-
-	-- Stun player
-
-	-- if stun_timer + 2000 <= lua_table.System:GameTime() * 1000 and lua_table.is_stunned then
-
-	-- 	lua_table.is_stunned = false
-	-- 	lua_table.currentState = State.IDLE
-	-- 	lua_table.System:LOG("Tank Ghoul state: IDLE (0), restarting")
-	-- end
-	-- if stun_timer + 5000 <= lua_table.System:GameTime() * 1000 then -- This makes sure that cannot be stunned within 3 seconds
-	-- 	stun_timer  = 0
-	-- end
-
-
-	-- Reset values
 	if lua_table.currentState ~= State.JUMP then 
 		ResetJumpStun()
 	end
 	if lua_table.currentState ~= State.COMBO then
 		ResetCombo()
 	end
+	if lua_table.currentState ~= State.STUNNED then
+		ResetStun()
+	end
+
 	-- Check which state the entity is in and then handle them accordingly
 	if lua_table.currentState == State.IDLE then -- Initial state is always idle --and lua_table.is_stunned == false
 		Idle()
@@ -456,22 +461,23 @@ function lua_table:Update()
 		Seek()
 	elseif lua_table.currentState == State.JUMP then    	
 		JumpStun()
-	elseif lua_table.currentState == State.COMBO  then    	-- and not lua_table.is_stunned == false
+	elseif lua_table.currentState == State.COMBO then    	-- and not lua_table.is_stunned == false
 		Combo()
+	elseif lua_table.currentState == State.STUNNED then    	-- and not lua_table.is_stunned == false
+		Stun()
 	elseif lua_table.currentState == State.DEATH then	
 		Die()
 	end
 
-
-	-- -------------------------------------------- TEST
+	-------------------------------------------- TEST
 	-- if lua_table.Input:KeyUp("w") then
-	-- 	stun_timer = lua_table.System:GameTime() * 1000
-	-- 	lua_table.is_stunned = true
-	-- 	----
-	-- 	lua_table.System:LOG("Stun bitch")
+		
 	-- 	lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
+	-- 	start_stun = true
+	-- 	lua_table.currentState = State.STUNNED
+		
+	-- 	lua_table.System:LOG("Zomboid state: STUNNED (5)")  
 	-- end
-	
 end
 
 return lua_table

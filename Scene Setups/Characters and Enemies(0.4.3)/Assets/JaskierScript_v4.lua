@@ -301,7 +301,7 @@ lua_table.light_3_duration = 820			--Attack end (return to idle)
 lua_table.light_3_animation_speed = 40.0		--IMPROVE: Attack 3 animaton includes a return to idle, which differs from the other animations, we might have to cut it for homogeinity with the rest
 
 --Medium Attack
-lua_table.medium_damage = 1.0					--Multiplier of Base Damage
+lua_table.medium_damage = 1.5					--Multiplier of Base Damage
 lua_table.medium_movement_velocity = 50.0
 
 lua_table.medium_1_block_time = 300			--Input block duration	(block new attacks)
@@ -323,7 +323,7 @@ lua_table.medium_3_duration = 900			--Attack end (return to idle)
 lua_table.medium_3_animation_speed = 30.0		--IMPROVE: Attack 3 animaton includes a return to idle, which differs from the other animations, we might have to cut it for homogeinity with the rest
 
 --Heavy Attack
-lua_table.heavy_damage = 1.666				--Multiplier of Base Damage
+lua_table.heavy_damage = 2.0				--Multiplier of Base Damage
 lua_table.heavy_movement_velocity = 50.0
 
 lua_table.heavy_1_block_time = 1100			--Input block duration	(block new attacks)
@@ -370,7 +370,7 @@ lua_table.note_stack = { 'N', 'N', 'N', 'N' }	-- Last 4 attacks performed (0=non
 	lua_table.song_1_duration = 1440
 	lua_table.song_1_animation_name = "guitar_slam_one_handed"
 	lua_table.song_1_animation_speed = 50.0
-	lua_table.song_1_damage = 2.0
+	lua_table.song_1_damage = 4.0
 	lua_table.song_1_status_effect = attack_effects_ID.none
 
 	lua_table.song_1_collider_line_1_start = 800
@@ -393,7 +393,7 @@ lua_table.note_stack = { 'N', 'N', 'N', 'N' }	-- Last 4 attacks performed (0=non
 	lua_table.song_2_duration = 1700
 	lua_table.song_2_animation_name = "guitar_slam_two_handed"
 	lua_table.song_2_animation_speed = 50.0
-	lua_table.song_2_damage = 2.5
+	lua_table.song_2_damage = 3.0
 	lua_table.song_2_status_effect = attack_effects_ID.stun
 
 	local song_2_trapezoid = {
@@ -416,7 +416,7 @@ lua_table.note_stack = { 'N', 'N', 'N', 'N' }	-- Last 4 attacks performed (0=non
 	lua_table.song_3_duration = 3700
 	lua_table.song_3_animation_name = "death"	--"moonwalk", current is placeholder
 	lua_table.song_3_animation_speed = 30.0
-	lua_table.song_3_damage = 2.5
+	lua_table.song_3_damage = 5.0
 	lua_table.song_3_status_effect = attack_effects_ID.taunt
 
 	lua_table.song_3_range = 20
