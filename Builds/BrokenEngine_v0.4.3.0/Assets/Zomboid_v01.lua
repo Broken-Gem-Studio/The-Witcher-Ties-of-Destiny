@@ -267,6 +267,8 @@ local function Combo()
 		start_combo = true
 	end
 
+	lua_table.Transform:LookAt(lua_table.currentTargetPos[1], lua_table.GhoulPos[2], lua_table.currentTargetPos[3], lua_table.MyUID)
+
 	if combo_timer + 250 <= lua_table.System:GameTime() * 1000 and not punching then
 		lua_table.System:LOG("Punch to target")
 		lua_table.Animations:PlayAnimation("Punch", 30.0, lua_table.MyUID)
