@@ -311,7 +311,7 @@ local function Shoot()
         local X = math.sin(math.rad(rot_fixed))
         local Z = math.cos(math.rad(rot_fixed))
 
-        lua_table.Scene:Instantiate(lua_table.arrow, pos[1] + X, pos[2] + 3, pos[3]+ Z, rotation[1], rotation[2], rotation[3])
+        lua_table.Scene:Instantiate(lua_table.arrow, pos[1] + X*2, pos[2] + 3, pos[3]+ Z*2, rotation[1], rotation[2], rotation[3])
 
         --Test
        -- lua_table.health = lua_table.health - 100

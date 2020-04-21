@@ -82,12 +82,12 @@ function lua_table:OnTriggerEnter()
 			randy = lua_table.SystemFunctions:RandomNumberInRange(1, 4)
 			if (randy < 2)
 			then
-				--lua_table.AudioFunctions:PlayAudioEvent("Play_Hit_Wood_Sound_1")
+				lua_table.AudioFunctions:PlayAudioEvent("Play_Hit_Wood_Sound_1")
 			elseif (randy < 3)
 			then
-				--lua_table.AudioFunctions:PlayAudioEvent("Play_Hit_Wood_Sound_2")
+				lua_table.AudioFunctions:PlayAudioEvent("Play_Hit_Wood_Sound_2")
 			else
-				--lua_table.AudioFunctions:PlayAudioEvent("Play_Hit_Wood_Sound_3")
+				lua_table.AudioFunctions:PlayAudioEvent("Play_Hit_Wood_Sound_3")
 			end
 		elseif lua_table.health == 0
 		then
@@ -96,18 +96,18 @@ function lua_table:OnTriggerEnter()
 			then
 				if lua_table.current_type == type.BARREL
 				then
-					--lua_table.AudioFunctions:PlayAudioEvent("Play_Barrel_crush_1")
+					lua_table.AudioFunctions:PlayAudioEvent("Play_Barrel_crush_1")
 				elseif lua_table.current_type == type.BOX
 				then
-					--lua_table.AudioFunctions:PlayAudioEvent("Play_Broken_Wood_Sound_1")
+					lua_table.AudioFunctions:PlayAudioEvent("Play_Broken_Wood_Sound_1")
 				end
 			else
 				if lua_table.current_type == type.BARREL
 				then
-					--lua_table.AudioFunctions:PlayAudioEvent("Play_Barrel_crush_2")
+					lua_table.AudioFunctions:PlayAudioEvent("Play_Barrel_crush_2")
 				elseif lua_table.current_type == type.BOX
 				then
-					--lua_table.AudioFunctions:PlayAudioEvent("Play_Broken_Wood_Sound_2")
+					lua_table.AudioFunctions:PlayAudioEvent("Play_Broken_Wood_Sound_2")
 				end
 			end
 		end
