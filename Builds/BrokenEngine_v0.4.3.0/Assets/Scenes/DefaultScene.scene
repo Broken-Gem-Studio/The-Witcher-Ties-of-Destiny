@@ -193,8 +193,8 @@
                 "rotationx": "0.011688",
                 "rotationy": "0.141292",
                 "rotationz": "0.989187",
-                "scalex": "1.000032",
-                "scaley": "1.000032",
+                "scalex": "1.000035",
+                "scaley": "1.000035",
                 "scalez": "1.000001"
             },
             "13": {
@@ -1310,7 +1310,7 @@
                     "ResourceScript": "Assets/Zomboid_v01.lua"
                 },
                 "Script variables": {
-                    "Count": 18,
+                    "Count": 21,
                     "Variable 0": {
                         "DisplayObjectName": false,
                         "Name": "JaskierDistance",
@@ -1358,7 +1358,7 @@
                         "Name": "speed",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 10.0
+                        "Value": 7.0
                     },
                     "Variable 15": {
                         "DisplayObjectName": false,
@@ -1381,12 +1381,33 @@
                         "Type": "Boolean",
                         "Value": false
                     },
+                    "Variable 18": {
+                        "DisplayObjectName": false,
+                        "Name": "stun_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 19": {
+                        "DisplayObjectName": false,
+                        "Name": "knock_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 50.0
+                    },
                     "Variable 2": {
                         "DisplayObjectName": false,
                         "Name": "currentTargetDir",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
+                    },
+                    "Variable 20": {
+                        "DisplayObjectName": false,
+                        "Name": "is_knockback",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
                     },
                     "Variable 3": {
                         "DisplayObjectName": false,
@@ -1962,7 +1983,7 @@
                 "layer": "2",
                 "positionx": "0.000000",
                 "positiony": "0.536099",
-                "positionz": "1.861013",
+                "positionz": "-3.409379",
                 "rotationw": "1.000000",
                 "rotationx": "0.000000",
                 "rotationy": "0.000000",
@@ -1992,7 +2013,7 @@
                 "globalMatrixw": "1.000000",
                 "globalMatrixx": "-0.000000",
                 "globalMatrixy": "1.615134",
-                "globalMatrixz": "-13.236454",
+                "globalMatrixz": "-17.599133",
                 "globalPositionx": "1.000000",
                 "globalPositiony": "1.000000",
                 "globalPositionz": "1.000000",
@@ -2084,7 +2105,7 @@
                 "layer": "1",
                 "positionx": "0.000000",
                 "positiony": "1.079035",
-                "positionz": "-15.097467",
+                "positionz": "-14.189754",
                 "rotationw": "1.000000",
                 "rotationx": "0.000000",
                 "rotationy": "0.000000",
@@ -2230,8 +2251,8 @@
                 "rotationx": "-0.010050",
                 "rotationy": "0.117448",
                 "rotationz": "0.992281",
-                "scalex": "0.999968",
-                "scaley": "0.999968",
+                "scalex": "0.999965",
+                "scaley": "0.999965",
                 "scalez": "1.000000"
             },
             "13": {
@@ -2750,8 +2771,8 @@
                 "rotationy": "-0.000126",
                 "rotationz": "0.000118",
                 "scalex": "39.370079",
-                "scaley": "39.370934",
-                "scalez": "39.370811"
+                "scaley": "39.371014",
+                "scalez": "39.370880"
             },
             "13": {
                 "Active": true,

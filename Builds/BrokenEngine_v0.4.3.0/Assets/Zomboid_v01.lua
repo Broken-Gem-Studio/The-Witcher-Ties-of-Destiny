@@ -235,17 +235,17 @@ local function JumpStun() -- Smash the ground with a jump, then stun
 		start_jump = true
 	end
 
-	if jump_timer + 250 <= lua_table.System:GameTime() * 1000 and not jumping then
+	if jump_timer <= lua_table.System:GameTime() * 1000 and not jumping then
 		lua_table.System:LOG("Jump")
-		lua_table.Animations:PlayAnimation("Jump_Stun", 30.0, lua_table.MyUID)
+		lua_table.Animations:PlayAnimation("Jump_Stun_1", 10.0, lua_table.MyUID)
 		jumping = true
 	end
-	if jump_timer + 3000 <= lua_table.System:GameTime() * 1000 and not stunning then
+	if jump_timer + 1500 <= lua_table.System:GameTime() * 1000 and not stunning then
 		lua_table.System:LOG("Land and stun")
-		lua_table.Animations:PlayAnimation("Crush", 30.0, lua_table.MyUID)
+		lua_table.Animations:PlayAnimation("Jump_Stun_2", 40.0, lua_table.MyUID)
 		stunning = true
 	end
-	if jump_timer + 5500 <= lua_table.System:GameTime() * 1000 then
+	if jump_timer + 2000 <= lua_table.System:GameTime() * 1000 then
 		lua_table.currentState = State.COMBO
 		lua_table.System:LOG("Zomboid state: COMBO (3)")  
 	end
@@ -279,7 +279,7 @@ local function Combo()
 	end
 	if combo_timer + 3500 <= lua_table.System:GameTime() * 1000 and not crushing then
 		lua_table.System:LOG("Crush to target")
-		lua_table.Animations:PlayAnimation("Smash", 30.0, lua_table.MyUID)
+		lua_table.Animations:PlayAnimation("Smash", 45.0, lua_table.MyUID)
 		crushing = true
 	end
 	
@@ -309,7 +309,7 @@ local function Stun()
 		lua_table.Animations:PlayAnimation("Walk", 40.0, lua_table.MyUID)
 		lua_table.stun_duration = 0
 		lua_table.is_knockback = false
-		
+
 		lua_table.currentState = State.SEEK	
 		lua_table.System:LOG("Zomboid state: SEEK (1), from stun")
 	end
