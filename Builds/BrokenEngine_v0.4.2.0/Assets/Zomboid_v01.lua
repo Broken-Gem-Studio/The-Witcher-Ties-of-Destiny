@@ -87,7 +87,7 @@ local crushing = false
 -- Recast navigation
 local navID = 0
 local corners = {}
-local currCorner = 1
+local currCorner = 2
 
 -- ______________________SCRIPT FUNCTIONS______________________
 local function ResetJumpStun()
@@ -110,7 +110,7 @@ local function ResetCombo()
 end
 
 local function ResetNavigation()
-	currCorner = 1
+	currCorner = 2
 	navigation_timer = 0
 	start_navigation = false
 end
@@ -137,6 +137,11 @@ local function SearchPlayers() -- Check if targets are within range
 		lua_table.currentTarget = lua_table.jaskier
 		lua_table.currentTargetDir = lua_table.JaskierDistance
 		lua_table.currentTargetPos = lua_table.JaskierPos
+		
+	elseif lua_table.JaskierDistance == lua_table.GeraltDistance then 
+		lua_table.currentTarget = lua_table.geralt
+		lua_table.currentTargetDir = lua_table.GeraltDistance
+		lua_table.currentTargetPos = lua_table.GeraltPos
 	end 
 end
 	
@@ -164,10 +169,10 @@ local function Seek()
 		if not start_navigation then
 			navigation_timer = lua_table.System:GameTime() * 1000
 			corners = lua_table.Recast:CalculatePath(lua_table.GhoulPos[1], lua_table.GhoulPos[2], lua_table.GhoulPos[3], lua_table.currentTargetPos[1], lua_table.currentTargetPos[2], lua_table.currentTargetPos[3], 1 << navID)
-			start_navigation = false
+			start_navigation = true
 		end
 
-		if navigation_timer + 4000 <= lua_table.System:GameTime() * 1000 then
+		if navigation_timer + 1000 <= lua_table.System:GameTime() * 1000 then
 			ResetNavigation()
 		end
 
