@@ -27,8 +27,7 @@ local SubState = {
 	PATROL = 2,				-- Substate for: PRE_DETECTION
 	ALERT = 3,			    -- SubState for: SEEK
 	SEEK_TARGET = 4,		-- SubState for: SEEK
-	JUMP_ATTACK = 5			-- SubState for: SEEK
-	
+	JUMP_ATTACK = 5			-- SubState for: SEEK	
 }
 
 local SpecialEffect = {
@@ -156,6 +155,8 @@ local DeadTime = 0
 local StunnedTimeController = 0
 local Stun_AnimController = false
 local StunnedTime = 1000
+local knockback_AnimController = false
+
 -----------------------------------------------------------------------------------------
 -- Inspector Variables
 -----------------------------------------------------------------------------------------
@@ -366,8 +367,7 @@ local function jumpAttack()
 		--cambiar q se ponga aqui el state atack y el sub estate
 		lua_table.JumpAttackDone = true
 		UseAuxVariables = false
-		AfterJumpAttackTimer = PerfGameTime()
-		
+		AfterJumpAttackTimer = PerfGameTime()		
 	end
 end
 local function Attack()
@@ -397,13 +397,20 @@ local function Attack()
 	then
 		Attack1_AnimController = false
 		IdleArmed_AnimController = false
-	end
-		
+	end		
 end
-function Die()
+
+local function Die()
 	lua_table.Dead = true
 	lua_table.AnimationSystem:PlayAnimation("DEATH",35.0)
 end
+
+local function knockback( )
+	
+
+
+end
+
 
 -----------------------------------------------------------------------------------------
 -- MAIN FUNCTIONS
@@ -566,21 +573,20 @@ local function HandleSEEK()
 	end
 	--#####################################################################################    PREPARED TO ATTACK
 	if DistanceMagnitude <= lua_table.MinDistanceFromPlayer
-		then
-			lua_table.AnimationSystem:PlayAnimation("IDLE",30.0)
-			lua_table.CurrentState = State.ATTACK
-			lua_table.CurrentSubState = SubState.NONE
-			Run_AnimController = false
-		    lua_table.SystemFunctions:LOG("SEEK----->ATTACK")
-			UseAuxVariables = false
-		end
+	then
+		lua_table.AnimationSystem:PlayAnimation("IDLE",30.0)
+		lua_table.CurrentState = State.ATTACK
+		lua_table.CurrentSubState = SubState.NONE
+		Run_AnimController = false
+		lua_table.SystemFunctions:LOG("SEEK----->ATTACK")
+		UseAuxVariables = false
+	end
 end
 
 local function HandleAttack()
 	
 	DistanceMagnitude = CalculateDistanceToTarget(lua_table.CurrentTarget)
-	
-	
+		
 	if DistanceMagnitude <= lua_table.MinDistanceFromPlayer   --   -1 bc lumberjac distance is 2.93
 	then
 		Attack()
@@ -620,19 +626,20 @@ function lua_table:OnTriggerEnter()
 	then
 		local collider_parent = lua_table.GameObjectFunctions:GetGameObjectParent(collider_GO)
  		local player_script = {}
- 	if collider_parent ~= 0 
-	 	then
-	 		player_script = lua_table.GameObjectFunctions:GetScript(collider_parent)
-	 	else
-	 		player_script = lua_table.GameObjectFunctions:GetScript(collider_GO)
-	 	end
-
-	    lua_table.current_health = lua_table.current_health - player_script.collider_damage
-
-	 	if player_script.collider_effect ~= 0
-	 	then
-	 		--todo react to effect
-	    end
+	
+ 		if collider_parent ~= 0 
+		then
+			player_script = lua_table.GameObjectFunctions:GetScript(collider_parent)
+		else
+		 	player_script = lua_table.GameObjectFunctions:GetScript(collider_GO)
+		end
+	
+		lua_table.current_health = lua_table.current_health - player_script.collider_damage
+	
+		if player_script.collider_effect ~= 0
+		then
+				--todo react to effect
+		end
     end
 
 
@@ -662,14 +669,8 @@ function lua_table:RequestedTrigger(collider_GO)
 			end
 			if player_script.collider_effect == attack_effects.knockback
 			then
-				
-		--	local attack_effects = {	
-		--		none = 0,
-		--		stun = 1,
-		--		knockback = 2,
-		--		taunt = 3,
-		--		venom = 4
-		--	}
+				lua_table.CurrentSpecialEffect = SpecialEffect.KNOCKBACK
+			end
 		end
 	end
 end
@@ -743,7 +744,7 @@ function lua_table:Update()
 		end
 	elseif lua_table.CurrentSpecialEffect == SpecialEffect.STUNNED
 	then
-	lua_table.SystemFunctions:LOG("5") 
+		lua_table.SystemFunctions:LOG("5") 
 		if Stun_AnimController == false
 		then
 			lua_table.AnimationSystem:PlayAnimation("HIT",30)
@@ -754,6 +755,14 @@ function lua_table:Update()
 			lua_table.SystemFunctions:LOG("stunned")
 			lua_table.CurrentSpecialEffect = SpecialEffect.NONE
 		end
+	elseif lua_table.CurrentSpecialEffect == SpecialEffect.KNOCKBACK
+	then
+		if knockback_AnimController == false
+		then
+			lua_table.AnimationSystem:PlayAnimation("HIT",30)
+			knockback_AnimController = true
+		end
+		Knockback()
 	end
 	
 
