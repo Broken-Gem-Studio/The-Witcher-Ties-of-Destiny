@@ -31,7 +31,7 @@ local aard_hand_particles_GO_UID
 	--Geralt_Ability (Child of Left Hand): 0/0/0
 
 --State Machine
-local state = {	--The order of the states is relevant to the code, CAREFUL CHANGING IT (Ex: if curr_state >= state.run)
+local state = {	--The order of the states is relevant to the code, CAREFUL CHANGING IT (Ex: if curr_state >= state.idle)
 	dead = -4,
 	down = -3,
 
@@ -1056,7 +1056,7 @@ local function AardPush()
 		and BidimensionalPointInVectorSide(D_x, D_z, A_x, A_z, enemy_pos[1], enemy_pos[3]) < 0
 		then
 			local enemy_script = lua_table.GameObjectFunctions:GetScript(enemy_list[i])
-			enemy_script:RequestTrigger(my_GO_UID)	--TODO-Ability:
+			enemy_script:RequestedTrigger(my_GO_UID)	--TODO-Ability:
 		end
 	end
 end
@@ -1720,14 +1720,14 @@ function lua_table:Update()
 	--lua_table.SystemFunctions:LOG("Combo string: " .. lua_table.combo_stack[1] .. ", " .. lua_table.combo_stack[2] .. ", " .. lua_table.combo_stack[3] .. ", " .. lua_table.combo_stack[4])
 
 	--Item LOGS
-	lua_table.SystemFunctions:LOG("Current Item: " .. lua_table.item_selected)
-	lua_table.SystemFunctions:LOG("Health Potions Left: " .. lua_table.inventory[1])
+	--lua_table.SystemFunctions:LOG("Current Item: " .. lua_table.item_selected)
+	--lua_table.SystemFunctions:LOG("Health Potions Left: " .. lua_table.inventory[1])
 
 	--Stats LOGS
 	--lua_table.SystemFunctions:LOG("Health: " .. lua_table.current_health)
 	--lua_table.SystemFunctions:LOG("Energy: " .. lua_table.current_energy)
 
-	lua_table.SystemFunctions:LOG("Health Reg: " .. health_reg_real)
+	--lua_table.SystemFunctions:LOG("Health Reg: " .. health_reg_real)
 	--lua_table.SystemFunctions:LOG("Energy Reg: " .. energy_reg_real)
 	--lua_table.SystemFunctions:LOG("Damage: " .. base_damage_real)
 
