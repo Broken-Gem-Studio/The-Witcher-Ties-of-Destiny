@@ -6,8 +6,7 @@ lua_table.Transform = Scripting.Transform()
 lua_table.Physics =  Scripting.Physics()
 lua_table.Animations = Scripting.Animations()
 lua_table.Recast = Scripting.Navigation()
--- 
-
+-- DEBUG PURPOSES
 lua_table.Input = Scripting.Inputs()
 
 -----------------------------------------------------------------------------------------
@@ -29,8 +28,9 @@ local State = {
 	SEEK = 1,
 	JUMP = 2, 
 	COMBO = 3,
-	STUNNED = 4,
-	DEATH = 5
+	KNOCKBACK = 4,
+	STUNNED = 5,
+	DEATH = 6
 }
 
 local layers = {
@@ -54,16 +54,22 @@ local attack_effects = {
 lua_table.MyUID = 0 --Entity UID
 lua_table.max_hp = 500
 lua_table.health = 0
-lua_table.speed = 10
+lua_table.speed = 7
+lua_table.knock_speed = 50
 lua_table.currentState = 0
 lua_table.is_stunned = false
 lua_table.is_taunt = false
+lua_table.is_knockback = false
 lua_table.is_dead = false
 	
 -- Aggro values 
 lua_table.AggroRange = 100
 lua_table.minDistance = 2.5 -- If entity is inside this distance, then attack
 lua_table.jumpDistance = 7
+--
+lua_table.stun_duration = 0
+
+local knock_force = {0, 0, 0}
 
 -- Combo attack values
 local Punch = 10
@@ -80,11 +86,11 @@ local combo_timer = 0
 local start_stun = false
 local stun_timer = 0
 
+local start_knockback = false
+local knockback_timer = 0
+
 local start_death = false
 local death_timer = 0
-
--- local start_navigation = false
--- local navigation_timer = 0
 
 -- Flow control conditionals
 local jumping = false
@@ -289,14 +295,40 @@ end
 local function Stun()
 	if start_stun then 
 		stun_timer = lua_table.System:GameTime() * 1000
-		lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
+		
+		if lua_table.is_knockback == true then 
+			lua_table.stun_duration = 2000
+		else
+			lua_table.stun_duration = 4000
+		end
+
 		start_stun = false
 	end
 
-	if stun_timer + 2000 <= lua_table.System:GameTime() * 1000 then
-		lua_table.currentState = State.SEEK	
+	if stun_timer + lua_table.stun_duration <= lua_table.System:GameTime() * 1000 then
 		lua_table.Animations:PlayAnimation("Walk", 40.0, lua_table.MyUID)
+		lua_table.stun_duration = 0
+		lua_table.is_knockback = false
+		
+		lua_table.currentState = State.SEEK	
 		lua_table.System:LOG("Zomboid state: SEEK (1), from stun")
+	end
+	
+end
+
+local function KnockBack()
+	if start_knockback then 
+		knockback_timer = lua_table.System:GameTime() * 1000
+		start_knockback = false
+	end
+
+	if knockback_timer + 500 <= lua_table.System:GameTime() * 1000 then
+		lua_table.currentState = State.STUNNED	
+		lua_table.System:LOG("Zomboid state: STUNNED (4), from KD")
+		
+	else 
+		lua_table.Physics:Move(knock_force[1] * lua_table.knock_speed, knock_force[3] * lua_table.knock_speed, lua_table.MyUID)
+
 	end
 	
 end
@@ -331,17 +363,43 @@ function lua_table:OnTriggerEnter()
 	
 			if script.collider_effect ~= attack_effects.none then
 				
-				if script.collider_effect == attack_effects.stun then -- React to stun effect
+				if script.collider_effect == attack_effects.stun then ----------------------------------------------------- React to stun effect
 					start_stun = true
 					lua_table.currentState = State.STUNNED
+					lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
 					lua_table.System:LOG("Zomboid state: STUNNED (5)")  
 				end
 		
-				if script.collider_effect == attack_effects.knockback then -- React to kb effect
+				if script.collider_effect == attack_effects.knockback then ------------------------------------------------ React to kb effect
+
+					local knock_vector = {0, 0, 0}
+					knock_vector[1] = lua_table.GhoulPos[1] - lua_table.currentTargetPos[1]
+					knock_vector[2] = lua_table.GhoulPos[2] - lua_table.currentTargetPos[2]
+					knock_vector[3] = lua_table.GhoulPos[3] - lua_table.currentTargetPos[3]
+									
+ 					local module = math.sqrt(knock_vector[1] ^ 2 + knock_vector[3] ^ 2)
+
+					
+					knock_force[1] = knock_vector[1] / module
+					knock_force[2] = knock_vector[2]
+					knock_force[3] = knock_vector[3] / module
+
+					if not start_knockback then 
+						knockback_timer = lua_table.System:GameTime() * 1000
+						lua_table.System:LOG("Im KB")  
+						lua_table.Animations:PlayAnimation("Hit", 20.0, lua_table.MyUID)
+						lua_table.is_knockback = true
+						start_knockback = true
+					end
+				
+					if knockback_timer + 1000 <= lua_table.System:GameTime() * 1000 then
+						lua_table.System:LOG("KB FINISH")
+						lua_table.GameObject:DestroyGameObject(lua_table.MyUID) -- Delete GO from scene
+					end
 					
 				end
 		
-				if script.collider_effect == attack_effects.taunt then -- React to taunt effect
+				if script.collider_effect == attack_effects.taunt then ---------------------------------------------------- React to taunt effect
 					
 				end
 	
@@ -369,17 +427,17 @@ function lua_table:RequestedTrigger(collider_GO)
 
 		if script.collider_effect ~= attack_effects.none then
 			
-			if script.collider_effect == attack_effects.stun then -- React to stun effect
+			if script.collider_effect == attack_effects.stun then ----------------------------------------------------- React to stun effect
 				start_stun = true
 				lua_table.currentState = State.STUNNED
 				lua_table.System:LOG("Zomboid state: STUNNED (5)")  
 			end
 	
-			if script.collider_effect == attack_effects.knockback then -- React to kb effect
+			if script.collider_effect == attack_effects.knockback then ------------------------------------------------ React to kb effect
 				
 			end
 	
-			if script.collider_effect == attack_effects.taunt then -- React to taunt effect
+			if script.collider_effect == attack_effects.taunt then ---------------------------------------------------- React to taunt effect
 				
 			end
 
@@ -432,15 +490,11 @@ function lua_table:Update()
 
 	-- Check if our entity is dead
 	if lua_table.health <= 0 then 
-
 		lua_table.currentState = State.DEATH
 		lua_table.System:LOG("Zomboid state: Death (5)")
-		
 	end
-	-- Stun player
-	
 
-	-- Reset values -- Reset Navigation when entity State is not SEEK
+	-- ResetX values when currentState ~= State.X
 	if lua_table.currentState ~= State.SEEK then
 		ResetNavigation()
 	end
@@ -463,21 +517,48 @@ function lua_table:Update()
 		JumpStun()
 	elseif lua_table.currentState == State.COMBO then    	-- and not lua_table.is_stunned == false
 		Combo()
+	elseif lua_table.currentState == State.KNOCKBACK then    	-- and not lua_table.is_stunned == false
+		KnockBack()
 	elseif lua_table.currentState == State.STUNNED then    	-- and not lua_table.is_stunned == false
 		Stun()
 	elseif lua_table.currentState == State.DEATH then	
 		Die()
 	end
 
-	-------------------------------------------- TEST
-	-- if lua_table.Input:KeyUp("w") then
+	-- Apply knockback to target, stun it for a second, then return to SEEK
+
+
+	------------------------------------------ TEST STUN
+	if lua_table.Input:KeyUp("s") then
 		
-	-- 	lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
-	-- 	start_stun = true
-	-- 	lua_table.currentState = State.STUNNED
+		lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
+		start_stun = true
+		lua_table.currentState = State.STUNNED
 		
-	-- 	lua_table.System:LOG("Zomboid state: STUNNED (5)")  
-	-- end
+		lua_table.System:LOG("Zomboid state: STUNNED (5)")  
+	end
+
+	------------------------------------------------ TEST KD
+	if lua_table.Input:KeyUp("d") then
+		local knock_vector = {0, 0, 0}
+		knock_vector[1] = lua_table.GhoulPos[1] - lua_table.currentTargetPos[1]
+		knock_vector[2] = lua_table.GhoulPos[2] - lua_table.currentTargetPos[2]
+		knock_vector[3] = lua_table.GhoulPos[3] - lua_table.currentTargetPos[3]
+						
+ 		local module = math.sqrt(knock_vector[1] ^ 2 + knock_vector[3] ^ 2)
+
+		knock_force[1] = knock_vector[1] / module
+		knock_force[2] = knock_vector[2]
+		knock_force[3] = knock_vector[3] / module
+
+		lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
+
+		lua_table.currentState = State.KNOCKBACK
+		start_knockback = true
+		lua_table.is_knockback = true
+		lua_table.System:LOG("Zomboid state: KNOCKBACK (4)") 
+	
+	end
 	
 end
 
