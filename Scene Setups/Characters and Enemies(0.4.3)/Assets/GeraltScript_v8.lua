@@ -1312,7 +1312,7 @@ end
 
 local function SecondaryInputs()	--Process Secondary Inputs
 	if not lua_table.potion_active then
-		if lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, "BUTTON_RIGHTSHOULDER", key_state.key_down)		--Pickup Item
+		if lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_use_item, key_state.key_down)		--Pickup Item
 		then
 			TakePotion(lua_table.item_selected)
 
@@ -1720,8 +1720,8 @@ function lua_table:Update()
 	--lua_table.SystemFunctions:LOG("Combo string: " .. lua_table.combo_stack[1] .. ", " .. lua_table.combo_stack[2] .. ", " .. lua_table.combo_stack[3] .. ", " .. lua_table.combo_stack[4])
 
 	--Item LOGS
-	--lua_table.SystemFunctions:LOG("Current Item: " .. lua_table.item_selected)
-	--lua_table.SystemFunctions:LOG("Health Potions Left: " .. lua_table.inventory[1])
+	--lua_table.SystemFunctions:LOG("Geralt Item: " .. lua_table.item_selected)
+	--lua_table.SystemFunctions:LOG("Geralt Potions Left: " .. lua_table.inventory[1])
 
 	--Stats LOGS
 	--lua_table.SystemFunctions:LOG("Health: " .. lua_table.current_health)
