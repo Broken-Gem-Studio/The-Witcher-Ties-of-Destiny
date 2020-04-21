@@ -1,4 +1,4 @@
-function	GetTableGeraltScript_v7()
+function	GetTableGeraltScript_v8()
 local lua_table = {}
 lua_table.SystemFunctions = Scripting.System()
 lua_table.TransformFunctions = Scripting.Transform()
@@ -1401,7 +1401,9 @@ function lua_table:Awake()
 end
 
 function lua_table:Start()
-    lua_table.SystemFunctions:LOG("GeraltScript START")
+	lua_table.SystemFunctions:LOG("GeraltScript START")
+	
+	lua_table.AnimationFunctions:PlayAnimation("idle", lua_table.idle_animation_speed, my_GO_UID)
 end
 
 function lua_table:Update()
