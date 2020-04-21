@@ -110,7 +110,8 @@ local function ResetCombo()
 end
 
 local function ResetNavigation()
-	lua_table.currCorner = 2
+	currCorner = 1
+	navigation_timer = 0
 	start_navigation = false
 end
 
@@ -161,17 +162,14 @@ local function Seek()
 			
 		-- Wait 4 second to recalculate path
 		if not start_navigation then
-			
-		end
-
-		if navigation_timer + 4000 <= lua_table.System:GameTime() * 1000 then
+			navigation_timer = lua_table.System:GameTime() * 1000
+			corners = lua_table.Recast:CalculatePath(lua_table.GhoulPos[1], lua_table.GhoulPos[2], lua_table.GhoulPos[3], lua_table.currentTargetPos[1], lua_table.currentTargetPos[2], lua_table.currentTargetPos[3], 1 << navID)
 			start_navigation = false
 		end
 
-		corners = lua_table.Recast:CalculatePath(lua_table.GhoulPos[1], lua_table.GhoulPos[2], lua_table.GhoulPos[3], lua_table.currentTargetPos[1], lua_table.currentTargetPos[2], lua_table.currentTargetPos[3], 1 << navID)
-
-			-- navigation_timer = lua_table.System:GameTime() * 1000
+		if navigation_timer + 4000 <= lua_table.System:GameTime() * 1000 then
 			ResetNavigation()
+		end
 
 		local nextCorner = {}
 		nextCorner[1] = corners[currCorner][1] - lua_table.GhoulPos[1]
@@ -180,7 +178,7 @@ local function Seek()
 
 		local dis = math.sqrt(nextCorner[1] ^ 2 + nextCorner[3] ^ 2)
 		
-		if dis > 0.1 then 
+		if dis > 0.05 then 
 
 			local vec = { 0, 0, 0 }
 			vec[1] = nextCorner[1] / dis
