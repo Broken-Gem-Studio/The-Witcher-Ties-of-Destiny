@@ -7,6 +7,8 @@ lua_table.PhysicsFunctions = Scripting.Physics()
 lua_table.ParticlesFunctions = Scripting.Particles ()
 lua_table.AudioFunctions = Scripting.Audio ()
 lua_table.AnimationFunctions = Scripting.Animations ()
+lua_table.InputFunctions = Scripting.Inputs()
+lua_table.SeceneFunctions = Scripting.Scenes()
 
 -----------------------------------------------------------------------------------------
 -- Health Variables
@@ -34,7 +36,7 @@ lua_table.damage_received_orig = -1
 -----------------------------------------------------------------------------------------
 
 -- Distance of player/s to activate the boss
-lua_table.awakening_distance = 10
+lua_table.awakening_distance = 20
 local player_in_awakening_distance = false
 
 -----------------------------------------------------------------------------------------
@@ -108,6 +110,7 @@ local attack =
 }
 
 local attack_finished = false
+local attack_started = true
 
 
 -----------------------------------------------------------------------------------------
@@ -155,6 +158,8 @@ lua_table.collider_effect = attack_effect.none
 lua_table.my_UID = 0
 lua_table.my_position = {}
 
+lua_table.scene_UID = 0
+
 -- Kikimora target GO names
 lua_table.geralt_GO = "Geralt"
 lua_table.jaskier_GO = "Jaskier"
@@ -191,6 +196,15 @@ local animation_timer = 0
 
 local function PerfGameTime()
 	return lua_table.SystemFunctions:GameTime()-- * 1000
+end
+
+local function DebugInputs()
+	if lua_table.InputFunctions:KeyRepeat("Left Ctrl") then
+		if lua_table.InputFunctions:KeyDown("k")	--Instakill Boss
+		then
+            current_state = state.DEAD
+        end
+	end
 end
 
 local function HandlePhases()
@@ -293,7 +307,11 @@ local function HandleStompAttack()
         lua_table.GameObjectFunctions:SetActiveGameObject(true, attack_collider.stomp.coll_UID)
 
         -- Sets collider current position/rotation to initial Position/rotation 
-        attack_collider.stomp.coll_current_pos = attack_collider.stomp.coll_init_pos
+        attack_collider.stomp.coll_current_pos[x] = attack_collider.stomp.coll_init_pos[x] 
+        attack_collider.stomp.coll_current_pos[y] = attack_collider.stomp.coll_init_pos[y] 
+        attack_collider.stomp.coll_current_pos[z] = attack_collider.stomp.coll_init_pos[z] 
+        
+        lua_table.TransformFunctions:SetPosition(attack_collider.stomp.coll_current_pos[x], attack_collider.stomp.coll_current_pos[y], attack_collider.stomp.coll_current_pos[z], attack_collider.stomp.coll_UID)
         --no rotation change for now
     end
     if current_attack_type == attack_type.ATTACKING_STOMP --Checks if is started
@@ -301,13 +319,12 @@ local function HandleStompAttack()
         if game_time <= attack_timer --Checks if ongoing
         then
             -- Adds previously calculated velocity/angular velocity
-            lua_table.TransformFunctions:SetPosition(attack_collider.stomp.coll_current_pos[x] + attack_collider.stomp.coll_velocity[x] * dt, attack_collider.stomp.coll_current_pos[y] + attack_collider.stomp.coll_velocity[y] * dt, attack_collider.stomp.coll_current_pos[z] + attack_collider.stomp.coll_velocity[z] * dt, attack_collider.stomp.coll_UID)
-            --no rotation change for now
-
             -- Updates current position/rotation (have to do it individually bc (*dt))
             attack_collider.stomp.coll_current_pos[x] = attack_collider.stomp.coll_current_pos[x] + attack_collider.stomp.coll_velocity[x] * dt
             attack_collider.stomp.coll_current_pos[y] = attack_collider.stomp.coll_current_pos[y] + attack_collider.stomp.coll_velocity[y] * dt
             attack_collider.stomp.coll_current_pos[z] = attack_collider.stomp.coll_current_pos[z] + attack_collider.stomp.coll_velocity[z] * dt
+
+            lua_table.TransformFunctions:SetPosition(attack_collider.stomp.coll_current_pos[x], attack_collider.stomp.coll_current_pos[y], attack_collider.stomp.coll_current_pos[z], attack_collider.stomp.coll_UID)
             --no rotation change for now
         
             -- Sets damage
@@ -342,7 +359,11 @@ local function HandleSweepAttack()
         lua_table.GameObjectFunctions:SetActiveGameObject(true, attack_collider.sweep.coll_UID)
         
         -- Sets collider current position/rotation to initial Position/Rotation 
-        attack_collider.sweep.coll_current_pos = attack_collider.sweep.coll_init_pos
+        attack_collider.sweep.coll_current_pos[x] = attack_collider.sweep.coll_init_pos[x]
+        attack_collider.sweep.coll_current_pos[y] = attack_collider.sweep.coll_init_pos[y]
+        attack_collider.sweep.coll_current_pos[z] = attack_collider.sweep.coll_init_pos[z]
+        --attack_collider.sweep.coll_current_pos = attack_collider.sweep.coll_init_pos-- + lua_table.my_position 
+        lua_table.TransformFunctions:SetPosition(attack_collider.sweep.coll_current_pos[x], attack_collider.sweep.coll_current_pos[y], attack_collider.sweep.coll_current_pos[z], attack_collider.sweep.coll_UID)
         --no rotation change for now
     end
     if current_attack_type == attack_type.ATTACKING_SWEEP --Checks if is started
@@ -350,13 +371,12 @@ local function HandleSweepAttack()
         if game_time <= attack_timer --Checks if ongoing
         then
             -- Adds previously calculated velocity/angular velocity
-            lua_table.TransformFunctions:SetPosition(attack_collider.sweep.coll_current_pos[x] + attack_collider.sweep.coll_velocity[x] * dt, attack_collider.sweep.coll_current_pos[y] + attack_collider.sweep.coll_velocity[y] * dt, attack_collider.sweep.coll_current_pos[z] + attack_collider.sweep.coll_velocity[z] * dt, attack_collider.sweep.coll_UID)
-            --no rotation change for now
-
             -- Updates current position/rotation (have to do it individually bc (*dt))
             attack_collider.sweep.coll_current_pos[x] = attack_collider.sweep.coll_current_pos[x] + attack_collider.sweep.coll_velocity[x] * dt
             attack_collider.sweep.coll_current_pos[y] = attack_collider.sweep.coll_current_pos[y] + attack_collider.sweep.coll_velocity[y] * dt
             attack_collider.sweep.coll_current_pos[z] = attack_collider.sweep.coll_current_pos[z] + attack_collider.sweep.coll_velocity[z] * dt
+
+            lua_table.TransformFunctions:SetPosition(attack_collider.sweep.coll_current_pos[x], attack_collider.sweep.coll_current_pos[y], attack_collider.sweep.coll_current_pos[z], attack_collider.sweep.coll_UID)
             --no rotation change for now
 
             -- Sets damage
@@ -390,22 +410,32 @@ local function HandleLeashAttack()
         -- Activates collider                               TODO: TIME WELL COLLIDERS
         lua_table.GameObjectFunctions:SetActiveGameObject(true, attack_collider.leash.coll_UID)
 
-        -- Sets collider current position/rotation to initial Position/Rotation 
-        --no position change for now
-        attack_collider.leash.coll_current_rot = attack_collider.leash.coll_init_rot
+        -- Sets collider current position/rotation to initial Position/Rotation
+        attack_collider.leash.coll_current_pos[x] = attack_collider.leash.coll_init_pos[x]
+        attack_collider.leash.coll_current_pos[y] = attack_collider.leash.coll_init_pos[y]
+        attack_collider.leash.coll_current_pos[z] = attack_collider.leash.coll_init_pos[z] 
+        -- attack_collider.leash.coll_current_pos = attack_collider.leash.coll_init_pos
+        lua_table.TransformFunctions:SetPosition(attack_collider.leash.coll_current_pos[x], attack_collider.leash.coll_current_pos[y], attack_collider.leash.coll_current_pos[z], attack_collider.leash.coll_UID)
+        
+        attack_collider.leash.coll_current_rot[x] = attack_collider.leash.coll_init_rot[x]
+        attack_collider.leash.coll_current_rot[y] = attack_collider.leash.coll_init_rot[y]
+        attack_collider.leash.coll_current_rot[z] = attack_collider.leash.coll_init_rot[z]
+        -- attack_collider.leash.coll_current_rot = attack_collider.leash.coll_init_rot
+        lua_table.TransformFunctions:SetObjectRotation(attack_collider.leash.coll_current_rot[x], attack_collider.leash.coll_current_rot[y], attack_collider.leash.coll_current_rot[z], attack_collider.leash.coll_UID)
     end
     if current_attack_type == attack_type.ATTACKING_LEASH --Checks if is started
     then
         if game_time <= attack_timer --Checks if ongoing
         then
             -- Adds previously calculated velocity
-            -- no position change for now
-            lua_table.TransformFunctions:SetObjectRotation(attack_collider.leash.coll_current_rot[x] + attack_collider.leash.coll_ang_velocity[x] * dt, attack_collider.leash.coll_current_rot[y] + attack_collider.leash.coll_ang_velocity[y] * dt, attack_collider.leash.coll_current_rot[z] + attack_collider.leash.coll_ang_velocity[z] * dt, attack_collider.leash.coll_UID)
-            -- Updates current position (have to do it individually bc (*dt))
-            -- no position change for now
             attack_collider.leash.coll_current_rot[x] = attack_collider.leash.coll_current_rot[x] + attack_collider.leash.coll_ang_velocity[x] * dt
             attack_collider.leash.coll_current_rot[y] = attack_collider.leash.coll_current_rot[y] + attack_collider.leash.coll_ang_velocity[y] * dt
             attack_collider.leash.coll_current_rot[z] = attack_collider.leash.coll_current_rot[z] + attack_collider.leash.coll_ang_velocity[z] * dt
+            -- no position change for now
+            lua_table.TransformFunctions:SetObjectRotation(attack_collider.leash.coll_current_rot[x], attack_collider.leash.coll_current_rot[y], attack_collider.leash.coll_current_rot[z], attack_collider.leash.coll_UID)
+            -- Updates current position (have to do it individually bc (*dt))
+            -- no position change for now
+            
             
             -- Sets damage
             lua_table.collider_damage = attack.leash.att_damage
@@ -648,6 +678,12 @@ local function HandleStates()
         -- DESPAWN BOSS
         -- CALL SCENE FUNCTION TO MAIN MENU
         -- Shut all particles
+        lua_table.GameObjectFunctions:SetActiveGameObject(false, lua_table.my_UID)
+        
+        if lua_table.scene_UID ~= 0
+        then
+            lua_table.SeceneFunctions:LoadScene(lua_table.scene_UID)
+        end
     end
 end
 
@@ -656,7 +692,7 @@ function lua_table:Awake ()
 	lua_table.SystemFunctions:LOG ("This Log was called from Kikimora Script on AWAKE")
 	
 	-- Get my own UID
-	lua_table.my_UID = lua_table.GameObjectFunctions:GetMyUID()
+    lua_table.my_UID = lua_table.GameObjectFunctions:GetMyUID()
 
 	---------------------------------------------------------------------------
 	-- Player UIDs
@@ -847,12 +883,13 @@ end
 function lua_table:Start ()
 	lua_table.SystemFunctions:LOG ("Kikimora Script START")
     --lua_table.ParticlesFunctions:ActivateParticlesEmission(lua_table.my_UID)
+    lua_table.my_position = lua_table.GameObjectFunctions:GetPosition(lua_table.my_UID)
     
     --If scale doens't change over time
-    lua_table.TransformFunctions:SetScale(attack_collider.leash.coll_init_scale[x], attack_collider.leash.coll_init_scale[y], attack_collider.leash.coll_init_scale[z], attack_collider.leash.coll_name)
-    lua_table.TransformFunctions:SetScale(attack_collider.sweep.coll_init_scale[x], attack_collider.sweep.coll_init_scale[y], attack_collider.sweep.coll_init_scale[z], attack_collider.sweep.coll_name)
-    lua_table.TransformFunctions:SetScale(attack_collider.stomp.coll_init_scale[x], attack_collider.stomp.coll_init_scale[y], attack_collider.stomp.coll_init_scale[z], attack_collider.stomp.coll_name)
-    lua_table.TransformFunctions:SetScale(attack_collider.roar.coll_init_scale[x], attack_collider.roar.coll_init_scale[y], attack_collider.roar.coll_init_scale[z], attack_collider.roar.coll_name)
+    --lua_table.TransformFunctions:SetScale(attack_collider.leash.coll_init_scale[x], attack_collider.leash.coll_init_scale[y], attack_collider.leash.coll_init_scale[z], attack_collider.leash.coll_name)
+    --lua_table.TransformFunctions:SetScale(attack_collider.sweep.coll_init_scale[x], attack_collider.sweep.coll_init_scale[y], attack_collider.sweep.coll_init_scale[z], attack_collider.sweep.coll_name)
+    --lua_table.TransformFunctions:SetScale(attack_collider.stomp.coll_init_scale[x], attack_collider.stomp.coll_init_scale[y], attack_collider.stomp.coll_init_scale[z], attack_collider.stomp.coll_name)
+    --lua_table.TransformFunctions:SetScale(attack_collider.roar.coll_init_scale[x], attack_collider.roar.coll_init_scale[y], attack_collider.roar.coll_init_scale[z], attack_collider.roar.coll_name)
 
     HandlePlayerPosition()
     HandleStates()
@@ -869,6 +906,7 @@ function lua_table:Update ()
     HandlePhases()
     HandleStates()
     HandleAttacks()
+    DebugInputs()
     
 
 end
