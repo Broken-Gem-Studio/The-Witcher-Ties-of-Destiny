@@ -31,7 +31,7 @@ local aard_hand_particles_GO_UID
 	--Geralt_Ability (Child of Left Hand): 0/0/0
 
 --State Machine
-local state = {	--The order of the states is relevant to the code, CAREFUL CHANGING IT (Ex: if curr_state >= state.run)
+local state = {	--The order of the states is relevant to the code, CAREFUL CHANGING IT (Ex: if curr_state >= state.idle)
 	dead = -4,
 	down = -3,
 
@@ -306,7 +306,7 @@ lua_table.light_3_duration = 850			--Attack end (return to idle)
 lua_table.light_3_animation_speed = 40.0	--Slow time: 320ms
 
 --Medium Attack
-lua_table.medium_damage = 1.0					--Multiplier of Base Damage
+lua_table.medium_damage = 1.5					--Multiplier of Base Damage
 lua_table.medium_movement_velocity = 35.0
 lua_table.medium_3_movement_velocity = 100.0
 
@@ -335,7 +335,7 @@ lua_table.medium_3_duration = 1300			--Attack end (return to idle)
 lua_table.medium_3_animation_speed = 35.0	--Slow time: 370ms
 
 --Heavy Attack
-lua_table.heavy_damage = 1.666				--Multiplier of Base Damage
+lua_table.heavy_damage = 2.0				--Multiplier of Base Damage
 lua_table.heavy_movement_velocity = 70.0
 
 lua_table.heavy_1_block_time = 900			--Input block duration	(block new attacks)
@@ -457,7 +457,7 @@ lua_table.combo_1_collider_back_end = 1220		--Collider deactivation time
 
 lua_table.combo_2 = { 'M', 'H', 'M', 'L' }	--High Spin
 lua_table.combo_2_size = 4
-lua_table.combo_2_damage = 2.5	--3 hit
+lua_table.combo_2_damage = 3.5	--3 hit
 lua_table.combo_2_duration = 1400
 lua_table.combo_2_animation_speed = 30.0
 lua_table.combo_2_movement_velocity = 300.0
@@ -471,7 +471,7 @@ lua_table.combo_2_collider_front_end = 1400		--Collider deactivation time
 
 lua_table.combo_3 = { 'H', 'M', 'L', 'H' }	--Jump Attack
 lua_table.combo_3_size = 4
-lua_table.combo_3_damage = 3.0	--1 hit		--IMPROVE: + stun
+lua_table.combo_3_damage = 4.0	--1 hit		--IMPROVE: + stun
 lua_table.combo_3_duration = 1800
 lua_table.combo_3_animation_speed = 30.0
 lua_table.combo_3_movement_velocity = 300.0
@@ -1056,7 +1056,7 @@ local function AardPush()
 		and BidimensionalPointInVectorSide(D_x, D_z, A_x, A_z, enemy_pos[1], enemy_pos[3]) < 0
 		then
 			local enemy_script = lua_table.GameObjectFunctions:GetScript(enemy_list[i])
-			enemy_script:RequestTrigger(my_GO_UID)	--TODO-Ability:
+			enemy_script:RequestedTrigger(my_GO_UID)	--TODO-Ability:
 		end
 	end
 end
@@ -1312,7 +1312,7 @@ end
 
 local function SecondaryInputs()	--Process Secondary Inputs
 	if not lua_table.potion_active then
-		if lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, "BUTTON_RIGHTSHOULDER", key_state.key_down)		--Pickup Item
+		if lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_use_item, key_state.key_down)		--Pickup Item
 		then
 			TakePotion(lua_table.item_selected)
 
@@ -1720,14 +1720,14 @@ function lua_table:Update()
 	--lua_table.SystemFunctions:LOG("Combo string: " .. lua_table.combo_stack[1] .. ", " .. lua_table.combo_stack[2] .. ", " .. lua_table.combo_stack[3] .. ", " .. lua_table.combo_stack[4])
 
 	--Item LOGS
-	lua_table.SystemFunctions:LOG("Current Item: " .. lua_table.item_selected)
-	lua_table.SystemFunctions:LOG("Health Potions Left: " .. lua_table.inventory[1])
+	--lua_table.SystemFunctions:LOG("Geralt Item: " .. lua_table.item_selected)
+	--lua_table.SystemFunctions:LOG("Geralt Potions Left: " .. lua_table.inventory[1])
 
 	--Stats LOGS
 	--lua_table.SystemFunctions:LOG("Health: " .. lua_table.current_health)
 	--lua_table.SystemFunctions:LOG("Energy: " .. lua_table.current_energy)
 
-	lua_table.SystemFunctions:LOG("Health Reg: " .. health_reg_real)
+	--lua_table.SystemFunctions:LOG("Health Reg: " .. health_reg_real)
 	--lua_table.SystemFunctions:LOG("Energy Reg: " .. energy_reg_real)
 	--lua_table.SystemFunctions:LOG("Damage: " .. base_damage_real)
 
