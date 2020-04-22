@@ -54,7 +54,7 @@ local state =
 {
     UNACTIVE = -1,
 
-    DEAD = 0
+    DEAD = 0,
 
     AWAKENING = 1,
     
@@ -189,11 +189,11 @@ local animation_timer = 0
 -- Methods
 -----------------------------------------------------------------------------------------
 
-function PerfGameTime()
+local function PerfGameTime()
 	return lua_table.SystemFunctions:GameTime()-- * 1000
 end
 
-function HandlePhases()
+local function HandlePhases()
 
     -- Calculate health percentage
     current_health_percentage = (lua_table.health / current_health) * 100
@@ -231,7 +231,7 @@ function HandlePhases()
     end
 end
 
-function HandleRoarAttack()
+local function HandleRoarAttack()
     -- Handles Roar Attack
     if current_attack_type == attack_type.TO_BE_DETERMINED --Checks if is not started
     then
@@ -279,7 +279,7 @@ function HandleRoarAttack()
     end
 end
 
-function HandleStompAttack()
+local function HandleStompAttack()
     -- Handles Stomp Attack
     if current_attack_type == attack_type.TO_BE_DETERMINED --Checks if is not started
     then
@@ -328,7 +328,7 @@ function HandleStompAttack()
     end
 end
 
-function HandleSweepAttack()
+local function HandleSweepAttack()
     -- Handles Sweep Attack
     if current_attack_type == attack_type.TO_BE_DETERMINED --Checks if is not started
     then
@@ -377,7 +377,7 @@ function HandleSweepAttack()
     end
 end
 
-function HandleLeashAttack()
+local function HandleLeashAttack()
     -- Handles Leash Attack
     if current_attack_type == attack_type.TO_BE_DETERMINED --Checks if is not started
     then
@@ -425,10 +425,10 @@ function HandleLeashAttack()
     end
 end
 
-function HandleAttacks()
+local function HandleAttacks()
 
     -- For now kikimora will always want to attack (except when all attacks are on cooldown)
-    if current_state ~= state.ATTACKING and current_state ~= state.AWAKENING and current_state ~= state.SWAPPING_PHASE and current_state ~= state.UNACTIVE current_state ~= state.DEAD
+    if current_state ~= state.ATTACKING and current_state ~= state.AWAKENING and current_state ~= state.SWAPPING_PHASE and current_state ~= state.UNACTIVE and current_state ~= state.DEAD
     then
         -- And will always use this priority (in order to avoid spam of the same attack they have different cooldowns, The higher the priority the higher the cooldown)
         -- Using elseif so only executes one (mental note, had a lapsus)
@@ -512,7 +512,7 @@ function HandleAttacks()
     end
 end
 
-function HandlePlayerPosition()
+local function HandlePlayerPosition()
 
 	if P1_id ~= 0
 	then
@@ -563,7 +563,7 @@ function HandlePlayerPosition()
     end
 end
 
-function HandleStates()
+local function HandleStates()
     -- State Unactive to Awaken
     if current_state == state.UNACTIVE and player_in_awakening_distance == true --Check if player in range and start awakening
     then 

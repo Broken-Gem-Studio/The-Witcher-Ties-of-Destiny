@@ -157,7 +157,7 @@ local z = 3
 -----------------------------------------------------------------------------------------
 
 -- Get Position Offset from Distance and Angle Methods
-function GetAfromDistAndAng(c_distance, c_angle) --given hypotenuse and angle returns contiguous side
+local function GetAfromDistAndAng(c_distance, c_angle) --given hypotenuse and angle returns contiguous side
 	local c_angle_rad
 	local c_angle_cos
 	local y_dist 
@@ -169,7 +169,7 @@ function GetAfromDistAndAng(c_distance, c_angle) --given hypotenuse and angle re
 	return y_dist
 end
 
-function GetBfromDistAndAng(c_distance, c_angle) --given hypotenuse and angle returns opposite side
+local function GetBfromDistAndAng(c_distance, c_angle) --given hypotenuse and angle returns opposite side
 	local c_angle_rad
 	local c_angle_sin
 	local x_dist 
@@ -182,20 +182,20 @@ function GetBfromDistAndAng(c_distance, c_angle) --given hypotenuse and angle re
 end
 
 -- Centroid Methods
-function Centroid2P(p1, p2)
+local function Centroid2P(p1, p2)
 	return (p1 + p2) / 2 
 end
 
-function Centroid3P(p1, p2, p3)
+local function Centroid3P(p1, p2, p3)
 	return (p1 + p2 + p3) / 3 
 end
 
-function Centroid4P(p1, p2, p3, p4)
+local function Centroid4P(p1, p2, p3, p4)
 	return (p1 + p2 + p3 + p4) / 4
 end
 
 -- Camera Movement smoothing NEEDS A LIMIT WHERE IT STOPS SMOOTHING
-function Asymptotic_Average(pos, target_pos, speed)
+local function Asymptotic_Average(pos, target_pos, speed)
 	if lua_table.SystemFunctions:CompareFloats(pos, target_pos) == 0
 	then
 		return pos + (target_pos - pos)*speed
@@ -205,7 +205,7 @@ function Asymptotic_Average(pos, target_pos, speed)
 end
 
 -- Checks If Boss is inside Frustum
-function CheckBossFight()
+local function CheckBossFight()
 	if Kikimora_id ~= 0
 	then 
 		if lua_table.CameraFunctions:GetPositionInFrustum(lua_table.Kikimora_pos[x],lua_table.Kikimora_pos[y],lua_table.Kikimora_pos[z], lua_table.Layer_1_FOV_ratio_1, lua_table.Layer_1_FOV_ratio_2) == 1
@@ -217,7 +217,7 @@ function CheckBossFight()
 end
 
 -- Handle Camera Zoom Layers Method
-function HandleZoomLayers()
+local function HandleZoomLayers()
 	if current_state ~= state.SWITCHING
 	then
 		-- 1 Player Handeling (only in bossfight)
@@ -415,7 +415,7 @@ function HandleZoomLayers()
 end
 
 -- Handles Camera Switching between Zoom Layers Method
-function HandleSwitch()
+local function HandleSwitch()
 	if current_state == state.SWITCHING
 	then
 		if current_zoom_layer == zoom.LAYER_1
@@ -456,7 +456,7 @@ function HandleSwitch()
 end
 
 -- Handle Target Position Method
-function HandleTarget()
+local function HandleTarget()
 
 	-- Kikimora Position
 	if Kikimora_id ~= 0
@@ -474,10 +474,40 @@ function HandleTarget()
 		end
 	end
 
+	if current_gameplay == gameplay.SOLO
+	then
+		lua_table.P1_script = lua_table.GameObjectFunctions:GetScript(P1_id)
+		
+		if lua_table.P1_script.current_state = -4 --DEAD
+		then
+			current_gameplay = gameplay.NULL
+		end
+	end
+
+	if current_gameplay == gameplay.DUO
+	then
+		lua_table.P1_script = lua_table.GameObjectFunctions:GetScript(P1_id)
+		lua_table.P2_script = lua_table.GameObjectFunctions:GetScript(P2_id)
+		
+		if lua_table.P1_script.current_state = -4 --DEAD
+		then
+			current_gameplay = gameplay.SOLO
+		end
+
+		if lua_table.P2_script.current_state = -4 --DEAD
+		then
+			current_gameplay = gameplay.SOLO
+		end
+
+		if lua_table.P1_script.current_state = -4 and lua_table.P2_script.current_state
+		then
+			current_gameplay = gameplay.NULL
+		end
+	end
+
 	-- 1 Player Target Calculations
 	if current_gameplay == gameplay.SOLO
 	then
-		
 		-- Gets position from Player 1 gameobject Id
 		lua_table.P1_pos = lua_table.TransformFunctions:GetPosition(P1_id)
 
@@ -537,7 +567,7 @@ function HandleTarget()
 end
 
 -- Handle Camera Offset Method
-function HandleOffset()
+local function HandleOffset()
 
 	-- Offset from Distance and Angle
 	offset_a = GetAfromDistAndAng(current_camera_distance, camera_angle_for_offset)
@@ -549,7 +579,7 @@ function HandleOffset()
 end
 
 -- Handle Camera Movement Method
-function HandleMovement()
+local function HandleMovement()
 
 	-- Camera won't move if is static (3rd layer of zoom for now)
 	if current_state ~= state.STATIC 
@@ -588,6 +618,7 @@ function lua_table:Awake ()
 
 	-- Get my own UID
 	lua_table.myUID = lua_table.GameObjectFunctions:GetMyUID()
+
 	---------------------------------------------------------------------------
 	-- Player UIDs
 	---------------------------------------------------------------------------
