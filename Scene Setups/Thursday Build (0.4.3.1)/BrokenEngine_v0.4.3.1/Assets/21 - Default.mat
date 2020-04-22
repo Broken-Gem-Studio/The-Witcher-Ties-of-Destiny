@@ -1,13 +1,18 @@
 {
     "21 - Default.mat": null,
     "AmbientColor": {
+        "A": 1.0,
         "B": 1.0,
         "G": 1.0,
         "R": 1.0
     },
-    "MaterialShininess": 32.0,
-    "ResourceDiffuse": "Assets/Jaskier_AlbedoMap.png",
-    "ResourceSpecular": null,
+    "Culling": true,
+    "MaterialShininess": 1.0,
+    "PreviewTexture": "Library/Textures/1435668644.dds",
+    "ResourceDiffuse": "Assets/MainMenu/TabernSignal_AlbedoMap.png",
+    "ResourceNormalTexture": "Assets/MainMenu/TabernSignal_NormalMap.png",
+    "ResourceSpecular": "Assets/MainMenu/TabernSignal_SpecularMap.png",
+    "Transparencies": false,
     "shader": {
         "ResourceShader": "Assets/Shaders/Standard.glsl",
         "uniforms": null
