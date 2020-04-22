@@ -18,6 +18,10 @@ lua_table.CameraFunctions = Scripting.Camera()
 --lua_table.SystemFunctions = Scripting.Systems()
 --lua_table.InputFunctions = Scripting.Inputs()
 
+--System
+local dt = 0
+local game_time = 0
+
 --GO UIDs
 local my_GO_UID
 local slash_GO_UID
