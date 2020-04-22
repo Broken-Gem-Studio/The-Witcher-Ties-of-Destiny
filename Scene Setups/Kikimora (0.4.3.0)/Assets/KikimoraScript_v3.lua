@@ -15,6 +15,7 @@ lua_table.AnimationFunctions = Scripting.Animations ()
 -- Health Value
 local current_health = 0
 lua_table.health = 3000
+local is_dead = false
 
 -- Health Percentages for each phase
 local current_health_percentage = 0
@@ -36,10 +37,6 @@ lua_table.damage_received_orig = -1
 lua_table.awakening_distance = 10
 local player_in_awakening_distance = false
 
-lua_table.position_x = 0
-lua_table.position_y = 0
-lua_table.position_z = 0
-
 -----------------------------------------------------------------------------------------
 -- Phases & States Variables
 -----------------------------------------------------------------------------------------
@@ -55,7 +52,9 @@ local current_phase = phase.CHILL -- Should initialize at awake(?)
 
 local state =  
 {
-    UNACTIVE = 0,
+    UNACTIVE = -1,
+
+    DEAD = 0
 
     AWAKENING = 1,
     
@@ -70,7 +69,7 @@ local state =
 	STUNNED = 10,
     SWAPPING_PHASE = 11,
     
-	SPAWNING_MINIONS = 12
+    SPAWNING_MINIONS = 12
 }
 local current_state = state.UNACTIVE -- Should initialize at awake(?)
 
@@ -93,19 +92,19 @@ local current_attack_type = attack_type.TO_BE_DETERMINED
 
 local attack_effect = --Not definitive, but as showcase
 {	
-	none = 0,
-	stun = 1,
-	knockback = 2,
-	taunt = 3,
-	venom = 4
+	NONE = 0,
+	STUN = 1,
+	KNOCKBACK = 2,
+	TAUNT = 3,
+	VENOM = 4
 }
 
 local attack = 
 {
-	leash = { att_damage = 120, att_duration = 0, att_cooldown_time = 5, att_cooldown_bool = false, att_timer = 0},
-	sweep = { att_damage = 100, att_duration = 0, att_cooldown_time = 9, att_cooldown_bool = false, att_timer = 0},
-	stomp = { att_damage = 150, att_duration = 0, att_cooldown_time = 16, att_cooldown_bool = false, att_timer = 0},
-	roar = { att_damage = 0, att_duration = 0, att_cooldown_time = 30, att_cooldown_bool = false, att_timer = 0}
+	leash = { att_damage = 40, att_effect = attack_effect.KNOCKBACK, att_duration = 0, att_cooldown_time = 5, att_cooldown_bool = false, att_timer = 0},
+	sweep = { att_damage = 30, att_effect = attack_effect.KNOCKBACK, att_duration = 0, att_cooldown_time = 9, att_cooldown_bool = false, att_timer = 0},
+	stomp = { att_damage = 50, att_effect = attack_effect.KNOCKBACK, att_duration = 0, att_cooldown_time = 16, att_cooldown_bool = false, att_timer = 0},
+	roar = { att_damage = 0, att_effect = attack_effect.STUN, att_duration = 0, att_cooldown_time = 30, att_cooldown_bool = false, att_timer = 0}
 }
 
 local attack_finished = false
@@ -121,19 +120,19 @@ local animation =
 	leash = { anim_name = "leash", anim_frames = 68, anim_speed = 30, anim_blendtime = 0 },
 	sweep = { anim_name = "sweep", anim_frames = 112, anim_speed = 30, anim_blendtime = 0 },
 	stomp = { anim_name = "stomp", anim_frames = 109, anim_speed = 30, anim_blendtime = 0 },
-	roar = { anim_name = "roar", anim_frames = 42, anim_speed = 30, anim_blendtime = 0 }
+	roar = { anim_name = "roar", anim_frames = 130, anim_speed = 30, anim_blendtime = 0 }
 }
 
 -- -----------------------------------------------------------------------------------------
 -- -- Collider Variables
 -- -----------------------------------------------------------------------------------------
 
-local attack_colliders = 
+local attack_collider = --most vars initialized in awake
 {
-	leash = { GO_name = "Leash_Attack", GO_UID = 0, active = false },
-	sweep = { GO_name = "Sweep_Attack", GO_UID = 0, active = false },
-	stomp = { GO_name = "Stomp_Attack", GO_UID = 0, active = false },
-	roar = { GO_name = "Roar_Attack", GO_UID = 0, active = false }
+    leash = { coll_name = "Leash_Attack", coll_UID = 0, coll_active = false, coll_init_pos = {}, coll_final_pos = {}, coll_current_pos = {}, coll_velocity = {}, coll_init_rot = {}, coll_final_rot = {}, coll_current_rot = {}, coll_ang_velocity = {}, coll_init_scale = {}, coll_final_scale = {}, coll_current_scale = {}, coll_growth_velocity = {} }, 
+	sweep = { coll_name = "Sweep_Attack", coll_UID = 0, coll_active = false, coll_init_pos = {}, coll_final_pos = {}, coll_current_pos = {}, coll_velocity = {}, coll_init_rot = {}, coll_final_rot = {}, coll_current_rot = {}, coll_ang_velocity = {}, coll_init_scale = {}, coll_final_scale = {}, coll_current_scale = {}, coll_growth_velocity = {} },
+	stomp = { coll_name = "Stomp_Attack", coll_UID = 0, coll_active = false, coll_init_pos = {}, coll_final_pos = {}, coll_current_pos = {}, coll_velocity = {}, coll_init_rot = {}, coll_final_rot = {}, coll_current_rot = {}, coll_ang_velocity = {}, coll_init_scale = {}, coll_final_scale = {}, coll_current_scale = {}, coll_growth_velocity = {} },
+	roar = { coll_name = "Roar_Attack", coll_UID = 0, coll_active = false, coll_init_pos = {}, coll_final_pos = {}, coll_current_pos = {}, coll_velocity = {}, coll_init_rot = {}, coll_final_rot = {}, coll_current_rot = {}, coll_ang_velocity = {}, coll_init_scale = {}, coll_final_scale = {}, coll_current_scale = {}, coll_growth_velocity = {} }
 }
 
 -- Collider Layers
@@ -153,7 +152,8 @@ lua_table.collider_effect = attack_effect.none
 -----------------------------------------------------------------------------------------
 
 -- Kikimora GO UID
-lua_table.myUID = 0
+lua_table.my_UID = 0
+lua_table.my_position = {}
 
 -- Kikimora target GO names
 lua_table.geralt_GO = "Geralt"
@@ -237,21 +237,34 @@ function HandleRoarAttack()
     then
         -- Starts animation and timer
         current_attack_type = attack_type.ATTACKING_ROAR
-        lua_table.AnimationFunctions:PlayAnimation(animation.roar.anim_name, animation.roar.anim_speed, lua_table.myUID)
+        lua_table.AnimationFunctions:PlayAnimation(animation.roar.anim_name, animation.roar.anim_speed, lua_table.my_UID)
         attack_timer = game_time + attack.roar.att_duration
         lua_table.SystemFunctions:LOG ("Kikimora: Roar Start")
+
+        -- Activates collider                               TODO: TIME WELL COLLIDERS
+        lua_table.GameObjectFunctions:SetActiveGameObject(true, attack_collider.roar.coll_UID)
+
+        -- Sets collider current position/rotation to initial Position/rotation 
+        --no position change for now
+        --no rotation change for now
     end
 
     if current_attack_type == attack_type.ATTACKING_ROAR --Checks if is started
     then
         if game_time <= attack_timer --Checks if ongoing
         then
-            -- Activates collider                               TODO: TIME WELL COLLIDERS
-            lua_table.GameObjectFunctions:SetActiveGameObject(true, attack_colliders.roar.GO_UID)
+            -- Adds previously calculated velocity/rotation
+            --no position change for now
+            --no rotation chnage for now for now
+
+            -- Updates current position/rotation (have to do it individually bc (*dt))
+            --no rotation chnage for now for now
+            --no position change for now
+            
             -- Sets damage
             lua_table.collider_damage = attack.roar.att_damage
             -- Sets effect
-            lua_table.collider_effect = attack_effect.none -- attack_effect.knockback TODO: Figure out how to send knockback to players.
+            lua_table.collider_effect = attack.roar.att_effect -- attack_effect.knockback TODO: Figure out how to send knockback to players.
 
         elseif game_time >= attack_timer --Checks if attack finished
         then
@@ -259,7 +272,7 @@ function HandleRoarAttack()
             attack.roar.att_timer = game_time + attack.roar.att_cooldown_time
             attack_finished = true
 
-            lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.roar.GO_UID)
+            lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_collider.roar.coll_UID)
             current_attack_type = attack_type.TO_BE_DETERMINED
             lua_table.SystemFunctions:LOG ("Kikimora: Roar Finish")
         end
@@ -272,20 +285,35 @@ function HandleStompAttack()
     then
         -- Starts animation and timer
         current_attack_type = attack_type.ATTACKING_STOMP
-        lua_table.AnimationFunctions:PlayAnimation(animation.stomp.anim_name, animation.stomp.anim_speed, lua_table.myUID)
+        lua_table.AnimationFunctions:PlayAnimation(animation.stomp.anim_name, animation.stomp.anim_speed, lua_table.my_UID)
         attack_timer = game_time + attack.stomp.att_duration
         lua_table.SystemFunctions:LOG ("Kikimora: Stomp Start")
+
+        -- Activates collider                               
+        lua_table.GameObjectFunctions:SetActiveGameObject(true, attack_collider.stomp.coll_UID)
+
+        -- Sets collider current position/rotation to initial Position/rotation 
+        attack_collider.stomp.coll_current_pos = attack_collider.stomp.coll_init_pos
+        --no rotation change for now
     end
     if current_attack_type == attack_type.ATTACKING_STOMP --Checks if is started
     then
         if game_time <= attack_timer --Checks if ongoing
         then
-            -- Activates collider                               TODO: TIME WELL COLLIDERS
-            lua_table.GameObjectFunctions:SetActiveGameObject(true, attack_colliders.stomp.GO_UID)
+            -- Adds previously calculated velocity/angular velocity
+            lua_table.TransformFunctions:SetPosition(attack_collider.stomp.coll_current_pos[x] + attack_collider.stomp.coll_velocity[x] * dt, attack_collider.stomp.coll_current_pos[y] + attack_collider.stomp.coll_velocity[y] * dt, attack_collider.stomp.coll_current_pos[z] + attack_collider.stomp.coll_velocity[z] * dt, attack_collider.stomp.coll_UID)
+            --no rotation change for now
+
+            -- Updates current position/rotation (have to do it individually bc (*dt))
+            attack_collider.stomp.coll_current_pos[x] = attack_collider.stomp.coll_current_pos[x] + attack_collider.stomp.coll_velocity[x] * dt
+            attack_collider.stomp.coll_current_pos[y] = attack_collider.stomp.coll_current_pos[y] + attack_collider.stomp.coll_velocity[y] * dt
+            attack_collider.stomp.coll_current_pos[z] = attack_collider.stomp.coll_current_pos[z] + attack_collider.stomp.coll_velocity[z] * dt
+            --no rotation change for now
+        
             -- Sets damage
             lua_table.collider_damage = attack.stomp.att_damage
             -- Sets effect
-            lua_table.collider_effect = attack_effect.none -- attack_effect.knockback TODO: Figure out how to send knockback to players.
+            lua_table.collider_effect = attack.stomp.att_effect -- attack_effect.knockback TODO: Figure out how to send knockback to players.
 
         elseif game_time >= attack_timer --Checks if attack finished
         then
@@ -293,7 +321,7 @@ function HandleStompAttack()
             attack.stomp.att_timer = game_time + attack.stomp.att_cooldown_time
             attack_finished = true
 
-            lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.stomp.GO_UID)
+            lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_collider.stomp.coll_UID)
             current_attack_type = attack_type.TO_BE_DETERMINED
             lua_table.SystemFunctions:LOG ("Kikimora: Stomp Finish")
         end
@@ -306,20 +334,35 @@ function HandleSweepAttack()
     then
         -- Starts animation and timer
         current_attack_type = attack_type.ATTACKING_SWEEP
-        lua_table.AnimationFunctions:PlayAnimation(animation.sweep.anim_name, animation.sweep.anim_speed, lua_table.myUID)
+        lua_table.AnimationFunctions:PlayAnimation(animation.sweep.anim_name, animation.sweep.anim_speed, lua_table.my_UID)
         attack_timer = game_time + attack.sweep.att_duration
         lua_table.SystemFunctions:LOG ("Kikimora: Sweep Start")
+
+        -- Activates collider                               
+        lua_table.GameObjectFunctions:SetActiveGameObject(true, attack_collider.sweep.coll_UID)
+        
+        -- Sets collider current position/rotation to initial Position/Rotation 
+        attack_collider.sweep.coll_current_pos = attack_collider.sweep.coll_init_pos
+        --no rotation change for now
     end
     if current_attack_type == attack_type.ATTACKING_SWEEP --Checks if is started
     then
         if game_time <= attack_timer --Checks if ongoing
         then
-            -- Activates collider                               TODO: TIME WELL COLLIDERS
-            lua_table.GameObjectFunctions:SetActiveGameObject(true, attack_colliders.sweep.GO_UID)
+            -- Adds previously calculated velocity/angular velocity
+            lua_table.TransformFunctions:SetPosition(attack_collider.sweep.coll_current_pos[x] + attack_collider.sweep.coll_velocity[x] * dt, attack_collider.sweep.coll_current_pos[y] + attack_collider.sweep.coll_velocity[y] * dt, attack_collider.sweep.coll_current_pos[z] + attack_collider.sweep.coll_velocity[z] * dt, attack_collider.sweep.coll_UID)
+            --no rotation change for now
+
+            -- Updates current position/rotation (have to do it individually bc (*dt))
+            attack_collider.sweep.coll_current_pos[x] = attack_collider.sweep.coll_current_pos[x] + attack_collider.sweep.coll_velocity[x] * dt
+            attack_collider.sweep.coll_current_pos[y] = attack_collider.sweep.coll_current_pos[y] + attack_collider.sweep.coll_velocity[y] * dt
+            attack_collider.sweep.coll_current_pos[z] = attack_collider.sweep.coll_current_pos[z] + attack_collider.sweep.coll_velocity[z] * dt
+            --no rotation change for now
+
             -- Sets damage
             lua_table.collider_damage = attack.sweep.att_damage
             -- Sets effect
-            lua_table.collider_effect = attack_effect.none -- attack_effect.knockback TODO: Figure out how to send knockback to players.
+            lua_table.collider_effect = attack.sweep.att_effect -- attack_effect.knockback TODO: Figure out how to send knockback to players.
 
         elseif game_time >= attack_timer --Checks if attack finished
         then
@@ -327,7 +370,7 @@ function HandleSweepAttack()
             attack.sweep.att_timer = game_time + attack.sweep.att_cooldown_time
             attack_finished = true
 
-            lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.sweep.GO_UID)
+            lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_collider.sweep.coll_UID)
             current_attack_type = attack_type.TO_BE_DETERMINED
             lua_table.SystemFunctions:LOG ("Kikimora: Sweep Finish")
         end
@@ -340,20 +383,34 @@ function HandleLeashAttack()
     then
         -- Starts animation and timer
         current_attack_type = attack_type.ATTACKING_LEASH
-        lua_table.AnimationFunctions:PlayAnimation(animation.leash.anim_name, animation.leash.anim_speed, lua_table.myUID)
+        lua_table.AnimationFunctions:PlayAnimation(animation.leash.anim_name, animation.leash.anim_speed, lua_table.my_UID)
         attack_timer = game_time + attack.leash.att_duration
         lua_table.SystemFunctions:LOG ("Kikimora: Leash Start")
+
+        -- Activates collider                               TODO: TIME WELL COLLIDERS
+        lua_table.GameObjectFunctions:SetActiveGameObject(true, attack_collider.leash.coll_UID)
+
+        -- Sets collider current position/rotation to initial Position/Rotation 
+        --no position change for now
+        attack_collider.leash.coll_current_rot = attack_collider.leash.coll_init_rot
     end
     if current_attack_type == attack_type.ATTACKING_LEASH --Checks if is started
     then
         if game_time <= attack_timer --Checks if ongoing
         then
-            -- Activates collider                               TODO: TIME WELL COLLIDERS
-            lua_table.GameObjectFunctions:SetActiveGameObject(true, attack_colliders.leash.GO_UID)
+            -- Adds previously calculated velocity
+            -- no position change for now
+            lua_table.TransformFunctions:SetObjectRotation(attack_collider.leash.coll_current_rot[x] + attack_collider.leash.coll_ang_velocity[x] * dt, attack_collider.leash.coll_current_rot[y] + attack_collider.leash.coll_ang_velocity[y] * dt, attack_collider.leash.coll_current_rot[z] + attack_collider.leash.coll_ang_velocity[z] * dt, attack_collider.leash.coll_UID)
+            -- Updates current position (have to do it individually bc (*dt))
+            -- no position change for now
+            attack_collider.leash.coll_current_rot[x] = attack_collider.leash.coll_current_rot[x] + attack_collider.leash.coll_ang_velocity[x] * dt
+            attack_collider.leash.coll_current_rot[y] = attack_collider.leash.coll_current_rot[y] + attack_collider.leash.coll_ang_velocity[y] * dt
+            attack_collider.leash.coll_current_rot[z] = attack_collider.leash.coll_current_rot[z] + attack_collider.leash.coll_ang_velocity[z] * dt
+            
             -- Sets damage
             lua_table.collider_damage = attack.leash.att_damage
             -- Sets effect
-            lua_table.collider_effect = attack_effect.none -- attack_effect.knockback TODO: Figure out how to send knockback to players.
+            lua_table.collider_effect = attack.leash.att_effect -- attack_effect.knockback TODO: Figure out how to send knockback to players.
 
         elseif game_time >= attack_timer --Checks if attack finished
         then
@@ -361,7 +418,7 @@ function HandleLeashAttack()
             attack.leash.att_timer = game_time + attack.leash.att_cooldown_time
             attack_finished = true
 
-            lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.leash.GO_UID)
+            lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_collider.leash.coll_UID)
             current_attack_type = attack_type.TO_BE_DETERMINED
             lua_table.SystemFunctions:LOG ("Kikimora: Leash Finish")
         end
@@ -371,7 +428,7 @@ end
 function HandleAttacks()
 
     -- For now kikimora will always want to attack (except when all attacks are on cooldown)
-    if current_state ~= state.ATTACKING and current_state ~= state.AWAKENING and current_state ~= state.SWAPPING_PHASE and current_state ~= state.UNACTIVE
+    if current_state ~= state.ATTACKING and current_state ~= state.AWAKENING and current_state ~= state.SWAPPING_PHASE and current_state ~= state.UNACTIVE current_state ~= state.DEAD
     then
         -- And will always use this priority (in order to avoid spam of the same attack they have different cooldowns, The higher the priority the higher the cooldown)
         -- Using elseif so only executes one (mental note, had a lapsus)
@@ -529,7 +586,7 @@ function HandleStates()
     then
         if game_time >= state_timer
         then
-            lua_table.AnimationFunctions:PlayAnimation(animation.idle.anim_name, animation.idle.anim_speed, lua_table.myUID)
+            lua_table.AnimationFunctions:PlayAnimation(animation.idle.anim_name, animation.idle.anim_speed, lua_table.my_UID)
             state_timer = game_time + (animation.idle.anim_frames / animation.idle.anim_speed)
         end
     end
@@ -569,7 +626,7 @@ function HandleStates()
         if start_swapping == true
         then
             -- This is while I don't have a Swapping phase animation (maybe with a stun + roar would make the same effect)
-            lua_table.AnimationFunctions:PlayAnimation(animation.roar.anim_name, animation.roar.anim_speed / 2, lua_table.myUID) -- It will have a times 2 duration
+            lua_table.AnimationFunctions:PlayAnimation(animation.roar.anim_name, animation.roar.anim_speed / 2, lua_table.my_UID) -- It will have a times 2 duration
             animation_timer = game_time + attack.roar.att_duration * 2
             start_swapping = false
         end
@@ -584,7 +641,14 @@ function HandleStates()
     then
         -- Play spaawning minions animation
     end
-        
+
+    if current_state == state.DEAD
+    then
+        -- Play death animation
+        -- DESPAWN BOSS
+        -- CALL SCENE FUNCTION TO MAIN MENU
+        -- Shut all particles
+    end
 end
 
 -- Main Code
@@ -592,7 +656,7 @@ function lua_table:Awake ()
 	lua_table.SystemFunctions:LOG ("This Log was called from Kikimora Script on AWAKE")
 	
 	-- Get my own UID
-	lua_table.myUID = lua_table.GameObjectFunctions:GetMyUID()
+	lua_table.my_UID = lua_table.GameObjectFunctions:GetMyUID()
 
 	---------------------------------------------------------------------------
 	-- Player UIDs
@@ -630,37 +694,165 @@ function lua_table:Awake ()
 			lua_table.SystemFunctions:LOG ("Kikimora: Null Player 1 id")
 		end
     end
-    
+
     ---------------------------------------------------------------------------
 	-- Attacks Init
     ---------------------------------------------------------------------------
-    
-    -- Attack colliders UIDs + setting them unactive
-    attack_colliders.leash.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.leash.GO_name)
-    attack_colliders.sweep.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.sweep.GO_name)
-    attack_colliders.stomp.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.stomp.GO_name)
-    attack_colliders.roar.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.roar.GO_name)
-    
-    lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.stomp.GO_UID)
-    lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.sweep.GO_UID)
-    lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.leash.GO_UID)
-    lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.roar.GO_UID)
-
     -- Attacks duartion
     attack.leash.att_duration = animation.leash.anim_frames / animation.leash.anim_speed
     attack.sweep.att_duration = animation.sweep.anim_frames / animation.sweep.anim_speed
     attack.stomp.att_duration = animation.stomp.anim_frames / animation.stomp.anim_speed
     attack.roar.att_duration = animation.roar.anim_frames / animation.roar.anim_speed
+    
+    ---------------------------------------------------------------------------
+	-- Attack Colliders Init
+    ---------------------------------------------------------------------------
+    
+    -- Attack colliders UIDs 
+    attack_collider.roar.coll_UID = lua_table.GameObjectFunctions:FindGameObject(attack_collider.roar.coll_name)
+    attack_collider.stomp.coll_UID = lua_table.GameObjectFunctions:FindGameObject(attack_collider.stomp.coll_name)
+    attack_collider.sweep.coll_UID = lua_table.GameObjectFunctions:FindGameObject(attack_collider.sweep.coll_name)
+    attack_collider.leash.coll_UID = lua_table.GameObjectFunctions:FindGameObject(attack_collider.leash.coll_name)
+
+    -- Setting them unactive
+    lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_collider.stomp.coll_UID)
+    attack_collider.stomp.coll_active = false
+    lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_collider.sweep.coll_UID)
+    attack_collider.sweep.coll_active = false
+    lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_collider.leash.coll_UID)
+    attack_collider.leash.coll_active = false
+    lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_collider.roar.coll_UID)
+    attack_collider.roar.coll_active = false
+
+    -- Setting positions, rotations, velocities and angular velocities
+    attack_collider.leash.coll_init_pos[x] = 0
+    attack_collider.leash.coll_init_pos[y] = 2
+    attack_collider.leash.coll_init_pos[z] = 7
+    attack_collider.leash.coll_final_pos[x] = 0
+    attack_collider.leash.coll_final_pos[y] = 2
+    attack_collider.leash.coll_final_pos[z] = 7
+    attack_collider.leash.coll_velocity[x] = (attack_collider.leash.coll_final_pos[x] - attack_collider.leash.coll_init_pos[x]) / attack.leash.att_duration 
+    attack_collider.leash.coll_velocity[y] = (attack_collider.leash.coll_final_pos[y] - attack_collider.leash.coll_init_pos[y]) / attack.leash.att_duration 
+    attack_collider.leash.coll_velocity[z] = (attack_collider.leash.coll_final_pos[z] - attack_collider.leash.coll_init_pos[z]) / attack.leash.att_duration 
+    attack_collider.leash.coll_init_rot[x] = 0
+    attack_collider.leash.coll_init_rot[y] = 0
+    attack_collider.leash.coll_init_rot[z] = 0
+    attack_collider.leash.coll_final_rot[x] = 0
+    attack_collider.leash.coll_final_rot[y] = 89
+    attack_collider.leash.coll_final_rot[z] = 0
+    attack_collider.leash.coll_ang_velocity[x] = (attack_collider.leash.coll_final_rot[x] - attack_collider.leash.coll_init_rot[x]) / attack.leash.att_duration 
+    attack_collider.leash.coll_ang_velocity[y] = (attack_collider.leash.coll_final_rot[y] - attack_collider.leash.coll_init_rot[y]) / attack.leash.att_duration 
+    attack_collider.leash.coll_ang_velocity[z] = (attack_collider.leash.coll_final_rot[z] - attack_collider.leash.coll_init_rot[z]) / attack.leash.att_duration 
+    attack_collider.leash.coll_init_scale[x] = 15
+    attack_collider.leash.coll_init_scale[y] = 5
+    attack_collider.leash.coll_init_scale[z] = 2 
+    attack_collider.leash.coll_final_scale[x] = 15
+    attack_collider.leash.coll_final_scale[y] = 5
+    attack_collider.leash.coll_final_scale[z] = 2
+    attack_collider.leash.coll_growth_velocity[x] = (attack_collider.leash.coll_init_scale[x] - attack_collider.leash.coll_final_scale[x]) / attack.leash.att_duration 
+    attack_collider.leash.coll_growth_velocity[y] = (attack_collider.leash.coll_init_scale[y] - attack_collider.leash.coll_final_scale[y]) / attack.leash.att_duration 
+    attack_collider.leash.coll_growth_velocity[z] = (attack_collider.leash.coll_init_scale[z] - attack_collider.leash.coll_final_scale[z]) / attack.leash.att_duration 
+    
+    attack_collider.sweep.coll_init_pos[x] = 8
+    attack_collider.sweep.coll_init_pos[y] = 0
+    attack_collider.sweep.coll_init_pos[z] = 13
+    attack_collider.sweep.coll_final_pos[x] = -15
+    attack_collider.sweep.coll_final_pos[y] = 0
+    attack_collider.sweep.coll_final_pos[z] = 13
+    attack_collider.sweep.coll_velocity[x] = (attack_collider.sweep.coll_final_pos[x] - attack_collider.sweep.coll_init_pos[x]) / attack.sweep.att_duration 
+    attack_collider.sweep.coll_velocity[y] = (attack_collider.sweep.coll_final_pos[y] - attack_collider.sweep.coll_init_pos[y]) / attack.sweep.att_duration
+    attack_collider.sweep.coll_velocity[z] = (attack_collider.sweep.coll_final_pos[z] - attack_collider.sweep.coll_init_pos[z]) / attack.sweep.att_duration
+    attack_collider.sweep.coll_init_rot[x] = 0
+    attack_collider.sweep.coll_init_rot[y] = 0
+    attack_collider.sweep.coll_init_rot[z] = 0
+    attack_collider.sweep.coll_final_rot[x] = 0
+    attack_collider.sweep.coll_final_rot[y] = 0
+    attack_collider.sweep.coll_final_rot[z] = 0
+    attack_collider.sweep.coll_ang_velocity[x] = (attack_collider.sweep.coll_final_rot[x] - attack_collider.sweep.coll_init_rot[x]) / attack.sweep.att_duration 
+    attack_collider.sweep.coll_ang_velocity[x] = (attack_collider.sweep.coll_final_rot[y] - attack_collider.sweep.coll_init_rot[y]) / attack.sweep.att_duration 
+    attack_collider.sweep.coll_ang_velocity[x] = (attack_collider.sweep.coll_final_rot[z] - attack_collider.sweep.coll_init_rot[z]) / attack.sweep.att_duration 
+    attack_collider.sweep.coll_init_scale[x] = 5
+    attack_collider.sweep.coll_init_scale[y] = 5
+    attack_collider.sweep.coll_init_scale[z] = 10 
+    attack_collider.sweep.coll_final_scale[x] = 5
+    attack_collider.sweep.coll_final_scale[y] = 5
+    attack_collider.sweep.coll_final_scale[z] = 10
+    attack_collider.sweep.coll_growth_velocity[x] = (attack_collider.sweep.coll_init_scale[x] - attack_collider.sweep.coll_final_scale[x]) / attack.sweep.att_duration 
+    attack_collider.sweep.coll_growth_velocity[y] = (attack_collider.sweep.coll_init_scale[y] - attack_collider.sweep.coll_final_scale[y]) / attack.sweep.att_duration 
+    attack_collider.sweep.coll_growth_velocity[z] = (attack_collider.sweep.coll_init_scale[z] - attack_collider.sweep.coll_final_scale[z]) / attack.sweep.att_duration
+
+    attack_collider.stomp.coll_init_pos[x] = 0
+    attack_collider.stomp.coll_init_pos[y] = 8
+    attack_collider.stomp.coll_init_pos[z] = 12
+    attack_collider.stomp.coll_final_pos[x] = 0
+    attack_collider.stomp.coll_final_pos[y] = 0
+    attack_collider.stomp.coll_final_pos[z] = 12
+    attack_collider.stomp.coll_velocity[x] = (attack_collider.stomp.coll_final_pos[x] - attack_collider.stomp.coll_init_pos[x]) / attack.stomp.att_duration 
+    attack_collider.stomp.coll_velocity[y] = (attack_collider.stomp.coll_final_pos[y] - attack_collider.stomp.coll_init_pos[y]) / attack.stomp.att_duration
+    attack_collider.stomp.coll_velocity[z] = (attack_collider.stomp.coll_final_pos[z] - attack_collider.stomp.coll_init_pos[z]) / attack.stomp.att_duration
+    attack_collider.stomp.coll_init_rot[x] = 0
+    attack_collider.stomp.coll_init_rot[y] = 0
+    attack_collider.stomp.coll_init_rot[z] = 0
+    attack_collider.stomp.coll_final_rot[x] = 0
+    attack_collider.stomp.coll_final_rot[y] = 0
+    attack_collider.stomp.coll_final_rot[z] = 0
+    attack_collider.stomp.coll_ang_velocity[x] = (attack_collider.stomp.coll_final_rot[x] - attack_collider.stomp.coll_init_rot[x]) / attack.stomp.att_duration 
+    attack_collider.stomp.coll_ang_velocity[x] = (attack_collider.stomp.coll_final_rot[y] - attack_collider.stomp.coll_init_rot[y]) / attack.stomp.att_duration 
+    attack_collider.stomp.coll_ang_velocity[x] = (attack_collider.stomp.coll_final_rot[z] - attack_collider.stomp.coll_init_rot[z]) / attack.stomp.att_duration 
+    attack_collider.stomp.coll_init_scale[x] = 8
+    attack_collider.stomp.coll_init_scale[y] = 1
+    attack_collider.stomp.coll_init_scale[z] = 12 
+    attack_collider.stomp.coll_final_scale[x] = 8
+    attack_collider.stomp.coll_final_scale[y] = 1
+    attack_collider.stomp.coll_final_scale[z] = 12
+    attack_collider.stomp.coll_growth_velocity[x] = (attack_collider.stomp.coll_init_scale[x] - attack_collider.stomp.coll_final_scale[x]) / attack.stomp.att_duration 
+    attack_collider.stomp.coll_growth_velocity[y] = (attack_collider.stomp.coll_init_scale[y] - attack_collider.stomp.coll_final_scale[y]) / attack.stomp.att_duration 
+    attack_collider.stomp.coll_growth_velocity[z] = (attack_collider.stomp.coll_init_scale[z] - attack_collider.stomp.coll_final_scale[z]) / attack.stomp.att_duration
+
+    attack_collider.roar.coll_init_pos[x] = 0
+    attack_collider.roar.coll_init_pos[y] = 0
+    attack_collider.roar.coll_init_pos[z] = 18
+    attack_collider.roar.coll_final_pos[x] = 0
+    attack_collider.roar.coll_final_pos[y] = 0
+    attack_collider.roar.coll_final_pos[z] = 18
+    attack_collider.roar.coll_velocity[x] = (attack_collider.roar.coll_final_pos[x] - attack_collider.roar.coll_init_pos[x]) / attack.roar.att_duration 
+    attack_collider.roar.coll_velocity[y] = (attack_collider.roar.coll_final_pos[y] - attack_collider.roar.coll_init_pos[y]) / attack.roar.att_duration 
+    attack_collider.roar.coll_velocity[z] = (attack_collider.roar.coll_final_pos[z] - attack_collider.roar.coll_init_pos[z]) / attack.roar.att_duration 
+    attack_collider.roar.coll_init_rot[x] = 0
+    attack_collider.roar.coll_init_rot[y] = 0
+    attack_collider.roar.coll_init_rot[z] = 0
+    attack_collider.roar.coll_final_rot[x] = 0
+    attack_collider.roar.coll_final_rot[y] = 0
+    attack_collider.roar.coll_final_rot[z] = 0
+    attack_collider.roar.coll_ang_velocity[x] = (attack_collider.roar.coll_final_rot[x] - attack_collider.roar.coll_init_rot[x]) / attack.roar.att_duration 
+    attack_collider.roar.coll_ang_velocity[x] = (attack_collider.roar.coll_final_rot[y] - attack_collider.roar.coll_init_rot[y]) / attack.roar.att_duration 
+    attack_collider.roar.coll_ang_velocity[x] = (attack_collider.roar.coll_final_rot[z] - attack_collider.roar.coll_init_rot[z]) / attack.roar.att_duration 
+    attack_collider.roar.coll_init_scale[x] = 40
+    attack_collider.roar.coll_init_scale[y] = 10
+    attack_collider.roar.coll_init_scale[z] = 30 
+    attack_collider.roar.coll_final_scale[x] = 40
+    attack_collider.roar.coll_final_scale[y] = 10
+    attack_collider.roar.coll_final_scale[z] = 30
+    attack_collider.roar.coll_growth_velocity[x] = (attack_collider.roar.coll_init_scale[x] - attack_collider.roar.coll_final_scale[x]) / attack.roar.att_duration 
+    attack_collider.roar.coll_growth_velocity[y] = (attack_collider.roar.coll_init_scale[y] - attack_collider.roar.coll_final_scale[y]) / attack.roar.att_duration 
+    attack_collider.roar.coll_growth_velocity[z] = (attack_collider.roar.coll_init_scale[z] - attack_collider.roar.coll_final_scale[z]) / attack.roar.att_duration
 
     ---------------------------------------------------------------------------
 	-- Health Init
     ---------------------------------------------------------------------------
+
     current_health = lua_table.health
 end
 
 function lua_table:Start ()
 	lua_table.SystemFunctions:LOG ("Kikimora Script START")
-	--lua_table.ParticlesFunctions:ActivateParticlesEmission(lua_table.myUID)
+    --lua_table.ParticlesFunctions:ActivateParticlesEmission(lua_table.my_UID)
+    
+    --If scale doens't change over time
+    lua_table.TransformFunctions:SetScale(attack_collider.leash.coll_init_scale[x], attack_collider.leash.coll_init_scale[y], attack_collider.leash.coll_init_scale[z], attack_collider.leash.coll_name)
+    lua_table.TransformFunctions:SetScale(attack_collider.sweep.coll_init_scale[x], attack_collider.sweep.coll_init_scale[y], attack_collider.sweep.coll_init_scale[z], attack_collider.sweep.coll_name)
+    lua_table.TransformFunctions:SetScale(attack_collider.stomp.coll_init_scale[x], attack_collider.stomp.coll_init_scale[y], attack_collider.stomp.coll_init_scale[z], attack_collider.stomp.coll_name)
+    lua_table.TransformFunctions:SetScale(attack_collider.roar.coll_init_scale[x], attack_collider.roar.coll_init_scale[y], attack_collider.roar.coll_init_scale[z], attack_collider.roar.coll_name)
 
     HandlePlayerPosition()
     HandleStates()
@@ -671,6 +863,8 @@ function lua_table:Update ()
     dt = lua_table.SystemFunctions:DT ()
     game_time = PerfGameTime()
 
+    lua_table.my_position = lua_table.TransformFunctions:GetPosition(lua_table.my_UID)
+
     HandlePlayerPosition()
     HandlePhases()
     HandleStates()
@@ -680,7 +874,7 @@ function lua_table:Update ()
 end
 
 function lua_table:OnTriggerEnter()
-	local collider = lua_table.PhysicsFunctions:OnTriggerEnter(lua_table.myUID)
+	local collider = lua_table.PhysicsFunctions:OnTriggerEnter(lua_table.my_UID)
 
 	local collider_parent_GO
 	local layer = lua_table.GameObjectFunctions:GetLayerByID(collider)
@@ -694,12 +888,17 @@ function lua_table:OnTriggerEnter()
 
 		lua_table.SystemFunctions:LOG ("Kikimora: damage received: ".. damage_received)
 
-		current_health = current_health - damage_received
+        current_health = current_health - damage_received
+        
+        if current_health <= 0
+        then 
+            current_state = state.DEAD
+        end
     end
 end
 
 function lua_table:OnCollisionEnter() -- NOT FINISHED
-    local collider = lua_table.PhysicsFunctions:OnCollisionEnter(lua_table.myUID)
+    local collider = lua_table.PhysicsFunctions:OnCollisionEnter(lua_table.my_UID)
 	-- lua_table.SystemFunctions:LOG("T:" .. collider)
 end
 	return lua_table
