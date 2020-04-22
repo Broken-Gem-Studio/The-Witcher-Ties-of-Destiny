@@ -508,7 +508,7 @@ function lua_table:Start()
 
 	-- Get colliders
 	Front_Att_Coll = lua_table.GameObject:FindGameObject("Zomboid_Front_Att")
-	-- stun_col = lua_table.GameObject:FindGameObject("Zomboid_Stun_Area")
+	Stun_Coll = lua_table.GameObject:FindGameObject("Zomboid_Stun_Area")
 
 	-- Initialize Nav
 	navID = lua_table.Recast:GetAreaFromName("Walkable")
@@ -600,6 +600,7 @@ function lua_table:Update()
 		if start_taunt then 
 			knockback_timer = lua_table.System:GameTime() * 1000
 			lua_table.is_taunt = true
+			lua_table.System:LOG("Getting taunted by Jaskier") 
 			start_taunt = false
 		end
 	
