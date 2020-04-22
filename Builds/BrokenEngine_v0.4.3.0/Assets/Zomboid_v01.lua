@@ -52,9 +52,9 @@ local attack_effects = {
 ------------   All the values below are placeholders, will change them when testing
 -- Ghoul values 
 lua_table.MyUID = 0 --Entity UID
-lua_table.max_hp = 500
+lua_table.max_hp = 200
 lua_table.health = 0
-lua_table.speed = 7
+lua_table.speed = 6
 lua_table.knock_speed = 50
 lua_table.currentState = 0
 lua_table.is_stunned = false
@@ -142,6 +142,11 @@ end
 local function ResetStun()
 	if start_stun == true then start_stun = false end
 	if stun_timer > 0 then stun_timer = 0 end
+end
+
+local function ResetKnockBack()
+	if start_knockback == true then start_knockback = false end
+	if knockback_timer > 0 then knockback_timer = 0 end
 end
 
 local function SearchPlayers() -- Check if targets are within range
@@ -534,6 +539,9 @@ function lua_table:Update()
 	end
 	if lua_table.currentState ~= State.COMBO then
 		ResetCombo()
+	end
+	if lua_table.currentState ~= State.KNOCKBACK then
+		ResetKnockBack()
 	end
 	if lua_table.currentState ~= State.STUNNED then
 		ResetStun()
