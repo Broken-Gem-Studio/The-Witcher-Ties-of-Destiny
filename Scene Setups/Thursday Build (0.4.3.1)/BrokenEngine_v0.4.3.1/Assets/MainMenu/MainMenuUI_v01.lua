@@ -43,6 +43,7 @@ function lua_table:Awake()
 	secondLevelPlay = lua_table.ObjectFunctions:FindGameObject("PlaySecondLevelButton")
 	firstLevelImage = lua_table.ObjectFunctions:FindGameObject("FirstLevelImage")
 	secondLevelImage = lua_table.ObjectFunctions:FindGameObject("SecondLevelImage")
+	parchmentImage = lua_table.ObjectFunctions:FindGameObject("ParchmentImage")
 end
 
 function lua_table:Start()
@@ -92,6 +93,7 @@ function lua_table:PlayGame()
 
 	lua_table.InterfaceFunctions:MakeElementVisible("Button", showFirstLevel)
 	lua_table.InterfaceFunctions:MakeElementVisible("Button", showSecondLevel)
+	lua_table.InterfaceFunctions:MakeElementVisible("Image", parchmentImage)
 
 	lua_table.TransformFuctions:SetPosition(-89.849, 25.571, -341.054, camera_UUID)
 	lua_table.TransformFuctions:SetObjectRotation(88.499, 18.100, -89.461, camera_UUID)
@@ -106,14 +108,14 @@ function lua_table:ShowFirstLevel()
 	lua_table.InterfaceFunctions:MakeElementInvisible("Button", secondLevelPlay)
 
 	lua_table.InterfaceFunctions:MakeElementVisible("Image", firstLevelImage)
-	lua_table.InterfaceFunctions:MakeElementInvisible("Image", secondLevelImage)
+	--lua_table.InterfaceFunctions:MakeElementInvisible("Image", secondLevelImage)
 end
 
 function lua_table:ShowSecondLevel()
 	lua_table.InterfaceFunctions:MakeElementVisible("Button", secondLevelPlay)
 	lua_table.InterfaceFunctions:MakeElementInvisible("Button", firstLevelPlay)
 	
-	lua_table.InterfaceFunctions:MakeElementVisible("Image", secondLevelImage)
+	--lua_table.InterfaceFunctions:MakeElementVisible("Image", secondLevelImage)
 	lua_table.InterfaceFunctions:MakeElementInvisible("Image", firstLevelImage)
 end
 

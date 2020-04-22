@@ -26,7 +26,7 @@ function lua_table:Update()
 	then
 		lua_table.AnimationFunctions:PlayAnimation("Idle", 30, MyUUID)
 		notPlayedIdle = false
-	lua_table.InterfaceFunctions:MakeElementVisible("Button", startButton)
+		lua_table.InterfaceFunctions:MakeElementVisible("Button", startButton)
 	end
 end
 
