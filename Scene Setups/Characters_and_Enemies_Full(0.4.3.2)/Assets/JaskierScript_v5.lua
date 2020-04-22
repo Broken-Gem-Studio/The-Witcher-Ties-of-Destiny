@@ -428,7 +428,7 @@ lua_table.note_stack = { 'N', 'N', 'N', 'N' }	-- Last 4 attacks performed (0=non
 	lua_table.song_3_effect_end = 2000
 	lua_table.song_3_effect_active = false
 	lua_table.song_3_duration = 3700
-	lua_table.song_3_animation_name = "death"	--"moonwalk", current is placeholder
+	lua_table.song_3_animation_name = "evade"	--"moonwalk", current is placeholder
 	lua_table.song_3_animation_speed = 30.0
 	lua_table.song_3_damage = 0.0
 	lua_table.song_3_status_effect = attack_effects_ID.taunt
@@ -598,11 +598,11 @@ local function GoDefaultState()
 		if lua_table.input_walk_threshold < math.sqrt(mov_input.used_input.x ^ 2 + mov_input.used_input.z ^ 2)
 		then
 			lua_table.AnimationFunctions:PlayAnimation("run", lua_table.run_animation_speed, my_GO_UID)
-			--lua_table.AudioFunctions:PlayAudioEvent("Run_fx")	--TODO-AUDIO: Play run sound
+			lua_table.AudioFunctions:PlayAudioEvent("Play_Jaskier_run")	--TODO-AUDIO: Play run sound
 			lua_table.current_state = state.run
 		else
 			lua_table.AnimationFunctions:PlayAnimation("walk", lua_table.walk_animation_speed, my_GO_UID)
-			--lua_table.AudioFunctions:PlayAudioEvent("Walk_fx")	--TODO-AUDIO: Play walk sound
+			lua_table.AudioFunctions:PlayAudioEvent("Play_Jaskier_walk_2")	--TODO-AUDIO: Play walk sound
 			lua_table.current_state = state.walk
 		end
 
@@ -610,8 +610,8 @@ local function GoDefaultState()
 	else
 		lua_table.AnimationFunctions:PlayAnimation("idle", lua_table.idle_animation_speed, my_GO_UID)
 		--TODO-AUDIO: Stop current sound event
-		--lua_table.AudioFunctions:StopAudioEvent("Walk_fx")
-		--lua_table.AudioFunctions:StopAudioEvent("Run_fx")
+		lua_table.AudioFunctions:StopAudioEvent("Play_Jaskier_run")	--TODO-AUDIO: Stop run sound
+		lua_table.AudioFunctions:StopAudioEvent("Play_Jaskier_walk_2")	--TODO-AUDIO: Stop run sound
 		lua_table.current_state = state.idle
 		lua_table.ParticlesFunctions:StopParticleEmitter(my_GO_UID)	--TODO-Particles: Deactivate movement dust particles
 	end
@@ -916,13 +916,13 @@ local function MovementInputs()	--Process Movement Inputs
 			then
 				lua_table.current_velocity = run_velocity
 				lua_table.AnimationFunctions:PlayAnimation("run", lua_table.run_animation_speed, my_GO_UID)
-				--lua_table.AudioFunctions:PlayAudioEvent("Run_fx")	--TODO-AUDIO: Play run sound
+				lua_table.AudioFunctions:PlayAudioEvent("Play_Jaskier_run")	--TODO-AUDIO: Play run sound
 				
 				lua_table.current_state = state.run
 			else																					--IF small input
 				lua_table.current_velocity = walk_velocity
 				lua_table.AnimationFunctions:PlayAnimation("walk", lua_table.walk_animation_speed, my_GO_UID)
-				--lua_table.AudioFunctions:PlayAudioEvent("Walk_fx")	--TODO-AUDIO: Play walk sound
+				lua_table.AudioFunctions:PlayAudioEvent("Play_Jaskier_walk_2")	--TODO-AUDIO: Play walk sound
 
 				lua_table.current_state = state.walk
 			end
@@ -934,7 +934,7 @@ local function MovementInputs()	--Process Movement Inputs
 		then
 			lua_table.current_velocity = run_velocity
 			lua_table.AnimationFunctions:PlayAnimation("run", lua_table.run_animation_speed, my_GO_UID)
-			--lua_table.AudioFunctions:PlayAudioEvent("Run_fx")	--TODO-AUDIO: Play run sound
+			lua_table.AudioFunctions:PlayAudioEvent("Play_Jaskier_run")	--TODO-AUDIO: Play walk sound
 
 			lua_table.previous_state = lua_table.current_state
 			lua_table.current_state = state.run
@@ -943,7 +943,7 @@ local function MovementInputs()	--Process Movement Inputs
 		then
 			lua_table.current_velocity = walk_velocity
 			lua_table.AnimationFunctions:PlayAnimation("walk", lua_table.walk_animation_speed, my_GO_UID)
-			--lua_table.AudioFunctions:PlayAudioEvent("Walk_fx")	--TODO-AUDIO: Play walk sound
+			lua_table.AudioFunctions:PlayAudioEvent("Play_Jaskier_walk_2")	--TODO-AUDIO: Play walk sound
 			
 			lua_table.previous_state = lua_table.current_state
 			lua_table.current_state = state.walk
@@ -956,8 +956,8 @@ local function MovementInputs()	--Process Movement Inputs
 		--Animation to IDLE
 		lua_table.AnimationFunctions:PlayAnimation("idle", lua_table.idle_animation_speed, my_GO_UID)
 		--TODO-AUDIO: Stop current sound event
-		--lua_table.AudioFunctions:StopAudioEvent("Walk_fx")
-		--lua_table.AudioFunctions:StopAudioEvent("Run_fx")
+		lua_table.AudioFunctions:StopAudioEvent("Play_Jaskier_run")	--TODO-AUDIO: Stop run sound
+		lua_table.AudioFunctions:StopAudioEvent("Play_Jaskier_walk_2")	--TODO-AUDIO: Stop run sound
 		lua_table.ParticlesFunctions:StopParticleEmitter(my_GO_UID)	--TODO-Particles: Deactivate movement dust particles
 		lua_table.previous_state = lua_table.current_state
 		lua_table.current_state = state.idle
@@ -1015,6 +1015,10 @@ local function UltimateConcert()
 		--Setup for stage_2
 		lua_table.AnimationFunctions:PlayAnimation("guitar_slam_two_handed", lua_table.ultimate_secondary_animation_speed, my_GO_UID)
 		lua_table.AnimationFunctions:PlayAnimation("guitar_slam_two_handed", lua_table.ultimate_secondary_animation_speed, slash_GO_UID)
+
+		lua_table.AudioFunctions:StopAudioEvent("Play_Jaskier_song_1")
+		lua_table.AudioFunctions:PlayAudioEvent("Play_Jaskier_attack_5")
+
 		lua_table.collider_damage = base_damage_real * lua_table.ultimate_secondary_damage
 		lua_table.collider_effect = lua_table.ultimate_secondary_status_effect
 		
@@ -1041,17 +1045,22 @@ end
 local function Song_3_Taunt()
 	if time_since_action > lua_table.song_3_effect_end	--IF stage_2 has to start
 	then
-		--lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_song_3_GO_UID)	--TODO-Particles:
-		lua_table.song_3_effect_active = false
+		if lua_table.song_3_effect_active
+		then
+			lua_table.song_3_effect_active = false
+			--lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_song_3_GO_UID)	--TODO-Particles:
 
-		--Setup for stage_2
-		lua_table.AnimationFunctions:PlayAnimation(lua_table.song_3_secondary_animation_name, lua_table.song_3_secondary_animation_speed, my_GO_UID)
-		--lua_table.AnimationFunctions:PlayAnimation(lua_table.song_3_secondary_animation_name, lua_table.song_3_secondary_animation_speed, slash_GO_UID)
-		lua_table.collider_damage = base_damage_real * lua_table.song_3_secondary_damage
-		lua_table.collider_effect = lua_table.song_3_secondary_status_effect
+			--Setup for stage_2
+			lua_table.AnimationFunctions:PlayAnimation(lua_table.song_3_secondary_animation_name, lua_table.song_3_secondary_animation_speed, my_GO_UID)
+			lua_table.AnimationFunctions:PlayAnimation(lua_table.song_3_secondary_animation_name, lua_table.song_3_secondary_animation_speed, slash_GO_UID)
 
-		--lua_table.TransformFunctions:RotateObject(0, 180, 0, my_GO_UID)	--Do 180 to return from moonwalk	--TODO: Uncomment when fixed (currently works as SetRotation())
-		
+			lua_table.AudioFunctions:PlayAudioEvent("Play_Jaskier_attack_5")
+
+			lua_table.collider_damage = base_damage_real * lua_table.song_3_secondary_damage
+			lua_table.collider_effect = lua_table.song_3_secondary_status_effect
+
+			lua_table.TransformFunctions:RotateObject(0, 180, 0, my_GO_UID)	--Do 180 to return from moonwalk
+		end
 	else	--IF > start time and < end time
 		if not lua_table.song_3_effect_active	--IF effect unactive, activate
 		then
@@ -1087,7 +1096,10 @@ local function PerformSong(song_type)
 
 		lua_table.AnimationFunctions:PlayAnimation(lua_table[song_type .. "_animation_name"], lua_table[song_type .. "_animation_speed"], my_GO_UID)
 		lua_table.AnimationFunctions:PlayAnimation(lua_table[song_type .. "_animation_name"], lua_table[song_type .. "_animation_speed"], slash_GO_UID)
+		
 		--TODO-AUDIO: Play sound of song_type
+		if song_type == "song_1" then lua_table.AudioFunctions:PlayAudioEvent("Play_Jaskier_attack_4")
+		elseif song_type == "song_2" then lua_table.AudioFunctions:PlayAudioEvent("Play_Jaskier_attack_5") end
 
 		lua_table.collider_damage = base_damage_real * lua_table[song_type .. "_damage"]
 		lua_table.collider_effect = lua_table[song_type .. "_status_effect"]
@@ -1118,6 +1130,11 @@ local function CheckSongs()
 end
 
 local function RegularAttack(attack_type)
+	local attack_sound_id 
+
+	if attack_type == "light" then attack_sound_id = 1
+	elseif attack_type == "medium" then attack_sound_id = 3
+	else attack_sound_id = 2 end
 
 	if lua_table.current_state == state.heavy_3 then	--Heavy_3 animation starts and ends on the right, therefore in this particular case we stay on the right
 		rightside = not rightside
@@ -1138,7 +1155,8 @@ local function RegularAttack(attack_type)
 
 			lua_table.AnimationFunctions:PlayAnimation(attack_type .. "_3", lua_table[attack_type .. "_3_animation_speed"], my_GO_UID)
 			lua_table.AnimationFunctions:PlayAnimation(attack_type .. "_3", lua_table[attack_type .. "_3_animation_speed"], slash_GO_UID)
-			--lua_table.AudioFunctions:PlayAudioEvent("Attack_3_fx")	--TODO-AUDIO: Play attack_3 sound (light or heavy)
+			
+			lua_table.AudioFunctions:PlayAudioEvent("Play_Jaskier_attack_" .. attack_sound_id .. "_3")	--TODO-AUDIO: Play attack_3 sound
 
 			lua_table.previous_state = lua_table.current_state
 			lua_table.current_state = state[attack_type .. "_3"]
@@ -1148,7 +1166,8 @@ local function RegularAttack(attack_type)
 
 			lua_table.AnimationFunctions:PlayAnimation(attack_type .. "_1", lua_table[attack_type .. "_1_animation_speed"], my_GO_UID)
 			lua_table.AnimationFunctions:PlayAnimation(attack_type .. "_1", lua_table[attack_type .. "_1_animation_speed"], slash_GO_UID)
-			--lua_table.AudioFunctions:PlayAudioEvent("Attack_1_fx")	--TODO-AUDIO: Play attack_1 sound (light or heavy)
+			
+			lua_table.AudioFunctions:PlayAudioEvent("Play_Jaskier_attack_" .. attack_sound_id .. "_1")	--TODO-AUDIO: Play attack_3 sound
 
 			lua_table.previous_state = lua_table.current_state
 			lua_table.current_state = state[attack_type .. "_1"]
@@ -1159,7 +1178,8 @@ local function RegularAttack(attack_type)
 
 		lua_table.AnimationFunctions:PlayAnimation(attack_type .. "_2", lua_table[attack_type .. "_2_animation_speed"], my_GO_UID)
 		lua_table.AnimationFunctions:PlayAnimation(attack_type .. "_2", lua_table[attack_type .. "_2_animation_speed"], slash_GO_UID)
-		--lua_table.AudioFunctions:PlayAudioEvent("Attack_2_fx")	--TODO-AUDIO: Play attack_2 sound (light or heavy)
+		
+		lua_table.AudioFunctions:PlayAudioEvent("Play_Jaskier_attack_" .. attack_sound_id .. "_2")	--TODO-AUDIO: Play attack_3 sound
 
 		lua_table.previous_state = lua_table.current_state
 		lua_table.current_state = state[attack_type .. "_2"]
@@ -1239,10 +1259,13 @@ local function ActionInputs()	--Process Action Inputs
 
 			SaveDirection()
 
+			--Do Evade
 			local position = lua_table.TransformFunctions:GetPosition(my_GO_UID)	--Rotate to direction
 			lua_table.TransformFunctions:LookAt(position[1] + rec_direction.x, position[2], position[3] + rec_direction.z, my_GO_UID)
 
 			lua_table.AnimationFunctions:PlayAnimation("evade", lua_table.evade_animation_speed, my_GO_UID)
+			lua_table.AudioFunctions:PlayAudioEvent("Play_Jaskier_jump")
+
 			lua_table.current_energy = lua_table.current_energy - lua_table.evade_cost
 
 			lua_table.previous_state = lua_table.current_state
@@ -1276,6 +1299,8 @@ local function ActionInputs()	--Process Action Inputs
 
 			--Do Ultimate
 			lua_table.AnimationFunctions:PlayAnimation("guitar_play_2", lua_table.ultimate_animation_speed, my_GO_UID)
+			lua_table.AudioFunctions:PlayAudioEvent("Play_Jaskier_song_1")
+
 			lua_table.collider_damage = base_damage_real * lua_table.ultimate_damage * dt
 			lua_table.collider_effect = lua_table.ultimate_status_effect
 
@@ -1317,6 +1342,8 @@ local function ActionInputs()	--Process Action Inputs
 						revive_target.being_revived = true
 
 						lua_table.AnimationFunctions:PlayAnimation("revive", lua_table.revive_animation_speed, my_GO_UID)
+						lua_table.AudioFunctions:PlayAudioEvent("Play_Jaskier_revive")
+
 						lua_table.previous_state = lua_table.current_state
 						lua_table.current_state = state.revive
 						action_made = true
@@ -1348,6 +1375,7 @@ end
 local function ReviveShutdown()	--IF I was reviving, not anymore
 	if revive_target ~= nil
 	then
+		lua_table.AudioFunctions:StopAudioEvent("Play_Jaskier_revive")
 		revive_target.being_revived = false
 		revive_target = nil
 	end
@@ -1599,8 +1627,11 @@ function lua_table:Update()
 	then
 		if lua_table.current_health <= 0	--IF has to die
 		then
-			lua_table.AnimationFunctions:PlayAnimation("death", 30.0, my_GO_UID)
 			death_started_at = game_time
+
+			lua_table.AnimationFunctions:PlayAnimation("death", 30.0, my_GO_UID)
+			lua_table.AudioFunctions:PlayAudioEvent("Play_Jaskier_death")
+
 			lua_table.previous_state = lua_table.current_state
 			lua_table.current_state = state.down
 
@@ -1608,6 +1639,13 @@ function lua_table:Update()
 			AttackColliderShutdown()							--IF any attack colliders on, turn off
 			ParticlesShutdown()
 			ReviveShutdown()
+
+			--TODO-Audio:
+			if ultimate_effect_active
+			then
+				lua_table.AudioFunctions:StopAudioEvent("Play_Jaskier_song_1")
+				ultimate_effect_active = false
+			end 
 		else								--IF still lives
 			--Health Regeneration
 			if health_reg_real > 0	--IF health regen online
@@ -1650,6 +1688,7 @@ function lua_table:Update()
 					then
 						if lua_table.current_state == state.revive	--IF revive finished
 						then
+							lua_table.AudioFunctions:StopAudioEvent("Play_Jaskier_revive")	--TODO-Audio: Ultimate Sound
 							revive_target = nil
 						elseif lua_table.current_state >= state.light_1 and lua_table.current_state <= state.heavy_3	--IF attack finished
 						then
@@ -1786,6 +1825,7 @@ function lua_table:Update()
 					if game_time - action_started_at > current_action_duration
 					then
 						lua_table.AnimationFunctions:PlayAnimation("get_up", 90.0, my_GO_UID)
+						lua_table.AudioFunctions:PlayAudioEvent("Play_Jaskier_getting_up")
 						lua_table.standing_up_bool = true
 					else
 						knockback_curr_velocity = knockback_curr_velocity + lua_table.knockback_acceleration * dt
@@ -1809,6 +1849,7 @@ function lua_table:Update()
 				elseif game_time - revive_started_at > lua_table.revive_time		--IF revival complete
 				then
 					lua_table.AnimationFunctions:PlayAnimation("get_up", 90.0, my_GO_UID)	--TODO-Animations: Stand up
+					lua_table.AudioFunctions:PlayAudioEvent("Play_Jaskier_getting_up")
 					lua_table.standing_up_bool = true
 					lua_table.current_health = lua_table.max_health_real / 2	--Get half health
 				end
