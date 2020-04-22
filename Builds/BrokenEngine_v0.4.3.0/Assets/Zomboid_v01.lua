@@ -301,7 +301,7 @@ local function JumpStun() -- Smash the ground with a jump, then stun
 		lua_table.Animations:PlayAnimation("Jump_Stun_2", 40.0, lua_table.MyUID)
 		stunning = true
 	end
-	ToggleCollider(Stun_Coll, 2000, 2100, jump_timer, is_area_active, Stun_DMG)
+	ToggleCollider(Stun_Coll, 2000, 2100, jump_timer, is_area_active, Stun_DMG, attack_effects.stun)
 
 	if jump_timer + 2250 <= lua_table.System:GameTime() * 1000 then
 		lua_table.currentState = State.COMBO
