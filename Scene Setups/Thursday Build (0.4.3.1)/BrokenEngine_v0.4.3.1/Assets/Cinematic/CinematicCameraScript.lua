@@ -92,8 +92,8 @@ function lua_table:Update()
 
     if time > 1.76 and not music_played -- Accurate time when sound starts playing
     then
-       -- lua_table.Audio:PlayAudioEvent("lvl1_Conversation_Cutscene")
 
+        lua_table.Audio:PlayAudioEvent("Play_lvl1_Intro_conversation_Cutscene")
         music_played = true
     end
 
