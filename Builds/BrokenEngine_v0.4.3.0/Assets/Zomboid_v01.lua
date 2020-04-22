@@ -81,13 +81,16 @@ local start_jump = false
 local jump_timer = 0
 
 local start_combo = false
-lua_table.combo_timer = 0
+local combo_timer = 0
 
 local start_stun = false
 local stun_timer = 0
 
 local start_knockback = false
 local knockback_timer = 0
+
+local start_taunt = false
+local taunt_timer = 0
 
 local start_death = false
 local death_timer = 0
@@ -129,7 +132,7 @@ end
 local function ResetCombo()
 	-- Combo Timer
 	if start_combo == true then start_combo = false end
-	if lua_table.combo_timer > 0 then lua_table.combo_timer = 0 end
+	if combo_timer > 0 then combo_timer = 0 end
 	-- Combo control bools
 	if punching == true then punching = false end
 	if swiping == true then swiping = false end
@@ -280,35 +283,35 @@ local function Combo()
 	--lua_table.Transform:LookAt(lua_table.currentTargetPos[1], lua_table.GhoulPos[2], lua_table.currentTargetPos[3], lua_table.MyUID)
 
 	if not start_combo then 
-		lua_table.combo_timer = lua_table.System:GameTime() * 1000
+		combo_timer = lua_table.System:GameTime() * 1000
 		start_combo = true
 	end
 
 	lua_table.Transform:LookAt(lua_table.currentTargetPos[1], lua_table.GhoulPos[2], lua_table.currentTargetPos[3], lua_table.MyUID)
 
-	if lua_table.combo_timer + 250 <= lua_table.System:GameTime() * 1000 and not punching then
+	if combo_timer + 250 <= lua_table.System:GameTime() * 1000 and not punching then
 		lua_table.System:LOG("Punch to target")
 		lua_table.Animations:PlayAnimation("Punch", 30.0, lua_table.MyUID)
 		punching = true
 	end
-	ToggleCollider(1000, 1100, lua_table.combo_timer, Punch, Front_Att_Coll)
+	ToggleCollider(1000, 1100, combo_timer, Punch, Front_Att_Coll)
 	
-	if lua_table.combo_timer + 1750 <= lua_table.System:GameTime() * 1000 and not swiping then
+	if combo_timer + 1750 <= lua_table.System:GameTime() * 1000 and not swiping then
 		lua_table.System:LOG("Swipe to target")
 		lua_table.Animations:PlayAnimation("Swipe", 30.0, lua_table.MyUID)
 		swiping = true
 	end
-	ToggleCollider(3300, 3400, lua_table.combo_timer, Swipe, Front_Att_Coll)
+	ToggleCollider(3300, 3400, combo_timer, Swipe, Front_Att_Coll)
 
-	if lua_table.combo_timer + 3500 <= lua_table.System:GameTime() * 1000 and not crushing then
+	if combo_timer + 3500 <= lua_table.System:GameTime() * 1000 and not crushing then
 		lua_table.System:LOG("Crush to target")
 		lua_table.Animations:PlayAnimation("Smash", 45.0, lua_table.MyUID)
 		crushing = true
 	end
-	ToggleCollider(4800, 4900, lua_table.combo_timer, Crush, Front_Att_Coll)
+	ToggleCollider(4800, 4900, combo_timer, Crush, Front_Att_Coll)
 	
 	-- After he finished, switch state and reset jump values
-	if lua_table.combo_timer + 5000 <= lua_table.System:GameTime() * 1000 then
+	if combo_timer + 5000 <= lua_table.System:GameTime() * 1000 then
 		lua_table.currentState = State.SEEK	
 		lua_table.Animations:PlayAnimation("Walk", 40.0, lua_table.MyUID)
 		lua_table.System:LOG("Zomboid state: SEEK (1), cycle to jump")
@@ -553,10 +556,12 @@ function lua_table:Update()
 		Die()
 	end
 
-	-- Apply knockback to target, stun it for a second, then return to SEEK
+	
 
-
-	------------------------------------------ TEST STUN
+------------------------------------------------
+---------------------TESTS----------------------
+------------------------------------------------
+	------------------------------------------------ TEST STUN
 	if lua_table.Input:KeyUp("s") then
 		
 		lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
@@ -567,6 +572,7 @@ function lua_table:Update()
 	end
 
 	------------------------------------------------ TEST KD
+	-- Apply knockback to target, stun it for a second, then return to SEEK
 	if lua_table.Input:KeyUp("d") then
 		local knock_vector = {0, 0, 0}
 		knock_vector[1] = lua_table.GhoulPos[1] - lua_table.currentTargetPos[1]
@@ -586,6 +592,22 @@ function lua_table:Update()
 		lua_table.is_knockback = true
 		lua_table.System:LOG("Zomboid state: KNOCKBACK (4)") 
 	
+	end
+	------------------------------------------------ TEST TAUNT
+	if lua_table.Input:KeyUp("t") then
+		start_taunt = true
+
+		if start_taunt then 
+			knockback_timer = lua_table.System:GameTime() * 1000
+			lua_table.is_taunt = true
+			start_taunt = false
+		end
+	
+		if knockback_timer + 5000 <= lua_table.System:GameTime() * 1000 then
+			lua_table.is_taunt = false
+	
+		end
+
 	end
 	
 end
