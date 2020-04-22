@@ -37,6 +37,10 @@ local jaskier_ability_GO_UID
 	--Jaskier_Ultimate (Child of Jaskier): 0/0/0
 	--Jaskier_Ability (Child of ???): 0/0/0
 
+	--Areas
+lua_table.enemies_nearby = false
+lua_table.enemy_detection_range = 20
+
 --State Machine
 local state = {	--The order of the states is relevant to the code, CAREFUL CHANGING IT (Ex: if current_state >= state.idle)
 	dead = -4,
@@ -161,7 +165,7 @@ lua_table.player_ID = 2
 lua_table.key_ultimate_1 = "AXIS_TRIGGERLEFT"
 lua_table.key_ultimate_2 = "AXIS_TRIGGERRIGHT"
 
-lua_table.key_interact = "BUTTON_LEFTSHOULDER"
+lua_table.key_revive = "BUTTON_LEFTSHOULDER"
 lua_table.key_use_item = "BUTTON_RIGHTSHOULDER"
 
 lua_table.key_light = "BUTTON_Y"
@@ -475,8 +479,11 @@ lua_table.standing_up_bool = false
 lua_table.standing_up_time = 1000
 
 --Revive/Death
+local revive_target
+lua_table.revive_range = 3
 lua_table.revive_time = 3000	-- Time to revive
 lua_table.down_time = 10000		-- Time until death (restarted by revival attempt)
+lua_table.revive_animation_speed = 25.0
 
 lua_table.being_revived = false	-- Revival flag (managed by rescuer character)
 
@@ -1286,14 +1293,36 @@ local function ActionInputs()	--Process Action Inputs
 		-- 	lua_table.current_state = state.item
 		-- 	action_made = true
 
-		elseif lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_interact, key_state.key_down)	--Revive Input
+		elseif lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_revive, key_state.key_down)	--Revive Input
 		then
-			action_started_at = game_time							--Set timer start mark
+			local geralt_pos = lua_table.TransformFunctions:GetPosition(my_GO_UID)
+			local downed_list = lua_table.PhysicsFunctions:OverlapSphere(geralt_pos[1], geralt_pos[2], geralt_pos[3], lua_table.revive_range, layers.player)
 
-			--Do Revive
-			lua_table.previous_state = lua_table.current_state
-			lua_table.current_state = state.revive
-			action_made = true
+			for i = 1, #downed_list do	--Check nearby players
+				if downed_list[i] ~= my_GO_UID	--IF player is not me
+				then
+					revive_target = lua_table.GameObjectFunctions:GetScript(downed_list[i])
+
+					if revive_target.current_state == state.down and not revive_target.being_revived	--IF player downed and no one reviving
+					then
+						action_started_at = game_time	--Set timer start mark
+						current_action_block_time = lua_table.revive_time
+						current_action_duration = lua_table.revive_time
+
+						revive_target.being_revived = true
+
+						--Do Revive
+						revive_target.being_revived = true
+
+						lua_table.AnimationFunctions:PlayAnimation("revive", lua_table.revive_animation_speed, my_GO_UID)
+						lua_table.previous_state = lua_table.current_state
+						lua_table.current_state = state.revive
+						action_made = true
+
+						break
+					end
+				end
+			end
 		end
 	end
 
@@ -1312,6 +1341,14 @@ local function ActionInputs()	--Process Action Inputs
 	end
 
 	return action_made
+end
+
+local function ReviveShutdown()	--IF I was reviving, not anymore
+	if revive_target ~= nil
+	then
+		revive_target.being_revived = false
+		revive_target = nil
+	end
 end
 
 --Character Secondaries BEGIN	----------------------------------------------------------------------------
@@ -1427,6 +1464,7 @@ function lua_table:OnTriggerEnter()
 
 				AttackColliderShutdown()
 				ParticlesShutdown()
+				ReviveShutdown()
 
 				lua_table.previous_state = lua_table.current_state
 				lua_table.current_state = state.stunned
@@ -1440,6 +1478,7 @@ function lua_table:OnTriggerEnter()
 				
 				AttackColliderShutdown()
 				ParticlesShutdown()
+				ReviveShutdown()
 
 				lua_table.previous_state = lua_table.current_state
 				lua_table.current_state = state.knocked
@@ -1566,6 +1605,7 @@ function lua_table:Update()
 			if lua_table.potion_active then EndPotion(lua_table.potion_in_effect) end				--IF potion in effect, turn off
 			AttackColliderShutdown()							--IF any attack colliders on, turn off
 			ParticlesShutdown()
+			ReviveShutdown()
 		else								--IF still lives
 			--Health Regeneration
 			if health_reg_real > 0	--IF health regen online
@@ -1606,14 +1646,16 @@ function lua_table:Update()
 
 					if time_since_action > current_action_duration	--IF action duration up
 					then
-						if lua_table.current_state >= state.light_1 and lua_table.current_state <= state.heavy_3	--IF attack finished
+						if lua_table.current_state == state.revive	--IF revive finished
+						then
+							revive_target = nil
+						elseif lua_table.current_state >= state.light_1 and lua_table.current_state <= state.heavy_3	--IF attack finished
 						then
 						-- 	lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_guitar_particles_GO_UID)	--TODO-Particles: Deactivate Particles on Sword
 						elseif lua_table.current_state == state.song_1
 						then
 							--lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_ultimate_GO_UID)	--TODO-Particles: Deactivate Aard particles on hand
 							lua_table.song_1_effect_active = false
-
 						elseif lua_table.current_state == state.song_2
 						then
 							--lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_ultimate_GO_UID)	--TODO-Particles: Deactivate Aard particles on hand
@@ -1630,10 +1672,14 @@ function lua_table:Update()
 						end
 
 						AttackColliderShutdown()
-						--ParticleEmitterShutdown()
+						--ParticlesShutdown()
 						GoDefaultState()	--Return to move or idle
 
 					--ELSE (For all the following): IF action ongoing at the moment
+					elseif lua_table.current_state == state.revive and lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_revive, key_state.key_up)
+					then
+						revive_target.being_revived = false
+
 					elseif lua_table.current_state == state.evade and DirectionInBounds()				--ELSEIF evading
 					then
 						lua_table.PhysicsFunctions:Move(lua_table.evade_velocity * rec_direction.x * dt, lua_table.evade_velocity * rec_direction.z * dt, my_GO_UID)	--IMPROVE: Speed set on every frame bad?
@@ -1795,6 +1841,10 @@ function lua_table:Update()
 	--lua_table.SystemFunctions:LOG("Note num: " .. lua_table.note_num)
 	--lua_table.SystemFunctions:LOG("Song string: " .. lua_table.note_stack[1] .. ", " .. lua_table.note_stack[2] .. ", " .. lua_table.note_stack[3] .. ", " .. lua_table.note_stack[4])
 
+	--Revive
+	-- if lua_table.being_revived then lua_table.SystemFunctions:LOG("Jaskier Being Revived!")
+	-- else lua_table.SystemFunctions:LOG("Jaskier not being revived.") end
+	
 	--Stats LOGS
 	--lua_table.SystemFunctions:LOG("Health: " .. lua_table.current_health)
 	--lua_table.SystemFunctions:LOG("Energy: " .. lua_table.current_energy)
