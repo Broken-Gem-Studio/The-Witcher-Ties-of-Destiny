@@ -236,13 +236,13 @@ lua_table.energy_reg_orig = 5
 		venom = 4
 	}
 	local attack_effects_durations = {	--Effects Enum
-		1000,	--stun
+		2000,	--stun
 		1500,	--knockback	(Uses standup_time to get up)
 	}
 		--Knockback
 		local knockback_curr_velocity
-		lua_table.knockback_orig_velocity = 500
-		lua_table.knockback_acceleration = -0.5
+		lua_table.knockback_orig_velocity = 700
+		lua_table.knockback_acceleration = -440.0
 
 	--Attack Colliders
 	local attack_colliders = {												-- Transform / Collider Scale
@@ -1365,7 +1365,7 @@ function lua_table:OnTriggerEnter()
 		then
 			if enemy_script.collider_effect == attack_effects_ID.stun
 			then
-				lua_table.AnimationFunctions:PlayAnimation("death", 30.0, my_GO_UID)
+				lua_table.AnimationFunctions:PlayAnimation("get_up", 50.0, my_GO_UID)
 
 				AttackColliderShutdown()
 				ParticlesShutdown(false)
@@ -1378,7 +1378,7 @@ function lua_table:OnTriggerEnter()
 				SaveDirection()
 				knockback_curr_velocity = lua_table.knockback_orig_velocity
 
-				lua_table.AnimationFunctions:PlayAnimation("death", 30.0, my_GO_UID)
+				lua_table.AnimationFunctions:PlayAnimation("evade", 25.0, my_GO_UID)
 				
 				AttackColliderShutdown()
 				ParticlesShutdown(false)
@@ -1444,7 +1444,9 @@ function lua_table:Awake()
 	attack_colliders.left.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.left.GO_name)
 	attack_colliders.right.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.right.GO_name)
 
-	--camera_bounds_ratio = lua_table.GameObjectFunctions:GetScript(lua_table.GameObjectFunctions:FindGameObject("Camera")).Layer_3_FOV_ratio_1	--TODO: Uncomment when camera fixed
+	--Camera (Warning: If there's a camera GO, but no script the Engine WILL crash)
+	local camera_GO = lua_table.GameObjectFunctions:FindGameObject("Camera")
+	if camera_GO ~= nil and camera_GO ~= 0 then camera_bounds_ratio = lua_table.GameObjectFunctions:GetScript(camera_GO).Layer_3_FOV_ratio_1	end
 
 	lua_table.max_health_real = lua_table.max_health_orig	--Necessary for the first CalculateStats()
 	CalculateStats()	--Calculate stats based on orig values + modifier
@@ -1671,13 +1673,16 @@ function lua_table:Update()
 					standing_up = false
 					GoDefaultState()
 
-				elseif not standing_up and game_time - action_started_at > current_action_duration
+				elseif not standing_up
 				then
-					lua_table.AnimationFunctions:PlayAnimation("idle", 30.0, my_GO_UID)
-					standing_up = true
-				else
-					knockback_curr_velocity = knockback_curr_velocity + lua_table.knockback_acceleration * dt
-					lua_table.PhysicsFunctions:Move(knockback_curr_velocity * -rec_direction.x * dt, knockback_curr_velocity * -rec_direction.z * dt, my_GO_UID)
+					if game_time - action_started_at > current_action_duration
+					then
+						lua_table.AnimationFunctions:PlayAnimation("get_up", 90.0, my_GO_UID)
+						standing_up = true
+					else
+						knockback_curr_velocity = knockback_curr_velocity + lua_table.knockback_acceleration * dt
+						lua_table.PhysicsFunctions:Move(knockback_curr_velocity * -rec_direction.x * dt, knockback_curr_velocity * -rec_direction.z * dt, my_GO_UID)
+					end
 				end
 			end
 		end
@@ -1695,7 +1700,7 @@ function lua_table:Update()
 
 				elseif game_time - revive_started_at > lua_table.revive_time		--IF revival complete
 				then
-					lua_table.AnimationFunctions:PlayAnimation("idle", 30.0, my_GO_UID)	--TODO-Animations: Stand up
+					lua_table.AnimationFunctions:PlayAnimation("get_up", 30.0, my_GO_UID)	--TODO-Animations: Stand up
 					standing_up = true
 					lua_table.current_health = lua_table.max_health_real / 2	--Get half health
 				end
