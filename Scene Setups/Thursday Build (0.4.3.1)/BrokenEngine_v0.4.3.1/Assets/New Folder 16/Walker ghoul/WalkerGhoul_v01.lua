@@ -129,13 +129,33 @@ local function GimbalLockWorkaroundY(param_rot_y)
 end
 
 local function CalculateDistances() 
-    lua_table.GeraltPosition = lua_table.TransformFunctions:GetPosition(lua_table.Geralt_UUID)
-    lua_table.JaskierPosition = lua_table.TransformFunctions:GetPosition(lua_table.Jaskier_UUID)
-    lua_table.MyPosition = lua_table.TransformFunctions:GetPosition(MyUUID)
-    
+
+    lua_table.GeraltPosition = {1000, 1000, 1000}
+    lua_table.JaskierPosition = {1000, 1000, 1000}
+
+    -- We check the players are stil alive
+    if lua_table.Geralt_UUID ~= 0 
+    then    
+        local geralt_table = lua_table.ObjectFunctions:GetScript(lua_table.Geralt_UUID)
+        if geralt_table.current_state > -3
+        then
+            lua_table.GeraltPosition = lua_table.TransformFunctions:GetPosition(lua_table.Geralt_UUID)
+        end        
+    end
+
+    if lua_table.Jaskier_UUID ~= 0
+    then
+        local jaskier_table = lua_table.ObjectFunctions:GetScript(lua_table.Jaskier_UUID)
+        if jaskier_table.current_state > -3
+        then
+            lua_table.JaskierPosition = lua_table.TransformFunctions:GetPosition(lua_table.Jaskier_UUID)               
+        end           
+    end
+
     -- Calculate the distance from the ghoul to the players
-    lua_table.GeraltDistance = math.sqrt((lua_table.GeraltPosition[1] - lua_table.MyPosition[1]) ^ 2 + (lua_table.GeraltPosition[3] - lua_table.MyPosition[3]) ^ 2)
+    lua_table.MyPosition = lua_table.TransformFunctions:GetPosition(MyUUID)
     lua_table.JaskierDistance = math.sqrt((lua_table.JaskierPosition[1] - lua_table.MyPosition[1]) ^ 2 + (lua_table.JaskierPosition[3] - lua_table.MyPosition[3]) ^ 2)
+    lua_table.GeraltDistance = math.sqrt((lua_table.GeraltPosition[1] - lua_table.MyPosition[1]) ^ 2 + (lua_table.GeraltPosition[3] - lua_table.MyPosition[3]) ^ 2)
 
     -- We get the position and distance to the closest player
     lua_table.ClosestDistance = lua_table.GeraltDistance
