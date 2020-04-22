@@ -62,9 +62,9 @@ function lua_table:Update()
 	-- Camera movement management
 	if startingGame
 	then
-		if lua_table.currentCameraPos[3] > lua_table.lastCameraPos[3] - 17
+		if lua_table.currentCameraPos[3] > lua_table.lastCameraPos[3] - 10
 		then
-			lua_table.TransformFuctions:Translate(0, -lua_table.cameraSpeed/6 * dt, -lua_table.cameraSpeed * dt, camera_UUID)
+			lua_table.TransformFuctions:Translate(-lua_table.cameraSpeed/2 * dt, -lua_table.cameraSpeed/5 * dt, -lua_table.cameraSpeed * dt, camera_UUID)
 		else		
 			startingGame = false
 			lua_table.InterfaceFunctions:MakeElementVisible("Button", playButton)
@@ -93,8 +93,8 @@ function lua_table:PlayGame()
 	lua_table.InterfaceFunctions:MakeElementVisible("Button", showFirstLevel)
 	lua_table.InterfaceFunctions:MakeElementVisible("Button", showSecondLevel)
 
-	lua_table.TransformFuctions:SetPosition(-24.849, 20.228, 24.151, camera_UUID)
-	lua_table.TransformFuctions:RotateObject(89.987, -31.165, 89.976, camera_UUID)
+	lua_table.TransformFuctions:SetPosition(-89.849, 25.571, -341.054, camera_UUID)
+	lua_table.TransformFuctions:SetObjectRotation(88.499, 18.100, -89.461, camera_UUID)
 end
 
 function lua_table:QuitGame()
