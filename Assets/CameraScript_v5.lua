@@ -478,7 +478,7 @@ local function HandleTarget()
 	then
 		lua_table.P1_script = lua_table.GameObjectFunctions:GetScript(P1_id)
 		
-		if lua_table.P1_script.current_state = -4 --DEAD
+		if lua_table.P1_script.current_state == -4 --DEAD
 		then
 			current_gameplay = gameplay.NULL
 		end
@@ -489,17 +489,17 @@ local function HandleTarget()
 		lua_table.P1_script = lua_table.GameObjectFunctions:GetScript(P1_id)
 		lua_table.P2_script = lua_table.GameObjectFunctions:GetScript(P2_id)
 		
-		if lua_table.P1_script.current_state = -4 --DEAD
+		if lua_table.P1_script.current_state == -4 --DEAD
 		then
 			current_gameplay = gameplay.SOLO
 		end
 
-		if lua_table.P2_script.current_state = -4 --DEAD
+		if lua_table.P2_script.current_state == -4 --DEAD
 		then
 			current_gameplay = gameplay.SOLO
 		end
 
-		if lua_table.P1_script.current_state = -4 and lua_table.P2_script.current_state
+		if lua_table.P1_script.current_state == -4 and lua_table.P2_script.current_state
 		then
 			current_gameplay = gameplay.NULL
 		end

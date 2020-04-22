@@ -14,14 +14,19 @@ lua_table.Input = Scripting.Inputs()
 lua_table.geralt = "Geralt"
 lua_table.jaskier = "Jaskier"
 lua_table.arrow = 0
+lua_table.Attack_Collider = "ArcherAttack"
+local Attack_Collider_UID = 0
 
 -- Archer Values -------------------------
-lua_table.health = 500
-lua_table.speed = 5
+lua_table.health = 80
+lua_table.speed = 4
 
 -- 
 lua_table.DistanceToTarget = 0
 lua_table.ClosestPlayer_ID = 0
+
+lua_table.collider_damage = 8
+lua_table.collider_effect = 0
 
 local MyUID = 0
 
@@ -48,7 +53,7 @@ local Layers = {
 local Effects = {
     NONE = 0,
     STUN = 1,
-    KNONKBACK = 2,
+    KNOCKBACK = 2,
     TAUNT = 3,
     VENOM = 4
 }
@@ -74,8 +79,20 @@ local melee_time = 0
 lua_table.start_hit = false
 local hit_time = 0
 
+--- EFFECTS --------------------------------
 lua_table.start_stun = false
-local stun_time = 0
+local stun_time = 0 -- timer
+local stun_duration = 3000 --milisecs
+
+lua_table.start_knockback = false
+lua_table.knockback_force = 50
+local knockback_time = 0
+local knock_direction = {}
+
+local Taunt_GO_UID = 0
+local start_taunt = false
+local taunt_time = 0
+---------------------------------------------
 
 lua_table.random = 0
 
@@ -131,61 +148,95 @@ function lua_table:OnTriggerEnter()
     local collider_GO = lua_table.PhysicsSystem:OnTriggerEnter(MyUID)
     local layer = lua_table.GameObjectFunctions:GetLayerByID(collider_GO)
 
-    if layer == Layers.PLAYER_ATTACK and lua_table.health > 0
-    then
+    if layer == Layers.PLAYER_ATTACK and lua_table.health > 0 then
         local parent = lua_table.GameObjectFunctions:GetGameObjectParent(collider_GO)
         local script = lua_table.GameObjectFunctions:GetScript(parent)
 
         lua_table.health = lua_table.health - script.collider_damage
         
-        if script.collider_effect ~= Effects.NONE
-		then
+        if script.collider_effect ~= Effects.NONE then
             -- TODO: React depending on type of effect 
             if script.collider_effect == Effects.STUN then
                 lua_table.start_stun = true
                 lua_table.AnimationSystem:PlayAnimation("Hit",30.0, MyUID)
                 stun_time = PerfGameTime()
-            elseif script.collider_effect == Effects.KNONKBACK then
 
+            elseif script.collider_effect == Effects.KNOCKBACK then
+                --Calculate direction
+                local col_pos = lua_table.Transform:GetPosition(parent)
+                knock_direction[1] = position[1] - col_pos[1]
+                knock_direction[2] = position[2] - col_pos[2]
+                knock_direction[3] = position[3] - col_pos[3]
+
+                local magn_dist =  math.sqrt(knock_direction[1]^2 + knock_direction[3]^2)
+                --normalize
+                knock_direction[1] = knock_direction[1] / magn_dist
+                knock_direction[2] = 0
+                knock_direction[3] = knock_direction[3] / magn_dist
+                
+                lua_table.start_knockback = true
+                lua_table.AnimationSystem:PlayAnimation("Hit",30.0, MyUID)
+                knockback_time = PerfGameTime()
+                
             elseif script.collider_effect == Effects.TAUNT then
+                start_taunt = true
+                taunt_time = PerfGameTime()
+                Taunt_GO_UID = parent
             end
         else -- animatio hit
             lua_table.AnimationSystem:PlayAnimation("Hit",30.0, MyUID)
             hit_time = PerfGameTime()
             lua_table.start_hit = true
-		end
+        end
     end
 end
 
 -- Collider Calls 2.0 
 function lua_table:RequestedTrigger(collider_GO)
 	--lua_table.System:LOG("On RequestedTrigger")
-
-	if lua_table.health > 0		
-	then
+	if lua_table.health > 0 then
         local player_script = lua_table.GameObjectFunctions:GetScript(collider_GO)
         
         -- Recieve damage
         lua_table.health = lua_table.health - player_script.collider_damage
 
-        if player_script.collider_effect ~= Effects.NONE
-		then
+        if player_script.collider_effect ~= Effects.NONE then
             -- TODO: React depending on type of effect 
             if player_script.collider_effect == Effects.STUN then
                 lua_table.start_stun = true
                 lua_table.AnimationSystem:PlayAnimation("Hit",30.0, MyUID)
                 stun_time = PerfGameTime()
 
-            elseif player_script.collider_effect == Effects.KNONKBACK then
+            elseif player_script.collider_effect == Effects.KNOCKBACK then
+                
+                --Calculate direction
+                local col_pos = lua_table.Transform:GetPosition(collider_GO)
+                knock_direction[1] = position[1] - col_pos[1]
+                knock_direction[2] = position[2] - col_pos[2]
+                knock_direction[3] = position[3] - col_pos[3]
+
+                local magn_dist =  math.sqrt(knock_direction[1]^2 + knock_direction[3]^2)
+                --normalize
+                knock_direction[1] = knock_direction[1] / magn_dist
+                knock_direction[2] = 0
+                knock_direction[3] = knock_direction[3] / magn_dist
+                
+                lua_table.start_knockback = true
+                lua_table.AnimationSystem:PlayAnimation("Hit",30.0, MyUID)
+                knockback_time = PerfGameTime()
 
             elseif player_script.collider_effect == Effects.TAUNT then
+                start_taunt = true
+                taunt_time = PerfGameTime()
+                Taunt_GO_UID = collider_GO
+
             end
         else -- animatio hit
             lua_table.AnimationSystem:PlayAnimation("Hit",30.0, MyUID)
             hit_time = PerfGameTime()
             lua_table.start_hit = true
-		end
-	end
+        end
+  end
 end
 
 function lua_table:OnCollisionEnter()
@@ -207,9 +258,12 @@ local function GetClosestPlayer()
 	JZ = Jpos[3] - position[3]
     JaskierDistance =  math.sqrt(JX^2 + JZ^2)
 
-    if GeraltDistance < JaskierDistance then 
+    local scriptG = lua_table.GameObjectFunctions:GetScript(Geralt_ID)
+    local scriptJ = lua_table.GameObjectFunctions:GetScript(Jaskier_ID)
+
+    if GeraltDistance < JaskierDistance and scriptG.current_state > -3 then 
         lua_table.ClosestPlayer_ID = Geralt_ID
-    elseif GeraltDistance > JaskierDistance then
+    elseif GeraltDistance > JaskierDistance and scriptJ.current_state > -3 then
         lua_table.ClosestPlayer_ID = Jaskier_ID
     else
         lua_table.ClosestPlayer_ID = 0;
@@ -311,10 +365,7 @@ local function Shoot()
         local X = math.sin(math.rad(rot_fixed))
         local Z = math.cos(math.rad(rot_fixed))
 
-        lua_table.Scene:Instantiate(lua_table.arrow, pos[1] + X*2, pos[2] + 3, pos[3]+ Z*2, rotation[1], rotation[2], rotation[3])
-
-        --Test
-       -- lua_table.health = lua_table.health - 100
+        lua_table.Scene:Instantiate(lua_table.arrow, pos[1] + X*3, pos[2] + 3, pos[3]+ Z*3, rotation[1], rotation[2], rotation[3])
 
         lua_table.start_shooting = false
     end
@@ -357,6 +408,16 @@ local function MeleeHit()
         start_melee = false
     end
 
+   
+
+    if melee_time + 450 <= PerfGameTime() then
+        lua_table.GameObjectFunctions:SetActiveGameObject(true, Attack_Collider_UID)
+    end
+
+    if melee_time + 550 <= PerfGameTime() then
+        lua_table.GameObjectFunctions:SetActiveGameObject(false, Attack_Collider_UID)
+    end
+
     if melee_time + 1500 <= PerfGameTime() then
         start_melee = true
     end
@@ -377,6 +438,7 @@ end
 function lua_table:Start()
     Geralt_ID = lua_table.GameObjectFunctions:FindGameObject(lua_table.geralt)
     Jaskier_ID = lua_table.GameObjectFunctions:FindGameObject(lua_table.jaskier)
+    Attack_Collider_UID = lua_table.GameObjectFunctions:FindGameObject(lua_table.Attack_Collider)
 
     MyUID = lua_table.GameObjectFunctions:GetMyUID()
 
@@ -389,26 +451,64 @@ function lua_table:Update()
 
     GetClosestPlayer()
 
-    if lua_table.Input:KeyUp("w") then
-        lua_table.start_stun = true
-        lua_table.AnimationSystem:PlayAnimation("Hit",30.0, MyUID)
-        stun_time = PerfGameTime()
-    end
+    -- if lua_table.Input:KeyUp("w") then
+    --     lua_table.start_stun = true
+    --     lua_table.AnimationSystem:PlayAnimation("Hit",30.0, MyUID)
+    --     stun_time = PerfGameTime()
+    -- end
+
+    -- if lua_table.Input:KeyUp("k") then
+
+    --     lua_table.start_knockback = true
+    --     lua_table.AnimationSystem:PlayAnimation("Hit",30.0, MyUID)
+    --     knockback_time = PerfGameTime()
+
+    --     Do knockback
+    --     local col_pos = lua_table.Transform:GetPosition(Geralt_ID)
+    --     knock_direction[1] = position[1] - col_pos[1]
+    --     knock_direction[2] = position[2] - col_pos[2]
+    --     knock_direction[3] = position[3] - col_pos[3]
+
+    --     local magn_dist =  math.sqrt(knock_direction[1]^2 + knock_direction[3]^2)
+    --     normalize
+    --     knock_direction[1] = knock_direction[1] / magn_dist
+    --     knock_direction[2] = 0
+    --     knock_direction[3] = knock_direction[3] / magn_dist
+
+    -- end
+
+    -- if lua_table.Input:KeyUp("t") then
+    --     start_taunt = true
+    --     taunt_time = PerfGameTime()
+    --     Taunt_GO_UID = Jaskier_ID
+    -- end
 
     -- ------------------------------------Decide Target----------------------------------
-    if lua_table.ClosestPlayer_ID == Geralt_ID then
-        lua_table.DistanceToTarget = GeraltDistance
-        TargetPos = Gpos
-    elseif lua_table.ClosestPlayer_ID == Jaskier_ID then
-        lua_table.DistanceToTarget = JaskierDistance
-        TargetPos = Jpos
+    if not start_taunt
+    then
+
+        if lua_table.ClosestPlayer_ID == Geralt_ID then
+            lua_table.DistanceToTarget = GeraltDistance
+            TargetPos = Gpos
+        elseif lua_table.ClosestPlayer_ID == Jaskier_ID then
+            lua_table.DistanceToTarget = JaskierDistance
+            TargetPos = Jpos
+        else
+            lua_table.DistanceToTarget = -1;
+        end
     else
-        lua_table.DistanceToTarget = -1;
+        if Taunt_GO_UID == Geralt_ID then
+            lua_table.DistanceToTarget = GeraltDistance
+            TargetPos = Gpos
+        elseif Taunt_GO_UID == Jaskier_ID then
+            lua_table.DistanceToTarget = JaskierDistance
+            TargetPos = Jpos
+        end
     end
 
     -- ----------------------Manage Archer States | value needs test ------------------------------------------------------
 
-    if lua_table.health > 0.0 and lua_table.start_hit == false
+    if lua_table.health > 0.0 and lua_table.start_hit == false and lua_table.start_knockback == false
     then
         if lua_table.start_stun == false
         then
@@ -451,6 +551,12 @@ function lua_table:Update()
             start_idle = false 
         end
     
+
+        if start_taunt and taunt_time + 5000 <= PerfGameTime() then
+            start_taunt = false
+        end
+
+
         --- ACTIONS -----------------------------------------
         if lua_table.currentState == State.SEEK then
             Seek()
@@ -462,8 +568,9 @@ function lua_table:Update()
         elseif lua_table.currentState == State.IDL then
             Idle()
         elseif lua_table.currentState == State.STUNNED then
-            if lua_table.start_stun == true and stun_time + 3000 <= PerfGameTime() then
+            if lua_table.start_stun == true and stun_time + stun_duration <= PerfGameTime() then
                 lua_table.start_stun = false
+                stun_duration = 3000
             end
         end
 
@@ -486,6 +593,24 @@ function lua_table:Update()
             end
         elseif lua_table.start_hit == true and hit_time + 1500 <= PerfGameTime() then
             lua_table.start_hit = false
+        elseif lua_table.start_knockback == true then
+            if knockback_time + 200 <= PerfGameTime() then 
+                lua_table.start_knockback = false 
+                -- restart values
+                RestartShootValues()
+                RestartMeleeValues()
+                start_running = false
+                actual_corner = 2
+                calculate_path = true
+                start_idle = false 
+
+                stun_duration = 1000
+                lua_table.start_stun = true
+                stun_time = PerfGameTime()
+
+            else
+                lua_table.PhysicsSystem:Move(knock_direction[1]*lua_table.knockback_force, knock_direction[3]*lua_table.knockback_force, MyUID)
+            end
         end
 
         

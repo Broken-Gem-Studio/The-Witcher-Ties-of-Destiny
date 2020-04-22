@@ -6,6 +6,7 @@ lua_table.PhysicsSystem =  Scripting.Physics()
 lua_table.Transform = Scripting.Transform()
 
 lua_table.collider_damage = 10
+lua_table.collider_effect = 0
 lua_table.force = 30
 
 local start_time = 0
