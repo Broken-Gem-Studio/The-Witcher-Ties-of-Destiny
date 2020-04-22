@@ -32,6 +32,8 @@ local jaskier_guitar_particles_GO_UID
 local jaskier_ultimate_GO_UID
 local jaskier_ability_GO_UID
 
+lua_table.level_1_scene = 0
+
 	--Particles
 	--Jaskier_Guitar (Child of "???"): 0/0/0
 	--Jaskier_Ultimate (Child of Jaskier): 0/0/0
@@ -1820,7 +1822,18 @@ function lua_table:Update()
 				then
 					lua_table.previous_state = lua_table.current_state
 					lua_table.current_state = state.dead					--Kill character
-					lua_table.GameObjectFunctions:SetActiveGameObject(false, my_GO_UID)	--Disable character
+					--lua_table.GameObjectFunctions:SetActiveGameObject(false, my_GO_UID)
+					lua_table.GameObjectFunctions:SetActiveGameObject(false, lua_table.GameObjectFunctions:FindGameObject("Jaskier_Model"))
+					lua_table.GameObjectFunctions:SetActiveGameObject(false, lua_table.GameObjectFunctions:FindGameObject("Jaskier_Pivot"))
+
+					local geralt_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt")
+					if geralt_GO_UID ~= nil
+					and geralt_GO_UID ~= 0
+					and lua_table.GameObjectFunctions:GetScript(geralt_GO_UID).current_state <= state.down
+					and lua_table.level_1_scene ~= 0
+					then
+						lua_table.SceneFunctions:LoadScene(lua_table.level_1_scene)
+					end
 				end
 			end
 		elseif game_time - revive_started_at > lua_table.revive_time + lua_table.standing_up_time

@@ -33,6 +33,8 @@ local ultimate_effect_particles_GO_UID
 local ultimate_scream_particles_GO_UID
 local aard_hand_particles_GO_UID
 
+lua_table.level_1_scene = 0
+
 	--Particles
 	--Geralt_Sword (Child of "Sword"): 70/25/0
 	--Geralt_Ultimate (Child of Geralt): 0/0/0
@@ -1800,7 +1802,18 @@ function lua_table:Update()
 				then
 					lua_table.previous_state = lua_table.current_state
 					lua_table.current_state = state.dead					--Kill character
-					lua_table.GameObjectFunctions:SetActiveGameObject(false, my_GO_UID)	--Disable character
+					--lua_table.GameObjectFunctions:SetActiveGameObject(false, my_GO_UID)	--Disable character
+					lua_table.GameObjectFunctions:SetActiveGameObject(false, lua_table.GameObjectFunctions:FindGameObject("Geralt_Mesh"))
+					lua_table.GameObjectFunctions:SetActiveGameObject(false, lua_table.GameObjectFunctions:FindGameObject("Geralt_Pivot"))					
+
+					local jaskier_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier")
+					if jaskier_GO_UID ~= nil
+					and jaskier_GO_UID ~= 0
+					and lua_table.GameObjectFunctions:GetScript(jaskier_GO_UID).current_state <= state.down
+					and lua_table.level_1_scene ~= 0
+					then
+						lua_table.SceneFunctions:LoadScene(lua_table.level_1_scene)
+					end
 				end
 			end
 		elseif game_time - revive_started_at > lua_table.revive_time + lua_table.standing_up_time
