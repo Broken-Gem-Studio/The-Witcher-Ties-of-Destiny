@@ -1,4 +1,4 @@
-function	GetTableJaskierScript_v5()
+function	GetTableJaskierScript_v6()
 local lua_table = {}
 lua_table.SystemFunctions = Scripting.System()
 lua_table.TransformFunctions = Scripting.Transform()
