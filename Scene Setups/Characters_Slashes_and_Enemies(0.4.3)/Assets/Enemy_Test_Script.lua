@@ -2,8 +2,8 @@ function GetTableEnemy_Test_Script()
 local lua_table = {}
 lua_table.System = Scripting.System()
 
-lua_table.collider_damage = 50
-lua_table.collider_effect = 1
+lua_table.collider_damage = 1000
+lua_table.collider_effect = 0
 
 function lua_table:Awake()
 end

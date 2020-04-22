@@ -22,6 +22,9 @@ lua_table.CameraFunctions = Scripting.Camera()
 local dt = 0
 local game_time = 0
 
+--Debug
+local godmode = false
+
 --GO UIDs
 local my_GO_UID
 local slash_GO_UID
@@ -420,11 +423,11 @@ lua_table.ultimate_damage_mod_increase = 1.0
 lua_table.ultimate_active = false
 
 --Stand Up	(Standing up from knockbacks or being downed)
-local standing_up = false
+lua_table.standing_up_bool = false
 lua_table.standing_up_time = 1000
 
 --Revive/Death
-lua_table.revive_time = 5000	-- Time to revive
+lua_table.revive_time = 3000	-- Time to revive
 lua_table.down_time = 10000		-- Time until death (restarted by revival attempt)
 
 lua_table.being_revived = false	-- Revival flag (managed by rescuer character)
@@ -646,6 +649,51 @@ end
 
 --Inputs BEGIN	----------------------------------------------------------------------------
 
+local function DebugInputs()
+	if lua_table.InputFunctions:KeyRepeat("Left Ctrl") then
+		if lua_table.InputFunctions:KeyDown("1")	--God mode
+		then
+			godmode = not godmode
+
+		elseif lua_table.InputFunctions:KeyDown("2")	--No ability cooldowns
+		then
+			if lua_table.ability_cooldown > 0.0 then lua_table.ability_cooldown = 0.0
+			else lua_table.ability_cooldown = 5000.0 end
+
+		elseif lua_table.InputFunctions:KeyDown("3")	--Insta ultimate
+		then
+			lua_table.current_ultimate = lua_table.max_ultimate
+
+		elseif lua_table.InputFunctions:KeyDown("4")	--Instakill/Revive Geralt
+		then
+			if lua_table.current_health > 0 then lua_table.current_health = 0
+			else
+				lua_table.being_revived = true
+			end
+		end
+	end
+end
+
+local function KeyboardInputs()	--Process Keyboard-to-Controller Inputs
+	mov_input.used_input.x, mov_input.used_input.z = 0.0, 0.0
+	
+	if lua_table.InputFunctions:KeyRepeat("D")
+	then
+		mov_input.used_input.x = 1.0
+	elseif lua_table.InputFunctions:KeyRepeat("A")
+	then
+		mov_input.used_input.x = -1.0
+	end
+
+	if lua_table.InputFunctions:KeyRepeat("S")
+	then
+		mov_input.used_input.z = 1.0
+	elseif lua_table.InputFunctions:KeyRepeat("W")
+	then
+		mov_input.used_input.z = -1.0
+	end
+end
+
 local function JoystickInputs(key_string, input_table)	--TODO-Inputs: The whole "if same input as last frame, mark forward" doesn't work properly
 	input_table.real_input.x = lua_table.InputFunctions:GetAxisValue(lua_table.player_ID, key_string .. "X", 0.01)	--Get accurate inputs
 	input_table.real_input.z = lua_table.InputFunctions:GetAxisValue(lua_table.player_ID, key_string .. "Y", 0.01)
@@ -659,26 +707,6 @@ local function JoystickInputs(key_string, input_table)	--TODO-Inputs: The whole 
 	end
 
 	input_table.prev_input.x, input_table.prev_input.z = input_table.real_input.x, input_table.real_input.z	--Record previous real input as current one
-end
-
-local function KeyboardInputs()	--Process Debug Keyboard Inputs
-	mov_input.used_input.x, mov_input.used_input.z = 0.0, 0.0
-	
-	if lua_table.InputFunctions:KeyRepeat("D")
-	then
-		mov_input.used_input.x = 2.0
-	elseif lua_table.InputFunctions:KeyRepeat("A")
-	then
-		mov_input.used_input.x = -2.0
-	end
-
-	if lua_table.InputFunctions:KeyRepeat("S")
-	then
-		mov_input.used_input.z = -2.0
-	elseif lua_table.InputFunctions:KeyRepeat("W")
-	then
-		mov_input.used_input.z = 2.0
-	end
 end
 
 local function RegisterAttackInputs()	--This is used to give a timeframe to press the two attack buttons at the same time, without being necesarily on the exact same frame
@@ -749,6 +777,7 @@ end
 --Character Particles BEGIN	----------------------------------------------------------------------------
 
 local function ParticlesShutdown(full)	--Full marks wether the particle shutdown is total, or just parcial (ultimate particles appear even when stunned/knocked back)
+	lua_table.ParticlesFunctions:StopParticleEmitter(my_GO_UID)
 	--lua_table.ParticlesFunctions:StopParticleEmitter(sword_particles_GO_UID)
 	lua_table.ParticlesFunctions:StopParticleEmitter(aard_hand_particles_GO_UID)
 	lua_table.ParticlesFunctions:StopParticleEmitter(ultimate_scream_particles_GO_UID)
@@ -1352,7 +1381,7 @@ function lua_table:OnTriggerEnter()
 	
 	local collider_GO = lua_table.PhysicsFunctions:OnTriggerEnter(my_GO_UID)
 
-	if lua_table.current_state > state.down and lua_table.GameObjectFunctions:GetLayerByID(collider_GO) == layers.enemy_attack	--IF collider is tagged as an enemy attack
+	if not godmode and lua_table.current_state > state.down and lua_table.GameObjectFunctions:GetLayerByID(collider_GO) == layers.enemy_attack	--IF collider is tagged as an enemy attack
 	then
 		local collider_parent = lua_table.GameObjectFunctions:GetGameObjectParent(collider_GO)
 		local enemy_script = {}
@@ -1475,8 +1504,9 @@ function lua_table:Update()
 	dt = lua_table.SystemFunctions:DT()
 	game_time = PerfGameTime()
 
-	if must_update_stats then CalculateStats() end
+	DebugInputs()
 
+	if must_update_stats then CalculateStats() end
 	CheckCameraBounds()
 
 	if lua_table.current_state ~= state.dead	--IF not dead (stuff done while downed too)
@@ -1510,7 +1540,7 @@ function lua_table:Update()
 			lua_table.previous_state = lua_table.current_state
 			lua_table.current_state = state.down
 
-			standing_up = false
+			lua_table.standing_up_bool = false
 			if lua_table.potion_active then EndPotion(lua_table.potion_in_effect) end				--IF potion in effect, turn off
 			if lua_table.ultimate_active then UltimateState(false) end	--IF ultimate on, go off
 			AttackColliderShutdown()							--IF any attack colliders on, turn off
@@ -1674,15 +1704,15 @@ function lua_table:Update()
 			then
 				if game_time - action_started_at > current_action_duration + lua_table.standing_up_time
 				then
-					standing_up = false
+					lua_table.standing_up_bool = false
 					GoDefaultState()
 
-				elseif not standing_up
+				elseif not lua_table.standing_up_bool
 				then
 					if game_time - action_started_at > current_action_duration
 					then
 						lua_table.AnimationFunctions:PlayAnimation("get_up", 90.0, my_GO_UID)
-						standing_up = true
+						lua_table.standing_up_bool = true
 					else
 						knockback_curr_velocity = knockback_curr_velocity + lua_table.knockback_acceleration * dt
 						lua_table.PhysicsFunctions:Move(knockback_curr_velocity * -rec_direction.x * dt, knockback_curr_velocity * -rec_direction.z * dt, my_GO_UID)
@@ -1692,7 +1722,7 @@ function lua_table:Update()
 		end
 	elseif lua_table.current_state == state.down	--IF currently down
 	then
-		if not standing_up
+		if not lua_table.standing_up_bool
 		then
 			if lua_table.being_revived		--IF flag marks that other player is reviving (controlled by another player)
 			then
@@ -1704,8 +1734,8 @@ function lua_table:Update()
 
 				elseif game_time - revive_started_at > lua_table.revive_time		--IF revival complete
 				then
-					lua_table.AnimationFunctions:PlayAnimation("get_up", 30.0, my_GO_UID)	--TODO-Animations: Stand up
-					standing_up = true
+					lua_table.AnimationFunctions:PlayAnimation("get_up", 90.0, my_GO_UID)	--TODO-Animations: Stand up
+					lua_table.standing_up_bool = true
 					lua_table.current_health = lua_table.max_health_real / 2	--Get half health
 				end
 			else								--IF other player isn't reviving
@@ -1717,13 +1747,13 @@ function lua_table:Update()
 				elseif game_time - death_started_at > lua_table.down_time	--IF death timer finished
 				then
 					lua_table.previous_state = lua_table.current_state
-					lua_table.current_state = state.dead			--Kill character
-					--lua_table.Functions:Deactivate()	--Disable character
+					lua_table.current_state = state.dead					--Kill character
+					lua_table.GameObjectFunctions:SetActiveGameObject(false, my_GO_UID)	--Disable character
 				end
 			end
-		elseif game_time - revive_started_at > lua_table.standing_up_time
+		elseif game_time - revive_started_at > lua_table.revive_time + lua_table.standing_up_time
 		then
-			standing_up = false
+			lua_table.standing_up_bool, lua_table.being_revived = false, false
 			GoDefaultState()
 		end
 	end
