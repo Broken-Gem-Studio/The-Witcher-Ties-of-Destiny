@@ -365,7 +365,8 @@ local function jumpAttack()
 		JumpAttack_TimeController = PerfGameTime()
 	
 		lua_table.attack_effects = attack_effects.stun
-		lua_table.collider_damage = 30
+		lua_table.collider_damage = 20
+		lua_table.collider_effect = 1
 	end
 	if DistanceMagnitudeAux_Target <= lua_table.MinDistanceFromPlayer and lua_table.CurrentSubState == SubState.JUMP_ATTACK
 	then	
@@ -387,31 +388,28 @@ local function Attack()
 
 	if DelayIlde_AnimController == false 
 	then 
-		goto here --magic starts here
+		--goto here --magic starts here
 
 
 		--empty space
 
 
-		::here:: --magic ends here
+		--::here:: --magic ends here
 
 		
 		lua_table.AnimationSystem:PlayAnimation("IDLE",30.0,MyUID)
 		DelayIlde_AnimController = true
 	end
-		
 
-	if Attack1_AnimController == false and Time_HandleAttack - AfterJumpAttackTimer > 1500 --delay para q caiga y no insta ataque
+	if Attack1_AnimController == false and Time_HandleAttack - AfterJumpAttackTimer > 1000 --delay para q caiga y no insta ataque
 	then
 		Attack1_TimeController = PerfGameTime()
 		lua_table.AnimationSystem:PlayAnimation("ATTACK_1",30.0,MyUID)
-
 		lua_table.attack_effects = attack_effects.none
-		lua_table.collider_damage = 20
+		lua_table.collider_damage = 10
+		lua_table.collider_effect = 0
 		Attack1_AnimController = true
 	end
-
-	
 
 	if TimeSinceLastAttack > 900 and TimeSinceLastAttack < 1100
 	then
@@ -420,6 +418,7 @@ local function Attack()
 			lua_table.GameObjectFunctions:SetActiveGameObject(true, attack_colliders.front.GO_UID)
 			attack_colliders.front.active = true
 			lua_table.SystemFunctions:LOG("attack collider  ")
+			lua_table.SoundSystem:PlayAudioEvent("Play_Bandit_lumberjack_attack")
 		end
 	end
 
@@ -451,6 +450,7 @@ end
 local function Die()
 	lua_table.Dead = true
 	lua_table.AnimationSystem:PlayAnimation("DEATH",35.0,MyUID)
+	lua_table.SoundSystem:PlayAudioEvent("Play_Bandit_death_3")
 end
 
 local function knockback( )
@@ -548,6 +548,7 @@ local function HandleSEEK()
 		if Alert_AnimController == false
 		then
 			lua_table.AnimationSystem:PlayAnimation("ALERT",30.0,MyUID)
+			lua_table.SoundSystem:PlayAudioEvent("Play_Bandit_voice_2")
 			Alert_AnimController = true
 			Alert_TimeController = PerfGameTime()
 		end
@@ -631,7 +632,8 @@ local function HandleSEEK()
 	then 
 		lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.jump_attack.GO_UID)
 		attack_colliders.jump_attack.active = false
-		lua_table.SystemFunctions:LOG("jump attack collider   ##########################################")
+		lua_table.SoundSystem:PlayAudioEvent("Play_Barrel_crush_1")
+		lua_table.SystemFunctions:LOG("jump attack collider")
 	end
 	if TimeSinceLastAttack > 1100 and TimeSinceLastAttack < 1300
 	then
@@ -655,13 +657,12 @@ local function HandleAttack()
 	then 
 		lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.jump_attack.GO_UID)
 		attack_colliders.jump_attack.active = false
-		lua_table.SystemFunctions:LOG("jump attack collider   ##########################################")
+		lua_table.SystemFunctions:LOG("jump attack collider")
 	end
 
-	if DistanceMagnitude <= lua_table.MinDistanceFromPlayer   --   -1 bc lumberjac distance is 2.93
+	if DistanceMagnitude <= lua_table.MinDistanceFromPlayer   
 	then
 		Attack()
-
 		lua_table.SystemFunctions:LOG("attack()")
 	elseif DistanceMagnitude >= lua_table.MinDistanceFromPlayer +2 and TimeSinceLastAttack >= 1800 --this last is to make lumberjack end attack anims always
 	then 
@@ -783,6 +784,12 @@ function lua_table:Start()
 		lua_table.CurrentState = State.PRE_DETECTION
 	end
 	lua_table.CurrentSpecialEffect = SpecialEffect.NONE
+
+
+	---bolumena
+
+	lua_table.SoundSystem:SetVolume(0.09)
+
 end
 
 function lua_table:Update()
@@ -853,6 +860,7 @@ function lua_table:Update()
 		then
 			Hit_TimeController = PerfGameTime()
 			lua_table.AnimationSystem:PlayAnimation("HIT",40,MyUID)
+			lua_table.SoundSystem:PlayAudioEvent("Play_Bandit_getting_hit")
 			Hit_AnimController = true
 		end
 		if CurrTime - Hit_TimeController > 1000
