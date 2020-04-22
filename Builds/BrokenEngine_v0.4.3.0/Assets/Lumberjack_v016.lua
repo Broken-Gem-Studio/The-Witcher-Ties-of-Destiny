@@ -1,4 +1,4 @@
-function GetTableLumberjack_v014()
+function GetTableLumberjack_v016()
 
 local lua_table = {}
 
@@ -7,6 +7,7 @@ lua_table.GameObjectFunctions = Scripting.GameObject()
 lua_table.TransformFunctions = Scripting.Transform()
 lua_table.PhysicsSystem =  Scripting.Physics()
 lua_table.AnimationSystem = Scripting.Animations()
+lua_table.SoundSystem = Scripting.Audio()
 
 
 -----------------------------------------------------------------------------------------
@@ -138,6 +139,7 @@ local Attack1_AnimController = false
 local Attack1_TimeController = 0
 local IdleArmed_AnimController = false 
 local DelayIlde_AnimController = false
+local TimeSinceLastAttack = 0
 --JumpAttack()
 local AfterJumpAttackTimer = 0
 local JumpAttack_TimeController = 0
@@ -154,6 +156,7 @@ local DeadTime = 0
 
 --SpecialEffects
 local StunnedTimeController = 0
+local KnockedTimeController = 0
 local Stun_AnimController = false
 local StunnedTime = 1000
 local knockback_AnimController = false
@@ -380,7 +383,7 @@ local function jumpAttack()
 	end
 end
 local function Attack()
-	Time = PerfGameTime()
+	--Time = PerfGameTime()
 
 	if DelayIlde_AnimController == false 
 	then 
@@ -398,7 +401,7 @@ local function Attack()
 	end
 		
 
-	if Attack1_AnimController == false and Time - AfterJumpAttackTimer > 1500 --delay para q caiga y no insta ataque
+	if Attack1_AnimController == false and Time_HandleAttack - AfterJumpAttackTimer > 1500 --delay para q caiga y no insta ataque
 	then
 		Attack1_TimeController = PerfGameTime()
 		lua_table.AnimationSystem:PlayAnimation("ATTACK_1",30.0,MyUID)
@@ -408,8 +411,7 @@ local function Attack()
 		Attack1_AnimController = true
 	end
 
-	Time = PerfGameTime()
-	TimeSinceLastAttack = Time - Attack1_TimeController
+	
 
 	if TimeSinceLastAttack > 900 and TimeSinceLastAttack < 1100
 	then
@@ -417,7 +419,7 @@ local function Attack()
 		then
 			lua_table.GameObjectFunctions:SetActiveGameObject(true, attack_colliders.front.GO_UID)
 			attack_colliders.front.active = true
-			lua_table.SystemFunctions:LOG("attack collider   ##########################################")
+			lua_table.SystemFunctions:LOG("attack collider  ")
 		end
 	end
 
@@ -452,12 +454,8 @@ local function Die()
 end
 
 local function knockback( )
-	
-
-
+ --
 end
-
-
 -----------------------------------------------------------------------------------------
 -- MAIN FUNCTIONS
 -----------------------------------------------------------------------------------------
@@ -627,12 +625,32 @@ local function HandleSEEK()
 		lua_table.SystemFunctions:LOG("SEEK----->ATTACK")
 		UseAuxVariables = false
 	end
+
+	--#####################################################################################   CASE WHEN GERALT RUN FROM ATTACK
+	if AfterJumpAttackTimer > 100 and attack_colliders.jump_attack.active == true
+	then 
+		lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.jump_attack.GO_UID)
+		attack_colliders.jump_attack.active = false
+		lua_table.SystemFunctions:LOG("jump attack collider   ##########################################")
+	end
+	if TimeSinceLastAttack > 1100 and TimeSinceLastAttack < 1300
+	then
+		if attack_colliders.front.active == true
+		then
+			lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.front.GO_UID)
+			attack_colliders.front.active = false
+		
+		end
+	end
 end
 
 local function HandleAttack()
 	
 	DistanceMagnitude = CalculateDistanceToTarget(lua_table.CurrentTarget)
-	
+	Time_HandleAttack = PerfGameTime()
+	TimeSinceLastAttack = Time_HandleAttack - Attack1_TimeController
+
+
 	if AfterJumpAttackTimer > 100 and attack_colliders.jump_attack.active == true
 	then 
 		lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.jump_attack.GO_UID)
@@ -645,7 +663,7 @@ local function HandleAttack()
 		Attack()
 
 		lua_table.SystemFunctions:LOG("attack()")
-	elseif DistanceMagnitude >= lua_table.MinDistanceFromPlayer +2
+	elseif DistanceMagnitude >= lua_table.MinDistanceFromPlayer +2 and TimeSinceLastAttack >= 1800 --this last is to make lumberjack end attack anims always
 	then 
 		lua_table.CurrentState = State.SEEK
 		lua_table.CurrentSubState = SubState.SEEK_TARGET
@@ -674,8 +692,6 @@ end
 
 function lua_table:OnTriggerEnter()	
 	local collider_GO = lua_table.PhysicsSystem:OnTriggerEnter(MyUID)
-
-	lua_table.CurrentSpecialEffect = SpecialEffect.HIT
 	
 	if lua_table.CurrentState ~= State.DEATH and lua_table.GameObjectFunctions:GetLayerByID(collider_GO) == 2 --player attack
 	then
@@ -688,9 +704,10 @@ function lua_table:OnTriggerEnter()
 		else
 		 	player_script = lua_table.GameObjectFunctions:GetScript(collider_GO)
 		end
-	
-		lua_table.Current_Health = lua_table.Current_Health - player_script.collider_damage
-	
+
+		lua_table.CurrentHealth = lua_table.CurrentHealth - player_script.collider_damage
+		lua_table.CurrentSpecialEffect = SpecialEffect.HIT
+
 		if player_script.collider_effect ~= 0
 		then
 				--todo react to effect
@@ -801,12 +818,12 @@ function lua_table:Update()
 			HandleDeath()
 			--lua_table.SystemFunctions:LOG("4") 
 		end
-	elseif lua_table.CurrentSpecialEffect == SpecialEffect.STUNNED
+	elseif lua_table.CurrentSpecialEffect == SpecialEffect.STUNNED and lua_table.CurrenHealth > 1
 	then
 		--lua_table.SystemFunctions:LOG("5") 
 		if Stun_AnimController == false
 		then
-			lua_table.AnimationSystem:PlayAnimation("HIT",30,MyUID)
+			lua_table.AnimationSystem:PlayAnimation("SIT_DOWN",30,MyUID)
 			Stun_AnimController = true
 		end
 		if CurrTime - StunnedTimeController > 2000
@@ -814,15 +831,23 @@ function lua_table:Update()
 			lua_table.SystemFunctions:LOG("stunned")
 			lua_table.CurrentSpecialEffect = SpecialEffect.NONE
 		end
-	elseif lua_table.CurrentSpecialEffect == SpecialEffect.KNOCKBACK
+	elseif lua_table.CurrentSpecialEffect == SpecialEffect.KNOCKBACK and lua_table.CurrenHealth > 1
 	then
 		if knockback_AnimController == false
 		then
-			lua_table.AnimationSystem:PlayAnimation("HIT",30,MyUID)
+			lua_table.AnimationSystem:PlayAnimation("SIT_DOWN",30,MyUID)
 			knockback_AnimController = true
+			KnockedTimeController = PerfGameTime()
 		end
-		Knockback()
-	elseif lua_table.CurrentSpecialEffect == SpecialEffect.HIT
+		--Knockback()
+		if CurrTime - KnockedTimeController > 2000
+		then
+			lua_table.SystemFunctions:LOG("knocked back")
+			lua_table.CurrentSpecialEffect = SpecialEffect.NONE
+			knockback_AnimController = false
+		end
+
+	elseif lua_table.CurrentSpecialEffect == SpecialEffect.HIT 
 	then	
 		if Hit_AnimController == false
 		then
@@ -833,6 +858,7 @@ function lua_table:Update()
 		if CurrTime - Hit_TimeController > 1000
 		then
 			lua_table.CurrentSpecialEffect = SpecialEffect.NONE
+			Hit_AnimController = false
 		end
 	end
 	

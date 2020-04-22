@@ -33,7 +33,8 @@ local SubState = {
 local SpecialEffect = {
 	NONE = 0,
 	STUNNED = 1,
-	KNOCKBACK = 2
+	KNOCKBACK = 2,
+	HIT = 3
 }
 
 local Anim = {
@@ -155,8 +156,9 @@ local DeadTime = 0
 local StunnedTimeController = 0
 local Stun_AnimController = false
 local StunnedTime = 1000
-local knockback_AnimController = false
-
+local Knockback_AnimController = false
+local Hit_AnimController = false
+local Hit_TimeController = false
 -----------------------------------------------------------------------------------------
 -- Inspector Variables
 -----------------------------------------------------------------------------------------
@@ -747,7 +749,7 @@ function lua_table:Update()
 		lua_table.SystemFunctions:LOG("5") 
 		if Stun_AnimController == false
 		then
-			lua_table.AnimationSystem:PlayAnimation("HIT",30)
+			lua_table.AnimationSystem:PlayAnimation("HIT",30,MyUID)
 			Stun_AnimController = true
 		end
 		if CurrTime - StunnedTimeController > 2000
@@ -759,10 +761,21 @@ function lua_table:Update()
 	then
 		if knockback_AnimController == false
 		then
-			lua_table.AnimationSystem:PlayAnimation("HIT",30)
+			lua_table.AnimationSystem:PlayAnimation("HIT",10,MyUID)
 			knockback_AnimController = true
 		end
 		Knockback()
+	elseif lua_table.CurrentSpecialEffect == SpecialEffect.HIT
+	then	
+		if Hit_AnimController == false
+		then
+			Hit_TimeController = PerfGameTime()
+			lua_table.AnimationSystem:PlayAnimation("HIT",40,MyUID)
+			Hit_AnimController = true
+		end
+		if CurrTime - Hit_TimeController > 1000
+			lua_table.CurrentSpecialEffect = SpecialEffect.NONE
+		then		
 	end
 	
 
