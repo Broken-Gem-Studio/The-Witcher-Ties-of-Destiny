@@ -430,6 +430,7 @@ function lua_table:OnTriggerEnter()
 			if script.collider_effect ~= attack_effects.none then
 				
 				if script.collider_effect == attack_effects.stun then ----------------------------------------------------- React to stun effect
+					AttackColliderShutdown()
 					lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
 					start_stun = true
 					lua_table.currentState = State.STUNNED
@@ -438,6 +439,7 @@ function lua_table:OnTriggerEnter()
 				end
 		
 				if script.collider_effect == attack_effects.knockback then ------------------------------------------------ React to kb effect
+					AttackColliderShutdown()
 
 					local knock_vector = {0, 0, 0}
 					knock_vector[1] = lua_table.GhoulPos[1] - lua_table.currentTargetPos[1]
@@ -460,6 +462,8 @@ function lua_table:OnTriggerEnter()
 				end
 		
 				if script.collider_effect == attack_effects.taunt then ---------------------------------------------------- React to taunt effect
+					AttackColliderShutdown()
+
 					start_taunt = true
 
 					if start_taunt then 
@@ -477,6 +481,7 @@ function lua_table:OnTriggerEnter()
 				end
 	
 			else
+				AttackColliderShutdown()
 				lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
 				lua_table.System:LOG("Hit registered")
 			end
@@ -501,6 +506,7 @@ function lua_table:RequestedTrigger(collider_GO)
 		if script.collider_effect ~= attack_effects.none then
 			
 			if script.collider_effect == attack_effects.stun then ----------------------------------------------------- React to stun effect
+				AttackColliderShutdown()
 				lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
 				start_stun = true
 				lua_table.currentState = State.STUNNED
@@ -509,6 +515,7 @@ function lua_table:RequestedTrigger(collider_GO)
 			end
 			
 			if script.collider_effect == attack_effects.knockback then ------------------------------------------------ React to kb effect
+				AttackColliderShutdown()
 
 				local coll_pos = lua_table.Transform:GetPosition(collider_GO)
 				local knock_vector = {0, 0, 0}
@@ -532,6 +539,8 @@ function lua_table:RequestedTrigger(collider_GO)
 			end
 	
 			if script.collider_effect == attack_effects.taunt then ---------------------------------------------------- React to taunt effect
+				AttackColliderShutdown()
+
 				start_taunt = true
 
 			if start_taunt then 
@@ -543,12 +552,14 @@ function lua_table:RequestedTrigger(collider_GO)
 		
 			if knockback_timer + 5000 <= lua_table.System:GameTime() * 1000 then
 				lua_table.is_taunt = false
+				knockback_timer = 0
 			
 			end
 				
 			end
 
 		else
+			AttackColliderShutdown()
 			lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
 			lua_table.System:LOG("Hit registered")
 		end
@@ -644,55 +655,55 @@ function lua_table:Update()
 ------------------------------------------------
 ---------------------TESTS----------------------
 ------------------------------------------------
-	------------------------------------------------ TEST STUN
-	if lua_table.Input:KeyUp("s") then
+	-- ------------------------------------------------ TEST STUN
+	-- if lua_table.Input:KeyUp("s") then
 		
-		lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
-		start_stun = true
-		lua_table.currentState = State.STUNNED
+	-- 	lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
+	-- 	start_stun = true
+	-- 	lua_table.currentState = State.STUNNED
 		
-		lua_table.System:LOG("Zomboid state: STUNNED (5)")  
-	end
+	-- 	lua_table.System:LOG("Zomboid state: STUNNED (5)")  
+	-- end
 
-	------------------------------------------------ TEST KD
-	-- Apply knockback to target, stun it for a second, then return to SEEK
-	if lua_table.Input:KeyUp("d") then
-		local knock_vector = {0, 0, 0}
-		knock_vector[1] = lua_table.GhoulPos[1] - lua_table.currentTargetPos[1]
-		knock_vector[2] = lua_table.GhoulPos[2] - lua_table.currentTargetPos[2]
-		knock_vector[3] = lua_table.GhoulPos[3] - lua_table.currentTargetPos[3]
+	-- ------------------------------------------------ TEST KD
+	-- -- Apply knockback to target, stun it for a second, then return to SEEK
+	-- if lua_table.Input:KeyUp("d") then
+	-- 	local knock_vector = {0, 0, 0}
+	-- 	knock_vector[1] = lua_table.GhoulPos[1] - lua_table.currentTargetPos[1]
+	-- 	knock_vector[2] = lua_table.GhoulPos[2] - lua_table.currentTargetPos[2]
+	-- 	knock_vector[3] = lua_table.GhoulPos[3] - lua_table.currentTargetPos[3]
 						
- 		local module = math.sqrt(knock_vector[1] ^ 2 + knock_vector[3] ^ 2)
+ 	-- 	local module = math.sqrt(knock_vector[1] ^ 2 + knock_vector[3] ^ 2)
 
-		knock_force[1] = knock_vector[1] / module
-		knock_force[2] = knock_vector[2]
-		knock_force[3] = knock_vector[3] / module
+	-- 	knock_force[1] = knock_vector[1] / module
+	-- 	knock_force[2] = knock_vector[2]
+	-- 	knock_force[3] = knock_vector[3] / module
 
-		lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
+	-- 	lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
 
-		lua_table.currentState = State.KNOCKBACK
-		start_knockback = true
-		lua_table.is_knockback = true
-		lua_table.System:LOG("Zomboid state: KNOCKBACK (4)") 
+	-- 	lua_table.currentState = State.KNOCKBACK
+	-- 	start_knockback = true
+	-- 	lua_table.is_knockback = true
+	-- 	lua_table.System:LOG("Zomboid state: KNOCKBACK (4)") 
 	
-	end
-	------------------------------------------------ TEST TAUNT
-	if lua_table.Input:KeyUp("t") then
-		start_taunt = true
+	-- end
+	-- ------------------------------------------------ TEST TAUNT
+	-- if lua_table.Input:KeyUp("t") then
+	-- 	start_taunt = true
 
-		if start_taunt then 
-			knockback_timer = lua_table.System:GameTime() * 1000
-			lua_table.is_taunt = true
-			lua_table.System:LOG("Getting taunted by Jaskier") 
-			start_taunt = false
-		end
+	-- 	if start_taunt then 
+	-- 		knockback_timer = lua_table.System:GameTime() * 1000
+	-- 		lua_table.is_taunt = true
+	-- 		lua_table.System:LOG("Getting taunted by Jaskier") 
+	-- 		start_taunt = false
+	-- 	end
 	
-		if knockback_timer + 5000 <= lua_table.System:GameTime() * 1000 then
-			lua_table.is_taunt = false
+	-- 	if knockback_timer + 5000 <= lua_table.System:GameTime() * 1000 then
+	-- 		lua_table.is_taunt = false
 	
-		end
+	-- 	end
 
-	end
+	-- end
 	
 end
 
