@@ -1,0 +1,54 @@
+{
+    "AmbientColor": {
+        "A": 1.0,
+        "B": 1.0,
+        "G": 1.0,
+        "R": 1.0
+    },
+    "Culling": true,
+    "MaterialShininess": 1.0,
+    "PreviewTexture": "Library/Textures/1983806774.dds",
+    "ResourceDiffuse": "Assets/LvLExports/River/Test_Water.png",
+    "ResourceNormalTexture": null,
+    "ResourceSpecular": null,
+    "Transparencies": false,
+    "default123.mat": null,
+    "shader": {
+        "ResourceShader": "Assets/Shaders/WaterShader.glsl",
+        "uniforms": {
+            "Amplitude": {
+                "type": 5126,
+                "x": 10.0
+            },
+            "FOAMDirection": {
+                "type": 35664,
+                "x": 0.0,
+                "y": 1.0
+            },
+            "FOAMVelocity": {
+                "type": 5126,
+                "x": 1.0
+            },
+            "MaxTime": {
+                "type": 5126,
+                "x": 20.0
+            },
+            "Velocity": {
+                "type": 5126,
+                "x": 1.0
+            },
+            "WaveLength": {
+                "type": 5126,
+                "x": 10.0
+            },
+            "WaveMovementMultiplicator": {
+                "type": 5126,
+                "x": 0.0
+            },
+            "u_ColorGradingOffset": {
+                "type": 5126,
+                "x": 10.0
+            }
+        }
+    }
+}
