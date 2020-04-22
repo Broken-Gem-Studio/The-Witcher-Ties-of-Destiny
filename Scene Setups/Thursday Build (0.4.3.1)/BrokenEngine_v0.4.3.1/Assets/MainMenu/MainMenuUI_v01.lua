@@ -31,6 +31,8 @@ local dt = 0
 
 local startingGame = false
 local playingGame = false
+local loadLevel1 = false
+local loadLevel2 = false
 
 function lua_table:Awake()
 	camera_UUID = lua_table.ObjectFunctions:FindGameObject("Camera")
@@ -61,7 +63,7 @@ function lua_table:Update()
 	lua_table.currentCameraPos = lua_table.TransformFuctions:GetPosition(camera_UUID)
 
 	-- Camera movement management
-	if startingGame
+	if startingGame == true
 	then
 		if lua_table.currentCameraPos[3] > lua_table.lastCameraPos[3] - 10
 		then
@@ -73,9 +75,14 @@ function lua_table:Update()
 		end
 	end
 
-	if playingGame
-	then
-		local a = 0
+	if loadLevel1 == true
+	then	
+		lua_table.SceneFunctions:LoadScene(lua_table.scene_1)
+	end
+
+	if loadLevel2 == true
+	then	
+		lua_table.SceneFunctions:LoadScene(lua_table.scene_2)
 	end
 end
 
@@ -86,8 +93,8 @@ function lua_table:StartGame()
 end
 
 function lua_table:PlayGame()
-	playingGame = true
-	lua_table.lastCameraPos = lua_table.TransformFuctions:GetPosition(camera_UUID)
+	--playingGame = true
+	--lua_table.lastCameraPos = lua_table.TransformFuctions:GetPosition(camera_UUID)
 	lua_table.InterfaceFunctions:MakeElementInvisible("Button", quitButton)
 	lua_table.InterfaceFunctions:MakeElementInvisible("Button", playButton)
 
@@ -120,11 +127,11 @@ function lua_table:ShowSecondLevel()
 end
 
 function lua_table:PlayFirstLevel()
-	lua_table.SceneFunctions:LoadScene(lua_table.scene_1)
+	loadLevel1 = true
 end
 
 function lua_table:PlaySecondLevel()
-	lua_table.SceneFunctions:LoadScene(lua_table.scene_2)
+	loadLevel2 = true
 end
 
 return lua_table
