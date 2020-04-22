@@ -596,11 +596,11 @@ local function GoDefaultState()
 		if lua_table.input_walk_threshold < math.sqrt(mov_input.used_input.x ^ 2 + mov_input.used_input.z ^ 2)
 		then
 			lua_table.AnimationFunctions:PlayAnimation("run", lua_table.run_animation_speed, my_GO_UID)
-			--lua_table.AudioFunctions:PlayAudioEvent("Run_fx")	--TODO-AUDIO: Play run sound
+			--lua_table.AudioFunctions:PlayAudioEvent("Play_Geralt_Run")	--TODO-AUDIO: Play run sound
 			lua_table.current_state = state.run
 		else
 			lua_table.AnimationFunctions:PlayAnimation("walk", lua_table.walk_animation_speed, my_GO_UID)
-			--lua_table.AudioFunctions:PlayAudioEvent("Walk_fx")	--TODO-AUDIO: Play walk sound
+			--lua_table.AudioFunctions:PlayAudioEvent("Play_Geralt_Walk")	--TODO-AUDIO: Play walk sound
 			lua_table.current_state = state.walk
 		end
 
@@ -608,8 +608,8 @@ local function GoDefaultState()
 	else
 		lua_table.AnimationFunctions:PlayAnimation("idle", lua_table.idle_animation_speed, my_GO_UID)
 		--TODO-AUDIO: Stop current sound event
-		--lua_table.AudioFunctions:StopAudioEvent("Walk_fx")
-		--lua_table.AudioFunctions:StopAudioEvent("Run_fx")
+		--lua_table.AudioFunctions:StopAudioEvent("Play_Geralt_Walk")
+		--lua_table.AudioFunctions:StopAudioEvent("Play_Geralt_Run")
 		lua_table.current_state = state.idle
 		lua_table.ParticlesFunctions:StopParticleEmitter(my_GO_UID)	--TODO-Particles: Deactivate movement dust particles
 	end
@@ -910,13 +910,18 @@ local function MovementInputs()	--Process Movement Inputs
 			then
 				lua_table.current_velocity = run_velocity
 				lua_table.AnimationFunctions:PlayAnimation("run", lua_table.run_animation_speed, my_GO_UID)
-				--lua_table.AudioFunctions:PlayAudioEvent("Run_fx")	--TODO-AUDIO: Play run sound
-				
+				--lua_table.AudioFunctions:PlayAudioEvent("Play_Geralt_Run")	--TODO-AUDIO: Play run sound
+
 				lua_table.current_state = state.run
 			else																					--IF small input
 				lua_table.current_velocity = walk_velocity
 				lua_table.AnimationFunctions:PlayAnimation("walk", lua_table.walk_animation_speed, my_GO_UID)
-				--lua_table.AudioFunctions:PlayAudioEvent("Walk_fx")	--TODO-AUDIO: Play walk sound
+				
+				lua_table.AudioFunctions:SetVolume(1.0)
+				lua_table.AudioFunctions:PlayAudioEvent("Play_Geralt_Walk")	--TODO-AUDIO: Play walk sound
+
+				lua_table.SystemFunctions:LOG("----- AUDIO SHOULD BE PLAYING -----")
+				
 
 				lua_table.current_state = state.walk
 			end
@@ -928,7 +933,7 @@ local function MovementInputs()	--Process Movement Inputs
 		then
 			lua_table.current_velocity = run_velocity
 			lua_table.AnimationFunctions:PlayAnimation("run", lua_table.run_animation_speed, my_GO_UID)
-			--lua_table.AudioFunctions:PlayAudioEvent("Run_fx")	--TODO-AUDIO: Play run sound
+			--lua_table.AudioFunctions:PlayAudioEvent("Play_Geralt_Run")	--TODO-AUDIO: Play run sound
 
 			lua_table.previous_state = lua_table.current_state
 			lua_table.current_state = state.run
@@ -937,8 +942,8 @@ local function MovementInputs()	--Process Movement Inputs
 		then
 			lua_table.current_velocity = walk_velocity
 			lua_table.AnimationFunctions:PlayAnimation("walk", lua_table.walk_animation_speed, my_GO_UID)
-			--lua_table.AudioFunctions:PlayAudioEvent("Walk_fx")	--TODO-AUDIO: Play walk sound
-			
+			--lua_table.AudioFunctions:PlayAudioEvent("Play_Geralt_Walk")	--TODO-AUDIO: Play walk sound
+
 			lua_table.previous_state = lua_table.current_state
 			lua_table.current_state = state.walk
 		end
@@ -950,8 +955,8 @@ local function MovementInputs()	--Process Movement Inputs
 		--Animation to IDLE
 		lua_table.AnimationFunctions:PlayAnimation("idle", lua_table.idle_animation_speed, my_GO_UID)
 		--TODO-AUDIO: Stop current sound event
-		--lua_table.AudioFunctions:StopAudioEvent("Walk_fx")
-		--lua_table.AudioFunctions:StopAudioEvent("Run_fx")
+		--lua_table.AudioFunctions:StopAudioEvent("Play_Geralt_Walk")
+		--lua_table.AudioFunctions:StopAudioEvent("Play_Geralt_Run")
 		lua_table.ParticlesFunctions:StopParticleEmitter(my_GO_UID)	--TODO-Particles: Deactivate movement dust particles
 		lua_table.previous_state = lua_table.current_state
 		lua_table.current_state = state.idle
