@@ -430,7 +430,7 @@ lua_table.note_stack = { 'N', 'N', 'N', 'N' }	-- Last 4 attacks performed (0=non
 	lua_table.song_3_duration = 3700
 	lua_table.song_3_animation_name = "death"	--"moonwalk", current is placeholder
 	lua_table.song_3_animation_speed = 30.0
-	lua_table.song_3_damage = 5.0
+	lua_table.song_3_damage = 0.0
 	lua_table.song_3_status_effect = attack_effects_ID.taunt
 
 	lua_table.song_3_range = 10
@@ -440,7 +440,7 @@ lua_table.note_stack = { 'N', 'N', 'N', 'N' }	-- Last 4 attacks performed (0=non
 	lua_table.song_3_secondary_effect_active = false
 	lua_table.song_3_secondary_animation_name = "guitar_slam_two_handed"
 	lua_table.song_3_secondary_animation_speed = 50.0
-	lua_table.song_3_secondary_damage = 2.5
+	lua_table.song_3_secondary_damage = 5.0
 	lua_table.song_3_secondary_status_effect = attack_effects_ID.knockback
 
 	--Song 4 (Unused)
