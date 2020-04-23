@@ -52,7 +52,7 @@ void main()
 	float FOAMVelocity = 1.0;
 	float MaxTime = 20.0;
 	float Velocity = 1.0;
-	float WaveLength = 10.0;
+	float WaveLength = 4.0;
 	float WaveMovementMultiplicator = 10.0;
 
 	//Water Calcs.
