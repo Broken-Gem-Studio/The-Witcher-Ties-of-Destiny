@@ -1400,13 +1400,13 @@
                 "positionx": "3.422800",
                 "positiony": "7.809100",
                 "positionz": "-0.071300",
-                "rotationw": "0.726777",
+                "rotationw": "0.726776",
                 "rotationx": "0.681273",
                 "rotationy": "-0.083799",
                 "rotationz": "0.025312",
                 "scalex": "1.000000",
-                "scaley": "0.999999",
-                "scalez": "0.999999"
+                "scaley": "1.000000",
+                "scalez": "1.000000"
             },
             "13": {
                 "Active": true,
@@ -1497,7 +1497,7 @@
                 "rotationz": "-0.047697",
                 "scalex": "1.000000",
                 "scaley": "1.000010",
-                "scalez": "1.000293"
+                "scalez": "1.000296"
             },
             "13": {
                 "Active": true,
@@ -1739,8 +1739,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.070461",
-                "scaley": "15.156942",
-                "scalez": "1.368021"
+                "scaley": "15.156968",
+                "scalez": "1.368024"
             },
             "1": {
                 "Active": true,
@@ -2123,8 +2123,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000371",
-                "scalez": "1.000371"
+                "scaley": "1.000374",
+                "scalez": "1.000374"
             }
         },
         "Index": 0,
@@ -2519,8 +2519,8 @@
                 "rotationx": "-0.046474",
                 "rotationy": "-0.155068",
                 "rotationz": "0.844688",
-                "scalex": "0.999978",
-                "scaley": "0.999978",
+                "scalex": "0.999975",
+                "scaley": "0.999975",
                 "scalez": "1.000000"
             },
             "13": {
@@ -2597,11 +2597,11 @@
                 "index": 0,
                 "layer": "0",
                 "positionx": "954.997559",
-                "positiony": "41.183853",
-                "positionz": "191.681122",
+                "positiony": "40.168358",
+                "positionz": "191.681091",
                 "rotationw": "0.707107",
                 "rotationx": "-0.707107",
-                "rotationy": "0.000000",
+                "rotationy": "-0.000000",
                 "rotationz": "0.000000",
                 "scalex": "0.025400",
                 "scaley": "0.025400",
@@ -2624,9 +2624,9 @@
                 "draw": "1",
                 "firstCreation": "1",
                 "globalMatrixw": "1.000000",
-                "globalMatrixx": "528.229858",
-                "globalMatrixy": "3.433853",
-                "globalMatrixz": "-545.273315",
+                "globalMatrixx": "528.230408",
+                "globalMatrixy": "2.418358",
+                "globalMatrixz": "-545.276123",
                 "globalPositionx": "1.000000",
                 "globalPositiony": "1.000000",
                 "globalPositionz": "1.000000",
@@ -2994,9 +2994,9 @@
                 "rotationx": "0.380226",
                 "rotationy": "0.790120",
                 "rotationz": "-0.478046",
-                "scalex": "0.999978",
-                "scaley": "0.999978",
-                "scalez": "0.999978"
+                "scalex": "0.999975",
+                "scaley": "0.999975",
+                "scalez": "0.999975"
             },
             "13": {
                 "Active": false,
@@ -3259,6 +3259,161 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "40856147",
+        "Static": false
+    },
+    "1352080836": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1395257839,
+                "index": 0,
+                "layer": "0",
+                "positionx": "171.927048",
+                "positiony": "-18.587090",
+                "positionz": "18.450556",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/1213763456.mesh"
+                    }
+                },
+                "UID": 2118204268,
+                "index": 1
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/Prop_Script.lua"
+                },
+                "Script variables": {
+                    "Count": 4,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "myUID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": true,
+                        "Name": "Destroyable",
+                        "ObjectName": "Box_Destructed (0).prefab",
+                        "Type": "Double",
+                        "Value": 263752449.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "health",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2.0
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "current_type",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    }
+                },
+                "UID": 1649819291,
+                "index": 2
+            },
+            "15": {
+                "Active": true,
+                "UID": 1758515269,
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "1.000000",
+                "freezePosition_X": "0",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "0",
+                "freezeRotation_X": "0",
+                "freezeRotation_Y": "0",
+                "freezeRotation_Z": "0",
+                "index": 3,
+                "is_kinematic": "0",
+                "linear_damping": "0.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "0.000000",
+                "linear_velz": "0.000000",
+                "mass": "10.000000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": true,
+                "UID": 1548827579,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "0",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "171.927048",
+                "globalMatrixy": "-17.949699",
+                "globalMatrixz": "18.450556",
+                "globalPositionx": "49.408485",
+                "globalPositiony": "49.751934",
+                "globalPositionz": "49.209450",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "index": 4,
+                "isConvex": "0",
+                "isTrigger": "0",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "-0.000012",
+                "localMatrixy": "-0.000005",
+                "localMatrixz": "25.094114",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "-0.000012",
+                "offsety": "-0.000005",
+                "offsetz": "25.094114",
+                "originalScalex": "49.408485",
+                "originalScaley": "49.751934",
+                "originalScalez": "49.209450",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "1.000000",
+                "tmpScaley": "1.000000",
+                "tmpScalez": "1.000000"
+            },
+            "19": {
+                "Active": true,
+                "UID": 965781698,
+                "index": 5
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/18 - Default.mat"
+                    }
+                },
+                "UID": 974608888,
+                "index": 6
+            }
+        },
+        "Index": 22,
+        "Name": "c4",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "-1",
         "Static": false
     },
     "1352496707": {
@@ -5877,6 +6032,161 @@
         "Parent": "1014246873",
         "Static": false
     },
+    "1474063369": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1900178760,
+                "index": 0,
+                "layer": "0",
+                "positionx": "53.117828",
+                "positiony": "-1.590826",
+                "positionz": "10.547558",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/31802940.mesh"
+                    }
+                },
+                "UID": 910343819,
+                "index": 1
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/Prop_Script.lua"
+                },
+                "Script variables": {
+                    "Count": 4,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "current_type",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "myUID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": true,
+                        "Name": "Destroyable",
+                        "ObjectName": "barrel_Destructed (0).prefab",
+                        "Type": "Double",
+                        "Value": 2048236707.0
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "health",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2.0
+                    }
+                },
+                "UID": 362148688,
+                "index": 2
+            },
+            "15": {
+                "Active": true,
+                "UID": 1695791468,
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "1.000000",
+                "freezePosition_X": "0",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "0",
+                "freezeRotation_X": "0",
+                "freezeRotation_Y": "0",
+                "freezeRotation_Z": "0",
+                "index": 3,
+                "is_kinematic": "0",
+                "linear_damping": "0.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "0.000000",
+                "linear_velz": "0.000000",
+                "mass": "10.000000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": true,
+                "UID": 489332509,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "0",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "53.145359",
+                "globalMatrixy": "-0.425376",
+                "globalMatrixz": "10.570648",
+                "globalPositionx": "84.555069",
+                "globalPositiony": "84.812271",
+                "globalPositionz": "94.199867",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "index": 4,
+                "isConvex": "0",
+                "isTrigger": "0",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "1.083885",
+                "localMatrixy": "-0.909091",
+                "localMatrixz": "45.883839",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "1.083885",
+                "offsety": "-0.909091",
+                "offsetz": "45.883839",
+                "originalScalex": "84.555069",
+                "originalScaley": "84.812271",
+                "originalScalez": "94.199867",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "1.000000",
+                "tmpScaley": "1.000000",
+                "tmpScalez": "1.000000"
+            },
+            "19": {
+                "Active": true,
+                "UID": 11811976,
+                "index": 5
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/05 - Default.mat"
+                    }
+                },
+                "UID": 2022827942,
+                "index": 6
+            }
+        },
+        "Index": 18,
+        "Name": "b2",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "-1",
+        "Static": false
+    },
     "1479173194": {
         "Active": true,
         "Components": {
@@ -5933,7 +6243,7 @@
                 "positionx": "-2.486900",
                 "positiony": "2.206700",
                 "positionz": "1.784900",
-                "rotationw": "0.925332",
+                "rotationw": "0.925331",
                 "rotationx": "0.340217",
                 "rotationy": "0.103439",
                 "rotationz": "0.131584",
@@ -5955,6 +6265,161 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1802944279",
+        "Static": false
+    },
+    "1521240898": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1637927720,
+                "index": 0,
+                "layer": "0",
+                "positionx": "403.981812",
+                "positiony": "26.282001",
+                "positionz": "-178.818832",
+                "rotationw": "0.570940",
+                "rotationx": "-0.263073",
+                "rotationy": "0.718801",
+                "rotationz": "-0.296892",
+                "scalex": "0.025400",
+                "scaley": "0.025401",
+                "scalez": "0.025401"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/1213763456.mesh"
+                    }
+                },
+                "UID": 636654773,
+                "index": 1
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/Prop_Script.lua"
+                },
+                "Script variables": {
+                    "Count": 4,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "myUID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": true,
+                        "Name": "Destroyable",
+                        "ObjectName": "Box_Destructed (0).prefab",
+                        "Type": "Double",
+                        "Value": 263752449.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "health",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2.0
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "current_type",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    }
+                },
+                "UID": 479476953,
+                "index": 2
+            },
+            "15": {
+                "Active": true,
+                "UID": 1179135845,
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "1.000000",
+                "freezePosition_X": "0",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "0",
+                "freezeRotation_X": "0",
+                "freezeRotation_Y": "0",
+                "freezeRotation_Z": "0",
+                "index": 3,
+                "is_kinematic": "0",
+                "linear_damping": "0.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "0.000000",
+                "linear_velz": "0.000000",
+                "mass": "10.000000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": true,
+                "UID": 759290876,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "0",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "404.604553",
+                "globalMatrixy": "26.201424",
+                "globalMatrixz": "-178.928314",
+                "globalPositionx": "49.408485",
+                "globalPositiony": "49.751934",
+                "globalPositionz": "49.209450",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "index": 4,
+                "isConvex": "0",
+                "isTrigger": "0",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "-0.000012",
+                "localMatrixy": "-0.000005",
+                "localMatrixz": "25.094114",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "-0.000012",
+                "offsety": "-0.000005",
+                "offsetz": "25.094114",
+                "originalScalex": "49.408485",
+                "originalScaley": "49.751934",
+                "originalScalez": "49.209450",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "1.000000",
+                "tmpScaley": "1.000000",
+                "tmpScalez": "1.000000"
+            },
+            "19": {
+                "Active": true,
+                "UID": 1344596271,
+                "index": 5
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/18 - Default.mat"
+                    }
+                },
+                "UID": 1177326914,
+                "index": 6
+            }
+        },
+        "Index": 30,
+        "Name": "C100",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "-1",
         "Static": false
     },
     "1524658671": {
@@ -6437,7 +6902,7 @@
                 "positionx": "-0.000600",
                 "positiony": "3.217400",
                 "positionz": "0.000000",
-                "rotationw": "0.868294",
+                "rotationw": "0.868295",
                 "rotationx": "0.495376",
                 "rotationy": "-0.012597",
                 "rotationz": "0.022554",
@@ -6530,6 +6995,161 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1312750465",
+        "Static": false
+    },
+    "1583657591": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 798705995,
+                "index": 0,
+                "layer": "0",
+                "positionx": "333.978729",
+                "positiony": "-18.207603",
+                "positionz": "189.116287",
+                "rotationw": "0.560552",
+                "rotationx": "-0.657397",
+                "rotationy": "-0.405122",
+                "rotationz": "-0.299143",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/1213763456.mesh"
+                    }
+                },
+                "UID": 1916006124,
+                "index": 1
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/Prop_Script.lua"
+                },
+                "Script variables": {
+                    "Count": 4,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "myUID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": true,
+                        "Name": "Destroyable",
+                        "ObjectName": "Box_Destructed (0).prefab",
+                        "Type": "Double",
+                        "Value": 263752449.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "health",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2.0
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "current_type",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    }
+                },
+                "UID": 1168141952,
+                "index": 2
+            },
+            "15": {
+                "Active": true,
+                "UID": 2005128302,
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "1.000000",
+                "freezePosition_X": "0",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "0",
+                "freezeRotation_X": "0",
+                "freezeRotation_Y": "0",
+                "freezeRotation_Z": "0",
+                "index": 3,
+                "is_kinematic": "0",
+                "linear_damping": "0.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "0.000000",
+                "linear_velz": "0.000000",
+                "mass": "10.000000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": true,
+                "UID": 1863040307,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "0",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "333.939941",
+                "globalMatrixy": "-17.583340",
+                "globalMatrixz": "188.993530",
+                "globalPositionx": "49.408485",
+                "globalPositiony": "49.751934",
+                "globalPositionz": "49.209450",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "index": 4,
+                "isConvex": "0",
+                "isTrigger": "0",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "-0.000012",
+                "localMatrixy": "-0.000005",
+                "localMatrixz": "25.094114",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "-0.000012",
+                "offsety": "-0.000005",
+                "offsetz": "25.094114",
+                "originalScalex": "49.408485",
+                "originalScaley": "49.751934",
+                "originalScalez": "49.209450",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "1.000000",
+                "tmpScaley": "1.000000",
+                "tmpScalez": "1.000000"
+            },
+            "19": {
+                "Active": true,
+                "UID": 598247246,
+                "index": 5
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/18 - Default.mat"
+                    }
+                },
+                "UID": 126180201,
+                "index": 6
+            }
+        },
+        "Index": 27,
+        "Name": "c7",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "-1",
         "Static": false
     },
     "1587928811": {
@@ -7082,9 +7702,9 @@
                 "UID": 1146854051,
                 "index": 0,
                 "layer": "3",
-                "positionx": "16628.103516",
-                "positiony": "7894.862305",
-                "positionz": "38357.703125",
+                "positionx": "-18541.070313",
+                "positiony": "28123.013672",
+                "positionz": "227626.046875",
                 "rotationw": "1.000000",
                 "rotationx": "0.000000",
                 "rotationy": "0.000000",
@@ -7101,9 +7721,9 @@
                 "height": "2.000000",
                 "index": 1,
                 "nonWalkableMode": "1",
-                "positionX": "16628.103516",
-                "positionY": "7894.862305",
-                "positionZ": "38357.703125",
+                "positionX": "-18541.070313",
+                "positionY": "28123.013672",
+                "positionZ": "227626.046875",
                 "radius": "0.500000",
                 "slopeLimit": "45.000000",
                 "stepOffset": "0.300000"
@@ -7444,8 +8064,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000371",
-                "scalez": "1.000371"
+                "scaley": "1.000374",
+                "scalez": "1.000374"
             }
         },
         "Index": 0,
@@ -7788,6 +8408,161 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "142114995",
+        "Static": false
+    },
+    "1744161410": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 850507235,
+                "index": 0,
+                "layer": "0",
+                "positionx": "335.668579",
+                "positiony": "-18.225262",
+                "positionz": "192.985962",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/31802940.mesh"
+                    }
+                },
+                "UID": 597609204,
+                "index": 1
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/Prop_Script.lua"
+                },
+                "Script variables": {
+                    "Count": 4,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "current_type",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "myUID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": true,
+                        "Name": "Destroyable",
+                        "ObjectName": "barrel_Destructed (0).prefab",
+                        "Type": "Double",
+                        "Value": 2048236707.0
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "health",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2.0
+                    }
+                },
+                "UID": 802214706,
+                "index": 2
+            },
+            "15": {
+                "Active": true,
+                "UID": 1382838897,
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "1.000000",
+                "freezePosition_X": "0",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "0",
+                "freezeRotation_X": "0",
+                "freezeRotation_Y": "0",
+                "freezeRotation_Z": "0",
+                "index": 3,
+                "is_kinematic": "0",
+                "linear_damping": "0.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "0.000000",
+                "linear_velz": "0.000000",
+                "mass": "10.000000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": true,
+                "UID": 787469380,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "0",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "335.696106",
+                "globalMatrixy": "-17.059811",
+                "globalMatrixz": "193.009048",
+                "globalPositionx": "84.555069",
+                "globalPositiony": "84.812271",
+                "globalPositionz": "94.199867",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "index": 4,
+                "isConvex": "0",
+                "isTrigger": "0",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "1.083852",
+                "localMatrixy": "-0.909091",
+                "localMatrixz": "45.883839",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "1.083852",
+                "offsety": "-0.909091",
+                "offsetz": "45.883839",
+                "originalScalex": "84.555069",
+                "originalScaley": "84.812271",
+                "originalScalez": "94.199867",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "1.000000",
+                "tmpScaley": "1.000000",
+                "tmpScalez": "1.000000"
+            },
+            "19": {
+                "Active": true,
+                "UID": 1536606022,
+                "index": 5
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/05 - Default.mat"
+                    }
+                },
+                "UID": 1002498710,
+                "index": 6
+            }
+        },
+        "Index": 26,
+        "Name": "b7",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "-1",
         "Static": false
     },
     "1745022283": {
@@ -8584,6 +9359,161 @@
         "Parent": "849507112",
         "Static": false
     },
+    "1840785132": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1853780567,
+                "index": 0,
+                "layer": "0",
+                "positionx": "21.748793",
+                "positiony": "0.572053",
+                "positionz": "28.323017",
+                "rotationw": "0.911514",
+                "rotationx": "0.016845",
+                "rotationy": "0.410853",
+                "rotationz": "0.007593",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/31802940.mesh"
+                    }
+                },
+                "UID": 437154054,
+                "index": 1
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/Prop_Script.lua"
+                },
+                "Script variables": {
+                    "Count": 4,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "current_type",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "myUID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": true,
+                        "Name": "Destroyable",
+                        "ObjectName": "barrel_Destructed (0).prefab",
+                        "Type": "Double",
+                        "Value": 2048236707.0
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "health",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2.0
+                    }
+                },
+                "UID": 964148250,
+                "index": 2
+            },
+            "15": {
+                "Active": true,
+                "UID": 1068958971,
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "1.000000",
+                "freezePosition_X": "0",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "0",
+                "freezeRotation_X": "0",
+                "freezeRotation_Y": "0",
+                "freezeRotation_Z": "0",
+                "index": 3,
+                "is_kinematic": "0",
+                "linear_damping": "0.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "0.000000",
+                "linear_velz": "0.000000",
+                "mass": "10.000000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": true,
+                "UID": 946733206,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "0",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "22.640242",
+                "globalMatrixy": "0.521222",
+                "globalMatrixz": "29.072884",
+                "globalPositionx": "84.555069",
+                "globalPositiony": "84.812279",
+                "globalPositionz": "94.199867",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "index": 4,
+                "isConvex": "0",
+                "isTrigger": "0",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "1.083859",
+                "localMatrixy": "-0.909083",
+                "localMatrixz": "45.883873",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "1.083859",
+                "offsety": "-0.909083",
+                "offsetz": "45.883873",
+                "originalScalex": "84.555069",
+                "originalScaley": "84.812279",
+                "originalScalez": "94.199867",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "1.000000",
+                "tmpScaley": "1.000000",
+                "tmpScalez": "1.000000"
+            },
+            "19": {
+                "Active": true,
+                "UID": 866784856,
+                "index": 5
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/05 - Default.mat"
+                    }
+                },
+                "UID": 2137978876,
+                "index": 6
+            }
+        },
+        "Index": 21,
+        "Name": "b3",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "-1",
+        "Static": false
+    },
     "1852112715": {
         "Active": true,
         "Components": {
@@ -8594,7 +9524,7 @@
                 "positionx": "0.000001",
                 "positiony": "34.904800",
                 "positionz": "0.000000",
-                "rotationw": "0.872123",
+                "rotationw": "0.872124",
                 "rotationx": "0.443311",
                 "rotationy": "-0.181690",
                 "rotationz": "0.099321",
@@ -8778,8 +9708,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000371",
-                "scalez": "1.000371"
+                "scaley": "1.000374",
+                "scalez": "1.000374"
             }
         },
         "Index": 0,
@@ -8943,9 +9873,9 @@
                 "rotationx": "0.678869",
                 "rotationy": "0.456193",
                 "rotationz": "-0.419121",
-                "scalex": "0.999979",
-                "scaley": "0.999978",
-                "scalez": "0.999967"
+                "scalex": "0.999976",
+                "scaley": "0.999975",
+                "scalez": "0.999961"
             },
             "13": {
                 "Active": false,
@@ -8978,8 +9908,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000371",
-                "scalez": "1.000371"
+                "scaley": "1.000374",
+                "scalez": "1.000374"
             }
         },
         "Index": 0,
@@ -9208,13 +10138,13 @@
                 "positionx": "-0.002558",
                 "positiony": "3.794365",
                 "positionz": "0.000008",
-                "rotationw": "0.747086",
+                "rotationw": "0.747085",
                 "rotationx": "0.664093",
                 "rotationy": "0.006250",
                 "rotationz": "0.028367",
                 "scalex": "1.000000",
-                "scaley": "1.000000",
-                "scalez": "1.000000"
+                "scaley": "1.000001",
+                "scalez": "1.000001"
             },
             "13": {
                 "Active": true,
@@ -9445,13 +10375,13 @@
                 "positionx": "-0.003584",
                 "positiony": "3.399673",
                 "positionz": "-0.000008",
-                "rotationw": "0.732332",
+                "rotationw": "0.732331",
                 "rotationx": "0.680327",
                 "rotationy": "-0.005875",
                 "rotationz": "0.028483",
                 "scalex": "1.000000",
-                "scaley": "1.000000",
-                "scalez": "1.000000"
+                "scaley": "1.000001",
+                "scalez": "1.000001"
             },
             "13": {
                 "Active": true,
@@ -10105,12 +11035,12 @@
                 "positionx": "0.000000",
                 "positiony": "34.919907",
                 "positionz": "0.000000",
-                "rotationw": "0.797514",
+                "rotationw": "0.797515",
                 "rotationx": "0.567873",
                 "rotationy": "-0.031569",
                 "rotationz": "0.201232",
                 "scalex": "1.000000",
-                "scaley": "1.000000",
+                "scaley": "0.999999",
                 "scalez": "1.000000"
             },
             "13": {
@@ -10381,8 +11311,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000371",
-                "scalez": "1.000371"
+                "scaley": "1.000374",
+                "scalez": "1.000374"
             }
         },
         "Index": 0,
@@ -10449,6 +11379,161 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1943667259",
+        "Static": false
+    },
+    "2069692124": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 714056912,
+                "index": 0,
+                "layer": "0",
+                "positionx": "408.085938",
+                "positiony": "22.849747",
+                "positionz": "-181.665848",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/1213763456.mesh"
+                    }
+                },
+                "UID": 1257325949,
+                "index": 1
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/Prop_Script.lua"
+                },
+                "Script variables": {
+                    "Count": 4,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "myUID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": true,
+                        "Name": "Destroyable",
+                        "ObjectName": "Box_Destructed (0).prefab",
+                        "Type": "Double",
+                        "Value": 263752449.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "health",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2.0
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "current_type",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    }
+                },
+                "UID": 561476315,
+                "index": 2
+            },
+            "15": {
+                "Active": true,
+                "UID": 2045183921,
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "1.000000",
+                "freezePosition_X": "0",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "0",
+                "freezeRotation_X": "0",
+                "freezeRotation_Y": "0",
+                "freezeRotation_Z": "0",
+                "index": 3,
+                "is_kinematic": "0",
+                "linear_damping": "0.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "0.000000",
+                "linear_velz": "0.000000",
+                "mass": "10.000000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": true,
+                "UID": 994033253,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "0",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "408.085938",
+                "globalMatrixy": "23.487137",
+                "globalMatrixz": "-181.665848",
+                "globalPositionx": "49.408485",
+                "globalPositiony": "49.751934",
+                "globalPositionz": "49.209450",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "index": 4,
+                "isConvex": "0",
+                "isTrigger": "0",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "-0.000012",
+                "localMatrixy": "-0.000005",
+                "localMatrixz": "25.094114",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "-0.000012",
+                "offsety": "-0.000005",
+                "offsetz": "25.094114",
+                "originalScalex": "49.408485",
+                "originalScaley": "49.751934",
+                "originalScalez": "49.209450",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "1.000000",
+                "tmpScaley": "1.000000",
+                "tmpScalez": "1.000000"
+            },
+            "19": {
+                "Active": true,
+                "UID": 157497330,
+                "index": 5
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/18 - Default.mat"
+                    }
+                },
+                "UID": 70110348,
+                "index": 6
+            }
+        },
+        "Index": 31,
+        "Name": "Caja",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "-1",
         "Static": false
     },
     "2092333745": {
@@ -10644,8 +11729,8 @@
                 "rotationx": "0.388476",
                 "rotationy": "0.030072",
                 "rotationz": "0.916844",
-                "scalex": "1.000124",
-                "scaley": "1.000124",
+                "scalex": "1.000130",
+                "scaley": "1.000130",
                 "scalez": "1.000000"
             },
             "13": {
@@ -10988,8 +12073,8 @@
                 "rotationy": "0.518273",
                 "rotationz": "0.442948",
                 "scalex": "1.000000",
-                "scaley": "1.000022",
-                "scalez": "1.000023"
+                "scaley": "1.000025",
+                "scalez": "1.000026"
             },
             "13": {
                 "Active": false,
@@ -11264,8 +12349,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000371",
-                "scalez": "1.000371"
+                "scaley": "1.000374",
+                "scalez": "1.000374"
             }
         },
         "Index": 0,
@@ -11381,8 +12466,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000371",
-                "scalez": "1.000371"
+                "scaley": "1.000374",
+                "scalez": "1.000374"
             }
         },
         "Index": 0,
@@ -11426,9 +12511,9 @@
                 "draw": "1",
                 "firstCreation": "1",
                 "globalMatrixw": "1.000000",
-                "globalMatrixx": "576.549438",
+                "globalMatrixx": "576.550171",
                 "globalMatrixy": "-20.750000",
-                "globalMatrixz": "148.928192",
+                "globalMatrixz": "148.927399",
                 "globalPositionx": "1.000000",
                 "globalPositiony": "1.000000",
                 "globalPositionz": "1.000000",
@@ -11523,9 +12608,9 @@
                 "rotationx": "0.000000",
                 "rotationy": "0.707107",
                 "rotationz": "0.000000",
-                "scalex": "1.000007",
+                "scalex": "1.000010",
                 "scaley": "1.000000",
-                "scalez": "1.000007"
+                "scalez": "1.000010"
             }
         },
         "Index": 8,
@@ -11620,8 +12705,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000371",
-                "scalez": "1.000371"
+                "scaley": "1.000374",
+                "scalez": "1.000374"
             }
         },
         "Index": 0,
@@ -11645,9 +12730,9 @@
                 "rotationx": "0.330696",
                 "rotationy": "0.618391",
                 "rotationz": "0.683613",
-                "scalex": "0.999979",
-                "scaley": "0.999978",
-                "scalez": "0.999978"
+                "scalex": "0.999976",
+                "scaley": "0.999975",
+                "scalez": "0.999975"
             },
             "13": {
                 "Active": false,
@@ -12776,8 +13861,8 @@
                 "rotationx": "0.086868",
                 "rotationy": "-0.073197",
                 "rotationz": "-0.841590",
-                "scalex": "0.999980",
-                "scaley": "0.999975",
+                "scalex": "0.999977",
+                "scaley": "0.999972",
                 "scalez": "1.000001"
             },
             "13": {
@@ -12839,6 +13924,161 @@
         "Navigation Static": false,
         "Parent": "303426806",
         "Static": true
+    },
+    "449709120": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1867222384,
+                "index": 0,
+                "layer": "0",
+                "positionx": "331.256805",
+                "positiony": "-18.225262",
+                "positionz": "187.825943",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/31802940.mesh"
+                    }
+                },
+                "UID": 2114508966,
+                "index": 1
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/Prop_Script.lua"
+                },
+                "Script variables": {
+                    "Count": 4,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "current_type",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "myUID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": true,
+                        "Name": "Destroyable",
+                        "ObjectName": "barrel_Destructed (0).prefab",
+                        "Type": "Double",
+                        "Value": 2048236707.0
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "health",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2.0
+                    }
+                },
+                "UID": 2077236389,
+                "index": 2
+            },
+            "15": {
+                "Active": true,
+                "UID": 1283398648,
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "1.000000",
+                "freezePosition_X": "0",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "0",
+                "freezeRotation_X": "0",
+                "freezeRotation_Y": "0",
+                "freezeRotation_Z": "0",
+                "index": 3,
+                "is_kinematic": "0",
+                "linear_damping": "0.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "0.000000",
+                "linear_velz": "0.000000",
+                "mass": "10.000000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": true,
+                "UID": 1145171679,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "0",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "331.284332",
+                "globalMatrixy": "-17.059811",
+                "globalMatrixz": "187.849030",
+                "globalPositionx": "84.555069",
+                "globalPositiony": "84.812271",
+                "globalPositionz": "94.199867",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "index": 4,
+                "isConvex": "0",
+                "isTrigger": "0",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "1.083852",
+                "localMatrixy": "-0.909091",
+                "localMatrixz": "45.883839",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "1.083852",
+                "offsety": "-0.909091",
+                "offsetz": "45.883839",
+                "originalScalex": "84.555069",
+                "originalScaley": "84.812271",
+                "originalScalez": "94.199867",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "1.000000",
+                "tmpScaley": "1.000000",
+                "tmpScalez": "1.000000"
+            },
+            "19": {
+                "Active": true,
+                "UID": 1822273009,
+                "index": 5
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/05 - Default.mat"
+                    }
+                },
+                "UID": 1577745770,
+                "index": 6
+            }
+        },
+        "Index": 28,
+        "Name": "B80",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "-1",
+        "Static": false
     },
     "463754594": {
         "Active": true,
@@ -12925,8 +14165,8 @@
                 "rotationx": "-0.122380",
                 "rotationy": "-0.048104",
                 "rotationz": "0.925152",
-                "scalex": "1.000252",
-                "scaley": "1.000252",
+                "scalex": "1.000255",
+                "scaley": "1.000255",
                 "scalez": "1.000000"
             },
             "13": {
@@ -14326,6 +15566,161 @@
         "Parent": "1831383879",
         "Static": false
     },
+    "47153496": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 421700558,
+                "index": 0,
+                "layer": "0",
+                "positionx": "172.094818",
+                "positiony": "-17.620531",
+                "positionz": "20.806505",
+                "rotationw": "0.727220",
+                "rotationx": "0.008281",
+                "rotationy": "-0.686310",
+                "rotationz": "0.007839",
+                "scalex": "0.025401",
+                "scaley": "0.025401",
+                "scalez": "0.025401"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/31802940.mesh"
+                    }
+                },
+                "UID": 965610381,
+                "index": 1
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/Prop_Script.lua"
+                },
+                "Script variables": {
+                    "Count": 4,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "current_type",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "myUID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": true,
+                        "Name": "Destroyable",
+                        "ObjectName": "barrel_Destructed (0).prefab",
+                        "Type": "Double",
+                        "Value": 2048236707.0
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "health",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2.0
+                    }
+                },
+                "UID": 1932249913,
+                "index": 2
+            },
+            "15": {
+                "Active": true,
+                "UID": 353093952,
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "1.000000",
+                "freezePosition_X": "0",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "0",
+                "freezeRotation_X": "0",
+                "freezeRotation_Y": "0",
+                "freezeRotation_Z": "0",
+                "index": 3,
+                "is_kinematic": "0",
+                "linear_damping": "0.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "0.000000",
+                "linear_velz": "0.000000",
+                "mass": "10.000000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": true,
+                "UID": 508724983,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "0",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "170.933685",
+                "globalMatrixy": "-17.670195",
+                "globalMatrixz": "20.901350",
+                "globalPositionx": "84.555069",
+                "globalPositiony": "84.812271",
+                "globalPositionz": "94.199867",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "index": 4,
+                "isConvex": "0",
+                "isTrigger": "0",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "1.083852",
+                "localMatrixy": "-0.909091",
+                "localMatrixz": "45.883839",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "1.083852",
+                "offsety": "-0.909091",
+                "offsetz": "45.883839",
+                "originalScalex": "84.555069",
+                "originalScaley": "84.812271",
+                "originalScalez": "94.199867",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "1.000000",
+                "tmpScaley": "1.000000",
+                "tmpScalez": "1.000000"
+            },
+            "19": {
+                "Active": true,
+                "UID": 1571091971,
+                "index": 5
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/05 - Default.mat"
+                    }
+                },
+                "UID": 1062036693,
+                "index": 6
+            }
+        },
+        "Index": 23,
+        "Name": "b4",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "-1",
+        "Static": false
+    },
     "475871087": {
         "Active": true,
         "Components": {
@@ -14423,8 +15818,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000371",
-                "scalez": "1.000371"
+                "scaley": "1.000374",
+                "scalez": "1.000374"
             }
         },
         "Index": 0,
@@ -14432,6 +15827,161 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1873923198",
+        "Static": false
+    },
+    "480579656": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1518532400,
+                "index": 0,
+                "layer": "0",
+                "positionx": "172.094818",
+                "positiony": "-16.735252",
+                "positionz": "23.019320",
+                "rotationw": "0.998756",
+                "rotationx": "-0.049855",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/31802940.mesh"
+                    }
+                },
+                "UID": 1124278590,
+                "index": 1
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/Prop_Script.lua"
+                },
+                "Script variables": {
+                    "Count": 4,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "current_type",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "myUID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": true,
+                        "Name": "Destroyable",
+                        "ObjectName": "barrel_Destructed (0).prefab",
+                        "Type": "Double",
+                        "Value": 2048236707.0
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "health",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2.0
+                    }
+                },
+                "UID": 1915748534,
+                "index": 2
+            },
+            "15": {
+                "Active": true,
+                "UID": 414337738,
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "1.000000",
+                "freezePosition_X": "0",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "0",
+                "freezeRotation_X": "0",
+                "freezeRotation_Y": "0",
+                "freezeRotation_Z": "0",
+                "index": 3,
+                "is_kinematic": "0",
+                "linear_damping": "0.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "0.000000",
+                "linear_velz": "0.000000",
+                "mass": "10.000000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": true,
+                "UID": 1607310794,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "0",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "172.122345",
+                "globalMatrixy": "-16.642166",
+                "globalMatrixz": "24.181274",
+                "globalPositionx": "84.555069",
+                "globalPositiony": "84.812271",
+                "globalPositionz": "94.199867",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "index": 4,
+                "isConvex": "0",
+                "isTrigger": "0",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "1.083852",
+                "localMatrixy": "-0.909091",
+                "localMatrixz": "45.883839",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "1.083852",
+                "offsety": "-0.909091",
+                "offsetz": "45.883839",
+                "originalScalex": "84.555069",
+                "originalScaley": "84.812271",
+                "originalScalez": "94.199867",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "1.000000",
+                "tmpScaley": "1.000000",
+                "tmpScalez": "1.000000"
+            },
+            "19": {
+                "Active": true,
+                "UID": 1645909067,
+                "index": 5
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/05 - Default.mat"
+                    }
+                },
+                "UID": 107749687,
+                "index": 6
+            }
+        },
+        "Index": 24,
+        "Name": "b5",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "-1",
         "Static": false
     },
     "484166862": {
@@ -14548,6 +16098,161 @@
         "Parent": "377055773",
         "Static": false
     },
+    "495399740": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1034553907,
+                "index": 0,
+                "layer": "0",
+                "positionx": "401.774506",
+                "positiony": "22.064766",
+                "positionz": "-181.665848",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/31802940.mesh"
+                    }
+                },
+                "UID": 76038867,
+                "index": 1
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/Prop_Script.lua"
+                },
+                "Script variables": {
+                    "Count": 4,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "current_type",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "myUID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": true,
+                        "Name": "Destroyable",
+                        "ObjectName": "barrel_Destructed (0).prefab",
+                        "Type": "Double",
+                        "Value": 2048236707.0
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "health",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2.0
+                    }
+                },
+                "UID": 354769552,
+                "index": 2
+            },
+            "15": {
+                "Active": true,
+                "UID": 1201555645,
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "1.000000",
+                "freezePosition_X": "0",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "0",
+                "freezeRotation_X": "0",
+                "freezeRotation_Y": "0",
+                "freezeRotation_Z": "0",
+                "index": 3,
+                "is_kinematic": "0",
+                "linear_damping": "0.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "0.000000",
+                "linear_velz": "0.000000",
+                "mass": "10.000000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": true,
+                "UID": 427575307,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "0",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "401.802032",
+                "globalMatrixy": "23.230217",
+                "globalMatrixz": "-181.642761",
+                "globalPositionx": "84.555069",
+                "globalPositiony": "84.812271",
+                "globalPositionz": "94.199867",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "index": 4,
+                "isConvex": "0",
+                "isTrigger": "0",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "1.083852",
+                "localMatrixy": "-0.909091",
+                "localMatrixz": "45.883839",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "1.083852",
+                "offsety": "-0.909091",
+                "offsetz": "45.883839",
+                "originalScalex": "84.555069",
+                "originalScaley": "84.812271",
+                "originalScalez": "94.199867",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "1.000000",
+                "tmpScaley": "1.000000",
+                "tmpScalez": "1.000000"
+            },
+            "19": {
+                "Active": true,
+                "UID": 474144898,
+                "index": 5
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/05 - Default.mat"
+                    }
+                },
+                "UID": 1470805621,
+                "index": 6
+            }
+        },
+        "Index": 29,
+        "Name": "Barril",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "-1",
+        "Static": false
+    },
     "495688304": {
         "Active": true,
         "Components": {
@@ -14563,7 +16268,7 @@
                 "rotationy": "-0.028436",
                 "rotationz": "0.055476",
                 "scalex": "1.000000",
-                "scaley": "0.999750",
+                "scaley": "0.999747",
                 "scalez": "0.999999"
             },
             "13": {
@@ -14690,8 +16395,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000371",
-                "scalez": "1.000371"
+                "scaley": "1.000374",
+                "scalez": "1.000374"
             }
         },
         "Index": 0,
@@ -15081,8 +16786,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000371",
-                "scalez": "1.000371"
+                "scaley": "1.000374",
+                "scalez": "1.000374"
             }
         },
         "Index": 0,
@@ -15102,7 +16807,7 @@
                 "positionx": "107.387650",
                 "positiony": "0.000015",
                 "positionz": "0.000015",
-                "rotationw": "0.897929",
+                "rotationw": "0.897930",
                 "rotationx": "-0.038816",
                 "rotationy": "0.096670",
                 "rotationz": "-0.427634",
@@ -15185,8 +16890,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000371",
-                "scalez": "1.000371"
+                "scaley": "1.000374",
+                "scalez": "1.000374"
             }
         },
         "Index": 0,
@@ -15253,6 +16958,161 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "2112359313",
+        "Static": false
+    },
+    "592720565": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 95219741,
+                "index": 0,
+                "layer": "0",
+                "positionx": "52.054672",
+                "positiony": "-1.406224",
+                "positionz": "13.807366",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/1213763456.mesh"
+                    }
+                },
+                "UID": 11569872,
+                "index": 1
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/Prop_Script.lua"
+                },
+                "Script variables": {
+                    "Count": 4,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "myUID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": true,
+                        "Name": "Destroyable",
+                        "ObjectName": "Box_Destructed (0).prefab",
+                        "Type": "Double",
+                        "Value": 263752449.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "health",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2.0
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "current_type",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    }
+                },
+                "UID": 199690887,
+                "index": 2
+            },
+            "15": {
+                "Active": true,
+                "UID": 2017596796,
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "1.000000",
+                "freezePosition_X": "0",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "0",
+                "freezeRotation_X": "0",
+                "freezeRotation_Y": "0",
+                "freezeRotation_Z": "0",
+                "index": 3,
+                "is_kinematic": "0",
+                "linear_damping": "0.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "0.000000",
+                "linear_velz": "0.000000",
+                "mass": "10.000000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": true,
+                "UID": 201184046,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "0",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "52.054672",
+                "globalMatrixy": "-0.768833",
+                "globalMatrixz": "13.807366",
+                "globalPositionx": "49.408485",
+                "globalPositiony": "49.751934",
+                "globalPositionz": "49.209450",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "index": 4,
+                "isConvex": "0",
+                "isTrigger": "0",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "-0.000012",
+                "localMatrixz": "25.094114",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "-0.000012",
+                "offsetz": "25.094114",
+                "originalScalex": "49.408485",
+                "originalScaley": "49.751934",
+                "originalScalez": "49.209450",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "1.000000",
+                "tmpScaley": "1.000000",
+                "tmpScalez": "1.000000"
+            },
+            "19": {
+                "Active": true,
+                "UID": 196507389,
+                "index": 5
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/18 - Default.mat"
+                    }
+                },
+                "UID": 1570098179,
+                "index": 6
+            }
+        },
+        "Index": 17,
+        "Name": "C1",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "-1",
         "Static": false
     },
     "600201094": {
@@ -15388,8 +17248,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.540000",
-                "scaley": "2.540077",
-                "scalez": "2.540077"
+                "scaley": "2.540081",
+                "scalez": "2.540081"
             },
             "1": {
                 "Active": true,
@@ -15563,6 +17423,161 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "2125942451",
+        "Static": false
+    },
+    "619294174": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 641010116,
+                "index": 0,
+                "layer": "0",
+                "positionx": "334.730927",
+                "positiony": "-18.664984",
+                "positionz": "190.925812",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/1213763456.mesh"
+                    }
+                },
+                "UID": 907617729,
+                "index": 1
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/Prop_Script.lua"
+                },
+                "Script variables": {
+                    "Count": 4,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "myUID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": true,
+                        "Name": "Destroyable",
+                        "ObjectName": "Box_Destructed (0).prefab",
+                        "Type": "Double",
+                        "Value": 263752449.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "health",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2.0
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "current_type",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    }
+                },
+                "UID": 1695081381,
+                "index": 2
+            },
+            "15": {
+                "Active": true,
+                "UID": 444489363,
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "1.000000",
+                "freezePosition_X": "0",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "0",
+                "freezeRotation_X": "0",
+                "freezeRotation_Y": "0",
+                "freezeRotation_Z": "0",
+                "index": 3,
+                "is_kinematic": "0",
+                "linear_damping": "0.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "0.000000",
+                "linear_velz": "0.000000",
+                "mass": "10.000000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": true,
+                "UID": 554588153,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "0",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "334.730927",
+                "globalMatrixy": "-18.027594",
+                "globalMatrixz": "190.925812",
+                "globalPositionx": "49.408485",
+                "globalPositiony": "49.751934",
+                "globalPositionz": "49.209450",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "index": 4,
+                "isConvex": "0",
+                "isTrigger": "0",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "-0.000012",
+                "localMatrixy": "-0.000005",
+                "localMatrixz": "25.094114",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "-0.000012",
+                "offsety": "-0.000005",
+                "offsetz": "25.094114",
+                "originalScalex": "49.408485",
+                "originalScaley": "49.751934",
+                "originalScalez": "49.209450",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "1.000000",
+                "tmpScaley": "1.000000",
+                "tmpScalez": "1.000000"
+            },
+            "19": {
+                "Active": true,
+                "UID": 990350866,
+                "index": 5
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/18 - Default.mat"
+                    }
+                },
+                "UID": 2107671204,
+                "index": 6
+            }
+        },
+        "Index": 25,
+        "Name": "c6",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "-1",
         "Static": false
     },
     "620014763": {
@@ -15929,8 +17944,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000371",
-                "scalez": "1.000371"
+                "scaley": "1.000374",
+                "scalez": "1.000374"
             }
         },
         "Index": 0,
@@ -15955,8 +17970,8 @@
                 "rotationy": "-0.023509",
                 "rotationz": "0.706716",
                 "scalex": "1.657900",
-                "scaley": "1.657922",
-                "scalez": "1.657922"
+                "scaley": "1.657925",
+                "scalez": "1.657925"
             },
             "13": {
                 "Active": false,
@@ -16063,6 +18078,161 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "377055773",
+        "Static": false
+    },
+    "670295937": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1953879585,
+                "index": 0,
+                "layer": "0",
+                "positionx": "10.760174",
+                "positiony": "0.000000",
+                "positionz": "28.141811",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/1213763456.mesh"
+                    }
+                },
+                "UID": 846451717,
+                "index": 1
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/Prop_Script.lua"
+                },
+                "Script variables": {
+                    "Count": 4,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "myUID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": true,
+                        "Name": "Destroyable",
+                        "ObjectName": "Box_Destructed (0).prefab",
+                        "Type": "Double",
+                        "Value": 263752449.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "health",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2.0
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "current_type",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    }
+                },
+                "UID": 1716231930,
+                "index": 2
+            },
+            "15": {
+                "Active": true,
+                "UID": 1940563097,
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "1.000000",
+                "freezePosition_X": "0",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "0",
+                "freezeRotation_X": "0",
+                "freezeRotation_Y": "0",
+                "freezeRotation_Z": "0",
+                "index": 3,
+                "is_kinematic": "0",
+                "linear_damping": "0.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "0.000000",
+                "linear_velz": "0.000000",
+                "mass": "10.000000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": true,
+                "UID": 1452176173,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "0",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "10.760174",
+                "globalMatrixy": "0.637391",
+                "globalMatrixz": "28.141811",
+                "globalPositionx": "49.408485",
+                "globalPositiony": "49.751934",
+                "globalPositionz": "49.209450",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "index": 4,
+                "isConvex": "0",
+                "isTrigger": "0",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "-0.000012",
+                "localMatrixz": "25.094114",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "-0.000012",
+                "offsetz": "25.094114",
+                "originalScalex": "49.408485",
+                "originalScaley": "49.751934",
+                "originalScalez": "49.209450",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "1.000000",
+                "tmpScaley": "1.000000",
+                "tmpScalez": "1.000000"
+            },
+            "19": {
+                "Active": true,
+                "UID": 896950816,
+                "index": 5
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/18 - Default.mat"
+                    }
+                },
+                "UID": 2083273270,
+                "index": 6
+            }
+        },
+        "Index": 20,
+        "Name": "c3",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "-1",
         "Static": false
     },
     "671190428": {
@@ -16401,8 +18571,8 @@
                 "rotationx": "0.388476",
                 "rotationy": "0.030072",
                 "rotationz": "0.916844",
-                "scalex": "1.000124",
-                "scaley": "1.000124",
+                "scalex": "1.000130",
+                "scaley": "1.000130",
                 "scalez": "1.000000"
             },
             "13": {
@@ -16547,6 +18717,161 @@
         "Parent": "759621050",
         "Static": false
     },
+    "710616387": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1097556097,
+                "index": 0,
+                "layer": "0",
+                "positionx": "54.091835",
+                "positiony": "-1.590826",
+                "positionz": "15.637598",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/31802940.mesh"
+                    }
+                },
+                "UID": 1189901683,
+                "index": 1
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/Prop_Script.lua"
+                },
+                "Script variables": {
+                    "Count": 4,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "current_type",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "myUID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": true,
+                        "Name": "Destroyable",
+                        "ObjectName": "barrel_Destructed (0).prefab",
+                        "Type": "Double",
+                        "Value": 2048236707.0
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "health",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2.0
+                    }
+                },
+                "UID": 815905471,
+                "index": 2
+            },
+            "15": {
+                "Active": true,
+                "UID": 1064849694,
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "1.000000",
+                "freezePosition_X": "0",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "0",
+                "freezeRotation_X": "0",
+                "freezeRotation_Y": "0",
+                "freezeRotation_Z": "0",
+                "index": 3,
+                "is_kinematic": "0",
+                "linear_damping": "0.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "0.000000",
+                "linear_velz": "0.000000",
+                "mass": "10.000000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": true,
+                "UID": 470084240,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "0",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "54.119366",
+                "globalMatrixy": "-0.425376",
+                "globalMatrixz": "15.660688",
+                "globalPositionx": "84.555069",
+                "globalPositiony": "84.812271",
+                "globalPositionz": "94.199867",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "index": 4,
+                "isConvex": "0",
+                "isTrigger": "0",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "1.083885",
+                "localMatrixy": "-0.909091",
+                "localMatrixz": "45.883839",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "1.083885",
+                "offsety": "-0.909091",
+                "offsetz": "45.883839",
+                "originalScalex": "84.555069",
+                "originalScaley": "84.812271",
+                "originalScalez": "94.199867",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "1.000000",
+                "tmpScaley": "1.000000",
+                "tmpScalez": "1.000000"
+            },
+            "19": {
+                "Active": true,
+                "UID": 581622238,
+                "index": 5
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/05 - Default.mat"
+                    }
+                },
+                "UID": 170183966,
+                "index": 6
+            }
+        },
+        "Index": 16,
+        "Name": "B1",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "-1",
+        "Static": false
+    },
     "714926228": {
         "Active": true,
         "Components": {
@@ -16676,7 +19001,7 @@
                 "rotationy": "0.035462",
                 "rotationz": "0.610072",
                 "scalex": "1.000000",
-                "scaley": "1.000023",
+                "scaley": "1.000026",
                 "scalez": "0.999999"
             },
             "13": {
@@ -17183,7 +19508,7 @@
                 "positionx": "0.000000",
                 "positiony": "34.603600",
                 "positionz": "0.000000",
-                "rotationw": "0.946521",
+                "rotationw": "0.946522",
                 "rotationx": "-0.321020",
                 "rotationy": "0.010589",
                 "rotationz": "0.030513",
@@ -17345,7 +19670,7 @@
                 "positionx": "0.000000",
                 "positiony": "9.054760",
                 "positionz": "-0.000008",
-                "rotationw": "0.856052",
+                "rotationw": "0.856053",
                 "rotationx": "0.158220",
                 "rotationy": "0.481426",
                 "rotationz": "-0.101832",
@@ -17403,6 +19728,161 @@
         "Parent": "1384751305",
         "Static": false
     },
+    "789452936": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1817290313,
+                "index": 0,
+                "layer": "0",
+                "positionx": "51.034061",
+                "positiony": "-1.406224",
+                "positionz": "16.247942",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/1213763456.mesh"
+                    }
+                },
+                "UID": 422334721,
+                "index": 1
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/Prop_Script.lua"
+                },
+                "Script variables": {
+                    "Count": 4,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "myUID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": true,
+                        "Name": "Destroyable",
+                        "ObjectName": "Box_Destructed (0).prefab",
+                        "Type": "Double",
+                        "Value": 263752449.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "health",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2.0
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "current_type",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    }
+                },
+                "UID": 19516017,
+                "index": 2
+            },
+            "15": {
+                "Active": true,
+                "UID": 1514954653,
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "1.000000",
+                "freezePosition_X": "0",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "0",
+                "freezeRotation_X": "0",
+                "freezeRotation_Y": "0",
+                "freezeRotation_Z": "0",
+                "index": 3,
+                "is_kinematic": "0",
+                "linear_damping": "0.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "0.000000",
+                "linear_velz": "0.000000",
+                "mass": "10.000000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": true,
+                "UID": 1146057755,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "0",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "51.034061",
+                "globalMatrixy": "-0.768833",
+                "globalMatrixz": "16.247942",
+                "globalPositionx": "49.408485",
+                "globalPositiony": "49.751934",
+                "globalPositionz": "49.209450",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "index": 4,
+                "isConvex": "0",
+                "isTrigger": "0",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "-0.000012",
+                "localMatrixz": "25.094114",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "-0.000012",
+                "offsetz": "25.094114",
+                "originalScalex": "49.408485",
+                "originalScaley": "49.751934",
+                "originalScalez": "49.209450",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "1.000000",
+                "tmpScaley": "1.000000",
+                "tmpScalez": "1.000000"
+            },
+            "19": {
+                "Active": true,
+                "UID": 616934311,
+                "index": 5
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/18 - Default.mat"
+                    }
+                },
+                "UID": 1910726131,
+                "index": 6
+            }
+        },
+        "Index": 19,
+        "Name": "c2",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "-1",
+        "Static": false
+    },
     "79668573": {
         "Active": true,
         "Components": {
@@ -17451,9 +19931,9 @@
                 "rotationx": "-0.311004",
                 "rotationy": "-0.625106",
                 "rotationz": "0.693408",
-                "scalex": "0.999979",
-                "scaley": "0.999977",
-                "scalez": "0.999979"
+                "scalex": "0.999976",
+                "scaley": "0.999974",
+                "scalez": "0.999976"
             },
             "13": {
                 "Active": false,
@@ -18116,9 +20596,9 @@
                 "rotationx": "0.555985",
                 "rotationy": "-0.516106",
                 "rotationz": "0.453164",
-                "scalex": "1.000252",
-                "scaley": "1.000252",
-                "scalez": "1.000252"
+                "scalex": "1.000255",
+                "scaley": "1.000255",
+                "scalez": "1.000255"
             },
             "13": {
                 "Active": true,
@@ -18276,8 +20756,8 @@
                 "rotationx": "-0.116165",
                 "rotationy": "0.318562",
                 "rotationz": "0.930541",
-                "scalex": "0.999946",
-                "scaley": "1.000024",
+                "scalex": "0.999942",
+                "scaley": "1.000021",
                 "scalez": "1.000000"
             },
             "13": {
@@ -19126,8 +21606,8 @@
                 "rotationx": "0.046474",
                 "rotationy": "0.155068",
                 "rotationz": "0.844688",
-                "scalex": "1.000022",
-                "scaley": "1.000022",
+                "scalex": "1.000025",
+                "scaley": "1.000025",
                 "scalez": "1.000000"
             },
             "13": {
