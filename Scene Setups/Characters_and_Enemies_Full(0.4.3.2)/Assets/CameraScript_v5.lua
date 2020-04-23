@@ -586,63 +586,63 @@ end
 function lua_table:Awake ()
 	lua_table.SystemFunctions:LOG ("This Log was called from Camera Script on AWAKE")
 
-	-- Get my own UID
+	-- -- Get my own UID
 	lua_table.myUID = lua_table.GameObjectFunctions:GetMyUID()
-	---------------------------------------------------------------------------
-	-- Player UIDs
-	---------------------------------------------------------------------------
+	-- ---------------------------------------------------------------------------
+	-- -- Player UIDs
+	-- ---------------------------------------------------------------------------
 
-	-- Player 1 id
-	P1_id = lua_table.GameObjectFunctions:FindGameObject(lua_table.geralt_GO)	-- first checks if Geralt available
+	-- -- Player 1 id
+	-- P1_id = lua_table.GameObjectFunctions:FindGameObject(lua_table.geralt_GO)	-- first checks if Geralt available
 
-	if P1_id ~= 0
-	then 
-		lua_table.SystemFunctions:LOG ("Camera: Player 1 id successfully recieved (Geralt)")
+	-- if P1_id ~= 0
+	-- then 
+	-- 	lua_table.SystemFunctions:LOG ("Camera: Player 1 id successfully recieved (Geralt)")
 
-		-- Player 2 id
-		P2_id = lua_table.GameObjectFunctions:FindGameObject(lua_table.jaskier_GO)
+	-- 	-- Player 2 id
+	-- 	P2_id = lua_table.GameObjectFunctions:FindGameObject(lua_table.jaskier_GO)
 
-		if P2_id == 0 
-		then
-			lua_table.SystemFunctions:LOG ("Camera: Null Player 2 id, check name of game object inside script")
+	-- 	if P2_id == 0 
+	-- 	then
+	-- 		lua_table.SystemFunctions:LOG ("Camera: Null Player 2 id, check name of game object inside script")
 
-			lua_table.SystemFunctions:LOG ("Camera: Gameplay mode set to SOLO")
-			current_gameplay = gameplay.SOLO
-		else
-			lua_table.SystemFunctions:LOG ("Camera: Player 2 id successfully recieved (Jaskier)")
+	-- 		lua_table.SystemFunctions:LOG ("Camera: Gameplay mode set to SOLO")
+	-- 		current_gameplay = gameplay.SOLO
+	-- 	else
+	-- 		lua_table.SystemFunctions:LOG ("Camera: Player 2 id successfully recieved (Jaskier)")
 
-			lua_table.SystemFunctions:LOG ("Camera: Gameplay mode set to DUO")
-			current_gameplay = gameplay.DUO
-		end
-	else
-		P1_id = lua_table.GameObjectFunctions:FindGameObject(lua_table.jaskier_GO) -- If not checks if Jaskier available
+	-- 		lua_table.SystemFunctions:LOG ("Camera: Gameplay mode set to DUO")
+	-- 		current_gameplay = gameplay.DUO
+	-- 	end
+	-- else
+	-- 	P1_id = lua_table.GameObjectFunctions:FindGameObject(lua_table.jaskier_GO) -- If not checks if Jaskier available
 
-		if P1_id ~= 0
-		then 
-			lua_table.SystemFunctions:LOG ("Camera: Player 1 id successfully recieved (Jaskier)")
+	-- 	if P1_id ~= 0
+	-- 	then 
+	-- 		lua_table.SystemFunctions:LOG ("Camera: Player 1 id successfully recieved (Jaskier)")
 
-			lua_table.SystemFunctions:LOG ("Camera: Gameplay mode set to SOLO")
-			current_gameplay = gameplay.SOLO
-		else
-			lua_table.SystemFunctions:LOG ("Camera: Null Player 1 id, check name of game object")	
+	-- 		lua_table.SystemFunctions:LOG ("Camera: Gameplay mode set to SOLO")
+	-- 		current_gameplay = gameplay.SOLO
+	-- 	else
+	-- 		lua_table.SystemFunctions:LOG ("Camera: Null Player 1 id, check name of game object")	
 
-			lua_table.SystemFunctions:LOG ("Camera: Gameplay mode set to NULL")
-			current_gameplay = gameplay.NULL
-		end
-	end
+	-- 		lua_table.SystemFunctions:LOG ("Camera: Gameplay mode set to NULL")
+	-- 		current_gameplay = gameplay.NULL
+	-- 	end
+	-- end
 
-	-- Kikimora id
+	-- -- Kikimora id
 
-	Kikimora_id = lua_table.GameObjectFunctions:FindGameObject(lua_table.kikimora_GO)
-	if P2_id == 0 
-	then
-		lua_table.SystemFunctions:LOG ("Camera: Null Boss id, check name of game object inside script")
-	else
-		lua_table.SystemFunctions:LOG ("Camera: Boss id successfully recieved")
-	end
+	-- Kikimora_id = lua_table.GameObjectFunctions:FindGameObject(lua_table.kikimora_GO)
+	-- if P2_id == 0 
+	-- then
+	-- 	lua_table.SystemFunctions:LOG ("Camera: Null Boss id, check name of game object inside script")
+	-- else
+	-- 	lua_table.SystemFunctions:LOG ("Camera: Boss id successfully recieved")
+	-- end
 
 	 
-	camera_angle_for_offset = 90 - lua_table.camera_angle
+	--camera_angle_for_offset = 90 - lua_table.camera_angle
 	rotation_x = 180 - lua_table.camera_angle --because soemthing is wrong with the motor view that is inverted
 
 	-- Debug
@@ -651,40 +651,40 @@ end
 
 function lua_table:Start ()
 	lua_table.SystemFunctions:LOG ("This Log was called from Camera Script on START")
-	local is_start = true
+	-- local is_start = true
 
-	HandleTarget()
-	HandleOffset()
-	HandleMovement()
+	-- HandleTarget()
+	-- HandleOffset()
+	-- HandleMovement()
 
-	-- LookAt
-	-- lua_table["Functions"]:LookAt(target_position_x, 0, 0, false)
+	-- -- LookAt
+	--lua_table["Functions"]:LookAt(target_position_x, 0, 0, false)
 	lua_table.TransformFunctions:RotateObject(rotation_x, rotation_y, rotation_z, lua_table.myUID)	
 
-	is_start = false
+	-- is_start = false
 end
 
 function lua_table:Update ()
-	dt = lua_table.SystemFunctions:DT ()
-	is_update = true
+	-- dt = lua_table.SystemFunctions:DT ()
+	-- is_update = true
 	
-	CheckBossFight()
-	HandleZoomLayers()
-	HandleSwitch()
-	HandleTarget()
-	HandleOffset()
-	HandleMovement()
+	-- CheckBossFight()
+	-- HandleZoomLayers()
+	-- HandleSwitch()
+	-- HandleTarget()
+	-- HandleOffset()
+	-- HandleMovement()
 
-	-- Debug
+	-- -- Debug
 
-	-- lua_table.SystemFunctions:LOG ("Camera Layer: " .. current_zoom_layer)
-	-- lua_table.SystemFunctions:LOG ("Camera State: " .. current_state)
+	-- -- lua_table.SystemFunctions:LOG ("Camera Layer: " .. current_zoom_layer)
+	-- -- lua_table.SystemFunctions:LOG ("Camera State: " .. current_state)
 	
-	-- lua_table.SystemFunctions:LOG ("Camera: Max Health is " .. Health)
-	-- lua_table.SystemFunctions:LOG ("Camera: Health x5 is " .. Health * 5)
-	-- lua_table.SystemFunctions:LOG ("Camera: 1")
+	-- -- lua_table.SystemFunctions:LOG ("Camera: Max Health is " .. Health)
+	-- -- lua_table.SystemFunctions:LOG ("Camera: Health x5 is " .. Health * 5)
+	-- -- lua_table.SystemFunctions:LOG ("Camera: 1")
 
-	is_update = false
+	-- is_update = false
 end
 	return lua_table
 end
