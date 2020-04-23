@@ -214,7 +214,7 @@ local function AttackColliderShutdown()
 	end
 	if is_area_active then
 		lua_table.GameObjectFunctions:SetActiveGameObject(false, Stun_Coll)	--TODO-Colliders: Check
-		ais_area_active = false
+		is_area_active = false
 	end
 end
 	
@@ -307,7 +307,7 @@ local function JumpStun() -- Smash the ground with a jump, then stun
 	end
 
 	if jump_timer + 2100 <= lua_table.System:GameTime() * 1000 then 
-		is_front_active = false
+		is_area_active = false
 		lua_table.GameObject:SetActiveGameObject(false, Stun_Coll)
 	end
 		
@@ -648,8 +648,8 @@ function lua_table:Start()
 	lua_table.health = lua_table.max_hp
 
 	-- Get colliders
-	Front_Att_Coll = lua_table.GameObject:FindGameObject(lua_table.FrontName)
-	Stun_Coll = lua_table.GameObject:FindGameObject(lua_table.StunName)
+	Front_Att_Coll = lua_table.GameObject:FindChildGameObject(lua_table.FrontName)
+	Stun_Coll = lua_table.GameObject:FindChildGameObject(lua_table.StunName)
 
 	-- Initialize Nav
 	navID = lua_table.Recast:GetAreaFromName("Walkable")
