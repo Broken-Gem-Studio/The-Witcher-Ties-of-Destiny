@@ -74,18 +74,19 @@ end
 
 function lua_table:Update()
     dt = lua_table["System"]:DT ()
-    --lua_table.hplocal = lua_table.hpP1.current_health
+    lua_table.hplocal = lua_table.hpP1.current_health / 2 -- transform to 200, next approacg use max_hp_real to call function
+    lua_table.hplocal2 = lua_table.hpP2.current_health / 2
     lua_table["System"]:LOG (" HP IN UPDATE BEFORE FUNCTION : " .. lua_table.hplocal)
     lua_table["System"]:LOG (" HP2 IN UPDATE BEFORE FUNCTION : " .. lua_table.hplocal2)
     
         
         
-        if lua_table.hplocal > 0
+        if lua_table.hplocal >= 0
         then
             lua_table.hplocal = UpdateHealthBar(HPID, lua_table.hplocal)--igual poner hplocal en arg da `Problema y hay que usar lua_table.hpP1.curent_health
         end
       
-        if lua_table.hplocal2 > 0
+        if lua_table.hplocal2 >= 0
         then
             lua_table.hplocal2 = UpdateHealthBar(HPID2, lua_table.hplocal2)--igual poner hplocal en arg da `Problema y hay que usar lua_table.hpP1.curent_health
         end
