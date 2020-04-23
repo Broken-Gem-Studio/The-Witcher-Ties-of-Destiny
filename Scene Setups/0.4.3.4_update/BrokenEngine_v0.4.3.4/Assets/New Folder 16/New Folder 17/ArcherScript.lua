@@ -245,6 +245,9 @@ end
 
 local function GetClosestPlayer()
 
+    local scriptG = lua_table.GameObjectFunctions:GetScript(Geralt_ID)
+    local scriptJ = lua_table.GameObjectFunctions:GetScript(Jaskier_ID)
+
     position = lua_table.Transform:GetPosition(MyUID)
 
     Gpos = lua_table.Transform:GetPosition(Geralt_ID)   
@@ -252,20 +255,37 @@ local function GetClosestPlayer()
 
     GX = Gpos[1] - position[1]
     GZ = Gpos[3] - position[3]
-    GeraltDistance =  math.sqrt(GX^2 + GZ^2)
+
+    if scriptG.current_state > -3 then
+        GeraltDistance =  math.sqrt(GX^2 + GZ^2)
+    else
+        GeraltDistance = -1 
+    end
 
     JX = Jpos[1] - position[1]
-	JZ = Jpos[3] - position[3]
-    JaskierDistance =  math.sqrt(JX^2 + JZ^2)
+    JZ = Jpos[3] - position[3]
 
-    local scriptG = lua_table.GameObjectFunctions:GetScript(Geralt_ID)
-    local scriptJ = lua_table.GameObjectFunctions:GetScript(Jaskier_ID)
-
-    if GeraltDistance < JaskierDistance and scriptG.current_state > -3 then 
-        lua_table.ClosestPlayer_ID = Geralt_ID
-    elseif GeraltDistance > JaskierDistance and scriptJ.current_state > -3 then
-        lua_table.ClosestPlayer_ID = Jaskier_ID
+    if scriptJ.current_state > -3 then
+        JaskierDistance =  math.sqrt(JX^2 + JZ^2)
     else
+        JaskierDistance = -1 
+    end
+
+    
+
+    if GeraltDistance ~= -1 then
+        if JaskierDistance == -1 or GeraltDistance < JaskierDistance  then
+            lua_table.ClosestPlayer_ID = Geralt_ID
+        end
+    end
+
+    if JaskierDistance ~= -1 then
+        if GeraltDistance == -1 or JaskierDistance < GeraltDistance then
+            lua_table.ClosestPlayer_ID = Jaskier_ID
+        end
+    end
+
+    if JaskierDistance == -1 and GeraltDistance == -1 then
         lua_table.ClosestPlayer_ID = 0;
     end
 
@@ -438,7 +458,7 @@ end
 function lua_table:Start()
     Geralt_ID = lua_table.GameObjectFunctions:FindGameObject(lua_table.geralt)
     Jaskier_ID = lua_table.GameObjectFunctions:FindGameObject(lua_table.jaskier)
-    Attack_Collider_UID = lua_table.GameObjectFunctions:FindGameObject(lua_table.Attack_Collider)
+    Attack_Collider_UID = lua_table.GameObjectFunctions:FindChildGameObject(lua_table.Attack_Collider)
 
     MyUID = lua_table.GameObjectFunctions:GetMyUID()
 
