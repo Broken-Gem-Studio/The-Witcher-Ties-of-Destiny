@@ -13,6 +13,9 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID COMBAT = 2764240573U;
+        static const AkUniqueID DEFAULT = 782826392U;
+        static const AkUniqueID MAIN_MENU = 2005704188U;
         static const AkUniqueID PLAY_ATTACK_SLOW = 3307195674U;
         static const AkUniqueID PLAY_BANDIT_ARROW_HIT = 721993780U;
         static const AkUniqueID PLAY_BANDIT_BOW_PULLING_ROPE = 3370108054U;
@@ -147,6 +150,7 @@ namespace AK
         static const AkUniqueID PLAY_WOODEN_OBJECT_BREAK_4 = 152572331U;
         static const AkUniqueID PLAY_WOODEN_OBJECT_BREAK_5 = 152572330U;
         static const AkUniqueID PLAY_WOODEN_OBJECT_BREAK_6 = 152572329U;
+        static const AkUniqueID REST = 2277599019U;
     } // namespace EVENTS
 
     namespace GAME_PARAMETERS
