@@ -143,6 +143,8 @@ local Attack1_TimeController = 0
 local IdleArmed_AnimController = false 
 local DelayIlde_AnimController = false
 local TimeSinceLastAttack = 0
+
+local Attack1_FirstController = false
 --JumpAttack()
 local AfterJumpAttackTimer = 0
 local JumpAttack_TimeController = 0
@@ -376,7 +378,7 @@ local function jumpAttack()
 		lua_table.collider_damage = 20
 		lua_table.collider_effect = 1
 	end
-	if DistanceMagnitudeAux_Target <= lua_table.MinDistanceFromPlayer and lua_table.CurrentSubState == SubState.JUMP_ATTACK
+	if DistanceMagnitudeAux_Target <= lua_table.MinDistanceFromPlayer and lua_table.CurrentSubState == SubState.JUMP_ATTACK and PerfGameTime() - JumpAttack_TimeController > 1700
 	then	
 		--cambiar q se ponga aqui el state atack y el sub estate
 		lua_table.JumpAttackDone = true
@@ -387,8 +389,7 @@ local function jumpAttack()
 		then
 			lua_table.GameObjectFunctions:SetActiveGameObject(true, attack_colliders.jump_attack.GO_UID)
 			attack_colliders.jump_attack.active = true
-			lua_table.SystemFunctions:LOG("jump_attack collider")
-			lua_table.SystemFunctions:LOG("jump_attack collider @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+			--lua_table.SystemFunctions:LOG("jump_attack collider")
 		end	
 	end
 end
@@ -405,14 +406,16 @@ local function Attack()
 
 		--::here:: --magic ends here
 
-		
+		lua_table.SystemFunctions:LOG("1  ")
 		lua_table.AnimationSystem:PlayAnimation("IDLE",30.0,MyUID)
 		DelayIlde_AnimController = true
 	end
 
 	if Attack1_AnimController == false and Time_HandleAttack - AfterJumpAttackTimer > 1000 --delay para q caiga y no insta ataque
 	then
+		lua_table.SystemFunctions:LOG("2 ")
 		Attack1_TimeController = PerfGameTime()
+		Attack1_FirstController = true
 		lua_table.AnimationSystem:PlayAnimation("ATTACK_1",30.0,MyUID)
 		lua_table.attack_effects = attack_effects.none
 		lua_table.collider_damage = 10
@@ -445,6 +448,7 @@ local function Attack()
 	then
 		if IdleArmed_AnimController == false
 		then 
+			lua_table.SystemFunctions:LOG("3  ")
 			lua_table.AnimationSystem:PlayAnimation("IDLE",30.0,MyUID)
 		    IdleArmed_AnimController = true
 		end	
@@ -572,11 +576,12 @@ local function HandleSEEK()
 	then
 		if Run_AnimController == false
 		then
+		lua_table.SystemFunctions:LOG("4  ")
 			lua_table.AnimationSystem:PlayAnimation("RUN",30.0,MyUID)
 			Run_AnimController = true
 		end
 		--lua_table.SystemFunctions:LOG("seekTarget()")
-		seekTarget()----------------------------------11111111111111111111111111
+		seekTarget()
 	end
 	--#####################################################################################   SEEK DONE
 	if DistanceMagnitude < 15 and lua_table.JumpAttackDone == false 
@@ -586,7 +591,7 @@ local function HandleSEEK()
 
 	if UseAuxVariables == true
 	then
-		lua_table.JumpAttackSpeed = 4
+		lua_table.JumpAttackSpeed = 2.8
 		--lua_table.SystemFunctions:LOG("jumpAttack()")
 		if Aux_TargetExist == false
 		then 
@@ -600,24 +605,27 @@ local function HandleSEEK()
 
 	if DistanceMagnitudeAux_Target < 13.5 and lua_table.JumpAttackDone == false --and lua_table.CurrentSubState == SubState.JUMP_ATTACK
 	then
-		lua_table.JumpAttackSpeed = 7
+		lua_table.JumpAttackSpeed = 8.2
 	end
 
 	--#####################################################################################   JUMP ATTACK DONE
 
 	if DistanceMagnitudeAux_Target <= lua_table.MinDistanceFromPlayer+2 and lua_table.JumpAttackDone == true and lua_table.CurrentSubState == SubState.JUMP_ATTACK
 	then
-		if DistanceMagnitude <= lua_table.MinDistanceFromPlayer+2
+		if DistanceMagnitudeAux_Target <= lua_table.MinDistanceFromPlayer+2
 		then
+			lua_table.SystemFunctions:LOG("d_mag = "..DistanceMagnitudeAux_Target)
+			lua_table.SystemFunctions:LOG("5  ")
 			lua_table.AnimationSystem:PlayAnimation("IDLE",30.0,MyUID)
 			lua_table.CurrentState = State.ATTACK
 			lua_table.CurrentSubState = SubState.NONE
 			Run_AnimController = false
-		    lua_table.SystemFunctions:LOG("SEEK----->ATTACK")
+		    lua_table.SystemFunctions:LOG("SEEK----->ATTACK 1")
 			UseAuxVariables = false
 		end
-		if DistanceMagnitude > lua_table.MinDistanceFromPlayer+2
+		if DistanceMagnitude >= lua_table.MinDistanceFromPlayer+2 and lua_table.CurrentState ~= State.ATTACK
 		then
+		lua_table.SystemFunctions:LOG("6  ")
 			lua_table.AnimationSystem:PlayAnimation("RUN",30.0,MyUID)
 			lua_table.CurrentState = State.SEEK
 			lua_table.CurrentSubState = SubState.SEEK_TARGET
@@ -628,11 +636,12 @@ local function HandleSEEK()
 	--#####################################################################################    PREPARED TO ATTACK
 	if DistanceMagnitude <= lua_table.MinDistanceFromPlayer
 	then
+		lua_table.SystemFunctions:LOG("7  ")
 		lua_table.AnimationSystem:PlayAnimation("IDLE",30.0,MyUID)
 		lua_table.CurrentState = State.ATTACK
 		lua_table.CurrentSubState = SubState.NONE
 		Run_AnimController = false
-		lua_table.SystemFunctions:LOG("SEEK----->ATTACK")
+		lua_table.SystemFunctions:LOG("SEEK----->ATTACK 2")
 		UseAuxVariables = false
 	end
 
@@ -659,16 +668,19 @@ local function HandleAttack()
 	
 	DistanceMagnitude = CalculateDistanceToTarget(lua_table.CurrentTarget)
 	Time_HandleAttack = PerfGameTime()
-	TimeSinceLastAttack = Time_HandleAttack - Attack1_TimeController
-
-
+	if Attack1_FirstController == true -- if first attack done ERGO Attack1_TimeController has a valid value
+	then			
+		TimeSinceLastAttack = Time_HandleAttack - Attack1_TimeController
+	end
+	--lua_table.SystemFunctions:LOG("TimeSinceLastAttack"..TimeSinceLastAttack)
+	--############################################################################    DEACTIVATE COLLIDER DAMAGE
 	if AfterJumpAttackTimer > 100 and attack_colliders.jump_attack.active == true
 	then 
 		lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.jump_attack.GO_UID)
 		attack_colliders.jump_attack.active = false
 		lua_table.SystemFunctions:LOG("jump attack collider")
 	end
-
+	--############################################################################    IF IN RANGE ATTACK
 	if DistanceMagnitude <= lua_table.MinDistanceFromPlayer   
 	then
 		Attack()

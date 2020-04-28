@@ -82,8 +82,8 @@
                 "rotationy": "0.000117",
                 "rotationz": "-0.000109",
                 "scalex": "1.000000",
-                "scaley": "1.000023",
-                "scalez": "1.000023"
+                "scaley": "1.000082",
+                "scalez": "1.000082"
             },
             "13": {
                 "Active": true,
@@ -304,7 +304,7 @@
                 "rotationy": "0.017731",
                 "rotationz": "0.999833",
                 "scalex": "1.000000",
-                "scaley": "0.999975",
+                "scaley": "0.999955",
                 "scalez": "1.000000"
             },
             "13": {
@@ -452,9 +452,9 @@
                 "rotationx": "0.000000",
                 "rotationy": "0.776687",
                 "rotationz": "0.000000",
-                "scalex": "2.480285",
+                "scalex": "2.480344",
                 "scaley": "4.219860",
-                "scalez": "3.314362"
+                "scalez": "3.314446"
             },
             "16": {
                 "Active": false,
@@ -647,9 +647,9 @@
                 "rotationx": "0.000000",
                 "rotationy": "0.776687",
                 "rotationz": "0.000000",
-                "scalex": "1.996726",
+                "scalex": "1.996785",
                 "scaley": "2.930840",
-                "scalez": "2.105878"
+                "scalez": "2.105937"
             },
             "16": {
                 "Active": false,
@@ -821,9 +821,9 @@
                 "rotationx": "0.534209",
                 "rotationy": "-0.455339",
                 "rotationz": "0.553834",
-                "scalex": "0.999976",
-                "scaley": "0.999977",
-                "scalez": "0.999977"
+                "scalex": "0.999917",
+                "scaley": "0.999918",
+                "scalez": "0.999918"
             },
             "13": {
                 "Active": true,
@@ -1013,7 +1013,7 @@
                 "GradientColor": true,
                 "Loop": false,
                 "Resources": {
-                    "ResourceTexture": "Library/Textures/1049973944.dds"
+                    "ResourceTexture": "Library/Textures/1292347477.dds"
                 },
                 "UID": 971687443,
                 "emisionRate": "200.000000",
@@ -1574,7 +1574,7 @@
                 "layer": "0",
                 "positionx": "0.000000",
                 "positiony": "1.158586",
-                "positionz": "26.235508",
+                "positionz": "22.022285",
                 "rotationw": "1.000000",
                 "rotationx": "0.000000",
                 "rotationy": "0.000000",
@@ -2347,8 +2347,8 @@
                 "rotationx": "0.000791",
                 "rotationy": "0.016521",
                 "rotationz": "0.999855",
-                "scalex": "1.000025",
-                "scaley": "1.000025",
+                "scalex": "1.000084",
+                "scaley": "1.000084",
                 "scalez": "1.000000"
             },
             "13": {
@@ -2639,7 +2639,7 @@
                     "ResourceScript": "Assets/Lumberjack_v018.lua"
                 },
                 "Script variables": {
-                    "Count": 22,
+                    "Count": 20,
                     "Variable 0": {
                         "DisplayObjectName": false,
                         "Name": "MinDistanceFromPlayer",
@@ -2698,31 +2698,31 @@
                     },
                     "Variable 16": {
                         "DisplayObjectName": false,
-                        "Name": "FrontCo_name",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "Lumberjack_Front"
-                    },
-                    "Variable 17": {
-                        "DisplayObjectName": false,
                         "Name": "player_2_Dead",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": false
                     },
-                    "Variable 18": {
+                    "Variable 17": {
                         "DisplayObjectName": false,
                         "Name": "collider_effect",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
                     },
-                    "Variable 19": {
+                    "Variable 18": {
                         "DisplayObjectName": false,
                         "Name": "CurrentAnim",
                         "ObjectName": "",
                         "Type": "String",
                         "Value": "NONE"
+                    },
+                    "Variable 19": {
+                        "DisplayObjectName": false,
+                        "Name": "CurrentTarget",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
                     },
                     "Variable 2": {
                         "DisplayObjectName": false,
@@ -2730,20 +2730,6 @@
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 20.0
-                    },
-                    "Variable 20": {
-                        "DisplayObjectName": false,
-                        "Name": "CurrentTarget",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 21": {
-                        "DisplayObjectName": false,
-                        "Name": "JumpCo_name",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "Lumberjack_Jump_Attack"
                     },
                     "Variable 3": {
                         "DisplayObjectName": false,
