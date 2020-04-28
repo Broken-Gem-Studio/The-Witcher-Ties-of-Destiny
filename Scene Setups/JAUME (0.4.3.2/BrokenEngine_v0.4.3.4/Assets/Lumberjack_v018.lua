@@ -406,14 +406,14 @@ local function Attack()
 
 		--::here:: --magic ends here
 
-		lua_table.SystemFunctions:LOG("1  ")
+		--lua_table.SystemFunctions:LOG("1  ")
 		lua_table.AnimationSystem:PlayAnimation("IDLE",30.0,MyUID)
 		DelayIlde_AnimController = true
 	end
 
 	if Attack1_AnimController == false and Time_HandleAttack - AfterJumpAttackTimer > 1000 --delay para q caiga y no insta ataque
 	then
-		lua_table.SystemFunctions:LOG("2 ")
+		--lua_table.SystemFunctions:LOG("2 ")
 		Attack1_TimeController = PerfGameTime()
 		Attack1_FirstController = true
 		lua_table.AnimationSystem:PlayAnimation("ATTACK_1",30.0,MyUID)
@@ -448,7 +448,7 @@ local function Attack()
 	then
 		if IdleArmed_AnimController == false
 		then 
-			lua_table.SystemFunctions:LOG("3  ")
+			--lua_table.SystemFunctions:LOG("3  ")
 			lua_table.AnimationSystem:PlayAnimation("IDLE",30.0,MyUID)
 		    IdleArmed_AnimController = true
 		end	
@@ -615,21 +615,22 @@ local function HandleSEEK()
 		if DistanceMagnitudeAux_Target <= lua_table.MinDistanceFromPlayer+2
 		then
 			lua_table.SystemFunctions:LOG("d_mag = "..DistanceMagnitudeAux_Target)
-			lua_table.SystemFunctions:LOG("5  ")
+			--lua_table.SystemFunctions:LOG("5  ")
 			lua_table.AnimationSystem:PlayAnimation("IDLE",30.0,MyUID)
 			lua_table.CurrentState = State.ATTACK
 			lua_table.CurrentSubState = SubState.NONE
 			Run_AnimController = false
-		    lua_table.SystemFunctions:LOG("SEEK----->ATTACK 1")
+		    lua_table.SystemFunctions:LOG("SEEK----->ATTACK")
+			lua_table.SystemFunctions:LOG("NONE")
 			UseAuxVariables = false
 		end
 		if DistanceMagnitude >= lua_table.MinDistanceFromPlayer+2 and lua_table.CurrentState ~= State.ATTACK
 		then
-		lua_table.SystemFunctions:LOG("6  ")
 			lua_table.AnimationSystem:PlayAnimation("RUN",30.0,MyUID)
 			lua_table.CurrentState = State.SEEK
 			lua_table.CurrentSubState = SubState.SEEK_TARGET
-			lua_table.SystemFunctions:LOG("SEEK----->SEEK (SEEK_TARGET)")
+			lua_table.SystemFunctions:LOG("SEEK----->SEEK")
+			lua_table.SystemFunctions:LOG("SEEKTARGET")
 			UseAuxVariables = false
 		end
 	end
@@ -684,13 +685,14 @@ local function HandleAttack()
 	if DistanceMagnitude <= lua_table.MinDistanceFromPlayer   
 	then
 		Attack()
-		lua_table.SystemFunctions:LOG("attack()")
-	elseif DistanceMagnitude >= lua_table.MinDistanceFromPlayer +2 and TimeSinceLastAttack >= 1800 --this last is to make lumberjack end attack anims always
+		--lua_table.SystemFunctions:LOG("attack()")
+	elseif DistanceMagnitude >= lua_table.MinDistanceFromPlayer and TimeSinceLastAttack >= 1800 --this last is to make lumberjack end attack anims always
 	then 
 		lua_table.CurrentState = State.SEEK
 		lua_table.CurrentSubState = SubState.SEEK_TARGET
 		lua_table.JumpAttackDone = true
 		lua_table.SystemFunctions:LOG("ATTACK----->SEEK")
+		lua_table.SystemFunctions:LOG("SEEK_TARGET")
 		DelayIlde_AnimController = false 
 	end
 end
