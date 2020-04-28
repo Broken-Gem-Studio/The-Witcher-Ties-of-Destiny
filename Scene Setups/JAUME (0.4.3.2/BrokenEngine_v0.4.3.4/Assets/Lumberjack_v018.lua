@@ -429,7 +429,7 @@ local function Attack()
 		then
 			lua_table.GameObjectFunctions:SetActiveGameObject(true, attack_colliders.front.GO_UID)
 			attack_colliders.front.active = true
-			lua_table.SystemFunctions:LOG("attack collider  ")
+			lua_table.SystemFunctions:LOG("attack collider activate ")
 			lua_table.SoundSystem:PlayAudioEvent("Play_Bandit_lumberjack_attack")
 		end
 	end
@@ -439,6 +439,7 @@ local function Attack()
 		if attack_colliders.front.active == true
 		then
 			lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.front.GO_UID)
+			lua_table.SystemFunctions:LOG("attack collider deactivate ")
 			attack_colliders.front.active = false
 		
 		end
@@ -625,7 +626,7 @@ local function HandleSEEK()
 			lua_table.SystemFunctions:LOG("NONE -")
 			UseAuxVariables = false
 		end
-		if DistanceMagnitude >= lua_table.MinDistanceFromPlayer --and lua_table.CurrentState ~= State.ATTACK
+		if DistanceMagnitude >= lua_table.MinDistanceFromPlayer 
 		then
 			lua_table.AnimationSystem:PlayAnimation("RUN",30.0,MyUID)
 			lua_table.CurrentState = State.SEEK
@@ -678,7 +679,7 @@ local function HandleAttack()
 	then 
 		lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.jump_attack.GO_UID)
 		attack_colliders.jump_attack.active = false
-		lua_table.SystemFunctions:LOG("jump attack collider")
+		lua_table.SystemFunctions:LOG("jump attack collider deactivate")
 	end
 	--############################################################################    IF IN RANGE ATTACK
 	if DistanceMagnitude <= lua_table.MinDistanceFromPlayer   
