@@ -1460,7 +1460,7 @@ function lua_table:OnTriggerEnter()
 			if enemy_script.collider_effect == attack_effects_ID.stun
 			then
 				lua_table.AnimationFunctions:PlayAnimation("get_up", 50.0, my_GO_UID)
-				lua_table.AudioFunctions:PlayAudioEvent("Play_Geralt_getting_up")	--TODO-Audio:
+				--lua_table.AudioFunctions:PlayAudioEvent("Play_Geralt_getting_up")	--TODO-Audio:
 
 				AttackColliderShutdown()
 				ParticlesShutdown(false)
