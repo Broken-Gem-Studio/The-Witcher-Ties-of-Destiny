@@ -610,9 +610,9 @@ local function HandleSEEK()
 
 	--#####################################################################################   JUMP ATTACK DONE
 
-	if DistanceMagnitudeAux_Target <= lua_table.MinDistanceFromPlayer+2 and lua_table.JumpAttackDone == true and lua_table.CurrentSubState == SubState.JUMP_ATTACK
+	if DistanceMagnitudeAux_Target <= lua_table.MinDistanceFromPlayer and lua_table.JumpAttackDone == true and lua_table.CurrentSubState == SubState.JUMP_ATTACK
 	then
-		if DistanceMagnitudeAux_Target <= lua_table.MinDistanceFromPlayer+2
+		if DistanceMagnitudeAux_Target <= lua_table.MinDistanceFromPlayer
 		then
 			lua_table.SystemFunctions:LOG("d_mag = "..DistanceMagnitudeAux_Target)
 			--lua_table.SystemFunctions:LOG("5  ")
@@ -620,11 +620,12 @@ local function HandleSEEK()
 			lua_table.CurrentState = State.ATTACK
 			lua_table.CurrentSubState = SubState.NONE
 			Run_AnimController = false
+			lua_table.SystemFunctions:LOG("JUMP_ATTACK DONE")
 		    lua_table.SystemFunctions:LOG("SEEK----->ATTACK")
-			lua_table.SystemFunctions:LOG("NONE")
+			lua_table.SystemFunctions:LOG("NONE -")
 			UseAuxVariables = false
 		end
-		if DistanceMagnitude >= lua_table.MinDistanceFromPlayer+2 and lua_table.CurrentState ~= State.ATTACK
+		if DistanceMagnitude >= lua_table.MinDistanceFromPlayer --and lua_table.CurrentState ~= State.ATTACK
 		then
 			lua_table.AnimationSystem:PlayAnimation("RUN",30.0,MyUID)
 			lua_table.CurrentState = State.SEEK
@@ -637,12 +638,11 @@ local function HandleSEEK()
 	--#####################################################################################    PREPARED TO ATTACK
 	if DistanceMagnitude <= lua_table.MinDistanceFromPlayer
 	then
-		lua_table.SystemFunctions:LOG("7  ")
 		lua_table.AnimationSystem:PlayAnimation("IDLE",30.0,MyUID)
 		lua_table.CurrentState = State.ATTACK
 		lua_table.CurrentSubState = SubState.NONE
 		Run_AnimController = false
-		lua_table.SystemFunctions:LOG("SEEK----->ATTACK 2")
+		lua_table.SystemFunctions:LOG("SEEK----->ATTACK")
 		UseAuxVariables = false
 	end
 
@@ -673,7 +673,6 @@ local function HandleAttack()
 	then			
 		TimeSinceLastAttack = Time_HandleAttack - Attack1_TimeController
 	end
-	--lua_table.SystemFunctions:LOG("TimeSinceLastAttack"..TimeSinceLastAttack)
 	--############################################################################    DEACTIVATE COLLIDER DAMAGE
 	if AfterJumpAttackTimer > 100 and attack_colliders.jump_attack.active == true
 	then 
