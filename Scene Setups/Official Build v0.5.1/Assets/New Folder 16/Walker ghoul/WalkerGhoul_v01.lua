@@ -184,14 +184,17 @@ local function HandleGhoulValues()
     if lua_table.stunned and lua_table.SystemFunctions:GameTime() > lastTimeStunned + stunTime
     then
         lua_table.stunned = false
+        lua_table.ParticleFunctions:StopParticleEmitter(lua_table.HeadEmitter_UUID)
+    end    
+    if lua_table.taunted and lua_table.SystemFunctions:GameTime() > lastTimeTaunted + tauntTime
+    then
+        lua_table.taunted = false
+        lua_table.ParticleFunctions:StopParticleEmitter(lua_table.HeadEmitter_UUID)
     end
     if lua_table.hit and lua_table.SystemFunctions:GameTime() > lastTimeHit + hitTime
     then
         lua_table.hit = false
-    end
-    if lua_table.taunted and lua_table.SystemFunctions:GameTime() > lastTimeTaunted + tauntTime
-    then
-        lua_table.taunted = false
+        --lua_table.ParticleFunctions:StopParticleEmitter(lua_table.BodyEmitter_UUID)
     end
 
     -- Handle evade budget reset
@@ -279,7 +282,7 @@ local function Seek()
         then
             local velocity = NormalizeVector(vectorToCorner)
             lua_table.TransformFunctions:LookAt(lua_table.PathCorners[cornerCounter][1], lua_table.MyPosition[2], lua_table.PathCorners[cornerCounter][3], MyUUID)
-            lua_table.PhysicsFunctions:Move(velocity[1] * lua_table.movementSpeed, velocity[3] * lua_table.movementSpeed, MyUUID)
+            lua_table.PhysicsFunctions:Move(velocity[1] * lua_table.movementSpeed * dt, velocity[3] * lua_table.movementSpeed * dt, MyUUID)
         else           
             lua_table.PhysicsFunctions:Move(0, 0, MyUUID)
             cornerCounter = cornerCounter + 1
@@ -298,7 +301,7 @@ local function Evade()
     if lua_table.SystemFunctions:GameTime() < lastTimeEvaded + evadingTime
     then
         local velocity = NormalizeVector(lua_table.VectorToClosest)
-        lua_table.PhysicsFunctions:Move(-velocity[1] * lua_table.evadeSpeed, -velocity[3] * lua_table.evadeSpeed, MyUUID)    
+        lua_table.PhysicsFunctions:Move(-velocity[1] * lua_table.evadeSpeed * dt, -velocity[3] * lua_table.evadeSpeed * dt, MyUUID)    
     else
         currentState = State.IDLE
         lua_table.AnimationFunctions:PlayAnimation("Idle", 30, MyUUID)
@@ -329,8 +332,8 @@ local function Scream()
     
     elseif canStartScreaming == true
     then    
-        lua_table.ParticleFunctions:ActivateParticlesEmission(lua_table.Emitter_UUID)    
-        lua_table.ParticleFunctions:SetParticlesVelocity(lua_table.ScreamingVelocity[1] * 40, 0, lua_table.ScreamingVelocity[3] * 40, lua_table.Emitter_UUID)   
+        lua_table.ParticleFunctions:PlayParticleEmitter(lua_table.HeadEmitter_UUID)    
+        lua_table.ParticleFunctions:SetParticlesVelocity(lua_table.ScreamingVelocity[1] * 40, 0, lua_table.ScreamingVelocity[3] * 40, lua_table.HeadEmitter_UUID)   
         local rotation = lua_table.TransformFunctions:GetRotation(MyUUID)
         local rot_fixed = GimbalLockWorkaroundY(rotation[2])
 
@@ -342,7 +345,7 @@ local function Scream()
 
     elseif lua_table.SystemFunctions:GameTime() > lastTimeScreamed + preparingTime + screamingTime
     then
-        lua_table.ParticleFunctions:DeactivateParticlesEmission(lua_table.Emitter_UUID)   
+        lua_table.ParticleFunctions:StopParticleEmitter(lua_table.HeadEmitter_UUID)   
         currentState = State.IDLE
         canStartScreaming = true
         lua_table.AnimationFunctions:PlayAnimation("Idle", 30, MyUUID) 
@@ -359,7 +362,7 @@ local function Knockback()
         lua_table.ObjectiveDistance = math.sqrt(lua_table.VectorToObjective[1] ^ 2 + lua_table.VectorToObjective[3] ^ 2)
         
         local velocity = NormalizeVector(lua_table.VectorToObjective)
-        lua_table.PhysicsFunctions:Move(-velocity[1] * lua_table.knockbackSpeed / (lua_table.ObjectiveDistance * 1.5), -velocity[3] * lua_table.knockbackSpeed / (lua_table.ObjectiveDistance * 1.5), MyUUID)     
+        lua_table.PhysicsFunctions:Move((-velocity[1] * lua_table.knockbackSpeed * dt) / (lua_table.ObjectiveDistance * 1.5), (-velocity[3] * lua_table.knockbackSpeed * dt) / (lua_table.ObjectiveDistance * 1.5), MyUUID)     
     else
         currentState = State.IDLE
         lua_table.AnimationFunctions:PlayAnimation("Idle", 30, MyUUID)
@@ -391,7 +394,7 @@ function lua_table:OnTriggerEnter()
     if layer == Layer.PLAYER_ATTACK
     then
         lua_table.AnimationFunctions:PlayAnimation("Hit", 30, MyUUID)
-        lua_table.ParticleFunctions:DeactivateParticlesEmission(lua_table.Emitter_UUID)   
+        lua_table.ParticleFunctions:StopParticleEmitter(lua_table.HeadEmitter_UUID)   
         --lua_table.AudioFunctions:PlayAudioEvent("Play_Ghoul_hurt_1")                          
         lua_table.SystemFunctions:LOG("Ghoul has been HIT") 
 
@@ -429,13 +432,14 @@ function lua_table:OnTriggerEnter()
             lua_table.hit = true
             lastTimeHit = lua_table.SystemFunctions:GameTime()
             currentState = State.IDLE   
+            --lua_table.ParticleFunctions:PlayParticleEmitter(lua_table.BodyEmitter_UUID)
         end
     end
 end
 
 function lua_table:RequestedTrigger(collider_object)
 	lua_table.SystemFunctions:LOG("Walker Ghooul's OnRequestedTrigger has been called")
-    lua_table.ParticleFunctions:DeactivateParticlesEmission(lua_table.Emitter_UUID)   
+    lua_table.ParticleFunctions:StopParticleEmitter(lua_table.HeadEmitter_UUID)   
 
 	if currentState ~= State.DEATH	
 	then
@@ -464,6 +468,7 @@ function lua_table:RequestedTrigger(collider_object)
             lua_table.hit = true
             lastTimeHit = lua_table.SystemFunctions:GameTime()
             currentState = State.IDLE       
+            --lua_table.ParticleFunctions:PlayParticleEmitter(lua_table.BodyEmitter_UUID)
         end
 	end
 end
@@ -481,7 +486,9 @@ function lua_table:Awake()
    -- Get necessary UUIDs
    lua_table.Geralt_UUID = lua_table.ObjectFunctions:FindGameObject("Geralt")
    lua_table.Jaskier_UUID = lua_table.ObjectFunctions:FindGameObject("Jaskier") 
-   lua_table.Emitter_UUID = lua_table.ObjectFunctions:FindGameObject("ScreamingEmitter")
+   lua_table.HeadEmitter_UUID = lua_table.ObjectFunctions:FindGameObject("HeadEmitter")
+   lua_table.FeetEmitter_UUID = lua_table.ObjectFunctions:FindGameObject("FeetEmitter")
+   lua_table.BodyEmitter_UUID = lua_table.ObjectFunctions:FindGameObject("BodyEmitter")
    MyUUID = lua_table.ObjectFunctions:GetMyUID()
 
    -- Get navigation areas
@@ -489,7 +496,9 @@ function lua_table:Awake()
    lua_table.JumpID = lua_table.NavigationFunctions:GetAreaFromName("Jump")
    lua_table.AllAreas = lua_table.NavigationFunctions:AllAreas()
 
-   lua_table.ParticleFunctions:DeactivateParticlesEmission(lua_table.Emitter_UUID)
+   lua_table.ParticleFunctions:StopParticleEmitter(lua_table.HeadEmitter_UUID)
+   lua_table.ParticleFunctions:StopParticleEmitter(lua_table.FeetEmitter_UUID)
+   lua_table.ParticleFunctions:StopParticleEmitter(lua_table.BodyEmitter_UUID)
 end
 
 function lua_table:Start()
