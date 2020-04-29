@@ -8,7 +8,7 @@ function    GetTableBOSSHP()
 
 
 --------
-lua_table.boss_hp = 0
+--lua_table.boss_hp = 0
 --local boss_hp_local = 0
 
 local BossBar = 0
@@ -27,14 +27,15 @@ end
 
 function lua_table:Start()
    
-    lua_table.boss_hp = lua_table.boss.health
-    lua_table["System"]:LOG ("INITIAL BOSS HP: " .. lua_table.boss_hp)
+    --lua_table.boss_hp = lua_table.boss.health
+    
    
 
 end
 
 function lua_table:Update()
 
+    lua_table["System"]:LOG ("INITIAL BOSS HP: " .. lua_table.boss.health)
     --make appear/dissapear bar whren kikimora appears/dies
     --bool desde script de Pol
     if lua_table.boss.awakened == true
@@ -48,14 +49,14 @@ function lua_table:Update()
     end
 
 
-    if lua_table.boss_hp > 0
+    if lua_table.boss.health > 0
     then
-        lua_table.boss_hp = lua_table["UI"]:SetUIBarPercentage(lua_table.boss_hp, BossBar)
+        lua_table["UI"]:SetUIBarPercentage(lua_table.boss.health, BossBar)
     end
 
-    if lua_table.boss_hp <= 0--condicion para cuando le pegan una leche a boss que sobrepasa su vida actual y lo mata, que no se bugee la barra
+    if lua_table.boss.health <= 0--condicion para cuando le pegan una leche a boss que sobrepasa su vida actual y lo mata, que no se bugee la barra
     then
-        lua_table.boss_hp = lua_table["UI"]:SetUIBarPercentage(0, BossBar)
+        lua_table["UI"]:SetUIBarPercentage(0, BossBar)
     end
       
 

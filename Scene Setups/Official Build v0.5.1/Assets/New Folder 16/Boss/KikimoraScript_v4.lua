@@ -36,7 +36,7 @@ lua_table.damage_received_orig = -1
 -----------------------------------------------------------------------------------------
 
 -- Distance of player/s to activate the boss
-lua_table.awakening_distance = 15
+lua_table.awakening_distance = 20
 local player_in_awakening_distance = false
 
 -----------------------------------------------------------------------------------------
@@ -52,6 +52,7 @@ local phase = -- not in use rn
 }
 local current_phase = phase.CHILL -- Should initialize at awake(?)
 
+lua_table.awakened = false -- bool for other scripts
 local state =  
 {
     UNACTIVE = -1,
@@ -170,12 +171,14 @@ lua_table.ciri_GO = "Ciri"
 local P1_id = 0
 lua_table.P1_pos = {}
 lua_table.P1_script = {}
+lua_table.P1_distance = {}
 local P1_abs_distance = nil 
 
 -- P2
 local P2_id = 0
 lua_table.P2_pos = {}
 lua_table.P2_script = {}
+lua_table.P2_distance = {}
 local P2_abs_distance = nil
 
 lua_table.collider_parent_script = {}
@@ -556,8 +559,12 @@ local function HandlePlayerPosition()
 			-- Checks player proximity 
 			if current_state == state.UNACTIVE
 			then
-				-- Calculates distance
-				P1_abs_distance = math.sqrt((lua_table.P1_pos[x] * lua_table.P1_pos[x]) + (lua_table.P1_pos[z] * lua_table.P1_pos[z]))
+                -- Calculates distance
+                lua_table.P1_distance[x] = lua_table.my_position[x] - lua_table.P1_pos[x]
+                lua_table.P1_distance[y] = lua_table.my_position[y] - lua_table.P1_pos[y]
+                lua_table.P1_distance[z] = lua_table.my_position[z] - lua_table.P1_pos[z]
+            
+				P1_abs_distance = math.sqrt((lua_table.P1_distance[x] * lua_table.P1_distance[x]) + (lua_table.P1_distance[z] * lua_table.P1_distance[z]))
 
 				if P1_abs_distance ~= nil and P1_abs_distance <= lua_table.awakening_distance
 				then
@@ -580,8 +587,12 @@ local function HandlePlayerPosition()
 			-- Checks player proximity 
 			if current_state == state.UNACTIVE
 			then
-				--Calculates distance
-				P2_abs_distance = math.sqrt((lua_table.P2_pos[x] * lua_table.P2_pos[x]) + (lua_table.P2_pos[z] * lua_table.P2_pos[z]))
+                --Calculates distance
+                lua_table.P2_distance[x] = lua_table.my_position[x] - lua_table.P2_pos[x]
+                lua_table.P2_distance[y] = lua_table.my_position[y] - lua_table.P2_pos[y]
+                lua_table.P2_distance[z] = lua_table.my_position[z] - lua_table.P2_pos[z]
+
+				P2_abs_distance = math.sqrt((lua_table.P2_distance[x] * lua_table.P2_distance[x]) + (lua_table.P2_distance[z] * lua_table.P2_distance[z]))
 
 				if P2_abs_distance ~= nil and P2_abs_distance <= lua_table.awakening_distance
 				then
@@ -597,6 +608,7 @@ local function HandleStates()
     -- State Unactive to Awaken
     if current_state == state.UNACTIVE and player_in_awakening_distance == true --Check if player in range and start awakening
     then 
+        lua_table.awakened = true
         current_state = state.AWAKENING 
         lua_table.SystemFunctions:LOG ("Kikimora: AWAKENED")
         state_timer = game_time + 5 -- duration of awakening animation
@@ -678,6 +690,7 @@ local function HandleStates()
         -- DESPAWN BOSS
         -- CALL SCENE FUNCTION TO MAIN MENU
         -- Shut all particles
+        lua_table.awakened = false
         lua_table.GameObjectFunctions:SetActiveGameObject(false, lua_table.my_UID)
         
         if lua_table.scene_UID ~= 0
