@@ -81,15 +81,25 @@ function lua_table:Update()
     
         
         
-        if lua_table.hplocal >= 0
-        then
-            lua_table.hplocal = UpdateHealthBar(HPID, lua_table.hplocal)--igual poner hplocal en arg da `Problema y hay que usar lua_table.hpP1.curent_health
-        end
-      
-        if lua_table.hplocal2 >= 0
-        then
-            lua_table.hplocal2 = UpdateHealthBar(HPID2, lua_table.hplocal2)--igual poner hplocal en arg da `Problema y hay que usar lua_table.hpP1.curent_health
-        end
+    if lua_table.hplocal <= 0
+    then
+        lua_table.hplocal = UpdateHealthBar(HPID, 0)--DSBUGEAR QUE LA VIDA NO SE QUEDE SI LO MATAN Y LE HAN QUITADO DEMASIADO
+    end
+
+    if lua_table.hplocal > 0
+    then
+        lua_table.hplocal = UpdateHealthBar(HPID, lua_table.hplocal)--igual poner hplocal en arg da `Problema y hay que usar lua_table.hpP1.curent_health
+    end
+
+    if lua_table.hplocal2 <= 0
+    then
+        lua_table.hplocal2 = UpdateHealthBar(HPID2, 0)--DSBUGEAR QUE LA VIDA NO SE QUEDE SI LO MATAN Y LE HAN QUITADO DEMASIADO
+    end
+  
+    if lua_table.hplocal2 > 0
+    then
+        lua_table.hplocal2 = UpdateHealthBar(HPID2, lua_table.hplocal2)--igual poner hplocal en arg da `Problema y hay que usar lua_table.hpP1.curent_health
+    end
          
 
       

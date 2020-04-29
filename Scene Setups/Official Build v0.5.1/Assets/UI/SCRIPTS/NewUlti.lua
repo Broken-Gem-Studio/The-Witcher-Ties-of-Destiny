@@ -30,6 +30,15 @@ function GetTableNewUlti()
     lua_table.ultiP1 = {}
     local P2ID = 0--ID GERALT
     lua_table.ultiP2 = {}
+
+    --vibration
+    local timer = 0
+    local timepassed = 0
+    local satisfier = false
+    local used = false
+    local timepassed2 = 0
+    local satisfier2 = false
+    local used2 = false
     
     
     function lua_table:Awake()
@@ -82,6 +91,11 @@ function GetTableNewUlti()
     end
     
     function lua_table:Update()
+        timer = lua_table["System"]:GameTime()
+        lua_table["System"]:LOG("TIME: " .. timer)
+        lua_table["System"]:LOG("TIMEpassed: " .. timepassed)
+        lua_table["System"]:LOG("TIMEpassed2: " .. timepassed2)
+
         lua_table.ultimatelocal = lua_table.ultiP1.current_ultimate
         lua_table["System"]:LOG ("ULTIMATE UPDATE: " .. lua_table.ultimatelocal)
 
@@ -93,6 +107,7 @@ function GetTableNewUlti()
         then
             lua_table["UI"]:MakeElementInvisible("Image", ULTIDUSING)
             lua_table["UI"]:MakeElementVisible("Image", ULTIDCERO)
+            used = false
         end
 
         if lua_table.ultimatelocal >= 20
@@ -125,6 +140,23 @@ function GetTableNewUlti()
             lua_table["UI"]:MakeElementVisible("Image", ULTIDHUNDRED)
         end
 
+        --vibration
+
+        if lua_table.ultimatelocal == 100 and satisfier == false and used == false --LAST IMAGE ULTI IS READY
+        then
+            timepassed = lua_table["System"]:GameTime()
+            satisfier = true
+            used = true
+        end
+
+        if satisfier == true and timer - timepassed >= 1 and used == true
+        then
+            lua_table["Inputs"]:ShakeController(1, 1.0, 500)
+            satisfier = false
+        end
+
+        --
+
         if lua_table.ultiP1.ultimate_active == true--SI ESTA USANDO LA ULTI MOSTRAR IMAGEN 100% ULTIMATE ACTIVE TIENE QUE SER LUA_TABLE
         then
             lua_table["UI"]:MakeElementInvisible("Image", ULTIDHUNDRED)
@@ -137,6 +169,7 @@ function GetTableNewUlti()
         then
             lua_table["UI"]:MakeElementInvisible("Image", ULTID2USING)
             lua_table["UI"]:MakeElementVisible("Image", ULTID2CERO)
+            used2 = false
         end
 
         if lua_table.ultimatelocal2 >= 20
@@ -168,6 +201,23 @@ function GetTableNewUlti()
             lua_table["UI"]:MakeElementInvisible("Image", ULTID2EIGHTY)
             lua_table["UI"]:MakeElementVisible("Image", ULTID2HUNDRED)
         end
+
+         --vibration 2
+
+         if lua_table.ultimatelocal2 == 100 and satisfier2 == false and used2 == false --LAST IMAGE ULTI IS READY
+         then
+             timepassed2 = lua_table["System"]:GameTime()
+             satisfier2 = true
+             used2 = true
+         end
+ 
+         if satisfier2 == true and timer - timepassed2 >= 1 and used2 == true
+         then
+             lua_table["Inputs"]:ShakeController(2, 1.0, 500)
+             satisfier2 = false
+         end
+ 
+         --
 
         if lua_table.ultiP2.ultimate_active == true--EN EL CASO DE JASKIER IGUAL NO HACE FALTA QUE SE MANTENGA LA IMAGEN PORQUE SU ULTI NO DURA TIEMPO
         then
