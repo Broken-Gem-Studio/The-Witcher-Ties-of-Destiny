@@ -1,4 +1,4 @@
-function	GetTableJaskierScript_v6()
+function	GetTableJaskierScript_v7()
 local lua_table = {}
 lua_table.SystemFunctions = Scripting.System()
 lua_table.TransformFunctions = Scripting.Transform()
@@ -221,7 +221,7 @@ lua_table.current_velocity = 0
 	local walk_velocity
 	local walk_mod = 0.4
 	lua_table.mov_velocity_max_mod = 1.0
-	lua_table.mov_velocity_max_orig = 500
+	lua_table.mov_velocity_max_orig = 8
 
 lua_table.idle_animation_speed = 30.0
 lua_table.walk_animation_speed = 35.0
@@ -261,8 +261,8 @@ lua_table.energy_reg_orig = 5
 	}
 		--Knockback
 		local knockback_curr_velocity
-		lua_table.knockback_orig_velocity = 700
-		lua_table.knockback_acceleration = -440
+		lua_table.knockback_orig_velocity = 11
+		lua_table.knockback_acceleration = -7
 
 	--Attack Colliders
 	local attack_colliders = {												--Transform / Collider Scale
@@ -294,7 +294,7 @@ lua_table.energy_reg_orig = 5
 
 --Light Attack
 lua_table.light_damage = 1.0					--Multiplier of Base Damage
-lua_table.light_movement_velocity = 50.0
+lua_table.light_movement_velocity = 0.8
 
 lua_table.light_1_block_time = 450			--Input block duration	(block new attacks)
 lua_table.light_1_collider_front_start = 460	--Collider activation time
@@ -316,7 +316,7 @@ lua_table.light_3_animation_speed = 40.0		--IMPROVE: Attack 3 animaton includes 
 
 --Medium Attack
 lua_table.medium_damage = 1.5					--Multiplier of Base Damage
-lua_table.medium_movement_velocity = 50.0
+lua_table.medium_movement_velocity = 0.8
 
 lua_table.medium_1_block_time = 300			--Input block duration	(block new attacks)
 lua_table.medium_1_collider_front_start = 350	--Collider activation time
@@ -338,7 +338,7 @@ lua_table.medium_3_animation_speed = 30.0		--IMPROVE: Attack 3 animaton includes
 
 --Heavy Attack
 lua_table.heavy_damage = 2.0				--Multiplier of Base Damage
-lua_table.heavy_movement_velocity = 50.0
+lua_table.heavy_movement_velocity = 0.8
 
 lua_table.heavy_1_block_time = 1100			--Input block duration	(block new attacks)
 lua_table.heavy_1_collider_front_start = 1000	--Collider activation time
@@ -359,7 +359,7 @@ lua_table.heavy_3_duration = 1300			--Attack end (return to idle)
 lua_table.heavy_3_animation_speed = 30.0		--IMPROVE: Attack 3 animaton includes a return to idle, which differs from the other animations, we might have to cut it for homogeinity with the rest
 
 --Evade		
-lua_table.evade_velocity = 900.0
+lua_table.evade_velocity = 14.5
 lua_table.evade_cost = 33
 lua_table.evade_duration = 900
 

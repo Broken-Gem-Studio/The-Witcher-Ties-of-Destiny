@@ -1,4 +1,4 @@
-function	GetTableGeraltScript_v10()
+function	GetTableGeraltScript_v11()
 local lua_table = {}
 lua_table.SystemFunctions = Scripting.System()
 lua_table.TransformFunctions = Scripting.Transform()
@@ -214,7 +214,7 @@ lua_table.current_velocity = 0
 	local walk_velocity
 	local walk_mod = 0.4
 	lua_table.mov_velocity_max_mod = 1.0
-	lua_table.mov_velocity_max_orig = 500
+	lua_table.mov_velocity_max_orig = 8
 
 lua_table.idle_animation_speed = 30.0
 lua_table.walk_animation_speed = 30.0
@@ -254,8 +254,8 @@ lua_table.energy_reg_orig = 5
 	}
 		--Knockback
 		local knockback_curr_velocity
-		lua_table.knockback_orig_velocity = 700
-		lua_table.knockback_acceleration = -440.0
+		lua_table.knockback_orig_velocity = 11
+		lua_table.knockback_acceleration = -7.0
 
 	--Attack Colliders
 	local attack_colliders = {												-- Transform / Collider Scale
@@ -293,7 +293,7 @@ lua_table.energy_reg_orig = 5
 --NOTE: The visual slow for both characters lasts ~430ms * 30/anim_speed
 --Light Attack
 lua_table.light_damage = 1.0					--Multiplier of Base Damage
-lua_table.light_movement_velocity = 100.0
+lua_table.light_movement_velocity = 1.5
 
 lua_table.light_1_block_time = 300			--Input block duration	(block new attacks)
 lua_table.light_1_collider_front_start = 375	--Collider activation time
@@ -321,8 +321,8 @@ lua_table.light_3_animation_speed = 40.0	--Slow time: 320ms
 
 --Medium Attack
 lua_table.medium_damage = 1.5					--Multiplier of Base Damage
-lua_table.medium_movement_velocity = 35.0
-lua_table.medium_3_movement_velocity = 100.0
+lua_table.medium_movement_velocity = 0.6
+lua_table.medium_3_movement_velocity = 1.6
 
 lua_table.medium_1_block_time = 550			--Input block duration	(block new attacks)
 lua_table.medium_1_collider_front_start = 550	--Collider activation time
@@ -350,7 +350,7 @@ lua_table.medium_3_animation_speed = 35.0	--Slow time: 370ms
 
 --Heavy Attack
 lua_table.heavy_damage = 2.0				--Multiplier of Base Damage
-lua_table.heavy_movement_velocity = 70.0
+lua_table.heavy_movement_velocity = 1.1
 
 lua_table.heavy_1_block_time = 900			--Input block duration	(block new attacks)
 lua_table.heavy_1_collider_front_start = 900	--Collider activation time
@@ -377,14 +377,14 @@ lua_table.heavy_3_duration = 1600			--Attack end (return to idle)
 lua_table.heavy_3_animation_speed = 30.0	--Slow time: 430ms
 
 --Evade		
-lua_table.evade_velocity = 1250.0	--Was 200 before dt
+lua_table.evade_velocity = 20.0	--Was 200 before dt
 lua_table.evade_cost = 33
 lua_table.evade_duration = 800
 
 lua_table.evade_animation_speed = 40.0
 
 --Ability
-lua_table.ability_push_velocity = 10000
+lua_table.ability_push_velocity = 160
 lua_table.ability_cooldown = 5000.0
 
 local ability_started_at = 0.0
@@ -461,7 +461,7 @@ lua_table.combo_1_size = 4
 lua_table.combo_1_damage = 2.0	--slide + 4 hits
 lua_table.combo_1_duration = 1500
 lua_table.combo_1_animation_speed = 35.0
-lua_table.combo_1_movement_velocity = 400.0
+lua_table.combo_1_movement_velocity = 6.5
 
 lua_table.combo_1_collider_right_start = 900	--Collider activation time
 lua_table.combo_1_collider_right_end = 1000		--Collider deactivation time
@@ -477,7 +477,7 @@ lua_table.combo_2_size = 4
 lua_table.combo_2_damage = 3.5	--3 hit
 lua_table.combo_2_duration = 1400
 lua_table.combo_2_animation_speed = 30.0
-lua_table.combo_2_movement_velocity = 300.0
+lua_table.combo_2_movement_velocity = 5.0
 
 lua_table.combo_2_collider_left_start = 500		--Collider activation time
 lua_table.combo_2_collider_left_end = 600		--Collider deactivation time
@@ -491,7 +491,7 @@ lua_table.combo_3_size = 4
 lua_table.combo_3_damage = 4.0	--1 hit		--IMPROVE: + stun
 lua_table.combo_3_duration = 1800
 lua_table.combo_3_animation_speed = 30.0
-lua_table.combo_3_movement_velocity = 300.0
+lua_table.combo_3_movement_velocity = 5.0
 
 lua_table.combo_3_collider_front_start = 1100	--Collider activation time
 lua_table.combo_3_collider_front_end = 1200		--Collider deactivation time
@@ -1476,7 +1476,7 @@ function lua_table:OnTriggerEnter()
 
 				lua_table.AnimationFunctions:PlayAnimation("evade", 25.0, my_GO_UID)
 				--lua_table.AudioFunctions:PlayAudioEvent("knockback")	--TODO-Audio:
-				
+
 				AttackColliderShutdown()
 				ParticlesShutdown(false)
 				ReviveShutdown()
