@@ -19,7 +19,7 @@ local Attack_Collider_UID = 0
 
 -- Archer Values -------------------------
 lua_table.health = 80
-lua_table.speed = 0.08
+lua_table.speed = 4
 
 -- 
 lua_table.DistanceToTarget = 0
