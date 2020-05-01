@@ -1,4 +1,4 @@
-function GetTableLumberjack_v018()
+function GetTableLumberjack_v019()
 
 local lua_table = {}
 
@@ -60,8 +60,9 @@ local Anim = {
 --lua_table.JumpCo_name = "Lumberjack_Jump_Attack"
 
 local attack_colliders = {
-	front = { GO_name = "Lumberjack_Front", GO_UID = 0 , active = false},
-	jump_attack = { GO_name = "Lumberjack_Jump", GO_UID = 0 , active = false}
+	jump_attack = { GO_name = "Lumberjack_Jump_Attack", GO_UID = 0 , active = false},
+	front = { GO_name = "Lumberjack_Front", GO_UID = 0 , active = false}
+	
 }
 
 
@@ -392,6 +393,7 @@ local function jumpAttack()
 			lua_table.SystemFunctions:LOG("jump_attack collider ON   -"..attack_colliders.jump_attack.GO_UID)
 		end	
 	end
+	
 end
 local function Attack()
 	--Time = PerfGameTime()
@@ -556,6 +558,8 @@ end
 
 local function HandleSEEK()
 	--lua_table.SystemFunctions:LOG("DistanceMagnitude-->"..DistanceMagnitude)
+	
+	Time_HandleSeek = PerfGameTime() 
 
 	if lua_table.CurrentSubState == SubState.ALERT
 	then
@@ -648,7 +652,7 @@ local function HandleSEEK()
 	end
 
 	--#####################################################################################   CASE WHEN GERALT RUN FROM ATTACK
-	if AfterJumpAttackTimer > 300 and attack_colliders.jump_attack.active == true
+	if Time_HandleSeek - AfterJumpAttackTimer > 300 and attack_colliders.jump_attack.active == true
 	then 
 		lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.jump_attack.GO_UID)
 		attack_colliders.jump_attack.active = false
@@ -675,7 +679,7 @@ local function HandleAttack()
 		TimeSinceLastAttack = Time_HandleAttack - Attack1_TimeController
 	end
 	--############################################################################    DEACTIVATE COLLIDER DAMAGE
-	if AfterJumpAttackTimer > 100 and attack_colliders.jump_attack.active == true
+	if Time_HandleAttack - AfterJumpAttackTimer > 100 and attack_colliders.jump_attack.active == true
 	then 
 		lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.jump_attack.GO_UID)
 		attack_colliders.jump_attack.active = false
@@ -823,7 +827,7 @@ function lua_table:Start()
 end
 
 function lua_table:Update()
-	--lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.front.GO_UID)	--TODO-Colliders: Check
+	
 	CurrTime = PerfGameTime()
 	--lua_table.SystemFunctions:LOG("MyUID".. MyUID) 
 
