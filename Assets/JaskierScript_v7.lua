@@ -39,7 +39,9 @@ lua_table.level_1_scene = 0
 	--Jaskier_Ultimate (Child of Jaskier): 0/0/0
 	--Jaskier_Ability (Child of ???): 0/0/0
 
-	--Areas
+--Areas
+local enemy_detection_started_at = 0
+local enemy_detection_time = 1000
 lua_table.enemies_nearby = false
 lua_table.enemy_detection_range = 20
 
@@ -1647,6 +1649,20 @@ function lua_table:Update()
 
 	DebugInputs()
 
+	if game_time - enemy_detection_started_at > enemy_detection_time
+	then
+		local jaskier_pos = lua_table.TransformFunctions:GetPosition(my_GO_UID)
+		local enemy_list = lua_table.PhysicsFunctions:OverlapSphere(jaskier_pos[1], jaskier_pos[2], jaskier_pos[3], lua_table.enemy_detection_range, layers.enemy)
+
+		if lua_table.enemies_nearby then
+			if enemy_list[1] == nil then lua_table.enemies_nearby = false end
+		else
+			if enemy_list[1] ~= nil then lua_table.enemies_nearby = true end
+		end
+
+		enemy_detection_started_at = game_time
+	end
+
 	if must_update_stats then CalculateStats() end
 	CheckCameraBounds()
 
@@ -1946,9 +1962,13 @@ function lua_table:Update()
 	--Revive
 	-- if lua_table.being_revived then lua_table.SystemFunctions:LOG("Jaskier Being Revived!")
 	-- else lua_table.SystemFunctions:LOG("Jaskier not being revived.") end
+
+	-- Enemies Nearby
+	--if lua_table.enemies_nearby then lua_table.SystemFunctions:LOG("Enemies Nearby!")
+	--else lua_table.SystemFunctions:LOG("Enemies not nearby.") end
 	
 	--Stats LOGS
-	lua_table.SystemFunctions:LOG("Jaskier Health: " .. lua_table.current_health)
+	--lua_table.SystemFunctions:LOG("Jaskier Health: " .. lua_table.current_health)
 	--lua_table.SystemFunctions:LOG("Energy: " .. lua_table.current_energy)
 
 	--Item LOGS
