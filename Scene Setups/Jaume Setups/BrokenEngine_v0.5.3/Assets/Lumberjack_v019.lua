@@ -309,23 +309,23 @@ local function seekTarget()
 	NormalizeDirVector()
 end
 
-local function Players()
-	ret = true
+local function Players() --RET TRUE IF 1 PLAYER FOUND
+	ret = false
 
 	if Geralt ~= 0
 	then
 		GeraltPos = lua_table.TransformFunctions:GetPosition(Geralt)
+		ret = true
 	else 
 		lua_table.SystemFunctions:LOG("This Log was called from a Lumberjack on Players() function because Geralt is not found")
-		ret = false
 	end
 
 	if Jaskier ~= 0
 	then
 		JaskierPos = lua_table.TransformFunctions:GetPosition(Jaskier)	
+		ret = true
 	else 
 		lua_table.SystemFunctions:LOG("This Log was called from a Lumberjack on Players() function because Jaskier is not found")
-		ret = false
 	end
 	
 	--calculate distances
@@ -347,17 +347,32 @@ local function HandleAggro()
 			if GeraltDistance < lua_table.AggroDistance  
 			then
 				lua_table.CurrentTarget = Geralt
-				--lua_table.SystemFunctions:LOG("GERALT IN AGGRO")
+				lua_table.SystemFunctions:LOG("GERALT IN AGGRO")
 				return true			
 			elseif JaskierDistance < lua_table.AggroDistance  
 			then
 				lua_table.CurrentTarget = Jaskier
-				--lua_table.SystemFunctions:LOG("JASKIER IN AGGRO")
+				lua_table.SystemFunctions:LOG("JASKIER IN AGGRO")
 			else
-				--lua_table.SystemFunctions:LOG("NO PLAYERS INSIDE AGGRO DISTANCE")
+				lua_table.SystemFunctions:LOG("NO PLAYERS INSIDE AGGRO DISTANCE")
 				return false
 			end	
-	end --TODO when a current target dies need to change current atrget for a new one
+	elseif lua_table.CurrentTarget ~= 0 and Players() == true --IF A PLAYER DIES
+	then
+		if lua_table.CurrentTarget == Geralt
+		then	
+			lua_table.SystemFunctions:LOG("NO GERALT, CHANGING TO JASKIER")
+			lua_table.CurrentTarget = Jaskier
+		elseif lua_table.CurrentTarget == Jaskier
+		then
+			lua_table.SystemFunctions:LOG("NO JASKIER, CHANGING TO GERALT ")
+			lua_table.CurrentTarget = Geralt
+		end
+	elseif Players() == false
+	then
+		lua_table.SystemFunctions:LOG("NO PLAYERS, NEW STATE PRE_DETECTION ")
+		lua_table.CurrentState = State.PRE_DETECTION
+	end 
 	return ret
 end
 
@@ -659,6 +674,7 @@ local function HandleSEEK()
 		lua_table.SoundSystem:PlayAudioEvent("Play_Barrel_crush_1")
 		lua_table.SystemFunctions:LOG("jump_attack collider OFF   -"..attack_colliders.jump_attack.GO_UID)
 	end
+
 	if TimeSinceLastAttack > 1100 and TimeSinceLastAttack < 1300
 	then
 		if attack_colliders.front.active == true
@@ -834,8 +850,8 @@ function lua_table:Update()
 	lua_table.Pos = lua_table.TransformFunctions:GetPosition(MyUID)
 
 	--target_script = lua_table.GameObjectFunctions:GetScript(collider_parent)
-
-
+	--HandleAggro()
+	
 	if lua_table.CurrentHealth <= 1 
 	then
 		lua_table.CurrentState = State.DEATH
