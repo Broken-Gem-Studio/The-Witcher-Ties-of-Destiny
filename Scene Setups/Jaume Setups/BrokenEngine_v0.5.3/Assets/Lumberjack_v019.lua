@@ -95,6 +95,9 @@ local Nvec3x = 0
 local Nvec3z = 0  -->Movement
 local Nvec3y = 0
 
+local TargetAlive_TimeController = 0
+
+
 ---HandlePRE_DETECTION()
 local SpawnPos = 0
 local SpawnPosX = 0
@@ -357,16 +360,24 @@ local function HandleAggro()
 				lua_table.SystemFunctions:LOG("NO PLAYERS INSIDE AGGRO DISTANCE")
 				return false
 			end	
-	elseif lua_table.CurrentTarget ~= 0 and Players() == true --IF A PLAYER DIES
+	elseif lua_table.CurrentTarget ~= 0 and Players() == true 
 	then
 		if lua_table.CurrentTarget == Geralt
 		then	
-			lua_table.SystemFunctions:LOG("NO GERALT, CHANGING TO JASKIER")
-			lua_table.CurrentTarget = Jaskier
+			GeraltScript = lua_table.GameObjectFunctions:GetScript(Geralt)
+			if GeraltScript.current_state == -3 or GeraltScript.current_state == -4
+			then
+				lua_table.SystemFunctions:LOG("CHANGING AGGRO TO JASKIER")
+				lua_table.CurrentTarget = Jaskier
+			end
 		elseif lua_table.CurrentTarget == Jaskier
 		then
-			lua_table.SystemFunctions:LOG("NO JASKIER, CHANGING TO GERALT ")
-			lua_table.CurrentTarget = Geralt
+			JaskierScript = lua_table.GameObjectFunctions:GetScript(Jaskier)
+			if JaskierScript.current_state == -3 or JaskierScript.current_state == -4
+			then
+				lua_table.SystemFunctions:LOG("CHANGING AGGRO TO GERALT ")
+				lua_table.CurrentTarget = Geralt
+			end
 		end
 	elseif Players() == false
 	then
@@ -840,6 +851,8 @@ function lua_table:Start()
 	lua_table.SystemFunctions:LOG("JUMP GO---"..attack_colliders.jump_attack.GO_name)
 	lua_table.SystemFunctions:LOG("JUMP GO UID"..attack_colliders.jump_attack.GO_UID)
 
+	TargetAlive_TimeController = PerfGameTime()
+
 end
 
 function lua_table:Update()
@@ -848,15 +861,26 @@ function lua_table:Update()
 	--lua_table.SystemFunctions:LOG("MyUID".. MyUID) 
 
 	lua_table.Pos = lua_table.TransformFunctions:GetPosition(MyUID)
-
-	--target_script = lua_table.GameObjectFunctions:GetScript(collider_parent)
-	--HandleAggro()
 	
+	if CurrTime - TargetAlive_TimeController > 300
+	then
+		if lua_table.CurrentTarget ~= 0 -- es decir que ya hay un target
+		then
+			lua_table.SystemFunctions:LOG("UID TARGET:"..lua_table.CurrentTarget)
+			if lua_table.GameObjectFunctions:IsActiveGameObject(lua_table.CurrentTarget) == true
+			then
+				lua_table.SystemFunctions:LOG("CURR TARGET ACTIVE-----> HANDLE AGGRO")
+				HandleAggro()
+				TargetAlive_TimeController = PerfGameTime()
+			end
+		end
+	end
+	--############################################################################# HANDLE AGGRO CALLED EVERY 300mls
 	if lua_table.CurrentHealth <= 1 
 	then
 		lua_table.CurrentState = State.DEATH
 	end
-
+	--############################################################################# PLAYER IS ALIVE OR DEAD DONE
 	if lua_table.CurrentSpecialEffect == SpecialEffect.NONE
 	then
 		if lua_table.CurrentState == State.PRE_DETECTION
