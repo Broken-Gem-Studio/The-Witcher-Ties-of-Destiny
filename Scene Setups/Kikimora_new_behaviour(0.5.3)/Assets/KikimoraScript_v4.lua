@@ -21,7 +21,7 @@ lua_table.health = 2000
 local is_dead = false
 
 -- Health Percentages for each phase
-local current_health_percentage = 0
+lua_table.current_health_percentage = 0
 lua_table.health_percentage_phase_1 = 100
 lua_table.health_percentage_phase_2 = 66
 lua_table.health_percentage_phase_3 = 33
@@ -252,6 +252,7 @@ local function DebugInputs()
         if lua_table.InputFunctions:KeyDown("j")
         then 
             current_state = state.AWAKENING
+            lua_table.awakened = true
         end
 	end
 end
@@ -259,10 +260,10 @@ end
 local function HandlePhases()
 
     -- Calculate health percentage
-    current_health_percentage = (lua_table.health / current_health) * 100
+    lua_table.current_health_percentage = (lua_table.health / current_health) * 100
 
     -- Checking if inside phase 2 threshold
-    if  current_health_percentage <= lua_table.health_percentage_phase_2 and current_health_percentage >= lua_table.health_percentage_phase_3
+    if  lua_table.current_health_percentage <= lua_table.health_percentage_phase_2 and lua_table.current_health_percentage >= lua_table.health_percentage_phase_3
     then
         if current_phase ~= phase.MAD 
         then
@@ -272,7 +273,7 @@ local function HandlePhases()
             lua_table.SystemFunctions:LOG ("Kikimora: Swapping to phase 2")
         end
     -- Checking if inside phase 3 threshold
-    elseif current_health_percentage <= lua_table.health_percentage_phase_3
+    elseif lua_table.current_health_percentage <= lua_table.health_percentage_phase_3
     then
         if current_phase ~= phase.ENRAGED
         then
@@ -1645,7 +1646,7 @@ function lua_table:Update ()
 
     -- Debug Logs
     lua_table.SystemFunctions:LOG ("Kikimora Health: " .. current_health)
-    lua_table.SystemFunctions:LOG ("Kikimora Health Percentage : " .. current_health_percentage)
+    lua_table.SystemFunctions:LOG ("Kikimora Health Percentage : " .. lua_table.current_health_percentage)
     lua_table.SystemFunctions:LOG ("Kikimora Phase: " .. current_phase)
     lua_table.SystemFunctions:LOG ("Kikimora State: " .. current_state)
     lua_table.SystemFunctions:LOG ("Kikimora Attack Type: " .. current_attack_type)
