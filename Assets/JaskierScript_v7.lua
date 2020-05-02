@@ -23,6 +23,7 @@ local dt = 0
 local game_time = 0
 
 --Debug
+local keyboard_mode = false
 local godmode = false
 
 --GO UIDs
@@ -683,6 +684,9 @@ local function DebugInputs()
 			else
 				lua_table.being_revived = true
 			end
+		elseif lua_table.InputFunctions:KeyDown("6")	--Keyboard Mode
+		then
+			keyboard_mode = not keyboard_mode
 		end
 	end
 end
@@ -723,14 +727,18 @@ local function JoystickInputs(key_string, input_table)	--TODO-Inputs: The whole 
 end
 
 local function RegisterAttackInputs()	--This is used to give a timeframe to press the two attack buttons at the same time, without being necesarily on the exact same frame
-	if not attack_inputs[lua_table.key_light] and lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_light, key_state.key_down) then
+	if not attack_inputs[lua_table.key_light] and lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_light, key_state.key_down)
+	or keyboard_mode and not attack_inputs[lua_table.key_light] and lua_table.InputFunctions:KeyDown(",")
+	then
 		attack_inputs[lua_table.key_light] = true
 		if not attack_input_given then
 			attack_input_started_at = game_time
 			attack_input_given = true
 		end
 	end
-	if not attack_inputs[lua_table.key_medium] and lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_medium, key_state.key_down) then
+	if not attack_inputs[lua_table.key_medium] and lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_medium, key_state.key_down)
+	or keyboard_mode and not attack_inputs[lua_table.key_medium] and lua_table.InputFunctions:KeyDown(".")
+	then
 		attack_inputs[lua_table.key_medium] = true
 		if not attack_input_given then
 			attack_input_started_at = game_time
@@ -1204,6 +1212,7 @@ local function ActionInputs()	--Process Action Inputs
 	if attack_input_given then	--IF attack input made
 		if game_time - attack_input_started_at > attack_input_timeframe		--IF surpassed double press timeframe
 		or attack_inputs[lua_table.key_light] and attack_inputs[lua_table.key_medium]				--IF both buttons have been pressed
+		or keyboard_mode
 		then
 			if attack_inputs[lua_table.key_light] and attack_inputs[lua_table.key_medium]		--Both inputs (Heavy)
 			then
@@ -1447,7 +1456,8 @@ end
 
 local function SecondaryInputs()	--Process Secondary Inputs
 	if not lua_table.potion_active then
-		if lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_use_item, key_state.key_down)		--Pickup Item
+		if lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_use_item, key_state.key_down)		--Take potion
+		or keyboard_mode and lua_table.InputFunctions:KeyDown("J")
 		then
 			TakePotion(lua_table.item_selected)
 
@@ -1456,11 +1466,13 @@ local function SecondaryInputs()	--Process Secondary Inputs
 	end
 
 	if lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_prev_consumable, key_state.key_down)	--Previous Consumable
+	or keyboard_mode and lua_table.InputFunctions:KeyDown("K")
 	then
 		if not PrevItem() then	--TODO-Audio: Make not possible sound
 		end
 	
 	elseif lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_next_consumable, key_state.key_down)	--Next Consumable
+	or keyboard_mode and lua_table.InputFunctions:KeyDown("L")
 	then
 		if not NextItem() then	--TODO-Audio: Make not possible sound
 		end
@@ -1721,11 +1733,11 @@ function lua_table:Update()
 			if lua_table.current_state >= state.idle	--IF acting on free will (idle, attacking)
 			then
 				--DEBUG
-				--KeyboardInputs()
-
-				--Joystick Inputs
-				JoystickInputs(lua_table.key_move, mov_input)
-				JoystickInputs(lua_table.key_aim, aim_input)
+				if keyboard_mode then KeyboardInputs()
+				else
+					JoystickInputs(lua_table.key_move, mov_input)
+					JoystickInputs(lua_table.key_aim, aim_input)
+				end
 
 				--IF action currently going on, check action timer
 				if lua_table.current_state > state.run
