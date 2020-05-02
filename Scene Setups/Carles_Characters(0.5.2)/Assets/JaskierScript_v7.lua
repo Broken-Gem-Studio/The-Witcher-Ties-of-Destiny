@@ -126,15 +126,15 @@ lua_table.critical_damage_orig = 2.0
 --Items
 lua_table.item_library = {	--Used to flag a readable name with a number id, allows for item indexing based on number
 	health_potion = 1,
-	energy_potion = 2,
+	stamina_potion = 2,
 	power_potion = 3
 }
 local item_library_size = 3
 
 local item_effects = {		--Item library and required data to operate
-	{ item_effect = 2, stat_affected = "health_reg_mod" },
-	{ item_effect = 2, stat_affected = "energy_reg_mod" },
-	{ item_effect = 2, stat_affected = "base_damage_mod" }
+	{ health_recovery = 4, health_regen = 0.1 },
+	{ speed_increase = 0.5, energy_regen = 2 },
+	{ damage_increase = 1, critical_chance_increase = 10 },
 }
 lua_table.inventory = {	--Character inventory (number of each item)
 	6,
@@ -1392,8 +1392,45 @@ local function ReviveShutdown()	--IF I was reviving, not anymore
 	end
 end
 
+--Character Actions END	----------------------------------------------------------------------------
+
 --Character Secondaries BEGIN	----------------------------------------------------------------------------
 
+--Health Potion
+local function TakeHealthPotion()
+	lua_table.current_health = lua_table.current_health + lua_table.max_health_real / item_effects[lua_table.item_library.health_potion].health_recovery
+	lua_table.health_reg_mod = lua_table.health_reg_mod + item_effects[lua_table.item_library.health_potion].health_regen
+
+	if lua_table.current_health > lua_table.max_health_real then lua_table.current_health = lua_table.max_health_real end	--IF above max, set to max
+end
+
+local function EndHealthPotion()
+	lua_table.health_reg_mod = lua_table.health_reg_mod - item_effects[lua_table.item_library.health_potion].health_regen
+end
+
+--Stamina Potion
+local function TakeStaminaPotion()
+	lua_table.mov_velocity_max_mod = lua_table.mov_velocity_max_mod + item_effects[lua_table.item_library.stamina_potion].speed_increase
+	lua_table.energy_reg_mod = lua_table.energy_reg_mod + item_effects[lua_table.item_library.stamina_potion].energy_regen
+end
+
+local function EndStaminaPotion()
+	lua_table.mov_velocity_max_mod = lua_table.mov_velocity_max_mod - item_effects[lua_table.item_library.stamina_potion].speed_increase
+	lua_table.energy_reg_mod = lua_table.energy_reg_mod - item_effects[lua_table.item_library.stamina_potion].energy_regen
+end
+
+--Power Potion
+local function TakePowerPotion()
+	lua_table.base_damage_mod = lua_table.base_damage_mod + item_effects[lua_table.item_library.power_potion].damage_increase
+	lua_table.critical_chance_add = lua_table.critical_chance_add + item_effects[lua_table.item_library.power_potion].critical_chance_increase
+end
+
+local function EndPowerPotion()
+	lua_table.base_damage_mod = lua_table.base_damage_mod - item_effects[lua_table.item_library.power_potion].damage_increase
+	lua_table.critical_chance_add = lua_table.critical_chance_add - item_effects[lua_table.item_library.power_potion].critical_chance_increase
+end
+
+--Inventory Swap
 local function NextItem()	--Jump to next item you have num > 0 in inventory
 	local new_item = lua_table.item_selected + 1
 
@@ -1432,10 +1469,14 @@ local function PrevItem()	--Jump to prev item you have num > 0 in inventory
 	return false
 end
 
+--Potion Functions
 local function TakePotion(potion_id)
 	if lua_table.inventory[potion_id] > 0 then	--IF potions of type left
 
-		lua_table[item_effects[potion_id].stat_affected] = lua_table[item_effects[potion_id].stat_affected] + item_effects[potion_id].item_effect	-- Apply effect
+		if lua_table.item_selected == lua_table.item_library.health_potion then TakeHealthPotion()
+		elseif lua_table.item_selected == lua_table.item_library.stamina_potion then TakeStaminaPotion()
+		elseif lua_table.item_selected == lua_table.item_library.power_potion then TakePowerPotion() end
+
 		lua_table.potion_in_effect = potion_id	-- Save Potion number id to later use
 
 		potion_taken_at = game_time		--Mark drink time
@@ -1448,8 +1489,11 @@ local function TakePotion(potion_id)
 	end
 end
 
-local function EndPotion(potion_id)
-	lua_table[item_effects[potion_id].stat_affected] = lua_table[item_effects[potion_id].stat_affected] - item_effects[potion_id].item_effect	-- Apply effect
+local function EndPotion()
+	if lua_table.potion_in_effect == lua_table.item_library.health_potion then EndHealthPotion()
+	elseif lua_table.potion_in_effect == lua_table.item_library.stamina_potion then EndStaminaPotion()
+	elseif lua_table.potion_in_effect == lua_table.item_library.power_potion then EndPowerPotion() end
+
 	lua_table.potion_active = false	--Mark potion off effect
 	must_update_stats = true	--Flag stats for update
 end
