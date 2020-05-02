@@ -136,9 +136,9 @@ local item_effects = {		--Item library and required data to operate
 	{ item_effect = 2, stat_affected = "base_damage_mod" }
 }
 lua_table.inventory = {	--Character inventory (number of each item)
-	3,
-	3,
-	0
+	6,
+	4,
+	2
 }
 lua_table.item_selected = lua_table.item_library.health_potion
 
