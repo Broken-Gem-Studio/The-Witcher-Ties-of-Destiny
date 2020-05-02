@@ -59,6 +59,40 @@
         "Parent": "1433181590",
         "Static": false
     },
+    "1006975333": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1483008427,
+                "index": 0,
+                "layer": "0",
+                "positionx": "3.742736",
+                "positiony": "8.771759",
+                "positionz": "-0.208733",
+                "rotationw": "0.998077",
+                "rotationx": "0.005244",
+                "rotationy": "-0.017553",
+                "rotationz": "0.059216",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1947720541.bone"
+                },
+                "UID": 1810915701,
+                "index": 1
+            }
+        },
+        "Index": 3,
+        "Name": "mixamorig:LeftHandPinky1",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1713858472",
+        "Static": false
+    },
     "1009720755": {
         "Active": true,
         "Components": {
@@ -93,6 +127,92 @@
         "Parent": "839910919",
         "Static": false
     },
+    "1024909493": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1430195112,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-0.000001",
+                "positiony": "37.308632",
+                "positionz": "0.000000",
+                "rotationw": "0.999156",
+                "rotationx": "-0.038412",
+                "rotationy": "0.000440",
+                "rotationz": "-0.014515",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/492004314.bone"
+                },
+                "UID": 1387115750,
+                "index": 1
+            }
+        },
+        "Index": 0,
+        "Name": "mixamorig:LeftLeg",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "755477745",
+        "Static": false
+    },
+    "102847829": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1247249081,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            }
+        },
+        "Index": 1,
+        "Name": "Archer_Pivot",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1039440198",
+        "Static": false
+    },
+    "1030405554": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 819367754,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-0.004404",
+                "positiony": "2.418709",
+                "positionz": "0.000000",
+                "rotationw": "0.707107",
+                "rotationx": "0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000011",
+                "scalez": "1.000011"
+            }
+        },
+        "Index": 0,
+        "Name": "mixamorig:RightHandPinky4",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1618469964",
+        "Static": false
+    },
     "1037727294": {
         "Active": true,
         "Components": {
@@ -117,6 +237,200 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "2143241895",
+        "Static": false
+    },
+    "1039440198": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1438375205,
+                "index": 0,
+                "layer": "3",
+                "positionx": "6.415034",
+                "positiony": "0.837583",
+                "positionz": "-1.310868",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/Archer/ArcherScript.lua"
+                },
+                "Script variables": {
+                    "Count": 19,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "Attack_Collider",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "ArcherAttack"
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "ClosestPlayer_ID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "knockback_force",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 50.0
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "random",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.08
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "start_aiming",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": true
+                    },
+                    "Variable 14": {
+                        "DisplayObjectName": false,
+                        "Name": "start_hit",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 15": {
+                        "DisplayObjectName": false,
+                        "Name": "start_knockback",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 16": {
+                        "DisplayObjectName": false,
+                        "Name": "start_shooting",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": true
+                    },
+                    "Variable 17": {
+                        "DisplayObjectName": false,
+                        "Name": "start_stun",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 18": {
+                        "DisplayObjectName": false,
+                        "Name": "start_taking_arrow",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": true
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "DistanceToTarget",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": true,
+                        "Name": "arrow",
+                        "ObjectName": "Arrow (0).prefab",
+                        "Type": "Double",
+                        "Value": 471928390.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": false,
+                        "Name": "collider_damage",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 8.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": false,
+                        "Name": "collider_effect",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": false,
+                        "Name": "currentState",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": false,
+                        "Name": "geralt",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Geralt"
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": false,
+                        "Name": "health",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 80.0
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "jaskier",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Jaskier"
+                    }
+                },
+                "UID": 289459757,
+                "index": 3
+            },
+            "14": {
+                "Active": true,
+                "Resources": {
+                    "ResourceAnimation": "Library/Animations/799056021.anim",
+                    "ResourceAnimator": "923887525"
+                },
+                "UID": 1810204048,
+                "index": 1
+            },
+            "17": {
+                "UID": 363496735,
+                "contactOffset": "0.010000",
+                "draw": "0",
+                "gravity": "1",
+                "height": "2.000000",
+                "index": 2,
+                "nonWalkableMode": "1",
+                "positionX": "6.415034",
+                "positionY": "0.837583",
+                "positionZ": "-1.310868",
+                "radius": "1.000000",
+                "slopeLimit": "45.000000",
+                "stepOffset": "0.300000"
+            }
+        },
+        "Index": 8,
+        "Name": "Archer",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "-1",
         "Static": false
     },
     "1043112497": {
@@ -255,6 +569,40 @@
         "Parent": "713283079",
         "Static": false
     },
+    "1077628705": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 67664350,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-0.001251",
+                "positiony": "3.446518",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "-0.000022",
+                "rotationz": "-0.000194",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/658317456.bone"
+                },
+                "UID": 1428073479,
+                "index": 1
+            }
+        },
+        "Index": 0,
+        "Name": "mixamorig:LeftHandIndex2",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "2054284498",
+        "Static": false
+    },
     "1078327011": {
         "Active": true,
         "Components": {
@@ -313,6 +661,134 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1043112497",
+        "Static": false
+    },
+    "1082369120": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1917175023,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000039",
+                "positiony": "3.768547",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1066857345.bone"
+                },
+                "UID": 943680645,
+                "index": 1
+            }
+        },
+        "Index": 0,
+        "Name": "mixamorig:LeftHandRing2",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1158967631",
+        "Static": false
+    },
+    "1099379213": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1853276300,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-0.002505",
+                "positiony": "3.271118",
+                "positionz": "0.000015",
+                "rotationw": "0.999999",
+                "rotationx": "0.000000",
+                "rotationy": "-0.000025",
+                "rotationz": "0.001151",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/458177873.bone"
+                },
+                "UID": 1836803246,
+                "index": 1
+            }
+        },
+        "Index": 0,
+        "Name": "mixamorig:LeftHandIndex3",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1077628705",
+        "Static": false
+    },
+    "111911698": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 585807506,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-0.002343",
+                "positiony": "3.477859",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000032",
+                "rotationz": "0.000168",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/2131577324.bone"
+                },
+                "UID": 1642435049,
+                "index": 1
+            }
+        },
+        "Index": 0,
+        "Name": "mixamorig:RightHandIndex3",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1186190130",
+        "Static": false
+    },
+    "1122877754": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 199065543,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.582119",
+                "positiony": "3.642345",
+                "positionz": "0.000000",
+                "rotationw": "0.707107",
+                "rotationx": "0.707107",
+                "rotationy": "-0.000000",
+                "rotationz": "-0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000011",
+                "scalez": "1.000011"
+            }
+        },
+        "Index": 0,
+        "Name": "mixamorig:LeftHandThumb4",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1150177290",
         "Static": false
     },
     "112559144": {
@@ -409,6 +885,40 @@
         "Parent": "523924627",
         "Static": false
     },
+    "114767924": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 903261756,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.008312",
+                "positiony": "3.838127",
+                "positionz": "0.000000",
+                "rotationw": "0.999999",
+                "rotationx": "0.000000",
+                "rotationy": "0.000020",
+                "rotationz": "-0.001690",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/415318661.bone"
+                },
+                "UID": 1223079375,
+                "index": 1
+            }
+        },
+        "Index": 0,
+        "Name": "mixamorig:RightHandPinky2",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "763824885",
+        "Static": false
+    },
     "1149591525": {
         "Active": true,
         "Components": {
@@ -423,8 +933,8 @@
                 "rotationx": "-0.000686",
                 "rotationy": "0.041906",
                 "rotationz": "0.999108",
-                "scalex": "1.000250",
-                "scaley": "1.000250",
+                "scalex": "1.000274",
+                "scaley": "1.000274",
                 "scalez": "1.000000"
             },
             "13": {
@@ -475,6 +985,40 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1059180403",
+        "Static": false
+    },
+    "1150177290": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1808331052,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.446798",
+                "positiony": "4.242188",
+                "positionz": "0.000000",
+                "rotationw": "0.999574",
+                "rotationx": "-0.001526",
+                "rotationy": "-0.011521",
+                "rotationz": "0.026765",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/189158969.bone"
+                },
+                "UID": 1587365917,
+                "index": 1
+            }
+        },
+        "Index": 0,
+        "Name": "mixamorig:LeftHandThumb3",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "569945929",
         "Static": false
     },
     "1153451533": {
@@ -545,6 +1089,66 @@
         "Parent": "328457839",
         "Static": false
     },
+    "1158967631": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 2099663410,
+                "index": 0,
+                "layer": "0",
+                "positionx": "1.487542",
+                "positiony": "9.877541",
+                "positionz": "-0.090042",
+                "rotationw": "0.998240",
+                "rotationx": "0.004299",
+                "rotationy": "-0.001539",
+                "rotationz": "0.059129",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1544378793.bone"
+                },
+                "UID": 1454416320,
+                "index": 1
+            }
+        },
+        "Index": 4,
+        "Name": "mixamorig:LeftHandRing1",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1713858472",
+        "Static": false
+    },
+    "1161374668": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1250993902,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-0.004419",
+                "positiony": "2.615395",
+                "positionz": "0.000015",
+                "rotationw": "0.707107",
+                "rotationx": "0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000011",
+                "scalez": "1.000011"
+            }
+        },
+        "Index": 0,
+        "Name": "mixamorig:LeftHandPinky4",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1297618584",
+        "Static": false
+    },
     "1164580440": {
         "Active": true,
         "Components": {
@@ -605,6 +1209,40 @@
         "Parent": "1836209298",
         "Static": false
     },
+    "1173846999": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1594285973,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-1.396175",
+                "positiony": "9.997555",
+                "positionz": "-0.333176",
+                "rotationw": "0.998055",
+                "rotationx": "-0.000855",
+                "rotationy": "0.008898",
+                "rotationz": "-0.061699",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1486905244.bone"
+                },
+                "UID": 943947391,
+                "index": 1
+            }
+        },
+        "Index": 3,
+        "Name": "mixamorig:RightHandRing1",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1299436077",
+        "Static": false
+    },
     "117596495": {
         "Active": true,
         "Components": {
@@ -637,6 +1275,40 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1630147238",
+        "Static": false
+    },
+    "1186190130": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1558976396,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.003284",
+                "positiony": "3.700111",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000002",
+                "rotationz": "-0.000777",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/380788889.bone"
+                },
+                "UID": 1524662889,
+                "index": 1
+            }
+        },
+        "Index": 0,
+        "Name": "mixamorig:RightHandIndex2",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "995519648",
         "Static": false
     },
     "124270200": {
@@ -1133,6 +1805,134 @@
         "Parent": "-1",
         "Static": false
     },
+    "1297618584": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 183536304,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.003134",
+                "positiony": "3.311256",
+                "positionz": "0.000000",
+                "rotationw": "0.999999",
+                "rotationx": "0.000000",
+                "rotationy": "0.000035",
+                "rotationz": "-0.001309",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/288288502.bone"
+                },
+                "UID": 453321134,
+                "index": 1
+            }
+        },
+        "Index": 0,
+        "Name": "mixamorig:LeftHandPinky3",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "2026002478",
+        "Static": false
+    },
+    "1299436077": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1956605703,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-0.000001",
+                "positiony": "18.347485",
+                "positionz": "0.000000",
+                "rotationw": "0.996272",
+                "rotationx": "-0.002332",
+                "rotationy": "-0.060741",
+                "rotationz": "0.061207",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1792803431.bone"
+                },
+                "UID": 1662952059,
+                "index": 1
+            }
+        },
+        "Index": 0,
+        "Name": "mixamorig:RightHand",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "2124553376",
+        "Static": false
+    },
+    "1301422772": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1608039203,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-0.000034",
+                "positiony": "2.926651",
+                "positionz": "0.000000",
+                "rotationw": "0.707107",
+                "rotationx": "0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000011",
+                "scalez": "1.000011"
+            }
+        },
+        "Index": 0,
+        "Name": "mixamorig:LeftHandRing4",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "419330290",
+        "Static": false
+    },
+    "131993589": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1393291695,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-1.259359",
+                "positiony": "10.592201",
+                "positionz": "0.089615",
+                "rotationw": "0.998212",
+                "rotationx": "0.004046",
+                "rotationy": "0.002741",
+                "rotationz": "0.059565",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/984709457.bone"
+                },
+                "UID": 524762605,
+                "index": 1
+            }
+        },
+        "Index": 2,
+        "Name": "mixamorig:LeftHandMiddle1",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1713858472",
+        "Static": false
+    },
     "1320277878": {
         "Active": true,
         "Components": {
@@ -1201,6 +2001,32 @@
         "Parent": "785064475",
         "Static": false
     },
+    "1386478188": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1204240966,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "7.195602",
+                "positionz": "0.000000",
+                "rotationw": "0.707107",
+                "rotationx": "0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000011",
+                "scalez": "1.000011"
+            }
+        },
+        "Index": 0,
+        "Name": "mixamorig:LeftToe_End",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "2049692978",
+        "Static": false
+    },
     "1412175194": {
         "Active": true,
         "Components": {
@@ -1233,6 +2059,66 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1428486163",
+        "Static": false
+    },
+    "1415525546": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1722578210,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.003756",
+                "positiony": "2.471733",
+                "positionz": "0.000000",
+                "rotationw": "0.707107",
+                "rotationx": "0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000011",
+                "scalez": "1.000011"
+            }
+        },
+        "Index": 0,
+        "Name": "mixamorig:LeftHandIndex4",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1099379213",
+        "Static": false
+    },
+    "1422031205": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 875439814,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000002",
+                "positiony": "11.157457",
+                "positionz": "0.000000",
+                "rotationw": "0.994176",
+                "rotationx": "-0.106153",
+                "rotationy": "-0.003876",
+                "rotationz": "-0.018169",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/551632880.bone"
+                },
+                "UID": 1261904987,
+                "index": 1
+            }
+        },
+        "Index": 0,
+        "Name": "mixamorig:RightArm",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1492862348",
         "Static": false
     },
     "1428486163": {
@@ -1525,6 +2411,66 @@
         "Parent": "783532477",
         "Static": false
     },
+    "1492862348": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1431292256,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-5.216900",
+                "positiony": "8.694000",
+                "positionz": "-0.330829",
+                "rotationw": "0.438674",
+                "rotationx": "0.537672",
+                "rotationy": "-0.449270",
+                "rotationz": "0.562700",
+                "scalex": "1.000011",
+                "scaley": "1.000011",
+                "scalez": "1.000011"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1782679179.bone"
+                },
+                "UID": 461966882,
+                "index": 1
+            }
+        },
+        "Index": 2,
+        "Name": "mixamorig:RightShoulder",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "2015409108",
+        "Static": false
+    },
+    "1506840330": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 553633523,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-0.002490",
+                "positiony": "3.113678",
+                "positionz": "0.000000",
+                "rotationw": "0.707107",
+                "rotationx": "0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000011",
+                "scalez": "1.000011"
+            }
+        },
+        "Index": 0,
+        "Name": "mixamorig:LeftHandMiddle4",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "699964174",
+        "Static": false
+    },
     "1534996568": {
         "Active": true,
         "Components": {
@@ -1559,6 +2505,66 @@
         "Parent": "1720390226",
         "Static": false
     },
+    "1535595169": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 890767994,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-0.000001",
+                "positiony": "37.308098",
+                "positionz": "0.000000",
+                "rotationw": "0.998594",
+                "rotationx": "-0.050985",
+                "rotationy": "-0.000561",
+                "rotationz": "0.014509",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/2056478365.bone"
+                },
+                "UID": 1125752208,
+                "index": 1
+            }
+        },
+        "Index": 0,
+        "Name": "mixamorig:RightLeg",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "207893518",
+        "Static": false
+    },
+    "1538204662": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 876190367,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "16.424377",
+                "positionz": "5.862579",
+                "rotationw": "0.707107",
+                "rotationx": "0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000011",
+                "scalez": "1.000011"
+            }
+        },
+        "Index": 0,
+        "Name": "mixamorig:HeadTop_End",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "962088352",
+        "Static": false
+    },
     "1545605501": {
         "Active": true,
         "Components": {
@@ -1591,6 +2597,32 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1243367144",
+        "Static": false
+    },
+    "1563017293": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 2011962003,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-0.586834",
+                "positiony": "3.541889",
+                "positionz": "0.000000",
+                "rotationw": "0.707107",
+                "rotationx": "0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000011",
+                "scalez": "1.000011"
+            }
+        },
+        "Index": 0,
+        "Name": "mixamorig:RightHandThumb4",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "883618155",
         "Static": false
     },
     "1576801594": {
@@ -1695,6 +2727,40 @@
         "Parent": "94142784",
         "Static": false
     },
+    "1601699914": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 489823314,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "24.772795",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.001017",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/724875235.bone"
+                },
+                "UID": 2096113281,
+                "index": 1
+            }
+        },
+        "Index": 0,
+        "Name": "mixamorig:LeftForeArm",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1914859667",
+        "Static": false
+    },
     "1605867536": {
         "Active": true,
         "Components": {
@@ -1729,6 +2795,40 @@
         "Parent": "839910919",
         "Static": false
     },
+    "1618469964": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 2135079678,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-0.003908",
+                "positiony": "3.201263",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "-0.000046",
+                "rotationz": "-0.000300",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1180674273.bone"
+                },
+                "UID": 1859183992,
+                "index": 1
+            }
+        },
+        "Index": 0,
+        "Name": "mixamorig:RightHandPinky3",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "114767924",
+        "Static": false
+    },
     "1618564907": {
         "Active": true,
         "Components": {
@@ -1753,7 +2853,7 @@
                 "GradientColor": false,
                 "Loop": true,
                 "Resources": {
-                    "ResourceTexture": "Library/Textures/1472081363.dds"
+                    "ResourceTexture": "Library/Textures/1198214543.dds"
                 },
                 "UID": 1853010549,
                 "animation": "0",
@@ -1967,6 +3067,40 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "991825355",
+        "Static": false
+    },
+    "1713858472": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1251504616,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000001",
+                "positiony": "18.355495",
+                "positionz": "-0.000008",
+                "rotationw": "0.997840",
+                "rotationx": "-0.005882",
+                "rotationy": "0.028295",
+                "rotationz": "-0.058992",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/673031435.bone"
+                },
+                "UID": 1148860805,
+                "index": 1
+            }
+        },
+        "Index": 0,
+        "Name": "mixamorig:LeftHand",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1601699914",
         "Static": false
     },
     "1716947442": {
@@ -2266,6 +3400,32 @@
         "Parent": "-1",
         "Static": false
     },
+    "1777496740": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1426456959,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "7.207275",
+                "positionz": "0.000000",
+                "rotationw": "0.707107",
+                "rotationx": "0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000011",
+                "scalez": "1.000011"
+            }
+        },
+        "Index": 0,
+        "Name": "mixamorig:RightToe_End",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "655982602",
+        "Static": false
+    },
     "1812191746": {
         "Active": true,
         "Components": {
@@ -2324,7 +3484,7 @@
                 "GradientColor": false,
                 "Loop": true,
                 "Resources": {
-                    "ResourceTexture": "Library/Textures/1360479004.dds"
+                    "ResourceTexture": "Library/Textures/1486608495.dds"
                 },
                 "UID": 674502253,
                 "animation": "0",
@@ -2480,6 +3640,74 @@
         "Parent": "929520288",
         "Static": false
     },
+    "1862319545": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1580964955,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "7.313789",
+                "positionz": "-0.881549",
+                "rotationw": "0.998202",
+                "rotationx": "-0.059940",
+                "rotationy": "-0.000009",
+                "rotationz": "0.000101",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1591121948.bone"
+                },
+                "UID": 1234288717,
+                "index": 1
+            }
+        },
+        "Index": 2,
+        "Name": "mixamorig:Spine",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "632264506",
+        "Static": false
+    },
+    "1872258835": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 679866659,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-2.909539",
+                "positiony": "3.052742",
+                "positionz": "1.692902",
+                "rotationw": "0.957461",
+                "rotationx": "0.226682",
+                "rotationy": "0.076673",
+                "rotationz": "0.161263",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1175842242.bone"
+                },
+                "UID": 309602712,
+                "index": 1
+            }
+        },
+        "Index": 5,
+        "Name": "mixamorig:LeftHandThumb1",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1713858472",
+        "Static": false
+    },
     "188571580": {
         "Active": true,
         "Components": {
@@ -2554,8 +3782,8 @@
                 "rotationx": "0.015069",
                 "rotationy": "0.169828",
                 "rotationz": "0.985115",
-                "scalex": "0.999994",
-                "scaley": "0.999994",
+                "scalex": "0.999982",
+                "scaley": "0.999982",
                 "scalez": "1.000000"
             },
             "13": {
@@ -2572,6 +3800,74 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "352183933",
+        "Static": false
+    },
+    "1911730794": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1266743317,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-0.003447",
+                "positiony": "3.736946",
+                "positionz": "0.000015",
+                "rotationw": "1.000000",
+                "rotationx": "-0.000000",
+                "rotationy": "-0.000000",
+                "rotationz": "0.000922",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/345104749.bone"
+                },
+                "UID": 1225541508,
+                "index": 1
+            }
+        },
+        "Index": 0,
+        "Name": "mixamorig:RightHandRing2",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1173846999",
+        "Static": false
+    },
+    "1914859667": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 980187166,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "11.157456",
+                "positionz": "-0.000015",
+                "rotationw": "0.993825",
+                "rotationx": "-0.107482",
+                "rotationy": "0.026695",
+                "rotationz": "0.006822",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/569284438.bone"
+                },
+                "UID": 1022833367,
+                "index": 1
+            }
+        },
+        "Index": 0,
+        "Name": "mixamorig:LeftArm",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "784673284",
         "Static": false
     },
     "1915993636": {
@@ -2606,6 +3902,40 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "2036252014",
+        "Static": false
+    },
+    "192087243": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 2117354611,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.003560",
+                "positiony": "4.060028",
+                "positionz": "0.000000",
+                "rotationw": "0.999999",
+                "rotationx": "0.000000",
+                "rotationy": "-0.000018",
+                "rotationz": "-0.001244",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/490687493.bone"
+                },
+                "UID": 477907763,
+                "index": 1
+            }
+        },
+        "Index": 0,
+        "Name": "mixamorig:RightHandMiddle2",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "74031583",
         "Static": false
     },
     "1922158314": {
@@ -2817,8 +4147,8 @@
                 "rotationx": "-0.015471",
                 "rotationy": "0.174883",
                 "rotationz": "0.984234",
-                "scalex": "0.999994",
-                "scaley": "0.999994",
+                "scalex": "0.999982",
+                "scaley": "0.999982",
                 "scalez": "1.000000"
             },
             "13": {
@@ -2871,6 +4201,74 @@
         "Parent": "660273032",
         "Static": false
     },
+    "2015409108": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 923355326,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "9.822296",
+                "positionz": "0.000001",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1145187070.bone"
+                },
+                "UID": 2145662148,
+                "index": 1
+            }
+        },
+        "Index": 0,
+        "Name": "mixamorig:Spine2",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "76371173",
+        "Static": false
+    },
+    "2015618955": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1752549511,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.003425",
+                "positiony": "3.640579",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000008",
+                "rotationz": "-0.000467",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/2015379007.bone"
+                },
+                "UID": 671133732,
+                "index": 1
+            }
+        },
+        "Index": 0,
+        "Name": "mixamorig:RightHandRing3",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1911730794",
+        "Static": false
+    },
     "2018476016": {
         "Active": true,
         "Components": {
@@ -2895,6 +4293,87 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "510858723",
+        "Static": false
+    },
+    "2026002478": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1144587598,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.001286",
+                "positiony": "3.983101",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000023",
+                "rotationz": "0.000305",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/662808878.bone"
+                },
+                "UID": 657471129,
+                "index": 1
+            }
+        },
+        "Index": 0,
+        "Name": "mixamorig:LeftHandPinky2",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1006975333",
+        "Static": false
+    },
+    "2034436941": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1999230806,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/1882860481.mesh"
+                    }
+                },
+                "UID": 1442847868,
+                "index": 1
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/Archer/New material 7.mat"
+                    }
+                },
+                "UID": 1816345956,
+                "index": 2
+            }
+        },
+        "Index": 0,
+        "Name": "Archer_Mesh",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1039440198",
         "Static": false
     },
     "2036252014": {
@@ -2965,6 +4444,74 @@
         "Parent": "1009720755",
         "Static": false
     },
+    "2049692978": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 494862816,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000001",
+                "positiony": "17.672226",
+                "positionz": "0.000002",
+                "rotationw": "0.961004",
+                "rotationx": "0.276026",
+                "rotationy": "0.016101",
+                "rotationz": "-0.004625",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/2109485535.bone"
+                },
+                "UID": 763963915,
+                "index": 1
+            }
+        },
+        "Index": 0,
+        "Name": "mixamorig:LeftToeBase",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "807554094",
+        "Static": false
+    },
+    "2054284498": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1809672390,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-3.970916",
+                "positiony": "11.365326",
+                "positionz": "-0.157806",
+                "rotationw": "0.998230",
+                "rotationx": "0.004599",
+                "rotationy": "-0.006596",
+                "rotationz": "0.058918",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/720852804.bone"
+                },
+                "UID": 483378347,
+                "index": 1
+            }
+        },
+        "Index": 1,
+        "Name": "mixamorig:LeftHandIndex1",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1713858472",
+        "Static": false
+    },
     "206462246": {
         "Active": true,
         "Components": {
@@ -2989,7 +4536,7 @@
                 "GradientColor": false,
                 "Loop": true,
                 "Resources": {
-                    "ResourceTexture": "Library/Textures/408974263.dds"
+                    "ResourceTexture": "Library/Textures/1892569730.dds"
                 },
                 "UID": 1242876855,
                 "animation": "0",
@@ -3077,6 +4624,40 @@
         "Parent": "2098492773",
         "Static": false
     },
+    "207893518": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 978687024,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-7.886324",
+                "positiony": "-4.065994",
+                "positionz": "0.118298",
+                "rotationw": "0.007081",
+                "rotationx": "0.000094",
+                "rotationy": "0.009043",
+                "rotationz": "0.999934",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/2078503563.bone"
+                },
+                "UID": 1808145888,
+                "index": 1
+            }
+        },
+        "Index": 1,
+        "Name": "mixamorig:RightUpLeg",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "632264506",
+        "Static": false
+    },
     "2082463770": {
         "Active": true,
         "Components": {
@@ -3122,6 +4703,66 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "783532477",
+        "Static": false
+    },
+    "2088352840": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 52364146,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000021",
+                "positiony": "2.994614",
+                "positionz": "0.000000",
+                "rotationw": "0.707107",
+                "rotationx": "0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000011",
+                "scalez": "1.000011"
+            }
+        },
+        "Index": 0,
+        "Name": "mixamorig:RightHandRing4",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "2015618955",
+        "Static": false
+    },
+    "2090912958": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1531101157,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "36.673294",
+                "positionz": "0.000000",
+                "rotationw": "0.853877",
+                "rotationx": "0.519697",
+                "rotationy": "-0.025464",
+                "rotationz": "-0.012651",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1345504175.bone"
+                },
+                "UID": 381711,
+                "index": 1
+            }
+        },
+        "Index": 0,
+        "Name": "mixamorig:RightFoot",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1535595169",
         "Static": false
     },
     "2096223551": {
@@ -3190,6 +4831,141 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1657257902",
+        "Static": false
+    },
+    "2110646999": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "UID": 1638687757,
+                "index": 0,
+                "layer": "4",
+                "positionx": "0.000000",
+                "positiony": "2.312201",
+                "positionz": "1.443825",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "16": {
+                "Active": false,
+                "UID": 764374977,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "0",
+                "firstCreation": "0",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "0.000000",
+                "globalMatrixy": "3.149784",
+                "globalMatrixz": "-10.279932",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "index": 1,
+                "isConvex": "0",
+                "isTrigger": "1",
+                "lastIndex": "0",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "2.000000",
+                "scaley": "2.000000",
+                "scalez": "2.000000",
+                "tmpScalex": "1.000000",
+                "tmpScaley": "1.000000",
+                "tmpScalez": "1.000000"
+            }
+        },
+        "Index": 2,
+        "Name": "ArcherAttack",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1039440198",
+        "Static": false
+    },
+    "2124553376": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 805297767,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000001",
+                "positiony": "24.799671",
+                "positionz": "0.000000",
+                "rotationw": "0.999998",
+                "rotationx": "0.000000",
+                "rotationy": "-0.001762",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/237226441.bone"
+                },
+                "UID": 1280264078,
+                "index": 1
+            }
+        },
+        "Index": 0,
+        "Name": "mixamorig:RightForeArm",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1422031205",
+        "Static": false
+    },
+    "2127720799": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1364459707,
+                "index": 0,
+                "layer": "0",
+                "positionx": "2.869210",
+                "positiony": "3.072044",
+                "positionz": "1.884125",
+                "rotationw": "0.958214",
+                "rotationx": "0.222912",
+                "rotationy": "-0.065571",
+                "rotationz": "-0.166845",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/723138717.bone"
+                },
+                "UID": 1110136002,
+                "index": 1
+            }
+        },
+        "Index": 4,
+        "Name": "mixamorig:RightHandThumb1",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1299436077",
         "Static": false
     },
     "2143241895": {
@@ -3284,7 +5060,7 @@
                 "GradientColor": true,
                 "Loop": true,
                 "Resources": {
-                    "ResourceTexture": "Library/Textures/1951834841.dds"
+                    "ResourceTexture": "Library/Textures/1248033236.dds"
                 },
                 "UID": 1454737281,
                 "animation": "0",
@@ -3537,7 +5313,7 @@
                 "GradientColor": false,
                 "Loop": true,
                 "Resources": {
-                    "ResourceTexture": "Library/Textures/1429819629.dds"
+                    "ResourceTexture": "Library/Textures/1138714699.dds"
                 },
                 "UID": 1546190026,
                 "animation": "0",
@@ -3807,6 +5583,32 @@
         "Parent": "1857052045",
         "Static": false
     },
+    "333655142": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 908794620,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-0.000942",
+                "positiony": "2.766853",
+                "positionz": "-0.000008",
+                "rotationw": "0.707107",
+                "rotationx": "0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000011",
+                "scalez": "1.000011"
+            }
+        },
+        "Index": 0,
+        "Name": "mixamorig:RightHandIndex4",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "111911698",
+        "Static": false
+    },
     "338677698": {
         "Active": true,
         "Components": {
@@ -3856,8 +5658,8 @@
                 "rotationy": "0.000122",
                 "rotationz": "-0.000114",
                 "scalex": "39.370075",
-                "scaley": "39.370224",
-                "scalez": "39.370216"
+                "scaley": "39.370522",
+                "scalez": "39.370491"
             },
             "13": {
                 "Active": true,
@@ -4089,6 +5891,74 @@
         "Parent": "-1",
         "Static": false
     },
+    "419330290": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 2022972874,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-0.000005",
+                "positiony": "3.700462",
+                "positionz": "0.000015",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1574078235.bone"
+                },
+                "UID": 826955906,
+                "index": 1
+            }
+        },
+        "Index": 0,
+        "Name": "mixamorig:LeftHandRing3",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1082369120",
+        "Static": false
+    },
+    "443134256": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1505519941,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.003218",
+                "positiony": "3.819794",
+                "positionz": "-0.000015",
+                "rotationw": "1.000000",
+                "rotationx": "-0.000000",
+                "rotationy": "0.000026",
+                "rotationz": "-0.000504",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1123609902.bone"
+                },
+                "UID": 1421969585,
+                "index": 1
+            }
+        },
+        "Index": 0,
+        "Name": "mixamorig:LeftHandMiddle2",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "131993589",
+        "Static": false
+    },
     "479450238": {
         "Active": true,
         "Components": {
@@ -4147,6 +6017,32 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1545605501",
+        "Static": false
+    },
+    "506183055": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1610764224,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.002594",
+                "positiony": "3.086197",
+                "positionz": "0.000000",
+                "rotationw": "0.707107",
+                "rotationx": "0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000011",
+                "scalez": "1.000011"
+            }
+        },
+        "Index": 0,
+        "Name": "mixamorig:RightHandMiddle4",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "925275034",
         "Static": false
     },
     "510858723": {
@@ -4266,7 +6162,7 @@
                 "rotationy": "-0.431125",
                 "rotationz": "0.540621",
                 "scalex": "0.999999",
-                "scaley": "0.999993",
+                "scaley": "0.999981",
                 "scalez": "0.999999"
             },
             "13": {
@@ -4334,7 +6230,7 @@
                 "rotationy": "0.000606",
                 "rotationz": "-0.000568",
                 "scalex": "39.370079",
-                "scaley": "39.369602",
+                "scaley": "39.369556",
                 "scalez": "39.370071"
             },
             "13": {
@@ -4385,6 +6281,40 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1857052045",
+        "Static": false
+    },
+    "569945929": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 557047213,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-1.028904",
+                "positiony": "3.486794",
+                "positionz": "0.000000",
+                "rotationw": "0.980814",
+                "rotationx": "0.000936",
+                "rotationy": "-0.010251",
+                "rotationz": "0.194677",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1236106642.bone"
+                },
+                "UID": 776835100,
+                "index": 1
+            }
+        },
+        "Index": 0,
+        "Name": "mixamorig:LeftHandThumb2",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1872258835",
         "Static": false
     },
     "586951222": {
@@ -4608,6 +6538,74 @@
         "Parent": "1534996568",
         "Static": false
     },
+    "627777119": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 842139712,
+                "index": 0,
+                "layer": "0",
+                "positionx": "1.019417",
+                "positiony": "3.541393",
+                "positionz": "0.000000",
+                "rotationw": "0.981596",
+                "rotationx": "0.000782",
+                "rotationy": "0.008827",
+                "rotationz": "-0.190765",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/33995989.bone"
+                },
+                "UID": 10358758,
+                "index": 1
+            }
+        },
+        "Index": 0,
+        "Name": "mixamorig:RightHandThumb2",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "2127720799",
+        "Static": false
+    },
+    "632264506": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1976547872,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000807",
+                "positiony": "0.054828",
+                "positionz": "88.206367",
+                "rotationw": "0.707108",
+                "rotationx": "0.707106",
+                "rotationy": "0.000074",
+                "rotationz": "-0.000069",
+                "scalex": "1.000000",
+                "scaley": "1.000009",
+                "scalez": "1.000009"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/193668966.bone"
+                },
+                "UID": 634780399,
+                "index": 1
+            }
+        },
+        "Index": 0,
+        "Name": "mixamorig:Hips",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "102847829",
+        "Static": false
+    },
     "644574403": {
         "Active": true,
         "Components": {
@@ -4640,6 +6638,87 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1751464084",
+        "Static": false
+    },
+    "655982602": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1881194250,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-0.000001",
+                "positiony": "17.906939",
+                "positionz": "-0.000002",
+                "rotationw": "0.962116",
+                "rotationx": "0.272061",
+                "rotationy": "-0.017113",
+                "rotationz": "0.004836",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/233297552.bone"
+                },
+                "UID": 2039699661,
+                "index": 1
+            }
+        },
+        "Index": 0,
+        "Name": "mixamorig:RightToeBase",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "2090912958",
+        "Static": false
+    },
+    "658223711": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1227001856,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-0.244518",
+                "positiony": "8.374608",
+                "positionz": "4.301722",
+                "rotationw": "-0.497081",
+                "rotationx": "-0.438171",
+                "rotationy": "0.636785",
+                "rotationz": "0.394235",
+                "scalex": "0.879441",
+                "scaley": "0.879441",
+                "scalez": "0.228865"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2080251174.mesh"
+                    }
+                },
+                "UID": 344222563,
+                "index": 1
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/Archer/New material 8.mat"
+                    }
+                },
+                "UID": 1349041750,
+                "index": 2
+            }
+        },
+        "Index": 0,
+        "Name": "Bow",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1713858472",
         "Static": false
     },
     "660273032": {
@@ -4710,6 +6789,40 @@
         "Parent": "931755079",
         "Static": false
     },
+    "699964174": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 2095834232,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-0.000728",
+                "positiony": "4.109337",
+                "positionz": "0.000015",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "-0.000019",
+                "rotationz": "-0.000316",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/79603595.bone"
+                },
+                "UID": 1151187010,
+                "index": 1
+            }
+        },
+        "Index": 0,
+        "Name": "mixamorig:LeftHandMiddle3",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "443134256",
+        "Static": false
+    },
     "703040474": {
         "Active": true,
         "Components": {
@@ -4776,6 +6889,142 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "222806160",
+        "Static": false
+    },
+    "74031583": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 2027031106,
+                "index": 0,
+                "layer": "0",
+                "positionx": "1.323339",
+                "positiony": "10.744152",
+                "positionz": "-0.030212",
+                "rotationw": "0.998148",
+                "rotationx": "-0.001281",
+                "rotationy": "0.001880",
+                "rotationz": "-0.060795",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1892628556.bone"
+                },
+                "UID": 2044768221,
+                "index": 1
+            }
+        },
+        "Index": 1,
+        "Name": "mixamorig:RightHandMiddle1",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1299436077",
+        "Static": false
+    },
+    "755477745": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 551231359,
+                "index": 0,
+                "layer": "0",
+                "positionx": "7.886326",
+                "positiony": "-4.066010",
+                "positionz": "-0.018779",
+                "rotationw": "-0.007283",
+                "rotationx": "-0.000189",
+                "rotationy": "0.003719",
+                "rotationz": "0.999967",
+                "scalex": "1.000022",
+                "scaley": "1.000022",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1524746020.bone"
+                },
+                "UID": 1745673049,
+                "index": 1
+            }
+        },
+        "Index": 0,
+        "Name": "mixamorig:LeftUpLeg",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "632264506",
+        "Static": false
+    },
+    "76371173": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 856631552,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "8.594513",
+                "positionz": "-0.000002",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1527847994.bone"
+                },
+                "UID": 1776920955,
+                "index": 1
+            }
+        },
+        "Index": 0,
+        "Name": "mixamorig:Spine1",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1862319545",
+        "Static": false
+    },
+    "763824885": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1419992764,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-3.893540",
+                "positiony": "9.090824",
+                "positionz": "-0.049950",
+                "rotationw": "0.998137",
+                "rotationx": "-0.000766",
+                "rotationy": "0.010122",
+                "rotationz": "-0.060167",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1391084650.bone"
+                },
+                "UID": 1906532799,
+                "index": 1
+            }
+        },
+        "Index": 2,
+        "Name": "mixamorig:RightHandPinky1",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1299436077",
         "Static": false
     },
     "767197443": {
@@ -5041,6 +7290,40 @@
         "Parent": "-1",
         "Static": false
     },
+    "784673284": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 46025160,
+                "index": 0,
+                "layer": "0",
+                "positionx": "5.216900",
+                "positiony": "8.682877",
+                "positionz": "-0.238482",
+                "rotationw": "-0.441122",
+                "rotationx": "-0.543840",
+                "rotationy": "-0.445744",
+                "rotationz": "0.557639",
+                "scalex": "0.999989",
+                "scaley": "0.999989",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1852178507.bone"
+                },
+                "UID": 272063036,
+                "index": 1
+            }
+        },
+        "Index": 0,
+        "Name": "mixamorig:LeftShoulder",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "2015409108",
+        "Static": false
+    },
     "785064475": {
         "Active": true,
         "Components": {
@@ -5073,6 +7356,40 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1644068075",
+        "Static": false
+    },
+    "807554094": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 124109387,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "36.620285",
+                "positionz": "-0.000001",
+                "rotationw": "0.859751",
+                "rotationx": "0.509897",
+                "rotationy": "0.025994",
+                "rotationz": "0.012582",
+                "scalex": "1.000000",
+                "scaley": "0.999999",
+                "scalez": "0.999999"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1468175344.bone"
+                },
+                "UID": 1292920446,
+                "index": 1
+            }
+        },
+        "Index": 0,
+        "Name": "mixamorig:LeftFoot",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1024909493",
         "Static": false
     },
     "839910919": {
@@ -5193,6 +7510,40 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1069389831",
+        "Static": false
+    },
+    "883618155": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1780068973,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-0.432587",
+                "positiony": "4.159828",
+                "positionz": "-0.000015",
+                "rotationw": "0.999469",
+                "rotationx": "-0.001609",
+                "rotationy": "0.011941",
+                "rotationz": "-0.030273",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/217618854.bone"
+                },
+                "UID": 1048184510,
+                "index": 1
+            }
+        },
+        "Index": 0,
+        "Name": "mixamorig:RightHandThumb3",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "627777119",
         "Static": false
     },
     "887468152": {
@@ -5336,6 +7687,40 @@
         "Parent": "2038982957",
         "Static": false
     },
+    "925275034": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1452224852,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-0.006153",
+                "positiony": "3.872643",
+                "positionz": "0.000000",
+                "rotationw": "0.999999",
+                "rotationx": "0.000000",
+                "rotationy": "0.000019",
+                "rotationz": "0.001222",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/687448269.bone"
+                },
+                "UID": 1816320332,
+                "index": 1
+            }
+        },
+        "Index": 0,
+        "Name": "mixamorig:RightHandMiddle3",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "192087243",
+        "Static": false
+    },
     "929520288": {
         "Active": true,
         "Components": {
@@ -5470,8 +7855,8 @@
                 "rotationx": "0.003326",
                 "rotationy": "0.086645",
                 "rotationz": "0.996212",
-                "scalex": "1.000125",
-                "scaley": "1.000125",
+                "scalex": "1.000137",
+                "scaley": "1.000137",
                 "scalez": "1.000000"
             },
             "13": {
@@ -5488,6 +7873,40 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "562114975",
+        "Static": false
+    },
+    "946602321": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 813826111,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "11.050079",
+                "positionz": "0.000002",
+                "rotationw": "0.998202",
+                "rotationx": "0.059941",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1458490175.bone"
+                },
+                "UID": 179131483,
+                "index": 1
+            }
+        },
+        "Index": 1,
+        "Name": "mixamorig:Neck",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "2015409108",
         "Static": false
     },
     "952854520": {
@@ -5556,6 +7975,40 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1244253230",
+        "Static": false
+    },
+    "962088352": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 990717966,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "4.999718",
+                "positionz": "1.784617",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/2075192574.bone"
+                },
+                "UID": 1895736540,
+                "index": 1
+            }
+        },
+        "Index": 0,
+        "Name": "mixamorig:Head",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "946602321",
         "Static": false
     },
     "972330716": {
@@ -5684,7 +8137,7 @@
                 "GradientColor": false,
                 "Loop": true,
                 "Resources": {
-                    "ResourceTexture": "Library/Textures/1519867611.dds"
+                    "ResourceTexture": "Library/Textures/2057819802.dds"
                 },
                 "UID": 497613984,
                 "animation": "0",
@@ -5736,6 +8189,40 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1295016343",
+        "Static": false
+    },
+    "995519648": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1246922575,
+                "index": 0,
+                "layer": "0",
+                "positionx": "3.966376",
+                "positiony": "10.605694",
+                "positionz": "-0.188072",
+                "rotationw": "0.998130",
+                "rotationx": "-0.001011",
+                "rotationy": "0.006254",
+                "rotationz": "-0.060797",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/307771175.bone"
+                },
+                "UID": 2117647747,
+                "index": 1
+            }
+        },
+        "Index": 0,
+        "Name": "mixamorig:RightHandIndex1",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1299436077",
         "Static": false
     },
     "Navigation Data": {
