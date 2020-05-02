@@ -573,7 +573,7 @@ function lua_table:Update()
 
             if start_death == false 
             then
-                lua_table.Audi:PlayAudioEvent("Play_Bandit_death_3")
+                lua_table.Audio:PlayAudioEvent("Play_Bandit_death_3")
                 lua_table.AnimationSystem:PlayAnimation("Death",30.0, MyUID) -- 2.33sec
                 time_death = PerfGameTime()
                 start_death = true
