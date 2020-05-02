@@ -137,9 +137,9 @@ local item_effects = {		--Item library and required data to operate
 	{ item_effect = 2, stat_affected = "base_damage_mod" }
 }
 lua_table.inventory = {	--Character inventory (number of each item)
-	3,
-	3,
-	0
+	6,
+	4,
+	2
 }
 lua_table.item_selected = lua_table.item_library.health_potion
 
@@ -1939,7 +1939,9 @@ function lua_table:Update()
 
 	--Item LOGS
 	--lua_table.SystemFunctions:LOG("Geralt Item: " .. lua_table.item_selected)
-	--lua_table.SystemFunctions:LOG("Geralt Potions Left: " .. lua_table.inventory[1])
+	--lua_table.SystemFunctions:LOG("Geralt Health Potions Left: " .. lua_table.inventory[1])
+	--lua_table.SystemFunctions:LOG("Geralt Energy Potions Left: " .. lua_table.inventory[2])
+	--lua_table.SystemFunctions:LOG("Geralt Damage Potions Left: " .. lua_table.inventory[3])
 
 	--Stats LOGS
 	--lua_table.SystemFunctions:LOG("Geralt Health: " .. lua_table.current_health)
