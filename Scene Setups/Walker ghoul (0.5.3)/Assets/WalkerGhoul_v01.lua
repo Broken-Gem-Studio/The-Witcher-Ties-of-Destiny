@@ -125,20 +125,20 @@ local function CalculateDistances()
     -- We check the players are stil alive
     if lua_table.Geralt_UUID ~= 0 
     then    
-        --local geralt_table = lua_table.ObjectFunctions:GetScript(lua_table.Geralt_UUID)
-        --if geralt_table.current_state > -3
-        --then
+        local geralt_table = lua_table.ObjectFunctions:GetScript(lua_table.Geralt_UUID)
+        if geralt_table.current_state > -3
+        then
             lua_table.GeraltPosition = lua_table.TransformFunctions:GetPosition(lua_table.Geralt_UUID)
-        --end        
+        end        
     end
 
     if lua_table.Jaskier_UUID ~= 0
     then
-        --local jaskier_table = lua_table.ObjectFunctions:GetScript(lua_table.Jaskier_UUID)
-        --if jaskier_table.current_state > -3
-        --then
+        local jaskier_table = lua_table.ObjectFunctions:GetScript(lua_table.Jaskier_UUID)
+        if jaskier_table.current_state > -3
+        then
             lua_table.JaskierPosition = lua_table.TransformFunctions:GetPosition(lua_table.Jaskier_UUID)               
-        --end           
+        end           
     end
 
     -- Calculate the distance from the ghoul to the camera
@@ -404,8 +404,7 @@ function lua_table:OnTriggerEnter()
             player_table = lua_table.ObjectFunctions:GetScript(collider)
         end
         
-        player_table.collider_effect = Effect.KNOCKBACK
-		--lua_table.health = lua_table.health - player_table.collider_damage
+		lua_table.health = lua_table.health - player_table.collider_damage
         lua_table.ObjectivePlayer_UUID = collider
 
         if player_table.collider_effect == Effect.STUN
