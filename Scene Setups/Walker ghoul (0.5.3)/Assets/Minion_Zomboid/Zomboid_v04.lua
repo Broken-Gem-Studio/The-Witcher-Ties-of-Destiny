@@ -101,6 +101,12 @@ local crushing = false
 
 --local is_in_range = false
 
+local GC1 = 0
+local GC2 = 0
+
+local JC1 = 0
+local JC2 = 0
+
 -- Recast navigation
 local navID = 0
 local corners = {}
@@ -154,55 +160,87 @@ end
 
 local function SearchPlayers() -- Check if targets are within range
 
+	local GeraltState = lua_table.GameObject:GetScript(lua_table.geralt)
+	local JaskierState = lua_table.GameObject:GetScript(lua_table.jaskier)
+
 	lua_table.GeraltPos = lua_table.Transform:GetPosition(lua_table.geralt)
 	lua_table.JaskierPos = lua_table.Transform:GetPosition(lua_table.jaskier)
 	lua_table.GhoulPos = lua_table.Transform:GetPosition(lua_table.MyUID)
 	
-	local GC1 = lua_table.GeraltPos[1] - lua_table.GhoulPos[1]
-	local GC2 = lua_table.GeraltPos[3] - lua_table.GhoulPos[3]
-	lua_table.GeraltDistance = math.sqrt(GC1 ^ 2 + GC2 ^ 2)
+	GC1 = lua_table.GeraltPos[1] - lua_table.GhoulPos[1]
+	GC2 = lua_table.GeraltPos[3] - lua_table.GhoulPos[3]
 
-	local JC1 = lua_table.JaskierPos[1] - lua_table.GhoulPos[1]
-	local JC2 = lua_table.JaskierPos[3] - lua_table.GhoulPos[3]
-	lua_table.JaskierDistance =  math.sqrt(JC1 ^ 2 + JC2 ^ 2)
+	if GeraltState.current_state > -3 then
+		lua_table.GeraltDistance = math.sqrt(GC1 ^ 2 + GC2 ^ 2)
+	else 
+		lua_table.GeraltDistance = -1
+	end
+
+	JC1 = lua_table.JaskierPos[1] - lua_table.GhoulPos[1]
+	JC2 = lua_table.JaskierPos[3] - lua_table.GhoulPos[3]
 	
+	if JaskierState.current_state > -3 then
+		lua_table.JaskierDistance =  math.sqrt(JC1 ^ 2 + JC2 ^ 2)
+	else 
+		lua_table.JaskierDistance = -1
+	end
+
+
+	-- if lua_table.currentTarget == lua_table.geralt then
+	-- 	lua_table.currentTargetDir = lua_table.GeraltDistance
+	-- 	lua_table.currentTargetPos = lua_table.GeraltPos
+	-- end
+
+	-- if lua_table.currentTarget == lua_table.jaskier then
+	-- 	lua_table.currentTargetDir = lua_table.JaskierDistance
+	-- 	lua_table.currentTargetPos = lua_table.JaskierPos
+	-- end
+
+
+	-- Handle Taunt
 	if lua_table.is_taunt then 
 		lua_table.currentTarget = lua_table.jaskier
 		lua_table.currentTargetDir = lua_table.JaskierDistance
 		lua_table.currentTargetPos = lua_table.JaskierPos
-	else 
-		lua_table.currentTarget = lua_table.geralt
-		lua_table.currentTargetDir = lua_table.GeraltDistance
-		lua_table.currentTargetPos = lua_table.GeraltPos
 	end
-					
-	if lua_table.JaskierDistance < lua_table.GeraltDistance then
-		lua_table.currentTarget = lua_table.jaskier
-		lua_table.currentTargetDir = lua_table.JaskierDistance
-		lua_table.currentTargetPos = lua_table.JaskierPos
-		
-	elseif lua_table.JaskierDistance == lua_table.GeraltDistance then 
-		lua_table.currentTarget = lua_table.geralt
-		lua_table.currentTargetDir = lua_table.GeraltDistance
-		lua_table.currentTargetPos = lua_table.GeraltPos
-	end 
+
+	if lua_table.GeraltDistance ~= -1 then -- Geralt alive and Jaskier dead
+		if lua_table.JaskierDistance == - 1 or lua_table.GeraltDistance < lua_table.JaskierDistance then
+			lua_table.currentTarget = lua_table.geralt
+			lua_table.currentTargetDir = lua_table.GeraltDistance
+			lua_table.currentTargetPos = lua_table.GeraltPos
+		end
+	end
+
+	if lua_table.JaskierDistance ~= -1 then -- Jaskier alive and Geralt dead
+		if lua_table.GeraltDistance == - 1 or lua_table.JaskierDistance < lua_table.GeraltDistance then
+			lua_table.currentTarget = lua_table.jaskier
+			lua_table.currentTargetDir = lua_table.JaskierDistance
+			lua_table.currentTargetPos = lua_table.JaskierPos
+		end
+	end
+
+	if lua_table.GeraltDistance == -1 and lua_table.JaskierDistance == -1 then
+		lua_table.currentState = State.IDLE
+	end
+
 end
 
-local function ToggleCollider(ID, start, finish, timer, condition, dmg, effect)
+-- local function ToggleCollider(ID, start, finish, timer, condition, dmg, effect)
 
-	lua_table.collider_effect = effect
-	lua_table.collider_damage = dmg
+-- 	lua_table.collider_effect = effect
+-- 	lua_table.collider_damage = dmg
 		
-	condition = true
+-- 	condition = true
 
-	if timer + start < lua_table.System:GameTime() * 1000 and condition then
-		lua_table.GameObject:SetActiveGameObject(true, ID)
-	end
-	if timer + finish < lua_table.System:GameTime() * 1000 then
-		lua_table.GameObject:SetActiveGameObject(false, ID)
-		condition = false
-	end
-end
+-- 	if timer + start < lua_table.System:GameTime() * 1000 and condition then
+-- 		lua_table.GameObject:SetActiveGameObject(true, ID)
+-- 	end
+-- 	if timer + finish < lua_table.System:GameTime() * 1000 then
+-- 		lua_table.GameObject:SetActiveGameObject(false, ID)
+-- 		condition = false
+-- 	end
+-- end
 
 local function AttackColliderShutdown()
 	if is_front_active then
@@ -216,11 +254,13 @@ local function AttackColliderShutdown()
 end
 	
 local function Idle() 
-		
-	if lua_table.currentTargetDir <= lua_table.AggroRange then
-		lua_table.currentState = State.SEEK
-		lua_table.Animations:PlayAnimation("Walk", 40.0, lua_table.MyUID)
-		lua_table.System:LOG("Zomboid state: SEEK (1)") 
+	
+	if lua_table.GeraltDistance ~= -1 or lua_table.JaskierDistance ~= -1 then
+		if lua_table.currentTargetDir <= lua_table.AggroRange then
+			lua_table.currentState = State.SEEK
+			lua_table.Animations:PlayAnimation("Walk", 40.0, lua_table.MyUID)
+			lua_table.System:LOG("Zomboid state: SEEK (1)") 
+		end
 	end
 	
 end
@@ -631,6 +671,8 @@ end
 function lua_table:Update()
 
 	SearchPlayers() -- Constantly calculate distances between entity and players
+
+	
 
 	-- Check if our entity is dead
 	if lua_table.health <= 0 then 
