@@ -108,7 +108,6 @@ namespace AK
         static const AkUniqueID PLAY_JASKIER_SONG_1 = 2858442791U;
         static const AkUniqueID PLAY_JASKIER_SONG_2 = 2858442788U;
         static const AkUniqueID PLAY_JASKIER_WALK = 748248399U;
-        static const AkUniqueID PLAY_JASKIER_WALK_2 = 2063358996U;
         static const AkUniqueID PLAY_KIKIMORA_DEATH = 4129361266U;
         static const AkUniqueID PLAY_KIKIMORA_HIT = 3409660243U;
         static const AkUniqueID PLAY_KIKIMORA_LASH = 2548185504U;
@@ -121,6 +120,7 @@ namespace AK
         static const AkUniqueID PLAY_KIKIMORA_SWEEP = 287198644U;
         static const AkUniqueID PLAY_LOW_HP = 3852706691U;
         static const AkUniqueID PLAY_LVL1_INTRO_CONVERSATION_CUTSCENE = 160635907U;
+        static const AkUniqueID PLAY_MAIN_MENU = 3306210749U;
         static const AkUniqueID PLAY_MENU_1 = 4155944947U;
         static const AkUniqueID PLAY_MENU_2 = 4155944944U;
         static const AkUniqueID PLAY_NILFGAARDIAN_DEATH_1 = 1506867313U;

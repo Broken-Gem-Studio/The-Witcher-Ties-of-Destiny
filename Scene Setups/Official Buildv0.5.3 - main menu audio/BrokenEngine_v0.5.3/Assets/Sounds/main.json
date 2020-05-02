@@ -7,7 +7,7 @@
   "RootPaths": {
    "ProjectRoot": "C:\\Users\\Raul_App\\Documents\\GitHub\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\",
    "SourceFilesRoot": "C:\\Users\\Raul_App\\Documents\\GitHub\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\.cache\\Windows\\",
-   "SoundBanksRoot": "C:\\Users\\Raul_App\\Desktop\\Official Buildv0.5.3 - main menu audio\\BrokenEngine_v0.5.3\\Assets\\Sounds\\",
+   "SoundBanksRoot": "C:\\Users\\Raul_App\\Documents\\GitHub\\The-Witcher-Ties-of-Destiny\\Assets\\Sounds\\",
    "ExternalSourcesInputFile": "",
    "ExternalSourcesOutputRoot": "C:\\Users\\Raul_App\\Documents\\GitHub\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\GeneratedSoundBanks\\Windows"
   },
@@ -384,13 +384,13 @@
       "Id": "3557814099",
       "Name": "Play_Geralt_run",
       "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_run",
-      "GUID": "{434059BD-9EAB-4D38-9F94-16134C6C73E1}"
+      "GUID": "{5FB022FF-B3C4-4F2C-9D6A-81AB0D39EBF6}"
      },
      {
       "Id": "3147769583",
       "Name": "Play_Geralt_walk",
       "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_walk",
-      "GUID": "{A49ADF83-76E0-4F48-9442-78652D5F98B9}"
+      "GUID": "{7DB026AE-A3C7-418D-9869-A5E1C006F4FB}"
      },
      {
       "Id": "2673589978",
@@ -570,7 +570,7 @@
       "Id": "462417715",
       "Name": "Play_Jaskier_run",
       "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_run",
-      "GUID": "{F63948E7-4DB5-48AD-B04E-CD3FAA1D5DD8}"
+      "GUID": "{A33955F2-4DBE-4360-A1F6-E0E6DCA2CCEE}"
      },
      {
       "Id": "2858442791",
@@ -588,13 +588,7 @@
       "Id": "748248399",
       "Name": "Play_Jaskier_walk",
       "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_walk",
-      "GUID": "{F5E9C5B2-CE0E-46DB-93A5-FCF518A34AA4}"
-     },
-     {
-      "Id": "2063358996",
-      "Name": "Play_Jaskier_walk_2",
-      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_walk_2",
-      "GUID": "{8257192B-CB86-4790-8836-CBB1919B53F0}"
+      "GUID": "{AF14C054-96B2-401F-90F9-B5944FE2FFC0}"
      },
      {
       "Id": "4129361266",
@@ -667,6 +661,12 @@
       "Name": "Play_lvl1_Intro_conversation_Cutscene",
       "ObjectPath": "\\Events\\Default Work Unit\\Dialogues\\Play_lvl1_Intro_conversation_Cutscene",
       "GUID": "{6F03570E-E8B3-4EDE-892A-6D09F36880EF}"
+     },
+     {
+      "Id": "3306210749",
+      "Name": "Play_Main_menu",
+      "ObjectPath": "\\Events\\Default Work Unit\\BGM\\Play_Main_menu",
+      "GUID": "{1F775DBC-09A3-4B90-A08D-747FE5E15B1E}"
      },
      {
       "Id": "4155944947",
@@ -947,12 +947,6 @@
       "Path": "SFX\\menu 1_10C4C929.wem"
      },
      {
-      "Id": "32456877",
-      "Language": "SFX",
-      "ShortName": "Geralt_walk.wav",
-      "Path": "SFX\\Geralt_walk_10C4C929.wem"
-     },
-     {
       "Id": "42164179",
       "Language": "SFX",
       "ShortName": "Jaskier_attack_1.wav",
@@ -1013,10 +1007,10 @@
       "Path": "SFX\\Kikimora_sound_4_10C4C929.wem"
      },
      {
-      "Id": "109978323",
+      "Id": "107875743",
       "Language": "SFX",
-      "ShortName": "Geralt_run.wav",
-      "Path": "SFX\\Geralt_run_10C4C929.wem"
+      "ShortName": "Geralt_walk.wav",
+      "Path": "SFX\\Geralt_walk_10C4C929.wem"
      },
      {
       "Id": "111760900",
@@ -1083,6 +1077,12 @@
       "Language": "SFX",
       "ShortName": "Attack_slow.wav",
       "Path": "SFX\\Attack_slow_10C4C929.wem"
+     },
+     {
+      "Id": "200739784",
+      "Language": "SFX",
+      "ShortName": "Main_menu.wav",
+      "Path": "SFX\\Main_menu_10C4C929.wem"
      },
      {
       "Id": "204538574",
@@ -1193,6 +1193,12 @@
       "Path": "SFX\\Bandit_lumberjack_attack_10C4C929.wem"
      },
      {
+      "Id": "397416824",
+      "Language": "SFX",
+      "ShortName": "Jaskier_walk.wav",
+      "Path": "SFX\\Jaskier_walk_10C4C929.wem"
+     },
+     {
       "Id": "398883563",
       "Language": "SFX",
       "ShortName": "Bandit_death_3.wav",
@@ -1235,16 +1241,16 @@
       "Path": "SFX\\Jaskier_getting_up_10C4C929.wem"
      },
      {
+      "Id": "432307875",
+      "Language": "SFX",
+      "ShortName": "Geralt_run.wav",
+      "Path": "SFX\\Geralt_run_10C4C929.wem"
+     },
+     {
       "Id": "437438864",
       "Language": "SFX",
       "ShortName": "Bandit_arrow_hit.wav",
       "Path": "SFX\\Bandit_arrow_hit_10C4C929.wem"
-     },
-     {
-      "Id": "443283389",
-      "Language": "SFX",
-      "ShortName": "Jaskier_walk.wav",
-      "Path": "SFX\\Jaskier_walk_10C4C929.wem"
      },
      {
       "Id": "448243594",
@@ -1407,12 +1413,6 @@
       "Language": "SFX",
       "ShortName": "Wooden _object_break_1.wav",
       "Path": "SFX\\Wooden _object_break_1_10C4C929.wem"
-     },
-     {
-      "Id": "641593726",
-      "Language": "SFX",
-      "ShortName": "Jaskier_run.wav",
-      "Path": "SFX\\Jaskier_run_10C4C929.wem"
      },
      {
       "Id": "651036345",
@@ -1619,12 +1619,6 @@
       "Path": "SFX\\Select_2_10C4C929.wem"
      },
      {
-      "Id": "877335818",
-      "Language": "SFX",
-      "ShortName": "Jaskier_walk_2.wav",
-      "Path": "SFX\\Jaskier_walk_2_10C4C929.wem"
-     },
-     {
       "Id": "897983978",
       "Language": "SFX",
       "ShortName": "Jaskier_attack_4.wav",
@@ -1707,6 +1701,12 @@
       "Language": "SFX",
       "ShortName": "Jaskier_attack_2_2.wav",
       "Path": "SFX\\Jaskier_attack_2_2_10C4C929.wem"
+     },
+     {
+      "Id": "981534970",
+      "Language": "SFX",
+      "ShortName": "Jaskier_run.wav",
+      "Path": "SFX\\Jaskier_run_10C4C929.wem"
      },
      {
       "Id": "983053762",

@@ -60,17 +60,6 @@
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="Play_Geralt_run" ID="{434059BD-9EAB-4D38-9F94-16134C6C73E1}">
-							<ChildrenList>
-								<Action Name="" ID="{E11E0F2A-427D-45E6-B64D-582F618BD4C5}" ShortID="761555321">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Geralt_run" ID="{9150F536-3CF0-4B44-9107-7C385921902D}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
 						<Event Name="Play_Geralt_attack_1" ID="{15A023E1-DFFF-4AE4-857E-2396C2473983}">
 							<ChildrenList>
 								<Action Name="" ID="{3186E7CC-8CD9-43F4-916D-B747ADE62CA8}" ShortID="704570950">
@@ -214,17 +203,6 @@
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="Play_Geralt_walk" ID="{A49ADF83-76E0-4F48-9442-78652D5F98B9}">
-							<ChildrenList>
-								<Action Name="" ID="{AC94F30F-893C-4599-9AC9-6822453EBD6B}" ShortID="618986512">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Geralt_walk" ID="{C3E65058-1E9A-4C12-AABD-1A484D049C9A}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
 						<Event Name="Play_Geralt_attack_3" ID="{6316D7F3-1C49-4371-93FE-3EF720A40F99}">
 							<ChildrenList>
 								<Action Name="" ID="{5041D1B9-7064-4CF9-BB10-4DBF3E9B1CBB}" ShortID="79227812">
@@ -264,6 +242,28 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Geralt_attack_2" ID="{8A909149-8CB1-430D-A351-BD60650980EE}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Geralt_run" ID="{5FB022FF-B3C4-4F2C-9D6A-81AB0D39EBF6}">
+							<ChildrenList>
+								<Action Name="" ID="{48BB4FF5-A182-4E9A-956A-4165B003444F}" ShortID="815579422">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Geralt_run" ID="{AD0A1E5B-7667-4C49-9048-8B58E39D7653}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Geralt_walk" ID="{7DB026AE-A3C7-418D-9869-A5E1C006F4FB}">
+							<ChildrenList>
+								<Action Name="" ID="{8AFB97B8-82C0-46EB-93AD-BB9D4442280E}" ShortID="652850383">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Geralt_walk" ID="{DE3A59CD-1825-4970-BC70-FE6CAFD35324}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -736,17 +736,6 @@
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="Play_Jaskier_walk_2" ID="{8257192B-CB86-4790-8836-CBB1919B53F0}">
-							<ChildrenList>
-								<Action Name="" ID="{690EBF16-1FD0-4A78-B0D5-DCA90FBF5029}" ShortID="117800534">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Jaskier_walk_2" ID="{8B53DA12-A6CA-4CCC-96E7-B31E4A5A4273}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
 						<Event Name="Play_Jaskier_attack_2_1" ID="{1B23BA27-BF31-4463-A71F-94DC97A0C676}">
 							<ChildrenList>
 								<Action Name="" ID="{ACA4932E-9810-4CED-B029-500B825010F1}" ShortID="1045930819">
@@ -978,23 +967,23 @@
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="Play_Jaskier_run" ID="{F63948E7-4DB5-48AD-B04E-CD3FAA1D5DD8}">
+						<Event Name="Play_Jaskier_run" ID="{A33955F2-4DBE-4360-A1F6-E0E6DCA2CCEE}">
 							<ChildrenList>
-								<Action Name="" ID="{017B8C02-4162-47E7-9ED2-1685CB0F3EB4}" ShortID="871422340">
+								<Action Name="" ID="{75A61121-70FB-4AFA-868A-C1A309B0E3C5}" ShortID="920558167">
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="Jaskier_run" ID="{FA9B6EA7-288F-47CC-AE00-AEC619A851A6}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
+											<ObjectRef Name="Jaskier_run" ID="{BC182340-2A76-4478-A66D-3F77E763CCAE}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="Play_Jaskier_walk" ID="{F5E9C5B2-CE0E-46DB-93A5-FCF518A34AA4}">
+						<Event Name="Play_Jaskier_walk" ID="{AF14C054-96B2-401F-90F9-B5944FE2FFC0}">
 							<ChildrenList>
-								<Action Name="" ID="{4979F904-4C70-4073-B937-146EC7B13300}" ShortID="770445921">
+								<Action Name="" ID="{A052CD50-3AD9-46AE-B1D1-1A3627B3B081}" ShortID="132944937">
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="Jaskier_walk" ID="{71625084-ECF1-41CA-9C68-5B0F294BA15D}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
+											<ObjectRef Name="Jaskier_walk" ID="{58251971-4146-4276-B3A6-35BA54F40D5A}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -1522,6 +1511,17 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Spikeroog_Music" ID="{ACEDA678-3A3D-427A-97AB-956864968FD1}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Main_menu" ID="{1F775DBC-09A3-4B90-A08D-747FE5E15B1E}">
+							<ChildrenList>
+								<Action Name="" ID="{CAA9E5C9-F444-4047-B95E-796AA08AAFD4}" ShortID="737927676">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Main_menu" ID="{F95D64DC-6179-428D-A856-1A77C17F2266}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

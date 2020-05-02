@@ -8,6 +8,8 @@ lua_table.SceneFunctions = Scripting.Scenes()
 lua_table.CameraFunctions = Scripting.Camera()
 lua_table.ObjectFunctions = Scripting.GameObject()
 lua_table.TransformFuctions = Scripting.Transform()
+lua_table.Audio = Scripting.Audio()
+
 
 -----------------------------------------------------------------------------
 -- VARIABLES
@@ -107,12 +109,14 @@ function lua_table:PlayGame()
 end
 
 function lua_table:QuitGame()
+	lua_table.Audio:PlayAudioEvent("Play_Select_1")
 	lua_table.SceneFunctions:QuitGame()
 end
 
 function lua_table:ShowFirstLevel()
 	lua_table.InterfaceFunctions:MakeElementVisible("Button", firstLevelPlay)
 	lua_table.InterfaceFunctions:MakeElementInvisible("Button", secondLevelPlay)
+	lua_table.Audio:PlayAudioEvent("Play_Select_3")
 
 	lua_table.InterfaceFunctions:MakeElementVisible("Image", firstLevelImage)
 	--lua_table.InterfaceFunctions:MakeElementInvisible("Image", secondLevelImage)
@@ -121,16 +125,19 @@ end
 function lua_table:ShowSecondLevel()
 	lua_table.InterfaceFunctions:MakeElementVisible("Button", secondLevelPlay)
 	lua_table.InterfaceFunctions:MakeElementInvisible("Button", firstLevelPlay)
+	lua_table.Audio:PlayAudioEvent("Play_Select_3")
 	
 	--lua_table.InterfaceFunctions:MakeElementVisible("Image", secondLevelImage)
 	lua_table.InterfaceFunctions:MakeElementInvisible("Image", firstLevelImage)
 end
 
 function lua_table:PlayFirstLevel()
+	lua_table.Audio:PlayAudioEvent("Play_Click_1")
 	loadLevel1 = true
 end
 
 function lua_table:PlaySecondLevel()
+	lua_table.Audio:PlayAudioEvent("Play_Click_1")
 	loadLevel2 = true
 end
 
