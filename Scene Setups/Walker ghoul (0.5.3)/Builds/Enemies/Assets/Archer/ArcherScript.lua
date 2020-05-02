@@ -245,8 +245,8 @@ end
 
 local function GetClosestPlayer()
 
-    --local scriptG = lua_table.GameObjectFunctions:GetScript(Geralt_ID)
-    --local scriptJ = lua_table.GameObjectFunctions:GetScript(Jaskier_ID)
+    local scriptG = lua_table.GameObjectFunctions:GetScript(Geralt_ID)
+    local scriptJ = lua_table.GameObjectFunctions:GetScript(Jaskier_ID)
 
     position = lua_table.Transform:GetPosition(MyUID)
 
@@ -256,20 +256,20 @@ local function GetClosestPlayer()
     GX = Gpos[1] - position[1]
     GZ = Gpos[3] - position[3]
 
-    --if scriptG.current_state > -3 then
-    GeraltDistance =  math.sqrt(GX^2 + GZ^2)
-    --else
-    --  GeraltDistance = -1 
-    --end
+    if scriptG.current_state > -3 then
+        GeraltDistance =  math.sqrt(GX^2 + GZ^2)
+    else
+      GeraltDistance = -1 
+    end
 
     JX = Jpos[1] - position[1]
     JZ = Jpos[3] - position[3]
 
-    --if scriptJ.current_state > -3 then
-    JaskierDistance =  math.sqrt(JX^2 + JZ^2)
-    --else
-    --  JaskierDistance = -1 
-    --end
+    if scriptJ.current_state > -3 then
+        JaskierDistance =  math.sqrt(JX^2 + JZ^2)
+    else
+      JaskierDistance = -1 
+    end
 
     
 
@@ -573,7 +573,7 @@ function lua_table:Update()
 
             if start_death == false 
             then
-                lua_table.Audi:PlayAudioEvent("Play_Bandit_death_3")
+                lua_table.Audio:PlayAudioEvent("Play_Bandit_death_3")
                 lua_table.AnimationSystem:PlayAnimation("Death",30.0, MyUID) -- 2.33sec
                 time_death = PerfGameTime()
                 start_death = true

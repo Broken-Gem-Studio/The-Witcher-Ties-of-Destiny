@@ -14,8 +14,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.540000",
-                "scaley": "2.540196",
-                "scalez": "2.540196"
+                "scaley": "2.540207",
+                "scalez": "2.540207"
             },
             "1": {
                 "Active": true,
@@ -56,7 +56,7 @@
                 "positionx": "0.078900",
                 "positiony": "0.099800",
                 "positionz": "0.061900",
-                "rotationw": "0.947474",
+                "rotationw": "0.947475",
                 "rotationx": "0.209726",
                 "rotationy": "-0.061193",
                 "rotationz": "-0.233586",
@@ -257,8 +257,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000468",
-                "scalez": "1.000468"
+                "scaley": "1.000477",
+                "scalez": "1.000477"
             }
         },
         "Index": 0,
@@ -515,8 +515,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000025",
-                "scalez": "1.000025"
+                "scaley": "1.000034",
+                "scalez": "1.000034"
             }
         },
         "Index": 0,
@@ -930,8 +930,8 @@
                 "rotationx": "-0.010050",
                 "rotationy": "0.117448",
                 "rotationz": "0.992281",
-                "scalex": "0.999988",
-                "scaley": "0.999988",
+                "scalex": "0.999979",
+                "scaley": "0.999979",
                 "scalez": "1.000000"
             },
             "13": {
@@ -1528,13 +1528,13 @@
                 "positionx": "0.000000",
                 "positiony": "34.879799",
                 "positionz": "0.000000",
-                "rotationw": "0.801519",
+                "rotationw": "0.801520",
                 "rotationx": "-0.593558",
                 "rotationy": "0.064061",
                 "rotationz": "-0.033935",
                 "scalex": "1.000000",
-                "scaley": "1.000000",
-                "scalez": "1.000000"
+                "scaley": "0.999999",
+                "scalez": "0.999999"
             },
             "13": {
                 "Active": true,
@@ -1674,8 +1674,8 @@
                 "rotationy": "-0.000000",
                 "rotationz": "-0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000025",
-                "scalez": "1.000025"
+                "scaley": "1.000034",
+                "scalez": "1.000034"
             }
         },
         "Index": 0,
@@ -1854,8 +1854,8 @@
                 "rotationy": "-0.000126",
                 "rotationz": "0.000118",
                 "scalex": "39.370079",
-                "scaley": "39.370399",
-                "scalez": "39.370354"
+                "scaley": "39.370640",
+                "scalez": "39.370560"
             },
             "13": {
                 "Active": true,
@@ -1947,8 +1947,8 @@
                 "rotationx": "-0.000686",
                 "rotationy": "0.041906",
                 "rotationz": "0.999108",
-                "scalex": "1.000302",
-                "scaley": "1.000302",
+                "scalex": "1.000320",
+                "scaley": "1.000320",
                 "scalez": "1.000000"
             },
             "13": {
@@ -2220,8 +2220,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000025",
-                "scalez": "1.000025"
+                "scaley": "1.000034",
+                "scalez": "1.000034"
             }
         },
         "Index": 0,
@@ -2536,8 +2536,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000468",
-                "scalez": "1.000468"
+                "scaley": "1.000477",
+                "scalez": "1.000477"
             }
         },
         "Index": 0,
@@ -3148,7 +3148,7 @@
                     "ResourceScript": "Assets/WalkerGhoul_v01.lua"
                 },
                 "Script variables": {
-                    "Count": 16,
+                    "Count": 17,
                     "Variable 0": {
                         "DisplayObjectName": false,
                         "Name": "attackDistance",
@@ -3158,47 +3158,54 @@
                     },
                     "Variable 1": {
                         "DisplayObjectName": false,
-                        "Name": "dead",
+                        "Name": "collider_damage",
                         "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
+                        "Type": "Double",
+                        "Value": 0.0
                     },
                     "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "maxEvades",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2.0
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "maxHealth",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 100.0
+                    },
+                    "Variable 12": {
                         "DisplayObjectName": false,
                         "Name": "movementSpeed",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 10.0
                     },
-                    "Variable 11": {
+                    "Variable 13": {
                         "DisplayObjectName": false,
                         "Name": "pathThreshold",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.1
                     },
-                    "Variable 12": {
-                        "DisplayObjectName": false,
-                        "Name": "screamCollider_UUID",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 13": {
+                    "Variable 14": {
                         "DisplayObjectName": false,
                         "Name": "seekDistance",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 20.0
                     },
-                    "Variable 14": {
+                    "Variable 15": {
                         "DisplayObjectName": false,
                         "Name": "stunned",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": false
                     },
-                    "Variable 15": {
+                    "Variable 16": {
                         "DisplayObjectName": false,
                         "Name": "taunted",
                         "ObjectName": "",
@@ -3207,59 +3214,59 @@
                     },
                     "Variable 2": {
                         "DisplayObjectName": false,
+                        "Name": "collider_effect",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2.0
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "dead",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": false,
                         "Name": "evadeDistance",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 5.0
                     },
-                    "Variable 3": {
+                    "Variable 5": {
                         "DisplayObjectName": false,
                         "Name": "evadeSpeed",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 15.0
                     },
-                    "Variable 4": {
+                    "Variable 6": {
                         "DisplayObjectName": false,
                         "Name": "ghoul_UUID",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
                     },
-                    "Variable 5": {
+                    "Variable 7": {
                         "DisplayObjectName": false,
                         "Name": "health",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
                     },
-                    "Variable 6": {
+                    "Variable 8": {
                         "DisplayObjectName": false,
                         "Name": "hit",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": false
                     },
-                    "Variable 7": {
+                    "Variable 9": {
                         "DisplayObjectName": false,
                         "Name": "knockbackSpeed",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 200.0
-                    },
-                    "Variable 8": {
-                        "DisplayObjectName": false,
-                        "Name": "maxEvades",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 2.0
-                    },
-                    "Variable 9": {
-                        "DisplayObjectName": false,
-                        "Name": "maxHealth",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 100.0
                     }
                 },
                 "UID": 1777099694,
@@ -3445,8 +3452,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000025",
-                "scalez": "1.000025"
+                "scaley": "1.000034",
+                "scalez": "1.000034"
             }
         },
         "Index": 0,
@@ -3466,7 +3473,7 @@
                 "positionx": "-1.259359",
                 "positiony": "10.592201",
                 "positionz": "0.089615",
-                "rotationw": "0.998212",
+                "rotationw": "0.998213",
                 "rotationx": "0.004046",
                 "rotationy": "0.002741",
                 "rotationz": "0.059565",
@@ -3538,8 +3545,8 @@
                 "rotationx": "0.011688",
                 "rotationy": "0.141292",
                 "rotationz": "0.989187",
-                "scalex": "1.000012",
-                "scaley": "1.000012",
+                "scalex": "1.000021",
+                "scaley": "1.000021",
                 "scalez": "1.000001"
             },
             "13": {
@@ -3736,8 +3743,8 @@
                 "rotationx": "-0.216319",
                 "rotationy": "0.433186",
                 "rotationz": "0.861486",
-                "scalex": "1.000132",
-                "scaley": "1.000132",
+                "scalex": "1.000141",
+                "scaley": "1.000141",
                 "scalez": "1.000000"
             },
             "13": {
@@ -4022,8 +4029,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000025",
-                "scalez": "1.000025"
+                "scaley": "1.000034",
+                "scalez": "1.000034"
             }
         },
         "Index": 0,
@@ -4290,8 +4297,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000025",
-                "scalez": "1.000025"
+                "scaley": "1.000034",
+                "scalez": "1.000034"
             }
         },
         "Index": 0,
@@ -4385,7 +4392,7 @@
                 "rotationz": "0.064747",
                 "scalex": "1.000000",
                 "scaley": "0.999995",
-                "scalez": "0.999870"
+                "scalez": "0.999861"
             },
             "13": {
                 "Active": true,
@@ -4529,8 +4536,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000468",
-                "scalez": "1.000468"
+                "scaley": "1.000477",
+                "scalez": "1.000477"
             }
         },
         "Index": 0,
@@ -4716,9 +4723,9 @@
                 "rotationx": "0.000000",
                 "rotationy": "-0.707107",
                 "rotationz": "0.000000",
-                "scalex": "1.000132",
+                "scalex": "1.000141",
                 "scaley": "1.000000",
-                "scalez": "1.000132"
+                "scalez": "1.000141"
             },
             "13": {
                 "Active": true,
@@ -4942,13 +4949,13 @@
                 "positionx": "-3.862349",
                 "positiony": "8.232063",
                 "positionz": "-0.177480",
-                "rotationw": "0.528578",
+                "rotationw": "0.528577",
                 "rotationx": "0.637140",
                 "rotationy": "-0.321647",
                 "rotationz": "0.459567",
                 "scalex": "1.000000",
-                "scaley": "1.000000",
-                "scalez": "1.000008"
+                "scaley": "1.000001",
+                "scalez": "1.000009"
             },
             "13": {
                 "Active": true,
@@ -5014,9 +5021,9 @@
                 "rotationx": "0.537672",
                 "rotationy": "-0.449270",
                 "rotationz": "0.562700",
-                "scalex": "1.000025",
-                "scaley": "1.000025",
-                "scalez": "1.000025"
+                "scalex": "1.000034",
+                "scaley": "1.000034",
+                "scalez": "1.000034"
             },
             "13": {
                 "Active": true,
@@ -5049,8 +5056,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000025",
-                "scalez": "1.000025"
+                "scaley": "1.000034",
+                "scalez": "1.000034"
             }
         },
         "Index": 0,
@@ -5108,8 +5115,8 @@
                 "rotationx": "-0.064481",
                 "rotationy": "0.268675",
                 "rotationz": "0.939991",
-                "scalex": "1.000132",
-                "scaley": "1.000132",
+                "scalex": "1.000141",
+                "scaley": "1.000141",
                 "scalez": "1.000000"
             },
             "13": {
@@ -5211,8 +5218,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000025",
-                "scalez": "1.000025"
+                "scaley": "1.000034",
+                "scalez": "1.000034"
             }
         },
         "Index": 0,
@@ -5237,8 +5244,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000468",
-                "scalez": "1.000468"
+                "scaley": "1.000477",
+                "scalez": "1.000477"
             }
         },
         "Index": 0,
@@ -6840,8 +6847,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000025",
-                "scalez": "1.000025"
+                "scaley": "1.000034",
+                "scalez": "1.000034"
             }
         },
         "Index": 0,
@@ -7461,7 +7468,7 @@
                 "GradientColor": false,
                 "Loop": true,
                 "Resources": {
-                    "ResourceTexture": "Library/Textures/2109184059.dds"
+                    "ResourceTexture": "Library/Textures/1636846202.dds"
                 },
                 "UID": 1853010549,
                 "animation": "0",
@@ -7649,7 +7656,7 @@
                 "rotationx": "0.013195",
                 "rotationy": "-0.627122",
                 "rotationz": "0.483227",
-                "scalex": "0.999870",
+                "scalex": "0.999861",
                 "scaley": "1.000000",
                 "scalez": "1.000001"
             },
@@ -7959,9 +7966,9 @@
                 "rotationx": "0.629225",
                 "rotationy": "0.355848",
                 "rotationz": "-0.490428",
-                "scalex": "1.000132",
-                "scaley": "1.000132",
-                "scalez": "1.000132"
+                "scalex": "1.000141",
+                "scaley": "1.000141",
+                "scalez": "1.000141"
             },
             "13": {
                 "Active": true,
@@ -8215,9 +8222,9 @@
                 "rotationx": "0.000000",
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
-                "scalex": "33.630909",
+                "scalex": "200.000000",
                 "scaley": "1.000000",
-                "scalez": "27.600000"
+                "scalez": "200.000000"
             },
             "1": {
                 "Active": true,
@@ -8238,9 +8245,9 @@
                 "draw": "1",
                 "firstCreation": "1",
                 "globalMatrixw": "1.000000",
-                "globalMatrixx": "-0.000002",
+                "globalMatrixx": "-0.000008",
                 "globalMatrixy": "-0.000000",
-                "globalMatrixz": "-0.000001",
+                "globalMatrixz": "-0.000008",
                 "globalPositionx": "1.000000",
                 "globalPositiony": "1.000000",
                 "globalPositionz": "1.000000",
@@ -8267,9 +8274,9 @@
                 "scalex": "1.000000",
                 "scaley": "1.000000",
                 "scalez": "1.000000",
-                "tmpScalex": "33.630909",
+                "tmpScalex": "200.000000",
                 "tmpScaley": "1.000000",
-                "tmpScalez": "27.600000"
+                "tmpScalez": "200.000000"
             },
             "2": {
                 "Active": true,
@@ -8406,8 +8413,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000468",
-                "scalez": "1.000468"
+                "scaley": "1.000477",
+                "scalez": "1.000477"
             }
         },
         "Index": 0,
@@ -8461,7 +8468,7 @@
                 "positionx": "0.000000",
                 "positiony": "34.602966",
                 "positionz": "0.000000",
-                "rotationw": "0.892083",
+                "rotationw": "0.892082",
                 "rotationx": "-0.449500",
                 "rotationy": "-0.034952",
                 "rotationz": "-0.030282",
@@ -8547,8 +8554,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000025",
-                "scalez": "1.000025"
+                "scaley": "1.000034",
+                "scalez": "1.000034"
             }
         },
         "Index": 0,
@@ -8983,7 +8990,7 @@
                 "GradientColor": false,
                 "Loop": true,
                 "Resources": {
-                    "ResourceTexture": "Library/Textures/367369924.dds"
+                    "ResourceTexture": "Library/Textures/1234496503.dds"
                 },
                 "UID": 674502253,
                 "animation": "0",
@@ -9209,7 +9216,7 @@
                 "positionx": "0.000000",
                 "positiony": "0.642700",
                 "positionz": "0.000000",
-                "rotationw": "0.951103",
+                "rotationw": "0.951104",
                 "rotationx": "0.006523",
                 "rotationy": "-0.301888",
                 "rotationz": "0.064987",
@@ -9547,8 +9554,8 @@
                 "rotationx": "0.015069",
                 "rotationy": "0.169828",
                 "rotationz": "0.985115",
-                "scalex": "0.999968",
-                "scaley": "0.999968",
+                "scalex": "0.999959",
+                "scaley": "0.999959",
                 "scalez": "1.000000"
             },
             "13": {
@@ -10146,7 +10153,7 @@
                 "positionx": "0.000000",
                 "positiony": "7.961464",
                 "positionz": "0.000001",
-                "rotationw": "0.997020",
+                "rotationw": "0.997019",
                 "rotationx": "0.048422",
                 "rotationy": "0.052606",
                 "rotationz": "-0.028984",
@@ -10218,8 +10225,8 @@
                 "rotationx": "-0.015471",
                 "rotationy": "0.174883",
                 "rotationz": "0.984234",
-                "scalex": "0.999968",
-                "scaley": "0.999968",
+                "scalex": "0.999959",
+                "scaley": "0.999959",
                 "scalez": "1.000000"
             },
             "13": {
@@ -10397,7 +10404,7 @@
                 "positionx": "0.590700",
                 "positiony": "3.818100",
                 "positionz": "-0.000008",
-                "rotationw": "0.740594",
+                "rotationw": "0.740593",
                 "rotationx": "0.359964",
                 "rotationy": "0.426094",
                 "rotationz": "-0.374688",
@@ -10436,8 +10443,8 @@
                 "rotationy": "-0.002414",
                 "rotationz": "0.017640",
                 "scalex": "1.000000",
-                "scaley": "0.999868",
-                "scalez": "0.999868"
+                "scaley": "0.999859",
+                "scalez": "0.999859"
             },
             "13": {
                 "Active": true,
@@ -10904,7 +10911,7 @@
                 "GradientColor": false,
                 "Loop": true,
                 "Resources": {
-                    "ResourceTexture": "Library/Textures/1387573506.dds"
+                    "ResourceTexture": "Library/Textures/1138395770.dds"
                 },
                 "UID": 1242876855,
                 "animation": "0",
@@ -11215,8 +11222,8 @@
                 "rotationx": "0.388476",
                 "rotationy": "0.030072",
                 "rotationz": "0.916843",
-                "scalex": "0.999867",
-                "scaley": "0.999736",
+                "scalex": "0.999858",
+                "scaley": "0.999718",
                 "scalez": "1.000000"
             },
             "13": {
@@ -11250,8 +11257,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000025",
-                "scalez": "1.000025"
+                "scaley": "1.000034",
+                "scalez": "1.000034"
             }
         },
         "Index": 0,
@@ -11794,7 +11801,7 @@
                 "GradientColor": true,
                 "Loop": true,
                 "Resources": {
-                    "ResourceTexture": "Library/Textures/1813975322.dds"
+                    "ResourceTexture": "Library/Textures/1792112066.dds"
                 },
                 "UID": 1454737281,
                 "animation": "0",
@@ -11952,7 +11959,7 @@
                 "positionx": "0.000000",
                 "positiony": "34.603580",
                 "positionz": "0.000000",
-                "rotationw": "0.912913",
+                "rotationw": "0.912914",
                 "rotationx": "-0.368780",
                 "rotationy": "0.170025",
                 "rotationz": "-0.041010",
@@ -12195,7 +12202,7 @@
                 "positionx": "0.000000",
                 "positiony": "14.105277",
                 "positionz": "0.000002",
-                "rotationw": "0.955922",
+                "rotationw": "0.955923",
                 "rotationx": "0.284361",
                 "rotationy": "-0.070039",
                 "rotationz": "-0.021109",
@@ -12263,13 +12270,13 @@
                 "positionx": "0.000000",
                 "positiony": "34.878300",
                 "positionz": "0.000000",
-                "rotationw": "0.835178",
+                "rotationw": "0.835177",
                 "rotationx": "-0.521171",
                 "rotationy": "-0.171388",
                 "rotationz": "0.038543",
                 "scalex": "1.000000",
                 "scaley": "1.000000",
-                "scalez": "1.000000"
+                "scalez": "1.000001"
             },
             "13": {
                 "Active": true,
@@ -12431,7 +12438,7 @@
                 "GradientColor": false,
                 "Loop": true,
                 "Resources": {
-                    "ResourceTexture": "Library/Textures/1192897409.dds"
+                    "ResourceTexture": "Library/Textures/1735246344.dds"
                 },
                 "UID": 1546190026,
                 "animation": "0",
@@ -12800,8 +12807,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000025",
-                "scalez": "1.000025"
+                "scaley": "1.000034",
+                "scalez": "1.000034"
             }
         },
         "Index": 0,
@@ -12860,8 +12867,8 @@
                 "rotationy": "0.000122",
                 "rotationz": "-0.000114",
                 "scalex": "39.370075",
-                "scaley": "39.370869",
-                "scalez": "39.370811"
+                "scaley": "39.371094",
+                "scalez": "39.371017"
             },
             "13": {
                 "Active": true,
@@ -12894,8 +12901,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000468",
-                "scalez": "1.000468"
+                "scaley": "1.000477",
+                "scalez": "1.000477"
             }
         },
         "Index": 0,
@@ -12986,9 +12993,9 @@
                 "rotationx": "0.000000",
                 "rotationy": "-0.707107",
                 "rotationz": "0.000000",
-                "scalex": "1.271032",
+                "scalex": "1.271041",
                 "scaley": "1.270900",
-                "scalez": "1.271032"
+                "scalez": "1.271041"
             },
             "13": {
                 "Active": true,
@@ -13630,8 +13637,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000468",
-                "scalez": "1.000468"
+                "scaley": "1.000477",
+                "scalez": "1.000477"
             }
         },
         "Index": 0,
@@ -13758,8 +13765,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000468",
-                "scalez": "1.000468"
+                "scaley": "1.000477",
+                "scalez": "1.000477"
             }
         },
         "Index": 0,
@@ -13810,8 +13817,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000468",
-                "scalez": "1.000468"
+                "scaley": "1.000477",
+                "scalez": "1.000477"
             }
         },
         "Index": 0,
@@ -13896,8 +13903,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000025",
-                "scalez": "1.000025"
+                "scaley": "1.000034",
+                "scalez": "1.000034"
             }
         },
         "Index": 0,
@@ -14084,7 +14091,7 @@
                 "rotationy": "-0.431125",
                 "rotationz": "0.540621",
                 "scalex": "0.999999",
-                "scaley": "0.999967",
+                "scaley": "0.999958",
                 "scalez": "0.999999"
             },
             "13": {
@@ -14152,8 +14159,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000468",
-                "scalez": "1.000468"
+                "scaley": "1.000477",
+                "scalez": "1.000477"
             }
         },
         "Index": 0,
@@ -14246,7 +14253,7 @@
                 "rotationy": "0.000606",
                 "rotationz": "-0.000568",
                 "scalex": "39.370079",
-                "scaley": "39.369503",
+                "scaley": "39.369469",
                 "scalez": "39.370071"
             },
             "13": {
@@ -14335,7 +14342,7 @@
                 "positionx": "-1.028904",
                 "positiony": "3.486794",
                 "positionz": "0.000000",
-                "rotationw": "0.980814",
+                "rotationw": "0.980813",
                 "rotationx": "0.000936",
                 "rotationy": "-0.010251",
                 "rotationz": "0.194677",
@@ -14627,11 +14634,11 @@
             },
             "3": {
                 "ACTIVECAM": true,
-                "ASPECTRATIO": 2.360584020614624,
+                "ASPECTRATIO": 2.3588454723358154,
                 "Active": true,
                 "CULLINGCAM": true,
                 "FARPLANE": 1000.0,
-                "FOV": 42.74350357055664,
+                "FOV": 42.772159576416016,
                 "NEARPLANE": 0.10000000149011612,
                 "UID": 1333235276,
                 "index": 1
@@ -14795,7 +14802,7 @@
                 "rotationy": "0.016942",
                 "rotationz": "0.196836",
                 "scalex": "1.000000",
-                "scaley": "0.999870",
+                "scaley": "0.999861",
                 "scalez": "1.000000"
             },
             "13": {
@@ -14983,8 +14990,8 @@
                 "rotationy": "0.000074",
                 "rotationz": "-0.000069",
                 "scalex": "1.000000",
-                "scaley": "1.000023",
-                "scalez": "1.000023"
+                "scaley": "1.000032",
+                "scalez": "1.000032"
             },
             "13": {
                 "Active": true,
@@ -15361,8 +15368,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000468",
-                "scalez": "1.000468"
+                "scaley": "1.000477",
+                "scalez": "1.000477"
             }
         },
         "Index": 0,
@@ -15784,6 +15791,73 @@
         "Parent": "214971510",
         "Static": false
     },
+    "732147894": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "UID": 196682982,
+                "index": 0,
+                "layer": "4",
+                "positionx": "0.000000",
+                "positiony": "1.916675",
+                "positionz": "6.338690",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "16": {
+                "Active": false,
+                "UID": 910156550,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "1",
+                "firstCreation": "0",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "5.771046",
+                "globalMatrixy": "2.916675",
+                "globalMatrixz": "14.895517",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "index": 1,
+                "isConvex": "0",
+                "isTrigger": "1",
+                "lastIndex": "0",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "4.000000",
+                "scaley": "4.000000",
+                "scalez": "12.000000",
+                "tmpScalex": "4.000000",
+                "tmpScaley": "4.000000",
+                "tmpScalez": "12.000000"
+            }
+        },
+        "Index": 8,
+        "Name": "ScreamCollider",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1295016343",
+        "Static": false
+    },
     "74031583": {
         "Active": true,
         "Components": {
@@ -15935,8 +16009,8 @@
                 "rotationx": "-0.000189",
                 "rotationy": "0.003719",
                 "rotationz": "0.999967",
-                "scalex": "1.000050",
-                "scaley": "1.000050",
+                "scalex": "1.000068",
+                "scaley": "1.000068",
                 "scalez": "1.000000"
             },
             "13": {
@@ -16436,8 +16510,8 @@
                 "rotationx": "-0.543840",
                 "rotationy": "-0.445744",
                 "rotationz": "0.557639",
-                "scalex": "0.999975",
-                "scaley": "0.999975",
+                "scalex": "0.999966",
+                "scaley": "0.999966",
                 "scalez": "1.000000"
             },
             "13": {
@@ -16640,8 +16714,8 @@
                 "rotationx": "-0.294586",
                 "rotationy": "0.407064",
                 "rotationz": "0.864579",
-                "scalex": "1.000132",
-                "scaley": "1.000132",
+                "scalex": "1.000141",
+                "scaley": "1.000141",
                 "scalez": "1.000000"
             },
             "13": {
@@ -16700,8 +16774,8 @@
                 "rotationx": "0.021563",
                 "rotationy": "-0.017214",
                 "rotationz": "0.991968",
-                "scalex": "0.999868",
-                "scaley": "0.999868",
+                "scalex": "0.999859",
+                "scaley": "0.999859",
                 "scalez": "1.000000"
             },
             "13": {
@@ -18670,8 +18744,8 @@
                 "rotationy": "0.331492",
                 "rotationz": "-0.464944",
                 "scalex": "1.000000",
-                "scaley": "0.999868",
-                "scalez": "0.999868"
+                "scaley": "0.999859",
+                "scalez": "0.999859"
             },
             "13": {
                 "Active": true,
@@ -18737,8 +18811,8 @@
                 "rotationx": "0.000000",
                 "rotationy": "0.000000",
                 "rotationz": "0.670665",
-                "scalex": "1.786175",
-                "scaley": "1.786177",
+                "scalex": "1.786166",
+                "scaley": "1.786168",
                 "scalez": "1.786309"
             },
             "13": {
@@ -18900,8 +18974,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.540000",
-                "scaley": "2.540202",
-                "scalez": "2.540202"
+                "scaley": "2.540213",
+                "scalez": "2.540213"
             },
             "1": {
                 "Active": true,
@@ -19168,8 +19242,8 @@
                 "rotationx": "0.003326",
                 "rotationy": "0.086645",
                 "rotationz": "0.996212",
-                "scalex": "1.000151",
-                "scaley": "1.000151",
+                "scalex": "1.000160",
+                "scaley": "1.000160",
                 "scalez": "1.000000"
             },
             "13": {
@@ -19510,8 +19584,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000468",
-                "scalez": "1.000468"
+                "scaley": "1.000477",
+                "scalez": "1.000477"
             }
         },
         "Index": 0,
@@ -19536,8 +19610,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000468",
-                "scalez": "1.000468"
+                "scaley": "1.000477",
+                "scalez": "1.000477"
             }
         },
         "Index": 0,
@@ -19605,7 +19679,7 @@
                 "GradientColor": false,
                 "Loop": true,
                 "Resources": {
-                    "ResourceTexture": "Library/Textures/1374439556.dds"
+                    "ResourceTexture": "Library/Textures/1296157876.dds"
                 },
                 "UID": 497613984,
                 "animation": "0",
@@ -19708,8 +19782,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.070461",
-                "scaley": "15.157776",
-                "scalez": "1.368118"
+                "scaley": "15.157853",
+                "scalez": "1.368127"
             },
             "1": {
                 "Active": true,

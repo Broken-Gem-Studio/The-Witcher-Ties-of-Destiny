@@ -17,8 +17,9 @@ lua_table.NavigationFunctions = Scripting.Navigation()
 
 -- Lua table variabes
 lua_table.ghoul_UUID = 0
-lua_table.screamCollider_UUID = 0
 lua_table.movementSpeed = 10
+lua_table.collider_damage = 0
+lua_table.collider_effect = 2
 lua_table.evadeSpeed = 15
 lua_table.knockbackSpeed = 200
 lua_table.maxHealth = 100
@@ -333,11 +334,12 @@ local function Scream()
         lua_table.ParticleFunctions:SetParticlesVelocity(lua_table.ScreamingVelocity[1] * 40, 0, lua_table.ScreamingVelocity[3] * 40, lua_table.ScreamEmitter_UUID)   
         local rotation = lua_table.TransformFunctions:GetRotation(MyUUID)
         
-        lua_table.SceneFunctions:Instantiate(lua_table.screamCollider_UUID, lua_table.MyPosition[1], lua_table.MyPosition[2] + 2.5, lua_table.MyPosition[3], rotation[1], rotation[2], rotation[3])    
+        lua_table.ObjectFunctions:SetActiveGameObject(true, lua_table.ScreamCollider_UUID)  
         canStartScreaming = false
 
     elseif lua_table.SystemFunctions:GameTime() > lastTimeScreamed + preparingTime + screamingTime
     then
+        lua_table.ObjectFunctions:SetActiveGameObject(false, lua_table.ScreamCollider_UUID)  
         lua_table.ParticleFunctions:StopParticleEmitter(lua_table.ScreamEmitter_UUID)   
         currentState = State.IDLE
         canStartScreaming = true
@@ -496,6 +498,7 @@ function lua_table:Awake()
    lua_table.KnockbackEmitter_UUID = lua_table.ObjectFunctions:FindChildGameObject("KnockbackEmitter")
    lua_table.TauntEmitter_UUID = lua_table.ObjectFunctions:FindChildGameObject("TauntEmitter")
    lua_table.StunEmitter_UUID = lua_table.ObjectFunctions:FindChildGameObject("StunEmitter")
+   lua_table.ScreamCollider_UUID = lua_table.ObjectFunctions:FindChildGameObject("ScreamCollider")
    MyUUID = lua_table.ObjectFunctions:GetMyUID()
 
    -- Get navigation areas
