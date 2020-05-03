@@ -495,7 +495,7 @@ lua_table.being_revived = false	-- Revival flag (managed by rescuer character)
 local stopped_death = false		-- Death timer stop flag
 lua_table.death_started_at = 0		-- Death timer start
 local death_stopped_at = 0		-- Death timer stop
-local revive_started_at = 0		-- Revive timer start
+lua_table.revive_started_at = 0		-- Revive timer start
 
 --Actions
 local time_since_action = 0			-- Time passed since action performed
@@ -1970,10 +1970,10 @@ function lua_table:Update()
 				if not stopped_death		--IF stop mark hasn't been done yet
 				then
 					death_stopped_at = game_time			--Mark revival start (for death timer)
-					revive_started_at = death_stopped_at	--Mark revival start (for revival timer)
+					lua_table.revive_started_at = death_stopped_at	--Mark revival start (for revival timer)
 					stopped_death = true					--Flag death timer stop
 
-				elseif game_time - revive_started_at > lua_table.revive_time		--IF revival complete
+				elseif game_time - lua_table.revive_started_at > lua_table.revive_time		--IF revival complete
 				then
 					lua_table.AnimationFunctions:PlayAnimation("get_up", 90.0, my_GO_UID)	--TODO-Animations: Stand up
 					lua_table.AudioFunctions:PlayAudioEvent("Play_Jaskier_getting_up")
@@ -2004,7 +2004,7 @@ function lua_table:Update()
 					end
 				end
 			end
-		elseif game_time - revive_started_at > lua_table.revive_time + lua_table.standing_up_time
+		elseif game_time - lua_table.revive_started_at > lua_table.revive_time + lua_table.standing_up_time
 		then
 			lua_table.standing_up_bool, lua_table.being_revived = false, false
 			GoDefaultState()
