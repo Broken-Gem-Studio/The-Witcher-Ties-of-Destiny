@@ -7,8 +7,7 @@ lua_table.PhysicsSystem =  Scripting.Physics()
 lua_table.Scene = Scripting.Scenes()
 lua_table.AnimationSystem = Scripting.Animations()
 lua_table.Navigation = Scripting.Navigation()
--- Test
-lua_table.Input = Scripting.Inputs()
+lua_table.Audio = Scripting.Audio()
 
 -- Targets
 lua_table.geralt = "Geralt"
@@ -85,7 +84,8 @@ local stun_time = 0 -- timer
 local stun_duration = 3000 --milisecs
 
 lua_table.start_knockback = false
-lua_table.knockback_force = 50
+lua_table.knockback_force = 1
+
 local knockback_time = 0
 local knock_direction = {}
 
@@ -93,6 +93,10 @@ local Taunt_GO_UID = 0
 local start_taunt = false
 local taunt_time = 0
 ---------------------------------------------
+----- PARTICLES------------------------------
+local ParticleStun_UID = 0
+local ParticleWalking_UID = 0
+local ParticleBlood_UID = 0
 
 lua_table.random = 0
 
@@ -160,6 +164,7 @@ function lua_table:OnTriggerEnter()
                 lua_table.start_stun = true
                 lua_table.AnimationSystem:PlayAnimation("Hit",30.0, MyUID)
                 stun_time = PerfGameTime()
+                lua_table.GameObjectFunctions:SetActiveGameObject(true, ParticleArcher_Stunned)
 
             elseif script.collider_effect == Effects.KNOCKBACK then
                 --Calculate direction
@@ -187,6 +192,8 @@ function lua_table:OnTriggerEnter()
             lua_table.AnimationSystem:PlayAnimation("Hit",30.0, MyUID)
             hit_time = PerfGameTime()
             lua_table.start_hit = true
+            lua_table.Audio:PlayAudioEvent("Play_Bandit_getting_hit")
+            lua_table.GameObjectFunctions:SetActiveGameObject(true, ParticleBlood_UID)
         end
     end
 end
@@ -206,6 +213,7 @@ function lua_table:RequestedTrigger(collider_GO)
                 lua_table.start_stun = true
                 lua_table.AnimationSystem:PlayAnimation("Hit",30.0, MyUID)
                 stun_time = PerfGameTime()
+                lua_table.GameObjectFunctions:SetActiveGameObject(true, ParticleStun_UID)
 
             elseif player_script.collider_effect == Effects.KNOCKBACK then
                 
@@ -235,6 +243,7 @@ function lua_table:RequestedTrigger(collider_GO)
             lua_table.AnimationSystem:PlayAnimation("Hit",30.0, MyUID)
             hit_time = PerfGameTime()
             lua_table.start_hit = true
+            lua_table.GameObjectFunctions:SetActiveGameObject(true, ParticleBlood_UID)
         end
   end
 end
@@ -259,7 +268,7 @@ local function GetClosestPlayer()
     if scriptG.current_state > -3 then
         GeraltDistance =  math.sqrt(GX^2 + GZ^2)
     else
-        GeraltDistance = -1 
+      GeraltDistance = -1 
     end
 
     JX = Jpos[1] - position[1]
@@ -268,7 +277,7 @@ local function GetClosestPlayer()
     if scriptJ.current_state > -3 then
         JaskierDistance =  math.sqrt(JX^2 + JZ^2)
     else
-        JaskierDistance = -1 
+      JaskierDistance = -1 
     end
 
     
@@ -295,6 +304,7 @@ local function Seek()
 
     if start_agro == false 
     then 
+        lua_table.Audio:PlayAudioEvent("Play_Bandit_voice_2")
         lua_table.AnimationSystem:PlayAnimation("Hit",30.0, MyUID)
         agro_time = PerfGameTime()
         start_agro = true
@@ -306,6 +316,7 @@ local function Seek()
         then
             lua_table.AnimationSystem:PlayAnimation("Run",30.0, MyUID)
             start_running = true
+            lua_table.GameObjectFunctions:SetActiveGameObject(true, ParticleWalking_UID)
         end
 
         if time_path + 1000 <= PerfGameTime() then
@@ -364,6 +375,7 @@ local function Shoot()
         --lua_table.System:LOG ("TAKING ARROW")
         lua_table.AnimationSystem:PlayAnimation("DrawArrow",30.0, MyUID)
         lua_table.start_taking_arrow = false
+        lua_table.Audio:PlayAudioEvent("Play_Bandit_bow_pulling_rope")
     end
 
     if shoot_time + 1000 <= PerfGameTime() and lua_table.start_aiming == true 
@@ -375,8 +387,9 @@ local function Shoot()
 
     if shoot_time + 2000 <= PerfGameTime() and lua_table.start_shooting == true 
     then
-        --lua_table.System:LOG ("SHOOT")
         
+        lua_table.Audio:PlayAudioEvent("Play_Bandit_throw_arrow")
+
         local rotation = lua_table.Transform:GetRotation(MyUID)
         local pos = lua_table.Transform:GetPosition(MyUID)
 
@@ -460,6 +473,10 @@ function lua_table:Start()
     Jaskier_ID = lua_table.GameObjectFunctions:FindGameObject(lua_table.jaskier)
     Attack_Collider_UID = lua_table.GameObjectFunctions:FindChildGameObject(lua_table.Attack_Collider)
 
+    ParticleWalking_UID = lua_table.GameObjectFunctions:FindChildGameObject("ParticleArcher_Walking")
+    ParticleStun_UID = lua_table.GameObjectFunctions:FindChildGameObject("ParticleArcher_Stunned")
+    ParticleBlood_UID = lua_table.GameObjectFunctions:FindChildGameObject("ParticleArcher_Blood")
+
     MyUID = lua_table.GameObjectFunctions:GetMyUID()
 
     navigation_ID = lua_table.Navigation:GetAreaFromName("Walkable")
@@ -470,38 +487,6 @@ end
 function lua_table:Update()
 
     GetClosestPlayer()
-
-    -- if lua_table.Input:KeyUp("w") then
-    --     lua_table.start_stun = true
-    --     lua_table.AnimationSystem:PlayAnimation("Hit",30.0, MyUID)
-    --     stun_time = PerfGameTime()
-    -- end
-
-    -- if lua_table.Input:KeyUp("k") then
-
-    --     lua_table.start_knockback = true
-    --     lua_table.AnimationSystem:PlayAnimation("Hit",30.0, MyUID)
-    --     knockback_time = PerfGameTime()
-
-    --     Do knockback
-    --     local col_pos = lua_table.Transform:GetPosition(Geralt_ID)
-    --     knock_direction[1] = position[1] - col_pos[1]
-    --     knock_direction[2] = position[2] - col_pos[2]
-    --     knock_direction[3] = position[3] - col_pos[3]
-
-    --     local magn_dist =  math.sqrt(knock_direction[1]^2 + knock_direction[3]^2)
-    --     normalize
-    --     knock_direction[1] = knock_direction[1] / magn_dist
-    --     knock_direction[2] = 0
-    --     knock_direction[3] = knock_direction[3] / magn_dist
-
-    -- end
-
-    -- if lua_table.Input:KeyUp("t") then
-    --     start_taunt = true
-    --     taunt_time = PerfGameTime()
-    --     Taunt_GO_UID = Jaskier_ID
-    -- end
 
     -- ------------------------------------Decide Target----------------------------------
     if not start_taunt
@@ -532,7 +517,7 @@ function lua_table:Update()
     then
         if lua_table.start_stun == false
         then
-            if lua_table.DistanceToTarget <= 42 and lua_table.DistanceToTarget > 14 then
+            if lua_table.DistanceToTarget <= 37 and lua_table.DistanceToTarget > 14 then
                 lua_table.currentState = State.SEEK
             elseif lua_table.DistanceToTarget <= 14 and lua_table.DistanceToTarget > 4 then
                 lua_table.currentState = State.RANGE_ATTACK
@@ -566,6 +551,7 @@ function lua_table:Update()
             start_running = false
             actual_corner = 2
             calculate_path = true
+            lua_table.GameObjectFunctions:SetActiveGameObject(false, ParticleWalking_UID)
         end
         if lua_table.currentState ~= State.IDL then
             start_idle = false 
@@ -591,6 +577,7 @@ function lua_table:Update()
             if lua_table.start_stun == true and stun_time + stun_duration <= PerfGameTime() then
                 lua_table.start_stun = false
                 stun_duration = 3000
+                lua_table.GameObjectFunctions:SetActiveGameObject(false, ParticleStun_UID)
             end
         end
 
@@ -602,9 +589,19 @@ function lua_table:Update()
 
             if start_death == false 
             then
+                lua_table.Audio:PlayAudioEvent("Play_Bandit_death_3")
                 lua_table.AnimationSystem:PlayAnimation("Death",30.0, MyUID) -- 2.33sec
                 time_death = PerfGameTime()
                 start_death = true
+
+                lua_table.GameObjectFunctions:SetActiveGameObject(false, ParticleBlood_UID)
+
+                local tuto_manager = lua_table.GameObjectFunctions:FindGameObject("TutorialManager")
+                if tuto_manager ~= 0
+                then 
+                    local tuto_table = lua_table.GameObjectFunctions:GetScript(tuto_manager)
+                    tuto_table.enemiesToKill = tuto_Table.enemiesToKill - 1
+                end
             end
 
             if time_death + 4000 <= PerfGameTime()
@@ -613,6 +610,7 @@ function lua_table:Update()
             end
         elseif lua_table.start_hit == true and hit_time + 1500 <= PerfGameTime() then
             lua_table.start_hit = false
+            lua_table.GameObjectFunctions:SetActiveGameObject(false, ParticleBlood_UID)
         elseif lua_table.start_knockback == true then
             if knockback_time + 200 <= PerfGameTime() then 
                 lua_table.start_knockback = false 
@@ -627,6 +625,7 @@ function lua_table:Update()
                 stun_duration = 1000
                 lua_table.start_stun = true
                 stun_time = PerfGameTime()
+                lua_table.GameObjectFunctions:SetActiveGameObject(true, ParticleStun_UID)
 
             else
                 lua_table.PhysicsSystem:Move(knock_direction[1]*lua_table.knockback_force, knock_direction[3]*lua_table.knockback_force, MyUID)
