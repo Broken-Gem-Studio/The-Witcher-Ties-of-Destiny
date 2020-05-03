@@ -141,7 +141,7 @@ local JumpStunEmitter_UID = 0
 local BloodEmitter_UID = 0
 local StunnedEmitter_UID = 0 -- Also used by KB
 local TauntedEmitter_UID = 0
-local HitsEmitter_UID = 0
+local DustEmitter_UID = 0
 
 -- ______________________SCRIPT FUNCTIONS______________________
 
@@ -329,6 +329,7 @@ local function Seek()
 				-- Apply movement vector to move character
 				lua_table.Transform:LookAt(corners[currCorner][1], lua_table.GhoulPos[2], corners[currCorner][3], lua_table.MyUID)
 				lua_table.Physics:Move(vec[1] * lua_table.speed, vec[3] * lua_table.speed, lua_table.MyUID)
+				lua_table.Particles:PlayParticleEmitter(DustEmitter_UID)
 				
 				else
 					currCorner = currCorner + 1
@@ -339,6 +340,7 @@ local function Seek()
 	--end
 	
 	if lua_table.currentTargetDir <= lua_table.minDistance then
+		lua_table.Particles:StopParticleEmitter(DustEmitter_UID)
 		lua_table.currentState = State.JUMP
 		lua_table.System:LOG("Zomboid state: JUMP (2)")
 	end
@@ -514,6 +516,12 @@ end
 
 local function Die()
 	if not start_death then 
+		lua_table.Particles:StopParticleEmitter(JumpStunEmitter_UID)
+		lua_table.Particles:StopParticleEmitter(BloodEmitter_UID)
+		lua_table.Particles:StopParticleEmitter(StunnedEmitter_UID)
+		--lua_table.Particles:StopParticleEmitter(Taunted_Emitter)
+		--lua_table.Particles:StopParticleEmitter(Attack_Emitter)
+		lua_table.Particles:StopParticleEmitter(DustEmitter_UID)
 		death_timer = lua_table.System:GameTime() * 1000
 		lua_table.System:LOG("Im dying")  
 		lua_table.Animations:PlayAnimation("Death", 30.0, lua_table.MyUID)
@@ -695,11 +703,12 @@ end
 function lua_table:Awake()
 	lua_table.System:LOG("TankGhoul AWAKE")
 	-- Get Emitters
-	JumpStunEmitter_UID = lua_table.GameObject:FindChildGameObject("JumpStun_Emitter")
-	BloodEmitter_UID = lua_table.GameObject:FindChildGameObject("Blood_Emitter")
-	StunnedEmitter_UID = lua_table.GameObject:FindChildGameObject("Stunned_Emitter")
+	JumpStunEmitter_UID = lua_table.GameObject:FindChildGameObject("ZomboidJS_Emitter")
+	BloodEmitter_UID = lua_table.GameObject:FindChildGameObject("ZomboidBlood_Emitter")
+	StunnedEmitter_UID = lua_table.GameObject:FindChildGameObject("ZomboidStun_Emitter")
 	--TauntedEmitter_UID = lua_table.GameObject:FindChildGameObject("Taunted_Emitter")
 	--HitsEmitter_UID = lua_table.GameObject:FindChildGameObject("Attack_Emitter")
+	DustEmitter_UID = lua_table.GameObject:FindChildGameObject("ZomboidDust_Emitter")
 
 	-- StopEmitters
 	lua_table.Particles:StopParticleEmitter(JumpStunEmitter_UID)
@@ -707,6 +716,8 @@ function lua_table:Awake()
 	lua_table.Particles:StopParticleEmitter(StunnedEmitter_UID)
 	--lua_table.Particles:StopParticleEmitter(Taunted_Emitter)
 	--lua_table.Particles:StopParticleEmitter(Attack_Emitter)
+	lua_table.Particles:StopParticleEmitter(DustEmitter_UID)
+
 end
 
 function lua_table:Start()
