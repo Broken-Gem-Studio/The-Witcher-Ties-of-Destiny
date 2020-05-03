@@ -1009,6 +1009,7 @@ local function CheckCombos()	--Check combo performed	(ATTENTION: This should han
 	local combo_succesful = false
 
 	if PerformCombo("combo_1") or PerformCombo("combo_2") or PerformCombo("combo_3") then
+		lua_table.InputFunctions:ShakeController(lua_table.player_ID, 1.0, current_action_duration)
 		combo_succesful = true
 	end
 
@@ -1500,6 +1501,54 @@ end
 
 --Collider Calls BEGIN
 
+local function ProcessIncomingHit(collider_GO)
+	local collider_parent = lua_table.GameObjectFunctions:GetGameObjectParent(collider_GO)
+	local enemy_script = {}
+
+	if collider_parent ~= 0 then	--IF collider has parent, data is saved on parent (it means the collider is repurposed for different damages)
+		enemy_script = lua_table.GameObjectFunctions:GetScript(collider_parent)
+	else							--IF collider has no parent, data is saved within collider
+		enemy_script = lua_table.GameObjectFunctions:GetScript(collider_GO)
+	end
+
+	lua_table.current_health = lua_table.current_health - enemy_script.collider_damage
+
+	if enemy_script.collider_effect ~= attack_effects_ID.none and lua_table.current_state >= state.idle	--IF effect and ready to take one
+	then
+		if enemy_script.collider_effect == attack_effects_ID.stun
+		then
+			lua_table.AnimationFunctions:PlayAnimation("get_up", 50.0, my_GO_UID)
+			--lua_table.AudioFunctions:PlayAudioEvent("stun")	--TODO-Audio:
+
+			AttackColliderShutdown()
+			ParticlesShutdown(false)
+			ReviveShutdown()
+
+			lua_table.previous_state = lua_table.current_state
+			lua_table.current_state = state.stunned
+
+		elseif enemy_script.collider_effect == attack_effects_ID.knockback
+		then
+			SaveDirection()
+			knockback_curr_velocity = lua_table.knockback_orig_velocity
+
+			lua_table.AnimationFunctions:PlayAnimation("evade", 25.0, my_GO_UID)
+			--lua_table.AudioFunctions:PlayAudioEvent("knockback")	--TODO-Audio:
+
+			AttackColliderShutdown()
+			ParticlesShutdown(false)
+			ReviveShutdown()
+
+			lua_table.previous_state = lua_table.current_state
+			lua_table.current_state = state.knocked
+		end
+
+		current_action_duration = attack_effects_durations[enemy_script.collider_effect]
+		action_started_at = game_time
+		lua_table.InputFunctions:ShakeController(lua_table.player_ID, 1.0, current_action_duration)
+	end
+end
+
 function lua_table:OnTriggerEnter()
 	lua_table.SystemFunctions:LOG("On Trigger Enter")
 	
@@ -1507,50 +1556,7 @@ function lua_table:OnTriggerEnter()
 
 	if not godmode and lua_table.current_state > state.down and lua_table.GameObjectFunctions:GetLayerByID(collider_GO) == layers.enemy_attack	--IF collider is tagged as an enemy attack
 	then
-		local collider_parent = lua_table.GameObjectFunctions:GetGameObjectParent(collider_GO)
-		local enemy_script = {}
-
-		if collider_parent ~= 0 then	--IF collider has parent, data is saved on parent (it means the collider is repurposed for different damages)
-			enemy_script = lua_table.GameObjectFunctions:GetScript(collider_parent)
-		else							--IF collider has no parent, data is saved within collider
-			enemy_script = lua_table.GameObjectFunctions:GetScript(collider_GO)
-		end
-
-		lua_table.current_health = lua_table.current_health - enemy_script.collider_damage
-
-		if enemy_script.collider_effect ~= attack_effects_ID.none and lua_table.current_state >= state.idle	--IF effect and ready to take one
-		then
-			if enemy_script.collider_effect == attack_effects_ID.stun
-			then
-				lua_table.AnimationFunctions:PlayAnimation("get_up", 50.0, my_GO_UID)
-				--lua_table.AudioFunctions:PlayAudioEvent("stun")	--TODO-Audio:
-
-				AttackColliderShutdown()
-				ParticlesShutdown(false)
-				ReviveShutdown()
-
-				lua_table.previous_state = lua_table.current_state
-				lua_table.current_state = state.stunned
-
-			elseif enemy_script.collider_effect == attack_effects_ID.knockback
-			then
-				SaveDirection()
-				knockback_curr_velocity = lua_table.knockback_orig_velocity
-
-				lua_table.AnimationFunctions:PlayAnimation("evade", 25.0, my_GO_UID)
-				--lua_table.AudioFunctions:PlayAudioEvent("knockback")	--TODO-Audio:
-
-				AttackColliderShutdown()
-				ParticlesShutdown(false)
-				ReviveShutdown()
-
-				lua_table.previous_state = lua_table.current_state
-				lua_table.current_state = state.knocked
-			end
-
-			current_action_duration = attack_effects_durations[enemy_script.collider_effect]
-			action_started_at = game_time
-		end
+		ProcessIncomingHit(collider_GO)
 	end
 end
 
@@ -1561,49 +1567,7 @@ function lua_table:OnCollisionEnter()
 
 	if not godmode and lua_table.current_state > state.down and lua_table.GameObjectFunctions:GetLayerByID(collider_GO) == layers.enemy_attack	--IF collider is tagged as an enemy attack
 	then
-		local collider_parent = lua_table.GameObjectFunctions:GetGameObjectParent(collider_GO)
-		local enemy_script = {}
-
-		if collider_parent ~= 0 then	--IF collider has parent, data is saved on parent (it means the collider is repurposed for different damages)
-			enemy_script = lua_table.GameObjectFunctions:GetScript(collider_parent)
-		else							--IF collider has no parent, data is saved within collider
-			enemy_script = lua_table.GameObjectFunctions:GetScript(collider_GO)
-		end
-
-		lua_table.current_health = lua_table.current_health - enemy_script.collider_damage
-
-		if enemy_script.collider_effect ~= attack_effects_ID.none and lua_table.current_state >= state.idle	--IF effect and ready to take one
-		then
-			if enemy_script.collider_effect == attack_effects_ID.stun
-			then
-				lua_table.AnimationFunctions:PlayAnimation("get_up", 50.0, my_GO_UID)
-				lua_table.AudioFunctions:PlayAudioEvent("Play_Geralt_getting_up")	--TODO-Audio:
-
-				AttackColliderShutdown()
-				ParticlesShutdown(false)
-				ReviveShutdown()
-
-				lua_table.previous_state = lua_table.current_state
-				lua_table.current_state = state.stunned
-
-			elseif enemy_script.collider_effect == attack_effects_ID.knockback
-			then
-				SaveDirection()
-				knockback_curr_velocity = lua_table.knockback_orig_velocity
-
-				lua_table.AnimationFunctions:PlayAnimation("evade", 25.0, my_GO_UID)
-				
-				AttackColliderShutdown()
-				ParticlesShutdown(false)
-				ReviveShutdown()
-
-				lua_table.previous_state = lua_table.current_state
-				lua_table.current_state = state.knocked
-			end
-
-			current_action_duration = attack_effects_durations[enemy_script.collider_effect]
-			action_started_at = game_time
-		end
+		ProcessIncomingHit(collider_GO)
 	end
 end
 
