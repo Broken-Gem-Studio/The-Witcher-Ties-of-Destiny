@@ -5,6 +5,7 @@ function GetTableNewUlti()
     lua_table["System"] = Scripting.System()
     lua_table["UI"] = Scripting.Interface()
     lua_table["Transform"] = Scripting.Transform()
+    lua_table["Audio"] = Scripting.Audio()
     
     local ULTIDCERO = 0
     local ULTIDTWENTY = 0
@@ -151,6 +152,7 @@ function GetTableNewUlti()
 
         if satisfier == true and timer - timepassed >= 1 and used == true
         then
+            lua_table["Audio"]:PlayAudioEvent("Play_Ulti_Geralt")
             lua_table["Inputs"]:ShakeController(1, 1.0, 500)
             satisfier = false
         end
@@ -213,6 +215,7 @@ function GetTableNewUlti()
  
          if satisfier2 == true and timer - timepassed2 >= 1 and used2 == true
          then
+             --lua_table["Audio"]:PlayAudioEvent("Play_Geralt_aard_2")--buscarle audio
              lua_table["Inputs"]:ShakeController(2, 1.0, 500)
              satisfier2 = false
          end

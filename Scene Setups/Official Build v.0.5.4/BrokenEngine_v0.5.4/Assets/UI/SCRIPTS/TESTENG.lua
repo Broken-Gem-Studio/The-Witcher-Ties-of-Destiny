@@ -5,6 +5,7 @@ function    GetTableTESTENG()
     lua_table["System"] = Scripting.System()
     lua_table["UI"] = Scripting.Interface()
     lua_table["Transform"] = Scripting.Transform()
+    lua_table["Audio"] = Scripting.Audio()
 
 --VARIABLES
 
@@ -93,6 +94,14 @@ function lua_table:Update()
         then
             lua_table.energylocal2 = UpdateEnergyBar(ENGID2, lua_table.energylocal2)
         end
+
+        --audio fx
+
+        if lua_table["Inputs"]:IsGamepadButton(1,"BUTTON_A","DOWN") and lua_table.energylocal < lua_table.engP1.evade_cost or
+        lua_table["Inputs"]:IsGamepadButton(2,"BUTTON_A","DOWN") and lua_table.energylocal2 < lua_table.engP2.evade_cost
+        then
+            lua_table["Audio"]:PlayAudioEvent("Play_No_energy")
+         end
 
 
 end

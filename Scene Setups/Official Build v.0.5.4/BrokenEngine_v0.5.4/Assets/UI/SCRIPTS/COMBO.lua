@@ -5,6 +5,7 @@ function GetTableCOMBO()
     lua_table["System"] = Scripting.System()
     lua_table["UI"] = Scripting.Interface()
     lua_table["Transform"] = Scripting.Transform()
+    lua_table["Audio"] = Scripting.Audio()
     
     local COMBO_LIGHT_ID = 0
     local COMBO_HEAVY_ID = 0
@@ -166,6 +167,8 @@ function GetTableCOMBO()
         --GERALT
         if lua_table.p1.current_state < 8 and sword_on == true and combo == false
         then
+            lua_table["Audio"]:PlayAudioEvent("Play_Sheathe")--guardar hoja
+
             lua_table["UI"]:MakeElementInvisible("Image", COMBO_LIGHT_ID)
             lua_table["UI"]:MakeElementInvisible("Image", COMBO_HEAVY_ID)
             lua_table["UI"]:MakeElementInvisible("Image", COMBO_LIGHT2_ID)
@@ -220,8 +223,11 @@ function GetTableCOMBO()
 
 
         --COMPORTAMIENTO SWORD/GUITAR
-        if lua_table.p1.current_state >= 8 and lua_table.p1.current_state <= 16 and sword_off == true--cambiar por condicion de entrar en combate
+        if lua_table.p1.current_state >= 8 and lua_table.p1.current_state <= 16 and sword_off == true or
+        lua_table.p1.enemies_nearby == true--cambiar por condicion de entrar en combate
         then
+            lua_table["Audio"]:PlayAudioEvent("Play_Unsheathe")--guardar hoja
+
             lua_table["UI"]:MakeElementInvisible("Image", SWORD_DOWN_ID)
             lua_table["UI"]:MakeElementVisible("Image", SWORD_UP_ID)
             sword_off = false
@@ -230,7 +236,8 @@ function GetTableCOMBO()
 
         if combo == true
         then
-
+            lua_table["Audio"]:PlayAudioEvent("Play_Combo_Geralt")
+            --lua_table["Inputs"]:ShakeController(1, 1.0, 1000)--vibration
             lua_table["UI"]:MakeElementInvisible("Image", SWORD_DOWN_ID)
             lua_table["UI"]:MakeElementInvisible("Image", SWORD_UP_ID)
             lua_table["UI"]:MakeElementVisible("Image", SWORD_FIRE_ID)
@@ -348,11 +355,17 @@ function GetTableCOMBO()
 
         if lua_table.p2.ability_performed == true and combo_J == true and lua_table.p2.current_state >= 17
         then
-
+            --lua_table["Audio"]:PlayAudioEvent("Play_Geralt_aard_2")
             lua_table["UI"]:MakeElementInvisible("Image", SWORD_UP_ID_J)
             lua_table["UI"]:MakeElementVisible("Image", SWORD_FIRE_ID_J)
             combo_J = false
 
+        end
+
+        if lua_table.p2.current_state < 17 and lua_table["Inputs"]:IsGamepadButton(2,"BUTTON_X","DOWN")
+        then
+            lua_table["System"]:LOG("ABILITY failed")
+            lua_table["Audio"]:PlayAudioEvent("Play_Wrong_Jaskier")--fail combo
         end
 
         if lua_table.p2.current_state < 17
@@ -477,18 +490,25 @@ function GetTableCOMBO()
         --COMBOS
         if lua_table.p2.note_num == 4 and combo_J == false and  lua_table.p2.note_stack[4] == 'M' and  lua_table.p2.note_stack[3] == 'L' and  lua_table.p2.note_stack[2] == 'L' and  lua_table.p2.note_stack[1] == 'L'
         then
+            --lua_table["Audio"]:PlayAudioEvent("")--combo1
+            --lua_table["Inputs"]:ShakeController(2, 1.0, 1000)--vibration
             combo_J = true
         end
 
         if lua_table.p2.note_num == 4 and combo_J == false and  lua_table.p2.note_stack[4] == 'L' and  lua_table.p2.note_stack[3] == 'H' and  lua_table.p2.note_stack[2] == 'M' and  lua_table.p2.note_stack[1] == 'M'
         then
+            --lua_table["Audio"]:PlayAudioEvent("")--combo2
+            --lua_table["Inputs"]:ShakeController(2, 1.0, 1000)--vibration
             combo_J = true
         end
 
         if lua_table.p2.note_num == 4 and combo_J == false and  lua_table.p2.note_stack[4] == 'H' and  lua_table.p2.note_stack[3] == 'M' and  lua_table.p2.note_stack[2] == 'H' and  lua_table.p2.note_stack[1] == 'H'
         then
+            --lua_table["Audio"]:PlayAudioEvent("")--combo3
+            --lua_table["Inputs"]:ShakeController(2, 1.0, 1000)--vibration
             combo_J = true
         end
+
 
 
 
