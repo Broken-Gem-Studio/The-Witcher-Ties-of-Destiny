@@ -330,7 +330,7 @@ local function Attack()
 	
 	if attack_timer + 1000 <= lua_table.System:GameTime() * 1000 and attack_timer + 1100 >= lua_table.System:GameTime() * 1000 then
 		lua_table.collider_effect = attack_effects.none
-		lua_table.collider_damage = 20
+		lua_table.collider_damage = 5
 		
 		is_front_active = true
 		lua_table.GameObject:SetActiveGameObject(true, Front_Collider)
