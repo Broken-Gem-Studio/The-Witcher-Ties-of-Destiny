@@ -29,6 +29,7 @@ local godmode = false
 --GO UIDs
 local my_GO_UID
 local slash_GO_UID
+local slash_mesh_GO_UID
 local jaskier_guitar_particles_GO_UID
 local jaskier_guitar_circle_particles_1_GO_UID
 local jaskier_guitar_circle_particles_2_GO_UID
@@ -617,7 +618,7 @@ local function GoDefaultState()
 		lua_table.ParticlesFunctions:PlayParticleEmitter(my_GO_UID)	--TODO-Particles: Activate movement dust particles
 	else
 		lua_table.AnimationFunctions:SetBlendTime(0.5, my_GO_UID)
-		lua_table.AnimationFunctions:SetBlendTime(0.0001, slash_GO_UID)
+		lua_table.AnimationFunctions:SetBlendTime(0.1, slash_GO_UID)
 		lua_table.AnimationFunctions:PlayAnimation("idle", lua_table.idle_animation_speed, my_GO_UID)
 
 		--TODO-AUDIO: Stop current sound event
@@ -626,11 +627,12 @@ local function GoDefaultState()
 		lua_table.current_state = state.idle
 		lua_table.ParticlesFunctions:StopParticleEmitter(my_GO_UID)	--TODO-Particles: Deactivate movement dust particles
 	end
-	
-	rightside = true
-	lua_table.chained_attacks_num = 0
 
-	lua_table.AnimationFunctions:PlayAnimation("idle", lua_table.idle_animation_speed, slash_GO_UID)
+	lua_table.chained_attacks_num = 0
+	rightside = true
+
+	lua_table.AnimationFunctions:PlayAnimation("idle", 150.0, slash_GO_UID)
+	lua_table.GameObjectFunctions:SetActiveGameObject(false, slash_mesh_GO_UID)
 end
 
 --States END	----------------------------------------------------------------------------
@@ -1384,7 +1386,8 @@ local function ActionInputs()	--Process Action Inputs
 	then
 		lua_table.AnimationFunctions:SetBlendTime(0.1, my_GO_UID)
 		lua_table.AnimationFunctions:SetBlendTime(0.1, slash_GO_UID)
-
+		lua_table.GameObjectFunctions:SetActiveGameObject(true, slash_mesh_GO_UID)
+		
 		AttackColliderShutdown()
 
 		if not (lua_table.current_state >= state.light_1 and lua_table.current_state <= state.heavy_3)	--IF input not attack
@@ -1637,6 +1640,7 @@ function lua_table:Awake()
 	--Get self GO_UID
 	my_GO_UID = lua_table.GameObjectFunctions:GetMyUID()
 	slash_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Slash")
+	slash_mesh_GO_UID = lua_table.GameObjectFunctions:FindGameObject("SlashMesh_Jaskier")
 
 	--Get Particle Emitters GO_UID
 	--guitar_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Guitar")
