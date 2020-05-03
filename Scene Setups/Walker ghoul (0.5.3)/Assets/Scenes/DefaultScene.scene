@@ -14,8 +14,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.540000",
-                "scaley": "2.540221",
-                "scalez": "2.540221"
+                "scaley": "2.540246",
+                "scalez": "2.540246"
             },
             "1": {
                 "Active": true,
@@ -47,7 +47,7 @@
         "Static": false
     },
     "1001407454": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 151916523,
@@ -65,7 +65,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1121955003.bone"
                 },
@@ -141,7 +141,7 @@
         "Static": false
     },
     "1006975333": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 1483008427,
@@ -159,7 +159,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1947720541.bone"
                 },
@@ -257,8 +257,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000488",
-                "scalez": "1.000488"
+                "scaley": "1.000508",
+                "scalez": "1.000508"
             }
         },
         "Index": 0,
@@ -303,7 +303,7 @@
         "Static": false
     },
     "1024909493": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 1430195112,
@@ -321,7 +321,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceBone": "Library/Bones/492004314.bone"
                 },
@@ -397,7 +397,7 @@
         "Static": false
     },
     "102847829": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 1247249081,
@@ -501,7 +501,7 @@
         "Static": false
     },
     "1030405554": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 819367754,
@@ -515,8 +515,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000045",
-                "scalez": "1.000045"
+                "scaley": "1.000065",
+                "scalez": "1.000065"
             }
         },
         "Index": 0,
@@ -561,7 +561,7 @@
         "Static": false
     },
     "1037727294": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 801915651,
@@ -587,15 +587,15 @@
         "Static": false
     },
     "1039440198": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 1438375205,
                 "index": 0,
                 "layer": "3",
-                "positionx": "0.145942",
+                "positionx": "-4.053408",
                 "positiony": "0.837583",
-                "positionz": "13.920620",
+                "positionz": "14.108321",
                 "rotationw": "1.000000",
                 "rotationx": "0.000000",
                 "rotationy": "0.000000",
@@ -605,7 +605,7 @@
                 "scalez": "1.000000"
             },
             "12": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceScript": "Assets/Archer/ArcherScript.lua"
                 },
@@ -630,7 +630,7 @@
                         "Name": "knockback_force",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 50.0
+                        "Value": 1.0
                     },
                     "Variable 11": {
                         "DisplayObjectName": false,
@@ -696,11 +696,11 @@
                         "Value": 0.0
                     },
                     "Variable 3": {
-                        "DisplayObjectName": false,
+                        "DisplayObjectName": true,
                         "Name": "arrow",
-                        "ObjectName": "",
+                        "ObjectName": "Arrow (0).prefab",
                         "Type": "Double",
-                        "Value": 0.0
+                        "Value": 47286929.0
                     },
                     "Variable 4": {
                         "DisplayObjectName": false,
@@ -745,11 +745,11 @@
                         "Value": "Jaskier"
                     }
                 },
-                "UID": 289459757,
+                "UID": 1869047898,
                 "index": 3
             },
             "14": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceAnimation": "Library/Animations/799056021.anim",
                     "ResourceAnimator": "923887525"
@@ -765,9 +765,9 @@
                 "height": "2.000000",
                 "index": 2,
                 "nonWalkableMode": "1",
-                "positionX": "0.145942",
+                "positionX": "-4.053408",
                 "positionY": "0.837583",
-                "positionZ": "13.920620",
+                "positionZ": "14.108321",
                 "radius": "1.000000",
                 "slopeLimit": "45.000000",
                 "stepOffset": "0.300000"
@@ -849,7 +849,7 @@
         "Static": false
     },
     "1043112497": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1744716935,
@@ -867,7 +867,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/638846295.bone"
                 },
@@ -883,7 +883,7 @@
         "Static": false
     },
     "104687938": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 710715807,
@@ -901,7 +901,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1835741769.bone"
                 },
@@ -930,8 +930,8 @@
                 "rotationx": "-0.010050",
                 "rotationy": "0.117448",
                 "rotationz": "0.992281",
-                "scalex": "0.999968",
-                "scaley": "0.999968",
+                "scalex": "0.999948",
+                "scaley": "0.999948",
                 "scalez": "1.000000"
             },
             "13": {
@@ -951,7 +951,7 @@
         "Static": false
     },
     "1050966341": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 300916362,
@@ -1011,7 +1011,7 @@
         "Static": false
     },
     "1058826393": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 551406181,
@@ -1037,7 +1037,7 @@
         "Static": false
     },
     "1059180403": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 541347681,
@@ -1055,7 +1055,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1318340885.bone"
                 },
@@ -1105,7 +1105,7 @@
         "Static": false
     },
     "1067303769": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 780741298,
@@ -1123,7 +1123,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1017648387.bone"
                 },
@@ -1139,7 +1139,7 @@
         "Static": false
     },
     "1069389831": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1996113496,
@@ -1157,7 +1157,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/71887961.bone"
                 },
@@ -1416,7 +1416,7 @@
         "Static": false
     },
     "1073335309": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 109006471,
@@ -1442,7 +1442,7 @@
         "Static": false
     },
     "1077628705": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 67664350,
@@ -1460,7 +1460,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceBone": "Library/Bones/658317456.bone"
                 },
@@ -1476,7 +1476,7 @@
         "Static": false
     },
     "1078327011": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1738970774,
@@ -1494,7 +1494,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/557988049.bone"
                 },
@@ -1510,7 +1510,7 @@
         "Static": false
     },
     "1080663038": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1997790524,
@@ -1570,7 +1570,7 @@
         "Static": false
     },
     "1082369120": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 1917175023,
@@ -1588,7 +1588,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1066857345.bone"
                 },
@@ -1604,7 +1604,7 @@
         "Static": false
     },
     "1099379213": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 1853276300,
@@ -1622,7 +1622,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceBone": "Library/Bones/458177873.bone"
                 },
@@ -1745,7 +1745,7 @@
         "Static": false
     },
     "111911698": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 585807506,
@@ -1763,7 +1763,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceBone": "Library/Bones/2131577324.bone"
                 },
@@ -1779,7 +1779,7 @@
         "Static": false
     },
     "1122877754": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 199065543,
@@ -1793,8 +1793,8 @@
                 "rotationy": "-0.000000",
                 "rotationz": "-0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000045",
-                "scalez": "1.000045"
+                "scaley": "1.000065",
+                "scalez": "1.000065"
             }
         },
         "Index": 0,
@@ -1831,7 +1831,7 @@
         "Static": false
     },
     "112559144": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 858861649,
@@ -1849,7 +1849,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1614311711.bone"
                 },
@@ -1865,7 +1865,7 @@
         "Static": false
     },
     "1127003988": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1008098604,
@@ -1883,7 +1883,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/407183433.bone"
                 },
@@ -1959,7 +1959,7 @@
         "Static": false
     },
     "113612655": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1022472140,
@@ -1977,7 +1977,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1731240039.bone"
                 },
@@ -2041,8 +2041,8 @@
                 "rotationy": "-0.000126",
                 "rotationz": "0.000118",
                 "scalex": "39.370079",
-                "scaley": "39.370934",
-                "scalez": "39.370811"
+                "scaley": "39.371468",
+                "scalez": "39.371269"
             },
             "13": {
                 "Active": false,
@@ -2061,7 +2061,7 @@
         "Static": false
     },
     "1146712072": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1099093525,
@@ -2087,7 +2087,7 @@
         "Static": false
     },
     "114767924": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 903261756,
@@ -2105,7 +2105,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceBone": "Library/Bones/415318661.bone"
                 },
@@ -2134,8 +2134,8 @@
                 "rotationx": "-0.000686",
                 "rotationy": "0.041906",
                 "rotationz": "0.999108",
-                "scalex": "1.000342",
-                "scaley": "1.000342",
+                "scalex": "1.000382",
+                "scaley": "1.000382",
                 "scalez": "1.000000"
             },
             "13": {
@@ -2155,7 +2155,7 @@
         "Static": false
     },
     "114981354": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 248934663,
@@ -2173,7 +2173,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/349619958.bone"
                 },
@@ -2189,7 +2189,7 @@
         "Static": false
     },
     "1150177290": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 1808331052,
@@ -2207,7 +2207,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceBone": "Library/Bones/189158969.bone"
                 },
@@ -2359,7 +2359,7 @@
         "Static": false
     },
     "1158967631": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 2099663410,
@@ -2377,7 +2377,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1544378793.bone"
                 },
@@ -2393,7 +2393,7 @@
         "Static": false
     },
     "1161374668": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 1250993902,
@@ -2407,8 +2407,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000045",
-                "scalez": "1.000045"
+                "scaley": "1.000065",
+                "scalez": "1.000065"
             }
         },
         "Index": 0,
@@ -2513,7 +2513,7 @@
         "Static": false
     },
     "1173846999": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 1594285973,
@@ -2531,7 +2531,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1486905244.bone"
                 },
@@ -2581,7 +2581,7 @@
         "Static": false
     },
     "1176962686": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1264664412,
@@ -2633,7 +2633,7 @@
         "Static": false
     },
     "1186190130": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 1558976396,
@@ -2651,7 +2651,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceBone": "Library/Bones/380788889.bone"
                 },
@@ -2664,6 +2664,84 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "995519648",
+        "Static": false
+    },
+    "1187484987": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "UID": 66837721,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.051325",
+                "positiony": "3.443325",
+                "positionz": "0.009090",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "18": {
+                "Active": false,
+                "Duration": "1000",
+                "GradientColor": false,
+                "Loop": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1599289448.dds"
+                },
+                "UID": 1859394339,
+                "animation": "0",
+                "colors": [
+                    {
+                        "a": "1.000000",
+                        "x": "1.000000",
+                        "y": "1.000000",
+                        "z": "1.000000"
+                    }
+                ],
+                "cycles": "1",
+                "emisionRate": "200.000000",
+                "externalAccelerationX": "0.000000",
+                "externalAccelerationY": "10.000000",
+                "externalAccelerationZ": "0.000000",
+                "grad_duration": "0",
+                "index": 1,
+                "num_colors": "1",
+                "num_gradients": "0",
+                "particleScaleOverTime": "0.000000",
+                "particleScaleRandomFactor": "1.000000",
+                "particlesLifeTime": "500",
+                "particlesPerCreation": "2",
+                "particlesScaleX": "0.500000",
+                "particlesScaleY": "0.500000",
+                "particlesVelocityX": "0.000000",
+                "particlesVelocityY": "0.000000",
+                "particlesVelocityZ": "0.000000",
+                "positionX": "0.000000",
+                "positionY": "0.000000",
+                "positionZ": "0.000000",
+                "rotationX": "0.000000",
+                "rotationY": "0.000000",
+                "rotationZ": "0.000000",
+                "sizeX": "0.000000",
+                "sizeY": "0.000000",
+                "sizeZ": "0.000000",
+                "startFrame": "0",
+                "tiles_X": "1",
+                "tiles_Y": "1",
+                "velocityRandomFactorX": "2.000000",
+                "velocityRandomFactorY": "0.000000",
+                "velocityRandomFactorZ": "2.000000"
+            }
+        },
+        "Index": 4,
+        "Name": "ParticleArcher_Stunned",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1039440198",
         "Static": false
     },
     "1198104094": {
@@ -2749,8 +2827,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000488",
-                "scalez": "1.000488"
+                "scaley": "1.000508",
+                "scalez": "1.000508"
             }
         },
         "Index": 0,
@@ -2889,7 +2967,7 @@
         "Static": false
     },
     "1243367144": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 12755991,
@@ -2907,7 +2985,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1438965786.bone"
                 },
@@ -2923,7 +3001,7 @@
         "Static": false
     },
     "1244253230": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1516955514,
@@ -2941,7 +3019,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/833401880.bone"
                 },
@@ -3030,7 +3108,7 @@
         "Static": false
     },
     "1248468554": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1795208281,
@@ -3048,7 +3126,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1788083661.bone"
                 },
@@ -3218,7 +3296,7 @@
         "Static": false
     },
     "1283817550": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1775356265,
@@ -3236,7 +3314,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/857105062.bone"
                 },
@@ -3286,7 +3364,7 @@
         "Static": false
     },
     "1287224881": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1732808295,
@@ -3304,7 +3382,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/835931991.bone"
                 },
@@ -3372,7 +3450,7 @@
         "Static": false
     },
     "1292377817": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 418266619,
@@ -3390,7 +3468,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1350378265.bone"
                 },
@@ -3625,7 +3703,7 @@
         "Static": false
     },
     "1297618584": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 183536304,
@@ -3643,7 +3721,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceBone": "Library/Bones/288288502.bone"
                 },
@@ -3659,7 +3737,7 @@
         "Static": false
     },
     "1299436077": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 1956605703,
@@ -3677,7 +3755,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1792803431.bone"
                 },
@@ -3719,7 +3797,7 @@
         "Static": false
     },
     "1301422772": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 1608039203,
@@ -3733,8 +3811,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000045",
-                "scalez": "1.000045"
+                "scaley": "1.000065",
+                "scalez": "1.000065"
             }
         },
         "Index": 0,
@@ -3745,7 +3823,7 @@
         "Static": false
     },
     "131838338": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 517276742,
@@ -3763,7 +3841,7 @@
                 "scalez": "0.025400"
             },
             "1": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceMesh": {
                         "PreviewTexture": "",
@@ -3774,7 +3852,7 @@
                 "index": 1
             },
             "2": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceMaterial": {
                         "path": "Assets/Lumberjack/New material 14.mat"
@@ -3792,7 +3870,7 @@
         "Static": false
     },
     "131993589": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 1393291695,
@@ -3810,7 +3888,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceBone": "Library/Bones/984709457.bone"
                 },
@@ -3826,7 +3904,7 @@
         "Static": false
     },
     "1320277878": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 2041295435,
@@ -3844,7 +3922,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1954755428.bone"
                 },
@@ -3873,8 +3951,8 @@
                 "rotationx": "0.011688",
                 "rotationy": "0.141292",
                 "rotationz": "0.989187",
-                "scalex": "1.000032",
-                "scaley": "1.000032",
+                "scalex": "1.000052",
+                "scaley": "1.000052",
                 "scalez": "1.000001"
             },
             "13": {
@@ -3894,7 +3972,7 @@
         "Static": false
     },
     "1322297618": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1898473660,
@@ -3912,7 +3990,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/127745214.bone"
                 },
@@ -4105,8 +4183,8 @@
                 "rotationx": "-0.216319",
                 "rotationy": "0.433186",
                 "rotationz": "0.861486",
-                "scalex": "1.000152",
-                "scaley": "1.000152",
+                "scalex": "1.000172",
+                "scaley": "1.000172",
                 "scalez": "1.000000"
             },
             "13": {
@@ -4126,7 +4204,7 @@
         "Static": false
     },
     "1353483182": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 660050848,
@@ -4144,7 +4222,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1097050457.bone"
                 },
@@ -4160,7 +4238,7 @@
         "Static": false
     },
     "1354968296": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 335455295,
@@ -4254,7 +4332,7 @@
         "Static": false
     },
     "1366155351": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1930790441,
@@ -4272,7 +4350,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/2146089199.bone"
                 },
@@ -4356,7 +4434,7 @@
         "Static": false
     },
     "1370003986": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1039996252,
@@ -4374,7 +4452,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1716986537.bone"
                 },
@@ -4505,7 +4583,7 @@
         "Static": false
     },
     "1386478188": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 1204240966,
@@ -4519,8 +4597,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000045",
-                "scalez": "1.000045"
+                "scaley": "1.000065",
+                "scalez": "1.000065"
             }
         },
         "Index": 0,
@@ -4531,7 +4609,7 @@
         "Static": false
     },
     "1389358093": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1841236775,
@@ -4549,7 +4627,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/2043498083.bone"
                 },
@@ -4807,7 +4885,7 @@
         "Static": false
     },
     "1415525546": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 1722578210,
@@ -4821,8 +4899,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000045",
-                "scalez": "1.000045"
+                "scaley": "1.000065",
+                "scalez": "1.000065"
             }
         },
         "Index": 0,
@@ -4867,7 +4945,7 @@
         "Static": false
     },
     "1417667309": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1987400406,
@@ -4885,7 +4963,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1019761667.bone"
                 },
@@ -4901,7 +4979,7 @@
         "Static": false
     },
     "1422031205": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 875439814,
@@ -4919,7 +4997,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceBone": "Library/Bones/551632880.bone"
                 },
@@ -4950,7 +5028,7 @@
                 "rotationz": "0.064747",
                 "scalex": "1.000000",
                 "scaley": "0.999995",
-                "scalez": "0.999850"
+                "scalez": "0.999830"
             },
             "13": {
                 "Active": true,
@@ -5094,8 +5172,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000488",
-                "scalez": "1.000488"
+                "scaley": "1.000508",
+                "scalez": "1.000508"
             }
         },
         "Index": 0,
@@ -5140,7 +5218,7 @@
         "Static": false
     },
     "1439721382": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1711655876,
@@ -5158,7 +5236,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/243934151.bone"
                 },
@@ -5174,7 +5252,7 @@
         "Static": false
     },
     "1440196844": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1881008234,
@@ -5192,7 +5270,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/793052387.bone"
                 },
@@ -5208,7 +5286,7 @@
         "Static": false
     },
     "1442983082": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 449990232,
@@ -5226,7 +5304,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/846634086.bone"
                 },
@@ -5242,7 +5320,7 @@
         "Static": false
     },
     "1445294465": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 2044019173,
@@ -5315,9 +5393,9 @@
                 "rotationx": "0.000000",
                 "rotationy": "-0.707107",
                 "rotationz": "0.000000",
-                "scalex": "1.000152",
+                "scalex": "1.000172",
                 "scaley": "1.000000",
-                "scalez": "1.000152"
+                "scalez": "1.000172"
             },
             "13": {
                 "Active": true,
@@ -5506,7 +5584,7 @@
         "Static": false
     },
     "146671259": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1506119999,
@@ -5532,7 +5610,7 @@
         "Static": false
     },
     "1478176294": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 173382964,
@@ -5550,7 +5628,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/346477595.bone"
                 },
@@ -5634,7 +5712,7 @@
         "Static": false
     },
     "1492862348": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 1431292256,
@@ -5647,12 +5725,12 @@
                 "rotationx": "0.537672",
                 "rotationy": "-0.449270",
                 "rotationz": "0.562700",
-                "scalex": "1.000045",
-                "scaley": "1.000045",
-                "scalez": "1.000045"
+                "scalex": "1.000065",
+                "scaley": "1.000065",
+                "scalez": "1.000065"
             },
             "13": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1782679179.bone"
                 },
@@ -5668,7 +5746,7 @@
         "Static": false
     },
     "1506840330": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 553633523,
@@ -5682,8 +5760,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000045",
-                "scalez": "1.000045"
+                "scaley": "1.000065",
+                "scalez": "1.000065"
             }
         },
         "Index": 0,
@@ -5728,7 +5806,7 @@
         "Static": false
     },
     "1511822019": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1262458209,
@@ -5746,7 +5824,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1733648493.bone"
                 },
@@ -5775,8 +5853,8 @@
                 "rotationx": "-0.064481",
                 "rotationy": "0.268675",
                 "rotationz": "0.939991",
-                "scalex": "1.000152",
-                "scaley": "1.000152",
+                "scalex": "1.000172",
+                "scaley": "1.000172",
                 "scalez": "1.000000"
             },
             "13": {
@@ -5796,7 +5874,7 @@
         "Static": false
     },
     "1534996568": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1238507414,
@@ -5814,7 +5892,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1902137750.bone"
                 },
@@ -5830,7 +5908,7 @@
         "Static": false
     },
     "1535595169": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 890767994,
@@ -5848,7 +5926,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceBone": "Library/Bones/2056478365.bone"
                 },
@@ -5864,7 +5942,7 @@
         "Static": false
     },
     "1538204662": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 876190367,
@@ -5878,8 +5956,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000045",
-                "scalez": "1.000045"
+                "scaley": "1.000065",
+                "scalez": "1.000065"
             }
         },
         "Index": 0,
@@ -5890,7 +5968,7 @@
         "Static": false
     },
     "1541364579": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 961671779,
@@ -5930,8 +6008,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000488",
-                "scalez": "1.000488"
+                "scaley": "1.000508",
+                "scalez": "1.000508"
             }
         },
         "Index": 0,
@@ -5976,7 +6054,7 @@
         "Static": false
     },
     "1545605501": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 421347792,
@@ -5994,7 +6072,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/2124854556.bone"
                 },
@@ -7519,7 +7597,7 @@
         "Static": false
     },
     "1563017293": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 2011962003,
@@ -7533,8 +7611,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000045",
-                "scalez": "1.000045"
+                "scaley": "1.000065",
+                "scalez": "1.000065"
             }
         },
         "Index": 0,
@@ -7545,7 +7623,7 @@
         "Static": false
     },
     "1563521501": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 583292872,
@@ -7605,7 +7683,7 @@
         "Static": false
     },
     "1575671504": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1165648890,
@@ -7631,7 +7709,7 @@
         "Static": false
     },
     "1576801594": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1687050141,
@@ -7649,7 +7727,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1718729663.bone"
                 },
@@ -7665,7 +7743,7 @@
         "Static": false
     },
     "1585513969": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 453263240,
@@ -7683,7 +7761,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1524499969.bone"
                 },
@@ -7733,7 +7811,7 @@
         "Static": false
     },
     "1591487946": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1047195688,
@@ -7751,7 +7829,7 @@
                 "scalez": "1.430003"
             },
             "1": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceMesh": {
                         "PreviewTexture": "",
@@ -7762,7 +7840,7 @@
                 "index": 1
             },
             "2": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceMaterial": {
                         "path": "Assets/08 - Default.mat"
@@ -7780,7 +7858,7 @@
         "Static": false
     },
     "1598945550": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 17944578,
@@ -7798,7 +7876,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/804590026.bone"
                 },
@@ -7882,7 +7960,7 @@
         "Static": false
     },
     "1601699914": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 489823314,
@@ -7900,7 +7978,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceBone": "Library/Bones/724875235.bone"
                 },
@@ -8230,7 +8308,7 @@
         "Static": false
     },
     "1618469964": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 2135079678,
@@ -8248,7 +8326,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1180674273.bone"
                 },
@@ -8287,7 +8365,7 @@
                 "GradientColor": false,
                 "Loop": true,
                 "Resources": {
-                    "ResourceTexture": "Library/Textures/1382879197.dds"
+                    "ResourceTexture": "Library/Textures/2058401140.dds"
                 },
                 "UID": 1853010549,
                 "animation": "0",
@@ -8376,7 +8454,7 @@
         "Static": false
     },
     "1631168954": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 245729008,
@@ -8501,7 +8579,7 @@
                 "rotationx": "0.013195",
                 "rotationy": "-0.627122",
                 "rotationz": "0.483227",
-                "scalex": "0.999850",
+                "scalex": "0.999830",
                 "scaley": "1.000000",
                 "scalez": "1.000001"
             },
@@ -8644,7 +8722,7 @@
         "Static": false
     },
     "1657257902": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1792322553,
@@ -8662,7 +8740,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1406593368.bone"
                 },
@@ -8704,7 +8782,7 @@
         "Static": false
     },
     "1674031702": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 333291816,
@@ -8722,7 +8800,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/741620324.bone"
                 },
@@ -8738,7 +8816,7 @@
         "Static": false
     },
     "1676118605": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 563147038,
@@ -8756,7 +8834,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/2128056068.bone"
                 },
@@ -8806,7 +8884,7 @@
         "Static": false
     },
     "1683854817": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1101758809,
@@ -8824,7 +8902,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/869627568.bone"
                 },
@@ -8879,9 +8957,9 @@
                 "rotationx": "0.629225",
                 "rotationy": "0.355848",
                 "rotationz": "-0.490428",
-                "scalex": "1.000152",
-                "scaley": "1.000152",
-                "scalez": "1.000152"
+                "scalex": "1.000172",
+                "scaley": "1.000172",
+                "scalez": "1.000172"
             },
             "13": {
                 "Active": true,
@@ -8934,7 +9012,7 @@
         "Static": false
     },
     "1713858472": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 1251504616,
@@ -8952,7 +9030,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceBone": "Library/Bones/673031435.bone"
                 },
@@ -8968,7 +9046,7 @@
         "Static": false
     },
     "1716947442": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1122512505,
@@ -9088,7 +9166,7 @@
         "Static": false
     },
     "1720390226": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 565246082,
@@ -9106,7 +9184,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/2076798611.bone"
                 },
@@ -9210,7 +9288,7 @@
         "Static": false
     },
     "1733574047": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 848432070,
@@ -9228,7 +9306,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1170835165.bone"
                 },
@@ -9244,7 +9322,7 @@
         "Static": false
     },
     "1733934220": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 2053903341,
@@ -9262,7 +9340,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/679908715.bone"
                 },
@@ -9278,7 +9356,7 @@
         "Static": false
     },
     "1736081809": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 748893499,
@@ -9296,7 +9374,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1768945281.bone"
                 },
@@ -9360,8 +9438,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000488",
-                "scalez": "1.000488"
+                "scaley": "1.000508",
+                "scalez": "1.000508"
             }
         },
         "Index": 0,
@@ -9440,7 +9518,7 @@
         "Static": false
     },
     "1765298676": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1196937640,
@@ -9513,7 +9591,7 @@
         "Static": false
     },
     "1777496740": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 1426456959,
@@ -9527,8 +9605,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000045",
-                "scalez": "1.000045"
+                "scaley": "1.000065",
+                "scalez": "1.000065"
             }
         },
         "Index": 0,
@@ -9565,7 +9643,7 @@
         "Static": false
     },
     "1784146229": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 944784370,
@@ -9583,7 +9661,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/134719343.bone"
                 },
@@ -9795,7 +9873,7 @@
         "Static": false
     },
     "1809156493": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1127136494,
@@ -9813,7 +9891,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1580318391.bone"
                 },
@@ -9829,7 +9907,7 @@
         "Static": false
     },
     "1812191746": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1201793307,
@@ -9847,7 +9925,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/2036012080.bone"
                 },
@@ -9863,7 +9941,7 @@
         "Static": false
     },
     "1813385881": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1636048977,
@@ -9881,7 +9959,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1246365697.bone"
                 },
@@ -10065,7 +10143,7 @@
                 "GradientColor": false,
                 "Loop": true,
                 "Resources": {
-                    "ResourceTexture": "Library/Textures/717856005.dds"
+                    "ResourceTexture": "Library/Textures/922561147.dds"
                 },
                 "UID": 674502253,
                 "animation": "0",
@@ -10256,7 +10334,7 @@
         "Static": false
     },
     "1853216885": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 722614323,
@@ -10377,7 +10455,7 @@
         "Static": false
     },
     "1859752150": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1774392788,
@@ -10395,7 +10473,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1746293320.bone"
                 },
@@ -10411,7 +10489,7 @@
         "Static": false
     },
     "1862319545": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 1580964955,
@@ -10429,7 +10507,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1591121948.bone"
                 },
@@ -10445,7 +10523,7 @@
         "Static": false
     },
     "1872258835": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 679866659,
@@ -10463,7 +10541,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1175842242.bone"
                 },
@@ -10608,7 +10686,7 @@
         "Static": false
     },
     "1899279600": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 2100706155,
@@ -10626,7 +10704,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1692081983.bone"
                 },
@@ -10642,7 +10720,7 @@
         "Static": false
     },
     "1909002666": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1001852107,
@@ -10655,12 +10733,12 @@
                 "rotationx": "0.015069",
                 "rotationy": "0.169828",
                 "rotationz": "0.985115",
-                "scalex": "0.999948",
-                "scaley": "0.999948",
+                "scalex": "0.999928",
+                "scaley": "0.999928",
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/2016878305.bone"
                 },
@@ -10676,7 +10754,7 @@
         "Static": false
     },
     "1911730794": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 1266743317,
@@ -10694,7 +10772,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceBone": "Library/Bones/345104749.bone"
                 },
@@ -10744,7 +10822,7 @@
         "Static": false
     },
     "1914859667": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 980187166,
@@ -10762,7 +10840,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceBone": "Library/Bones/569284438.bone"
                 },
@@ -10812,7 +10890,7 @@
         "Static": false
     },
     "1919221977": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1720744377,
@@ -10830,12 +10908,12 @@
                 "scalez": "0.769231"
             },
             "16": {
-                "Active": true,
+                "Active": false,
                 "UID": 421539575,
                 "colliderType": "1",
                 "draggedUID": "0",
                 "draw": "0",
-                "firstCreation": "1",
+                "firstCreation": "0",
                 "globalMatrixw": "1.000000",
                 "globalMatrixx": "-9.147471",
                 "globalMatrixy": "2.560001",
@@ -10848,7 +10926,7 @@
                 "index": 1,
                 "isConvex": "0",
                 "isTrigger": "0",
-                "lastIndex": "1",
+                "lastIndex": "0",
                 "localMatrixw": "1.000000",
                 "localMatrixx": "0.000000",
                 "localMatrixy": "0.000000",
@@ -10879,7 +10957,7 @@
         "Static": false
     },
     "192087243": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 2117354611,
@@ -10897,7 +10975,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceBone": "Library/Bones/490687493.bone"
                 },
@@ -10970,7 +11048,7 @@
                 "colliderType": "1",
                 "draggedUID": "0",
                 "draw": "1",
-                "firstCreation": "1",
+                "firstCreation": "0",
                 "globalMatrixw": "1.000000",
                 "globalMatrixx": "-9.469265",
                 "globalMatrixy": "2.000001",
@@ -10978,12 +11056,12 @@
                 "globalPositionx": "1.000000",
                 "globalPositiony": "1.000000",
                 "globalPositionz": "1.000000",
-                "hasBeenDeactivated": "1",
+                "hasBeenDeactivated": "0",
                 "height": "1.000000",
                 "index": 1,
                 "isConvex": "0",
                 "isTrigger": "1",
-                "lastIndex": "1",
+                "lastIndex": "0",
                 "localMatrixw": "1.000000",
                 "localMatrixx": "0.000000",
                 "localMatrixy": "2.000000",
@@ -11014,7 +11092,7 @@
         "Static": false
     },
     "1932997694": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 209987535,
@@ -11032,7 +11110,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1023121163.bone"
                 },
@@ -11048,7 +11126,7 @@
         "Static": false
     },
     "1933127074": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 371500852,
@@ -11066,7 +11144,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/399252383.bone"
                 },
@@ -11082,7 +11160,7 @@
         "Static": false
     },
     "1937287016": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1331595653,
@@ -11414,7 +11492,7 @@
         "Static": false
     },
     "1967083200": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 2037167212,
@@ -11427,12 +11505,12 @@
                 "rotationx": "-0.015471",
                 "rotationy": "0.174883",
                 "rotationz": "0.984234",
-                "scalex": "0.999948",
-                "scaley": "0.999948",
+                "scalex": "0.999928",
+                "scaley": "0.999928",
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1889056883.bone"
                 },
@@ -11631,7 +11709,7 @@
         "Static": false
     },
     "1994701802": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 65248822,
@@ -11644,12 +11722,12 @@
                 "rotationx": "0.534209",
                 "rotationy": "-0.455339",
                 "rotationz": "0.553834",
-                "scalex": "0.999989",
-                "scaley": "0.999990",
-                "scalez": "0.999990"
+                "scalex": "0.999969",
+                "scaley": "0.999970",
+                "scalez": "0.999970"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/383563679.bone"
                 },
@@ -11679,8 +11757,8 @@
                 "rotationy": "-0.002414",
                 "rotationz": "0.017640",
                 "scalex": "1.000000",
-                "scaley": "0.999848",
-                "scalez": "0.999848"
+                "scaley": "0.999828",
+                "scalez": "0.999828"
             },
             "13": {
                 "Active": true,
@@ -11699,7 +11777,7 @@
         "Static": false
     },
     "1995238825": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 32383314,
@@ -11717,7 +11795,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1735906440.bone"
                 },
@@ -11733,7 +11811,7 @@
         "Static": false
     },
     "2015409108": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 923355326,
@@ -11751,7 +11829,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1145187070.bone"
                 },
@@ -11793,7 +11871,7 @@
         "Static": false
     },
     "2015618955": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 1752549511,
@@ -11811,7 +11889,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceBone": "Library/Bones/2015379007.bone"
                 },
@@ -11827,7 +11905,7 @@
         "Static": false
     },
     "2018476016": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1564655540,
@@ -11853,7 +11931,7 @@
         "Static": false
     },
     "2026002478": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 1144587598,
@@ -11871,7 +11949,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceBone": "Library/Bones/662808878.bone"
                 },
@@ -11887,7 +11965,7 @@
         "Static": false
     },
     "2026365497": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1381661906,
@@ -11905,7 +11983,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1483746368.bone"
                 },
@@ -11921,7 +11999,7 @@
         "Static": false
     },
     "2028640131": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1032053629,
@@ -11935,11 +12013,11 @@
                 "rotationy": "0.000117",
                 "rotationz": "-0.000109",
                 "scalex": "1.000000",
-                "scaley": "1.000010",
-                "scalez": "1.000010"
+                "scaley": "1.000030",
+                "scalez": "1.000030"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/693029538.bone"
                 },
@@ -11955,7 +12033,7 @@
         "Static": false
     },
     "2034436941": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 1999230806,
@@ -11973,7 +12051,7 @@
                 "scalez": "0.025400"
             },
             "1": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceMesh": {
                         "PreviewTexture": "",
@@ -11984,7 +12062,7 @@
                 "index": 1
             },
             "2": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceMaterial": {
                         "path": "Assets/Archer/New material 7.mat"
@@ -12070,7 +12148,7 @@
         "Static": false
     },
     "2049692978": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 494862816,
@@ -12088,7 +12166,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceBone": "Library/Bones/2109485535.bone"
                 },
@@ -12104,7 +12182,7 @@
         "Static": false
     },
     "2054284498": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 1809672390,
@@ -12122,7 +12200,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceBone": "Library/Bones/720852804.bone"
                 },
@@ -12226,7 +12304,7 @@
         "Static": false
     },
     "2063456133": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 2013672227,
@@ -12240,11 +12318,11 @@
                 "rotationy": "0.017731",
                 "rotationz": "0.999833",
                 "scalex": "1.000000",
-                "scaley": "0.999988",
+                "scaley": "0.999968",
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1894367949.bone"
                 },
@@ -12283,7 +12361,7 @@
                 "GradientColor": false,
                 "Loop": true,
                 "Resources": {
-                    "ResourceTexture": "Library/Textures/1966610012.dds"
+                    "ResourceTexture": "Library/Textures/2097066482.dds"
                 },
                 "UID": 1242876855,
                 "animation": "0",
@@ -12338,7 +12416,7 @@
         "Static": false
     },
     "2066123930": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 234350560,
@@ -12356,7 +12434,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/2065353150.bone"
                 },
@@ -12406,7 +12484,7 @@
         "Static": false
     },
     "2066917227": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1736771292,
@@ -12424,7 +12502,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1579687589.bone"
                 },
@@ -12466,7 +12544,7 @@
         "Static": false
     },
     "2071223069": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 465388553,
@@ -12484,7 +12562,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1121411808.bone"
                 },
@@ -12534,7 +12612,7 @@
         "Static": false
     },
     "207893518": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 978687024,
@@ -12552,7 +12630,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceBone": "Library/Bones/2078503563.bone"
                 },
@@ -12602,7 +12680,7 @@
         "Static": false
     },
     "2082463770": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1845047652,
@@ -12620,7 +12698,7 @@
                 "scalez": "0.025400"
             },
             "1": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceMesh": {
                         "PreviewTexture": "",
@@ -12631,7 +12709,7 @@
                 "index": 1
             },
             "2": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceMaterial": {
                         "path": "Assets/Minion_Zomboid/New material 4.mat"
@@ -12662,8 +12740,8 @@
                 "rotationx": "0.388476",
                 "rotationy": "0.030072",
                 "rotationz": "0.916843",
-                "scalex": "0.999847",
-                "scaley": "0.999696",
+                "scalex": "0.999827",
+                "scaley": "0.999656",
                 "scalez": "1.000000"
             },
             "13": {
@@ -12683,7 +12761,7 @@
         "Static": false
     },
     "2088352840": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 52364146,
@@ -12697,8 +12775,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000045",
-                "scalez": "1.000045"
+                "scaley": "1.000065",
+                "scalez": "1.000065"
             }
         },
         "Index": 0,
@@ -12709,7 +12787,7 @@
         "Static": false
     },
     "2090912958": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 1531101157,
@@ -12727,7 +12805,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1345504175.bone"
                 },
@@ -12743,7 +12821,7 @@
         "Static": false
     },
     "2092278035": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 2016021641,
@@ -12761,7 +12839,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1157565979.bone"
                 },
@@ -12879,7 +12957,7 @@
         "Static": false
     },
     "2098492773": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1422496521,
@@ -12897,7 +12975,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/759681805.bone"
                 },
@@ -12913,7 +12991,7 @@
         "Static": false
     },
     "2110646999": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 1638687757,
@@ -12931,16 +13009,16 @@
                 "scalez": "1.000000"
             },
             "16": {
-                "Active": false,
+                "Active": true,
                 "UID": 764374977,
                 "colliderType": "1",
                 "draggedUID": "0",
                 "draw": "0",
-                "firstCreation": "0",
+                "firstCreation": "1",
                 "globalMatrixw": "1.000000",
-                "globalMatrixx": "0.145942",
+                "globalMatrixx": "-4.053408",
                 "globalMatrixy": "3.149784",
-                "globalMatrixz": "15.364445",
+                "globalMatrixz": "15.552147",
                 "globalPositionx": "1.000000",
                 "globalPositiony": "1.000000",
                 "globalPositionz": "1.000000",
@@ -12949,17 +13027,17 @@
                 "index": 1,
                 "isConvex": "0",
                 "isTrigger": "1",
-                "lastIndex": "0",
+                "lastIndex": "1",
                 "localMatrixw": "1.000000",
-                "localMatrixx": "-0.000000",
+                "localMatrixx": "0.000000",
                 "localMatrixy": "0.000000",
-                "localMatrixz": "0.000000",
+                "localMatrixz": "0.000001",
                 "localPositionx": "0.000000",
                 "localPositiony": "0.000000",
                 "localPositionz": "0.000000",
-                "offsetx": "-0.000000",
+                "offsetx": "0.000000",
                 "offsety": "0.000000",
-                "offsetz": "0.000000",
+                "offsetz": "0.000001",
                 "originalScalex": "1.000000",
                 "originalScaley": "1.000000",
                 "originalScalez": "1.000000",
@@ -12974,6 +13052,84 @@
         },
         "Index": 2,
         "Name": "ArcherAttack",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1039440198",
+        "Static": false
+    },
+    "2112679525": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "UID": 1411259701,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-0.045436",
+                "positiony": "2.701465",
+                "positionz": "0.241231",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "18": {
+                "Active": false,
+                "Duration": "1000",
+                "GradientColor": false,
+                "Loop": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1398529552.dds"
+                },
+                "UID": 1639825777,
+                "animation": "0",
+                "colors": [
+                    {
+                        "a": "1.000000",
+                        "x": "1.000000",
+                        "y": "1.000000",
+                        "z": "1.000000"
+                    }
+                ],
+                "cycles": "1",
+                "emisionRate": "500.000000",
+                "externalAccelerationX": "0.000000",
+                "externalAccelerationY": "0.000000",
+                "externalAccelerationZ": "0.000000",
+                "grad_duration": "0",
+                "index": 1,
+                "num_colors": "1",
+                "num_gradients": "0",
+                "particleScaleOverTime": "0.000000",
+                "particleScaleRandomFactor": "1.000000",
+                "particlesLifeTime": "600",
+                "particlesPerCreation": "8",
+                "particlesScaleX": "0.200000",
+                "particlesScaleY": "0.200000",
+                "particlesVelocityX": "0.000000",
+                "particlesVelocityY": "1.000000",
+                "particlesVelocityZ": "1.000000",
+                "positionX": "0.000000",
+                "positionY": "0.000000",
+                "positionZ": "0.000000",
+                "rotationX": "0.000000",
+                "rotationY": "0.000000",
+                "rotationZ": "0.000000",
+                "sizeX": "0.000000",
+                "sizeY": "0.000000",
+                "sizeZ": "0.000000",
+                "startFrame": "0",
+                "tiles_X": "1",
+                "tiles_Y": "1",
+                "velocityRandomFactorX": "1.000000",
+                "velocityRandomFactorY": "4.000000",
+                "velocityRandomFactorZ": "2.000000"
+            }
+        },
+        "Index": 5,
+        "Name": "ParticleArcher_Blood",
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1039440198",
@@ -13014,7 +13170,7 @@
         "Static": false
     },
     "2124553376": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 805297767,
@@ -13032,7 +13188,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceBone": "Library/Bones/237226441.bone"
                 },
@@ -13048,7 +13204,7 @@
         "Static": false
     },
     "2127720799": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 1364459707,
@@ -13066,7 +13222,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceBone": "Library/Bones/723138717.bone"
                 },
@@ -13082,7 +13238,7 @@
         "Static": false
     },
     "2132971678": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 283109177,
@@ -13100,7 +13256,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/678017340.bone"
                 },
@@ -13184,7 +13340,7 @@
         "Static": false
     },
     "2143241895": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 211733430,
@@ -13202,7 +13358,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1090099841.bone"
                 },
@@ -13252,7 +13408,7 @@
         "Static": false
     },
     "215616521": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1365712628,
@@ -13270,7 +13426,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/733789638.bone"
                 },
@@ -13309,7 +13465,7 @@
                 "GradientColor": true,
                 "Loop": true,
                 "Resources": {
-                    "ResourceTexture": "Library/Textures/68713070.dds"
+                    "ResourceTexture": "Library/Textures/1686307798.dds"
                 },
                 "UID": 1454737281,
                 "animation": "0",
@@ -13424,7 +13580,7 @@
         "Static": false
     },
     "222806160": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 634054011,
@@ -13442,7 +13598,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/383422313.bone"
                 },
@@ -13518,7 +13674,7 @@
         "Static": false
     },
     "228585709": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 104393544,
@@ -13536,7 +13692,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/2058843869.bone"
                 },
@@ -13599,7 +13755,7 @@
         "Static": false
     },
     "244776763": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 940189878,
@@ -13617,7 +13773,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1274835271.bone"
                 },
@@ -13633,7 +13789,7 @@
         "Static": false
     },
     "245317994": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 129384601,
@@ -13651,7 +13807,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/347220051.bone"
                 },
@@ -13667,7 +13823,7 @@
         "Static": false
     },
     "249906946": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 2006463119,
@@ -13685,12 +13841,12 @@
                 "scalez": "0.769231"
             },
             "16": {
-                "Active": true,
+                "Active": false,
                 "UID": 639542848,
                 "colliderType": "1",
                 "draggedUID": "0",
                 "draw": "0",
-                "firstCreation": "1",
+                "firstCreation": "0",
                 "globalMatrixw": "1.000000",
                 "globalMatrixx": "-9.405906",
                 "globalMatrixy": "3.258973",
@@ -13703,7 +13859,7 @@
                 "index": 1,
                 "isConvex": "0",
                 "isTrigger": "0",
-                "lastIndex": "1",
+                "lastIndex": "0",
                 "localMatrixw": "1.000000",
                 "localMatrixx": "0.000000",
                 "localMatrixy": "0.000000",
@@ -13734,7 +13890,7 @@
         "Static": false
     },
     "250064455": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1436889626,
@@ -13752,7 +13908,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/2001950155.bone"
                 },
@@ -13938,7 +14094,7 @@
         "Static": false
     },
     "264806177": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1395062317,
@@ -13956,7 +14112,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1854598164.bone"
                 },
@@ -14066,7 +14222,7 @@
         "Static": false
     },
     "282797493": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 200790832,
@@ -14084,7 +14240,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1528042197.bone"
                 },
@@ -14183,7 +14339,7 @@
                 "GradientColor": false,
                 "Loop": true,
                 "Resources": {
-                    "ResourceTexture": "Library/Textures/839424533.dds"
+                    "ResourceTexture": "Library/Textures/1932862771.dds"
                 },
                 "UID": 1546190026,
                 "animation": "0",
@@ -14238,7 +14394,7 @@
         "Static": false
     },
     "295425315": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 72357555,
@@ -14256,7 +14412,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/680984805.bone"
                 },
@@ -14332,7 +14488,7 @@
         "Static": false
     },
     "301730652": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1710723794,
@@ -14426,7 +14582,7 @@
         "Static": false
     },
     "312336521": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1298541653,
@@ -14452,7 +14608,7 @@
         "Static": false
     },
     "323601697": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1479382618,
@@ -14478,7 +14634,7 @@
         "Static": false
     },
     "324017358": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1035870108,
@@ -14572,7 +14728,7 @@
         "Static": false
     },
     "333655142": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 908794620,
@@ -14586,8 +14742,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000045",
-                "scalez": "1.000045"
+                "scaley": "1.000065",
+                "scalez": "1.000065"
             }
         },
         "Index": 0,
@@ -14632,7 +14788,7 @@
         "Static": false
     },
     "346615683": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1234451881,
@@ -14658,7 +14814,7 @@
         "Static": false
     },
     "352183933": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1507491331,
@@ -14672,11 +14828,11 @@
                 "rotationy": "0.000122",
                 "rotationz": "-0.000114",
                 "scalex": "39.370075",
-                "scaley": "39.371365",
-                "scalez": "39.371269"
+                "scaley": "39.371864",
+                "scalez": "39.371727"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1035086681.bone"
                 },
@@ -14706,8 +14862,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000488",
-                "scalez": "1.000488"
+                "scaley": "1.000508",
+                "scalez": "1.000508"
             }
         },
         "Index": 0,
@@ -14798,9 +14954,9 @@
                 "rotationx": "0.000000",
                 "rotationy": "-0.707107",
                 "rotationz": "0.000000",
-                "scalex": "1.271052",
+                "scalex": "1.271072",
                 "scaley": "1.270900",
-                "scalez": "1.271052"
+                "scalez": "1.271072"
             },
             "13": {
                 "Active": true,
@@ -14879,7 +15035,7 @@
         "Static": false
     },
     "371822620": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 380855837,
@@ -14897,7 +15053,7 @@
                 "scalez": "1.300000"
             },
             "12": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceScript": "Assets/Lumberjack/Lumberjack_v019.lua"
                 },
@@ -15048,7 +15204,7 @@
                 "index": 2
             },
             "14": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceAnimation": "Library/Animations/1245406816.anim",
                     "ResourceAnimator": "1390338046"
@@ -15072,7 +15228,7 @@
                 "stepOffset": "0.300000"
             },
             "19": {
-                "Active": true,
+                "Active": false,
                 "UID": 1712394533,
                 "index": 3
             }
@@ -15234,7 +15390,7 @@
         "Static": false
     },
     "383525780": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1044533966,
@@ -15252,7 +15408,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/530749639.bone"
                 },
@@ -15362,7 +15518,7 @@
         "Static": false
     },
     "389103840": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 852994121,
@@ -15380,7 +15536,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/573130783.bone"
                 },
@@ -15498,7 +15654,7 @@
         "Static": false
     },
     "400433040": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1932212074,
@@ -15523,8 +15679,86 @@
         "Parent": "1478176294",
         "Static": false
     },
-    "419330290": {
+    "405824387": {
         "Active": false,
+        "Components": {
+            "0": {
+                "UID": 1604787395,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.120775",
+                "positiony": "0.143208",
+                "positionz": "-0.023869",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "18": {
+                "Active": false,
+                "Duration": "1000",
+                "GradientColor": false,
+                "Loop": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1045340811.dds"
+                },
+                "UID": 1919008473,
+                "animation": "0",
+                "colors": [
+                    {
+                        "a": "1.000000",
+                        "x": "1.000000",
+                        "y": "1.000000",
+                        "z": "1.000000"
+                    }
+                ],
+                "cycles": "1",
+                "emisionRate": "500.000000",
+                "externalAccelerationX": "0.000000",
+                "externalAccelerationY": "10.000000",
+                "externalAccelerationZ": "0.000000",
+                "grad_duration": "0",
+                "index": 1,
+                "num_colors": "1",
+                "num_gradients": "0",
+                "particleScaleOverTime": "0.000000",
+                "particleScaleRandomFactor": "1.000000",
+                "particlesLifeTime": "1000",
+                "particlesPerCreation": "2",
+                "particlesScaleX": "1.000000",
+                "particlesScaleY": "1.000000",
+                "particlesVelocityX": "0.000000",
+                "particlesVelocityY": "1.000000",
+                "particlesVelocityZ": "-2.000000",
+                "positionX": "0.000000",
+                "positionY": "0.000000",
+                "positionZ": "0.000000",
+                "rotationX": "0.000000",
+                "rotationY": "0.000000",
+                "rotationZ": "0.000000",
+                "sizeX": "0.000000",
+                "sizeY": "0.000000",
+                "sizeZ": "0.000000",
+                "startFrame": "0",
+                "tiles_X": "1",
+                "tiles_Y": "1",
+                "velocityRandomFactorX": "1.000000",
+                "velocityRandomFactorY": "0.000000",
+                "velocityRandomFactorZ": "1.000000"
+            }
+        },
+        "Index": 3,
+        "Name": "ParticleArcher_Walking",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1039440198",
+        "Static": false
+    },
+    "419330290": {
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 2022972874,
@@ -15542,7 +15776,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1574078235.bone"
                 },
@@ -15626,7 +15860,7 @@
         "Static": false
     },
     "443134256": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 1505519941,
@@ -15644,7 +15878,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1123609902.bone"
                 },
@@ -15708,8 +15942,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000488",
-                "scalez": "1.000488"
+                "scaley": "1.000508",
+                "scalez": "1.000508"
             }
         },
         "Index": 0,
@@ -15754,7 +15988,7 @@
         "Static": false
     },
     "456724804": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1478854161,
@@ -15772,7 +16006,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1363287396.bone"
                 },
@@ -15870,8 +16104,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000488",
-                "scalez": "1.000488"
+                "scaley": "1.000508",
+                "scalez": "1.000508"
             }
         },
         "Index": 0,
@@ -15922,8 +16156,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000488",
-                "scalez": "1.000488"
+                "scaley": "1.000508",
+                "scalez": "1.000508"
             }
         },
         "Index": 0,
@@ -15960,7 +16194,7 @@
         "Static": false
     },
     "490001245": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 86348776,
@@ -15978,7 +16212,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1295670957.bone"
                 },
@@ -15994,7 +16228,7 @@
         "Static": false
     },
     "492661615": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1520957100,
@@ -16020,7 +16254,7 @@
         "Static": false
     },
     "506183055": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 1610764224,
@@ -16034,8 +16268,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000045",
-                "scalez": "1.000045"
+                "scaley": "1.000065",
+                "scalez": "1.000065"
             }
         },
         "Index": 0,
@@ -16046,7 +16280,7 @@
         "Static": false
     },
     "510858723": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 636324022,
@@ -16064,7 +16298,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1854268846.bone"
                 },
@@ -16106,7 +16340,7 @@
         "Static": false
     },
     "514184457": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 178531596,
@@ -16124,7 +16358,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1780892251.bone"
                 },
@@ -16208,7 +16442,7 @@
         "Static": false
     },
     "523924627": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 667483977,
@@ -16226,7 +16460,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/2005716848.bone"
                 },
@@ -16242,7 +16476,7 @@
         "Static": false
     },
     "525815078": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 521571284,
@@ -16260,7 +16494,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1234292554.bone"
                 },
@@ -16276,7 +16510,7 @@
         "Static": false
     },
     "527116011": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 837949424,
@@ -16290,11 +16524,11 @@
                 "rotationy": "-0.431125",
                 "rotationz": "0.540621",
                 "scalex": "0.999999",
-                "scaley": "0.999947",
+                "scaley": "0.999927",
                 "scalez": "0.999999"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1311440820.bone"
                 },
@@ -16344,7 +16578,7 @@
         "Static": false
     },
     "534638109": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1481445197,
@@ -16362,7 +16596,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/789965869.bone"
                 },
@@ -16392,8 +16626,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000488",
-                "scalez": "1.000488"
+                "scaley": "1.000508",
+                "scalez": "1.000508"
             }
         },
         "Index": 0,
@@ -16404,7 +16638,7 @@
         "Static": false
     },
     "542529130": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 889998530,
@@ -16422,7 +16656,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1647498534.bone"
                 },
@@ -16506,7 +16740,7 @@
         "Static": false
     },
     "561327801": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1631760633,
@@ -16524,7 +16758,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1123767329.bone"
                 },
@@ -16554,7 +16788,7 @@
                 "rotationy": "0.000606",
                 "rotationz": "-0.000568",
                 "scalex": "39.370079",
-                "scaley": "39.369427",
+                "scaley": "39.369350",
                 "scalez": "39.370071"
             },
             "13": {
@@ -16634,7 +16868,7 @@
         "Static": false
     },
     "569945929": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 557047213,
@@ -16652,7 +16886,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1236106642.bone"
                 },
@@ -16953,7 +17187,7 @@
         "Static": false
     },
     "586951222": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1733986955,
@@ -16971,7 +17205,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/334451857.bone"
                 },
@@ -17103,7 +17337,7 @@
                 "rotationy": "0.016942",
                 "rotationz": "0.196836",
                 "scalex": "1.000000",
-                "scaley": "0.999850",
+                "scaley": "0.999830",
                 "scalez": "1.000000"
             },
             "13": {
@@ -17183,7 +17417,7 @@
         "Static": false
     },
     "619851420": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1050517086,
@@ -17243,7 +17477,7 @@
         "Static": false
     },
     "627777119": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 842139712,
@@ -17261,7 +17495,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceBone": "Library/Bones/33995989.bone"
                 },
@@ -17277,7 +17511,7 @@
         "Static": false
     },
     "632264506": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 1976547872,
@@ -17291,11 +17525,11 @@
                 "rotationy": "0.000074",
                 "rotationz": "-0.000069",
                 "scalex": "1.000000",
-                "scaley": "1.000043",
-                "scalez": "1.000043"
+                "scaley": "1.000063",
+                "scalez": "1.000063"
             },
             "13": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceBone": "Library/Bones/193668966.bone"
                 },
@@ -17378,7 +17612,7 @@
         "Static": false
     },
     "644381854": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 915023214,
@@ -17396,7 +17630,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1701383554.bone"
                 },
@@ -17574,7 +17808,7 @@
         "Static": false
     },
     "655982602": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 1881194250,
@@ -17592,7 +17826,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceBone": "Library/Bones/233297552.bone"
                 },
@@ -17608,7 +17842,7 @@
         "Static": false
     },
     "658223711": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 1227001856,
@@ -17626,7 +17860,7 @@
                 "scalez": "0.228865"
             },
             "1": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceMesh": {
                         "PreviewTexture": "",
@@ -17637,7 +17871,7 @@
                 "index": 1
             },
             "2": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceMaterial": {
                         "path": "Assets/Archer/New material 8.mat"
@@ -17703,8 +17937,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000488",
-                "scalez": "1.000488"
+                "scaley": "1.000508",
+                "scalez": "1.000508"
             }
         },
         "Index": 0,
@@ -17715,7 +17949,7 @@
         "Static": false
     },
     "681830130": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1183990817,
@@ -17733,7 +17967,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1855035423.bone"
                 },
@@ -17783,7 +18017,7 @@
         "Static": false
     },
     "689083230": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 2079792640,
@@ -17796,12 +18030,12 @@
                 "rotationx": "0.000791",
                 "rotationy": "0.016521",
                 "rotationz": "0.999855",
-                "scalex": "1.000012",
-                "scaley": "1.000012",
+                "scalex": "1.000032",
+                "scaley": "1.000032",
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/82796824.bone"
                 },
@@ -17965,7 +18199,7 @@
         "Static": false
     },
     "699964174": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 2095834232,
@@ -17983,7 +18217,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceBone": "Library/Bones/79603595.bone"
                 },
@@ -18059,7 +18293,7 @@
         "Static": false
     },
     "713283079": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1494780569,
@@ -18077,7 +18311,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/286194652.bone"
                 },
@@ -18127,7 +18361,7 @@
         "Static": false
     },
     "717003529": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1302316399,
@@ -18145,7 +18379,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1469313722.bone"
                 },
@@ -18262,7 +18496,7 @@
         "Static": false
     },
     "74031583": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 2027031106,
@@ -18280,7 +18514,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1892628556.bone"
                 },
@@ -18399,7 +18633,7 @@
         "Static": false
     },
     "755477745": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 551231359,
@@ -18412,12 +18646,12 @@
                 "rotationx": "-0.000189",
                 "rotationy": "0.003719",
                 "rotationz": "0.999967",
-                "scalex": "1.000090",
-                "scaley": "1.000090",
+                "scalex": "1.000130",
+                "scaley": "1.000130",
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1524746020.bone"
                 },
@@ -18433,7 +18667,7 @@
         "Static": false
     },
     "76371173": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 856631552,
@@ -18451,7 +18685,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1527847994.bone"
                 },
@@ -18467,7 +18701,7 @@
         "Static": false
     },
     "763824885": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 1419992764,
@@ -18485,7 +18719,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1391084650.bone"
                 },
@@ -18671,7 +18905,7 @@
         "Static": false
     },
     "783532477": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1346476713,
@@ -18689,7 +18923,7 @@
                 "scalez": "1.000000"
             },
             "12": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceScript": "Assets/Minion_Zomboid/MinionGhoul_Scriptv02.lua"
                 },
@@ -18868,7 +19102,7 @@
                 "index": 2
             },
             "14": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceAnimation": "Library/Animations/181381757.anim",
                     "ResourceAnimator": "1636820169"
@@ -18900,7 +19134,7 @@
         "Static": false
     },
     "784673284": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 46025160,
@@ -18913,12 +19147,12 @@
                 "rotationx": "-0.543840",
                 "rotationy": "-0.445744",
                 "rotationz": "0.557639",
-                "scalex": "0.999955",
-                "scaley": "0.999955",
+                "scalex": "0.999935",
+                "scaley": "0.999935",
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1852178507.bone"
                 },
@@ -18968,7 +19202,7 @@
         "Static": false
     },
     "801560619": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 318341981,
@@ -18986,7 +19220,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/613820242.bone"
                 },
@@ -19002,7 +19236,7 @@
         "Static": false
     },
     "807554094": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 124109387,
@@ -19020,7 +19254,7 @@
                 "scalez": "0.999999"
             },
             "13": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1468175344.bone"
                 },
@@ -19151,8 +19385,8 @@
                 "rotationx": "-0.294586",
                 "rotationy": "0.407064",
                 "rotationz": "0.864579",
-                "scalex": "1.000152",
-                "scaley": "1.000152",
+                "scalex": "1.000172",
+                "scaley": "1.000172",
                 "scalez": "1.000000"
             },
             "13": {
@@ -19211,8 +19445,8 @@
                 "rotationx": "0.021563",
                 "rotationy": "-0.017214",
                 "rotationz": "0.991968",
-                "scalex": "0.999848",
-                "scaley": "0.999848",
+                "scalex": "0.999828",
+                "scaley": "0.999828",
                 "scalez": "1.000000"
             },
             "13": {
@@ -20953,7 +21187,7 @@
         "Static": false
     },
     "874747425": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 321931682,
@@ -20971,7 +21205,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1559112834.bone"
                 },
@@ -20987,7 +21221,7 @@
         "Static": false
     },
     "87495326": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 591676880,
@@ -21005,7 +21239,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1605057021.bone"
                 },
@@ -21081,7 +21315,7 @@
         "Static": false
     },
     "878866208": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1955436712,
@@ -21107,7 +21341,7 @@
         "Static": false
     },
     "883618155": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 1780068973,
@@ -21125,7 +21359,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceBone": "Library/Bones/217618854.bone"
                 },
@@ -21167,7 +21401,7 @@
         "Static": false
     },
     "894746082": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 941771541,
@@ -21185,7 +21419,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/551575156.bone"
                 },
@@ -21249,8 +21483,8 @@
                 "rotationy": "0.331492",
                 "rotationz": "-0.464944",
                 "scalex": "1.000000",
-                "scaley": "0.999848",
-                "scalez": "0.999848"
+                "scaley": "0.999828",
+                "scalez": "0.999828"
             },
             "13": {
                 "Active": true,
@@ -21269,7 +21503,7 @@
         "Static": false
     },
     "905366577": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1252162487,
@@ -21287,7 +21521,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1693975104.bone"
                 },
@@ -21316,8 +21550,8 @@
                 "rotationx": "0.000000",
                 "rotationy": "0.000000",
                 "rotationz": "0.670665",
-                "scalex": "1.786155",
-                "scaley": "1.786157",
+                "scalex": "1.786135",
+                "scaley": "1.786137",
                 "scalez": "1.786309"
             },
             "13": {
@@ -21479,8 +21713,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.540000",
-                "scaley": "2.540227",
-                "scalez": "2.540227"
+                "scaley": "2.540252",
+                "scalez": "2.540252"
             },
             "1": {
                 "Active": true,
@@ -21546,7 +21780,7 @@
         "Static": false
     },
     "925275034": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 1452224852,
@@ -21564,7 +21798,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceBone": "Library/Bones/687448269.bone"
                 },
@@ -21580,7 +21814,7 @@
         "Static": false
     },
     "929520288": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 480338031,
@@ -21598,7 +21832,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1847220345.bone"
                 },
@@ -21614,7 +21848,7 @@
         "Static": false
     },
     "931755079": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1929412282,
@@ -21632,7 +21866,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1206571532.bone"
                 },
@@ -21734,7 +21968,7 @@
         "Static": false
     },
     "939504372": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 52942460,
@@ -21752,7 +21986,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/995583697.bone"
                 },
@@ -21781,8 +22015,8 @@
                 "rotationx": "0.003326",
                 "rotationy": "0.086645",
                 "rotationz": "0.996212",
-                "scalex": "1.000171",
-                "scaley": "1.000171",
+                "scalex": "1.000191",
+                "scaley": "1.000191",
                 "scalez": "1.000000"
             },
             "13": {
@@ -21802,7 +22036,7 @@
         "Static": false
     },
     "941804457": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1092950670,
@@ -21820,7 +22054,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/2001976629.bone"
                 },
@@ -21836,7 +22070,7 @@
         "Static": false
     },
     "946602321": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 813826111,
@@ -21854,7 +22088,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1458490175.bone"
                 },
@@ -21981,7 +22215,7 @@
         "Static": false
     },
     "958773144": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1608025244,
@@ -21999,7 +22233,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1398751798.bone"
                 },
@@ -22015,7 +22249,7 @@
         "Static": false
     },
     "962088352": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 990717966,
@@ -22033,7 +22267,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceBone": "Library/Bones/2075192574.bone"
                 },
@@ -22049,7 +22283,7 @@
         "Static": false
     },
     "972330716": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1763052098,
@@ -22067,7 +22301,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/661075522.bone"
                 },
@@ -22157,8 +22391,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000488",
-                "scalez": "1.000488"
+                "scaley": "1.000508",
+                "scalez": "1.000508"
             }
         },
         "Index": 0,
@@ -22183,8 +22417,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000488",
-                "scalez": "1.000488"
+                "scaley": "1.000508",
+                "scalez": "1.000508"
             }
         },
         "Index": 0,
@@ -22195,7 +22429,7 @@
         "Static": false
     },
     "991825355": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "UID": 1199478527,
@@ -22213,7 +22447,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceBone": "Library/Bones/1048040462.bone"
                 },
@@ -22252,7 +22486,7 @@
                 "GradientColor": false,
                 "Loop": true,
                 "Resources": {
-                    "ResourceTexture": "Library/Textures/2069699453.dds"
+                    "ResourceTexture": "Library/Textures/1176274412.dds"
                 },
                 "UID": 497613984,
                 "animation": "0",
@@ -22307,7 +22541,7 @@
         "Static": false
     },
     "995519648": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 1246922575,
@@ -22325,7 +22559,7 @@
                 "scalez": "1.000000"
             },
             "13": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceBone": "Library/Bones/307771175.bone"
                 },
@@ -22355,8 +22589,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.070461",
-                "scaley": "15.157948",
-                "scalez": "1.368138"
+                "scaley": "15.158119",
+                "scalez": "1.368158"
             },
             "1": {
                 "Active": true,
