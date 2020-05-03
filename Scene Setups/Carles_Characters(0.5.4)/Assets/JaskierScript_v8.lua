@@ -1031,19 +1031,21 @@ end
 local function UltimateConcert()
 	if time_since_action > lua_table.ultimate_concert_end	--IF stage_2 has to start
 	then
-		--lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_song_3_GO_UID)	--TODO-Particles:
-		lua_table.ultimate_effect_active = false
+		if lua_table.ultimate_effect_active
+		then
+			--lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_song_3_GO_UID)	--TODO-Particles:
+			lua_table.ultimate_effect_active = false
 
-		--Setup for stage_2
-		lua_table.AnimationFunctions:PlayAnimation("guitar_slam_two_handed", lua_table.ultimate_secondary_animation_speed, my_GO_UID)
-		lua_table.AnimationFunctions:PlayAnimation("guitar_slam_two_handed", lua_table.ultimate_secondary_animation_speed, slash_GO_UID)
+			--Setup for stage_2
+			lua_table.AnimationFunctions:PlayAnimation("guitar_slam_two_handed", lua_table.ultimate_secondary_animation_speed, my_GO_UID)
+			lua_table.AnimationFunctions:PlayAnimation("guitar_slam_two_handed", lua_table.ultimate_secondary_animation_speed, slash_GO_UID)
 
-		lua_table.AudioFunctions:StopAudioEvent("Play_Jaskier_song_1")
-		lua_table.AudioFunctions:PlayAudioEvent("Play_Jaskier_attack_5")
+			lua_table.AudioFunctions:StopAudioEvent("Play_Jaskier_song_1")
+			lua_table.AudioFunctions:PlayAudioEvent("Play_Jaskier_attack_5")
 
-		lua_table.collider_damage = base_damage_real * lua_table.ultimate_secondary_damage
-		lua_table.collider_effect = lua_table.ultimate_secondary_status_effect
-		
+			lua_table.collider_damage = base_damage_real * lua_table.ultimate_secondary_damage
+			lua_table.collider_effect = lua_table.ultimate_secondary_status_effect
+		end
 	else	--IF > start time and < end time
 		if not lua_table.ultimate_effect_active	--IF effect unactive, activate
 		then
@@ -1385,13 +1387,15 @@ local function ActionInputs()	--Process Action Inputs
 	if action_made 	--IF action performed
 	then
 		lua_table.AnimationFunctions:SetBlendTime(0.1, my_GO_UID)
-		lua_table.AnimationFunctions:SetBlendTime(0.1, slash_GO_UID)
-		lua_table.GameObjectFunctions:SetActiveGameObject(true, slash_mesh_GO_UID)
-		
+
 		AttackColliderShutdown()
 
-		if not (lua_table.current_state >= state.light_1 and lua_table.current_state <= state.heavy_3)	--IF input not attack
+		if lua_table.current_state >= state.light_1 and lua_table.current_state <= state.heavy_3 or lua_table.current_state == state.song_1	--IF attack or song_1
 		then
+			lua_table.AnimationFunctions:SetBlendTime(0.1, slash_GO_UID)
+			lua_table.GameObjectFunctions:SetActiveGameObject(true, slash_mesh_GO_UID)
+		else
+			lua_table.GameObjectFunctions:SetActiveGameObject(false, slash_mesh_GO_UID)
 			--lua_table.ParticlesFunctions:StopParticleEmitter_GO(guitar_GO_UID)	--TODO-Particles: Deactivate Particles on Sword
 		end
 
