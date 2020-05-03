@@ -49,13 +49,6 @@ function lua_table:Awake()
 end
 
 function lua_table:Start()
-	lua_table.InterfaceFunctions:MakeElementInvisible("Button", quitButton)
-	lua_table.InterfaceFunctions:MakeElementInvisible("Button", startButton)
-	lua_table.InterfaceFunctions:MakeElementInvisible("Button", playButton)
-	lua_table.InterfaceFunctions:MakeElementInvisible("Button", showFirstLevel)
-	lua_table.InterfaceFunctions:MakeElementInvisible("Button", showSecondLevel)
-	lua_table.InterfaceFunctions:MakeElementInvisible("Button", firstLevelPlay)
-	lua_table.InterfaceFunctions:MakeElementInvisible("Button", secondLevelPlay)
 end
 
 function lua_table:Update()
@@ -102,8 +95,8 @@ function lua_table:PlayGame()
 	lua_table.InterfaceFunctions:MakeElementVisible("Button", showFirstLevel)
 	lua_table.InterfaceFunctions:MakeElementVisible("Button", showSecondLevel)
 
-	lua_table.TransformFuctions:SetPosition(107.941, -48.392, -81.444, camera_UUID)
-	lua_table.TransformFuctions:SetObjectRotation(-180.000, 3.250, 180.000, camera_UUID)
+	lua_table.TransformFuctions:SetPosition(107.941, -43.892, -76.694, camera_UUID)
+	lua_table.TransformFuctions:SetObjectRotation(-180.000, 3.250, -180.000, camera_UUID)
 end
 
 function lua_table:QuitGame()
