@@ -91,7 +91,7 @@
                     "ResourceScript": "Assets/Lumberjack_v019.lua"
                 },
                 "Script variables": {
-                    "Count": 20,
+                    "Count": 21,
                     "Variable 0": {
                         "DisplayObjectName": false,
                         "Name": "AggroDistance",
@@ -108,73 +108,73 @@
                     },
                     "Variable 10": {
                         "DisplayObjectName": false,
+                        "Name": "LastCurrentTarget",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
                         "Name": "MaxHealth",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 100.0
                     },
-                    "Variable 11": {
+                    "Variable 12": {
                         "DisplayObjectName": false,
                         "Name": "MaxSpeed",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.085
                     },
-                    "Variable 12": {
+                    "Variable 13": {
                         "DisplayObjectName": false,
                         "Name": "MinDistanceFromPlayer",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 3.0
                     },
-                    "Variable 13": {
+                    "Variable 14": {
                         "DisplayObjectName": false,
                         "Name": "Pos",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
                     },
-                    "Variable 14": {
+                    "Variable 15": {
                         "DisplayObjectName": false,
                         "Name": "collider_damage",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
                     },
-                    "Variable 15": {
+                    "Variable 16": {
                         "DisplayObjectName": false,
                         "Name": "collider_effect",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
                     },
-                    "Variable 16": {
+                    "Variable 17": {
                         "DisplayObjectName": false,
                         "Name": "player_1",
                         "ObjectName": "",
                         "Type": "String",
                         "Value": "Geralt"
                     },
-                    "Variable 17": {
+                    "Variable 18": {
                         "DisplayObjectName": false,
                         "Name": "player_1_Dead",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": false
                     },
-                    "Variable 18": {
+                    "Variable 19": {
                         "DisplayObjectName": false,
                         "Name": "player_2",
                         "ObjectName": "",
                         "Type": "String",
                         "Value": "Jaskier"
-                    },
-                    "Variable 19": {
-                        "DisplayObjectName": false,
-                        "Name": "player_2_Dead",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
                     },
                     "Variable 2": {
                         "DisplayObjectName": false,
@@ -182,6 +182,13 @@
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
+                    },
+                    "Variable 20": {
+                        "DisplayObjectName": false,
+                        "Name": "player_2_Dead",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
                     },
                     "Variable 3": {
                         "DisplayObjectName": false,
@@ -707,8 +714,8 @@
                 "rotationx": "0.000791",
                 "rotationy": "0.016521",
                 "rotationz": "0.999855",
-                "scalex": "1.000076",
-                "scaley": "1.000076",
+                "scalex": "1.000096",
+                "scaley": "1.000096",
                 "scalez": "1.000000"
             },
             "13": {
@@ -741,9 +748,9 @@
                 "rotationx": "0.534209",
                 "rotationy": "-0.455339",
                 "rotationz": "0.553834",
-                "scalex": "0.999925",
-                "scaley": "0.999926",
-                "scalez": "0.999926"
+                "scalex": "0.999905",
+                "scaley": "0.999906",
+                "scalez": "0.999906"
             },
             "13": {
                 "Active": true,
@@ -1126,8 +1133,8 @@
                 "rotationy": "0.000117",
                 "rotationz": "-0.000109",
                 "scalex": "1.000000",
-                "scaley": "1.000074",
-                "scalez": "1.000074"
+                "scaley": "1.000094",
+                "scalez": "1.000094"
             },
             "13": {
                 "Active": true,
@@ -1284,6 +1291,84 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "862275971",
+        "Static": false
+    },
+    "1779554288": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1722522124,
+                "index": 0,
+                "layer": "0",
+                "positionx": "2.239645",
+                "positiony": "2.120089",
+                "positionz": "-2.790151",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "18": {
+                "Active": true,
+                "Duration": "1000",
+                "GradientColor": true,
+                "Loop": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/379330473.dds"
+                },
+                "UID": 1783495583,
+                "animation": "0",
+                "colors": [
+                    {
+                        "a": "1.000000",
+                        "x": "0.950276",
+                        "y": "0.015750",
+                        "z": "0.015750"
+                    }
+                ],
+                "cycles": "1",
+                "emisionRate": "2876.000000",
+                "externalAccelerationX": "1.000000",
+                "externalAccelerationY": "0.000000",
+                "externalAccelerationZ": "1.000000",
+                "grad_duration": "0",
+                "index": 1,
+                "num_colors": "1",
+                "num_gradients": "0",
+                "particleScaleOverTime": "0.000000",
+                "particleScaleRandomFactor": "1.000000",
+                "particlesLifeTime": "751",
+                "particlesPerCreation": "40",
+                "particlesScaleX": "1.000000",
+                "particlesScaleY": "1.000000",
+                "particlesVelocityX": "0.000000",
+                "particlesVelocityY": "0.000000",
+                "particlesVelocityZ": "0.000000",
+                "positionX": "0.000000",
+                "positionY": "0.000000",
+                "positionZ": "0.000000",
+                "rotationX": "0.150000",
+                "rotationY": "0.000000",
+                "rotationZ": "0.150000",
+                "sizeX": "1.050000",
+                "sizeY": "0.100000",
+                "sizeZ": "0.950000",
+                "startFrame": "0",
+                "tiles_X": "1",
+                "tiles_Y": "1",
+                "velocityRandomFactorX": "18.750000",
+                "velocityRandomFactorY": "0.000000",
+                "velocityRandomFactorZ": "18.200001"
+            }
+        },
+        "Index": 4,
+        "Name": "PARTICLE EXPLOSION RAGE",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "-1",
         "Static": false
     },
     "1792317523": {
