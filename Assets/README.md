@@ -31,6 +31,7 @@ so here I'll stipulate some important details about these:
 **GeraltScript_v9**: Character Slash Particles and Audio, since 0.4.3.0.
 **GeraltScript_v10**: OnCollisionEnter now is capable of being a damage source.
 **GeraltScript_v11**: Changed all velocities because of dt bug, new items, and attack velocity changes, since 0.5.0.
+**GeraltScript_v12**: Simplified combos for testing.
 
 **JaskierScript_v0**: Straight up copy of Geralt Code.
 **JaskierScript_v1**: Jaskier from the Vertical Slice 2. Movement, evade, basic attacks.
@@ -40,3 +41,4 @@ so here I'll stipulate some important details about these:
 **JaskierScript_v5**: Character Slash Particles and Audio, since 0.4.3.0.
 **JaskierScript_v6**: OnCollisionEnter now is capable of being a damage source.
 **JaskierScript_v7**: Changed all velocities because of dt bug, new items, and attack velocity changes, since 0.5.0.
+**JaskierScript_v8**: Simplified combos and added new particles.

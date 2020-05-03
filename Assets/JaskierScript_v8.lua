@@ -1,4 +1,4 @@
-function	GetTableJaskierScript_v7()
+function	GetTableJaskierScript_v8()
 local lua_table = {}
 lua_table.SystemFunctions = Scripting.System()
 lua_table.TransformFunctions = Scripting.Transform()
@@ -30,6 +30,7 @@ local godmode = false
 local my_GO_UID
 local slash_GO_UID
 local jaskier_guitar_particles_GO_UID
+local jaskier_guitar_circle_particles_GO_UID
 local jaskier_ultimate_GO_UID
 local jaskier_ability_GO_UID
 
@@ -380,7 +381,7 @@ lua_table.note_num = 0							-- Starting at 0, increases by 1 for each attack we
 lua_table.note_stack = { 'N', 'N', 'N', 'N' }	-- Last 4 attacks performed (0=none, 1=light, 2=heavy). Use push_back tactic.
 
 	--Song 1
-	lua_table.song_1 = { 'L', 'L', 'L', 'M' }	--Penetrating Line of Damage (Row of colliders in front of jaskier get turned on one right after the other)
+	lua_table.song_1 = { 'L', 'L', 'L', 'L' }--{ 'L', 'L', 'L', 'M' }	--Penetrating Line of Damage (Row of colliders in front of jaskier get turned on one right after the other)
 	lua_table.song_1_size = 4
 	lua_table.song_1_effect_start = 750
 	lua_table.song_1_effect_active = false
@@ -403,7 +404,7 @@ lua_table.note_stack = { 'N', 'N', 'N', 'N' }	-- Last 4 attacks performed (0=non
 	lua_table.song_1_collider_line_4_end = 1200
 
 	--Song 2
-	lua_table.song_2 = { 'M', 'M', 'H', 'L' }	--Large Stun Cone (AoE applied once, gives "stun" effect)
+	lua_table.song_2 = { 'M', 'M', 'M', 'M' }--{ 'M', 'M', 'H', 'L' }	--Large Stun Cone (AoE applied once, gives "stun" effect)
 	lua_table.song_2_size = 4
 	lua_table.song_2_effect_start = 850
 	lua_table.song_2_effect_active = false
@@ -425,7 +426,7 @@ lua_table.note_stack = { 'N', 'N', 'N', 'N' }	-- Last 4 attacks performed (0=non
 	}
 
 	--Song 3
-	lua_table.song_3 = { 'H', 'H', 'M', 'H' }	--Taunt Moonwalk + Circle Knockback (Both use a circle AoE, first "taunt" scond "knockback")
+	lua_table.song_3 = { 'H', 'H', 'H', 'H' }--{ 'H', 'H', 'M', 'H' }	--Taunt Moonwalk + Circle Knockback (Both use a circle AoE, first "taunt" scond "knockback")
 	lua_table.song_3_size = 4
 	lua_table.song_3_effect_start = 0
 	lua_table.song_3_effect_end = 2000
@@ -467,6 +468,7 @@ lua_table.ultimate_active = false
 lua_table.ultimate_range = 15
 
 lua_table.ultimate_concert_end = 3000
+lua_table.ultimate_finish_start = 3850
 lua_table.ultimate_effect_active = false
 lua_table.ultimate_duration = 4700
 lua_table.ultimate_animation_speed = 30.0
@@ -1046,7 +1048,7 @@ end
 local function UltimateFinish()
 	if not lua_table.ultimate_secondary_effect_active	--IF effect unactive, activate
 	then
-		--lua_table.ParticlesFunctions:PlayParticleEmitter(jaskier_song_3_GO_UID)	--TODO-Particles:
+		lua_table.ParticlesFunctions:PlayParticleEmitter(jaskier_guitar_circle_particles_GO_UID)	--TODO-Particles:
 		Song_Circle_Effect(lua_table.ultimate_range)
 		lua_table.ultimate_secondary_effect_active = true
 	end
@@ -1090,7 +1092,7 @@ end
 local function Song_3_Knockback()
 	if not lua_table.song_3_secondary_effect_active	--IF effect unactive, activate
 	then
-		--lua_table.ParticlesFunctions:PlayParticleEmitter(jaskier_song_3_GO_UID)	--TODO-Particles:
+		lua_table.ParticlesFunctions:PlayParticleEmitter(jaskier_guitar_circle_particles_GO_UID)	--TODO-Particles:
 		Song_Circle_Effect(lua_table.song_3_secondary_range)
 		lua_table.song_3_secondary_effect_active = true
 	end
@@ -1662,9 +1664,12 @@ function lua_table:Awake()
 	--guitar_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Guitar")
 	--jaskier_ultimate_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Ultimate")
 	jaskier_ultimate_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Ultimate")
+	jaskier_guitar_circle_particles_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Slam")
 
 	--Stop Particle Emitters
 	lua_table.ParticlesFunctions:StopParticleEmitter(my_GO_UID)
+	lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_guitar_circle_particles_GO_UID)
+	
 	--lua_table.ParticlesFunctions:StopParticleEmitter_GO(guitar_GO_UID)			--TODO-Particles: Uncomment when ready
 	--lua_table.ParticlesFunctions:StopParticleEmitter_GO(jaskier_ability_GO_UID)	--TODO-Particles: Uncomment when ready
 	--lua_table.ParticlesFunctions:StopParticleEmitter_GO(jaskier_ultimate_GO_UID)	--TODO-Particles: Uncomment when ready
@@ -1828,15 +1833,15 @@ function lua_table:Update()
 							lua_table.song_1_effect_active = false
 						elseif lua_table.current_state == state.song_2
 						then
-							--lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_ultimate_GO_UID)	--TODO-Particles: Deactivate Aard particles on hand
+							lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_guitar_circle_particles_GO_UID)	--TODO-Particles:
 							lua_table.song_2_effect_active = false
 						elseif lua_table.current_state == state.song_3
 						then
-							--lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_ultimate_GO_UID)	--TODO-Particles: Deactivate Aard particles on hand
+							lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_guitar_circle_particles_GO_UID)	--TODO-Particles:
 							lua_table.song_3_secondary_effect_active = false
 						elseif lua_table.current_state == state.ultimate
 						then
-							--lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_ultimate_GO_UID)	--TODO-Particles: Deactivate Aard particles on hand
+							lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_guitar_circle_particles_GO_UID)	--TODO-Particles:
 							lua_table.ultimate_secondary_effect_active = false
 							lua_table.ultimate_active = false
 						end
@@ -1909,7 +1914,7 @@ function lua_table:Update()
 					elseif lua_table.current_state == state.song_2 and time_since_action > lua_table.song_2_effect_start
 					then
 						if not lua_table.song_2_effect_active then
-							--lua_table.ParticlesFunctions:PlayParticleEmitter(jaskier_song_2_GO_UID)	--TODO-Particles:
+							lua_table.ParticlesFunctions:PlayParticleEmitter(jaskier_guitar_circle_particles_GO_UID)	--TODO-Particles:
 							Song_Cone_Effect(song_2_trapezoid)
 							lua_table.song_2_effect_active = true
 						end
@@ -1928,7 +1933,7 @@ function lua_table:Update()
 
 					elseif lua_table.current_state == state.ultimate
 					then
-						if time_since_action > lua_table.ultimate_concert_end and not lua_table.ultimate_effect_active 	--IF > secondary_effect_start and stage_1 effect ended
+						if time_since_action > lua_table.ultimate_finish_start and not lua_table.ultimate_effect_active 	--IF > secondary_effect_start and stage_1 effect ended
 						then
 							UltimateFinish()
 						else
@@ -2014,7 +2019,7 @@ function lua_table:Update()
 	--DEBUG LOGS
 	--lua_table.SystemFunctions:LOG("Delta Time: " .. dt)
 	--lua_table.SystemFunctions:LOG("State: " .. lua_table.current_state)
-	--lua_table.SystemFunctions:LOG("Time passed: " .. time_since_action)
+	lua_table.SystemFunctions:LOG("Time passed: " .. time_since_action)
 	--rot_y = math.rad(GimbalLockWorkaroundY(lua_table.TransformFunctions:GetRotation()[2]))	--TODO: Remove GimbalLock stage when Euler bug is fixed
 	--lua_table.SystemFunctions:LOG("Angle Y: " .. rot_y)
 	--lua_table.SystemFunctions:LOG("Ultimate: " .. lua_table.current_ultimate)

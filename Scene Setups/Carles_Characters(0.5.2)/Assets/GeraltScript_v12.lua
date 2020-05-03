@@ -1,4 +1,4 @@
-function	GetTableGeraltScript_v11()
+function	GetTableGeraltScript_v12()
 local lua_table = {}
 lua_table.SystemFunctions = Scripting.System()
 lua_table.TransformFunctions = Scripting.Transform()
@@ -459,7 +459,7 @@ local action_started_at = 0			-- Marks start of actions (and getting revived)
 lua_table.combo_num = 0							-- Starting at 0, increases by 1 for each attack well timed, starting at 4, each new attack will be checked for a succesful combo. Bad timing or performing a combo resets to 0
 lua_table.combo_stack = { 'N', 'N', 'N', 'N' }	-- Last 4 attacks performed (0=none, 1=light, 2=heavy). Use push_back tactic.
 
-lua_table.combo_1 = { 'L', 'L', 'H', 'M' }	--Slide Attack
+lua_table.combo_1 = { 'L', 'L', 'L', 'L' }--{ 'L', 'L', 'H', 'M' }	--Slide Attack
 lua_table.combo_1_size = 4
 lua_table.combo_1_damage = 2.0	--slide + 4 hits
 lua_table.combo_1_duration = 1500
@@ -475,7 +475,7 @@ lua_table.combo_1_collider_left_end = 1150		--Collider deactivation time
 lua_table.combo_1_collider_back_start = 1150	--Collider activation time
 lua_table.combo_1_collider_back_end = 1220		--Collider deactivation time
 
-lua_table.combo_2 = { 'M', 'H', 'M', 'L' }	--High Spin
+lua_table.combo_2 = { 'M', 'M', 'M', 'M' }--{ 'M', 'H', 'M', 'L' }	--High Spin
 lua_table.combo_2_size = 4
 lua_table.combo_2_damage = 3.5	--3 hit
 lua_table.combo_2_duration = 1400
@@ -489,7 +489,7 @@ lua_table.combo_2_collider_right_end = 900		--Collider deactivation time
 lua_table.combo_2_collider_front_start = 1200	--Collider activation time
 lua_table.combo_2_collider_front_end = 1400		--Collider deactivation time
 
-lua_table.combo_3 = { 'H', 'M', 'L', 'H' }	--Jump Attack
+lua_table.combo_3 = { 'H', 'H', 'H', 'H' }--{ 'H', 'M', 'L', 'H' }	--Jump Attack
 lua_table.combo_3_size = 4
 lua_table.combo_3_damage = 4.0	--1 hit		--IMPROVE: + stun
 lua_table.combo_3_duration = 1800
