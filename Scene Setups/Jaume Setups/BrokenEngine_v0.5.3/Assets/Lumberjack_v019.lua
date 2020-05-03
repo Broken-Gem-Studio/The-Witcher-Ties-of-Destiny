@@ -196,6 +196,7 @@ lua_table.JumpAttackSpeed = 0.035
 lua_table.JumpAttackDone = false
 
 lua_table.CurrentTarget = 0
+lua_table.LastCurrentTarget = 0
 lua_table.CurrentPatrolTarget = {}
 
 lua_table.AggroDistance = 20
@@ -362,21 +363,23 @@ local function HandleAggro()
 			end	
 	elseif lua_table.CurrentTarget ~= 0 and Players() == true 
 	then
-		if lua_table.CurrentTarget == Geralt
+		if lua_table.CurrentTarget == Geralt and lua_table.LastCurrentTarget ~= Jaskier
 		then	
 			GeraltScript = lua_table.GameObjectFunctions:GetScript(Geralt)
 			if GeraltScript.current_state == -3 or GeraltScript.current_state == -4
 			then
 				lua_table.SystemFunctions:LOG("CHANGING AGGRO TO JASKIER")
 				lua_table.CurrentTarget = Jaskier
+				lua_table.LastCurrentTarget = Geralt
 			end
-		elseif lua_table.CurrentTarget == Jaskier
+		elseif lua_table.CurrentTarget == Jaskier and lua_table.LastCurrentTarget ~= Geralt
 		then
 			JaskierScript = lua_table.GameObjectFunctions:GetScript(Jaskier)
 			if JaskierScript.current_state == -3 or JaskierScript.current_state == -4
 			then
 				lua_table.SystemFunctions:LOG("CHANGING AGGRO TO GERALT ")
 				lua_table.CurrentTarget = Geralt
+				lua_table.LastCurrentTarget = Jaskier
 			end
 		end
 	elseif Players() == false
