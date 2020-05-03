@@ -436,8 +436,8 @@ lua_table.standing_up_bool = false
 lua_table.standing_up_time = 1000
 
 --Revive/Death
-local revive_target
-lua_table.revive_range = 3
+local revive_target				-- Target character script
+lua_table.revive_range = 3		-- Revive distance
 lua_table.revive_time = 3000	-- Time to revive
 lua_table.down_time = 10000		-- Time until death (restarted by revival attempt)
 lua_table.revive_animation_speed = 25.0
@@ -445,7 +445,7 @@ lua_table.revive_animation_speed = 25.0
 lua_table.being_revived = false	-- Revival flag (managed by rescuer character)
 
 local stopped_death = false		-- Death timer stop flag
-local death_started_at = 0		-- Death timer start
+lua_table.death_started_at = 0		-- Death timer start
 local death_stopped_at = 0		-- Death timer stop
 local revive_started_at = 0		-- Revive timer start
 
@@ -1717,7 +1717,7 @@ function lua_table:Update()
 	then
 		if lua_table.current_health <= 0	--IF has to die
 		then
-			death_started_at = game_time
+			lua_table.death_started_at = game_time
 
 			lua_table.AnimationFunctions:PlayAnimation("death", 30.0, my_GO_UID)
 			lua_table.AudioFunctions:PlayAudioEvent("Play_Geralt_death")	--TODO-Audio:
@@ -1953,10 +1953,10 @@ function lua_table:Update()
 			else								--IF other player isn't reviving
 				if stopped_death				--IF death timer was stopped
 				then
-					death_started_at = death_started_at + game_time - death_stopped_at	--Resume timer
+					lua_table.death_started_at = lua_table.death_started_at + game_time - death_stopped_at	--Resume timer
 					stopped_death = false				--Flag timer resuming
 
-				elseif game_time - death_started_at > lua_table.down_time	--IF death timer finished
+				elseif game_time - lua_table.death_started_at > lua_table.down_time	--IF death timer finished
 				then
 					lua_table.previous_state = lua_table.current_state
 					lua_table.current_state = state.dead					--Kill character
