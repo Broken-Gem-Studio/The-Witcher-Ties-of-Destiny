@@ -127,15 +127,15 @@ lua_table.critical_damage_orig = 2.0
 --Items
 lua_table.item_library = {	--Used to flag a readable name with a number id, allows for item indexing based on number
 	health_potion = 1,
-	energy_potion = 2,
+	stamina_potion = 2,
 	power_potion = 3
 }
 local item_library_size = 3
 
 local item_effects = {		--Item library and required data to operate
-	{ item_effect = 2, stat_affected = "health_reg_mod" },
-	{ item_effect = 2, stat_affected = "energy_reg_mod" },
-	{ item_effect = 2, stat_affected = "base_damage_mod" }
+	{ health_recovery = 4, health_regen = 0.1 },
+	{ speed_increase = 0.5, energy_regen = 2 },
+	{ damage_increase = 1, critical_chance_increase = 10 },
 }
 lua_table.inventory = {	--Character inventory (number of each item)
 	6,
@@ -353,7 +353,7 @@ lua_table.medium_3_animation_speed = 35.0	--Slow time: 370ms
 
 --Heavy Attack
 lua_table.heavy_damage = 2.0				--Multiplier of Base Damage
-lua_table.heavy_movement_velocity = 1.1
+lua_table.heavy_movement_velocity = 1.4
 
 lua_table.heavy_1_block_time = 900			--Input block duration	(block new attacks)
 lua_table.heavy_1_collider_front_start = 900	--Collider activation time
@@ -374,7 +374,7 @@ lua_table.heavy_2_animation_speed = 30.0	--Slow time: 430ms
 lua_table.heavy_3_block_time = 800			--Input block duration	(block new attacks)
 lua_table.heavy_3_collider_front_start = 700	--Collider activation time
 lua_table.heavy_3_collider_front_end = 800	--Collider deactivation time
-lua_table.heavy_3_combo_start = 1200		--Combo timeframe start
+lua_table.heavy_3_combo_start = 1000		--Combo timeframe start
 lua_table.heavy_3_combo_end = 1600			--Combo timeframe end
 lua_table.heavy_3_duration = 1600			--Attack end (return to idle)
 lua_table.heavy_3_animation_speed = 30.0	--Slow time: 430ms
@@ -1361,6 +1361,41 @@ end
 
 --Character Secondaries BEGIN	----------------------------------------------------------------------------
 
+--Health Potion
+local function TakeHealthPotion()
+	lua_table.current_health = lua_table.current_health + lua_table.max_health_real / item_effects[lua_table.item_library.health_potion].health_recovery
+	lua_table.health_reg_mod = lua_table.health_reg_mod + item_effects[lua_table.item_library.health_potion].health_regen
+
+	if lua_table.current_health > lua_table.max_health_real then lua_table.current_health = lua_table.max_health_real end	--IF above max, set to max
+end
+
+local function EndHealthPotion()
+	lua_table.health_reg_mod = lua_table.health_reg_mod - item_effects[lua_table.item_library.health_potion].health_regen
+end
+
+--Stamina Potion
+local function TakeStaminaPotion()
+	lua_table.mov_velocity_max_mod = lua_table.mov_velocity_max_mod + item_effects[lua_table.item_library.stamina_potion].speed_increase
+	lua_table.energy_reg_mod = lua_table.energy_reg_mod + item_effects[lua_table.item_library.stamina_potion].energy_regen
+end
+
+local function EndStaminaPotion()
+	lua_table.mov_velocity_max_mod = lua_table.mov_velocity_max_mod - item_effects[lua_table.item_library.stamina_potion].speed_increase
+	lua_table.energy_reg_mod = lua_table.energy_reg_mod - item_effects[lua_table.item_library.stamina_potion].energy_regen
+end
+
+--Power Potion
+local function TakePowerPotion()
+	lua_table.base_damage_mod = lua_table.base_damage_mod + item_effects[lua_table.item_library.power_potion].damage_increase
+	lua_table.critical_chance_add = lua_table.critical_chance_add + item_effects[lua_table.item_library.power_potion].critical_chance_increase
+end
+
+local function EndPowerPotion()
+	lua_table.base_damage_mod = lua_table.base_damage_mod - item_effects[lua_table.item_library.power_potion].damage_increase
+	lua_table.critical_chance_add = lua_table.critical_chance_add - item_effects[lua_table.item_library.power_potion].critical_chance_increase
+end
+
+--Inventory Swap
 local function NextItem()	--Jump to next item you have num > 0 in inventory
 	local new_item = lua_table.item_selected + 1
 
@@ -1399,10 +1434,14 @@ local function PrevItem()	--Jump to prev item you have num > 0 in inventory
 	return false
 end
 
+--Potion Functions
 local function TakePotion(potion_id)
 	if lua_table.inventory[potion_id] > 0 then	--IF potions of type left
 
-		lua_table[item_effects[potion_id].stat_affected] = lua_table[item_effects[potion_id].stat_affected] + item_effects[potion_id].item_effect	-- Apply effect
+		if lua_table.item_selected == lua_table.item_library.health_potion then TakeHealthPotion()
+		elseif lua_table.item_selected == lua_table.item_library.stamina_potion then TakeStaminaPotion()
+		elseif lua_table.item_selected == lua_table.item_library.power_potion then TakePowerPotion() end
+
 		lua_table.potion_in_effect = potion_id	-- Save Potion number id to later use
 
 		potion_taken_at = game_time		--Mark drink time
@@ -1415,8 +1454,11 @@ local function TakePotion(potion_id)
 	end
 end
 
-local function EndPotion(potion_id)
-	lua_table[item_effects[potion_id].stat_affected] = lua_table[item_effects[potion_id].stat_affected] - item_effects[potion_id].item_effect	-- Apply effect
+local function EndPotion()
+	if lua_table.potion_in_effect == lua_table.item_library.health_potion then EndHealthPotion()
+	elseif lua_table.potion_in_effect == lua_table.item_library.stamina_potion then EndStaminaPotion()
+	elseif lua_table.potion_in_effect == lua_table.item_library.power_potion then EndPowerPotion() end
+
 	lua_table.potion_active = false	--Mark potion off effect
 	must_update_stats = true	--Flag stats for update
 end
@@ -1755,6 +1797,15 @@ function lua_table:Update()
 							lua_table.ParticlesFunctions:StopParticleEmitter(ultimate_scream_particles_GO_UID)	--TODO-Particles: Activate ultimate particles
 						elseif lua_table.current_state >= state.light_1 and lua_table.current_state <= state.combo_4	--IF attack finished
 						then
+							if attack_input_given	--IF attack input was given before time ran out, process it instantly
+							then
+								attack_input_timeframe = 0
+								ActionInputs()
+								attack_input_timeframe = 70
+
+								attack_input_given = false
+							end
+
 							--lua_table.ParticlesFunctions:StopParticleEmitter(sword_particles_GO_UID)	--TODO-Particles: Deactivate Particles on Sword
 						end
 
@@ -1786,7 +1837,7 @@ function lua_table:Update()
 
 					elseif lua_table.current_state == state.light_1 or lua_table.current_state == state.light_2 or lua_table.current_state == state.light_3	--IF Light Attacking
 					then
-						if lua_table.current_state ~= state.light_1 and DirectionInBounds()	--IF not light_1 and in bounds
+						if lua_table.current_state ~= state.light_1 and DirectionInBounds() and time_since_action < current_action_block_time	--IF not light_1 and in bounds
 						then
 							lua_table.PhysicsFunctions:Move(lua_table.light_movement_velocity * rec_direction.x * dt, lua_table.light_movement_velocity * rec_direction.z * dt, my_GO_UID)
 						end
@@ -1799,7 +1850,7 @@ function lua_table:Update()
 
 					elseif lua_table.current_state == state.medium_1 or lua_table.current_state == state.medium_2 or lua_table.current_state == state.medium_3	--IF Medium Attacking
 					then
-						if DirectionInBounds()	--IF in bounds
+						if DirectionInBounds() and time_since_action < current_action_block_time	--IF in bounds
 						then
 							if lua_table.current_state == state.medium_3 then
 								lua_table.PhysicsFunctions:Move(lua_table.medium_3_movement_velocity * rec_direction.x * dt, lua_table.medium_3_movement_velocity * rec_direction.z * dt, my_GO_UID)
@@ -1816,7 +1867,7 @@ function lua_table:Update()
 
 					elseif lua_table.current_state == state.heavy_1 or lua_table.current_state == state.heavy_2 or lua_table.current_state == state.heavy_3	--IF Heavy Attacking
 					then
-						if DirectionInBounds()	--IF outside return to idle of heavy_3
+						if DirectionInBounds() and time_since_action < current_action_block_time	--IF outside return to idle of heavy_3
 						then
 							lua_table.PhysicsFunctions:Move(lua_table.heavy_movement_velocity * rec_direction.x * dt, lua_table.heavy_movement_velocity * rec_direction.z * dt, my_GO_UID)
 						end
@@ -1829,7 +1880,7 @@ function lua_table:Update()
 
 					elseif lua_table.current_state == state.combo_1
 					then
-						if DirectionInBounds() then lua_table.PhysicsFunctions:Move(lua_table.combo_1_movement_velocity * rec_direction.x * dt, lua_table.combo_1_movement_velocity * rec_direction.z * dt, my_GO_UID) end
+						if DirectionInBounds() and time_since_action < current_action_block_time then lua_table.PhysicsFunctions:Move(lua_table.combo_1_movement_velocity * rec_direction.x * dt, lua_table.combo_1_movement_velocity * rec_direction.z * dt, my_GO_UID) end
 						
 						--Collider Evaluation
 						AttackColliderCheck("combo_1", "right")
@@ -1839,7 +1890,7 @@ function lua_table:Update()
 
 					elseif lua_table.current_state == state.combo_2
 					then
-						if DirectionInBounds() then lua_table.PhysicsFunctions:Move(lua_table.combo_2_movement_velocity * rec_direction.x * dt, lua_table.combo_2_movement_velocity * rec_direction.z * dt, my_GO_UID) end
+						if DirectionInBounds() and time_since_action < current_action_block_time then lua_table.PhysicsFunctions:Move(lua_table.combo_2_movement_velocity * rec_direction.x * dt, lua_table.combo_2_movement_velocity * rec_direction.z * dt, my_GO_UID) end
 						
 						--Collider Evaluation
 						AttackColliderCheck("combo_2", "left")
@@ -1848,7 +1899,7 @@ function lua_table:Update()
 
 					elseif lua_table.current_state == state.combo_3
 					then
-						if DirectionInBounds() then lua_table.PhysicsFunctions:Move(lua_table.combo_3_movement_velocity * rec_direction.x * dt, lua_table.combo_3_movement_velocity * rec_direction.z * dt, my_GO_UID) end
+						if DirectionInBounds() and time_since_action < current_action_block_time then lua_table.PhysicsFunctions:Move(lua_table.combo_3_movement_velocity * rec_direction.x * dt, lua_table.combo_3_movement_velocity * rec_direction.z * dt, my_GO_UID) end
 
 						--Collider Evaluation
 						AttackColliderCheck("combo_3", "front")
@@ -1955,16 +2006,19 @@ function lua_table:Update()
 	--lua_table.SystemFunctions:LOG("Geralt Damage Potions Left: " .. lua_table.inventory[3])
 
 	--Stats LOGS
-	--lua_table.SystemFunctions:LOG("Geralt Health: " .. lua_table.current_health)
-	--lua_table.SystemFunctions:LOG("Energy: " .. lua_table.current_energy)
+	lua_table.SystemFunctions:LOG("Geralt Health: " .. lua_table.current_health)
+	lua_table.SystemFunctions:LOG("Energy: " .. lua_table.current_energy)
 
 	--lua_table.SystemFunctions:LOG("Health Reg: " .. health_reg_real)
 	--lua_table.SystemFunctions:LOG("Energy Reg: " .. energy_reg_real)
 	--lua_table.SystemFunctions:LOG("Damage: " .. base_damage_real)
 
-	--lua_table.SystemFunctions:LOG("Health Reg Mod: " .. lua_table.health_reg_mod)
-	--lua_table.SystemFunctions:LOG("Energy Reg Mod: " .. lua_table.energy_reg_mod)
-	--lua_table.SystemFunctions:LOG("Damage Mod: " .. lua_table.base_damage_mod)
+	lua_table.SystemFunctions:LOG("Health Reg Mod: " .. lua_table.health_reg_mod)
+	lua_table.SystemFunctions:LOG("Energy Reg Mod: " .. lua_table.energy_reg_mod)
+	lua_table.SystemFunctions:LOG("Damage Mod: " .. lua_table.base_damage_mod)
+
+	lua_table.SystemFunctions:LOG("Velocity Speed: " .. lua_table.mov_velocity_max_mod)
+	lua_table.SystemFunctions:LOG("Critical Chance: " .. lua_table.critical_chance_add)
 
 	--Trapezoid Global BEGIN
 	-- local geralt_pos = lua_table.TransformFunctions:GetPosition(my_GO_UID)
