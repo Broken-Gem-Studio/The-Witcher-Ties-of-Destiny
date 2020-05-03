@@ -29,6 +29,7 @@ local godmode = false
 --GO UIDs
 local my_GO_UID
 local slash_GO_UID
+local slash_mesh_GO_UID
 --local sword_particles_GO_UID
 local ultimate_effect_particles_GO_UID
 local ultimate_scream_particles_GO_UID
@@ -610,7 +611,7 @@ local function GoDefaultState()
 		lua_table.ParticlesFunctions:PlayParticleEmitter(my_GO_UID)	--TODO-Particles: Activate movement dust particles
 	else
 		lua_table.AnimationFunctions:SetBlendTime(0.5, my_GO_UID)
-		lua_table.AnimationFunctions:SetBlendTime(0.0001, slash_GO_UID)
+		lua_table.AnimationFunctions:SetBlendTime(0.1, slash_GO_UID)
 		lua_table.AnimationFunctions:PlayAnimation("idle", lua_table.idle_animation_speed, my_GO_UID)
 
 		--TODO-AUDIO: Stop current sound event
@@ -623,7 +624,8 @@ local function GoDefaultState()
 	lua_table.combo_num = 0
 	rightside = true
 
-	lua_table.AnimationFunctions:PlayAnimation("idle", lua_table.idle_animation_speed, slash_GO_UID)
+	lua_table.AnimationFunctions:PlayAnimation("idle", 150.0, slash_GO_UID)
+	lua_table.GameObjectFunctions:SetActiveGameObject(false, slash_mesh_GO_UID)
 end
 
 --States END	----------------------------------------------------------------------------
@@ -1322,6 +1324,7 @@ local function ActionInputs()	--Process Action Inputs
 	then
 		lua_table.AnimationFunctions:SetBlendTime(0.1, my_GO_UID)
 		lua_table.AnimationFunctions:SetBlendTime(0.1, slash_GO_UID)
+		lua_table.GameObjectFunctions:SetActiveGameObject(true, slash_mesh_GO_UID)
 
 		AttackColliderShutdown()
 
@@ -1594,6 +1597,7 @@ function lua_table:Awake()
 	--Get self GO_UID
 	my_GO_UID = lua_table.GameObjectFunctions:GetMyUID()
 	slash_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt_Slash")
+	slash_mesh_GO_UID = lua_table.GameObjectFunctions:FindGameObject("SlashMesh_Geralt")
 
 	--Get Particle Emitters GO_UID
 	--sword_particles_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt_Sword")
