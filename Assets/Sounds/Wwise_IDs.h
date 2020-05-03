@@ -148,9 +148,12 @@ namespace AK
         static const AkUniqueID PLAY_SELECT_2 = 2927391089U;
         static const AkUniqueID PLAY_SELECT_3 = 2927391088U;
         static const AkUniqueID PLAY_SHEATHE = 2712680258U;
+        static const AkUniqueID PLAY_SILVER_FOR_MONSTERS_LOOP = 3963492094U;
         static const AkUniqueID PLAY_SILVER_FOR_MONSTERS_MUSIC = 3329043269U;
         static const AkUniqueID PLAY_SPECIAL_UP = 1836364305U;
+        static const AkUniqueID PLAY_SPIKEROOG_LOOP = 3838623592U;
         static const AkUniqueID PLAY_SPIKEROOG_MUSIC = 562633715U;
+        static const AkUniqueID PLAY_TRIAL_OF_THE_GRASSES_LOOP = 1898041542U;
         static const AkUniqueID PLAY_ULTI_GERALT = 1586346464U;
         static const AkUniqueID PLAY_UNSHEATHE = 2342786857U;
         static const AkUniqueID PLAY_USED_POTION = 3553846485U;

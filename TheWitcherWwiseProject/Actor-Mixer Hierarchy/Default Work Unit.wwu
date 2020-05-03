@@ -424,6 +424,9 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Geralt_run" ID="{AD0A1E5B-7667-4C49-9048-8B58E39D7653}" ShortID="947046895">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{33080FFE-AFF8-4DB4-BFBC-870234ABF1E9}"/>
@@ -443,6 +446,9 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Geralt_walk" ID="{DE3A59CD-1825-4970-BC70-FE6CAFD35324}" ShortID="4739135">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{33080FFE-AFF8-4DB4-BFBC-870234ABF1E9}"/>
@@ -884,6 +890,9 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Jaskier_run" ID="{BC182340-2A76-4478-A66D-3F77E763CCAE}" ShortID="520784417">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{33080FFE-AFF8-4DB4-BFBC-870234ABF1E9}"/>
@@ -903,6 +912,9 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Jaskier_walk" ID="{58251971-4146-4276-B3A6-35BA54F40D5A}" ShortID="302987245">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{33080FFE-AFF8-4DB4-BFBC-870234ABF1E9}"/>
@@ -2601,6 +2613,72 @@
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="Main_menu" ID="{E5C614D9-9ABA-41F9-9E59-E94ADBB70147}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Silver for Monsters_loop" ID="{5BF47932-9628-4D76-B2EC-5798CF5B2B76}" ShortID="1023487592">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{33080FFE-AFF8-4DB4-BFBC-870234ABF1E9}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{F6EAB31E-CDB2-437A-BACF-4A2313B7463D}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Silver for Monsters_loop" ID="{FED74972-240F-41CA-B936-6BEB75FEAE6F}" ShortID="1007535269">
+									<Language>SFX</Language>
+									<AudioFile>Silver for Monsters_loop.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Silver for Monsters_loop" ID="{FED74972-240F-41CA-B936-6BEB75FEAE6F}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Spikeroog_loop" ID="{626EF141-D547-412D-B58C-3ADE11A76B5E}" ShortID="722891825">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{33080FFE-AFF8-4DB4-BFBC-870234ABF1E9}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{F6EAB31E-CDB2-437A-BACF-4A2313B7463D}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Spikeroog_loop" ID="{B2BCDCEF-6279-404B-8387-42FEA91DBA17}" ShortID="970957591">
+									<Language>SFX</Language>
+									<AudioFile>Spikeroog_loop.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Spikeroog_loop" ID="{B2BCDCEF-6279-404B-8387-42FEA91DBA17}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Trial_of_the_Grasses_loop" ID="{DB5648F6-7C67-44B8-82FA-6820560AD488}" ShortID="147097398">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{33080FFE-AFF8-4DB4-BFBC-870234ABF1E9}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{F6EAB31E-CDB2-437A-BACF-4A2313B7463D}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Trial_of_the_Grasses_loop" ID="{95F3ED66-AA3C-4261-A0C4-F5F6C7F86AB0}" ShortID="656411060">
+									<Language>SFX</Language>
+									<AudioFile>Trial_of_the_Grasses_loop.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Trial_of_the_Grasses_loop" ID="{95F3ED66-AA3C-4261-A0C4-F5F6C7F86AB0}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>

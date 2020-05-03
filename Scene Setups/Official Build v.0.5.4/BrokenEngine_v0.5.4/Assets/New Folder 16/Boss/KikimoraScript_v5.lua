@@ -156,23 +156,23 @@ local animation =
 
 local attack_collider = --most vars initialized in awake
 {
-    leash_left_pivot = { coll_name = "Leash_Left_Pivot", coll_UID = 0, coll_active = false, coll_init_pos = {}, coll_final_pos = {}, coll_current_pos = {}, coll_velocity = {}, coll_init_rot = {}, coll_final_rot = {}, coll_current_rot = {}, coll_ang_velocity = {}, coll_init_scale = {}, coll_final_scale = {}, coll_current_scale = {}, coll_growth_velocity = {} }, 
-    leash_left = { coll_name = "Leash_Left_Attack", coll_UID = 0, coll_active = false, coll_init_pos = {}, coll_final_pos = {}, coll_current_pos = {}, coll_velocity = {}, coll_init_rot = {}, coll_final_rot = {}, coll_current_rot = {}, coll_ang_velocity = {}, coll_init_scale = {}, coll_final_scale = {}, coll_current_scale = {}, coll_growth_velocity = {} },
+    leash_left_pivot = { coll_name = "Leash_Left_Pivot", coll_UID = 0, coll_active = false, coll_init_pos = {}, coll_final_pos = {}, coll_current_pos = {0, 0, 0}, coll_velocity = {}, coll_init_rot = {}, coll_final_rot = {}, coll_current_rot = {0, 0, 0}, coll_ang_velocity = {}, coll_init_scale = {}, coll_final_scale = {}, coll_current_scale = {0, 0, 0}, coll_growth_velocity = {} }, 
+    leash_left = { coll_name = "Leash_Left_Attack", coll_UID = 0, coll_active = false, coll_init_pos = {}, coll_final_pos = {}, coll_current_pos = {0, 0, 0}, coll_velocity = {}, coll_init_rot = {}, coll_final_rot = {}, coll_current_rot = {0, 0, 0}, coll_ang_velocity = {}, coll_init_scale = {}, coll_final_scale = {}, coll_current_scale = {0, 0, 0}, coll_growth_velocity = {} },
 
-    leash_right_pivot = { coll_name = "Leash_Right_Pivot", coll_UID = 0, coll_active = false, coll_init_pos = {}, coll_final_pos = {}, coll_current_pos = {}, coll_velocity = {}, coll_init_rot = {}, coll_final_rot = {}, coll_current_rot = {}, coll_ang_velocity = {}, coll_init_scale = {}, coll_final_scale = {}, coll_current_scale = {}, coll_growth_velocity = {} }, 
-    leash_right = { coll_name = "Leash_Right_Attack", coll_UID = 0, coll_active = false, coll_init_pos = {}, coll_final_pos = {}, coll_current_pos = {}, coll_velocity = {}, coll_init_rot = {}, coll_final_rot = {}, coll_current_rot = {}, coll_ang_velocity = {}, coll_init_scale = {}, coll_final_scale = {}, coll_current_scale = {}, coll_growth_velocity = {} }, 
+    leash_right_pivot = { coll_name = "Leash_Right_Pivot", coll_UID = 0, coll_active = false, coll_init_pos = {}, coll_final_pos = {}, coll_current_pos = {0, 0, 0}, coll_velocity = {}, coll_init_rot = {}, coll_final_rot = {}, coll_current_rot = {0, 0, 0}, coll_ang_velocity = {}, coll_init_scale = {}, coll_final_scale = {}, coll_current_scale = {0, 0, 0}, coll_growth_velocity = {} }, 
+    leash_right = { coll_name = "Leash_Right_Attack", coll_UID = 0, coll_active = false, coll_init_pos = {}, coll_final_pos = {}, coll_current_pos = {0, 0, 0}, coll_velocity = {}, coll_init_rot = {}, coll_final_rot = {}, coll_current_rot = {0, 0, 0}, coll_ang_velocity = {}, coll_init_scale = {}, coll_final_scale = {}, coll_current_scale = {0, 0, 0}, coll_growth_velocity = {} },
 
-    sweep_left_pivot = { coll_name = "Sweep_Left_Pivot", coll_UID = 0, coll_active = false, coll_init_pos = {}, coll_final_pos = {}, coll_current_pos = {}, coll_velocity = {}, coll_init_rot = {}, coll_final_rot = {}, coll_current_rot = {}, coll_ang_velocity = {}, coll_init_scale = {}, coll_final_scale = {}, coll_current_scale = {}, coll_growth_velocity = {} },
-    sweep_left = { coll_name = "Sweep_Left_Attack", coll_UID = 0, coll_active = false, coll_init_pos = {}, coll_final_pos = {}, coll_current_pos = {}, coll_velocity = {}, coll_init_rot = {}, coll_final_rot = {}, coll_current_rot = {}, coll_ang_velocity = {}, coll_init_scale = {}, coll_final_scale = {}, coll_current_scale = {}, coll_growth_velocity = {} },
+    sweep_left_pivot = { coll_name = "Sweep_Left_Pivot", coll_UID = 0, coll_active = false, coll_init_pos = {}, coll_final_pos = {}, coll_current_pos = {0, 0, 0}, coll_velocity = {}, coll_init_rot = {}, coll_final_rot = {}, coll_current_rot = {0, 0, 0}, coll_ang_velocity = {}, coll_init_scale = {}, coll_final_scale = {}, coll_current_scale = {0, 0, 0}, coll_growth_velocity = {} },
+    sweep_left = { coll_name = "Sweep_Left_Attack", coll_UID = 0, coll_active = false, coll_init_pos = {}, coll_final_pos = {}, coll_current_pos = {0, 0, 0}, coll_velocity = {}, coll_init_rot = {}, coll_final_rot = {}, coll_current_rot = {0, 0, 0}, coll_ang_velocity = {}, coll_init_scale = {}, coll_final_scale = {}, coll_current_scale = {0, 0, 0}, coll_growth_velocity = {} },
     
-    sweep_right_pivot = { coll_name = "Sweep_Right_Pivot", coll_UID = 0, coll_active = false, coll_init_pos = {}, coll_final_pos = {}, coll_current_pos = {}, coll_velocity = {}, coll_init_rot = {}, coll_final_rot = {}, coll_current_rot = {}, coll_ang_velocity = {}, coll_init_scale = {}, coll_final_scale = {}, coll_current_scale = {}, coll_growth_velocity = {} },
-    sweep_right = { coll_name = "Sweep_Right_Attack", coll_UID = 0, coll_active = false, coll_init_pos = {}, coll_final_pos = {}, coll_current_pos = {}, coll_velocity = {}, coll_init_rot = {}, coll_final_rot = {}, coll_current_rot = {}, coll_ang_velocity = {}, coll_init_scale = {}, coll_final_scale = {}, coll_current_scale = {}, coll_growth_velocity = {} },
+    sweep_right_pivot = { coll_name = "Sweep_Right_Pivot", coll_UID = 0, coll_active = false, coll_init_pos = {}, coll_final_pos = {}, coll_current_pos = {0, 0, 0}, coll_velocity = {}, coll_init_rot = {}, coll_final_rot = {}, coll_current_rot = {0, 0, 0}, coll_ang_velocity = {}, coll_init_scale = {}, coll_final_scale = {}, coll_current_scale = {0, 0, 0}, coll_growth_velocity = {} },
+    sweep_right = { coll_name = "Sweep_Right_Attack", coll_UID = 0, coll_active = false, coll_init_pos = {}, coll_final_pos = {}, coll_current_pos = {0, 0, 0}, coll_velocity = {}, coll_init_rot = {}, coll_final_rot = {}, coll_current_rot = {0, 0, 0}, coll_ang_velocity = {}, coll_init_scale = {}, coll_final_scale = {}, coll_current_scale = {0, 0, 0}, coll_growth_velocity = {} },
     
-    sweep = { coll_name = "Sweep_Attack", coll_UID = 0, coll_active = false, coll_init_pos = {}, coll_final_pos = {}, coll_current_pos = {}, coll_velocity = {}, coll_init_rot = {}, coll_final_rot = {}, coll_current_rot = {}, coll_ang_velocity = {}, coll_init_scale = {}, coll_final_scale = {}, coll_current_scale = {}, coll_growth_velocity = {} },
+    sweep = { coll_name = "Sweep_Attack", coll_UID = 0, coll_active = false, coll_init_pos = {}, coll_final_pos = {}, coll_current_pos = {0, 0, 0}, coll_velocity = {}, coll_init_rot = {}, coll_final_rot = {}, coll_current_rot = {0, 0, 0}, coll_ang_velocity = {}, coll_init_scale = {}, coll_final_scale = {}, coll_current_scale = {0, 0, 0}, coll_growth_velocity = {} },
     
-    stomp = { coll_name = "Stomp_Attack", coll_UID = 0, coll_active = false, coll_init_pos = {}, coll_final_pos = {}, coll_current_pos = {}, coll_velocity = {}, coll_init_rot = {}, coll_final_rot = {}, coll_current_rot = {}, coll_ang_velocity = {}, coll_init_scale = {}, coll_final_scale = {}, coll_current_scale = {}, coll_growth_velocity = {} },
+    stomp = { coll_name = "Stomp_Attack", coll_UID = 0, coll_active = false, coll_init_pos = {}, coll_final_pos = {}, coll_current_pos = {0, 0, 0}, coll_velocity = {}, coll_init_rot = {}, coll_final_rot = {}, coll_current_rot = {0, 0, 0}, coll_ang_velocity = {}, coll_init_scale = {}, coll_final_scale = {}, coll_current_scale = {0, 0, 0}, coll_growth_velocity = {} },
     
-    roar = { coll_name = "Roar_Attack", coll_UID = 0, coll_active = false, coll_init_pos = {}, coll_final_pos = {}, coll_current_pos = {}, coll_velocity = {}, coll_init_rot = {}, coll_final_rot = {}, coll_current_rot = {}, coll_ang_velocity = {}, coll_init_scale = {}, coll_final_scale = {}, coll_current_scale = {}, coll_growth_velocity = {} }
+    roar = { coll_name = "Roar_Attack", coll_UID = 0, coll_active = false, coll_init_pos = {}, coll_final_pos = {}, coll_current_pos = {0, 0, 0}, coll_velocity = {}, coll_init_rot = {}, coll_final_rot = {}, coll_current_rot = {0, 0, 0}, coll_ang_velocity = {}, coll_init_scale = {}, coll_final_scale = {}, coll_current_scale = {0, 0, 0}, coll_growth_velocity = {} },
 }
 
 -- Collider Layers
@@ -620,7 +620,7 @@ local function HandleRoarAttack()
                 attack_collider.roar.coll_current_pos[y] = attack_collider.roar.coll_init_pos[y]
                 attack_collider.roar.coll_current_pos[z] = attack_collider.roar.coll_init_pos[z]
                 
-                lua_table.TransformFunctions:SetPosition(attack_collider.roar.coll_current_pos[x], attack_collider.roar.coll_current_pos[y], attack_collider.roar.coll_current_pos[z], attack_collider.roar.coll_UID)
+                lua_table.TransformFunctions:SetLocalPosition(attack_collider.roar.coll_current_pos[x], attack_collider.roar.coll_current_pos[y], attack_collider.roar.coll_current_pos[z], attack_collider.roar.coll_UID)
                 
                 -- Sets collider current rotation to initial rotation
                 attack_collider.roar.coll_current_rot[x] = attack_collider.roar.coll_init_rot[x]
@@ -718,7 +718,7 @@ local function HandleStompAttack()
                 attack_collider.stomp.coll_current_pos[y] = attack_collider.stomp.coll_init_pos[y]
                 attack_collider.stomp.coll_current_pos[z] = attack_collider.stomp.coll_init_pos[z]
                 
-                lua_table.TransformFunctions:SetPosition(attack_collider.stomp.coll_current_pos[x], attack_collider.stomp.coll_current_pos[y], attack_collider.stomp.coll_current_pos[z], attack_collider.stomp.coll_UID)
+                lua_table.TransformFunctions:SetLocalPosition(attack_collider.stomp.coll_current_pos[x], attack_collider.stomp.coll_current_pos[y], attack_collider.stomp.coll_current_pos[z], attack_collider.stomp.coll_UID)
                 
                 -- Sets collider current rotation to initial rotation
                 attack_collider.stomp.coll_current_rot[x] = attack_collider.stomp.coll_init_rot[x]
@@ -739,7 +739,7 @@ local function HandleStompAttack()
                 attack_collider.stomp.coll_current_pos[y] = attack_collider.stomp.coll_current_pos[y] + attack_collider.stomp.coll_velocity[y] * dt
                 attack_collider.stomp.coll_current_pos[z] = attack_collider.stomp.coll_current_pos[z] + attack_collider.stomp.coll_velocity[z] * dt
 
-                lua_table.TransformFunctions:SetPosition(attack_collider.stomp.coll_current_pos[x], attack_collider.stomp.coll_current_pos[y], attack_collider.stomp.coll_current_pos[z], attack_collider.stomp.coll_UID)
+                lua_table.TransformFunctions:SetLocalPosition(attack_collider.stomp.coll_current_pos[x], attack_collider.stomp.coll_current_pos[y], attack_collider.stomp.coll_current_pos[z], attack_collider.stomp.coll_UID)
 
                 -- Sets damage
                 lua_table.collider_damage = attack.stomp.att_damage
@@ -823,7 +823,7 @@ local function HandleSweepLeftAttack()
                 attack_collider.sweep_left_pivot.coll_current_pos[y] = attack_collider.sweep_left_pivot.coll_init_pos[y]
                 attack_collider.sweep_left_pivot.coll_current_pos[z] = attack_collider.sweep_left_pivot.coll_init_pos[z]
                 
-                lua_table.TransformFunctions:SetPosition(attack_collider.sweep_left_pivot.coll_current_pos[x], attack_collider.sweep_left_pivot.coll_current_pos[y], attack_collider.sweep_left_pivot.coll_current_pos[z], attack_collider.sweep_left_pivot.coll_UID)
+                lua_table.TransformFunctions:SetLocalPosition(attack_collider.sweep_left_pivot.coll_current_pos[x], attack_collider.sweep_left_pivot.coll_current_pos[y], attack_collider.sweep_left_pivot.coll_current_pos[z], attack_collider.sweep_left_pivot.coll_UID)
                 
                 -- Sets collider_pivot current rotation to initial rotation
                 attack_collider.sweep_left_pivot.coll_current_rot[x] = attack_collider.sweep_left_pivot.coll_init_rot[x]
@@ -837,7 +837,7 @@ local function HandleSweepLeftAttack()
                 attack_collider.sweep_left.coll_current_pos[y] = attack_collider.sweep_left.coll_init_pos[y]
                 attack_collider.sweep_left.coll_current_pos[z] = attack_collider.sweep_left.coll_init_pos[z]
                 
-                lua_table.TransformFunctions:SetPosition(attack_collider.sweep_left.coll_current_pos[x], attack_collider.sweep_left.coll_current_pos[y], attack_collider.sweep_left.coll_current_pos[z], attack_collider.sweep_left.coll_UID)
+                lua_table.TransformFunctions:SetLocalPosition(attack_collider.sweep_left.coll_current_pos[x], attack_collider.sweep_left.coll_current_pos[y], attack_collider.sweep_left.coll_current_pos[z], attack_collider.sweep_left.coll_UID)
                 
                 -- Sets collider current position to initial position
                 attack_collider.sweep_left.coll_current_rot[x] = attack_collider.sweep_left.coll_init_rot[x]
@@ -943,7 +943,7 @@ local function HandleSweepRightAttack()
                 attack_collider.sweep_right_pivot.coll_current_pos[y] = attack_collider.sweep_right_pivot.coll_init_pos[y]
                 attack_collider.sweep_right_pivot.coll_current_pos[z] = attack_collider.sweep_right_pivot.coll_init_pos[z]
                 
-                lua_table.TransformFunctions:SetPosition(attack_collider.sweep_right_pivot.coll_current_pos[x], attack_collider.sweep_right_pivot.coll_current_pos[y], attack_collider.sweep_right_pivot.coll_current_pos[z], attack_collider.sweep_right_pivot.coll_UID)
+                lua_table.TransformFunctions:SetLocalPosition(attack_collider.sweep_right_pivot.coll_current_pos[x], attack_collider.sweep_right_pivot.coll_current_pos[y], attack_collider.sweep_right_pivot.coll_current_pos[z], attack_collider.sweep_right_pivot.coll_UID)
                 
                 -- Sets collider_pivot current rotation to initial rotation
                 attack_collider.sweep_right_pivot.coll_current_rot[x] = attack_collider.sweep_right_pivot.coll_init_rot[x]
@@ -957,7 +957,7 @@ local function HandleSweepRightAttack()
                 attack_collider.sweep_right.coll_current_pos[y] = attack_collider.sweep_right.coll_init_pos[y]
                 attack_collider.sweep_right.coll_current_pos[z] = attack_collider.sweep_right.coll_init_pos[z]
                 
-                lua_table.TransformFunctions:SetPosition(attack_collider.sweep_right.coll_current_pos[x], attack_collider.sweep_right.coll_current_pos[y], attack_collider.sweep_right.coll_current_pos[z], attack_collider.sweep_right.coll_UID)
+                lua_table.TransformFunctions:SetLocalPosition(attack_collider.sweep_right.coll_current_pos[x], attack_collider.sweep_right.coll_current_pos[y], attack_collider.sweep_right.coll_current_pos[z], attack_collider.sweep_right.coll_UID)
                 
                 -- Sets collider current position to initial position
                 attack_collider.sweep_right.coll_current_rot[x] = attack_collider.sweep_right.coll_init_rot[x]
@@ -1064,7 +1064,7 @@ local function HandleLeashLeftAttack()
                 attack_collider.leash_left_pivot.coll_current_pos[y] = attack_collider.leash_left_pivot.coll_init_pos[y]
                 attack_collider.leash_left_pivot.coll_current_pos[z] = attack_collider.leash_left_pivot.coll_init_pos[z]
                 
-                lua_table.TransformFunctions:SetPosition(attack_collider.leash_left_pivot.coll_current_pos[x], attack_collider.leash_left_pivot.coll_current_pos[y], attack_collider.leash_left_pivot.coll_current_pos[z], attack_collider.leash_left_pivot.coll_UID)
+                lua_table.TransformFunctions:SetLocalPosition(attack_collider.leash_left_pivot.coll_current_pos[x], attack_collider.leash_left_pivot.coll_current_pos[y], attack_collider.leash_left_pivot.coll_current_pos[z], attack_collider.leash_left_pivot.coll_UID)
                 
                 -- Sets collider_pivot current rotation to initial rotation
                 attack_collider.leash_left_pivot.coll_current_rot[x] = attack_collider.leash_left_pivot.coll_init_rot[x]
@@ -1078,7 +1078,7 @@ local function HandleLeashLeftAttack()
                 attack_collider.leash_left.coll_current_pos[y] = attack_collider.leash_left.coll_init_pos[y]
                 attack_collider.leash_left.coll_current_pos[z] = attack_collider.leash_left.coll_init_pos[z]
                 
-                lua_table.TransformFunctions:SetPosition(attack_collider.leash_left.coll_current_pos[x], attack_collider.leash_left.coll_current_pos[y], attack_collider.leash_left.coll_current_pos[z], attack_collider.leash_left.coll_UID)
+                lua_table.TransformFunctions:SetLocalPosition(attack_collider.leash_left.coll_current_pos[x], attack_collider.leash_left.coll_current_pos[y], attack_collider.leash_left.coll_current_pos[z], attack_collider.leash_left.coll_UID)
                 
                 -- Sets collider current position to initial position
                 attack_collider.leash_left.coll_current_rot[x] = attack_collider.leash_left.coll_init_rot[x]
@@ -1184,7 +1184,7 @@ local function HandleLeashRightAttack()
                 attack_collider.leash_right_pivot.coll_current_pos[y] = attack_collider.leash_right_pivot.coll_init_pos[y]
                 attack_collider.leash_right_pivot.coll_current_pos[z] = attack_collider.leash_right_pivot.coll_init_pos[z]
                 
-                lua_table.TransformFunctions:SetPosition(attack_collider.leash_right_pivot.coll_current_pos[x], attack_collider.leash_right_pivot.coll_current_pos[y], attack_collider.leash_right_pivot.coll_current_pos[z], attack_collider.leash_right_pivot.coll_UID)
+                lua_table.TransformFunctions:SetLocalPosition(attack_collider.leash_right_pivot.coll_current_pos[x], attack_collider.leash_right_pivot.coll_current_pos[y], attack_collider.leash_right_pivot.coll_current_pos[z], attack_collider.leash_right_pivot.coll_UID)
                 
                 -- Sets collider_pivot current rotation to initial rotation
                 attack_collider.leash_right_pivot.coll_current_rot[x] = attack_collider.leash_right_pivot.coll_init_rot[x]
@@ -1198,7 +1198,7 @@ local function HandleLeashRightAttack()
                 attack_collider.leash_right.coll_current_pos[y] = attack_collider.leash_right.coll_init_pos[y]
                 attack_collider.leash_right.coll_current_pos[z] = attack_collider.leash_right.coll_init_pos[z]
                 
-                lua_table.TransformFunctions:SetPosition(attack_collider.leash_right.coll_current_pos[x], attack_collider.leash_right.coll_current_pos[y], attack_collider.leash_right.coll_current_pos[z], attack_collider.leash_right.coll_UID)
+                lua_table.TransformFunctions:SetLocalPosition(attack_collider.leash_right.coll_current_pos[x], attack_collider.leash_right.coll_current_pos[y], attack_collider.leash_right.coll_current_pos[z], attack_collider.leash_right.coll_UID)
                 
                 -- Sets collider current position to initial position
                 attack_collider.leash_right.coll_current_rot[x] = attack_collider.leash_right.coll_init_rot[x]

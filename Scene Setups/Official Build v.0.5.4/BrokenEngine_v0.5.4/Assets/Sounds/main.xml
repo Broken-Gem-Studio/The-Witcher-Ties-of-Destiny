@@ -148,9 +148,12 @@
 				<Event Id="2927391089" Name="Play_Select_2" ObjectPath="\Events\Default Work Unit\UI\Play_Select_2" GUID="{2B559040-1031-4A4E-9025-39C18D8FB499}"/>
 				<Event Id="2927391088" Name="Play_Select_3" ObjectPath="\Events\Default Work Unit\UI\Play_Select_3" GUID="{E0D0B0E3-1E60-4FCB-84CE-A5FF72620C4F}"/>
 				<Event Id="2712680258" Name="Play_Sheathe" ObjectPath="\Events\Default Work Unit\HUD\Play_Sheathe" GUID="{7090FF2D-CA0C-4D3D-86E4-64DD393B3186}"/>
+				<Event Id="3963492094" Name="Play_Silver_for_Monsters_loop" ObjectPath="\Events\Default Work Unit\BGM\Play_Silver_for_Monsters_loop" GUID="{4EFCE6DB-0E6E-4803-8431-5B2FFCA7695C}"/>
 				<Event Id="3329043269" Name="Play_Silver_for_Monsters_Music" ObjectPath="\Events\Default Work Unit\BGM\Play_Silver_for_Monsters_Music" GUID="{7304625C-F9C9-4C79-96BB-DD461A690D70}"/>
 				<Event Id="1836364305" Name="Play_Special_up" ObjectPath="\Events\Default Work Unit\HUD\Play_Special_up" GUID="{AA12B4D1-2D1C-48F1-889B-B5801AC35C28}"/>
+				<Event Id="3838623592" Name="Play_Spikeroog_loop" ObjectPath="\Events\Default Work Unit\BGM\Play_Spikeroog_loop" GUID="{9EEBB313-0AAC-4C32-B20D-34C7F83CE86F}"/>
 				<Event Id="562633715" Name="Play_Spikeroog_Music" ObjectPath="\Events\Default Work Unit\BGM\Play_Spikeroog_Music" GUID="{933D0AF9-4CBE-4D9E-B129-4607DDF7B116}"/>
+				<Event Id="1898041542" Name="Play_Trial_of_the_Grasses_loop" ObjectPath="\Events\Default Work Unit\BGM\Play_Trial_of_the_Grasses_loop" GUID="{B55F229E-54D3-42C1-8F48-9F4C0D19EA45}"/>
 				<Event Id="1586346464" Name="Play_Ulti_Geralt" ObjectPath="\Events\Default Work Unit\HUD\Play_Ulti_Geralt" GUID="{3030CC2C-8167-43B9-B3C2-7D88E203910F}"/>
 				<Event Id="2342786857" Name="Play_Unsheathe" ObjectPath="\Events\Default Work Unit\HUD\Play_Unsheathe" GUID="{923841CB-A707-4E89-A184-F07B49502665}"/>
 				<Event Id="3553846485" Name="Play_Used_potion" ObjectPath="\Events\Default Work Unit\HUD\Play_Used_potion" GUID="{5C78EAF2-C35F-4E4B-A0A3-603E6693BC3A}"/>
@@ -229,7 +232,7 @@
 				</File>
 				<File Id="107875743" Language="SFX">
 					<ShortName>Geralt_walk.wav</ShortName>
-					<Path>SFX\Geralt_walk_10C4C929.wem</Path>
+					<Path>SFX\Geralt_walk_D79FB2B7.wem</Path>
 				</File>
 				<File Id="111760900" Language="SFX">
 					<ShortName>Kikimora_sound_1.wav</ShortName>
@@ -353,7 +356,7 @@
 				</File>
 				<File Id="397416824" Language="SFX">
 					<ShortName>Jaskier_walk.wav</ShortName>
-					<Path>SFX\Jaskier_walk_10C4C929.wem</Path>
+					<Path>SFX\Jaskier_walk_D79FB2B7.wem</Path>
 				</File>
 				<File Id="398883563" Language="SFX">
 					<ShortName>Bandit_death_3.wav</ShortName>
@@ -385,7 +388,7 @@
 				</File>
 				<File Id="432307875" Language="SFX">
 					<ShortName>Geralt_run.wav</ShortName>
-					<Path>SFX\Geralt_run_10C4C929.wem</Path>
+					<Path>SFX\Geralt_run_D79FB2B7.wem</Path>
 				</File>
 				<File Id="437438864" Language="SFX">
 					<ShortName>Bandit_arrow_hit.wav</ShortName>
@@ -506,6 +509,10 @@
 				<File Id="652919959" Language="SFX">
 					<ShortName>Geralt_attack_1_1.wav</ShortName>
 					<Path>SFX\Geralt_attack_1_1_10C4C929.wem</Path>
+				</File>
+				<File Id="656411060" Language="SFX">
+					<ShortName>Trial_of_the_Grasses_loop.wav</ShortName>
+					<Path>SFX\Trial_of_the_Grasses_loop_D79FB2B7.wem</Path>
 				</File>
 				<File Id="663277561" Language="SFX">
 					<ShortName>Jaskier_attack_5.wav</ShortName>
@@ -691,9 +698,13 @@
 					<ShortName>Jaskier_attack_2_2.wav</ShortName>
 					<Path>SFX\Jaskier_attack_2_2_10C4C929.wem</Path>
 				</File>
+				<File Id="970957591" Language="SFX">
+					<ShortName>Spikeroog_loop.wav</ShortName>
+					<Path>SFX\Spikeroog_loop_D79FB2B7.wem</Path>
+				</File>
 				<File Id="981534970" Language="SFX">
 					<ShortName>Jaskier_run.wav</ShortName>
-					<Path>SFX\Jaskier_run_10C4C929.wem</Path>
+					<Path>SFX\Jaskier_run_D79FB2B7.wem</Path>
 				</File>
 				<File Id="983053762" Language="SFX">
 					<ShortName>Combo_3.wav</ShortName>
@@ -714,6 +725,10 @@
 				<File Id="1003889211" Language="SFX">
 					<ShortName>Silver for Monsters_Music.wav</ShortName>
 					<Path>SFX\Silver for Monsters_Music_10C4C929.wem</Path>
+				</File>
+				<File Id="1007535269" Language="SFX">
+					<ShortName>Silver for Monsters_loop.wav</ShortName>
+					<Path>SFX\Silver for Monsters_loop_D79FB2B7.wem</Path>
 				</File>
 				<File Id="1027606032" Language="SFX">
 					<ShortName>Kikimora_sound_2.wav</ShortName>
