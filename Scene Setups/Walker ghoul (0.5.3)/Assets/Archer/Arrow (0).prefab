@@ -4,7 +4,7 @@
             "0": {
                 "layer": "4",
                 "positionx": "0.000000",
-                "positiony": "2.469933",
+                "positiony": "5.034866",
                 "positionz": "0.000000",
                 "rotationw": "1.000000",
                 "rotationx": "0.000000",
@@ -82,7 +82,7 @@
                 "firstCreation": "1",
                 "globalMatrixw": "1.000000",
                 "globalMatrixx": "0.000197",
-                "globalMatrixy": "2.469933",
+                "globalMatrixy": "5.034866",
                 "globalMatrixz": "0.000000",
                 "globalPositionx": "0.994092",
                 "globalPositiony": "0.996057",
@@ -122,10 +122,81 @@
                 }
             }
         },
-        "Parent": "1029398377",
+        "Parent": "1209703324",
         "PrefabChild": true,
         "PrefabInstance": true,
-        "UID": "1668873825"
+        "UID": "90813859"
     },
-    "PreviewTexture": "Library/Textures/1774124737.dds"
+    "ParticleArrow": {
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-0.659027",
+                "positiony": "-0.437424",
+                "positionz": "-0.608555",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "10.000000",
+                "scaley": "10.000000",
+                "scalez": "1.000000"
+            },
+            "18": {
+                "Active": true,
+                "Duration": "1000",
+                "GradientColor": false,
+                "Loop": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1045340811.dds"
+                },
+                "animation": "0",
+                "colors": [
+                    {
+                        "a": "1.000000",
+                        "x": "1.000000",
+                        "y": "1.000000",
+                        "z": "1.000000"
+                    }
+                ],
+                "cycles": "1",
+                "emisionRate": "50.000000",
+                "externalAccelerationX": "0.000000",
+                "externalAccelerationY": "10.000000",
+                "externalAccelerationZ": "0.000000",
+                "grad_duration": "0",
+                "num_colors": "1",
+                "num_gradients": "0",
+                "particleScaleOverTime": "0.000000",
+                "particleScaleRandomFactor": "1.000000",
+                "particlesLifeTime": "500",
+                "particlesPerCreation": "3",
+                "particlesScaleX": "1.000000",
+                "particlesScaleY": "1.000000",
+                "particlesVelocityX": "0.000000",
+                "particlesVelocityY": "0.000000",
+                "particlesVelocityZ": "3.000000",
+                "positionX": "0.000000",
+                "positionY": "0.000000",
+                "positionZ": "0.000000",
+                "rotationX": "0.000000",
+                "rotationY": "0.000000",
+                "rotationZ": "0.000000",
+                "sizeX": "0.000000",
+                "sizeY": "0.000000",
+                "sizeZ": "0.000000",
+                "startFrame": "0",
+                "tiles_X": "1",
+                "tiles_Y": "1",
+                "velocityRandomFactorX": "1.000000",
+                "velocityRandomFactorY": "0.000000",
+                "velocityRandomFactorZ": "1.000000"
+            }
+        },
+        "Parent": "90813859",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "UID": "359820671"
+    },
+    "PreviewTexture": "Library/Textures/70853058.dds"
 }
