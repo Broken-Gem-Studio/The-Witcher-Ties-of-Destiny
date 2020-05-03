@@ -609,7 +609,10 @@ local function GoDefaultState()
 
 		lua_table.ParticlesFunctions:PlayParticleEmitter(my_GO_UID)	--TODO-Particles: Activate movement dust particles
 	else
+		lua_table.AnimationFunctions:SetBlendTime(0.5, my_GO_UID)
+		lua_table.AnimationFunctions:SetBlendTime(0.0, slash_GO_UID)
 		lua_table.AnimationFunctions:PlayAnimation("idle", lua_table.idle_animation_speed, my_GO_UID)
+
 		--TODO-AUDIO: Stop current sound event
 		lua_table.AudioFunctions:StopAudioEvent("Play_Geralt_walk")
 		lua_table.AudioFunctions:StopAudioEvent("Play_Geralt_run")
@@ -911,6 +914,8 @@ end
 local function MovementInputs()	--Process Movement Inputs
 	if mov_input.used_input.x ~= 0.0 or mov_input.used_input.z ~= 0.0												--IF Movement Input
 	then
+		lua_table.AnimationFunctions:SetBlendTime(0.1, my_GO_UID)
+
 		--Swap between idle and moving
 		if lua_table.current_state == state.idle																	--IF Idle
 		then
@@ -1314,6 +1319,9 @@ local function ActionInputs()	--Process Action Inputs
 
 	if action_made 	--IF action performed
 	then
+		lua_table.AnimationFunctions:SetBlendTime(0.1, my_GO_UID)
+		lua_table.AnimationFunctions:SetBlendTime(0.1, slash_GO_UID)
+
 		AttackColliderShutdown()
 
 		if not (lua_table.current_state <= state.combo_4 and lua_table.current_state >= state.light_1)	--IF input not attack
