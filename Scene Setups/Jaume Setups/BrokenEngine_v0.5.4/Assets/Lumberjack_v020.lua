@@ -8,6 +8,7 @@ lua_table.TransformFunctions = Scripting.Transform()
 lua_table.PhysicsSystem =  Scripting.Physics()
 lua_table.AnimationSystem = Scripting.Animations()
 lua_table.SoundSystem = Scripting.Audio()
+lua_table.ParticleSystem = Scripting.Particles()
 
 
 -----------------------------------------------------------------------------------------
@@ -601,8 +602,10 @@ local function HandleSEEK()
 			lua_table.SoundSystem:PlayAudioEvent("Play_Bandit_voice_2")
 			Alert_AnimController = true
 			Alert_TimeController = PerfGameTime()
+			lua_table.ParticleSystem:PlayParticleEmitter(particles.alert1.GO_UID)
 		end
-		Time = PerfGameTime()
+		Time = PerfGameTime()		
+	
 		if Time - Alert_TimeController >= 2000
 		then
 			lua_table.CurrentSubState = SubState.SEEK_TARGET
@@ -859,11 +862,17 @@ function lua_table:Start()
 
 
 	particles.ambient.GO_UID = lua_table.GameObjectFunctions:FindChildGameObject(particles.ambient.GO_name)
+	particles.alert1.GO_UID = lua_table.GameObjectFunctions:FindChildGameObject(particles.alert1.GO_name)
+	particles.alert2.GO_UID = lua_table.GameObjectFunctions:FindChildGameObject(particles.alert1.GO_name)
+	lua_table.ParticleSystem:PlayParticleEmitter(particles.ambient.GO_UID)
+	
+	--lua_table.GameObjectFunctions:SetActiveGameObject(true, particles.ambient.GO_UID)
+	--particles.ambient.active = true
 
+	lua_table.GameObjectFunctions:SetActiveGameObject(true, particles.alert1.GO_UID)
+	particles.alert1.active = true
 
-	lua_table.GameObjectFunctions:SetActiveGameObject(true, particles.ambient.GO_UID)
-	particles.ambient.active = true
-
+	lua_table.ParticleSystem:StopParticleEmitter(particles.alert1.GO_UID)
 
 	TargetAlive_TimeController = PerfGameTime()
 
