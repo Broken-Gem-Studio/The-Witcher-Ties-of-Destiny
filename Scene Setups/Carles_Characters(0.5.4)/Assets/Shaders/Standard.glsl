@@ -16,12 +16,12 @@ uniform mat4 u_Model; //model_matrix
 uniform mat4 u_View; //view
 uniform mat4 u_Proj; //projection
 
-uniform vec4 u_Color = vec4(1.0); //Color
+uniform vec3 u_Color = vec3(1.0); //Color
 uniform vec3 u_CameraPosition;
 
 //Varyings
 out vec2 v_TexCoord;
-out vec4 v_Color;
+out vec3 v_Color;
 out vec3 v_Normal;
 out vec3 v_FragPos;
 out vec3 v_CamPos;
@@ -57,7 +57,7 @@ out vec4 out_color;
 
 //Input Variables (Varying)
 in vec2 v_TexCoord;
-in vec4 v_Color;
+in vec3 v_Color;
 in vec3 v_Normal;
 in vec3 v_FragPos;
 in vec3 v_CamPos;
@@ -65,7 +65,6 @@ in mat3 v_TBN;
 
 //Uniforms
 uniform float u_GammaCorrection = 1.0;
-uniform vec4 u_AmbientColor = vec4(1.0);
 
 uniform float u_Shininess = 1.5;
 uniform int u_UseTextures = 0;
@@ -73,7 +72,6 @@ uniform int u_UseTextures = 0;
 uniform int u_HasDiffuseTexture = 0;
 uniform int u_HasSpecularTexture = 0;
 uniform int u_HasNormalMap = 0;
-uniform int u_HasTransparencies = 0;
 
 uniform int u_DrawNormalMapping = 0;
 uniform int u_DrawNormalMapping_Lit = 0;
@@ -91,7 +89,6 @@ struct BrokenLight
 	vec3 color;
 
 	float intensity;
-	float distanceMultiplier;
 
 	vec3 attenuationKLQ;
 	vec2 InOutCutoff;
@@ -148,8 +145,7 @@ vec3 CalculatePointlight(BrokenLight light, vec3 normal, vec3 viewDir)
 	//	direction = v_TBN * normalize(direction);
 
 	//Attenuation Calculation
-	float dMult = 1/light.distanceMultiplier;
-	float d = length(light.pos - v_FragPos) * dMult;
+	float d = length(light.pos - v_FragPos);
 	float lightAttenuation = 1.0/(light.attenuationKLQ.x + light.attenuationKLQ.y * d + light.attenuationKLQ.z *(d * d));
 
 	//Result
@@ -182,27 +178,10 @@ vec3 CalculateSpotlight(BrokenLight light, vec3 normal, vec3 viewDir)
 //------------------------------------------------------------------------------------------------------------------
 void main()
 {
-	// Transparency
-	float alpha = 1.0;
-	if(u_HasTransparencies == 1)
-	{
-		if(u_UseTextures == 0)
-			alpha = v_Color.a;
-		else
-			alpha = texture(u_AlbedoTexture, v_TexCoord).a * v_Color.a;
-	}
+	int lights_iterator = (u_LightsNumber > MAX_SHADER_LIGHTS ? MAX_SHADER_LIGHTS : u_LightsNumber);
 
-	if(alpha < 0.004)
-		discard;
-
-	//Normal Mapping Calculations
-	vec3 normalVec = normalize(v_Normal);	
-	if(u_DrawNormalMapping == 1)
-	{
-		out_color = vec4(normalVec, 1.0);
-		return;
-	}
-	
+	//Light Calculations
+	vec3 normalVec = normalize(v_Normal);
 	vec3 viewDirection = normalize(v_CamPos - v_FragPos);
 	if(u_HasNormalMap == 1)
 	{
@@ -212,9 +191,8 @@ void main()
 		//viewDirection = v_TBN * normalize(v_CamPos - v_FragPos);
 	}
 
-	//Light Calculations
-	int lights_iterator = (u_LightsNumber > MAX_SHADER_LIGHTS ? MAX_SHADER_LIGHTS : u_LightsNumber);
 	vec3 colorResult = vec3(0.0);
+
 	for(int i = 0; i < lights_iterator; ++i)
 	{
 		if(u_DrawNormalMapping_Lit_Adv == 0)
@@ -237,23 +215,23 @@ void main()
 		}
 	}
 
-	if(u_DrawNormalMapping_Lit == 0 && u_DrawNormalMapping_Lit_Adv == 0)
+	if(u_DrawNormalMapping_Lit == 0 && u_DrawNormalMapping == 0 && u_DrawNormalMapping_Lit_Adv == 0)
 	{
-		vec3 finalColor = u_AmbientColor.rgb * v_Color.rgb;
-
 		//Resulting Color
-		if(u_UseTextures == 0 || (u_HasTransparencies == 0 && u_UseTextures == 1 && texture(u_AlbedoTexture, v_TexCoord).a < 0.1))
-			out_color = vec4(colorResult + finalColor, alpha);
-		else if(u_UseTextures == 1)
-			out_color = vec4(colorResult + finalColor * texture(u_AlbedoTexture, v_TexCoord).rgb, alpha);
+		if(u_UseTextures == 0)
+			out_color = vec4(colorResult + v_Color, 1.0);
+		else
+			out_color = vec4(colorResult + v_Color * texture(u_AlbedoTexture, v_TexCoord).rgb, texture(u_AlbedoTexture, v_TexCoord).a);
 
 		out_color = pow(out_color, vec4(vec3(1.0/u_GammaCorrection), 1.0));
 	}
 	else
 	{
-		//Normal Mapping Debgug
+		//Draw Normal Mapping if we must
 		if(u_DrawNormalMapping_Lit == 1)
 			out_color = vec4(colorResult * normalVec, 1.0);
+		else if(u_DrawNormalMapping == 1)
+			out_color = vec4(normalVec, 1.0);
 		else if(u_DrawNormalMapping_Lit_Adv == 1)
 			out_color = vec4(colorResult, 1.0);
 	}
