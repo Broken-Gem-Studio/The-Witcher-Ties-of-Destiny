@@ -8,6 +8,7 @@ lua_table.SceneFunctions = Scripting.Scenes()
 lua_table.CameraFunctions = Scripting.Camera()
 lua_table.ObjectFunctions = Scripting.GameObject()
 lua_table.TransformFuctions = Scripting.Transform()
+lua_table.AudioFunctions = Scripting.Audio()
 
 -----------------------------------------------------------------------------
 -- VARIABLES
@@ -16,7 +17,7 @@ lua_table.TransformFuctions = Scripting.Transform()
 -- Lua table variabes
 lua_table.scene_1 = 0
 lua_table.scene_2 = 0
-lua_table.cameraSpeed = 20
+lua_table.cameraSpeed = 25
 
 -- Local variables
 local startButton = 0
@@ -45,7 +46,6 @@ function lua_table:Awake()
 	secondLevelPlay = lua_table.ObjectFunctions:FindGameObject("PlaySecondLevelButton")
 	firstLevelImage = lua_table.ObjectFunctions:FindGameObject("FirstLevelImage")
 	secondLevelImage = lua_table.ObjectFunctions:FindGameObject("SecondLevelImage")
-	parchmentImage = lua_table.ObjectFunctions:FindGameObject("ParchmentImage")
 end
 
 function lua_table:Start()
@@ -65,9 +65,9 @@ function lua_table:Update()
 	-- Camera movement management
 	if startingGame == true
 	then
-		if lua_table.currentCameraPos[3] > lua_table.lastCameraPos[3] - 10
+		if lua_table.currentCameraPos[1] < lua_table.lastCameraPos[1] + 30
 		then
-			lua_table.TransformFuctions:Translate(-lua_table.cameraSpeed/2 * dt, -lua_table.cameraSpeed/5 * dt, -lua_table.cameraSpeed * dt, camera_UUID)
+			lua_table.TransformFuctions:Translate(lua_table.cameraSpeed * dt, -lua_table.cameraSpeed/3 * dt, 0, camera_UUID)
 		else		
 			startingGame = false
 			lua_table.InterfaceFunctions:MakeElementVisible("Button", playButton)
@@ -95,42 +95,47 @@ end
 function lua_table:PlayGame()
 	--playingGame = true
 	--lua_table.lastCameraPos = lua_table.TransformFuctions:GetPosition(camera_UUID)
+    lua_table.AudioFunctions:PlayAudioEvent("Play_Click_1")
 	lua_table.InterfaceFunctions:MakeElementInvisible("Button", quitButton)
 	lua_table.InterfaceFunctions:MakeElementInvisible("Button", playButton)
 
 	lua_table.InterfaceFunctions:MakeElementVisible("Button", showFirstLevel)
 	lua_table.InterfaceFunctions:MakeElementVisible("Button", showSecondLevel)
-	lua_table.InterfaceFunctions:MakeElementVisible("Image", parchmentImage)
 
-	lua_table.TransformFuctions:SetPosition(-89.849, 25.571, -341.054, camera_UUID)
-	lua_table.TransformFuctions:SetObjectRotation(88.499, 18.100, -89.461, camera_UUID)
+	lua_table.TransformFuctions:SetPosition(107.941, -48.392, -81.444, camera_UUID)
+	lua_table.TransformFuctions:SetObjectRotation(-180.000, 3.250, 180.000, camera_UUID)
 end
 
 function lua_table:QuitGame()
+    lua_table.AudioFunctions:PlayAudioEvent("Play_Select_1")
 	lua_table.SceneFunctions:QuitGame()
 end
 
 function lua_table:ShowFirstLevel()
+    lua_table.AudioFunctions:PlayAudioEvent("Play_Select_3")
 	lua_table.InterfaceFunctions:MakeElementVisible("Button", firstLevelPlay)
 	lua_table.InterfaceFunctions:MakeElementInvisible("Button", secondLevelPlay)
 
 	lua_table.InterfaceFunctions:MakeElementVisible("Image", firstLevelImage)
-	--lua_table.InterfaceFunctions:MakeElementInvisible("Image", secondLevelImage)
+	lua_table.InterfaceFunctions:MakeElementInvisible("Image", secondLevelImage)
 end
 
 function lua_table:ShowSecondLevel()
+    lua_table.AudioFunctions:PlayAudioEvent("Play_Select_3")
 	lua_table.InterfaceFunctions:MakeElementVisible("Button", secondLevelPlay)
 	lua_table.InterfaceFunctions:MakeElementInvisible("Button", firstLevelPlay)
 	
-	--lua_table.InterfaceFunctions:MakeElementVisible("Image", secondLevelImage)
+	lua_table.InterfaceFunctions:MakeElementVisible("Image", secondLevelImage)
 	lua_table.InterfaceFunctions:MakeElementInvisible("Image", firstLevelImage)
 end
 
 function lua_table:PlayFirstLevel()
+    lua_table.AudioFunctions:PlayAudioEvent("Play_Click_1")
 	loadLevel1 = true
 end
 
 function lua_table:PlaySecondLevel()
+    lua_table.AudioFunctions:PlayAudioEvent("Play_Click_1")
 	loadLevel2 = true
 end
 

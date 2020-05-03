@@ -53,7 +53,7 @@ local attack_effects = {
 lua_table.MyUID = 0 --Entity UID
 lua_table.max_hp = 50
 lua_table.health = 0
-lua_table.speed = 0.05
+lua_table.speed = 0.07
 lua_table.knock_speed = 0.5
 lua_table.currentState = 0
 lua_table.is_stunned = false
@@ -88,13 +88,24 @@ local stun_timer = 0
 local start_death = false
 local death_timer = 0
 
+local start_navigation = true
+local navigation_timer = 0
+
 -- Flow control conditionals
 local attacked = false
 
 -- Recast navigation
 local navID = 0
 local corners = {}
+local vec = { 0, 0, 0 }
 local currCorner = 2
+local path_distance = -1
+
+local GC1 = 0
+local GC2 = 0
+
+local JC1 = 0
+local JC2 = 0
 
 -- Entity colliders
 local is_front_active = false
@@ -111,6 +122,7 @@ local random_attack = 0
 
 local function ResetNavigation()
 	currCorner = 2
+	start_navigation = true
 end
 
 local function ResetAttack()
@@ -133,38 +145,69 @@ end
 
 local function SearchPlayers() -- Check if targets are within range
 
+	local GeraltState = lua_table.GameObject:GetScript(lua_table.geralt)
+	local JaskierState = lua_table.GameObject:GetScript(lua_table.jaskier)
+
 	lua_table.GeraltPos = lua_table.Transform:GetPosition(lua_table.geralt)
 	lua_table.JaskierPos = lua_table.Transform:GetPosition(lua_table.jaskier)
 	lua_table.GhoulPos = lua_table.Transform:GetPosition(lua_table.MyUID)
 	
-	local GC1 = lua_table.GeraltPos[1] - lua_table.GhoulPos[1]
-	local GC2 = lua_table.GeraltPos[3] - lua_table.GhoulPos[3]
-	lua_table.GeraltDistance = math.sqrt(GC1 ^ 2 + GC2 ^ 2)
+	GC1 = lua_table.GeraltPos[1] - lua_table.GhoulPos[1]
+	GC2 = lua_table.GeraltPos[3] - lua_table.GhoulPos[3]
 
-	local JC1 = lua_table.JaskierPos[1] - lua_table.GhoulPos[1]
-	local JC2 = lua_table.JaskierPos[3] - lua_table.GhoulPos[3]
-	lua_table.JaskierDistance =  math.sqrt(JC1 ^ 2 + JC2 ^ 2)
+	if GeraltState.current_state > -3 then
+		lua_table.GeraltDistance = math.sqrt(GC1 ^ 2 + GC2 ^ 2)
+	else 
+		lua_table.GeraltDistance = -1
+	end
+
+	JC1 = lua_table.JaskierPos[1] - lua_table.GhoulPos[1]
+	JC2 = lua_table.JaskierPos[3] - lua_table.GhoulPos[3]
 	
+	if JaskierState.current_state > -3 then
+		lua_table.JaskierDistance =  math.sqrt(JC1 ^ 2 + JC2 ^ 2)
+	else 
+		lua_table.JaskierDistance = -1
+	end
+
+
+	-- if lua_table.currentTarget == lua_table.geralt then
+	-- 	lua_table.currentTargetDir = lua_table.GeraltDistance
+	-- 	lua_table.currentTargetPos = lua_table.GeraltPos
+	-- end
+
+	-- if lua_table.currentTarget == lua_table.jaskier then
+	-- 	lua_table.currentTargetDir = lua_table.JaskierDistance
+	-- 	lua_table.currentTargetPos = lua_table.JaskierPos
+	-- end
+
+
+	-- Handle Taunt
 	if lua_table.is_taunt then 
 		lua_table.currentTarget = lua_table.jaskier
 		lua_table.currentTargetDir = lua_table.JaskierDistance
 		lua_table.currentTargetPos = lua_table.JaskierPos
-	else 
-		lua_table.currentTarget = lua_table.geralt
-		lua_table.currentTargetDir = lua_table.GeraltDistance
-		lua_table.currentTargetPos = lua_table.GeraltPos
 	end
-					
-	if lua_table.JaskierDistance < lua_table.GeraltDistance then
-		lua_table.currentTarget = lua_table.jaskier
-		lua_table.currentTargetDir = lua_table.JaskierDistance
-		lua_table.currentTargetPos = lua_table.JaskierPos
-		
-	elseif lua_table.JaskierDistance == lua_table.GeraltDistance then 
-		lua_table.currentTarget = lua_table.geralt
-		lua_table.currentTargetDir = lua_table.GeraltDistance
-		lua_table.currentTargetPos = lua_table.GeraltPos
-	end 
+
+	if lua_table.GeraltDistance ~= -1 then -- Geralt alive and Jaskier dead
+		if lua_table.JaskierDistance == - 1 or lua_table.GeraltDistance < lua_table.JaskierDistance then
+			lua_table.currentTarget = lua_table.geralt
+			lua_table.currentTargetDir = lua_table.GeraltDistance
+			lua_table.currentTargetPos = lua_table.GeraltPos
+		end
+	end
+
+	if lua_table.JaskierDistance ~= -1 then -- Jaskier alive and Geralt dead
+		if lua_table.GeraltDistance == - 1 or lua_table.JaskierDistance < lua_table.GeraltDistance then
+			lua_table.currentTarget = lua_table.jaskier
+			lua_table.currentTargetDir = lua_table.JaskierDistance
+			lua_table.currentTargetPos = lua_table.JaskierPos
+		end
+	end
+
+	if lua_table.GeraltDistance == -1 and lua_table.JaskierDistance == -1 then
+		lua_table.currentState = State.IDLE
+	end
 end
 
 -- local function ToggleCollider(ID, start, finish, timer, condition, dmg, effect)
@@ -191,11 +234,12 @@ local function AttackColliderShutdown()
 end
 	
 local function Idle() 
-		
-	if lua_table.currentTargetDir <= lua_table.AggroRange then
-		lua_table.currentState = State.SEEK
-		lua_table.Animations:PlayAnimation("Run", 30.0, lua_table.MyUID)
-		lua_table.System:LOG("Minion state: SEEK (1)") 
+	if lua_table.GeraltDistance ~= -1 or lua_table.JaskierDistance ~= -1 then
+		if lua_table.currentTargetDir <= lua_table.AggroRange then
+			lua_table.currentState = State.SEEK
+			lua_table.Animations:PlayAnimation("Run", 30.0, lua_table.MyUID)
+			lua_table.System:LOG("Minion state: SEEK (1)") 
+		end
 	end
 	
 end
@@ -206,21 +250,31 @@ local function Seek()
 	
 	if lua_table.currentTargetDir < lua_table.AggroRange and lua_table.currentTargetDir > lua_table.minDistance then
 			
-		corners = lua_table.Recast:CalculatePath(lua_table.GhoulPos[1], lua_table.GhoulPos[2], lua_table.GhoulPos[3], lua_table.currentTargetPos[1], lua_table.currentTargetPos[2], lua_table.currentTargetPos[3], 1 << navID)
+		--corners = lua_table.Recast:CalculatePath(lua_table.GhoulPos[1], lua_table.GhoulPos[2], lua_table.GhoulPos[3], lua_table.currentTargetPos[1], lua_table.currentTargetPos[2], lua_table.currentTargetPos[3], 1 << navID)
+		
+		if navigation_timer + 500 <= lua_table.System:GameTime() * 1000 then
+			start_navigation = true
+		end
 
-		local nextCorner = {}
+		if start_navigation == true then
+			corners = lua_table.Recast:CalculatePath(lua_table.GhoulPos[1], lua_table.GhoulPos[2], lua_table.GhoulPos[3], lua_table.currentTargetPos[1], lua_table.currentTargetPos[2], lua_table.currentTargetPos[3], 1 << navID)
+			navigation_timer = lua_table.System:GameTime() * 1000
+			start_navigation = false
+			currCorner = 2
+		end
+
+		local nextCorner = {0, 0, 0}
 		nextCorner[1] = corners[currCorner][1] - lua_table.GhoulPos[1]
 		nextCorner[2] = corners[currCorner][2] - lua_table.GhoulPos[2]
 		nextCorner[3] = corners[currCorner][3] - lua_table.GhoulPos[3]
 
-		local dis = math.sqrt(nextCorner[1] ^ 2 + nextCorner[3] ^ 2)
+		path_distance = math.sqrt(nextCorner[1] ^ 2 + nextCorner[3] ^ 2)
 		
-		if dis > 0.05 then 
+		if path_distance > 0.2 then 
 
-			local vec = { 0, 0, 0 }
-			vec[1] = nextCorner[1] / dis
-			vec[2] = nextCorner[2]
-			vec[3] = nextCorner[3] / dis
+			vec[1] = nextCorner[1] / path_distance
+			vec[2] = 0
+			vec[3] = nextCorner[3] / path_distance
 				
 			-- Apply movement vector to move character
 			lua_table.Transform:LookAt(corners[currCorner][1], lua_table.GhoulPos[2], corners[currCorner][3], lua_table.MyUID)
@@ -228,10 +282,8 @@ local function Seek()
 			
 			else
 				currCorner = currCorner + 1
+				lua_table.PhysicsSystem:Move(0, 0, lua_table.MyUID)
 		end
-		
-	else 
-		lua_table.currentState = State.IDLE	
 			
 	end
 	
@@ -278,7 +330,7 @@ local function Attack()
 	
 	if attack_timer + 1000 <= lua_table.System:GameTime() * 1000 and attack_timer + 1100 >= lua_table.System:GameTime() * 1000 then
 		lua_table.collider_effect = attack_effects.none
-		lua_table.collider_damage = 2
+		lua_table.collider_damage = 25
 		
 		is_front_active = true
 		lua_table.GameObject:SetActiveGameObject(true, Front_Collider)

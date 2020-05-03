@@ -13,9 +13,6 @@ namespace AK
 {
     namespace EVENTS
     {
-        static const AkUniqueID COMBAT = 2764240573U;
-        static const AkUniqueID DEFAULT = 782826392U;
-        static const AkUniqueID MAIN_MENU = 2005704188U;
         static const AkUniqueID PLAY_ATTACK_SLOW = 3307195674U;
         static const AkUniqueID PLAY_BANDIT_ARROW_HIT = 721993780U;
         static const AkUniqueID PLAY_BANDIT_BOW_PULLING_ROPE = 3370108054U;
@@ -32,10 +29,15 @@ namespace AK
         static const AkUniqueID PLAY_BARREL_CRUSH_2 = 915743557U;
         static const AkUniqueID PLAY_BROKEN_WOOD_SOUND_1 = 763926535U;
         static const AkUniqueID PLAY_BROKEN_WOOD_SOUND_2 = 763926532U;
+        static const AkUniqueID PLAY_CHANGE_ITEM = 374802272U;
         static const AkUniqueID PLAY_CLICK_1 = 3821598058U;
         static const AkUniqueID PLAY_CLICK_2 = 3821598057U;
         static const AkUniqueID PLAY_CLICK_3 = 3821598056U;
         static const AkUniqueID PLAY_CLICK_4 = 3821598063U;
+        static const AkUniqueID PLAY_COMBO_1 = 3845195164U;
+        static const AkUniqueID PLAY_COMBO_2 = 3845195167U;
+        static const AkUniqueID PLAY_COMBO_3 = 3845195166U;
+        static const AkUniqueID PLAY_COMBO_GERALT = 1749253064U;
         static const AkUniqueID PLAY_DRINKING_POTION = 2710797174U;
         static const AkUniqueID PLAY_ENDREGA_ATTACK_1 = 2415117513U;
         static const AkUniqueID PLAY_ENDREGA_ATTACK_2 = 2415117514U;
@@ -106,7 +108,6 @@ namespace AK
         static const AkUniqueID PLAY_JASKIER_SONG_1 = 2858442791U;
         static const AkUniqueID PLAY_JASKIER_SONG_2 = 2858442788U;
         static const AkUniqueID PLAY_JASKIER_WALK = 748248399U;
-        static const AkUniqueID PLAY_JASKIER_WALK_2 = 2063358996U;
         static const AkUniqueID PLAY_KIKIMORA_DEATH = 4129361266U;
         static const AkUniqueID PLAY_KIKIMORA_HIT = 3409660243U;
         static const AkUniqueID PLAY_KIKIMORA_LASH = 2548185504U;
@@ -117,7 +118,9 @@ namespace AK
         static const AkUniqueID PLAY_KIKIMORA_SOUND_5 = 2489507369U;
         static const AkUniqueID PLAY_KIKIMORA_SOUND_6 = 2489507370U;
         static const AkUniqueID PLAY_KIKIMORA_SWEEP = 287198644U;
+        static const AkUniqueID PLAY_LOW_HP = 3852706691U;
         static const AkUniqueID PLAY_LVL1_INTRO_CONVERSATION_CUTSCENE = 160635907U;
+        static const AkUniqueID PLAY_MAIN_MENU = 3306210749U;
         static const AkUniqueID PLAY_MENU_1 = 4155944947U;
         static const AkUniqueID PLAY_MENU_2 = 4155944944U;
         static const AkUniqueID PLAY_NILFGAARDIAN_DEATH_1 = 1506867313U;
@@ -139,18 +142,25 @@ namespace AK
         static const AkUniqueID PLAY_NILFGAARDIAN_VOICE_6 = 1211440694U;
         static const AkUniqueID PLAY_NILFGAARDIAN_WALKING_SOUND_GROUP_1 = 1261783110U;
         static const AkUniqueID PLAY_NILFGAARDIAN_WALKING_SOUND_GROUP_2 = 1261783109U;
+        static const AkUniqueID PLAY_NO_ENERGY = 306299682U;
+        static const AkUniqueID PLAY_NO_POTION = 2108537051U;
         static const AkUniqueID PLAY_SELECT_1 = 2927391090U;
         static const AkUniqueID PLAY_SELECT_2 = 2927391089U;
         static const AkUniqueID PLAY_SELECT_3 = 2927391088U;
+        static const AkUniqueID PLAY_SHEATHE = 2712680258U;
         static const AkUniqueID PLAY_SILVER_FOR_MONSTERS_MUSIC = 3329043269U;
+        static const AkUniqueID PLAY_SPECIAL_UP = 1836364305U;
         static const AkUniqueID PLAY_SPIKEROOG_MUSIC = 562633715U;
+        static const AkUniqueID PLAY_ULTI_GERALT = 1586346464U;
+        static const AkUniqueID PLAY_UNSHEATHE = 2342786857U;
+        static const AkUniqueID PLAY_USED_POTION = 3553846485U;
         static const AkUniqueID PLAY_WOODEN_OBJECT_BREAK_1 = 152572334U;
         static const AkUniqueID PLAY_WOODEN_OBJECT_BREAK_2 = 152572333U;
         static const AkUniqueID PLAY_WOODEN_OBJECT_BREAK_3 = 152572332U;
         static const AkUniqueID PLAY_WOODEN_OBJECT_BREAK_4 = 152572331U;
         static const AkUniqueID PLAY_WOODEN_OBJECT_BREAK_5 = 152572330U;
         static const AkUniqueID PLAY_WOODEN_OBJECT_BREAK_6 = 152572329U;
-        static const AkUniqueID REST = 2277599019U;
+        static const AkUniqueID PLAY_WRONG_JASKIER = 310070311U;
     } // namespace EVENTS
 
     namespace GAME_PARAMETERS
