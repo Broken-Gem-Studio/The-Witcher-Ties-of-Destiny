@@ -4,6 +4,7 @@ lua_table.SystemFunctions = Scripting.System()
 lua_table.AnimationFunctions = Scripting.Animations()
 lua_table.ObjectFunctions = Scripting.GameObject()
 lua_table.InterfaceFunctions = Scripting.Interface()
+lua_table.AudioFunctions = Scripting.Audio()
 
 local startButton = 0
 local fallingTime = 7.4
@@ -16,6 +17,9 @@ function lua_table:Awake()
 	startButton = lua_table.ObjectFunctions:FindGameObject("StartButton")
 	lua_table.AnimationFunctions:PlayAnimation("Fall", 30, MyUUID)
 	lastTimeFallen = lua_table.SystemFunctions:GameTime()
+	
+	lua_table.AudioFunctions:PlayAudioEvent("Play_menu_2")
+	lua_table.AudioFunctions:PlayAudioEvent("Play_Main_menu")
 end
 
 function lua_table:Start()
