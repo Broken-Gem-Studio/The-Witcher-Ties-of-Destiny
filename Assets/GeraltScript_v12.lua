@@ -610,7 +610,7 @@ local function GoDefaultState()
 		lua_table.ParticlesFunctions:PlayParticleEmitter(my_GO_UID)	--TODO-Particles: Activate movement dust particles
 	else
 		lua_table.AnimationFunctions:SetBlendTime(0.5, my_GO_UID)
-		lua_table.AnimationFunctions:SetBlendTime(0.0, slash_GO_UID)
+		lua_table.AnimationFunctions:SetBlendTime(0.0001, slash_GO_UID)
 		lua_table.AnimationFunctions:PlayAnimation("idle", lua_table.idle_animation_speed, my_GO_UID)
 
 		--TODO-AUDIO: Stop current sound event
@@ -719,7 +719,7 @@ local function JoystickInputs(key_string, input_table)	--TODO-Inputs: The whole 
 	if input_table.real_input.x == input_table.prev_input.x and input_table.real_input.z == input_table.prev_input.z	--IF both inputs exactly the same as last frame
 	and math.abs(input_table.real_input.x) < key_joystick_threshold and math.abs(input_table.real_input.z) < key_joystick_threshold			--and IF  both inputs under joystick threshold
 	then
-	 	input_table.used_input.x, input_table.used_input.z = 0.0, 0.0	--Set used input as idle (0)
+		input_table.used_input.x, input_table.used_input.z = 0.0, 0.0	--Set used input as idle (0)
 	else
 		input_table.used_input.x, input_table.used_input.z = input_table.real_input.x, input_table.real_input.z	--Use real input
 	end
@@ -812,7 +812,7 @@ end
 --Character Movement BEGIN	----------------------------------------------------------------------------
 
 local function SaveDirection()
-	if mov_input.used_input.x ~= 0 and mov_input.used_input.z ~= 0	--IF input given, use as direction
+	if mov_input.used_input.x ~= 0 or mov_input.used_input.z ~= 0	--IF input given, use as direction
 	then
 		local magnitude = math.sqrt(mov_input.used_input.x ^ 2 + mov_input.used_input.z ^ 2)
 
@@ -839,7 +839,7 @@ local function DirectionInBounds()	--Every time we try to set a velocity, this i
 	if off_bounds then
 		rot_y = math.rad(GimbalLockWorkaroundY(lua_table.TransformFunctions:GetRotation(my_GO_UID)[2]))	--TODO: Remove GimbalLock stage when Euler bug is fixed
 		
-		lua_table.SystemFunctions:LOG("Angle Between: " .. math.deg(BidimensionalAngleBetweenVectors(math.sin(rot_y), math.cos(rot_y), bounds_vector.x, bounds_vector.z)))
+		--lua_table.SystemFunctions:LOG("Angle Between: " .. math.deg(BidimensionalAngleBetweenVectors(math.sin(rot_y), math.cos(rot_y), bounds_vector.x, bounds_vector.z)))
 
 		--IF angle between character Front (Z) and set Bounds Vector > Bounds Angle, in other words, if direction too far away from what camera requires to stay within bounds
 		if BidimensionalAngleBetweenVectors(math.sin(rot_y), math.cos(rot_y), bounds_vector.x, bounds_vector.z) > bounds_angle
@@ -1594,10 +1594,6 @@ function lua_table:Awake()
 	--Get self GO_UID
 	my_GO_UID = lua_table.GameObjectFunctions:GetMyUID()
 	slash_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt_Slash")
-
-	--Set Animation Default BlendTime
-	lua_table.AnimationFunctions:SetBlendTime(0.1, my_GO_UID)
-	lua_table.AnimationFunctions:SetBlendTime(0.1, slash_GO_UID)
 
 	--Get Particle Emitters GO_UID
 	--sword_particles_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt_Sword")

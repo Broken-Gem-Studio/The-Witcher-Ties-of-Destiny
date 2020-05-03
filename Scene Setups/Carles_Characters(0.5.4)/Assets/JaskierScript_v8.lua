@@ -617,7 +617,7 @@ local function GoDefaultState()
 		lua_table.ParticlesFunctions:PlayParticleEmitter(my_GO_UID)	--TODO-Particles: Activate movement dust particles
 	else
 		lua_table.AnimationFunctions:SetBlendTime(0.5, my_GO_UID)
-		lua_table.AnimationFunctions:SetBlendTime(0.0, slash_GO_UID)
+		lua_table.AnimationFunctions:SetBlendTime(0.0001, slash_GO_UID)
 		lua_table.AnimationFunctions:PlayAnimation("idle", lua_table.idle_animation_speed, my_GO_UID)
 
 		--TODO-AUDIO: Stop current sound event
@@ -818,7 +818,7 @@ end
 --Character Movement BEGIN	----------------------------------------------------------------------------
 
 local function SaveDirection()
-	if mov_input.used_input.x ~= 0 and mov_input.used_input.z ~= 0	--IF input given, use as direction
+	if mov_input.used_input.x ~= 0 or mov_input.used_input.z ~= 0	--IF input given, use as direction
 	then
 		local magnitude = math.sqrt(mov_input.used_input.x ^ 2 + mov_input.used_input.z ^ 2)
 
@@ -1637,10 +1637,6 @@ function lua_table:Awake()
 	--Get self GO_UID
 	my_GO_UID = lua_table.GameObjectFunctions:GetMyUID()
 	slash_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Slash")
-
-	--Set Animation Default BlendTime
-	lua_table.AnimationFunctions:SetBlendTime(0.1, my_GO_UID)
-	lua_table.AnimationFunctions:SetBlendTime(0.1, slash_GO_UID)
 
 	--Get Particle Emitters GO_UID
 	--guitar_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Guitar")
