@@ -1809,7 +1809,7 @@ function lua_table:Update()
 
 					elseif lua_table.current_state == state.light_1 or lua_table.current_state == state.light_2 or lua_table.current_state == state.light_3	--IF Light Attacking
 					then
-						if lua_table.current_state ~= state.light_1 and DirectionInBounds() and time_since_action < current_action_block_time	--IF not light_1 and in bounds
+						if DirectionInBounds() and time_since_action < current_action_block_time	--IF in bounds
 						then
 							lua_table.PhysicsFunctions:Move(lua_table.light_movement_velocity * rec_direction.x * dt, lua_table.light_movement_velocity * rec_direction.z * dt, my_GO_UID)
 						end
