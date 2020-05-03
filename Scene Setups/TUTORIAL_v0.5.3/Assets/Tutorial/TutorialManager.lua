@@ -50,6 +50,31 @@ local squarePosition = {0, 0, 0}
 local jaskierUlted = false
 local geraltUlted = false
 
+local table_barril_1
+local table_barril_2
+local table_barril_3
+local table_barril_4
+
+local barril_1
+local barril_2
+local barril_3
+local barril_4
+
+-- Variebales for STEP 1
+local blocked_1_geralt = true
+local blocked_1_jaskier = true
+
+-- Variebales for STEP 2
+local blocked_2_geralt = true
+local blocked_2_jaskier = true
+
+-- Variebales for STEP 3 & 4
+local is_geralt_combos = true
+local is_jaskier_combos = true
+local geralt_combos
+local jaskier_combos
+local showCombos = false
+
 -- Variables for STEP 5
 local geraltDrinkPotion = false
 local jaskierDrinkPotion = false
@@ -114,28 +139,85 @@ end
 ------------------------------------------------------------------------------
 
 local function Step1()
+    lua_table.InterfaceFunctions:MakeElementVisible("Text", textUID)
+    lua_table.InterfaceFunctions:SetText("Use the left joystick to move the player", textUID)
+
+    if lua_table.InputFunctions:GetAxisValue(GeraltNumber, "AXIS_LEFT" .. "X", 0.01) > 0 or lua_table.InputFunctions:GetAxisValue(GeraltNumber, "AXIS_LEFT" .. "Y", 0.01) > 0
+    then
+        blocked_1_geralt = false
+    end
+
+    if lua_table.InputFunctions:GetAxisValue(JaskierNumber, "AXIS_LEFT" .. "X", 0.01) > 0 or lua_table.InputFunctions:GetAxisValue(JaskierNumber, "AXIS_LEFT" .. "Y", 0.01) > 0
+    then
+        blocked_1_jaskier = false
+    end
+
+    if blocked_1_geralt == false and blocked_1_jaskier == false
+    then
+        lua_table.SystemFunctions:LOG("TEXT invisible")
+        lua_table.InterfaceFunctions:MakeElementInvisible("Text", textUID)
+        lua_table.currentStep = Step.DODGE
+    end
 end
 
 local function Step2()
+    lua_table.InterfaceFunctions:MakeElementVisible("Text", textUID)
+    lua_table.InterfaceFunctions:SetText("Press A to move great distances and dodge attacks. Consumes 1 energy bar (yellow)", textUID)
+
+    if lua_table.InputFunctions:IsGamepadButton(GeraltNumber, "BUTTON_A", KeyState.DOWN) == true
+    then
+        blocked_2_geralt = false
+    end
+
+    if lua_table.InputFunctions:IsGamepadButton(JaskierNumber, "BUTTON_A", KeyState.DOWN) == true
+    then
+        blocked_2_jaskier = false
+    end
+
+    if blocked_2_geralt == false and blocked_2_jaskier == false
+    then
+        lua_table.SystemFunctions:LOG("TEXT invisible")
+        lua_table.InterfaceFunctions:MakeElementInvisible("Text", textUID)
+        lua_table.currentStep = Step.BASIC_ATTACKS
+    end
 end
 
 local function Step3()
+    lua_table.InterfaceFunctions:MakeElementVisible("Text", textUID)
+
+    if showCombos == false
+    then
+        lua_table.InterfaceFunctions:MakeElementVisible("Image", geralt_combos)
+        lua_table.InterfaceFunctions:MakeElementVisible("Image", jaskier_combos)
+        showCombos = true
+    end
+
+    lua_table.InterfaceFunctions:SetText("Destroy these boxes! Press X (light attack), Y (medium attack) or X + Y (heavy attack)", textUID)
+
+    -- Check Breakable Props
+    if table_barril_1.health == 0 and table_barril_2.health == 0 and table_barril_3.health == 0 and table_barril_4.health == 0
+    then
+    lua_table.SystemFunctions:LOG("TEXT invisible")
+    lua_table.InterfaceFunctions:MakeElementInvisible("Text", textUID)
+    lua_table.currentStep = Step.POTIONS
+    end
 end
 
 local function Step4()
+
 end
 
 local function Step5()
     lua_table.InterfaceFunctions:MakeElementVisible("Text", textUID)
     lua_table.InterfaceFunctions:SetText("Press button to use a potion. Press button to switch between health potion (red) and energy potion (yellow)", textUID)
-
+    
     if lua_table.InputFunctions:IsGamepadButton(GeraltNumber, "BUTTON_RIGHTSHOULDER", KeyState.DOWN)   -- BUTTON_RIGHTSHOULDER == R1 ps4 controller
     then
         geraltDrinkPotion = true
-        lua_table.System:LOG("BUTTON_RIGHTSHOULDER geralt")
+        lua_table.SystemFunctions:LOG("BUTTON_RIGHTSHOULDER geralt")
     end
 
-    if lua_table.InputFunctions:IsGamepadButton(JaskierNumber, "BUTTON_RIGHTSHOULDER", KeyState.DOW)   -- BUTTON_RIGHTSHOULDER == R1 ps4 controller
+    if lua_table.InputFunctions:IsGamepadButton(JaskierNumber, "BUTTON_RIGHTSHOULDER", KeyState.DOWN)   -- BUTTON_RIGHTSHOULDER == R1 ps4 controller
     then
         jaskierDrinkPotion = true
         lua_table.SystemFunctions:LOG("BUTTON_RIGHTSHOULDER jaskier")
@@ -167,8 +249,8 @@ local function Step6()
     lua_table.InterfaceFunctions:MakeElementVisible("Text", textUID)
     lua_table.InterfaceFunctions:SetText("Hold button to reanimate your partner if they drop to 0 health", textUID)
 
-    geraltTable = lua_table.GameObject:GetScript(lua_table.Geralt_UUID)
-    jaskierTable = lua_table.GameObject:GetScript(lua_table.Jaskier_UUID)
+    geraltTable = lua_table.ObjectFunctions:GetScript(lua_table.Geralt_UUID)
+    jaskierTable = lua_table.ObjectFunctions:GetScript(lua_table.Jaskier_UUID)
  
     if jaskierTable.current_state ~= -3 and geraltDown == false and jaskierDown == false and jaskierHasRevived == false
     then
@@ -213,7 +295,8 @@ local function Step7()
     if spawnEnemy == false
     then
         lastTime_step7 = lua_table.SystemFunctions:GameTime()
-        lua_table.GameObject:SetActiveGameObject(true, lua_table.Lumberjack_7)
+        lua_table.SystemFunctions:LOG("lumberjack 7 UID: "..lua_table.Lumberjack_7)
+        lua_table.ObjectFunctions:SetActiveGameObject(true, lua_table.Lumberjack_7)
         spawnEnemy = true
     end
 
@@ -228,7 +311,7 @@ local function Step8()
     lua_table.InterfaceFunctions:MakeElementVisible("Text", textUID)
     lua_table.InterfaceFunctions:SetText("Use the spells to defeat the enemy!", textUID)
 
-    local enemyTable = lua_table.GameObject:GetScript(lua_table.Lumberjack_7)
+    local enemyTable = lua_table.ObjectFunctions:GetScript(lua_table.Lumberjack_7)
     
     if lua_table.Input:IsGamepadButton(GeraltNumber, "BUTTON_X", "DOWN")
     then
@@ -329,6 +412,36 @@ local function Step12()
     end
 end
 
+
+local function ShowCombos()
+    -- Geralt Combos Image
+    if lua_table.InputFunctions:IsGamepadButton(GeraltNumber, "BUTTON_START", KeyState.DOWN)
+    then
+        if is_geralt_combos == true
+        then 
+            lua_table.InterfaceFunctions:MakeElementInvisible("Image", geralt_combos)
+            is_geralt_combos = false
+        elseif is_geralt_combos == false
+        then
+            lua_table.InterfaceFunctions:MakeElementVisible("Image", geralt_combos)
+            is_geralt_combos = true
+        end
+    end
+
+    -- Jaskier Combos Image
+    if lua_table.InputFunctions:IsGamepadButton(JaskierNumber, "BUTTON_START", KeyState.DOWN)
+    then
+        if is_jaskier_combos == true
+        then 
+            lua_table.InterfaceFunctions:MakeElementInvisible("Image", jaskier_combos)
+            is_jaskier_combos = false
+        elseif is_jaskier_combos == false
+        then
+            lua_table.InterfaceFunctions:MakeElementVisible("Image", jaskier_combos)
+            is_jaskier_combos = true
+        end
+    end
+end
 ------------------------------------------------------------------------------
 -- CORE
 ------------------------------------------------------------------------------
@@ -356,6 +469,21 @@ function lua_table:Awake()
     lua_table.Lumberjack_10_3 = lua_table.ObjectFunctions:FindGameObject("Lumberjack 10.3")
     lua_table.Lumberjack_10_4 = lua_table.ObjectFunctions:FindGameObject("Lumberjack 10.4")
     lua_table.Lumberjack_10_5 = lua_table.ObjectFunctions:FindGameObject("Lumberjack 10.5")
+
+    barril_1 = lua_table.ObjectFunctions:FindGameObject("Barril 1")
+    barril_2 = lua_table.ObjectFunctions:FindGameObject("Barril 2")
+    barril_3 = lua_table.ObjectFunctions:FindGameObject("Barril 3")
+    barril_4 = lua_table.ObjectFunctions:FindGameObject("Barril 4")
+
+    table_barril_1 = lua_table.ObjectFunctions:GetScript(barril_1)
+    table_barril_2 = lua_table.ObjectFunctions:GetScript(barril_2)
+    table_barril_3 = lua_table.ObjectFunctions:GetScript(barril_3)
+    table_barril_4 = lua_table.ObjectFunctions:GetScript(barril_4)
+
+    geralt_combos = lua_table.ObjectFunctions:FindGameObject("Geralt Combos")
+    jaskier_combos = lua_table.ObjectFunctions:FindGameObject("Jaskier Combos")
+
+
 end
 
 function lua_table:Start()
@@ -367,7 +495,28 @@ function lua_table:Update()
     --lua_table.ObjectFunctions:SetActiveGameObject(true, lua_table.Lumberjack_9_2)
     --lua_table.ObjectFunctions:SetActiveGameObject(true, lua_table.Lumberjack_9_3)
 
-    if lua_table.currentStep == Step.POTIONS
+    if lua_table.currentStep ~= Step.MOVEMENT and lua_table.currentStep ~= Step.DODGE
+    then
+        ShowCombos()
+    end
+
+    if lua_table.currentStep == Step.MOVEMENT
+    then
+        Step1()
+
+    elseif lua_table.currentStep == Step.DODGE
+    then
+        Step2()
+        
+    elseif lua_table.currentStep == Step.BASIC_ATTACKS
+    then
+        Step3()
+
+    elseif lua_table.currentStep == Step.BREAKABLE_OBJECTS 
+    then 
+        Step4()
+
+    elseif lua_table.currentStep == Step.POTIONS
     then
         Step5()
 
@@ -386,6 +535,7 @@ function lua_table:Update()
     elseif lua_table.currentStep == Step.ULTIMATE 
     then 
         Step9()
+        
     elseif lua_table.currentStep == Step.KILL_EVERYONE
     then
         Step10()

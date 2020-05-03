@@ -6,6 +6,7 @@ lua_table.Transform = Scripting.Transform()
 lua_table.Physics =  Scripting.Physics()
 lua_table.Animations = Scripting.Animations()
 lua_table.Recast = Scripting.Navigation()
+lua_table.Audio = Scripting.Audio()
 -- DEBUG PURPOSES
 --lua_table.Input = Scripting.Inputs()
 
@@ -54,7 +55,7 @@ local attack_effects = {
 lua_table.MyUID = 0 --Entity UID
 lua_table.max_hp = 200
 lua_table.health = 0
-lua_table.speed = 0.07
+lua_table.speed = 0.055
 lua_table.knock_speed = 0.5
 lua_table.currentState = 0
 lua_table.is_stunned = false
@@ -92,6 +93,12 @@ local taunt_timer = 0
 local start_death = false
 local death_timer = 0
 
+local start_navigation = true
+local navigation_timer = 0
+
+-- local start_aggro = false
+-- local aggro_timer = 0
+
 -- Flow control conditionals
 local jumping = false
 local stunning = false
@@ -110,7 +117,9 @@ local JC2 = 0
 -- Recast navigation
 local navID = 0
 local corners = {}
-local currCorner = 2
+local vec = { 0, 0, 0 }
+lua_table.currCorner = 2
+local path_distance = -1
 
 -- Entity colliders
 local is_front_active = false
@@ -126,7 +135,8 @@ lua_table.collider_effect = 0
 -- ______________________SCRIPT FUNCTIONS______________________
 
 local function ResetNavigation()
-	currCorner = 2
+	lua_table.currCorner = 2
+	start_navigation = true
 end
 
 local function ResetJumpStun()
@@ -269,36 +279,53 @@ local function Seek()
 	
 	-- Now we get the direction vector and then we normalize it and aply a velocity in every component
 	
-	if lua_table.currentTargetDir < lua_table.AggroRange and lua_table.currentTargetDir > lua_table.minDistance then
+	
+    -- if start_aggro == false then 
+    --     lua_table.Animations:PlayAnimation("Crush", 30.0, lua_table.MyUID)
+    --     aggro_timer = lua_table.System:GameTime() * 1000
+    --     start_aggro = true
+	-- end
+	
+	--if start_aggro and aggro_timer + 2000 <= lua_table.System:GameTime() * 1000 then
+		if lua_table.currentTargetDir < lua_table.AggroRange and lua_table.currentTargetDir > lua_table.minDistance then
 			
-		corners = lua_table.Recast:CalculatePath(lua_table.GhoulPos[1], lua_table.GhoulPos[2], lua_table.GhoulPos[3], lua_table.currentTargetPos[1], lua_table.currentTargetPos[2], lua_table.currentTargetPos[3], 1 << navID)
+			--corners = lua_table.Recast:CalculatePath(lua_table.GhoulPos[1], lua_table.GhoulPos[2], lua_table.GhoulPos[3], lua_table.currentTargetPos[1], lua_table.currentTargetPos[2], lua_table.currentTargetPos[3], 1 << navID)
+			
+			if navigation_timer + 500 <= lua_table.System:GameTime() * 1000 then
+				start_navigation = true
+			end
 
-		local nextCorner = {}
-		nextCorner[1] = corners[currCorner][1] - lua_table.GhoulPos[1]
-		nextCorner[2] = corners[currCorner][2] - lua_table.GhoulPos[2]
-		nextCorner[3] = corners[currCorner][3] - lua_table.GhoulPos[3]
+			if start_navigation == true then
+				corners = lua_table.Recast:CalculatePath(lua_table.GhoulPos[1], lua_table.GhoulPos[2], lua_table.GhoulPos[3], lua_table.currentTargetPos[1], lua_table.currentTargetPos[2], lua_table.currentTargetPos[3], 1 << navID)
+				navigation_timer = lua_table.System:GameTime() * 1000
+				start_navigation = false
+				lua_table.currCorner = 2
+			end
 
-		local dis = math.sqrt(nextCorner[1] ^ 2 + nextCorner[3] ^ 2)
-		
-		if dis > 0.05 then 
-
-			local vec = { 0, 0, 0 }
-			vec[1] = nextCorner[1] / dis
-			vec[2] = nextCorner[2]
-			vec[3] = nextCorner[3] / dis
+			local nextCorner = {0, 0, 0}
+			nextCorner[1] = corners[lua_table.currCorner][1] - lua_table.GhoulPos[1]
+			nextCorner[2] = corners[lua_table.currCorner][2] - lua_table.GhoulPos[2]
+			nextCorner[3] = corners[lua_table.currCorner][3] - lua_table.GhoulPos[3]
+	
+			path_distance = math.sqrt(nextCorner[1] ^ 2 + nextCorner[3] ^ 2)
+			
+			if path_distance > 0.2 then 
+	
+				vec[1] = nextCorner[1] / path_distance
+				vec[2] = 0
+				vec[3] = nextCorner[3] / path_distance
+					
+				-- Apply movement vector to move character
+				lua_table.Transform:LookAt(corners[lua_table.currCorner][1], lua_table.GhoulPos[2], corners[lua_table.currCorner][3], lua_table.MyUID)
+				lua_table.Physics:Move(vec[1] * lua_table.speed, vec[3] * lua_table.speed, lua_table.MyUID)
 				
-			-- Apply movement vector to move character
-			lua_table.Transform:LookAt(corners[currCorner][1], lua_table.GhoulPos[2], corners[currCorner][3], lua_table.MyUID)
-			lua_table.Physics:Move(vec[1] * lua_table.speed, vec[3] * lua_table.speed, lua_table.MyUID)
-			
-			else
-				currCorner = currCorner + 1
+				else
+					lua_table.currCorner = lua_table.currCorner + 1
+					lua_table.PhysicsSystem:Move(0, 0, lua_table.MyUID)
+			end
+				
 		end
-		
-	else 
-		lua_table.currentState = State.IDLE	
-			
-	end
+	--end
 	
 	if lua_table.currentTargetDir <= lua_table.minDistance then
 		lua_table.currentState = State.JUMP
