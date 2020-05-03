@@ -297,7 +297,7 @@ lua_table.energy_reg_orig = 5
 
 --Light Attack
 lua_table.light_damage = 1.0					--Multiplier of Base Damage
-lua_table.light_movement_velocity = 0.8
+lua_table.light_movement_velocity = 1.5
 
 lua_table.light_1_block_time = 450			--Input block duration	(block new attacks)
 lua_table.light_1_collider_front_start = 460	--Collider activation time
@@ -319,7 +319,7 @@ lua_table.light_3_animation_speed = 40.0		--IMPROVE: Attack 3 animaton includes 
 
 --Medium Attack
 lua_table.medium_damage = 1.5					--Multiplier of Base Damage
-lua_table.medium_movement_velocity = 0.8
+lua_table.medium_movement_velocity = 1.5
 
 lua_table.medium_1_block_time = 300			--Input block duration	(block new attacks)
 lua_table.medium_1_collider_front_start = 350	--Collider activation time
@@ -341,7 +341,7 @@ lua_table.medium_3_animation_speed = 30.0		--IMPROVE: Attack 3 animaton includes
 
 --Heavy Attack
 lua_table.heavy_damage = 2.0				--Multiplier of Base Damage
-lua_table.heavy_movement_velocity = 0.8
+lua_table.heavy_movement_velocity = 1.5
 
 lua_table.heavy_1_block_time = 1100			--Input block duration	(block new attacks)
 lua_table.heavy_1_collider_front_start = 1000	--Collider activation time
@@ -1812,6 +1812,15 @@ function lua_table:Update()
 							revive_target = nil
 						elseif lua_table.current_state >= state.light_1 and lua_table.current_state <= state.heavy_3	--IF attack finished
 						then
+							if attack_input_given	--IF attack input was given before time ran out, process it instantly
+							then
+								attack_input_timeframe = 0
+								ActionInputs()
+								attack_input_timeframe = 70
+
+								attack_input_given = false
+							end
+
 						-- 	lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_guitar_particles_GO_UID)	--TODO-Particles: Deactivate Particles on Sword
 						elseif lua_table.current_state == state.song_1
 						then
@@ -1847,8 +1856,7 @@ function lua_table:Update()
 
 					elseif lua_table.current_state == state.light_1 or lua_table.current_state == state.light_2 or lua_table.current_state == state.light_3	--IF Light Attacking
 					then
-						if DirectionInBounds() and lua_table.current_state == state.light_3
-						then
+						if DirectionInBounds() and lua_table.current_state == state.light_3 and time_since_action < current_action_block_time then
 							lua_table.PhysicsFunctions:Move(lua_table.heavy_movement_velocity * rec_direction.x * dt, lua_table.heavy_movement_velocity * rec_direction.z * dt, my_GO_UID)
 						end
 
@@ -1860,8 +1868,7 @@ function lua_table:Update()
 
 					elseif lua_table.current_state == state.medium_1 or lua_table.current_state == state.medium_2 or lua_table.current_state == state.medium_3	--IF Medium Attacking
 					then
-						if DirectionInBounds()
-						then
+						if DirectionInBounds() and time_since_action < current_action_block_time then
 							lua_table.PhysicsFunctions:Move(lua_table.heavy_movement_velocity * rec_direction.x * dt, lua_table.heavy_movement_velocity * rec_direction.z * dt, my_GO_UID)
 						end
 
@@ -1873,7 +1880,7 @@ function lua_table:Update()
 
 					elseif lua_table.current_state == state.heavy_1 or lua_table.current_state == state.heavy_2 or lua_table.current_state == state.heavy_3	--IF Heavy Attacking
 					then
-						if DirectionInBounds() then
+						if DirectionInBounds() and time_since_action < current_action_block_time then
 							if lua_table.current_state == state.heavy_2 or lua_table.current_state == state.heavy_3
 							then
 							lua_table.PhysicsFunctions:Move(lua_table.heavy_movement_velocity * rec_direction.x * dt, lua_table.heavy_movement_velocity * rec_direction.z * dt, my_GO_UID)
