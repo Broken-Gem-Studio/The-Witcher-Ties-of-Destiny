@@ -982,7 +982,7 @@ end
 local function PerformCombo(combo_type)
 	local string_match = false
 
-	if lua_table.combo_num == lua_table[combo_type .. "_size"] and CompareTables(lua_table.combo_stack, lua_table[combo_type])
+	if lua_table.combo_num >= lua_table[combo_type .. "_size"] and CompareTables(lua_table.combo_stack, lua_table[combo_type])
 	then
 		current_action_block_time = lua_table[combo_type .. "_duration"]
 		current_action_duration = current_action_block_time
@@ -1323,13 +1323,15 @@ local function ActionInputs()	--Process Action Inputs
 	if action_made 	--IF action performed
 	then
 		lua_table.AnimationFunctions:SetBlendTime(0.1, my_GO_UID)
-		lua_table.AnimationFunctions:SetBlendTime(0.1, slash_GO_UID)
-		lua_table.GameObjectFunctions:SetActiveGameObject(true, slash_mesh_GO_UID)
 
 		AttackColliderShutdown()
 
-		if not (lua_table.current_state <= state.combo_4 and lua_table.current_state >= state.light_1)	--IF input not attack
+		if lua_table.current_state <= state.combo_4 and lua_table.current_state >= state.light_1	--IF attack
 		then
+			lua_table.AnimationFunctions:SetBlendTime(0.1, slash_GO_UID)
+			lua_table.GameObjectFunctions:SetActiveGameObject(true, slash_mesh_GO_UID)
+		else
+			lua_table.GameObjectFunctions:SetActiveGameObject(false, slash_mesh_GO_UID)
 			--lua_table.ParticlesFunctions:StopParticleEmitter(sword_particles_GO_UID)	--TODO-Particles: Deactivate Particles on Sword
 		end
 
