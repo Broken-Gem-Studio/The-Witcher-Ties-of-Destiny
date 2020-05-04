@@ -31,12 +31,15 @@ local my_GO_UID
 local slash_GO_UID
 local slash_mesh_GO_UID
 local jaskier_guitar_particles_GO_UID
+
 local jaskier_guitar_circle_particles_1_GO_UID
 local jaskier_guitar_circle_particles_2_GO_UID
+
 local jaskier_guitar_cone_particles_1_GO_UID
 local jaskier_guitar_cone_particles_2_GO_UID
-local jaskier_ultimate_GO_UID
-local jaskier_ability_GO_UID
+
+local jaskier_concert_particles_1_GO_UID
+local jaskier_concert_particles_2_GO_UID
 
 lua_table.level_1_scene = 0
 
@@ -813,7 +816,18 @@ end
 --Character Particles BEGIN	----------------------------------------------------------------------------
 
 local function ParticlesShutdown()
+	lua_table.ParticlesFunctions:SetActiveGameObject(false, slash_mesh_GO_UID)
+
 	lua_table.ParticlesFunctions:StopParticleEmitter(my_GO_UID)
+
+	lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_guitar_circle_particles_1_GO_UID)
+	lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_guitar_circle_particles_2_GO_UID)
+
+	lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_guitar_cone_particles_1_GO_UID)
+	lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_guitar_cone_particles_2_GO_UID)
+
+	lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_concert_particles_1_GO_UID)
+	lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_concert_particles_2_GO_UID)
 end
 
 --Character Particles END	----------------------------------------------------------------------------
@@ -1034,7 +1048,8 @@ local function UltimateConcert()
 	then
 		if lua_table.ultimate_effect_active
 		then
-			--lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_song_3_GO_UID)	--TODO-Particles:
+			lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_concert_particles_1_GO_UID)	--TODO-Particles:
+			lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_concert_particles_2_GO_UID)	--TODO-Particles:
 			lua_table.ultimate_effect_active = false
 
 			--Setup for stage_2
@@ -1050,7 +1065,8 @@ local function UltimateConcert()
 	else	--IF > start time and < end time
 		if not lua_table.ultimate_effect_active	--IF effect unactive, activate
 		then
-			--lua_table.ParticlesFunctions:PlayParticleEmitter(jaskier_song_3_GO_UID)	--TODO-Particles:
+			lua_table.ParticlesFunctions:PlayParticleEmitter(jaskier_concert_particles_1_GO_UID)	--TODO-Particles:
+			lua_table.ParticlesFunctions:PlayParticleEmitter(jaskier_concert_particles_2_GO_UID)	--TODO-Particles:
 			lua_table.ultimate_effect_active = true
 		end
 
@@ -1649,23 +1665,27 @@ function lua_table:Awake()
 
 	--Get Particle Emitters GO_UID
 	--guitar_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Guitar")
-	--jaskier_ultimate_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Ultimate")
-	jaskier_ultimate_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Ultimate")
 	jaskier_guitar_circle_particles_1_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Circle_1")
 	jaskier_guitar_circle_particles_2_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Circle_2")
+
 	jaskier_guitar_cone_particles_1_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Cone_1")
 	jaskier_guitar_cone_particles_2_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Cone_2")
+
+	jaskier_concert_particles_1_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Concert_1")
+	jaskier_concert_particles_2_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Concert_2")
 
 	--Stop Particle Emitters
 	lua_table.ParticlesFunctions:StopParticleEmitter(my_GO_UID)
 	lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_guitar_circle_particles_1_GO_UID)
 	lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_guitar_circle_particles_2_GO_UID)
+
 	lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_guitar_cone_particles_1_GO_UID)
 	lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_guitar_cone_particles_2_GO_UID)
 
+	lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_concert_particles_1_GO_UID)
+	lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_concert_particles_2_GO_UID)
+
 	--lua_table.ParticlesFunctions:StopParticleEmitter_GO(guitar_GO_UID)			--TODO-Particles: Uncomment when ready
-	--lua_table.ParticlesFunctions:StopParticleEmitter_GO(jaskier_ability_GO_UID)	--TODO-Particles: Uncomment when ready
-	--lua_table.ParticlesFunctions:StopParticleEmitter_GO(jaskier_ultimate_GO_UID)	--TODO-Particles: Uncomment when ready
 
 	--Get attack_colliders GO_UIDs by name
 	attack_colliders.front.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.front.GO_name)
@@ -1822,7 +1842,6 @@ function lua_table:Update()
 						-- 	lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_guitar_particles_GO_UID)	--TODO-Particles: Deactivate Particles on Sword
 						elseif lua_table.current_state == state.song_1
 						then
-							--lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_ultimate_GO_UID)	--TODO-Particles: Deactivate Aard particles on hand
 							lua_table.song_1_effect_active = false
 						elseif lua_table.current_state == state.song_2
 						then
