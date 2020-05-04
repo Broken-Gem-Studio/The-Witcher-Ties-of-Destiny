@@ -142,11 +142,12 @@ local item_effects = {		--Item library and required data to operate
 	{ damage_increase = 1, critical_chance_increase = 10 },
 }
 lua_table.inventory = {	--Character inventory (number of each item)
-	6,
-	4,
-	2
+	3,
+	2,
+	1
 }
 lua_table.item_selected = lua_table.item_library.health_potion
+lua_table.item_type_max = 3
 
 	--Potions
 	lua_table.potion_in_effect = 0
