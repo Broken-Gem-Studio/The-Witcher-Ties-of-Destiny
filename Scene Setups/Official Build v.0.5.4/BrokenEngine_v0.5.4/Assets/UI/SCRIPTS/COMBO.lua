@@ -159,15 +159,20 @@ function GetTableCOMBO()
     
     function lua_table:Update()
         timer = lua_table["System"]:GameTime()
-        --lua_table["System"]:LOG("COMBO: " .. lua_table.p1.combo_num )
-        --lua_table["System"]:LOG("STATE: " .. lua_table.p1.current_state )
+        lua_table["System"]:LOG("COMBO: " .. lua_table.p1.combo_num )
+        lua_table["System"]:LOG("STATE: " .. lua_table.p1.current_state )
         lua_table["System"]:LOG("NOTES: " .. lua_table.p2.note_num )
         lua_table["System"]:LOG("STATE2: " .. lua_table.p2.current_state )
 
         --GERALT
-        if lua_table.p1.current_state < 8 and sword_on == true and combo == false
+        if lua_table.p1.current_state < 8 and sword_on == true --and combo == false
         then
             lua_table["Audio"]:PlayAudioEvent("Play_Sheathe")--guardar hoja
+
+            lua_table.p1.combo_stack[4] = 0
+            lua_table.p1.combo_stack[3] = 0
+            lua_table.p1.combo_stack[2] = 0
+            lua_table.p1.combo_stack[1] = 0
 
             lua_table["UI"]:MakeElementInvisible("Image", COMBO_LIGHT_ID)
             lua_table["UI"]:MakeElementInvisible("Image", COMBO_HEAVY_ID)
@@ -182,10 +187,10 @@ function GetTableCOMBO()
             lua_table["UI"]:MakeElementInvisible("Image", COMBO_MEDIUM3_ID)
             lua_table["UI"]:MakeElementInvisible("Image", COMBO_MEDIUM4_ID)
 
-            first = false
-            second = false
-            third = false
-            fourth = false
+            --first = false
+            --second = false
+            --third = false
+            --fourth = false
 
             lua_table["UI"]:MakeElementInvisible("Image", SWORD_UP_ID)
             lua_table["UI"]:MakeElementInvisible("Image", SWORD_FIRE_ID)
@@ -197,31 +202,7 @@ function GetTableCOMBO()
             
         end
 
-        if lua_table.p1.combo_num >= 4 and combo == false--para borrar al cuarto input si no hace combo
-        then
-
-            lua_table["UI"]:MakeElementInvisible("Image", COMBO_LIGHT_ID)
-            lua_table["UI"]:MakeElementInvisible("Image", COMBO_HEAVY_ID)
-            lua_table["UI"]:MakeElementInvisible("Image", COMBO_LIGHT2_ID)
-            lua_table["UI"]:MakeElementInvisible("Image", COMBO_HEAVY2_ID)
-            lua_table["UI"]:MakeElementInvisible("Image", COMBO_LIGHT3_ID)
-            lua_table["UI"]:MakeElementInvisible("Image", COMBO_HEAVY3_ID)
-            lua_table["UI"]:MakeElementInvisible("Image", COMBO_LIGHT4_ID)
-            lua_table["UI"]:MakeElementInvisible("Image", COMBO_HEAVY4_ID)
-            lua_table["UI"]:MakeElementInvisible("Image", COMBO_MEDIUM_ID)
-            lua_table["UI"]:MakeElementInvisible("Image", COMBO_MEDIUM2_ID)
-            lua_table["UI"]:MakeElementInvisible("Image", COMBO_MEDIUM3_ID)
-            lua_table["UI"]:MakeElementInvisible("Image", COMBO_MEDIUM4_ID)
-
-            first = false
-            second = false
-            third = false
-            fourth = false
-            lua_table.p1.combo_num = 0--ojo con esto
-
-        end
-
-
+        
         --COMPORTAMIENTO SWORD/GUITAR
         if lua_table.p1.current_state >= 8 and lua_table.p1.current_state <= 16 and sword_off == true or
         lua_table.p1.enemies_nearby == true--cambiar por condicion de entrar en combate
@@ -236,6 +217,7 @@ function GetTableCOMBO()
 
         if combo == true
         then
+
             lua_table["Audio"]:PlayAudioEvent("Play_Combo_Geralt")
             --lua_table["Inputs"]:ShakeController(1, 1.0, 1000)--vibration
             lua_table["UI"]:MakeElementInvisible("Image", SWORD_DOWN_ID)
@@ -246,6 +228,226 @@ function GetTableCOMBO()
         end
 
     -------------------------------------
+
+        lua_table["System"]:LOG("COMBO 1: " .. lua_table.p1.combo_stack[4])
+        lua_table["System"]:LOG("COMBO 2: " .. lua_table.p1.combo_stack[3])
+        lua_table["System"]:LOG("COMBO 3: " .. lua_table.p1.combo_stack[2])
+        lua_table["System"]:LOG("COMBO 4: " .. lua_table.p1.combo_stack[1])
+
+        if lua_table.p1.combo_num == 0
+        then
+
+            if lua_table.p1.current_state >= 17
+            then
+
+                if lua_table.p1.combo_stack[4] == 'L' 
+                then
+                    lua_table["UI"]:MakeElementVisible("Image", COMBO_LIGHT_ID)
+                
+                end
+
+                if lua_table.p1.combo_stack[4] == 'M' 
+                then
+                    lua_table["UI"]:MakeElementVisible("Image", COMBO_MEDIUM_ID)
+                
+                end
+
+                if lua_table.p1.combo_stack[4] == 'H' 
+                then
+                    lua_table["UI"]:MakeElementVisible("Image", COMBO_HEAVY_ID)
+                
+                end
+
+                if lua_table.p1.combo_stack[3] == 'L' 
+                then
+                    lua_table["UI"]:MakeElementVisible("Image", COMBO_LIGHT2_ID)
+                
+                end
+
+                if lua_table.p1.combo_stack[3] == 'M' 
+                then
+                    lua_table["UI"]:MakeElementVisible("Image", COMBO_MEDIUM2_ID)
+                
+                end
+
+                if lua_table.p1.combo_stack[3] == 'H' 
+                then
+                    lua_table["UI"]:MakeElementVisible("Image", COMBO_HEAVY2_ID)
+                
+                end
+
+                if lua_table.p1.combo_stack[2] == 'L' 
+                then
+                    lua_table["UI"]:MakeElementVisible("Image", COMBO_LIGHT3_ID)
+                
+                end
+
+                if lua_table.p1.combo_stack[2] == 'M' 
+                then
+                    lua_table["UI"]:MakeElementVisible("Image", COMBO_MEDIUM3_ID)
+                
+                end
+
+                if lua_table.p1.combo_stack[2] == 'H' 
+                then
+                    lua_table["UI"]:MakeElementVisible("Image", COMBO_HEAVY3_ID)
+                
+                end
+
+                if lua_table.p1.combo_stack[1] == 'L' 
+                then
+                    lua_table["UI"]:MakeElementVisible("Image", COMBO_LIGHT4_ID)
+                
+                end
+
+                if lua_table.p1.combo_stack[1] == 'M' 
+                then
+                    lua_table["UI"]:MakeElementVisible("Image", COMBO_MEDIUM4_ID)
+                
+                end
+
+                if lua_table.p1.combo_stack[1] == 'H' 
+                then
+                    lua_table["UI"]:MakeElementVisible("Image", COMBO_HEAVY4_ID)
+                
+                end
+
+
+            end
+
+            if lua_table.p1.current_state < 17
+            then
+                lua_table.p1.combo_stack[4] = 0
+                lua_table.p1.combo_stack[3] = 0
+                lua_table.p1.combo_stack[2] = 0
+                lua_table.p1.combo_stack[1] = 0
+
+                lua_table["UI"]:MakeElementInvisible("Image", COMBO_LIGHT_ID)
+                lua_table["UI"]:MakeElementInvisible("Image", COMBO_HEAVY_ID)
+                lua_table["UI"]:MakeElementInvisible("Image", COMBO_LIGHT2_ID)
+                lua_table["UI"]:MakeElementInvisible("Image", COMBO_HEAVY2_ID)
+                lua_table["UI"]:MakeElementInvisible("Image", COMBO_LIGHT3_ID)
+                lua_table["UI"]:MakeElementInvisible("Image", COMBO_HEAVY3_ID)
+                lua_table["UI"]:MakeElementInvisible("Image", COMBO_LIGHT4_ID)
+                lua_table["UI"]:MakeElementInvisible("Image", COMBO_HEAVY4_ID)
+                lua_table["UI"]:MakeElementInvisible("Image", COMBO_MEDIUM_ID)
+                lua_table["UI"]:MakeElementInvisible("Image", COMBO_MEDIUM2_ID)
+                lua_table["UI"]:MakeElementInvisible("Image", COMBO_MEDIUM3_ID)
+                lua_table["UI"]:MakeElementInvisible("Image", COMBO_MEDIUM4_ID)
+            end
+        end
+
+
+    if lua_table.combo_num ~= 0
+    then
+        if lua_table.p1.combo_stack[4] == 'L' 
+        then
+            lua_table["UI"]:MakeElementVisible("Image", COMBO_LIGHT_ID)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_MEDIUM_ID)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_HEAVY_ID)
+        end
+
+        if lua_table.p1.combo_stack[4] == 'M' 
+        then
+            lua_table["UI"]:MakeElementVisible("Image", COMBO_MEDIUM_ID)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_LIGHT_ID)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_HEAVY_ID)
+        end
+
+        if lua_table.p1.combo_stack[4] == 'H' 
+        then
+            lua_table["UI"]:MakeElementVisible("Image", COMBO_HEAVY_ID)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_LIGHT_ID)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_MEDIUM_ID)
+        end
+    end
+    
+        -------
+    if lua_table.combo_num ~= 0
+    then
+        if lua_table.p1.combo_stack[3] == 'L'
+        then
+            lua_table["UI"]:MakeElementVisible("Image", COMBO_LIGHT2_ID)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_MEDIUM2_ID)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_HEAVY2_ID)
+        end
+
+        if lua_table.p1.combo_stack[3] == 'M' 
+        then
+            lua_table["UI"]:MakeElementVisible("Image", COMBO_MEDIUM2_ID)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_LIGHT2_ID)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_HEAVY2_ID)
+        end
+
+        if lua_table.p1.combo_stack[3] == 'H' 
+        then
+            lua_table["UI"]:MakeElementVisible("Image", COMBO_HEAVY2_ID)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_LIGHT2_ID)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_MEDIUM2_ID)
+        end
+    end
+    
+        -------
+    if lua_table.combo_num ~= 0
+    then
+        if lua_table.p1.combo_stack[2] == 'L' 
+        then
+            lua_table["UI"]:MakeElementVisible("Image", COMBO_LIGHT3_ID)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_MEDIUM3_ID)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_HEAVY3_ID)
+        end
+
+        if lua_table.p1.combo_stack[2] == 'M' 
+        then
+            lua_table["UI"]:MakeElementVisible("Image", COMBO_MEDIUM3_ID)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_LIGHT3_ID)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_HEAVY3_ID)
+        end
+
+        if lua_table.p1.combo_stack[2] == 'H'
+        then
+            lua_table["UI"]:MakeElementVisible("Image", COMBO_HEAVY3_ID)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_LIGHT3_ID)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_MEDIUM3_ID)
+        end
+
+    end
+    
+
+        -------
+    
+        if lua_table.p1.combo_stack[1] == 'L' 
+        then
+            lua_table["UI"]:MakeElementVisible("Image", COMBO_LIGHT4_ID)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_MEDIUM4_ID)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_HEAVY4_ID)
+        end
+
+        if lua_table.p1.combo_stack[1] == 'M' 
+        then
+            lua_table["UI"]:MakeElementVisible("Image", COMBO_MEDIUM4_ID)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_LIGHT4_ID)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_HEAVY4_ID)
+        end
+
+        if lua_table.p1.combo_stack[1] == 'H' 
+        then
+            lua_table["UI"]:MakeElementVisible("Image", COMBO_HEAVY4_ID)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_LIGHT4_ID)
+            lua_table["UI"]:MakeElementInvisible("Image", COMBO_MEDIUM4_ID)
+        end
+    
+   
+
+    --COMBOS GERALT
+
+    if lua_table.p1.current_state >= 17
+    then
+        combo = true
+    end
+       
+
+    --[[--
         if lua_table.p1.current_state == 8 and first == false and lua_table.p1.combo_num == 1--PRIMER LIGHT
         then
             lua_table["UI"]:MakeElementVisible("Image", COMBO_LIGHT_ID)
@@ -331,6 +533,7 @@ function GetTableCOMBO()
             fourth = true
             combo = true
         end
+        --]]--
 
         --JASKIER
 
@@ -488,21 +691,21 @@ function GetTableCOMBO()
         
 
         --COMBOS
-        if lua_table.p2.note_num == 4 and combo_J == false and  lua_table.p2.note_stack[4] == 'M' and  lua_table.p2.note_stack[3] == 'L' and  lua_table.p2.note_stack[2] == 'L' and  lua_table.p2.note_stack[1] == 'L'
+        if lua_table.p2.note_num == 4 and combo_J == false and  lua_table.p2.note_stack[4] == 'L' and  lua_table.p2.note_stack[3] == 'L' and  lua_table.p2.note_stack[2] == 'L' and  lua_table.p2.note_stack[1] == 'L'
         then
             --lua_table["Audio"]:PlayAudioEvent("")--combo1
             --lua_table["Inputs"]:ShakeController(2, 1.0, 1000)--vibration
             combo_J = true
         end
 
-        if lua_table.p2.note_num == 4 and combo_J == false and  lua_table.p2.note_stack[4] == 'L' and  lua_table.p2.note_stack[3] == 'H' and  lua_table.p2.note_stack[2] == 'M' and  lua_table.p2.note_stack[1] == 'M'
+        if lua_table.p2.note_num == 4 and combo_J == false and  lua_table.p2.note_stack[4] == 'M' and  lua_table.p2.note_stack[3] == 'M' and  lua_table.p2.note_stack[2] == 'M' and  lua_table.p2.note_stack[1] == 'M'
         then
             --lua_table["Audio"]:PlayAudioEvent("")--combo2
             --lua_table["Inputs"]:ShakeController(2, 1.0, 1000)--vibration
             combo_J = true
         end
 
-        if lua_table.p2.note_num == 4 and combo_J == false and  lua_table.p2.note_stack[4] == 'H' and  lua_table.p2.note_stack[3] == 'M' and  lua_table.p2.note_stack[2] == 'H' and  lua_table.p2.note_stack[1] == 'H'
+        if lua_table.p2.note_num == 4 and combo_J == false and  lua_table.p2.note_stack[4] == 'H' and  lua_table.p2.note_stack[3] == 'H' and  lua_table.p2.note_stack[2] == 'H' and  lua_table.p2.note_stack[1] == 'H'
         then
             --lua_table["Audio"]:PlayAudioEvent("")--combo3
             --lua_table["Inputs"]:ShakeController(2, 1.0, 1000)--vibration
