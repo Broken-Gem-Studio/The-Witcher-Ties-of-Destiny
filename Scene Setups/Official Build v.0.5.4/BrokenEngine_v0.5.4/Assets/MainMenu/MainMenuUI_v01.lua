@@ -46,6 +46,8 @@ function lua_table:Awake()
 	secondLevelPlay = lua_table.ObjectFunctions:FindGameObject("PlaySecondLevelButton")
 	firstLevelImage = lua_table.ObjectFunctions:FindGameObject("FirstLevelImage")
 	secondLevelImage = lua_table.ObjectFunctions:FindGameObject("SecondLevelImage")
+
+	lastTimeFallen = lua_table.SystemFunctions:GameTime()
 end
 
 function lua_table:Start()
@@ -55,7 +57,7 @@ function lua_table:Update()
 	dt = lua_table.SystemFunctions:DT()
 	lua_table.currentCameraPos = lua_table.TransformFuctions:GetPosition(camera_UUID)
 
-	-- Camera movement management
+	-- Camera movement management	
 	if startingGame == true
 	then
 		if lua_table.currentCameraPos[1] < lua_table.lastCameraPos[1] + 30
@@ -80,9 +82,12 @@ function lua_table:Update()
 end
 
 function lua_table:StartGame()
-	startingGame = true
-	lua_table.lastCameraPos = lua_table.TransformFuctions:GetPosition(camera_UUID)
-	lua_table.InterfaceFunctions:MakeElementInvisible("Button", startButton)
+	if lua_table.SystemFunctions:GameTime() > lastTimeFallen + 7.4
+	then
+		startingGame = true
+		lua_table.lastCameraPos = lua_table.TransformFuctions:GetPosition(camera_UUID)
+		lua_table.InterfaceFunctions:MakeElementInvisible("Button", startButton)
+	end
 end
 
 function lua_table:PlayGame()
