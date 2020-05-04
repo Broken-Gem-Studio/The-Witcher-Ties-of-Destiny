@@ -313,9 +313,9 @@
                 "rotationx": "0.000000",
                 "rotationy": "-0.707107",
                 "rotationz": "0.000000",
-                "scalex": "1.270954",
+                "scalex": "1.270965",
                 "scaley": "1.270900",
-                "scalez": "1.270954"
+                "scalez": "1.270965"
             },
             "13": {
                 "Active": true,
@@ -433,7 +433,7 @@
                 "scalez": "1.000000"
             }
         },
-        "Index": 240,
+        "Index": 239,
         "Name": "WoodRoofs",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -496,7 +496,7 @@
                 "positionx": "913.213074",
                 "positiony": "-7.138732",
                 "positionz": "501.686035",
-                "rotationw": "0.532727",
+                "rotationw": "0.532728",
                 "rotationx": "-0.545053",
                 "rotationy": "-0.450463",
                 "rotationz": "-0.464975",
@@ -662,7 +662,7 @@
                 "rotationx": "-0.047664",
                 "rotationy": "0.671446",
                 "rotationz": "0.739518",
-                "scalex": "0.322676",
+                "scalex": "0.322687",
                 "scaley": "0.351858",
                 "scalez": "0.351858"
             },
@@ -800,9 +800,9 @@
                 "rotationx": "0.479388",
                 "rotationy": "0.813785",
                 "rotationz": "-0.033916",
-                "scalex": "0.996620",
+                "scalex": "0.996631",
                 "scaley": "0.996570",
-                "scalez": "1.692669"
+                "scalez": "1.692702"
             },
             "1": {
                 "Active": true,
@@ -1003,7 +1003,7 @@
                 "positionx": "1196.065063",
                 "positiony": "10.640896",
                 "positionz": "297.253876",
-                "rotationw": "0.710839",
+                "rotationw": "0.710838",
                 "rotationx": "-0.645023",
                 "rotationy": "-0.176177",
                 "rotationz": "-0.218210",
@@ -1486,7 +1486,7 @@
                 "positionx": "1013.774048",
                 "positiony": "5.082242",
                 "positionz": "910.547852",
-                "rotationw": "0.644349",
+                "rotationw": "0.644348",
                 "rotationx": "-0.639045",
                 "rotationy": "-0.324462",
                 "rotationz": "-0.266760",
@@ -1541,7 +1541,7 @@
                 "scalez": "1.000000"
             }
         },
-        "Index": 237,
+        "Index": 236,
         "Name": "Wood3",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -1593,6 +1593,134 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "281283072",
+        "Static": false
+    },
+    "115352099": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1154432634,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
+                },
+                "Script variables": {
+                    "Count": 13,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "ActiveDistance",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 60.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "DistanceToCamera",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_name",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Camera"
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "enemy_to_spawn",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": -1.0
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "InfiniteEnemies",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "NumberofEnemies",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 4.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Archer",
+                        "ObjectName": "archer (0).prefab",
+                        "Type": "Double",
+                        "Value": 647695116.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Lumberjack",
+                        "ObjectName": "Lumberjack (0).prefab",
+                        "Type": "Double",
+                        "Value": 106650205.0
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Zomboid",
+                        "ObjectName": "Zomboid_Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 1233045812.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_minion",
+                        "ObjectName": "Minion_Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 1853337145.0
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_walker_Ghoul",
+                        "ObjectName": "Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 571222616.0
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRate",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    }
+                },
+                "UID": 1031439092,
+                "index": 1
+            }
+        },
+        "Index": 5,
+        "Name": "Spawner",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "-1",
         "Static": false
     },
     "1169909405": {
@@ -1758,8 +1886,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000527",
-                "scalez": "1.000527"
+                "scaley": "1.000538",
+                "scalez": "1.000538"
             }
         },
         "Index": 0,
@@ -1779,7 +1907,7 @@
                 "positionx": "1186.705200",
                 "positiony": "10.640896",
                 "positionz": "276.005310",
-                "rotationw": "0.520349",
+                "rotationw": "0.520348",
                 "rotationx": "-0.521992",
                 "rotationy": "0.515333",
                 "rotationz": "0.437257",
@@ -1871,7 +1999,7 @@
                 "positionx": "3.461400",
                 "positiony": "7.789900",
                 "positionz": "-0.191600",
-                "rotationw": "0.897619",
+                "rotationw": "0.897620",
                 "rotationx": "0.381787",
                 "rotationy": "-0.202636",
                 "rotationz": "-0.086352",
@@ -2176,7 +2304,7 @@
                 "index": 2
             }
         },
-        "Index": 244,
+        "Index": 243,
         "Name": "polySurface206",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -2318,8 +2446,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000527",
-                "scalez": "1.000527"
+                "scaley": "1.000538",
+                "scalez": "1.000538"
             }
         },
         "Index": 0,
@@ -2481,8 +2609,8 @@
                 "rotationx": "0.297305",
                 "rotationy": "0.612992",
                 "rotationz": "0.689979",
-                "scalex": "0.429193",
-                "scaley": "0.429192",
+                "scalex": "0.429204",
+                "scaley": "0.429203",
                 "scalez": "0.429143"
             },
             "1": {
@@ -2665,9 +2793,9 @@
                 "rotationx": "0.678869",
                 "rotationy": "0.456193",
                 "rotationz": "-0.419121",
-                "scalex": "0.999961",
-                "scaley": "0.999960",
-                "scalez": "0.999938"
+                "scalex": "0.999950",
+                "scaley": "0.999949",
+                "scalez": "0.999922"
             },
             "13": {
                 "Active": true,
@@ -2741,7 +2869,7 @@
                 "positionx": "1367.105713",
                 "positiony": "59.226387",
                 "positionz": "-127.218964",
-                "rotationw": "0.613301",
+                "rotationw": "0.613302",
                 "rotationx": "-0.613302",
                 "rotationy": "0.351939",
                 "rotationz": "0.351939",
@@ -3083,8 +3211,8 @@
                 "rotationx": "0.076460",
                 "rotationy": "0.109147",
                 "rotationz": "0.985927",
-                "scalex": "0.999946",
-                "scaley": "0.999946",
+                "scalex": "0.999935",
+                "scaley": "0.999935",
                 "scalez": "1.000000"
             },
             "13": {
@@ -3165,8 +3293,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000527",
-                "scalez": "1.000527"
+                "scaley": "1.000538",
+                "scalez": "1.000538"
             }
         },
         "Index": 0,
@@ -3237,8 +3365,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.070461",
-                "scaley": "15.158282",
-                "scalez": "1.368177"
+                "scaley": "15.158377",
+                "scalez": "1.368188"
             },
             "1": {
                 "Active": true,
@@ -3381,7 +3509,7 @@
                 "index": 2
             }
         },
-        "Index": 242,
+        "Index": 241,
         "Name": "polySurface163",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -3633,13 +3761,13 @@
                 "positionx": "891.307190",
                 "positiony": "-9.061230",
                 "positionz": "504.000763",
-                "rotationw": "0.681674",
+                "rotationw": "0.681675",
                 "rotationx": "0.439319",
                 "rotationy": "0.583387",
                 "rotationz": "0.044479",
                 "scalex": "0.524572",
                 "scaley": "0.524572",
-                "scalez": "0.890904"
+                "scalez": "0.890903"
             },
             "1": {
                 "Active": true,
@@ -3683,7 +3811,7 @@
                 "rotationx": "-0.085506",
                 "rotationy": "0.689620",
                 "rotationz": "0.705077",
-                "scalex": "0.339908",
+                "scalex": "0.339919",
                 "scaley": "0.339858",
                 "scalez": "0.207319"
             },
@@ -4092,8 +4220,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000527",
-                "scalez": "1.000527"
+                "scaley": "1.000538",
+                "scalez": "1.000538"
             }
         },
         "Index": 0,
@@ -4143,7 +4271,7 @@
                 "index": 2
             }
         },
-        "Index": 228,
+        "Index": 227,
         "Name": "Tree:Tree140",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -4829,7 +4957,7 @@
                 "rotationy": "-0.490121",
                 "rotationz": "-0.492056",
                 "scalex": "0.613431",
-                "scaley": "0.668963",
+                "scaley": "0.668952",
                 "scalez": "0.668963"
             },
             "1": {
@@ -5023,7 +5151,7 @@
                 "positionx": "937.682129",
                 "positiony": "-9.826797",
                 "positionz": "587.916931",
-                "rotationw": "0.767086",
+                "rotationw": "0.767085",
                 "rotationx": "0.094936",
                 "rotationy": "-0.465403",
                 "rotationz": "0.431239",
@@ -5487,8 +5615,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000527",
-                "scalez": "1.000527"
+                "scaley": "1.000538",
+                "scalez": "1.000538"
             }
         },
         "Index": 0,
@@ -6964,7 +7092,7 @@
                 "positionx": "1147.398193",
                 "positiony": "28.882961",
                 "positionz": "175.888824",
-                "rotationw": "0.923637",
+                "rotationw": "0.923636",
                 "rotationx": "0.303811",
                 "rotationy": "0.120024",
                 "rotationz": "0.200471",
@@ -7167,7 +7295,7 @@
                 "scalez": "1.000000"
             }
         },
-        "Index": 234,
+        "Index": 233,
         "Name": "WindowsAndDoors",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -7411,8 +7539,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000527",
-                "scalez": "1.000527"
+                "scaley": "1.000538",
+                "scalez": "1.000538"
             }
         },
         "Index": 0,
@@ -7436,9 +7564,9 @@
                 "rotationx": "0.330696",
                 "rotationy": "0.618391",
                 "rotationz": "0.683613",
-                "scalex": "0.999961",
-                "scaley": "0.999960",
-                "scalez": "0.999960"
+                "scalex": "0.999950",
+                "scaley": "0.999949",
+                "scalez": "0.999949"
             },
             "13": {
                 "Active": true,
@@ -7558,13 +7686,13 @@
                 "positionx": "911.433899",
                 "positiony": "-4.747381",
                 "positionz": "482.991150",
-                "rotationw": "0.681674",
+                "rotationw": "0.681675",
                 "rotationx": "0.439319",
                 "rotationy": "0.583387",
                 "rotationz": "0.044479",
                 "scalex": "0.524572",
                 "scaley": "0.524572",
-                "scalez": "0.890904"
+                "scalez": "0.890903"
             },
             "1": {
                 "Active": true,
@@ -7916,7 +8044,7 @@
                 "scalez": "1.000000"
             }
         },
-        "Index": 239,
+        "Index": 238,
         "Name": "Wood5",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -7937,9 +8065,9 @@
                 "rotationx": "0.000000",
                 "rotationy": "0.939693",
                 "rotationz": "-0.342020",
-                "scalex": "1.000152",
+                "scalex": "1.000163",
                 "scaley": "1.000000",
-                "scalez": "1.000152"
+                "scalez": "1.000163"
             },
             "12": {
                 "Active": true,
@@ -8122,17 +8250,17 @@
                 "index": 2
             },
             "20": {
-                "Active": true,
+                "Active": false,
                 "UID": 940477525,
                 "index": 3
             },
             "3": {
-                "ACTIVECAM": true,
-                "ASPECTRATIO": 1.8813470602035522,
+                "ACTIVECAM": false,
+                "ASPECTRATIO": 1.53713059425354,
                 "Active": true,
                 "CULLINGCAM": true,
                 "FARPLANE": 1000.0,
-                "FOV": 52.30303955078125,
+                "FOV": 62.00874710083008,
                 "NEARPLANE": 0.10000000149011612,
                 "UID": 209370995,
                 "index": 4
@@ -8251,9 +8379,9 @@
                 "rotationx": "0.197807",
                 "rotationy": "0.842475",
                 "rotationz": "-0.471290",
-                "scalex": "1.189351",
+                "scalex": "1.189340",
                 "scaley": "1.189399",
-                "scalez": "1.518219"
+                "scalez": "1.518208"
             },
             "1": {
                 "Active": true,
@@ -8434,7 +8562,7 @@
                 "positionx": "0.000000",
                 "positiony": "14.444584",
                 "positionz": "0.000000",
-                "rotationw": "0.960317",
+                "rotationw": "0.960318",
                 "rotationx": "0.261350",
                 "rotationy": "0.097335",
                 "rotationz": "0.003525",
@@ -8655,9 +8783,9 @@
                 "rotationx": "0.000000",
                 "rotationy": "-0.707107",
                 "rotationz": "0.000000",
-                "scalex": "1.000054",
+                "scalex": "1.000065",
                 "scaley": "1.000000",
-                "scalez": "1.000054"
+                "scalez": "1.000065"
             },
             "13": {
                 "Active": true,
@@ -8689,9 +8817,9 @@
                 "rotationx": "0.751287",
                 "rotationy": "0.559985",
                 "rotationz": "0.103072",
-                "scalex": "39.370186",
-                "scaley": "39.370369",
-                "scalez": "39.370415"
+                "scalex": "39.370228",
+                "scaley": "39.370461",
+                "scalez": "39.370514"
             },
             "18": {
                 "Active": true,
@@ -8699,7 +8827,7 @@
                 "GradientColor": false,
                 "Loop": true,
                 "Resources": {
-                    "ResourceTexture": "Library/Textures/1243547376.dds"
+                    "ResourceTexture": "Library/Textures/1289133255.dds"
                 },
                 "UID": 719913060,
                 "animation": "0",
@@ -9066,9 +9194,9 @@
                 "rotationx": "0.751287",
                 "rotationy": "0.559985",
                 "rotationz": "0.103072",
-                "scalex": "39.370186",
-                "scaley": "39.370369",
-                "scalez": "39.370415"
+                "scalex": "39.370228",
+                "scaley": "39.370461",
+                "scalez": "39.370514"
             },
             "18": {
                 "Active": true,
@@ -9076,7 +9204,7 @@
                 "GradientColor": false,
                 "Loop": true,
                 "Resources": {
-                    "ResourceTexture": "Library/Textures/695749680.dds"
+                    "ResourceTexture": "Library/Textures/1982320189.dds"
                 },
                 "UID": 601484354,
                 "animation": "0",
@@ -9161,7 +9289,7 @@
                 "scalez": "0.106746"
             }
         },
-        "Index": 232,
+        "Index": 231,
         "Name": "Walls_Lower:Group17896",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -9405,7 +9533,7 @@
                 "scalez": "1.000000"
             }
         },
-        "Index": 238,
+        "Index": 237,
         "Name": "Wood4",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -9996,7 +10124,7 @@
                 "scalez": "1.884206"
             }
         },
-        "Index": 233,
+        "Index": 232,
         "Name": "Well",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -10048,7 +10176,7 @@
                 "scalez": "1.000000"
             }
         },
-        "Index": 223,
+        "Index": 222,
         "Name": "Terrain_Two",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -10065,7 +10193,7 @@
                 "positionx": "1081.618896",
                 "positiony": "69.089043",
                 "positionz": "60.734173",
-                "rotationw": "0.613302",
+                "rotationw": "0.613301",
                 "rotationx": "-0.613302",
                 "rotationy": "0.351939",
                 "rotationz": "0.351939",
@@ -10129,8 +10257,8 @@
                 "rotationx": "-0.108597",
                 "rotationy": "0.043775",
                 "rotationz": "0.989140",
-                "scalex": "0.999944",
-                "scaley": "0.999946",
+                "scalex": "0.999932",
+                "scaley": "0.999935",
                 "scalez": "1.000000"
             },
             "13": {
@@ -10210,8 +10338,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000527",
-                "scalez": "1.000527"
+                "scaley": "1.000538",
+                "scalez": "1.000538"
             }
         },
         "Index": 0,
@@ -10487,8 +10615,8 @@
                 "rotationy": "0.002999",
                 "rotationz": "0.017642",
                 "scalex": "1.000000",
-                "scaley": "0.999946",
-                "scalez": "0.999946"
+                "scaley": "0.999935",
+                "scalez": "0.999935"
             },
             "13": {
                 "Active": true,
@@ -10580,7 +10708,7 @@
                 "index": 2
             }
         },
-        "Index": 243,
+        "Index": 242,
         "Name": "polySurface203",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -10601,9 +10729,9 @@
                 "rotationx": "0.009531",
                 "rotationy": "0.682656",
                 "rotationz": "0.730301",
-                "scalex": "1.532345",
-                "scaley": "1.532395",
-                "scalez": "1.692465"
+                "scalex": "1.532323",
+                "scaley": "1.532384",
+                "scalez": "1.692454"
             },
             "1": {
                 "Active": true,
@@ -11355,7 +11483,7 @@
                 "positionx": "921.746521",
                 "positiony": "-126.778046",
                 "positionz": "640.021729",
-                "rotationw": "0.648754",
+                "rotationw": "0.648753",
                 "rotationx": "-0.497198",
                 "rotationy": "-0.011053",
                 "rotationz": "-0.576013",
@@ -11497,7 +11625,7 @@
                 "rotationx": "-0.047664",
                 "rotationy": "0.671446",
                 "rotationz": "0.739518",
-                "scalex": "0.322676",
+                "scalex": "0.322687",
                 "scaley": "0.351858",
                 "scalez": "0.351858"
             },
@@ -11539,7 +11667,7 @@
                 "positionx": "953.373169",
                 "positiony": "-10.766871",
                 "positionz": "568.997620",
-                "rotationw": "0.598203",
+                "rotationw": "0.598204",
                 "rotationx": "-0.073935",
                 "rotationy": "-0.530170",
                 "rotationz": "-0.596327",
@@ -11920,8 +12048,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000527",
-                "scalez": "1.000527"
+                "scaley": "1.000538",
+                "scalez": "1.000538"
             }
         },
         "Index": 0,
@@ -12105,7 +12233,7 @@
                 "positionx": "1021.481567",
                 "positiony": "5.847408",
                 "positionz": "199.147491",
-                "rotationw": "0.509453",
+                "rotationw": "0.509452",
                 "rotationx": "-0.452981",
                 "rotationy": "0.510802",
                 "rotationz": "0.523782",
@@ -12390,8 +12518,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000527",
-                "scalez": "1.000527"
+                "scaley": "1.000538",
+                "scalez": "1.000538"
             }
         },
         "Index": 0,
@@ -12688,8 +12816,8 @@
                 "rotationx": "0.086868",
                 "rotationy": "-0.073197",
                 "rotationz": "-0.841590",
-                "scalex": "0.999962",
-                "scaley": "0.999957",
+                "scalex": "0.999951",
+                "scaley": "0.999946",
                 "scalez": "1.000001"
             },
             "13": {
@@ -12718,12 +12846,12 @@
                 "positionx": "1078.758789",
                 "positiony": "34.494045",
                 "positionz": "240.021896",
-                "rotationw": "0.684672",
+                "rotationw": "0.684673",
                 "rotationx": "-0.261888",
                 "rotationy": "-0.311136",
                 "rotationz": "0.604841",
-                "scalex": "1.075149",
-                "scaley": "1.075149",
+                "scalex": "1.075148",
+                "scaley": "1.075148",
                 "scalez": "1.075149"
             },
             "1": {
@@ -12876,7 +13004,7 @@
                 "scalez": "1.000000"
             }
         },
-        "Index": 235,
+        "Index": 234,
         "Name": "Wood1",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -13274,7 +13402,7 @@
                 "positionx": "952.201050",
                 "positiony": "-10.742347",
                 "positionz": "502.175354",
-                "rotationw": "0.511345",
+                "rotationw": "0.511344",
                 "rotationx": "-0.524310",
                 "rotationy": "-0.474447",
                 "rotationz": "-0.488391",
@@ -13511,8 +13639,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000527",
-                "scalez": "1.000527"
+                "scaley": "1.000538",
+                "scalez": "1.000538"
             }
         },
         "Index": 0,
@@ -13751,7 +13879,7 @@
                 "positionx": "0.590700",
                 "positiony": "3.818100",
                 "positionz": "-0.000008",
-                "rotationw": "0.997643",
+                "rotationw": "0.997644",
                 "rotationx": "0.027926",
                 "rotationy": "0.060338",
                 "rotationz": "0.016943",
@@ -13819,7 +13947,7 @@
                 "positionx": "958.614380",
                 "positiony": "-9.111173",
                 "positionz": "502.115265",
-                "rotationw": "0.532727",
+                "rotationw": "0.532728",
                 "rotationx": "-0.545053",
                 "rotationy": "-0.450463",
                 "rotationz": "-0.464975",
@@ -13975,8 +14103,8 @@
                 "rotationx": "0.122166",
                 "rotationy": "0.198412",
                 "rotationz": "0.939730",
-                "scalex": "0.704761",
-                "scaley": "0.704761",
+                "scalex": "0.704750",
+                "scaley": "0.704750",
                 "scalez": "1.197011"
             },
             "1": {
@@ -14021,7 +14149,7 @@
                 "rotationx": "-0.251088",
                 "rotationy": "0.633327",
                 "rotationz": "0.646408",
-                "scalex": "0.356625",
+                "scalex": "0.356614",
                 "scaley": "0.356675",
                 "scalez": "0.356675"
             },
@@ -14207,9 +14335,9 @@
                 "rotationx": "0.751287",
                 "rotationy": "0.559985",
                 "rotationz": "0.103072",
-                "scalex": "39.370186",
-                "scaley": "39.370369",
-                "scalez": "39.370415"
+                "scalex": "39.370228",
+                "scaley": "39.370461",
+                "scalez": "39.370514"
             },
             "18": {
                 "Active": true,
@@ -14217,7 +14345,7 @@
                 "GradientColor": false,
                 "Loop": true,
                 "Resources": {
-                    "ResourceTexture": "Library/Textures/1174593476.dds"
+                    "ResourceTexture": "Library/Textures/1693067970.dds"
                 },
                 "UID": 810557462,
                 "animation": "0",
@@ -14689,7 +14817,7 @@
                 "positionx": "928.112427",
                 "positiony": "-1.146532",
                 "positionz": "483.994110",
-                "rotationw": "0.544276",
+                "rotationw": "0.544277",
                 "rotationx": "-0.622836",
                 "rotationy": "-0.334777",
                 "rotationz": "-0.451401",
@@ -14745,9 +14873,9 @@
                 "rotationx": "0.380226",
                 "rotationy": "0.790120",
                 "rotationz": "-0.478046",
-                "scalex": "0.999960",
-                "scaley": "0.999960",
-                "scalez": "0.999960"
+                "scalex": "0.999949",
+                "scaley": "0.999949",
+                "scalez": "0.999949"
             },
             "13": {
                 "Active": true,
@@ -14860,8 +14988,8 @@
                 "rotationy": "-0.306838",
                 "rotationz": "-0.188075",
                 "scalex": "0.349944",
-                "scaley": "0.349890",
-                "scalez": "0.349890"
+                "scaley": "0.349879",
+                "scalez": "0.349879"
             },
             "13": {
                 "Active": true,
@@ -14936,7 +15064,7 @@
                 "positionx": "107.387650",
                 "positiony": "0.000015",
                 "positionz": "0.000015",
-                "rotationw": "0.897929",
+                "rotationw": "0.897930",
                 "rotationx": "-0.038816",
                 "rotationy": "0.096670",
                 "rotationz": "-0.427634",
@@ -14996,7 +15124,7 @@
                 "positionx": "914.117249",
                 "positiony": "-10.766871",
                 "positionz": "515.977600",
-                "rotationw": "0.598203",
+                "rotationw": "0.598204",
                 "rotationx": "-0.073935",
                 "rotationy": "-0.530170",
                 "rotationz": "-0.596327",
@@ -15233,8 +15361,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000527",
-                "scalez": "1.000527"
+                "scaley": "1.000538",
+                "scalez": "1.000538"
             }
         },
         "Index": 0,
@@ -15378,7 +15506,7 @@
                 "index": 2
             }
         },
-        "Index": 226,
+        "Index": 225,
         "Name": "Tree:Tree099",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -15549,7 +15677,7 @@
                 "positionx": "1041.608398",
                 "positiony": "10.161258",
                 "positionz": "178.137848",
-                "rotationw": "0.509453",
+                "rotationw": "0.509452",
                 "rotationx": "-0.452981",
                 "rotationy": "0.510802",
                 "rotationz": "0.523782",
@@ -15935,8 +16063,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.540000",
-                "scaley": "2.540272",
-                "scalez": "2.540272"
+                "scaley": "2.540285",
+                "scalez": "2.540285"
             },
             "1": {
                 "Active": true,
@@ -16243,8 +16371,8 @@
                 "rotationx": "0.388476",
                 "rotationy": "0.030072",
                 "rotationz": "0.916844",
-                "scalex": "1.000108",
-                "scaley": "1.000109",
+                "scalex": "1.000130",
+                "scaley": "1.000131",
                 "scalez": "1.000000"
             },
             "13": {
@@ -16278,8 +16406,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000527",
-                "scalez": "1.000527"
+                "scaley": "1.000538",
+                "scalez": "1.000538"
             }
         },
         "Index": 0,
@@ -16457,8 +16585,8 @@
                 "rotationy": "0.518273",
                 "rotationz": "0.442948",
                 "scalex": "1.000000",
-                "scaley": "1.000040",
-                "scalez": "1.000041"
+                "scaley": "1.000051",
+                "scalez": "1.000052"
             },
             "13": {
                 "Active": true,
@@ -16541,7 +16669,7 @@
                 "scalez": "1.000000"
             }
         },
-        "Index": 236,
+        "Index": 235,
         "Name": "Wood2",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -16654,7 +16782,7 @@
                 "rotationx": "-0.001647",
                 "rotationy": "0.707105",
                 "rotationz": "0.707105",
-                "scalex": "1.150044",
+                "scalex": "1.150055",
                 "scaley": "1.149995",
                 "scalez": "1.140062"
             },
@@ -16848,9 +16976,9 @@
                 "rotationx": "0.009531",
                 "rotationy": "0.682656",
                 "rotationz": "0.730301",
-                "scalex": "1.532345",
-                "scaley": "1.532395",
-                "scalez": "1.692465"
+                "scalex": "1.532323",
+                "scaley": "1.532384",
+                "scalez": "1.692454"
             },
             "1": {
                 "Active": true,
@@ -17042,9 +17170,9 @@
                 "rotationx": "0.751287",
                 "rotationy": "0.559985",
                 "rotationz": "0.103072",
-                "scalex": "39.370186",
-                "scaley": "39.370369",
-                "scalez": "39.370415"
+                "scalex": "39.370228",
+                "scaley": "39.370461",
+                "scalez": "39.370514"
             },
             "18": {
                 "Active": true,
@@ -17052,7 +17180,7 @@
                 "GradientColor": false,
                 "Loop": true,
                 "Resources": {
-                    "ResourceTexture": "Library/Textures/234914114.dds"
+                    "ResourceTexture": "Library/Textures/2077483265.dds"
                 },
                 "UID": 1382377141,
                 "animation": "0",
@@ -17485,7 +17613,7 @@
                 "positionx": "913.108459",
                 "positiony": "-3.732620",
                 "positionz": "674.211304",
-                "rotationw": "0.544276",
+                "rotationw": "0.544277",
                 "rotationx": "-0.622836",
                 "rotationy": "-0.334777",
                 "rotationz": "-0.451401",
@@ -17569,9 +17697,9 @@
                 "rotationx": "0.205365",
                 "rotationy": "0.663861",
                 "rotationz": "0.700897",
-                "scalex": "1.532345",
-                "scaley": "1.532396",
-                "scalez": "1.692466"
+                "scalex": "1.532323",
+                "scaley": "1.532385",
+                "scalez": "1.692455"
             },
             "1": {
                 "Active": true,
@@ -17902,7 +18030,7 @@
                 "positionx": "1146.493652",
                 "positiony": "30.277287",
                 "positionz": "175.972031",
-                "rotationw": "0.598894",
+                "rotationw": "0.598893",
                 "rotationx": "-0.587513",
                 "rotationy": "0.421494",
                 "rotationz": "0.344235",
@@ -18032,8 +18160,8 @@
                 "rotationx": "0.046474",
                 "rotationy": "0.155068",
                 "rotationz": "0.844688",
-                "scalex": "1.000040",
-                "scaley": "1.000040",
+                "scalex": "1.000051",
+                "scaley": "1.000051",
                 "scalez": "1.000000"
             },
             "13": {
@@ -18253,9 +18381,9 @@
                 "rotationx": "-0.595506",
                 "rotationy": "0.393283",
                 "rotationz": "0.695841",
-                "scalex": "0.704861",
-                "scaley": "0.704862",
-                "scalez": "1.197062"
+                "scalex": "0.704872",
+                "scaley": "0.704873",
+                "scalez": "1.197073"
             },
             "1": {
                 "Active": true,
@@ -18371,8 +18499,8 @@
                 "rotationx": "-0.061718",
                 "rotationy": "0.237900",
                 "rotationz": "0.949088",
-                "scalex": "1.000054",
-                "scaley": "1.000054",
+                "scalex": "1.000065",
+                "scaley": "1.000065",
                 "scalez": "1.000000"
             },
             "13": {
@@ -18453,8 +18581,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000527",
-                "scalez": "1.000527"
+                "scaley": "1.000538",
+                "scalez": "1.000538"
             }
         },
         "Index": 0,
@@ -18744,9 +18872,9 @@
                 "rotationx": "-0.595506",
                 "rotationy": "0.393283",
                 "rotationz": "0.695841",
-                "scalex": "0.704861",
-                "scaley": "0.704862",
-                "scalez": "1.197062"
+                "scalex": "0.704872",
+                "scaley": "0.704873",
+                "scalez": "1.197073"
             },
             "1": {
                 "Active": true,
@@ -18841,7 +18969,7 @@
                 "scalez": "1.000000"
             }
         },
-        "Index": 224,
+        "Index": 223,
         "Name": "Tree",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -18970,7 +19098,7 @@
                 "scalez": "1.000000"
             }
         },
-        "Index": 231,
+        "Index": 230,
         "Name": "Walls",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -20467,7 +20595,7 @@
                 "scalez": "1.000000"
             }
         },
-        "Index": 241,
+        "Index": 240,
         "Name": "logs",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -20489,8 +20617,8 @@
                 "rotationy": "-0.023509",
                 "rotationz": "0.706716",
                 "scalex": "1.657900",
-                "scaley": "1.657940",
-                "scalez": "1.657940"
+                "scaley": "1.657951",
+                "scalez": "1.657951"
             },
             "13": {
                 "Active": true,
@@ -20522,8 +20650,8 @@
                 "rotationx": "-0.046474",
                 "rotationy": "-0.155068",
                 "rotationz": "0.844688",
-                "scalex": "0.999960",
-                "scaley": "0.999960",
+                "scalex": "0.999949",
+                "scaley": "0.999949",
                 "scalez": "1.000000"
             },
             "13": {
@@ -20726,7 +20854,7 @@
                 "rotationz": "0.004123",
                 "scalex": "0.939993",
                 "scaley": "0.939994",
-                "scalez": "1.596483"
+                "scalez": "1.596494"
             },
             "1": {
                 "Active": true,
@@ -20809,7 +20937,7 @@
                 "scalez": "1.000000"
             }
         },
-        "Index": 229,
+        "Index": 228,
         "Name": "TreeTwo",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -20830,8 +20958,8 @@
                 "rotationx": "0.388712",
                 "rotationy": "0.337412",
                 "rotationz": "0.839776",
-                "scalex": "1.000108",
-                "scaley": "1.000108",
+                "scalex": "1.000130",
+                "scaley": "1.000130",
                 "scalez": "1.000033"
             },
             "13": {
@@ -20996,13 +21124,13 @@
                 "UID": 1361096619,
                 "index": 0,
                 "layer": "0",
-                "positionx": "-190.794388",
-                "positiony": "-11.705184",
-                "positionz": "-1.635985",
+                "positionx": "-190.794373",
+                "positiony": "-11.705183",
+                "positionz": "-1.635986",
                 "rotationw": "0.707107",
                 "rotationx": "-0.707107",
                 "rotationy": "0.000000",
-                "rotationz": "0.000000",
+                "rotationz": "-0.000000",
                 "scalex": "0.025400",
                 "scaley": "0.025400",
                 "scalez": "0.025400"
@@ -21029,7 +21157,7 @@
                 "index": 2
             }
         },
-        "Index": 222,
+        "Index": 245,
         "Name": "Terrain_Low",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -21122,7 +21250,7 @@
                 "index": 2
             }
         },
-        "Index": 225,
+        "Index": 224,
         "Name": "Tree:Tree022",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -21148,7 +21276,7 @@
                 "scalez": "0.036611"
             }
         },
-        "Index": 230,
+        "Index": 229,
         "Name": "Tree_Folliage_2",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -21240,7 +21368,7 @@
                 "index": 2
             }
         },
-        "Index": 227,
+        "Index": 226,
         "Name": "Tree:Tree101",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -21283,7 +21411,7 @@
                 "positionx": "1380.400879",
                 "positiony": "350.418610",
                 "positionz": "408.680908",
-                "rotationw": "0.575520",
+                "rotationw": "0.575521",
                 "rotationx": "-0.714508",
                 "rotationy": "-0.365416",
                 "rotationz": "0.157244",
@@ -21333,9 +21461,9 @@
                 "rotationx": "-0.311004",
                 "rotationy": "-0.625106",
                 "rotationz": "0.693408",
-                "scalex": "0.999961",
-                "scaley": "0.999959",
-                "scalez": "0.999961"
+                "scalex": "0.999950",
+                "scaley": "0.999948",
+                "scalez": "0.999950"
             },
             "13": {
                 "Active": true,
@@ -22016,7 +22144,7 @@
                 "rotationx": "0.021435",
                 "rotationy": "0.669027",
                 "rotationz": "0.742912",
-                "scalex": "0.773625",
+                "scalex": "0.773614",
                 "scaley": "0.843777",
                 "scalez": "0.843776"
             },
@@ -22088,7 +22216,7 @@
                 "index": 2
             }
         },
-        "Index": 245,
+        "Index": 244,
         "Name": "stonelowpoly001",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -22151,7 +22279,7 @@
                 "positionx": "906.799622",
                 "positiony": "-8.769904",
                 "positionz": "501.746185",
-                "rotationw": "0.511345",
+                "rotationw": "0.511344",
                 "rotationx": "-0.524310",
                 "rotationy": "-0.474447",
                 "rotationz": "-0.488391",
