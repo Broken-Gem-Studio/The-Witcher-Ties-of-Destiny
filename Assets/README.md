@@ -11,6 +11,8 @@ so here I'll stipulate some important details about these:
 	- Uses GeraltScript_v3.
 **Geralt_v4**: All animations + new medium_attack animations.
 	- Uses GeraltScript_v7 and above.
+**Geralt_v5**: Knocknack, Stun, Death, and Stand Up Animations.
+	- Uses GeraltScript_v12 and above.
 	
 **Jaskier_v0**: Geralt_v3 with the name changed.
 - Uses JaskierScript_v0.
@@ -18,6 +20,8 @@ so here I'll stipulate some important details about these:
 	- Uses JaskierScript_v1.
 **Jaskier_v2**: All animations + new medium_attack animations.
 	- Uses JaskierScript_v3.
+**Jaskier_v3**: Knocknack, Stun, Death, and Stand Up Animations.
+	- Uses JaskierScript_v8.
 	
 **GeraltScript_v1**: With Geralt_v1.
 **GeraltScript_v2**: Only up to build 0.2.4 with Geralt_v2.
