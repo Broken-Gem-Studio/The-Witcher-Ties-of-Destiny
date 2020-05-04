@@ -4,7 +4,7 @@ lua_table.System = Scripting.System()
 lua_table.Transform = Scripting.Transform()
 lua_table.GameObjectFunctions = Scripting.GameObject()
 lua_table.Scene = Scripting.Scenes()
-
+lua_table.SpawnRadius = 5
 lua_table.SpawnRate = 3
 
 lua_table.InfiniteEnemies = true
@@ -58,14 +58,14 @@ local function Spawn(enemy_type)
 
     if enemy_type == enemies.RANDOM then
         local random = math.random(0,4)
-        local pos_randX = math.random(-10,10)
-        local pos_randZ = math.random(-10,10)
+        local pos_randX = math.random(-lua_table.SpawnRadius,lua_table.SpawnRadius)
+        local pos_randZ = math.random(-lua_table.SpawnRadius,lua_table.SpawnRadius)
         local enemy = GetEnemyPrefab(random)
         lua_table.Scene:Instantiate(enemy, position[1]+pos_randX, position[2], position[3] + pos_randZ, 0, 0, 0)
     else
         local enemy = GetEnemyPrefab(enemy_type)
-        local pos_randX = math.random(-10,10)
-        local pos_randZ = math.random(-10,10)
+        local pos_randX = math.random(-lua_table.SpawnRadius,lua_table.SpawnRadius)
+        local pos_randZ = math.random(-lua_table.SpawnRadius,lua_table.SpawnRadius)
         lua_table.Scene:Instantiate(enemy, position[1]+pos_randX, position[2], position[3] + pos_randZ, 0, 0, 0)
     end
 
