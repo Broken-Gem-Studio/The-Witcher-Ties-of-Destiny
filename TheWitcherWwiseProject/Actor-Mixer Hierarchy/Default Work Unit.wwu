@@ -467,6 +467,63 @@
 								<ActiveSource Name="Geralt_walk" ID="{6288369A-EAAA-4B96-B114-DB7C21E203CD}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
+						<Sound Name="Geralt_knockback" ID="{0675A173-7A93-401A-9D5F-0BEC232A4E0A}" ShortID="885307244">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{33080FFE-AFF8-4DB4-BFBC-870234ABF1E9}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{F6EAB31E-CDB2-437A-BACF-4A2313B7463D}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Geralt_knockback" ID="{BFB26078-486B-4D80-8DCB-F5C2FE39CC1F}" ShortID="978824296">
+									<Language>SFX</Language>
+									<AudioFile>Geralt_knockback.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Geralt_knockback" ID="{BFB26078-486B-4D80-8DCB-F5C2FE39CC1F}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Geralt_stand_up" ID="{B24F8EC1-CFDC-4BB3-BA8F-4C4028C26CE4}" ShortID="198498645">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{33080FFE-AFF8-4DB4-BFBC-870234ABF1E9}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{F6EAB31E-CDB2-437A-BACF-4A2313B7463D}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Geralt_stand_up" ID="{3F713DFB-808E-4B01-859E-FB88B35BA1EB}" ShortID="840410465">
+									<Language>SFX</Language>
+									<AudioFile>Geralt_stand_up.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Geralt_stand_up" ID="{3F713DFB-808E-4B01-859E-FB88B35BA1EB}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Geralt_stun" ID="{4969A0C2-E1D4-4F4B-80E7-415D6607F6F7}" ShortID="467560247">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{33080FFE-AFF8-4DB4-BFBC-870234ABF1E9}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{F6EAB31E-CDB2-437A-BACF-4A2313B7463D}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Geralt_stun" ID="{9DDC59DE-F196-44DD-A451-F0F222C0BD44}" ShortID="74322091">
+									<Language>SFX</Language>
+									<AudioFile>Geralt_stun.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Geralt_stun" ID="{9DDC59DE-F196-44DD-A451-F0F222C0BD44}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Jaskier" ID="{6E0A61D1-8D10-4776-8C35-154FC859D0EA}" ShortID="498130552">
@@ -931,6 +988,63 @@
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="Jaskier_walk" ID="{D9030958-BB73-4C9A-8F7A-B719FF5CAE7F}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Jaskier_knockback" ID="{ACA78195-BFE4-4C14-ACA6-C6DBF91AD41D}" ShortID="487879128">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{33080FFE-AFF8-4DB4-BFBC-870234ABF1E9}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{F6EAB31E-CDB2-437A-BACF-4A2313B7463D}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Jaskier_knockback" ID="{9CD88356-AB6C-40FA-BFAD-248ADA4C4F66}" ShortID="121370937">
+									<Language>SFX</Language>
+									<AudioFile>Jaskier_knockback.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Jaskier_knockback" ID="{9CD88356-AB6C-40FA-BFAD-248ADA4C4F66}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Jaskier_stand_up" ID="{41A53A48-A745-4FB5-BE09-9734CAFCC42F}" ShortID="228470934">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{33080FFE-AFF8-4DB4-BFBC-870234ABF1E9}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{F6EAB31E-CDB2-437A-BACF-4A2313B7463D}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Jaskier_stand_up" ID="{F59B2DA8-F8B5-4A52-BFF7-D97E66DFDA26}" ShortID="369416229">
+									<Language>SFX</Language>
+									<AudioFile>Jaskier_stand_up.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Jaskier_stand_up" ID="{F59B2DA8-F8B5-4A52-BFF7-D97E66DFDA26}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Jaskier_stun" ID="{C55798A6-FD9F-49D4-835B-A5DA385B7C77}" ShortID="658393628">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{33080FFE-AFF8-4DB4-BFBC-870234ABF1E9}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{F6EAB31E-CDB2-437A-BACF-4A2313B7463D}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Jaskier_stun" ID="{7652018C-FF57-452F-81DD-AEE7396B31D1}" ShortID="659776610">
+									<Language>SFX</Language>
+									<AudioFile>Jaskier_stun.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Jaskier_stun" ID="{7652018C-FF57-452F-81DD-AEE7396B31D1}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
@@ -2432,6 +2546,63 @@
 								</Sound>
 							</ChildrenList>
 						</Folder>
+						<Sound Name="Potion_health" ID="{B8015DE1-6EB1-48E2-9CD0-FC402FE6AFF4}" ShortID="212890412">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{33080FFE-AFF8-4DB4-BFBC-870234ABF1E9}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{F6EAB31E-CDB2-437A-BACF-4A2313B7463D}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Potion_health" ID="{BA9C91F5-34AC-40C0-8349-5647726839D4}" ShortID="767955911">
+									<Language>SFX</Language>
+									<AudioFile>Potion_health.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Potion_health" ID="{BA9C91F5-34AC-40C0-8349-5647726839D4}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Potion_power" ID="{D13895BC-8D57-4976-8F12-A7218D155073}" ShortID="746884954">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{33080FFE-AFF8-4DB4-BFBC-870234ABF1E9}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{F6EAB31E-CDB2-437A-BACF-4A2313B7463D}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Potion_power" ID="{EA757917-BDCA-4D91-8FD8-8C31C71F6B61}" ShortID="728715402">
+									<Language>SFX</Language>
+									<AudioFile>Potion_power.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Potion_power" ID="{EA757917-BDCA-4D91-8FD8-8C31C71F6B61}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Potion_stamina" ID="{2976D89F-04D0-447C-A09E-104715E2E260}" ShortID="624141438">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{33080FFE-AFF8-4DB4-BFBC-870234ABF1E9}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{F6EAB31E-CDB2-437A-BACF-4A2313B7463D}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Potion_stamina" ID="{0A0B3E0E-78EC-42FE-8C3E-BCD7F9B83D8E}" ShortID="480316483">
+									<Language>SFX</Language>
+									<AudioFile>Potion_stamina.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Potion_stamina" ID="{0A0B3E0E-78EC-42FE-8C3E-BCD7F9B83D8E}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Prop" ID="{D1B74B10-BAF0-46AE-B85B-BAEC51D5B1CC}" ShortID="188978648">
@@ -2679,6 +2850,50 @@
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="Trial_of_the_Grasses_loop" ID="{95F3ED66-AA3C-4261-A0C4-F5F6C7F86AB0}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Commanding_the_Fury_loopable" ID="{A1729334-E652-44E0-9A5E-301C5D7DA560}" ShortID="642853564">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{33080FFE-AFF8-4DB4-BFBC-870234ABF1E9}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{F6EAB31E-CDB2-437A-BACF-4A2313B7463D}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Commanding_the_Fury_loopable" ID="{39744284-3F1A-4377-804A-0B7E1F8C2AEB}" ShortID="1040256317">
+									<Language>SFX</Language>
+									<AudioFile>Commanding_the_Fury_loopable.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Commanding_the_Fury_loopable" ID="{39744284-3F1A-4377-804A-0B7E1F8C2AEB}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Witch_Hunters_loopable" ID="{69628A59-3EE0-4D67-A14F-E6A4B400B9B4}" ShortID="232644400">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{33080FFE-AFF8-4DB4-BFBC-870234ABF1E9}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{F6EAB31E-CDB2-437A-BACF-4A2313B7463D}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Witch_Hunters_loopable" ID="{7CDFFE4A-1630-41DF-AFFA-91D5BD638E27}" ShortID="453433090">
+									<Language>SFX</Language>
+									<AudioFile>Witch_Hunters_loopable.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Witch_Hunters_loopable" ID="{7CDFFE4A-1630-41DF-AFFA-91D5BD638E27}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>

@@ -38,6 +38,7 @@ namespace AK
         static const AkUniqueID PLAY_COMBO_2 = 3845195167U;
         static const AkUniqueID PLAY_COMBO_3 = 3845195166U;
         static const AkUniqueID PLAY_COMBO_GERALT = 1749253064U;
+        static const AkUniqueID PLAY_COMMANDING_THE_FURY_LOOPABLE = 249260787U;
         static const AkUniqueID PLAY_DRINKING_POTION = 2710797174U;
         static const AkUniqueID PLAY_ENDREGA_ATTACK_1 = 2415117513U;
         static const AkUniqueID PLAY_ENDREGA_ATTACK_2 = 2415117514U;
@@ -70,10 +71,13 @@ namespace AK
         static const AkUniqueID PLAY_GERALT_ATTACK_6 = 1313557379U;
         static const AkUniqueID PLAY_GERALT_DEATH = 183137626U;
         static const AkUniqueID PLAY_GERALT_GETTING_UP = 846883548U;
+        static const AkUniqueID PLAY_GERALT_KNOCKBACK = 2453819625U;
         static const AkUniqueID PLAY_GERALT_POTION = 102879625U;
         static const AkUniqueID PLAY_GERALT_REVIVE = 966697903U;
         static const AkUniqueID PLAY_GERALT_ROLL = 170171029U;
         static const AkUniqueID PLAY_GERALT_RUN = 3557814099U;
+        static const AkUniqueID PLAY_GERALT_STAND_UP = 4181334820U;
+        static const AkUniqueID PLAY_GERALT_STUN = 2375497796U;
         static const AkUniqueID PLAY_GERALT_WALK = 3147769583U;
         static const AkUniqueID PLAY_GHOUL_DEATH_1 = 2673589978U;
         static const AkUniqueID PLAY_GHOUL_DEATH_2 = 2673589977U;
@@ -102,11 +106,14 @@ namespace AK
         static const AkUniqueID PLAY_JASKIER_GETTING_UP = 2118298236U;
         static const AkUniqueID PLAY_JASKIER_HEAVY_IMPACT = 2075994674U;
         static const AkUniqueID PLAY_JASKIER_JUMP = 1018718152U;
+        static const AkUniqueID PLAY_JASKIER_KNOCKBACK = 1701959369U;
         static const AkUniqueID PLAY_JASKIER_LIGHT_IMPACT = 704499477U;
         static const AkUniqueID PLAY_JASKIER_REVIVE = 4116481551U;
         static const AkUniqueID PLAY_JASKIER_RUN = 462417715U;
         static const AkUniqueID PLAY_JASKIER_SONG_1 = 2858442791U;
         static const AkUniqueID PLAY_JASKIER_SONG_2 = 2858442788U;
+        static const AkUniqueID PLAY_JASKIER_STAND_UP = 2517954756U;
+        static const AkUniqueID PLAY_JASKIER_STUN = 4229367204U;
         static const AkUniqueID PLAY_JASKIER_WALK = 748248399U;
         static const AkUniqueID PLAY_KIKIMORA_DEATH = 4129361266U;
         static const AkUniqueID PLAY_KIKIMORA_HIT = 3409660243U;
@@ -144,6 +151,9 @@ namespace AK
         static const AkUniqueID PLAY_NILFGAARDIAN_WALKING_SOUND_GROUP_2 = 1261783109U;
         static const AkUniqueID PLAY_NO_ENERGY = 306299682U;
         static const AkUniqueID PLAY_NO_POTION = 2108537051U;
+        static const AkUniqueID PLAY_POTION_HEALTH = 1201227192U;
+        static const AkUniqueID PLAY_POTION_POWER = 3383813377U;
+        static const AkUniqueID PLAY_POTION_STAMINA = 3850640881U;
         static const AkUniqueID PLAY_SELECT_1 = 2927391090U;
         static const AkUniqueID PLAY_SELECT_2 = 2927391089U;
         static const AkUniqueID PLAY_SELECT_3 = 2927391088U;
@@ -157,6 +167,7 @@ namespace AK
         static const AkUniqueID PLAY_ULTI_GERALT = 1586346464U;
         static const AkUniqueID PLAY_UNSHEATHE = 2342786857U;
         static const AkUniqueID PLAY_USED_POTION = 3553846485U;
+        static const AkUniqueID PLAY_WITCH_HUNTERS_LOOPABLE = 1098472812U;
         static const AkUniqueID PLAY_WOODEN_OBJECT_BREAK_1 = 152572334U;
         static const AkUniqueID PLAY_WOODEN_OBJECT_BREAK_2 = 152572333U;
         static const AkUniqueID PLAY_WOODEN_OBJECT_BREAK_3 = 152572332U;

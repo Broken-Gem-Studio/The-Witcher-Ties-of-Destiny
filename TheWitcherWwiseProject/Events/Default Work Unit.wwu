@@ -269,6 +269,39 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Play_Geralt_knockback" ID="{D9D9DBF0-2F07-4F99-9DB7-EB13664568C0}">
+							<ChildrenList>
+								<Action Name="" ID="{E56E90BC-102B-4986-8A89-02E258F8F67D}" ShortID="846455654">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Geralt_knockback" ID="{0675A173-7A93-401A-9D5F-0BEC232A4E0A}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Geralt_stun" ID="{F723E437-659B-4A79-B596-946083EF5036}">
+							<ChildrenList>
+								<Action Name="" ID="{D254BD48-8BDF-4407-A5BE-047A9D09E5DD}" ShortID="348381710">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Geralt_stun" ID="{4969A0C2-E1D4-4F4B-80E7-415D6607F6F7}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Geralt_stand_up" ID="{391E3F56-BD6B-4CCF-B70C-24DF6C64D262}">
+							<ChildrenList>
+								<Action Name="" ID="{A47DD3DF-EB16-41BD-A7A1-768D0846B44E}" ShortID="259504999">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Geralt_stand_up" ID="{B24F8EC1-CFDC-4BB3-BA8F-4C4028C26CE4}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Bandit" ID="{A7EEC3B3-A754-41E6-934E-C52B64D2BC7A}" ShortID="422313474">
@@ -989,6 +1022,39 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Play_Jaskier_stand_up" ID="{3CEC33FC-3A9C-4EC9-B972-E40116059178}">
+							<ChildrenList>
+								<Action Name="" ID="{EAB02786-C51B-4018-954D-43DD1FD8EF2E}" ShortID="798612017">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Jaskier_stand_up" ID="{41A53A48-A745-4FB5-BE09-9734CAFCC42F}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Jaskier_knockback" ID="{432FBCF0-D4B9-4D33-8E90-779E15A9F96A}">
+							<ChildrenList>
+								<Action Name="" ID="{75162BAC-EC10-446D-B51B-AF65C81A088F}" ShortID="929464405">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Jaskier_knockback" ID="{ACA78195-BFE4-4C14-ACA6-C6DBF91AD41D}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Jaskier_stun" ID="{130832D3-68B1-4178-8E18-789BC24A2AEA}">
+							<ChildrenList>
+								<Action Name="" ID="{C1EF0D60-600F-4AB6-BDBB-BC62EE47DDC9}" ShortID="1034762698">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Jaskier_stun" ID="{C55798A6-FD9F-49D4-835B-A5DA385B7C77}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Endrega" ID="{4854C493-F31C-440C-9806-0E92A73FF215}" ShortID="303462508">
@@ -1221,6 +1287,186 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Play_Potion_health" ID="{C05B1189-7F21-461A-9DCD-5E5DA23A5762}">
+							<ChildrenList>
+								<Action Name="" ID="{183EBDD0-104A-466A-B7CF-AA7612AFBDE1}" ShortID="721284658">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Potion_health" ID="{B8015DE1-6EB1-48E2-9CD0-FC402FE6AFF4}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Potion_stamina" ID="{F87DA683-79E7-4510-B476-65F236C69D5D}">
+							<ChildrenList>
+								<Action Name="" ID="{1ECD0CE2-8702-460D-AABB-B976A38CE843}" ShortID="575269267">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Potion_stamina" ID="{2976D89F-04D0-447C-A09E-104715E2E260}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Potion_power" ID="{8B4A3ADF-B4C5-41AD-BBE6-071424C53D2E}">
+							<ChildrenList>
+								<Action Name="" ID="{7B10880D-760C-4CB4-8160-28FE391C3051}" ShortID="813373760">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Potion_power" ID="{D13895BC-8D57-4976-8F12-A7218D155073}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Folder Name="Prop" ID="{B0F6E695-68E2-4FB0-8AD0-53C64666803B}" ShortID="520489018">
+							<ChildrenList>
+								<Event Name="Play_Hit_Wood_Sound_3" ID="{39419DBE-7642-4D66-A5F9-DD8A9069C226}">
+									<ChildrenList>
+										<Action Name="" ID="{E29D40BA-F12A-47D0-B30F-34C1C96898CD}" ShortID="801082396">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Hit_Wood_Sound_3" ID="{CF16FE7A-BF82-46FE-A470-639E6BAC53AC}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Broken_Wood_Sound_2" ID="{7D6528F8-4BCA-4D2F-B558-16079E2F1767}">
+									<ChildrenList>
+										<Action Name="" ID="{127F117D-E6E6-4C8C-91AF-94CF22C19343}" ShortID="363537964">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Broken_Wood_Sound_2" ID="{D39F2768-4A53-4508-84D3-2E2B98266563}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Broken_Wood_Sound_1" ID="{C04E4544-D6DE-421B-AFB7-D92D69B85CD9}">
+									<ChildrenList>
+										<Action Name="" ID="{97DFAB15-539C-4FD3-9363-64F32600D845}" ShortID="174443134">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Broken_Wood_Sound_1" ID="{3A0418C2-EE94-4262-8C89-20AC1422512D}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Hit_Wood_Sound_1" ID="{72AE24FD-ABDE-4607-99DF-65852477A790}">
+									<ChildrenList>
+										<Action Name="" ID="{827EF861-0E6E-40F5-8EB1-0F8BAB3D5CDF}" ShortID="206499596">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Hit_Wood_Sound_1" ID="{3354D449-5E9C-4CC5-BECC-6BAF9C3CFEC1}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Hit_Wood_Sound_2" ID="{A0F810C3-41C4-460B-B4E9-CA91E26CEB1E}">
+									<ChildrenList>
+										<Action Name="" ID="{036C431C-090C-422B-91EC-95C91A678424}" ShortID="784028704">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Hit_Wood_Sound_2" ID="{CFCDD2EC-F0F6-419E-9DEC-65D37E7ABDF7}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Barrel_crush_2" ID="{2E78A87B-9666-49FF-AB90-94BD7E0B925B}">
+									<ChildrenList>
+										<Action Name="" ID="{FD251741-0532-41BD-B26A-834B19FA4BEE}" ShortID="134277861">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Barrel_crush_2" ID="{7E848585-A3C3-482B-BAC0-01F24934BF76}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Wooden_object_break_5" ID="{AE125AC2-C62F-4146-855F-528D66CE443F}">
+									<ChildrenList>
+										<Action Name="" ID="{19163BE9-F312-46C4-AEC0-3B8105AC692E}" ShortID="952572846">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Wooden _object_break_5" ID="{8C02147E-EA7A-4C04-9317-1E18AB6D60EB}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Wooden_object_break_3" ID="{02CA2657-BBFE-4AEA-A41F-BE787A50FD7A}">
+									<ChildrenList>
+										<Action Name="" ID="{E716A204-8C01-4F97-B313-E8504457CFAC}" ShortID="445001793">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Wooden _object_break_3" ID="{CBC4891D-0007-404D-903D-4855D059881A}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Barrel_crush_1" ID="{98253344-25BE-4BC0-B0D4-93FC8E2A14DB}">
+									<ChildrenList>
+										<Action Name="" ID="{4FB33407-0137-49C3-B39A-84E0E137583E}" ShortID="829402704">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Barrel_crush_1" ID="{2B6B7AD1-F635-4043-87C9-3460B424336F}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Wooden_object_break_1" ID="{C90F93A7-A644-4675-BE81-BBECDB2246DA}">
+									<ChildrenList>
+										<Action Name="" ID="{E46B62D0-9A19-45B9-A012-3399DAF3EC46}" ShortID="263785802">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Wooden _object_break_1" ID="{AC439173-F7C6-4854-9266-5487A2663581}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Wooden_object_break_6" ID="{18469FA4-92F1-4883-B691-526BB5D8CECB}">
+									<ChildrenList>
+										<Action Name="" ID="{58D072B8-790C-45B1-8632-4B6240E52CF5}" ShortID="366395815">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Wooden _object_break_6" ID="{18B92B12-E21F-4D12-9549-31DE40446B0A}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Wooden_object_break_4" ID="{70A4C885-EFCF-4F6B-BF0B-5CC174BA281A}">
+									<ChildrenList>
+										<Action Name="" ID="{59E23DD3-F937-4B2B-8996-AC6B07F904B6}" ShortID="354773199">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Wooden _object_break_4" ID="{0BE4E668-FC90-4C73-AD0F-4F602AACE2D5}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Wooden_object_break_2" ID="{1669E4E0-9FD1-405B-8A0A-0C2AD1617D5C}">
+									<ChildrenList>
+										<Action Name="" ID="{D5D4FA44-0314-4912-831A-FDC09FF1A5A9}" ShortID="137281640">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Wooden _object_break_2" ID="{E56F4286-00B7-45C2-BE2C-EF6960A0F1E9}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="UI" ID="{A1C3A21C-23A4-47D4-BEF0-DE7FB1CD1464}" ShortID="599998731">
@@ -1330,153 +1576,6 @@
 						</Event>
 					</ChildrenList>
 				</Folder>
-				<Folder Name="Prop" ID="{B0F6E695-68E2-4FB0-8AD0-53C64666803B}" ShortID="520489018">
-					<ChildrenList>
-						<Event Name="Play_Hit_Wood_Sound_3" ID="{39419DBE-7642-4D66-A5F9-DD8A9069C226}">
-							<ChildrenList>
-								<Action Name="" ID="{E29D40BA-F12A-47D0-B30F-34C1C96898CD}" ShortID="801082396">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Hit_Wood_Sound_3" ID="{CF16FE7A-BF82-46FE-A470-639E6BAC53AC}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Play_Broken_Wood_Sound_2" ID="{7D6528F8-4BCA-4D2F-B558-16079E2F1767}">
-							<ChildrenList>
-								<Action Name="" ID="{127F117D-E6E6-4C8C-91AF-94CF22C19343}" ShortID="363537964">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Broken_Wood_Sound_2" ID="{D39F2768-4A53-4508-84D3-2E2B98266563}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Play_Broken_Wood_Sound_1" ID="{C04E4544-D6DE-421B-AFB7-D92D69B85CD9}">
-							<ChildrenList>
-								<Action Name="" ID="{97DFAB15-539C-4FD3-9363-64F32600D845}" ShortID="174443134">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Broken_Wood_Sound_1" ID="{3A0418C2-EE94-4262-8C89-20AC1422512D}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Play_Hit_Wood_Sound_1" ID="{72AE24FD-ABDE-4607-99DF-65852477A790}">
-							<ChildrenList>
-								<Action Name="" ID="{827EF861-0E6E-40F5-8EB1-0F8BAB3D5CDF}" ShortID="206499596">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Hit_Wood_Sound_1" ID="{3354D449-5E9C-4CC5-BECC-6BAF9C3CFEC1}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Play_Hit_Wood_Sound_2" ID="{A0F810C3-41C4-460B-B4E9-CA91E26CEB1E}">
-							<ChildrenList>
-								<Action Name="" ID="{036C431C-090C-422B-91EC-95C91A678424}" ShortID="784028704">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Hit_Wood_Sound_2" ID="{CFCDD2EC-F0F6-419E-9DEC-65D37E7ABDF7}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Play_Barrel_crush_2" ID="{2E78A87B-9666-49FF-AB90-94BD7E0B925B}">
-							<ChildrenList>
-								<Action Name="" ID="{FD251741-0532-41BD-B26A-834B19FA4BEE}" ShortID="134277861">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Barrel_crush_2" ID="{7E848585-A3C3-482B-BAC0-01F24934BF76}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Play_Wooden_object_break_5" ID="{AE125AC2-C62F-4146-855F-528D66CE443F}">
-							<ChildrenList>
-								<Action Name="" ID="{19163BE9-F312-46C4-AEC0-3B8105AC692E}" ShortID="952572846">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Wooden _object_break_5" ID="{8C02147E-EA7A-4C04-9317-1E18AB6D60EB}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Play_Wooden_object_break_3" ID="{02CA2657-BBFE-4AEA-A41F-BE787A50FD7A}">
-							<ChildrenList>
-								<Action Name="" ID="{E716A204-8C01-4F97-B313-E8504457CFAC}" ShortID="445001793">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Wooden _object_break_3" ID="{CBC4891D-0007-404D-903D-4855D059881A}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Play_Barrel_crush_1" ID="{98253344-25BE-4BC0-B0D4-93FC8E2A14DB}">
-							<ChildrenList>
-								<Action Name="" ID="{4FB33407-0137-49C3-B39A-84E0E137583E}" ShortID="829402704">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Barrel_crush_1" ID="{2B6B7AD1-F635-4043-87C9-3460B424336F}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Play_Wooden_object_break_1" ID="{C90F93A7-A644-4675-BE81-BBECDB2246DA}">
-							<ChildrenList>
-								<Action Name="" ID="{E46B62D0-9A19-45B9-A012-3399DAF3EC46}" ShortID="263785802">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Wooden _object_break_1" ID="{AC439173-F7C6-4854-9266-5487A2663581}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Play_Wooden_object_break_6" ID="{18469FA4-92F1-4883-B691-526BB5D8CECB}">
-							<ChildrenList>
-								<Action Name="" ID="{58D072B8-790C-45B1-8632-4B6240E52CF5}" ShortID="366395815">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Wooden _object_break_6" ID="{18B92B12-E21F-4D12-9549-31DE40446B0A}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Play_Wooden_object_break_4" ID="{70A4C885-EFCF-4F6B-BF0B-5CC174BA281A}">
-							<ChildrenList>
-								<Action Name="" ID="{59E23DD3-F937-4B2B-8996-AC6B07F904B6}" ShortID="354773199">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Wooden _object_break_4" ID="{0BE4E668-FC90-4C73-AD0F-4F602AACE2D5}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Play_Wooden_object_break_2" ID="{1669E4E0-9FD1-405B-8A0A-0C2AD1617D5C}">
-							<ChildrenList>
-								<Action Name="" ID="{D5D4FA44-0314-4912-831A-FDC09FF1A5A9}" ShortID="137281640">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Wooden _object_break_2" ID="{E56F4286-00B7-45C2-BE2C-EF6960A0F1E9}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-					</ChildrenList>
-				</Folder>
 				<Folder Name="Dialogues" ID="{11F87743-A2D8-437F-82FA-AD62A281EBD4}" ShortID="1070709453">
 					<ChildrenList>
 						<Event Name="Play_lvl1_Intro_conversation_Cutscene" ID="{6F03570E-E8B3-4EDE-892A-6D09F36880EF}">
@@ -1555,6 +1654,28 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Trial_of_the_Grasses_loop" ID="{DB5648F6-7C67-44B8-82FA-6820560AD488}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Commanding_the_Fury_loopable" ID="{53FABAC3-B77E-464A-A03D-413FACF46B5D}">
+							<ChildrenList>
+								<Action Name="" ID="{1101A32B-0182-4C39-951C-384D459D8B18}" ShortID="247803348">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Commanding_the_Fury_loopable" ID="{A1729334-E652-44E0-9A5E-301C5D7DA560}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Witch_Hunters_loopable" ID="{49CB802C-921E-46BF-9C56-3AB0FF9B6F56}">
+							<ChildrenList>
+								<Action Name="" ID="{8971375B-7859-40D2-A3F8-AEE0C228AE95}" ShortID="15117670">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Witch_Hunters_loopable" ID="{69628A59-3EE0-4D67-A14F-E6A4B400B9B4}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
