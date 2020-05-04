@@ -1,10 +1,10 @@
 {
-    "knockback": {
+    "death": {
         "default": false,
-        "end_frame": "814",
+        "end_frame": "2188",
         "loop": false,
-        "name": "knockback",
-        "start_frame": "723"
+        "name": "death",
+        "start_frame": "2119"
     },
     "evade": {
         "default": false,
@@ -12,13 +12,6 @@
         "loop": false,
         "name": "evade",
         "start_frame": "341"
-    },
-    "stand_up_front": {
-        "default": false,
-        "end_frame": "1180",
-        "loop": false,
-        "name": "stand_up_front",
-        "start_frame": "1075"
     },
     "guitar_play_1": {
         "default": false,
@@ -76,6 +69,13 @@
         "name": "idle",
         "start_frame": "2"
     },
+    "knockback": {
+        "default": false,
+        "end_frame": "814",
+        "loop": false,
+        "name": "knockback",
+        "start_frame": "723"
+    },
     "light_1": {
         "default": false,
         "end_frame": "1207",
@@ -118,6 +118,13 @@
         "name": "medium_3",
         "start_frame": "1491"
     },
+    "moonwalk": {
+        "default": false,
+        "end_frame": "1747",
+        "loop": true,
+        "name": "moonwalk",
+        "start_frame": "1716"
+    },
     "revive": {
         "default": false,
         "end_frame": "1074",
@@ -132,39 +139,32 @@
         "name": "run",
         "start_frame": "94"
     },
-    "walk": {
+    "stand_up_back": {
         "default": false,
-        "end_frame": "93",
-        "loop": true,
-        "name": "walk",
-        "start_frame": "58"
+        "end_frame": "2353",
+        "loop": false,
+        "name": "stand_up_back",
+        "start_frame": "2189"
     },
-	"moonwalk": {
+    "stand_up_front": {
         "default": false,
-        "end_frame": "1747",
-        "loop": true,
-        "name": "moonwalk",
-        "start_frame": "1716"
+        "end_frame": "1180",
+        "loop": false,
+        "name": "stand_up_front",
+        "start_frame": "1075"
     },
-	"stun": {
+    "stun": {
         "default": false,
         "end_frame": "2118",
         "loop": true,
         "name": "stun",
         "start_frame": "1920"
     },
-	"death": {
+    "walk": {
         "default": false,
-        "end_frame": "2188",
-        "loop": false,
-        "name": "death",
-        "start_frame": "2119"
-    },
-	"stand_up_back": {
-        "default": false,
-        "end_frame": "2353",
-        "loop": false,
-        "name": "stand_up_back",
-        "start_frame": "2189"
+        "end_frame": "93",
+        "loop": true,
+        "name": "walk",
+        "start_frame": "58"
     }
 }

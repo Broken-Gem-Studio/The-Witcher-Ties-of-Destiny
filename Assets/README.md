@@ -10,18 +10,18 @@ so here I'll stipulate some important details about these:
 **Geralt_v3**: Includes all animations + requested modifications in some of them.
 	- Uses GeraltScript_v3.
 **Geralt_v4**: All animations + new medium_attack animations.
-	- Uses GeraltScript_v7 and above.
+	- Uses GeraltScript_v7 tp v12.
 **Geralt_v5**: Knocknack, Stun, Death, and Stand Up Animations.
-	- Uses GeraltScript_v12 and above.
+	- Uses GeraltScript_v13 and above.
 	
 **Jaskier_v0**: Geralt_v3 with the name changed.
 - Uses JaskierScript_v0.
 **Jaskier_v1**: Vertical Slice Jaskier, basic animations (no abilities).
 	- Uses JaskierScript_v1.
 **Jaskier_v2**: All animations + new medium_attack animations.
-	- Uses JaskierScript_v3.
+	- Uses JaskierScript_v3 to v8.
 **Jaskier_v3**: Knocknack, Stun, Death, and Stand Up Animations.
-	- Uses JaskierScript_v8.
+	- Uses JaskierScript_v9.
 	
 **GeraltScript_v1**: With Geralt_v1.
 **GeraltScript_v2**: Only up to build 0.2.4 with Geralt_v2.
@@ -36,6 +36,7 @@ so here I'll stipulate some important details about these:
 **GeraltScript_v10**: OnCollisionEnter now is capable of being a damage source.
 **GeraltScript_v11**: Changed all velocities because of dt bug, new items, and attack velocity changes, since 0.5.0.
 **GeraltScript_v12**: Simplified combos for testing.
+**GeraltScript_v13**: New Geralt FBX.
 
 **JaskierScript_v0**: Straight up copy of Geralt Code.
 **JaskierScript_v1**: Jaskier from the Vertical Slice 2. Movement, evade, basic attacks.
@@ -46,3 +47,4 @@ so here I'll stipulate some important details about these:
 **JaskierScript_v6**: OnCollisionEnter now is capable of being a damage source.
 **JaskierScript_v7**: Changed all velocities because of dt bug, new items, and attack velocity changes, since 0.5.0.
 **JaskierScript_v8**: Simplified combos and added new particles.
+**JaskierScript_v9**: New Jaskier FBX and more particles.

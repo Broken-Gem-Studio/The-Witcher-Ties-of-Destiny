@@ -41,13 +41,6 @@
         "name": "evade",
         "start_frame": "1045"
     },
-    "stand_up_front": {
-        "default": false,
-        "end_frame": "1560",
-        "loop": false,
-        "name": "stand_up_front",
-        "start_frame": "1452"
-    },
     "heavy_1": {
         "default": false,
         "end_frame": "538",
@@ -75,6 +68,13 @@
         "loop": true,
         "name": "idle",
         "start_frame": "2"
+    },
+    "knockback": {
+        "default": false,
+        "end_frame": "2789",
+        "loop": false,
+        "name": "knockback",
+        "start_frame": "2698"
     },
     "light_1": {
         "default": false,
@@ -139,32 +139,32 @@
         "name": "run",
         "start_frame": "373"
     },
-    "walk": {
+    "stand_up_back": {
         "default": false,
-        "end_frame": "372",
-        "loop": true,
-        "name": "walk",
-        "start_frame": "331"
+        "end_frame": "2697",
+        "loop": false,
+        "name": "stand_up_back",
+        "start_frame": "2438"
     },
-	"stun": {
+    "stand_up_front": {
+        "default": false,
+        "end_frame": "1560",
+        "loop": false,
+        "name": "stand_up_front",
+        "start_frame": "1452"
+    },
+    "stun": {
         "default": false,
         "end_frame": "2972",
         "loop": true,
         "name": "stun",
         "start_frame": "2790"
     },
-	"knockback": {
+    "walk": {
         "default": false,
-        "end_frame": "2789",
-        "loop": false,
-        "name": "knockback",
-        "start_frame": "2698"
-    },
-	"stand_up_back": {
-        "default": false,
-        "end_frame": "2697",
-        "loop": false,
-        "name": "stand_up_back",
-        "start_frame": "2438"
+        "end_frame": "372",
+        "loop": true,
+        "name": "walk",
+        "start_frame": "331"
     }
 }
