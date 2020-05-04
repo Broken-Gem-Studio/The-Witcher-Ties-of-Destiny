@@ -313,9 +313,9 @@
                 "rotationx": "0.000000",
                 "rotationy": "-0.707107",
                 "rotationz": "0.000000",
-                "scalex": "1.270961",
+                "scalex": "1.270965",
                 "scaley": "1.270900",
-                "scalez": "1.270961"
+                "scalez": "1.270965"
             },
             "13": {
                 "Active": true,
@@ -433,7 +433,7 @@
                 "scalez": "1.000000"
             }
         },
-        "Index": 240,
+        "Index": 239,
         "Name": "WoodRoofs",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -662,7 +662,7 @@
                 "rotationx": "-0.047664",
                 "rotationy": "0.671446",
                 "rotationz": "0.739518",
-                "scalex": "0.322683",
+                "scalex": "0.322687",
                 "scaley": "0.351858",
                 "scalez": "0.351858"
             },
@@ -800,9 +800,9 @@
                 "rotationx": "0.479388",
                 "rotationy": "0.813785",
                 "rotationz": "-0.033916",
-                "scalex": "0.996627",
+                "scalex": "0.996631",
                 "scaley": "0.996570",
-                "scalez": "1.692690"
+                "scalez": "1.692702"
             },
             "1": {
                 "Active": true,
@@ -1541,7 +1541,7 @@
                 "scalez": "1.000000"
             }
         },
-        "Index": 237,
+        "Index": 236,
         "Name": "Wood3",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -1593,6 +1593,134 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "281283072",
+        "Static": false
+    },
+    "115352099": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1154432634,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
+                },
+                "Script variables": {
+                    "Count": 13,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "ActiveDistance",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 60.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "DistanceToCamera",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_name",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Camera"
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "enemy_to_spawn",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": -1.0
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "InfiniteEnemies",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "NumberofEnemies",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 4.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Archer",
+                        "ObjectName": "archer (0).prefab",
+                        "Type": "Double",
+                        "Value": 647695116.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Lumberjack",
+                        "ObjectName": "Lumberjack (0).prefab",
+                        "Type": "Double",
+                        "Value": 106650205.0
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Zomboid",
+                        "ObjectName": "Zomboid_Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 1233045812.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_minion",
+                        "ObjectName": "Minion_Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 1853337145.0
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_walker_Ghoul",
+                        "ObjectName": "Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 571222616.0
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRate",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    }
+                },
+                "UID": 1031439092,
+                "index": 1
+            }
+        },
+        "Index": 5,
+        "Name": "Spawner",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "-1",
         "Static": false
     },
     "1169909405": {
@@ -1758,8 +1886,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000534",
-                "scalez": "1.000534"
+                "scaley": "1.000538",
+                "scalez": "1.000538"
             }
         },
         "Index": 0,
@@ -2176,7 +2304,7 @@
                 "index": 2
             }
         },
-        "Index": 244,
+        "Index": 243,
         "Name": "polySurface206",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -2318,8 +2446,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000534",
-                "scalez": "1.000534"
+                "scaley": "1.000538",
+                "scalez": "1.000538"
             }
         },
         "Index": 0,
@@ -2481,8 +2609,8 @@
                 "rotationx": "0.297305",
                 "rotationy": "0.612992",
                 "rotationz": "0.689979",
-                "scalex": "0.429200",
-                "scaley": "0.429199",
+                "scalex": "0.429204",
+                "scaley": "0.429203",
                 "scalez": "0.429143"
             },
             "1": {
@@ -2665,9 +2793,9 @@
                 "rotationx": "0.678869",
                 "rotationy": "0.456193",
                 "rotationz": "-0.419121",
-                "scalex": "0.999954",
-                "scaley": "0.999953",
-                "scalez": "0.999927"
+                "scalex": "0.999950",
+                "scaley": "0.999949",
+                "scalez": "0.999922"
             },
             "13": {
                 "Active": true,
@@ -3083,8 +3211,8 @@
                 "rotationx": "0.076460",
                 "rotationy": "0.109147",
                 "rotationz": "0.985927",
-                "scalex": "0.999939",
-                "scaley": "0.999939",
+                "scalex": "0.999935",
+                "scaley": "0.999935",
                 "scalez": "1.000000"
             },
             "13": {
@@ -3165,8 +3293,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000534",
-                "scalez": "1.000534"
+                "scaley": "1.000538",
+                "scalez": "1.000538"
             }
         },
         "Index": 0,
@@ -3237,8 +3365,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.070461",
-                "scaley": "15.158342",
-                "scalez": "1.368184"
+                "scaley": "15.158377",
+                "scalez": "1.368188"
             },
             "1": {
                 "Active": true,
@@ -3381,7 +3509,7 @@
                 "index": 2
             }
         },
-        "Index": 242,
+        "Index": 241,
         "Name": "polySurface163",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -3683,7 +3811,7 @@
                 "rotationx": "-0.085506",
                 "rotationy": "0.689620",
                 "rotationz": "0.705077",
-                "scalex": "0.339915",
+                "scalex": "0.339919",
                 "scaley": "0.339858",
                 "scalez": "0.207319"
             },
@@ -4092,8 +4220,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000534",
-                "scalez": "1.000534"
+                "scaley": "1.000538",
+                "scalez": "1.000538"
             }
         },
         "Index": 0,
@@ -4143,7 +4271,7 @@
                 "index": 2
             }
         },
-        "Index": 228,
+        "Index": 227,
         "Name": "Tree:Tree140",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -4829,7 +4957,7 @@
                 "rotationy": "-0.490121",
                 "rotationz": "-0.492056",
                 "scalex": "0.613431",
-                "scaley": "0.668956",
+                "scaley": "0.668952",
                 "scalez": "0.668963"
             },
             "1": {
@@ -5487,8 +5615,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000534",
-                "scalez": "1.000534"
+                "scaley": "1.000538",
+                "scalez": "1.000538"
             }
         },
         "Index": 0,
@@ -5646,7 +5774,7 @@
                         "Name": "player_ID",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 1.0
+                        "Value": 2.0
                     },
                     "Variable 11": {
                         "DisplayObjectName": false,
@@ -7167,7 +7295,7 @@
                 "scalez": "1.000000"
             }
         },
-        "Index": 234,
+        "Index": 233,
         "Name": "WindowsAndDoors",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -7411,8 +7539,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000534",
-                "scalez": "1.000534"
+                "scaley": "1.000538",
+                "scalez": "1.000538"
             }
         },
         "Index": 0,
@@ -7436,9 +7564,9 @@
                 "rotationx": "0.330696",
                 "rotationy": "0.618391",
                 "rotationz": "0.683613",
-                "scalex": "0.999954",
-                "scaley": "0.999953",
-                "scalez": "0.999953"
+                "scalex": "0.999950",
+                "scaley": "0.999949",
+                "scalez": "0.999949"
             },
             "13": {
                 "Active": true,
@@ -7916,7 +8044,7 @@
                 "scalez": "1.000000"
             }
         },
-        "Index": 239,
+        "Index": 238,
         "Name": "Wood5",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -7937,9 +8065,9 @@
                 "rotationx": "0.000000",
                 "rotationy": "0.939693",
                 "rotationz": "-0.342020",
-                "scalex": "1.000159",
+                "scalex": "1.000163",
                 "scaley": "1.000000",
-                "scalez": "1.000159"
+                "scalez": "1.000163"
             },
             "12": {
                 "Active": true,
@@ -8122,17 +8250,17 @@
                 "index": 2
             },
             "20": {
-                "Active": true,
+                "Active": false,
                 "UID": 940477525,
                 "index": 3
             },
             "3": {
-                "ACTIVECAM": true,
-                "ASPECTRATIO": 1.9840584993362427,
+                "ACTIVECAM": false,
+                "ASPECTRATIO": 1.53713059425354,
                 "Active": true,
                 "CULLINGCAM": true,
                 "FARPLANE": 1000.0,
-                "FOV": 49.932579040527344,
+                "FOV": 62.00874710083008,
                 "NEARPLANE": 0.10000000149011612,
                 "UID": 209370995,
                 "index": 4
@@ -8251,9 +8379,9 @@
                 "rotationx": "0.197807",
                 "rotationy": "0.842475",
                 "rotationz": "-0.471290",
-                "scalex": "1.189344",
+                "scalex": "1.189340",
                 "scaley": "1.189399",
-                "scalez": "1.518212"
+                "scalez": "1.518208"
             },
             "1": {
                 "Active": true,
@@ -8655,9 +8783,9 @@
                 "rotationx": "0.000000",
                 "rotationy": "-0.707107",
                 "rotationz": "0.000000",
-                "scalex": "1.000061",
+                "scalex": "1.000065",
                 "scaley": "1.000000",
-                "scalez": "1.000061"
+                "scalez": "1.000065"
             },
             "13": {
                 "Active": true,
@@ -8689,9 +8817,9 @@
                 "rotationx": "0.751287",
                 "rotationy": "0.559985",
                 "rotationz": "0.103072",
-                "scalex": "39.370213",
-                "scaley": "39.370430",
-                "scalez": "39.370476"
+                "scalex": "39.370228",
+                "scaley": "39.370461",
+                "scalez": "39.370514"
             },
             "18": {
                 "Active": true,
@@ -8699,7 +8827,7 @@
                 "GradientColor": false,
                 "Loop": true,
                 "Resources": {
-                    "ResourceTexture": "Library/Textures/250591406.dds"
+                    "ResourceTexture": "Library/Textures/1289133255.dds"
                 },
                 "UID": 719913060,
                 "animation": "0",
@@ -9066,9 +9194,9 @@
                 "rotationx": "0.751287",
                 "rotationy": "0.559985",
                 "rotationz": "0.103072",
-                "scalex": "39.370213",
-                "scaley": "39.370430",
-                "scalez": "39.370476"
+                "scalex": "39.370228",
+                "scaley": "39.370461",
+                "scalez": "39.370514"
             },
             "18": {
                 "Active": true,
@@ -9076,7 +9204,7 @@
                 "GradientColor": false,
                 "Loop": true,
                 "Resources": {
-                    "ResourceTexture": "Library/Textures/1363884158.dds"
+                    "ResourceTexture": "Library/Textures/1982320189.dds"
                 },
                 "UID": 601484354,
                 "animation": "0",
@@ -9161,7 +9289,7 @@
                 "scalez": "0.106746"
             }
         },
-        "Index": 232,
+        "Index": 231,
         "Name": "Walls_Lower:Group17896",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -9405,7 +9533,7 @@
                 "scalez": "1.000000"
             }
         },
-        "Index": 238,
+        "Index": 237,
         "Name": "Wood4",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -9996,7 +10124,7 @@
                 "scalez": "1.884206"
             }
         },
-        "Index": 233,
+        "Index": 232,
         "Name": "Well",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -10048,7 +10176,7 @@
                 "scalez": "1.000000"
             }
         },
-        "Index": 223,
+        "Index": 222,
         "Name": "Terrain_Two",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -10129,8 +10257,8 @@
                 "rotationx": "-0.108597",
                 "rotationy": "0.043775",
                 "rotationz": "0.989140",
-                "scalex": "0.999937",
-                "scaley": "0.999939",
+                "scalex": "0.999932",
+                "scaley": "0.999935",
                 "scalez": "1.000000"
             },
             "13": {
@@ -10210,8 +10338,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000534",
-                "scalez": "1.000534"
+                "scaley": "1.000538",
+                "scalez": "1.000538"
             }
         },
         "Index": 0,
@@ -10487,8 +10615,8 @@
                 "rotationy": "0.002999",
                 "rotationz": "0.017642",
                 "scalex": "1.000000",
-                "scaley": "0.999939",
-                "scalez": "0.999939"
+                "scaley": "0.999935",
+                "scalez": "0.999935"
             },
             "13": {
                 "Active": true,
@@ -10580,7 +10708,7 @@
                 "index": 2
             }
         },
-        "Index": 243,
+        "Index": 242,
         "Name": "polySurface203",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -10601,9 +10729,9 @@
                 "rotationx": "0.009531",
                 "rotationy": "0.682656",
                 "rotationz": "0.730301",
-                "scalex": "1.532331",
-                "scaley": "1.532388",
-                "scalez": "1.692458"
+                "scalex": "1.532323",
+                "scaley": "1.532384",
+                "scalez": "1.692454"
             },
             "1": {
                 "Active": true,
@@ -11497,7 +11625,7 @@
                 "rotationx": "-0.047664",
                 "rotationy": "0.671446",
                 "rotationz": "0.739518",
-                "scalex": "0.322683",
+                "scalex": "0.322687",
                 "scaley": "0.351858",
                 "scalez": "0.351858"
             },
@@ -11920,8 +12048,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000534",
-                "scalez": "1.000534"
+                "scaley": "1.000538",
+                "scalez": "1.000538"
             }
         },
         "Index": 0,
@@ -12390,8 +12518,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000534",
-                "scalez": "1.000534"
+                "scaley": "1.000538",
+                "scalez": "1.000538"
             }
         },
         "Index": 0,
@@ -12688,8 +12816,8 @@
                 "rotationx": "0.086868",
                 "rotationy": "-0.073197",
                 "rotationz": "-0.841590",
-                "scalex": "0.999955",
-                "scaley": "0.999950",
+                "scalex": "0.999951",
+                "scaley": "0.999946",
                 "scalez": "1.000001"
             },
             "13": {
@@ -12876,7 +13004,7 @@
                 "scalez": "1.000000"
             }
         },
-        "Index": 235,
+        "Index": 234,
         "Name": "Wood1",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -13511,8 +13639,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000534",
-                "scalez": "1.000534"
+                "scaley": "1.000538",
+                "scalez": "1.000538"
             }
         },
         "Index": 0,
@@ -13975,8 +14103,8 @@
                 "rotationx": "0.122166",
                 "rotationy": "0.198412",
                 "rotationz": "0.939730",
-                "scalex": "0.704754",
-                "scaley": "0.704754",
+                "scalex": "0.704750",
+                "scaley": "0.704750",
                 "scalez": "1.197011"
             },
             "1": {
@@ -14021,7 +14149,7 @@
                 "rotationx": "-0.251088",
                 "rotationy": "0.633327",
                 "rotationz": "0.646408",
-                "scalex": "0.356618",
+                "scalex": "0.356614",
                 "scaley": "0.356675",
                 "scalez": "0.356675"
             },
@@ -14207,9 +14335,9 @@
                 "rotationx": "0.751287",
                 "rotationy": "0.559985",
                 "rotationz": "0.103072",
-                "scalex": "39.370213",
-                "scaley": "39.370430",
-                "scalez": "39.370476"
+                "scalex": "39.370228",
+                "scaley": "39.370461",
+                "scalez": "39.370514"
             },
             "18": {
                 "Active": true,
@@ -14217,7 +14345,7 @@
                 "GradientColor": false,
                 "Loop": true,
                 "Resources": {
-                    "ResourceTexture": "Library/Textures/123435570.dds"
+                    "ResourceTexture": "Library/Textures/1693067970.dds"
                 },
                 "UID": 810557462,
                 "animation": "0",
@@ -14745,9 +14873,9 @@
                 "rotationx": "0.380226",
                 "rotationy": "0.790120",
                 "rotationz": "-0.478046",
-                "scalex": "0.999953",
-                "scaley": "0.999953",
-                "scalez": "0.999953"
+                "scalex": "0.999949",
+                "scaley": "0.999949",
+                "scalez": "0.999949"
             },
             "13": {
                 "Active": true,
@@ -14860,8 +14988,8 @@
                 "rotationy": "-0.306838",
                 "rotationz": "-0.188075",
                 "scalex": "0.349944",
-                "scaley": "0.349883",
-                "scalez": "0.349883"
+                "scaley": "0.349879",
+                "scalez": "0.349879"
             },
             "13": {
                 "Active": true,
@@ -15233,8 +15361,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000534",
-                "scalez": "1.000534"
+                "scaley": "1.000538",
+                "scalez": "1.000538"
             }
         },
         "Index": 0,
@@ -15378,7 +15506,7 @@
                 "index": 2
             }
         },
-        "Index": 226,
+        "Index": 225,
         "Name": "Tree:Tree099",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -15935,8 +16063,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.540000",
-                "scaley": "2.540280",
-                "scalez": "2.540280"
+                "scaley": "2.540285",
+                "scalez": "2.540285"
             },
             "1": {
                 "Active": true,
@@ -16243,8 +16371,8 @@
                 "rotationx": "0.388476",
                 "rotationy": "0.030072",
                 "rotationz": "0.916844",
-                "scalex": "1.000122",
-                "scaley": "1.000123",
+                "scalex": "1.000130",
+                "scaley": "1.000131",
                 "scalez": "1.000000"
             },
             "13": {
@@ -16278,8 +16406,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000534",
-                "scalez": "1.000534"
+                "scaley": "1.000538",
+                "scalez": "1.000538"
             }
         },
         "Index": 0,
@@ -16457,8 +16585,8 @@
                 "rotationy": "0.518273",
                 "rotationz": "0.442948",
                 "scalex": "1.000000",
-                "scaley": "1.000047",
-                "scalez": "1.000048"
+                "scaley": "1.000051",
+                "scalez": "1.000052"
             },
             "13": {
                 "Active": true,
@@ -16541,7 +16669,7 @@
                 "scalez": "1.000000"
             }
         },
-        "Index": 236,
+        "Index": 235,
         "Name": "Wood2",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -16654,7 +16782,7 @@
                 "rotationx": "-0.001647",
                 "rotationy": "0.707105",
                 "rotationz": "0.707105",
-                "scalex": "1.150051",
+                "scalex": "1.150055",
                 "scaley": "1.149995",
                 "scalez": "1.140062"
             },
@@ -16848,9 +16976,9 @@
                 "rotationx": "0.009531",
                 "rotationy": "0.682656",
                 "rotationz": "0.730301",
-                "scalex": "1.532331",
-                "scaley": "1.532388",
-                "scalez": "1.692458"
+                "scalex": "1.532323",
+                "scaley": "1.532384",
+                "scalez": "1.692454"
             },
             "1": {
                 "Active": true,
@@ -17042,9 +17170,9 @@
                 "rotationx": "0.751287",
                 "rotationy": "0.559985",
                 "rotationz": "0.103072",
-                "scalex": "39.370213",
-                "scaley": "39.370430",
-                "scalez": "39.370476"
+                "scalex": "39.370228",
+                "scaley": "39.370461",
+                "scalez": "39.370514"
             },
             "18": {
                 "Active": true,
@@ -17052,7 +17180,7 @@
                 "GradientColor": false,
                 "Loop": true,
                 "Resources": {
-                    "ResourceTexture": "Library/Textures/801833352.dds"
+                    "ResourceTexture": "Library/Textures/2077483265.dds"
                 },
                 "UID": 1382377141,
                 "animation": "0",
@@ -17569,9 +17697,9 @@
                 "rotationx": "0.205365",
                 "rotationy": "0.663861",
                 "rotationz": "0.700897",
-                "scalex": "1.532331",
-                "scaley": "1.532389",
-                "scalez": "1.692459"
+                "scalex": "1.532323",
+                "scaley": "1.532385",
+                "scalez": "1.692455"
             },
             "1": {
                 "Active": true,
@@ -18032,8 +18160,8 @@
                 "rotationx": "0.046474",
                 "rotationy": "0.155068",
                 "rotationz": "0.844688",
-                "scalex": "1.000047",
-                "scaley": "1.000047",
+                "scalex": "1.000051",
+                "scaley": "1.000051",
                 "scalez": "1.000000"
             },
             "13": {
@@ -18253,9 +18381,9 @@
                 "rotationx": "-0.595506",
                 "rotationy": "0.393283",
                 "rotationz": "0.695841",
-                "scalex": "0.704868",
-                "scaley": "0.704869",
-                "scalez": "1.197069"
+                "scalex": "0.704872",
+                "scaley": "0.704873",
+                "scalez": "1.197073"
             },
             "1": {
                 "Active": true,
@@ -18371,8 +18499,8 @@
                 "rotationx": "-0.061718",
                 "rotationy": "0.237900",
                 "rotationz": "0.949088",
-                "scalex": "1.000061",
-                "scaley": "1.000061",
+                "scalex": "1.000065",
+                "scaley": "1.000065",
                 "scalez": "1.000000"
             },
             "13": {
@@ -18453,8 +18581,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000534",
-                "scalez": "1.000534"
+                "scaley": "1.000538",
+                "scalez": "1.000538"
             }
         },
         "Index": 0,
@@ -18744,9 +18872,9 @@
                 "rotationx": "-0.595506",
                 "rotationy": "0.393283",
                 "rotationz": "0.695841",
-                "scalex": "0.704868",
-                "scaley": "0.704869",
-                "scalez": "1.197069"
+                "scalex": "0.704872",
+                "scaley": "0.704873",
+                "scalez": "1.197073"
             },
             "1": {
                 "Active": true,
@@ -18841,7 +18969,7 @@
                 "scalez": "1.000000"
             }
         },
-        "Index": 224,
+        "Index": 223,
         "Name": "Tree",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -18970,7 +19098,7 @@
                 "scalez": "1.000000"
             }
         },
-        "Index": 231,
+        "Index": 230,
         "Name": "Walls",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -20467,7 +20595,7 @@
                 "scalez": "1.000000"
             }
         },
-        "Index": 241,
+        "Index": 240,
         "Name": "logs",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -20489,8 +20617,8 @@
                 "rotationy": "-0.023509",
                 "rotationz": "0.706716",
                 "scalex": "1.657900",
-                "scaley": "1.657947",
-                "scalez": "1.657947"
+                "scaley": "1.657951",
+                "scalez": "1.657951"
             },
             "13": {
                 "Active": true,
@@ -20522,8 +20650,8 @@
                 "rotationx": "-0.046474",
                 "rotationy": "-0.155068",
                 "rotationz": "0.844688",
-                "scalex": "0.999953",
-                "scaley": "0.999953",
+                "scalex": "0.999949",
+                "scaley": "0.999949",
                 "scalez": "1.000000"
             },
             "13": {
@@ -20726,7 +20854,7 @@
                 "rotationz": "0.004123",
                 "scalex": "0.939993",
                 "scaley": "0.939994",
-                "scalez": "1.596490"
+                "scalez": "1.596494"
             },
             "1": {
                 "Active": true,
@@ -20809,7 +20937,7 @@
                 "scalez": "1.000000"
             }
         },
-        "Index": 229,
+        "Index": 228,
         "Name": "TreeTwo",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -20830,8 +20958,8 @@
                 "rotationx": "0.388712",
                 "rotationy": "0.337412",
                 "rotationz": "0.839776",
-                "scalex": "1.000122",
-                "scaley": "1.000122",
+                "scalex": "1.000130",
+                "scaley": "1.000130",
                 "scalez": "1.000033"
             },
             "13": {
@@ -20996,13 +21124,13 @@
                 "UID": 1361096619,
                 "index": 0,
                 "layer": "0",
-                "positionx": "-190.794388",
-                "positiony": "-11.705184",
-                "positionz": "-1.635985",
+                "positionx": "-190.794373",
+                "positiony": "-11.705183",
+                "positionz": "-1.635986",
                 "rotationw": "0.707107",
                 "rotationx": "-0.707107",
                 "rotationy": "0.000000",
-                "rotationz": "0.000000",
+                "rotationz": "-0.000000",
                 "scalex": "0.025400",
                 "scaley": "0.025400",
                 "scalez": "0.025400"
@@ -21029,7 +21157,7 @@
                 "index": 2
             }
         },
-        "Index": 222,
+        "Index": 245,
         "Name": "Terrain_Low",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -21122,7 +21250,7 @@
                 "index": 2
             }
         },
-        "Index": 225,
+        "Index": 224,
         "Name": "Tree:Tree022",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -21148,7 +21276,7 @@
                 "scalez": "0.036611"
             }
         },
-        "Index": 230,
+        "Index": 229,
         "Name": "Tree_Folliage_2",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -21240,7 +21368,7 @@
                 "index": 2
             }
         },
-        "Index": 227,
+        "Index": 226,
         "Name": "Tree:Tree101",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -21333,9 +21461,9 @@
                 "rotationx": "-0.311004",
                 "rotationy": "-0.625106",
                 "rotationz": "0.693408",
-                "scalex": "0.999954",
-                "scaley": "0.999952",
-                "scalez": "0.999954"
+                "scalex": "0.999950",
+                "scaley": "0.999948",
+                "scalez": "0.999950"
             },
             "13": {
                 "Active": true,
@@ -22016,7 +22144,7 @@
                 "rotationx": "0.021435",
                 "rotationy": "0.669027",
                 "rotationz": "0.742912",
-                "scalex": "0.773618",
+                "scalex": "0.773614",
                 "scaley": "0.843777",
                 "scalez": "0.843776"
             },
@@ -22088,7 +22216,7 @@
                 "index": 2
             }
         },
-        "Index": 245,
+        "Index": 244,
         "Name": "stonelowpoly001",
         "Navigation Area": 0,
         "Navigation Static": false,

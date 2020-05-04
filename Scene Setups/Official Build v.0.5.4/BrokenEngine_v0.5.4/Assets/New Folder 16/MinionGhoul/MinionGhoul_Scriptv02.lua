@@ -170,18 +170,6 @@ local function SearchPlayers() -- Check if targets are within range
 		lua_table.JaskierDistance = -1
 	end
 
-
-	-- if lua_table.currentTarget == lua_table.geralt then
-	-- 	lua_table.currentTargetDir = lua_table.GeraltDistance
-	-- 	lua_table.currentTargetPos = lua_table.GeraltPos
-	-- end
-
-	-- if lua_table.currentTarget == lua_table.jaskier then
-	-- 	lua_table.currentTargetDir = lua_table.JaskierDistance
-	-- 	lua_table.currentTargetPos = lua_table.JaskierPos
-	-- end
-
-
 	-- Handle Taunt
 	if lua_table.is_taunt then 
 		lua_table.currentTarget = lua_table.jaskier
@@ -249,9 +237,7 @@ local function Seek()
 	-- Now we get the direction vector and then we normalize it and aply a velocity in every component
 	
 	if lua_table.currentTargetDir < lua_table.AggroRange and lua_table.currentTargetDir > lua_table.minDistance then
-			
-		--corners = lua_table.Recast:CalculatePath(lua_table.GhoulPos[1], lua_table.GhoulPos[2], lua_table.GhoulPos[3], lua_table.currentTargetPos[1], lua_table.currentTargetPos[2], lua_table.currentTargetPos[3], 1 << navID)
-		
+					
 		if navigation_timer + 500 <= lua_table.System:GameTime() * 1000 then
 			start_navigation = true
 		end
@@ -372,7 +358,7 @@ local function KnockBack()
 		start_knockback = false
 	end
 
-	if knockback_timer <= lua_table.System:GameTime() * 1000 then
+	if knockback_timer + 300 <= lua_table.System:GameTime() * 1000 then
 		lua_table.currentState = State.STUNNED	
 		lua_table.is_knockback = false
 		lua_table.System:LOG("Minion state: STUNNED (5), from KD")
@@ -421,9 +407,8 @@ function lua_table:OnTriggerEnter()
 					lua_table.currentState = State.STUNNED
 							
 					lua_table.System:LOG("Minion state: STUNNED (5)")  
-				end
-		
-				if script.collider_effect == attack_effects.knockback then ------------------------------------------------ React to kb effect
+				
+				elseif script.collider_effect == attack_effects.knockback then ------------------------------------------------ React to kb effect
 					AttackColliderShutdown()
 
 					local tmp = lua_table.Transform:GetPosition(collider)
@@ -446,9 +431,7 @@ function lua_table:OnTriggerEnter()
 					lua_table.is_knockback = true
 					lua_table.System:LOG("Minion state: KNOCKBACK (4)") 
 					
-				end
-		
-				if script.collider_effect == attack_effects.taunt then ---------------------------------------------------- React to taunt effect
+				elseif script.collider_effect == attack_effects.taunt then ---------------------------------------------------- React to taunt effect
 					AttackColliderShutdown()
 
 					start_taunt = true
@@ -494,9 +477,7 @@ function lua_table:RequestedTrigger(collider_GO)
 				lua_table.currentState = State.STUNNED
 				
 				lua_table.System:LOG("Minion state: STUNNED (5)")  
-			end
-			
-			if script.collider_effect == attack_effects.knockback then ------------------------------------------------ React to kb effect
+			elseif script.collider_effect == attack_effects.knockback then ------------------------------------------------ React to kb effect
 				AttackColliderShutdown()
 
 				local coll_pos = lua_table.Transform:GetPosition(collider_GO)
@@ -518,9 +499,7 @@ function lua_table:RequestedTrigger(collider_GO)
 				lua_table.is_knockback = true
 				lua_table.System:LOG("Minion state: KNOCKBACK (4)") 
 
-			end
-	
-			if script.collider_effect == attack_effects.taunt then ---------------------------------------------------- React to taunt effect
+			elseif script.collider_effect == attack_effects.taunt then ---------------------------------------------------- React to taunt effect
 				AttackColliderShutdown()
 
 				start_taunt = true
