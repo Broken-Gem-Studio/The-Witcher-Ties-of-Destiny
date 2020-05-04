@@ -1,0 +1,124 @@
+{
+    "PreviewTexture": "Library/Textures/1562652370.dds",
+    "Spawner": {
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "395.819855",
+                "positiony": "35.280571",
+                "positionz": "-314.616028",
+                "rotationw": "0.869973",
+                "rotationx": "0.000000",
+                "rotationy": "-0.493099",
+                "rotationz": "0.000000",
+                "scalex": "0.999975",
+                "scaley": "1.000001",
+                "scalez": "0.999973"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
+                },
+                "Script variables": {
+                    "Count": 13,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "ActiveDistance",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 60.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "DistanceToCamera",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_name",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Camera"
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "enemy_to_spawn",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": -1.0
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "InfiniteEnemies",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "NumberofEnemies",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 4.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Archer",
+                        "ObjectName": "Archer (0).prefab",
+                        "Type": "Double",
+                        "Value": 647695116.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Lumberjack",
+                        "ObjectName": "Lumberjack (0).prefab",
+                        "Type": "Double",
+                        "Value": 106650205.0
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Zomboid",
+                        "ObjectName": "Zomboid_Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 1332520600.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_minion",
+                        "ObjectName": "Minion_Ghoul (1).prefab",
+                        "Type": "Double",
+                        "Value": 2142688776.0
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_walker_Ghoul",
+                        "ObjectName": "Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 571222616.0
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRate",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    }
+                }
+            }
+        },
+        "Parent": "1363683479",
+        "PrefabChild": true,
+        "PrefabInstance": true,
+        "UID": "1899094750"
+    }
+}
