@@ -1469,7 +1469,7 @@ end
 
 --Collider Calls BEGIN
 function lua_table:OnTriggerEnter()
-	lua_table.SystemFunctions:LOG("On Trigger Enter")
+	--lua_table.SystemFunctions:LOG("On Trigger Enter")
 	
 	local collider_GO = lua_table.PhysicsFunctions:OnTriggerEnter(my_GO_UID)
 
@@ -1521,7 +1521,7 @@ function lua_table:OnTriggerEnter()
 end
 
 function lua_table:OnCollisionEnter()
-	lua_table.SystemFunctions:LOG("On Collision Enter")
+	--lua_table.SystemFunctions:LOG("On Collision Enter")
 
 	local collider_GO = lua_table.PhysicsFunctions:OnCollisionEnter(my_GO_UID)
 
@@ -1948,7 +1948,7 @@ function lua_table:Update()
 	-- else lua_table.SystemFunctions:LOG("Jaskier not being revived.") end
 	
 	--Stats LOGS
-	lua_table.SystemFunctions:LOG("Jaskier Health: " .. lua_table.current_health)
+	--lua_table.SystemFunctions:LOG("Jaskier Health: " .. lua_table.current_health)
 	--lua_table.SystemFunctions:LOG("Energy: " .. lua_table.current_energy)
 
 	--Item LOGS

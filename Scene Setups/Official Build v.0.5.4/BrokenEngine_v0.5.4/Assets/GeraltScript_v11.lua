@@ -826,7 +826,7 @@ local function DirectionInBounds()	--Every time we try to set a velocity, this i
 	if off_bounds then
 		rot_y = math.rad(GimbalLockWorkaroundY(lua_table.TransformFunctions:GetRotation(my_GO_UID)[2]))	--TODO: Remove GimbalLock stage when Euler bug is fixed
 		
-		lua_table.SystemFunctions:LOG("Angle Between: " .. math.deg(BidimensionalAngleBetweenVectors(math.sin(rot_y), math.cos(rot_y), bounds_vector.x, bounds_vector.z)))
+		--lua_table.SystemFunctions:LOG("Angle Between: " .. math.deg(BidimensionalAngleBetweenVectors(math.sin(rot_y), math.cos(rot_y), bounds_vector.x, bounds_vector.z)))
 
 		--IF angle between character Front (Z) and set Bounds Vector > Bounds Angle, in other words, if direction too far away from what camera requires to stay within bounds
 		if BidimensionalAngleBetweenVectors(math.sin(rot_y), math.cos(rot_y), bounds_vector.x, bounds_vector.z) > bounds_angle
@@ -1438,7 +1438,7 @@ end
 --Collider Calls BEGIN
 
 function lua_table:OnTriggerEnter()
-	lua_table.SystemFunctions:LOG("On Trigger Enter")
+	--lua_table.SystemFunctions:LOG("On Trigger Enter")
 	
 	local collider_GO = lua_table.PhysicsFunctions:OnTriggerEnter(my_GO_UID)
 
@@ -1492,7 +1492,7 @@ function lua_table:OnTriggerEnter()
 end
 
 function lua_table:OnCollisionEnter()
-	lua_table.SystemFunctions:LOG("On Collision Enter")
+	--lua_table.SystemFunctions:LOG("On Collision Enter")
 
 	local collider_GO = lua_table.PhysicsFunctions:OnCollisionEnter(my_GO_UID)
 
@@ -1918,7 +1918,7 @@ function lua_table:Update()
 	--lua_table.SystemFunctions:LOG("Geralt Potions Left: " .. lua_table.inventory[1])
 
 	--Stats LOGS
-	lua_table.SystemFunctions:LOG("Geralt Health: " .. lua_table.current_health)
+	--lua_table.SystemFunctions:LOG("Geralt Health: " .. lua_table.current_health)
 	--lua_table.SystemFunctions:LOG("Energy: " .. lua_table.current_energy)
 
 	--lua_table.SystemFunctions:LOG("Health Reg: " .. health_reg_real)

@@ -184,6 +184,8 @@ local target_script = {}
 -- Inspector Variables
 -----------------------------------------------------------------------------------------
 
+lua_table.deathTimer = 10000
+
 lua_table.player_1 = "Geralt"
 lua_table.player_2 = "Jaskier"
 
@@ -355,14 +357,14 @@ local function HandleAggro()
 			if GeraltDistance < lua_table.AggroDistance  
 			then
 				lua_table.CurrentTarget = Geralt
-				lua_table.SystemFunctions:LOG("GERALT IN AGGRO")
+				--lua_table.SystemFunctions:LOG("GERALT IN AGGRO")
 				return true			
 			elseif JaskierDistance < lua_table.AggroDistance  
 			then
 				lua_table.CurrentTarget = Jaskier
-				lua_table.SystemFunctions:LOG("JASKIER IN AGGRO")
+				--lua_table.SystemFunctions:LOG("JASKIER IN AGGRO")
 			else
-				lua_table.SystemFunctions:LOG("NO PLAYERS INSIDE AGGRO DISTANCE")
+				--lua_table.SystemFunctions:LOG("NO PLAYERS INSIDE AGGRO DISTANCE")
 				return false
 			end	
 	elseif lua_table.CurrentTarget ~= 0 and Players() == true 
@@ -372,7 +374,7 @@ local function HandleAggro()
 			GeraltScript = lua_table.GameObjectFunctions:GetScript(Geralt)
 			if GeraltScript.current_state == -3 or GeraltScript.current_state == -4
 			then
-				lua_table.SystemFunctions:LOG("CHANGING AGGRO TO JASKIER")
+				--lua_table.SystemFunctions:LOG("CHANGING AGGRO TO JASKIER")
 				lua_table.CurrentTarget = Jaskier
 				lua_table.LastCurrentTarget = Geralt
 			end
@@ -381,14 +383,14 @@ local function HandleAggro()
 			JaskierScript = lua_table.GameObjectFunctions:GetScript(Jaskier)
 			if JaskierScript.current_state == -3 or JaskierScript.current_state == -4
 			then
-				lua_table.SystemFunctions:LOG("CHANGING AGGRO TO GERALT ")
+				--lua_table.SystemFunctions:LOG("CHANGING AGGRO TO GERALT ")
 				lua_table.CurrentTarget = Geralt
 				lua_table.LastCurrentTarget = Jaskier
 			end
 		end
 	elseif Players() == false
 	then
-		lua_table.SystemFunctions:LOG("NO PLAYERS, NEW STATE PRE_DETECTION ")
+		--lua_table.SystemFunctions:LOG("NO PLAYERS, NEW STATE PRE_DETECTION ")
 		lua_table.CurrentState = State.PRE_DETECTION
 	end 
 	return ret
@@ -423,7 +425,7 @@ local function jumpAttack()
 		then	
 			lua_table.GameObjectFunctions:SetActiveGameObject(true, attack_colliders.jump_attack.GO_UID)
 			attack_colliders.jump_attack.active = true
-			lua_table.SystemFunctions:LOG("jump_attack collider ON   -"..attack_colliders.jump_attack.GO_UID)
+			--lua_table.SystemFunctions:LOG("jump_attack collider ON   -"..attack_colliders.jump_attack.GO_UID)
 		end	
 	end
 	
@@ -500,6 +502,20 @@ local function Die()
 	lua_table.Dead = true
 	lua_table.AnimationSystem:PlayAnimation("DEATH",35.0,MyUID)
 	lua_table.SoundSystem:PlayAudioEvent("Play_Bandit_death_3")
+
+	tuto_manager = lua_table.GameObjectFunctions:FindGameObject("TutorialManager")
+    if tuto_manager ~= 0 
+    then
+        tuto_table = lua_table.GameObjectFunctions:GetScript(tuto_manager)
+
+        if tuto_table.currentStep == 9
+        then
+            tuto_table.enemiesToKill_Step9 = tuto_table.enemiesToKill_Step9 - 1
+        elseif tuto_table.currentStep == 10
+        then
+            tuto_table.enemiesToKill_Step10 = tuto_table.enemiesToKill_Step10 - 1
+        end
+    end
 end
 
 local function knockback( )
@@ -745,7 +761,7 @@ local function HandleDeath()
 	end
 
 	TiMe = PerfGameTime()
-	if TiMe - DeadTime > 10000
+	if TiMe - DeadTime > lua_table.deathTimer
 	then
 		lua_table.GameObjectFunctions:DestroyGameObject(MyUID)
 	end
@@ -762,6 +778,8 @@ function lua_table:OnTriggerEnter()
 		local collider_parent = lua_table.GameObjectFunctions:GetGameObjectParent(collider_GO)
  		local player_script = {}
 	
+		lua_table.SystemFunctions:LOG("OnTriggerEnter Lumberjack")
+
  		if collider_parent ~= 0 
 		then
 			player_script = lua_table.GameObjectFunctions:GetScript(collider_parent)
@@ -889,10 +907,10 @@ function lua_table:Update()
 	then
 		if lua_table.CurrentTarget ~= 0 -- es decir que ya hay un target
 		then
-			lua_table.SystemFunctions:LOG("UID TARGET:"..lua_table.CurrentTarget)
+			--lua_table.SystemFunctions:LOG("UID TARGET:"..lua_table.CurrentTarget)
 			if lua_table.GameObjectFunctions:IsActiveGameObject(lua_table.CurrentTarget) == true
 			then
-				lua_table.SystemFunctions:LOG("CURR TARGET ACTIVE-----> HANDLE AGGRO")
+				--lua_table.SystemFunctions:LOG("CURR TARGET ACTIVE-----> HANDLE AGGRO")
 				HandleAggro()
 				TargetAlive_TimeController = PerfGameTime()
 			end
@@ -935,7 +953,7 @@ function lua_table:Update()
 		end
 		if CurrTime - StunnedTimeController > 2000
 		then
-			lua_table.SystemFunctions:LOG("stunned")
+			--lua_table.SystemFunctions:LOG("stunned")
 			lua_table.CurrentSpecialEffect = SpecialEffect.NONE
 		end
 	elseif lua_table.CurrentSpecialEffect == SpecialEffect.KNOCKBACK and lua_table.CurrenHealth > 1
@@ -949,7 +967,7 @@ function lua_table:Update()
 		--Knockback()
 		if CurrTime - KnockedTimeController > 2000
 		then
-			lua_table.SystemFunctions:LOG("knocked back")
+			--lua_table.SystemFunctions:LOG("knocked back")
 			lua_table.CurrentSpecialEffect = SpecialEffect.NONE
 			knockback_AnimController = false
 		end
