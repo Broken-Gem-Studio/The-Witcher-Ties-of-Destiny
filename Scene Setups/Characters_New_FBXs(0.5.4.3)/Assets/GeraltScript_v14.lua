@@ -813,7 +813,7 @@ end
 
 local function ParticlesShutdown(full)	--Full marks wether the particle shutdown is total, or just parcial (ultimate particles appear even when stunned/knocked back)
 	lua_table.GameObjectFunctions:SetActiveGameObject(false, slash_mesh_GO_UID)
-	
+
 	lua_table.ParticlesFunctions:StopParticleEmitter(my_GO_UID)
 	--lua_table.ParticlesFunctions:StopParticleEmitter(sword_particles_GO_UID)
 	lua_table.ParticlesFunctions:StopParticleEmitter(aard_hand_particles_GO_UID)
@@ -1938,6 +1938,7 @@ function lua_table:Update()
 					lua_table.AnimationFunctions:PlayAnimation("stand_up_back", 135.0, my_GO_UID)	--TODO-Animations: Stand up
 					lua_table.AudioFunctions:PlayAudioEvent("Play_Geralt_stand_up")	--TODO-Audio: Stand Up Sound
 					lua_table.standing_up_bool = true
+					stopped_death = false
 					lua_table.current_health = lua_table.max_health_real / 2	--Get half health
 				end
 			else								--IF other player isn't reviving
