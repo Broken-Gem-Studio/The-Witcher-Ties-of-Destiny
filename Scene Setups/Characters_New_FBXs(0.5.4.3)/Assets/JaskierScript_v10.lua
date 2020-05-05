@@ -823,7 +823,7 @@ end
 --Character Particles BEGIN	----------------------------------------------------------------------------
 
 local function ParticlesShutdown()
-	lua_table.ParticlesFunctions:SetActiveGameObject(false, slash_mesh_GO_UID)
+	lua_table.GameObjectFunctions:SetActiveGameObject(false, slash_mesh_GO_UID)
 
 	lua_table.ParticlesFunctions:StopParticleEmitter(my_GO_UID)
 
@@ -2010,6 +2010,7 @@ function lua_table:Update()
 					lua_table.AnimationFunctions:PlayAnimation("stand_up_back", 90.0, my_GO_UID)	--TODO-Animations: Stand up
 					lua_table.AudioFunctions:PlayAudioEvent("Play_Jaskier_stand_up")
 					lua_table.standing_up_bool = true
+					stopped_death = false
 					lua_table.current_health = lua_table.max_health_real / 2	--Get half health
 				end
 			else								--IF other player isn't reviving
@@ -2046,7 +2047,7 @@ function lua_table:Update()
 	--DEBUG LOGS
 	--lua_table.SystemFunctions:LOG("Delta Time: " .. dt)
 	--lua_table.SystemFunctions:LOG("State: " .. lua_table.current_state)
-	lua_table.SystemFunctions:LOG("Time passed: " .. time_since_action)
+	--lua_table.SystemFunctions:LOG("Time passed: " .. time_since_action)
 	--rot_y = math.rad(GimbalLockWorkaroundY(lua_table.TransformFunctions:GetRotation()[2]))	--TODO: Remove GimbalLock stage when Euler bug is fixed
 	--lua_table.SystemFunctions:LOG("Angle Y: " .. rot_y)
 	--lua_table.SystemFunctions:LOG("Ultimate: " .. lua_table.current_ultimate)
