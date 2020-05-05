@@ -1880,9 +1880,9 @@ function lua_table:Update()
 						attack_colliders.aard_circle_1.active = true
 
 						--Direct Aard Particles
-						lua_table.ParticlesFunctions:SetParticlesVelocity(50 * rec_direction.x, 0, 50 * rec_direction.z, aard_hand_particles_GO_UID)
-						lua_table.ParticlesFunctions:SetRandomParticlesVelocity(50 * rec_direction.z, 0, 50 * rec_direction.x, aard_hand_particles_GO_UID)
-						lua_table.ParticlesFunctions:PlayParticleEmitter(aard_hand_particles_GO_UID)	--TODO-Particles: Activate Aard particles on hand
+						--lua_table.ParticlesFunctions:SetParticlesVelocity(50 * rec_direction.x, 0, 50 * rec_direction.z, aard_hand_particles_GO_UID)
+						--lua_table.ParticlesFunctions:SetRandomParticlesVelocity(50 * rec_direction.z, 0, 50 * rec_direction.x, aard_hand_particles_GO_UID)
+						--lua_table.ParticlesFunctions:PlayParticleEmitter(aard_hand_particles_GO_UID)	--TODO-Particles: Activate Aard particles on hand
 
 						lua_table.ability_performed = true
 
