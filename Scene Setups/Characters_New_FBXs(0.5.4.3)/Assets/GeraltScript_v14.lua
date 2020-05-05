@@ -28,8 +28,16 @@ local godmode = false
 
 --GO UIDs
 local my_GO_UID
+
 local slash_GO_UID
 local slash_mesh_GO_UID
+
+local aard_cone_GO_UID
+local aard_cone_mesh_GO_UID
+
+local aard_circle_GO_UID
+local aard_circle_mesh_GO_UID
+
 --local sword_particles_GO_UID
 local ultimate_effect_particles_GO_UID
 local ultimate_scream_particles_GO_UID
@@ -813,6 +821,8 @@ end
 
 local function ParticlesShutdown(full)	--Full marks wether the particle shutdown is total, or just parcial (ultimate particles appear even when stunned/knocked back)
 	lua_table.GameObjectFunctions:SetActiveGameObject(false, slash_mesh_GO_UID)
+	lua_table.GameObjectFunctions:SetActiveGameObject(false, aard_cone_mesh_GO_UID)
+	lua_table.GameObjectFunctions:SetActiveGameObject(false, aard_circle_mesh_GO_UID)
 
 	lua_table.ParticlesFunctions:StopParticleEmitter(my_GO_UID)
 	--lua_table.ParticlesFunctions:StopParticleEmitter(sword_particles_GO_UID)
@@ -1266,7 +1276,10 @@ local function ActionInputs()	--Process Action Inputs
 			lua_table.ability_performed = false	--The ability itself is done later to fit with the animation, this marks that it needs to be done
 
 			lua_table.AnimationFunctions:PlayAnimation("aard", lua_table.ability_animation_speed, my_GO_UID)
-			lua_table.AudioFunctions:PlayAudioEvent("Play_Geralt_aard_2")	--TODO-Audio: Ultimate Sound
+			lua_table.AnimationFunctions:PlayAnimation("aard", lua_table.ability_animation_speed, aard_cone_GO_UID)
+			lua_table.AnimationFunctions:PlayAnimation("aard", lua_table.ability_animation_speed, aard_circle_GO_UID)
+
+			lua_table.AudioFunctions:PlayAudioEvent("Play_Geralt_aard_2")	--TODO-Audio: Ability Sound
 
 			lua_table.previous_state = lua_table.current_state
 			lua_table.current_state = state.ability
@@ -1346,6 +1359,18 @@ local function ActionInputs()	--Process Action Inputs
 		else
 			lua_table.GameObjectFunctions:SetActiveGameObject(false, slash_mesh_GO_UID)
 			--lua_table.ParticlesFunctions:StopParticleEmitter(sword_particles_GO_UID)	--TODO-Particles: Deactivate Particles on Sword
+		end
+
+		if lua_table.current_state == state.ability	--IF ability (aard)
+		then
+			lua_table.AnimationFunctions:SetBlendTime(0.1, aard_cone_GO_UID)
+			lua_table.AnimationFunctions:SetBlendTime(0.1, aard_circle_GO_UID)
+			
+			lua_table.GameObjectFunctions:SetActiveGameObject(true, aard_cone_mesh_GO_UID)
+			lua_table.GameObjectFunctions:SetActiveGameObject(true, aard_cone_mesh_GO_UID)
+		else
+			lua_table.GameObjectFunctions:SetActiveGameObject(false, aard_cone_mesh_GO_UID)
+			lua_table.GameObjectFunctions:SetActiveGameObject(false, aard_cone_mesh_GO_UID)
 		end
 
 		if lua_table.current_state > state.evade or lua_table.current_state < state.walk then
@@ -1609,10 +1634,16 @@ end
 function lua_table:Awake()
 	lua_table.SystemFunctions:LOG("GeraltScript AWAKE")
 
-	--Get self GO_UID
+	--Get GO_UIDs
 	my_GO_UID = lua_table.GameObjectFunctions:GetMyUID()
 	slash_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt_Slash")
 	slash_mesh_GO_UID = lua_table.GameObjectFunctions:FindGameObject("SlashMesh_Geralt")
+
+	aard_cone_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt_Aard_Cone")
+	aard_cone_mesh_GO_UID = lua_table.GameObjectFunctions:FindGameObject("AardConeMesh_Geralt")
+	
+	aard_circle_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt_Aard_Circle")
+	aard_circle_mesh_GO_UID = lua_table.GameObjectFunctions:FindGameObject("AardCircleMesh_Geralt")
 
 	--Get Particle Emitters GO_UID
 	--sword_particles_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt_Sword")
@@ -1656,6 +1687,9 @@ function lua_table:Start()
 	
 	lua_table.AnimationFunctions:PlayAnimation("idle", lua_table.idle_animation_speed, my_GO_UID)
 	lua_table.AnimationFunctions:PlayAnimation("idle", lua_table.idle_animation_speed, slash_GO_UID)
+
+	lua_table.AnimationFunctions:PlayAnimation("idle", lua_table.idle_animation_speed, aard_cone_GO_UID)
+	lua_table.AnimationFunctions:PlayAnimation("idle", lua_table.idle_animation_speed, aard_circle_GO_UID)
 end
 
 function lua_table:Update()
@@ -1781,6 +1815,8 @@ function lua_table:Update()
 							revive_target = nil
 						elseif lua_table.current_state == state.ability
 						then
+							lua_table.GameObjectFunctions:SetActiveGameObject(false, aard_cone_mesh_GO_UID)
+							lua_table.GameObjectFunctions:SetActiveGameObject(false, aard_circle_mesh_GO_UID)
 							lua_table.ParticlesFunctions:StopParticleEmitter(aard_hand_particles_GO_UID)	--TODO-Particles: Deactivate Aard particles on hand
 						elseif lua_table.current_state == state.ultimate
 						then
