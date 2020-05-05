@@ -107,13 +107,16 @@ namespace AK
         static const AkUniqueID PLAY_JASKIER_HEAVY_IMPACT = 2075994674U;
         static const AkUniqueID PLAY_JASKIER_JUMP = 1018718152U;
         static const AkUniqueID PLAY_JASKIER_KNOCKBACK = 1701959369U;
+        static const AkUniqueID PLAY_JASKIER_KNOCKBACK_01 = 3717612725U;
         static const AkUniqueID PLAY_JASKIER_LIGHT_IMPACT = 704499477U;
         static const AkUniqueID PLAY_JASKIER_REVIVE = 4116481551U;
         static const AkUniqueID PLAY_JASKIER_RUN = 462417715U;
         static const AkUniqueID PLAY_JASKIER_SONG_1 = 2858442791U;
         static const AkUniqueID PLAY_JASKIER_SONG_2 = 2858442788U;
         static const AkUniqueID PLAY_JASKIER_STAND_UP = 2517954756U;
+        static const AkUniqueID PLAY_JASKIER_STAND_UP_01 = 3745738602U;
         static const AkUniqueID PLAY_JASKIER_STUN = 4229367204U;
+        static const AkUniqueID PLAY_JASKIER_STUN_01 = 2008584586U;
         static const AkUniqueID PLAY_JASKIER_WALK = 748248399U;
         static const AkUniqueID PLAY_KIKIMORA_DEATH = 4129361266U;
         static const AkUniqueID PLAY_KIKIMORA_HIT = 3409660243U;
@@ -125,6 +128,7 @@ namespace AK
         static const AkUniqueID PLAY_KIKIMORA_SOUND_5 = 2489507369U;
         static const AkUniqueID PLAY_KIKIMORA_SOUND_6 = 2489507370U;
         static const AkUniqueID PLAY_KIKIMORA_SWEEP = 287198644U;
+        static const AkUniqueID PLAY_LEVEL_1_MUSIC = 814842324U;
         static const AkUniqueID PLAY_LOW_HP = 3852706691U;
         static const AkUniqueID PLAY_LVL1_INTRO_CONVERSATION_CUTSCENE = 160635907U;
         static const AkUniqueID PLAY_MAIN_MENU = 3306210749U;
@@ -176,6 +180,21 @@ namespace AK
         static const AkUniqueID PLAY_WOODEN_OBJECT_BREAK_6 = 152572329U;
         static const AkUniqueID PLAY_WRONG_JASKIER = 310070311U;
     } // namespace EVENTS
+
+    namespace SWITCHES
+    {
+        namespace LEVEL_1_SWITCH
+        {
+            static const AkUniqueID GROUP = 362844960U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID COMBAT = 2764240573U;
+                static const AkUniqueID DEFAULT = 782826392U;
+            } // namespace SWITCH
+        } // namespace LEVEL_1_SWITCH
+
+    } // namespace SWITCHES
 
     namespace GAME_PARAMETERS
     {

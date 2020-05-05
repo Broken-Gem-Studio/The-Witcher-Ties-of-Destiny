@@ -328,25 +328,6 @@
 								<ActiveSource Name="Geralt_attack_6" ID="{15360DDF-007E-4FE6-880E-2712BE21EB0F}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
-						<Sound Name="Geralt_death" ID="{A6DA3CFD-AD28-44D0-9D1C-0295C12DD5E4}" ShortID="605746873">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{33080FFE-AFF8-4DB4-BFBC-870234ABF1E9}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{F6EAB31E-CDB2-437A-BACF-4A2313B7463D}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="Geralt_death" ID="{FEF39045-F636-42F3-9F57-73E96C3ADC21}" ShortID="580750409">
-									<Language>SFX</Language>
-									<AudioFile>Geralt_death.wav</AudioFile>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="Geralt_death" ID="{FEF39045-F636-42F3-9F57-73E96C3ADC21}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
 						<Sound Name="Geralt_getting_up" ID="{02EC08FF-B377-424F-BDCB-F591B01B1702}" ShortID="304850345">
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -467,7 +448,7 @@
 								<ActiveSource Name="Geralt_walk" ID="{6288369A-EAAA-4B96-B114-DB7C21E203CD}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
-						<Sound Name="Geralt_knockback" ID="{0675A173-7A93-401A-9D5F-0BEC232A4E0A}" ShortID="885307244">
+						<Sound Name="Geralt_death" ID="{7357E966-524E-49CE-8B9E-D20523667584}" ShortID="828461536">
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{33080FFE-AFF8-4DB4-BFBC-870234ABF1E9}"/>
@@ -477,16 +458,35 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="Geralt_knockback" ID="{BFB26078-486B-4D80-8DCB-F5C2FE39CC1F}" ShortID="978824296">
+								<AudioFileSource Name="Geralt_death" ID="{8A849E75-179D-4BA4-A6FE-1805C68AA910}" ShortID="353578816">
+									<Language>SFX</Language>
+									<AudioFile>Geralt_death.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Geralt_death" ID="{8A849E75-179D-4BA4-A6FE-1805C68AA910}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Geralt_knockback" ID="{645A2D14-36E0-489A-8A3F-601EA47CA150}" ShortID="5019109">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{33080FFE-AFF8-4DB4-BFBC-870234ABF1E9}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{F6EAB31E-CDB2-437A-BACF-4A2313B7463D}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Geralt_knockback" ID="{34CB8032-196C-4690-ACF7-C2C935A27079}" ShortID="664211785">
 									<Language>SFX</Language>
 									<AudioFile>Geralt_knockback.wav</AudioFile>
 								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="Geralt_knockback" ID="{BFB26078-486B-4D80-8DCB-F5C2FE39CC1F}" Platform="Linked"/>
+								<ActiveSource Name="Geralt_knockback" ID="{34CB8032-196C-4690-ACF7-C2C935A27079}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
-						<Sound Name="Geralt_stand_up" ID="{B24F8EC1-CFDC-4BB3-BA8F-4C4028C26CE4}" ShortID="198498645">
+						<Sound Name="Geralt_stand_up" ID="{9A02F088-8CD7-4D98-A89A-10F9BD8FBB83}" ShortID="391446896">
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{33080FFE-AFF8-4DB4-BFBC-870234ABF1E9}"/>
@@ -496,16 +496,16 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="Geralt_stand_up" ID="{3F713DFB-808E-4B01-859E-FB88B35BA1EB}" ShortID="840410465">
+								<AudioFileSource Name="Geralt_stand_up" ID="{85460D68-1914-4B23-8584-CF16717426A6}" ShortID="964777775">
 									<Language>SFX</Language>
 									<AudioFile>Geralt_stand_up.wav</AudioFile>
 								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="Geralt_stand_up" ID="{3F713DFB-808E-4B01-859E-FB88B35BA1EB}" Platform="Linked"/>
+								<ActiveSource Name="Geralt_stand_up" ID="{85460D68-1914-4B23-8584-CF16717426A6}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
-						<Sound Name="Geralt_stun" ID="{4969A0C2-E1D4-4F4B-80E7-415D6607F6F7}" ShortID="467560247">
+						<Sound Name="Geralt_stun" ID="{091C5DF2-10EA-4A11-811F-D491D42785B0}" ShortID="593586121">
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{33080FFE-AFF8-4DB4-BFBC-870234ABF1E9}"/>
@@ -515,13 +515,13 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="Geralt_stun" ID="{9DDC59DE-F196-44DD-A451-F0F222C0BD44}" ShortID="74322091">
+								<AudioFileSource Name="Geralt_stun" ID="{CA3269B6-31FA-436A-A0FC-46BFFF60B8FC}" ShortID="156552986">
 									<Language>SFX</Language>
 									<AudioFile>Geralt_stun.wav</AudioFile>
 								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="Geralt_stun" ID="{9DDC59DE-F196-44DD-A451-F0F222C0BD44}" Platform="Linked"/>
+								<ActiveSource Name="Geralt_stun" ID="{CA3269B6-31FA-436A-A0FC-46BFFF60B8FC}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>

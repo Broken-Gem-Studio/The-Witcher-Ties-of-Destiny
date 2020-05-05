@@ -148,17 +148,6 @@
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="Play_Geralt_death" ID="{77BE2574-BE55-43AB-9E4C-488715225E17}">
-							<ChildrenList>
-								<Action Name="" ID="{9D8A4675-B5CB-45E3-AE60-95EE484E8ED7}" ShortID="643644768">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Geralt_death" ID="{A6DA3CFD-AD28-44D0-9D1C-0295C12DD5E4}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
 						<Event Name="Play_Geralt_attack_2_2" ID="{EAE240C7-4749-4246-94ED-B76DC7EBAB2D}">
 							<ChildrenList>
 								<Action Name="" ID="{FDB7F170-023B-475D-A85A-5926EEF8E547}" ShortID="630436040">
@@ -269,34 +258,45 @@
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="Play_Geralt_knockback" ID="{D9D9DBF0-2F07-4F99-9DB7-EB13664568C0}">
+						<Event Name="Play_Geralt_stand_up" ID="{B97E540B-2706-464A-8DDE-EE8C627A5BD9}">
 							<ChildrenList>
-								<Action Name="" ID="{E56E90BC-102B-4986-8A89-02E258F8F67D}" ShortID="846455654">
+								<Action Name="" ID="{FBF67B48-F5F5-4447-BFB9-7826B0BC1CD8}" ShortID="588244037">
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="Geralt_knockback" ID="{0675A173-7A93-401A-9D5F-0BEC232A4E0A}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
+											<ObjectRef Name="Geralt_stand_up" ID="{9A02F088-8CD7-4D98-A89A-10F9BD8FBB83}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="Play_Geralt_stun" ID="{F723E437-659B-4A79-B596-946083EF5036}">
+						<Event Name="Play_Geralt_stun" ID="{E0E8988A-E1CE-43AE-934F-76314C8C4053}">
 							<ChildrenList>
-								<Action Name="" ID="{D254BD48-8BDF-4407-A5BE-047A9D09E5DD}" ShortID="348381710">
+								<Action Name="" ID="{13913E37-3E70-4B5D-92C4-A70AEE521A37}" ShortID="410847370">
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="Geralt_stun" ID="{4969A0C2-E1D4-4F4B-80E7-415D6607F6F7}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
+											<ObjectRef Name="Geralt_stun" ID="{091C5DF2-10EA-4A11-811F-D491D42785B0}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="Play_Geralt_stand_up" ID="{391E3F56-BD6B-4CCF-B70C-24DF6C64D262}">
+						<Event Name="Play_Geralt_knockback" ID="{EFEC68CE-DD7C-44EF-B207-18013FAA591C}">
 							<ChildrenList>
-								<Action Name="" ID="{A47DD3DF-EB16-41BD-A7A1-768D0846B44E}" ShortID="259504999">
+								<Action Name="" ID="{D54CD67E-5216-4472-9905-7A7D258172D1}" ShortID="700644482">
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="Geralt_stand_up" ID="{B24F8EC1-CFDC-4BB3-BA8F-4C4028C26CE4}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
+											<ObjectRef Name="Geralt_knockback" ID="{645A2D14-36E0-489A-8A3F-601EA47CA150}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Geralt_death" ID="{4929B901-AD79-42F1-A840-4C9DE6CF0B95}">
+							<ChildrenList>
+								<Action Name="" ID="{B6C1FF77-A493-4CF5-B304-4F1EF1030C28}" ShortID="910856196">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Geralt_death" ID="{7357E966-524E-49CE-8B9E-D20523667584}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -1047,6 +1047,39 @@
 						<Event Name="Play_Jaskier_stun" ID="{130832D3-68B1-4178-8E18-789BC24A2AEA}">
 							<ChildrenList>
 								<Action Name="" ID="{C1EF0D60-600F-4AB6-BDBB-BC62EE47DDC9}" ShortID="1034762698">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Jaskier_stun" ID="{C55798A6-FD9F-49D4-835B-A5DA385B7C77}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Jaskier_stand_up_01" ID="{B96D784D-CAF5-4A2C-A2AD-F2052D128AFF}">
+							<ChildrenList>
+								<Action Name="" ID="{465E0595-A2E8-4FB0-AF46-37C356F6671E}" ShortID="865506865">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Jaskier_stand_up" ID="{41A53A48-A745-4FB5-BE09-9734CAFCC42F}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Jaskier_knockback_01" ID="{935894A8-5560-4C24-BF96-88495E325909}">
+							<ChildrenList>
+								<Action Name="" ID="{E5F56F4E-5B17-40BF-8F58-C1ED02BAE56C}" ShortID="363529264">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Jaskier_knockback" ID="{ACA78195-BFE4-4C14-ACA6-C6DBF91AD41D}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Jaskier_stun_01" ID="{60EB3472-D875-4692-8FCB-156ADFE6F907}">
+							<ChildrenList>
+								<Action Name="" ID="{0C0522BC-6B2F-4C46-B45D-A730B8C2EFD4}" ShortID="607855683">
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Jaskier_stun" ID="{C55798A6-FD9F-49D4-835B-A5DA385B7C77}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
@@ -1841,6 +1874,17 @@
 						</Event>
 					</ChildrenList>
 				</Folder>
+				<Event Name="Play_Level_1_Music" ID="{B966A44D-ABA3-4DE3-BBF0-893D7BCB6E03}">
+					<ChildrenList>
+						<Action Name="" ID="{992CB41D-FE73-4A49-BA87-B1292E9F2704}" ShortID="520865672">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Level_1_Music" ID="{4A45FEF2-08A3-4CEE-819E-A0BF07432D69}" WorkUnitID="{E273FD0D-3805-4789-AE6C-E04BECBB4528}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
