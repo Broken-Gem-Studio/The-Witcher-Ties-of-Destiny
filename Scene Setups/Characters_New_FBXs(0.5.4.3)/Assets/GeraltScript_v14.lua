@@ -275,9 +275,12 @@ lua_table.energy_reg_orig = 5
 		front_1 = { GO_name = "Geralt_Front_1", GO_UID = 0, active = false },	-- 0,2,3 / 4,3,3
 		front_2 = { GO_name = "Geralt_Front_2", GO_UID = 0, active = false },	-- 
 		front_3 = { GO_name = "Geralt_Front_3", GO_UID = 0, active = false },	-- 
+
 		back_1 = { GO_name = "Geralt_Back", GO_UID = 0, active = false },		-- 0,2,-2 / 3,3,2
 		left_1 = { GO_name = "Geralt_Left", GO_UID = 0, active = false },		-- 3,2,0.5 / 2,3,4
-		right_1 = { GO_name = "Geralt_Right", GO_UID = 0, active = false }	-- -3,2,0.5 / 2,3,4
+		right_1 = { GO_name = "Geralt_Right", GO_UID = 0, active = false },	-- -3,2,0.5 / 2,3,4
+
+		aard_circle_1 = { GO_name = "Geralt_Aard_Circle_Collider", GO_UID = 0, active = false }
 	}
 	--Character Controller: 1.0/2.5/0.05/0.3/45.0
 
@@ -409,10 +412,10 @@ lua_table.ability_duration = 800.0
 
 lua_table.ability_animation_speed = 70.0
 
-lua_table.ability_offset_x = 2		--Near segment width (Must be > than 0)
-lua_table.ability_offset_z = 2		--Near segment forward distance
-lua_table.ability_range = 12		--Trapezoid height
-lua_table.ability_angle = math.rad(45)
+lua_table.ability_offset_x = 0.1			--Near segment width (Must be > than 0)
+lua_table.ability_offset_z = 0.1			--Near segment forward distance
+lua_table.ability_range = 15				--Trapezoid height
+lua_table.ability_angle = math.rad(30.0)	--Trapezoid opening angle
 
 local ability_trapezoid = {
 	point_A = { x = 0, z = 0 },	--Far left
@@ -825,6 +828,11 @@ local function AttackColliderShutdown()
 		lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.right_1.GO_UID)	--TODO-Colliders: Check
 		attack_colliders.right_1.active = false
 	end
+
+	if attack_colliders.aard_circle_1.active then
+		lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.aard_circle_1.GO_UID)	--TODO-Colliders: Check
+		attack_colliders.aard_circle_1.active = false
+	end
 end
 
 --Character Colliders END	----------------------------------------------------------------------------
@@ -1137,9 +1145,7 @@ local function RegularAttack(attack_type)
 		lua_table.previous_state = lua_table.current_state
 		lua_table.current_state = state[attack_type .. "_2"]
 	end
-
-
-
+	
 	lua_table.collider_damage = base_damage_real * lua_table[attack_type .. "_damage"]
 	lua_table.collider_effect = attack_effects_ID.none
 	rightside = not rightside
@@ -1171,6 +1177,7 @@ local function AardPush()
 		and BidimensionalPointInVectorSide(C_x, C_z, D_x, D_z, enemy_pos[1], enemy_pos[3]) < 0
 		and BidimensionalPointInVectorSide(D_x, D_z, A_x, A_z, enemy_pos[1], enemy_pos[3]) < 0
 		then
+			lua_table.SystemFunctions:LOG("---------------- I HIT AN ENEMY ----------------")
 			local enemy_script = lua_table.GameObjectFunctions:GetScript(enemy_list[i])
 			enemy_script:RequestedTrigger(my_GO_UID)	--TODO-Ability:
 		end
@@ -1571,7 +1578,7 @@ local function ProcessIncomingHit(collider_GO)
 		if enemy_script.collider_effect == attack_effects_ID.stun
 		then
 			lua_table.AnimationFunctions:PlayAnimation("stun", 45.0, my_GO_UID)
-			lua_table.AudioFunctions:PlayAudioEvent("Play_Geralt_stun")	--TODO-Audio:
+			if lua_table.current_health > 0 then lua_table.AudioFunctions:PlayAudioEvent("Play_Geralt_stun") end	--TODO-Audio:
 
 			lua_table.previous_state = lua_table.current_state
 			lua_table.current_state = state.stunned
@@ -1582,7 +1589,7 @@ local function ProcessIncomingHit(collider_GO)
 			knockback_curr_velocity = lua_table.knockback_orig_velocity
 
 			lua_table.AnimationFunctions:PlayAnimation("knockback", 45.0, my_GO_UID)
-			lua_table.AudioFunctions:PlayAudioEvent("Play_Geralt_knockback")	--TODO-Audio:
+			if lua_table.current_health > 0 then lua_table.AudioFunctions:PlayAudioEvent("Play_Geralt_knockback") end	--TODO-Audio:
 
 			lua_table.previous_state = lua_table.current_state
 			lua_table.current_state = state.knocked
@@ -1672,6 +1679,8 @@ function lua_table:Awake()
 	attack_colliders.back_1.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.back_1.GO_name)
 	attack_colliders.left_1.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.left_1.GO_name)
 	attack_colliders.right_1.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.right_1.GO_name)
+
+	attack_colliders.aard_circle_1.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.aard_circle_1.GO_name)
 
 	--Camera (Warning: If there's a camera GO, but no script the Engine WILL crash)
 	local camera_GO = lua_table.GameObjectFunctions:FindGameObject("Camera")
@@ -1826,6 +1835,10 @@ function lua_table:Update()
 						then
 							lua_table.GameObjectFunctions:SetActiveGameObject(false, aard_cone_mesh_GO_UID)
 							lua_table.GameObjectFunctions:SetActiveGameObject(false, aard_circle_mesh_GO_UID)
+
+							lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.aard_circle_1.GO_UID)
+							attack_colliders.aard_circle_1.active = false
+
 							lua_table.ParticlesFunctions:StopParticleEmitter(aard_hand_particles_GO_UID)	--TODO-Particles: Deactivate Aard particles on hand
 						elseif lua_table.current_state == state.ultimate
 						then
@@ -1861,9 +1874,16 @@ function lua_table:Update()
 					then
 						AardPush()
 						SaveDirection()
+
+						--Activate Aard Sphere Collider
+						lua_table.GameObjectFunctions:SetActiveGameObject(true, attack_colliders.aard_circle_1.GO_UID)
+						attack_colliders.aard_circle_1.active = true
+
+						--Direct Aard Particles
 						lua_table.ParticlesFunctions:SetParticlesVelocity(50 * rec_direction.x, 0, 50 * rec_direction.z, aard_hand_particles_GO_UID)
 						lua_table.ParticlesFunctions:SetRandomParticlesVelocity(50 * rec_direction.z, 0, 50 * rec_direction.x, aard_hand_particles_GO_UID)
 						lua_table.ParticlesFunctions:PlayParticleEmitter(aard_hand_particles_GO_UID)	--TODO-Particles: Activate Aard particles on hand
+
 						lua_table.ability_performed = true
 
 					elseif lua_table.current_state == state.evade and DirectionInBounds()				--ELSEIF evading

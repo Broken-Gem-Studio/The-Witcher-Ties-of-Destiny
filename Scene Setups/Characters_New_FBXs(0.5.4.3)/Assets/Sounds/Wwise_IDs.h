@@ -125,6 +125,7 @@ namespace AK
         static const AkUniqueID PLAY_KIKIMORA_SOUND_5 = 2489507369U;
         static const AkUniqueID PLAY_KIKIMORA_SOUND_6 = 2489507370U;
         static const AkUniqueID PLAY_KIKIMORA_SWEEP = 287198644U;
+        static const AkUniqueID PLAY_LEVEL_1_MUSIC = 814842324U;
         static const AkUniqueID PLAY_LOW_HP = 3852706691U;
         static const AkUniqueID PLAY_LVL1_INTRO_CONVERSATION_CUTSCENE = 160635907U;
         static const AkUniqueID PLAY_MAIN_MENU = 3306210749U;
@@ -176,6 +177,21 @@ namespace AK
         static const AkUniqueID PLAY_WOODEN_OBJECT_BREAK_6 = 152572329U;
         static const AkUniqueID PLAY_WRONG_JASKIER = 310070311U;
     } // namespace EVENTS
+
+    namespace SWITCHES
+    {
+        namespace LEVEL_1_SWITCH
+        {
+            static const AkUniqueID GROUP = 362844960U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID COMBAT = 2764240573U;
+                static const AkUniqueID DEFAULT = 782826392U;
+            } // namespace SWITCH
+        } // namespace LEVEL_1_SWITCH
+
+    } // namespace SWITCHES
 
     namespace GAME_PARAMETERS
     {

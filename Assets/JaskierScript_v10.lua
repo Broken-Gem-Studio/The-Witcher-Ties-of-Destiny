@@ -1606,7 +1606,7 @@ local function ProcessIncomingHit(collider_GO)
 		if enemy_script.collider_effect == attack_effects_ID.stun
 		then
 			lua_table.AnimationFunctions:PlayAnimation("stun", 45.0, my_GO_UID)
-			lua_table.AudioFunctions:PlayAudioEvent("Play_Jaskier_stun")	--TODO-Audio:
+			if lua_table.current_health > 0 then lua_table.AudioFunctions:PlayAudioEvent("Play_Jaskier_stun") end	--TODO-Audio:
 
 			lua_table.previous_state = lua_table.current_state
 			lua_table.current_state = state.stunned
@@ -1617,7 +1617,7 @@ local function ProcessIncomingHit(collider_GO)
 			knockback_curr_velocity = lua_table.knockback_orig_velocity
 
 			lua_table.AnimationFunctions:PlayAnimation("knockback", 45.0, my_GO_UID)
-			lua_table.AudioFunctions:PlayAudioEvent("Play_Jaskier_knockback")	--TODO-Audio:
+			if lua_table.current_health > 0 then lua_table.AudioFunctions:PlayAudioEvent("Play_Jaskier_knockback") end	--TODO-Audio:
 
 			lua_table.previous_state = lua_table.current_state
 			lua_table.current_state = state.knocked
