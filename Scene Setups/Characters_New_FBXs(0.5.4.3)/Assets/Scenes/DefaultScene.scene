@@ -272,8 +272,8 @@
                 "rotationy": "0.338218",
                 "rotationz": "-0.535400",
                 "scalex": "1.000000",
-                "scaley": "0.999982",
-                "scalez": "0.999982"
+                "scaley": "0.999972",
+                "scalez": "0.999972"
             },
             "13": {
                 "Active": true,
@@ -331,8 +331,8 @@
                 "rotationx": "0.388476",
                 "rotationy": "0.030072",
                 "rotationz": "0.916844",
-                "scalex": "1.000036",
-                "scaley": "1.000037",
+                "scalex": "1.000056",
+                "scaley": "1.000057",
                 "scalez": "1.000000"
             },
             "13": {
@@ -752,8 +752,8 @@
                 "rotationy": "-0.104633",
                 "rotationz": "-0.089897",
                 "scalex": "1.000000",
-                "scaley": "1.000016",
-                "scalez": "1.000016"
+                "scaley": "1.000026",
+                "scalez": "1.000026"
             },
             "13": {
                 "Active": true,
@@ -785,8 +785,8 @@
                 "rotationx": "0.003109",
                 "rotationy": "0.360062",
                 "rotationz": "0.890929",
-                "scalex": "1.000036",
-                "scaley": "1.000033",
+                "scalex": "1.000056",
+                "scaley": "1.000051",
                 "scalez": "1.000000"
             },
             "13": {
@@ -909,6 +909,218 @@
         "Parent": "2098612090",
         "Static": false
     },
+    "12598483": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 945656967,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/CameraScript_v6.lua"
+                },
+                "Script variables": {
+                    "Count": 22,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "Layer_1_FOV_ratio_1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.8
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "Layer_1_FOV_ratio_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.8
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_distance_layer_1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 25.0
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_distance_layer_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 35.0
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_distance_layer_3",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 45.0
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "ciri_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Ciri"
+                    },
+                    "Variable 14": {
+                        "DisplayObjectName": false,
+                        "Name": "geralt_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Geralt"
+                    },
+                    "Variable 15": {
+                        "DisplayObjectName": false,
+                        "Name": "jaskier_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Jaskier"
+                    },
+                    "Variable 16": {
+                        "DisplayObjectName": false,
+                        "Name": "kikimora_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Kikimora"
+                    },
+                    "Variable 17": {
+                        "DisplayObjectName": false,
+                        "Name": "movement_smooth_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.2
+                    },
+                    "Variable 18": {
+                        "DisplayObjectName": false,
+                        "Name": "myUID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 19": {
+                        "DisplayObjectName": false,
+                        "Name": "yennefer_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Yennefer"
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "Layer_2_FOV_ratio_1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.8
+                    },
+                    "Variable 20": {
+                        "DisplayObjectName": false,
+                        "Name": "zoom_angle_smooth_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.1
+                    },
+                    "Variable 21": {
+                        "DisplayObjectName": false,
+                        "Name": "zoom_distance_smooth_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.1
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "Layer_2_FOV_ratio_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.55
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": false,
+                        "Name": "Layer_3_FOV_ratio_1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.85
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": false,
+                        "Name": "Layer_3_FOV_ratio_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.55
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": false,
+                        "Name": "asymptotic_average_snapping_threshold",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.01
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_angle_layer_1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 50.0
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_angle_layer_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 60.0
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_angle_layer_3",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 70.0
+                    }
+                },
+                "UID": 1988452229,
+                "index": 3
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "DefaultMaterial"
+                    }
+                },
+                "UID": 446730823,
+                "index": 2
+            },
+            "3": {
+                "ACTIVECAM": false,
+                "ASPECTRATIO": 1.0,
+                "Active": true,
+                "CULLINGCAM": false,
+                "FARPLANE": 10.0,
+                "FOV": 57.295780181884766,
+                "NEARPLANE": 0.10000000149011612,
+                "UID": 30049781,
+                "index": 1
+            }
+        },
+        "Index": 4,
+        "Name": "Camera",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "-1",
+        "Static": false
+    },
     "1274910598": {
         "Active": true,
         "Components": {
@@ -971,8 +1183,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000112",
-                "scalez": "1.000112"
+                "scaley": "1.000122",
+                "scalez": "1.000122"
             }
         },
         "Index": 0,
@@ -996,8 +1208,8 @@
                 "rotationx": "-0.063665",
                 "rotationy": "0.239965",
                 "rotationz": "0.948061",
-                "scalex": "1.000018",
-                "scaley": "1.000018",
+                "scalex": "1.000028",
+                "scaley": "1.000028",
                 "scalez": "1.000000"
             },
             "13": {
@@ -1234,8 +1446,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000112",
-                "scalez": "1.000112"
+                "scaley": "1.000122",
+                "scalez": "1.000122"
             }
         },
         "Index": 0,
@@ -1490,8 +1702,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000112",
-                "scalez": "1.000112"
+                "scaley": "1.000122",
+                "scalez": "1.000122"
             }
         },
         "Index": 0,
@@ -2138,8 +2350,8 @@
                 "rotationy": "-0.332444",
                 "rotationz": "0.007786",
                 "scalex": "1.000000",
-                "scaley": "1.000036",
-                "scalez": "1.000036"
+                "scaley": "1.000056",
+                "scalez": "1.000056"
             },
             "13": {
                 "Active": true,
@@ -2240,8 +2452,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000112",
-                "scalez": "1.000112"
+                "scaley": "1.000122",
+                "scalez": "1.000122"
             }
         },
         "Index": 0,
@@ -2360,8 +2572,8 @@
                 "rotationy": "-0.000000",
                 "rotationz": "-0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000112",
-                "scalez": "1.000112"
+                "scaley": "1.000122",
+                "scalez": "1.000122"
             }
         },
         "Index": 0,
@@ -2556,7 +2768,7 @@
                 "index": 2
             }
         },
-        "Index": 2,
+        "Index": 1,
         "Name": "Enemy Test",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -2645,9 +2857,9 @@
                 "rotationx": "0.000000",
                 "rotationy": "-0.707107",
                 "rotationz": "0.000000",
-                "scalex": "1.270918",
+                "scalex": "1.270928",
                 "scaley": "1.270900",
-                "scalez": "1.270918"
+                "scalez": "1.270928"
             },
             "13": {
                 "Active": true,
@@ -2748,8 +2960,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000112",
-                "scalez": "1.000112"
+                "scaley": "1.000122",
+                "scalez": "1.000122"
             }
         },
         "Index": 0,
@@ -2834,8 +3046,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000112",
-                "scalez": "1.000112"
+                "scaley": "1.000122",
+                "scalez": "1.000122"
             }
         },
         "Index": 0,
@@ -3253,8 +3465,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.070461",
-                "scaley": "15.154722",
-                "scalez": "1.367762"
+                "scaley": "15.154808",
+                "scalez": "1.367772"
             },
             "1": {
                 "Active": true,
@@ -5236,13 +5448,13 @@
                         "Value": 800.0
                     }
                 },
-                "UID": 488202213,
+                "UID": 1424583819,
                 "index": 5
             },
             "14": {
                 "Active": true,
                 "Animations": {
-                    "BlendTime": "0.300000",
+                    "BlendTime": "0.100000",
                     "UseDefault": false
                 },
                 "Resources": {
@@ -5337,7 +5549,7 @@
                 "index": 4
             }
         },
-        "Index": 4,
+        "Index": 3,
         "Name": "Jaskier",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -5470,7 +5682,7 @@
                 "colliderType": "1",
                 "draggedUID": "0",
                 "draw": "1",
-                "firstCreation": "1",
+                "firstCreation": "0",
                 "globalMatrixw": "1.000000",
                 "globalMatrixx": "-5.000000",
                 "globalMatrixy": "2.000000",
@@ -5478,12 +5690,12 @@
                 "globalPositionx": "1.000000",
                 "globalPositiony": "1.000000",
                 "globalPositionz": "1.000000",
-                "hasBeenDeactivated": "1",
+                "hasBeenDeactivated": "0",
                 "height": "1.000000",
                 "index": 2,
                 "isConvex": "0",
                 "isTrigger": "1",
-                "lastIndex": "1",
+                "lastIndex": "0",
                 "localMatrixw": "1.000000",
                 "localMatrixx": "0.000000",
                 "localMatrixy": "0.000000",
@@ -5499,7 +5711,7 @@
                 "originalScalez": "1.000000",
                 "radius": "1.000000",
                 "scalex": "5.000000",
-                "scaley": "1.000000",
+                "scaley": "20.000000",
                 "scalez": "4.000000",
                 "tmpScalex": "4.999910",
                 "tmpScaley": "1.000000",
@@ -5654,7 +5866,7 @@
                 "tmpScalez": "100.000000"
             }
         },
-        "Index": 1,
+        "Index": 0,
         "Name": "Ground",
         "Navigation Area": 0,
         "Navigation Static": true,
@@ -5744,8 +5956,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000112",
-                "scalez": "1.000112"
+                "scaley": "1.000122",
+                "scalez": "1.000122"
             }
         },
         "Index": 0,
@@ -6707,8 +6919,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000112",
-                "scalez": "1.000112"
+                "scaley": "1.000122",
+                "scalez": "1.000122"
             }
         },
         "Index": 0,
@@ -6733,8 +6945,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000112",
-                "scalez": "1.000112"
+                "scaley": "1.000122",
+                "scalez": "1.000122"
             }
         },
         "Index": 0,
@@ -6768,7 +6980,7 @@
                 "colliderType": "1",
                 "draggedUID": "0",
                 "draw": "1",
-                "firstCreation": "1",
+                "firstCreation": "0",
                 "globalMatrixw": "1.000000",
                 "globalMatrixx": "-5.000000",
                 "globalMatrixy": "2.000000",
@@ -6776,12 +6988,12 @@
                 "globalPositionx": "1.000000",
                 "globalPositiony": "1.000000",
                 "globalPositionz": "1.000000",
-                "hasBeenDeactivated": "1",
+                "hasBeenDeactivated": "0",
                 "height": "1.000000",
                 "index": 1,
                 "isConvex": "0",
                 "isTrigger": "1",
-                "lastIndex": "1",
+                "lastIndex": "0",
                 "localMatrixw": "1.000000",
                 "localMatrixx": "0.000000",
                 "localMatrixy": "0.000000",
@@ -6797,7 +7009,7 @@
                 "originalScalez": "1.000000",
                 "radius": "1.000000",
                 "scalex": "6.000000",
-                "scaley": "1.000000",
+                "scaley": "20.000000",
                 "scalez": "6.000000",
                 "tmpScalex": "6.000000",
                 "tmpScaley": "1.000000",
@@ -6928,8 +7140,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000112",
-                "scalez": "1.000112"
+                "scaley": "1.000122",
+                "scalez": "1.000122"
             }
         },
         "Index": 0,
@@ -7168,223 +7380,6 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "2098612090",
-        "Static": false
-    },
-    "598003455": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "UID": 333076166,
-                "index": 0,
-                "layer": "0",
-                "positionx": "0.120677",
-                "positiony": "19.151112",
-                "positionz": "27.063515",
-                "rotationw": "0.000000",
-                "rotationx": "0.000000",
-                "rotationy": "0.906308",
-                "rotationz": "-0.422618",
-                "scalex": "1.000093",
-                "scaley": "0.999996",
-                "scalez": "1.000001"
-            },
-            "12": {
-                "Active": true,
-                "Resources": {
-                    "ResourceScript": "Assets/CameraScript_v6.lua"
-                },
-                "Script variables": {
-                    "Count": 22,
-                    "Variable 0": {
-                        "DisplayObjectName": false,
-                        "Name": "Layer_1_FOV_ratio_1",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.8
-                    },
-                    "Variable 1": {
-                        "DisplayObjectName": false,
-                        "Name": "Layer_1_FOV_ratio_2",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.8
-                    },
-                    "Variable 10": {
-                        "DisplayObjectName": false,
-                        "Name": "camera_distance_layer_1",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 25.0
-                    },
-                    "Variable 11": {
-                        "DisplayObjectName": false,
-                        "Name": "camera_distance_layer_2",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 35.0
-                    },
-                    "Variable 12": {
-                        "DisplayObjectName": false,
-                        "Name": "camera_distance_layer_3",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 45.0
-                    },
-                    "Variable 13": {
-                        "DisplayObjectName": false,
-                        "Name": "ciri_GO",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "Ciri"
-                    },
-                    "Variable 14": {
-                        "DisplayObjectName": false,
-                        "Name": "geralt_GO",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "Geralt"
-                    },
-                    "Variable 15": {
-                        "DisplayObjectName": false,
-                        "Name": "jaskier_GO",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "Jaskier"
-                    },
-                    "Variable 16": {
-                        "DisplayObjectName": false,
-                        "Name": "kikimora_GO",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "Kikimora"
-                    },
-                    "Variable 17": {
-                        "DisplayObjectName": false,
-                        "Name": "movement_smooth_speed",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.2
-                    },
-                    "Variable 18": {
-                        "DisplayObjectName": false,
-                        "Name": "myUID",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 19": {
-                        "DisplayObjectName": false,
-                        "Name": "yennefer_GO",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "Yennefer"
-                    },
-                    "Variable 2": {
-                        "DisplayObjectName": false,
-                        "Name": "Layer_2_FOV_ratio_1",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.8
-                    },
-                    "Variable 20": {
-                        "DisplayObjectName": false,
-                        "Name": "zoom_angle_smooth_speed",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.1
-                    },
-                    "Variable 21": {
-                        "DisplayObjectName": false,
-                        "Name": "zoom_distance_smooth_speed",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.1
-                    },
-                    "Variable 3": {
-                        "DisplayObjectName": false,
-                        "Name": "Layer_2_FOV_ratio_2",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.55
-                    },
-                    "Variable 4": {
-                        "DisplayObjectName": false,
-                        "Name": "Layer_3_FOV_ratio_1",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.85
-                    },
-                    "Variable 5": {
-                        "DisplayObjectName": false,
-                        "Name": "Layer_3_FOV_ratio_2",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.55
-                    },
-                    "Variable 6": {
-                        "DisplayObjectName": false,
-                        "Name": "asymptotic_average_snapping_threshold",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.01
-                    },
-                    "Variable 7": {
-                        "DisplayObjectName": false,
-                        "Name": "camera_angle_layer_1",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 50.0
-                    },
-                    "Variable 8": {
-                        "DisplayObjectName": false,
-                        "Name": "camera_angle_layer_2",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 60.0
-                    },
-                    "Variable 9": {
-                        "DisplayObjectName": false,
-                        "Name": "camera_angle_layer_3",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 70.0
-                    }
-                },
-                "UID": 754904893,
-                "index": 4
-            },
-            "2": {
-                "Active": true,
-                "Resources": {
-                    "ResourceMaterial": {
-                        "path": "DefaultMaterial"
-                    }
-                },
-                "UID": 1756240756,
-                "index": 2
-            },
-            "20": {
-                "Active": false,
-                "UID": 2072894420,
-                "index": 3
-            },
-            "3": {
-                "ACTIVECAM": false,
-                "ASPECTRATIO": 1.8508901596069336,
-                "Active": true,
-                "CULLINGCAM": false,
-                "FARPLANE": 1000.0,
-                "FOV": 53.04663848876953,
-                "NEARPLANE": 0.10000000149011612,
-                "UID": 567332780,
-                "index": 1
-            }
-        },
-        "Index": 0,
-        "Name": "Camera",
-        "Navigation Area": 0,
-        "Navigation Static": false,
-        "Parent": "-1",
         "Static": false
     },
     "600313910": {
@@ -7770,8 +7765,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000112",
-                "scalez": "1.000112"
+                "scaley": "1.000122",
+                "scalez": "1.000122"
             }
         },
         "Index": 0,
@@ -8221,8 +8216,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.540000",
-                "scaley": "2.540439",
-                "scalez": "2.540439"
+                "scaley": "2.540452",
+                "scalez": "2.540452"
             },
             "1": {
                 "Active": true,
@@ -8362,8 +8357,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.540000",
-                "scaley": "2.540445",
-                "scalez": "2.540445"
+                "scaley": "2.540458",
+                "scalez": "2.540458"
             },
             "1": {
                 "Active": true,
@@ -8610,9 +8605,9 @@
                 "rotationx": "0.000000",
                 "rotationy": "-0.707107",
                 "rotationz": "0.000000",
-                "scalex": "1.000018",
+                "scalex": "1.000028",
                 "scaley": "1.000000",
-                "scalez": "1.000018"
+                "scalez": "1.000028"
             },
             "13": {
                 "Active": true,
@@ -8833,8 +8828,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000112",
-                "scalez": "1.000112"
+                "scaley": "1.000122",
+                "scalez": "1.000122"
             }
         },
         "Index": 0,
@@ -10214,7 +10209,7 @@
                         "Value": "BUTTON_Y"
                     }
                 },
-                "UID": 1245336915,
+                "UID": 264172523,
                 "index": 5
             },
             "14": {
@@ -10315,7 +10310,7 @@
                 "index": 4
             }
         },
-        "Index": 3,
+        "Index": 2,
         "Name": "Geralt",
         "Navigation Area": 0,
         "Navigation Static": false,

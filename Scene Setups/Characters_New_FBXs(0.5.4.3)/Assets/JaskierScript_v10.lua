@@ -278,11 +278,13 @@ lua_table.energy_reg_orig = 5
 
 	--Attack Colliders
 	local attack_colliders = {												--Transform / Collider Scale
-		front = { GO_name = "Jaskier_Front", GO_UID = 0, active = false },		--0,2,3 / 4,3,3
-		line_1 = { GO_name = "Jaskier_Line_1", GO_UID = 0, active = false },	--0,2,4 / 4,3,4
-		line_2 = { GO_name = "Jaskier_Line_2", GO_UID = 0, active = false },	--0,2,8 / 4,3,4
-		line_3 = { GO_name = "Jaskier_Line_3", GO_UID = 0, active = false },	--0,2,12 / 4,3,4
-		line_4 = { GO_name = "Jaskier_Line_4", GO_UID = 0, active = false }		--0,2,16 / 4,3,4
+		front_1 = { GO_name = "Jaskier_Front_1", GO_UID = 0, active = false },	--0,2,3 / 4,3,3
+		front_2 = { GO_name = "Jaskier_Front_2", GO_UID = 0, active = false },	--
+		
+		line_1_1 = { GO_name = "Jaskier_Line_1", GO_UID = 0, active = false },	--0,2,4 / 4,3,4
+		line_2_2 = { GO_name = "Jaskier_Line_2", GO_UID = 0, active = false },	--0,2,8 / 4,3,4
+		line_3_3 = { GO_name = "Jaskier_Line_3", GO_UID = 0, active = false },	--0,2,12 / 4,3,4
+		line_4_4 = { GO_name = "Jaskier_Line_4", GO_UID = 0, active = false }		--0,2,16 / 4,3,4
 	}
 	--Character Controller: 1.0/2.5/0.05/0.3/45.0
 
@@ -765,23 +767,23 @@ end
 
 --Character Colliders BEGIN	----------------------------------------------------------------------------
 
-local function AttackColliderCheck(attack_type, collider_id)	--Checks timeframe of current action and activates or deactivates a speficied side collider depending on it
-	if time_since_action > lua_table[attack_type .. "_collider_" .. collider_id .. "_start"]	--IF time > start collider
+local function AttackColliderCheck(attack_type, collider_id, collider_num)	--Checks timeframe of current action and activates or deactivates a speficied side collider depending on it
+	if time_since_action > lua_table[attack_type .. "_collider_" .. collider_id .. "_start"]		--IF time > start collider
 	then
 		if time_since_action > lua_table[attack_type .. "_collider_" .. collider_id .. "_end"]	--IF time > end collider
 		then
-			if attack_colliders[collider_id].active	--IF > end time and collider active, deactivate
+			if attack_colliders[collider_id .. "_" .. collider_num].active	--IF > end time and collider active, deactivate
 			then
-				lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders[collider_id].GO_UID)	--TODO-Colliders: Check
-				attack_colliders[collider_id].active = false
+				lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders[collider_id .. "_" .. collider_num].GO_UID)	--TODO-Colliders: Check
+				attack_colliders[collider_id .. "_" .. collider_num].active = false
 			end
 
 			--lua_table.SystemFunctions:LOG("Collider Deactivate: " .. attack_type .. "_" .. collider_id)
 			
-		elseif not attack_colliders[collider_id].active	--IF > start time and collider unactive, activate
+		elseif not attack_colliders[collider_id .. "_" .. collider_num].active	--IF > start time and collider unactive, activate
 		then
-			lua_table.GameObjectFunctions:SetActiveGameObject(true, attack_colliders[collider_id].GO_UID)	--TODO-Colliders: Check
-			attack_colliders[collider_id].active = true
+			lua_table.GameObjectFunctions:SetActiveGameObject(true, attack_colliders[collider_id .. "_" .. collider_num].GO_UID)	--TODO-Colliders: Check
+			attack_colliders[collider_id .. "_" .. collider_num].active = true
 		--else
 			--lua_table.SystemFunctions:LOG("Collider Active: " .. attack_type .. "_" .. collider_id)
 		end
@@ -789,25 +791,30 @@ local function AttackColliderCheck(attack_type, collider_id)	--Checks timeframe 
 end
 
 local function AttackColliderShutdown()
-	if attack_colliders.front.active then
-		lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.front.GO_UID)	--TODO-Colliders: Check
-		attack_colliders.front.active = false
+	if attack_colliders.front_1.active then
+		lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.front_1.GO_UID)	--TODO-Colliders: Check
+		attack_colliders.front_1.active = false
 	end
-	if attack_colliders.line_1.active then
-		lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.line_1.GO_UID)	--TODO-Colliders: Check
-		attack_colliders.line_1.active = false
+	if attack_colliders.front_2.active then
+		lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.front_2.GO_UID)	--TODO-Colliders: Check
+		attack_colliders.front_2.active = false
 	end
-	if attack_colliders.line_2.active then
-		lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.line_2.GO_UID)	--TODO-Colliders: Check
-		attack_colliders.line_2.active = false
+
+	if attack_colliders.line_1_1.active then
+		lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.line_1_1.GO_UID)	--TODO-Colliders: Check
+		attack_colliders.line_1_1.active = false
 	end
-	if attack_colliders.line_3.active then
-		lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.line_3.GO_UID)	--TODO-Colliders: Check
-		attack_colliders.line_3.active = false
+	if attack_colliders.line_2_2.active then
+		lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.line_2_2.GO_UID)	--TODO-Colliders: Check
+		attack_colliders.line_2_2.active = false
 	end
-	if attack_colliders.line_4.active then
-		lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.line_4.GO_UID)	--TODO-Colliders: Check
-		attack_colliders.line_4.active = false
+	if attack_colliders.line_3_3.active then
+		lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.line_3_3.GO_UID)	--TODO-Colliders: Check
+		attack_colliders.line_3_3.active = false
+	end
+	if attack_colliders.line_4_4.active then
+		lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.line_4_4.GO_UID)	--TODO-Colliders: Check
+		attack_colliders.line_4_4.active = false
 	end
 end
 
@@ -1688,11 +1695,13 @@ function lua_table:Awake()
 	--lua_table.ParticlesFunctions:StopParticleEmitter_GO(guitar_GO_UID)			--TODO-Particles: Uncomment when ready
 
 	--Get attack_colliders GO_UIDs by name
-	attack_colliders.front.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.front.GO_name)
-	attack_colliders.line_1.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.line_1.GO_name)
-	attack_colliders.line_2.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.line_2.GO_name)
-	attack_colliders.line_3.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.line_3.GO_name)
-	attack_colliders.line_4.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.line_4.GO_name)
+	attack_colliders.front_1.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.front_1.GO_name)
+	attack_colliders.front_2.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.front_2.GO_name)
+
+	attack_colliders.line_1_1.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.line_1_1.GO_name)
+	attack_colliders.line_2_2.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.line_2_2.GO_name)
+	attack_colliders.line_3_3.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.line_3_3.GO_name)
+	attack_colliders.line_4_4.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.line_4_4.GO_name)
 
 	--Camera (Warning: If there's a camera GO, but no script the Engine WILL crash)
 	local camera_GO = lua_table.GameObjectFunctions:FindGameObject("Camera")
@@ -1881,9 +1890,9 @@ function lua_table:Update()
 						end
 
 						--Collider Evaluation
-						if lua_table.current_state == state.light_1 then AttackColliderCheck("light_1", "front")
-						elseif lua_table.current_state == state.light_2 then AttackColliderCheck("light_2", "front")
-						elseif lua_table.current_state == state.light_3 then AttackColliderCheck("light_3", "front")
+						if lua_table.current_state == state.light_1 then AttackColliderCheck("light_1", "front", 2)
+						elseif lua_table.current_state == state.light_2 then AttackColliderCheck("light_2", "front", 2)
+						elseif lua_table.current_state == state.light_3 then AttackColliderCheck("light_3", "front", 1)
 						end
 
 					elseif lua_table.current_state == state.medium_1 or lua_table.current_state == state.medium_2 or lua_table.current_state == state.medium_3	--IF Medium Attacking
@@ -1893,9 +1902,9 @@ function lua_table:Update()
 						end
 
 						--Collider Evaluation
-						if lua_table.current_state == state.medium_1 then AttackColliderCheck("medium_1", "front")
-						elseif lua_table.current_state == state.medium_2 then AttackColliderCheck("medium_2", "front")
-						elseif lua_table.current_state == state.medium_3 then AttackColliderCheck("medium_3", "front")
+						if lua_table.current_state == state.medium_1 then AttackColliderCheck("medium_1", "front", 1)
+						elseif lua_table.current_state == state.medium_2 then AttackColliderCheck("medium_2", "front", 1)
+						elseif lua_table.current_state == state.medium_3 then AttackColliderCheck("medium_3", "front", 1)
 						end
 
 					elseif lua_table.current_state == state.heavy_1 or lua_table.current_state == state.heavy_2 or lua_table.current_state == state.heavy_3	--IF Heavy Attacking
@@ -1908,9 +1917,9 @@ function lua_table:Update()
 						end
 
 						--Collider Evaluation
-						if lua_table.current_state == state.heavy_1 then AttackColliderCheck("heavy_1", "front")
-						elseif lua_table.current_state == state.heavy_2 then AttackColliderCheck("heavy_2", "front")
-						elseif lua_table.current_state == state.heavy_3 then AttackColliderCheck("heavy_3", "front")
+						if lua_table.current_state == state.heavy_1 then AttackColliderCheck("heavy_1", "front", 2)
+						elseif lua_table.current_state == state.heavy_2 then AttackColliderCheck("heavy_2", "front", 2)
+						elseif lua_table.current_state == state.heavy_3 then AttackColliderCheck("heavy_3", "front", 2)
 						end
 
 					elseif lua_table.current_state == state.song_1 and time_since_action > lua_table.song_1_effect_start
@@ -1922,10 +1931,10 @@ function lua_table:Update()
 						end
 
 						--Collider Evaluation
-						AttackColliderCheck("song_1", "line_1")
-						AttackColliderCheck("song_1", "line_2")
-						AttackColliderCheck("song_1", "line_3")
-						AttackColliderCheck("song_1", "line_4")
+						AttackColliderCheck("song_1", "line_1", 1)
+						AttackColliderCheck("song_1", "line_2", 2)
+						AttackColliderCheck("song_1", "line_3", 3)
+						AttackColliderCheck("song_1", "line_4", 4)
 
 					elseif lua_table.current_state == state.song_2 and time_since_action > lua_table.song_2_effect_start
 					then
