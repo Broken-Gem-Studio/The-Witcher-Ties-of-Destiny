@@ -59,6 +59,52 @@
         "Parent": "1994875290",
         "Static": false
     },
+    "100327521": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1634720430,
+                "index": 0,
+                "layer": "0",
+                "positionx": "28.596352",
+                "positiony": "5.893156",
+                "positionz": "45.245331",
+                "rotationw": "0.611037",
+                "rotationx": "-0.294077",
+                "rotationy": "0.668299",
+                "rotationz": "0.305826",
+                "scalex": "0.722407",
+                "scaley": "0.722406",
+                "scalez": "0.722409"
+            },
+            "21": {
+                "Active": true,
+                "AttenuationK": "0.000000",
+                "AttenuationL": "0.090000",
+                "AttenuationQ": "0.032000",
+                "ColorB": "0.129412",
+                "ColorG": "0.407843",
+                "ColorR": "0.725490",
+                "DirectionX": "-0.636838",
+                "DirectionY": "-0.768150",
+                "DirectionZ": "0.066210",
+                "DistanceMultiplier": "1.000000",
+                "DrawMesh": true,
+                "InnerCutoff": "48.000000",
+                "Intensity": "1.425000",
+                "LightType": "2",
+                "OuterCutoff": "100.000000",
+                "UID": 680216971,
+                "index": 1
+            }
+        },
+        "Index": 38,
+        "Name": "SpotLight3",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1039725169",
+        "Static": false
+    },
     "1004327728": {
         "Active": false,
         "Components": {
@@ -507,7 +553,7 @@
                     "ResourceScript": "Assets/New Folder 16/Breakable Prop/Prop_Script.lua"
                 },
                 "Script variables": {
-                    "Count": 4,
+                    "Count": 5,
                     "Variable 0": {
                         "DisplayObjectName": false,
                         "Name": "Destroyable",
@@ -532,6 +578,13 @@
                     "Variable 3": {
                         "DisplayObjectName": false,
                         "Name": "myUID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": false,
+                        "Name": "parent",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
@@ -641,9 +694,9 @@
                 "rotationx": "0.534209",
                 "rotationy": "-0.455339",
                 "rotationz": "0.553834",
-                "scalex": "0.999949",
-                "scaley": "0.999950",
-                "scalez": "0.999950"
+                "scalex": "0.999947",
+                "scaley": "0.999948",
+                "scalez": "0.999948"
             },
             "13": {
                 "Active": false,
@@ -756,9 +809,9 @@
                 "rotationx": "0.534209",
                 "rotationy": "-0.455339",
                 "rotationz": "0.553834",
-                "scalex": "0.999949",
-                "scaley": "0.999950",
-                "scalez": "0.999950"
+                "scalex": "0.999947",
+                "scaley": "0.999948",
+                "scalez": "0.999948"
             },
             "13": {
                 "Active": false,
@@ -791,8 +844,8 @@
                 "rotationy": "0.000117",
                 "rotationz": "-0.000109",
                 "scalex": "1.000000",
-                "scaley": "1.000050",
-                "scalez": "1.000050"
+                "scaley": "1.000052",
+                "scalez": "1.000052"
             },
             "13": {
                 "Active": false,
@@ -1158,6 +1211,58 @@
         "Parent": "859246972",
         "Static": false
     },
+    "1035877833": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 315308151,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-80.593002",
+                "positiony": "1.045000",
+                "positionz": "28.540001",
+                "rotationw": "0.553755",
+                "rotationx": "-0.000000",
+                "rotationy": "-0.832680",
+                "rotationz": "0.000000",
+                "scalex": "3.000004",
+                "scaley": "3.000000",
+                "scalez": "3.000004"
+            }
+        },
+        "Index": 12,
+        "Name": "LightPost7",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1039725169",
+        "Static": false
+    },
+    "1036318003": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 531901773,
+                "index": 0,
+                "layer": "0",
+                "positionx": "53.303001",
+                "positiony": "0.735000",
+                "positionz": "-37.650002",
+                "rotationw": "0.802989",
+                "rotationx": "0.000000",
+                "rotationy": "0.595994",
+                "rotationz": "0.000000",
+                "scalex": "3.000001",
+                "scaley": "3.000000",
+                "scalez": "3.000000"
+            }
+        },
+        "Index": 2,
+        "Name": "LightPost11",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1039725169",
+        "Static": false
+    },
     "1037161805": {
         "Active": true,
         "Components": {
@@ -1182,6 +1287,32 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1435001959",
+        "Static": false
+    },
+    "1039725169": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1655393121,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Index": 23,
+        "Name": "LightsLvl2",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "-1",
         "Static": false
     },
     "1040682666": {
@@ -1352,6 +1483,32 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "575720768",
+        "Static": false
+    },
+    "1057822014": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 463173425,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-45.618000",
+                "positiony": "1.089000",
+                "positionz": "28.601999",
+                "rotationw": "0.985271",
+                "rotationx": "0.000000",
+                "rotationy": "0.171001",
+                "rotationz": "0.000000",
+                "scalex": "3.000000",
+                "scaley": "3.000000",
+                "scalez": "3.000000"
+            }
+        },
+        "Index": 14,
+        "Name": "LightPost9",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1039725169",
         "Static": false
     },
     "1059882966": {
@@ -2230,8 +2387,8 @@
                 "rotationy": "0.000117",
                 "rotationz": "-0.000109",
                 "scalex": "1.000000",
-                "scaley": "1.000050",
-                "scalez": "1.000050"
+                "scaley": "1.000052",
+                "scalez": "1.000052"
             },
             "13": {
                 "Active": false,
@@ -2606,8 +2763,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000081",
-                "scalez": "1.000081"
+                "scaley": "1.000083",
+                "scalez": "1.000083"
             },
             "1": {
                 "Active": true,
@@ -2933,8 +3090,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000081",
-                "scalez": "1.000081"
+                "scaley": "1.000083",
+                "scalez": "1.000083"
             },
             "1": {
                 "Active": true,
@@ -3074,8 +3231,8 @@
                 "rotationy": "0.000117",
                 "rotationz": "-0.000109",
                 "scalex": "1.000000",
-                "scaley": "1.000050",
-                "scalez": "1.000050"
+                "scaley": "1.000052",
+                "scalez": "1.000052"
             },
             "13": {
                 "Active": false,
@@ -3193,6 +3350,53 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "380248865",
+        "Static": false
+    },
+    "1146126558": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1343256396,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-33.824001",
+                "positiony": "0.600000",
+                "positionz": "-8.145000",
+                "rotationw": "0.178240",
+                "rotationx": "-0.178240",
+                "rotationy": "0.684273",
+                "rotationz": "0.684274",
+                "scalex": "0.063500",
+                "scaley": "0.063500",
+                "scalez": "0.063500"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/470697118.mesh"
+                    }
+                },
+                "UID": 235686360,
+                "index": 1
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/LightPost_Low_02___Default.mat"
+                    }
+                },
+                "UID": 1945006480,
+                "index": 2
+            }
+        },
+        "Index": 28,
+        "Name": "LightPost_Low8",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1039725169",
         "Static": false
     },
     "114645934": {
@@ -3424,6 +3628,52 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "426381319",
+        "Static": false
+    },
+    "1148844497": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1960523402,
+                "index": 0,
+                "layer": "0",
+                "positionx": "15.666564",
+                "positiony": "5.945156",
+                "positionz": "13.309306",
+                "rotationw": "0.724641",
+                "rotationx": "-0.345812",
+                "rotationy": "0.543033",
+                "rotationz": "0.245814",
+                "scalex": "0.722406",
+                "scaley": "0.722406",
+                "scalez": "0.722409"
+            },
+            "21": {
+                "Active": true,
+                "AttenuationK": "0.000000",
+                "AttenuationL": "0.090000",
+                "AttenuationQ": "0.032000",
+                "ColorB": "0.129412",
+                "ColorG": "0.407843",
+                "ColorR": "0.725490",
+                "DirectionX": "-0.616997",
+                "DirectionY": "-0.768149",
+                "DirectionZ": "-0.171058",
+                "DistanceMultiplier": "1.000000",
+                "DrawMesh": true,
+                "InnerCutoff": "48.000000",
+                "Intensity": "1.425000",
+                "LightType": "2",
+                "OuterCutoff": "100.000000",
+                "UID": 1686650969,
+                "index": 1
+            }
+        },
+        "Index": 31,
+        "Name": "SpotLight10",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1039725169",
         "Static": false
     },
     "1149680409": {
@@ -3754,8 +4004,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000081",
-                "scalez": "1.000081"
+                "scaley": "1.000083",
+                "scalez": "1.000083"
             }
         },
         "Index": 8,
@@ -3890,8 +4140,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.144130",
-                "scaley": "1.144211",
-                "scalez": "1.000081"
+                "scaley": "1.144213",
+                "scalez": "1.000083"
             },
             "1": {
                 "Active": true,
@@ -3908,7 +4158,7 @@
                 "Active": true,
                 "Resources": {
                     "ResourceMaterial": {
-                        "path": "Assets/02 - Default.mat"
+                        "path": "Assets/MainMenu/Materials/New material 92.mat"
                     }
                 },
                 "UID": 1542212736,
@@ -4089,8 +4339,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000081",
-                "scalez": "1.000081"
+                "scaley": "1.000083",
+                "scalez": "1.000083"
             },
             "1": {
                 "Active": true,
@@ -4169,8 +4419,8 @@
                 "rotationx": "0.000791",
                 "rotationy": "0.016521",
                 "rotationz": "0.999855",
-                "scalex": "1.000052",
-                "scaley": "1.000052",
+                "scalex": "1.000054",
+                "scaley": "1.000054",
                 "scalez": "1.000000"
             },
             "13": {
@@ -4237,9 +4487,9 @@
                 "rotationx": "0.534209",
                 "rotationy": "-0.455339",
                 "rotationz": "0.553834",
-                "scalex": "0.999949",
-                "scaley": "0.999950",
-                "scalez": "0.999950"
+                "scalex": "0.999947",
+                "scaley": "0.999948",
+                "scalez": "0.999948"
             },
             "13": {
                 "Active": false,
@@ -4306,8 +4556,8 @@
                 "rotationy": "0.000117",
                 "rotationz": "-0.000109",
                 "scalex": "1.000000",
-                "scaley": "1.000050",
-                "scalez": "1.000050"
+                "scaley": "1.000052",
+                "scalez": "1.000052"
             },
             "13": {
                 "Active": false,
@@ -4357,6 +4607,53 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "273029375",
+        "Static": false
+    },
+    "1202752944": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 2130928103,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-33.928001",
+                "positiony": "1.038500",
+                "positionz": "54.945999",
+                "rotationw": "-0.416565",
+                "rotationx": "0.416565",
+                "rotationy": "0.571378",
+                "rotationz": "0.571379",
+                "scalex": "0.076200",
+                "scaley": "0.076200",
+                "scalez": "0.076200"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/470697118.mesh"
+                    }
+                },
+                "UID": 585189615,
+                "index": 1
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/LightPost_Low_02___Default.mat"
+                    }
+                },
+                "UID": 1573918678,
+                "index": 2
+            }
+        },
+        "Index": 26,
+        "Name": "LightPost_Low6",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1039725169",
         "Static": false
     },
     "1203449252": {
@@ -4492,8 +4789,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000513",
-                "scalez": "1.000513"
+                "scaley": "1.000515",
+                "scalez": "1.000515"
             }
         },
         "Index": 0,
@@ -4518,8 +4815,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000513",
-                "scalez": "1.000513"
+                "scaley": "1.000515",
+                "scalez": "1.000515"
             }
         },
         "Index": 0,
@@ -5839,6 +6136,53 @@
         "Parent": "1799813084",
         "Static": false
     },
+    "1264249226": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 272072009,
+                "index": 0,
+                "layer": "0",
+                "positionx": "53.303001",
+                "positiony": "0.735000",
+                "positionz": "-37.650002",
+                "rotationw": "0.567799",
+                "rotationx": "-0.567799",
+                "rotationy": "0.421431",
+                "rotationz": "0.421431",
+                "scalex": "0.076200",
+                "scaley": "0.076200",
+                "scalez": "0.076200"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/470697118.mesh"
+                    }
+                },
+                "UID": 1119572049,
+                "index": 1
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/LightPost_Low_02___Default.mat"
+                    }
+                },
+                "UID": 659171917,
+                "index": 2
+            }
+        },
+        "Index": 17,
+        "Name": "LightPost_Low11",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1039725169",
+        "Static": false
+    },
     "1265557447": {
         "Active": false,
         "Components": {
@@ -6093,6 +6437,52 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "279275233",
+        "Static": false
+    },
+    "1285519497": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1076354347,
+                "index": 0,
+                "layer": "0",
+                "positionx": "30.085083",
+                "positiony": "5.612156",
+                "positionz": "18.673859",
+                "rotationw": "0.522995",
+                "rotationx": "-0.236257",
+                "rotationy": "-0.739233",
+                "rotationz": "-0.352411",
+                "scalex": "0.722406",
+                "scaley": "0.722406",
+                "scalez": "0.722409"
+            },
+            "21": {
+                "Active": true,
+                "AttenuationK": "0.000000",
+                "AttenuationL": "0.090000",
+                "AttenuationQ": "0.032000",
+                "ColorB": "0.129412",
+                "ColorG": "0.407843",
+                "ColorR": "0.725490",
+                "DirectionX": "0.606711",
+                "DirectionY": "-0.768150",
+                "DirectionZ": "0.204566",
+                "DistanceMultiplier": "1.000000",
+                "DrawMesh": true,
+                "InnerCutoff": "48.000000",
+                "Intensity": "1.425000",
+                "LightType": "2",
+                "OuterCutoff": "100.000000",
+                "UID": 424130422,
+                "index": 1
+            }
+        },
+        "Index": 39,
+        "Name": "SpotLight4",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1039725169",
         "Static": false
     },
     "1286507281": {
@@ -7177,9 +7567,9 @@
                 "rotationx": "0.534209",
                 "rotationy": "-0.455339",
                 "rotationz": "0.553834",
-                "scalex": "0.999949",
-                "scaley": "0.999950",
-                "scalez": "0.999950"
+                "scalex": "0.999947",
+                "scaley": "0.999948",
+                "scalez": "0.999948"
             },
             "13": {
                 "Active": false,
@@ -7477,7 +7867,7 @@
                 "rotationz": "-0.047697",
                 "scalex": "1.000000",
                 "scaley": "1.000010",
-                "scalez": "1.000436"
+                "scalez": "1.000438"
             },
             "13": {
                 "Active": true,
@@ -7697,8 +8087,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000513",
-                "scalez": "1.000513"
+                "scaley": "1.000515",
+                "scalez": "1.000515"
             }
         },
         "Index": 0,
@@ -8112,8 +8502,8 @@
                 "rotationx": "0.000791",
                 "rotationy": "0.016521",
                 "rotationz": "0.999855",
-                "scalex": "1.000052",
-                "scaley": "1.000052",
+                "scalex": "1.000054",
+                "scaley": "1.000054",
                 "scalez": "1.000000"
             },
             "13": {
@@ -8812,7 +9202,7 @@
                     "ResourceScript": "Assets/New Folder 16/Breakable Prop/Prop_Script.lua"
                 },
                 "Script variables": {
-                    "Count": 4,
+                    "Count": 5,
                     "Variable 0": {
                         "DisplayObjectName": false,
                         "Name": "Destroyable",
@@ -8837,6 +9227,13 @@
                     "Variable 3": {
                         "DisplayObjectName": false,
                         "Name": "myUID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": false,
+                        "Name": "parent",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
@@ -8981,8 +9378,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000081",
-                "scalez": "1.000081"
+                "scaley": "1.000083",
+                "scalez": "1.000083"
             },
             "1": {
                 "Active": true,
@@ -9896,6 +10293,52 @@
         "Parent": "1173902405",
         "Static": false
     },
+    "1474701520": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1119593592,
+                "index": 0,
+                "layer": "0",
+                "positionx": "2.427611",
+                "positiony": "5.927160",
+                "positionz": "-23.462326",
+                "rotationw": "0.281616",
+                "rotationx": "-0.142046",
+                "rotationy": "0.860629",
+                "rotationz": "0.399792",
+                "scalex": "0.722408",
+                "scaley": "0.722407",
+                "scalez": "0.722412"
+            },
+            "21": {
+                "Active": true,
+                "AttenuationK": "0.000000",
+                "AttenuationL": "0.090000",
+                "AttenuationQ": "0.032000",
+                "ColorB": "0.129412",
+                "ColorG": "0.407843",
+                "ColorR": "0.725490",
+                "DirectionX": "-0.371156",
+                "DirectionY": "-0.768150",
+                "DirectionZ": "0.521718",
+                "DistanceMultiplier": "1.000000",
+                "DrawMesh": true,
+                "InnerCutoff": "48.000000",
+                "Intensity": "1.425000",
+                "LightType": "2",
+                "OuterCutoff": "100.000000",
+                "UID": 11533473,
+                "index": 1
+            }
+        },
+        "Index": 30,
+        "Name": "SpotLight1",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1039725169",
+        "Static": false
+    },
     "1477274842": {
         "Active": false,
         "Components": {
@@ -10257,8 +10700,8 @@
                 "rotationy": "0.000117",
                 "rotationz": "-0.000109",
                 "scalex": "1.000000",
-                "scaley": "1.000050",
-                "scalez": "1.000050"
+                "scaley": "1.000052",
+                "scalez": "1.000052"
             },
             "13": {
                 "Active": false,
@@ -10443,6 +10886,53 @@
         "Parent": "1909317418",
         "Static": false
     },
+    "150327517": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1856922298,
+                "index": 0,
+                "layer": "0",
+                "positionx": "15.186000",
+                "positiony": "1.142000",
+                "positionz": "13.000000",
+                "rotationw": "0.571143",
+                "rotationx": "-0.571142",
+                "rotationy": "0.416889",
+                "rotationz": "0.416889",
+                "scalex": "0.076200",
+                "scaley": "0.076200",
+                "scalez": "0.076200"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/470697118.mesh"
+                    }
+                },
+                "UID": 124276011,
+                "index": 1
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/LightPost_Low_02___Default.mat"
+                    }
+                },
+                "UID": 8548068,
+                "index": 2
+            }
+        },
+        "Index": 16,
+        "Name": "LightPost_Low10",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1039725169",
+        "Static": false
+    },
     "1503369284": {
         "Active": false,
         "Components": {
@@ -10619,8 +11109,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000081",
-                "scalez": "1.000081"
+                "scaley": "1.000083",
+                "scalez": "1.000083"
             },
             "1": {
                 "Active": true,
@@ -11290,6 +11780,53 @@
         "Parent": "97462407",
         "Static": false
     },
+    "1530607404": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 482497067,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-25.760000",
+                "positiony": "0.990000",
+                "positionz": "-43.706001",
+                "rotationw": "0.593681",
+                "rotationx": "-0.593681",
+                "rotationy": "0.384113",
+                "rotationz": "0.384114",
+                "scalex": "0.076200",
+                "scaley": "0.076200",
+                "scalez": "0.076200"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/470697118.mesh"
+                    }
+                },
+                "UID": 989095233,
+                "index": 1
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/LightPost_Low_02___Default.mat"
+                    }
+                },
+                "UID": 588591991,
+                "index": 2
+            }
+        },
+        "Index": 18,
+        "Name": "LightPost_Low12",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1039725169",
+        "Static": false
+    },
     "1531603647": {
         "Active": false,
         "Components": {
@@ -11339,8 +11876,8 @@
                 "rotationy": "0.000117",
                 "rotationz": "-0.000109",
                 "scalex": "1.000000",
-                "scaley": "1.000050",
-                "scalez": "1.000050"
+                "scaley": "1.000052",
+                "scalez": "1.000052"
             },
             "13": {
                 "Active": false,
@@ -11687,8 +12224,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000513",
-                "scalez": "1.000513"
+                "scaley": "1.000515",
+                "scalez": "1.000515"
             }
         },
         "Index": 0,
@@ -11833,8 +12370,8 @@
                 "rotationy": "0.000117",
                 "rotationz": "-0.000109",
                 "scalex": "1.000000",
-                "scaley": "1.000050",
-                "scalez": "1.000050"
+                "scaley": "1.000052",
+                "scalez": "1.000052"
             },
             "13": {
                 "Active": false,
@@ -12444,8 +12981,8 @@
                 "rotationx": "0.000791",
                 "rotationy": "0.016521",
                 "rotationz": "0.999855",
-                "scalex": "1.000052",
-                "scaley": "1.000052",
+                "scalex": "1.000054",
+                "scaley": "1.000054",
                 "scalez": "1.000000"
             },
             "13": {
@@ -12918,8 +13455,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000081",
-                "scalez": "1.000081"
+                "scaley": "1.000083",
+                "scalez": "1.000083"
             },
             "1": {
                 "Active": true,
@@ -13061,9 +13598,9 @@
                 "rotationx": "0.534209",
                 "rotationy": "-0.455339",
                 "rotationz": "0.553834",
-                "scalex": "0.999949",
-                "scaley": "0.999950",
-                "scalez": "0.999950"
+                "scalex": "0.999947",
+                "scaley": "0.999948",
+                "scalez": "0.999948"
             },
             "13": {
                 "Active": false,
@@ -13662,8 +14199,8 @@
                 "rotationy": "0.707107",
                 "rotationz": "0.000000",
                 "scalex": "0.123540",
-                "scaley": "1.000087",
-                "scalez": "1.000276"
+                "scaley": "1.000089",
+                "scalez": "1.000278"
             },
             "1": {
                 "Active": true,
@@ -14172,8 +14709,8 @@
                 "rotationx": "-0.116165",
                 "rotationy": "0.318562",
                 "rotationz": "0.930541",
-                "scalex": "0.999767",
-                "scaley": "0.999882",
+                "scalex": "0.999765",
+                "scaley": "0.999880",
                 "scalez": "1.000000"
             },
             "13": {
@@ -14342,8 +14879,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000081",
-                "scalez": "1.000081"
+                "scaley": "1.000083",
+                "scalez": "1.000083"
             },
             "1": {
                 "Active": true,
@@ -15185,8 +15722,8 @@
                 "rotationx": "0.000791",
                 "rotationy": "0.016521",
                 "rotationz": "0.999855",
-                "scalex": "1.000052",
-                "scaley": "1.000052",
+                "scalex": "1.000054",
+                "scaley": "1.000054",
                 "scalez": "1.000000"
             },
             "13": {
@@ -15246,8 +15783,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.540000",
-                "scaley": "2.540254",
-                "scalez": "2.540254"
+                "scaley": "2.540257",
+                "scalez": "2.540257"
             },
             "1": {
                 "Active": true,
@@ -15397,8 +15934,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000081",
-                "scalez": "1.000081"
+                "scaley": "1.000083",
+                "scalez": "1.000083"
             },
             "1": {
                 "Active": true,
@@ -15923,6 +16460,52 @@
         "Parent": "1939998490",
         "Static": false
     },
+    "1754482346": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 499136991,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-9.462160",
+                "positiony": "5.782156",
+                "positionz": "-69.639450",
+                "rotationw": "0.532204",
+                "rotationx": "-0.240648",
+                "rotationy": "-0.732631",
+                "rotationz": "-0.349427",
+                "scalex": "0.722406",
+                "scaley": "0.722406",
+                "scalez": "0.722409"
+            },
+            "21": {
+                "Active": true,
+                "AttenuationK": "0.000000",
+                "AttenuationL": "0.090000",
+                "AttenuationQ": "0.032000",
+                "ColorB": "0.129412",
+                "ColorG": "0.407843",
+                "ColorR": "0.725490",
+                "DirectionX": "0.611641",
+                "DirectionY": "-0.768150",
+                "DirectionZ": "0.189319",
+                "DistanceMultiplier": "1.000000",
+                "DrawMesh": true,
+                "InnerCutoff": "48.000000",
+                "Intensity": "1.425000",
+                "LightType": "2",
+                "OuterCutoff": "100.000000",
+                "UID": 1983558304,
+                "index": 1
+            }
+        },
+        "Index": 35,
+        "Name": "SpotLight14",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1039725169",
+        "Static": false
+    },
     "1755229891": {
         "Active": false,
         "Components": {
@@ -15955,6 +16538,52 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1319291202",
+        "Static": false
+    },
+    "1755845761": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1407344659,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-33.491859",
+                "positiony": "4.602631",
+                "positionz": "-8.486315",
+                "rotationw": "0.217216",
+                "rotationx": "-0.112098",
+                "rotationy": "0.879094",
+                "rotationz": "0.409200",
+                "scalex": "0.602005",
+                "scaley": "0.602005",
+                "scalez": "0.602008"
+            },
+            "21": {
+                "Active": true,
+                "AttenuationK": "0.000000",
+                "AttenuationL": "0.090000",
+                "AttenuationQ": "0.032000",
+                "ColorB": "0.129412",
+                "ColorG": "0.407843",
+                "ColorR": "0.725490",
+                "DirectionX": "-0.290166",
+                "DirectionY": "-0.768150",
+                "DirectionZ": "0.570745",
+                "DistanceMultiplier": "1.000000",
+                "DrawMesh": true,
+                "InnerCutoff": "48.000000",
+                "Intensity": "1.425000",
+                "LightType": "2",
+                "OuterCutoff": "100.000000",
+                "UID": 1801109864,
+                "index": 1
+            }
+        },
+        "Index": 43,
+        "Name": "SpotLight8",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1039725169",
         "Static": false
     },
     "1760218398": {
@@ -16432,6 +17061,32 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "122327298",
+        "Static": false
+    },
+    "1779867721": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1512873819,
+                "index": 0,
+                "layer": "0",
+                "positionx": "28.035999",
+                "positiony": "1.090000",
+                "positionz": "45.132999",
+                "rotationw": "0.684013",
+                "rotationx": "0.000000",
+                "rotationy": "0.729470",
+                "rotationz": "0.000000",
+                "scalex": "2.999998",
+                "scaley": "3.000000",
+                "scalez": "2.999998"
+            }
+        },
+        "Index": 8,
+        "Name": "LightPost3",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1039725169",
         "Static": false
     },
     "1784833205": {
@@ -17032,6 +17687,52 @@
         "Parent": "329345043",
         "Static": false
     },
+    "1808771344": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 544172453,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-34.408215",
+                "positiony": "5.841656",
+                "positionz": "54.636147",
+                "rotationw": "0.542623",
+                "rotationx": "-0.245618",
+                "rotationy": "-0.724948",
+                "rotationz": "-0.345951",
+                "scalex": "0.722406",
+                "scaley": "0.722406",
+                "scalez": "0.722409"
+            },
+            "21": {
+                "Active": true,
+                "AttenuationK": "0.000000",
+                "AttenuationL": "0.090000",
+                "AttenuationQ": "0.032000",
+                "ColorB": "0.129412",
+                "ColorG": "0.407843",
+                "ColorR": "0.725490",
+                "DirectionX": "0.616804",
+                "DirectionY": "-0.768149",
+                "DirectionZ": "0.171756",
+                "DistanceMultiplier": "1.000000",
+                "DrawMesh": true,
+                "InnerCutoff": "48.000000",
+                "Intensity": "1.425000",
+                "LightType": "2",
+                "OuterCutoff": "100.000000",
+                "UID": 2071333586,
+                "index": 1
+            }
+        },
+        "Index": 41,
+        "Name": "SpotLight6",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1039725169",
+        "Static": false
+    },
     "1809476393": {
         "Active": false,
         "Components": {
@@ -17421,6 +18122,32 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "427357618",
+        "Static": false
+    },
+    "1828400955": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 231771556,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-43.542000",
+                "positiony": "1.476000",
+                "positionz": "-80.289001",
+                "rotationw": "0.222042",
+                "rotationx": "0.000000",
+                "rotationy": "0.975037",
+                "rotationz": "0.000000",
+                "scalex": "2.999999",
+                "scaley": "3.000000",
+                "scalez": "2.999999"
+            }
+        },
+        "Index": 4,
+        "Name": "LightPost13",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1039725169",
         "Static": false
     },
     "1829852377": {
@@ -17842,8 +18569,8 @@
                 "rotationx": "0.388476",
                 "rotationy": "0.030072",
                 "rotationz": "0.916844",
-                "scalex": "1.000410",
-                "scaley": "1.000410",
+                "scalex": "1.000414",
+                "scaley": "1.000414",
                 "scalez": "1.000000"
             },
             "13": {
@@ -17877,8 +18604,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000513",
-                "scalez": "1.000513"
+                "scaley": "1.000515",
+                "scalez": "1.000515"
             }
         },
         "Index": 0,
@@ -18175,6 +18902,53 @@
         "Parent": "487462364",
         "Static": false
     },
+    "1866702244": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1742752639,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-8.991000",
+                "positiony": "0.979000",
+                "positionz": "-69.316002",
+                "rotationw": "-0.408355",
+                "rotationx": "0.408355",
+                "rotationy": "0.577275",
+                "rotationz": "0.577275",
+                "scalex": "0.076200",
+                "scaley": "0.076200",
+                "scalez": "0.076200"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/470697118.mesh"
+                    }
+                },
+                "UID": 1502907966,
+                "index": 1
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/LightPost_Low_02___Default.mat"
+                    }
+                },
+                "UID": 2109768105,
+                "index": 2
+            }
+        },
+        "Index": 20,
+        "Name": "LightPost_Low14",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1039725169",
+        "Static": false
+    },
     "1870256739": {
         "Active": false,
         "Components": {
@@ -18215,8 +18989,8 @@
                 "rotationx": "0.000791",
                 "rotationy": "0.016521",
                 "rotationz": "0.999855",
-                "scalex": "1.000052",
-                "scaley": "1.000052",
+                "scalex": "1.000054",
+                "scaley": "1.000054",
                 "scalez": "1.000000"
             },
             "13": {
@@ -18403,6 +19177,32 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1404168826",
+        "Static": false
+    },
+    "188811279": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 427441810,
+                "index": 0,
+                "layer": "0",
+                "positionx": "1.973000",
+                "positiony": "1.124000",
+                "positionz": "-23.115999",
+                "rotationw": "0.322926",
+                "rotationx": "0.000000",
+                "rotationy": "0.946424",
+                "rotationz": "0.000000",
+                "scalex": "2.999997",
+                "scaley": "3.000003",
+                "scalez": "3.000000"
+            }
+        },
+        "Index": 0,
+        "Name": "LightPost1",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1039725169",
         "Static": false
     },
     "1888636123": {
@@ -18857,8 +19657,8 @@
                 "rotationx": "-0.122380",
                 "rotationy": "-0.048104",
                 "rotationz": "0.925152",
-                "scalex": "1.000394",
-                "scaley": "1.000394",
+                "scalex": "1.000396",
+                "scaley": "1.000396",
                 "scalez": "1.000000"
             },
             "13": {
@@ -19820,8 +20620,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000081",
-                "scalez": "1.000081"
+                "scaley": "1.000083",
+                "scalez": "1.000083"
             },
             "1": {
                 "Active": true,
@@ -20709,8 +21509,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.070461",
-                "scaley": "15.158162",
-                "scalez": "1.368163"
+                "scaley": "15.158179",
+                "scalez": "1.368165"
             },
             "1": {
                 "Active": true,
@@ -21092,6 +21892,32 @@
         "Parent": "2094551638",
         "Static": false
     },
+    "2054777739": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 490941137,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-33.824001",
+                "positiony": "0.600000",
+                "positionz": "-8.145000",
+                "rotationw": "0.252069",
+                "rotationx": "0.000000",
+                "rotationy": "0.967709",
+                "rotationz": "0.000000",
+                "scalex": "2.499996",
+                "scaley": "2.500000",
+                "scalez": "2.499996"
+            }
+        },
+        "Index": 13,
+        "Name": "LightPost8",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1039725169",
+        "Static": false
+    },
     "2055084096": {
         "Active": false,
         "Components": {
@@ -21333,6 +22159,58 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1620801320",
+        "Static": false
+    },
+    "2067897381": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1448765815,
+                "index": 0,
+                "layer": "0",
+                "positionx": "22.940001",
+                "positiony": "1.065000",
+                "positionz": "75.706001",
+                "rotationw": "0.069408",
+                "rotationx": "0.000000",
+                "rotationy": "0.997588",
+                "rotationz": "0.000000",
+                "scalex": "2.999995",
+                "scaley": "3.000000",
+                "scalez": "2.999992"
+            }
+        },
+        "Index": 7,
+        "Name": "LightPost2",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1039725169",
+        "Static": false
+    },
+    "2069204547": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 157718190,
+                "index": 0,
+                "layer": "0",
+                "positionx": "30.548000",
+                "positiony": "0.809000",
+                "positionz": "19.009001",
+                "rotationw": "0.567241",
+                "rotationx": "-0.000000",
+                "rotationy": "-0.823552",
+                "rotationz": "0.000000",
+                "scalex": "2.999997",
+                "scaley": "3.000000",
+                "scalez": "2.999997"
+            }
+        },
+        "Index": 9,
+        "Name": "LightPost4",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1039725169",
         "Static": false
     },
     "207633395": {
@@ -21715,6 +22593,52 @@
         "Parent": "1615739885",
         "Static": false
     },
+    "2093053153": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1229278802,
+                "index": 0,
+                "layer": "0",
+                "positionx": "24.215240",
+                "positiony": "5.885156",
+                "positionz": "-51.933117",
+                "rotationw": "0.390572",
+                "rotationx": "-0.192565",
+                "rotationy": "0.816972",
+                "rotationz": "0.378060",
+                "scalex": "0.722407",
+                "scaley": "0.722406",
+                "scalez": "0.722410"
+            },
+            "21": {
+                "Active": true,
+                "AttenuationK": "0.000000",
+                "AttenuationL": "0.090000",
+                "AttenuationQ": "0.032000",
+                "ColorB": "0.129412",
+                "ColorG": "0.407843",
+                "ColorR": "0.725490",
+                "DirectionX": "-0.492570",
+                "DirectionY": "-0.768150",
+                "DirectionZ": "0.409049",
+                "DistanceMultiplier": "1.000000",
+                "DrawMesh": true,
+                "InnerCutoff": "48.000000",
+                "Intensity": "1.425000",
+                "LightType": "2",
+                "OuterCutoff": "100.000000",
+                "UID": 2101173798,
+                "index": 1
+            }
+        },
+        "Index": 36,
+        "Name": "SpotLight15",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1039725169",
+        "Static": false
+    },
     "2094551638": {
         "Active": false,
         "Components": {
@@ -21883,9 +22807,9 @@
                 "rotationx": "0.534209",
                 "rotationy": "-0.455339",
                 "rotationz": "0.553834",
-                "scalex": "0.999949",
-                "scaley": "0.999950",
-                "scalez": "0.999950"
+                "scalex": "0.999947",
+                "scaley": "0.999948",
+                "scalez": "0.999948"
             },
             "13": {
                 "Active": false,
@@ -21918,8 +22842,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000081",
-                "scalez": "1.000081"
+                "scaley": "1.000083",
+                "scalez": "1.000083"
             },
             "1": {
                 "Active": true,
@@ -22404,6 +23328,53 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1897913748",
+        "Static": false
+    },
+    "2132026097": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 80053357,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-43.542000",
+                "positiony": "1.476000",
+                "positionz": "-80.289001",
+                "rotationw": "0.157007",
+                "rotationx": "-0.157007",
+                "rotationy": "0.689455",
+                "rotationz": "0.689456",
+                "scalex": "0.076200",
+                "scaley": "0.076200",
+                "scalez": "0.076200"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/470697118.mesh"
+                    }
+                },
+                "UID": 674703732,
+                "index": 1
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/LightPost_Low_02___Default.mat"
+                    }
+                },
+                "UID": 1638714741,
+                "index": 2
+            }
+        },
+        "Index": 19,
+        "Name": "LightPost_Low13",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1039725169",
         "Static": false
     },
     "2132756551": {
@@ -23432,8 +24403,8 @@
                 "rotationy": "0.000117",
                 "rotationz": "-0.000109",
                 "scalex": "1.000000",
-                "scaley": "1.000050",
-                "scalez": "1.000050"
+                "scaley": "1.000052",
+                "scalez": "1.000052"
             },
             "13": {
                 "Active": false,
@@ -23839,6 +24810,53 @@
         "Parent": "2143092741",
         "Static": false
     },
+    "261580378": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 578750699,
+                "index": 0,
+                "layer": "0",
+                "positionx": "23.687000",
+                "positiony": "1.082000",
+                "positionz": "-51.715000",
+                "rotationw": "0.312989",
+                "rotationx": "-0.312989",
+                "rotationy": "0.634064",
+                "rotationz": "0.634065",
+                "scalex": "0.076200",
+                "scaley": "0.076200",
+                "scalez": "0.076200"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/470697118.mesh"
+                    }
+                },
+                "UID": 2114230065,
+                "index": 1
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/LightPost_Low_02___Default.mat"
+                    }
+                },
+                "UID": 1987222691,
+                "index": 2
+            }
+        },
+        "Index": 21,
+        "Name": "LightPost_Low15",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1039725169",
+        "Static": false
+    },
     "268358407": {
         "Active": true,
         "Components": {
@@ -24061,9 +25079,9 @@
                 "rotationx": "0.000000",
                 "rotationy": "0.911426",
                 "rotationz": "0.000000",
-                "scalex": "1.001287",
+                "scalex": "1.001285",
                 "scaley": "1.000000",
-                "scalez": "1.001287"
+                "scalez": "1.001285"
             },
             "12": {
                 "Active": true,
@@ -25624,9 +26642,9 @@
                 "rotationx": "0.534209",
                 "rotationy": "-0.455339",
                 "rotationz": "0.553834",
-                "scalex": "0.999949",
-                "scaley": "0.999950",
-                "scalez": "0.999950"
+                "scalex": "0.999947",
+                "scaley": "0.999948",
+                "scalez": "0.999948"
             },
             "13": {
                 "Active": false,
@@ -26101,6 +27119,52 @@
         "Parent": "721353177",
         "Static": false
     },
+    "28680544": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 493727562,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-81.044762",
+                "positiony": "5.848156",
+                "positionz": "28.189964",
+                "rotationw": "0.510889",
+                "rotationx": "-0.230487",
+                "rotationy": "-0.747651",
+                "rotationz": "-0.356211",
+                "scalex": "0.722406",
+                "scaley": "0.722406",
+                "scalez": "0.722409"
+            },
+            "21": {
+                "Active": true,
+                "AttenuationK": "0.000000",
+                "AttenuationL": "0.090000",
+                "AttenuationQ": "0.032000",
+                "ColorB": "0.129412",
+                "ColorG": "0.407843",
+                "ColorR": "0.725490",
+                "DirectionX": "0.599729",
+                "DirectionY": "-0.768150",
+                "DirectionZ": "0.224213",
+                "DistanceMultiplier": "1.000000",
+                "DrawMesh": true,
+                "InnerCutoff": "48.000000",
+                "Intensity": "1.425000",
+                "LightType": "2",
+                "OuterCutoff": "100.000000",
+                "UID": 1183340120,
+                "index": 1
+            }
+        },
+        "Index": 42,
+        "Name": "SpotLight7",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1039725169",
+        "Static": false
+    },
     "288333093": {
         "Active": true,
         "Components": {
@@ -26545,9 +27609,9 @@
                 "rotationx": "0.555985",
                 "rotationy": "-0.516106",
                 "rotationz": "0.453164",
-                "scalex": "1.000394",
-                "scaley": "1.000394",
-                "scalez": "1.000394"
+                "scalex": "1.000396",
+                "scaley": "1.000396",
+                "scalez": "1.000396"
             },
             "13": {
                 "Active": true,
@@ -26579,9 +27643,9 @@
                 "rotationx": "0.534209",
                 "rotationy": "-0.455339",
                 "rotationz": "0.553834",
-                "scalex": "0.999949",
-                "scaley": "0.999950",
-                "scalez": "0.999950"
+                "scalex": "0.999947",
+                "scaley": "0.999948",
+                "scalez": "0.999948"
             },
             "13": {
                 "Active": false,
@@ -27096,6 +28160,53 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "431870363",
+        "Static": false
+    },
+    "32866753": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 291709216,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-80.593002",
+                "positiony": "1.045000",
+                "positionz": "28.540001",
+                "rotationw": "-0.391564",
+                "rotationx": "0.391564",
+                "rotationy": "0.588793",
+                "rotationz": "0.588793",
+                "scalex": "0.076200",
+                "scaley": "0.076200",
+                "scalez": "0.076200"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/470697118.mesh"
+                    }
+                },
+                "UID": 334477457,
+                "index": 1
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/LightPost_Low_02___Default.mat"
+                    }
+                },
+                "UID": 1489849376,
+                "index": 2
+            }
+        },
+        "Index": 27,
+        "Name": "LightPost_Low7",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1039725169",
         "Static": false
     },
     "329345043": {
@@ -28039,6 +29150,52 @@
         "Parent": "1652359622",
         "Static": false
     },
+    "378604753": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1352209567,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-45.571445",
+                "positiony": "5.892156",
+                "positionz": "29.171600",
+                "rotationw": "0.890177",
+                "rotationx": "-0.418906",
+                "rotationy": "0.166058",
+                "rotationz": "0.067292",
+                "scalex": "0.722406",
+                "scaley": "0.722406",
+                "scalez": "0.722409"
+            },
+            "21": {
+                "Active": true,
+                "AttenuationK": "0.000000",
+                "AttenuationL": "0.090000",
+                "AttenuationQ": "0.032000",
+                "ColorB": "0.129412",
+                "ColorG": "0.407843",
+                "ColorR": "0.725490",
+                "DirectionX": "-0.239264",
+                "DirectionY": "-0.768150",
+                "DirectionZ": "-0.593885",
+                "DistanceMultiplier": "1.000000",
+                "DrawMesh": true,
+                "InnerCutoff": "48.000000",
+                "Intensity": "1.425000",
+                "LightType": "2",
+                "OuterCutoff": "100.000000",
+                "UID": 794146921,
+                "index": 1
+            }
+        },
+        "Index": 44,
+        "Name": "SpotLight9",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1039725169",
+        "Static": false
+    },
     "380248865": {
         "Active": true,
         "Components": {
@@ -28216,8 +29373,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000513",
-                "scalez": "1.000513"
+                "scaley": "1.000515",
+                "scalez": "1.000515"
             }
         },
         "Index": 0,
@@ -28560,8 +29717,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000513",
-                "scalez": "1.000513"
+                "scaley": "1.000515",
+                "scalez": "1.000515"
             }
         },
         "Index": 0,
@@ -28716,8 +29873,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000081",
-                "scalez": "1.000081"
+                "scaley": "1.000083",
+                "scalez": "1.000083"
             },
             "1": {
                 "Active": true,
@@ -28992,6 +30149,53 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1921272734",
+        "Static": false
+    },
+    "427222939": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1567298848,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-45.618000",
+                "positiony": "1.089000",
+                "positionz": "28.601999",
+                "rotationw": "0.696691",
+                "rotationx": "-0.696692",
+                "rotationy": "0.120916",
+                "rotationz": "0.120916",
+                "scalex": "0.076200",
+                "scaley": "0.076200",
+                "scalez": "0.076200"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/470697118.mesh"
+                    }
+                },
+                "UID": 1121508891,
+                "index": 1
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/LightPost_Low_02___Default.mat"
+                    }
+                },
+                "UID": 212579038,
+                "index": 2
+            }
+        },
+        "Index": 29,
+        "Name": "LightPost_Low9",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1039725169",
         "Static": false
     },
     "427357618": {
@@ -29357,6 +30561,32 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "601119913",
+        "Static": false
+    },
+    "444274986": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 414218879,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-4.910000",
+                "positiony": "1.105000",
+                "positionz": "36.965000",
+                "rotationw": "0.366964",
+                "rotationx": "0.000000",
+                "rotationy": "0.930235",
+                "rotationz": "0.000000",
+                "scalex": "2.999998",
+                "scaley": "3.000000",
+                "scalez": "2.999998"
+            }
+        },
+        "Index": 10,
+        "Name": "LightPost5",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1039725169",
         "Static": false
     },
     "446662026": {
@@ -30262,8 +31492,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000513",
-                "scalez": "1.000513"
+                "scaley": "1.000515",
+                "scalez": "1.000515"
             }
         },
         "Index": 0,
@@ -30472,6 +31702,32 @@
         "Parent": "1859475495",
         "Static": false
     },
+    "482651972": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1245357531,
+                "index": 0,
+                "layer": "0",
+                "positionx": "15.186000",
+                "positiony": "1.142000",
+                "positionz": "13.000000",
+                "rotationw": "0.807717",
+                "rotationx": "0.000000",
+                "rotationy": "0.589570",
+                "rotationz": "0.000000",
+                "scalex": "2.999998",
+                "scaley": "3.000000",
+                "scalez": "2.999998"
+            }
+        },
+        "Index": 1,
+        "Name": "LightPost10",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1039725169",
+        "Static": false
+    },
     "484398644": {
         "Active": false,
         "Components": {
@@ -30563,6 +31819,32 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "601119913",
+        "Static": false
+    },
+    "487598604": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 325329165,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-25.760000",
+                "positiony": "0.990000",
+                "positionz": "-43.706001",
+                "rotationw": "0.839591",
+                "rotationx": "0.000000",
+                "rotationy": "0.543219",
+                "rotationz": "0.000000",
+                "scalex": "3.000001",
+                "scaley": "3.000000",
+                "scalez": "3.000000"
+            }
+        },
+        "Index": 3,
+        "Name": "LightPost12",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1039725169",
         "Static": false
     },
     "490246954": {
@@ -30680,8 +31962,8 @@
                 "rotationx": "0.000791",
                 "rotationy": "0.016521",
                 "rotationz": "0.999855",
-                "scalex": "1.000052",
-                "scaley": "1.000052",
+                "scalex": "1.000054",
+                "scaley": "1.000054",
                 "scalez": "1.000000"
             },
             "13": {
@@ -31021,8 +32303,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000081",
-                "scalez": "1.000081"
+                "scaley": "1.000083",
+                "scalez": "1.000083"
             },
             "1": {
                 "Active": true,
@@ -31173,8 +32455,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000081",
-                "scalez": "1.000081"
+                "scaley": "1.000083",
+                "scalez": "1.000083"
             },
             "1": {
                 "Active": true,
@@ -31993,8 +33275,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000081",
-                "scalez": "1.000081"
+                "scaley": "1.000083",
+                "scalez": "1.000083"
             },
             "1": {
                 "Active": true,
@@ -32622,6 +33904,53 @@
         "Parent": "1372379305",
         "Static": false
     },
+    "578301513": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1630452749,
+                "index": 0,
+                "layer": "0",
+                "positionx": "30.548000",
+                "positiony": "0.809000",
+                "positionz": "19.009001",
+                "rotationw": "-0.401099",
+                "rotationx": "0.401100",
+                "rotationy": "0.582339",
+                "rotationz": "0.582340",
+                "scalex": "0.076200",
+                "scaley": "0.076200",
+                "scalez": "0.076200"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/470697118.mesh"
+                    }
+                },
+                "UID": 2060225003,
+                "index": 1
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/LightPost_Low_02___Default.mat"
+                    }
+                },
+                "UID": 197183439,
+                "index": 2
+            }
+        },
+        "Index": 24,
+        "Name": "LightPost_Low4",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1039725169",
+        "Static": false
+    },
     "579054228": {
         "Active": false,
         "Components": {
@@ -32738,8 +34067,8 @@
                 "rotationy": "0.000117",
                 "rotationz": "-0.000109",
                 "scalex": "1.000000",
-                "scaley": "1.000050",
-                "scalez": "1.000050"
+                "scaley": "1.000052",
+                "scalez": "1.000052"
             },
             "13": {
                 "Active": false,
@@ -32841,6 +34170,53 @@
         "Parent": "1859475495",
         "Static": false
     },
+    "591961290": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1434814028,
+                "index": 0,
+                "layer": "0",
+                "positionx": "28.035999",
+                "positiony": "1.090000",
+                "positionz": "45.132999",
+                "rotationw": "0.483670",
+                "rotationx": "-0.483670",
+                "rotationy": "0.515813",
+                "rotationz": "0.515814",
+                "scalex": "0.076200",
+                "scaley": "0.076200",
+                "scalez": "0.076200"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/470697118.mesh"
+                    }
+                },
+                "UID": 838119536,
+                "index": 1
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/LightPost_Low_02___Default.mat"
+                    }
+                },
+                "UID": 1442043219,
+                "index": 2
+            }
+        },
+        "Index": 23,
+        "Name": "LightPost_Low3",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1039725169",
+        "Static": false
+    },
     "592106662": {
         "Active": true,
         "Components": {
@@ -32876,7 +34252,7 @@
                     "ResourceScript": "Assets/New Folder 16/Breakable Prop/Prop_Script.lua"
                 },
                 "Script variables": {
-                    "Count": 4,
+                    "Count": 5,
                     "Variable 0": {
                         "DisplayObjectName": false,
                         "Name": "Destroyable",
@@ -32901,6 +34277,13 @@
                     "Variable 3": {
                         "DisplayObjectName": false,
                         "Name": "myUID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": false,
+                        "Name": "parent",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
@@ -33045,8 +34428,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000513",
-                "scalez": "1.000513"
+                "scaley": "1.000515",
+                "scalez": "1.000515"
             }
         },
         "Index": 0,
@@ -33054,6 +34437,32 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "819754437",
+        "Static": false
+    },
+    "598830352": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1541917831,
+                "index": 0,
+                "layer": "0",
+                "positionx": "23.687000",
+                "positiony": "1.082000",
+                "positionz": "-51.715000",
+                "rotationw": "0.442633",
+                "rotationx": "0.000000",
+                "rotationy": "0.896703",
+                "rotationz": "0.000000",
+                "scalex": "3.000002",
+                "scaley": "3.000000",
+                "scalez": "3.000002"
+            }
+        },
+        "Index": 6,
+        "Name": "LightPost15",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1039725169",
         "Static": false
     },
     "601034351": {
@@ -33578,8 +34987,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000513",
-                "scalez": "1.000513"
+                "scaley": "1.000515",
+                "scalez": "1.000515"
             }
         },
         "Index": 0,
@@ -33879,6 +35288,52 @@
         "Parent": "1623892905",
         "Static": false
     },
+    "624428265": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 483963812,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-4.424936",
+                "positiony": "5.908156",
+                "positionz": "36.662800",
+                "rotationw": "0.321675",
+                "rotationx": "-0.160642",
+                "rotationy": "0.846472",
+                "rotationz": "0.392689",
+                "scalex": "0.722406",
+                "scaley": "0.722406",
+                "scalez": "0.722409"
+            },
+            "21": {
+                "Active": true,
+                "AttenuationK": "0.000000",
+                "AttenuationL": "0.090000",
+                "AttenuationQ": "0.032000",
+                "ColorB": "0.129412",
+                "ColorG": "0.407843",
+                "ColorR": "0.725490",
+                "DirectionX": "-0.418413",
+                "DirectionY": "-0.768149",
+                "DirectionZ": "0.484641",
+                "DistanceMultiplier": "1.000000",
+                "DrawMesh": true,
+                "InnerCutoff": "48.000000",
+                "Intensity": "1.425000",
+                "LightType": "2",
+                "OuterCutoff": "100.000000",
+                "UID": 26133822,
+                "index": 1
+            }
+        },
+        "Index": 40,
+        "Name": "SpotLight5",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1039725169",
+        "Static": false
+    },
     "624499649": {
         "Active": false,
         "Components": {
@@ -34159,17 +35614,17 @@
                 "index": 2
             },
             "20": {
-                "Active": true,
+                "Active": false,
                 "UID": 1994338978,
                 "index": 4
             },
             "3": {
-                "ACTIVECAM": true,
-                "ASPECTRATIO": 2.022892713546753,
+                "ACTIVECAM": false,
+                "ASPECTRATIO": 2.335428476333618,
                 "Active": true,
-                "CULLINGCAM": true,
+                "CULLINGCAM": false,
                 "FARPLANE": 1000.0,
-                "FOV": 49.087913513183594,
+                "FOV": 43.16176986694336,
                 "NEARPLANE": 0.10000000149011612,
                 "UID": 610800162,
                 "index": 1
@@ -34196,9 +35651,9 @@
                 "rotationx": "0.534209",
                 "rotationy": "-0.455339",
                 "rotationz": "0.553834",
-                "scalex": "0.999949",
-                "scaley": "0.999950",
-                "scalez": "0.999950"
+                "scalex": "0.999947",
+                "scaley": "0.999948",
+                "scalez": "0.999948"
             },
             "13": {
                 "Active": false,
@@ -34433,6 +35888,52 @@
         "Parent": "421862134",
         "Static": false
     },
+    "655673818": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 2129260558,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-43.169495",
+                "positiony": "6.279156",
+                "positionz": "-80.722420",
+                "rotationw": "0.189944",
+                "rotationx": "-0.099399",
+                "rotationy": "0.885387",
+                "rotationz": "0.412469",
+                "scalex": "0.722406",
+                "scaley": "0.722406",
+                "scalez": "0.722409"
+            },
+            "21": {
+                "Active": true,
+                "AttenuationK": "0.000000",
+                "AttenuationL": "0.090000",
+                "AttenuationQ": "0.032000",
+                "ColorB": "0.129412",
+                "ColorG": "0.407843",
+                "ColorR": "0.725490",
+                "DirectionX": "-0.254350",
+                "DirectionY": "-0.768150",
+                "DirectionZ": "0.587582",
+                "DistanceMultiplier": "1.000000",
+                "DrawMesh": true,
+                "InnerCutoff": "48.000000",
+                "Intensity": "1.425000",
+                "LightType": "2",
+                "OuterCutoff": "100.000000",
+                "UID": 453156108,
+                "index": 1
+            }
+        },
+        "Index": 34,
+        "Name": "SpotLight13",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1039725169",
+        "Static": false
+    },
     "656455835": {
         "Active": false,
         "Components": {
@@ -34517,6 +36018,32 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1109824957",
+        "Static": false
+    },
+    "661832565": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1922162943,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-33.928001",
+                "positiony": "1.038500",
+                "positionz": "54.945999",
+                "rotationw": "0.589112",
+                "rotationx": "-0.000000",
+                "rotationy": "-0.808051",
+                "rotationz": "0.000000",
+                "scalex": "2.999994",
+                "scaley": "3.000000",
+                "scalez": "2.999994"
+            }
+        },
+        "Index": 11,
+        "Name": "LightPost6",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1039725169",
         "Static": false
     },
     "667279069": {
@@ -34611,6 +36138,52 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1939998490",
+        "Static": false
+    },
+    "674293122": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1921294789,
+                "index": 0,
+                "layer": "0",
+                "positionx": "53.788437",
+                "positiony": "5.538156",
+                "positionz": "-37.348400",
+                "rotationw": "0.720286",
+                "rotationx": "-0.343840",
+                "rotationy": "0.548796",
+                "rotationz": "0.248565",
+                "scalex": "0.722406",
+                "scaley": "0.722406",
+                "scalez": "0.722409"
+            },
+            "21": {
+                "Active": true,
+                "AttenuationK": "0.000000",
+                "AttenuationL": "0.090000",
+                "AttenuationQ": "0.032000",
+                "ColorB": "0.129412",
+                "ColorG": "0.407843",
+                "ColorR": "0.725490",
+                "DirectionX": "-0.619647",
+                "DirectionY": "-0.768149",
+                "DirectionZ": "-0.161194",
+                "DistanceMultiplier": "1.000000",
+                "DrawMesh": true,
+                "InnerCutoff": "48.000000",
+                "Intensity": "1.425000",
+                "LightType": "2",
+                "OuterCutoff": "100.000000",
+                "UID": 3100633,
+                "index": 1
+            }
+        },
+        "Index": 32,
+        "Name": "SpotLight11",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1039725169",
         "Static": false
     },
     "67532949": {
@@ -35059,7 +36632,7 @@
                 "rotationy": "-0.028436",
                 "rotationz": "0.055476",
                 "scalex": "1.000000",
-                "scaley": "0.999608",
+                "scaley": "0.999606",
                 "scalez": "0.999999"
             },
             "13": {
@@ -35662,8 +37235,8 @@
                 "rotationx": "0.388476",
                 "rotationy": "0.030072",
                 "rotationz": "0.916844",
-                "scalex": "1.000408",
-                "scaley": "1.000408",
+                "scalex": "1.000412",
+                "scaley": "1.000412",
                 "scalez": "1.000000"
             },
             "13": {
@@ -36480,9 +38053,9 @@
                 "UID": 1684898388,
                 "index": 0,
                 "layer": "3",
-                "positionx": "-9312819.000000",
-                "positiony": "-2160245.500000",
-                "positionz": "2104263.000000",
+                "positionx": "6241518.000000",
+                "positiony": "-2140723.000000",
+                "positionz": "7658536.000000",
                 "rotationw": "1.000000",
                 "rotationx": "0.000000",
                 "rotationy": "0.000000",
@@ -36499,9 +38072,9 @@
                 "height": "2.000000",
                 "index": 1,
                 "nonWalkableMode": "1",
-                "positionX": "-9312819.000000",
-                "positionY": "-2160245.500000",
-                "positionZ": "2104263.000000",
+                "positionX": "6241518.000000",
+                "positionY": "-2140723.000000",
+                "positionZ": "7658536.000000",
                 "radius": "0.500000",
                 "slopeLimit": "45.000000",
                 "stepOffset": "0.300000"
@@ -36793,8 +38366,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000081",
-                "scalez": "1.000081"
+                "scaley": "1.000083",
+                "scalez": "1.000083"
             },
             "1": {
                 "Active": true,
@@ -36873,8 +38446,8 @@
                 "rotationx": "0.000791",
                 "rotationy": "0.016521",
                 "rotationz": "0.999855",
-                "scalex": "1.000052",
-                "scaley": "1.000052",
+                "scalex": "1.000054",
+                "scaley": "1.000054",
                 "scalez": "1.000000"
             },
             "13": {
@@ -37291,8 +38864,8 @@
                 "rotationx": "0.000791",
                 "rotationy": "0.016521",
                 "rotationz": "0.999855",
-                "scalex": "1.000052",
-                "scaley": "1.000052",
+                "scalex": "1.000054",
+                "scaley": "1.000054",
                 "scalez": "1.000000"
             },
             "13": {
@@ -37402,8 +38975,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000513",
-                "scalez": "1.000513"
+                "scaley": "1.000515",
+                "scalez": "1.000515"
             }
         },
         "Index": 0,
@@ -37727,6 +39300,52 @@
         "Parent": "1648972707",
         "Static": false
     },
+    "803214181": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1382440565,
+                "index": 0,
+                "layer": "0",
+                "positionx": "23.163116",
+                "positiony": "5.868156",
+                "positionz": "75.179855",
+                "rotationw": "0.051483",
+                "rotationx": "-0.034765",
+                "rotationy": "0.904068",
+                "rotationz": "0.422850",
+                "scalex": "0.722407",
+                "scaley": "0.722406",
+                "scalez": "0.722409"
+            },
+            "21": {
+                "Active": true,
+                "AttenuationK": "0.000000",
+                "AttenuationL": "0.090000",
+                "AttenuationQ": "0.032000",
+                "ColorB": "0.129412",
+                "ColorG": "0.407843",
+                "ColorR": "0.725490",
+                "DirectionX": "-0.063687",
+                "DirectionY": "-0.768150",
+                "DirectionZ": "0.637095",
+                "DistanceMultiplier": "1.000000",
+                "DrawMesh": true,
+                "InnerCutoff": "48.000000",
+                "Intensity": "1.425000",
+                "LightType": "2",
+                "OuterCutoff": "100.000000",
+                "UID": 972484619,
+                "index": 1
+            }
+        },
+        "Index": 37,
+        "Name": "SpotLight2",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1039725169",
+        "Static": false
+    },
     "804063440": {
         "Active": false,
         "Components": {
@@ -37802,8 +39421,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000081",
-                "scalez": "1.000081"
+                "scaley": "1.000083",
+                "scalez": "1.000083"
             },
             "1": {
                 "Active": true,
@@ -38106,6 +39725,53 @@
         "Parent": "589094685",
         "Static": false
     },
+    "822246476": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 2130062220,
+                "index": 0,
+                "layer": "0",
+                "positionx": "1.973000",
+                "positiony": "1.124000",
+                "positionz": "-23.115999",
+                "rotationw": "0.228343",
+                "rotationx": "-0.228343",
+                "rotationy": "0.669223",
+                "rotationz": "0.669223",
+                "scalex": "0.076200",
+                "scaley": "0.076200",
+                "scalez": "0.076200"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/470697118.mesh"
+                    }
+                },
+                "UID": 431091388,
+                "index": 1
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/LightPost_Low_02___Default.mat"
+                    }
+                },
+                "UID": 1929557123,
+                "index": 2
+            }
+        },
+        "Index": 15,
+        "Name": "LightPost_Low1",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1039725169",
+        "Static": false
+    },
     "825134651": {
         "Active": true,
         "Components": {
@@ -38138,6 +39804,53 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "852392069",
+        "Static": false
+    },
+    "826170178": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 797012136,
+                "index": 0,
+                "layer": "0",
+                "positionx": "22.940001",
+                "positiony": "1.065000",
+                "positionz": "75.706001",
+                "rotationw": "0.049079",
+                "rotationx": "-0.049079",
+                "rotationy": "0.705401",
+                "rotationz": "0.705402",
+                "scalex": "0.076200",
+                "scaley": "0.076200",
+                "scalez": "0.076200"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/470697118.mesh"
+                    }
+                },
+                "UID": 2099449270,
+                "index": 1
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/LightPost_Low_02___Default.mat"
+                    }
+                },
+                "UID": 1578160909,
+                "index": 2
+            }
+        },
+        "Index": 22,
+        "Name": "LightPost_Low2",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1039725169",
         "Static": false
     },
     "827976833": {
@@ -38409,8 +40122,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000513",
-                "scalez": "1.000513"
+                "scaley": "1.000515",
+                "scalez": "1.000515"
             }
         },
         "Index": 0,
@@ -39058,9 +40771,9 @@
                 "rotationx": "0.000000",
                 "rotationy": "0.876073",
                 "rotationz": "0.000000",
-                "scalex": "1.000083",
+                "scalex": "1.000085",
                 "scaley": "1.000001",
-                "scalez": "1.000082"
+                "scalez": "1.000084"
             },
             "12": {
                 "Active": true,
@@ -40561,6 +42274,32 @@
         "Parent": "836260483",
         "Static": false
     },
+    "862228483": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 2122860365,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-8.991000",
+                "positiony": "0.979000",
+                "positionz": "-69.316002",
+                "rotationw": "0.577501",
+                "rotationx": "0.000000",
+                "rotationy": "-0.816390",
+                "rotationz": "-0.000000",
+                "scalex": "3.000001",
+                "scaley": "3.000000",
+                "scalez": "3.000000"
+            }
+        },
+        "Index": 5,
+        "Name": "LightPost14",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1039725169",
+        "Static": false
+    },
     "862835855": {
         "Active": false,
         "Components": {
@@ -40839,7 +42578,7 @@
                     "ResourceScript": "Assets/New Folder 16/Breakable Prop/Prop_Script.lua"
                 },
                 "Script variables": {
-                    "Count": 4,
+                    "Count": 5,
                     "Variable 0": {
                         "DisplayObjectName": false,
                         "Name": "Destroyable",
@@ -40864,6 +42603,13 @@
                     "Variable 3": {
                         "DisplayObjectName": false,
                         "Name": "myUID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": false,
+                        "Name": "parent",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
@@ -41126,8 +42872,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000081",
-                "scalez": "1.000081"
+                "scaley": "1.000083",
+                "scalez": "1.000083"
             },
             "1": {
                 "Active": true,
@@ -41741,8 +43487,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000513",
-                "scalez": "1.000513"
+                "scaley": "1.000515",
+                "scalez": "1.000515"
             }
         },
         "Index": 0,
@@ -41951,6 +43697,53 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1561194913",
+        "Static": false
+    },
+    "906222617": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1392734995,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-4.910000",
+                "positiony": "1.105000",
+                "positionz": "36.965000",
+                "rotationw": "0.259483",
+                "rotationx": "-0.259483",
+                "rotationy": "0.657775",
+                "rotationz": "0.657776",
+                "scalex": "0.076200",
+                "scaley": "0.076200",
+                "scalez": "0.076200"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/470697118.mesh"
+                    }
+                },
+                "UID": 421457551,
+                "index": 1
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/LightPost_Low_02___Default.mat"
+                    }
+                },
+                "UID": 1227089210,
+                "index": 2
+            }
+        },
+        "Index": 25,
+        "Name": "LightPost_Low5",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1039725169",
         "Static": false
     },
     "907046627": {
@@ -42716,6 +44509,52 @@
         "Parent": "1515666442",
         "Static": false
     },
+    "968923342": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1120805393,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-25.317205",
+                "positiony": "5.793156",
+                "positionz": "-43.344692",
+                "rotationw": "0.754030",
+                "rotationx": "-0.359087",
+                "rotationy": "0.501427",
+                "rotationz": "0.225980",
+                "scalex": "0.722406",
+                "scaley": "0.722406",
+                "scalez": "0.722409"
+            },
+            "21": {
+                "Active": true,
+                "AttenuationK": "0.000000",
+                "AttenuationL": "0.090000",
+                "AttenuationQ": "0.032000",
+                "ColorB": "0.129412",
+                "ColorG": "0.407843",
+                "ColorR": "0.725490",
+                "DirectionX": "-0.593889",
+                "DirectionY": "-0.768150",
+                "DirectionZ": "-0.239255",
+                "DistanceMultiplier": "1.000000",
+                "DrawMesh": true,
+                "InnerCutoff": "48.000000",
+                "Intensity": "1.425000",
+                "LightType": "2",
+                "OuterCutoff": "100.000000",
+                "UID": 626468661,
+                "index": 1
+            }
+        },
+        "Index": 33,
+        "Name": "SpotLight12",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1039725169",
+        "Static": false
+    },
     "969470772": {
         "Active": false,
         "Components": {
@@ -42730,8 +44569,8 @@
                 "rotationx": "0.000791",
                 "rotationy": "0.016521",
                 "rotationz": "0.999855",
-                "scalex": "1.000052",
-                "scaley": "1.000052",
+                "scalex": "1.000054",
+                "scaley": "1.000054",
                 "scalez": "1.000000"
             },
             "13": {
