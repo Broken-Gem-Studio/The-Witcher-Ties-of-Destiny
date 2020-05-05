@@ -698,9 +698,21 @@ local function DebugInputs()
 		elseif lua_table.InputFunctions:KeyDown("5")	--Instakill/Revive Jaskier
 		then
 			if lua_table.current_health > 0 then lua_table.current_health = 0
-			else
-				lua_table.being_revived = true
+			elseif lua_table.current_state == state.down then lua_table.being_revived = true 
+			elseif lua_table.current_state == state.dead
+			then
+				lua_table.GameObjectFunctions:SetActiveGameObject(true, lua_table.GameObjectFunctions:FindGameObject("Jaskier_Mesh"))
+				lua_table.GameObjectFunctions:SetActiveGameObject(true, lua_table.GameObjectFunctions:FindGameObject("Jaskier_Pivot"))
+				lua_table:Start()
+
+				local geralt_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt")
+				if geralt_GO_UID ~= nil and geralt_GO_UID ~= 0
+				then
+					local geralt_pos = lua_table.TransformFunctions:GetPosition(geralt_GO_UID)
+					lua_table.PhysicsFunctions:SetCharacterPosition(geralt_pos[1], geralt_pos[2] + 5.0, geralt_pos[3], my_GO_UID)
+				end
 			end
+
 		elseif lua_table.InputFunctions:KeyDown("6")	--Keyboard Mode
 		then
 			keyboard_mode = not keyboard_mode
@@ -1589,14 +1601,12 @@ local function ProcessIncomingHit(collider_GO)
 
 	if enemy_script.collider_effect ~= attack_effects_ID.none and lua_table.current_state >= state.idle	--IF effect and ready to take one
 	then
+		lua_table.AnimationFunctions:SetBlendTime(0.1, my_GO_UID)
+
 		if enemy_script.collider_effect == attack_effects_ID.stun
 		then
 			lua_table.AnimationFunctions:PlayAnimation("stun", 45.0, my_GO_UID)
 			lua_table.AudioFunctions:PlayAudioEvent("Play_Jaskier_stun")	--TODO-Audio:
-
-			AttackColliderShutdown()
-			ParticlesShutdown()
-			ReviveShutdown()
 
 			lua_table.previous_state = lua_table.current_state
 			lua_table.current_state = state.stunned
@@ -1609,13 +1619,13 @@ local function ProcessIncomingHit(collider_GO)
 			lua_table.AnimationFunctions:PlayAnimation("knockback", 45.0, my_GO_UID)
 			lua_table.AudioFunctions:PlayAudioEvent("Play_Jaskier_knockback")	--TODO-Audio:
 
-			AttackColliderShutdown()
-			ParticlesShutdown()
-			ReviveShutdown()
-
 			lua_table.previous_state = lua_table.current_state
 			lua_table.current_state = state.knocked
 		end
+
+		AttackColliderShutdown()
+		ParticlesShutdown()
+		ReviveShutdown()
 
 		current_action_duration = attack_effects_durations[enemy_script.collider_effect]
 		action_started_at = game_time
@@ -1711,16 +1721,19 @@ function lua_table:Awake()
 	CalculateStats()	--Calculate stats based on orig values + modifier
 
 	CalculateTrapezoid(song_2_trapezoid)
-
-	--Set initial values
-	lua_table.current_health = lua_table.max_health_real
-	lua_table.current_energy = lua_table.max_energy_real
-	lua_table.current_ultimate = 0.0
 end
 
 function lua_table:Start()
 	lua_table.SystemFunctions:LOG("JaskierScript START")
 	
+	-- Set initial values
+	lua_table.previous_state = state.idle
+	lua_table.current_state = state.idle
+	lua_table.current_health = lua_table.max_health_real
+	lua_table.current_energy = lua_table.max_energy_real
+	lua_table.current_ultimate = 0.0
+
+	-- Default Starting Animations
 	lua_table.AnimationFunctions:PlayAnimation("idle", lua_table.idle_animation_speed, my_GO_UID)
 	lua_table.AnimationFunctions:PlayAnimation("idle", lua_table.idle_animation_speed, slash_GO_UID)
 end
@@ -2024,7 +2037,7 @@ function lua_table:Update()
 					lua_table.previous_state = lua_table.current_state
 					lua_table.current_state = state.dead					--Kill character
 					--lua_table.GameObjectFunctions:SetActiveGameObject(false, my_GO_UID)
-					lua_table.GameObjectFunctions:SetActiveGameObject(false, lua_table.GameObjectFunctions:FindGameObject("Jaskier_Model"))
+					lua_table.GameObjectFunctions:SetActiveGameObject(false, lua_table.GameObjectFunctions:FindGameObject("Jaskier_Mesh"))
 					lua_table.GameObjectFunctions:SetActiveGameObject(false, lua_table.GameObjectFunctions:FindGameObject("Jaskier_Pivot"))
 
 					local geralt_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt")

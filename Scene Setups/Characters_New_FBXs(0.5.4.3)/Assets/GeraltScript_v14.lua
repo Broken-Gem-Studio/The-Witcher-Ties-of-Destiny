@@ -692,12 +692,24 @@ local function DebugInputs()
 		then
 			lua_table.current_ultimate = lua_table.max_ultimate
 
-		elseif lua_table.InputFunctions:KeyDown("4")	--Instakill/Revive Geralt
+		elseif lua_table.InputFunctions:KeyDown("4")	--Instakill/Revive/Respawn Geralt
 		then
 			if lua_table.current_health > 0 then lua_table.current_health = 0
-			else
-				lua_table.being_revived = true
+			elseif lua_table.current_state == state.down then lua_table.being_revived = true 
+			elseif lua_table.current_state == state.dead
+			then
+				lua_table.GameObjectFunctions:SetActiveGameObject(true, lua_table.GameObjectFunctions:FindGameObject("Geralt_Mesh"))
+				lua_table.GameObjectFunctions:SetActiveGameObject(true, lua_table.GameObjectFunctions:FindGameObject("Geralt_Pivot"))
+				lua_table:Start()
+
+				local jaskier_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier")
+				if jaskier_GO_UID ~= nil and jaskier_GO_UID ~= 0
+				then
+					local jaskier_pos = lua_table.TransformFunctions:GetPosition(jaskier_GO_UID)
+					lua_table.PhysicsFunctions:SetCharacterPosition(jaskier_pos[1], jaskier_pos[2] + 5.0, jaskier_pos[3], my_GO_UID)
+				end
 			end
+
 		elseif lua_table.InputFunctions:KeyDown("6")	--Keyboard Mode
 		then
 			keyboard_mode = not keyboard_mode
@@ -1276,8 +1288,16 @@ local function ActionInputs()	--Process Action Inputs
 			lua_table.ability_performed = false	--The ability itself is done later to fit with the animation, this marks that it needs to be done
 
 			lua_table.AnimationFunctions:PlayAnimation("aard", lua_table.ability_animation_speed, my_GO_UID)
+
+			-- Aard Particle GOs
 			lua_table.AnimationFunctions:PlayAnimation("aard", lua_table.ability_animation_speed, aard_cone_GO_UID)
 			lua_table.AnimationFunctions:PlayAnimation("aard", lua_table.ability_animation_speed, aard_circle_GO_UID)
+
+			lua_table.AnimationFunctions:SetBlendTime(0.1, aard_cone_GO_UID)
+			lua_table.AnimationFunctions:SetBlendTime(0.1, aard_circle_GO_UID)
+			
+			lua_table.GameObjectFunctions:SetActiveGameObject(true, aard_cone_mesh_GO_UID)
+			lua_table.GameObjectFunctions:SetActiveGameObject(true, aard_circle_mesh_GO_UID)
 
 			lua_table.AudioFunctions:PlayAudioEvent("Play_Geralt_aard_2")	--TODO-Audio: Ability Sound
 
@@ -1359,18 +1379,6 @@ local function ActionInputs()	--Process Action Inputs
 		else
 			lua_table.GameObjectFunctions:SetActiveGameObject(false, slash_mesh_GO_UID)
 			--lua_table.ParticlesFunctions:StopParticleEmitter(sword_particles_GO_UID)	--TODO-Particles: Deactivate Particles on Sword
-		end
-
-		if lua_table.current_state == state.ability	--IF ability (aard)
-		then
-			lua_table.AnimationFunctions:SetBlendTime(0.1, aard_cone_GO_UID)
-			lua_table.AnimationFunctions:SetBlendTime(0.1, aard_circle_GO_UID)
-			
-			lua_table.GameObjectFunctions:SetActiveGameObject(true, aard_cone_mesh_GO_UID)
-			lua_table.GameObjectFunctions:SetActiveGameObject(true, aard_cone_mesh_GO_UID)
-		else
-			lua_table.GameObjectFunctions:SetActiveGameObject(false, aard_cone_mesh_GO_UID)
-			lua_table.GameObjectFunctions:SetActiveGameObject(false, aard_cone_mesh_GO_UID)
 		end
 
 		if lua_table.current_state > state.evade or lua_table.current_state < state.walk then
@@ -1558,14 +1566,12 @@ local function ProcessIncomingHit(collider_GO)
 
 	if enemy_script.collider_effect ~= attack_effects_ID.none and lua_table.current_state >= state.idle	--IF effect and ready to take one
 	then
+		lua_table.AnimationFunctions:SetBlendTime(0.1, my_GO_UID)
+
 		if enemy_script.collider_effect == attack_effects_ID.stun
 		then
 			lua_table.AnimationFunctions:PlayAnimation("stun", 45.0, my_GO_UID)
 			lua_table.AudioFunctions:PlayAudioEvent("Play_Geralt_stun")	--TODO-Audio:
-
-			AttackColliderShutdown()
-			ParticlesShutdown(false)
-			ReviveShutdown()
 
 			lua_table.previous_state = lua_table.current_state
 			lua_table.current_state = state.stunned
@@ -1578,13 +1584,13 @@ local function ProcessIncomingHit(collider_GO)
 			lua_table.AnimationFunctions:PlayAnimation("knockback", 45.0, my_GO_UID)
 			lua_table.AudioFunctions:PlayAudioEvent("Play_Geralt_knockback")	--TODO-Audio:
 
-			AttackColliderShutdown()
-			ParticlesShutdown(false)
-			ReviveShutdown()
-
 			lua_table.previous_state = lua_table.current_state
 			lua_table.current_state = state.knocked
 		end
+
+		AttackColliderShutdown()
+		ParticlesShutdown(false)
+		ReviveShutdown()
 
 		current_action_duration = attack_effects_durations[enemy_script.collider_effect]
 		action_started_at = game_time
@@ -1674,17 +1680,20 @@ function lua_table:Awake()
 	lua_table.max_health_real = lua_table.max_health_orig	--Necessary for the first CalculateStats()
 	CalculateStats()	--Calculate stats based on orig values + modifier
 
-	--Set initial values
-	lua_table.current_health = lua_table.max_health_real
-	lua_table.current_energy = lua_table.max_energy_real
-	lua_table.current_ultimate = 0.0
-
 	CalculateAbilityTrapezoid()
 end
 
 function lua_table:Start()
 	lua_table.SystemFunctions:LOG("GeraltScript START")
-	
+
+	-- Set initial values
+	lua_table.previous_state = state.idle
+	lua_table.current_state = state.idle
+	lua_table.current_health = lua_table.max_health_real
+	lua_table.current_energy = lua_table.max_energy_real
+	lua_table.current_ultimate = 0.0
+
+	-- Default Starting animations
 	lua_table.AnimationFunctions:PlayAnimation("idle", lua_table.idle_animation_speed, my_GO_UID)
 	lua_table.AnimationFunctions:PlayAnimation("idle", lua_table.idle_animation_speed, slash_GO_UID)
 
@@ -1989,7 +1998,7 @@ function lua_table:Update()
 					lua_table.current_state = state.dead					--Kill character
 					--lua_table.GameObjectFunctions:SetActiveGameObject(false, my_GO_UID)	--Disable character
 					lua_table.GameObjectFunctions:SetActiveGameObject(false, lua_table.GameObjectFunctions:FindGameObject("Geralt_Mesh"))
-					lua_table.GameObjectFunctions:SetActiveGameObject(false, lua_table.GameObjectFunctions:FindGameObject("Geralt_Pivot"))					
+					lua_table.GameObjectFunctions:SetActiveGameObject(false, lua_table.GameObjectFunctions:FindGameObject("Geralt_Pivot"))
 
 					local jaskier_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier")
 					if jaskier_GO_UID ~= nil
