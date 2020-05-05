@@ -1,4 +1,18 @@
 {
+    "awakening": {
+        "default": false,
+        "end_frame": "1179",
+        "loop": false,
+        "name": "awakening",
+        "start_frame": "1120"
+    },
+    "death": {
+        "default": false,
+        "end_frame": "1457",
+        "loop": false,
+        "name": "death",
+        "start_frame": "1319"
+    },
     "idle": {
         "default": false,
         "end_frame": "373",
@@ -13,12 +27,68 @@
         "name": "leash",
         "start_frame": "1"
     },
-    "roar": {
+    "leash_left_anticipation": {
         "default": false,
-        "end_frame": "520",
+        "end_frame": "636",
         "loop": false,
-        "name": "roar",
+        "name": "leash_left_anticipation",
+        "start_frame": "519"
+    },
+    "leash_left_execution": {
+        "default": false,
+        "end_frame": "660",
+        "loop": false,
+        "name": "leash_left_execution",
+        "start_frame": "637"
+    },
+    "leash_left_recovery": {
+        "default": false,
+        "end_frame": "707",
+        "loop": false,
+        "name": "leash_left_recovery",
+        "start_frame": "661"
+    },
+    "leash_right_anticipation": {
+        "default": false,
+        "end_frame": "824",
+        "loop": false,
+        "name": "leash_right_anticipation",
+        "start_frame": "707"
+    },
+    "leash_right_execution": {
+        "default": false,
+        "end_frame": "850",
+        "loop": false,
+        "name": "leash_right_execution",
+        "start_frame": "825"
+    },
+    "leash_right_recovery": {
+        "default": false,
+        "end_frame": "892",
+        "loop": false,
+        "name": "leash_right_recovery",
+        "start_frame": "851"
+    },
+    "roar_anticipation": {
+        "default": false,
+        "end_frame": "408",
+        "loop": false,
+        "name": "roar_anticipation",
         "start_frame": "390"
+    },
+    "roar_execution": {
+        "default": false,
+        "end_frame": "488",
+        "loop": false,
+        "name": "roar_execution",
+        "start_frame": "409"
+    },
+    "roar_recovery": {
+        "default": false,
+        "end_frame": "518",
+        "loop": false,
+        "name": "roar_recovery",
+        "start_frame": "489"
     },
     "run": {
         "default": false,
@@ -27,18 +97,95 @@
         "name": "run",
         "start_frame": "521"
     },
-    "stomp": {
+    "stomp_anticipation": {
+        "default": false,
+        "end_frame": "108",
+        "loop": false,
+        "name": "stomp_anticipation",
+        "start_frame": "80"
+    },
+    "stomp_execution": {
+        "default": false,
+        "end_frame": "159",
+        "loop": false,
+        "name": "stomp_execution",
+        "start_frame": "109"
+    },
+    "stomp_recovery": {
         "default": false,
         "end_frame": "189",
         "loop": false,
-        "name": "stomp",
-        "start_frame": "80"
+        "name": "stomp_recovery",
+        "start_frame": "160"
     },
-    "sweep": {
+    "swap_phase": {
+        "default": false,
+        "end_frame": "1315",
+        "loop": false,
+        "name": "swap_phase",
+        "start_frame": "1180"
+    },
+    "sweep_anticipation": {
+        "default": false,
+        "end_frame": "222",
+        "loop": false,
+        "name": "sweep_anticipation",
+        "start_frame": "206"
+    },
+    "sweep_execution": {
+        "default": false,
+        "end_frame": "297",
+        "loop": false,
+        "name": "sweep_execution",
+        "start_frame": "223"
+    },
+    "sweep_left_anticipation": {
+        "default": false,
+        "end_frame": "1053",
+        "loop": false,
+        "name": "sweep_left_anticipation",
+        "start_frame": "1000"
+    },
+    "sweep_left_execution": {
+        "default": false,
+        "end_frame": "1074",
+        "loop": false,
+        "name": "sweep_left_execution",
+        "start_frame": "1054"
+    },
+    "sweep_left_recovery": {
+        "default": false,
+        "end_frame": "1099",
+        "loop": false,
+        "name": "sweep_left_recovery",
+        "start_frame": "1075"
+    },
+    "sweep_recovery": {
         "default": false,
         "end_frame": "318",
         "loop": false,
-        "name": "sweep",
-        "start_frame": "206"
+        "name": "sweep_recovery",
+        "start_frame": "298"
+    },
+    "sweep_right_anticipation": {
+        "default": false,
+        "end_frame": "950",
+        "loop": false,
+        "name": "sweep_right_anticipation",
+        "start_frame": "896"
+    },
+    "sweep_right_execution": {
+        "default": false,
+        "end_frame": "966",
+        "loop": false,
+        "name": "sweep_right_execution",
+        "start_frame": "951"
+    },
+    "sweep_right_recovery": {
+        "default": false,
+        "end_frame": "996",
+        "loop": false,
+        "name": "sweep_right_recovery",
+        "start_frame": "967"
     }
 }
