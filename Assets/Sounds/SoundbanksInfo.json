@@ -371,7 +371,7 @@
       "Id": "183137626",
       "Name": "Play_Geralt_death",
       "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_death",
-      "GUID": "{77BE2574-BE55-43AB-9E4C-488715225E17}"
+      "GUID": "{4929B901-AD79-42F1-A840-4C9DE6CF0B95}"
      },
      {
       "Id": "846883548",
@@ -383,7 +383,7 @@
       "Id": "2453819625",
       "Name": "Play_Geralt_knockback",
       "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_knockback",
-      "GUID": "{D9D9DBF0-2F07-4F99-9DB7-EB13664568C0}"
+      "GUID": "{EFEC68CE-DD7C-44EF-B207-18013FAA591C}"
      },
      {
       "Id": "102879625",
@@ -413,13 +413,13 @@
       "Id": "4181334820",
       "Name": "Play_Geralt_stand_up",
       "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_stand_up",
-      "GUID": "{391E3F56-BD6B-4CCF-B70C-24DF6C64D262}"
+      "GUID": "{B97E540B-2706-464A-8DDE-EE8C627A5BD9}"
      },
      {
       "Id": "2375497796",
       "Name": "Play_Geralt_stun",
       "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_stun",
-      "GUID": "{F723E437-659B-4A79-B596-946083EF5036}"
+      "GUID": "{E0E8988A-E1CE-43AE-934F-76314C8C4053}"
      },
      {
       "Id": "3147769583",
@@ -596,6 +596,12 @@
       "GUID": "{432FBCF0-D4B9-4D33-8E90-779E15A9F96A}"
      },
      {
+      "Id": "3717612725",
+      "Name": "Play_Jaskier_knockback_01",
+      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_knockback_01",
+      "GUID": "{935894A8-5560-4C24-BF96-88495E325909}"
+     },
+     {
       "Id": "704499477",
       "Name": "Play_Jaskier_light_impact",
       "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_light_impact",
@@ -632,10 +638,22 @@
       "GUID": "{3CEC33FC-3A9C-4EC9-B972-E40116059178}"
      },
      {
+      "Id": "3745738602",
+      "Name": "Play_Jaskier_stand_up_01",
+      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_stand_up_01",
+      "GUID": "{B96D784D-CAF5-4A2C-A2AD-F2052D128AFF}"
+     },
+     {
       "Id": "4229367204",
       "Name": "Play_Jaskier_stun",
       "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_stun",
       "GUID": "{130832D3-68B1-4178-8E18-789BC24A2AEA}"
+     },
+     {
+      "Id": "2008584586",
+      "Name": "Play_Jaskier_stun_01",
+      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_stun_01",
+      "GUID": "{60EB3472-D875-4692-8FCB-156ADFE6F907}"
      },
      {
       "Id": "748248399",
@@ -702,6 +720,12 @@
       "Name": "Play_Kikimora_sweep",
       "ObjectPath": "\\Events\\Default Work Unit\\Kikimora\\Play_Kikimora_sweep",
       "GUID": "{9584CB72-9C0E-4237-9363-5AF86BEDF6BE}"
+     },
+     {
+      "Id": "814842324",
+      "Name": "Play_Level_1_Music",
+      "ObjectPath": "\\Events\\Default Work Unit\\Play_Level_1_Music",
+      "GUID": "{B966A44D-ABA3-4DE3-BBF0-893D7BCB6E03}"
      },
      {
       "Id": "3852706691",
@@ -1084,12 +1108,6 @@
       "Path": "SFX\\Jaskier_death_10C4C929.wem"
      },
      {
-      "Id": "74322091",
-      "Language": "SFX",
-      "ShortName": "Geralt_stun.wav",
-      "Path": "SFX\\Geralt_stun_10C4C929.wem"
-     },
-     {
       "Id": "74455116",
       "Language": "SFX",
       "ShortName": "Geralt_attack_1_3.wav",
@@ -1160,6 +1178,12 @@
       "Language": "SFX",
       "ShortName": "Geralt_attack_2_3.wav",
       "Path": "SFX\\Geralt_attack_2_3_10C4C929.wem"
+     },
+     {
+      "Id": "156552986",
+      "Language": "SFX",
+      "ShortName": "Geralt_stun.wav",
+      "Path": "SFX\\Geralt_stun_10C4C929.wem"
      },
      {
       "Id": "159793472",
@@ -1268,6 +1292,12 @@
       "Language": "SFX",
       "ShortName": "Nilfgaardian_death_1.wav",
       "Path": "SFX\\Nilfgaardian_death_1_10C4C929.wem"
+     },
+     {
+      "Id": "353578816",
+      "Language": "SFX",
+      "ShortName": "Geralt_death.wav",
+      "Path": "SFX\\Geralt_death_10C4C929.wem"
      },
      {
       "Id": "353744191",
@@ -1498,12 +1528,6 @@
       "Path": "SFX\\Bandit_getting_hit_10C4C929.wem"
      },
      {
-      "Id": "580750409",
-      "Language": "SFX",
-      "ShortName": "Geralt_death.wav",
-      "Path": "SFX\\Geralt_death_10C4C929.wem"
-     },
-     {
       "Id": "582382049",
       "Language": "SFX",
       "ShortName": "Barrel_crush_1.wav",
@@ -1568,6 +1592,12 @@
       "Language": "SFX",
       "ShortName": "Jaskier_attack_5.wav",
       "Path": "SFX\\Jaskier_attack_5_10C4C929.wem"
+     },
+     {
+      "Id": "664211785",
+      "Language": "SFX",
+      "ShortName": "Geralt_knockback.wav",
+      "Path": "SFX\\Geralt_knockback_10C4C929.wem"
      },
      {
       "Id": "666558630",
@@ -1756,12 +1786,6 @@
       "Path": "SFX\\Jaskier_song_1_10C4C929.wem"
      },
      {
-      "Id": "840410465",
-      "Language": "SFX",
-      "ShortName": "Geralt_stand_up.wav",
-      "Path": "SFX\\Geralt_stand_up_10C4C929.wem"
-     },
-     {
       "Id": "850535411",
       "Language": "SFX",
       "ShortName": "Endrega_attack_2.wav",
@@ -1858,16 +1882,16 @@
       "Path": "SFX\\Jaskier_attack_2_2_10C4C929.wem"
      },
      {
+      "Id": "964777775",
+      "Language": "SFX",
+      "ShortName": "Geralt_stand_up.wav",
+      "Path": "SFX\\Geralt_stand_up_10C4C929.wem"
+     },
+     {
       "Id": "970957591",
       "Language": "SFX",
       "ShortName": "Spikeroog_loop.wav",
       "Path": "SFX\\Spikeroog_loop_D79FB2B7.wem"
-     },
-     {
-      "Id": "978824296",
-      "Language": "SFX",
-      "ShortName": "Geralt_knockback.wav",
-      "Path": "SFX\\Geralt_knockback_10C4C929.wem"
      },
      {
       "Id": "981534970",
