@@ -2,6 +2,7 @@ function GetTableEnemy_Test_Script()
 local lua_table = {}
 lua_table.SystemFunctions = Scripting.System()
 lua_table.PhysicsFunctions = Scripting.Physics()
+lua_table.GameObjectFunctions = Scripting.GameObject()
 
 local my_GO_UID
 lua_table.collider_damage = 50
