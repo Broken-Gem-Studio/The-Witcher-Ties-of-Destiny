@@ -448,25 +448,6 @@
 								<ActiveSource Name="Geralt_walk" ID="{6288369A-EAAA-4B96-B114-DB7C21E203CD}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
-						<Sound Name="Geralt_death" ID="{7357E966-524E-49CE-8B9E-D20523667584}" ShortID="828461536">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{33080FFE-AFF8-4DB4-BFBC-870234ABF1E9}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{F6EAB31E-CDB2-437A-BACF-4A2313B7463D}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="Geralt_death" ID="{8A849E75-179D-4BA4-A6FE-1805C68AA910}" ShortID="353578816">
-									<Language>SFX</Language>
-									<AudioFile>Geralt_death.wav</AudioFile>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="Geralt_death" ID="{8A849E75-179D-4BA4-A6FE-1805C68AA910}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
 						<Sound Name="Geralt_knockback" ID="{645A2D14-36E0-489A-8A3F-601EA47CA150}" ShortID="5019109">
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -522,6 +503,25 @@
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="Geralt_stun" ID="{CA3269B6-31FA-436A-A0FC-46BFFF60B8FC}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Geralt_death" ID="{AD248B78-93C5-4B9C-8C44-BD3332FA6A88}" ShortID="352198097">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{33080FFE-AFF8-4DB4-BFBC-870234ABF1E9}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{F6EAB31E-CDB2-437A-BACF-4A2313B7463D}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Geralt_death" ID="{832068A8-2DB5-4253-A088-FCC006EDDDB2}" ShortID="1011696154">
+									<Language>SFX</Language>
+									<AudioFile>Geralt_death.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Geralt_death" ID="{832068A8-2DB5-4253-A088-FCC006EDDDB2}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
@@ -1009,25 +1009,6 @@
 								<ActiveSource Name="Jaskier_death" ID="{A333608F-4473-43CF-A018-D38AFF10F946}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
-						<Sound Name="Jaskier_knockback" ID="{5C8EC239-96C5-46FC-A904-F1A415B5FE37}" ShortID="745468982">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{33080FFE-AFF8-4DB4-BFBC-870234ABF1E9}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{F6EAB31E-CDB2-437A-BACF-4A2313B7463D}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="Jaskier_knockback" ID="{D2DAC889-DD79-4434-83A9-39BBBA8CF8F6}" ShortID="464577129">
-									<Language>SFX</Language>
-									<AudioFile>Jaskier_knockback.wav</AudioFile>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="Jaskier_knockback" ID="{D2DAC889-DD79-4434-83A9-39BBBA8CF8F6}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
 						<Sound Name="Jaskier_stand_up" ID="{9C9EA9E0-A910-49FF-84FC-AE8E01E16922}" ShortID="56552623">
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -1045,6 +1026,25 @@
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="Jaskier_stand_up" ID="{A159DE30-78DD-49CD-8F9D-04BC2B15DCAA}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Jaskier_knockback" ID="{49BE935B-BEDF-4FC5-866C-E4AE3105D9E9}" ShortID="38710865">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{33080FFE-AFF8-4DB4-BFBC-870234ABF1E9}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{F6EAB31E-CDB2-437A-BACF-4A2313B7463D}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Jaskier_knockback" ID="{362C3C34-BDB2-4CEA-99B5-B24E3BC1C22B}" ShortID="65106484">
+									<Language>SFX</Language>
+									<AudioFile>Jaskier_knockback.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Jaskier_knockback" ID="{362C3C34-BDB2-4CEA-99B5-B24E3BC1C22B}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>

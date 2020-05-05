@@ -69,7 +69,7 @@
 				<Event Id="1313557377" Name="Play_Geralt_attack_4" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_attack_4" GUID="{1D2167E7-16C3-4329-A057-C881B73572DB}"/>
 				<Event Id="1313557376" Name="Play_Geralt_attack_5" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_attack_5" GUID="{146F9BDA-F989-46D7-86D5-A2F365D7D55D}"/>
 				<Event Id="1313557379" Name="Play_Geralt_attack_6" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_attack_6" GUID="{D6616C86-4BAE-4205-8261-423A44FDF9BD}"/>
-				<Event Id="183137626" Name="Play_Geralt_death" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_death" GUID="{2C51570D-58BC-4C08-853A-4AC02EB61550}"/>
+				<Event Id="183137626" Name="Play_Geralt_death" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_death" GUID="{31017346-8E48-4658-9AEA-7BAFD1E31709}"/>
 				<Event Id="846883548" Name="Play_Geralt_getting_up" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_getting_up" GUID="{E96128B7-4EB8-4E63-9131-796D6B833B8B}"/>
 				<Event Id="2453819625" Name="Play_Geralt_knockback" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_knockback" GUID="{84AF827A-8994-43F6-8C3A-648B211A6EEF}"/>
 				<Event Id="102879625" Name="Play_Geralt_potion" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_potion" GUID="{CA5CF4C9-DE3C-4CC5-B0DE-68F38A9ABABC}"/>
@@ -106,7 +106,7 @@
 				<Event Id="2118298236" Name="Play_Jaskier_getting_up" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_getting_up" GUID="{0F998D59-AF90-43A6-8E6F-D5F98C5EECC3}"/>
 				<Event Id="2075994674" Name="Play_Jaskier_heavy_impact" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_heavy_impact" GUID="{435184C3-CA0A-4815-AC4A-CACD6705FB8E}"/>
 				<Event Id="1018718152" Name="Play_Jaskier_jump" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_jump" GUID="{3071E46D-323A-4F1A-A052-02F30C796E03}"/>
-				<Event Id="1701959369" Name="Play_Jaskier_knockback" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_knockback" GUID="{75C956B8-F6C1-4F64-93E1-054F3FF47CD5}"/>
+				<Event Id="1701959369" Name="Play_Jaskier_knockback" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_knockback" GUID="{5770C550-742F-4B68-A126-3685A1B62A72}"/>
 				<Event Id="704499477" Name="Play_Jaskier_light_impact" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_light_impact" GUID="{9D315249-A9D6-40C7-AC78-7F7A05BAF343}"/>
 				<Event Id="4116481551" Name="Play_Jaskier_revive" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_revive" GUID="{6B62D5F8-A1C4-4ED1-8794-8FF3D75557FD}"/>
 				<Event Id="462417715" Name="Play_Jaskier_run" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_run" GUID="{A33955F2-4DBE-4360-A1F6-E0E6DCA2CCEE}"/>
@@ -225,6 +225,10 @@
 				<File Id="62967244" Language="SFX">
 					<ShortName>Kikimora_hit.wav</ShortName>
 					<Path>SFX\Kikimora_hit_10C4C929.wem</Path>
+				</File>
+				<File Id="65106484" Language="SFX">
+					<ShortName>Jaskier_knockback.wav</ShortName>
+					<Path>SFX\Jaskier_knockback_10C4C929.wem</Path>
 				</File>
 				<File Id="74455116" Language="SFX">
 					<ShortName>Geralt_attack_1_3.wav</ShortName>
@@ -346,10 +350,6 @@
 					<ShortName>Nilfgaardian_death_1.wav</ShortName>
 					<Path>SFX\Nilfgaardian_death_1_10C4C929.wem</Path>
 				</File>
-				<File Id="353578816" Language="SFX">
-					<ShortName>Geralt_death.wav</ShortName>
-					<Path>SFX\Geralt_death_10C4C929.wem</Path>
-				</File>
 				<File Id="353744191" Language="SFX">
 					<ShortName>Nilfgaardian_hit_2.wav</ShortName>
 					<Path>SFX\Nilfgaardian_hit_2_10C4C929.wem</Path>
@@ -425,10 +425,6 @@
 				<File Id="463355959" Language="SFX">
 					<ShortName>Geralt_roll.wav</ShortName>
 					<Path>SFX\Geralt_roll_10C4C929.wem</Path>
-				</File>
-				<File Id="464577129" Language="SFX">
-					<ShortName>Jaskier_knockback.wav</ShortName>
-					<Path>SFX\Jaskier_knockback_10C4C929.wem</Path>
 				</File>
 				<File Id="468793888" Language="SFX">
 					<ShortName>Unsheathe.wav</ShortName>
@@ -777,6 +773,10 @@
 				<File Id="1007535269" Language="SFX">
 					<ShortName>Silver for Monsters_loop.wav</ShortName>
 					<Path>SFX\Silver for Monsters_loop_D79FB2B7.wem</Path>
+				</File>
+				<File Id="1011696154" Language="SFX">
+					<ShortName>Geralt_death.wav</ShortName>
+					<Path>SFX\Geralt_death_10C4C929.wem</Path>
 				</File>
 				<File Id="1027606032" Language="SFX">
 					<ShortName>Kikimora_sound_2.wav</ShortName>
