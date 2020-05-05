@@ -107,16 +107,13 @@ namespace AK
         static const AkUniqueID PLAY_JASKIER_HEAVY_IMPACT = 2075994674U;
         static const AkUniqueID PLAY_JASKIER_JUMP = 1018718152U;
         static const AkUniqueID PLAY_JASKIER_KNOCKBACK = 1701959369U;
-        static const AkUniqueID PLAY_JASKIER_KNOCKBACK_01 = 3717612725U;
         static const AkUniqueID PLAY_JASKIER_LIGHT_IMPACT = 704499477U;
         static const AkUniqueID PLAY_JASKIER_REVIVE = 4116481551U;
         static const AkUniqueID PLAY_JASKIER_RUN = 462417715U;
         static const AkUniqueID PLAY_JASKIER_SONG_1 = 2858442791U;
         static const AkUniqueID PLAY_JASKIER_SONG_2 = 2858442788U;
         static const AkUniqueID PLAY_JASKIER_STAND_UP = 2517954756U;
-        static const AkUniqueID PLAY_JASKIER_STAND_UP_01 = 3745738602U;
         static const AkUniqueID PLAY_JASKIER_STUN = 4229367204U;
-        static const AkUniqueID PLAY_JASKIER_STUN_01 = 2008584586U;
         static const AkUniqueID PLAY_JASKIER_WALK = 748248399U;
         static const AkUniqueID PLAY_KIKIMORA_DEATH = 4129361266U;
         static const AkUniqueID PLAY_KIKIMORA_HIT = 3409660243U;
