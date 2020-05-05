@@ -1,0 +1,108 @@
+{
+    "LightPost": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "2.500000",
+                "scaley": "2.500000",
+                "scalez": "2.500000"
+            }
+        },
+        "Model": "Assets/LVLOne/LightsPrefab/lightpostM.FBX",
+        "Parent": "700911183",
+        "PrefabChild": true,
+        "PrefabInstance": true,
+        "Static": false,
+        "UID": "848248553"
+    },
+    "LightPost_Low": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/470697118.mesh"
+                    }
+                }
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/LightPost_Low_02___Default.mat"
+                    }
+                }
+            }
+        },
+        "Parent": "848248553",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "112215913"
+    },
+    "PreviewTexture": "Library/Textures/898752952.dds",
+    "SpotLight": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-0.049368",
+                "positiony": "1.601052",
+                "positionz": "0.183992",
+                "rotationw": "0.905461",
+                "rotationx": "-0.424243",
+                "rotationy": "0.011391",
+                "rotationz": "-0.005332",
+                "scalex": "0.240802",
+                "scaley": "0.240802",
+                "scalez": "0.240803"
+            },
+            "21": {
+                "Active": true,
+                "AttenuationK": "0.000000",
+                "AttenuationL": "0.090000",
+                "AttenuationQ": "0.032000",
+                "ColorB": "0.129412",
+                "ColorG": "0.407843",
+                "ColorR": "0.725490",
+                "DirectionX": "-0.025152",
+                "DirectionY": "-0.768150",
+                "DirectionZ": "-0.639776",
+                "DistanceMultiplier": "1.000000",
+                "DrawMesh": true,
+                "InnerCutoff": "48.000000",
+                "Intensity": "1.425000",
+                "LightType": "2",
+                "OuterCutoff": "100.000000"
+            }
+        },
+        "Parent": "848248553",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "38571187"
+    }
+}

@@ -29,11 +29,16 @@ local firstLevelImage = 0
 local secondLevelImage = 0
 local camera_UUID = 0
 local dt = 0
+local step = 1
 
 local startingGame = false
 local playingGame = false
 local loadLevel1 = false
 local loadLevel2 = false
+
+-----------------------------------------------------------------------------
+-- FUNCTIONS
+-----------------------------------------------------------------------------
 
 function lua_table:Awake()
 	camera_UUID = lua_table.ObjectFunctions:FindGameObject("Camera")
@@ -70,6 +75,62 @@ function lua_table:Update()
 		end
 	end
 
+	if playingGame == true
+	then
+		if step == 1
+		then
+			if lua_table.currentCameraPos[3] > lua_table.lastCameraPos[3] - 25
+			then
+				lua_table.TransformFuctions:Translate(-lua_table.cameraSpeed * 1.5 * dt, 0, -lua_table.cameraSpeed/1.2 * dt, camera_UUID)
+				lua_table.TransformFuctions:RotateObject(0, lua_table.cameraSpeed/1.5 * dt, 0, camera_UUID)
+			else 
+				lua_table.lastCameraPos = lua_table.TransformFuctions:GetPosition(camera_UUID)
+				step = 2
+			end
+
+		elseif step == 2
+		then
+			if lua_table.currentCameraPos[1] > lua_table.lastCameraPos[1] - 60
+			then
+				lua_table.TransformFuctions:Translate(-lua_table.cameraSpeed * 1.5 * dt, 0, -lua_table.cameraSpeed/2.7 * dt, camera_UUID)
+				lua_table.TransformFuctions:RotateObject(0, lua_table.cameraSpeed/1.2 * dt, 0, camera_UUID)
+			else 
+				lua_table.lastCameraPos = lua_table.TransformFuctions:GetPosition(camera_UUID)
+				step = 3
+			end
+			
+		elseif step == 3
+		then
+			if lua_table.currentCameraPos[1] > lua_table.lastCameraPos[1] - 70
+			then
+				lua_table.TransformFuctions:Translate(-lua_table.cameraSpeed * 1.5 * dt, -lua_table.cameraSpeed/6 * dt, -lua_table.cameraSpeed/5 * dt, camera_UUID)
+				lua_table.TransformFuctions:RotateObject(0, lua_table.cameraSpeed/3.5 * dt, 0, camera_UUID)
+			else 
+				lua_table.lastCameraPos = lua_table.TransformFuctions:GetPosition(camera_UUID)
+				step = 4
+			end
+			
+		elseif step == 4
+		then
+			if lua_table.currentCameraPos[3] > lua_table.lastCameraPos[3] - 25
+			then
+				lua_table.TransformFuctions:Translate(-lua_table.cameraSpeed * 1.5 * dt, -lua_table.cameraSpeed/3.5 * dt, -lua_table.cameraSpeed * dt, camera_UUID)
+				lua_table.TransformFuctions:RotateObject(0, lua_table.cameraSpeed/1.2 * dt, 0, camera_UUID)
+			else 
+				lua_table.lastCameraPos = lua_table.TransformFuctions:GetPosition(camera_UUID)
+				step = 5
+			end
+
+		else		
+			playingGame = false		
+			lua_table.InterfaceFunctions:MakeElementVisible("Button", showFirstLevel)
+			lua_table.InterfaceFunctions:MakeElementVisible("Button", showSecondLevel)		
+			--lua_table.TransformFuctions:SetPosition(107.941, -43.892, -76.694, camera_UUID)
+			--lua_table.TransformFuctions:SetObjectRotation(-180.000, 3.250, -180.000, camera_UUID)
+		end
+	end
+	
+	-- Scene loading
 	if loadLevel1 == true
 	then	
 		lua_table.SceneFunctions:LoadScene(lua_table.scene_1)
@@ -91,17 +152,11 @@ function lua_table:StartGame()
 end
 
 function lua_table:PlayGame()
-	--playingGame = true
-	--lua_table.lastCameraPos = lua_table.TransformFuctions:GetPosition(camera_UUID)
+	playingGame = true
+	lua_table.lastCameraPos = lua_table.TransformFuctions:GetPosition(camera_UUID)
     lua_table.AudioFunctions:PlayAudioEvent("Play_Click_1")
 	lua_table.InterfaceFunctions:MakeElementInvisible("Button", quitButton)
 	lua_table.InterfaceFunctions:MakeElementInvisible("Button", playButton)
-
-	lua_table.InterfaceFunctions:MakeElementVisible("Button", showFirstLevel)
-	lua_table.InterfaceFunctions:MakeElementVisible("Button", showSecondLevel)
-
-	lua_table.TransformFuctions:SetPosition(107.941, -43.892, -76.694, camera_UUID)
-	lua_table.TransformFuctions:SetObjectRotation(-180.000, 3.250, -180.000, camera_UUID)
 end
 
 function lua_table:QuitGame()
