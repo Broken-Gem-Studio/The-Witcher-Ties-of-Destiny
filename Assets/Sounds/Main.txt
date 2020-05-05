@@ -31,6 +31,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	755075879	Play_Jaskier_attack_2			\Default Work Unit\Jaskier\Play_Jaskier_attack_2	
 	763926532	Play_Broken_Wood_Sound_2			\Default Work Unit\Misc\Prop\Play_Broken_Wood_Sound_2	
 	763926535	Play_Broken_Wood_Sound_1			\Default Work Unit\Misc\Prop\Play_Broken_Wood_Sound_1	
+	814842324	Play_Level_1_Music			\Default Work Unit\Play_Level_1_Music	
 	846883548	Play_Geralt_getting_up			\Default Work Unit\Geralt\Play_Geralt_getting_up	
 	887843172	Play_Geralt_attack_3_3			\Default Work Unit\Geralt\Play_Geralt_attack_3_3	
 	887843173	Play_Geralt_attack_3_2			\Default Work Unit\Geralt\Play_Geralt_attack_3_2	
@@ -76,6 +77,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	1900505408	Play_Bandit_voice_2			\Default Work Unit\Bandit\Play_Bandit_voice_2	
 	1900505409	Play_Bandit_voice_3			\Default Work Unit\Bandit\Play_Bandit_voice_3	
 	1900505411	Play_Bandit_voice_1			\Default Work Unit\Bandit\Play_Bandit_voice_1	
+	2008584586	Play_Jaskier_stun_01			\Default Work Unit\Jaskier\Play_Jaskier_stun_01	
 	2075994674	Play_Jaskier_heavy_impact			\Default Work Unit\Jaskier\Play_Jaskier_heavy_impact	
 	2108537051	Play_No_potion			\Default Work Unit\HUD\Play_No_potion	
 	2118298236	Play_Jaskier_getting_up			\Default Work Unit\Jaskier\Play_Jaskier_getting_up	
@@ -127,6 +129,8 @@ Event	ID	Name			Wwise Object Path	Notes
 	3672334835	Play_Nilfgaardian_lancer_shielded_impact_2			\Default Work Unit\Nilfgaardian\Play_Nilfgaardian_lancer_shielded_impact_2	
 	3692757640	Play_Geralt_aard_1			\Default Work Unit\Geralt\Play_Geralt_aard_1	
 	3692757643	Play_Geralt_aard_2			\Default Work Unit\Geralt\Play_Geralt_aard_2	
+	3717612725	Play_Jaskier_knockback_01			\Default Work Unit\Jaskier\Play_Jaskier_knockback_01	
+	3745738602	Play_Jaskier_stand_up_01			\Default Work Unit\Jaskier\Play_Jaskier_stand_up_01	
 	3767323473	Play_Endrega_death			\Default Work Unit\Endrega\Play_Endrega_death	
 	3821598056	Play_Click_3			\Default Work Unit\UI\Play_Click_3	
 	3821598057	Play_Click_2			\Default Work Unit\UI\Play_Click_2	
@@ -162,6 +166,13 @@ Event	ID	Name			Wwise Object Path	Notes
 	4257892172	Play_Ghoul_Scream_2			\Default Work Unit\Ghoul\Play_Ghoul_Scream_2	
 	4257892175	Play_Ghoul_Scream_1			\Default Work Unit\Ghoul\Play_Ghoul_Scream_1	
 
+Switch Group	ID	Name			Wwise Object Path	Notes
+	362844960	Level_1_Switch			\Default Work Unit\Level_1_Switch	
+
+Switch	ID	Name	Switch Group			Notes
+	782826392	Default	Level_1_Switch			
+	2764240573	Combat	Level_1_Switch			
+
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	10857962	Death_2	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Death_2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ghoul\Death_2		247104
 	11830719	Endrega_death	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Endrega_death_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Endrega\Endrega_death		43704
@@ -176,7 +187,6 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	50051284	Geralt_attack_1	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Geralt_attack_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Geralt\Geralt_attack_1		659264
 	62967244	Kikimora_hit	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Kikimora_hit_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kikimora\Kikimora_hit		32540
 	68177665	Jaskier_death	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_death_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_death		569664
-	74322091	Geralt_stun	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Geralt_stun_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Geralt\Geralt_stun		780864
 	74455116	Geralt_attack_1_3	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Geralt_attack_1_3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Geralt\Geralt_attack_1_3		211264
 	93577160	Endrega_hit_4	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Endrega_hit_4_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Endrega\Endrega_hit_4		29504
 	98986038	Kikimora_sound_4	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Kikimora_sound_4_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kikimora\Kikimora_sound_4		42046
@@ -185,10 +195,11 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	114544205	Hurt_2	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Hurt_2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ghoul\Hurt_2		78478
 	116319969	Hit_Wood_Sound_3	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Hit_Wood_Sound_3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Prop\Hit_Wood_Sound_3		104512
 	119497876	Geralt_attack_3_3	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Geralt_attack_3_3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Geralt\Geralt_attack_3_3		614464
-	121370937	Jaskier_knockback	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_knockback_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_knockback		294464
+	121370937	Jaskier_knockback	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_knockback_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_knockback		236864
 	136835117	Bandit_throw_arrow	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Bandit_throw_arrow_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Bandit\Bandit_throw_arrow		131216
 	147275617	Kikimora_sound_5	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Kikimora_sound_5_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kikimora\Kikimora_sound_5		90900
 	153701030	Geralt_attack_2_3	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Geralt_attack_2_3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Geralt\Geralt_attack_2_3		313664
+	156552986	Geralt_stun	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Geralt_stun_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Geralt\Geralt_stun		275264
 	159793472	Nilfgaardian_death_2	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Nilfgaardian_death_2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Nilfgaardian\Nilfgaardian_death_2		343130
 	182565632	Jaskier_attack_2_1	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_attack_2_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_attack_2_1		281664
 	192295729	Click_1	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Click_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Click_1		294976
@@ -207,10 +218,11 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	300709793	Jaskier_heavy_impact	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_heavy_impact_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_heavy_impact		124700
 	304489908	Change_item	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Change_item_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\HUD\Change_item		129088
 	327084643	Nilfgaardian_death_1	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Nilfgaardian_death_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Nilfgaardian\Nilfgaardian_death_1		258854
+	353578816	Geralt_death	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Geralt_death_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Geralt\Geralt_death		313664
 	353744191	Nilfgaardian_hit_2	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Nilfgaardian_hit_2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Nilfgaardian\Nilfgaardian_hit_2		282348
 	353787941	Select_3	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Select_3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Select_3		170560
 	356947014	Jaskier_attack_2	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_attack_2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_attack_2		960064
-	369416229	Jaskier_stand_up	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_stand_up_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_stand_up		364864
+	369416229	Jaskier_stand_up	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_stand_up_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_stand_up		275264
 	371537414	Wooden _object_break_4	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Wooden _object_break_4_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Misc\Breakable Props\Wooden _object_break_4		75502
 	383247196	Bandit_lumberjack_attack	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Bandit_lumberjack_attack_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Bandit\Bandit_lumberjack_attack		66212
 	397416824	Jaskier_walk	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_walk_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_walk		15705664
@@ -245,7 +257,6 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	571402870	Endrega_hit_1	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Endrega_hit_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Endrega\Endrega_hit_1		29376
 	573160604	Nilfgaardian_voice_3	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Nilfgaardian_voice_3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Nilfgaardian\Nilfgaardian_voice_3		81954
 	574450286	Bandit_getting_hit	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Bandit_getting_hit_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Bandit\Bandit_getting_hit		131216
-	580750409	Geralt_death	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Geralt_death_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Geralt\Geralt_death		505664
 	582382049	Barrel_crush_1	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Barrel_crush_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Misc\Breakable Props\Barrel_crush_1		175552
 	593384814	Geralt_attack_6	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Geralt_attack_6_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Geralt\Geralt_attack_6		403264
 	627245341	Click_4	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Click_4_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Click_4		331840
@@ -254,9 +265,10 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	638514727	Wooden _object_break_1	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Wooden _object_break_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Misc\Breakable Props\Wooden _object_break_1		240204
 	651036345	Bandit_voice_1	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Bandit_voice_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Bandit\Bandit_voice_1		191008
 	652919959	Geralt_attack_1_1	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Geralt_attack_1_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Geralt\Geralt_attack_1_1		160064
-	656411060	Trial_of_the_Grasses_loop	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Trial_of_the_Grasses_loop_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\BGM\Trial_of_the_Grasses_loop		22288012
-	659776610	Jaskier_stun	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_stun_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_stun		857664
+	656411060	Trial_of_the_Grasses_loop	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Trial_of_the_Grasses_loop_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Level_1_Music\Trial_of_the_Grasses_loop\Trial_of_the_Grasses_loop		22288012
+	659776610	Jaskier_stun	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_stun_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_stun		320064
 	663277561	Jaskier_attack_5	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_attack_5_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_attack_5		268864
+	664211785	Geralt_knockback	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Geralt_knockback_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Geralt\Geralt_knockback		288064
 	666558630	Hit_Wood_Sound_1	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Hit_Wood_Sound_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Prop\Hit_Wood_Sound_1		106560
 	670177758	Nilfgaardian_walking_sound_group_1	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Nilfgaardian_walking_sound_group_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Nilfgaardian\Nilfgaardian_walking_sound_group_1		192064
 	675537179	Jaskier_attack_3_3	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_attack_3_3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_attack_3_3		371264
@@ -288,7 +300,6 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	828646804	Jaskier_attack_1_2	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_attack_1_2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_attack_1_2		108864
 	836266546	Geralt_attack_3	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Geralt_attack_3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Geralt\Geralt_attack_3		1049664
 	839684132	Jaskier_song_1	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_song_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_song_1		921664
-	840410465	Geralt_stand_up	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Geralt_stand_up_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Geralt\Geralt_stand_up		371264
 	850535411	Endrega_attack_2	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Endrega_attack_2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Endrega\Endrega_attack_2		51404
 	869637482	Select_2	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Select_2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Select_2		55360
 	897983978	Jaskier_attack_4	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_attack_4_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_attack_4		352064
@@ -305,15 +316,15 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	948865473	Endrega_throw_projectile	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Endrega_throw_projectile_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Endrega\Endrega_throw_projectile		67804
 	954539098	Geralt_attack_4	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Geralt_attack_4_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Geralt\Geralt_attack_4		307264
 	958687658	Jaskier_attack_2_2	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_attack_2_2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_attack_2_2		217664
+	964777775	Geralt_stand_up	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Geralt_stand_up_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Geralt\Geralt_stand_up		332864
 	970957591	Spikeroog_loop	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Spikeroog_loop_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\BGM\Spikeroog_loop		34668864
-	978824296	Geralt_knockback	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Geralt_knockback_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Geralt\Geralt_knockback		384064
 	981534970	Jaskier_run	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_run_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_run		64064
 	983053762	Combo_3	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Combo_3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\HUD\Combo_3		81856
 	996892358	Sheathe	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Sheathe_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\HUD\Sheathe		202816
 	1001893542	lvl1_Intro_conversation_Cutscene	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\lvl1_Intro_conversation_Cutscene_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialogues\lvl1_Intro_conversation_Cutscene		6642496
 	1003297931	Bandit_death_1	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Bandit_death_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Bandit\Bandit_death_1		630964
 	1003889211	Silver for Monsters_Music	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Silver for Monsters_Music_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\BGM\Silver for Monsters_Music		25063488
-	1007535269	Silver for Monsters_loop	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Silver for Monsters_loop_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\BGM\Silver for Monsters_loop		26105664
+	1007535269	Silver for Monsters_loop	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Silver for Monsters_loop_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Level_1_Music\Silver for Monsters_loop\Silver for Monsters_loop		26105664
 	1027606032	Kikimora_sound_2	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Kikimora_sound_2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kikimora\Kikimora_sound_2		112698
 	1032789066	Select_1	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Select_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Select_1		170560
 	1039785393	Wooden _object_break_5	C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Wooden _object_break_5_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Misc\Breakable Props\Wooden _object_break_5		80434

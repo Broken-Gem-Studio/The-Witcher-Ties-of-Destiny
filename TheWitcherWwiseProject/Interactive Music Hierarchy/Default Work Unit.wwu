@@ -1,6 +1,202 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{E273FD0D-3805-4789-AE6C-E04BECBB4528}" SchemaVersion="94">
 	<InteractiveMusic>
-		<WorkUnit Name="Default Work Unit" ID="{E273FD0D-3805-4789-AE6C-E04BECBB4528}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{E273FD0D-3805-4789-AE6C-E04BECBB4528}" PersistMode="Standalone">
+			<ChildrenList>
+				<MusicSwitchContainer Name="Level_1_Music" ID="{4A45FEF2-08A3-4CEE-819E-A0BF07432D69}" ShortID="858554553">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{33080FFE-AFF8-4DB4-BFBC-870234ABF1E9}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{F6EAB31E-CDB2-437A-BACF-4A2313B7463D}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<MusicSegment Name="Silver for Monsters_loop" ID="{FB0B147F-7D99-449A-B3B3-F413B3B9D0AD}" ShortID="221730727">
+							<PropertyList>
+								<Property Name="EndPosition" Type="Real64" Value="135966.666666667"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{33080FFE-AFF8-4DB4-BFBC-870234ABF1E9}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{F6EAB31E-CDB2-437A-BACF-4A2313B7463D}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicTrack Name="Silver for Monsters_loop" ID="{4760145C-FF80-4575-B885-7C7DCC52FBD8}" ShortID="45906025">
+									<ReferenceList>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{F6EAB31E-CDB2-437A-BACF-4A2313B7463D}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Silver for Monsters_loop" ID="{B1820782-5522-4E38-ACDA-6DEA7D15F294}" ShortID="644189726">
+											<Language>SFX</Language>
+											<AudioFile>Silver for Monsters_loop.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="1007535269"/>
+											</ConvertedFileIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<TransitionList>
+										<MusicTransition Name="Root" ID="{1CAA5CDB-F2FC-4C38-AABF-20C2A1E40BC4}">
+											<PropertyList>
+												<Property Name="IsFolder" Type="bool" Value="True"/>
+											</PropertyList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</TransitionList>
+									<SequenceList>
+										<MusicTrackSequence Name="" ID="{BDB3244D-478D-4D95-8E6F-803921261E9D}">
+											<ClipList>
+												<MusicClip Name="Silver for Monsters_loop" ID="{30BEAD9B-AD66-4F05-8238-FA122F5BB7F1}">
+													<PropertyList>
+														<Property Name="EndTrimOffset" Type="Real64" Value="135966.666666667"/>
+														<Property Name="FadeInMode" Type="int16" Value="0"/>
+														<Property Name="FadeOutMode" Type="int16" Value="0"/>
+													</PropertyList>
+													<AudioSourceRef Name="Silver for Monsters_loop" ID="{B1820782-5522-4E38-ACDA-6DEA7D15F294}"/>
+												</MusicClip>
+											</ClipList>
+										</MusicTrackSequence>
+									</SequenceList>
+								</MusicTrack>
+							</ChildrenList>
+							<CueList>
+								<MusicCue Name="Entry Cue" ID="{B3675B0D-DC9E-4169-8D88-1D8F68129177}"/>
+								<MusicCue Name="Exit Cue" ID="{4801FBB2-1B5C-4B10-9D3E-A8E45A11EEED}">
+									<PropertyList>
+										<Property Name="CueType" Type="int16" Value="1"/>
+										<Property Name="TimeMs" Type="Real64" Value="135966.666666667"/>
+									</PropertyList>
+								</MusicCue>
+							</CueList>
+						</MusicSegment>
+						<MusicSegment Name="Trial_of_the_Grasses_loop" ID="{060E0124-F08F-4C00-9D4F-B694783F7F03}" ShortID="70998226">
+							<PropertyList>
+								<Property Name="EndPosition" Type="Real64" Value="116083.0625"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{33080FFE-AFF8-4DB4-BFBC-870234ABF1E9}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{F6EAB31E-CDB2-437A-BACF-4A2313B7463D}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicTrack Name="Trial_of_the_Grasses_loop" ID="{CDB30FA3-774A-4EB6-BFD5-30717526938B}" ShortID="800795923">
+									<ReferenceList>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{F6EAB31E-CDB2-437A-BACF-4A2313B7463D}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Trial_of_the_Grasses_loop" ID="{AB07A36A-9950-44D2-8332-1BC38F815B38}" ShortID="840881270">
+											<Language>SFX</Language>
+											<AudioFile>Trial_of_the_Grasses_loop.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="656411060"/>
+											</ConvertedFileIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<TransitionList>
+										<MusicTransition Name="Root" ID="{2F964D4E-2949-4D59-9475-1A226539C861}">
+											<PropertyList>
+												<Property Name="IsFolder" Type="bool" Value="True"/>
+											</PropertyList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</TransitionList>
+									<SequenceList>
+										<MusicTrackSequence Name="" ID="{2DF16206-7B6A-4663-82E9-95014BC07AD1}">
+											<ClipList>
+												<MusicClip Name="Trial_of_the_Grasses_loop" ID="{C5AC0803-6EA2-446C-A591-EE6F2F6D7F71}">
+													<PropertyList>
+														<Property Name="EndTrimOffset" Type="Real64" Value="116083.0625"/>
+														<Property Name="FadeInMode" Type="int16" Value="0"/>
+														<Property Name="FadeOutMode" Type="int16" Value="0"/>
+													</PropertyList>
+													<AudioSourceRef Name="Trial_of_the_Grasses_loop" ID="{AB07A36A-9950-44D2-8332-1BC38F815B38}"/>
+												</MusicClip>
+											</ClipList>
+										</MusicTrackSequence>
+									</SequenceList>
+								</MusicTrack>
+							</ChildrenList>
+							<CueList>
+								<MusicCue Name="Entry Cue" ID="{A66A8894-AEF8-4735-9C66-A271F3690B96}"/>
+								<MusicCue Name="Exit Cue" ID="{D883F757-F889-4862-B657-F72B00F3C10D}">
+									<PropertyList>
+										<Property Name="CueType" Type="int16" Value="1"/>
+										<Property Name="TimeMs" Type="Real64" Value="116083.0625"/>
+									</PropertyList>
+								</MusicCue>
+							</CueList>
+						</MusicSegment>
+					</ChildrenList>
+					<TransitionList>
+						<MusicTransition Name="Root" ID="{5560434F-A214-40EB-BBC1-FA5549B0512D}">
+							<PropertyList>
+								<Property Name="IsFolder" Type="bool" Value="True"/>
+							</PropertyList>
+							<ChildrenList>
+								<MusicTransition Name="Transition" ID="{72A7434C-29BD-4A7A-8BF1-DB5AE62BDF1E}">
+									<PropertyList>
+										<Property Name="EnableDestinationFadeIn" Type="bool" Value="True"/>
+										<Property Name="EnableSourceFadeOut" Type="bool" Value="True"/>
+										<Property Name="ExitSourceAt" Type="int16" Value="2"/>
+										<Property Name="PlayDestinationPreEntry" Type="bool" Value="False"/>
+										<Property Name="PlaySourcePostExit" Type="bool" Value="False"/>
+									</PropertyList>
+									<TransitionInfo>
+										<SourceFadeOut>
+											<MusicFade Name="Source Fade-out" ID="{27C89E83-C53D-4970-AE60-6788DF64DC67}">
+												<PropertyList>
+													<Property Name="FadeTime" Type="Real64" Value="1.5"/>
+													<Property Name="FadeType" Type="int16" Value="1"/>
+												</PropertyList>
+											</MusicFade>
+										</SourceFadeOut>
+										<DestinationFadeIn>
+											<MusicFade Name="Destination Fade-in" ID="{E44A2D42-71BF-40EB-B881-2B093073D874}">
+												<PropertyList>
+													<Property Name="FadeTime" Type="Real64" Value="1.5"/>
+												</PropertyList>
+											</MusicFade>
+										</DestinationFadeIn>
+									</TransitionInfo>
+								</MusicTransition>
+							</ChildrenList>
+							<TransitionInfo/>
+						</MusicTransition>
+					</TransitionList>
+					<ArgumentList>
+						<ArgumentRef Name="Level_1_Switch" ID="{8562DA0B-B15F-4A22-86FD-E65EE0AB1FF4}"/>
+					</ArgumentList>
+					<EntryList>
+						<Entry>
+							<Path>
+								<PathElementRef Name="Combat" ID="{0F0EA1BA-AC51-4059-8FF1-F0FA8E7CCC14}"/>
+							</Path>
+							<AudioNodeInfo>
+								<AudioNodeRef Name="Silver for Monsters_loop" ID="{FB0B147F-7D99-449A-B3B3-F413B3B9D0AD}" WorkUnitID="{E273FD0D-3805-4789-AE6C-E04BECBB4528}" Platform="Linked"/>
+							</AudioNodeInfo>
+						</Entry>
+						<Entry>
+							<Path>
+								<PathElementRef Name="Default" ID="{9BFC5350-90B6-4811-AA67-14A34EB958FE}"/>
+							</Path>
+							<AudioNodeInfo>
+								<AudioNodeRef Name="Trial_of_the_Grasses_loop" ID="{060E0124-F08F-4C00-9D4F-B694783F7F03}" WorkUnitID="{E273FD0D-3805-4789-AE6C-E04BECBB4528}" Platform="Linked"/>
+							</AudioNodeInfo>
+						</Entry>
+					</EntryList>
+				</MusicSwitchContainer>
+			</ChildrenList>
+		</WorkUnit>
 	</InteractiveMusic>
 </WwiseDocument>
