@@ -1,4 +1,4 @@
-function GetTableMusicTrigger()
+function GetTableMusic_Manager_v1()
 local lua_table = {}
 lua_table.SystemFunctions = Scripting.System()
 lua_table.AudioFunctions = Scripting.Audio()
@@ -15,7 +15,7 @@ local jaskier_script
 
 -- Variables
 local music_types = {
-	no_request = -1
+	no_request = -1,
 	
 	none = 0,
 	default = 1,
@@ -23,7 +23,7 @@ local music_types = {
 	rest = 3,
 	menu = 4
 }
-lua_table.requested_music = no_request
+lua_table.requested_music = music_types.no_request
 lua_table.current_music = 0
 
 function lua_table:Awake()
@@ -41,7 +41,7 @@ end
 
 function lua_table:Update()
 	
-	-- Decide Music
+	-- Request Music
 	if geralt_script.enemies_nearby or jaskier_script.enemies_nearby
 	then
 		if lua_table.current_music ~= music_types.combat then lua_table.requested_music = music_types.combat end
@@ -49,34 +49,53 @@ function lua_table:Update()
 		if lua_table.current_music ~= music_types.default then lua_table.requested_music = music_types.default end
 	end
 
-	-- Apply Music if needed
-	if lua_table.requested_music > -1
+	-- Apply Requested Music (if any)
+	if lua_table.requested_music > music_types.no_request
 	then
-		if lua_table.requested_music = music_types.none
+		if lua_table.requested_music == music_types.none
 		then
 			--lua_table.SystemFunctions:LOG("None")
-			lua_table.current_music = 0
+			
 			lua_table.AudioFunctions:StopAudioEvent("Play_Main_menu")
 			lua_table.AudioFunctions:StopAudioEvent("Play_Silver_for_Monsters_loop")
 			lua_table.AudioFunctions:StopAudioEvent("Rest")
 			lua_table.AudioFunctions:StopAudioEvent("Play_Trial_of_the_Grasses_loop")
 
-		elseif lua_table.requested_music = music_types.default
-			--lua_table.SystemFunctions:LOG("Default")
-			lua_table.current_music = 1
-			lua_table.AudioFunctions:StopAudioEvent("Play_Main_menu", UIDCamera)
-			lua_table.AudioFunctions:StopAudioEvent("Play_Silver_for_Monsters_loop", UIDCamera)
-			lua_table.AudioFunctions:StopAudioEvent("Rest", UIDCamera)
-			lua_table.AudioFunctions:PlayAudioEvent("Play_Trial_of_the_Grasses_loop", UIDCamera)
+			lua_table.current_music = music_types.none
 
-		elseif lua_table.requested_music = music_types.combat
+		elseif lua_table.requested_music == music_types.default
+		then
+			--lua_table.SystemFunctions:LOG("Default")
+
+			lua_table.AudioFunctions:StopAudioEvent("Play_Main_menu")
+			lua_table.AudioFunctions:StopAudioEvent("Play_Silver_for_Monsters_loop")
+			lua_table.AudioFunctions:StopAudioEvent("Rest")
+			lua_table.AudioFunctions:PlayAudioEvent("Play_Trial_of_the_Grasses_loop")
+
+			lua_table.current_music = music_types.default
+
+		elseif lua_table.requested_music == music_types.combat
+		then
 			--lua_table.SystemFunctions:LOG("Combat")
-			lua_table.current_music = 2
+
 			lua_table.AudioFunctions:StopAudioEvent("Play_Main_menu")
 			lua_table.AudioFunctions:PlayAudioEvent("Play_Silver_for_Monsters_loop")
 			lua_table.AudioFunctions:StopAudioEvent("Rest")
 			lua_table.AudioFunctions:StopAudioEvent("Play_Trial_of_the_Grasses_loop")
+
+			lua_table.current_music = music_types.combat
 		end
+
+		lua_table.requested_music = music_types.no_request
+	end
+	
+	--LOGS
+	if lua_table.current_music == music_types.none then
+		lua_table.SystemFunctions:LOG("Playing NO Music!")
+	elseif lua_table.current_music == music_types.default then
+		lua_table.SystemFunctions:LOG("Playing Default Music!")
+	elseif lua_table.current_music == music_types.combat then
+		lua_table.SystemFunctions:LOG("Playing Combat Music!")
 	end
 end
 
