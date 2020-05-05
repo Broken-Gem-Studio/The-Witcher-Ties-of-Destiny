@@ -812,6 +812,8 @@ end
 --Character Particles BEGIN	----------------------------------------------------------------------------
 
 local function ParticlesShutdown(full)	--Full marks wether the particle shutdown is total, or just parcial (ultimate particles appear even when stunned/knocked back)
+	lua_table.GameObjectFunctions:SetActiveGameObject(false, slash_mesh_GO_UID)
+	
 	lua_table.ParticlesFunctions:StopParticleEmitter(my_GO_UID)
 	--lua_table.ParticlesFunctions:StopParticleEmitter(sword_particles_GO_UID)
 	lua_table.ParticlesFunctions:StopParticleEmitter(aard_hand_particles_GO_UID)

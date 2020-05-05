@@ -823,7 +823,7 @@ end
 --Character Particles BEGIN	----------------------------------------------------------------------------
 
 local function ParticlesShutdown()
-	lua_table.ParticlesFunctions:SetActiveGameObject(false, slash_mesh_GO_UID)
+	lua_table.GameObjectFunctions:SetActiveGameObject(false, slash_mesh_GO_UID)
 
 	lua_table.ParticlesFunctions:StopParticleEmitter(my_GO_UID)
 
