@@ -1,5 +1,6 @@
 {
     "Axe": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -32,12 +33,14 @@
                 }
             }
         },
-        "Parent": "1983169178",
+        "Parent": "2029176536",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "2055224967"
+        "Static": false,
+        "UID": "1087894961"
     },
     "Bandit_Pivot": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -53,12 +56,14 @@
                 "scalez": "0.025400"
             }
         },
-        "Parent": "944020842",
+        "Parent": "1778548574",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "2085508094"
+        "Static": false,
+        "UID": "423184434"
     },
     "Bandit_ToUvs": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -91,12 +96,14 @@
                 }
             }
         },
-        "Parent": "944020842",
+        "Parent": "1778548574",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "59385147"
+        "Static": false,
+        "UID": "2032327568"
     },
     "Lumberjack_Front": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "4",
@@ -151,12 +158,14 @@
                 "tmpScalez": "1.800000"
             }
         },
-        "Parent": "944020842",
+        "Parent": "1778548574",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "547298812"
+        "Static": false,
+        "UID": "1422561839"
     },
     "Lumberjack_Jump_Attack": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "4",
@@ -211,18 +220,20 @@
                 "tmpScalez": "4.100000"
             }
         },
-        "Parent": "944020842",
+        "Parent": "1778548574",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "688241531"
+        "Static": false,
+        "UID": "379477026"
     },
     "Lumberjackv2": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "3",
-                "positionx": "393.705627",
+                "positionx": "0.000000",
                 "positiony": "35.451729",
-                "positionz": "-325.762207",
+                "positionz": "0.000000",
                 "rotationw": "0.869973",
                 "rotationx": "0.000000",
                 "rotationy": "-0.493099",
@@ -234,7 +245,7 @@
             "12": {
                 "Active": true,
                 "Resources": {
-                    "ResourceScript": "Assets/New Folder 16/Lumberjack/Lumberjack_v021.lua"
+                    "ResourceScript": "Assets/New Folder 16/Lumberjack/Lumberjack_v022.lua"
                 },
                 "Script variables": {
                     "Count": 22,
@@ -411,21 +422,23 @@
                 "gravity": "1",
                 "height": "2.000000",
                 "nonWalkableMode": "1",
-                "positionX": "393.705627",
+                "positionX": "0.000000",
                 "positionY": "35.451729",
-                "positionZ": "-325.762207",
+                "positionZ": "0.000000",
                 "radius": "0.500000",
                 "slopeLimit": "45.000000",
-                "stepOffset": "0.300000"
+                "stepOffset": "0.010000"
             }
         },
-        "Parent": "1855086635",
+        "Parent": "1985315168",
         "PrefabChild": true,
         "PrefabInstance": true,
-        "UID": "944020842"
+        "Static": false,
+        "UID": "1778548574"
     },
-    "PreviewTexture": "Library/Textures/1413871561.dds",
+    "PreviewTexture": "Library/Textures/1249940548.dds",
     "alert_scream_particles_1": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -444,10 +457,12 @@
                 "Active": false,
                 "Duration": "1000",
                 "GradientColor": true,
+                "HorizontalBill": "0",
                 "Loop": false,
                 "Resources": {
                     "ResourceTexture": "Library/Textures/572986970.dds"
                 },
+                "VerticalBill": "0",
                 "animation": "0",
                 "colors": [
                     {
@@ -463,8 +478,53 @@
                         "z": "0.000000"
                     }
                 ],
-                "constants": "0",
-                "cycles": "1",
+                "curves": [
+                    {
+                        "0": {
+                            "NextX": "0.100000",
+                            "NextY": "0.100000",
+                            "PX": "0.000000",
+                            "PY": "0.000000",
+                            "PrevX": "0.000000",
+                            "PrevY": "0.000000"
+                        },
+                        "1": {
+                            "NextX": "1.000000",
+                            "NextY": "1.000000",
+                            "PX": "1.000000",
+                            "PY": "1.000000",
+                            "PrevX": "-0.100000",
+                            "PrevY": "-0.100000"
+                        },
+                        "multiplier": "1.000000",
+                        "name": "##scale",
+                        "num_points": "2",
+                        "type": "0"
+                    },
+                    {
+                        "0": {
+                            "NextX": "0.100000",
+                            "NextY": "0.100000",
+                            "PX": "0.000000",
+                            "PY": "0.000000",
+                            "PrevX": "0.000000",
+                            "PrevY": "0.000000"
+                        },
+                        "1": {
+                            "NextX": "1.000000",
+                            "NextY": "1.000000",
+                            "PX": "1.000000",
+                            "PY": "1.000000",
+                            "PrevX": "-0.100000",
+                            "PrevY": "-0.100000"
+                        },
+                        "multiplier": "1.000000",
+                        "name": "##rotation",
+                        "num_points": "2",
+                        "type": "0"
+                    }
+                ],
+                "cycles": "1.000000",
                 "emisionRate": "500.000000",
                 "externalAccelerationX": "0.000000",
                 "externalAccelerationY": "10.000000",
@@ -479,9 +539,11 @@
                     }
                 ],
                 "num_colors": "2",
+                "num_curves": "2",
                 "num_gradients": "1",
                 "particleScaleOverTime": "-0.100000",
-                "particleScaleRandomFactor": "1.000000",
+                "particleScaleRandomFactor1": "1.000000",
+                "particleScaleRandomFactor2": "1.000000",
                 "particlesLifeTime": "2362",
                 "particlesPerCreation": "3",
                 "particlesScaleX": "1.000000",
@@ -505,6 +567,8 @@
                 "rotationX": "0.000000",
                 "rotationY": "0.000000",
                 "rotationZ": "0.000000",
+                "rotationconstants": "0",
+                "scaleconstants": "0",
                 "separateAxis": "0",
                 "sizeX": "0.000000",
                 "sizeY": "0.000000",
@@ -512,17 +576,23 @@
                 "startFrame": "0",
                 "tiles_X": "1",
                 "tiles_Y": "1",
-                "velocityRandomFactorX": "5.000000",
-                "velocityRandomFactorY": "5.000000",
-                "velocityRandomFactorZ": "5.000000"
+                "velocityRandomFactor1X": "0.000000",
+                "velocityRandomFactor1Y": "0.000000",
+                "velocityRandomFactor1Z": "0.000000",
+                "velocityRandomFactor2X": "0.000000",
+                "velocityRandomFactor2Y": "0.000000",
+                "velocityRandomFactor2Z": "0.000000",
+                "velocityconstants": "0"
             }
         },
-        "Parent": "944020842",
+        "Parent": "1778548574",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "1408497887"
+        "Static": false,
+        "UID": "1226201752"
     },
     "ambient_particles": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -541,10 +611,12 @@
                 "Active": true,
                 "Duration": "1000",
                 "GradientColor": true,
+                "HorizontalBill": "0",
                 "Loop": true,
                 "Resources": {
                     "ResourceTexture": "Library/Textures/194152904.dds"
                 },
+                "VerticalBill": "0",
                 "animation": "0",
                 "colors": [
                     {
@@ -578,8 +650,53 @@
                         "z": "0.000000"
                     }
                 ],
-                "constants": "0",
-                "cycles": "1",
+                "curves": [
+                    {
+                        "0": {
+                            "NextX": "0.100000",
+                            "NextY": "0.100000",
+                            "PX": "0.000000",
+                            "PY": "0.000000",
+                            "PrevX": "0.000000",
+                            "PrevY": "0.000000"
+                        },
+                        "1": {
+                            "NextX": "1.000000",
+                            "NextY": "1.000000",
+                            "PX": "1.000000",
+                            "PY": "1.000000",
+                            "PrevX": "-0.100000",
+                            "PrevY": "-0.100000"
+                        },
+                        "multiplier": "1.000000",
+                        "name": "##scale",
+                        "num_points": "2",
+                        "type": "0"
+                    },
+                    {
+                        "0": {
+                            "NextX": "0.100000",
+                            "NextY": "0.100000",
+                            "PX": "0.000000",
+                            "PY": "0.000000",
+                            "PrevX": "0.000000",
+                            "PrevY": "0.000000"
+                        },
+                        "1": {
+                            "NextX": "1.000000",
+                            "NextY": "1.000000",
+                            "PX": "1.000000",
+                            "PY": "1.000000",
+                            "PrevX": "-0.100000",
+                            "PrevY": "-0.100000"
+                        },
+                        "multiplier": "1.000000",
+                        "name": "##rotation",
+                        "num_points": "2",
+                        "type": "0"
+                    }
+                ],
+                "cycles": "1.000000",
                 "emisionRate": "500.000000",
                 "externalAccelerationX": "0.000000",
                 "externalAccelerationY": "10.400000",
@@ -612,9 +729,11 @@
                     }
                 ],
                 "num_colors": "5",
+                "num_curves": "2",
                 "num_gradients": "4",
                 "particleScaleOverTime": "-0.140000",
-                "particleScaleRandomFactor": "1.000000",
+                "particleScaleRandomFactor1": "1.000000",
+                "particleScaleRandomFactor2": "1.000000",
                 "particlesLifeTime": "2041",
                 "particlesPerCreation": "4",
                 "particlesScaleX": "0.300000",
@@ -638,6 +757,8 @@
                 "rotationX": "0.000000",
                 "rotationY": "0.000000",
                 "rotationZ": "0.000000",
+                "rotationconstants": "0",
+                "scaleconstants": "0",
                 "separateAxis": "0",
                 "sizeX": "0.100000",
                 "sizeY": "1.350000",
@@ -645,17 +766,23 @@
                 "startFrame": "0",
                 "tiles_X": "1",
                 "tiles_Y": "1",
-                "velocityRandomFactorX": "0.200000",
-                "velocityRandomFactorY": "0.000000",
-                "velocityRandomFactorZ": "0.200000"
+                "velocityRandomFactor1X": "0.000000",
+                "velocityRandomFactor1Y": "0.000000",
+                "velocityRandomFactor1Z": "0.000000",
+                "velocityRandomFactor2X": "0.000000",
+                "velocityRandomFactor2Y": "0.000000",
+                "velocityRandomFactor2Z": "0.000000",
+                "velocityconstants": "0"
             }
         },
-        "Parent": "944020842",
+        "Parent": "1778548574",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "485617866"
+        "Static": false,
+        "UID": "474756801"
     },
     "mixamorig:Head": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -677,12 +804,14 @@
                 }
             }
         },
-        "Parent": "863725883",
+        "Parent": "644706885",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "1770100696"
+        "Static": false,
+        "UID": "582334638"
     },
     "mixamorig:HeadTop_End": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -698,12 +827,14 @@
                 "scalez": "1.000000"
             }
         },
-        "Parent": "1770100696",
+        "Parent": "582334638",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "683989474"
+        "Static": false,
+        "UID": "376060485"
     },
     "mixamorig:Hips": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -715,8 +846,8 @@
                 "rotationy": "0.000117",
                 "rotationz": "-0.000109",
                 "scalex": "1.000000",
-                "scaley": "1.000004",
-                "scalez": "1.000004"
+                "scaley": "1.000007",
+                "scalez": "1.000007"
             },
             "13": {
                 "Active": true,
@@ -725,12 +856,14 @@
                 }
             }
         },
-        "Parent": "2085508094",
+        "Parent": "423184434",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "1642155057"
+        "Static": false,
+        "UID": "1195326321"
     },
     "mixamorig:LeftArm": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -752,12 +885,14 @@
                 }
             }
         },
-        "Parent": "1894870839",
+        "Parent": "1591272349",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "734763162"
+        "Static": false,
+        "UID": "1585828293"
     },
     "mixamorig:LeftFoot": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -779,12 +914,14 @@
                 }
             }
         },
-        "Parent": "477131177",
+        "Parent": "1363245590",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "1072622121"
+        "Static": false,
+        "UID": "333958578"
     },
     "mixamorig:LeftForeArm": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -806,12 +943,14 @@
                 }
             }
         },
-        "Parent": "734763162",
+        "Parent": "1585828293",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "1885630062"
+        "Static": false,
+        "UID": "522327389"
     },
     "mixamorig:LeftHand": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -833,12 +972,14 @@
                 }
             }
         },
-        "Parent": "1885630062",
+        "Parent": "522327389",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "1627721745"
+        "Static": false,
+        "UID": "1614554918"
     },
     "mixamorig:LeftHandIndex1": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -860,12 +1001,14 @@
                 }
             }
         },
-        "Parent": "1627721745",
+        "Parent": "1614554918",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "903556455"
+        "Static": false,
+        "UID": "1191411157"
     },
     "mixamorig:LeftHandIndex2": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -887,12 +1030,14 @@
                 }
             }
         },
-        "Parent": "903556455",
+        "Parent": "1191411157",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "265481984"
+        "Static": false,
+        "UID": "680296122"
     },
     "mixamorig:LeftHandIndex3": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -914,12 +1059,14 @@
                 }
             }
         },
-        "Parent": "265481984",
+        "Parent": "680296122",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "1876941982"
+        "Static": false,
+        "UID": "144475177"
     },
     "mixamorig:LeftHandIndex4": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -935,12 +1082,14 @@
                 "scalez": "1.000000"
             }
         },
-        "Parent": "1876941982",
+        "Parent": "144475177",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "197808872"
+        "Static": false,
+        "UID": "1840379016"
     },
     "mixamorig:LeftHandMiddle1": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -962,12 +1111,14 @@
                 }
             }
         },
-        "Parent": "1627721745",
+        "Parent": "1614554918",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "1986332948"
+        "Static": false,
+        "UID": "1563158328"
     },
     "mixamorig:LeftHandMiddle2": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -989,12 +1140,14 @@
                 }
             }
         },
-        "Parent": "1986332948",
+        "Parent": "1563158328",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "1129240496"
+        "Static": false,
+        "UID": "617174669"
     },
     "mixamorig:LeftHandMiddle3": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -1016,12 +1169,14 @@
                 }
             }
         },
-        "Parent": "1129240496",
+        "Parent": "617174669",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "1623738993"
+        "Static": false,
+        "UID": "1464821273"
     },
     "mixamorig:LeftHandMiddle4": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -1037,12 +1192,14 @@
                 "scalez": "1.000000"
             }
         },
-        "Parent": "1623738993",
+        "Parent": "1464821273",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "645769926"
+        "Static": false,
+        "UID": "470935150"
     },
     "mixamorig:LeftHandPinky1": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -1064,12 +1221,14 @@
                 }
             }
         },
-        "Parent": "1627721745",
+        "Parent": "1614554918",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "1577868101"
+        "Static": false,
+        "UID": "1343239401"
     },
     "mixamorig:LeftHandPinky2": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -1091,12 +1250,14 @@
                 }
             }
         },
-        "Parent": "1577868101",
+        "Parent": "1343239401",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "376581083"
+        "Static": false,
+        "UID": "1199961112"
     },
     "mixamorig:LeftHandPinky3": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -1118,12 +1279,14 @@
                 }
             }
         },
-        "Parent": "376581083",
+        "Parent": "1199961112",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "1471216967"
+        "Static": false,
+        "UID": "1083742958"
     },
     "mixamorig:LeftHandPinky4": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -1139,12 +1302,14 @@
                 "scalez": "1.000000"
             }
         },
-        "Parent": "1471216967",
+        "Parent": "1083742958",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "1216432195"
+        "Static": false,
+        "UID": "1578025220"
     },
     "mixamorig:LeftHandRing1": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -1166,12 +1331,14 @@
                 }
             }
         },
-        "Parent": "1627721745",
+        "Parent": "1614554918",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "1060745003"
+        "Static": false,
+        "UID": "577944747"
     },
     "mixamorig:LeftHandRing2": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -1193,12 +1360,14 @@
                 }
             }
         },
-        "Parent": "1060745003",
+        "Parent": "577944747",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "312717180"
+        "Static": false,
+        "UID": "1837620695"
     },
     "mixamorig:LeftHandRing3": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -1220,12 +1389,14 @@
                 }
             }
         },
-        "Parent": "312717180",
+        "Parent": "1837620695",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "493575494"
+        "Static": false,
+        "UID": "652136570"
     },
     "mixamorig:LeftHandRing4": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -1241,12 +1412,14 @@
                 "scalez": "1.000000"
             }
         },
-        "Parent": "493575494",
+        "Parent": "652136570",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "1333632127"
+        "Static": false,
+        "UID": "300875096"
     },
     "mixamorig:LeftHandThumb1": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -1268,12 +1441,14 @@
                 }
             }
         },
-        "Parent": "1627721745",
+        "Parent": "1614554918",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "199352175"
+        "Static": false,
+        "UID": "669565778"
     },
     "mixamorig:LeftHandThumb2": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -1295,12 +1470,14 @@
                 }
             }
         },
-        "Parent": "199352175",
+        "Parent": "669565778",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "2058448761"
+        "Static": false,
+        "UID": "411504709"
     },
     "mixamorig:LeftHandThumb3": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -1322,12 +1499,14 @@
                 }
             }
         },
-        "Parent": "2058448761",
+        "Parent": "411504709",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "1087490683"
+        "Static": false,
+        "UID": "1937494309"
     },
     "mixamorig:LeftHandThumb4": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -1343,12 +1522,14 @@
                 "scalez": "1.000000"
             }
         },
-        "Parent": "1087490683",
+        "Parent": "1937494309",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "505382511"
+        "Static": false,
+        "UID": "400967878"
     },
     "mixamorig:LeftLeg": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -1370,12 +1551,14 @@
                 }
             }
         },
-        "Parent": "742824411",
+        "Parent": "527505797",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "477131177"
+        "Static": false,
+        "UID": "1363245590"
     },
     "mixamorig:LeftShoulder": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -1397,12 +1580,14 @@
                 }
             }
         },
-        "Parent": "1674929359",
+        "Parent": "636917505",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "1894870839"
+        "Static": false,
+        "UID": "1591272349"
     },
     "mixamorig:LeftToeBase": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -1424,12 +1609,14 @@
                 }
             }
         },
-        "Parent": "1072622121",
+        "Parent": "333958578",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "428345363"
+        "Static": false,
+        "UID": "1872196516"
     },
     "mixamorig:LeftToe_End": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -1445,12 +1632,14 @@
                 "scalez": "1.000000"
             }
         },
-        "Parent": "428345363",
+        "Parent": "1872196516",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "1874595181"
+        "Static": false,
+        "UID": "526202124"
     },
     "mixamorig:LeftUpLeg": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -1462,7 +1651,7 @@
                 "rotationy": "0.017731",
                 "rotationz": "0.999833",
                 "scalex": "1.000000",
-                "scaley": "0.999994",
+                "scaley": "0.999991",
                 "scalez": "1.000000"
             },
             "13": {
@@ -1472,12 +1661,14 @@
                 }
             }
         },
-        "Parent": "1642155057",
+        "Parent": "1195326321",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "742824411"
+        "Static": false,
+        "UID": "527505797"
     },
     "mixamorig:Neck": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -1499,12 +1690,14 @@
                 }
             }
         },
-        "Parent": "1674929359",
+        "Parent": "636917505",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "863725883"
+        "Static": false,
+        "UID": "644706885"
     },
     "mixamorig:RightArm": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -1526,12 +1719,14 @@
                 }
             }
         },
-        "Parent": "1728780776",
+        "Parent": "1733885608",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "1577926134"
+        "Static": false,
+        "UID": "499149404"
     },
     "mixamorig:RightFoot": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -1553,12 +1748,14 @@
                 }
             }
         },
-        "Parent": "524330921",
+        "Parent": "1843415625",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "1516019235"
+        "Static": false,
+        "UID": "374032464"
     },
     "mixamorig:RightForeArm": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -1580,12 +1777,14 @@
                 }
             }
         },
-        "Parent": "1577926134",
+        "Parent": "499149404",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "121929282"
+        "Static": false,
+        "UID": "700280130"
     },
     "mixamorig:RightHand": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -1607,12 +1806,14 @@
                 }
             }
         },
-        "Parent": "121929282",
+        "Parent": "700280130",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "1983169178"
+        "Static": false,
+        "UID": "2029176536"
     },
     "mixamorig:RightHandIndex1": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -1634,12 +1835,14 @@
                 }
             }
         },
-        "Parent": "1983169178",
+        "Parent": "2029176536",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "2129511544"
+        "Static": false,
+        "UID": "734333738"
     },
     "mixamorig:RightHandIndex2": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -1661,12 +1864,14 @@
                 }
             }
         },
-        "Parent": "2129511544",
+        "Parent": "734333738",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "747183238"
+        "Static": false,
+        "UID": "2053472816"
     },
     "mixamorig:RightHandIndex3": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -1688,12 +1893,14 @@
                 }
             }
         },
-        "Parent": "747183238",
+        "Parent": "2053472816",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "1147831517"
+        "Static": false,
+        "UID": "402091005"
     },
     "mixamorig:RightHandIndex4": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -1709,12 +1916,14 @@
                 "scalez": "1.000000"
             }
         },
-        "Parent": "1147831517",
+        "Parent": "402091005",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "1016572893"
+        "Static": false,
+        "UID": "1528520460"
     },
     "mixamorig:RightHandMiddle1": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -1736,12 +1945,14 @@
                 }
             }
         },
-        "Parent": "1983169178",
+        "Parent": "2029176536",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "202829374"
+        "Static": false,
+        "UID": "718302222"
     },
     "mixamorig:RightHandMiddle2": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -1763,12 +1974,14 @@
                 }
             }
         },
-        "Parent": "202829374",
+        "Parent": "718302222",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "1478868229"
+        "Static": false,
+        "UID": "467310173"
     },
     "mixamorig:RightHandMiddle3": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -1790,12 +2003,14 @@
                 }
             }
         },
-        "Parent": "1478868229",
+        "Parent": "467310173",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "1328999441"
+        "Static": false,
+        "UID": "224302383"
     },
     "mixamorig:RightHandMiddle4": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -1811,12 +2026,14 @@
                 "scalez": "1.000000"
             }
         },
-        "Parent": "1328999441",
+        "Parent": "224302383",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "1937150866"
+        "Static": false,
+        "UID": "1802609506"
     },
     "mixamorig:RightHandPinky1": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -1838,12 +2055,14 @@
                 }
             }
         },
-        "Parent": "1983169178",
+        "Parent": "2029176536",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "112442892"
+        "Static": false,
+        "UID": "532086546"
     },
     "mixamorig:RightHandPinky2": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -1865,12 +2084,14 @@
                 }
             }
         },
-        "Parent": "112442892",
+        "Parent": "532086546",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "808690617"
+        "Static": false,
+        "UID": "304508316"
     },
     "mixamorig:RightHandPinky3": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -1892,12 +2113,14 @@
                 }
             }
         },
-        "Parent": "808690617",
+        "Parent": "304508316",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "1270672758"
+        "Static": false,
+        "UID": "214905052"
     },
     "mixamorig:RightHandPinky4": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -1913,12 +2136,14 @@
                 "scalez": "1.000000"
             }
         },
-        "Parent": "1270672758",
+        "Parent": "214905052",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "2066730200"
+        "Static": false,
+        "UID": "386056643"
     },
     "mixamorig:RightHandRing1": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -1940,12 +2165,14 @@
                 }
             }
         },
-        "Parent": "1983169178",
+        "Parent": "2029176536",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "2123937906"
+        "Static": false,
+        "UID": "1891700098"
     },
     "mixamorig:RightHandRing2": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -1967,12 +2194,14 @@
                 }
             }
         },
-        "Parent": "2123937906",
+        "Parent": "1891700098",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "1399472147"
+        "Static": false,
+        "UID": "1175419642"
     },
     "mixamorig:RightHandRing3": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -1994,12 +2223,14 @@
                 }
             }
         },
-        "Parent": "1399472147",
+        "Parent": "1175419642",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "1317281897"
+        "Static": false,
+        "UID": "1879043100"
     },
     "mixamorig:RightHandRing4": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -2015,12 +2246,14 @@
                 "scalez": "1.000000"
             }
         },
-        "Parent": "1317281897",
+        "Parent": "1879043100",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "46322255"
+        "Static": false,
+        "UID": "450857154"
     },
     "mixamorig:RightHandThumb1": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -2042,12 +2275,14 @@
                 }
             }
         },
-        "Parent": "1983169178",
+        "Parent": "2029176536",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "1628761208"
+        "Static": false,
+        "UID": "1504934082"
     },
     "mixamorig:RightHandThumb2": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -2069,12 +2304,14 @@
                 }
             }
         },
-        "Parent": "1628761208",
+        "Parent": "1504934082",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "257565980"
+        "Static": false,
+        "UID": "1436069439"
     },
     "mixamorig:RightHandThumb3": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -2096,12 +2333,14 @@
                 }
             }
         },
-        "Parent": "257565980",
+        "Parent": "1436069439",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "512641130"
+        "Static": false,
+        "UID": "194259240"
     },
     "mixamorig:RightHandThumb4": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -2117,12 +2356,14 @@
                 "scalez": "1.000000"
             }
         },
-        "Parent": "512641130",
+        "Parent": "194259240",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "1557382237"
+        "Static": false,
+        "UID": "1818022881"
     },
     "mixamorig:RightLeg": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -2144,12 +2385,14 @@
                 }
             }
         },
-        "Parent": "19933623",
+        "Parent": "794540831",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "524330921"
+        "Static": false,
+        "UID": "1843415625"
     },
     "mixamorig:RightShoulder": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -2160,9 +2403,9 @@
                 "rotationx": "0.534209",
                 "rotationy": "-0.455339",
                 "rotationz": "0.553834",
-                "scalex": "0.999995",
-                "scaley": "0.999996",
-                "scalez": "0.999996"
+                "scalex": "0.999992",
+                "scaley": "0.999993",
+                "scalez": "0.999993"
             },
             "13": {
                 "Active": true,
@@ -2171,12 +2414,14 @@
                 }
             }
         },
-        "Parent": "1674929359",
+        "Parent": "636917505",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "1728780776"
+        "Static": false,
+        "UID": "1733885608"
     },
     "mixamorig:RightToeBase": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -2198,12 +2443,14 @@
                 }
             }
         },
-        "Parent": "1516019235",
+        "Parent": "374032464",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "101393532"
+        "Static": false,
+        "UID": "127472622"
     },
     "mixamorig:RightToe_End": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -2219,12 +2466,14 @@
                 "scalez": "1.000000"
             }
         },
-        "Parent": "101393532",
+        "Parent": "127472622",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "340343683"
+        "Static": false,
+        "UID": "1368986858"
     },
     "mixamorig:RightUpLeg": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -2235,8 +2484,8 @@
                 "rotationx": "0.000791",
                 "rotationy": "0.016521",
                 "rotationz": "0.999855",
-                "scalex": "1.000006",
-                "scaley": "1.000006",
+                "scalex": "1.000009",
+                "scaley": "1.000009",
                 "scalez": "1.000000"
             },
             "13": {
@@ -2246,12 +2495,14 @@
                 }
             }
         },
-        "Parent": "1642155057",
+        "Parent": "1195326321",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "19933623"
+        "Static": false,
+        "UID": "794540831"
     },
     "mixamorig:Spine": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -2273,12 +2524,14 @@
                 }
             }
         },
-        "Parent": "1642155057",
+        "Parent": "1195326321",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "1880476792"
+        "Static": false,
+        "UID": "614819664"
     },
     "mixamorig:Spine1": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -2300,12 +2553,14 @@
                 }
             }
         },
-        "Parent": "1880476792",
+        "Parent": "614819664",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "1481680124"
+        "Static": false,
+        "UID": "715775340"
     },
     "mixamorig:Spine2": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -2327,9 +2582,10 @@
                 }
             }
         },
-        "Parent": "1481680124",
+        "Parent": "715775340",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "UID": "1674929359"
+        "Static": false,
+        "UID": "636917505"
     }
 }
