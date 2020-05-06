@@ -5,6 +5,8 @@ function GetTableTutorialCinematicCameraScript()
     lua_table.GameObjectFunctions = Scripting.GameObject()
     lua_table.Audio = Scripting.Audio()
     lua_table.Scene = Scripting.Scenes()
+    lua_table.Input = Scripting.Inputs()
+    lua_table.UI = Scripting.Interface()
 
     -- Camera target GO names
     lua_table.cube = {}
@@ -20,11 +22,13 @@ function GetTableTutorialCinematicCameraScript()
 
     -- Camera target IDs
     local cube_ID = {}
+    local BarID = 0
 
     -- Time management
     local time = 0
     local started_time = 0
     local start_motion_time = 0
+    lua_table.skip_threshold = 0
 
     --Values declaration
     local values_sum = 0
@@ -80,10 +84,29 @@ function GetTableTutorialCinematicCameraScript()
         cube_ID[7] = lua_table.GameObjectFunctions:FindGameObject(lua_table.cube[7])
         cube_ID[8] = lua_table.GameObjectFunctions:FindGameObject(lua_table.cube[8])
         cube_ID[9] = lua_table.GameObjectFunctions:FindGameObject(lua_table.cube[9])
+
+        BarID = lua_table.GameObjectFunctions:FindGameObject("SkipBar")
     end
 
     function lua_table:Update()
         time = lua_table.System:GameTime() - started_time
+
+        if lua_table.skip_threshold <= 0.00 then
+            lua_table.skip_threshold = 0.00
+        end
+
+        if lua_table.Input:IsGamepadButton(1, "BUTTON_A", "REPEAT") and next_scene == true then
+            lua_table.skip_threshold = lua_table.skip_threshold + 0.4
+        else 
+            lua_table.skip_threshold = lua_table.skip_threshold - 0.6
+        end
+
+        if lua_table.skip_threshold >= 100 and next_scene == true then
+            lua_table.Scene:LoadScene(lua_table.scene_uid)
+            next_scene = false
+        end
+
+        lua_table.UI:SetUICircularBarPercentage(lua_table.skip_threshold, BarID)
 
         if time > 0 and time < 5 -- First
         then
@@ -124,7 +147,7 @@ function GetTableTutorialCinematicCameraScript()
 
         if time > 55 and next_scene == true
         then
-            --lua_table.Scene:LoadScene(lua_table.scene_uid)
+            lua_table.Scene:LoadScene(lua_table.scene_uid)
             next_scene = false
         end   
     end
