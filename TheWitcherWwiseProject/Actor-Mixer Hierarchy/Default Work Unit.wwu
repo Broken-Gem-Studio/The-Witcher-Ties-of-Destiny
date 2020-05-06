@@ -407,6 +407,11 @@
 						<Sound Name="Geralt_run" ID="{AD0A1E5B-7667-4C49-9048-8B58E39D7653}" ShortID="947046895">
 							<PropertyList>
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-12</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -429,6 +434,11 @@
 						<Sound Name="Geralt_walk" ID="{DE3A59CD-1825-4970-BC70-FE6CAFD35324}" ShortID="4739135">
 							<PropertyList>
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-12</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -930,6 +940,11 @@
 						<Sound Name="Jaskier_run" ID="{BC182340-2A76-4478-A66D-3F77E763CCAE}" ShortID="520784417">
 							<PropertyList>
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-12</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -952,6 +967,11 @@
 						<Sound Name="Jaskier_walk" ID="{58251971-4146-4276-B3A6-35BA54F40D5A}" ShortID="302987245">
 							<PropertyList>
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-12</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -2546,7 +2566,14 @@
 								</Sound>
 							</ChildrenList>
 						</Folder>
-						<Sound Name="Potion_health" ID="{B8015DE1-6EB1-48E2-9CD0-FC402FE6AFF4}" ShortID="212890412">
+						<Sound Name="Potion_health" ID="{D320C16A-E81F-4EA7-99A9-8775DFEC5FBD}" ShortID="865627969">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{33080FFE-AFF8-4DB4-BFBC-870234ABF1E9}"/>
@@ -2556,16 +2583,23 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="Potion_health" ID="{BA9C91F5-34AC-40C0-8349-5647726839D4}" ShortID="767955911">
+								<AudioFileSource Name="Potion_health" ID="{DB9B40F4-8162-4043-A0E7-076AAC306C6B}" ShortID="220051532">
 									<Language>SFX</Language>
 									<AudioFile>Potion_health.wav</AudioFile>
 								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="Potion_health" ID="{BA9C91F5-34AC-40C0-8349-5647726839D4}" Platform="Linked"/>
+								<ActiveSource Name="Potion_health" ID="{DB9B40F4-8162-4043-A0E7-076AAC306C6B}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
-						<Sound Name="Potion_power" ID="{D13895BC-8D57-4976-8F12-A7218D155073}" ShortID="746884954">
+						<Sound Name="Potion_power" ID="{9ACDCACE-D654-4729-80BC-D45FE266357C}" ShortID="497597382">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{33080FFE-AFF8-4DB4-BFBC-870234ABF1E9}"/>
@@ -2575,16 +2609,23 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="Potion_power" ID="{EA757917-BDCA-4D91-8FD8-8C31C71F6B61}" ShortID="728715402">
+								<AudioFileSource Name="Potion_power" ID="{67E38C87-A65A-43A6-9198-7B7323FE6040}" ShortID="295499585">
 									<Language>SFX</Language>
 									<AudioFile>Potion_power.wav</AudioFile>
 								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="Potion_power" ID="{EA757917-BDCA-4D91-8FD8-8C31C71F6B61}" Platform="Linked"/>
+								<ActiveSource Name="Potion_power" ID="{67E38C87-A65A-43A6-9198-7B7323FE6040}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
-						<Sound Name="Potion_stamina" ID="{2976D89F-04D0-447C-A09E-104715E2E260}" ShortID="624141438">
+						<Sound Name="Potion_stamina" ID="{0EE9ADB2-13D2-41F9-A8E1-CF96B4A12627}" ShortID="304932211">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{33080FFE-AFF8-4DB4-BFBC-870234ABF1E9}"/>
@@ -2594,13 +2635,13 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="Potion_stamina" ID="{0A0B3E0E-78EC-42FE-8C3E-BCD7F9B83D8E}" ShortID="480316483">
+								<AudioFileSource Name="Potion_stamina" ID="{4C54B86A-83FE-410E-BFAC-57670F31BA68}" ShortID="950474221">
 									<Language>SFX</Language>
 									<AudioFile>Potion_stamina.wav</AudioFile>
 								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="Potion_stamina" ID="{0A0B3E0E-78EC-42FE-8C3E-BCD7F9B83D8E}" Platform="Linked"/>
+								<ActiveSource Name="Potion_stamina" ID="{4C54B86A-83FE-410E-BFAC-57670F31BA68}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
