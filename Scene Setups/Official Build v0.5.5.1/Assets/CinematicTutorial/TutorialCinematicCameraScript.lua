@@ -86,6 +86,8 @@ function GetTableTutorialCinematicCameraScript()
         cube_ID[9] = lua_table.GameObjectFunctions:FindGameObject(lua_table.cube[9])
 
         BarID = lua_table.GameObjectFunctions:FindGameObject("SkipBar")
+
+        started_time = lua_table.System:GameTime()
     end
 
     function lua_table:Update()
