@@ -801,7 +801,7 @@
                 "positionx": "921.746521",
                 "positiony": "-126.778046",
                 "positionz": "640.021729",
-                "rotationw": "0.648753",
+                "rotationw": "0.648754",
                 "rotationx": "-0.497198",
                 "rotationy": "-0.011053",
                 "rotationz": "-0.576013",
@@ -1520,8 +1520,8 @@
                 "rotationy": "-0.128834",
                 "rotationz": "-0.188631",
                 "scalex": "2.540000",
-                "scaley": "2.539942",
-                "scalez": "2.539942"
+                "scaley": "2.539937",
+                "scalez": "2.539937"
             },
             "13": {
                 "Active": true,
@@ -3091,7 +3091,7 @@
                 "index": 5
             }
         },
-        "Index": 15,
+        "Index": 10,
         "Name": "Geralt",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -5294,7 +5294,7 @@
                 "rotationx": "-0.047664",
                 "rotationy": "0.671446",
                 "rotationz": "0.739518",
-                "scalex": "0.322683",
+                "scalex": "0.322688",
                 "scaley": "0.351858",
                 "scalez": "0.351858"
             },
@@ -5487,7 +5487,7 @@
                 "rotationz": "0.004123",
                 "scalex": "0.939993",
                 "scaley": "0.939994",
-                "scalez": "1.596490"
+                "scalez": "1.596495"
             },
             "1": {
                 "Active": true,
@@ -7043,7 +7043,7 @@
                 "positionx": "952.201050",
                 "positiony": "-10.742347",
                 "positionz": "502.175354",
-                "rotationw": "0.511344",
+                "rotationw": "0.511345",
                 "rotationx": "-0.524310",
                 "rotationy": "-0.474447",
                 "rotationz": "-0.488391",
@@ -7112,6 +7112,141 @@
         "Parent": "526106820",
         "Static": false
     },
+    "1087201716": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1428694168,
+                "index": 0,
+                "layer": "1",
+                "positionx": "538.444641",
+                "positiony": "25.292856",
+                "positionz": "-193.011261",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.400017",
+                "scaley": "0.400000",
+                "scalez": "0.400017"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
+                },
+                "Script variables": {
+                    "Count": 14,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "ActiveDistance",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 50.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "DistanceToCamera",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRate",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_name",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Camera"
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "enemy_to_spawn",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 4.0
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "InfiniteEnemies",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "NumberofEnemies",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 7.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Archer",
+                        "ObjectName": "archer (0).prefab",
+                        "Type": "Double",
+                        "Value": 647695116.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Lumberjack",
+                        "ObjectName": "Lumberjackv2 (0).prefab",
+                        "Type": "Double",
+                        "Value": 1749568181.0
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Zomboid",
+                        "ObjectName": "Zomboid_Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 1233045812.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_minion",
+                        "ObjectName": "Minion_Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 1853337145.0
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_walker_Ghoul",
+                        "ObjectName": "Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 571222616.0
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRadius",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 5.0
+                    }
+                },
+                "UID": 2116592229,
+                "index": 1
+            }
+        },
+        "Index": 3,
+        "Name": "OutsideMinions",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1988886835",
+        "Static": false
+    },
     "108738729": {
         "Active": true,
         "Components": {
@@ -7163,8 +7298,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000254",
-                "scalez": "1.000254"
+                "scaley": "1.000259",
+                "scalez": "1.000259"
             }
         },
         "Index": 0,
@@ -7365,7 +7500,7 @@
                 "positionx": "1081.618896",
                 "positiony": "69.089043",
                 "positionz": "60.734173",
-                "rotationw": "0.613301",
+                "rotationw": "0.613302",
                 "rotationx": "-0.613302",
                 "rotationy": "0.351939",
                 "rotationz": "0.351939",
@@ -9442,7 +9577,7 @@
                 "positionx": "1013.774048",
                 "positiony": "5.082242",
                 "positionz": "910.547852",
-                "rotationw": "0.644348",
+                "rotationw": "0.644349",
                 "rotationx": "-0.639045",
                 "rotationy": "-0.324462",
                 "rotationz": "-0.266760",
@@ -9527,7 +9662,7 @@
                 "index": 1
             }
         },
-        "Index": 17,
+        "Index": 12,
         "Name": "Music_Manager",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -9865,6 +10000,141 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1090923429",
+        "Static": false
+    },
+    "1151233573": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "UID": 881178034,
+                "index": 0,
+                "layer": "1",
+                "positionx": "695.181763",
+                "positiony": "24.261738",
+                "positionz": "-147.440796",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.400017",
+                "scaley": "0.400000",
+                "scalez": "0.400017"
+            },
+            "12": {
+                "Active": false,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
+                },
+                "Script variables": {
+                    "Count": 14,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "ActiveDistance",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 60.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "DistanceToCamera",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRate",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_name",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Camera"
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "enemy_to_spawn",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "InfiniteEnemies",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "NumberofEnemies",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Archer",
+                        "ObjectName": "archer (0).prefab",
+                        "Type": "Double",
+                        "Value": 647695116.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Lumberjack",
+                        "ObjectName": "Lumberjackv2 (0).prefab",
+                        "Type": "Double",
+                        "Value": 1749568181.0
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Zomboid",
+                        "ObjectName": "Zomboid_Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 1233045812.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_minion",
+                        "ObjectName": "Minion_Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 1853337145.0
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_walker_Ghoul",
+                        "ObjectName": "Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 571222616.0
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRadius",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 5.0
+                    }
+                },
+                "UID": 1330561265,
+                "index": 1
+            }
+        },
+        "Index": 5,
+        "Name": "CampedArchers",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1988886835",
         "Static": false
     },
     "1153106449": {
@@ -11070,8 +11340,8 @@
                 "rotationx": "0.388476",
                 "rotationy": "0.030072",
                 "rotationz": "0.916844",
-                "scalex": "1.000084",
-                "scaley": "1.000084",
+                "scalex": "1.000094",
+                "scaley": "1.000094",
                 "scalez": "1.000000"
             },
             "13": {
@@ -11211,7 +11481,7 @@
                 "positionx": "928.112427",
                 "positiony": "-1.146532",
                 "positionz": "483.994110",
-                "rotationw": "0.544277",
+                "rotationw": "0.544276",
                 "rotationx": "-0.622836",
                 "rotationy": "-0.334777",
                 "rotationz": "-0.451401",
@@ -12218,8 +12488,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000254",
-                "scalez": "1.000254"
+                "scaley": "1.000259",
+                "scalez": "1.000259"
             }
         },
         "Index": 0,
@@ -12892,9 +13162,9 @@
                 "rotationx": "0.000000",
                 "rotationy": "0.841643",
                 "rotationz": "0.000000",
-                "scalex": "3.499995",
+                "scalex": "3.499985",
                 "scaley": "3.500000",
-                "scalez": "3.499995"
+                "scalez": "3.499985"
             }
         },
         "Index": 10,
@@ -13193,141 +13463,6 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "2098703589",
-        "Static": false
-    },
-    "1206580182": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "UID": 1975097514,
-                "index": 0,
-                "layer": "0",
-                "positionx": "538.533081",
-                "positiony": "24.162424",
-                "positionz": "-182.766113",
-                "rotationw": "1.000000",
-                "rotationx": "0.000000",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "1.000000",
-                "scaley": "1.000000",
-                "scalez": "1.000000"
-            },
-            "12": {
-                "Active": true,
-                "Resources": {
-                    "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
-                },
-                "Script variables": {
-                    "Count": 14,
-                    "Variable 0": {
-                        "DisplayObjectName": false,
-                        "Name": "ActiveDistance",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 60.0
-                    },
-                    "Variable 1": {
-                        "DisplayObjectName": false,
-                        "Name": "DistanceToCamera",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 10": {
-                        "DisplayObjectName": false,
-                        "Name": "SpawnRate",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 3.0
-                    },
-                    "Variable 11": {
-                        "DisplayObjectName": false,
-                        "Name": "camera_name",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "Camera"
-                    },
-                    "Variable 12": {
-                        "DisplayObjectName": false,
-                        "Name": "enemy_to_spawn",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": -1.0
-                    },
-                    "Variable 13": {
-                        "DisplayObjectName": false,
-                        "Name": "time",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 2": {
-                        "DisplayObjectName": false,
-                        "Name": "InfiniteEnemies",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": true
-                    },
-                    "Variable 3": {
-                        "DisplayObjectName": false,
-                        "Name": "NumberofEnemies",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 10.0
-                    },
-                    "Variable 4": {
-                        "DisplayObjectName": false,
-                        "Name": "Prefab_Archer",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 5": {
-                        "DisplayObjectName": false,
-                        "Name": "Prefab_Lumberjack",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 6": {
-                        "DisplayObjectName": false,
-                        "Name": "Prefab_Zomboid",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 7": {
-                        "DisplayObjectName": false,
-                        "Name": "Prefab_minion",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 8": {
-                        "DisplayObjectName": false,
-                        "Name": "Prefab_walker_Ghoul",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 9": {
-                        "DisplayObjectName": false,
-                        "Name": "SpawnRadius",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 5.0
-                    }
-                },
-                "UID": 591137490,
-                "index": 1
-            }
-        },
-        "Index": 1,
-        "Name": "Spawner",
-        "Navigation Area": 0,
-        "Navigation Static": false,
-        "Parent": "-1",
         "Static": false
     },
     "1208296314": {
@@ -13780,7 +13915,7 @@
                 "visible": "1"
             }
         },
-        "Index": 6,
+        "Index": 1,
         "Name": "BOSSHUD",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -14397,7 +14532,7 @@
                 "rotationx": "0.021435",
                 "rotationy": "0.669027",
                 "rotationz": "0.742912",
-                "scalex": "0.773618",
+                "scalex": "0.773613",
                 "scaley": "0.843777",
                 "scalez": "0.843776"
             },
@@ -15840,7 +15975,7 @@
                 "positionx": "913.108459",
                 "positiony": "-3.732620",
                 "positionz": "674.211304",
-                "rotationw": "0.544277",
+                "rotationw": "0.544276",
                 "rotationx": "-0.622836",
                 "rotationy": "-0.334777",
                 "rotationz": "-0.451401",
@@ -15890,7 +16025,7 @@
                 "rotationx": "-0.001647",
                 "rotationy": "0.707105",
                 "rotationz": "0.707105",
-                "scalex": "1.150051",
+                "scalex": "1.150056",
                 "scaley": "1.149995",
                 "scalez": "1.140062"
             },
@@ -16525,8 +16660,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000254",
-                "scalez": "1.000254"
+                "scaley": "1.000259",
+                "scalez": "1.000259"
             }
         },
         "Index": 0,
@@ -16712,8 +16847,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000254",
-                "scalez": "1.000254"
+                "scaley": "1.000259",
+                "scalez": "1.000259"
             }
         },
         "Index": 0,
@@ -17387,6 +17522,141 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1914151639",
+        "Static": false
+    },
+    "1279137830": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "UID": 2018968357,
+                "index": 0,
+                "layer": "1",
+                "positionx": "517.674866",
+                "positiony": "27.003902",
+                "positionz": "-294.428711",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.400017",
+                "scaley": "0.400000",
+                "scalez": "0.400017"
+            },
+            "12": {
+                "Active": false,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
+                },
+                "Script variables": {
+                    "Count": 14,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "ActiveDistance",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 60.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "DistanceToCamera",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRate",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_name",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Camera"
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "enemy_to_spawn",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "InfiniteEnemies",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "NumberofEnemies",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Archer",
+                        "ObjectName": "archer (0).prefab",
+                        "Type": "Double",
+                        "Value": 647695116.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Lumberjack",
+                        "ObjectName": "Lumberjackv2 (0).prefab",
+                        "Type": "Double",
+                        "Value": 1749568181.0
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Zomboid",
+                        "ObjectName": "Zomboid_Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 1233045812.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_minion",
+                        "ObjectName": "Minion_Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 1853337145.0
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_walker_Ghoul",
+                        "ObjectName": "Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 571222616.0
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRadius",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    }
+                },
+                "UID": 1201351959,
+                "index": 1
+            }
+        },
+        "Index": 0,
+        "Name": "VillageArcher",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1988886835",
         "Static": false
     },
     "1280477192": {
@@ -18184,9 +18454,9 @@
                 "rotationx": "-0.042287",
                 "rotationy": "0.903008",
                 "rotationz": "0.422164",
-                "scalex": "0.842754",
+                "scalex": "0.842749",
                 "scaley": "0.842807",
-                "scalez": "0.842758"
+                "scalez": "0.842753"
             },
             "21": {
                 "Active": true,
@@ -18609,7 +18879,7 @@
                 "positionx": "0.000900",
                 "positiony": "3.338100",
                 "positionz": "0.000008",
-                "rotationw": "0.982979",
+                "rotationw": "0.982978",
                 "rotationx": "0.183521",
                 "rotationy": "0.002122",
                 "rotationz": "0.008296",
@@ -18830,7 +19100,7 @@
                 "positionx": "1186.705200",
                 "positiony": "10.640896",
                 "positionz": "276.005310",
-                "rotationw": "0.520348",
+                "rotationw": "0.520349",
                 "rotationx": "-0.521992",
                 "rotationy": "0.515333",
                 "rotationz": "0.437257",
@@ -18880,9 +19150,9 @@
                 "rotationx": "0.000000",
                 "rotationy": "0.706985",
                 "rotationz": "0.000000",
-                "scalex": "3.500106",
+                "scalex": "3.500116",
                 "scaley": "3.500000",
-                "scalez": "3.500106"
+                "scalez": "3.500116"
             }
         },
         "Index": 11,
@@ -19063,9 +19333,9 @@
                 "rotationx": "0.612624",
                 "rotationy": "0.523173",
                 "rotationz": "-0.456502",
-                "scalex": "0.999955",
-                "scaley": "0.999954",
-                "scalez": "0.999952"
+                "scalex": "0.999950",
+                "scaley": "0.999949",
+                "scalez": "0.999947"
             },
             "13": {
                 "Active": true,
@@ -20952,6 +21222,141 @@
         "Parent": "550969286",
         "Static": false
     },
+    "13502153": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1647912499,
+                "index": 0,
+                "layer": "1",
+                "positionx": "632.277466",
+                "positiony": "32.734112",
+                "positionz": "-243.970169",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.400017",
+                "scaley": "0.400000",
+                "scalez": "0.400017"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
+                },
+                "Script variables": {
+                    "Count": 14,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "ActiveDistance",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 60.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "DistanceToCamera",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRate",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_name",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Camera"
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "enemy_to_spawn",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2.0
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "InfiniteEnemies",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "NumberofEnemies",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Archer",
+                        "ObjectName": "archer (0).prefab",
+                        "Type": "Double",
+                        "Value": 647695116.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Lumberjack",
+                        "ObjectName": "Lumberjackv2 (0).prefab",
+                        "Type": "Double",
+                        "Value": 1749568181.0
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Zomboid",
+                        "ObjectName": "Zomboid_Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 1233045812.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_minion",
+                        "ObjectName": "Minion_Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 1853337145.0
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_walker_Ghoul",
+                        "ObjectName": "Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 571222616.0
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRadius",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    }
+                },
+                "UID": 2251904,
+                "index": 1
+            }
+        },
+        "Index": 6,
+        "Name": "WalkerGhoul",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1988886835",
+        "Static": false
+    },
     "1351002748": {
         "Active": true,
         "Components": {
@@ -21546,7 +21951,7 @@
                 "scalez": "0.450000"
             }
         },
-        "Index": 10,
+        "Index": 5,
         "Name": "LVL 1 Version 5",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -21720,13 +22125,13 @@
                 "positionx": "891.307190",
                 "positiony": "-9.061230",
                 "positionz": "504.000763",
-                "rotationw": "0.681675",
+                "rotationw": "0.681674",
                 "rotationx": "0.439319",
                 "rotationy": "0.583387",
                 "rotationz": "0.044479",
                 "scalex": "0.524572",
                 "scaley": "0.524572",
-                "scalez": "0.890903"
+                "scalez": "0.890904"
             },
             "1": {
                 "Active": true,
@@ -22261,8 +22666,8 @@
                 "rotationy": "-0.000000",
                 "rotationz": "-0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000254",
-                "scalez": "1.000254"
+                "scaley": "1.000259",
+                "scalez": "1.000259"
             }
         },
         "Index": 0,
@@ -22600,6 +23005,141 @@
         "Parent": "678167711",
         "Static": false
     },
+    "1387830320": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1331352815,
+                "index": 0,
+                "layer": "1",
+                "positionx": "628.862610",
+                "positiony": "31.999214",
+                "positionz": "-185.195389",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.400017",
+                "scaley": "0.400000",
+                "scalez": "0.400017"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
+                },
+                "Script variables": {
+                    "Count": 14,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "ActiveDistance",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 60.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "DistanceToCamera",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRate",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_name",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Camera"
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "enemy_to_spawn",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 3.0
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "InfiniteEnemies",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "NumberofEnemies",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Archer",
+                        "ObjectName": "archer (0).prefab",
+                        "Type": "Double",
+                        "Value": 647695116.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Lumberjack",
+                        "ObjectName": "Lumberjackv2 (0).prefab",
+                        "Type": "Double",
+                        "Value": 1749568181.0
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Zomboid",
+                        "ObjectName": "Zomboid_Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 1233045812.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_minion",
+                        "ObjectName": "Minion_Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 1853337145.0
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_walker_Ghoul",
+                        "ObjectName": "Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 571222616.0
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRadius",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    }
+                },
+                "UID": 425161301,
+                "index": 1
+            }
+        },
+        "Index": 17,
+        "Name": "CampedZomboid",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1988886835",
+        "Static": false
+    },
     "1391338060": {
         "Active": true,
         "Components": {
@@ -22614,8 +23154,8 @@
                 "rotationx": "-0.046474",
                 "rotationy": "-0.155068",
                 "rotationz": "0.844688",
-                "scalex": "1.000046",
-                "scaley": "1.000046",
+                "scalex": "1.000051",
+                "scaley": "1.000051",
                 "scalez": "1.000000"
             },
             "13": {
@@ -23315,9 +23855,9 @@
                 "rotationx": "0.256776",
                 "rotationy": "-0.736911",
                 "rotationz": "-0.249735",
-                "scalex": "0.999949",
+                "scalex": "0.999944",
                 "scaley": "1.000001",
-                "scalez": "0.999950"
+                "scalez": "0.999945"
             },
             "21": {
                 "Active": true,
@@ -23498,9 +24038,9 @@
                 "rotationx": "0.205365",
                 "rotationy": "0.663861",
                 "rotationz": "0.700897",
-                "scalex": "1.532331",
-                "scaley": "1.532389",
-                "scalez": "1.692459"
+                "scalex": "1.532321",
+                "scaley": "1.532384",
+                "scalez": "1.692454"
             },
             "1": {
                 "Active": true,
@@ -25843,8 +26383,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.540000",
-                "scaley": "2.540052",
-                "scalez": "2.540052"
+                "scaley": "2.540058",
+                "scalez": "2.540058"
             },
             "1": {
                 "Active": false,
@@ -30844,8 +31384,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000254",
-                "scalez": "1.000254"
+                "scaley": "1.000259",
+                "scalez": "1.000259"
             }
         },
         "Index": 0,
@@ -32122,7 +32662,7 @@
                 "positionx": "1041.608398",
                 "positiony": "10.161258",
                 "positionz": "178.137848",
-                "rotationw": "0.509452",
+                "rotationw": "0.509453",
                 "rotationx": "-0.452981",
                 "rotationy": "0.510802",
                 "rotationz": "0.523782",
@@ -33515,6 +34055,141 @@
         "Parent": "1360383407",
         "Static": false
     },
+    "1539775747": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 830675250,
+                "index": 0,
+                "layer": "1",
+                "positionx": "882.899719",
+                "positiony": "18.738520",
+                "positionz": "-522.982910",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.400017",
+                "scaley": "0.400000",
+                "scalez": "0.400017"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
+                },
+                "Script variables": {
+                    "Count": 14,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "ActiveDistance",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 60.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "DistanceToCamera",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRate",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_name",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Camera"
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "enemy_to_spawn",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 3.0
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "InfiniteEnemies",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "NumberofEnemies",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Archer",
+                        "ObjectName": "archer (0).prefab",
+                        "Type": "Double",
+                        "Value": 647695116.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Lumberjack",
+                        "ObjectName": "Lumberjackv2 (0).prefab",
+                        "Type": "Double",
+                        "Value": 1749568181.0
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Zomboid",
+                        "ObjectName": "Zomboid_Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 1233045812.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_minion",
+                        "ObjectName": "Minion_Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 1853337145.0
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_walker_Ghoul",
+                        "ObjectName": "Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 571222616.0
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRadius",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    }
+                },
+                "UID": 706966540,
+                "index": 1
+            }
+        },
+        "Index": 14,
+        "Name": "CrossroadZomboids",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1988886835",
+        "Static": false
+    },
     "1540531044": {
         "Active": true,
         "Components": {
@@ -34047,7 +34722,7 @@
                 "positionx": "937.682129",
                 "positiony": "-9.826797",
                 "positionz": "587.916931",
-                "rotationw": "0.767085",
+                "rotationw": "0.767086",
                 "rotationx": "0.094936",
                 "rotationy": "-0.465403",
                 "rotationz": "0.431239",
@@ -34806,13 +35481,13 @@
                 "positionx": "911.433899",
                 "positiony": "-4.747381",
                 "positionz": "482.991150",
-                "rotationw": "0.681675",
+                "rotationw": "0.681674",
                 "rotationx": "0.439319",
                 "rotationy": "0.583387",
                 "rotationz": "0.044479",
                 "scalex": "0.524572",
                 "scaley": "0.524572",
-                "scalez": "0.890903"
+                "scalez": "0.890904"
             },
             "1": {
                 "Active": true,
@@ -35101,141 +35776,6 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "678167711",
-        "Static": false
-    },
-    "1559446380": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "UID": 854255167,
-                "index": 0,
-                "layer": "0",
-                "positionx": "626.588013",
-                "positiony": "31.767904",
-                "positionz": "-180.210312",
-                "rotationw": "1.000000",
-                "rotationx": "0.000000",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "1.000000",
-                "scaley": "1.000000",
-                "scalez": "1.000000"
-            },
-            "12": {
-                "Active": true,
-                "Resources": {
-                    "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
-                },
-                "Script variables": {
-                    "Count": 14,
-                    "Variable 0": {
-                        "DisplayObjectName": false,
-                        "Name": "ActiveDistance",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 60.0
-                    },
-                    "Variable 1": {
-                        "DisplayObjectName": false,
-                        "Name": "DistanceToCamera",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 10": {
-                        "DisplayObjectName": false,
-                        "Name": "SpawnRate",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 3.0
-                    },
-                    "Variable 11": {
-                        "DisplayObjectName": false,
-                        "Name": "camera_name",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "Camera"
-                    },
-                    "Variable 12": {
-                        "DisplayObjectName": false,
-                        "Name": "enemy_to_spawn",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": -1.0
-                    },
-                    "Variable 13": {
-                        "DisplayObjectName": false,
-                        "Name": "time",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 2": {
-                        "DisplayObjectName": false,
-                        "Name": "InfiniteEnemies",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": true
-                    },
-                    "Variable 3": {
-                        "DisplayObjectName": false,
-                        "Name": "NumberofEnemies",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 10.0
-                    },
-                    "Variable 4": {
-                        "DisplayObjectName": false,
-                        "Name": "Prefab_Archer",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 5": {
-                        "DisplayObjectName": false,
-                        "Name": "Prefab_Lumberjack",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 6": {
-                        "DisplayObjectName": false,
-                        "Name": "Prefab_Zomboid",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 7": {
-                        "DisplayObjectName": false,
-                        "Name": "Prefab_minion",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 8": {
-                        "DisplayObjectName": false,
-                        "Name": "Prefab_walker_Ghoul",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 9": {
-                        "DisplayObjectName": false,
-                        "Name": "SpawnRadius",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 5.0
-                    }
-                },
-                "UID": 1686861689,
-                "index": 1
-            }
-        },
-        "Index": 2,
-        "Name": "Spawner",
-        "Navigation Area": 0,
-        "Navigation Static": false,
-        "Parent": "-1",
         "Static": false
     },
     "1561257490": {
@@ -36748,7 +37288,7 @@
                 "rotationx": "-0.251088",
                 "rotationy": "0.633327",
                 "rotationz": "0.646408",
-                "scalex": "0.356618",
+                "scalex": "0.356613",
                 "scaley": "0.356675",
                 "scalez": "0.356675"
             },
@@ -36795,8 +37335,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000254",
-                "scalez": "1.000254"
+                "scaley": "1.000259",
+                "scalez": "1.000259"
             }
         },
         "Index": 0,
@@ -39317,7 +39857,7 @@
                 "positionx": "1196.065063",
                 "positiony": "10.640896",
                 "positionz": "297.253876",
-                "rotationw": "0.710838",
+                "rotationw": "0.710839",
                 "rotationx": "-0.645023",
                 "rotationy": "-0.176177",
                 "rotationz": "-0.218210",
@@ -39618,8 +40158,8 @@
                 "globalMatrixx": "407.549927",
                 "globalMatrixy": "34.537144",
                 "globalMatrixz": "-330.611267",
-                "globalPositionx": "49.408489",
-                "globalPositiony": "49.751934",
+                "globalPositionx": "49.408485",
+                "globalPositiony": "49.751938",
                 "globalPositionz": "49.209450",
                 "hasBeenDeactivated": "0",
                 "height": "1.000000",
@@ -39630,15 +40170,15 @@
                 "localMatrixw": "1.000000",
                 "localMatrixx": "0.000420",
                 "localMatrixy": "-0.000217",
-                "localMatrixz": "25.094135",
+                "localMatrixz": "25.094133",
                 "localPositionx": "0.000000",
                 "localPositiony": "0.000000",
                 "localPositionz": "0.000000",
                 "offsetx": "0.000420",
                 "offsety": "-0.000217",
-                "offsetz": "25.094135",
-                "originalScalex": "49.408489",
-                "originalScaley": "49.751934",
+                "offsetz": "25.094133",
+                "originalScalex": "49.408485",
+                "originalScaley": "49.751938",
                 "originalScalez": "49.209450",
                 "radius": "1.000000",
                 "scalex": "1.000000",
@@ -39685,9 +40225,9 @@
                 "rotationx": "0.236611",
                 "rotationy": "0.919426",
                 "rotationz": "0.268299",
-                "scalex": "0.999954",
+                "scalex": "0.999949",
                 "scaley": "1.000000",
-                "scalez": "0.999955"
+                "scalez": "0.999950"
             }
         },
         "Index": 6,
@@ -39711,9 +40251,9 @@
                 "rotationx": "0.000000",
                 "rotationy": "0.558773",
                 "rotationz": "0.000000",
-                "scalex": "2.500050",
+                "scalex": "2.500055",
                 "scaley": "2.500000",
-                "scalez": "2.500050"
+                "scalez": "2.500055"
             }
         },
         "Index": 15,
@@ -40426,17 +40966,17 @@
                 "index": 2
             },
             "20": {
-                "Active": false,
+                "Active": true,
                 "UID": 940477525,
                 "index": 3
             },
             "3": {
-                "ACTIVECAM": false,
-                "ASPECTRATIO": 1.7381082773208618,
+                "ACTIVECAM": true,
+                "ASPECTRATIO": 1.9624782800674438,
                 "Active": true,
-                "CULLINGCAM": false,
+                "CULLINGCAM": true,
                 "FARPLANE": 1000.0,
-                "FOV": 55.979007720947266,
+                "FOV": 50.41376876831055,
                 "NEARPLANE": 0.10000000149011612,
                 "UID": 209370995,
                 "index": 4
@@ -40468,7 +41008,7 @@
                 "scalez": "1.000000"
             }
         },
-        "Index": 9,
+        "Index": 4,
         "Name": "LightingLevel",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -46630,9 +47170,9 @@
                 "rotationx": "-0.233594",
                 "rotationy": "0.768226",
                 "rotationz": "0.354181",
-                "scalex": "0.842754",
+                "scalex": "0.842749",
                 "scaley": "0.842807",
-                "scalez": "0.842757"
+                "scalez": "0.842752"
             },
             "21": {
                 "Active": true,
@@ -46643,8 +47183,8 @@
                 "ColorG": "0.407843",
                 "ColorR": "0.725490",
                 "DirectionX": "-0.571096",
-                "DirectionY": "-0.768150",
-                "DirectionZ": "0.289476",
+                "DirectionY": "-0.768149",
+                "DirectionZ": "0.289475",
                 "DistanceMultiplier": "1.000000",
                 "DrawMesh": true,
                 "InnerCutoff": "48.000000",
@@ -46677,8 +47217,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000254",
-                "scalez": "1.000254"
+                "scaley": "1.000259",
+                "scalez": "1.000259"
             }
         },
         "Index": 0,
@@ -47151,8 +47691,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000254",
-                "scalez": "1.000254"
+                "scaley": "1.000259",
+                "scalez": "1.000259"
             }
         },
         "Index": 0,
@@ -47511,8 +48051,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000254",
-                "scalez": "1.000254"
+                "scaley": "1.000259",
+                "scalez": "1.000259"
             }
         },
         "Index": 0,
@@ -48102,8 +48642,8 @@
                 "rotationx": "0.122166",
                 "rotationy": "0.198412",
                 "rotationz": "0.939730",
-                "scalex": "0.704754",
-                "scaley": "0.704754",
+                "scalex": "0.704749",
+                "scaley": "0.704749",
                 "scalez": "1.197011"
             },
             "1": {
@@ -48134,6 +48674,141 @@
         "Parent": "1360383407",
         "Static": false
     },
+    "176434404": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1057691473,
+                "index": 0,
+                "layer": "1",
+                "positionx": "640.033997",
+                "positiony": "45.204666",
+                "positionz": "-307.469574",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.400017",
+                "scaley": "0.400000",
+                "scalez": "0.400017"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
+                },
+                "Script variables": {
+                    "Count": 14,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "ActiveDistance",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 60.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "DistanceToCamera",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRate",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_name",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Camera"
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "enemy_to_spawn",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "InfiniteEnemies",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "NumberofEnemies",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Archer",
+                        "ObjectName": "archer (0).prefab",
+                        "Type": "Double",
+                        "Value": 647695116.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Lumberjack",
+                        "ObjectName": "Lumberjackv2 (0).prefab",
+                        "Type": "Double",
+                        "Value": 1749568181.0
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Zomboid",
+                        "ObjectName": "Zomboid_Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 1233045812.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_minion",
+                        "ObjectName": "Minion_Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 1853337145.0
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_walker_Ghoul",
+                        "ObjectName": "Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 571222616.0
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRadius",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 5.0
+                    }
+                },
+                "UID": 323786103,
+                "index": 1
+            }
+        },
+        "Index": 8,
+        "Name": "BridgeLumberjacks",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1988886835",
+        "Static": false
+    },
     "1768715970": {
         "Active": true,
         "Components": {
@@ -48158,6 +48833,141 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "653998195",
+        "Static": false
+    },
+    "1772014506": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 491107294,
+                "index": 0,
+                "layer": "1",
+                "positionx": "899.461853",
+                "positiony": "16.454470",
+                "positionz": "-591.603577",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.400017",
+                "scaley": "0.400000",
+                "scalez": "0.400017"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
+                },
+                "Script variables": {
+                    "Count": 14,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "ActiveDistance",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 60.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "DistanceToCamera",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRate",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_name",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Camera"
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "enemy_to_spawn",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 4.0
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "InfiniteEnemies",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "NumberofEnemies",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 6.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Archer",
+                        "ObjectName": "archer (0).prefab",
+                        "Type": "Double",
+                        "Value": 647695116.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Lumberjack",
+                        "ObjectName": "Lumberjackv2 (0).prefab",
+                        "Type": "Double",
+                        "Value": 1749568181.0
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Zomboid",
+                        "ObjectName": "Zomboid_Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 1233045812.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_minion",
+                        "ObjectName": "Minion_Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 1853337145.0
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_walker_Ghoul",
+                        "ObjectName": "Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 571222616.0
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRadius",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 6.0
+                    }
+                },
+                "UID": 1293771687,
+                "index": 1
+            }
+        },
+        "Index": 15,
+        "Name": "PreKikimoraMinions",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1988886835",
         "Static": false
     },
     "1773726273": {
@@ -49024,9 +49834,9 @@
                 "rotationx": "0.000000",
                 "rotationy": "0.594654",
                 "rotationz": "0.000000",
-                "scalex": "2.500050",
+                "scalex": "2.500055",
                 "scaley": "2.500000",
-                "scalez": "2.500050"
+                "scalez": "2.500055"
             }
         },
         "Index": 7,
@@ -49157,7 +49967,7 @@
                 "positionx": "1380.400879",
                 "positiony": "350.418610",
                 "positionz": "408.680908",
-                "rotationw": "0.575521",
+                "rotationw": "0.575520",
                 "rotationx": "-0.714508",
                 "rotationy": "-0.365416",
                 "rotationz": "0.157244",
@@ -49766,7 +50576,7 @@
                 "positionx": "913.213074",
                 "positiony": "-7.138732",
                 "positionz": "501.686035",
-                "rotationw": "0.532728",
+                "rotationw": "0.532727",
                 "rotationx": "-0.545053",
                 "rotationy": "-0.450463",
                 "rotationz": "-0.464975",
@@ -50943,8 +51753,8 @@
                 "rotationx": "-0.067959",
                 "rotationy": "0.228817",
                 "rotationz": "0.949829",
-                "scalex": "1.000058",
-                "scaley": "1.000058",
+                "scalex": "1.000063",
+                "scaley": "1.000063",
                 "scalez": "1.000000"
             },
             "13": {
@@ -51255,7 +52065,7 @@
                 "positionx": "1367.105713",
                 "positiony": "59.226387",
                 "positionz": "-127.218964",
-                "rotationw": "0.613302",
+                "rotationw": "0.613301",
                 "rotationx": "-0.613302",
                 "rotationy": "0.351939",
                 "rotationz": "0.351939",
@@ -52760,8 +53570,8 @@
                 "rotationx": "0.388476",
                 "rotationy": "0.030072",
                 "rotationz": "0.916844",
-                "scalex": "1.000084",
-                "scaley": "1.000084",
+                "scalex": "1.000094",
+                "scaley": "1.000094",
                 "scalez": "1.000000"
             },
             "13": {
@@ -52795,8 +53605,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000254",
-                "scalez": "1.000254"
+                "scaley": "1.000259",
+                "scalez": "1.000259"
             }
         },
         "Index": 0,
@@ -53179,9 +53989,9 @@
                 "rotationx": "-0.595506",
                 "rotationy": "0.393283",
                 "rotationz": "0.695841",
-                "scalex": "0.704868",
-                "scaley": "0.704869",
-                "scalez": "1.197069"
+                "scalex": "0.704873",
+                "scaley": "0.704874",
+                "scalez": "1.197074"
             },
             "1": {
                 "Active": true,
@@ -54075,7 +54885,7 @@
                 "rotationx": "-0.333256",
                 "rotationy": "-0.600089",
                 "rotationz": "0.686648",
-                "scalex": "0.999954",
+                "scalex": "0.999951",
                 "scaley": "0.999999",
                 "scalez": "1.000000"
             },
@@ -54649,7 +55459,7 @@
                 "positionx": "0.000600",
                 "positiony": "3.439200",
                 "positionz": "0.000000",
-                "rotationw": "0.845791",
+                "rotationw": "0.845792",
                 "rotationx": "0.532275",
                 "rotationy": "-0.021592",
                 "rotationz": "-0.029222",
@@ -54909,9 +55719,9 @@
                 "rotationx": "0.009531",
                 "rotationy": "0.682656",
                 "rotationz": "0.730301",
-                "scalex": "1.532331",
-                "scaley": "1.532388",
-                "scalez": "1.692458"
+                "scalex": "1.532321",
+                "scaley": "1.532383",
+                "scalez": "1.692453"
             },
             "1": {
                 "Active": true,
@@ -57530,7 +58340,7 @@
                 "positionx": "1147.398193",
                 "positiony": "28.882961",
                 "positionz": "175.888824",
-                "rotationw": "0.923636",
+                "rotationw": "0.923637",
                 "rotationx": "0.303811",
                 "rotationy": "0.120024",
                 "rotationz": "0.200471",
@@ -59437,9 +60247,9 @@
                 "rotationx": "0.000000",
                 "rotationy": "0.996195",
                 "rotationz": "0.000000",
-                "scalex": "3.500266",
+                "scalex": "3.500291",
                 "scaley": "3.500000",
-                "scalez": "3.500265"
+                "scalez": "3.500290"
             }
         },
         "Index": 5,
@@ -60027,7 +60837,7 @@
                 "positionx": "906.799622",
                 "positiony": "-8.769904",
                 "positionz": "501.746185",
-                "rotationw": "0.511344",
+                "rotationw": "0.511345",
                 "rotationx": "-0.524310",
                 "rotationy": "-0.474447",
                 "rotationz": "-0.488391",
@@ -60172,6 +60982,32 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1851149525",
+        "Static": false
+    },
+    "1988886835": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 692264622,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Index": 13,
+        "Name": "Spwaners",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "-1",
         "Static": false
     },
     "1988891938": {
@@ -60523,7 +61359,7 @@
                 "rotationx": "0.063757",
                 "rotationy": "-0.427262",
                 "rotationz": "-0.725667",
-                "scalex": "0.999957",
+                "scalex": "0.999952",
                 "scaley": "0.999997",
                 "scalez": "1.000001"
             },
@@ -60686,141 +61522,6 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "671293216",
-        "Static": false
-    },
-    "1999113098": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "UID": 1113606343,
-                "index": 0,
-                "layer": "0",
-                "positionx": "698.359863",
-                "positiony": "46.642017",
-                "positionz": "-445.658569",
-                "rotationw": "1.000000",
-                "rotationx": "0.000000",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "1.000000",
-                "scaley": "1.000000",
-                "scalez": "1.000000"
-            },
-            "12": {
-                "Active": true,
-                "Resources": {
-                    "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
-                },
-                "Script variables": {
-                    "Count": 14,
-                    "Variable 0": {
-                        "DisplayObjectName": false,
-                        "Name": "ActiveDistance",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 60.0
-                    },
-                    "Variable 1": {
-                        "DisplayObjectName": false,
-                        "Name": "DistanceToCamera",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 10": {
-                        "DisplayObjectName": false,
-                        "Name": "SpawnRate",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 3.0
-                    },
-                    "Variable 11": {
-                        "DisplayObjectName": false,
-                        "Name": "camera_name",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "Camera"
-                    },
-                    "Variable 12": {
-                        "DisplayObjectName": false,
-                        "Name": "enemy_to_spawn",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": -1.0
-                    },
-                    "Variable 13": {
-                        "DisplayObjectName": false,
-                        "Name": "time",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 2": {
-                        "DisplayObjectName": false,
-                        "Name": "InfiniteEnemies",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": true
-                    },
-                    "Variable 3": {
-                        "DisplayObjectName": false,
-                        "Name": "NumberofEnemies",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 10.0
-                    },
-                    "Variable 4": {
-                        "DisplayObjectName": false,
-                        "Name": "Prefab_Archer",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 5": {
-                        "DisplayObjectName": false,
-                        "Name": "Prefab_Lumberjack",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 6": {
-                        "DisplayObjectName": false,
-                        "Name": "Prefab_Zomboid",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 7": {
-                        "DisplayObjectName": false,
-                        "Name": "Prefab_minion",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 8": {
-                        "DisplayObjectName": false,
-                        "Name": "Prefab_walker_Ghoul",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 9": {
-                        "DisplayObjectName": false,
-                        "Name": "SpawnRadius",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 5.0
-                    }
-                },
-                "UID": 1932582009,
-                "index": 1
-            }
-        },
-        "Index": 4,
-        "Name": "Spawner",
-        "Navigation Area": 0,
-        "Navigation Static": false,
-        "Parent": "-1",
         "Static": false
     },
     "2001957667": {
@@ -61115,6 +61816,141 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "2105993488",
+        "Static": false
+    },
+    "2004157268": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1753493547,
+                "index": 0,
+                "layer": "1",
+                "positionx": "864.784546",
+                "positiony": "23.451054",
+                "positionz": "-542.820313",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.400017",
+                "scaley": "0.400000",
+                "scalez": "0.400017"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
+                },
+                "Script variables": {
+                    "Count": 14,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "ActiveDistance",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 60.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "DistanceToCamera",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRate",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_name",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Camera"
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "enemy_to_spawn",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2.0
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "InfiniteEnemies",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "NumberofEnemies",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Archer",
+                        "ObjectName": "archer (0).prefab",
+                        "Type": "Double",
+                        "Value": 647695116.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Lumberjack",
+                        "ObjectName": "Lumberjackv2 (0).prefab",
+                        "Type": "Double",
+                        "Value": 1749568181.0
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Zomboid",
+                        "ObjectName": "Zomboid_Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 1233045812.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_minion",
+                        "ObjectName": "Minion_Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 1853337145.0
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_walker_Ghoul",
+                        "ObjectName": "Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 571222616.0
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRadius",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    }
+                },
+                "UID": 1971354678,
+                "index": 1
+            }
+        },
+        "Index": 13,
+        "Name": "CrossroadWalker",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1988886835",
         "Static": false
     },
     "200841302": {
@@ -61510,9 +62346,9 @@
                 "rotationx": "0.479388",
                 "rotationy": "0.813785",
                 "rotationz": "-0.033916",
-                "scalex": "0.996627",
+                "scalex": "0.996632",
                 "scaley": "0.996570",
-                "scalez": "1.692690"
+                "scalez": "1.692705"
             },
             "1": {
                 "Active": true,
@@ -61556,7 +62392,7 @@
                 "rotationx": "-0.047664",
                 "rotationy": "0.671446",
                 "rotationz": "0.739518",
-                "scalex": "0.322683",
+                "scalex": "0.322688",
                 "scaley": "0.351858",
                 "scalez": "0.351858"
             },
@@ -62096,141 +62932,6 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "556863867",
-        "Static": false
-    },
-    "2024862463": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "UID": 2033164248,
-                "index": 0,
-                "layer": "0",
-                "positionx": "641.393616",
-                "positiony": "43.810581",
-                "positionz": "-300.386261",
-                "rotationw": "1.000000",
-                "rotationx": "0.000000",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "1.000000",
-                "scaley": "1.000000",
-                "scalez": "1.000000"
-            },
-            "12": {
-                "Active": true,
-                "Resources": {
-                    "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
-                },
-                "Script variables": {
-                    "Count": 14,
-                    "Variable 0": {
-                        "DisplayObjectName": false,
-                        "Name": "ActiveDistance",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 60.0
-                    },
-                    "Variable 1": {
-                        "DisplayObjectName": false,
-                        "Name": "DistanceToCamera",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 10": {
-                        "DisplayObjectName": false,
-                        "Name": "SpawnRate",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 3.0
-                    },
-                    "Variable 11": {
-                        "DisplayObjectName": false,
-                        "Name": "camera_name",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "Camera"
-                    },
-                    "Variable 12": {
-                        "DisplayObjectName": false,
-                        "Name": "enemy_to_spawn",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": -1.0
-                    },
-                    "Variable 13": {
-                        "DisplayObjectName": false,
-                        "Name": "time",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 2": {
-                        "DisplayObjectName": false,
-                        "Name": "InfiniteEnemies",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": true
-                    },
-                    "Variable 3": {
-                        "DisplayObjectName": false,
-                        "Name": "NumberofEnemies",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 10.0
-                    },
-                    "Variable 4": {
-                        "DisplayObjectName": false,
-                        "Name": "Prefab_Archer",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 5": {
-                        "DisplayObjectName": false,
-                        "Name": "Prefab_Lumberjack",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 6": {
-                        "DisplayObjectName": false,
-                        "Name": "Prefab_Zomboid",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 7": {
-                        "DisplayObjectName": false,
-                        "Name": "Prefab_minion",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 8": {
-                        "DisplayObjectName": false,
-                        "Name": "Prefab_walker_Ghoul",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 9": {
-                        "DisplayObjectName": false,
-                        "Name": "SpawnRadius",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 5.0
-                    }
-                },
-                "UID": 1691001650,
-                "index": 1
-            }
-        },
-        "Index": 3,
-        "Name": "Spawner",
-        "Navigation Area": 0,
-        "Navigation Static": false,
-        "Parent": "-1",
         "Static": false
     },
     "2025615152": {
@@ -63559,7 +64260,7 @@
                 "positionx": "489.943329",
                 "positiony": "9.732668",
                 "positionz": "-22.572090",
-                "rotationw": "0.579227",
+                "rotationw": "0.579228",
                 "rotationx": "-0.579228",
                 "rotationy": "0.405580",
                 "rotationz": "0.405580",
@@ -63589,7 +64290,7 @@
                 "index": 2
             }
         },
-        "Index": 8,
+        "Index": 3,
         "Name": "Terrain_Low",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -63657,8 +64358,8 @@
                 "rotationx": "-0.187734",
                 "rotationy": "-0.215086",
                 "rotationz": "0.811608",
-                "scalex": "0.999959",
-                "scaley": "0.999960",
+                "scalex": "0.999954",
+                "scaley": "0.999955",
                 "scalez": "1.000002"
             },
             "13": {
@@ -65072,6 +65773,141 @@
         "Parent": "1360383407",
         "Static": false
     },
+    "2082201828": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 781369370,
+                "index": 0,
+                "layer": "1",
+                "positionx": "894.563965",
+                "positiony": "14.941420",
+                "positionz": "-432.312164",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.400017",
+                "scaley": "0.400000",
+                "scalez": "0.400017"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
+                },
+                "Script variables": {
+                    "Count": 14,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "ActiveDistance",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 80.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "DistanceToCamera",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRate",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2.0
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_name",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Camera"
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "enemy_to_spawn",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 4.0
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "InfiniteEnemies",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "NumberofEnemies",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 8.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Archer",
+                        "ObjectName": "archer (0).prefab",
+                        "Type": "Double",
+                        "Value": 647695116.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Lumberjack",
+                        "ObjectName": "Lumberjackv2 (0).prefab",
+                        "Type": "Double",
+                        "Value": 1749568181.0
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Zomboid",
+                        "ObjectName": "Zomboid_Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 1233045812.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_minion",
+                        "ObjectName": "Minion_Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 1853337145.0
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_walker_Ghoul",
+                        "ObjectName": "Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 571222616.0
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRadius",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 5.0
+                    }
+                },
+                "UID": 1808646613,
+                "index": 1
+            }
+        },
+        "Index": 16,
+        "Name": "LonelyMinions",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1988886835",
+        "Static": false
+    },
     "2083520487": {
         "Active": true,
         "Components": {
@@ -65401,8 +66237,8 @@
                 "rotationx": "0.212514",
                 "rotationy": "0.197291",
                 "rotationz": "0.757052",
-                "scalex": "1.000047",
-                "scaley": "1.000044",
+                "scalex": "1.000052",
+                "scaley": "1.000049",
                 "scalez": "0.999999"
             },
             "13": {
@@ -66835,7 +67671,7 @@
                 "positionx": "1146.493652",
                 "positiony": "30.277287",
                 "positionz": "175.972031",
-                "rotationw": "0.598893",
+                "rotationw": "0.598894",
                 "rotationx": "-0.587513",
                 "rotationy": "0.421494",
                 "rotationz": "0.344235",
@@ -66931,9 +67767,9 @@
                 "rotationx": "0.197807",
                 "rotationy": "0.842475",
                 "rotationz": "-0.471290",
-                "scalex": "1.189344",
+                "scalex": "1.189339",
                 "scaley": "1.189399",
-                "scalez": "1.518212"
+                "scalez": "1.518207"
             },
             "1": {
                 "Active": true,
@@ -67859,6 +68695,141 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1347484368",
+        "Static": false
+    },
+    "227075782": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 215773772,
+                "index": 0,
+                "layer": "1",
+                "positionx": "519.001587",
+                "positiony": "27.003902",
+                "positionz": "-250.074219",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.400017",
+                "scaley": "0.400000",
+                "scalez": "0.400017"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
+                },
+                "Script variables": {
+                    "Count": 14,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "ActiveDistance",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 20.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "DistanceToCamera",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRate",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.5
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_name",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Camera"
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "enemy_to_spawn",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 4.0
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "InfiniteEnemies",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "NumberofEnemies",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 3.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Archer",
+                        "ObjectName": "archer (0).prefab",
+                        "Type": "Double",
+                        "Value": 647695116.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Lumberjack",
+                        "ObjectName": "Lumberjackv2 (0).prefab",
+                        "Type": "Double",
+                        "Value": 1749568181.0
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Zomboid",
+                        "ObjectName": "Zomboid_Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 1233045812.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_minion",
+                        "ObjectName": "Minion_Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 1853337145.0
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_walker_Ghoul",
+                        "ObjectName": "Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 571222616.0
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRadius",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2.0
+                    }
+                },
+                "UID": 737669647,
+                "index": 1
+            }
+        },
+        "Index": 1,
+        "Name": "VillageMinions",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1988886835",
         "Static": false
     },
     "228975012": {
@@ -71906,7 +72877,7 @@
                 "positionx": "0.002900",
                 "positiony": "3.765500",
                 "positionz": "0.000000",
-                "rotationw": "0.989496",
+                "rotationw": "0.989497",
                 "rotationx": "-0.124914",
                 "rotationy": "-0.016658",
                 "rotationz": "-0.070822",
@@ -72197,8 +73168,8 @@
                 "rotationx": "0.297305",
                 "rotationy": "0.612992",
                 "rotationz": "0.689979",
-                "scalex": "0.429200",
-                "scaley": "0.429199",
+                "scalex": "0.429205",
+                "scaley": "0.429204",
                 "scalez": "0.429143"
             },
             "1": {
@@ -74397,6 +75368,141 @@
         "Parent": "1165236882",
         "Static": false
     },
+    "352812441": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 402979249,
+                "index": 0,
+                "layer": "1",
+                "positionx": "739.579468",
+                "positiony": "44.960262",
+                "positionz": "-499.341034",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.400017",
+                "scaley": "0.400000",
+                "scalez": "0.400017"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
+                },
+                "Script variables": {
+                    "Count": 14,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "ActiveDistance",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 60.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "DistanceToCamera",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRate",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_name",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Camera"
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "enemy_to_spawn",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 4.0
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "InfiniteEnemies",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "NumberofEnemies",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 4.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Archer",
+                        "ObjectName": "archer (0).prefab",
+                        "Type": "Double",
+                        "Value": 647695116.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Lumberjack",
+                        "ObjectName": "Lumberjackv2 (0).prefab",
+                        "Type": "Double",
+                        "Value": 1749568181.0
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Zomboid",
+                        "ObjectName": "Zomboid_Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 1233045812.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_minion",
+                        "ObjectName": "Minion_Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 1853337145.0
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_walker_Ghoul",
+                        "ObjectName": "Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 571222616.0
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRadius",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 5.0
+                    }
+                },
+                "UID": 1091930221,
+                "index": 1
+            }
+        },
+        "Index": 18,
+        "Name": "MinionsPutos",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1988886835",
+        "Static": false
+    },
     "353833635": {
         "Active": true,
         "Components": {
@@ -74619,6 +75725,276 @@
         "Parent": "914744743",
         "Static": false
     },
+    "356161945": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 662765797,
+                "index": 0,
+                "layer": "1",
+                "positionx": "681.740967",
+                "positiony": "49.065346",
+                "positionz": "-455.262909",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.400017",
+                "scaley": "0.400000",
+                "scalez": "0.400017"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
+                },
+                "Script variables": {
+                    "Count": 14,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "ActiveDistance",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 60.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "DistanceToCamera",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRate",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_name",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Camera"
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "enemy_to_spawn",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 3.0
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "InfiniteEnemies",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "NumberofEnemies",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Archer",
+                        "ObjectName": "archer (0).prefab",
+                        "Type": "Double",
+                        "Value": 647695116.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Lumberjack",
+                        "ObjectName": "Lumberjackv2 (0).prefab",
+                        "Type": "Double",
+                        "Value": 1749568181.0
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Zomboid",
+                        "ObjectName": "Zomboid_Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 1233045812.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_minion",
+                        "ObjectName": "Minion_Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 1853337145.0
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_walker_Ghoul",
+                        "ObjectName": "Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 571222616.0
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRadius",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 7.0
+                    }
+                },
+                "UID": 1583913495,
+                "index": 1
+            }
+        },
+        "Index": 10,
+        "Name": "ZomboidsAfterBridge",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1988886835",
+        "Static": false
+    },
+    "357537894": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 2080663691,
+                "index": 0,
+                "layer": "1",
+                "positionx": "700.386780",
+                "positiony": "49.065346",
+                "positionz": "-452.632965",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.400017",
+                "scaley": "0.400000",
+                "scalez": "0.400017"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
+                },
+                "Script variables": {
+                    "Count": 14,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "ActiveDistance",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 60.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "DistanceToCamera",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRate",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.75
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_name",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Camera"
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "enemy_to_spawn",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 4.0
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "InfiniteEnemies",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "NumberofEnemies",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 5.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Archer",
+                        "ObjectName": "archer (0).prefab",
+                        "Type": "Double",
+                        "Value": 647695116.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Lumberjack",
+                        "ObjectName": "Lumberjackv2 (0).prefab",
+                        "Type": "Double",
+                        "Value": 1749568181.0
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Zomboid",
+                        "ObjectName": "Zomboid_Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 1233045812.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_minion",
+                        "ObjectName": "Minion_Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 1853337145.0
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_walker_Ghoul",
+                        "ObjectName": "Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 571222616.0
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRadius",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 5.0
+                    }
+                },
+                "UID": 1524906373,
+                "index": 1
+            }
+        },
+        "Index": 9,
+        "Name": "MinionsAfterBridge",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1988886835",
+        "Static": false
+    },
     "36156491": {
         "Active": true,
         "Components": {
@@ -74793,7 +76169,7 @@
                 "scalez": "1.000000"
             }
         },
-        "Index": 11,
+        "Index": 6,
         "Name": "Props",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -75398,6 +76774,141 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1360383407",
+        "Static": false
+    },
+    "373683919": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1504584583,
+                "index": 0,
+                "layer": "1",
+                "positionx": "745.263489",
+                "positiony": "42.443314",
+                "positionz": "-510.777222",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.400017",
+                "scaley": "0.400000",
+                "scalez": "0.400017"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
+                },
+                "Script variables": {
+                    "Count": 14,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "ActiveDistance",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 60.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "DistanceToCamera",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRate",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2.0
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_name",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Camera"
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "enemy_to_spawn",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2.0
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "InfiniteEnemies",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "NumberofEnemies",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Archer",
+                        "ObjectName": "archer (0).prefab",
+                        "Type": "Double",
+                        "Value": 647695116.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Lumberjack",
+                        "ObjectName": "Lumberjackv2 (0).prefab",
+                        "Type": "Double",
+                        "Value": 1749568181.0
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Zomboid",
+                        "ObjectName": "Zomboid_Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 1233045812.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_minion",
+                        "ObjectName": "Minion_Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 1853337145.0
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_walker_Ghoul",
+                        "ObjectName": "Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 571222616.0
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRadius",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 5.0
+                    }
+                },
+                "UID": 725919677,
+                "index": 1
+            }
+        },
+        "Index": 11,
+        "Name": "WalkersPutos",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1988886835",
         "Static": false
     },
     "373977328": {
@@ -76313,7 +77824,7 @@
                 "positionx": "-0.005500",
                 "positiony": "2.774000",
                 "positionz": "0.000008",
-                "rotationw": "0.965709",
+                "rotationw": "0.965708",
                 "rotationx": "0.259539",
                 "rotationy": "-0.000541",
                 "rotationz": "0.006807",
@@ -76601,141 +78112,6 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "648003594",
-        "Static": false
-    },
-    "390521825": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "UID": 1837833788,
-                "index": 0,
-                "layer": "0",
-                "positionx": "873.031860",
-                "positiony": "15.023179",
-                "positionz": "-530.997070",
-                "rotationw": "1.000000",
-                "rotationx": "0.000000",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "1.000000",
-                "scaley": "1.000000",
-                "scalez": "1.000000"
-            },
-            "12": {
-                "Active": true,
-                "Resources": {
-                    "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
-                },
-                "Script variables": {
-                    "Count": 14,
-                    "Variable 0": {
-                        "DisplayObjectName": false,
-                        "Name": "ActiveDistance",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 60.0
-                    },
-                    "Variable 1": {
-                        "DisplayObjectName": false,
-                        "Name": "DistanceToCamera",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 10": {
-                        "DisplayObjectName": false,
-                        "Name": "SpawnRate",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 3.0
-                    },
-                    "Variable 11": {
-                        "DisplayObjectName": false,
-                        "Name": "camera_name",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "Camera"
-                    },
-                    "Variable 12": {
-                        "DisplayObjectName": false,
-                        "Name": "enemy_to_spawn",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": -1.0
-                    },
-                    "Variable 13": {
-                        "DisplayObjectName": false,
-                        "Name": "time",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 2": {
-                        "DisplayObjectName": false,
-                        "Name": "InfiniteEnemies",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": true
-                    },
-                    "Variable 3": {
-                        "DisplayObjectName": false,
-                        "Name": "NumberofEnemies",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 10.0
-                    },
-                    "Variable 4": {
-                        "DisplayObjectName": false,
-                        "Name": "Prefab_Archer",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 5": {
-                        "DisplayObjectName": false,
-                        "Name": "Prefab_Lumberjack",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 6": {
-                        "DisplayObjectName": false,
-                        "Name": "Prefab_Zomboid",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 7": {
-                        "DisplayObjectName": false,
-                        "Name": "Prefab_minion",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 8": {
-                        "DisplayObjectName": false,
-                        "Name": "Prefab_walker_Ghoul",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 9": {
-                        "DisplayObjectName": false,
-                        "Name": "SpawnRadius",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 5.0
-                    }
-                },
-                "UID": 455498794,
-                "index": 1
-            }
-        },
-        "Index": 5,
-        "Name": "Spawner",
-        "Navigation Area": 0,
-        "Navigation Static": false,
-        "Parent": "-1",
         "Static": false
     },
     "391760574": {
@@ -78229,8 +79605,8 @@
                 "rotationx": "-0.297388",
                 "rotationy": "0.033590",
                 "rotationz": "0.933444",
-                "scalex": "0.999942",
-                "scaley": "0.999942",
+                "scalex": "0.999937",
+                "scaley": "0.999937",
                 "scalez": "1.000000"
             },
             "13": {
@@ -82254,8 +83630,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000254",
-                "scalez": "1.000254"
+                "scaley": "1.000259",
+                "scalez": "1.000259"
             }
         },
         "Index": 0,
@@ -83961,7 +85337,7 @@
                 "positionx": "953.373169",
                 "positiony": "-10.766871",
                 "positionz": "568.997620",
-                "rotationw": "0.598204",
+                "rotationw": "0.598203",
                 "rotationx": "-0.073935",
                 "rotationy": "-0.530170",
                 "rotationz": "-0.596327",
@@ -84645,7 +86021,7 @@
                 "visible": "1"
             }
         },
-        "Index": 13,
+        "Index": 8,
         "Name": "JASK",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -84926,9 +86302,9 @@
                 "rotationx": "-0.042287",
                 "rotationy": "0.903008",
                 "rotationz": "0.422164",
-                "scalex": "0.842754",
+                "scalex": "0.842749",
                 "scaley": "0.842807",
-                "scalez": "0.842757"
+                "scalez": "0.842752"
             },
             "21": {
                 "Active": true,
@@ -85383,7 +86759,7 @@
                 "visible": "1"
             }
         },
-        "Index": 12,
+        "Index": 7,
         "Name": "GER",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -85438,9 +86814,9 @@
                 "rotationx": "0.000000",
                 "rotationy": "0.996195",
                 "rotationz": "0.000000",
-                "scalex": "3.500266",
+                "scalex": "3.500291",
                 "scaley": "3.500000",
-                "scalez": "3.500266"
+                "scalez": "3.500291"
             }
         },
         "Index": 8,
@@ -87367,7 +88743,7 @@
                 "positionx": "-0.004432",
                 "positiony": "3.575775",
                 "positionz": "0.000000",
-                "rotationw": "0.935309",
+                "rotationw": "0.935310",
                 "rotationx": "0.353512",
                 "rotationy": "0.002161",
                 "rotationz": "-0.014860",
@@ -88283,7 +89659,7 @@
                 "stepOffset": "0.300000"
             }
         },
-        "Index": 14,
+        "Index": 9,
         "Name": "Kikimora",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -88823,6 +90199,141 @@
         "Parent": "1403465268",
         "Static": false
     },
+    "584626984": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "UID": 1583040274,
+                "index": 0,
+                "layer": "1",
+                "positionx": "645.953369",
+                "positiony": "45.783028",
+                "positionz": "-325.061432",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.400017",
+                "scaley": "0.400000",
+                "scalez": "0.400017"
+            },
+            "12": {
+                "Active": false,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
+                },
+                "Script variables": {
+                    "Count": 14,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "ActiveDistance",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 60.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "DistanceToCamera",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRate",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_name",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Camera"
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "enemy_to_spawn",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "InfiniteEnemies",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "NumberofEnemies",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Archer",
+                        "ObjectName": "archer (0).prefab",
+                        "Type": "Double",
+                        "Value": 647695116.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Lumberjack",
+                        "ObjectName": "Lumberjackv2 (0).prefab",
+                        "Type": "Double",
+                        "Value": 1749568181.0
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Zomboid",
+                        "ObjectName": "Zomboid_Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 1233045812.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_minion",
+                        "ObjectName": "Minion_Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 1853337145.0
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_walker_Ghoul",
+                        "ObjectName": "Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 571222616.0
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRadius",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 5.0
+                    }
+                },
+                "UID": 1838668467,
+                "index": 1
+            }
+        },
+        "Index": 7,
+        "Name": "BridgeArchers",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1988886835",
+        "Static": false
+    },
     "584862306": {
         "Active": true,
         "Components": {
@@ -89123,6 +90634,141 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1704954588",
+        "Static": false
+    },
+    "588788570": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 301953925,
+                "index": 0,
+                "layer": "1",
+                "positionx": "641.305298",
+                "positiony": "28.699699",
+                "positionz": "-182.585403",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.400017",
+                "scaley": "0.400000",
+                "scalez": "0.400017"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
+                },
+                "Script variables": {
+                    "Count": 14,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "ActiveDistance",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 60.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "DistanceToCamera",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRate",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.5
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_name",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Camera"
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "enemy_to_spawn",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 4.0
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "InfiniteEnemies",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "NumberofEnemies",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 6.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Archer",
+                        "ObjectName": "archer (0).prefab",
+                        "Type": "Double",
+                        "Value": 647695116.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Lumberjack",
+                        "ObjectName": "Lumberjackv2 (0).prefab",
+                        "Type": "Double",
+                        "Value": 1749568181.0
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Zomboid",
+                        "ObjectName": "Zomboid_Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 1233045812.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_minion",
+                        "ObjectName": "Minion_Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 1853337145.0
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_walker_Ghoul",
+                        "ObjectName": "Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 571222616.0
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRadius",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 8.0
+                    }
+                },
+                "UID": 616791942,
+                "index": 1
+            }
+        },
+        "Index": 4,
+        "Name": "CampedMinions",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1988886835",
         "Static": false
     },
     "59133917": {
@@ -89654,6 +91300,141 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1360383407",
+        "Static": false
+    },
+    "603509663": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1615893055,
+                "index": 0,
+                "layer": "1",
+                "positionx": "548.522034",
+                "positiony": "27.028667",
+                "positionz": "-268.905182",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.400017",
+                "scaley": "0.400000",
+                "scalez": "0.400017"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
+                },
+                "Script variables": {
+                    "Count": 14,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "ActiveDistance",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 60.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "DistanceToCamera",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRate",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_name",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Camera"
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "enemy_to_spawn",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "InfiniteEnemies",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "NumberofEnemies",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Archer",
+                        "ObjectName": "archer (0).prefab",
+                        "Type": "Double",
+                        "Value": 647695116.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Lumberjack",
+                        "ObjectName": "Lumberjackv2 (0).prefab",
+                        "Type": "Double",
+                        "Value": 1749568181.0
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Zomboid",
+                        "ObjectName": "Zomboid_Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 1233045812.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_minion",
+                        "ObjectName": "Minion_Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 1853337145.0
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_walker_Ghoul",
+                        "ObjectName": "Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 571222616.0
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRadius",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    }
+                },
+                "UID": 2012050413,
+                "index": 1
+            }
+        },
+        "Index": 2,
+        "Name": "VillageLumberjack",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1988886835",
         "Static": false
     },
     "60534099": {
@@ -90384,8 +92165,8 @@
                 "rotationx": "0.046474",
                 "rotationy": "0.155068",
                 "rotationz": "0.844688",
-                "scalex": "1.000046",
-                "scaley": "1.000046",
+                "scalex": "1.000051",
+                "scaley": "1.000051",
                 "scalez": "1.000000"
             },
             "13": {
@@ -92027,7 +93808,7 @@
                 "scalez": "1.000000"
             }
         },
-        "Index": 7,
+        "Index": 2,
         "Name": "Pause Button",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -92157,13 +93938,13 @@
                 "positionx": "557.393005",
                 "positiony": "22.799999",
                 "positionz": "-238.013000",
-                "rotationw": "0.883765",
+                "rotationw": "0.883766",
                 "rotationx": "0.000000",
                 "rotationy": "0.467930",
                 "rotationz": "0.000000",
-                "scalex": "3.499999",
+                "scalex": "3.499998",
                 "scaley": "3.500000",
-                "scalez": "3.499999"
+                "scalez": "3.499998"
             }
         },
         "Index": 12,
@@ -94617,7 +96398,7 @@
                 "index": 5
             }
         },
-        "Index": 16,
+        "Index": 11,
         "Name": "Jaskier",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -95006,9 +96787,9 @@
                 "rotationx": "-0.000000",
                 "rotationy": "-0.830610",
                 "rotationz": "0.000000",
-                "scalex": "2.500075",
+                "scalex": "2.500083",
                 "scaley": "2.500002",
-                "scalez": "2.500075"
+                "scalez": "2.500083"
             }
         },
         "Index": 6,
@@ -95485,9 +97266,9 @@
                 "rotationx": "0.009531",
                 "rotationy": "0.682656",
                 "rotationz": "0.730301",
-                "scalex": "1.532331",
-                "scaley": "1.532388",
-                "scalez": "1.692458"
+                "scalex": "1.532321",
+                "scaley": "1.532383",
+                "scalez": "1.692453"
             },
             "1": {
                 "Active": true,
@@ -96507,7 +98288,7 @@
                 "positionx": "914.117249",
                 "positiony": "-10.766871",
                 "positionz": "515.977600",
-                "rotationw": "0.598204",
+                "rotationw": "0.598203",
                 "rotationx": "-0.073935",
                 "rotationy": "-0.530170",
                 "rotationz": "-0.596327",
@@ -98078,7 +99859,7 @@
                 "rotationy": "-0.490121",
                 "rotationz": "-0.492056",
                 "scalex": "0.613431",
-                "scaley": "0.668956",
+                "scaley": "0.668951",
                 "scalez": "0.668963"
             },
             "1": {
@@ -98644,12 +100425,12 @@
                 "positionx": "1078.758789",
                 "positiony": "34.494045",
                 "positionz": "240.021896",
-                "rotationw": "0.684673",
+                "rotationw": "0.684672",
                 "rotationx": "-0.261888",
                 "rotationy": "-0.311136",
                 "rotationz": "0.604841",
-                "scalex": "1.075148",
-                "scaley": "1.075148",
+                "scalex": "1.075149",
+                "scaley": "1.075149",
                 "scalez": "1.075149"
             },
             "1": {
@@ -99637,8 +101418,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.070461",
-                "scaley": "15.155942",
-                "scalez": "1.367904"
+                "scaley": "15.155985",
+                "scalez": "1.367909"
             },
             "1": {
                 "Active": true,
@@ -101783,8 +103564,8 @@
                 "rotationx": "0.393494",
                 "rotationy": "0.330420",
                 "rotationz": "0.843451",
-                "scalex": "0.999942",
-                "scaley": "0.999942",
+                "scalex": "0.999937",
+                "scaley": "0.999937",
                 "scalez": "1.000000"
             },
             "13": {
@@ -103381,7 +105162,7 @@
                 "positionx": "-1.210344",
                 "positiony": "8.754818",
                 "positionz": "-0.159492",
-                "rotationw": "0.978748",
+                "rotationw": "0.978749",
                 "rotationx": "0.203571",
                 "rotationy": "0.020149",
                 "rotationz": "0.014293",
@@ -104183,7 +105964,7 @@
                 "positionx": "689.703796",
                 "positiony": "25.473682",
                 "positionz": "-147.800812",
-                "rotationw": "0.833525",
+                "rotationw": "0.833524",
                 "rotationx": "-0.386245",
                 "rotationy": "-0.353874",
                 "rotationz": "-0.175571",
@@ -104200,8 +105981,8 @@
                 "ColorG": "0.407843",
                 "ColorR": "0.725490",
                 "DirectionX": "0.454298",
-                "DirectionY": "-0.768149",
-                "DirectionZ": "-0.451176",
+                "DirectionY": "-0.768150",
+                "DirectionZ": "-0.451175",
                 "DistanceMultiplier": "1.000000",
                 "DrawMesh": true,
                 "InnerCutoff": "48.000000",
@@ -104929,7 +106710,7 @@
                 "positionx": "1021.481567",
                 "positiony": "5.847408",
                 "positionz": "199.147491",
-                "rotationw": "0.509452",
+                "rotationw": "0.509453",
                 "rotationx": "-0.452981",
                 "rotationy": "0.510802",
                 "rotationz": "0.523782",
@@ -105093,8 +106874,8 @@
                 "globalMatrixx": "659.591797",
                 "globalMatrixy": "24.691164",
                 "globalMatrixz": "-154.158218",
-                "globalPositionx": "84.555061",
-                "globalPositiony": "84.812263",
+                "globalPositionx": "84.555054",
+                "globalPositiony": "84.812271",
                 "globalPositionz": "94.199867",
                 "hasBeenDeactivated": "0",
                 "height": "1.000000",
@@ -105103,17 +106884,17 @@
                 "isTrigger": "0",
                 "lastIndex": "1",
                 "localMatrixw": "1.000000",
-                "localMatrixx": "1.084596",
-                "localMatrixy": "-0.908488",
+                "localMatrixx": "1.084605",
+                "localMatrixy": "-0.908497",
                 "localMatrixz": "45.883709",
                 "localPositionx": "0.000000",
                 "localPositiony": "0.000000",
                 "localPositionz": "0.000000",
-                "offsetx": "1.084596",
-                "offsety": "-0.908488",
+                "offsetx": "1.084605",
+                "offsety": "-0.908497",
                 "offsetz": "45.883709",
-                "originalScalex": "84.555061",
-                "originalScaley": "84.812263",
+                "originalScalex": "84.555054",
+                "originalScaley": "84.812271",
                 "originalScalez": "94.199867",
                 "radius": "1.000000",
                 "scalex": "1.000000",
@@ -105503,7 +107284,7 @@
                 "positionx": "-2.501400",
                 "positiony": "2.460600",
                 "positionz": "1.849000",
-                "rotationw": "0.868790",
+                "rotationw": "0.868791",
                 "rotationx": "0.345703",
                 "rotationy": "0.177479",
                 "rotationz": "0.306910",
@@ -105625,8 +107406,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000254",
-                "scalez": "1.000254"
+                "scaley": "1.000259",
+                "scalez": "1.000259"
             }
         },
         "Index": 0,
@@ -105646,13 +107427,13 @@
                 "positionx": "481.173004",
                 "positiony": "22.799999",
                 "positionz": "-276.549988",
-                "rotationw": "0.669131",
+                "rotationw": "0.669130",
                 "rotationx": "-0.000000",
                 "rotationy": "-0.743145",
                 "rotationz": "0.000000",
-                "scalex": "3.500009",
+                "scalex": "3.500014",
                 "scaley": "3.500000",
-                "scalez": "3.500009"
+                "scalez": "3.500014"
             }
         },
         "Index": 9,
@@ -106888,7 +108669,7 @@
                 "positionx": "120.682297",
                 "positiony": "0.000229",
                 "positionz": "-0.000031",
-                "rotationw": "0.912570",
+                "rotationw": "0.912569",
                 "rotationx": "0.192342",
                 "rotationy": "0.174447",
                 "rotationz": "-0.315895",
@@ -109541,9 +111322,9 @@
                 "rotationx": "-0.595506",
                 "rotationy": "0.393283",
                 "rotationz": "0.695841",
-                "scalex": "0.704868",
-                "scaley": "0.704869",
-                "scalez": "1.197069"
+                "scalex": "0.704873",
+                "scaley": "0.704874",
+                "scalez": "1.197074"
             },
             "1": {
                 "Active": true,
@@ -109795,7 +111576,7 @@
                 "rotationx": "-0.085506",
                 "rotationy": "0.689620",
                 "rotationz": "0.705077",
-                "scalex": "0.339915",
+                "scalex": "0.339920",
                 "scaley": "0.339858",
                 "scalez": "0.207319"
             },
@@ -110852,6 +112633,141 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "253441313",
+        "Static": false
+    },
+    "94967153": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1631224941,
+                "index": 0,
+                "layer": "1",
+                "positionx": "858.288696",
+                "positiony": "17.985792",
+                "positionz": "-526.780884",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.400017",
+                "scaley": "0.400000",
+                "scalez": "0.400017"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
+                },
+                "Script variables": {
+                    "Count": 14,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "ActiveDistance",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 60.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "DistanceToCamera",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRate",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_name",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Camera"
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "enemy_to_spawn",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 4.0
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "InfiniteEnemies",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "NumberofEnemies",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 7.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Archer",
+                        "ObjectName": "archer (0).prefab",
+                        "Type": "Double",
+                        "Value": 647695116.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Lumberjack",
+                        "ObjectName": "Lumberjackv2 (0).prefab",
+                        "Type": "Double",
+                        "Value": 1749568181.0
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_Zomboid",
+                        "ObjectName": "Zomboid_Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 1233045812.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_minion",
+                        "ObjectName": "Minion_Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 1853337145.0
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": true,
+                        "Name": "Prefab_walker_Ghoul",
+                        "ObjectName": "Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 571222616.0
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRadius",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 5.0
+                    }
+                },
+                "UID": 2133913060,
+                "index": 1
+            }
+        },
+        "Index": 12,
+        "Name": "CrossroadMinions",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1988886835",
         "Static": false
     },
     "950202321": {
@@ -112437,7 +114353,7 @@
                 "positionx": "958.614380",
                 "positiony": "-9.111173",
                 "positionz": "502.115265",
-                "rotationw": "0.532728",
+                "rotationw": "0.532727",
                 "rotationx": "-0.545053",
                 "rotationy": "-0.450463",
                 "rotationz": "-0.464975",
@@ -112483,7 +114399,7 @@
                 "positionx": "407.563995",
                 "positiony": "33.900002",
                 "positionz": "-330.600006",
-                "rotationw": "0.943447",
+                "rotationw": "0.943446",
                 "rotationx": "-0.004686",
                 "rotationy": "-0.331223",
                 "rotationz": "0.013347",

@@ -1,6 +1,6 @@
 {
-    "PreviewTexture": "Library/Textures/1092388251.dds",
-    "Spawner": {
+    "EnemySpawner": {
+        "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
@@ -21,7 +21,7 @@
                     "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
                 },
                 "Script variables": {
-                    "Count": 13,
+                    "Count": 14,
                     "Variable 0": {
                         "DisplayObjectName": false,
                         "Name": "ActiveDistance",
@@ -38,19 +38,26 @@
                     },
                     "Variable 10": {
                         "DisplayObjectName": false,
+                        "Name": "SpawnRate",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
                         "Name": "camera_name",
                         "ObjectName": "",
                         "Type": "String",
                         "Value": "Camera"
                     },
-                    "Variable 11": {
+                    "Variable 12": {
                         "DisplayObjectName": false,
                         "Name": "enemy_to_spawn",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": -1.0
                     },
-                    "Variable 12": {
+                    "Variable 13": {
                         "DisplayObjectName": false,
                         "Name": "time",
                         "ObjectName": "",
@@ -81,9 +88,9 @@
                     "Variable 5": {
                         "DisplayObjectName": true,
                         "Name": "Prefab_Lumberjack",
-                        "ObjectName": "Lumberjack (0).prefab",
+                        "ObjectName": "Lumberjackv2 (0).prefab",
                         "Type": "Double",
-                        "Value": 106650205.0
+                        "Value": 1749568181.0
                     },
                     "Variable 6": {
                         "DisplayObjectName": true,
@@ -108,17 +115,19 @@
                     },
                     "Variable 9": {
                         "DisplayObjectName": false,
-                        "Name": "SpawnRate",
+                        "Name": "SpawnRadius",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 1.0
+                        "Value": 5.0
                     }
                 }
             }
         },
-        "Parent": "1672252070",
+        "Parent": "1951300244",
         "PrefabChild": true,
         "PrefabInstance": true,
-        "UID": "29064366"
-    }
+        "Static": false,
+        "UID": "1443635532"
+    },
+    "PreviewTexture": "Library/Textures/946664322.dds"
 }
