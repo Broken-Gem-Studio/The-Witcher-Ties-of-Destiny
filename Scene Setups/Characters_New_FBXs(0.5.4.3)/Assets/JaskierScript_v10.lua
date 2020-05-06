@@ -1428,7 +1428,7 @@ local function ActionInputs()	--Process Action Inputs
 				end
 			else
 				--LEGACY REVIVE (used when needed revive GO doesn't exist)
-				local downed_list = lua_table.PhysicsFunctions:OverlapSphere(jaskier_pos[1], jaskier_pos[2], jaskier_pos[3], lua_table.revive_range, layers.player)
+				local downed_list = lua_table.PhysicsFunctions:OverlapSphere(jaskier_pos[1], jaskier_pos[2], jaskier_pos[3], 3.0, layers.player)
 	
 				for i = 1, #downed_list do	--Check nearby players
 					if downed_list[i] ~= jaskier_GO_UID	--IF player is not me
