@@ -6,6 +6,7 @@ lua_table.Transform = Scripting.Transform()
 lua_table.Physics =  Scripting.Physics()
 lua_table.Animations = Scripting.Animations()
 lua_table.Recast = Scripting.Navigation()
+lua_table.Particles = Scripting.Particles()
 -- DEBUG PURPOSES
 --lua_table.Input = Scripting.Inputs()
 
@@ -116,6 +117,8 @@ local Front_Collider = 0
 lua_table.collider_damage = 0
 lua_table.collider_effect = 0
 
+local HitEmitter_UID = 0
+
 local random_attack = 0
 
 -- ______________________SCRIPT FUNCTIONS______________________
@@ -219,6 +222,8 @@ local function AttackColliderShutdown()
 		lua_table.GameObjectFunctions:SetActiveGameObject(false, Front_Att_Coll)	--TODO-Colliders: Check
 		is_front_active = false
 	end
+
+	lua_table.Particles:StopParticleEmitter(HitEmitter_UID)
 end
 	
 local function Idle() 
@@ -372,9 +377,11 @@ end
 
 local function Die()
 	if not start_death then 
+		lua_table.Particles:StopParticleEmitter(HitEmitter_UID)
 		death_timer = lua_table.System:GameTime() * 1000
 		lua_table.System:LOG("Im dying")  
 		lua_table.Animations:PlayAnimation("Death", 30.0, lua_table.MyUID)
+		lua_table.Particles:PlayParticleEmitter(HitEmitter_UID)
 		start_death = true
 	end
 
@@ -448,6 +455,7 @@ function lua_table:OnTriggerEnter()
 			else
 				AttackColliderShutdown()
 				lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
+				lua_table.Particles:PlayParticleEmitter(HitEmitter_UID)
 				lua_table.System:LOG("Hit registered")
 			end
 		end
@@ -516,6 +524,7 @@ function lua_table:RequestedTrigger(collider_GO)
 		else
 			AttackColliderShutdown()
 			lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
+			lua_table.Particles:PlayParticleEmitter(HitEmitter_UID)
 			lua_table.System:LOG("Hit registered")
 		end
 	end
@@ -524,6 +533,10 @@ end
 -- ______________________MAIN CODE______________________
 function lua_table:Awake()
 	lua_table.System:LOG("Minion AWAKE")
+
+	HitEmitter_UID = lua_table.GameObject:FindChildGameObject("MinionHit_Emitter")
+	
+	lua_table.Particles:StopParticleEmitter(HitEmitter_UID)
 end
 
 function lua_table:Start()
