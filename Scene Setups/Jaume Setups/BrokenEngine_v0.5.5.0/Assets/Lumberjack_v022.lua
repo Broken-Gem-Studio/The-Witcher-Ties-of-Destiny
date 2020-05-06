@@ -162,6 +162,8 @@ local Aux_TargetExist = false
 local DistanceMagnitudeAux_Target = 0
 local UseAuxVariables = false
 
+local JumpAttack_CautionTime = 0
+
 --Die()
 
 lua_table.Dead = false
@@ -712,8 +714,9 @@ local function HandleSEEK()
 		--lua_table.SystemFunctions:LOG("seekTarget()")
 		seekTarget()
 	end
+	
 	--#####################################################################################   SEEK DONE
-	if DistanceMagnitude < 15 and lua_table.JumpAttackDone == false 
+	if DistanceMagnitude < 15 and DistanceMagnitude > 14 and lua_table.JumpAttackDone == false 
 	then
 		UseAuxVariables = true	
 	end
@@ -895,7 +898,7 @@ function lua_table:RequestedTrigger(collider_GO)
 			end
 			if player_script.collider_effect == attack_effects.knockback
 			then
-				lua_table.CurrentSpecialEffect = SpecialEffect.KNOCKBACK
+				lua_table.CurrentSpecialEffect = SpecialEffect.STUNNED
 			end
 		end
 	end
