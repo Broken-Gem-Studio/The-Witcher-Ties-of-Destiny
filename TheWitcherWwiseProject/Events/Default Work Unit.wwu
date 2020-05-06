@@ -1287,39 +1287,6 @@
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="Play_Potion_health" ID="{C05B1189-7F21-461A-9DCD-5E5DA23A5762}">
-							<ChildrenList>
-								<Action Name="" ID="{183EBDD0-104A-466A-B7CF-AA7612AFBDE1}" ShortID="721284658">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Potion_health" ID="{B8015DE1-6EB1-48E2-9CD0-FC402FE6AFF4}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Play_Potion_stamina" ID="{F87DA683-79E7-4510-B476-65F236C69D5D}">
-							<ChildrenList>
-								<Action Name="" ID="{1ECD0CE2-8702-460D-AABB-B976A38CE843}" ShortID="575269267">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Potion_stamina" ID="{2976D89F-04D0-447C-A09E-104715E2E260}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Play_Potion_power" ID="{8B4A3ADF-B4C5-41AD-BBE6-071424C53D2E}">
-							<ChildrenList>
-								<Action Name="" ID="{7B10880D-760C-4CB4-8160-28FE391C3051}" ShortID="813373760">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Potion_power" ID="{D13895BC-8D57-4976-8F12-A7218D155073}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
 						<Folder Name="Prop" ID="{B0F6E695-68E2-4FB0-8AD0-53C64666803B}" ShortID="520489018">
 							<ChildrenList>
 								<Event Name="Play_Hit_Wood_Sound_3" ID="{39419DBE-7642-4D66-A5F9-DD8A9069C226}">
@@ -1467,6 +1434,39 @@
 								</Event>
 							</ChildrenList>
 						</Folder>
+						<Event Name="Play_Potion_health" ID="{BB22F711-9CDB-445B-9371-A2CB82B1EA11}">
+							<ChildrenList>
+								<Action Name="" ID="{D7F672E3-901A-48DC-9021-2E7259E377DD}" ShortID="378061583">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Potion_health" ID="{D320C16A-E81F-4EA7-99A9-8775DFEC5FBD}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Potion_stamina" ID="{76B620AA-3182-4C5A-913C-DCFD36D7FF8C}">
+							<ChildrenList>
+								<Action Name="" ID="{4506C2EC-6D5C-4284-8062-18390C8F3497}" ShortID="625852038">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Potion_stamina" ID="{0EE9ADB2-13D2-41F9-A8E1-CF96B4A12627}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Potion_power" ID="{82A606A2-8A16-4AA6-B63C-FAD89C0F26CF}">
+							<ChildrenList>
+								<Action Name="" ID="{9078DB3E-2F60-42DA-933B-FA8BA87CF914}" ShortID="326245648">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Potion_power" ID="{9ACDCACE-D654-4729-80BC-D45FE266357C}" WorkUnitID="{B12AC232-F5D9-4859-8F50-F79266D8DAE7}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="UI" ID="{A1C3A21C-23A4-47D4-BEF0-DE7FB1CD1464}" ShortID="599998731">
