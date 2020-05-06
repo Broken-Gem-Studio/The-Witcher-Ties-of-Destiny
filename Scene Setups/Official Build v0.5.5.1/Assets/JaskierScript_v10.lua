@@ -41,6 +41,10 @@ local jaskier_guitar_cone_particles_2_GO_UID
 local jaskier_concert_particles_1_GO_UID
 local jaskier_concert_particles_2_GO_UID
 
+local health_potion_particles_GO_UID
+local stamina_potion_particles_GO_UID
+local power_potion_particles_GO_UID
+
 lua_table.level_1_scene = 0
 
 	--Particles
@@ -847,6 +851,10 @@ local function ParticlesShutdown()
 
 	lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_concert_particles_1_GO_UID)
 	lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_concert_particles_2_GO_UID)
+
+	lua_table.ParticlesFunctions:StopParticleEmitter(health_potion_particles_GO_UID)
+	lua_table.ParticlesFunctions:StopParticleEmitter(stamina_potion_particles_GO_UID)
+	lua_table.ParticlesFunctions:StopParticleEmitter(power_potion_particles_GO_UID)
 end
 
 --Character Particles END	----------------------------------------------------------------------------
@@ -1460,34 +1468,46 @@ end
 local function TakeHealthPotion()
 	lua_table.current_health = lua_table.current_health + lua_table.max_health_real / item_effects[lua_table.item_library.health_potion].health_recovery
 	lua_table.health_reg_mod = lua_table.health_reg_mod + item_effects[lua_table.item_library.health_potion].health_regen
+	
+	lua_table.ParticlesFunctions:PlayParticleEmitter(health_potion_particles_GO_UID)
 
 	if lua_table.current_health > lua_table.max_health_real then lua_table.current_health = lua_table.max_health_real end	--IF above max, set to max
 end
 
 local function EndHealthPotion()
 	lua_table.health_reg_mod = lua_table.health_reg_mod - item_effects[lua_table.item_library.health_potion].health_regen
+
+	lua_table.ParticlesFunctions:StopParticleEmitter(health_potion_particles_GO_UID)
 end
 
 --Stamina Potion
 local function TakeStaminaPotion()
 	lua_table.mov_velocity_max_mod = lua_table.mov_velocity_max_mod + item_effects[lua_table.item_library.stamina_potion].speed_increase
 	lua_table.energy_reg_mod = lua_table.energy_reg_mod + item_effects[lua_table.item_library.stamina_potion].energy_regen
+
+	lua_table.ParticlesFunctions:PlayParticleEmitter(stamina_potion_particles_GO_UID)
 end
 
 local function EndStaminaPotion()
 	lua_table.mov_velocity_max_mod = lua_table.mov_velocity_max_mod - item_effects[lua_table.item_library.stamina_potion].speed_increase
 	lua_table.energy_reg_mod = lua_table.energy_reg_mod - item_effects[lua_table.item_library.stamina_potion].energy_regen
+
+	lua_table.ParticlesFunctions:StopParticleEmitter(stamina_potion_particles_GO_UID)
 end
 
 --Power Potion
 local function TakePowerPotion()
 	lua_table.base_damage_mod = lua_table.base_damage_mod + item_effects[lua_table.item_library.power_potion].damage_increase
 	lua_table.critical_chance_add = lua_table.critical_chance_add + item_effects[lua_table.item_library.power_potion].critical_chance_increase
+
+	lua_table.ParticlesFunctions:PlayParticleEmitter(power_potion_particles_GO_UID)
 end
 
 local function EndPowerPotion()
 	lua_table.base_damage_mod = lua_table.base_damage_mod - item_effects[lua_table.item_library.power_potion].damage_increase
 	lua_table.critical_chance_add = lua_table.critical_chance_add - item_effects[lua_table.item_library.power_potion].critical_chance_increase
+
+	lua_table.ParticlesFunctions:StopParticleEmitter(power_potion_particles_GO_UID)
 end
 
 --Inventory Swap
@@ -1691,6 +1711,10 @@ function lua_table:Awake()
 	jaskier_concert_particles_1_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Concert_1")
 	jaskier_concert_particles_2_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Concert_2")
 
+	health_potion_particles_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Health_Potion")
+	stamina_potion_particles_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Stamina_Potion")
+	power_potion_particles_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Power_Potion")
+
 	--Stop Particle Emitters
 	lua_table.ParticlesFunctions:StopParticleEmitter(my_GO_UID)
 	lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_guitar_circle_particles_1_GO_UID)
@@ -1702,6 +1726,10 @@ function lua_table:Awake()
 	lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_concert_particles_1_GO_UID)
 	lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_concert_particles_2_GO_UID)
 
+	lua_table.ParticlesFunctions:StopParticleEmitter(health_potion_particles_GO_UID)
+	lua_table.ParticlesFunctions:StopParticleEmitter(stamina_potion_particles_GO_UID)
+	lua_table.ParticlesFunctions:StopParticleEmitter(power_potion_particles_GO_UID)
+	
 	--lua_table.ParticlesFunctions:StopParticleEmitter_GO(guitar_GO_UID)			--TODO-Particles: Uncomment when ready
 
 	--Get attack_colliders GO_UIDs by name

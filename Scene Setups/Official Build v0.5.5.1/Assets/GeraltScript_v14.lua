@@ -43,6 +43,10 @@ local ultimate_effect_particles_GO_UID
 local ultimate_scream_particles_GO_UID
 local aard_hand_particles_GO_UID
 
+local health_potion_particles_GO_UID
+local stamina_potion_particles_GO_UID
+local power_potion_particles_GO_UID
+
 lua_table.level_1_scene = 0
 
 	--Particles
@@ -849,6 +853,10 @@ local function ParticlesShutdown(full)	--Full marks wether the particle shutdown
 	lua_table.ParticlesFunctions:StopParticleEmitter(aard_hand_particles_GO_UID)
 	lua_table.ParticlesFunctions:StopParticleEmitter(ultimate_scream_particles_GO_UID)
 
+	lua_table.ParticlesFunctions:StopParticleEmitter(health_potion_particles_GO_UID)
+	lua_table.ParticlesFunctions:StopParticleEmitter(stamina_potion_particles_GO_UID)
+	lua_table.ParticlesFunctions:StopParticleEmitter(power_potion_particles_GO_UID)
+
 	if full then lua_table.ParticlesFunctions:StopParticleEmitter(ultimate_effect_particles_GO_UID) end
 end
 
@@ -1177,7 +1185,6 @@ local function AardPush()
 		and BidimensionalPointInVectorSide(C_x, C_z, D_x, D_z, enemy_pos[1], enemy_pos[3]) < 0
 		and BidimensionalPointInVectorSide(D_x, D_z, A_x, A_z, enemy_pos[1], enemy_pos[3]) < 0
 		then
-			lua_table.SystemFunctions:LOG("---------------- I HIT AN ENEMY ----------------")
 			local enemy_script = lua_table.GameObjectFunctions:GetScript(enemy_list[i])
 			enemy_script:RequestedTrigger(my_GO_UID)	--TODO-Ability:
 		end
@@ -1432,34 +1439,46 @@ end
 local function TakeHealthPotion()
 	lua_table.current_health = lua_table.current_health + lua_table.max_health_real / item_effects[lua_table.item_library.health_potion].health_recovery
 	lua_table.health_reg_mod = lua_table.health_reg_mod + item_effects[lua_table.item_library.health_potion].health_regen
+	
+	lua_table.ParticlesFunctions:PlayParticleEmitter(health_potion_particles_GO_UID)
 
 	if lua_table.current_health > lua_table.max_health_real then lua_table.current_health = lua_table.max_health_real end	--IF above max, set to max
 end
 
 local function EndHealthPotion()
 	lua_table.health_reg_mod = lua_table.health_reg_mod - item_effects[lua_table.item_library.health_potion].health_regen
+
+	lua_table.ParticlesFunctions:StopParticleEmitter(health_potion_particles_GO_UID)
 end
 
 --Stamina Potion
 local function TakeStaminaPotion()
 	lua_table.mov_velocity_max_mod = lua_table.mov_velocity_max_mod + item_effects[lua_table.item_library.stamina_potion].speed_increase
 	lua_table.energy_reg_mod = lua_table.energy_reg_mod + item_effects[lua_table.item_library.stamina_potion].energy_regen
+
+	lua_table.ParticlesFunctions:PlayParticleEmitter(stamina_potion_particles_GO_UID)
 end
 
 local function EndStaminaPotion()
 	lua_table.mov_velocity_max_mod = lua_table.mov_velocity_max_mod - item_effects[lua_table.item_library.stamina_potion].speed_increase
 	lua_table.energy_reg_mod = lua_table.energy_reg_mod - item_effects[lua_table.item_library.stamina_potion].energy_regen
+
+	lua_table.ParticlesFunctions:StopParticleEmitter(stamina_potion_particles_GO_UID)
 end
 
 --Power Potion
 local function TakePowerPotion()
 	lua_table.base_damage_mod = lua_table.base_damage_mod + item_effects[lua_table.item_library.power_potion].damage_increase
 	lua_table.critical_chance_add = lua_table.critical_chance_add + item_effects[lua_table.item_library.power_potion].critical_chance_increase
+
+	lua_table.ParticlesFunctions:PlayParticleEmitter(power_potion_particles_GO_UID)
 end
 
 local function EndPowerPotion()
 	lua_table.base_damage_mod = lua_table.base_damage_mod - item_effects[lua_table.item_library.power_potion].damage_increase
 	lua_table.critical_chance_add = lua_table.critical_chance_add - item_effects[lua_table.item_library.power_potion].critical_chance_increase
+
+	lua_table.ParticlesFunctions:StopParticleEmitter(power_potion_particles_GO_UID)
 end
 
 --Inventory Swap
@@ -1664,12 +1683,20 @@ function lua_table:Awake()
 	ultimate_effect_particles_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt_Ultimate_Effect")
 	ultimate_scream_particles_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt_Ultimate_Scream")
 
+	health_potion_particles_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt_Health_Potion")
+	stamina_potion_particles_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt_Stamina_Potion")
+	power_potion_particles_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt_Power_Potion")
+
 	--Stop Particle Emitters
 	lua_table.ParticlesFunctions:StopParticleEmitter(my_GO_UID)
 	--lua_table.ParticlesFunctions:StopParticleEmitter(sword_particles_GO_UID)			--TODO-Particles: Uncomment when ready
 	lua_table.ParticlesFunctions:StopParticleEmitter(aard_hand_particles_GO_UID)	--TODO-Particles: Uncomment when ready
 	lua_table.ParticlesFunctions:StopParticleEmitter(ultimate_effect_particles_GO_UID)	--TODO-Particles: Uncomment when ready
 	lua_table.ParticlesFunctions:StopParticleEmitter(ultimate_scream_particles_GO_UID)	--TODO-Particles: Uncomment when ready
+
+	lua_table.ParticlesFunctions:StopParticleEmitter(health_potion_particles_GO_UID)
+	lua_table.ParticlesFunctions:StopParticleEmitter(stamina_potion_particles_GO_UID)
+	lua_table.ParticlesFunctions:StopParticleEmitter(power_potion_particles_GO_UID)
 
 	--Get attack_colliders GO_UIDs by name
 	attack_colliders.front_1.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.front_1.GO_name)
