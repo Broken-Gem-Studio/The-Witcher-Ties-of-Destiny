@@ -420,7 +420,6 @@ local function Step10()
 end
 
 local function Step11()    
-    lua_table.InterfaceFunctions:MakeElementVisible("Text", textUID)
     CalculateDistances(squarePosition)
     if lua_table.GeraltDistance < lua_table.threshold and lua_table.JaskierDistance < lua_table.threshold
     then
@@ -431,6 +430,7 @@ local function Step11()
 
     if lua_table.SystemFunctions:GameTime() > lastTime_step11 + step11_message_time
     then
+        lua_table.InterfaceFunctions:MakeElementVisible("Text", textUID)
         lua_table.InterfaceFunctions:SetText("Return to square", textUID)
     end
 end
