@@ -152,7 +152,7 @@ function GetTableNewUlti()
 
         if satisfier == true and timer - timepassed >= 1 and used == true
         then
-            lua_table["Audio"]:PlayAudioEvent("Play_Ulti_Geralt")
+            --lua_table["Audio"]:PlayAudioEvent("Play_Ulti_Geralt")
             lua_table["Inputs"]:ShakeController(1, 1.0, 500)
             satisfier = false
         end

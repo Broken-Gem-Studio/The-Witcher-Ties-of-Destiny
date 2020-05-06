@@ -167,7 +167,7 @@ function GetTableCOMBO()
         --GERALT
         if lua_table.p1.current_state < 8 and sword_on == true --and combo == false
         then
-            lua_table["Audio"]:PlayAudioEvent("Play_Sheathe")--guardar hoja
+            --lua_table["Audio"]:PlayAudioEvent("Play_Sheathe")--guardar hoja
 
             lua_table.p1.combo_stack[4] = 0
             lua_table.p1.combo_stack[3] = 0
@@ -207,7 +207,7 @@ function GetTableCOMBO()
         if lua_table.p1.current_state >= 8 and lua_table.p1.current_state <= 16 and sword_off == true or
         lua_table.p1.enemies_nearby == true--cambiar por condicion de entrar en combate
         then
-            lua_table["Audio"]:PlayAudioEvent("Play_Unsheathe")--guardar hoja
+            --lua_table["Audio"]:PlayAudioEvent("Play_Unsheathe")--guardar hoja
 
             lua_table["UI"]:MakeElementInvisible("Image", SWORD_DOWN_ID)
             lua_table["UI"]:MakeElementVisible("Image", SWORD_UP_ID)
@@ -218,7 +218,7 @@ function GetTableCOMBO()
         if combo == true
         then
 
-            lua_table["Audio"]:PlayAudioEvent("Play_Combo_Geralt")
+            --lua_table["Audio"]:PlayAudioEvent("Play_Combo_Geralt")
             --lua_table["Inputs"]:ShakeController(1, 1.0, 1000)--vibration
             lua_table["UI"]:MakeElementInvisible("Image", SWORD_DOWN_ID)
             lua_table["UI"]:MakeElementInvisible("Image", SWORD_UP_ID)
@@ -568,7 +568,7 @@ function GetTableCOMBO()
         if lua_table.p2.current_state < 17 and lua_table["Inputs"]:IsGamepadButton(2,"BUTTON_X","DOWN")
         then
             lua_table["System"]:LOG("ABILITY failed")
-            lua_table["Audio"]:PlayAudioEvent("Play_Wrong_Jaskier")--fail combo
+            --lua_table["Audio"]:PlayAudioEvent("Play_Wrong_Jaskier")--fail combo
         end
 
         if lua_table.p2.current_state < 17
