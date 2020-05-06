@@ -5,11 +5,14 @@ lua_table.Transform = Scripting.Transform()
 lua_table.GameObjectFunctions = Scripting.GameObject()
 lua_table.Audio = Scripting.Audio()
 lua_table.Scene = Scripting.Scenes()
+lua_table.Input = Scripting.Inputs()
+lua_table.UI = Scripting.Interface()
 
 -- Camera target GO names
 lua_table.cube = "Cube"
 lua_table.value_ = 0
 lua_table.scene_uid = 0
+lua_table.skip_threshold = 0
 
 -- Camera position
 local offset = {}
@@ -17,6 +20,7 @@ local position_z = {}
 
 -- Jaskier UID
 local Cube_ID = 0
+local BarID = 0 -- Ciruclar bar for skip
 
 -- Time management
 local time = 0
@@ -51,11 +55,32 @@ function lua_table:Start()
     lua_table.Transform:SetPosition(-970, 120, -4450, lua_table.GameObjectFunctions:GetMyUID())
 
     Cube_ID = lua_table.GameObjectFunctions:FindGameObject(lua_table.cube)
+    BarID = lua_table.GameObjectFunctions:FindGameObject("SkipBarForest")
+
     started_time = lua_table.System:GameTime()
 end
 
 function lua_table:Update()
     time = lua_table.System:GameTime() - started_time
+
+    -- Skip Scene code
+    if lua_table.skip_threshold <= 0.00 then
+        lua_table.skip_threshold = 0.00
+    end
+
+    if lua_table.Input:IsGamepadButton(1, "BUTTON_A", "REPEAT") and next_scene == true then
+        lua_table.skip_threshold = lua_table.skip_threshold + 0.4
+    else 
+        lua_table.skip_threshold = lua_table.skip_threshold - 0.6
+    end
+
+    if lua_table.skip_threshold >= 100 and next_scene == true then
+        lua_table.Scene:LoadScene(lua_table.scene_uid)
+		next_scene = false
+    end
+
+    lua_table.UI:SetUICircularBarPercentage(lua_table.skip_threshold, BarID)
+
     
     if camera_panning -- Camera pans downwards
     then
