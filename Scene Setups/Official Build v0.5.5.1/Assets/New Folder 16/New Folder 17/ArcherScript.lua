@@ -8,6 +8,7 @@ lua_table.Scene = Scripting.Scenes()
 lua_table.AnimationSystem = Scripting.Animations()
 lua_table.Navigation = Scripting.Navigation()
 lua_table.Audio = Scripting.Audio()
+lua_table.Particles = Scripting.Particles()
 
 -- Targets
 lua_table.geralt = "Geralt"
@@ -193,7 +194,8 @@ function lua_table:OnTriggerEnter()
             hit_time = PerfGameTime()
             lua_table.start_hit = true
             lua_table.Audio:PlayAudioEvent("Play_Bandit_getting_hit")
-            lua_table.GameObjectFunctions:SetActiveGameObject(true, ParticleBlood_UID)
+            --lua_table.GameObjectFunctions:SetActiveGameObject(true, ParticleBlood_UID)
+            lua_table.Particles:PlayParticleEmitter(ParticleBlood_UID)
         end
     end
 end
@@ -243,7 +245,8 @@ function lua_table:RequestedTrigger(collider_GO)
             lua_table.AnimationSystem:PlayAnimation("Hit",30.0, MyUID)
             hit_time = PerfGameTime()
             lua_table.start_hit = true
-            lua_table.GameObjectFunctions:SetActiveGameObject(true, ParticleBlood_UID)
+            --lua_table.GameObjectFunctions:SetActiveGameObject(true, ParticleBlood_UID)
+            lua_table.Particles:PlayParticleEmitter(ParticleBlood_UID)
         end
   end
 end
@@ -466,6 +469,9 @@ end
 
 function lua_table:Awake()
     lua_table.System:LOG ("This Log was called from ArcherScript on AWAKE")
+    ParticleBlood_UID = lua_table.GameObjectFunctions:FindChildGameObject("ParticleArcher_Blood")
+
+    lua_table.Particles:StopParticleEmitter(ParticleBlood_UID)
 end
 
 function lua_table:Start()
@@ -475,7 +481,7 @@ function lua_table:Start()
 
     ParticleWalking_UID = lua_table.GameObjectFunctions:FindChildGameObject("ParticleArcher_Walking")
     ParticleStun_UID = lua_table.GameObjectFunctions:FindChildGameObject("ParticleArcher_Stunned")
-    ParticleBlood_UID = lua_table.GameObjectFunctions:FindChildGameObject("ParticleArcher_Blood")
+    
 
     MyUID = lua_table.GameObjectFunctions:GetMyUID()
 
@@ -594,7 +600,7 @@ function lua_table:Update()
                 time_death = PerfGameTime()
                 start_death = true
 
-                lua_table.GameObjectFunctions:SetActiveGameObject(false, ParticleBlood_UID)
+                --lua_table.GameObjectFunctions:SetActiveGameObject(false, ParticleBlood_UID)
 
                 local tuto_manager = lua_table.GameObjectFunctions:FindGameObject("TutorialManager")
                 if tuto_manager ~= 0
@@ -610,7 +616,8 @@ function lua_table:Update()
             end
         elseif lua_table.start_hit == true and hit_time + 1500 <= PerfGameTime() then
             lua_table.start_hit = false
-            lua_table.GameObjectFunctions:SetActiveGameObject(false, ParticleBlood_UID)
+            --lua_table.GameObjectFunctions:SetActiveGameObject(false, ParticleBlood_UID)
+
         elseif lua_table.start_knockback == true then
             if knockback_time + 200 <= PerfGameTime() then 
                 lua_table.start_knockback = false 
