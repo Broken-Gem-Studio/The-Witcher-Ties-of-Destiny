@@ -743,6 +743,9 @@ local function CalculateStats()
 	walk_velocity = run_velocity * walk_mod
 	mov_velocity_stat = run_velocity * 0.1
 
+	if lua_table.current_state == state.walk then lua_table.current_state = walk_velocity
+	elseif lua_table.current_state == state.run then lua_table.current_state = run_velocity end
+
 	--Energy
 	lua_table.max_energy_real = lua_table.max_energy_orig * lua_table.max_energy_mod
 	energy_reg_real = lua_table.energy_reg_orig * lua_table.energy_reg_mod
