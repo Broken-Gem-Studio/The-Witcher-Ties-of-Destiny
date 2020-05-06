@@ -1,0 +1,4745 @@
+{
+    "AardCircleMesh_Geralt": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.060962",
+                "positiony": "0.000000",
+                "positionz": "-0.141431",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/1517245060.mesh"
+                    }
+                }
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/New material 8.mat"
+                    }
+                }
+            }
+        },
+        "Parent": "1440486738",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "640871398"
+    },
+    "AardConeMesh_Geralt": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "-125.339584",
+                "positionz": "0.000000",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/108334127.mesh"
+                    }
+                }
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/New material 8.mat"
+                    }
+                }
+            }
+        },
+        "Parent": "461950244",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1305796609"
+    },
+    "Aux_Sword": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-10.681129",
+                "positiony": "26.668304",
+                "positionz": "-15.103133",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "0.754328"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/441518987.mesh"
+                    }
+                }
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/2.mat"
+                    }
+                }
+            }
+        },
+        "Parent": "1481871246",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "2096132239"
+    },
+    "Cone_Wind_Controller": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.244811",
+                "scaley": "0.244811",
+                "scalez": "0.244811"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1073988973.bone"
+                }
+            }
+        },
+        "Parent": "722840052",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "715476494"
+    },
+    "Cone_Wind_Pivot": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            }
+        },
+        "Parent": "461950244",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "722840052"
+    },
+    "Geralt": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "1",
+                "positionx": "5.000000",
+                "positiony": "0.000000",
+                "positionz": "10.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.400017",
+                "scaley": "0.400000",
+                "scalez": "0.400017"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/GeraltScript_v14.lua"
+                },
+                "Script variables": {
+                    "Count": 192,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "ability_angle",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.5235987755983
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "ability_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 70.0
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "base_damage_mod",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 100": {
+                        "DisplayObjectName": false,
+                        "Name": "key_medium",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "BUTTON_B"
+                    },
+                    "Variable 101": {
+                        "DisplayObjectName": false,
+                        "Name": "key_move",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "AXIS_LEFT"
+                    },
+                    "Variable 102": {
+                        "DisplayObjectName": false,
+                        "Name": "key_next_consumable",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "BUTTON_DPAD_RIGHT"
+                    },
+                    "Variable 103": {
+                        "DisplayObjectName": false,
+                        "Name": "key_notdef5",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "BUTTON_BACK"
+                    },
+                    "Variable 104": {
+                        "DisplayObjectName": false,
+                        "Name": "key_notdef6",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "BUTTON_START"
+                    },
+                    "Variable 105": {
+                        "DisplayObjectName": false,
+                        "Name": "key_prev_consumable",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "BUTTON_DPAD_LEFT"
+                    },
+                    "Variable 106": {
+                        "DisplayObjectName": false,
+                        "Name": "key_revive",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "BUTTON_LEFTSHOULDER"
+                    },
+                    "Variable 107": {
+                        "DisplayObjectName": false,
+                        "Name": "key_ultimate_1",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "AXIS_TRIGGERLEFT"
+                    },
+                    "Variable 108": {
+                        "DisplayObjectName": false,
+                        "Name": "key_ultimate_2",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "AXIS_TRIGGERRIGHT"
+                    },
+                    "Variable 109": {
+                        "DisplayObjectName": false,
+                        "Name": "key_use_item",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "BUTTON_RIGHTSHOULDER"
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "base_damage_orig",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 30.0
+                    },
+                    "Variable 110": {
+                        "DisplayObjectName": false,
+                        "Name": "knockback_acceleration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": -6.0
+                    },
+                    "Variable 111": {
+                        "DisplayObjectName": false,
+                        "Name": "knockback_orig_velocity",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 10.0
+                    },
+                    "Variable 112": {
+                        "DisplayObjectName": false,
+                        "Name": "level_1_scene",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 113": {
+                        "DisplayObjectName": false,
+                        "Name": "light_1_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 40.0
+                    },
+                    "Variable 114": {
+                        "DisplayObjectName": false,
+                        "Name": "light_1_block_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 300.0
+                    },
+                    "Variable 115": {
+                        "DisplayObjectName": false,
+                        "Name": "light_1_collider_front_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 450.0
+                    },
+                    "Variable 116": {
+                        "DisplayObjectName": false,
+                        "Name": "light_1_collider_front_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 375.0
+                    },
+                    "Variable 117": {
+                        "DisplayObjectName": false,
+                        "Name": "light_1_combo_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 750.0
+                    },
+                    "Variable 118": {
+                        "DisplayObjectName": false,
+                        "Name": "light_1_combo_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 450.0
+                    },
+                    "Variable 119": {
+                        "DisplayObjectName": false,
+                        "Name": "light_1_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 750.0
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "being_revived",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 120": {
+                        "DisplayObjectName": false,
+                        "Name": "light_2_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 40.0
+                    },
+                    "Variable 121": {
+                        "DisplayObjectName": false,
+                        "Name": "light_2_block_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 300.0
+                    },
+                    "Variable 122": {
+                        "DisplayObjectName": false,
+                        "Name": "light_2_collider_front_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 375.0
+                    },
+                    "Variable 123": {
+                        "DisplayObjectName": false,
+                        "Name": "light_2_collider_front_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 300.0
+                    },
+                    "Variable 124": {
+                        "DisplayObjectName": false,
+                        "Name": "light_2_combo_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 750.0
+                    },
+                    "Variable 125": {
+                        "DisplayObjectName": false,
+                        "Name": "light_2_combo_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 430.0
+                    },
+                    "Variable 126": {
+                        "DisplayObjectName": false,
+                        "Name": "light_2_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 750.0
+                    },
+                    "Variable 127": {
+                        "DisplayObjectName": false,
+                        "Name": "light_3_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 40.0
+                    },
+                    "Variable 128": {
+                        "DisplayObjectName": false,
+                        "Name": "light_3_block_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 300.0
+                    },
+                    "Variable 129": {
+                        "DisplayObjectName": false,
+                        "Name": "light_3_collider_front_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 440.0
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "collider_damage",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 130": {
+                        "DisplayObjectName": false,
+                        "Name": "light_3_collider_front_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 340.0
+                    },
+                    "Variable 131": {
+                        "DisplayObjectName": false,
+                        "Name": "light_3_combo_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 850.0
+                    },
+                    "Variable 132": {
+                        "DisplayObjectName": false,
+                        "Name": "light_3_combo_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 530.0
+                    },
+                    "Variable 133": {
+                        "DisplayObjectName": false,
+                        "Name": "light_3_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 850.0
+                    },
+                    "Variable 134": {
+                        "DisplayObjectName": false,
+                        "Name": "light_damage",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 135": {
+                        "DisplayObjectName": false,
+                        "Name": "light_movement_velocity",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.5
+                    },
+                    "Variable 136": {
+                        "DisplayObjectName": false,
+                        "Name": "max_energy_mod",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 137": {
+                        "DisplayObjectName": false,
+                        "Name": "max_energy_orig",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 100.0
+                    },
+                    "Variable 138": {
+                        "DisplayObjectName": false,
+                        "Name": "max_energy_real",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 139": {
+                        "DisplayObjectName": false,
+                        "Name": "max_health_mod",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 14": {
+                        "DisplayObjectName": false,
+                        "Name": "collider_effect",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 140": {
+                        "DisplayObjectName": false,
+                        "Name": "max_health_orig",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 200.0
+                    },
+                    "Variable 141": {
+                        "DisplayObjectName": false,
+                        "Name": "max_health_real",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 142": {
+                        "DisplayObjectName": false,
+                        "Name": "max_ultimate",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 100.0
+                    },
+                    "Variable 143": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_1_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 35.0
+                    },
+                    "Variable 144": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_1_block_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 550.0
+                    },
+                    "Variable 145": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_1_collider_front_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 650.0
+                    },
+                    "Variable 146": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_1_collider_front_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 550.0
+                    },
+                    "Variable 147": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_1_combo_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1100.0
+                    },
+                    "Variable 148": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_1_combo_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 750.0
+                    },
+                    "Variable 149": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_1_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1100.0
+                    },
+                    "Variable 15": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_1_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 35.0
+                    },
+                    "Variable 150": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_2_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 35.0
+                    },
+                    "Variable 151": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_2_block_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 400.0
+                    },
+                    "Variable 152": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_2_collider_front_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 500.0
+                    },
+                    "Variable 153": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_2_collider_front_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 400.0
+                    },
+                    "Variable 154": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_2_combo_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 900.0
+                    },
+                    "Variable 155": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_2_combo_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 550.0
+                    },
+                    "Variable 156": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_2_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 900.0
+                    },
+                    "Variable 157": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_3_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 35.0
+                    },
+                    "Variable 158": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_3_block_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 800.0
+                    },
+                    "Variable 159": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_3_collider_front_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 900.0
+                    },
+                    "Variable 16": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_1_collider_back_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1220.0
+                    },
+                    "Variable 160": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_3_collider_front_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 800.0
+                    },
+                    "Variable 161": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_3_combo_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1300.0
+                    },
+                    "Variable 162": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_3_combo_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 950.0
+                    },
+                    "Variable 163": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_3_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1300.0
+                    },
+                    "Variable 164": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_3_movement_velocity",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.6
+                    },
+                    "Variable 165": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_damage",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.5
+                    },
+                    "Variable 166": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_movement_velocity",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.6
+                    },
+                    "Variable 167": {
+                        "DisplayObjectName": false,
+                        "Name": "mov_velocity_max_mod",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 168": {
+                        "DisplayObjectName": false,
+                        "Name": "mov_velocity_max_orig",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 8.0
+                    },
+                    "Variable 169": {
+                        "DisplayObjectName": false,
+                        "Name": "player_ID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 17": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_1_collider_back_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1150.0
+                    },
+                    "Variable 170": {
+                        "DisplayObjectName": false,
+                        "Name": "potion_active",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 171": {
+                        "DisplayObjectName": false,
+                        "Name": "potion_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 5000.0
+                    },
+                    "Variable 172": {
+                        "DisplayObjectName": false,
+                        "Name": "potion_in_effect",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 173": {
+                        "DisplayObjectName": false,
+                        "Name": "previous_state",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 174": {
+                        "DisplayObjectName": false,
+                        "Name": "revive_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 25.0
+                    },
+                    "Variable 175": {
+                        "DisplayObjectName": false,
+                        "Name": "revive_range",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 3.0
+                    },
+                    "Variable 176": {
+                        "DisplayObjectName": false,
+                        "Name": "revive_started_at",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 177": {
+                        "DisplayObjectName": false,
+                        "Name": "revive_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 3000.0
+                    },
+                    "Variable 178": {
+                        "DisplayObjectName": false,
+                        "Name": "run_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 20.0
+                    },
+                    "Variable 179": {
+                        "DisplayObjectName": false,
+                        "Name": "standing_up_bool",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 18": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_1_collider_front_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1080.0
+                    },
+                    "Variable 180": {
+                        "DisplayObjectName": false,
+                        "Name": "standing_up_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1500.0
+                    },
+                    "Variable 181": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_active",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 182": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 45.0
+                    },
+                    "Variable 183": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_damage_mod_increase",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 184": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 3600.0
+                    },
+                    "Variable 185": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_effect_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 10000.0
+                    },
+                    "Variable 186": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_energy_reg_increase",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 187": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_health_reg_increase",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.2
+                    },
+                    "Variable 188": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_reg_mod",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 189": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_reg_orig",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 10.0
+                    },
+                    "Variable 19": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_1_collider_front_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1000.0
+                    },
+                    "Variable 190": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_scream_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2500.0
+                    },
+                    "Variable 191": {
+                        "DisplayObjectName": false,
+                        "Name": "walk_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 30.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "ability_cooldown",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 5000.0
+                    },
+                    "Variable 20": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_1_collider_left_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1150.0
+                    },
+                    "Variable 21": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_1_collider_left_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1080.0
+                    },
+                    "Variable 22": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_1_collider_right_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1000.0
+                    },
+                    "Variable 23": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_1_collider_right_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 900.0
+                    },
+                    "Variable 24": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_1_damage",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2.0
+                    },
+                    "Variable 25": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_1_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1500.0
+                    },
+                    "Variable 26": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_1_movement_velocity",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 6.5
+                    },
+                    "Variable 27": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_1_size",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 4.0
+                    },
+                    "Variable 28": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_2_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 30.0
+                    },
+                    "Variable 29": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_2_collider_front_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1400.0
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "ability_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 800.0
+                    },
+                    "Variable 30": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_2_collider_front_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1200.0
+                    },
+                    "Variable 31": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_2_collider_left_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 600.0
+                    },
+                    "Variable 32": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_2_collider_left_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 500.0
+                    },
+                    "Variable 33": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_2_collider_right_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 900.0
+                    },
+                    "Variable 34": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_2_collider_right_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 800.0
+                    },
+                    "Variable 35": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_2_damage",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 3.5
+                    },
+                    "Variable 36": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_2_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1400.0
+                    },
+                    "Variable 37": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_2_movement_velocity",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 5.0
+                    },
+                    "Variable 38": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_2_size",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 4.0
+                    },
+                    "Variable 39": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_3_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 30.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": false,
+                        "Name": "ability_offset_x",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.1
+                    },
+                    "Variable 40": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_3_collider_front_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1200.0
+                    },
+                    "Variable 41": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_3_collider_front_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1100.0
+                    },
+                    "Variable 42": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_3_collider_right_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1300.0
+                    },
+                    "Variable 43": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_3_collider_right_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1200.0
+                    },
+                    "Variable 44": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_3_damage",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 4.0
+                    },
+                    "Variable 45": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_3_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1800.0
+                    },
+                    "Variable 46": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_3_movement_velocity",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 5.0
+                    },
+                    "Variable 47": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_3_size",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 4.0
+                    },
+                    "Variable 48": {
+                        "DisplayObjectName": false,
+                        "Name": "combo_num",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 49": {
+                        "DisplayObjectName": false,
+                        "Name": "critical_chance_add",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": false,
+                        "Name": "ability_offset_z",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.1
+                    },
+                    "Variable 50": {
+                        "DisplayObjectName": false,
+                        "Name": "critical_chance_orig",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 51": {
+                        "DisplayObjectName": false,
+                        "Name": "critical_damage_add",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 52": {
+                        "DisplayObjectName": false,
+                        "Name": "critical_damage_orig",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2.0
+                    },
+                    "Variable 53": {
+                        "DisplayObjectName": false,
+                        "Name": "current_energy",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 54": {
+                        "DisplayObjectName": false,
+                        "Name": "current_health",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 55": {
+                        "DisplayObjectName": false,
+                        "Name": "current_state",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 56": {
+                        "DisplayObjectName": false,
+                        "Name": "current_ultimate",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 57": {
+                        "DisplayObjectName": false,
+                        "Name": "current_velocity",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 58": {
+                        "DisplayObjectName": false,
+                        "Name": "death_started_at",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 59": {
+                        "DisplayObjectName": false,
+                        "Name": "down_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 10000.0
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": false,
+                        "Name": "ability_performed",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 60": {
+                        "DisplayObjectName": false,
+                        "Name": "enemies_nearby",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 61": {
+                        "DisplayObjectName": false,
+                        "Name": "enemy_detection_range",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 20.0
+                    },
+                    "Variable 62": {
+                        "DisplayObjectName": false,
+                        "Name": "energy_reg_mod",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 63": {
+                        "DisplayObjectName": false,
+                        "Name": "energy_reg_orig",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 5.0
+                    },
+                    "Variable 64": {
+                        "DisplayObjectName": false,
+                        "Name": "evade_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 40.0
+                    },
+                    "Variable 65": {
+                        "DisplayObjectName": false,
+                        "Name": "evade_cost",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 33.0
+                    },
+                    "Variable 66": {
+                        "DisplayObjectName": false,
+                        "Name": "evade_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 800.0
+                    },
+                    "Variable 67": {
+                        "DisplayObjectName": false,
+                        "Name": "evade_velocity",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 20.0
+                    },
+                    "Variable 68": {
+                        "DisplayObjectName": false,
+                        "Name": "health_reg_mod",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 69": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_1_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 30.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": false,
+                        "Name": "ability_push_velocity",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 160.0
+                    },
+                    "Variable 70": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_1_block_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 900.0
+                    },
+                    "Variable 71": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_1_collider_front_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1000.0
+                    },
+                    "Variable 72": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_1_collider_front_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 900.0
+                    },
+                    "Variable 73": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_1_combo_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1600.0
+                    },
+                    "Variable 74": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_1_combo_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1100.0
+                    },
+                    "Variable 75": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_1_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1600.0
+                    },
+                    "Variable 76": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_2_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 30.0
+                    },
+                    "Variable 77": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_2_block_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 400.0
+                    },
+                    "Variable 78": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_2_collider_front_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 450.0
+                    },
+                    "Variable 79": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_2_collider_front_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 350.0
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": false,
+                        "Name": "ability_range",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 15.0
+                    },
+                    "Variable 80": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_2_combo_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1000.0
+                    },
+                    "Variable 81": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_2_combo_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 600.0
+                    },
+                    "Variable 82": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_2_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1000.0
+                    },
+                    "Variable 83": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_3_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 30.0
+                    },
+                    "Variable 84": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_3_block_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 800.0
+                    },
+                    "Variable 85": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_3_collider_front_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 800.0
+                    },
+                    "Variable 86": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_3_collider_front_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 700.0
+                    },
+                    "Variable 87": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_3_combo_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1600.0
+                    },
+                    "Variable 88": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_3_combo_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1000.0
+                    },
+                    "Variable 89": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_3_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1600.0
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "ability_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 300.0
+                    },
+                    "Variable 90": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_damage",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2.0
+                    },
+                    "Variable 91": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_movement_velocity",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.4
+                    },
+                    "Variable 92": {
+                        "DisplayObjectName": false,
+                        "Name": "idle_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 30.0
+                    },
+                    "Variable 93": {
+                        "DisplayObjectName": false,
+                        "Name": "input_walk_threshold",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.95
+                    },
+                    "Variable 94": {
+                        "DisplayObjectName": false,
+                        "Name": "item_selected",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 95": {
+                        "DisplayObjectName": false,
+                        "Name": "item_type_max",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 3.0
+                    },
+                    "Variable 96": {
+                        "DisplayObjectName": false,
+                        "Name": "key_ability",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "BUTTON_X"
+                    },
+                    "Variable 97": {
+                        "DisplayObjectName": false,
+                        "Name": "key_aim",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "AXIS_RIGHT"
+                    },
+                    "Variable 98": {
+                        "DisplayObjectName": false,
+                        "Name": "key_evade",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "BUTTON_A"
+                    },
+                    "Variable 99": {
+                        "DisplayObjectName": false,
+                        "Name": "key_light",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "BUTTON_Y"
+                    }
+                }
+            },
+            "14": {
+                "Active": true,
+                "Animations": {
+                    "BlendTime": "0.100000",
+                    "UseDefault": false
+                },
+                "Resources": {
+                    "ResourceAnimation": "Library/Animations/685998735.anim",
+                    "ResourceAnimator": "1132277886"
+                }
+            },
+            "17": {
+                "contactOffset": "0.010000",
+                "draw": "0",
+                "gravity": "1",
+                "height": "2.500000",
+                "nonWalkableMode": "1",
+                "positionX": "5.000000",
+                "positionY": "0.000000",
+                "positionZ": "10.000000",
+                "radius": "1.000000",
+                "slopeLimit": "45.000000",
+                "stepOffset": "0.010000"
+            },
+            "18": {
+                "Active": true,
+                "Duration": "900",
+                "GradientColor": true,
+                "Loop": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/572986970.dds"
+                },
+                "animation": "0",
+                "colors": [
+                    {
+                        "a": "1.000000",
+                        "x": "1.000000",
+                        "y": "1.000000",
+                        "z": "1.000000"
+                    },
+                    {
+                        "a": "0.000000",
+                        "x": "1.000000",
+                        "y": "1.000000",
+                        "z": "1.000000"
+                    }
+                ],
+                "constants": "0",
+                "cycles": "1",
+                "emisionRate": "300.000000",
+                "externalAccelerationX": "0.000000",
+                "externalAccelerationY": "10.000000",
+                "externalAccelerationZ": "0.000000",
+                "grad_duration": "900",
+                "gradients": [
+                    {
+                        "a": "-0.001111",
+                        "x": "0.000000",
+                        "y": "0.000000",
+                        "z": "0.000000"
+                    }
+                ],
+                "num_colors": "2",
+                "num_gradients": "1",
+                "particleScaleOverTime": "0.000000",
+                "particleScaleRandomFactor": "1.000000",
+                "particlesLifeTime": "900",
+                "particlesPerCreation": "1",
+                "particlesScaleX": "1.000000",
+                "particlesScaleY": "1.000000",
+                "particlesVelocityX": "0.000000",
+                "particlesVelocityY": "0.000000",
+                "particlesVelocityZ": "0.000000",
+                "positionX": "0.000000",
+                "positionY": "0.000000",
+                "positionZ": "0.000000",
+                "rotationOvertime1": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "rotationOvertime2": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "rotationX": "0.000000",
+                "rotationY": "0.000000",
+                "rotationZ": "0.000000",
+                "separateAxis": "0",
+                "sizeX": "0.000000",
+                "sizeY": "0.000000",
+                "sizeZ": "0.000000",
+                "startFrame": "0",
+                "tiles_X": "1",
+                "tiles_Y": "1",
+                "velocityRandomFactorX": "2.000000",
+                "velocityRandomFactorY": "2.000000",
+                "velocityRandomFactorZ": "2.000000"
+            },
+            "19": {
+                "Active": true
+            }
+        },
+        "Parent": "1638961689",
+        "PrefabChild": true,
+        "PrefabInstance": true,
+        "Static": false,
+        "UID": "1689559512"
+    },
+    "Geralt_Aard_Circle": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "14": {
+                "Active": true,
+                "Animations": {
+                    "BlendTime": "0.100000",
+                    "UseDefault": false
+                },
+                "Resources": {
+                    "ResourceAnimation": "Library/Animations/1710183732.anim",
+                    "ResourceAnimator": "1132277886"
+                }
+            }
+        },
+        "Parent": "1689559512",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1440486738"
+    },
+    "Geralt_Aard_Circle_Collider": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "layer": "2",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "2.500000",
+                "scaley": "2.500000",
+                "scalez": "2.500000"
+            },
+            "16": {
+                "Active": false,
+                "colliderType": "2",
+                "draggedUID": "0",
+                "draw": "1",
+                "firstCreation": "0",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "5.000000",
+                "globalMatrixy": "0.000000",
+                "globalMatrixz": "10.000000",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "0",
+                "isTrigger": "1",
+                "lastIndex": "0",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "5.000000",
+                "scalex": "5.000000",
+                "scaley": "5.000000",
+                "scalez": "5.000000",
+                "tmpScalex": "1.000000",
+                "tmpScaley": "1.000000",
+                "tmpScalez": "1.000000"
+            }
+        },
+        "Parent": "1689559512",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "282101497"
+    },
+    "Geralt_Aard_Cone": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "14": {
+                "Active": true,
+                "Animations": {
+                    "BlendTime": "0.100000",
+                    "UseDefault": false
+                },
+                "Resources": {
+                    "ResourceAnimation": "Library/Animations/773536223.anim",
+                    "ResourceAnimator": "1132277886"
+                }
+            }
+        },
+        "Parent": "1689559512",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "461950244"
+    },
+    "Geralt_Ability": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.292020",
+                "positiony": "6.625134",
+                "positionz": "5.492880",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "18": {
+                "Active": true,
+                "Duration": "200",
+                "GradientColor": false,
+                "Loop": false,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/572986970.dds"
+                },
+                "animation": "0",
+                "colors": [
+                    {
+                        "a": "1.000000",
+                        "x": "1.000000",
+                        "y": "1.000000",
+                        "z": "1.000000"
+                    }
+                ],
+                "constants": "0",
+                "cycles": "1",
+                "emisionRate": "50.000000",
+                "externalAccelerationX": "0.000000",
+                "externalAccelerationY": "9.800000",
+                "externalAccelerationZ": "50.000000",
+                "grad_duration": "0",
+                "num_colors": "1",
+                "num_gradients": "0",
+                "particleScaleOverTime": "0.000000",
+                "particleScaleRandomFactor": "1.000000",
+                "particlesLifeTime": "180",
+                "particlesPerCreation": "50",
+                "particlesScaleX": "1.000000",
+                "particlesScaleY": "1.000000",
+                "particlesVelocityX": "50.000000",
+                "particlesVelocityY": "0.000000",
+                "particlesVelocityZ": "0.000000",
+                "positionX": "0.000000",
+                "positionY": "0.000000",
+                "positionZ": "0.000000",
+                "rotationOvertime1": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "rotationOvertime2": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "rotationX": "0.000000",
+                "rotationY": "0.000000",
+                "rotationZ": "0.000000",
+                "separateAxis": "0",
+                "sizeX": "1.000000",
+                "sizeY": "0.000000",
+                "sizeZ": "0.000000",
+                "startFrame": "0",
+                "tiles_X": "1",
+                "tiles_Y": "1",
+                "velocityRandomFactorX": "0.000000",
+                "velocityRandomFactorY": "0.000000",
+                "velocityRandomFactorZ": "50.000000"
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "DefaultMaterial"
+                    }
+                }
+            }
+        },
+        "Parent": "1689559512",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "480048288"
+    },
+    "Geralt_Back": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "layer": "2",
+                "positionx": "0.000000",
+                "positiony": "5.000005",
+                "positionz": "-4.999865",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "2.499938",
+                "scaley": "2.500002",
+                "scalez": "2.499933"
+            },
+            "16": {
+                "Active": false,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "1",
+                "firstCreation": "0",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "5.000000",
+                "globalMatrixy": "2.000002",
+                "globalMatrixz": "8.000054",
+                "globalPositionx": "1.000025",
+                "globalPositiony": "0.999999",
+                "globalPositionz": "1.000027",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "0",
+                "isTrigger": "1",
+                "lastIndex": "0",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000025",
+                "originalScaley": "0.999999",
+                "originalScalez": "1.000027",
+                "radius": "1.000000",
+                "scalex": "3.000000",
+                "scaley": "3.000000",
+                "scalez": "2.000000",
+                "tmpScalex": "5.000000",
+                "tmpScaley": "3.000000",
+                "tmpScalez": "1.000000"
+            },
+            "2": {
+                "Active": false,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "DefaultMaterial"
+                    }
+                }
+            }
+        },
+        "Parent": "1689559512",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "384462695"
+    },
+    "Geralt_Front_1": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "layer": "2",
+                "positionx": "0.000000",
+                "positiony": "5.000005",
+                "positionz": "7.499798",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "2.499938",
+                "scaley": "2.500002",
+                "scalez": "2.499933"
+            },
+            "16": {
+                "Active": false,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "1",
+                "firstCreation": "0",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "5.535032",
+                "globalMatrixy": "2.000002",
+                "globalMatrixz": "14.990529",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "0",
+                "isTrigger": "1",
+                "lastIndex": "0",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "5.000000",
+                "scaley": "20.000000",
+                "scalez": "4.000000",
+                "tmpScalex": "4.000000",
+                "tmpScaley": "3.000000",
+                "tmpScalez": "2.500000"
+            },
+            "2": {
+                "Active": false,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "DefaultMaterial"
+                    }
+                }
+            }
+        },
+        "Parent": "1689559512",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "441112387"
+    },
+    "Geralt_Front_2": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "layer": "2",
+                "positionx": "0.000000",
+                "positiony": "5.000005",
+                "positionz": "7.500000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "2.499938",
+                "scaley": "2.500002",
+                "scalez": "2.499933"
+            },
+            "16": {
+                "Active": false,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "1",
+                "firstCreation": "0",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "5.000000",
+                "globalMatrixy": "2.000002",
+                "globalMatrixz": "13.214200",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "0",
+                "isTrigger": "1",
+                "lastIndex": "0",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "8.000000",
+                "scaley": "20.000000",
+                "scalez": "5.000000",
+                "tmpScalex": "7.999802",
+                "tmpScaley": "20.000017",
+                "tmpScalez": "4.999866"
+            }
+        },
+        "Parent": "1689559512",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "153860587"
+    },
+    "Geralt_Front_3": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "layer": "2",
+                "positionx": "0.000000",
+                "positiony": "5.000005",
+                "positionz": "10.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "2.499938",
+                "scaley": "2.500002",
+                "scalez": "2.499933"
+            },
+            "16": {
+                "Active": false,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "1",
+                "firstCreation": "0",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "5.000000",
+                "globalMatrixy": "2.000002",
+                "globalMatrixz": "14.000000",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "0",
+                "isTrigger": "1",
+                "lastIndex": "0",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "10.000000",
+                "scaley": "20.000000",
+                "scalez": "7.000000",
+                "tmpScalex": "9.999752",
+                "tmpScaley": "20.000017",
+                "tmpScalez": "6.999813"
+            }
+        },
+        "Parent": "1689559512",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "279496291"
+    },
+    "Geralt_Left": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "layer": "2",
+                "positionx": "7.499813",
+                "positiony": "5.000005",
+                "positionz": "1.249966",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "2.499938",
+                "scaley": "2.500002",
+                "scalez": "2.499933"
+            },
+            "16": {
+                "Active": false,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "1",
+                "firstCreation": "0",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "7.499938",
+                "globalMatrixy": "2.000001",
+                "globalMatrixz": "16.718758",
+                "globalPositionx": "1.000025",
+                "globalPositiony": "0.999999",
+                "globalPositionz": "1.000027",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "0",
+                "isTrigger": "1",
+                "lastIndex": "0",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000025",
+                "originalScaley": "0.999999",
+                "originalScalez": "1.000027",
+                "radius": "1.000000",
+                "scalex": "2.000000",
+                "scaley": "3.000000",
+                "scalez": "4.000000",
+                "tmpScalex": "3.000002",
+                "tmpScaley": "3.000000",
+                "tmpScalez": "4.000000"
+            },
+            "2": {
+                "Active": false,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "DefaultMaterial"
+                    }
+                }
+            }
+        },
+        "Parent": "1689559512",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1669343227"
+    },
+    "Geralt_Mesh": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "-0.038887",
+                "positionz": "0.000000",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/1271768613.mesh"
+                    }
+                }
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/01 - Default.mat"
+                    }
+                }
+            }
+        },
+        "Parent": "1689559512",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "406020527"
+    },
+    "Geralt_Pivot": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            }
+        },
+        "Parent": "1689559512",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "227864806"
+    },
+    "Geralt_Right": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "layer": "2",
+                "positionx": "-7.499813",
+                "positiony": "5.000005",
+                "positionz": "1.249966",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "2.499938",
+                "scaley": "2.500002",
+                "scalez": "2.499933"
+            },
+            "16": {
+                "Active": false,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "1",
+                "firstCreation": "0",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "2.000075",
+                "globalMatrixy": "2.000002",
+                "globalMatrixz": "10.499987",
+                "globalPositionx": "1.000025",
+                "globalPositiony": "0.999999",
+                "globalPositionz": "1.000027",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "0",
+                "isTrigger": "1",
+                "lastIndex": "0",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000025",
+                "originalScaley": "0.999999",
+                "originalScalez": "1.000027",
+                "radius": "1.000000",
+                "scalex": "2.000000",
+                "scaley": "3.000000",
+                "scalez": "4.000000",
+                "tmpScalex": "2.000000",
+                "tmpScaley": "3.000000",
+                "tmpScalez": "4.000000"
+            },
+            "2": {
+                "Active": false,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "DefaultMaterial"
+                    }
+                }
+            }
+        },
+        "Parent": "1689559512",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1677314974"
+    },
+    "Geralt_Slash": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "2.500000",
+                "scaley": "2.500000",
+                "scalez": "2.500000"
+            },
+            "14": {
+                "Active": true,
+                "Animations": {
+                    "BlendTime": "0.100000",
+                    "UseDefault": false
+                },
+                "Resources": {
+                    "ResourceAnimation": "Library/Animations/1906601541.anim",
+                    "ResourceAnimator": "1132277886"
+                }
+            }
+        },
+        "Parent": "1689559512",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "433250376"
+    },
+    "Geralt_Sword": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "43.610596",
+                "positiony": "15.209030",
+                "positionz": "0.464912",
+                "rotationw": "0.602890",
+                "rotationx": "0.029515",
+                "rotationy": "0.498813",
+                "rotationz": "0.621963",
+                "scalex": "0.984270",
+                "scaley": "0.984262",
+                "scalez": "0.984266"
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "DefaultMaterial"
+                    }
+                }
+            }
+        },
+        "Parent": "1080413317",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1693323035"
+    },
+    "Geralt_Ultimate_Effect": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-0.499988",
+                "positiony": "5.000005",
+                "positionz": "1.499960",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "2.499938",
+                "scaley": "2.500002",
+                "scalez": "2.499933"
+            },
+            "18": {
+                "Active": true,
+                "Duration": "500",
+                "GradientColor": false,
+                "Loop": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/572986970.dds"
+                },
+                "animation": "0",
+                "colors": [
+                    {
+                        "a": "1.000000",
+                        "x": "1.000000",
+                        "y": "1.000000",
+                        "z": "1.000000"
+                    }
+                ],
+                "constants": "0",
+                "cycles": "1",
+                "emisionRate": "100.000000",
+                "externalAccelerationX": "0.000000",
+                "externalAccelerationY": "20.000000",
+                "externalAccelerationZ": "0.000000",
+                "grad_duration": "0",
+                "num_colors": "1",
+                "num_gradients": "0",
+                "particleScaleOverTime": "0.000000",
+                "particleScaleRandomFactor": "1.000000",
+                "particlesLifeTime": "1000",
+                "particlesPerCreation": "1",
+                "particlesScaleX": "1.000000",
+                "particlesScaleY": "1.000000",
+                "particlesVelocityX": "0.000000",
+                "particlesVelocityY": "0.000000",
+                "particlesVelocityZ": "0.000000",
+                "positionX": "0.000000",
+                "positionY": "0.000000",
+                "positionZ": "0.000000",
+                "rotationOvertime1": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "rotationOvertime2": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "rotationX": "0.000000",
+                "rotationY": "0.000000",
+                "rotationZ": "0.000000",
+                "separateAxis": "0",
+                "sizeX": "0.000000",
+                "sizeY": "0.000000",
+                "sizeZ": "0.000000",
+                "startFrame": "0",
+                "tiles_X": "1",
+                "tiles_Y": "1",
+                "velocityRandomFactorX": "5.000000",
+                "velocityRandomFactorY": "0.000000",
+                "velocityRandomFactorZ": "5.000000"
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "DefaultMaterial"
+                    }
+                }
+            }
+        },
+        "Parent": "1689559512",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "29185217"
+    },
+    "Geralt_Ultimate_Scream": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-0.499988",
+                "positiony": "5.000005",
+                "positionz": "1.499960",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "2.500000",
+                "scaley": "2.500000",
+                "scalez": "2.500000"
+            },
+            "18": {
+                "Active": true,
+                "Duration": "10",
+                "GradientColor": false,
+                "Loop": false,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/572986970.dds"
+                },
+                "animation": "0",
+                "colors": [
+                    {
+                        "a": "1.000000",
+                        "x": "1.000000",
+                        "y": "1.000000",
+                        "z": "1.000000"
+                    }
+                ],
+                "constants": "0",
+                "cycles": "1",
+                "emisionRate": "10.000000",
+                "externalAccelerationX": "0.000000",
+                "externalAccelerationY": "5.000000",
+                "externalAccelerationZ": "0.000000",
+                "grad_duration": "0",
+                "num_colors": "1",
+                "num_gradients": "0",
+                "particleScaleOverTime": "0.000000",
+                "particleScaleRandomFactor": "1.000000",
+                "particlesLifeTime": "1000",
+                "particlesPerCreation": "100",
+                "particlesScaleX": "1.000000",
+                "particlesScaleY": "1.000000",
+                "particlesVelocityX": "0.000000",
+                "particlesVelocityY": "0.000000",
+                "particlesVelocityZ": "0.000000",
+                "positionX": "0.000000",
+                "positionY": "0.000000",
+                "positionZ": "0.000000",
+                "rotationOvertime1": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "rotationOvertime2": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "rotationX": "0.000000",
+                "rotationY": "0.000000",
+                "rotationZ": "0.000000",
+                "separateAxis": "0",
+                "sizeX": "0.000000",
+                "sizeY": "0.000000",
+                "sizeZ": "0.000000",
+                "startFrame": "0",
+                "tiles_X": "1",
+                "tiles_Y": "1",
+                "velocityRandomFactorX": "8.000000",
+                "velocityRandomFactorY": "0.000000",
+                "velocityRandomFactorZ": "8.000000"
+            }
+        },
+        "Parent": "1689559512",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "647228258"
+    },
+    "In_Side": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "1.000000",
+                "positiony": "1.500000",
+                "positionz": "-0.500000",
+                "rotationw": "0.707107",
+                "rotationx": "0.000000",
+                "rotationy": "-0.707107",
+                "rotationz": "0.000000",
+                "scalex": "1.270915",
+                "scaley": "1.270900",
+                "scalez": "1.270915"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1720602727.bone"
+                }
+            }
+        },
+        "Parent": "932872838",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1191918177"
+    },
+    "Out_Side": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.500000",
+                "positiony": "-0.903124",
+                "positionz": "0.000000",
+                "rotationw": "0.707107",
+                "rotationx": "0.000000",
+                "rotationy": "-0.707107",
+                "rotationz": "0.000000",
+                "scalex": "1.000015",
+                "scaley": "1.000000",
+                "scalez": "1.000015"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1425974090.bone"
+                }
+            }
+        },
+        "Parent": "932872838",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1619797190"
+    },
+    "Position_Ring": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "101.977707",
+                "rotationw": "0.087064",
+                "rotationx": "0.388476",
+                "rotationy": "0.030072",
+                "rotationz": "0.916844",
+                "scalex": "1.000030",
+                "scaley": "1.000030",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1297143160.bone"
+                }
+            }
+        },
+        "Parent": "1916605381",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "2086824256"
+    },
+    "PreviewTexture": "Library/Textures/1789208407.dds",
+    "SHelter": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-0.292966",
+                "positiony": "3.632561",
+                "positionz": "-13.367461",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/1674476649.mesh"
+                    }
+                }
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/2.mat"
+                    }
+                }
+            }
+        },
+        "Parent": "1481871246",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "423895887"
+    },
+    "Shelter": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-12.642817",
+                "positiony": "1.810730",
+                "positionz": "-11.463268",
+                "rotationw": "0.999673",
+                "rotationx": "0.020368",
+                "rotationy": "0.006026",
+                "rotationz": "0.014223",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/950739223.mesh"
+                    }
+                }
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/2.mat"
+                    }
+                }
+            }
+        },
+        "Parent": "1481871246",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1335271753"
+    },
+    "SlashMesh_Geralt": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "2.540000",
+                "scaley": "2.540562",
+                "scalez": "2.540562"
+            },
+            "1": {
+                "Active": false,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/1228291332.mesh"
+                    }
+                }
+            },
+            "2": {
+                "Active": false,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/New material 16.mat"
+                    }
+                }
+            }
+        },
+        "Parent": "433250376",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1091410079"
+    },
+    "Slash_Controller": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "-0.422618",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.906308",
+                "scalex": "0.000009",
+                "scaley": "0.000009",
+                "scalez": "0.000009"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/274135069.bone"
+                }
+            }
+        },
+        "Parent": "2086824256",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "932872838"
+    },
+    "Slash_Geralt": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            }
+        },
+        "Parent": "433250376",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1916605381"
+    },
+    "Sword": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "2.798767",
+                "positiony": "7.348160",
+                "positionz": "2.000603",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "-0.000000",
+                "rotationz": "-0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/1051839863.mesh"
+                    }
+                }
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/2.mat"
+                    }
+                }
+            }
+        },
+        "Parent": "189900874",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1080413317"
+    },
+    "Wind_Circle_Pivot": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            }
+        },
+        "Parent": "1440486738",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1987350086"
+    },
+    "Wind_Controller": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "0.741054",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.671445",
+                "scalex": "0.703691",
+                "scaley": "0.703691",
+                "scalez": "0.721366"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/201905818.bone"
+                }
+            }
+        },
+        "Parent": "1987350086",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1076444843"
+    },
+    "mixamorig:Head": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "3.505100",
+                "positionz": "0.616500",
+                "rotationw": "0.951408",
+                "rotationx": "-0.158790",
+                "rotationy": "0.262501",
+                "rotationz": "0.026502",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/196631453.bone"
+                }
+            }
+        },
+        "Parent": "205738166",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "2128413243"
+    },
+    "mixamorig:HeadTop_End": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "19.060806",
+                "positionz": "3.352600",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Parent": "2128413243",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1591780609"
+    },
+    "mixamorig:Hips": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-0.016069",
+                "positiony": "-10.540623",
+                "positionz": "183.141602",
+                "rotationw": "0.632181",
+                "rotationx": "0.740383",
+                "rotationy": "-0.128834",
+                "rotationz": "-0.188631",
+                "scalex": "2.540000",
+                "scaley": "2.539985",
+                "scalez": "2.539985"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/724945249.bone"
+                }
+            }
+        },
+        "Parent": "227864806",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "713958137"
+    },
+    "mixamorig:LeftArm": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "11.420600",
+                "positionz": "0.000008",
+                "rotationw": "0.972745",
+                "rotationx": "-0.048087",
+                "rotationy": "-0.177940",
+                "rotationz": "0.140684",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/647639241.bone"
+                }
+            }
+        },
+        "Parent": "535120630",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1087073074"
+    },
+    "mixamorig:LeftFoot": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "33.181801",
+                "positionz": "0.000000",
+                "rotationw": "0.853095",
+                "rotationx": "0.517050",
+                "rotationy": "0.005509",
+                "rotationz": "-0.069694",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1253903751.bone"
+                }
+            }
+        },
+        "Parent": "616516955",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "771271466"
+    },
+    "mixamorig:LeftForeArm": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-0.000001",
+                "positiony": "19.326300",
+                "positionz": "0.000000",
+                "rotationw": "0.969986",
+                "rotationx": "0.024148",
+                "rotationy": "0.059221",
+                "rotationz": "0.234598",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/2076353245.bone"
+                }
+            }
+        },
+        "Parent": "1087073074",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1495797380"
+    },
+    "mixamorig:LeftHand": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "17.898899",
+                "positionz": "-0.000015",
+                "rotationw": "0.970221",
+                "rotationx": "0.008410",
+                "rotationy": "-0.026248",
+                "rotationz": "-0.240650",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/2075055987.bone"
+                }
+            }
+        },
+        "Parent": "1495797380",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "984899009"
+    },
+    "mixamorig:LeftHandIndex1": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-3.579000",
+                "positiony": "9.522400",
+                "positionz": "-0.154900",
+                "rotationw": "0.936398",
+                "rotationx": "-0.193738",
+                "rotationy": "0.057886",
+                "rotationz": "0.286835",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1203670752.bone"
+                }
+            }
+        },
+        "Parent": "984899009",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "501056879"
+    },
+    "mixamorig:LeftHandIndex2": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000900",
+                "positiony": "3.338100",
+                "positionz": "0.000008",
+                "rotationw": "0.982978",
+                "rotationx": "0.183521",
+                "rotationy": "0.002122",
+                "rotationz": "0.008296",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/852412310.bone"
+                }
+            }
+        },
+        "Parent": "501056879",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "356610991"
+    },
+    "mixamorig:LeftHandIndex3": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000600",
+                "positiony": "3.158100",
+                "positionz": "0.000000",
+                "rotationw": "0.981118",
+                "rotationx": "-0.045771",
+                "rotationy": "-0.020168",
+                "rotationz": "-0.186833",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/86849665.bone"
+                }
+            }
+        },
+        "Parent": "356610991",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "555361444"
+    },
+    "mixamorig:LeftHandIndex4": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-0.001500",
+                "positiony": "2.546394",
+                "positionz": "0.000008",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Parent": "555361444",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1523512136"
+    },
+    "mixamorig:LeftHandMiddle1": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-1.177000",
+                "positiony": "8.990700",
+                "positionz": "-0.301600",
+                "rotationw": "0.996709",
+                "rotationx": "-0.014011",
+                "rotationy": "-0.003044",
+                "rotationz": "0.079789",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/523089670.bone"
+                }
+            }
+        },
+        "Parent": "984899009",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "2073611479"
+    },
+    "mixamorig:LeftHandMiddle2": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.001700",
+                "positiony": "3.749400",
+                "positionz": "0.000000",
+                "rotationw": "0.991254",
+                "rotationx": "0.129725",
+                "rotationy": "0.002958",
+                "rotationz": "0.024058",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1394060660.bone"
+                }
+            }
+        },
+        "Parent": "2073611479",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "169126237"
+    },
+    "mixamorig:LeftHandMiddle3": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.002900",
+                "positiony": "3.765500",
+                "positionz": "0.000000",
+                "rotationw": "0.989497",
+                "rotationx": "-0.124914",
+                "rotationy": "-0.016658",
+                "rotationz": "-0.070822",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/373783695.bone"
+                }
+            }
+        },
+        "Parent": "169126237",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "84909676"
+    },
+    "mixamorig:LeftHandMiddle4": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-0.004600",
+                "positiony": "3.201202",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Parent": "84909676",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1621556252"
+    },
+    "mixamorig:LeftHandPinky1": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "3.461400",
+                "positiony": "7.789900",
+                "positionz": "-0.191600",
+                "rotationw": "0.909324",
+                "rotationx": "0.319766",
+                "rotationy": "-0.007177",
+                "rotationz": "-0.266134",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1654551758.bone"
+                }
+            }
+        },
+        "Parent": "984899009",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1152497702"
+    },
+    "mixamorig:LeftHandPinky2": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-0.000800",
+                "positiony": "3.538500",
+                "positionz": "0.000000",
+                "rotationw": "0.992528",
+                "rotationx": "0.092489",
+                "rotationy": "0.012489",
+                "rotationz": "0.078595",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/368868707.bone"
+                }
+            }
+        },
+        "Parent": "1152497702",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1611008081"
+    },
+    "mixamorig:LeftHandPinky3": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.003999",
+                "positiony": "2.949900",
+                "positionz": "-0.000008",
+                "rotationw": "0.997157",
+                "rotationx": "-0.075345",
+                "rotationy": "-0.000107",
+                "rotationz": "-0.001354",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1398799221.bone"
+                }
+            }
+        },
+        "Parent": "1611008081",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1217691785"
+    },
+    "mixamorig:LeftHandPinky4": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-0.003300",
+                "positiony": "2.410904",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Parent": "1217691785",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "707830866"
+    },
+    "mixamorig:LeftHandRing1": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "1.294500",
+                "positiony": "9.067500",
+                "positionz": "0.065000",
+                "rotationw": "0.964972",
+                "rotationx": "0.222752",
+                "rotationy": "0.008860",
+                "rotationz": "-0.138317",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/525118638.bone"
+                }
+            }
+        },
+        "Parent": "984899009",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1585474077"
+    },
+    "mixamorig:LeftHandRing2": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-0.008100",
+                "positiony": "3.472200",
+                "positionz": "0.000000",
+                "rotationw": "0.987688",
+                "rotationx": "0.132601",
+                "rotationy": "0.012432",
+                "rotationz": "0.082065",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/2135278896.bone"
+                }
+            }
+        },
+        "Parent": "1585474077",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1631259017"
+    },
+    "mixamorig:LeftHandRing3": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.004700",
+                "positiony": "3.209900",
+                "positionz": "0.000008",
+                "rotationw": "0.990374",
+                "rotationx": "-0.130446",
+                "rotationy": "0.000689",
+                "rotationz": "0.046298",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/696554841.bone"
+                }
+            }
+        },
+        "Parent": "1631259017",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "211350962"
+    },
+    "mixamorig:LeftHandRing4": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.003400",
+                "positiony": "2.590897",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Parent": "211350962",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "2054859805"
+    },
+    "mixamorig:LeftHandThumb1": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-2.501400",
+                "positiony": "2.460600",
+                "positionz": "1.849000",
+                "rotationw": "0.868791",
+                "rotationx": "0.345703",
+                "rotationy": "0.177479",
+                "rotationz": "0.306910",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1952969943.bone"
+                }
+            }
+        },
+        "Parent": "984899009",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "328888059"
+    },
+    "mixamorig:LeftHandThumb2": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-0.762500",
+                "positiony": "3.079900",
+                "positionz": "0.000000",
+                "rotationw": "0.990783",
+                "rotationx": "-0.117111",
+                "rotationy": "-0.005556",
+                "rotationz": "0.067849",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1940775445.bone"
+                }
+            }
+        },
+        "Parent": "328888059",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1044911325"
+    },
+    "mixamorig:LeftHandThumb3": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.590700",
+                "positiony": "3.818100",
+                "positionz": "0.000000",
+                "rotationw": "0.943835",
+                "rotationx": "0.041182",
+                "rotationy": "-0.013723",
+                "rotationz": "-0.327553",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/998229244.bone"
+                }
+            }
+        },
+        "Parent": "1044911325",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1762815700"
+    },
+    "mixamorig:LeftHandThumb4": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.171804",
+                "positiony": "3.047302",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Parent": "1762815700",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "301423650"
+    },
+    "mixamorig:LeftLeg": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000001",
+                "positiony": "34.878300",
+                "positionz": "0.000000",
+                "rotationw": "0.899290",
+                "rotationx": "-0.420818",
+                "rotationy": "0.117157",
+                "rotationz": "-0.021547",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1871189072.bone"
+                }
+            }
+        },
+        "Parent": "822962615",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "616516955"
+    },
+    "mixamorig:LeftShoulder": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "4.976300",
+                "positiony": "8.201200",
+                "positionz": "-0.301500",
+                "rotationw": "0.547857",
+                "rotationx": "0.593757",
+                "rotationy": "0.404879",
+                "rotationz": "-0.428227",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/984592661.bone"
+                }
+            }
+        },
+        "Parent": "1481871246",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "535120630"
+    },
+    "mixamorig:LeftToeBase": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "14.614801",
+                "positionz": "0.000000",
+                "rotationw": "0.950498",
+                "rotationx": "0.304891",
+                "rotationy": "-0.059838",
+                "rotationz": "0.003795",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1712141085.bone"
+                }
+            }
+        },
+        "Parent": "771271466",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1009624798"
+    },
+    "mixamorig:LeftToe_End": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "5.657999",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Parent": "1009624798",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1800811601"
+    },
+    "mixamorig:LeftUpLeg": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "6.269100",
+                "positiony": "-3.920400",
+                "positionz": "0.077100",
+                "rotationw": "-0.196664",
+                "rotationx": "0.221406",
+                "rotationy": "0.439206",
+                "rotationz": "0.848175",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1252508835.bone"
+                }
+            }
+        },
+        "Parent": "713958137",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "822962615"
+    },
+    "mixamorig:Neck": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "10.671799",
+                "positionz": "-0.000001",
+                "rotationw": "0.976788",
+                "rotationx": "0.141285",
+                "rotationy": "0.112815",
+                "rotationz": "-0.114875",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1617623335.bone"
+                }
+            }
+        },
+        "Parent": "1481871246",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "205738166"
+    },
+    "mixamorig:RightArm": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000001",
+                "positiony": "11.420600",
+                "positionz": "0.000000",
+                "rotationw": "0.979316",
+                "rotationx": "0.138927",
+                "rotationy": "-0.051097",
+                "rotationz": "0.137945",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/69306414.bone"
+                }
+            }
+        },
+        "Parent": "464175754",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1046249178"
+    },
+    "mixamorig:RightFoot": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "33.175499",
+                "positionz": "0.000000",
+                "rotationw": "0.812132",
+                "rotationx": "0.514373",
+                "rotationy": "0.079740",
+                "rotationz": "0.263636",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1188624283.bone"
+                }
+            }
+        },
+        "Parent": "404644561",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1068500035"
+    },
+    "mixamorig:RightForeArm": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "19.325199",
+                "positionz": "0.000000",
+                "rotationw": "0.858597",
+                "rotationx": "-0.010905",
+                "rotationy": "-0.025883",
+                "rotationz": "-0.511881",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/599684756.bone"
+                }
+            }
+        },
+        "Parent": "1046249178",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "416198945"
+    },
+    "mixamorig:RightHand": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "17.895100",
+                "positionz": "0.000008",
+                "rotationw": "0.969872",
+                "rotationx": "-0.048639",
+                "rotationy": "-0.002059",
+                "rotationz": "-0.238703",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1422816149.bone"
+                }
+            }
+        },
+        "Parent": "416198945",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "189900874"
+    },
+    "mixamorig:RightHandIndex1": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "3.600000",
+                "positiony": "9.293500",
+                "positionz": "-0.129700",
+                "rotationw": "0.848464",
+                "rotationx": "0.527808",
+                "rotationy": "-0.016995",
+                "rotationz": "-0.035200",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1011115521.bone"
+                }
+            }
+        },
+        "Parent": "189900874",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1179417822"
+    },
+    "mixamorig:RightHandIndex2": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000600",
+                "positiony": "3.439200",
+                "positionz": "0.000000",
+                "rotationw": "0.845792",
+                "rotationx": "0.532275",
+                "rotationy": "-0.021592",
+                "rotationz": "-0.029222",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1263583769.bone"
+                }
+            }
+        },
+        "Parent": "1179417822",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1063458770"
+    },
+    "mixamorig:RightHandIndex3": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-0.001600",
+                "positiony": "3.176100",
+                "positionz": "-0.000008",
+                "rotationw": "0.935781",
+                "rotationx": "0.352063",
+                "rotationy": "-0.010232",
+                "rotationz": "0.016171",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/806779376.bone"
+                }
+            }
+        },
+        "Parent": "1063458770",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "269328551"
+    },
+    "mixamorig:RightHandIndex4": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.001000",
+                "positiony": "2.515007",
+                "positionz": "0.000008",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Parent": "269328551",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1243327214"
+    },
+    "mixamorig:RightHandMiddle1": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "1.202400",
+                "positiony": "9.076300",
+                "positionz": "-0.187700",
+                "rotationw": "0.825918",
+                "rotationx": "0.559615",
+                "rotationy": "-0.025725",
+                "rotationz": "-0.063474",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/668066595.bone"
+                }
+            }
+        },
+        "Parent": "189900874",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "913122618"
+    },
+    "mixamorig:RightHandMiddle2": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-0.001200",
+                "positiony": "3.848900",
+                "positionz": "0.000000",
+                "rotationw": "0.737646",
+                "rotationx": "0.673960",
+                "rotationy": "-0.027790",
+                "rotationz": "-0.029729",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1352149211.bone"
+                }
+            }
+        },
+        "Parent": "913122618",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "551385637"
+    },
+    "mixamorig:RightHandMiddle3": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-0.002800",
+                "positiony": "3.625400",
+                "positionz": "0.000008",
+                "rotationw": "0.973653",
+                "rotationx": "0.227462",
+                "rotationy": "-0.003639",
+                "rotationz": "0.015742",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/887069139.bone"
+                }
+            }
+        },
+        "Parent": "551385637",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1749243452"
+    },
+    "mixamorig:RightHandMiddle4": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.004100",
+                "positiony": "3.140396",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Parent": "1749243452",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "280750322"
+    },
+    "mixamorig:RightHandPinky1": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-3.636500",
+                "positiony": "8.401500",
+                "positionz": "-0.114100",
+                "rotationw": "0.721777",
+                "rotationx": "0.690348",
+                "rotationy": "0.012324",
+                "rotationz": "-0.048023",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1426342787.bone"
+                }
+            }
+        },
+        "Parent": "189900874",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1869496615"
+    },
+    "mixamorig:RightHandPinky2": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-0.002801",
+                "positiony": "3.250700",
+                "positionz": "0.000000",
+                "rotationw": "0.902144",
+                "rotationx": "0.431365",
+                "rotationy": "0.000849",
+                "rotationz": "0.007762",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/2086848102.bone"
+                }
+            }
+        },
+        "Parent": "1869496615",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1534955539"
+    },
+    "mixamorig:RightHandPinky3": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-0.005500",
+                "positiony": "2.774000",
+                "positionz": "0.000008",
+                "rotationw": "0.965708",
+                "rotationx": "0.259539",
+                "rotationy": "-0.000541",
+                "rotationz": "0.006807",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/445571557.bone"
+                }
+            }
+        },
+        "Parent": "1534955539",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "2058338705"
+    },
+    "mixamorig:RightHandPinky4": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.008401",
+                "positiony": "2.231407",
+                "positionz": "-0.000008",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Parent": "2058338705",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "2015216495"
+    },
+    "mixamorig:RightHandRing1": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-1.165900",
+                "positiony": "9.181004",
+                "positionz": "-0.111500",
+                "rotationw": "0.721181",
+                "rotationx": "0.690711",
+                "rotationy": "-0.026673",
+                "rotationz": "-0.045881",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1619852800.bone"
+                }
+            }
+        },
+        "Parent": "189900874",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1985972591"
+    },
+    "mixamorig:RightHandRing2": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.003600",
+                "positiony": "3.373100",
+                "positionz": "-0.000008",
+                "rotationw": "0.864366",
+                "rotationx": "0.502692",
+                "rotationy": "-0.002380",
+                "rotationz": "-0.012921",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1126298454.bone"
+                }
+            }
+        },
+        "Parent": "1985972591",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1810629563"
+    },
+    "mixamorig:RightHandRing3": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-0.003100",
+                "positiony": "3.202900",
+                "positionz": "0.000008",
+                "rotationw": "0.945108",
+                "rotationx": "0.326586",
+                "rotationy": "0.004331",
+                "rotationz": "0.009694",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1305805893.bone"
+                }
+            }
+        },
+        "Parent": "1810629563",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "550726723"
+    },
+    "mixamorig:RightHandRing4": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-0.000500",
+                "positiony": "2.683693",
+                "positionz": "-0.000008",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Parent": "550726723",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "972148445"
+    },
+    "mixamorig:RightHandThumb1": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "2.459400",
+                "positiony": "2.383200",
+                "positionz": "1.810700",
+                "rotationw": "0.889967",
+                "rotationx": "0.420530",
+                "rotationy": "-0.155050",
+                "rotationz": "0.084103",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/904924360.bone"
+                }
+            }
+        },
+        "Parent": "189900874",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1852270493"
+    },
+    "mixamorig:RightHandThumb2": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.958200",
+                "positiony": "2.947300",
+                "positionz": "0.000000",
+                "rotationw": "0.963838",
+                "rotationx": "-0.083320",
+                "rotationy": "-0.131965",
+                "rotationz": "-0.216007",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/359738881.bone"
+                }
+            }
+        },
+        "Parent": "1852270493",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "530990803"
+    },
+    "mixamorig:RightHandThumb3": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-0.254900",
+                "positiony": "3.869500",
+                "positionz": "0.000000",
+                "rotationw": "0.951379",
+                "rotationx": "-0.281855",
+                "rotationy": "0.119503",
+                "rotationz": "0.033988",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/297982194.bone"
+                }
+            }
+        },
+        "Parent": "530990803",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1327196205"
+    },
+    "mixamorig:RightHandThumb4": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-0.703300",
+                "positiony": "3.446198",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Parent": "1327196205",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "948108836"
+    },
+    "mixamorig:RightLeg": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "34.879799",
+                "positionz": "0.000000",
+                "rotationw": "0.969555",
+                "rotationx": "-0.220389",
+                "rotationy": "0.104490",
+                "rotationz": "-0.021778",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/675314174.bone"
+                }
+            }
+        },
+        "Parent": "2061677714",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "404644561"
+    },
+    "mixamorig:RightShoulder": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-4.976300",
+                "positiony": "8.196100",
+                "positionz": "-0.255500",
+                "rotationw": "0.215085",
+                "rotationx": "0.554766",
+                "rotationy": "-0.476728",
+                "rotationz": "0.647073",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1933577932.bone"
+                }
+            }
+        },
+        "Parent": "1481871246",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "464175754"
+    },
+    "mixamorig:RightToeBase": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "14.500400",
+                "positionz": "0.000000",
+                "rotationw": "0.955821",
+                "rotationx": "0.280703",
+                "rotationy": "0.083947",
+                "rotationz": "-0.023768",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/736088982.bone"
+                }
+            }
+        },
+        "Parent": "1068500035",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1207404655"
+    },
+    "mixamorig:RightToe_End": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "5.623000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Parent": "1207404655",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1767091234"
+    },
+    "mixamorig:RightUpLeg": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-6.269100",
+                "positiony": "-3.920400",
+                "positionz": "0.178900",
+                "rotationw": "0.197772",
+                "rotationx": "-0.297388",
+                "rotationy": "0.033590",
+                "rotationz": "0.933444",
+                "scalex": "0.999985",
+                "scaley": "0.999985",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/469307930.bone"
+                }
+            }
+        },
+        "Parent": "713958137",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "2061677714"
+    },
+    "mixamorig:Spine": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "7.069800",
+                "positionz": "-0.796100",
+                "rotationw": "0.987948",
+                "rotationx": "-0.001781",
+                "rotationy": "-0.152718",
+                "rotationz": "0.025162",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/696748757.bone"
+                }
+            }
+        },
+        "Parent": "713958137",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1615632978"
+    },
+    "mixamorig:Spine1": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "8.300300",
+                "positionz": "0.000000",
+                "rotationw": "0.998699",
+                "rotationx": "-0.016074",
+                "rotationy": "-0.048393",
+                "rotationz": "-0.000527",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1792662825.bone"
+                }
+            }
+        },
+        "Parent": "1615632978",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1085098772"
+    },
+    "mixamorig:Spine2": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "9.486000",
+                "positionz": "0.000000",
+                "rotationw": "0.999744",
+                "rotationx": "-0.013521",
+                "rotationy": "-0.018099",
+                "rotationz": "0.001447",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1671426626.bone"
+                }
+            }
+        },
+        "Parent": "1085098772",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1481871246"
+    }
+}
