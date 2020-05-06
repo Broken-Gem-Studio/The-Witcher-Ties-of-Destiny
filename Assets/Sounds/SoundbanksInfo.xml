@@ -160,9 +160,9 @@
 				<Event Id="1261783109" Name="Play_Nilfgaardian_walking_sound_group_2" ObjectPath="\Events\Default Work Unit\Nilfgaardian\Play_Nilfgaardian_walking_sound_group_2" GUID="{CA1BCEFF-60BC-4A1E-8C3F-47A2FBF6FBE3}"/>
 				<Event Id="306299682" Name="Play_No_energy" ObjectPath="\Events\Default Work Unit\HUD\Play_No_energy" GUID="{30B46D50-8605-45F8-862C-1499C237F665}"/>
 				<Event Id="2108537051" Name="Play_No_potion" ObjectPath="\Events\Default Work Unit\HUD\Play_No_potion" GUID="{4F223081-BF82-4D39-AFE6-C92439ADEE19}"/>
-				<Event Id="1201227192" Name="Play_Potion_health" ObjectPath="\Events\Default Work Unit\Misc\Play_Potion_health" GUID="{C05B1189-7F21-461A-9DCD-5E5DA23A5762}"/>
-				<Event Id="3383813377" Name="Play_Potion_power" ObjectPath="\Events\Default Work Unit\Misc\Play_Potion_power" GUID="{8B4A3ADF-B4C5-41AD-BBE6-071424C53D2E}"/>
-				<Event Id="3850640881" Name="Play_Potion_stamina" ObjectPath="\Events\Default Work Unit\Misc\Play_Potion_stamina" GUID="{F87DA683-79E7-4510-B476-65F236C69D5D}"/>
+				<Event Id="1201227192" Name="Play_Potion_health" ObjectPath="\Events\Default Work Unit\Misc\Play_Potion_health" GUID="{BB22F711-9CDB-445B-9371-A2CB82B1EA11}"/>
+				<Event Id="3383813377" Name="Play_Potion_power" ObjectPath="\Events\Default Work Unit\Misc\Play_Potion_power" GUID="{82A606A2-8A16-4AA6-B63C-FAD89C0F26CF}"/>
+				<Event Id="3850640881" Name="Play_Potion_stamina" ObjectPath="\Events\Default Work Unit\Misc\Play_Potion_stamina" GUID="{76B620AA-3182-4C5A-913C-DCFD36D7FF8C}"/>
 				<Event Id="2927391090" Name="Play_Select_1" ObjectPath="\Events\Default Work Unit\UI\Play_Select_1" GUID="{C2EEB4EE-E028-4B8C-9FC4-7276D51EF138}"/>
 				<Event Id="2927391089" Name="Play_Select_2" ObjectPath="\Events\Default Work Unit\UI\Play_Select_2" GUID="{2B559040-1031-4A4E-9025-39C18D8FB499}"/>
 				<Event Id="2927391088" Name="Play_Select_3" ObjectPath="\Events\Default Work Unit\UI\Play_Select_3" GUID="{E0D0B0E3-1E60-4FCB-84CE-A5FF72620C4F}"/>
@@ -326,6 +326,10 @@
 					<ShortName>Geralt_aard_1.wav</ShortName>
 					<Path>SFX\Geralt_aard_1_10C4C929.wem</Path>
 				</File>
+				<File Id="220051532" Language="SFX">
+					<ShortName>Potion_health.wav</ShortName>
+					<Path>SFX\Potion_health_10C4C929.wem</Path>
+				</File>
 				<File Id="224900403" Language="SFX">
 					<ShortName>Scream_2.wav</ShortName>
 					<Path>SFX\Scream_2_10C4C929.wem</Path>
@@ -345,6 +349,10 @@
 				<File Id="258996778" Language="SFX">
 					<ShortName>Geralt_attack_5.wav</ShortName>
 					<Path>SFX\Geralt_attack_5_10C4C929.wem</Path>
+				</File>
+				<File Id="295499585" Language="SFX">
+					<ShortName>Potion_power.wav</ShortName>
+					<Path>SFX\Potion_power_10C4C929.wem</Path>
 				</File>
 				<File Id="296504993" Language="SFX">
 					<ShortName>Endrega_hit_2.wav</ShortName>
@@ -449,10 +457,6 @@
 				<File Id="472755767" Language="SFX">
 					<ShortName>No_potion.wav</ShortName>
 					<Path>SFX\No_potion_10C4C929.wem</Path>
-				</File>
-				<File Id="480316483" Language="SFX">
-					<ShortName>Potion_stamina.wav</ShortName>
-					<Path>SFX\Potion_stamina_10C4C929.wem</Path>
 				</File>
 				<File Id="482190655" Language="SFX">
 					<ShortName>Endrega_hit_3.wav</ShortName>
@@ -602,10 +606,6 @@
 					<ShortName>Jaskier_light_impact.wav</ShortName>
 					<Path>SFX\Jaskier_light_impact_10C4C929.wem</Path>
 				</File>
-				<File Id="728715402" Language="SFX">
-					<ShortName>Potion_power.wav</ShortName>
-					<Path>SFX\Potion_power_10C4C929.wem</Path>
-				</File>
 				<File Id="732150300" Language="SFX">
 					<ShortName>Kikimora_sound_6.wav</ShortName>
 					<Path>SFX\Kikimora_sound_6_10C4C929.wem</Path>
@@ -637,10 +637,6 @@
 				<File Id="762588901" Language="SFX">
 					<ShortName>Nilfgaardian_voice_1.wav</ShortName>
 					<Path>SFX\Nilfgaardian_voice_1_10C4C929.wem</Path>
-				</File>
-				<File Id="767955911" Language="SFX">
-					<ShortName>Potion_health.wav</ShortName>
-					<Path>SFX\Potion_health_10C4C929.wem</Path>
 				</File>
 				<File Id="770188479" Language="SFX">
 					<ShortName>Broken_Wood_Sound_1.wav</ShortName>
@@ -741,6 +737,10 @@
 				<File Id="948865473" Language="SFX">
 					<ShortName>Endrega_throw_projectile.wav</ShortName>
 					<Path>SFX\Endrega_throw_projectile_10C4C929.wem</Path>
+				</File>
+				<File Id="950474221" Language="SFX">
+					<ShortName>Potion_stamina.wav</ShortName>
+					<Path>SFX\Potion_stamina_10C4C929.wem</Path>
 				</File>
 				<File Id="954539098" Language="SFX">
 					<ShortName>Geralt_attack_4.wav</ShortName>
