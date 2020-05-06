@@ -2275,7 +2275,7 @@ function lua_table:Update()
 	--lua_table.SystemFunctions:LOG("Song string: " .. lua_table.note_stack[1] .. ", " .. lua_table.note_stack[2] .. ", " .. lua_table.note_stack[3] .. ", " .. lua_table.note_stack[4])
 
 	--Audio Tracking
-	lua_table.SystemFunctions:LOG(current_audio .. " ----------------------------------")
+	--lua_table.SystemFunctions:LOG(current_audio)
 
 	--Revive
 	-- if lua_table.being_revived then lua_table.SystemFunctions:LOG("Jaskier Being Revived!")

@@ -2254,8 +2254,8 @@ function lua_table:Update()
 	-- else lua_table.SystemFunctions:LOG("Jaskier not being revived.") end
 
 	-- Enemies Nearby
-	if lua_table.enemies_nearby then lua_table.SystemFunctions:LOG("Enemies Nearby!")
-	else lua_table.SystemFunctions:LOG("Enemies not nearby.") end
+	--if lua_table.enemies_nearby then lua_table.SystemFunctions:LOG("Enemies Nearby!")
+	--else lua_table.SystemFunctions:LOG("Enemies not nearby.") end
 
 	--Item LOGS
 	--lua_table.SystemFunctions:LOG("Geralt Item: " .. lua_table.item_selected)
