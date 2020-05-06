@@ -615,10 +615,12 @@ local function GoDefaultState()
 		then
 			lua_table.AnimationFunctions:PlayAnimation("run", lua_table.run_animation_speed, my_GO_UID)
 			--lua_table.AudioFunctions:PlayAudioEvent("Play_Jaskier_run")	--TODO-AUDIO: Play run sound
+			lua_table.current_velocity = run_velocity
 			lua_table.current_state = state.run
 		else
 			lua_table.AnimationFunctions:PlayAnimation("walk", lua_table.walk_animation_speed, my_GO_UID)
 			--lua_table.AudioFunctions:PlayAudioEvent("Play_Jaskier_walk_2")	--TODO-AUDIO: Play walk sound
+			lua_table.current_velocity = walk_velocity
 			lua_table.current_state = state.walk
 		end
 
