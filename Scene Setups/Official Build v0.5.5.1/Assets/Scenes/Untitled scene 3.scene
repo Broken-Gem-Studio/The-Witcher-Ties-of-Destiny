@@ -801,7 +801,7 @@
                 "positionx": "921.746521",
                 "positiony": "-126.778046",
                 "positionz": "640.021729",
-                "rotationw": "0.648754",
+                "rotationw": "0.648753",
                 "rotationx": "-0.497198",
                 "rotationy": "-0.011053",
                 "rotationz": "-0.576013",
@@ -1520,8 +1520,8 @@
                 "rotationy": "-0.128834",
                 "rotationz": "-0.188631",
                 "scalex": "2.540000",
-                "scaley": "2.539967",
-                "scalez": "2.539967"
+                "scaley": "2.539964",
+                "scalez": "2.539964"
             },
             "13": {
                 "Active": true,
@@ -2938,32 +2938,38 @@
                 "positionZ": "-325.813293",
                 "radius": "1.000000",
                 "slopeLimit": "45.000000",
-                "stepOffset": "0.010000"
+                "stepOffset": "0.020000"
             },
             "18": {
                 "Active": true,
-                "Duration": "900",
+                "Duration": "600",
                 "GradientColor": true,
                 "HorizontalBill": "0",
                 "Loop": true,
                 "Resources": {
-                    "ResourceTexture": "Library/Textures/572986970.dds"
+                    "ResourceTexture": "Library/Textures/1669924578.dds"
                 },
                 "UID": 2029475028,
                 "VerticalBill": "0",
                 "animation": "0",
                 "colors": [
                     {
+                        "a": "0.650980",
+                        "x": "0.603922",
+                        "y": "0.513726",
+                        "z": "0.317647"
+                    },
+                    {
                         "a": "1.000000",
-                        "x": "1.000000",
-                        "y": "1.000000",
-                        "z": "1.000000"
+                        "x": "0.658824",
+                        "y": "0.600000",
+                        "z": "0.380392"
                     },
                     {
                         "a": "0.000000",
-                        "x": "1.000000",
-                        "y": "1.000000",
-                        "z": "1.000000"
+                        "x": "0.211765",
+                        "y": "0.203922",
+                        "z": "0.172549"
                     }
                 ],
                 "curves": [
@@ -3013,32 +3019,38 @@
                     }
                 ],
                 "cycles": "1.000000",
-                "emisionRate": "300.000000",
+                "emisionRate": "200.000000",
                 "externalAccelerationX": "0.000000",
-                "externalAccelerationY": "10.000000",
+                "externalAccelerationY": "3.000000",
                 "externalAccelerationZ": "0.000000",
-                "grad_duration": "900",
+                "grad_duration": "600",
                 "gradients": [
                     {
-                        "a": "-0.001111",
-                        "x": "0.000000",
-                        "y": "0.000000",
-                        "z": "0.000000"
+                        "a": "0.000582",
+                        "x": "0.000092",
+                        "y": "0.000144",
+                        "z": "0.000105"
+                    },
+                    {
+                        "a": "-0.001667",
+                        "x": "-0.000745",
+                        "y": "-0.000660",
+                        "z": "-0.000346"
                     }
                 ],
                 "index": 4,
-                "num_colors": "2",
+                "num_colors": "3",
                 "num_curves": "2",
-                "num_gradients": "1",
+                "num_gradients": "2",
                 "particleScaleOverTime": "0.000000",
                 "particleScaleRandomFactor1": "1.000000",
                 "particleScaleRandomFactor2": "1.000000",
-                "particlesLifeTime": "900",
-                "particlesPerCreation": "1",
-                "particlesScaleX": "1.000000",
-                "particlesScaleY": "1.000000",
+                "particlesLifeTime": "1200",
+                "particlesPerCreation": "5",
+                "particlesScaleX": "0.300000",
+                "particlesScaleY": "0.300000",
                 "particlesVelocityX": "0.000000",
-                "particlesVelocityY": "0.000000",
+                "particlesVelocityY": "4.500000",
                 "particlesVelocityZ": "0.000000",
                 "positionX": "0.000000",
                 "positionY": "0.000000",
@@ -3046,17 +3058,17 @@
                 "rotationOvertime1": [
                     "0",
                     "0",
-                    "0"
+                    "-5"
                 ],
                 "rotationOvertime2": [
                     "0",
                     "0",
-                    "0"
+                    "5"
                 ],
                 "rotationX": "0.000000",
                 "rotationY": "0.000000",
                 "rotationZ": "0.000000",
-                "rotationconstants": "0",
+                "rotationconstants": "1",
                 "scaleconstants": "0",
                 "separateAxis": "0",
                 "sizeX": "0.000000",
@@ -3065,12 +3077,12 @@
                 "startFrame": "0",
                 "tiles_X": "1",
                 "tiles_Y": "1",
-                "velocityRandomFactor1X": "0.000000",
-                "velocityRandomFactor1Y": "0.000000",
-                "velocityRandomFactor1Z": "0.000000",
-                "velocityRandomFactor2X": "0.000000",
-                "velocityRandomFactor2Y": "0.000000",
-                "velocityRandomFactor2Z": "0.000000",
+                "velocityRandomFactor1X": "-2.000000",
+                "velocityRandomFactor1Y": "-2.000000",
+                "velocityRandomFactor1Z": "-1.500000",
+                "velocityRandomFactor2X": "2.000000",
+                "velocityRandomFactor2Y": "-1.000000",
+                "velocityRandomFactor2Z": "1.500000",
                 "velocityconstants": "0"
             },
             "19": {
@@ -5282,7 +5294,7 @@
                 "rotationx": "-0.047664",
                 "rotationy": "0.671446",
                 "rotationz": "0.739518",
-                "scalex": "0.322658",
+                "scalex": "0.322661",
                 "scaley": "0.351858",
                 "scalez": "0.351858"
             },
@@ -5475,7 +5487,7 @@
                 "rotationz": "0.004123",
                 "scalex": "0.939993",
                 "scaley": "0.939994",
-                "scalez": "1.596465"
+                "scalez": "1.596468"
             },
             "1": {
                 "Active": true,
@@ -7031,7 +7043,7 @@
                 "positionx": "952.201050",
                 "positiony": "-10.742347",
                 "positionz": "502.175354",
-                "rotationw": "0.511345",
+                "rotationw": "0.511344",
                 "rotationx": "-0.524310",
                 "rotationy": "-0.474447",
                 "rotationz": "-0.488391",
@@ -7151,8 +7163,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000229",
-                "scalez": "1.000229"
+                "scaley": "1.000232",
+                "scalez": "1.000232"
             }
         },
         "Index": 0,
@@ -7353,7 +7365,7 @@
                 "positionx": "1081.618896",
                 "positiony": "69.089043",
                 "positionz": "60.734173",
-                "rotationw": "0.613302",
+                "rotationw": "0.613301",
                 "rotationx": "-0.613302",
                 "rotationy": "0.351939",
                 "rotationz": "0.351939",
@@ -9541,7 +9553,7 @@
                 "positionx": "1013.774048",
                 "positiony": "5.082242",
                 "positionz": "910.547852",
-                "rotationw": "0.644349",
+                "rotationw": "0.644348",
                 "rotationx": "-0.639045",
                 "rotationy": "-0.324462",
                 "rotationz": "-0.266760",
@@ -11169,8 +11181,8 @@
                 "rotationx": "0.388476",
                 "rotationy": "0.030072",
                 "rotationz": "0.916844",
-                "scalex": "1.000034",
-                "scaley": "1.000034",
+                "scalex": "1.000040",
+                "scaley": "1.000040",
                 "scalez": "1.000000"
             },
             "13": {
@@ -11310,7 +11322,7 @@
                 "positionx": "928.112427",
                 "positiony": "-1.146532",
                 "positionz": "483.994110",
-                "rotationw": "0.544276",
+                "rotationw": "0.544277",
                 "rotationx": "-0.622836",
                 "rotationy": "-0.334777",
                 "rotationz": "-0.451401",
@@ -12317,8 +12329,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000229",
-                "scalez": "1.000229"
+                "scaley": "1.000232",
+                "scalez": "1.000232"
             }
         },
         "Index": 0,
@@ -12991,9 +13003,9 @@
                 "rotationx": "0.000000",
                 "rotationy": "0.841643",
                 "rotationz": "0.000000",
-                "scalex": "3.500045",
+                "scalex": "3.500039",
                 "scaley": "3.500000",
-                "scalez": "3.500045"
+                "scalez": "3.500039"
             }
         },
         "Index": 10,
@@ -14607,7 +14619,7 @@
                 "rotationx": "0.021435",
                 "rotationy": "0.669027",
                 "rotationz": "0.742912",
-                "scalex": "0.773643",
+                "scalex": "0.773640",
                 "scaley": "0.843777",
                 "scalez": "0.843776"
             },
@@ -16050,7 +16062,7 @@
                 "positionx": "913.108459",
                 "positiony": "-3.732620",
                 "positionz": "674.211304",
-                "rotationw": "0.544276",
+                "rotationw": "0.544277",
                 "rotationx": "-0.622836",
                 "rotationy": "-0.334777",
                 "rotationz": "-0.451401",
@@ -16100,7 +16112,7 @@
                 "rotationx": "-0.001647",
                 "rotationy": "0.707105",
                 "rotationz": "0.707105",
-                "scalex": "1.150026",
+                "scalex": "1.150029",
                 "scaley": "1.149995",
                 "scalez": "1.140062"
             },
@@ -16735,8 +16747,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000229",
-                "scalez": "1.000229"
+                "scaley": "1.000232",
+                "scalez": "1.000232"
             }
         },
         "Index": 0,
@@ -16922,8 +16934,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000229",
-                "scalez": "1.000229"
+                "scaley": "1.000232",
+                "scalez": "1.000232"
             }
         },
         "Index": 0,
@@ -18394,9 +18406,9 @@
                 "rotationx": "-0.042287",
                 "rotationy": "0.903008",
                 "rotationz": "0.422164",
-                "scalex": "0.842779",
+                "scalex": "0.842776",
                 "scaley": "0.842807",
-                "scalez": "0.842783"
+                "scalez": "0.842780"
             },
             "21": {
                 "Active": true,
@@ -18819,7 +18831,7 @@
                 "positionx": "0.000900",
                 "positiony": "3.338100",
                 "positionz": "0.000008",
-                "rotationw": "0.982978",
+                "rotationw": "0.982979",
                 "rotationx": "0.183521",
                 "rotationy": "0.002122",
                 "rotationz": "0.008296",
@@ -19040,7 +19052,7 @@
                 "positionx": "1186.705200",
                 "positiony": "10.640896",
                 "positionz": "276.005310",
-                "rotationw": "0.520349",
+                "rotationw": "0.520348",
                 "rotationx": "-0.521992",
                 "rotationy": "0.515333",
                 "rotationz": "0.437257",
@@ -19090,9 +19102,9 @@
                 "rotationx": "0.000000",
                 "rotationy": "0.706985",
                 "rotationz": "0.000000",
-                "scalex": "3.500056",
+                "scalex": "3.500062",
                 "scaley": "3.500000",
-                "scalez": "3.500056"
+                "scalez": "3.500062"
             }
         },
         "Index": 11,
@@ -19384,9 +19396,9 @@
                 "rotationx": "0.612624",
                 "rotationy": "0.523173",
                 "rotationz": "-0.456502",
-                "scalex": "0.999980",
-                "scaley": "0.999979",
-                "scalez": "0.999977"
+                "scalex": "0.999977",
+                "scaley": "0.999976",
+                "scalez": "0.999974"
             },
             "13": {
                 "Active": true,
@@ -22041,13 +22053,13 @@
                 "positionx": "891.307190",
                 "positiony": "-9.061230",
                 "positionz": "504.000763",
-                "rotationw": "0.681674",
+                "rotationw": "0.681675",
                 "rotationx": "0.439319",
                 "rotationy": "0.583387",
                 "rotationz": "0.044479",
                 "scalex": "0.524572",
                 "scaley": "0.524572",
-                "scalez": "0.890904"
+                "scalez": "0.890903"
             },
             "1": {
                 "Active": true,
@@ -22693,8 +22705,8 @@
                 "rotationy": "-0.000000",
                 "rotationz": "-0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000229",
-                "scalez": "1.000229"
+                "scaley": "1.000232",
+                "scalez": "1.000232"
             }
         },
         "Index": 0,
@@ -23046,8 +23058,8 @@
                 "rotationx": "-0.046474",
                 "rotationy": "-0.155068",
                 "rotationz": "0.844688",
-                "scalex": "1.000021",
-                "scaley": "1.000021",
+                "scalex": "1.000024",
+                "scaley": "1.000024",
                 "scalez": "1.000000"
             },
             "13": {
@@ -23830,9 +23842,9 @@
                 "rotationx": "0.256776",
                 "rotationy": "-0.736911",
                 "rotationz": "-0.249735",
-                "scalex": "0.999974",
+                "scalex": "0.999971",
                 "scaley": "1.000001",
-                "scalez": "0.999975"
+                "scalez": "0.999972"
             },
             "21": {
                 "Active": true,
@@ -24013,9 +24025,9 @@
                 "rotationx": "0.205365",
                 "rotationy": "0.663861",
                 "rotationz": "0.700897",
-                "scalex": "1.532381",
-                "scaley": "1.532414",
-                "scalez": "1.692484"
+                "scalex": "1.532375",
+                "scaley": "1.532411",
+                "scalez": "1.692481"
             },
             "1": {
                 "Active": true,
@@ -26358,8 +26370,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.540000",
-                "scaley": "2.540021",
-                "scalez": "2.540021"
+                "scaley": "2.540025",
+                "scalez": "2.540025"
             },
             "1": {
                 "Active": false,
@@ -31514,8 +31526,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000229",
-                "scalez": "1.000229"
+                "scaley": "1.000232",
+                "scalez": "1.000232"
             }
         },
         "Index": 0,
@@ -32647,7 +32659,7 @@
                 "positionx": "1041.608398",
                 "positiony": "10.161258",
                 "positionz": "178.137848",
-                "rotationw": "0.509453",
+                "rotationw": "0.509452",
                 "rotationx": "-0.452981",
                 "rotationy": "0.510802",
                 "rotationz": "0.523782",
@@ -34427,7 +34439,7 @@
                 "positionx": "937.682129",
                 "positiony": "-9.826797",
                 "positionz": "587.916931",
-                "rotationw": "0.767086",
+                "rotationw": "0.767085",
                 "rotationx": "0.094936",
                 "rotationy": "-0.465403",
                 "rotationz": "0.431239",
@@ -35186,13 +35198,13 @@
                 "positionx": "911.433899",
                 "positiony": "-4.747381",
                 "positionz": "482.991150",
-                "rotationw": "0.681674",
+                "rotationw": "0.681675",
                 "rotationx": "0.439319",
                 "rotationy": "0.583387",
                 "rotationz": "0.044479",
                 "scalex": "0.524572",
                 "scaley": "0.524572",
-                "scalez": "0.890904"
+                "scalez": "0.890903"
             },
             "1": {
                 "Active": true,
@@ -37154,7 +37166,7 @@
                 "rotationx": "-0.251088",
                 "rotationy": "0.633327",
                 "rotationz": "0.646408",
-                "scalex": "0.356643",
+                "scalex": "0.356640",
                 "scaley": "0.356675",
                 "scalez": "0.356675"
             },
@@ -37201,8 +37213,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000229",
-                "scalez": "1.000229"
+                "scaley": "1.000232",
+                "scalez": "1.000232"
             }
         },
         "Index": 0,
@@ -39834,7 +39846,7 @@
                 "positionx": "1196.065063",
                 "positiony": "10.640896",
                 "positionz": "297.253876",
-                "rotationw": "0.710839",
+                "rotationw": "0.710838",
                 "rotationx": "-0.645023",
                 "rotationy": "-0.176177",
                 "rotationz": "-0.218210",
@@ -40135,8 +40147,8 @@
                 "globalMatrixx": "407.549927",
                 "globalMatrixy": "34.537144",
                 "globalMatrixz": "-330.611267",
-                "globalPositionx": "49.408485",
-                "globalPositiony": "49.751938",
+                "globalPositionx": "49.408489",
+                "globalPositiony": "49.751934",
                 "globalPositionz": "49.209450",
                 "hasBeenDeactivated": "0",
                 "height": "1.000000",
@@ -40147,15 +40159,15 @@
                 "localMatrixw": "1.000000",
                 "localMatrixx": "0.000420",
                 "localMatrixy": "-0.000217",
-                "localMatrixz": "25.094133",
+                "localMatrixz": "25.094135",
                 "localPositionx": "0.000000",
                 "localPositiony": "0.000000",
                 "localPositionz": "0.000000",
                 "offsetx": "0.000420",
                 "offsety": "-0.000217",
-                "offsetz": "25.094133",
-                "originalScalex": "49.408485",
-                "originalScaley": "49.751938",
+                "offsetz": "25.094135",
+                "originalScalex": "49.408489",
+                "originalScaley": "49.751934",
                 "originalScalez": "49.209450",
                 "radius": "1.000000",
                 "scalex": "1.000000",
@@ -40202,9 +40214,9 @@
                 "rotationx": "0.236611",
                 "rotationy": "0.919426",
                 "rotationz": "0.268299",
-                "scalex": "0.999979",
+                "scalex": "0.999976",
                 "scaley": "1.000000",
-                "scalez": "0.999980"
+                "scalez": "0.999977"
             }
         },
         "Index": 6,
@@ -40228,9 +40240,9 @@
                 "rotationx": "0.000000",
                 "rotationy": "0.558773",
                 "rotationz": "0.000000",
-                "scalex": "2.500025",
+                "scalex": "2.500028",
                 "scaley": "2.500000",
-                "scalez": "2.500025"
+                "scalez": "2.500028"
             }
         },
         "Index": 15,
@@ -40949,11 +40961,11 @@
             },
             "3": {
                 "ACTIVECAM": true,
-                "ASPECTRATIO": 1.9936960935592651,
+                "ASPECTRATIO": 1.984953761100769,
                 "Active": true,
                 "CULLINGCAM": true,
                 "FARPLANE": 1000.0,
-                "FOV": 49.720401763916016,
+                "FOV": 49.91277313232422,
                 "NEARPLANE": 0.10000000149011612,
                 "UID": 209370995,
                 "index": 4
@@ -47147,9 +47159,9 @@
                 "rotationx": "-0.233594",
                 "rotationy": "0.768226",
                 "rotationz": "0.354181",
-                "scalex": "0.842779",
+                "scalex": "0.842776",
                 "scaley": "0.842807",
-                "scalez": "0.842782"
+                "scalez": "0.842779"
             },
             "21": {
                 "Active": true,
@@ -47194,8 +47206,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000229",
-                "scalez": "1.000229"
+                "scaley": "1.000232",
+                "scalez": "1.000232"
             }
         },
         "Index": 0,
@@ -47668,8 +47680,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000229",
-                "scalez": "1.000229"
+                "scaley": "1.000232",
+                "scalez": "1.000232"
             }
         },
         "Index": 0,
@@ -48028,8 +48040,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000229",
-                "scalez": "1.000229"
+                "scaley": "1.000232",
+                "scalez": "1.000232"
             }
         },
         "Index": 0,
@@ -48619,8 +48631,8 @@
                 "rotationx": "0.122166",
                 "rotationy": "0.198412",
                 "rotationz": "0.939730",
-                "scalex": "0.704779",
-                "scaley": "0.704779",
+                "scalex": "0.704776",
+                "scaley": "0.704776",
                 "scalez": "1.197011"
             },
             "1": {
@@ -49541,9 +49553,9 @@
                 "rotationx": "0.000000",
                 "rotationy": "0.594654",
                 "rotationz": "0.000000",
-                "scalex": "2.500025",
+                "scalex": "2.500028",
                 "scaley": "2.500000",
-                "scalez": "2.500025"
+                "scalez": "2.500028"
             }
         },
         "Index": 7,
@@ -49674,7 +49686,7 @@
                 "positionx": "1380.400879",
                 "positiony": "350.418610",
                 "positionz": "408.680908",
-                "rotationw": "0.575520",
+                "rotationw": "0.575521",
                 "rotationx": "-0.714508",
                 "rotationy": "-0.365416",
                 "rotationz": "0.157244",
@@ -50283,7 +50295,7 @@
                 "positionx": "913.213074",
                 "positiony": "-7.138732",
                 "positionz": "501.686035",
-                "rotationw": "0.532727",
+                "rotationw": "0.532728",
                 "rotationx": "-0.545053",
                 "rotationy": "-0.450463",
                 "rotationz": "-0.464975",
@@ -51460,8 +51472,8 @@
                 "rotationx": "-0.067959",
                 "rotationy": "0.228817",
                 "rotationz": "0.949829",
-                "scalex": "1.000033",
-                "scaley": "1.000033",
+                "scalex": "1.000036",
+                "scaley": "1.000036",
                 "scalez": "1.000000"
             },
             "13": {
@@ -51772,7 +51784,7 @@
                 "positionx": "1367.105713",
                 "positiony": "59.226387",
                 "positionz": "-127.218964",
-                "rotationw": "0.613301",
+                "rotationw": "0.613302",
                 "rotationx": "-0.613302",
                 "rotationy": "0.351939",
                 "rotationz": "0.351939",
@@ -53132,7 +53144,7 @@
                 "rotationy": "0.671446",
                 "rotationz": "0.739518",
                 "scalex": "0.284409",
-                "scaley": "0.539123",
+                "scaley": "0.539126",
                 "scalez": "0.539091"
             },
             "1": {
@@ -53388,8 +53400,8 @@
                 "rotationx": "0.388476",
                 "rotationy": "0.030072",
                 "rotationz": "0.916844",
-                "scalex": "1.000034",
-                "scaley": "1.000034",
+                "scalex": "1.000040",
+                "scaley": "1.000040",
                 "scalez": "1.000000"
             },
             "13": {
@@ -53423,8 +53435,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000229",
-                "scalez": "1.000229"
+                "scaley": "1.000232",
+                "scalez": "1.000232"
             }
         },
         "Index": 0,
@@ -53807,9 +53819,9 @@
                 "rotationx": "-0.595506",
                 "rotationy": "0.393283",
                 "rotationz": "0.695841",
-                "scalex": "0.704843",
-                "scaley": "0.704844",
-                "scalez": "1.197044"
+                "scalex": "0.704846",
+                "scaley": "0.704847",
+                "scalez": "1.197047"
             },
             "1": {
                 "Active": true,
@@ -54703,7 +54715,7 @@
                 "rotationx": "-0.333256",
                 "rotationy": "-0.600089",
                 "rotationz": "0.686648",
-                "scalex": "0.999979",
+                "scalex": "0.999976",
                 "scaley": "0.999999",
                 "scalez": "1.000000"
             },
@@ -55277,7 +55289,7 @@
                 "positionx": "0.000600",
                 "positiony": "3.439200",
                 "positionz": "0.000000",
-                "rotationw": "0.845792",
+                "rotationw": "0.845791",
                 "rotationx": "0.532275",
                 "rotationy": "-0.021592",
                 "rotationz": "-0.029222",
@@ -55537,9 +55549,9 @@
                 "rotationx": "0.009531",
                 "rotationy": "0.682656",
                 "rotationz": "0.730301",
-                "scalex": "1.532381",
-                "scaley": "1.532413",
-                "scalez": "1.692483"
+                "scalex": "1.532375",
+                "scaley": "1.532410",
+                "scalez": "1.692480"
             },
             "1": {
                 "Active": true,
@@ -58158,7 +58170,7 @@
                 "positionx": "1147.398193",
                 "positiony": "28.882961",
                 "positionz": "175.888824",
-                "rotationw": "0.923637",
+                "rotationw": "0.923636",
                 "rotationx": "0.303811",
                 "rotationy": "0.120024",
                 "rotationz": "0.200471",
@@ -60065,9 +60077,9 @@
                 "rotationx": "0.000000",
                 "rotationy": "0.996195",
                 "rotationz": "0.000000",
-                "scalex": "3.500141",
+                "scalex": "3.500156",
                 "scaley": "3.500000",
-                "scalez": "3.500140"
+                "scalez": "3.500155"
             }
         },
         "Index": 5,
@@ -60655,7 +60667,7 @@
                 "positionx": "906.799622",
                 "positiony": "-8.769904",
                 "positionz": "501.746185",
-                "rotationw": "0.511345",
+                "rotationw": "0.511344",
                 "rotationx": "-0.524310",
                 "rotationy": "-0.474447",
                 "rotationz": "-0.488391",
@@ -61151,7 +61163,7 @@
                 "rotationx": "0.063757",
                 "rotationy": "-0.427262",
                 "rotationz": "-0.725667",
-                "scalex": "0.999982",
+                "scalex": "0.999979",
                 "scaley": "0.999997",
                 "scalez": "1.000001"
             },
@@ -61993,9 +62005,9 @@
                 "rotationx": "0.479388",
                 "rotationy": "0.813785",
                 "rotationz": "-0.033916",
-                "scalex": "0.996602",
+                "scalex": "0.996605",
                 "scaley": "0.996570",
-                "scalez": "1.692615"
+                "scalez": "1.692624"
             },
             "1": {
                 "Active": true,
@@ -62039,7 +62051,7 @@
                 "rotationx": "-0.047664",
                 "rotationy": "0.671446",
                 "rotationz": "0.739518",
-                "scalex": "0.322658",
+                "scalex": "0.322661",
                 "scaley": "0.351858",
                 "scalez": "0.351858"
             },
@@ -64042,7 +64054,7 @@
                 "positionx": "489.943329",
                 "positiony": "9.732668",
                 "positionz": "-22.572090",
-                "rotationw": "0.579228",
+                "rotationw": "0.579227",
                 "rotationx": "-0.579228",
                 "rotationy": "0.405580",
                 "rotationz": "0.405580",
@@ -64140,8 +64152,8 @@
                 "rotationx": "-0.187734",
                 "rotationy": "-0.215086",
                 "rotationz": "0.811608",
-                "scalex": "0.999984",
-                "scaley": "0.999985",
+                "scalex": "0.999981",
+                "scaley": "0.999982",
                 "scalez": "1.000002"
             },
             "13": {
@@ -65884,8 +65896,8 @@
                 "rotationx": "0.212514",
                 "rotationy": "0.197291",
                 "rotationz": "0.757052",
-                "scalex": "1.000022",
-                "scaley": "1.000019",
+                "scalex": "1.000025",
+                "scaley": "1.000022",
                 "scalez": "0.999999"
             },
             "13": {
@@ -67429,7 +67441,7 @@
                 "positionx": "1146.493652",
                 "positiony": "30.277287",
                 "positionz": "175.972031",
-                "rotationw": "0.598894",
+                "rotationw": "0.598893",
                 "rotationx": "-0.587513",
                 "rotationy": "0.421494",
                 "rotationz": "0.344235",
@@ -67525,9 +67537,9 @@
                 "rotationx": "0.197807",
                 "rotationy": "0.842475",
                 "rotationz": "-0.471290",
-                "scalex": "1.189369",
+                "scalex": "1.189366",
                 "scaley": "1.189399",
-                "scalez": "1.518237"
+                "scalez": "1.518234"
             },
             "1": {
                 "Active": true,
@@ -72611,7 +72623,7 @@
                 "positionx": "0.002900",
                 "positiony": "3.765500",
                 "positionz": "0.000000",
-                "rotationw": "0.989497",
+                "rotationw": "0.989496",
                 "rotationx": "-0.124914",
                 "rotationy": "-0.016658",
                 "rotationz": "-0.070822",
@@ -72902,8 +72914,8 @@
                 "rotationx": "0.297305",
                 "rotationy": "0.612992",
                 "rotationz": "0.689979",
-                "scalex": "0.429175",
-                "scaley": "0.429174",
+                "scalex": "0.429178",
+                "scaley": "0.429177",
                 "scalez": "0.429143"
             },
             "1": {
@@ -77163,7 +77175,7 @@
                 "positionx": "-0.005500",
                 "positiony": "2.774000",
                 "positionz": "0.000008",
-                "rotationw": "0.965708",
+                "rotationw": "0.965709",
                 "rotationx": "0.259539",
                 "rotationy": "-0.000541",
                 "rotationz": "0.006807",
@@ -79079,8 +79091,8 @@
                 "rotationx": "-0.297388",
                 "rotationy": "0.033590",
                 "rotationz": "0.933444",
-                "scalex": "0.999967",
-                "scaley": "0.999967",
+                "scalex": "0.999964",
+                "scaley": "0.999964",
                 "scalez": "1.000000"
             },
             "13": {
@@ -83215,8 +83227,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000229",
-                "scalez": "1.000229"
+                "scaley": "1.000232",
+                "scalez": "1.000232"
             }
         },
         "Index": 0,
@@ -84777,7 +84789,7 @@
                 "positionx": "953.373169",
                 "positiony": "-10.766871",
                 "positionz": "568.997620",
-                "rotationw": "0.598203",
+                "rotationw": "0.598204",
                 "rotationx": "-0.073935",
                 "rotationy": "-0.530170",
                 "rotationz": "-0.596327",
@@ -84938,9 +84950,9 @@
                 "rotationx": "-0.503366",
                 "rotationy": "0.549327",
                 "rotationz": "0.491750",
-                "scalex": "0.570338",
-                "scaley": "0.570338",
-                "scalez": "0.570338"
+                "scalex": "0.570341",
+                "scaley": "0.570341",
+                "scalez": "0.570341"
             },
             "1": {
                 "Active": true,
@@ -85742,9 +85754,9 @@
                 "rotationx": "-0.042287",
                 "rotationy": "0.903008",
                 "rotationz": "0.422164",
-                "scalex": "0.842779",
+                "scalex": "0.842776",
                 "scaley": "0.842807",
-                "scalez": "0.842782"
+                "scalez": "0.842779"
             },
             "21": {
                 "Active": true,
@@ -86254,9 +86266,9 @@
                 "rotationx": "0.000000",
                 "rotationy": "0.996195",
                 "rotationz": "0.000000",
-                "scalex": "3.500141",
+                "scalex": "3.500156",
                 "scaley": "3.500000",
-                "scalez": "3.500141"
+                "scalez": "3.500156"
             }
         },
         "Index": 8,
@@ -88183,7 +88195,7 @@
                 "positionx": "-0.004432",
                 "positiony": "3.575775",
                 "positionz": "0.000000",
-                "rotationw": "0.935310",
+                "rotationw": "0.935309",
                 "rotationx": "0.353512",
                 "rotationy": "0.002161",
                 "rotationz": "-0.014860",
@@ -91200,8 +91212,8 @@
                 "rotationx": "0.046474",
                 "rotationy": "0.155068",
                 "rotationz": "0.844688",
-                "scalex": "1.000021",
-                "scaley": "1.000021",
+                "scalex": "1.000024",
+                "scaley": "1.000024",
                 "scalez": "1.000000"
             },
             "13": {
@@ -92828,13 +92840,13 @@
                 "positionx": "557.393005",
                 "positiony": "22.799999",
                 "positionz": "-238.013000",
-                "rotationw": "0.883766",
+                "rotationw": "0.883765",
                 "rotationx": "0.000000",
                 "rotationy": "0.467930",
                 "rotationz": "0.000000",
-                "scalex": "3.499998",
+                "scalex": "3.499999",
                 "scaley": "3.500000",
-                "scalez": "3.499998"
+                "scalez": "3.499999"
             }
         },
         "Index": 12,
@@ -95135,32 +95147,38 @@
                 "positionZ": "-325.812988",
                 "radius": "1.000000",
                 "slopeLimit": "45.000000",
-                "stepOffset": "0.010000"
+                "stepOffset": "0.020000"
             },
             "18": {
                 "Active": true,
-                "Duration": "900",
+                "Duration": "600",
                 "GradientColor": true,
                 "HorizontalBill": "0",
                 "Loop": true,
                 "Resources": {
-                    "ResourceTexture": "Library/Textures/572986970.dds"
+                    "ResourceTexture": "Library/Textures/1669924578.dds"
                 },
                 "UID": 1894621850,
                 "VerticalBill": "0",
                 "animation": "0",
                 "colors": [
                     {
+                        "a": "0.650980",
+                        "x": "0.603922",
+                        "y": "0.513726",
+                        "z": "0.317647"
+                    },
+                    {
                         "a": "1.000000",
-                        "x": "1.000000",
-                        "y": "1.000000",
-                        "z": "1.000000"
+                        "x": "0.658824",
+                        "y": "0.600000",
+                        "z": "0.380392"
                     },
                     {
                         "a": "0.000000",
-                        "x": "1.000000",
-                        "y": "1.000000",
-                        "z": "1.000000"
+                        "x": "0.211765",
+                        "y": "0.203922",
+                        "z": "0.172549"
                     }
                 ],
                 "curves": [
@@ -95210,32 +95228,38 @@
                     }
                 ],
                 "cycles": "1.000000",
-                "emisionRate": "300.000000",
+                "emisionRate": "200.000000",
                 "externalAccelerationX": "0.000000",
-                "externalAccelerationY": "10.000000",
+                "externalAccelerationY": "3.000000",
                 "externalAccelerationZ": "0.000000",
-                "grad_duration": "900",
+                "grad_duration": "600",
                 "gradients": [
                     {
-                        "a": "-0.001111",
-                        "x": "0.000000",
-                        "y": "0.000000",
-                        "z": "0.000000"
+                        "a": "0.000582",
+                        "x": "0.000092",
+                        "y": "0.000144",
+                        "z": "0.000105"
+                    },
+                    {
+                        "a": "-0.001667",
+                        "x": "-0.000745",
+                        "y": "-0.000660",
+                        "z": "-0.000346"
                     }
                 ],
                 "index": 4,
-                "num_colors": "2",
+                "num_colors": "3",
                 "num_curves": "2",
-                "num_gradients": "1",
+                "num_gradients": "2",
                 "particleScaleOverTime": "0.000000",
                 "particleScaleRandomFactor1": "1.000000",
                 "particleScaleRandomFactor2": "1.000000",
-                "particlesLifeTime": "900",
-                "particlesPerCreation": "1",
-                "particlesScaleX": "1.000000",
-                "particlesScaleY": "1.000000",
+                "particlesLifeTime": "1200",
+                "particlesPerCreation": "5",
+                "particlesScaleX": "0.300000",
+                "particlesScaleY": "0.300000",
                 "particlesVelocityX": "0.000000",
-                "particlesVelocityY": "0.000000",
+                "particlesVelocityY": "4.500000",
                 "particlesVelocityZ": "0.000000",
                 "positionX": "0.000000",
                 "positionY": "0.000000",
@@ -95243,17 +95267,17 @@
                 "rotationOvertime1": [
                     "0",
                     "0",
-                    "0"
+                    "-5"
                 ],
                 "rotationOvertime2": [
                     "0",
                     "0",
-                    "0"
+                    "5"
                 ],
                 "rotationX": "0.000000",
                 "rotationY": "0.000000",
                 "rotationZ": "0.000000",
-                "rotationconstants": "0",
+                "rotationconstants": "1",
                 "scaleconstants": "0",
                 "separateAxis": "0",
                 "sizeX": "0.000000",
@@ -95262,12 +95286,12 @@
                 "startFrame": "0",
                 "tiles_X": "1",
                 "tiles_Y": "1",
-                "velocityRandomFactor1X": "0.000000",
-                "velocityRandomFactor1Y": "0.000000",
-                "velocityRandomFactor1Z": "0.000000",
-                "velocityRandomFactor2X": "0.000000",
-                "velocityRandomFactor2Y": "0.000000",
-                "velocityRandomFactor2Z": "0.000000",
+                "velocityRandomFactor1X": "-2.000000",
+                "velocityRandomFactor1Y": "-2.000000",
+                "velocityRandomFactor1Z": "-1.500000",
+                "velocityRandomFactor2X": "2.000000",
+                "velocityRandomFactor2Y": "-1.000000",
+                "velocityRandomFactor2Z": "1.500000",
                 "velocityconstants": "0"
             },
             "19": {
@@ -95665,9 +95689,9 @@
                 "rotationx": "-0.000000",
                 "rotationy": "-0.830610",
                 "rotationz": "0.000000",
-                "scalex": "2.500039",
+                "scalex": "2.500043",
                 "scaley": "2.500002",
-                "scalez": "2.500039"
+                "scalez": "2.500043"
             }
         },
         "Index": 6,
@@ -96144,9 +96168,9 @@
                 "rotationx": "0.009531",
                 "rotationy": "0.682656",
                 "rotationz": "0.730301",
-                "scalex": "1.532381",
-                "scaley": "1.532413",
-                "scalez": "1.692483"
+                "scalex": "1.532375",
+                "scaley": "1.532410",
+                "scalez": "1.692480"
             },
             "1": {
                 "Active": true,
@@ -97166,7 +97190,7 @@
                 "positionx": "914.117249",
                 "positiony": "-10.766871",
                 "positionz": "515.977600",
-                "rotationw": "0.598203",
+                "rotationw": "0.598204",
                 "rotationx": "-0.073935",
                 "rotationy": "-0.530170",
                 "rotationz": "-0.596327",
@@ -98592,8 +98616,8 @@
                 "rotationy": "-0.490121",
                 "rotationz": "-0.492056",
                 "scalex": "0.613431",
-                "scaley": "0.668981",
-                "scalez": "0.668981"
+                "scaley": "0.668978",
+                "scalez": "0.668978"
             },
             "1": {
                 "Active": true,
@@ -99158,12 +99182,12 @@
                 "positionx": "1078.758789",
                 "positiony": "34.494045",
                 "positionz": "240.021896",
-                "rotationw": "0.684672",
+                "rotationw": "0.684673",
                 "rotationx": "-0.261888",
                 "rotationy": "-0.311136",
                 "rotationz": "0.604841",
-                "scalex": "1.075149",
-                "scaley": "1.075149",
+                "scalex": "1.075148",
+                "scaley": "1.075148",
                 "scalez": "1.075149"
             },
             "1": {
@@ -100151,8 +100175,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.070461",
-                "scaley": "15.155727",
-                "scalez": "1.367879"
+                "scaley": "15.155753",
+                "scalez": "1.367882"
             },
             "1": {
                 "Active": true,
@@ -102297,8 +102321,8 @@
                 "rotationx": "0.393494",
                 "rotationy": "0.330420",
                 "rotationz": "0.843451",
-                "scalex": "0.999967",
-                "scaley": "0.999967",
+                "scalex": "0.999964",
+                "scaley": "0.999964",
                 "scalez": "1.000000"
             },
             "13": {
@@ -103895,7 +103919,7 @@
                 "positionx": "-1.210344",
                 "positiony": "8.754818",
                 "positionz": "-0.159492",
-                "rotationw": "0.978749",
+                "rotationw": "0.978748",
                 "rotationx": "0.203571",
                 "rotationy": "0.020149",
                 "rotationz": "0.014293",
@@ -104697,7 +104721,7 @@
                 "positionx": "689.703796",
                 "positiony": "25.473682",
                 "positionz": "-147.800812",
-                "rotationw": "0.833524",
+                "rotationw": "0.833525",
                 "rotationx": "-0.386245",
                 "rotationy": "-0.353874",
                 "rotationz": "-0.175571",
@@ -104714,8 +104738,8 @@
                 "ColorG": "0.407843",
                 "ColorR": "0.725490",
                 "DirectionX": "0.454298",
-                "DirectionY": "-0.768150",
-                "DirectionZ": "-0.451175",
+                "DirectionY": "-0.768149",
+                "DirectionZ": "-0.451176",
                 "DistanceMultiplier": "1.000000",
                 "DrawMesh": true,
                 "InnerCutoff": "48.000000",
@@ -105443,7 +105467,7 @@
                 "positionx": "1021.481567",
                 "positiony": "5.847408",
                 "positionz": "199.147491",
-                "rotationw": "0.509453",
+                "rotationw": "0.509452",
                 "rotationx": "-0.452981",
                 "rotationy": "0.510802",
                 "rotationz": "0.523782",
@@ -105607,7 +105631,7 @@
                 "globalMatrixx": "659.591797",
                 "globalMatrixy": "24.691164",
                 "globalMatrixz": "-154.158234",
-                "globalPositionx": "84.555054",
+                "globalPositionx": "84.555069",
                 "globalPositiony": "84.812271",
                 "globalPositionz": "94.199867",
                 "hasBeenDeactivated": "0",
@@ -105617,16 +105641,16 @@
                 "isTrigger": "0",
                 "lastIndex": "1",
                 "localMatrixw": "1.000000",
-                "localMatrixx": "1.084675",
-                "localMatrixy": "-0.908949",
+                "localMatrixx": "1.084678",
+                "localMatrixy": "-0.908951",
                 "localMatrixz": "45.883366",
                 "localPositionx": "0.000000",
                 "localPositiony": "0.000000",
                 "localPositionz": "0.000000",
-                "offsetx": "1.084675",
-                "offsety": "-0.908949",
+                "offsetx": "1.084678",
+                "offsety": "-0.908951",
                 "offsetz": "45.883366",
-                "originalScalex": "84.555054",
+                "originalScalex": "84.555069",
                 "originalScaley": "84.812271",
                 "originalScalez": "94.199867",
                 "radius": "1.000000",
@@ -106017,7 +106041,7 @@
                 "positionx": "-2.501400",
                 "positiony": "2.460600",
                 "positionz": "1.849000",
-                "rotationw": "0.868791",
+                "rotationw": "0.868790",
                 "rotationx": "0.345703",
                 "rotationy": "0.177479",
                 "rotationz": "0.306910",
@@ -106139,8 +106163,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000229",
-                "scalez": "1.000229"
+                "scaley": "1.000232",
+                "scalez": "1.000232"
             }
         },
         "Index": 0,
@@ -106160,13 +106184,13 @@
                 "positionx": "481.173004",
                 "positiony": "22.799999",
                 "positionz": "-276.549988",
-                "rotationw": "0.669130",
+                "rotationw": "0.669131",
                 "rotationx": "-0.000000",
                 "rotationy": "-0.743145",
                 "rotationz": "0.000000",
-                "scalex": "3.500014",
+                "scalex": "3.500008",
                 "scaley": "3.500000",
-                "scalez": "3.500014"
+                "scalez": "3.500008"
             }
         },
         "Index": 9,
@@ -107402,7 +107426,7 @@
                 "positionx": "120.682297",
                 "positiony": "0.000229",
                 "positionz": "-0.000031",
-                "rotationw": "0.912569",
+                "rotationw": "0.912570",
                 "rotationx": "0.192342",
                 "rotationy": "0.174447",
                 "rotationz": "-0.315895",
@@ -110166,9 +110190,9 @@
                 "rotationx": "-0.595506",
                 "rotationy": "0.393283",
                 "rotationz": "0.695841",
-                "scalex": "0.704843",
-                "scaley": "0.704844",
-                "scalez": "1.197044"
+                "scalex": "0.704846",
+                "scaley": "0.704847",
+                "scalez": "1.197047"
             },
             "1": {
                 "Active": true,
@@ -110420,7 +110444,7 @@
                 "rotationx": "-0.085506",
                 "rotationy": "0.689620",
                 "rotationz": "0.705077",
-                "scalex": "0.339890",
+                "scalex": "0.339893",
                 "scaley": "0.339858",
                 "scalez": "0.207319"
             },
@@ -110963,7 +110987,7 @@
                 "rotationy": "0.671446",
                 "rotationz": "0.739518",
                 "scalex": "0.284409",
-                "scaley": "0.539123",
+                "scaley": "0.539126",
                 "scalez": "0.539091"
             },
             "1": {
@@ -113062,7 +113086,7 @@
                 "positionx": "958.614380",
                 "positiony": "-9.111173",
                 "positionz": "502.115265",
-                "rotationw": "0.532727",
+                "rotationw": "0.532728",
                 "rotationx": "-0.545053",
                 "rotationy": "-0.450463",
                 "rotationz": "-0.464975",
@@ -113108,7 +113132,7 @@
                 "positionx": "407.563995",
                 "positiony": "33.900002",
                 "positionz": "-330.600006",
-                "rotationw": "0.943446",
+                "rotationw": "0.943447",
                 "rotationx": "-0.004686",
                 "rotationy": "-0.331223",
                 "rotationz": "0.013347",
