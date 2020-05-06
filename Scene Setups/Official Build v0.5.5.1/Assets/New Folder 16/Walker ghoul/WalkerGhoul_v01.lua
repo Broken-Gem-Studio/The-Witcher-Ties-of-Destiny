@@ -387,7 +387,7 @@ function lua_table:OnTriggerEnter()
 	local collider = lua_table.PhysicsFunctions:OnTriggerEnter(MyUUID)
     local layer = lua_table.ObjectFunctions:GetLayerByID(collider)
 
-    if layer == Layer.PLAYER_ATTACK
+    if layer == Layer.PLAYER_ATTACK and currentState ~= State.DEATH	
     then
         lua_table.AnimationFunctions:PlayAnimation("Hit", 45, MyUUID)
         lua_table.ParticleFunctions:StopParticleEmitter(lua_table.ScreamEmitter_UUID)  
@@ -505,6 +505,20 @@ function lua_table:Awake()
    lua_table.WalkableID = lua_table.NavigationFunctions:GetAreaFromName("Walkable")
    lua_table.JumpID = lua_table.NavigationFunctions:GetAreaFromName("Jump")
    lua_table.AllAreas = lua_table.NavigationFunctions:AllAreas()
+end
+
+function lua_table:Start()
+    lua_table.health = lua_table.maxHealth
+    evades = lua_table.maxEvades
+    lua_table.AnimationFunctions:PlayAnimation("Idle", 30, MyUUID)
+    lua_table.ObjectFunctions:SetActiveGameObject(false, lua_table.ScreamCollider_UUID)      
+
+   lua_table.ParticleFunctions:ActivateParticlesEmission(lua_table.ScreamEmitter_UUID)
+   lua_table.ParticleFunctions:ActivateParticlesEmission(lua_table.FeetEmitter_UUID)
+   lua_table.ParticleFunctions:ActivateParticlesEmission(lua_table.BodyEmitter_UUID)
+   lua_table.ParticleFunctions:ActivateParticlesEmission(lua_table.KnockbackEmitter_UUID)
+   lua_table.ParticleFunctions:ActivateParticlesEmission(lua_table.TauntEmitter_UUID)
+   lua_table.ParticleFunctions:ActivateParticlesEmission(lua_table.StunEmitter_UUID)
 
    lua_table.ParticleFunctions:StopParticleEmitter(lua_table.ScreamEmitter_UUID)
    lua_table.ParticleFunctions:StopParticleEmitter(lua_table.FeetEmitter_UUID)
@@ -512,13 +526,6 @@ function lua_table:Awake()
    lua_table.ParticleFunctions:StopParticleEmitter(lua_table.KnockbackEmitter_UUID)
    lua_table.ParticleFunctions:StopParticleEmitter(lua_table.TauntEmitter_UUID)
    lua_table.ParticleFunctions:StopParticleEmitter(lua_table.StunEmitter_UUID)
-end
-
-function lua_table:Start()
-    lua_table.health = lua_table.maxHealth
-    evades = lua_table.maxEvades
-    lua_table.AnimationFunctions:PlayAnimation("Idle", 30, MyUUID)
-    lua_table.ObjectFunctions:SetActiveGameObject(false, lua_table.ScreamCollider_UUID)  
 end
 
 function lua_table:Update()    
