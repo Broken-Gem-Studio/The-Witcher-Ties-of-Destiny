@@ -11,16 +11,16 @@
                 "rotationx": "0.000000",
                 "rotationy": "0.000000",
                 "rotationz": "-0.707107",
-                "scalex": "1.000010",
-                "scaley": "1.000010",
+                "scalex": "1.000011",
+                "scaley": "1.000011",
                 "scalez": "1.000000"
             }
         },
-        "Parent": "2053892791",
+        "Parent": "1519275438",
         "PrefabChild": true,
         "PrefabInstance": true,
         "Static": false,
-        "UID": "1350393219"
+        "UID": "384791323"
     },
     "Destructed": {
         "Active": true,
@@ -90,11 +90,11 @@
                 "Active": true
             }
         },
-        "Parent": "1350393219",
+        "Parent": "384791323",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1039717986"
+        "UID": "1845685905"
     },
     "Object009": {
         "Active": true,
@@ -147,7 +147,7 @@
                 "colliderType": "1",
                 "draggedUID": "0",
                 "draw": "0",
-                "firstCreation": "1",
+                "firstCreation": "0",
                 "globalMatrixw": "1.000000",
                 "globalMatrixx": "0.961407",
                 "globalMatrixy": "0.139049",
@@ -159,7 +159,7 @@
                 "height": "1.000000",
                 "isConvex": "0",
                 "isTrigger": "0",
-                "lastIndex": "1",
+                "lastIndex": "0",
                 "localMatrixw": "1.000000",
                 "localMatrixx": "0.000000",
                 "localMatrixy": "-0.000001",
@@ -190,11 +190,11 @@
                 }
             }
         },
-        "Parent": "1039717986",
+        "Parent": "1845685905",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "974613877"
+        "UID": "1666890113"
     },
     "Object010": {
         "Active": true,
@@ -247,7 +247,7 @@
                 "colliderType": "1",
                 "draggedUID": "0",
                 "draw": "0",
-                "firstCreation": "1",
+                "firstCreation": "0",
                 "globalMatrixw": "1.000000",
                 "globalMatrixx": "0.239955",
                 "globalMatrixy": "0.139049",
@@ -259,7 +259,7 @@
                 "height": "1.000000",
                 "isConvex": "0",
                 "isTrigger": "0",
-                "lastIndex": "1",
+                "lastIndex": "0",
                 "localMatrixw": "1.000000",
                 "localMatrixx": "0.000000",
                 "localMatrixy": "-0.000001",
@@ -290,11 +290,11 @@
                 }
             }
         },
-        "Parent": "1039717986",
+        "Parent": "1845685905",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1699420005"
+        "UID": "540273293"
     },
     "Object011": {
         "Active": true,
@@ -347,7 +347,7 @@
                 "colliderType": "1",
                 "draggedUID": "0",
                 "draw": "0",
-                "firstCreation": "1",
+                "firstCreation": "0",
                 "globalMatrixw": "1.000000",
                 "globalMatrixx": "0.397105",
                 "globalMatrixy": "0.676605",
@@ -359,7 +359,7 @@
                 "height": "1.000000",
                 "isConvex": "0",
                 "isTrigger": "0",
-                "lastIndex": "1",
+                "lastIndex": "0",
                 "localMatrixw": "1.000000",
                 "localMatrixx": "-0.000000",
                 "localMatrixy": "-0.000000",
@@ -390,11 +390,11 @@
                 }
             }
         },
-        "Parent": "1039717986",
+        "Parent": "1845685905",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1856120287"
+        "UID": "1190854748"
     },
     "Particles": {
         "Active": true,
@@ -416,10 +416,12 @@
                 "Active": false,
                 "Duration": "1000",
                 "GradientColor": false,
+                "HorizontalBill": "0",
                 "Loop": false,
                 "Resources": {
                     "ResourceTexture": "Library/Textures/682389167.dds"
                 },
+                "VerticalBill": "0",
                 "animation": "1",
                 "colors": [
                     {
@@ -429,21 +431,68 @@
                         "z": "0.000000"
                     }
                 ],
-                "constants": "1",
-                "cycles": "1",
+                "curves": [
+                    {
+                        "0": {
+                            "NextX": "0.100000",
+                            "NextY": "0.100000",
+                            "PX": "0.000000",
+                            "PY": "0.000000",
+                            "PrevX": "0.000000",
+                            "PrevY": "0.000000"
+                        },
+                        "1": {
+                            "NextX": "1.000000",
+                            "NextY": "1.000000",
+                            "PX": "1.000000",
+                            "PY": "1.000000",
+                            "PrevX": "-0.100000",
+                            "PrevY": "-0.100000"
+                        },
+                        "multiplier": "1.000000",
+                        "name": "##scale",
+                        "num_points": "2",
+                        "type": "0"
+                    },
+                    {
+                        "0": {
+                            "NextX": "0.100000",
+                            "NextY": "0.100000",
+                            "PX": "0.000000",
+                            "PY": "0.000000",
+                            "PrevX": "0.000000",
+                            "PrevY": "0.000000"
+                        },
+                        "1": {
+                            "NextX": "1.000000",
+                            "NextY": "1.000000",
+                            "PX": "1.000000",
+                            "PY": "1.000000",
+                            "PrevX": "-0.100000",
+                            "PrevY": "-0.100000"
+                        },
+                        "multiplier": "1.000000",
+                        "name": "##rotation",
+                        "num_points": "2",
+                        "type": "0"
+                    }
+                ],
+                "cycles": "1.000000",
                 "emisionRate": "1000.000000",
                 "externalAccelerationX": "0.000000",
-                "externalAccelerationY": "3.500000",
+                "externalAccelerationY": "0.000000",
                 "externalAccelerationZ": "0.000000",
                 "grad_duration": "1000",
                 "num_colors": "1",
+                "num_curves": "2",
                 "num_gradients": "0",
                 "particleScaleOverTime": "0.150000",
-                "particleScaleRandomFactor": "1.950000",
-                "particlesLifeTime": "1000",
-                "particlesPerCreation": "20",
-                "particlesScaleX": "1.000000",
-                "particlesScaleY": "1.000000",
+                "particleScaleRandomFactor1": "1.000000",
+                "particleScaleRandomFactor2": "1.000000",
+                "particlesLifeTime": "1200",
+                "particlesPerCreation": "34",
+                "particlesScaleX": "0.800000",
+                "particlesScaleY": "1.500000",
                 "particlesVelocityX": "0.000000",
                 "particlesVelocityY": "6.800000",
                 "particlesVelocityZ": "0.000000",
@@ -453,16 +502,18 @@
                 "rotationOvertime1": [
                     "0",
                     "0",
-                    "28"
+                    "-274"
                 ],
                 "rotationOvertime2": [
                     "0",
                     "0",
-                    "40"
+                    "274"
                 ],
                 "rotationX": "0.000000",
                 "rotationY": "0.000000",
                 "rotationZ": "0.000000",
+                "rotationconstants": "1",
+                "scaleconstants": "0",
                 "separateAxis": "0",
                 "sizeX": "0.000000",
                 "sizeY": "0.000000",
@@ -470,18 +521,22 @@
                 "startFrame": "0",
                 "tiles_X": "8",
                 "tiles_Y": "8",
-                "velocityRandomFactorX": "8.000000",
-                "velocityRandomFactorY": "2.000000",
-                "velocityRandomFactorZ": "8.000000"
+                "velocityRandomFactor1X": "5.000000",
+                "velocityRandomFactor1Y": "0.000000",
+                "velocityRandomFactor1Z": "5.000000",
+                "velocityRandomFactor2X": "-5.000000",
+                "velocityRandomFactor2Y": "0.000000",
+                "velocityRandomFactor2Z": "-5.000000",
+                "velocityconstants": "0"
             }
         },
-        "Parent": "1039717986",
+        "Parent": "1845685905",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "122043002"
+        "UID": "597250779"
     },
-    "PreviewTexture": "Library/Textures/193604771.dds",
+    "PreviewTexture": "Library/Textures/1774815736.dds",
     "Prop": {
         "Active": true,
         "Components": {
@@ -579,10 +634,10 @@
                 "draw": "0",
                 "firstCreation": "1",
                 "globalMatrixw": "1.000000",
-                "globalMatrixx": "0.637397",
+                "globalMatrixx": "0.637398",
                 "globalMatrixy": "0.648369",
                 "globalMatrixz": "-0.000000",
-                "globalPositionx": "49.408485",
+                "globalPositionx": "49.408489",
                 "globalPositiony": "49.751934",
                 "globalPositionz": "49.209450",
                 "hasBeenDeactivated": "0",
@@ -600,7 +655,7 @@
                 "offsetx": "-0.000013",
                 "offsety": "-0.000008",
                 "offsetz": "25.094118",
-                "originalScalex": "49.408485",
+                "originalScalex": "49.408489",
                 "originalScaley": "49.751934",
                 "originalScalez": "49.209450",
                 "radius": "1.000000",
@@ -623,11 +678,11 @@
                 }
             }
         },
-        "Parent": "1350393219",
+        "Parent": "384791323",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1915933682"
+        "UID": "2106358582"
     },
     "pCube109": {
         "Active": true,
@@ -680,7 +735,7 @@
                 "colliderType": "1",
                 "draggedUID": "0",
                 "draw": "0",
-                "firstCreation": "1",
+                "firstCreation": "0",
                 "globalMatrixw": "1.000000",
                 "globalMatrixx": "0.610608",
                 "globalMatrixy": "0.139049",
@@ -692,7 +747,7 @@
                 "height": "1.000000",
                 "isConvex": "0",
                 "isTrigger": "0",
-                "lastIndex": "1",
+                "lastIndex": "0",
                 "localMatrixw": "1.000000",
                 "localMatrixx": "0.000001",
                 "localMatrixy": "0.000002",
@@ -723,11 +778,11 @@
                 }
             }
         },
-        "Parent": "1039717986",
+        "Parent": "1845685905",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1310534710"
+        "UID": "1618111545"
     },
     "pCube110": {
         "Active": true,
@@ -780,7 +835,7 @@
                 "colliderType": "1",
                 "draggedUID": "0",
                 "draw": "0",
-                "firstCreation": "1",
+                "firstCreation": "0",
                 "globalMatrixw": "1.000000",
                 "globalMatrixx": "0.759113",
                 "globalMatrixy": "0.676605",
@@ -792,7 +847,7 @@
                 "height": "1.000000",
                 "isConvex": "0",
                 "isTrigger": "0",
-                "lastIndex": "1",
+                "lastIndex": "0",
                 "localMatrixw": "1.000000",
                 "localMatrixx": "-0.000000",
                 "localMatrixy": "-0.000000",
@@ -823,11 +878,11 @@
                 }
             }
         },
-        "Parent": "1039717986",
+        "Parent": "1845685905",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "599334821"
+        "UID": "1846720119"
     },
     "pCube112": {
         "Active": true,
@@ -880,7 +935,7 @@
                 "colliderType": "1",
                 "draggedUID": "0",
                 "draw": "0",
-                "firstCreation": "1",
+                "firstCreation": "0",
                 "globalMatrixw": "1.000000",
                 "globalMatrixx": "1.166875",
                 "globalMatrixy": "0.647194",
@@ -892,7 +947,7 @@
                 "height": "1.000000",
                 "isConvex": "0",
                 "isTrigger": "0",
-                "lastIndex": "1",
+                "lastIndex": "0",
                 "localMatrixw": "1.000000",
                 "localMatrixx": "0.000002",
                 "localMatrixy": "-0.000000",
@@ -923,11 +978,11 @@
                 }
             }
         },
-        "Parent": "1039717986",
+        "Parent": "1845685905",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "682311631"
+        "UID": "655459009"
     },
     "pCube113": {
         "Active": true,
@@ -980,7 +1035,7 @@
                 "colliderType": "1",
                 "draggedUID": "0",
                 "draw": "0",
-                "firstCreation": "1",
+                "firstCreation": "0",
                 "globalMatrixw": "1.000000",
                 "globalMatrixx": "0.107371",
                 "globalMatrixy": "0.652310",
@@ -992,7 +1047,7 @@
                 "height": "1.000000",
                 "isConvex": "0",
                 "isTrigger": "0",
-                "lastIndex": "1",
+                "lastIndex": "0",
                 "localMatrixw": "1.000000",
                 "localMatrixx": "-0.000000",
                 "localMatrixy": "-0.000000",
@@ -1023,11 +1078,11 @@
                 }
             }
         },
-        "Parent": "1039717986",
+        "Parent": "1845685905",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "879790211"
+        "UID": "1831650486"
     },
     "pCube116": {
         "Active": true,
@@ -1080,7 +1135,7 @@
                 "colliderType": "1",
                 "draggedUID": "0",
                 "draw": "0",
-                "firstCreation": "1",
+                "firstCreation": "0",
                 "globalMatrixw": "1.000000",
                 "globalMatrixx": "0.633800",
                 "globalMatrixy": "0.124280",
@@ -1092,7 +1147,7 @@
                 "height": "1.000000",
                 "isConvex": "0",
                 "isTrigger": "0",
-                "lastIndex": "1",
+                "lastIndex": "0",
                 "localMatrixw": "1.000000",
                 "localMatrixx": "-0.000008",
                 "localMatrixy": "0.000000",
@@ -1123,11 +1178,11 @@
                 }
             }
         },
-        "Parent": "1039717986",
+        "Parent": "1845685905",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1345700297"
+        "UID": "1612043299"
     },
     "pCube121": {
         "Active": true,
@@ -1180,7 +1235,7 @@
                 "colliderType": "4",
                 "draggedUID": "621372865",
                 "draw": "0",
-                "firstCreation": "1",
+                "firstCreation": "0",
                 "globalMatrixw": "1.000000",
                 "globalMatrixx": "0.633800",
                 "globalMatrixy": "0.650764",
@@ -1223,11 +1278,11 @@
                 }
             }
         },
-        "Parent": "1039717986",
+        "Parent": "1845685905",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "731309768"
+        "UID": "276160165"
     },
     "pCube123": {
         "Active": true,
@@ -1280,7 +1335,7 @@
                 "colliderType": "1",
                 "draggedUID": "0",
                 "draw": "0",
-                "firstCreation": "1",
+                "firstCreation": "0",
                 "globalMatrixw": "1.000000",
                 "globalMatrixx": "1.090039",
                 "globalMatrixy": "0.663734",
@@ -1292,7 +1347,7 @@
                 "height": "1.000000",
                 "isConvex": "0",
                 "isTrigger": "0",
-                "lastIndex": "1",
+                "lastIndex": "0",
                 "localMatrixw": "1.000000",
                 "localMatrixx": "-0.000002",
                 "localMatrixy": "0.000000",
@@ -1323,10 +1378,10 @@
                 }
             }
         },
-        "Parent": "1039717986",
+        "Parent": "1845685905",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1975054852"
+        "UID": "125755874"
     }
 }
