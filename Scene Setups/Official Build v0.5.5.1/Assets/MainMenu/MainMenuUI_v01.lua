@@ -114,7 +114,7 @@ function lua_table:Update()
 		then
 			if lua_table.currentCameraPos[3] > lua_table.lastCameraPos[3] - 25
 			then
-				lua_table.TransformFuctions:Translate(-lua_table.cameraSpeed * 1.5 * dt, -lua_table.cameraSpeed/3.5 * dt, -lua_table.cameraSpeed * dt, camera_UUID)
+				lua_table.TransformFuctions:Translate(-lua_table.cameraSpeed * 1.8 * dt, -lua_table.cameraSpeed/ 2.8 * dt, -lua_table.cameraSpeed * 0.95 * dt, camera_UUID)
 				lua_table.TransformFuctions:RotateObject(0, lua_table.cameraSpeed/1.2 * dt, 0, camera_UUID)
 			else 
 				lua_table.lastCameraPos = lua_table.TransformFuctions:GetPosition(camera_UUID)
