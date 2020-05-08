@@ -2088,9 +2088,9 @@ function lua_table:Update()
 
 						--Return to move or idle
 						if lua_table.current_state == state.evade then
-							GoDefaultState(false)
+							GoDefaultState(false)	--Don't change BlendDuration
 						else
-							GoDefaultState(true)
+							GoDefaultState(true)	--Change BlendDuration
 						end
 
 					--ELSE (For all the following): IF action ongoing at the moment

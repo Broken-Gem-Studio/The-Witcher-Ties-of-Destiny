@@ -2104,11 +2104,11 @@ function lua_table:Update()
 						
 						--Return to move or idle
 						if lua_table.current_state == state.evade then
-							GoDefaultState(false)
+							GoDefaultState(false)	--Don't change BlendDuration
 						else
-							GoDefaultState(true)
+							GoDefaultState(true)	--Change BlendDuration
 						end
-
+						
 					--ELSE (For all the following): IF action ongoing at the moment
 					elseif lua_table.current_state == state.revive and lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_revive, key_state.key_up)
 					then
