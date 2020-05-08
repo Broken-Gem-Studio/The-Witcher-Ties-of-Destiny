@@ -71,6 +71,7 @@ local particles_library = {
 	none = 0,
 
 	--sword_particles_GO_UID = 0,
+	run_dust_GO_UID = 0,
 	ultimate_effect_particles_GO_UID = 0,
 	ultimate_scream_particles_GO_UID = 0,
 	aard_hand_particles_GO_UID = 0,
@@ -294,7 +295,7 @@ lua_table.current_velocity = 0
 	local walk_velocity
 	local walk_mod = 0.4
 	lua_table.mov_velocity_max_mod = 1.0
-	lua_table.mov_velocity_max_orig = 8
+	lua_table.mov_velocity_max_orig = 6
 
 lua_table.idle_animation_speed = 30.0
 lua_table.walk_animation_speed = 30.0
@@ -347,7 +348,7 @@ lua_table.energy_reg_orig = 5
 		left_1 = { GO_name = "Geralt_Left", GO_UID = 0, active = false },		-- 3,2,0.5 / 2,3,4
 		right_1 = { GO_name = "Geralt_Right", GO_UID = 0, active = false },	-- -3,2,0.5 / 2,3,4
 
-		aard_circle_1 = { GO_name = "Geralt_Aard_Circle_Collider", GO_UID = 0, active = false }
+		aard_circle_1 = { GO_name = "Geralt_Aard_Collider", GO_UID = 0, active = false }
 	}
 	--Character Controller: 1.0/2.5/0.05/0.3/45.0
 
@@ -462,11 +463,11 @@ lua_table.heavy_3_duration = 1600			--Attack end (return to idle)
 lua_table.heavy_3_animation_speed = 30.0	--Slow time: 430ms
 
 --Evade		
-lua_table.evade_velocity = 20.0	--Was 200 before dt
+lua_table.evade_velocity = 12	--Was 200 before dt
 lua_table.evade_cost = 33
-lua_table.evade_duration = 800
+lua_table.evade_duration = 1100
 
-lua_table.evade_animation_speed = 40.0
+lua_table.evade_animation_speed = 30.0
 
 --Ability
 lua_table.ability_push_velocity = 160
@@ -519,7 +520,7 @@ lua_table.standing_up_time = 1500
 
 --Revive/Death
 local revive_target				-- Target character script
-lua_table.revive_range = 1.5		-- Revive distance
+lua_table.revive_range = 2		-- Revive distance
 lua_table.revive_time = 3000	-- Time to revive
 lua_table.down_time = 10000		-- Time until death (restarted by revival attempt)
 lua_table.revive_animation_speed = 25.0
@@ -673,7 +674,9 @@ end
 
 --States BEGIN	----------------------------------------------------------------------------
 
-local function GoDefaultState()
+local function GoDefaultState(change_blend_time)
+	if change_blend_time == nil then change_blend_time = true end
+
 	lua_table.previous_state = lua_table.current_state
 
 	if mov_input.used_input.x ~= 0.0 or mov_input.used_input.z ~= 0.0
@@ -699,11 +702,12 @@ local function GoDefaultState()
 			lua_table.current_state = state.walk
 		end
 
-		lua_table.ParticlesFunctions:PlayParticleEmitter(geralt_GO_UID)	--TODO-Particles: Activate movement dust particles
+		lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.run_dust_GO_UID)	--TODO-Particles: Activate movement dust particles
 	else
-		if lua_table.previous_state ~= state.revive then
+		if change_blend_time then
 			lua_table.AnimationFunctions:SetBlendTime(0.5, geralt_GO_UID)
 		end
+
 		lua_table.AnimationFunctions:SetBlendTime(0.1, particles_library.slash_GO_UID)
 		lua_table.AnimationFunctions:PlayAnimation(animation_library.idle, lua_table.idle_animation_speed, geralt_GO_UID)
 		current_animation = animation_library.idle
@@ -714,7 +718,7 @@ local function GoDefaultState()
 		current_audio = audio_library.none
 
 		lua_table.current_state = state.idle
-		lua_table.ParticlesFunctions:StopParticleEmitter(geralt_GO_UID)	--TODO-Particles: Deactivate movement dust particles
+		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.run_dust_GO_UID)	--TODO-Particles: Deactivate movement dust particles
 	end
 	
 	lua_table.combo_num = 0
@@ -929,7 +933,7 @@ local function ParticlesShutdown(full)	--Full marks wether the particle shutdown
 	lua_table.GameObjectFunctions:SetActiveGameObject(false, particles_library.aard_cone_mesh_GO_UID)
 	lua_table.GameObjectFunctions:SetActiveGameObject(false, particles_library.aard_circle_mesh_GO_UID)
 
-	lua_table.ParticlesFunctions:StopParticleEmitter(geralt_GO_UID)
+	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.run_dust_GO_UID)
 	--lua_table.ParticlesFunctions:StopParticleEmitter(sword_particles_GO_UID)
 	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.aard_hand_particles_GO_UID)
 	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.ultimate_scream_particles_GO_UID)
@@ -1085,7 +1089,7 @@ local function MovementInputs()	--Process Movement Inputs
 				lua_table.current_state = state.walk
 			end
 
-			lua_table.ParticlesFunctions:PlayParticleEmitter(geralt_GO_UID)	--TODO-Particles: Activate movement dust particles
+			lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.run_dust_GO_UID)	--TODO-Particles: Activate movement dust particles
 
 		--Swap between walking and running
 		elseif lua_table.current_state == state.walk and lua_table.input_walk_threshold < math.sqrt(mov_input.used_input.x ^ 2 + mov_input.used_input.z ^ 2)	--IF walking and big input
@@ -1126,7 +1130,7 @@ local function MovementInputs()	--Process Movement Inputs
 		--lua_table.AudioFunctions:StopAudioEventGO(audio_library.run, geralt_GO_UID)
 		current_audio = audio_library.none
 
-		lua_table.ParticlesFunctions:StopParticleEmitter(geralt_GO_UID)	--TODO-Particles: Deactivate movement dust particles
+		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.run_dust_GO_UID)	--TODO-Particles: Deactivate movement dust particles
 		lua_table.previous_state = lua_table.current_state
 		lua_table.current_state = state.idle
 	end
@@ -1215,7 +1219,7 @@ local function TimedAttack()
 		lua_table.combo_num = 1	--Not good timing since last attack
 	end
 
-	lua_table.ParticlesFunctions:StopParticleEmitter(geralt_GO_UID)				--TODO-Particles: Deactivate movement dust particles
+	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.run_dust_GO_UID)				--TODO-Particles: Deactivate movement dust particles
 	--lua_table.ParticlesFunctions:PlayParticleEmitter(sword_particles_GO_UID)	--TODO-Particles: Turn on particles on Sword
 
 	return combo_achieved
@@ -1411,7 +1415,7 @@ local function ActionInputs()	--Process Action Inputs
 			
 			lua_table.current_energy = lua_table.current_energy - lua_table.evade_cost
 
-			lua_table.ParticlesFunctions:PlayParticleEmitter(geralt_GO_UID)	--TODO-Particles: Activate movement dust particles
+			lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.run_dust_GO_UID)	--TODO-Particles: Activate movement dust particles
 
 			action_made = true
 			
@@ -1564,7 +1568,7 @@ local function ActionInputs()	--Process Action Inputs
 		end
 
 		if lua_table.current_state > state.evade or lua_table.current_state < state.walk then
-			lua_table.ParticlesFunctions:StopParticleEmitter(geralt_GO_UID)	--TODO-Particles: Deactivate Dust Particles
+			lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.run_dust_GO_UID)	--TODO-Particles: Deactivate Dust Particles
 		end
 	end
 
@@ -1867,6 +1871,7 @@ function lua_table:Awake()
 
 	--Get Particle Emitters GO_UID
 	--sword_particles_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt_Sword")
+	particles_library.run_dust_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt_Run_Dust")
 	particles_library.aard_hand_particles_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt_Ability")
 	particles_library.ultimate_effect_particles_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt_Ultimate_Effect")
 	particles_library.ultimate_scream_particles_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt_Ultimate_Scream")
@@ -1876,7 +1881,7 @@ function lua_table:Awake()
 	particles_library.power_potion_particles_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt_Power_Potion")
 
 	--Stop Particle Emitters
-	lua_table.ParticlesFunctions:StopParticleEmitter(geralt_GO_UID)
+	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.run_dust_GO_UID)
 	--lua_table.ParticlesFunctions:StopParticleEmitter(sword_particles_GO_UID)			--TODO-Particles: Uncomment when ready
 	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.aard_hand_particles_GO_UID)	--TODO-Particles: Uncomment when ready
 	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.ultimate_effect_particles_GO_UID)	--TODO-Particles: Uncomment when ready
@@ -2080,7 +2085,13 @@ function lua_table:Update()
 						end
 
 						AttackColliderShutdown()
-						GoDefaultState()	--Return to move or idle
+
+						--Return to move or idle
+						if lua_table.current_state == state.evade then
+							GoDefaultState(false)
+						else
+							GoDefaultState(true)
+						end
 
 					--ELSE (For all the following): IF action ongoing at the moment
 					elseif lua_table.current_state == state.revive and lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_revive, key_state.key_up)
@@ -2090,7 +2101,7 @@ function lua_table:Update()
 
 						revive_target.being_revived = false
 						revive_target = nil
-						GoDefaultState()
+						GoDefaultState(false)
 
 					elseif lua_table.current_state == state.evade and DirectionInBounds()	--ELSEIF evading
 					then
@@ -2189,14 +2200,14 @@ function lua_table:Update()
 				end
 			elseif lua_table.current_state == state.stunned and game_time - action_started_at > current_action_duration	--IF currently stunned and time passed
 			then
-				GoDefaultState()
+				GoDefaultState(true)
 
 			elseif lua_table.current_state == state.knocked	--IF currently knocked
 			then
 				if game_time - action_started_at > current_action_duration + lua_table.standing_up_time
 				then
 					lua_table.standing_up_bool = false
-					GoDefaultState()
+					GoDefaultState(true)
 
 				elseif not lua_table.standing_up_bool
 				then
@@ -2266,7 +2277,7 @@ function lua_table:Update()
 		elseif game_time - lua_table.revive_started_at > lua_table.revive_time + lua_table.standing_up_time
 		then
 			lua_table.standing_up_bool, lua_table.being_revived = false, false
-			GoDefaultState()
+			GoDefaultState(true)
 		end
 	end
 

@@ -39,7 +39,7 @@ so here I'll stipulate some important details about these:
 **GeraltScript_v13**: New Geralt FBX, animations, etc.
 **GeraltScript_v14**: New collider attack sizes + Audios.
 **GeraltScript_v14_5**: Added Potion Particles Management.
-**GeraltScript_v15**: New "Library" (Enum Tables) system for audio, particles, and animations.
+**GeraltScript_v15**: New Child GO setup + animation/audio/particles "library" system.
 
 **JaskierScript_v0**: Straight up copy of Geralt Code.
 **JaskierScript_v1**: Jaskier from the Vertical Slice 2. Movement, evade, basic attacks.
@@ -53,4 +53,4 @@ so here I'll stipulate some important details about these:
 **JaskierScript_v9**: New Jaskier FBX, animations, etc. + Ability and Ultimate Particles.
 **JaskierScript_v10**: New collider attack sizes + Audios.
 **JaskierScript_v10_5**: Added Potion Particles Management.
-**JaskierScript_v11**: New "Library" (Enum Tables) system for audio, particles, and animations.
+**JaskierScript_v11**: New Child GO setup + animation/audio/particles "library" system.

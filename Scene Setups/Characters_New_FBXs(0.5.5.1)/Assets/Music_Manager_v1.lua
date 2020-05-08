@@ -90,13 +90,13 @@ function lua_table:Update()
 	end
 	
 	--LOGS
-	if lua_table.current_music == music_types.none then
-		lua_table.SystemFunctions:LOG("Playing NO Music!")
-	elseif lua_table.current_music == music_types.default then
-		lua_table.SystemFunctions:LOG("Playing Default Music!")
-	elseif lua_table.current_music == music_types.combat then
-		lua_table.SystemFunctions:LOG("Playing Combat Music!")
-	end
+	-- if lua_table.current_music == music_types.none then
+	-- 	lua_table.SystemFunctions:LOG("Playing NO Music!")
+	-- elseif lua_table.current_music == music_types.default then
+	-- 	lua_table.SystemFunctions:LOG("Playing Default Music!")
+	-- elseif lua_table.current_music == music_types.combat then
+	-- 	lua_table.SystemFunctions:LOG("Playing Combat Music!")
+	-- end
 end
 
 return lua_table
