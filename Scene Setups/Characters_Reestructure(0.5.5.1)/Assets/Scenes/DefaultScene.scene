@@ -401,57 +401,6 @@
         "Parent": "401407733",
         "Static": false
     },
-    "1042062656": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "UID": 1004126775,
-                "index": 0,
-                "layer": "0",
-                "positionx": "0.000000",
-                "positiony": "0.000000",
-                "positionz": "0.000000",
-                "rotationw": "1.000000",
-                "rotationx": "0.000000",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "1.000000",
-                "scaley": "1.000000",
-                "scalez": "1.000000"
-            },
-            "12": {
-                "Active": true,
-                "Resources": {
-                    "ResourceScript": "Assets/Music_Manager_v1.lua"
-                },
-                "Script variables": {
-                    "Count": 2,
-                    "Variable 0": {
-                        "DisplayObjectName": false,
-                        "Name": "current_music",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 1": {
-                        "DisplayObjectName": false,
-                        "Name": "requested_music",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": -1.0
-                    }
-                },
-                "UID": 1181263576,
-                "index": 1
-            }
-        },
-        "Index": 0,
-        "Name": "Music_Manager",
-        "Navigation Area": 0,
-        "Navigation Static": false,
-        "Parent": "12598483",
-        "Static": false
-    },
     "1054183626": {
         "Active": true,
         "Components": {
@@ -492,8 +441,8 @@
                 "rotationx": "0.388476",
                 "rotationy": "0.030072",
                 "rotationz": "0.916844",
-                "scalex": "1.000210",
-                "scaley": "1.000211",
+                "scalex": "1.000212",
+                "scaley": "1.000213",
                 "scalez": "1.000000"
             },
             "13": {
@@ -696,7 +645,7 @@
         "Static": false
     },
     "1189290515": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 1215451083,
@@ -714,12 +663,12 @@
                 "scalez": "1.000000"
             },
             "16": {
-                "Active": false,
+                "Active": true,
                 "UID": 838652843,
                 "colliderType": "1",
                 "draggedUID": "0",
                 "draw": "1",
-                "firstCreation": "0",
+                "firstCreation": "1",
                 "globalMatrixw": "1.000000",
                 "globalMatrixx": "0.000000",
                 "globalMatrixy": "0.000000",
@@ -732,7 +681,7 @@
                 "index": 1,
                 "isConvex": "0",
                 "isTrigger": "1",
-                "lastIndex": "0",
+                "lastIndex": "1",
                 "localMatrixw": "1.000000",
                 "localMatrixx": "0.000000",
                 "localMatrixy": "0.000000",
@@ -772,7 +721,7 @@
                 "positionx": "-1.210344",
                 "positiony": "8.754818",
                 "positionz": "-0.159492",
-                "rotationw": "0.978749",
+                "rotationw": "0.978748",
                 "rotationx": "0.203571",
                 "rotationy": "0.020149",
                 "rotationz": "0.014293",
@@ -1159,223 +1108,6 @@
         "Parent": "2098612090",
         "Static": false
     },
-    "12598483": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "UID": 945656967,
-                "index": 0,
-                "layer": "0",
-                "positionx": "2.449875",
-                "positiony": "42.286167",
-                "positionz": "34.585381",
-                "rotationw": "0.000000",
-                "rotationx": "0.000000",
-                "rotationy": "0.819152",
-                "rotationz": "-0.573577",
-                "scalex": "1.000140",
-                "scaley": "1.000003",
-                "scalez": "1.000125"
-            },
-            "12": {
-                "Active": true,
-                "Resources": {
-                    "ResourceScript": "Assets/CameraScript_v6.lua"
-                },
-                "Script variables": {
-                    "Count": 22,
-                    "Variable 0": {
-                        "DisplayObjectName": false,
-                        "Name": "Layer_1_FOV_ratio_1",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.8
-                    },
-                    "Variable 1": {
-                        "DisplayObjectName": false,
-                        "Name": "Layer_1_FOV_ratio_2",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.8
-                    },
-                    "Variable 10": {
-                        "DisplayObjectName": false,
-                        "Name": "camera_distance_layer_1",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 25.0
-                    },
-                    "Variable 11": {
-                        "DisplayObjectName": false,
-                        "Name": "camera_distance_layer_2",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 35.0
-                    },
-                    "Variable 12": {
-                        "DisplayObjectName": false,
-                        "Name": "camera_distance_layer_3",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 45.0
-                    },
-                    "Variable 13": {
-                        "DisplayObjectName": false,
-                        "Name": "ciri_GO",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "Ciri"
-                    },
-                    "Variable 14": {
-                        "DisplayObjectName": false,
-                        "Name": "geralt_GO",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "Geralt"
-                    },
-                    "Variable 15": {
-                        "DisplayObjectName": false,
-                        "Name": "jaskier_GO",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "Jaskier"
-                    },
-                    "Variable 16": {
-                        "DisplayObjectName": false,
-                        "Name": "kikimora_GO",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "Kikimora"
-                    },
-                    "Variable 17": {
-                        "DisplayObjectName": false,
-                        "Name": "movement_smooth_speed",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.2
-                    },
-                    "Variable 18": {
-                        "DisplayObjectName": false,
-                        "Name": "myUID",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 19": {
-                        "DisplayObjectName": false,
-                        "Name": "yennefer_GO",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "Yennefer"
-                    },
-                    "Variable 2": {
-                        "DisplayObjectName": false,
-                        "Name": "Layer_2_FOV_ratio_1",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.8
-                    },
-                    "Variable 20": {
-                        "DisplayObjectName": false,
-                        "Name": "zoom_angle_smooth_speed",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.1
-                    },
-                    "Variable 21": {
-                        "DisplayObjectName": false,
-                        "Name": "zoom_distance_smooth_speed",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.1
-                    },
-                    "Variable 3": {
-                        "DisplayObjectName": false,
-                        "Name": "Layer_2_FOV_ratio_2",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.55
-                    },
-                    "Variable 4": {
-                        "DisplayObjectName": false,
-                        "Name": "Layer_3_FOV_ratio_1",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.85
-                    },
-                    "Variable 5": {
-                        "DisplayObjectName": false,
-                        "Name": "Layer_3_FOV_ratio_2",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.55
-                    },
-                    "Variable 6": {
-                        "DisplayObjectName": false,
-                        "Name": "asymptotic_average_snapping_threshold",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.01
-                    },
-                    "Variable 7": {
-                        "DisplayObjectName": false,
-                        "Name": "camera_angle_layer_1",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 50.0
-                    },
-                    "Variable 8": {
-                        "DisplayObjectName": false,
-                        "Name": "camera_angle_layer_2",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 60.0
-                    },
-                    "Variable 9": {
-                        "DisplayObjectName": false,
-                        "Name": "camera_angle_layer_3",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 70.0
-                    }
-                },
-                "UID": 1988452229,
-                "index": 3
-            },
-            "2": {
-                "Active": true,
-                "Resources": {
-                    "ResourceMaterial": {
-                        "path": "DefaultMaterial"
-                    }
-                },
-                "UID": 446730823,
-                "index": 2
-            },
-            "20": {
-                "Active": false,
-                "UID": 1772853004,
-                "index": 4
-            },
-            "3": {
-                "ACTIVECAM": false,
-                "ASPECTRATIO": 2.366666793823242,
-                "Active": true,
-                "CULLINGCAM": false,
-                "FARPLANE": 1000.0,
-                "FOV": 42.64352035522461,
-                "NEARPLANE": 0.10000000149011612,
-                "UID": 30049781,
-                "index": 1
-            }
-        },
-        "Index": 4,
-        "Name": "Camera",
-        "Navigation Area": 0,
-        "Navigation Static": false,
-        "Parent": "-1",
-        "Static": false
-    },
     "1274910598": {
         "Active": true,
         "Components": {
@@ -1438,8 +1170,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000301",
-                "scalez": "1.000301"
+                "scaley": "1.000302",
+                "scalez": "1.000302"
             }
         },
         "Index": 0,
@@ -1463,8 +1195,8 @@
                 "rotationx": "-0.067959",
                 "rotationy": "0.228817",
                 "rotationz": "0.949829",
-                "scalex": "1.000105",
-                "scaley": "1.000105",
+                "scalex": "1.000106",
+                "scaley": "1.000106",
                 "scalez": "1.000000"
             },
             "13": {
@@ -1768,8 +1500,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000301",
-                "scalez": "1.000301"
+                "scaley": "1.000302",
+                "scalez": "1.000302"
             }
         },
         "Index": 0,
@@ -2216,8 +1948,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000301",
-                "scalez": "1.000301"
+                "scaley": "1.000302",
+                "scalez": "1.000302"
             }
         },
         "Index": 0,
@@ -2519,6 +2251,32 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "943318145",
+        "Static": false
+    },
+    "1615087567": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1767745187,
+                "index": 0,
+                "layer": "1",
+                "positionx": "5.000000",
+                "positiony": "0.000000",
+                "positionz": "10.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Index": 4,
+        "Name": "Geralt_Positioning",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "-1",
         "Static": false
     },
     "1615439498": {
@@ -3047,8 +2805,8 @@
                 "rotationx": "0.388476",
                 "rotationy": "0.030072",
                 "rotationz": "0.916844",
-                "scalex": "1.000210",
-                "scaley": "1.000210",
+                "scalex": "1.000212",
+                "scaley": "1.000212",
                 "scalez": "1.000000"
             },
             "13": {
@@ -3440,8 +3198,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000301",
-                "scalez": "1.000301"
+                "scaley": "1.000302",
+                "scalez": "1.000302"
             }
         },
         "Index": 0,
@@ -3495,7 +3253,7 @@
                 "positionx": "0.002900",
                 "positiony": "3.765500",
                 "positionz": "0.000000",
-                "rotationw": "0.989497",
+                "rotationw": "0.989496",
                 "rotationx": "-0.124914",
                 "rotationy": "-0.016658",
                 "rotationz": "-0.070822",
@@ -3679,8 +3437,8 @@
                 "rotationy": "-0.000000",
                 "rotationz": "-0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000301",
-                "scalez": "1.000301"
+                "scaley": "1.000302",
+                "scalez": "1.000302"
             }
         },
         "Index": 0,
@@ -3811,7 +3569,7 @@
         "Static": false
     },
     "1792076268": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
                 "UID": 1636931022,
@@ -3829,7 +3587,7 @@
                 "scalez": "1.000000"
             },
             "1": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceMesh": {
                         "PreviewTexture": "",
@@ -3838,31 +3596,6 @@
                 },
                 "UID": 2112503666,
                 "index": 1
-            },
-            "12": {
-                "Active": false,
-                "Resources": {
-                    "ResourceScript": "Assets/Enemy_Test_Script.lua"
-                },
-                "Script variables": {
-                    "Count": 2,
-                    "Variable 0": {
-                        "DisplayObjectName": false,
-                        "Name": "collider_damage",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 50.0
-                    },
-                    "Variable 1": {
-                        "DisplayObjectName": false,
-                        "Name": "collider_effect",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 2.0
-                    }
-                },
-                "UID": 753425767,
-                "index": 4
             },
             "17": {
                 "UID": 973703985,
@@ -3880,7 +3613,7 @@
                 "stepOffset": "0.300000"
             },
             "2": {
-                "Active": false,
+                "Active": true,
                 "Resources": {
                     "ResourceMaterial": {
                         "path": "DefaultMaterial"
@@ -3912,8 +3645,8 @@
                 "rotationy": "-0.128834",
                 "rotationz": "-0.188631",
                 "scalex": "2.540000",
-                "scaley": "2.539895",
-                "scalez": "2.539895"
+                "scaley": "2.539894",
+                "scalez": "2.539894"
             },
             "13": {
                 "Active": true,
@@ -3979,9 +3712,9 @@
                 "rotationx": "0.000000",
                 "rotationy": "-0.707107",
                 "rotationz": "0.000000",
-                "scalex": "1.271005",
+                "scalex": "1.271006",
                 "scaley": "1.270900",
-                "scalez": "1.271005"
+                "scalez": "1.271006"
             },
             "13": {
                 "Active": true,
@@ -4009,7 +3742,7 @@
                 "positionx": "0.000900",
                 "positiony": "3.338100",
                 "positionz": "0.000008",
-                "rotationw": "0.982978",
+                "rotationw": "0.982979",
                 "rotationx": "0.183521",
                 "rotationy": "0.002122",
                 "rotationz": "0.008296",
@@ -4121,8 +3854,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000301",
-                "scalez": "1.000301"
+                "scaley": "1.000302",
+                "scalez": "1.000302"
             }
         },
         "Index": 0,
@@ -4233,8 +3966,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000301",
-                "scalez": "1.000301"
+                "scaley": "1.000302",
+                "scalez": "1.000302"
             }
         },
         "Index": 0,
@@ -4284,8 +4017,8 @@
                 "rotationx": "0.393494",
                 "rotationy": "0.330420",
                 "rotationz": "0.843451",
-                "scalex": "0.999895",
-                "scaley": "0.999895",
+                "scalex": "0.999894",
+                "scaley": "0.999894",
                 "scalez": "1.000000"
             },
             "13": {
@@ -4442,7 +4175,7 @@
                 "positionx": "0.000600",
                 "positiony": "3.439200",
                 "positionz": "0.000000",
-                "rotationw": "0.845792",
+                "rotationw": "0.845791",
                 "rotationx": "0.532275",
                 "rotationy": "-0.021592",
                 "rotationz": "-0.029222",
@@ -4652,8 +4385,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.070461",
-                "scaley": "15.156345",
-                "scalez": "1.367951"
+                "scaley": "15.156354",
+                "scalez": "1.367952"
             },
             "1": {
                 "Active": true,
@@ -5140,6 +4873,32 @@
         "Parent": "943318145",
         "Static": false
     },
+    "2047338204": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 653514706,
+                "index": 0,
+                "layer": "1",
+                "positionx": "-5.000000",
+                "positiony": "0.000000",
+                "positionz": "10.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Index": 5,
+        "Name": "Jaskier_Positioning",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "-1",
+        "Static": false
+    },
     "2067568687": {
         "Active": true,
         "Components": {
@@ -5154,8 +4913,8 @@
                 "rotationx": "-0.297388",
                 "rotationy": "0.033590",
                 "rotationz": "0.933444",
-                "scalex": "0.999895",
-                "scaley": "0.999895",
+                "scalex": "0.999894",
+                "scaley": "0.999894",
                 "scalez": "1.000000"
             },
             "13": {
@@ -7357,8 +7116,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000301",
-                "scalez": "1.000301"
+                "scaley": "1.000302",
+                "scalez": "1.000302"
             }
         },
         "Index": 0,
@@ -7412,7 +7171,7 @@
                 "positionx": "-0.004432",
                 "positiony": "3.575775",
                 "positionz": "0.000000",
-                "rotationw": "0.935310",
+                "rotationw": "0.935309",
                 "rotationx": "0.353512",
                 "rotationy": "0.002161",
                 "rotationz": "-0.014860",
@@ -8435,8 +8194,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000301",
-                "scalez": "1.000301"
+                "scaley": "1.000302",
+                "scalez": "1.000302"
             }
         },
         "Index": 0,
@@ -8461,8 +8220,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000301",
-                "scalez": "1.000301"
+                "scaley": "1.000302",
+                "scalez": "1.000302"
             }
         },
         "Index": 0,
@@ -8656,8 +8415,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000301",
-                "scalez": "1.000301"
+                "scaley": "1.000302",
+                "scalez": "1.000302"
             }
         },
         "Index": 0,
@@ -9565,8 +9324,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000301",
-                "scalez": "1.000301"
+                "scaley": "1.000302",
+                "scalez": "1.000302"
             }
         },
         "Index": 0,
@@ -9755,7 +9514,7 @@
                 "positionx": "-0.005500",
                 "positiony": "2.774000",
                 "positionz": "0.000008",
-                "rotationw": "0.965708",
+                "rotationw": "0.965709",
                 "rotationx": "0.259539",
                 "rotationy": "-0.000541",
                 "rotationz": "0.006807",
@@ -10208,8 +9967,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.540000",
-                "scaley": "2.540674",
-                "scalez": "2.540674"
+                "scaley": "2.540675",
+                "scalez": "2.540675"
             },
             "1": {
                 "Active": false,
@@ -10323,8 +10082,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.540000",
-                "scaley": "2.540680",
-                "scalez": "2.540680"
+                "scaley": "2.540681",
+                "scalez": "2.540681"
             },
             "1": {
                 "Active": true,
@@ -10588,7 +10347,7 @@
                 "positionx": "-2.501400",
                 "positiony": "2.460600",
                 "positionz": "1.849000",
-                "rotationw": "0.868791",
+                "rotationw": "0.868790",
                 "rotationx": "0.345703",
                 "rotationy": "0.177479",
                 "rotationz": "0.306910",
@@ -10626,9 +10385,9 @@
                 "rotationx": "0.000000",
                 "rotationy": "-0.707107",
                 "rotationz": "0.000000",
-                "scalex": "1.000105",
+                "scalex": "1.000106",
                 "scaley": "1.000000",
-                "scalez": "1.000105"
+                "scalez": "1.000106"
             },
             "13": {
                 "Active": true,
@@ -10849,8 +10608,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000301",
-                "scalez": "1.000301"
+                "scaley": "1.000302",
+                "scalez": "1.000302"
             }
         },
         "Index": 0,
