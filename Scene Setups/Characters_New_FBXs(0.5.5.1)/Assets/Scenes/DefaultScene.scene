@@ -492,8 +492,8 @@
                 "rotationx": "0.388476",
                 "rotationy": "0.030072",
                 "rotationz": "0.916844",
-                "scalex": "1.000132",
-                "scaley": "1.000133",
+                "scalex": "1.000134",
+                "scaley": "1.000135",
                 "scalez": "1.000000"
             },
             "13": {
@@ -772,7 +772,7 @@
                 "positionx": "-1.210344",
                 "positiony": "8.754818",
                 "positionz": "-0.159492",
-                "rotationw": "0.978748",
+                "rotationw": "0.978749",
                 "rotationx": "0.203571",
                 "rotationy": "0.020149",
                 "rotationz": "0.014293",
@@ -1173,9 +1173,9 @@
                 "rotationx": "0.000000",
                 "rotationy": "0.819152",
                 "rotationz": "-0.573577",
-                "scalex": "1.000101",
+                "scalex": "1.000102",
                 "scaley": "1.000003",
-                "scalez": "1.000086"
+                "scalez": "1.000087"
             },
             "12": {
                 "Active": true,
@@ -1438,8 +1438,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000262",
-                "scalez": "1.000262"
+                "scaley": "1.000263",
+                "scalez": "1.000263"
             }
         },
         "Index": 0,
@@ -1463,8 +1463,8 @@
                 "rotationx": "-0.067959",
                 "rotationy": "0.228817",
                 "rotationz": "0.949829",
-                "scalex": "1.000066",
-                "scaley": "1.000066",
+                "scalex": "1.000067",
+                "scaley": "1.000067",
                 "scalez": "1.000000"
             },
             "13": {
@@ -1768,8 +1768,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000262",
-                "scalez": "1.000262"
+                "scaley": "1.000263",
+                "scalez": "1.000263"
             }
         },
         "Index": 0,
@@ -1892,6 +1892,151 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "703113250",
+        "Static": false
+    },
+    "1468839069": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1021036356,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "18": {
+                "Active": true,
+                "Duration": "1000",
+                "GradientColor": false,
+                "HorizontalBill": "0",
+                "Loop": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1561106375.dds"
+                },
+                "UID": 172587016,
+                "VerticalBill": "0",
+                "animation": "1",
+                "colors": [
+                    {
+                        "a": "1.000000",
+                        "x": "0.781298",
+                        "y": "0.801105",
+                        "z": "0.084094"
+                    }
+                ],
+                "curves": [
+                    {
+                        "0": {
+                            "NextX": "0.100000",
+                            "NextY": "0.100000",
+                            "PX": "0.000000",
+                            "PY": "0.000000",
+                            "PrevX": "0.000000",
+                            "PrevY": "0.000000"
+                        },
+                        "1": {
+                            "NextX": "1.000000",
+                            "NextY": "1.000000",
+                            "PX": "1.000000",
+                            "PY": "1.000000",
+                            "PrevX": "-0.100000",
+                            "PrevY": "-0.100000"
+                        },
+                        "multiplier": "1.000000",
+                        "name": "##scale",
+                        "num_points": "2",
+                        "type": "0"
+                    },
+                    {
+                        "0": {
+                            "NextX": "0.100000",
+                            "NextY": "0.100000",
+                            "PX": "0.000000",
+                            "PY": "0.000000",
+                            "PrevX": "0.000000",
+                            "PrevY": "0.000000"
+                        },
+                        "1": {
+                            "NextX": "1.000000",
+                            "NextY": "1.000000",
+                            "PX": "1.000000",
+                            "PY": "1.000000",
+                            "PrevX": "-0.100000",
+                            "PrevY": "-0.100000"
+                        },
+                        "multiplier": "1.000000",
+                        "name": "##rotation",
+                        "num_points": "2",
+                        "type": "0"
+                    }
+                ],
+                "cycles": "1.000000",
+                "emisionRate": "500.000000",
+                "externalAccelerationX": "0.000000",
+                "externalAccelerationY": "20.000000",
+                "externalAccelerationZ": "0.000000",
+                "grad_duration": "1000",
+                "index": 1,
+                "num_colors": "1",
+                "num_curves": "2",
+                "num_gradients": "0",
+                "particleScaleOverTime": "0.000000",
+                "particleScaleRandomFactor1": "1.000000",
+                "particleScaleRandomFactor2": "1.000000",
+                "particlesLifeTime": "1000",
+                "particlesPerCreation": "10",
+                "particlesScaleX": "4.000000",
+                "particlesScaleY": "4.000000",
+                "particlesVelocityX": "0.000000",
+                "particlesVelocityY": "0.000000",
+                "particlesVelocityZ": "0.000000",
+                "positionX": "0.000000",
+                "positionY": "0.000000",
+                "positionZ": "0.000000",
+                "rotationOvertime1": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "rotationOvertime2": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "rotationX": "0.000000",
+                "rotationY": "0.000000",
+                "rotationZ": "0.000000",
+                "rotationconstants": "0",
+                "scaleconstants": "0",
+                "separateAxis": "0",
+                "sizeX": "2.000000",
+                "sizeY": "2.000000",
+                "sizeZ": "2.000000",
+                "startFrame": "0",
+                "tiles_X": "4",
+                "tiles_Y": "4",
+                "velocityRandomFactor1X": "0.000000",
+                "velocityRandomFactor1Y": "0.000000",
+                "velocityRandomFactor1Z": "0.000000",
+                "velocityRandomFactor2X": "0.000000",
+                "velocityRandomFactor2Y": "0.000000",
+                "velocityRandomFactor2Z": "0.000000",
+                "velocityconstants": "0"
+            }
+        },
+        "Index": 22,
+        "Name": "Jaskier_Stamina_Potion",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "2098612090",
         "Static": false
     },
     "1473543226": {
@@ -2071,8 +2216,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000262",
-                "scalez": "1.000262"
+                "scaley": "1.000263",
+                "scalez": "1.000263"
             }
         },
         "Index": 0,
@@ -2731,8 +2876,8 @@
                 "rotationx": "0.388476",
                 "rotationy": "0.030072",
                 "rotationz": "0.916844",
-                "scalex": "1.000132",
-                "scaley": "1.000132",
+                "scalex": "1.000134",
+                "scaley": "1.000134",
                 "scalez": "1.000000"
             },
             "13": {
@@ -2819,6 +2964,296 @@
         "Parent": "321912102",
         "Static": false
     },
+    "1712703392": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1093354757,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "2.499894",
+                "scaley": "2.500000",
+                "scalez": "2.499894"
+            },
+            "18": {
+                "Active": true,
+                "Duration": "1000",
+                "GradientColor": false,
+                "HorizontalBill": "0",
+                "Loop": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1561106375.dds"
+                },
+                "UID": 491063096,
+                "VerticalBill": "0",
+                "animation": "1",
+                "colors": [
+                    {
+                        "a": "1.000000",
+                        "x": "0.781298",
+                        "y": "0.801105",
+                        "z": "0.084094"
+                    }
+                ],
+                "curves": [
+                    {
+                        "0": {
+                            "NextX": "0.100000",
+                            "NextY": "0.100000",
+                            "PX": "0.000000",
+                            "PY": "0.000000",
+                            "PrevX": "0.000000",
+                            "PrevY": "0.000000"
+                        },
+                        "1": {
+                            "NextX": "1.000000",
+                            "NextY": "1.000000",
+                            "PX": "1.000000",
+                            "PY": "1.000000",
+                            "PrevX": "-0.100000",
+                            "PrevY": "-0.100000"
+                        },
+                        "multiplier": "1.000000",
+                        "name": "##scale",
+                        "num_points": "2",
+                        "type": "0"
+                    },
+                    {
+                        "0": {
+                            "NextX": "0.100000",
+                            "NextY": "0.100000",
+                            "PX": "0.000000",
+                            "PY": "0.000000",
+                            "PrevX": "0.000000",
+                            "PrevY": "0.000000"
+                        },
+                        "1": {
+                            "NextX": "1.000000",
+                            "NextY": "1.000000",
+                            "PX": "1.000000",
+                            "PY": "1.000000",
+                            "PrevX": "-0.100000",
+                            "PrevY": "-0.100000"
+                        },
+                        "multiplier": "1.000000",
+                        "name": "##rotation",
+                        "num_points": "2",
+                        "type": "0"
+                    }
+                ],
+                "cycles": "1.000000",
+                "emisionRate": "500.000000",
+                "externalAccelerationX": "0.000000",
+                "externalAccelerationY": "20.000000",
+                "externalAccelerationZ": "0.000000",
+                "grad_duration": "1000",
+                "index": 1,
+                "num_colors": "1",
+                "num_curves": "2",
+                "num_gradients": "0",
+                "particleScaleOverTime": "0.000000",
+                "particleScaleRandomFactor1": "1.000000",
+                "particleScaleRandomFactor2": "1.000000",
+                "particlesLifeTime": "1000",
+                "particlesPerCreation": "10",
+                "particlesScaleX": "4.000000",
+                "particlesScaleY": "4.000000",
+                "particlesVelocityX": "0.000000",
+                "particlesVelocityY": "0.000000",
+                "particlesVelocityZ": "0.000000",
+                "positionX": "0.000000",
+                "positionY": "0.000000",
+                "positionZ": "0.000000",
+                "rotationOvertime1": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "rotationOvertime2": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "rotationX": "0.000000",
+                "rotationY": "0.000000",
+                "rotationZ": "0.000000",
+                "rotationconstants": "0",
+                "scaleconstants": "0",
+                "separateAxis": "0",
+                "sizeX": "2.000000",
+                "sizeY": "2.000000",
+                "sizeZ": "2.000000",
+                "startFrame": "0",
+                "tiles_X": "4",
+                "tiles_Y": "4",
+                "velocityRandomFactor1X": "0.000000",
+                "velocityRandomFactor1Y": "0.000000",
+                "velocityRandomFactor1Z": "0.000000",
+                "velocityRandomFactor2X": "0.000000",
+                "velocityRandomFactor2Y": "0.000000",
+                "velocityRandomFactor2Z": "0.000000",
+                "velocityconstants": "0"
+            }
+        },
+        "Index": 16,
+        "Name": "Geralt_Stamina_Potion",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "943318145",
+        "Static": false
+    },
+    "1715941729": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1063832099,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "18": {
+                "Active": true,
+                "Duration": "1000",
+                "GradientColor": false,
+                "HorizontalBill": "0",
+                "Loop": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1561106375.dds"
+                },
+                "UID": 1969700466,
+                "VerticalBill": "0",
+                "animation": "1",
+                "colors": [
+                    {
+                        "a": "1.000000",
+                        "x": "0.779006",
+                        "y": "0.073166",
+                        "z": "0.073209"
+                    }
+                ],
+                "curves": [
+                    {
+                        "0": {
+                            "NextX": "0.100000",
+                            "NextY": "0.100000",
+                            "PX": "0.000000",
+                            "PY": "0.000000",
+                            "PrevX": "0.000000",
+                            "PrevY": "0.000000"
+                        },
+                        "1": {
+                            "NextX": "1.000000",
+                            "NextY": "1.000000",
+                            "PX": "1.000000",
+                            "PY": "1.000000",
+                            "PrevX": "-0.100000",
+                            "PrevY": "-0.100000"
+                        },
+                        "multiplier": "1.000000",
+                        "name": "##scale",
+                        "num_points": "2",
+                        "type": "0"
+                    },
+                    {
+                        "0": {
+                            "NextX": "0.100000",
+                            "NextY": "0.100000",
+                            "PX": "0.000000",
+                            "PY": "0.000000",
+                            "PrevX": "0.000000",
+                            "PrevY": "0.000000"
+                        },
+                        "1": {
+                            "NextX": "1.000000",
+                            "NextY": "1.000000",
+                            "PX": "1.000000",
+                            "PY": "1.000000",
+                            "PrevX": "-0.100000",
+                            "PrevY": "-0.100000"
+                        },
+                        "multiplier": "1.000000",
+                        "name": "##rotation",
+                        "num_points": "2",
+                        "type": "0"
+                    }
+                ],
+                "cycles": "1.000000",
+                "emisionRate": "500.000000",
+                "externalAccelerationX": "0.000000",
+                "externalAccelerationY": "20.000000",
+                "externalAccelerationZ": "0.000000",
+                "grad_duration": "1000",
+                "index": 1,
+                "num_colors": "1",
+                "num_curves": "2",
+                "num_gradients": "0",
+                "particleScaleOverTime": "0.000000",
+                "particleScaleRandomFactor1": "1.000000",
+                "particleScaleRandomFactor2": "1.000000",
+                "particlesLifeTime": "1000",
+                "particlesPerCreation": "10",
+                "particlesScaleX": "4.000000",
+                "particlesScaleY": "4.000000",
+                "particlesVelocityX": "0.000000",
+                "particlesVelocityY": "0.000000",
+                "particlesVelocityZ": "0.000000",
+                "positionX": "0.000000",
+                "positionY": "0.000000",
+                "positionZ": "0.000000",
+                "rotationOvertime1": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "rotationOvertime2": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "rotationX": "0.000000",
+                "rotationY": "0.000000",
+                "rotationZ": "0.000000",
+                "rotationconstants": "0",
+                "scaleconstants": "0",
+                "separateAxis": "0",
+                "sizeX": "2.000000",
+                "sizeY": "2.000000",
+                "sizeZ": "2.000000",
+                "startFrame": "0",
+                "tiles_X": "4",
+                "tiles_Y": "4",
+                "velocityRandomFactor1X": "0.000000",
+                "velocityRandomFactor1Y": "0.000000",
+                "velocityRandomFactor1Z": "0.000000",
+                "velocityRandomFactor2X": "0.000000",
+                "velocityRandomFactor2Y": "0.000000",
+                "velocityRandomFactor2Z": "0.000000",
+                "velocityconstants": "0"
+            }
+        },
+        "Index": 20,
+        "Name": "Jaskier_Power_Potion",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "2098612090",
+        "Static": false
+    },
     "1721745381": {
         "Active": true,
         "Components": {
@@ -2834,8 +3269,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000262",
-                "scalez": "1.000262"
+                "scaley": "1.000263",
+                "scalez": "1.000263"
             }
         },
         "Index": 0,
@@ -2889,7 +3324,7 @@
                 "positionx": "0.002900",
                 "positiony": "3.765500",
                 "positionz": "0.000000",
-                "rotationw": "0.989496",
+                "rotationw": "0.989497",
                 "rotationx": "-0.124914",
                 "rotationy": "-0.016658",
                 "rotationz": "-0.070822",
@@ -2913,6 +3348,151 @@
         "Parent": "308046834",
         "Static": false
     },
+    "1763630275": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1178374903,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "18": {
+                "Active": true,
+                "Duration": "1000",
+                "GradientColor": false,
+                "HorizontalBill": "0",
+                "Loop": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1561106375.dds"
+                },
+                "UID": 1696689845,
+                "VerticalBill": "0",
+                "animation": "1",
+                "colors": [
+                    {
+                        "a": "1.000000",
+                        "x": "0.246250",
+                        "y": "0.773481",
+                        "z": "0.076921"
+                    }
+                ],
+                "curves": [
+                    {
+                        "0": {
+                            "NextX": "0.100000",
+                            "NextY": "0.100000",
+                            "PX": "0.000000",
+                            "PY": "0.000000",
+                            "PrevX": "0.000000",
+                            "PrevY": "0.000000"
+                        },
+                        "1": {
+                            "NextX": "1.000000",
+                            "NextY": "1.000000",
+                            "PX": "1.000000",
+                            "PY": "1.000000",
+                            "PrevX": "-0.100000",
+                            "PrevY": "-0.100000"
+                        },
+                        "multiplier": "1.000000",
+                        "name": "##scale",
+                        "num_points": "2",
+                        "type": "0"
+                    },
+                    {
+                        "0": {
+                            "NextX": "0.100000",
+                            "NextY": "0.100000",
+                            "PX": "0.000000",
+                            "PY": "0.000000",
+                            "PrevX": "0.000000",
+                            "PrevY": "0.000000"
+                        },
+                        "1": {
+                            "NextX": "1.000000",
+                            "NextY": "1.000000",
+                            "PX": "1.000000",
+                            "PY": "1.000000",
+                            "PrevX": "-0.100000",
+                            "PrevY": "-0.100000"
+                        },
+                        "multiplier": "1.000000",
+                        "name": "##rotation",
+                        "num_points": "2",
+                        "type": "0"
+                    }
+                ],
+                "cycles": "1.000000",
+                "emisionRate": "500.000000",
+                "externalAccelerationX": "0.000000",
+                "externalAccelerationY": "20.000000",
+                "externalAccelerationZ": "0.000000",
+                "grad_duration": "0",
+                "index": 1,
+                "num_colors": "1",
+                "num_curves": "2",
+                "num_gradients": "0",
+                "particleScaleOverTime": "0.000000",
+                "particleScaleRandomFactor1": "1.000000",
+                "particleScaleRandomFactor2": "1.000000",
+                "particlesLifeTime": "1000",
+                "particlesPerCreation": "10",
+                "particlesScaleX": "4.000000",
+                "particlesScaleY": "4.000000",
+                "particlesVelocityX": "0.000000",
+                "particlesVelocityY": "0.000000",
+                "particlesVelocityZ": "0.000000",
+                "positionX": "0.000000",
+                "positionY": "0.000000",
+                "positionZ": "0.000000",
+                "rotationOvertime1": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "rotationOvertime2": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "rotationX": "0.000000",
+                "rotationY": "0.000000",
+                "rotationZ": "0.000000",
+                "rotationconstants": "0",
+                "scaleconstants": "0",
+                "separateAxis": "0",
+                "sizeX": "2.000000",
+                "sizeY": "2.000000",
+                "sizeZ": "2.000000",
+                "startFrame": "0",
+                "tiles_X": "4",
+                "tiles_Y": "4",
+                "velocityRandomFactor1X": "0.000000",
+                "velocityRandomFactor1Y": "0.000000",
+                "velocityRandomFactor1Z": "0.000000",
+                "velocityRandomFactor2X": "0.000000",
+                "velocityRandomFactor2Y": "0.000000",
+                "velocityRandomFactor2Z": "0.000000",
+                "velocityconstants": "0"
+            }
+        },
+        "Index": 21,
+        "Name": "Jaskier_Health_Potion",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "2098612090",
+        "Static": false
+    },
     "1766358013": {
         "Active": true,
         "Components": {
@@ -2928,8 +3508,8 @@
                 "rotationy": "-0.000000",
                 "rotationz": "-0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000262",
-                "scalez": "1.000262"
+                "scaley": "1.000263",
+                "scalez": "1.000263"
             }
         },
         "Index": 0,
@@ -3161,8 +3741,8 @@
                 "rotationy": "-0.128834",
                 "rotationz": "-0.188631",
                 "scalex": "2.540000",
-                "scaley": "2.539934",
-                "scalez": "2.539934"
+                "scaley": "2.539933",
+                "scalez": "2.539933"
             },
             "13": {
                 "Active": true,
@@ -3228,9 +3808,9 @@
                 "rotationx": "0.000000",
                 "rotationy": "-0.707107",
                 "rotationz": "0.000000",
-                "scalex": "1.270966",
+                "scalex": "1.270967",
                 "scaley": "1.270900",
-                "scalez": "1.270966"
+                "scalez": "1.270967"
             },
             "13": {
                 "Active": true,
@@ -3258,7 +3838,7 @@
                 "positionx": "0.000900",
                 "positiony": "3.338100",
                 "positionz": "0.000008",
-                "rotationw": "0.982979",
+                "rotationw": "0.982978",
                 "rotationx": "0.183521",
                 "rotationy": "0.002122",
                 "rotationz": "0.008296",
@@ -3370,8 +3950,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000262",
-                "scalez": "1.000262"
+                "scaley": "1.000263",
+                "scalez": "1.000263"
             }
         },
         "Index": 0,
@@ -3482,8 +4062,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000262",
-                "scalez": "1.000262"
+                "scaley": "1.000263",
+                "scalez": "1.000263"
             }
         },
         "Index": 0,
@@ -3533,8 +4113,8 @@
                 "rotationx": "0.393494",
                 "rotationy": "0.330420",
                 "rotationz": "0.843451",
-                "scalex": "0.999934",
-                "scaley": "0.999934",
+                "scalex": "0.999933",
+                "scaley": "0.999933",
                 "scalez": "1.000000"
             },
             "13": {
@@ -3691,7 +4271,7 @@
                 "positionx": "0.000600",
                 "positiony": "3.439200",
                 "positionz": "0.000000",
-                "rotationw": "0.845791",
+                "rotationw": "0.845792",
                 "rotationx": "0.532275",
                 "rotationy": "-0.021592",
                 "rotationz": "-0.029222",
@@ -3901,8 +4481,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.070461",
-                "scaley": "15.156011",
-                "scalez": "1.367912"
+                "scaley": "15.156019",
+                "scalez": "1.367913"
             },
             "1": {
                 "Active": true,
@@ -4403,8 +4983,8 @@
                 "rotationx": "-0.297388",
                 "rotationy": "0.033590",
                 "rotationz": "0.933444",
-                "scalex": "0.999934",
-                "scaley": "0.999934",
+                "scalex": "0.999933",
+                "scaley": "0.999933",
                 "scalez": "1.000000"
             },
             "13": {
@@ -6568,8 +7148,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000262",
-                "scalez": "1.000262"
+                "scaley": "1.000263",
+                "scalez": "1.000263"
             }
         },
         "Index": 0,
@@ -6623,7 +7203,7 @@
                 "positionx": "-0.004432",
                 "positiony": "3.575775",
                 "positionz": "0.000000",
-                "rotationw": "0.935309",
+                "rotationw": "0.935310",
                 "rotationx": "0.353512",
                 "rotationy": "0.002161",
                 "rotationz": "-0.014860",
@@ -7646,8 +8226,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000262",
-                "scalez": "1.000262"
+                "scaley": "1.000263",
+                "scalez": "1.000263"
             }
         },
         "Index": 0,
@@ -7672,8 +8252,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000262",
-                "scalez": "1.000262"
+                "scaley": "1.000263",
+                "scalez": "1.000263"
             }
         },
         "Index": 0,
@@ -7867,8 +8447,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000262",
-                "scalez": "1.000262"
+                "scaley": "1.000263",
+                "scalez": "1.000263"
             }
         },
         "Index": 0,
@@ -8309,6 +8889,151 @@
         "Parent": "943318145",
         "Static": false
     },
+    "603464878": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 458201330,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "2.499894",
+                "scaley": "2.500000",
+                "scalez": "2.499894"
+            },
+            "18": {
+                "Active": true,
+                "Duration": "1000",
+                "GradientColor": false,
+                "HorizontalBill": "0",
+                "Loop": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1561106375.dds"
+                },
+                "UID": 757806808,
+                "VerticalBill": "0",
+                "animation": "1",
+                "colors": [
+                    {
+                        "a": "1.000000",
+                        "x": "0.246250",
+                        "y": "0.773481",
+                        "z": "0.076921"
+                    }
+                ],
+                "curves": [
+                    {
+                        "0": {
+                            "NextX": "0.100000",
+                            "NextY": "0.100000",
+                            "PX": "0.000000",
+                            "PY": "0.000000",
+                            "PrevX": "0.000000",
+                            "PrevY": "0.000000"
+                        },
+                        "1": {
+                            "NextX": "1.000000",
+                            "NextY": "1.000000",
+                            "PX": "1.000000",
+                            "PY": "1.000000",
+                            "PrevX": "-0.100000",
+                            "PrevY": "-0.100000"
+                        },
+                        "multiplier": "1.000000",
+                        "name": "##scale",
+                        "num_points": "2",
+                        "type": "0"
+                    },
+                    {
+                        "0": {
+                            "NextX": "0.100000",
+                            "NextY": "0.100000",
+                            "PX": "0.000000",
+                            "PY": "0.000000",
+                            "PrevX": "0.000000",
+                            "PrevY": "0.000000"
+                        },
+                        "1": {
+                            "NextX": "1.000000",
+                            "NextY": "1.000000",
+                            "PX": "1.000000",
+                            "PY": "1.000000",
+                            "PrevX": "-0.100000",
+                            "PrevY": "-0.100000"
+                        },
+                        "multiplier": "1.000000",
+                        "name": "##rotation",
+                        "num_points": "2",
+                        "type": "0"
+                    }
+                ],
+                "cycles": "1.000000",
+                "emisionRate": "500.000000",
+                "externalAccelerationX": "0.000000",
+                "externalAccelerationY": "20.000000",
+                "externalAccelerationZ": "0.000000",
+                "grad_duration": "0",
+                "index": 1,
+                "num_colors": "1",
+                "num_curves": "2",
+                "num_gradients": "0",
+                "particleScaleOverTime": "0.000000",
+                "particleScaleRandomFactor1": "1.000000",
+                "particleScaleRandomFactor2": "1.000000",
+                "particlesLifeTime": "1000",
+                "particlesPerCreation": "10",
+                "particlesScaleX": "4.000000",
+                "particlesScaleY": "4.000000",
+                "particlesVelocityX": "0.000000",
+                "particlesVelocityY": "0.000000",
+                "particlesVelocityZ": "0.000000",
+                "positionX": "0.000000",
+                "positionY": "0.000000",
+                "positionZ": "0.000000",
+                "rotationOvertime1": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "rotationOvertime2": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "rotationX": "0.000000",
+                "rotationY": "0.000000",
+                "rotationZ": "0.000000",
+                "rotationconstants": "0",
+                "scaleconstants": "0",
+                "separateAxis": "0",
+                "sizeX": "2.000000",
+                "sizeY": "2.000000",
+                "sizeZ": "2.000000",
+                "startFrame": "0",
+                "tiles_X": "4",
+                "tiles_Y": "4",
+                "velocityRandomFactor1X": "0.000000",
+                "velocityRandomFactor1Y": "0.000000",
+                "velocityRandomFactor1Z": "0.000000",
+                "velocityRandomFactor2X": "0.000000",
+                "velocityRandomFactor2Y": "0.000000",
+                "velocityRandomFactor2Z": "0.000000",
+                "velocityconstants": "0"
+            }
+        },
+        "Index": 18,
+        "Name": "Geralt_Health_Potion",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "943318145",
+        "Static": false
+    },
     "6165276": {
         "Active": true,
         "Components": {
@@ -8631,8 +9356,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000262",
-                "scalez": "1.000262"
+                "scaley": "1.000263",
+                "scalez": "1.000263"
             }
         },
         "Index": 0,
@@ -8821,7 +9546,7 @@
                 "positionx": "-0.005500",
                 "positiony": "2.774000",
                 "positionz": "0.000008",
-                "rotationw": "0.965709",
+                "rotationw": "0.965708",
                 "rotationx": "0.259539",
                 "rotationy": "-0.000541",
                 "rotationz": "0.006807",
@@ -8994,6 +9719,151 @@
         "Parent": "2097833342",
         "Static": false
     },
+    "746185535": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 406227658,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "2.499894",
+                "scaley": "2.500000",
+                "scalez": "2.499894"
+            },
+            "18": {
+                "Active": true,
+                "Duration": "1000",
+                "GradientColor": false,
+                "HorizontalBill": "0",
+                "Loop": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1561106375.dds"
+                },
+                "UID": 1190390661,
+                "VerticalBill": "0",
+                "animation": "1",
+                "colors": [
+                    {
+                        "a": "1.000000",
+                        "x": "0.779006",
+                        "y": "0.073166",
+                        "z": "0.073209"
+                    }
+                ],
+                "curves": [
+                    {
+                        "0": {
+                            "NextX": "0.100000",
+                            "NextY": "0.100000",
+                            "PX": "0.000000",
+                            "PY": "0.000000",
+                            "PrevX": "0.000000",
+                            "PrevY": "0.000000"
+                        },
+                        "1": {
+                            "NextX": "1.000000",
+                            "NextY": "1.000000",
+                            "PX": "1.000000",
+                            "PY": "1.000000",
+                            "PrevX": "-0.100000",
+                            "PrevY": "-0.100000"
+                        },
+                        "multiplier": "1.000000",
+                        "name": "##scale",
+                        "num_points": "2",
+                        "type": "0"
+                    },
+                    {
+                        "0": {
+                            "NextX": "0.100000",
+                            "NextY": "0.100000",
+                            "PX": "0.000000",
+                            "PY": "0.000000",
+                            "PrevX": "0.000000",
+                            "PrevY": "0.000000"
+                        },
+                        "1": {
+                            "NextX": "1.000000",
+                            "NextY": "1.000000",
+                            "PX": "1.000000",
+                            "PY": "1.000000",
+                            "PrevX": "-0.100000",
+                            "PrevY": "-0.100000"
+                        },
+                        "multiplier": "1.000000",
+                        "name": "##rotation",
+                        "num_points": "2",
+                        "type": "0"
+                    }
+                ],
+                "cycles": "1.000000",
+                "emisionRate": "500.000000",
+                "externalAccelerationX": "0.000000",
+                "externalAccelerationY": "20.000000",
+                "externalAccelerationZ": "0.000000",
+                "grad_duration": "1000",
+                "index": 1,
+                "num_colors": "1",
+                "num_curves": "2",
+                "num_gradients": "0",
+                "particleScaleOverTime": "0.000000",
+                "particleScaleRandomFactor1": "1.000000",
+                "particleScaleRandomFactor2": "1.000000",
+                "particlesLifeTime": "1000",
+                "particlesPerCreation": "10",
+                "particlesScaleX": "4.000000",
+                "particlesScaleY": "4.000000",
+                "particlesVelocityX": "0.000000",
+                "particlesVelocityY": "0.000000",
+                "particlesVelocityZ": "0.000000",
+                "positionX": "0.000000",
+                "positionY": "0.000000",
+                "positionZ": "0.000000",
+                "rotationOvertime1": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "rotationOvertime2": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "rotationX": "0.000000",
+                "rotationY": "0.000000",
+                "rotationZ": "0.000000",
+                "rotationconstants": "0",
+                "scaleconstants": "0",
+                "separateAxis": "0",
+                "sizeX": "2.000000",
+                "sizeY": "2.000000",
+                "sizeZ": "2.000000",
+                "startFrame": "0",
+                "tiles_X": "4",
+                "tiles_Y": "4",
+                "velocityRandomFactor1X": "0.000000",
+                "velocityRandomFactor1Y": "0.000000",
+                "velocityRandomFactor1Z": "0.000000",
+                "velocityRandomFactor2X": "0.000000",
+                "velocityRandomFactor2Y": "0.000000",
+                "velocityRandomFactor2Z": "0.000000",
+                "velocityconstants": "0"
+            }
+        },
+        "Index": 17,
+        "Name": "Geralt_Power_Potion",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "943318145",
+        "Static": false
+    },
     "754256601": {
         "Active": true,
         "Components": {
@@ -9129,8 +9999,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.540000",
-                "scaley": "2.540625",
-                "scalez": "2.540625"
+                "scaley": "2.540627",
+                "scalez": "2.540627"
             },
             "1": {
                 "Active": false,
@@ -9244,8 +10114,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.540000",
-                "scaley": "2.540632",
-                "scalez": "2.540632"
+                "scaley": "2.540633",
+                "scalez": "2.540633"
             },
             "1": {
                 "Active": true,
@@ -9509,7 +10379,7 @@
                 "positionx": "-2.501400",
                 "positiony": "2.460600",
                 "positionz": "1.849000",
-                "rotationw": "0.868790",
+                "rotationw": "0.868791",
                 "rotationx": "0.345703",
                 "rotationy": "0.177479",
                 "rotationz": "0.306910",
@@ -9547,9 +10417,9 @@
                 "rotationx": "0.000000",
                 "rotationy": "-0.707107",
                 "rotationz": "0.000000",
-                "scalex": "1.000066",
+                "scalex": "1.000067",
                 "scaley": "1.000000",
-                "scalez": "1.000066"
+                "scalez": "1.000067"
             },
             "13": {
                 "Active": true,
@@ -9770,8 +10640,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000262",
-                "scalez": "1.000262"
+                "scaley": "1.000263",
+                "scalez": "1.000263"
             }
         },
         "Index": 0,
