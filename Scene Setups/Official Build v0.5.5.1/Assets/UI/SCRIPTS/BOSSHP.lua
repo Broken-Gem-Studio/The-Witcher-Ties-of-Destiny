@@ -13,7 +13,7 @@ lua_table.boss_hp = 0
 
 local BossBar = 0
 local BossCapsule = 0
-local BossText= 0
+--local BossText= 0
 local BossID = 0
 lua_table.boss = {}
 
@@ -22,7 +22,7 @@ function lua_table:Awake()
    
     BossBar = lua_table["GameObject"]:FindGameObject("BOSSHP")
     BossCapsule = lua_table["GameObject"]:FindGameObject("BOSSCAPSULE")
-    BossText = lua_table["GameObject"]:FindGameObject("BOSSTEXT")
+    --BossText = lua_table["GameObject"]:FindGameObject("BOSSTEXT")
     BossID = lua_table["GameObject"]:FindGameObject("Kikimora")
     lua_table.boss = lua_table["GameObject"]:GetScript(BossID)
 
@@ -45,14 +45,14 @@ function lua_table:Update()
     then
         lua_table["UI"]:MakeElementVisible("Bar", BossBar)--MIRAR SI ESTA BIEN BAR
         lua_table["UI"]:MakeElementVisible("Image", BossCapsule)
-        lua_table["UI"]:MakeElementVisible("Text", BossText)
+        --lua_table["UI"]:MakeElementVisible("Text", BossText)
     end
 
     if lua_table.boss.awakened == false
     then
         lua_table["UI"]:MakeElementInvisible("Bar", BossBar)
         lua_table["UI"]:MakeElementInvisible("Image", BossCapsule)
-        lua_table["UI"]:MakeElementInvisible("Text", BossText)
+        --lua_table["UI"]:MakeElementInvisible("Text", BossText)
     end
     
 
@@ -60,13 +60,13 @@ function lua_table:Update()
     if lua_table.boss.current_health_percentage > 0
     then
         lua_table["UI"]:SetUIBarPercentage(lua_table.boss.current_health_percentage, BossBar)
-        lua_table["UI"]:SetTextNumber(lua_table.boss.current_health, BossText)--cuidado que sea lua_table
+        --lua_table["UI"]:SetTextNumber(lua_table.boss.current_health, BossText)--cuidado que sea lua_table
     end
 
     if lua_table.boss.current_health_percentage <= 0--condicion para cuando le pegan una leche a boss que sobrepasa su vida actual y lo mata, que no se bugee la barra
     then
         lua_table["UI"]:SetUIBarPercentage(0, BossBar)
-        lua_table["UI"]:SetTextNumber(0, BossText)
+        --lua_table["UI"]:SetTextNumber(0, BossText)
     end
       
 
