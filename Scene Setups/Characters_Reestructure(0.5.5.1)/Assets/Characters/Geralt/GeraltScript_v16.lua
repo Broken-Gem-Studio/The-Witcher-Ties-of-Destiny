@@ -295,11 +295,11 @@ lua_table.current_velocity = 0
 	local walk_velocity
 	local walk_mod = 0.4
 	lua_table.mov_velocity_max_mod = 1.0
-	lua_table.mov_velocity_max_orig = 6
+	lua_table.mov_velocity_max_orig = 9	--6
 
-lua_table.idle_animation_speed = 30.0
-lua_table.walk_animation_speed = 30.0
-lua_table.run_animation_speed = 20.0
+lua_table.idle_animation_speed = 30.0	--30.0
+lua_table.walk_animation_speed = 45.0	--30.0
+lua_table.run_animation_speed = 35.0	--20.0
 
 --Energy
 lua_table.current_energy = 0
