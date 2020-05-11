@@ -10,7 +10,7 @@ about: Use this Template to easily issue a BUG you've found!
 ## Type of Bug 
 Select the type of bug with and "x" ([x])
 
-* [ ] Playable Characters , UI, camera, menu, village stage (tutorial), forest stage, menu, scene transition y cinematic 
+* [ ] Playable Characters
 * [ ] Enemies 
 * [ ] User Interface 
 * [ ] Camera 
