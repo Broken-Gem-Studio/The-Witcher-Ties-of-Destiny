@@ -428,7 +428,7 @@ local function HandleAggro()
 			--	lua_table.CurrentTarget = Jaskier
 			--	lua_table.LastCurrentTarget = Jaskier
 			--end
-		--elseif lua_table.CurrentTarget == Jaskier and lua_table.LastCurrentTarget ~= Geralt  ########################################### DESCOMENTAR ESTO CUANDO TEST CON GERALT O JASKIER
+		--elseif lua_table.CurrentTarget == Jaskier and lua_table.LastCurrentTarget ~= Geralt
 		--then
 			--JaskierScript = lua_table.GameObjectFunctions:GetScript(Jaskier)
 			--if JaskierScript.current_state == -3 or JaskierScript.current_state == -4
@@ -899,7 +899,7 @@ function lua_table:RequestedTrigger(collider_GO)
 			end
 			if player_script.collider_effect == attack_effects.knockback
 			then
-				lua_table.CurrentSpecialEffect = SpecialEffect.STUNNED
+				lua_table.CurrentSpecialEffect = SpecialEffect.KNOCKBACK
 			end
 		end
 	end
@@ -979,105 +979,126 @@ end
 function lua_table:Update()
 	
 	CurrTime = PerfGameTime()
-	--lua_table.SystemFunctions:LOG("MyUID".. MyUID) 
-
-	lua_table.Pos = lua_table.TransformFunctions:GetPosition(MyUID)
+		--lua_table.SystemFunctions:LOG("MyUID".. MyUID) 
 	
-	if CurrTime - TargetAlive_TimeController > 300
-	then
-		if lua_table.CurrentTarget ~= 0 -- es decir que ya hay un target
+		lua_table.SystemFunctions:LOG(" LUMBERJACK CurrentSpecialEffect = --------->  "..lua_table.CurrentSpecialEffect)
+
+		lua_table.Pos = lua_table.TransformFunctions:GetPosition(MyUID)
+		
+		if CurrTime - TargetAlive_TimeController > 300
 		then
-			--lua_table.SystemFunctions:LOG("UID TARGET:"..lua_table.CurrentTarget)
-			if lua_table.GameObjectFunctions:IsActiveGameObject(lua_table.CurrentTarget) == true
+			if lua_table.CurrentTarget ~= 0 -- es decir que ya hay un target
 			then
-				--lua_table.SystemFunctions:LOG("CURR TARGET ACTIVE-----> HANDLE AGGRO")
-				HandleAggro()
-				TargetAlive_TimeController = PerfGameTime()
+				--lua_table.SystemFunctions:LOG("UID TARGET:"..lua_table.CurrentTarget)
+				if lua_table.GameObjectFunctions:IsActiveGameObject(lua_table.CurrentTarget) == true
+				then
+					--lua_table.SystemFunctions:LOG("CURR TARGET ACTIVE-----> HANDLE AGGRO")
+					HandleAggro()
+					TargetAlive_TimeController = PerfGameTime()
+				end
 			end
 		end
+		--############################################################################# HANDLE AGGRO CALLED EVERY 300mls
+		if lua_table.CurrentHealth <= 1 
+		then
+			lua_table.CurrentState = State.DEATH
+		end
+		--############################################################################# PLAYER IS ALIVE OR DEAD DONE
+		if lua_table.CurrentSpecialEffect == SpecialEffect.NONE
+		then
+			if lua_table.CurrentState == State.PRE_DETECTION
+			then
+				HandlePRE_DETECTION()		
+			elseif lua_table.CurrentState == State.SEEK
+			then
+				HandleSEEK()				
+			elseif lua_table.CurrentState == State.ATTACK
+			then
+				HandleAttack()
+				Nvec3x = Nvec3x * 0.00001
+				Nvec3z = Nvec3z * 0.00001			
+			elseif lua_table.CurrentState == State.DEATH
+			then
+				HandleDeath()	
+			end
+		elseif  lua_table.CurrentHealth > 1 and lua_table.CurrentSpecialEffect == SpecialEffect.STUNNED and lua_table.CurrentSubState ~= SubState.JUMP_ATTACK
+		then
+			lua_table.SystemFunctions:LOG("LUMBERJACK ###################################   SpecialEffect.STUNED   #####################################")
+			if Stun_AnimController == false
+			then
+				lua_table.AnimationSystem:PlayAnimation("SIT_DOWN",30,MyUID)
+				Stun_AnimController = true
+			end
+			if CurrTime - StunnedTimeController > 2000
+			then
+				lua_table.CurrentSpecialEffect = SpecialEffect.NONE	
+				if lua_table.CurrentState == State.SEEK
+				then
+					Run_AnimController = false
+				end
+			end
+		elseif lua_table.CurrentSpecialEffect == SpecialEffect.KNOCKBACK and lua_table.CurrentHealth > 1
+		then
+			lua_table.SystemFunctions:LOG("[ENEMY] ###################################   SpecialEffect.KNOCKBACK   #####################################")
+			if knockback_AnimController == false
+			then
+				lua_table.AnimationSystem:PlayAnimation("HIT",30,MyUID)
+				knockback_AnimController = true
+			end
+			if CurrTime - StunnedTimeController > 2000
+			then
+				lua_table.SystemFunctions:LOG("stunned")
+				lua_table.CurrentSpecialEffect = SpecialEffect.NONE
+				if lua_table.CurrentState == State.SEEK
+				then
+					--Run_AnimController = false
+				end
+				
+			end
+			--if knockback_AnimController == false
+			--then
+			--	lua_table.AnimationSystem:PlayAnimation("SIT_DOWN",30,MyUID)
+			--	knockback_AnimController = true
+			--	KnockedTimeController = PerfGameTime()
+			--end
+			--Knockback()
+			--if CurrTime - KnockedTimeController > 2000
+			--then
+			--	lua_table.CurrentSpecialEffect = SpecialEffect.NONE
+			--	knockback_AnimController = false
+			--end
+		elseif lua_table.CurrentSpecialEffect == SpecialEffect.HIT 
+		then	
+			if Hit_AnimController == false
+			then
+				Hit_TimeController = PerfGameTime()
+				lua_table.AnimationSystem:PlayAnimation("HIT",40,MyUID)
+				lua_table.SoundSystem:PlayAudioEvent("Play_Bandit_getting_hit")
+				
+				Hit_AnimController = true
+			end
+			if CurrTime - Hit_TimeController > 1000
+			then
+				
+				lua_table.SystemFunctions:LOG("AAAAAAAAAAAAAAA")
+				lua_table.CurrentSpecialEffect = SpecialEffect.NONE
+				Hit_AnimController = false
+				if lua_table.CurrentState == State.SEEK
+				then
+					Run_AnimController = false
+				end
+			end
+		end
+		--lua_table.SystemFunctions:LOG("distance mag 7 -"..DistanceMagnitude)
+		if lua_table.Dead == false
+		then
+			--lua_table.SystemFunctions:LOG("distance mag 8 -"..DistanceMagnitude)
+			lua_table.TransformFunctions:LookAt(lua_table.Pos[1] + vec3x,lua_table.Pos[2],lua_table.Pos[3] + vec3z,MyUID) -- PROVISIONAL, QUEDA MUY ARTIFICIAL
+			--lua_table.SystemFunctions:LOG("distance mag 9 -"..DistanceMagnitude)
+			ApplyVelocity() --decides if move function will move or not in x and z axis		
+			lua_table.PhysicsSystem:Move(Nvec3x,Nvec3z,MyUID)
+		end
 	end
-	--############################################################################# HANDLE AGGRO CALLED EVERY 300mls
-	if lua_table.CurrentHealth <= 1 
-	then
-		lua_table.CurrentState = State.DEATH
-	end
-	--############################################################################# PLAYER IS ALIVE OR DEAD DONE
-	if lua_table.CurrentSpecialEffect == SpecialEffect.NONE
-	then
-		if lua_table.CurrentState == State.PRE_DETECTION
-		then
-			HandlePRE_DETECTION()	
-			lua_table.SystemFunctions:LOG("1") 
-			lua_table.SystemFunctions:LOG("distance mag 6 -"..DistanceMagnitude)
-		elseif lua_table.CurrentState == State.SEEK
-		then
-			HandleSEEK()
-			lua_table.SystemFunctions:LOG("2") 
-		elseif lua_table.CurrentState == State.ATTACK
-		then
-			HandleAttack()
-			Nvec3x = Nvec3x * 0.00001
-			Nvec3z = Nvec3z * 0.00001
-			lua_table.SystemFunctions:LOG("3") 
-		elseif lua_table.CurrentState == State.DEATH
-		then
-			HandleDeath()
-			lua_table.SystemFunctions:LOG("4") 
-		end
-	elseif lua_table.CurrentSpecialEffect == SpecialEffect.STUNNED and lua_table.CurrenHealth > 1
-	then
-		lua_table.SystemFunctions:LOG("5") 
-		if Stun_AnimController == false
-		then
-			lua_table.AnimationSystem:PlayAnimation("SIT_DOWN",30,MyUID)
-			Stun_AnimController = true
-		end
-		if CurrTime - StunnedTimeController > 2000
-		then
-			lua_table.SystemFunctions:LOG("stunned")
-			lua_table.CurrentSpecialEffect = SpecialEffect.NONE
-		end
-	elseif lua_table.CurrentSpecialEffect == SpecialEffect.KNOCKBACK and lua_table.CurrenHealth > 1
-	then
-		lua_table.SystemFunctions:LOG("5") 
-		if knockback_AnimController == false
-		then
-			lua_table.AnimationSystem:PlayAnimation("SIT_DOWN",30,MyUID)
-			knockback_AnimController = true
-			KnockedTimeController = PerfGameTime()
-		end
-		--Knockback()
-		if CurrTime - KnockedTimeController > 2000
-		then
-			--lua_table.SystemFunctions:LOG("knocked back")
-			lua_table.CurrentSpecialEffect = SpecialEffect.NONE
-			knockback_AnimController = false
-		end
-
-	elseif lua_table.CurrentSpecialEffect == SpecialEffect.HIT 
-	then	
-		if Hit_AnimController == false
-		then
-			Hit_TimeController = PerfGameTime()
-			lua_table.AnimationSystem:PlayAnimation("HIT",40,MyUID)
-			lua_table.SoundSystem:PlayAudioEvent("Play_Bandit_getting_hit")
-			--lua_table.SystemFunctions:LOG("AAAAAAAAAAAAAAA")
-			Hit_AnimController = true
-		end
-		if CurrTime - Hit_TimeController > 1000
-		then
-			lua_table.CurrentSpecialEffect = SpecialEffect.NONE
-			Hit_AnimController = false
-		end
-	end
-	
-	if lua_table.Dead == false
-	then		
-		lua_table.TransformFunctions:LookAt(lua_table.Pos[1] + vec3x,lua_table.Pos[2],lua_table.Pos[3] + vec3z,MyUID) -- PROVISIONAL, QUEDA MUY ARTIFICIAL
-		ApplyVelocity() --decides if move function will move or not in x and z axis		
-		lua_table.PhysicsSystem:Move(Nvec3x,Nvec3z,MyUID)
-	end
-end
 
 return lua_table
 end
