@@ -89,7 +89,7 @@ local particles_library = {
 	slash_GO_UID = 0,
 	slash_mesh_GO_UID = 0
 }
-local current_particles = particles_library.none
+--local current_particles = particles_library.none	--IMPROVE: This could be a table with all currently working particles, but currently too much work for what is worth
 
 --Audio
 local audio_library = {
@@ -1875,7 +1875,7 @@ function lua_table:Awake()
 	jaskier_GO_UID = lua_table.GameObjectFunctions:GetMyUID()
 
 	particles_library.slash_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Slash")
-	particles_library.slash_mesh_GO_UID = lua_table.GameObjectFunctions:FindGameObject("SlashMesh_Jaskier")
+	particles_library.slash_mesh_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Slash_Mesh_Jaskier")
 
 	geralt_revive_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt_Revive")
 	jaskier_revive_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Revive")

@@ -89,7 +89,7 @@ local particles_library = {
 	aard_circle_GO_UID = 0,
 	aard_circle_mesh_GO_UID = 0
 }
-local current_particles = particles_library.none
+--local current_particles = particles_library.none	--IMPROVE: This could be a table with all currently working particles, but currently too much work for what is worth
 
 --Audio
 local audio_library = {
