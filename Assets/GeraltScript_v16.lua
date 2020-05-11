@@ -1,4 +1,4 @@
-function	GetTableGeraltScript_v15()
+function	GetTableGeraltScript_v16()
 local lua_table = {}
 lua_table.SystemFunctions = Scripting.System()
 lua_table.TransformFunctions = Scripting.Transform()
