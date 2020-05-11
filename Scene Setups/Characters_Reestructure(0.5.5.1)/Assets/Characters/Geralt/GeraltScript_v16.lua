@@ -384,24 +384,18 @@ lua_table.light_movement_velocity = 1.5
 lua_table.light_1_block_time = 300			--Input block duration	(block new attacks)
 lua_table.light_1_collider_front_start = 375	--Collider activation time
 lua_table.light_1_collider_front_end = 450	--Collider deactivation time
-lua_table.light_1_combo_start = 450			--Combo timeframe start
-lua_table.light_1_combo_end = 750			--Combo timeframe end
 lua_table.light_1_duration = 750			--Attack end (return to idle)
 lua_table.light_1_animation_speed = 40.0	--Slow time: 320ms
 
 lua_table.light_2_block_time = 300			--Input block duration	(block new attacks)
 lua_table.light_2_collider_front_start = 300	--Collider activation time
 lua_table.light_2_collider_front_end = 375	--Collider deactivation time
-lua_table.light_2_combo_start = 430			--Combo timeframe start
-lua_table.light_2_combo_end = 750			--Combo timeframe end
 lua_table.light_2_duration = 750			--Attack end (return to idle)
 lua_table.light_2_animation_speed = 40.0	--Slow time: 320ms
 
 lua_table.light_3_block_time = 300			--Input block duration	(block new attacks)
 lua_table.light_3_collider_front_start = 340	--Collider activation time
 lua_table.light_3_collider_front_end = 440	--Collider deactivation time
-lua_table.light_3_combo_start = 530			--Combo timeframe start
-lua_table.light_3_combo_end = 850			--Combo timeframe end
 lua_table.light_3_duration = 850			--Attack end (return to idle)
 lua_table.light_3_animation_speed = 40.0	--Slow time: 320ms
 
@@ -413,24 +407,18 @@ lua_table.medium_3_movement_velocity = 1.6
 lua_table.medium_1_block_time = 550			--Input block duration	(block new attacks)
 lua_table.medium_1_collider_front_start = 550	--Collider activation time
 lua_table.medium_1_collider_front_end = 650	--Collider deactivation time
-lua_table.medium_1_combo_start = 750			--Combo timeframe start
-lua_table.medium_1_combo_end = 1100			--Combo timeframe end
 lua_table.medium_1_duration = 1100			--Attack end (return to idle)
 lua_table.medium_1_animation_speed = 35.0	--Slow time: 370ms
 
 lua_table.medium_2_block_time = 400			--Input block duration	(block new attacks)
 lua_table.medium_2_collider_front_start = 400	--Collider activation time
 lua_table.medium_2_collider_front_end = 500	--Collider deactivation time
-lua_table.medium_2_combo_start = 550			--Combo timeframe start
-lua_table.medium_2_combo_end = 900			--Combo timeframe end
 lua_table.medium_2_duration = 900			--Attack end (return to idle)
 lua_table.medium_2_animation_speed = 35.0	--Slow time: 370ms
 
 lua_table.medium_3_block_time = 800			--Input block duration	(block new attacks)
 lua_table.medium_3_collider_front_start = 800	--Collider activation time
 lua_table.medium_3_collider_front_end = 900	--Collider deactivation time
-lua_table.medium_3_combo_start = 950			--Combo timeframe start
-lua_table.medium_3_combo_end = 1300			--Combo timeframe end
 lua_table.medium_3_duration = 1300			--Attack end (return to idle)
 lua_table.medium_3_animation_speed = 35.0	--Slow time: 370ms
 
@@ -441,24 +429,18 @@ lua_table.heavy_movement_velocity = 1.4
 lua_table.heavy_1_block_time = 900			--Input block duration	(block new attacks)
 lua_table.heavy_1_collider_front_start = 900	--Collider activation time
 lua_table.heavy_1_collider_front_end = 1000	--Collider deactivation time
-lua_table.heavy_1_combo_start = 1100			--Combo timeframe start
-lua_table.heavy_1_combo_end = 1600			--Combo timeframe end
 lua_table.heavy_1_duration = 1600			--Attack end (return to idle)
 lua_table.heavy_1_animation_speed = 30.0	--Slow time: 430ms
 
 lua_table.heavy_2_block_time = 400			--Input block duration	(block new attacks)
 lua_table.heavy_2_collider_front_start = 350	--Collider activation time
 lua_table.heavy_2_collider_front_end = 450	--Collider deactivation time
-lua_table.heavy_2_combo_start = 600			--Combo timeframe start
-lua_table.heavy_2_combo_end = 1000			--Combo timeframe end
 lua_table.heavy_2_duration = 1000			--Attack end (return to idle)
 lua_table.heavy_2_animation_speed = 30.0	--Slow time: 430ms
 
 lua_table.heavy_3_block_time = 800			--Input block duration	(block new attacks)
 lua_table.heavy_3_collider_front_start = 700	--Collider activation time
 lua_table.heavy_3_collider_front_end = 800	--Collider deactivation time
-lua_table.heavy_3_combo_start = 1000		--Combo timeframe start
-lua_table.heavy_3_combo_end = 1600			--Combo timeframe end
 lua_table.heavy_3_duration = 1600			--Attack end (return to idle)
 lua_table.heavy_3_animation_speed = 30.0	--Slow time: 430ms
 
@@ -686,7 +668,7 @@ local function GoDefaultState(change_blend_time)
 			lua_table.AnimationFunctions:PlayAnimation(animation_library.run, lua_table.run_animation_speed, geralt_GO_UID)
 			current_animation = animation_library.run
 
-			--lua_table.AudioFunctions:PlayAudioEvent(audio_library.run)	--TODO-AUDIO: Play run sound
+			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.run, geralt_GO_UID)	--TODO-AUDIO: Play run sound
 			current_audio = audio_library.run
 
 			lua_table.current_velocity = run_velocity
@@ -697,7 +679,7 @@ local function GoDefaultState(change_blend_time)
 			lua_table.AnimationFunctions:PlayAnimation(animation_library.walk, lua_table.walk_animation_speed, geralt_GO_UID)
 			current_animation = animation_library.walk
 
-			--lua_table.AudioFunctions:PlayAudioEvent(audio_library.walk)	--TODO-AUDIO: Play walk sound
+			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.walk, geralt_GO_UID)	--TODO-AUDIO: Play walk sound
 			current_audio = audio_library.walk
 
 			lua_table.current_velocity = walk_velocity
@@ -713,8 +695,8 @@ local function GoDefaultState(change_blend_time)
 		current_animation = animation_library.idle
 
 		--TODO-AUDIO: Stop current sound event
-		--lua_table.AudioFunctions:StopAudioEventGO(audio_library.walk, geralt_GO_UID)
-		--lua_table.AudioFunctions:StopAudioEventGO(audio_library.run, geralt_GO_UID)
+		lua_table.AudioFunctions:StopAudioEventGO(audio_library.walk, geralt_GO_UID)
+		lua_table.AudioFunctions:StopAudioEventGO(audio_library.run, geralt_GO_UID)
 		current_audio = audio_library.none
 
 		lua_table.current_state = state.idle
@@ -1074,7 +1056,7 @@ local function MovementInputs()	--Process Movement Inputs
 				lua_table.AnimationFunctions:PlayAnimation(animation_library.run, lua_table.run_animation_speed, geralt_GO_UID)
 				current_animation = animation_library.run
 
-				--lua_table.AudioFunctions:PlayAudioEvent(audio_library.run)	--TODO-AUDIO: Play run sound
+				lua_table.AudioFunctions:PlayAudioEventGO(audio_library.run, geralt_GO_UID)	--TODO-AUDIO: Play run sound
 				current_audio = audio_library.run
 
 				lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.run_dust_GO_UID)	--TODO-Particles: Activate movement dust particles
@@ -1085,7 +1067,7 @@ local function MovementInputs()	--Process Movement Inputs
 				lua_table.AnimationFunctions:PlayAnimation(animation_library.walk, lua_table.walk_animation_speed, geralt_GO_UID)
 				current_animation = animation_library.walk
 
-				--lua_table.AudioFunctions:PlayAudioEvent(audio_library.walk)	--TODO-AUDIO: Play walk sound
+				lua_table.AudioFunctions:PlayAudioEventGO(audio_library.walk, geralt_GO_UID)	--TODO-AUDIO: Play walk sound
 				current_audio = audio_library.walk
 
 				lua_table.current_state = state.walk
@@ -1098,7 +1080,7 @@ local function MovementInputs()	--Process Movement Inputs
 			lua_table.AnimationFunctions:PlayAnimation(animation_library.run, lua_table.run_animation_speed, geralt_GO_UID)
 			current_animation = animation_library.run
 
-			--lua_table.AudioFunctions:PlayAudioEvent(audio_library.run)	--TODO-AUDIO: Play run sound
+			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.run, geralt_GO_UID)	--TODO-AUDIO: Play run sound
 			current_audio = audio_library.run
 
 			lua_table.previous_state = lua_table.current_state
@@ -1112,7 +1094,7 @@ local function MovementInputs()	--Process Movement Inputs
 			lua_table.AnimationFunctions:PlayAnimation(animation_library.walk, lua_table.walk_animation_speed, geralt_GO_UID)
 			current_animation = animation_library.walk
 
-			--lua_table.AudioFunctions:PlayAudioEvent(audio_library.walk)	--TODO-AUDIO: Play walk sound
+			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.walk, geralt_GO_UID)	--TODO-AUDIO: Play walk sound
 			current_audio = audio_library.walk
 
 			lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.run_dust_GO_UID)	--TODO-Particles: Deactivate movement dust particles
@@ -1130,8 +1112,8 @@ local function MovementInputs()	--Process Movement Inputs
 		current_animation = animation_library.idle
 
 		--TODO-AUDIO: Stop current sound event
-		--lua_table.AudioFunctions:StopAudioEventGO(audio_library.walk, geralt_GO_UID)
-		--lua_table.AudioFunctions:StopAudioEventGO(audio_library.run, geralt_GO_UID)
+		lua_table.AudioFunctions:StopAudioEventGO(audio_library.walk, geralt_GO_UID)
+		lua_table.AudioFunctions:StopAudioEventGO(audio_library.run, geralt_GO_UID)
 		current_audio = audio_library.none
 
 		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.run_dust_GO_UID)	--TODO-Particles: Deactivate movement dust particles
@@ -1158,16 +1140,16 @@ local function PerformCombo(combo_type)
 
 		--TODO-AUDIO: Play sound of combo_type
 		if combo_type == "combo_1" then
-			lua_table.AudioFunctions:PlayAudioEvent(audio_library.combo_1)
+			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.combo_1, geralt_GO_UID)
 			current_audio = audio_library.combo_1
 
 		elseif combo_type == "combo_2"
 		then
-			lua_table.AudioFunctions:PlayAudioEvent(audio_library.combo_2)
+			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.combo_2, geralt_GO_UID)
 			current_audio = audio_library.combo_2
 
 		elseif combo_type == "combo_3" then
-			lua_table.AudioFunctions:PlayAudioEvent(audio_library.combo_3)
+			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.combo_3, geralt_GO_UID)
 			current_audio = audio_library.combo_3
 		end
 		
@@ -1183,44 +1165,16 @@ local function PerformCombo(combo_type)
 	return string_match
 end
 
-local function CheckCombos()	--Check combo performed	(ATTENTION: This should handle the animation, setting timers, bla bla)
-	local combo_succesful = false
-
-	if PerformCombo("combo_1") or PerformCombo("combo_2") or PerformCombo("combo_3") then
-		lua_table.InputFunctions:ShakeController(lua_table.player_ID, 1.0, current_action_duration)
-		combo_succesful = true
-	end
-
-	return combo_succesful
-end
-
-local function TimedAttack()
+local function CheckCombos()
 	local combo_achieved = false
 
-	if lua_table.current_state <= state.run		--IF Idle or Moving
-	then
-		lua_table.combo_num = 1					--Register combo start
-
-	elseif lua_table.current_state == state.light_1 and time_since_action > lua_table.light_1_combo_start and time_since_action < lua_table.light_1_combo_end
-	or lua_table.current_state == state.light_2 and time_since_action > lua_table.light_2_combo_start and time_since_action < lua_table.light_2_combo_end
-	or lua_table.current_state == state.light_3 and time_since_action > lua_table.light_3_combo_start and time_since_action < lua_table.light_3_combo_end
-	or lua_table.current_state == state.medium_1 and time_since_action > lua_table.medium_1_combo_start and time_since_action < lua_table.medium_1_combo_end
-	or lua_table.current_state == state.medium_2 and time_since_action > lua_table.medium_2_combo_start and time_since_action < lua_table.medium_2_combo_end
-	or lua_table.current_state == state.medium_3 and time_since_action > lua_table.medium_3_combo_start and time_since_action < lua_table.medium_3_combo_end
-	or lua_table.current_state == state.heavy_1 and time_since_action > lua_table.heavy_1_combo_start and time_since_action < lua_table.heavy_1_combo_end
-	or lua_table.current_state == state.heavy_2 and time_since_action > lua_table.heavy_2_combo_start and time_since_action < lua_table.heavy_2_combo_end
-	or lua_table.current_state == state.heavy_3 and time_since_action > lua_table.heavy_3_combo_start and time_since_action < lua_table.heavy_3_combo_end
-	then
-		lua_table.combo_num = lua_table.combo_num + 1
-
-		if lua_table.combo_num > 3 then			--IF 4+ goods attacks
-			combo_achieved = CheckCombos()
-			if combo_achieved then
-				lua_table.combo_num = 0
-			end
+	lua_table.combo_num = lua_table.combo_num + 1
+	if lua_table.combo_num > 3 then			--IF 4+ attacks
+		if PerformCombo("combo_1") or PerformCombo("combo_2") or PerformCombo("combo_3") then
+			lua_table.InputFunctions:ShakeController(lua_table.player_ID, 1.0, current_action_duration)
+			combo_achieved = true
+			lua_table.combo_num = 0
 		end
-	else
-		lua_table.combo_num = 1	--Not good timing since last attack
 	end
 
 	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.run_dust_GO_UID)				--TODO-Particles: Deactivate movement dust particles
@@ -1251,7 +1205,7 @@ local function RegularAttack(attack_type)
 			lua_table.AnimationFunctions:PlayAnimation(attack_type .. "_3", lua_table[attack_type .. "_3_animation_speed"], particles_library.slash_GO_UID)
 			current_animation = attack_type .. "_3"
 
-			lua_table.AudioFunctions:PlayAudioEvent(audio_library.attack .. attack_sound_id .. "_3")	--TODO-AUDIO: Play attack_3 sound
+			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.attack .. attack_sound_id .. "_3", geralt_GO_UID)	--TODO-AUDIO: Play attack_3 sound
 			current_audio = audio_library.attack .. attack_sound_id .. "_3"
 
 			lua_table.previous_state = lua_table.current_state
@@ -1264,7 +1218,7 @@ local function RegularAttack(attack_type)
 			lua_table.AnimationFunctions:PlayAnimation(attack_type .. "_1", lua_table[attack_type .. "_1_animation_speed"], particles_library.slash_GO_UID)
 			current_animation = attack_type .. "_1"
 
-			lua_table.AudioFunctions:PlayAudioEvent(audio_library.attack .. attack_sound_id .. "_1")	--TODO-AUDIO: Play attack_1 sound
+			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.attack .. attack_sound_id .. "_1", geralt_GO_UID)	--TODO-AUDIO: Play attack_1 sound
 			current_audio = audio_library.attack .. attack_sound_id .. "_1"
 
 			lua_table.previous_state = lua_table.current_state
@@ -1278,7 +1232,7 @@ local function RegularAttack(attack_type)
 		lua_table.AnimationFunctions:PlayAnimation(attack_type .. "_2", lua_table[attack_type .. "_2_animation_speed"], particles_library.slash_GO_UID)
 		current_animation = attack_type .. "_2"
 
-		lua_table.AudioFunctions:PlayAudioEvent(audio_library.attack .. attack_sound_id .. "_2")	--TODO-AUDIO: Play attack_2 sound
+		lua_table.AudioFunctions:PlayAudioEventGO(audio_library.attack .. attack_sound_id .. "_2", geralt_GO_UID)	--TODO-AUDIO: Play attack_2 sound
 		current_audio = audio_library.attack .. attack_sound_id .. "_2"
 
 		lua_table.previous_state = lua_table.current_state
@@ -1338,7 +1292,7 @@ local function ActionInputs()	--Process Action Inputs
 				action_started_at = game_time		--Set timer start mark
 				PushBack(lua_table.combo_stack, 'H')			--Add new input to stack
 
-				combo_achieved = TimedAttack()
+				combo_achieved = CheckCombos()
 
 				if not combo_achieved	--If no combo was achieved with the input, do the attack normally
 				then
@@ -1357,7 +1311,7 @@ local function ActionInputs()	--Process Action Inputs
 				action_started_at = game_time		--Set timer start mark
 				PushBack(lua_table.combo_stack, 'L')			--Add new input to stack
 
-				combo_achieved = TimedAttack()
+				combo_achieved = CheckCombos()
 
 				if not combo_achieved	--If no combo was achieved with the input, do the attack normally
 				then
@@ -1376,7 +1330,7 @@ local function ActionInputs()	--Process Action Inputs
 				action_started_at = game_time		--Set timer start mark
 				PushBack(lua_table.combo_stack, 'M')			--Add new input to stack
 
-				combo_achieved = TimedAttack()
+				combo_achieved = CheckCombos()
 
 				if not combo_achieved	--If no combo was achieved with the input, do the attack normally
 				then
@@ -1411,7 +1365,7 @@ local function ActionInputs()	--Process Action Inputs
 			lua_table.AnimationFunctions:PlayAnimation(animation_library.evade, lua_table.evade_animation_speed, geralt_GO_UID)
 			current_animation = animation_library.evade
 
-			lua_table.AudioFunctions:PlayAudioEvent(audio_library.evade)	--TODO-Audio: Ultimate Sound
+			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.evade, geralt_GO_UID)	--TODO-AUDIO: Ultimate Sound
 			current_audio = audio_library.evade
 
 			lua_table.previous_state = lua_table.current_state
@@ -1448,7 +1402,7 @@ local function ActionInputs()	--Process Action Inputs
 			lua_table.GameObjectFunctions:SetActiveGameObject(true, particles_library.aard_cone_mesh_GO_UID)
 			lua_table.GameObjectFunctions:SetActiveGameObject(true, particles_library.aard_circle_mesh_GO_UID)
 
-			lua_table.AudioFunctions:PlayAudioEvent(audio_library.aard)	--TODO-Audio: Ability Sound
+			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.aard, geralt_GO_UID)	--TODO-AUDIO: Ability Sound
 			current_audio = audio_library.aard
 
 			lua_table.previous_state = lua_table.current_state
@@ -1470,7 +1424,7 @@ local function ActionInputs()	--Process Action Inputs
 			lua_table.AnimationFunctions:PlayAnimation(animation_library.ultimate, lua_table.ultimate_animation_speed, geralt_GO_UID)
 			current_animation = animation_library.ultimate
 
-			lua_table.AudioFunctions:PlayAudioEvent(audio_library.ultimate)	--TODO-Audio: Ultimate Sound
+			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.ultimate, geralt_GO_UID)	--TODO-AUDIO: Ultimate Sound
 			current_audio = audio_library.ultimate
 
 			lua_table.previous_state = lua_table.current_state
@@ -1512,7 +1466,7 @@ local function ActionInputs()	--Process Action Inputs
 						lua_table.AnimationFunctions:PlayAnimation(animation_library.revive, lua_table.revive_animation_speed, geralt_GO_UID)
 						current_animation = animation_library.revive
 
-						lua_table.AudioFunctions:PlayAudioEvent(audio_library.revive)
+						lua_table.AudioFunctions:PlayAudioEventGO(audio_library.revive, geralt_GO_UID)	--TODO-AUDIO:
 						current_audio = audio_library.revive
 	
 						lua_table.previous_state = lua_table.current_state
@@ -1541,7 +1495,7 @@ local function ActionInputs()	--Process Action Inputs
 							lua_table.AnimationFunctions:PlayAnimation(animation_library.revive, lua_table.revive_animation_speed, geralt_GO_UID)
 							current_animation = animation_library.revive
 
-							lua_table.AudioFunctions:PlayAudioEvent(audio_library.revive)	--TODO-Audio: Ultimate Sound
+							lua_table.AudioFunctions:PlayAudioEventGO(audio_library.revive, geralt_GO_UID)	--TODO-AUDIO: Ultimate Sound
 							current_audio = audio_library.revive
 
 							lua_table.previous_state = lua_table.current_state
@@ -1591,7 +1545,7 @@ local function UltimateState(active)
 		lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.ultimate_effect_particles_GO_UID)	--TODO-Particles: Activate ultimate particles
 	else
 		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.ultimate_effect_particles_GO_UID)	--TODO-Particles: Deactivate ultimate particles
-		lua_table.AudioFunctions:StopAudioEventGO(audio_library.ultimate, geralt_GO_UID)	--TODO-Audio: Ultimate Sound
+		lua_table.AudioFunctions:StopAudioEventGO(audio_library.ultimate, geralt_GO_UID, geralt_GO_UID)	--TODO-AUDIO: Ultimate Sound
 		current_audio = audio_library.none
 	end
 
@@ -1602,7 +1556,7 @@ end
 local function ReviveShutdown()	--IF I was reviving, not anymore
 	if revive_target ~= nil
 	then
-		lua_table.AudioFunctions:StopAudioEventGO(audio_library.revive, geralt_GO_UID)	--TODO-Audio: Ultimate Sound
+		lua_table.AudioFunctions:StopAudioEventGO(audio_library.revive, geralt_GO_UID, geralt_GO_UID)	--TODO-AUDIO: Ultimate Sound
 		current_audio = audio_library.none
 		revive_target.being_revived = false
 		revive_target = nil
@@ -1784,7 +1738,7 @@ local function ProcessIncomingHit(collider_GO)
 
 			if lua_table.current_health > 0
 			then
-				lua_table.AudioFunctions:PlayAudioEvent(audio_library.stun)
+				lua_table.AudioFunctions:PlayAudioEventGO(audio_library.stun, geralt_GO_UID)	--TODO-AUDIO:
 				current_audio = audio_library.stun
 			end	--TODO-Audio:
 
@@ -1801,7 +1755,7 @@ local function ProcessIncomingHit(collider_GO)
 
 			if lua_table.current_health > 0
 			then
-				lua_table.AudioFunctions:PlayAudioEvent(audio_library.knockback)
+				lua_table.AudioFunctions:PlayAudioEventGO(audio_library.knockback, geralt_GO_UID)	--TODO-AUDIO:
 				current_audio = audio_library.knockback
 			end	--TODO-Audio:
 
@@ -1994,7 +1948,7 @@ function lua_table:Update()
 			lua_table.AnimationFunctions:PlayAnimation(animation_library.death, 30.0, geralt_GO_UID)
 			current_animation = animation_library.death
 			
-			lua_table.AudioFunctions:PlayAudioEvent(audio_library.death)	--TODO-Audio:
+			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.death, geralt_GO_UID)	--TODO-AUDIO:
 			current_audio = audio_library.death
 
 			lua_table.previous_state = lua_table.current_state
@@ -2059,7 +2013,7 @@ function lua_table:Update()
 					then
 						if lua_table.current_state == state.revive	--IF revive finished
 						then
-							lua_table.AudioFunctions:StopAudioEventGO(audio_library.revive, geralt_GO_UID)	--TODO-Audio: Ultimate Sound
+							lua_table.AudioFunctions:StopAudioEventGO(audio_library.revive, geralt_GO_UID, geralt_GO_UID)	--TODO-AUDIO: Ultimate Sound
 							current_audio = audio_library.none
 							revive_target = nil
 						elseif lua_table.current_state == state.ability
@@ -2100,7 +2054,7 @@ function lua_table:Update()
 					--ELSE (For all the following): IF action ongoing at the moment
 					elseif lua_table.current_state == state.revive and lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_revive, key_state.key_up)
 					then
-						lua_table.AudioFunctions:StopAudioEventGO(audio_library.revive, geralt_GO_UID)	--TODO-Audio: Ultimate Sound
+						lua_table.AudioFunctions:StopAudioEventGO(audio_library.revive, geralt_GO_UID, geralt_GO_UID)	--TODO-AUDIO: Ultimate Sound
 						current_audio = audio_library.none
 
 						revive_target.being_revived = false
@@ -2220,7 +2174,7 @@ function lua_table:Update()
 						lua_table.AnimationFunctions:PlayAnimation(animation_library.stand_up, 135.0, geralt_GO_UID)
 						current_animation = animation_library.stand_up
 
-						lua_table.AudioFunctions:PlayAudioEvent(audio_library.stand_up)	--TODO-Audio:
+						lua_table.AudioFunctions:PlayAudioEventGO(audio_library.stand_up, geralt_GO_UID)	--TODO-AUDIO:
 						current_audio = audio_library.stand_up
 
 						lua_table.standing_up_bool = true
@@ -2248,7 +2202,7 @@ function lua_table:Update()
 					lua_table.AnimationFunctions:PlayAnimation(animation_library.stand_up, 135.0, geralt_GO_UID)	--TODO-Animations: Stand up
 					current_animation = animation_library.stand_up
 
-					lua_table.AudioFunctions:PlayAudioEvent(audio_library.stand_up)	--TODO-Audio: Stand Up Sound
+					lua_table.AudioFunctions:PlayAudioEventGO(audio_library.stand_up, geralt_GO_UID)	--TODO-AUDIO: Stand Up Sound
 					current_audio = audio_library.stand_up
 					lua_table.standing_up_bool = true
 
