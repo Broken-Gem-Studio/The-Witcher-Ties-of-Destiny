@@ -384,24 +384,18 @@ lua_table.light_movement_velocity = 1.5
 lua_table.light_1_block_time = 300			--Input block duration	(block new attacks)
 lua_table.light_1_collider_front_start = 375	--Collider activation time
 lua_table.light_1_collider_front_end = 450	--Collider deactivation time
-lua_table.light_1_combo_start = 450			--Combo timeframe start
-lua_table.light_1_combo_end = 750			--Combo timeframe end
 lua_table.light_1_duration = 750			--Attack end (return to idle)
 lua_table.light_1_animation_speed = 40.0	--Slow time: 320ms
 
 lua_table.light_2_block_time = 300			--Input block duration	(block new attacks)
 lua_table.light_2_collider_front_start = 300	--Collider activation time
 lua_table.light_2_collider_front_end = 375	--Collider deactivation time
-lua_table.light_2_combo_start = 430			--Combo timeframe start
-lua_table.light_2_combo_end = 750			--Combo timeframe end
 lua_table.light_2_duration = 750			--Attack end (return to idle)
 lua_table.light_2_animation_speed = 40.0	--Slow time: 320ms
 
 lua_table.light_3_block_time = 300			--Input block duration	(block new attacks)
 lua_table.light_3_collider_front_start = 340	--Collider activation time
 lua_table.light_3_collider_front_end = 440	--Collider deactivation time
-lua_table.light_3_combo_start = 530			--Combo timeframe start
-lua_table.light_3_combo_end = 850			--Combo timeframe end
 lua_table.light_3_duration = 850			--Attack end (return to idle)
 lua_table.light_3_animation_speed = 40.0	--Slow time: 320ms
 
@@ -413,24 +407,18 @@ lua_table.medium_3_movement_velocity = 1.6
 lua_table.medium_1_block_time = 550			--Input block duration	(block new attacks)
 lua_table.medium_1_collider_front_start = 550	--Collider activation time
 lua_table.medium_1_collider_front_end = 650	--Collider deactivation time
-lua_table.medium_1_combo_start = 750			--Combo timeframe start
-lua_table.medium_1_combo_end = 1100			--Combo timeframe end
 lua_table.medium_1_duration = 1100			--Attack end (return to idle)
 lua_table.medium_1_animation_speed = 35.0	--Slow time: 370ms
 
 lua_table.medium_2_block_time = 400			--Input block duration	(block new attacks)
 lua_table.medium_2_collider_front_start = 400	--Collider activation time
 lua_table.medium_2_collider_front_end = 500	--Collider deactivation time
-lua_table.medium_2_combo_start = 550			--Combo timeframe start
-lua_table.medium_2_combo_end = 900			--Combo timeframe end
 lua_table.medium_2_duration = 900			--Attack end (return to idle)
 lua_table.medium_2_animation_speed = 35.0	--Slow time: 370ms
 
 lua_table.medium_3_block_time = 800			--Input block duration	(block new attacks)
 lua_table.medium_3_collider_front_start = 800	--Collider activation time
 lua_table.medium_3_collider_front_end = 900	--Collider deactivation time
-lua_table.medium_3_combo_start = 950			--Combo timeframe start
-lua_table.medium_3_combo_end = 1300			--Combo timeframe end
 lua_table.medium_3_duration = 1300			--Attack end (return to idle)
 lua_table.medium_3_animation_speed = 35.0	--Slow time: 370ms
 
@@ -441,24 +429,18 @@ lua_table.heavy_movement_velocity = 1.4
 lua_table.heavy_1_block_time = 900			--Input block duration	(block new attacks)
 lua_table.heavy_1_collider_front_start = 900	--Collider activation time
 lua_table.heavy_1_collider_front_end = 1000	--Collider deactivation time
-lua_table.heavy_1_combo_start = 1100			--Combo timeframe start
-lua_table.heavy_1_combo_end = 1600			--Combo timeframe end
 lua_table.heavy_1_duration = 1600			--Attack end (return to idle)
 lua_table.heavy_1_animation_speed = 30.0	--Slow time: 430ms
 
 lua_table.heavy_2_block_time = 400			--Input block duration	(block new attacks)
 lua_table.heavy_2_collider_front_start = 350	--Collider activation time
 lua_table.heavy_2_collider_front_end = 450	--Collider deactivation time
-lua_table.heavy_2_combo_start = 600			--Combo timeframe start
-lua_table.heavy_2_combo_end = 1000			--Combo timeframe end
 lua_table.heavy_2_duration = 1000			--Attack end (return to idle)
 lua_table.heavy_2_animation_speed = 30.0	--Slow time: 430ms
 
 lua_table.heavy_3_block_time = 800			--Input block duration	(block new attacks)
 lua_table.heavy_3_collider_front_start = 700	--Collider activation time
 lua_table.heavy_3_collider_front_end = 800	--Collider deactivation time
-lua_table.heavy_3_combo_start = 1000		--Combo timeframe start
-lua_table.heavy_3_combo_end = 1600			--Combo timeframe end
 lua_table.heavy_3_duration = 1600			--Attack end (return to idle)
 lua_table.heavy_3_animation_speed = 30.0	--Slow time: 430ms
 
@@ -1183,44 +1165,16 @@ local function PerformCombo(combo_type)
 	return string_match
 end
 
-local function CheckCombos()	--Check combo performed	(ATTENTION: This should handle the animation, setting timers, bla bla)
-	local combo_succesful = false
-
-	if PerformCombo("combo_1") or PerformCombo("combo_2") or PerformCombo("combo_3") then
-		lua_table.InputFunctions:ShakeController(lua_table.player_ID, 1.0, current_action_duration)
-		combo_succesful = true
-	end
-
-	return combo_succesful
-end
-
-local function TimedAttack()
+local function CheckCombos()
 	local combo_achieved = false
 
-	if lua_table.current_state <= state.run		--IF Idle or Moving
-	then
-		lua_table.combo_num = 1					--Register combo start
-
-	elseif lua_table.current_state == state.light_1 and time_since_action > lua_table.light_1_combo_start and time_since_action < lua_table.light_1_combo_end
-	or lua_table.current_state == state.light_2 and time_since_action > lua_table.light_2_combo_start and time_since_action < lua_table.light_2_combo_end
-	or lua_table.current_state == state.light_3 and time_since_action > lua_table.light_3_combo_start and time_since_action < lua_table.light_3_combo_end
-	or lua_table.current_state == state.medium_1 and time_since_action > lua_table.medium_1_combo_start and time_since_action < lua_table.medium_1_combo_end
-	or lua_table.current_state == state.medium_2 and time_since_action > lua_table.medium_2_combo_start and time_since_action < lua_table.medium_2_combo_end
-	or lua_table.current_state == state.medium_3 and time_since_action > lua_table.medium_3_combo_start and time_since_action < lua_table.medium_3_combo_end
-	or lua_table.current_state == state.heavy_1 and time_since_action > lua_table.heavy_1_combo_start and time_since_action < lua_table.heavy_1_combo_end
-	or lua_table.current_state == state.heavy_2 and time_since_action > lua_table.heavy_2_combo_start and time_since_action < lua_table.heavy_2_combo_end
-	or lua_table.current_state == state.heavy_3 and time_since_action > lua_table.heavy_3_combo_start and time_since_action < lua_table.heavy_3_combo_end
-	then
-		lua_table.combo_num = lua_table.combo_num + 1
-
-		if lua_table.combo_num > 3 then			--IF 4+ goods attacks
-			combo_achieved = CheckCombos()
-			if combo_achieved then
-				lua_table.combo_num = 0
-			end
+	lua_table.combo_num = lua_table.combo_num + 1
+	if lua_table.combo_num > 3 then			--IF 4+ attacks
+		if PerformCombo("combo_1") or PerformCombo("combo_2") or PerformCombo("combo_3") then
+			lua_table.InputFunctions:ShakeController(lua_table.player_ID, 1.0, current_action_duration)
+			combo_achieved = true
+			lua_table.combo_num = 0
 		end
-	else
-		lua_table.combo_num = 1	--Not good timing since last attack
 	end
 
 	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.run_dust_GO_UID)				--TODO-Particles: Deactivate movement dust particles
@@ -1338,7 +1292,7 @@ local function ActionInputs()	--Process Action Inputs
 				action_started_at = game_time		--Set timer start mark
 				PushBack(lua_table.combo_stack, 'H')			--Add new input to stack
 
-				combo_achieved = TimedAttack()
+				combo_achieved = CheckCombos()
 
 				if not combo_achieved	--If no combo was achieved with the input, do the attack normally
 				then
@@ -1357,7 +1311,7 @@ local function ActionInputs()	--Process Action Inputs
 				action_started_at = game_time		--Set timer start mark
 				PushBack(lua_table.combo_stack, 'L')			--Add new input to stack
 
-				combo_achieved = TimedAttack()
+				combo_achieved = CheckCombos()
 
 				if not combo_achieved	--If no combo was achieved with the input, do the attack normally
 				then
@@ -1376,7 +1330,7 @@ local function ActionInputs()	--Process Action Inputs
 				action_started_at = game_time		--Set timer start mark
 				PushBack(lua_table.combo_stack, 'M')			--Add new input to stack
 
-				combo_achieved = TimedAttack()
+				combo_achieved = CheckCombos()
 
 				if not combo_achieved	--If no combo was achieved with the input, do the attack normally
 				then
