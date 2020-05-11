@@ -421,22 +421,22 @@ local function HandleAggro()
 	then
 		if lua_table.CurrentTarget == Geralt and lua_table.LastCurrentTarget ~= Jaskier
 		then	
-			GeraltScript = lua_table.GameObjectFunctions:GetScript(Geralt)
-			if GeraltScript.current_state == -3 or GeraltScript.current_state == -4
-			then
-				lua_table.SystemFunctions:LOG("CHANGING AGGRO TO JASKIER")
-				lua_table.CurrentTarget = Jaskier
-				lua_table.LastCurrentTarget = Jaskier
-			end
-		elseif lua_table.CurrentTarget == Jaskier and lua_table.LastCurrentTarget ~= Geralt
-	--	then
-	--		JaskierScript = lua_table.GameObjectFunctions:GetScript(Jaskier)
-	--		if JaskierScript.current_state == -3 or JaskierScript.current_state == -4
-	--		then
-	--			lua_table.SystemFunctions:LOG("CHANGING AGGRO TO GERALT ")
-	--			lua_table.CurrentTarget = Geralt
-	--			lua_table.LastCurrentTarget = Jaskier
-	--		end
+			--GeraltScript = lua_table.GameObjectFunctions:GetScript(Geralt)
+			--if GeraltScript.current_state == -3 or GeraltScript.current_state == -4
+			--then
+			--	lua_table.SystemFunctions:LOG("CHANGING AGGRO TO JASKIER")
+			--	lua_table.CurrentTarget = Jaskier
+			--	lua_table.LastCurrentTarget = Jaskier
+			--end
+		--elseif lua_table.CurrentTarget == Jaskier and lua_table.LastCurrentTarget ~= Geralt
+		--then
+			--JaskierScript = lua_table.GameObjectFunctions:GetScript(Jaskier)
+			--if JaskierScript.current_state == -3 or JaskierScript.current_state == -4
+			--then
+			--	lua_table.SystemFunctions:LOG("CHANGING AGGRO TO GERALT ")
+			--	lua_table.CurrentTarget = Geralt
+			--	lua_table.LastCurrentTarget = Geralt
+			--end
 		end
 	elseif Players() == false
 	then
