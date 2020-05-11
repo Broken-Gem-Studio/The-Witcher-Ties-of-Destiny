@@ -89,7 +89,7 @@ local particles_library = {
 	slash_GO_UID = 0,
 	slash_mesh_GO_UID = 0
 }
-local current_particles = particles_library.none
+--local current_particles = particles_library.none	--IMPROVE: This could be a table with all currently working particles, but currently too much work for what is worth
 
 --Audio
 local audio_library = {
@@ -682,6 +682,8 @@ local function GoDefaultState(change_blend_time)
 
 			lua_table.current_velocity = run_velocity
 			lua_table.current_state = state.run
+
+			lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.run_dust_GO_UID)	--TODO-Particles: Activate movement dust particles
 		else
 			lua_table.AnimationFunctions:PlayAnimation(animation_library.walk, lua_table.walk_animation_speed, jaskier_GO_UID)
 			current_animation = animation_library.walk
@@ -692,8 +694,6 @@ local function GoDefaultState(change_blend_time)
 			lua_table.current_velocity = walk_velocity
 			lua_table.current_state = state.walk
 		end
-
-		lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.run_dust_GO_UID)	--TODO-Particles: Activate movement dust particles
 	else
 		if change_blend_time then
 			lua_table.AnimationFunctions:SetBlendTime(0.5, jaskier_GO_UID)
@@ -1070,6 +1070,8 @@ local function MovementInputs()	--Process Movement Inputs
 				--lua_table.AudioFunctions:PlayAudioEvent(audio_library.run)	--TODO-AUDIO: Play run sound
 				current_audio = audio_library.run
 
+				lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.run_dust_GO_UID)	--TODO-Particles: Activate movement dust particles
+
 				lua_table.current_state = state.run
 			else																					--IF small input
 				lua_table.current_velocity = walk_velocity
@@ -1082,8 +1084,6 @@ local function MovementInputs()	--Process Movement Inputs
 				lua_table.current_state = state.walk
 			end
 
-			lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.run_dust_GO_UID)	--TODO-Particles: Activate movement dust particles
-
 		--Swap between walking and running
 		elseif lua_table.current_state == state.walk and lua_table.input_walk_threshold < math.sqrt(mov_input.used_input.x ^ 2 + mov_input.used_input.z ^ 2)	--IF walking and big input
 		then
@@ -1093,6 +1093,8 @@ local function MovementInputs()	--Process Movement Inputs
 
 			--lua_table.AudioFunctions:PlayAudioEvent(audio_library.run)	--TODO-AUDIO: Play walk sound
 			current_audio = audio_library.run
+
+			lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.run_dust_GO_UID)	--TODO-Particles: Activate movement dust particles
 
 			lua_table.previous_state = lua_table.current_state
 			lua_table.current_state = state.run
@@ -1105,6 +1107,8 @@ local function MovementInputs()	--Process Movement Inputs
 
 			--lua_table.AudioFunctions:PlayAudioEvent(audio_library.walk)	--TODO-AUDIO: Play walk sound
 			current_audio = audio_library.walk
+
+			lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.run_dust_GO_UID)	--TODO-Particles: Deactivate movement dust particles
 
 			lua_table.previous_state = lua_table.current_state
 			lua_table.current_state = state.walk
@@ -1875,7 +1879,7 @@ function lua_table:Awake()
 	jaskier_GO_UID = lua_table.GameObjectFunctions:GetMyUID()
 
 	particles_library.slash_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Slash")
-	particles_library.slash_mesh_GO_UID = lua_table.GameObjectFunctions:FindGameObject("SlashMesh_Jaskier")
+	particles_library.slash_mesh_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Slash_Mesh_Jaskier")
 
 	geralt_revive_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt_Revive")
 	jaskier_revive_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Revive")
