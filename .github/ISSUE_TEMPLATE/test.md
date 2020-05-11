@@ -1,5 +1,5 @@
 ---
-name: BUG Issue Template
+name: Scripting Bug Issue Template
 about: Use this Template to easily issue a BUG you've found!
 
 ---
