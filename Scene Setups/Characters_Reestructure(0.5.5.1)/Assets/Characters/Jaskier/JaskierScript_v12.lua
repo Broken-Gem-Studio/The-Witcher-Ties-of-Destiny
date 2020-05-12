@@ -434,11 +434,11 @@ lua_table.heavy_3_duration = 1300			--Attack end (return to idle)
 lua_table.heavy_3_animation_speed = 30.0		--IMPROVE: Attack 3 animaton includes a return to idle, which differs from the other animations, we might have to cut it for homogeinity with the rest
 
 --Evade		
-lua_table.evade_velocity = 12
+lua_table.evade_velocity = 18			--12
 lua_table.evade_cost = 33
-lua_table.evade_duration = 1100
+lua_table.evade_duration = 800			--1100
 
-lua_table.evade_animation_speed = 40.0
+lua_table.evade_animation_speed = 55.0	--40
 
 --Ability
 lua_table.ability_cooldown = 1000.0

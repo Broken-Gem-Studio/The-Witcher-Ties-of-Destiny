@@ -445,11 +445,11 @@ lua_table.heavy_3_duration = 1600			--Attack end (return to idle)
 lua_table.heavy_3_animation_speed = 30.0	--Slow time: 430ms
 
 --Evade		
-lua_table.evade_velocity = 12	--Was 200 before dt
-lua_table.evade_cost = 33
-lua_table.evade_duration = 1100
+lua_table.evade_velocity = 18			--12
+lua_table.evade_cost = 33				--33
+lua_table.evade_duration = 800			--1100
 
-lua_table.evade_animation_speed = 30.0
+lua_table.evade_animation_speed = 45.0	--30.0
 
 --Ability
 lua_table.ability_push_velocity = 160
@@ -2124,6 +2124,11 @@ function lua_table:Update()
 						then
 							lua_table.PhysicsFunctions:Move(lua_table.heavy_movement_velocity * rec_direction.x * dt, lua_table.heavy_movement_velocity * rec_direction.z * dt, geralt_GO_UID)
 						end
+
+						-- DEBUG SETCURRENTANIMATION
+						-- if time_since_action > 800 then lua_table.AnimationFunctions:SetCurrentAnimationSpeed(5.0, geralt_GO_UID)
+						-- elseif time_since_action > 400 then lua_table.AnimationFunctions:SetCurrentAnimationSpeed(15.0, geralt_GO_UID)
+						-- else lua_table.AnimationFunctions:SetCurrentAnimationSpeed(30.0, geralt_GO_UID) end
 
 						--Collider Evaluation
 						if lua_table.current_state == state.heavy_1 then AttackColliderCheck("heavy_1", "front", 2)
