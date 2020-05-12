@@ -703,20 +703,13 @@ local function GoDefaultState(change_blend_time)
 		lua_table.AnimationFunctions:PlayAnimation(animation_library.idle, lua_table.idle_animation_speed, jaskier_GO_UID)
 		current_animation = animation_library.idle
 
-		--TODO-AUDIO: Stop current sound event
-		lua_table.AudioFunctions:StopAudioEventGO(audio_library.run, jaskier_GO_UID, jaskier_GO_UID)	--TODO-AUDIO: Stop run sound
-		lua_table.AudioFunctions:StopAudioEventGO(audio_library.walk, jaskier_GO_UID, jaskier_GO_UID)	--TODO-AUDIO: Stop run sound
-		current_audio = audio_library.none
-
 		lua_table.current_state = state.idle
-		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.run_dust_GO_UID)	--TODO-Particles: Deactivate movement dust particles
 	end
 
 	lua_table.chained_attacks_num = 0
 	rightside = true
 
 	lua_table.AnimationFunctions:PlayAnimation(animation_library.idle, 150.0, particles_library.slash_GO_UID)
-	current_animation = animation_library.idle
 	lua_table.GameObjectFunctions:SetActiveGameObject(false, particles_library.slash_mesh_GO_UID)
 end
 
@@ -1091,6 +1084,7 @@ local function MovementInputs()	--Process Movement Inputs
 			lua_table.AnimationFunctions:PlayAnimation(animation_library.run, lua_table.run_animation_speed, jaskier_GO_UID)
 			current_animation = animation_library.run
 
+			lua_table.AudioFunctions:StopAudioEventGO(audio_library.walk, jaskier_GO_UID)
 			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.run, jaskier_GO_UID)	--TODO-AUDIO: Play walk sound
 			current_audio = audio_library.run
 
@@ -1105,6 +1099,7 @@ local function MovementInputs()	--Process Movement Inputs
 			lua_table.AnimationFunctions:PlayAnimation(animation_library.walk, lua_table.walk_animation_speed, jaskier_GO_UID)
 			current_animation = animation_library.walk
 
+			lua_table.AudioFunctions:StopAudioEventGO(audio_library.run, jaskier_GO_UID)
 			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.walk, jaskier_GO_UID)	--TODO-AUDIO: Play walk sound
 			current_audio = audio_library.walk
 
@@ -1244,6 +1239,9 @@ local function Song_3_Taunt()
 		if not lua_table.song_3_effect_active	--IF effect unactive, activate
 		then
 			--lua_table.ParticlesFunctions:PlayParticleEmitter(jaskier_song_3_GO_UID)	--TODO-Particles:
+			lua_table.AudioFunctions:StopAudioEventGO(audio_library.run, jaskier_GO_UID, jaskier_GO_UID)	--TODO-AUDIO: Stop run sound
+			lua_table.AudioFunctions:StopAudioEventGO(audio_library.walk, jaskier_GO_UID, jaskier_GO_UID)	--TODO-AUDIO: Stop walk sound
+
 			lua_table.song_3_effect_active = true
 			lua_table.current_velocity = lua_table.mov_velocity_max_orig * lua_table.song_3_moonwalk_velocity_mod	--To mark speed of moonwalk
 		end
@@ -1605,11 +1603,16 @@ local function ActionInputs()	--Process Action Inputs
 			lua_table.GameObjectFunctions:SetActiveGameObject(true, particles_library.slash_mesh_GO_UID)
 		else
 			lua_table.GameObjectFunctions:SetActiveGameObject(false, particles_library.slash_mesh_GO_UID)
-			--lua_table.ParticlesFunctions:StopParticleEmitter_GO(guitar_GO_UID)	--TODO-Particles: Deactivate Particles on Sword
+			--lua_table.ParticlesFunctions:StopParticleEmitter_GO(guitar_GO_UID)	--TODO-Particles: Deactivate Particles on Guitar
 		end
 
-		if lua_table.current_state > state.run or lua_table.current_state < state.walk then
+		if lua_table.previous_state == state.walk or lua_table.previous_state == state.run
+		then
 			lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.run_dust_GO_UID)	--TODO-Particles: Deactivate Dust Particles
+
+			if lua_table.previous_state == state.walk then lua_table.AudioFunctions:StopAudioEventGO(audio_library.walk, jaskier_GO_UID)
+			elseif lua_table.previous_state == state.run then lua_table.AudioFunctions:StopAudioEventGO(audio_library.run, jaskier_GO_UID)
+			end
 		end
 	end
 

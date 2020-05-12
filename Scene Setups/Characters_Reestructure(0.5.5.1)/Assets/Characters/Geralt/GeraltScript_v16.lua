@@ -693,21 +693,14 @@ local function GoDefaultState(change_blend_time)
 		lua_table.AnimationFunctions:SetBlendTime(0.1, particles_library.slash_GO_UID)
 		lua_table.AnimationFunctions:PlayAnimation(animation_library.idle, lua_table.idle_animation_speed, geralt_GO_UID)
 		current_animation = animation_library.idle
-
-		--TODO-AUDIO: Stop current sound event
-		lua_table.AudioFunctions:StopAudioEventGO(audio_library.walk, geralt_GO_UID)
-		lua_table.AudioFunctions:StopAudioEventGO(audio_library.run, geralt_GO_UID)
-		current_audio = audio_library.none
-
+		
 		lua_table.current_state = state.idle
-		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.run_dust_GO_UID)	--TODO-Particles: Deactivate movement dust particles
 	end
 	
 	lua_table.combo_num = 0
 	rightside = true
 
 	lua_table.AnimationFunctions:PlayAnimation(animation_library.idle, 150.0, particles_library.slash_GO_UID)
-	current_animation = animation_library.idle
 	lua_table.GameObjectFunctions:SetActiveGameObject(false, particles_library.slash_mesh_GO_UID)
 end
 
@@ -1080,6 +1073,7 @@ local function MovementInputs()	--Process Movement Inputs
 			lua_table.AnimationFunctions:PlayAnimation(animation_library.run, lua_table.run_animation_speed, geralt_GO_UID)
 			current_animation = animation_library.run
 
+			lua_table.AudioFunctions:StopAudioEventGO(audio_library.walk, geralt_GO_UID)
 			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.run, geralt_GO_UID)	--TODO-AUDIO: Play run sound
 			current_audio = audio_library.run
 
@@ -1094,6 +1088,7 @@ local function MovementInputs()	--Process Movement Inputs
 			lua_table.AnimationFunctions:PlayAnimation(animation_library.walk, lua_table.walk_animation_speed, geralt_GO_UID)
 			current_animation = animation_library.walk
 
+			lua_table.AudioFunctions:StopAudioEventGO(audio_library.run, geralt_GO_UID)
 			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.walk, geralt_GO_UID)	--TODO-AUDIO: Play walk sound
 			current_audio = audio_library.walk
 
@@ -1524,9 +1519,14 @@ local function ActionInputs()	--Process Action Inputs
 			lua_table.GameObjectFunctions:SetActiveGameObject(false, particles_library.slash_mesh_GO_UID)
 			--lua_table.ParticlesFunctions:StopParticleEmitter(sword_particles_GO_UID)	--TODO-Particles: Deactivate Particles on Sword
 		end
+		
+		if lua_table.previous_state == state.walk or lua_table.previous_state == state.run
+		then
+			if lua_table.current_state ~= state.evade then lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.run_dust_GO_UID) end	--TODO-Particles: Deactivate Dust Particles
 
-		if lua_table.current_state > state.evade or lua_table.current_state < state.walk then
-			lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.run_dust_GO_UID)	--TODO-Particles: Deactivate Dust Particles
+			if lua_table.previous_state == state.walk then lua_table.AudioFunctions:StopAudioEventGO(audio_library.walk, geralt_GO_UID)
+			elseif lua_table.previous_state == state.run then lua_table.AudioFunctions:StopAudioEventGO(audio_library.run, geralt_GO_UID)
+			end
 		end
 	end
 
@@ -2016,6 +2016,9 @@ function lua_table:Update()
 							lua_table.AudioFunctions:StopAudioEventGO(audio_library.revive, geralt_GO_UID, geralt_GO_UID)	--TODO-AUDIO: Ultimate Sound
 							current_audio = audio_library.none
 							revive_target = nil
+						elseif lua_table.current_state == state.evade
+						then
+							lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.run_dust_GO_UID)
 						elseif lua_table.current_state == state.ability
 						then
 							lua_table.GameObjectFunctions:SetActiveGameObject(false, particles_library.aard_cone_mesh_GO_UID)
