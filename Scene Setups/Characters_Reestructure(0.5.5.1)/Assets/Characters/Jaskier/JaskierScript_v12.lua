@@ -66,6 +66,8 @@ local animation_library = {
 }
 local current_animation = animation_library.none
 
+lua_table.animation_ended_blend_time = 200	--
+
 --Particles
 local particles_library = {
 	none = 0,
@@ -371,20 +373,20 @@ lua_table.energy_reg_orig = 5
 lua_table.light_damage = 1.0					--Multiplier of Base Damage
 lua_table.light_movement_velocity = 5.0
 
-lua_table.light_1_block_time = 450			--Input block duration	(block new attacks)
+lua_table.light_1_block_time = 0			--Input block duration	(block new attacks)
 lua_table.light_1_collider_front_start = 460	--Collider activation time
 lua_table.light_1_collider_front_end = 560	--Collider deactivation time
 lua_table.light_1_duration = 750			--Attack end (return to idle)
 lua_table.light_1_animation_speed = 70.0
 
-lua_table.light_2_block_time = 370			--Input block duration	(block new attacks)
+lua_table.light_2_block_time = 0			--Input block duration	(block new attacks)
 lua_table.light_2_collider_front_start = 340	--Collider activation time
 lua_table.light_2_collider_front_end = 440	--Collider deactivation time
 lua_table.light_2_duration = 670			--Attack end (return to idle)
 lua_table.light_2_animation_speed = 70.0
 
 lua_table.light_3_velocity_start = 100
-lua_table.light_3_block_time = 420			--Input block duration	(block new attacks)
+lua_table.light_3_block_time = 0			--Input block duration	(block new attacks)
 lua_table.light_3_collider_front_start = 350	--Collider activation time
 lua_table.light_3_collider_front_end = 450	--Collider deactivation time
 lua_table.light_3_duration = 820			--Attack end (return to idle)
@@ -395,45 +397,45 @@ lua_table.medium_damage = 1.5					--Multiplier of Base Damage
 lua_table.medium_movement_velocity = 5.0
 lua_table.medium_movement_velocity_start = 200
 
-lua_table.medium_1_block_time = 300			--Input block duration	(block new attacks)
+lua_table.medium_1_block_time = 0			--Input block duration	(block new attacks)
 lua_table.medium_1_collider_front_start = 350	--Collider activation time
 lua_table.medium_1_collider_front_end = 500	--Collider deactivation time
 lua_table.medium_1_duration = 700			--Attack end (return to idle)
 lua_table.medium_1_animation_speed = 50.0
 
-lua_table.medium_2_block_time = 400			--Input block duration	(block new attacks)
+lua_table.medium_2_block_time = 0			--Input block duration	(block new attacks)
 lua_table.medium_2_collider_front_start = 550	--Collider activation time
 lua_table.medium_2_collider_front_end = 650	--Collider deactivation time
 lua_table.medium_2_duration = 800			--Attack end (return to idle)
 lua_table.medium_2_animation_speed = 50.0
 
-lua_table.medium_3_block_time = 500			--Input block duration	(block new attacks)
+lua_table.medium_3_block_time = 0			--Input block duration	(block new attacks)
 lua_table.medium_3_collider_front_start = 600	--Collider activation time
 lua_table.medium_3_collider_front_end = 700	--Collider deactivation time
 lua_table.medium_3_duration = 900			--Attack end (return to idle)
-lua_table.medium_3_animation_speed = 50.0		--IMPROVE: Attack 3 animaton includes a return to idle, which differs from the other animations, we might have to cut it for homogeinity with the rest
+lua_table.medium_3_animation_speed = 50.0
 
 --Heavy Attack
 lua_table.heavy_damage = 2.0				--Multiplier of Base Damage
 lua_table.heavy_movement_velocity = 1.5
 
-lua_table.heavy_1_block_time = 1100			--Input block duration	(block new attacks)
+lua_table.heavy_1_block_time = 0			--Input block duration	(block new attacks)
 lua_table.heavy_1_collider_front_start = 1000	--Collider activation time
 lua_table.heavy_1_collider_front_end = 1150	--Collider deactivation time
 lua_table.heavy_1_duration = 1600			--Attack end (return to idle)
-lua_table.heavy_1_animation_speed = 30.0
+lua_table.heavy_1_animation_speed = 50.0
 
-lua_table.heavy_2_block_time = 500			--Input block duration	(block new attacks)
+lua_table.heavy_2_block_time = 0			--Input block duration	(block new attacks)
 lua_table.heavy_2_collider_front_start = 400	--Collider activation time
 lua_table.heavy_2_collider_front_end = 500	--Collider deactivation time
 lua_table.heavy_2_duration = 1050			--Attack end (return to idle)
-lua_table.heavy_2_animation_speed = 30.0
+lua_table.heavy_2_animation_speed = 50.0
 
-lua_table.heavy_3_block_time = 900			--Input block duration	(block new attacks)
+lua_table.heavy_3_block_time = 0			--Input block duration	(block new attacks)
 lua_table.heavy_3_collider_front_start = 850	--Collider activation time
 lua_table.heavy_3_collider_front_end = 950	--Collider deactivation time
 lua_table.heavy_3_duration = 1300			--Attack end (return to idle)
-lua_table.heavy_3_animation_speed = 30.0		--IMPROVE: Attack 3 animaton includes a return to idle, which differs from the other animations, we might have to cut it for homogeinity with the rest
+lua_table.heavy_3_animation_speed = 50.0
 
 --Evade		
 lua_table.evade_velocity = 18			--12
@@ -576,7 +578,7 @@ lua_table.revive_started_at = 0		-- Revive timer start
 --Actions
 local time_since_action = 0			-- Time passed since action performed
 local current_action_block_time = 0	-- Duration of input block from current action/event (accept new action inputs)
-local current_action_duration = 0	-- Duration of current action/event (return to idle)
+local current_action_duration = 0	-- Duration of current action/event (return to idle)	WARNING: Only relevant to actions with animation loops
 local action_started_at = 0			-- Marks start of actions (and getting revived)
 
 --Utility BEGIN	----------------------------------------------------------------------------	--IMPROVE: Consider making useful generic methods part of a global script
@@ -712,7 +714,6 @@ local function GoDefaultState(change_blend_time)
 	rightside = true
 
 	lua_table.AnimationFunctions:PlayAnimation(animation_library.idle, 150.0, particles_library.slash_GO_UID)
-	lua_table.GameObjectFunctions:SetActiveGameObject(false, particles_library.slash_mesh_GO_UID)
 end
 
 --States END	----------------------------------------------------------------------------
@@ -830,22 +831,24 @@ local function JoystickInputs(key_string, input_table)	--TODO-Inputs: The whole 
 end
 
 local function RegisterAttackInputs()	--This is used to give a timeframe to press the two attack buttons at the same time, without being necesarily on the exact same frame
-	if not attack_inputs[lua_table.key_light] and lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_light, key_state.key_down)
-	or keyboard_mode and not attack_inputs[lua_table.key_light] and lua_table.InputFunctions:KeyDown(",")
-	then
-		attack_inputs[lua_table.key_light] = true
-		if not attack_input_given then
-			attack_input_started_at = game_time
-			attack_input_given = true
+	if not attack_inputs[lua_table.key_light] then
+		if lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_light, key_state.key_down) or keyboard_mode and lua_table.InputFunctions:KeyDown(",")
+		then
+			attack_inputs[lua_table.key_light] = true
+			if not attack_input_given then
+				attack_input_started_at = game_time
+				attack_input_given = true
+			end
 		end
 	end
-	if not attack_inputs[lua_table.key_medium] and lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_medium, key_state.key_down)
-	or keyboard_mode and not attack_inputs[lua_table.key_medium] and lua_table.InputFunctions:KeyDown(".")
-	then
-		attack_inputs[lua_table.key_medium] = true
-		if not attack_input_given then
-			attack_input_started_at = game_time
-			attack_input_given = true
+	if not attack_inputs[lua_table.key_medium] then
+		if lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_medium, key_state.key_down) or keyboard_mode and lua_table.InputFunctions:KeyDown(".")
+		then
+			attack_inputs[lua_table.key_medium] = true
+			if not attack_input_given then
+				attack_input_started_at = game_time
+				attack_input_given = true
+			end
 		end
 	end
 end
@@ -1920,7 +1923,11 @@ function lua_table:Awake()
 	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.stamina_potion_particles_GO_UID)
 	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.power_potion_particles_GO_UID)
 
-	--lua_table.ParticlesFunctions:StopParticleEmitter_GO(guitar_GO_UID)			--TODO-Particles: Uncomment when ready
+	--Hide GO Particles
+	lua_table.GameObjectFunctions:SetActiveGameObject(false, particles_library.slash_mesh_GO_UID)
+
+	--Set Particle GO Animations to for smooth blending to required animations
+	lua_table.AnimationFunctions:PlayAnimation(animation_library.idle, lua_table.idle_animation_speed, particles_library.slash_GO_UID)
 
 	--Get attack_colliders GO_UIDs by name
 	attack_colliders.front_1.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.front_1.GO_name)
@@ -1953,7 +1960,6 @@ function lua_table:Start()
 
 	-- Default Starting Animations
 	lua_table.AnimationFunctions:PlayAnimation(animation_library.idle, lua_table.idle_animation_speed, jaskier_GO_UID)
-	lua_table.AnimationFunctions:PlayAnimation(animation_library.idle, lua_table.idle_animation_speed, particles_library.slash_GO_UID)
 	current_animation = animation_library.idle
 end
 
@@ -2069,27 +2075,21 @@ function lua_table:Update()
 				else	--ELSE (action being performed)
 					time_since_action = game_time - action_started_at
 
-					if time_since_action > current_action_duration	--IF action duration up
+					--LEGACY: time_since_action > current_action_duration
+					if time_since_action > lua_table.animation_ended_blend_time and lua_table.AnimationFunctions:CurrentAnimationEnded(jaskier_GO_UID) == 1	--IF blend time passed and animation finished
 					then
+						local chained_action = false
+
 						if lua_table.current_state == state.revive	--IF revive finished
 						then
 							lua_table.AudioFunctions:StopAudioEventGO(audio_library.revive, jaskier_GO_UID, jaskier_GO_UID)	--TODO-AUDIO: Ultimate Sound
 							current_audio = audio_library.none
 							revive_target = nil
-						elseif lua_table.current_state >= state.light_1 and lua_table.current_state <= state.heavy_3	--IF attack finished
-						then
-							if attack_input_given	--IF attack input was given before time ran out, process it instantly
-							then
-								attack_input_timeframe = 0
-								ActionInputs()
-								attack_input_timeframe = 70
-
-								attack_input_given = false
-							end
 
 						-- 	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.guitar_particles_GO_UID)	--TODO-Particles: Deactivate Particles on Sword
 						elseif lua_table.current_state == state.song_1
 						then
+							lua_table.GameObjectFunctions:SetActiveGameObject(false, particles_library.slash_mesh_GO_UID)
 							lua_table.song_1_effect_active = false
 						elseif lua_table.current_state == state.song_2
 						then
@@ -2107,15 +2107,27 @@ function lua_table:Update()
 							lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.song_circle_particles_2_GO_UID)	--TODO-Particles:
 							lua_table.ultimate_secondary_effect_active = false
 							lua_table.ultimate_active = false
+						elseif lua_table.current_state >= state.light_1 and lua_table.current_state <= state.heavy_3	--IF attack finished
+						then
+							lua_table.GameObjectFunctions:SetActiveGameObject(false, particles_library.slash_mesh_GO_UID)
+
+							if attack_input_given	--IF attack input was given before time ran out, process it instantly
+							then
+								attack_input_timeframe = 0
+								chained_action = ActionInputs()
+								attack_input_timeframe = 70
+							end
 						end
 
 						AttackColliderShutdown()
 						
-						--Return to move or idle
-						if lua_table.current_state == state.evade then
-							GoDefaultState(false)	--Don't change BlendDuration
-						else
-							GoDefaultState(true)	--Change BlendDuration
+						if not chained_action then	--IF action not performed automatically after ending previous one, return to idle/move
+							--Return to move or idle
+							if lua_table.current_state == state.evade then
+								GoDefaultState(false)	--Don't change BlendDuration
+							else
+								GoDefaultState(true)	--Change BlendDuration
+							end
 						end
 						
 					--ELSE (For all the following): IF action ongoing at the moment
@@ -2236,12 +2248,7 @@ function lua_table:Update()
 
 			elseif lua_table.current_state == state.knocked	--IF currently knocked
 			then
-				if game_time - action_started_at > current_action_duration + lua_table.standing_up_time
-				then
-					lua_table.standing_up_bool = false
-					GoDefaultState(true)
-
-				elseif not lua_table.standing_up_bool
+				if not lua_table.standing_up_bool
 				then
 					if game_time - action_started_at > current_action_duration
 					then
@@ -2255,6 +2262,10 @@ function lua_table:Update()
 						knockback_curr_velocity = knockback_curr_velocity + lua_table.knockback_acceleration * dt
 						lua_table.PhysicsFunctions:Move(knockback_curr_velocity * -rec_direction.x * dt, knockback_curr_velocity * -rec_direction.z * dt, jaskier_GO_UID)
 					end
+				elseif game_time - action_started_at > current_action_duration + lua_table.standing_up_time
+				then
+					lua_table.standing_up_bool = false
+					GoDefaultState(true)
 				end
 			end
 		end
@@ -2324,7 +2335,8 @@ function lua_table:Update()
 	--lua_table.SystemFunctions:LOG("Song string: " .. lua_table.note_stack[1] .. ", " .. lua_table.note_stack[2] .. ", " .. lua_table.note_stack[3] .. ", " .. lua_table.note_stack[4])
 
 	--Animation
-	--if not lua_table.AnimationFunctions:CurrentAnimationEnded(geralt_GO_UID) then lua_table.SystemFunctions:LOG("ANIMATION ONGOING. ------------") end
+	--if lua_table.AnimationFunctions:CurrentAnimationEnded(geralt_GO_UID) == 1 then lua_table.SystemFunctions:LOG("ANIMATION ENDED. ------------") end
+	--if lua_table.AnimationFunctions:CurrentAnimationEnded(geralt_GO_UID) == 0 then lua_table.SystemFunctions:LOG("ANIMATION ONGOING. ------------") end
 
 	--Audio Tracking
 	--lua_table.SystemFunctions:LOG(current_audio)
