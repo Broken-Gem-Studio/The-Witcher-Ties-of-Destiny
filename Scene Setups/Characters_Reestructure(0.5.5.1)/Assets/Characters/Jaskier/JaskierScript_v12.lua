@@ -392,25 +392,26 @@ lua_table.light_3_animation_speed = 70.0
 
 --Medium Attack
 lua_table.medium_damage = 1.5					--Multiplier of Base Damage
-lua_table.medium_movement_velocity = 1.5
+lua_table.medium_movement_velocity = 5.0
+lua_table.medium_movement_velocity_start = 200
 
 lua_table.medium_1_block_time = 300			--Input block duration	(block new attacks)
 lua_table.medium_1_collider_front_start = 350	--Collider activation time
 lua_table.medium_1_collider_front_end = 500	--Collider deactivation time
 lua_table.medium_1_duration = 700			--Attack end (return to idle)
-lua_table.medium_1_animation_speed = 30.0
+lua_table.medium_1_animation_speed = 50.0
 
 lua_table.medium_2_block_time = 400			--Input block duration	(block new attacks)
 lua_table.medium_2_collider_front_start = 550	--Collider activation time
 lua_table.medium_2_collider_front_end = 650	--Collider deactivation time
 lua_table.medium_2_duration = 800			--Attack end (return to idle)
-lua_table.medium_2_animation_speed = 30.0
+lua_table.medium_2_animation_speed = 50.0
 
 lua_table.medium_3_block_time = 500			--Input block duration	(block new attacks)
 lua_table.medium_3_collider_front_start = 600	--Collider activation time
 lua_table.medium_3_collider_front_end = 700	--Collider deactivation time
 lua_table.medium_3_duration = 900			--Attack end (return to idle)
-lua_table.medium_3_animation_speed = 30.0		--IMPROVE: Attack 3 animaton includes a return to idle, which differs from the other animations, we might have to cut it for homogeinity with the rest
+lua_table.medium_3_animation_speed = 50.0		--IMPROVE: Attack 3 animaton includes a return to idle, which differs from the other animations, we might have to cut it for homogeinity with the rest
 
 --Heavy Attack
 lua_table.heavy_damage = 2.0				--Multiplier of Base Damage
@@ -1601,10 +1602,10 @@ local function ActionInputs()	--Process Action Inputs
 		if lua_table.current_state >= state.light_1 and lua_table.current_state <= state.heavy_3 or lua_table.current_state == state.song_1	--IF attack or song_1
 		then
 			lua_table.AnimationFunctions:SetBlendTime(0.1, particles_library.slash_GO_UID)
-			lua_table.GameObjectFunctions:SetActiveGameObject(true, particles_library.slash_mesh_GO_UID)
+			--lua_table.GameObjectFunctions:SetActiveGameObject(true, particles_library.slash_mesh_GO_UID)
 		else
 			lua_table.GameObjectFunctions:SetActiveGameObject(false, particles_library.slash_mesh_GO_UID)
-			--lua_table.ParticlesFunctions:StopParticleEmitter_GO(guitar_GO_UID)	--TODO-Particles: Deactivate Particles on Guitar
+			lua_table.ParticlesFunctions:StopParticleEmitter_GO(guitar_GO_UID)	--TODO-Particles: Deactivate Particles on Guitar
 		end
 
 		if lua_table.previous_state == state.walk or lua_table.previous_state == state.run
@@ -2145,7 +2146,7 @@ function lua_table:Update()
 
 					elseif lua_table.current_state == state.medium_1 or lua_table.current_state == state.medium_2 or lua_table.current_state == state.medium_3	--IF Medium Attacking
 					then
-						if DirectionInBounds() and time_since_action < current_action_block_time then
+						if DirectionInBounds() and time_since_action > lua_table.medium_movement_velocity_start then
 							lua_table.PhysicsFunctions:Move(lua_table.medium_movement_velocity * rec_direction.x * dt, lua_table.medium_movement_velocity * rec_direction.z * dt, jaskier_GO_UID)
 						end
 
