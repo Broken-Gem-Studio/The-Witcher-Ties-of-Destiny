@@ -112,7 +112,7 @@ local audio_library = {
 
 	one_handed_slam = "Play_Jaskier_attack_4",
 	two_handed_slam = "Play_Jaskier_attack_5",
-	moonwalk = "",
+	moonwalk = "moonwalk",
 	concert = "Play_Jaskier_song_1"
 }
 local current_audio = audio_library.none
@@ -369,47 +369,49 @@ lua_table.energy_reg_orig = 5
 
 --Light Attack
 lua_table.light_damage = 1.0					--Multiplier of Base Damage
-lua_table.light_movement_velocity = 1.5
+lua_table.light_movement_velocity = 5.0
 
 lua_table.light_1_block_time = 450			--Input block duration	(block new attacks)
 lua_table.light_1_collider_front_start = 460	--Collider activation time
 lua_table.light_1_collider_front_end = 560	--Collider deactivation time
 lua_table.light_1_duration = 750			--Attack end (return to idle)
-lua_table.light_1_animation_speed = 40.0
+lua_table.light_1_animation_speed = 70.0
 
 lua_table.light_2_block_time = 370			--Input block duration	(block new attacks)
 lua_table.light_2_collider_front_start = 340	--Collider activation time
 lua_table.light_2_collider_front_end = 440	--Collider deactivation time
 lua_table.light_2_duration = 670			--Attack end (return to idle)
-lua_table.light_2_animation_speed = 40.0
+lua_table.light_2_animation_speed = 70.0
 
+lua_table.light_3_velocity_start = 100
 lua_table.light_3_block_time = 420			--Input block duration	(block new attacks)
 lua_table.light_3_collider_front_start = 350	--Collider activation time
 lua_table.light_3_collider_front_end = 450	--Collider deactivation time
 lua_table.light_3_duration = 820			--Attack end (return to idle)
-lua_table.light_3_animation_speed = 40.0		--IMPROVE: Attack 3 animaton includes a return to idle, which differs from the other animations, we might have to cut it for homogeinity with the rest
+lua_table.light_3_animation_speed = 70.0	
 
 --Medium Attack
 lua_table.medium_damage = 1.5					--Multiplier of Base Damage
-lua_table.medium_movement_velocity = 1.5
+lua_table.medium_movement_velocity = 5.0
+lua_table.medium_movement_velocity_start = 200
 
 lua_table.medium_1_block_time = 300			--Input block duration	(block new attacks)
 lua_table.medium_1_collider_front_start = 350	--Collider activation time
 lua_table.medium_1_collider_front_end = 500	--Collider deactivation time
 lua_table.medium_1_duration = 700			--Attack end (return to idle)
-lua_table.medium_1_animation_speed = 30.0
+lua_table.medium_1_animation_speed = 50.0
 
 lua_table.medium_2_block_time = 400			--Input block duration	(block new attacks)
 lua_table.medium_2_collider_front_start = 550	--Collider activation time
 lua_table.medium_2_collider_front_end = 650	--Collider deactivation time
 lua_table.medium_2_duration = 800			--Attack end (return to idle)
-lua_table.medium_2_animation_speed = 30.0
+lua_table.medium_2_animation_speed = 50.0
 
 lua_table.medium_3_block_time = 500			--Input block duration	(block new attacks)
 lua_table.medium_3_collider_front_start = 600	--Collider activation time
 lua_table.medium_3_collider_front_end = 700	--Collider deactivation time
 lua_table.medium_3_duration = 900			--Attack end (return to idle)
-lua_table.medium_3_animation_speed = 30.0		--IMPROVE: Attack 3 animaton includes a return to idle, which differs from the other animations, we might have to cut it for homogeinity with the rest
+lua_table.medium_3_animation_speed = 50.0		--IMPROVE: Attack 3 animaton includes a return to idle, which differs from the other animations, we might have to cut it for homogeinity with the rest
 
 --Heavy Attack
 lua_table.heavy_damage = 2.0				--Multiplier of Base Damage
@@ -503,7 +505,7 @@ lua_table.note_stack = { 'N', 'N', 'N', 'N' }	-- Last 4 attacks performed (0=non
 	lua_table.song_3_effect_end = 2000
 	lua_table.song_3_effect_active = false
 	lua_table.song_3_duration = 3700
-	lua_table.song_3_animation_name = "moonwalk"
+	lua_table.song_3_animation_name = audio_library.moonwalk
 	lua_table.song_3_animation_speed = 30.0
 	lua_table.song_3_damage = 0.0
 	lua_table.song_3_status_effect = attack_effects_ID.taunt
@@ -1600,10 +1602,10 @@ local function ActionInputs()	--Process Action Inputs
 		if lua_table.current_state >= state.light_1 and lua_table.current_state <= state.heavy_3 or lua_table.current_state == state.song_1	--IF attack or song_1
 		then
 			lua_table.AnimationFunctions:SetBlendTime(0.1, particles_library.slash_GO_UID)
-			lua_table.GameObjectFunctions:SetActiveGameObject(true, particles_library.slash_mesh_GO_UID)
+			--lua_table.GameObjectFunctions:SetActiveGameObject(true, particles_library.slash_mesh_GO_UID)
 		else
 			lua_table.GameObjectFunctions:SetActiveGameObject(false, particles_library.slash_mesh_GO_UID)
-			--lua_table.ParticlesFunctions:StopParticleEmitter_GO(guitar_GO_UID)	--TODO-Particles: Deactivate Particles on Guitar
+			lua_table.ParticlesFunctions:StopParticleEmitter_GO(guitar_GO_UID)	--TODO-Particles: Deactivate Particles on Guitar
 		end
 
 		if lua_table.previous_state == state.walk or lua_table.previous_state == state.run
@@ -2132,8 +2134,8 @@ function lua_table:Update()
 
 					elseif lua_table.current_state == state.light_1 or lua_table.current_state == state.light_2 or lua_table.current_state == state.light_3	--IF Light Attacking
 					then
-						if DirectionInBounds() and lua_table.current_state == state.light_3 and time_since_action < current_action_block_time then
-							lua_table.PhysicsFunctions:Move(lua_table.heavy_movement_velocity * rec_direction.x * dt, lua_table.heavy_movement_velocity * rec_direction.z * dt, jaskier_GO_UID)
+						if DirectionInBounds() and lua_table.current_state == state.light_3 and time_since_action > lua_table.light_3_velocity_start and time_since_action < current_action_block_time then
+							lua_table.PhysicsFunctions:Move(lua_table.light_movement_velocity * rec_direction.x * dt, lua_table.light_movement_velocity * rec_direction.z * dt, jaskier_GO_UID)
 						end
 
 						--Collider Evaluation
@@ -2144,8 +2146,8 @@ function lua_table:Update()
 
 					elseif lua_table.current_state == state.medium_1 or lua_table.current_state == state.medium_2 or lua_table.current_state == state.medium_3	--IF Medium Attacking
 					then
-						if DirectionInBounds() and time_since_action < current_action_block_time then
-							lua_table.PhysicsFunctions:Move(lua_table.heavy_movement_velocity * rec_direction.x * dt, lua_table.heavy_movement_velocity * rec_direction.z * dt, jaskier_GO_UID)
+						if DirectionInBounds() and time_since_action > lua_table.medium_movement_velocity_start then
+							lua_table.PhysicsFunctions:Move(lua_table.medium_movement_velocity * rec_direction.x * dt, lua_table.medium_movement_velocity * rec_direction.z * dt, jaskier_GO_UID)
 						end
 
 						--Collider Evaluation
@@ -2313,13 +2315,16 @@ function lua_table:Update()
 	--DEBUG LOGS
 	--lua_table.SystemFunctions:LOG("Delta Time: " .. dt)
 	--lua_table.SystemFunctions:LOG("State: " .. lua_table.current_state)
-	lua_table.SystemFunctions:LOG("Time passed: " .. time_since_action)
+	--lua_table.SystemFunctions:LOG("Time passed: " .. time_since_action)
 	--rot_y = math.rad(GimbalLockWorkaroundY(lua_table.TransformFunctions:GetRotation()[2]))	--TODO: Remove GimbalLock stage when Euler bug is fixed
 	--lua_table.SystemFunctions:LOG("Angle Y: " .. rot_y)
 	--lua_table.SystemFunctions:LOG("Ultimate: " .. lua_table.current_ultimate)
 	--lua_table.SystemFunctions:LOG("Chain num: " .. lua_table.chained_attacks_num)
 	--lua_table.SystemFunctions:LOG("Note num: " .. lua_table.note_num)
 	--lua_table.SystemFunctions:LOG("Song string: " .. lua_table.note_stack[1] .. ", " .. lua_table.note_stack[2] .. ", " .. lua_table.note_stack[3] .. ", " .. lua_table.note_stack[4])
+
+	--Animation
+	--if not lua_table.AnimationFunctions:CurrentAnimationEnded(geralt_GO_UID) then lua_table.SystemFunctions:LOG("ANIMATION ONGOING. ------------") end
 
 	--Audio Tracking
 	--lua_table.SystemFunctions:LOG(current_audio)
