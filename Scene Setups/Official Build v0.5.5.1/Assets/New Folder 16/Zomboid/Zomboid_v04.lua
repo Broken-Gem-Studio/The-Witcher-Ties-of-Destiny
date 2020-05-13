@@ -29,10 +29,12 @@ local State = {
 	IDLE = 0,
 	SEEK = 1,
 	JUMP = 2, 
-	COMBO = 3,
-	KNOCKBACK = 4,
-	STUNNED = 5,
-	DEATH = 6
+	PUNCH = 3,
+	SWIPE = 4,
+	SMASH = 5,
+	KNOCKBACK = 6,
+	STUNNED = 7,
+	DEATH = 8
 }
 
 local layers = {
@@ -56,7 +58,7 @@ local attack_effects = {
 lua_table.MyUID = 0 --Entity UID
 lua_table.max_hp = 200
 lua_table.health = 0
-lua_table.speed = 0.06
+lua_table.speed = 0.05
 lua_table.knock_speed = 0.5
 lua_table.currentState = 0
 lua_table.is_stunned = false
@@ -64,22 +66,34 @@ lua_table.is_taunt = false
 lua_table.is_knockback = false
 lua_table.is_dead = false
 	
--- Aggro values 
+--------------------------------- Aggro values 
 lua_table.AggroRange = 100
 lua_table.minDistance = 3.5 -- If entity is inside this distance, then attack
 lua_table.jumpDistance = 7
 --
 lua_table.stun_duration = 4000
 
-local knock_force = {0, 0, 0}
+--------------------------------- Damage values || TOTAL DMG = 75
+local Stun_DMG = 20
+local Punch_DMG = 10
+local Swipe_DMG = 15
+local Smash_DMG = 30
 
--- Time management
+--------------------------------- Time management
 local start_jump = false
 local jump_timer = 0
 
-local start_combo = false
-local combo_timer = 0
+-- 3 attack timers
+local start_punch = false
+local punch_timer = 0
 
+local start_swipe = false
+local swipe_timer = 0
+
+local start_smash = false
+local smash_timer = 0
+
+--Special status timers
 local start_stun = false
 local stun_timer = 0
 
@@ -95,6 +109,7 @@ local death_timer = 0
 local start_hit = false
 local hit_timer = 0
 
+-- Navigation timer
 local start_navigation = true
 local navigation_timer = 0
 
@@ -105,22 +120,25 @@ local vec = { 0, 0, 0 }
 local currCorner = 2
 local path_distance = -1
 
+-- To calculate Player positions
 local GC1 = 0
 local GC2 = 0
 
 local JC1 = 0
 local JC2 = 0
 
--- Flow control conditionals
+local knock_force = {0, 0, 0}
+
+--------------------------------- Flow control conditionals
 local jumping = false
 local stunning = false
 local punching = false
 local swiping = false
-local crushing = false
+local smashing = false
 
 --local is_in_range = false
 
--- Entity colliders
+--------------------------------- Entity colliders
 local is_front_active = false
 local is_area_active = false
 
@@ -131,7 +149,7 @@ local Stun_Coll = 0
 lua_table.collider_damage = 0
 lua_table.collider_effect = 0
 
--- Entity particles
+--------------------------------- Entity particles
 local JumpStunEmitter_UID = 0
 local BloodEmitter_UID = 0
 local StunnedEmitter_UID = 0 -- Also used by KB
@@ -154,14 +172,22 @@ local function ResetJumpStun()
 	if stunning == true then stunning = false end
 end
 
-local function ResetCombo()
-	-- Combo Timer
-	if start_combo == true then start_combo = false end
-	if combo_timer > 0 then combo_timer = 0 end
-	-- Combo control bools
+local function ResetPunch()
+	if start_punch == true then start_punch = false end
+	if punch_timer > 0 then punch_timer = 0 end
 	if punching == true then punching = false end
+end
+
+local function ResetSwipe()
+	if start_swipe == true then start_swipe = false end
+	if swipe_timer > 0 then swipe_timer = 0 end
 	if swiping == true then swiping = false end
-	if crushing == true then crushing = false end
+end
+
+local function ResetSmash()
+	if start_smash == true then start_smash = false end
+	if smash_timer > 0 then smash_timer = 0 end
+	if smashing == true then smashing = false end
 end
 
 local function ResetStun()
@@ -230,21 +256,21 @@ local function SearchPlayers() -- Check if targets are within range
 
 end
 
--- local function ToggleCollider(ID, start, finish, timer, condition, dmg, effect)
+local function ToggleCollider(ID, start, finish, timer, condition, dmg, effect)
 
--- 	lua_table.collider_effect = effect
--- 	lua_table.collider_damage = dmg
+	lua_table.collider_effect = effect
+	lua_table.collider_damage = dmg
 		
--- 	condition = true
+	condition = true
 
--- 	if timer + start < lua_table.System:GameTime() * 1000 and condition then
--- 		lua_table.GameObject:SetActiveGameObject(true, ID)
--- 	end
--- 	if timer + finish < lua_table.System:GameTime() * 1000 then
--- 		lua_table.GameObject:SetActiveGameObject(false, ID)
--- 		condition = false
--- 	end
--- end
+	if timer + start < lua_table.System:GameTime() * 1000 and condition then
+		lua_table.GameObject:SetActiveGameObject(true, ID)
+	end
+	if timer + finish < lua_table.System:GameTime() * 1000 then
+		lua_table.GameObject:SetActiveGameObject(false, ID)
+		condition = false
+	end
+end
 
 local function AttackColliderShutdown()
 	if is_front_active then
@@ -256,13 +282,25 @@ local function AttackColliderShutdown()
 		is_area_active = false
 	end
 end
+
+local function IsTargetInRange()
+	if lua_table.currentTargetDir >= lua_table.jumpDistance then
+		lua_table.Animations:PlayAnimation("Walk", 50.0, lua_table.MyUID)
+		lua_table.currentState = State.SEEK	
+		lua_table.System:LOG("Zomboid state: SEEK (1), target out of range")    
+		
+		return true
+	else 
+		return false
+	end
+end
 	
 local function Idle() 
 	
 	if lua_table.GeraltDistance ~= -1 or lua_table.JaskierDistance ~= -1 then
 		if lua_table.currentTargetDir <= lua_table.AggroRange then
+			lua_table.Animations:PlayAnimation("Walk", 50.0, lua_table.MyUID)
 			lua_table.currentState = State.SEEK
-			lua_table.Animations:PlayAnimation("Walk", 40.0, lua_table.MyUID)
 			lua_table.System:LOG("Zomboid state: SEEK (1)") 
 		end
 	end
@@ -303,7 +341,7 @@ local function Seek()
 				-- Apply movement vector to move character
 				lua_table.Transform:LookAt(corners[currCorner][1], lua_table.GhoulPos[2], corners[currCorner][3], lua_table.MyUID)
 				lua_table.Physics:Move(vec[1] * lua_table.speed, vec[3] * lua_table.speed, lua_table.MyUID)
-				lua_table.Particles:PlayParticleEmitter(DustEmitter_UID)
+				--lua_table.Particles:PlayParticleEmitter(DustEmitter_UID)
 				
 				else
 					currCorner = currCorner + 1
@@ -314,7 +352,7 @@ local function Seek()
 	--end
 	
 	if lua_table.currentTargetDir <= lua_table.minDistance then
-		lua_table.Particles:StopParticleEmitter(DustEmitter_UID)
+		--lua_table.Particles:StopParticleEmitter(DustEmitter_UID)
 		lua_table.currentState = State.JUMP
 		lua_table.System:LOG("Zomboid state: JUMP (2)")
 	end
@@ -323,11 +361,6 @@ end
 	
 local function JumpStun() -- Smash the ground with a jump, then stun
 	
-	-- if is_in_range then
-	-- 	lua_table.currentState = State.COMBO
-	-- 	lua_table.System:LOG("Zomboid state: COMBO (3), loop")  
-	-- end
-
 	if not start_jump then 
 		jump_timer = lua_table.System:GameTime() * 1000
 		start_jump = true
@@ -337,10 +370,11 @@ local function JumpStun() -- Smash the ground with a jump, then stun
 	if jump_timer <= lua_table.System:GameTime() * 1000 and not jumping then
 		lua_table.System:LOG("Jump")
 		lua_table.Particles:PlayParticleEmitter(JumpStunEmitter_UID)
-		lua_table.Animations:PlayAnimation("Jump_Stun_1", 10.0, lua_table.MyUID)
+		lua_table.Animations:PlayAnimation("Jump_Stun_1", 8.0, lua_table.MyUID)
 		jumping = true
 	end
-	if jump_timer + 1000 <= lua_table.System:GameTime() * 1000 and not stunning then
+
+	if jump_timer + 1200 <= lua_table.System:GameTime() * 1000 and not stunning then
 		lua_table.System:LOG("Land and stun")
 		lua_table.Particles:StopParticleEmitter(JumpStunEmitter_UID)
 		lua_table.Animations:PlayAnimation("Jump_Stun_2", 40.0, lua_table.MyUID)
@@ -348,111 +382,109 @@ local function JumpStun() -- Smash the ground with a jump, then stun
 		stunning = true
 	end
 
-	if jump_timer + 2000 <= lua_table.System:GameTime() * 1000 then 
-		lua_table.collider_effect = attack_effects.stun
-		lua_table.collider_damage = 15
-		   
-		is_area_active = true
-		lua_table.GameObject:SetActiveGameObject(true, Stun_Coll)
-	end
+	ToggleCollider(Stun_Coll, 2000, 2100, jump_timer, is_area_active, Stun_DMG, attack_effects.stun)
 
-	if jump_timer + 2100 <= lua_table.System:GameTime() * 1000 then 
-		is_area_active = false
-		lua_table.GameObject:SetActiveGameObject(false, Stun_Coll)
-	end
+	-- if jump_timer + 2000 <= lua_table.System:GameTime() * 1000 then 
+	-- 	lua_table.collider_effect = attack_effects.stun
+	-- 	lua_table.collider_damage = 15
+		   
+	-- 	is_area_active = true
+	-- 	lua_table.GameObject:SetActiveGameObject(true, Stun_Coll)
+	-- end
+
+	-- if jump_timer + 2100 <= lua_table.System:GameTime() * 1000 then 
+	-- 	is_area_active = false
+	-- 	lua_table.GameObject:SetActiveGameObject(false, Stun_Coll)
+	-- end
 		
 	if jump_timer + 2250 <= lua_table.System:GameTime() * 1000 then
-		lua_table.currentState = State.COMBO
-		lua_table.System:LOG("Zomboid state: COMBO (3)")  
+		lua_table.currentState = State.PUNCH
+		lua_table.System:LOG("Zomboid state: PUNCH (3)")  
 	end
 end
 	
-local function Combo()
+local function Punch()
 
-	if lua_table.currentTargetDir >= lua_table.jumpDistance then
-		lua_table.currentState = State.SEEK	
-		lua_table.System:LOG("Zomboid state: SEEK (1), target out of range")    
-		lua_table.Animations:PlayAnimation("Walk", 60.0, lua_table.MyUID)
-		--is_in_range = false
-
-		return
+	if IsTargetInRange() == true then
+		return 
 	end
 
-	-- if lua_table.currentTargetDir <= lua_table.minDistance then
-	-- 	is_in_range = true
-	-- end
-
-	if not start_combo then 
-		combo_timer = lua_table.System:GameTime() * 1000
-		start_combo = true
+	if not start_punch then 
+		punch_timer = lua_table.System:GameTime() * 1000
+		start_punch = true
 	end
 
 	lua_table.Transform:LookAt(lua_table.currentTargetPos[1], lua_table.GhoulPos[2], lua_table.currentTargetPos[3], lua_table.MyUID)
 
-	if combo_timer + 250 <= lua_table.System:GameTime() * 1000 and not punching then
+	if punch_timer <= lua_table.System:GameTime() * 1000 and not punching then
 		lua_table.System:LOG("Punch to target")
-		lua_table.Animations:PlayAnimation("Punch", 30.0, lua_table.MyUID)
+		lua_table.Animations:PlayAnimation("Punch", 45.0, lua_table.MyUID)
 		punching = true
 	end
+
+	ToggleCollider(Front_Att_Coll, 900, 1000, punch_timer, is_front_active, Punch_DMG, attack_effects.none)
 	
-	if combo_timer + 1000 <= lua_table.System:GameTime() * 1000 and combo_timer + 1100 >= lua_table.System:GameTime() * 1000 then 
-		lua_table.collider_effect = attack_effects.none
-		lua_table.collider_damage = 1
-		
-		is_front_active = true
-		lua_table.GameObject:SetActiveGameObject(true, Front_Att_Coll)
-	end
-
-	if combo_timer + 1100 <= lua_table.System:GameTime() * 1000 then 
-		is_front_active = false
-		lua_table.GameObject:SetActiveGameObject(false, Front_Att_Coll)
-	end
-	
-	if combo_timer + 1750 <= lua_table.System:GameTime() * 1000 and not swiping then
-		lua_table.System:LOG("Swipe to target")
-		lua_table.Animations:PlayAnimation("Swipe", 30.0, lua_table.MyUID)
-		swiping = true
-	end
-	--ToggleCollider(Front_Att_Coll, 3300, 3400, combo_timer, is_front_active, Swipe, attack_effects.none)
-	if combo_timer + 3300 <= lua_table.System:GameTime() * 1000 and combo_timer + 3400 >= lua_table.System:GameTime() * 1000 then 
-		lua_table.collider_effect = attack_effects.none
-		lua_table.collider_damage = 2
-			
-		is_front_active = true
-		lua_table.GameObject:SetActiveGameObject(true, Front_Att_Coll)
-	end
-
-	if combo_timer + 3400 <= lua_table.System:GameTime() * 1000 then 
-		is_front_active = false
-		lua_table.GameObject:SetActiveGameObject(false, Front_Att_Coll)
-	end
-
-	if combo_timer + 3500 <= lua_table.System:GameTime() * 1000 and not crushing then
-		lua_table.System:LOG("Crush to target")
-		lua_table.Animations:PlayAnimation("Smash", 45.0, lua_table.MyUID)
-		crushing = true
-	end
-	--ToggleCollider(Front_Att_Coll, 4800, 4900, combo_timer, is_front_active, Crush, attack_effects.none)
-	if combo_timer + 4700 <= lua_table.System:GameTime() * 1000 and combo_timer + 4800 >= lua_table.System:GameTime() * 1000 then 
-		lua_table.collider_effect = attack_effects.none
-		lua_table.collider_damage = 4
-			
-		is_front_active = true
-		lua_table.GameObject:SetActiveGameObject(true, Front_Att_Coll)
-	end
-
-	if combo_timer + 4800 <= lua_table.System:GameTime() * 1000 then 
-		is_front_active = false
-		lua_table.GameObject:SetActiveGameObject(false, Front_Att_Coll)
-	end
-	-- After he finished, switch state and reset jump values
-	if combo_timer + 5000 <= lua_table.System:GameTime() * 1000 then
-		lua_table.currentState = State.SEEK	
-		lua_table.Animations:PlayAnimation("Walk", 40.0, lua_table.MyUID)
-		lua_table.System:LOG("Zomboid state: SEEK (1), cycle to jump")
+	-- After its finished, switch state
+	if punch_timer + 1100 <= lua_table.System:GameTime() * 1000 then
+		lua_table.currentState = State.SWIPE
 	end
 	
 end
+
+local function Swipe()
+
+	if IsTargetInRange() == true then
+		return 
+	end
+
+	if not start_swipe then 
+		swipe_timer = lua_table.System:GameTime() * 1000
+		start_swipe = true
+	end
+
+	if swipe_timer <= lua_table.System:GameTime() * 1000 and not swiping then
+		lua_table.System:LOG("Swipe to target")
+		lua_table.Animations:PlayAnimation("Swipe", 45.0, lua_table.MyUID)
+		swiping = true
+	end
+
+	ToggleCollider(Front_Att_Coll, 1250, 1350, swipe_timer, is_front_active, Swipe_DMG, attack_effects.none)
+	
+	-- After its finished, switch state
+	if swipe_timer + 1450 <= lua_table.System:GameTime() * 1000 then
+		lua_table.currentState = State.SMASH
+		lua_table.System:LOG("Zomboid state: SEEK (1), cycle to jump")
+	end
+end
+
+local function Smash()
+
+	if IsTargetInRange() == true then
+		return 
+	end
+
+	if not start_smash then 
+		smash_timer = lua_table.System:GameTime() * 1000
+		start_smash = true
+	end
+
+	if smash_timer <= lua_table.System:GameTime() * 1000 and not smashing then
+		lua_table.System:LOG("Crush to target")
+		lua_table.Animations:PlayAnimation("Smash", 50.0, lua_table.MyUID)
+		smashing = true
+	end
+
+	ToggleCollider(Front_Att_Coll, 1100, 1200, smash_timer, is_front_active, Smash_DMG, attack_effects.none)
+
+	-- After its finished, switch state
+	if smash_timer + 1400 <= lua_table.System:GameTime() * 1000 then
+		lua_table.Animations:PlayAnimation("Walk", 50.0, lua_table.MyUID)
+		lua_table.currentState = State.SEEK
+		lua_table.System:LOG("Zomboid state: SEEK (1), cycle to jump")
+	end
+
+end
+
 
 local function Stun()
 	if start_stun then 
@@ -462,7 +494,7 @@ local function Stun()
 
 	if stun_timer + lua_table.stun_duration <= lua_table.System:GameTime() * 1000 then
 		lua_table.Particles:StopParticleEmitter(StunnedEmitter_UID)
-		lua_table.Animations:PlayAnimation("Walk", 40.0, lua_table.MyUID)
+		lua_table.Animations:PlayAnimation("Walk", 50.0, lua_table.MyUID)
 		lua_table.is_knockback = false
 
 		lua_table.currentState = State.SEEK	
@@ -494,9 +526,10 @@ local function Die()
 		lua_table.Particles:StopParticleEmitter(BloodEmitter_UID)
 		lua_table.Particles:StopParticleEmitter(StunnedEmitter_UID)
 		--lua_table.Particles:StopParticleEmitter(Taunted_Emitter)
-		--lua_table.Particles:StopParticleEmitter(Attack_Emitter)
-		lua_table.Particles:StopParticleEmitter(DustEmitter_UID)
 		death_timer = lua_table.System:GameTime() * 1000
+
+		-- This ensures hit particle plays when Players deal the last hit
+		lua_table.Particles:PlayParticleEmitter(BloodEmitter_UID)
 		lua_table.System:LOG("Im dying")  
 		lua_table.Animations:PlayAnimation("Death", 30.0, lua_table.MyUID)
 		start_death = true
@@ -673,7 +706,7 @@ function lua_table:Awake()
 	StunnedEmitter_UID = lua_table.GameObject:FindChildGameObject("ZomboidStun_Emitter")
 	--TauntedEmitter_UID = lua_table.GameObject:FindChildGameObject("Taunted_Emitter")
 	--HitsEmitter_UID = lua_table.GameObject:FindChildGameObject("Attack_Emitter")
-	DustEmitter_UID = lua_table.GameObject:FindChildGameObject("ZomboidDust_Emitter")
+	--DustEmitter_UID = lua_table.GameObject:FindChildGameObject("ZomboidDust_Emitter")
 
 	-- StopEmitters
 	lua_table.Particles:StopParticleEmitter(JumpStunEmitter_UID)
@@ -681,7 +714,7 @@ function lua_table:Awake()
 	lua_table.Particles:StopParticleEmitter(StunnedEmitter_UID)
 	--lua_table.Particles:StopParticleEmitter(Taunted_Emitter)
 	--lua_table.Particles:StopParticleEmitter(Attack_Emitter)
-	lua_table.Particles:StopParticleEmitter(DustEmitter_UID)
+	--lua_table.Particles:StopParticleEmitter(DustEmitter_UID)
 
 end
 
@@ -740,8 +773,12 @@ function lua_table:Update()
 		Seek()
 	elseif lua_table.currentState == State.JUMP then    	
 		JumpStun()
-	elseif lua_table.currentState == State.COMBO then    	
-		Combo()
+	elseif lua_table.currentState == State.PUNCH then    	
+		Punch()
+	elseif lua_table.currentState == State.SWIPE then    	
+		Swipe()
+	elseif lua_table.currentState == State.SMASH then    	
+		Smash()
 	elseif lua_table.currentState == State.KNOCKBACK then   
 		KnockBack()
 	elseif lua_table.currentState == State.STUNNED then   
@@ -757,8 +794,14 @@ function lua_table:Update()
 	if lua_table.currentState ~= State.JUMP then 
 		ResetJumpStun()
 	end
-	if lua_table.currentState ~= State.COMBO then
-		ResetCombo()
+	if lua_table.currentState ~= State.PUNCH then
+		ResetPunch()
+	end
+	if lua_table.currentState ~= State.SWIPE then
+		ResetSwipe()
+	end
+	if lua_table.currentState ~= State.SMASH then
+		ResetSmash()
 	end
 	if lua_table.currentState ~= State.KNOCKBACK then
 		ResetKnockBack()
