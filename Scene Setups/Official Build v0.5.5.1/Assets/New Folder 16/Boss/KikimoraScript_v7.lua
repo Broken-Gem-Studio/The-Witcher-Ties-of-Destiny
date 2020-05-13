@@ -31,8 +31,9 @@ lua_table.attack_pattern_cooldown_phase_1 = 5
 lua_table.attack_pattern_cooldown_phase_2 = 4
 lua_table.attack_pattern_cooldown_phase_3 = 3
 
-lua_table.speed_modificator_phase_2 = 1.25
-lua_table.speed_modificator_phase_3 = 1.5
+lua_table.speed_modificator_base = 1.3      -- This affect all anims speed
+lua_table.speed_modificator_phase_2 = 1.25  -- This affect only attack speeds (adds up with base)
+lua_table.speed_modificator_phase_3 = 1.5   -- This affect only attack speeds (adds up with base)
 
 local damage_received_real = -1
 lua_table.damage_received_mod = 1.0
@@ -1935,6 +1936,50 @@ function lua_table:Awake ()
 			lua_table.SystemFunctions:LOG ("Kikimora: Null Player 1 id")
 		end
     end
+
+    ---------------------------------------------------------------------------
+	-- Animations Init
+    ---------------------------------------------------------------------------
+
+    -- Animation Speeds
+    animation.awakening.anim_speed = animation.awakening.anim_speed * lua_table.speed_modificator_base
+
+    animation.swap_phase.anim_speed = animation.swap_phase.anim_speed * lua_table.speed_modificator_base
+    
+    animation.idle.anim_speed = animation.idle.anim_speed * lua_table.speed_modificator_base
+    
+    animation.death.anim_speed = animation.death.anim_speed * lua_table.speed_modificator_base
+
+    animation.leash.anim_speed = animation.leash.anim_speed * lua_table.speed_modificator_base
+
+    animation.leash_left_anticipation.anim_speed = animation.leash_left_anticipation.anim_speed * lua_table.speed_modificator_base
+    animation.leash_left_execution.anim_speed = animation.leash_left_execution.anim_speed * lua_table.speed_modificator_base
+    animation.leash_left_recovery.anim_speed = animation.leash_left_recovery.anim_speed * lua_table.speed_modificator_base
+    
+    animation.leash_right_anticipation.anim_speed = animation.leash_right_anticipation.anim_speed * lua_table.speed_modificator_base 
+    animation.leash_right_execution.anim_speed = animation.leash_right_execution.anim_speed * lua_table.speed_modificator_base
+    animation.leash_right_recovery.anim_speed = animation.leash_right_recovery.anim_speed * lua_table.speed_modificator_base
+    
+    animation.sweep_anticipation.anim_speed = animation.sweep_anticipation.anim_speed * lua_table.speed_modificator_base
+    animation.sweep_execution.anim_speed = animation.sweep_execution.anim_speed * lua_table.speed_modificator_base
+    animation.sweep_recovery.anim_speed = animation.sweep_recovery.anim_speed * lua_table.speed_modificator_base
+    
+    animation.sweep_left_anticipation.anim_speed = animation.sweep_left_anticipation.anim_speed * lua_table.speed_modificator_base 
+    animation.sweep_left_execution.anim_speed = animation.sweep_left_execution.anim_speed * lua_table.speed_modificator_base 
+    animation.sweep_left_recovery.anim_speed = animation.sweep_left_recovery.anim_speed * lua_table.speed_modificator_base 
+    
+    animation.sweep_right_anticipation.anim_speed = animation.sweep_right_anticipation.anim_speed * lua_table.speed_modificator_base 
+    animation.sweep_right_execution.anim_speed = animation.sweep_right_execution.anim_speed * lua_table.speed_modificator_base 
+    animation.sweep_right_recovery.anim_speed = animation.sweep_right_recovery.anim_speed * lua_table.speed_modificator_base 
+    
+    animation.stomp_anticipation.anim_speed = animation.stomp_anticipation.anim_speed * lua_table.speed_modificator_base 
+    animation.stomp_execution.anim_speed = animation.stomp_execution.anim_speed * lua_table.speed_modificator_base 
+    animation.stomp_recovery.anim_speed = animation.stomp_recovery.anim_speed * lua_table.speed_modificator_base 
+    
+    animation.roar_anticipation.anim_speed = animation.roar_anticipation.anim_speed * lua_table.speed_modificator_base 
+    animation.roar_execution.anim_speed = animation.roar_execution.anim_speed * lua_table.speed_modificator_base 
+    animation.roar_recovery.anim_speed = animation.roar_recovery.anim_speed * lua_table.speed_modificator_base 
+
 
     ---------------------------------------------------------------------------
 	-- Attacks Init
