@@ -731,8 +731,8 @@ local function CalculateStats()
 	walk_velocity = run_velocity * walk_mod
 	mov_velocity_stat = run_velocity * 0.1
 
-	if lua_table.current_state == state.walk then lua_table.current_state = walk_velocity
-	elseif lua_table.current_state == state.run then lua_table.current_state = run_velocity end
+	if lua_table.current_state == state.walk then lua_table.current_velocity = walk_velocity
+	elseif lua_table.current_state == state.run then lua_table.current_velocity = run_velocity end
 
 	--Energy
 	lua_table.max_energy_real = lua_table.max_energy_orig * lua_table.max_energy_mod
@@ -1361,6 +1361,7 @@ local function ActionInputs()	--Process Action Inputs
 
 			SaveDirection()
 
+			-- Do Evade
 			local position = lua_table.TransformFunctions:GetPosition(geralt_GO_UID)	--Rotate to direction
 			lua_table.TransformFunctions:LookAt(position[1] + rec_direction.x, position[2], position[3] + rec_direction.z, geralt_GO_UID)
 

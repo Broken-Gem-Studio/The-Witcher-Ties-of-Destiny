@@ -738,8 +738,8 @@ local function CalculateStats()
 	walk_velocity = run_velocity * walk_mod
 	mov_velocity_stat = run_velocity * 0.1
 
-	if lua_table.current_state == state.walk then lua_table.current_state = walk_velocity
-	elseif lua_table.current_state == state.run then lua_table.current_state = run_velocity end
+	if lua_table.current_state == state.walk then lua_table.current_velocity = walk_velocity
+	elseif lua_table.current_state == state.run then lua_table.current_velocity = run_velocity end
 
 	--Energy
 	lua_table.max_energy_real = lua_table.max_energy_orig * lua_table.max_energy_mod
@@ -1605,10 +1605,10 @@ local function ActionInputs()	--Process Action Inputs
 		if lua_table.current_state >= state.light_1 and lua_table.current_state <= state.heavy_3 or lua_table.current_state == state.song_1	--IF attack or song_1
 		then
 			lua_table.AnimationFunctions:SetBlendTime(0.1, particles_library.slash_GO_UID)
-			--lua_table.GameObjectFunctions:SetActiveGameObject(true, particles_library.slash_mesh_GO_UID)
+			lua_table.GameObjectFunctions:SetActiveGameObject(true, particles_library.slash_mesh_GO_UID)
 		else
 			lua_table.GameObjectFunctions:SetActiveGameObject(false, particles_library.slash_mesh_GO_UID)
-			lua_table.ParticlesFunctions:StopParticleEmitter_GO(guitar_GO_UID)	--TODO-Particles: Deactivate Particles on Guitar
+			--lua_table.ParticlesFunctions:StopParticleEmitter_GO(guitar_GO_UID)	--TODO-Particles: Deactivate Particles on Guitar
 		end
 
 		if lua_table.previous_state == state.walk or lua_table.previous_state == state.run
