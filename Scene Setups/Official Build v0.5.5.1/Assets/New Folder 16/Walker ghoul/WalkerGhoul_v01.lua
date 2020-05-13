@@ -17,16 +17,16 @@ lua_table.NavigationFunctions = Scripting.Navigation()
 
 -- Lua table variabes
 lua_table.ghoul_UUID = 0
-lua_table.movementSpeed = 10
+lua_table.movementSpeed = 15
 lua_table.collider_damage = 0
-lua_table.collider_effect = 2
-lua_table.evadeSpeed = 15
+lua_table.collider_effect = 0
+lua_table.evadeSpeed = 20
 lua_table.knockbackSpeed = 200
 lua_table.maxHealth = 100
 lua_table.health = 0
 lua_table.maxEvades = 2
 lua_table.seekDistance = 40
-lua_table.attackDistance = 10
+lua_table.screamDistance = 8
 lua_table.evadeDistance = 5
 lua_table.pathThreshold = 0.1
 lua_table.dead = false
@@ -42,7 +42,8 @@ local State = {
     EVADE = 5,
     DEATH = 6,    
     ALERT = 7,     
-    KNOCKBACK = 8
+    KNOCKBACK = 8,
+    PUNCHING = 9
 }
 
 local Layer = {
@@ -61,30 +62,41 @@ local Effect = {
     VENOM = 4
 }
 
+local currentState = State.IDLE
 local MyUUID = 0
 local dt = 0
 local evades = 0
 local maxDistanceToCamera = 80
-local currentState = State.IDLE
 local currentTarget_UUID = 0
 local cornerCounter = 1
 local first_time = true
 local canStartScreaming = true
+local canStartPunch = true
+local canStartEvanding = true
 
 -- Timers and cooldowns
 local lastTimeEvaded = 0
-local evadingTime = 0.75
+local evadingTime = 0.7
+local preparingEvadeTime = 0.25
 local evadeCooldown = 3
 local evadeResetTimer = 10
+
+local lastTimeArrived = 0
+local waitingForNextPursue = 0.2
 
 local lastTimeSummoned = 0
 local summoningTime = 2
 local summonCooldown = 25
 
 local lastTimeScreamed = 0
-local preparingTime = 1
+local preparingScreamTime = 1
 local screamingTime = 1
 local screamingCooldown = 10
+
+local lastTimePunch = 0
+local anticipationTime = 0.75
+local punchTime = 0.4
+local punchCooldown = 2
 
 local lastTimeStunned = 0
 local stunTime = 2.5
@@ -214,6 +226,7 @@ local function Idle()
         elseif lua_table.ClosestDistance <= lua_table.evadeDistance and lua_table.SystemFunctions:GameTime() > lastTimeEvaded + evadeCooldown and evades > 0
         then 
             currentState = State.EVADE
+            lua_table.EvadePosition = lua_table.ClosestPosition
             lastTimeEvaded = lua_table.SystemFunctions:GameTime()
             evades = evades - 1
             lua_table.ParticleFunctions:PlayParticleEmitter(lua_table.FeetEmitter_UUID)
@@ -221,7 +234,7 @@ local function Idle()
             --lua_table.AudioFunctions:PlayAudioEvent()
             lua_table.SystemFunctions:LOG("Ghoul state is EVADE")
 
-        elseif lua_table.ClosestDistance <= lua_table.attackDistance
+        elseif lua_table.ClosestDistance <= lua_table.screamDistance
         then
             if lua_table.SystemFunctions:GameTime() > lastTimeSummoned + summonCooldown
             then  
@@ -234,10 +247,22 @@ local function Idle()
             elseif lua_table.SystemFunctions:GameTime() > lastTimeScreamed + screamingCooldown
             then
                 currentState = State.SCREAMING
-                lastTimeScreamed = lua_table.SystemFunctions:GameTime()       
+                lastTimeScreamed = lua_table.SystemFunctions:GameTime()                       
+                lua_table.collider_damage = 0
+                lua_table.collider_effect = 2
                 lua_table.AnimationFunctions:PlayAnimation("Roar", 40, MyUUID)   
                 lua_table.AudioFunctions:PlayAudioEvent("Play_Ghoul_Scream_1")       
                 lua_table.SystemFunctions:LOG("Ghoul state is SCREAMING")
+            
+            elseif lua_table.SystemFunctions:GameTime() > lastTimePunch + punchCooldown and lua_table.ClosestDistance < 4
+            then
+                currentState = State.PUNCHING
+                lastTimePunch = lua_table.SystemFunctions:GameTime()                   
+                lua_table.collider_damage = 30
+                lua_table.collider_effect = 0
+                lua_table.AnimationFunctions:PlayAnimation("Punch", 50, MyUUID)   
+                --lua_table.AudioFunctions:PlayAudioEvent()       
+                lua_table.SystemFunctions:LOG("Ghoul state is PUNCHING")
             end
 
         elseif lua_table.ClosestDistance <= lua_table.seekDistance
@@ -250,7 +275,8 @@ local function Idle()
                 lastTimeAlert = lua_table.SystemFunctions:GameTime()
                 first_time = false
 
-            else
+            elseif lua_table.SystemFunctions:GameTime() > lastTimeArrived + waitingForNextPursue
+            then
                 currentState = State.SEEK           
                 lua_table.ParticleFunctions:PlayParticleEmitter(lua_table.FeetEmitter_UUID)      
                 lua_table.PathCorners = lua_table.NavigationFunctions:CalculatePath(lua_table.MyPosition[1], lua_table.MyPosition[2], lua_table.MyPosition[3], lua_table.ClosestPosition[1], lua_table.ClosestPosition[2], lua_table.ClosestPosition[3], 1 << lua_table.WalkableID)
@@ -264,7 +290,7 @@ local function Idle()
 end
 
 local function Seek()
-    if lua_table.ClosestDistance >= lua_table.attackDistance and lua_table.ClosestDistance <= lua_table.seekDistance and cornerCounter <= #lua_table.PathCorners
+    if (lua_table.ClosestDistance >= lua_table.screamDistance and lua_table.ClosestDistance <= lua_table.seekDistance and cornerCounter <= #lua_table.PathCorners) or lua_table.taunted == true
     then               
         -- Calculate distance to the next corner
         local vectorToCorner = {0, 0, 0}
@@ -285,6 +311,7 @@ local function Seek()
         end
     else     
         lua_table.PhysicsFunctions:Move(0, 0, MyUUID)
+        lastTimeArrived = lua_table.SystemFunctions:GameTime()
         cornerCounter = 1
         lua_table.ParticleFunctions:StopParticleEmitter(lua_table.FeetEmitter_UUID)
         currentState = State.IDLE
@@ -293,11 +320,15 @@ local function Seek()
 end
 
 local function Evade()  
-    lua_table.TransformFunctions:LookAt(lua_table.ClosestPosition[1], lua_table.MyPosition[2], lua_table.ClosestPosition[3], MyUUID)
+    local vector = {0, 0, 0}
+    vector[1] = lua_table.EvadePosition[1] - lua_table.MyPosition[1]
+    vector[2] = lua_table.EvadePosition[2] - lua_table.MyPosition[2]
+    vector[3] = lua_table.EvadePosition[3] - lua_table.MyPosition[3]
+    lua_table.TransformFunctions:LookAt(lua_table.EvadePosition[1], lua_table.MyPosition[2], lua_table.EvadePosition[3], MyUUID)
 
     if lua_table.SystemFunctions:GameTime() < lastTimeEvaded + evadingTime
     then
-        local velocity = NormalizeVector(lua_table.VectorToClosest)
+        local velocity = NormalizeVector(vector)
         lua_table.PhysicsFunctions:Move(-velocity[1] * lua_table.evadeSpeed * dt, -velocity[3] * lua_table.evadeSpeed * dt, MyUUID)    
     else
         currentState = State.IDLE
@@ -318,7 +349,8 @@ local function Summon()
 end
 
 local function Scream() 
-    if lua_table.SystemFunctions:GameTime() < lastTimeScreamed + preparingTime
+    -- Aims for the closest player
+    if lua_table.SystemFunctions:GameTime() < lastTimeScreamed + preparingScreamTime
     then    
         local vector = {0, 0, 0}
         vector[1] = lua_table.ClosestPosition[1] - lua_table.MyPosition[1]
@@ -328,21 +360,41 @@ local function Scream()
         lua_table.ScreamingVelocity = NormalizeVector(vector)
         lua_table.TransformFunctions:LookAt(lua_table.ClosestPosition[1], lua_table.MyPosition[2], lua_table.ClosestPosition[3], MyUUID)
     
+    -- Locks position and screams
     elseif canStartScreaming == true
     then    
         lua_table.ParticleFunctions:PlayParticleEmitter(lua_table.ScreamEmitter_UUID)    
-        lua_table.ParticleFunctions:SetParticlesVelocity(lua_table.ScreamingVelocity[1] * 40, 0, lua_table.ScreamingVelocity[3] * 40, lua_table.ScreamEmitter_UUID)   
-        local rotation = lua_table.TransformFunctions:GetRotation(MyUUID)
-        
+        lua_table.ParticleFunctions:SetParticlesVelocity(lua_table.ScreamingVelocity[1] * 40, 0, lua_table.ScreamingVelocity[3] * 40, lua_table.ScreamEmitter_UUID)           
         lua_table.ObjectFunctions:SetActiveGameObject(true, lua_table.ScreamCollider_UUID)  
         canStartScreaming = false
 
-    elseif lua_table.SystemFunctions:GameTime() > lastTimeScreamed + preparingTime + screamingTime
+    elseif lua_table.SystemFunctions:GameTime() > lastTimeScreamed + preparingScreamTime + screamingTime
     then
         lua_table.ObjectFunctions:SetActiveGameObject(false, lua_table.ScreamCollider_UUID)  
         lua_table.ParticleFunctions:StopParticleEmitter(lua_table.ScreamEmitter_UUID)   
         currentState = State.IDLE
         canStartScreaming = true
+        lua_table.AnimationFunctions:PlayAnimation("Idle", 30, MyUUID) 
+    end
+end
+
+local function Punch()
+    -- Aims for the player near to him
+    if lua_table.SystemFunctions:GameTime() < lastTimePunch + anticipationTime
+    then
+        lua_table.TransformFunctions:LookAt(lua_table.ClosestPosition[1], lua_table.MyPosition[2], lua_table.ClosestPosition[3], MyUUID)
+    
+    -- Locks position and punches
+    elseif canStartPunch == true
+    then
+        lua_table.ObjectFunctions:SetActiveGameObject(true, lua_table.PunchCollider_UUID)
+        canStartPunch = false
+
+    elseif lua_table.SystemFunctions:GameTime() > lastTimePunch + anticipationTime + punchTime
+    then
+        lua_table.ObjectFunctions:SetActiveGameObject(false, lua_table.PunchCollider_UUID)  
+        currentState = State.IDLE
+        canStartPunch = true
         lua_table.AnimationFunctions:PlayAnimation("Idle", 30, MyUUID) 
     end
 end
@@ -499,6 +551,7 @@ function lua_table:Awake()
    lua_table.TauntEmitter_UUID = lua_table.ObjectFunctions:FindChildGameObject("TauntEmitter")
    lua_table.StunEmitter_UUID = lua_table.ObjectFunctions:FindChildGameObject("StunEmitter")
    lua_table.ScreamCollider_UUID = lua_table.ObjectFunctions:FindChildGameObject("ScreamCollider")
+   lua_table.PunchCollider_UUID = lua_table.ObjectFunctions:FindChildGameObject("PunchCollider")
    MyUUID = lua_table.ObjectFunctions:GetMyUID()
 
    -- Get navigation areas
@@ -511,7 +564,8 @@ function lua_table:Start()
     lua_table.health = lua_table.maxHealth
     evades = lua_table.maxEvades
     lua_table.AnimationFunctions:PlayAnimation("Idle", 30, MyUUID)
-    lua_table.ObjectFunctions:SetActiveGameObject(false, lua_table.ScreamCollider_UUID)      
+    lua_table.ObjectFunctions:SetActiveGameObject(false, lua_table.ScreamCollider_UUID)     
+    lua_table.ObjectFunctions:SetActiveGameObject(false, lua_table.PunchCollider_UUID)    
 
    lua_table.ParticleFunctions:ActivateParticlesEmission(lua_table.ScreamEmitter_UUID)
    lua_table.ParticleFunctions:ActivateParticlesEmission(lua_table.FeetEmitter_UUID)
@@ -561,6 +615,9 @@ function lua_table:Update()
         elseif currentState == State.SCREAMING
         then    	
             Scream()
+        elseif currentState == State.PUNCHING
+        then    	
+            Punch()
 	    elseif currentState == State.KNOCKBACK
 	    then	
 	    	Knockback()
