@@ -92,7 +92,7 @@
                 "HorizontalBill": "0",
                 "Loop": true,
                 "Resources": {
-                    "ResourceTexture": "Library/Textures/1019543525.dds"
+                    "ResourceTexture": "Library/Textures/1790407294.dds"
                 },
                 "UID": 1661991544,
                 "VerticalBill": "0",
@@ -455,8 +455,8 @@
                 "rotationy": "0.000040",
                 "rotationz": "-0.000037",
                 "scalex": "1.000000",
-                "scaley": "1.000080",
-                "scalez": "1.000080"
+                "scaley": "1.000141",
+                "scalez": "1.000141"
             },
             "13": {
                 "Active": true,
@@ -750,8 +750,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.070461",
-                "scaley": "15.154448",
-                "scalez": "1.367730"
+                "scaley": "15.154971",
+                "scalez": "1.367791"
             },
             "1": {
                 "Active": true,
@@ -831,8 +831,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000080",
-                "scalez": "1.000080"
+                "scaley": "1.000141",
+                "scalez": "1.000141"
             }
         },
         "Index": 0,
@@ -866,7 +866,7 @@
                 "colliderType": "1",
                 "draggedUID": "0",
                 "draw": "1",
-                "firstCreation": "0",
+                "firstCreation": "1",
                 "globalMatrixw": "1.000000",
                 "globalMatrixx": "0.000000",
                 "globalMatrixy": "0.000000",
@@ -874,12 +874,12 @@
                 "globalPositionx": "1.000000",
                 "globalPositiony": "1.000000",
                 "globalPositionz": "1.000000",
-                "hasBeenDeactivated": "0",
+                "hasBeenDeactivated": "1",
                 "height": "1.000000",
                 "index": 1,
                 "isConvex": "0",
                 "isTrigger": "1",
-                "lastIndex": "0",
+                "lastIndex": "1",
                 "localMatrixw": "1.000000",
                 "localMatrixx": "0.000000",
                 "localMatrixy": "0.000000",
@@ -1039,8 +1039,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000080",
-                "scalez": "1.000080"
+                "scaley": "1.000141",
+                "scalez": "1.000141"
             }
         },
         "Index": 0,
@@ -1352,8 +1352,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000080",
-                "scalez": "1.000080"
+                "scaley": "1.000141",
+                "scalez": "1.000141"
             }
         },
         "Index": 0,
@@ -2368,8 +2368,8 @@
                 "rotationx": "0.388476",
                 "rotationy": "0.030072",
                 "rotationz": "0.916844",
-                "scalex": "1.000156",
-                "scaley": "1.000156",
+                "scalex": "1.000278",
+                "scaley": "1.000278",
                 "scalez": "1.000000"
             },
             "13": {
@@ -2432,7 +2432,7 @@
                 "positionx": "0.000000",
                 "positiony": "34.904800",
                 "positionz": "0.000000",
-                "rotationw": "0.882767",
+                "rotationw": "0.882768",
                 "rotationx": "0.468685",
                 "rotationy": "-0.003518",
                 "rotationz": "0.032303",
@@ -2852,8 +2852,8 @@
                 "rotationy": "0.000028",
                 "rotationz": "-0.000027",
                 "scalex": "2.540000",
-                "scaley": "2.540099",
-                "scalez": "2.540099"
+                "scaley": "2.540175",
+                "scalez": "2.540175"
             },
             "13": {
                 "Active": true,
@@ -3372,8 +3372,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.540000",
-                "scaley": "2.540095",
-                "scalez": "2.540095"
+                "scaley": "2.540171",
+                "scalez": "2.540171"
             },
             "1": {
                 "Active": true,
@@ -3855,7 +3855,7 @@
                 "positionx": "-1.165900",
                 "positiony": "9.181004",
                 "positionz": "-0.111496",
-                "rotationw": "0.997933",
+                "rotationw": "0.997934",
                 "rotationx": "-0.006888",
                 "rotationy": "0.011560",
                 "rotationz": "-0.062831",
@@ -4040,10 +4040,10 @@
                     },
                     "Variable 10": {
                         "DisplayObjectName": false,
-                        "Name": "animation_ended_blend_time",
+                        "Name": "base_damage_mod",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 200.0
+                        "Value": 1.0
                     },
                     "Variable 100": {
                         "DisplayObjectName": false,
@@ -4117,10 +4117,10 @@
                     },
                     "Variable 11": {
                         "DisplayObjectName": false,
-                        "Name": "base_damage_mod",
+                        "Name": "base_damage_orig",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 1.0
+                        "Value": 30.0
                     },
                     "Variable 110": {
                         "DisplayObjectName": false,
@@ -4141,7 +4141,7 @@
                         "Name": "light_1_block_time",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 0.0
+                        "Value": 300.0
                     },
                     "Variable 113": {
                         "DisplayObjectName": false,
@@ -4183,7 +4183,7 @@
                         "Name": "light_2_block_time",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 0.0
+                        "Value": 300.0
                     },
                     "Variable 119": {
                         "DisplayObjectName": false,
@@ -4194,10 +4194,10 @@
                     },
                     "Variable 12": {
                         "DisplayObjectName": false,
-                        "Name": "base_damage_orig",
+                        "Name": "being_revived",
                         "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 30.0
+                        "Type": "Boolean",
+                        "Value": false
                     },
                     "Variable 120": {
                         "DisplayObjectName": false,
@@ -4225,7 +4225,7 @@
                         "Name": "light_3_block_time",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 0.0
+                        "Value": 300.0
                     },
                     "Variable 124": {
                         "DisplayObjectName": false,
@@ -4271,10 +4271,10 @@
                     },
                     "Variable 13": {
                         "DisplayObjectName": false,
-                        "Name": "being_revived",
+                        "Name": "blend_time_duration",
                         "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
+                        "Type": "Double",
+                        "Value": 200.0
                     },
                     "Variable 130": {
                         "DisplayObjectName": false,
@@ -4330,7 +4330,7 @@
                         "Name": "medium_1_block_time",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 0.0
+                        "Value": 400.0
                     },
                     "Variable 138": {
                         "DisplayObjectName": false,
@@ -4372,7 +4372,7 @@
                         "Name": "medium_2_block_time",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 0.0
+                        "Value": 200.0
                     },
                     "Variable 143": {
                         "DisplayObjectName": false,
@@ -4407,7 +4407,7 @@
                         "Name": "medium_3_block_time",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 0.0
+                        "Value": 600.0
                     },
                     "Variable 148": {
                         "DisplayObjectName": false,
@@ -4551,17 +4551,17 @@
                     },
                     "Variable 166": {
                         "DisplayObjectName": false,
+                        "Name": "stand_up_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 150.0
+                    },
+                    "Variable 167": {
+                        "DisplayObjectName": false,
                         "Name": "standing_up_bool",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": false
-                    },
-                    "Variable 167": {
-                        "DisplayObjectName": false,
-                        "Name": "standing_up_time",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 1500.0
                     },
                     "Variable 168": {
                         "DisplayObjectName": false,
@@ -5065,7 +5065,7 @@
                         "Name": "heavy_1_block_time",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 0.0
+                        "Value": 700.0
                     },
                     "Variable 72": {
                         "DisplayObjectName": false,
@@ -5121,7 +5121,7 @@
                         "Name": "heavy_2_block_time",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 0.0
+                        "Value": 300.0
                     },
                     "Variable 8": {
                         "DisplayObjectName": false,
@@ -5163,7 +5163,7 @@
                         "Name": "heavy_3_block_time",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 0.0
+                        "Value": 600.0
                     },
                     "Variable 85": {
                         "DisplayObjectName": false,
@@ -5627,8 +5627,8 @@
                 "rotationy": "-0.000000",
                 "rotationz": "-0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000080",
-                "scalez": "1.000080"
+                "scaley": "1.000141",
+                "scalez": "1.000141"
             }
         },
         "Index": 0,
@@ -5705,8 +5705,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000080",
-                "scalez": "1.000080"
+                "scaley": "1.000141",
+                "scalez": "1.000141"
             }
         },
         "Index": 0,
@@ -5731,8 +5731,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000080",
-                "scalez": "1.000080"
+                "scaley": "1.000141",
+                "scalez": "1.000141"
             }
         },
         "Index": 0,
@@ -6438,8 +6438,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000080",
-                "scalez": "1.000080"
+                "scaley": "1.000141",
+                "scalez": "1.000141"
             }
         },
         "Index": 0,
@@ -6540,8 +6540,8 @@
                 "rotationx": "0.388476",
                 "rotationy": "0.030072",
                 "rotationz": "0.916844",
-                "scalex": "1.000154",
-                "scaley": "1.000154",
+                "scalex": "1.000276",
+                "scaley": "1.000276",
                 "scalez": "1.000000"
             },
             "13": {
@@ -6908,8 +6908,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000080",
-                "scalez": "1.000080"
+                "scaley": "1.000141",
+                "scalez": "1.000141"
             }
         },
         "Index": 0,
@@ -7739,8 +7739,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.540000",
-                "scaley": "2.540097",
-                "scalez": "2.540097"
+                "scaley": "2.540172",
+                "scalez": "2.540172"
             },
             "1": {
                 "Active": true,
@@ -8065,8 +8065,8 @@
                 "rotationx": "-0.000169",
                 "rotationy": "-0.004364",
                 "rotationz": "0.999931",
-                "scalex": "1.000160",
-                "scaley": "1.000158",
+                "scalex": "1.000282",
+                "scaley": "1.000280",
                 "scalez": "1.000000"
             },
             "13": {
@@ -8167,8 +8167,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000080",
-                "scalez": "1.000080"
+                "scaley": "1.000141",
+                "scalez": "1.000141"
             }
         },
         "Index": 0,
@@ -8701,7 +8701,7 @@
                 "HorizontalBill": "0",
                 "Loop": false,
                 "Resources": {
-                    "ResourceTexture": "Library/Textures/1351052455.dds"
+                    "ResourceTexture": "Library/Textures/1596105615.dds"
                 },
                 "UID": 895784313,
                 "VerticalBill": "0",
@@ -9038,7 +9038,7 @@
                         "Name": "medium_3_block_time",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 0.0
+                        "Value": 300.0
                     },
                     "Variable 104": {
                         "DisplayObjectName": false,
@@ -9553,17 +9553,17 @@
                     },
                     "Variable 170": {
                         "DisplayObjectName": false,
+                        "Name": "stand_up_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 90.0
+                    },
+                    "Variable 171": {
+                        "DisplayObjectName": false,
                         "Name": "standing_up_bool",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": false
-                    },
-                    "Variable 171": {
-                        "DisplayObjectName": false,
-                        "Name": "standing_up_time",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 1500.0
                     },
                     "Variable 172": {
                         "DisplayObjectName": false,
@@ -9700,10 +9700,10 @@
                     },
                     "Variable 2": {
                         "DisplayObjectName": false,
-                        "Name": "animation_ended_blend_time",
+                        "Name": "base_damage_mod",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 200.0
+                        "Value": 1.0
                     },
                     "Variable 20": {
                         "DisplayObjectName": false,
@@ -9777,17 +9777,17 @@
                     },
                     "Variable 3": {
                         "DisplayObjectName": false,
-                        "Name": "base_damage_mod",
+                        "Name": "base_damage_orig",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 1.0
+                        "Value": 30.0
                     },
                     "Variable 30": {
                         "DisplayObjectName": false,
                         "Name": "heavy_1_block_time",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 0.0
+                        "Value": 700.0
                     },
                     "Variable 31": {
                         "DisplayObjectName": false,
@@ -9822,7 +9822,7 @@
                         "Name": "heavy_2_block_time",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 0.0
+                        "Value": 400.0
                     },
                     "Variable 36": {
                         "DisplayObjectName": false,
@@ -9854,17 +9854,17 @@
                     },
                     "Variable 4": {
                         "DisplayObjectName": false,
-                        "Name": "base_damage_orig",
+                        "Name": "being_revived",
                         "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 30.0
+                        "Type": "Boolean",
+                        "Value": false
                     },
                     "Variable 40": {
                         "DisplayObjectName": false,
                         "Name": "heavy_3_block_time",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 0.0
+                        "Value": 600.0
                     },
                     "Variable 41": {
                         "DisplayObjectName": false,
@@ -9931,10 +9931,10 @@
                     },
                     "Variable 5": {
                         "DisplayObjectName": false,
-                        "Name": "being_revived",
+                        "Name": "blend_time_duration",
                         "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
+                        "Type": "Double",
+                        "Value": 200.0
                     },
                     "Variable 50": {
                         "DisplayObjectName": false,
@@ -10074,7 +10074,7 @@
                         "Name": "light_1_block_time",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 0.0
+                        "Value": 300.0
                     },
                     "Variable 69": {
                         "DisplayObjectName": false,
@@ -10116,7 +10116,7 @@
                         "Name": "light_2_block_time",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 0.0
+                        "Value": 200.0
                     },
                     "Variable 74": {
                         "DisplayObjectName": false,
@@ -10151,7 +10151,7 @@
                         "Name": "light_3_block_time",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 0.0
+                        "Value": 300.0
                     },
                     "Variable 79": {
                         "DisplayObjectName": false,
@@ -10270,7 +10270,7 @@
                         "Name": "medium_1_block_time",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 0.0
+                        "Value": 300.0
                     },
                     "Variable 94": {
                         "DisplayObjectName": false,
@@ -10305,7 +10305,7 @@
                         "Name": "medium_2_block_time",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 0.0
+                        "Value": 300.0
                     },
                     "Variable 99": {
                         "DisplayObjectName": false,
@@ -10509,9 +10509,9 @@
                 "rotationx": "0.536806",
                 "rotationy": "-0.449375",
                 "rotationz": "0.566528",
-                "scalex": "0.999920",
-                "scaley": "0.999920",
-                "scalez": "0.999920"
+                "scalex": "0.999859",
+                "scaley": "0.999859",
+                "scalez": "0.999859"
             },
             "13": {
                 "Active": true,
@@ -10715,8 +10715,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000080",
-                "scalez": "1.000080"
+                "scaley": "1.000141",
+                "scalez": "1.000141"
             }
         },
         "Index": 0,
@@ -10741,8 +10741,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000080",
-                "scalez": "1.000080"
+                "scaley": "1.000141",
+                "scalez": "1.000141"
             }
         },
         "Index": 0,
@@ -11114,8 +11114,8 @@
                 "rotationx": "-0.000534",
                 "rotationy": "-0.000084",
                 "rotationz": "0.999921",
-                "scalex": "1.000160",
-                "scaley": "1.000160",
+                "scalex": "1.000282",
+                "scaley": "1.000282",
                 "scalez": "1.000000"
             },
             "13": {
@@ -11350,8 +11350,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000080",
-                "scalez": "1.000080"
+                "scaley": "1.000141",
+                "scalez": "1.000141"
             }
         },
         "Index": 0,
@@ -11642,7 +11642,7 @@
                 "HorizontalBill": "0",
                 "Loop": false,
                 "Resources": {
-                    "ResourceTexture": "Library/Textures/2107278550.dds"
+                    "ResourceTexture": "Library/Textures/991654796.dds"
                 },
                 "UID": 1094183005,
                 "VerticalBill": "0",
@@ -12006,11 +12006,11 @@
             },
             "3": {
                 "ACTIVECAM": true,
-                "ASPECTRATIO": 2.246309280395508,
+                "ASPECTRATIO": 2.248847723007202,
                 "Active": true,
                 "CULLINGCAM": true,
                 "FARPLANE": 1000.0,
-                "FOV": 44.708335876464844,
+                "FOV": 44.66283416748047,
                 "NEARPLANE": 0.10000000149011612,
                 "UID": 984355977,
                 "index": 1
@@ -12071,8 +12071,8 @@
                 "rotationx": "0.000598",
                 "rotationy": "0.002538",
                 "rotationz": "0.999918",
-                "scalex": "0.999920",
-                "scaley": "0.999920",
+                "scalex": "0.999859",
+                "scaley": "0.999859",
                 "scalez": "1.000000"
             },
             "13": {
@@ -12173,8 +12173,8 @@
                 "rotationx": "0.000205",
                 "rotationy": "-0.005509",
                 "rotationz": "0.999924",
-                "scalex": "1.000082",
-                "scaley": "1.000125",
+                "scalex": "1.000143",
+                "scaley": "1.000186",
                 "scalez": "1.000000"
             },
             "13": {
@@ -12207,9 +12207,9 @@
                 "rotationx": "-0.550319",
                 "rotationy": "-0.440850",
                 "rotationz": "0.555183",
-                "scalex": "1.000080",
-                "scaley": "1.000080",
-                "scalez": "1.000080"
+                "scalex": "1.000141",
+                "scaley": "1.000141",
+                "scalez": "1.000141"
             },
             "13": {
                 "Active": true,
@@ -12242,8 +12242,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000080",
-                "scalez": "1.000080"
+                "scaley": "1.000141",
+                "scalez": "1.000141"
             }
         },
         "Index": 0,

@@ -66,7 +66,8 @@ local animation_library = {
 }
 local current_animation = animation_library.none
 
-lua_table.animation_ended_blend_time = 200	--Animation is marked as ended during blend time, therefore this is needed to ensure that transitioning to a new animation doesn't mark it as ended
+local blending_started_at = 0
+lua_table.blend_time_duration = 200	--Animation is marked as ended during blend time, so we use this to ensure we don't care if animations are marked as "ended" inside blend time because for us they aren't
 
 --Particles
 local particles_library = {
@@ -384,19 +385,19 @@ lua_table.light_damage = 1.0					--Multiplier of Base Damage
 lua_table.light_movement_velocity = 3.0
 lua_table.light_1_movement_velocity = 1.5
 
-lua_table.light_1_block_time = 0			--Input block duration	(block new attacks)
+lua_table.light_1_block_time = 300			--Input block duration	(block new attacks)
 lua_table.light_1_collider_front_start = 375	--Collider activation time
 lua_table.light_1_collider_front_end = 450	--Collider deactivation time
 lua_table.light_1_duration = 750			--Attack end (return to idle)
 lua_table.light_1_animation_speed = 50.0	--Slow time: 320ms
 
-lua_table.light_2_block_time = 0			--Input block duration	(block new attacks)
+lua_table.light_2_block_time = 300			--Input block duration	(block new attacks)
 lua_table.light_2_collider_front_start = 300	--Collider activation time
 lua_table.light_2_collider_front_end = 375	--Collider deactivation time
 lua_table.light_2_duration = 750			--Attack end (return to idle)
 lua_table.light_2_animation_speed = 50.0	--Slow time: 320ms
 
-lua_table.light_3_block_time = 0			--Input block duration	(block new attacks)
+lua_table.light_3_block_time = 300			--Input block duration	(block new attacks)
 lua_table.light_3_collider_front_start = 340	--Collider activation time
 lua_table.light_3_collider_front_end = 440	--Collider deactivation time
 lua_table.light_3_duration = 850			--Attack end (return to idle)
@@ -407,19 +408,19 @@ lua_table.medium_damage = 1.5					--Multiplier of Base Damage
 lua_table.medium_movement_velocity = 1.0
 lua_table.medium_3_movement_velocity = 3.0
 
-lua_table.medium_1_block_time = 0			--Input block duration	(block new attacks)
+lua_table.medium_1_block_time = 400			--Input block duration	(block new attacks)
 lua_table.medium_1_collider_front_start = 550	--Collider activation time
 lua_table.medium_1_collider_front_end = 650	--Collider deactivation time
 lua_table.medium_1_duration = 1100			--Attack end (return to idle)
 lua_table.medium_1_animation_speed = 60.0	--Slow time: 370ms
 
-lua_table.medium_2_block_time = 0			--Input block duration	(block new attacks)
+lua_table.medium_2_block_time = 200			--Input block duration	(block new attacks)
 lua_table.medium_2_collider_front_start = 400	--Collider activation time
 lua_table.medium_2_collider_front_end = 500	--Collider deactivation time
 lua_table.medium_2_duration = 900			--Attack end (return to idle)
 lua_table.medium_2_animation_speed = 50.0	--Slow time: 370ms
 
-lua_table.medium_3_block_time = 0			--Input block duration	(block new attacks)
+lua_table.medium_3_block_time = 600			--Input block duration	(block new attacks)
 lua_table.medium_3_collider_front_start = 800	--Collider activation time
 lua_table.medium_3_collider_front_end = 900	--Collider deactivation time
 lua_table.medium_3_duration = 1300			--Attack end (return to idle)
@@ -432,19 +433,19 @@ lua_table.heavy_1_movement_velocity_start = 2.0
 
 lua_table.heavy_1_movement_start_1 = 200
 lua_table.heavy_1_movement_start_2 = 700
-lua_table.heavy_1_block_time = 0			--Input block duration	(block new attacks)
+lua_table.heavy_1_block_time = 700			--Input block duration	(block new attacks)
 lua_table.heavy_1_collider_front_start = 900	--Collider activation time
 lua_table.heavy_1_collider_front_end = 1000	--Collider deactivation time
 lua_table.heavy_1_duration = 1200			--Attack end (return to idle)
 lua_table.heavy_1_animation_speed = 40.0	--Slow time: 430ms
 
-lua_table.heavy_2_block_time = 0			--Input block duration	(block new attacks)
+lua_table.heavy_2_block_time = 300			--Input block duration	(block new attacks)
 lua_table.heavy_2_collider_front_start = 350	--Collider activation time
 lua_table.heavy_2_collider_front_end = 450	--Collider deactivation time
 lua_table.heavy_2_duration = 1000			--Attack end (return to idle)
 lua_table.heavy_2_animation_speed = 40.0	--Slow time: 430ms
 
-lua_table.heavy_3_block_time = 0			--Input block duration	(block new attacks)
+lua_table.heavy_3_block_time = 600			--Input block duration	(block new attacks)
 lua_table.heavy_3_collider_front_start = 700	--Collider activation time
 lua_table.heavy_3_collider_front_end = 800	--Collider deactivation time
 lua_table.heavy_3_duration = 1600			--Attack end (return to idle)
@@ -504,7 +505,7 @@ lua_table.ultimate_active = false
 
 --Stand Up	(Standing up from knockbacks or being downed)
 lua_table.standing_up_bool = false
-lua_table.standing_up_time = 1500
+lua_table.stand_up_animation_speed = 150.0
 
 --Revive/Death
 local revive_target				-- Target character script
@@ -703,6 +704,7 @@ local function GoDefaultState(change_blend_time)
 		lua_table.current_state = state.idle
 	end
 	
+	blending_started_at = game_time
 	lua_table.combo_num = 0
 	rightside = true
 
@@ -1114,8 +1116,8 @@ local function MovementInputs()	--Process Movement Inputs
 		current_animation = animation_library.idle
 
 		--TODO-AUDIO: Stop current sound event
-		lua_table.AudioFunctions:StopAudioEventGO(audio_library.walk, geralt_GO_UID)
-		lua_table.AudioFunctions:StopAudioEventGO(audio_library.run, geralt_GO_UID)
+		if lua_table.current_state == state.run then lua_table.AudioFunctions:StopAudioEventGO(audio_library.run, geralt_GO_UID)
+		else lua_table.AudioFunctions:StopAudioEventGO(audio_library.walk, geralt_GO_UID) end
 		current_audio = audio_library.none
 
 		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.run_dust_GO_UID)	--TODO-Particles: Deactivate movement dust particles
@@ -1553,7 +1555,7 @@ local function UltimateState(active)
 		lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.ultimate_effect_particles_GO_UID)	--TODO-Particles: Activate ultimate particles
 	else
 		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.ultimate_effect_particles_GO_UID)	--TODO-Particles: Deactivate ultimate particles
-		lua_table.AudioFunctions:StopAudioEventGO(audio_library.ultimate, geralt_GO_UID, geralt_GO_UID)	--TODO-AUDIO: Ultimate Sound
+		lua_table.AudioFunctions:StopAudioEventGO(audio_library.ultimate, geralt_GO_UID)	--TODO-AUDIO: Ultimate Sound
 		current_audio = audio_library.none
 	end
 
@@ -1564,7 +1566,7 @@ end
 local function ReviveShutdown()	--IF I was reviving, not anymore
 	if revive_target ~= nil
 	then
-		lua_table.AudioFunctions:StopAudioEventGO(audio_library.revive, geralt_GO_UID, geralt_GO_UID)	--TODO-AUDIO: Ultimate Sound
+		lua_table.AudioFunctions:StopAudioEventGO(audio_library.revive, geralt_GO_UID)	--TODO-AUDIO: Ultimate Sound
 		current_audio = audio_library.none
 		revive_target.being_revived = false
 		revive_target = nil
@@ -1758,7 +1760,7 @@ local function ProcessIncomingHit(collider_GO)
 			SaveDirection()
 			knockback_curr_velocity = lua_table.knockback_orig_velocity
 
-			lua_table.AnimationFunctions:PlayAnimation(animation_library.knockback, 45.0, geralt_GO_UID)
+			lua_table.AnimationFunctions:PlayAnimation(animation_library.knockback, 60.0, geralt_GO_UID)
 			current_animation = animation_library.knockback
 
 			if lua_table.current_health > 0
@@ -1959,6 +1961,7 @@ function lua_table:Update()
 
 			lua_table.death_started_at = game_time
 
+			lua_table.AnimationFunctions:SetBlendTime(0.1, geralt_GO_UID)
 			lua_table.AnimationFunctions:PlayAnimation(animation_library.death, 30.0, geralt_GO_UID)
 			current_animation = animation_library.death
 			
@@ -1984,6 +1987,9 @@ function lua_table:Update()
 				UltimateState(false)	--Ultimate turn off (stats back to normal)
 			end
 
+			--Calculate time of ongoing event (when not idle/walk/run)
+			if lua_table.current_state < state.idle or lua_table.current_state > state.run then time_since_action = game_time - action_started_at end
+
 			if lua_table.current_state >= state.idle	--IF acting on free will (idle, attacking)
 			then
 				--DEBUG
@@ -1991,12 +1997,6 @@ function lua_table:Update()
 				else
 					JoystickInputs(lua_table.key_move, mov_input)
 					JoystickInputs(lua_table.key_aim, aim_input)
-				end
-
-				--IF action currently going on, check action timer
-				if lua_table.current_state > state.run
-				then
-					time_since_action = game_time - action_started_at
 				end
 
 				--IF state == idle/move or action_input_block_time has ended (Input-allowed environment)
@@ -2012,8 +2012,6 @@ function lua_table:Update()
 					SecondaryInputs()	--Minor actions with no timer or special animations
 
 				else	--ELSE (action being performed)
-					time_since_action = game_time - action_started_at
-
 					if lua_table.current_state == state.ultimate and not lua_table.ultimate_active and time_since_action > lua_table.ultimate_scream_start	--IF ultimate state, ultimate unactive, and scream started
 					then
 						lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.ultimate_scream_particles_GO_UID)	--TODO-Particles: Activate ultimate particles
@@ -2023,17 +2021,14 @@ function lua_table:Update()
 						ultimate_effect_started_at = game_time
 					end
 
-					--LEGACY: time_since_action > current_action_duration
-					if time_since_action > lua_table.animation_ended_blend_time and lua_table.AnimationFunctions:CurrentAnimationEnded(geralt_GO_UID) == 1	--IF blend time passed and animation finished
+					--IF action ended	--LEGACY: time_since_action > current_action_duration
+					if time_since_action > lua_table.blend_time_duration	--IF action time > blend time (for blending between actions)
+					and game_time - blending_started_at > lua_table.blend_time_duration	--IF blend manual marking > blend time (to manually mark and control animation swaps, optional use)
+					and lua_table.AnimationFunctions:CurrentAnimationEnded(geralt_GO_UID) == 1	--IF animation finished (this only works for non-loop animations)
 					then
 						local chained_action = false
 
-						if lua_table.current_state == state.revive	--IF revive finished
-						then
-							lua_table.AudioFunctions:StopAudioEventGO(audio_library.revive, geralt_GO_UID, geralt_GO_UID)	--TODO-AUDIO: Ultimate Sound
-							current_audio = audio_library.none
-							revive_target = nil
-						elseif lua_table.current_state == state.evade
+						if lua_table.current_state == state.evade
 						then
 							lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.run_dust_GO_UID)
 						elseif lua_table.current_state == state.ability
@@ -2074,14 +2069,24 @@ function lua_table:Update()
 						end
 
 					--ELSE (For all the following): IF action ongoing at the moment
-					elseif lua_table.current_state == state.revive and lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_revive, key_state.key_up)
+					elseif lua_table.current_state == state.revive
 					then
-						lua_table.AudioFunctions:StopAudioEventGO(audio_library.revive, geralt_GO_UID, geralt_GO_UID)	--TODO-AUDIO: Ultimate Sound
-						current_audio = audio_library.none
+						local stop_revive = false
 
-						revive_target.being_revived = false
-						revive_target = nil
-						GoDefaultState(false)
+						if lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_revive, key_state.key_up) then
+							revive_target.being_revived = false
+							stop_revive = true
+						elseif time_since_action > current_action_duration then
+							stop_revive = true
+						end
+
+						if stop_revive then
+							lua_table.AudioFunctions:StopAudioEventGO(audio_library.revive, geralt_GO_UID)
+							current_audio = audio_library.none
+							
+							revive_target = nil
+							GoDefaultState(false)
+						end
 
 					elseif lua_table.current_state == state.evade and DirectionInBounds()	--ELSEIF evading
 					then
@@ -2198,31 +2203,52 @@ function lua_table:Update()
 
 					end
 				end
-			elseif lua_table.current_state == state.stunned and game_time - action_started_at > current_action_duration	--IF currently stunned and time passed
-			then
-				GoDefaultState(true)
-
-			elseif lua_table.current_state == state.knocked	--IF currently knocked
-			then
-				if not lua_table.standing_up_bool
+			else	--IF not acting on free will (action provoqued by something)	
+				--IF action ended
+				if time_since_action > lua_table.blend_time_duration	--IF action time > blend time (for blending between actions)
+				and game_time - blending_started_at > lua_table.blend_time_duration	--IF blend manual marking > blend time (to manually mark and control animation swaps, optional use)
+				and lua_table.AnimationFunctions:CurrentAnimationEnded(geralt_GO_UID) == 1	--IF animation finished (this only works for non-loop animations)
 				then
-					if game_time - action_started_at > current_action_duration
+					local chained_action = false
+
+					if lua_table.current_state == state.knocked	--IF knocked
 					then
-						lua_table.AnimationFunctions:PlayAnimation(animation_library.stand_up, 135.0, geralt_GO_UID)
-						current_animation = animation_library.stand_up
+						if lua_table.standing_up_bool	--IF was standing up
+						then
+							lua_table.standing_up_bool = false
+						else
+							lua_table.AnimationFunctions:PlayAnimation(animation_library.stand_up, lua_table.stand_up_animation_speed, geralt_GO_UID)
+							current_animation = animation_library.stand_up
 
-						lua_table.AudioFunctions:PlayAudioEventGO(audio_library.stand_up, geralt_GO_UID)	--TODO-AUDIO:
-						current_audio = audio_library.stand_up
+							blending_started_at = game_time	--Manually mark animation swap
 
-						lua_table.standing_up_bool = true
-					else
+							lua_table.AudioFunctions:PlayAudioEventGO(audio_library.stand_up, geralt_GO_UID)	--TODO-AUDIO:
+							current_audio = audio_library.stand_up
+
+							chained_action = true
+							lua_table.standing_up_bool = true
+						end
+					end
+
+					if not chained_action then	--IF action not performed automatically after ending previous one, return to idle/move
+						--Return to move or idle
+						if lua_table.current_state == state.evade then
+							GoDefaultState(false)	--Don't change BlendDuration
+						else
+							GoDefaultState(true)	--Change BlendDuration
+						end
+					end
+
+				else	--IF action ongoing
+					if lua_table.current_state == state.stunned and time_since_action > current_action_duration	--IF currently stunned and time passed
+					then
+						GoDefaultState(true)
+		
+					elseif lua_table.current_state == state.knocked and not lua_table.standing_up_bool	--IF currently knocked
+					then
 						knockback_curr_velocity = knockback_curr_velocity + lua_table.knockback_acceleration * dt
 						lua_table.PhysicsFunctions:Move(knockback_curr_velocity * -rec_direction.x * dt, knockback_curr_velocity * -rec_direction.z * dt, geralt_GO_UID)
 					end
-				elseif game_time - action_started_at > current_action_duration + lua_table.standing_up_time
-				then
-					lua_table.standing_up_bool = false
-					GoDefaultState(true)
 				end
 			end
 		end
@@ -2240,8 +2266,10 @@ function lua_table:Update()
 
 				elseif game_time - lua_table.revive_started_at > lua_table.revive_time		--IF revival complete
 				then
-					lua_table.AnimationFunctions:PlayAnimation(animation_library.stand_up, 135.0, geralt_GO_UID)	--TODO-Animations: Stand up
+					lua_table.AnimationFunctions:PlayAnimation(animation_library.stand_up, lua_table.stand_up_animation_speed, geralt_GO_UID)	--TODO-Animations: Stand up
 					current_animation = animation_library.stand_up
+
+					blending_started_at = game_time
 
 					lua_table.AudioFunctions:PlayAudioEventGO(audio_library.stand_up, geralt_GO_UID)	--TODO-AUDIO: Stand Up Sound
 					current_audio = audio_library.stand_up
@@ -2273,7 +2301,7 @@ function lua_table:Update()
 					end
 				end
 			end
-		elseif game_time - lua_table.revive_started_at > lua_table.revive_time + lua_table.standing_up_time
+		elseif game_time - blending_started_at > lua_table.blend_time_duration and lua_table.AnimationFunctions:CurrentAnimationEnded(geralt_GO_UID) == 1
 		then
 			lua_table.standing_up_bool, lua_table.being_revived = false, false
 			GoDefaultState(true)
@@ -2283,7 +2311,7 @@ function lua_table:Update()
 	--DEBUG LOGS
 	--lua_table.SystemFunctions:LOG("Delta Time: " .. dt)
 	--lua_table.SystemFunctions:LOG("State: " .. lua_table.current_state)
-	--lua_table.SystemFunctions:LOG("Time passed: " .. time_since_action)
+	lua_table.SystemFunctions:LOG("Time passed: " .. time_since_action)
 	--rot_y = math.rad(GimbalLockWorkaroundY(lua_table.TransformFunctions:GetRotation()[2]))	--TODO: Remove GimbalLock stage when Euler bug is fixed
 	--lua_table.SystemFunctions:LOG("Angle Y: " .. rot_y)
 	--lua_table.SystemFunctions:LOG("Ultimate: " .. lua_table.current_ultimate)
