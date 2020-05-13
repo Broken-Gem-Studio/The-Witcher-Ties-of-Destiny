@@ -1265,7 +1265,7 @@ local function AardPush()
 		and BidimensionalPointInVectorSide(C_x, C_z, D_x, D_z, enemy_pos[1], enemy_pos[3]) < 0
 		and BidimensionalPointInVectorSide(D_x, D_z, A_x, A_z, enemy_pos[1], enemy_pos[3]) < 0
 		then
-			lua_table.SystemFunctions:LOG("---------------- I HIT AN ENEMY ----------------")
+			--lua_table.SystemFunctions:LOG("---------------- I HIT AN ENEMY ----------------")
 			local enemy_script = lua_table.GameObjectFunctions:GetScript(enemy_list[i])
 			enemy_script:RequestedTrigger(geralt_GO_UID)	--TODO-Ability:
 		end
@@ -1770,7 +1770,7 @@ local function ProcessIncomingHit(collider_GO)
 end
 
 function lua_table:OnTriggerEnter()
-	lua_table.SystemFunctions:LOG("On Trigger Enter")
+	--lua_table.SystemFunctions:LOG("On Trigger Enter")
 	
 	local collider_GO = lua_table.PhysicsFunctions:OnTriggerEnter(geralt_GO_UID)
 
@@ -1781,7 +1781,7 @@ function lua_table:OnTriggerEnter()
 end
 
 function lua_table:OnCollisionEnter()
-	lua_table.SystemFunctions:LOG("On Collision Enter")
+	--lua_table.SystemFunctions:LOG("On Collision Enter")
 
 	local collider_GO = lua_table.PhysicsFunctions:OnCollisionEnter(geralt_GO_UID)
 
@@ -1809,7 +1809,7 @@ end
 
 --Main Code
 function lua_table:Awake()
-	lua_table.SystemFunctions:LOG("GeraltScript AWAKE")
+	--lua_table.SystemFunctions:LOG("GeraltScript AWAKE")
 
 	--Get GO_UIDs
 	geralt_GO_UID = lua_table.GameObjectFunctions:GetMyUID()
@@ -1871,7 +1871,7 @@ function lua_table:Awake()
 end
 
 function lua_table:Start()
-	lua_table.SystemFunctions:LOG("GeraltScript START")
+	--lua_table.SystemFunctions:LOG("GeraltScript START")
 
 	-- Set initial values
 	lua_table.previous_state = state.idle

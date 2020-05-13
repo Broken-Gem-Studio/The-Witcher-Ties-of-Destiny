@@ -1836,7 +1836,7 @@ local function ProcessIncomingHit(collider_GO)
 end
 
 function lua_table:OnTriggerEnter()
-	lua_table.SystemFunctions:LOG("On Trigger Enter")
+	--lua_table.SystemFunctions:LOG("On Trigger Enter")
 	
 	local collider_GO = lua_table.PhysicsFunctions:OnTriggerEnter(jaskier_GO_UID)
 
@@ -1847,7 +1847,7 @@ function lua_table:OnTriggerEnter()
 end
 
 function lua_table:OnCollisionEnter()
-	lua_table.SystemFunctions:LOG("On Collision Enter")
+	--lua_table.SystemFunctions:LOG("On Collision Enter")
 
 	local collider_GO = lua_table.PhysicsFunctions:OnCollisionEnter(jaskier_GO_UID)
 
@@ -1875,7 +1875,7 @@ end
 
 --Main Code
 function lua_table:Awake()
-	lua_table.SystemFunctions:LOG("JaskierScript AWAKE")
+	--lua_table.SystemFunctions:LOG("JaskierScript AWAKE")
 
 	--Get GO_UIDs
 	geralt_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt")
@@ -1940,7 +1940,7 @@ function lua_table:Awake()
 end
 
 function lua_table:Start()
-	lua_table.SystemFunctions:LOG("JaskierScript START")
+	--lua_table.SystemFunctions:LOG("JaskierScript START")
 	
 	-- Set initial values
 	lua_table.previous_state = state.idle
@@ -2313,7 +2313,7 @@ function lua_table:Update()
 	--DEBUG LOGS
 	--lua_table.SystemFunctions:LOG("Delta Time: " .. dt)
 	--lua_table.SystemFunctions:LOG("State: " .. lua_table.current_state)
-	lua_table.SystemFunctions:LOG("Time passed: " .. time_since_action)
+	--lua_table.SystemFunctions:LOG("Time passed: " .. time_since_action)
 	--rot_y = math.rad(GimbalLockWorkaroundY(lua_table.TransformFunctions:GetRotation()[2]))	--TODO: Remove GimbalLock stage when Euler bug is fixed
 	--lua_table.SystemFunctions:LOG("Angle Y: " .. rot_y)
 	--lua_table.SystemFunctions:LOG("Ultimate: " .. lua_table.current_ultimate)
