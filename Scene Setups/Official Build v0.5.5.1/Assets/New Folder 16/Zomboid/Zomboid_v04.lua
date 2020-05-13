@@ -58,8 +58,8 @@ local attack_effects = {
 lua_table.MyUID = 0 --Entity UID
 lua_table.max_hp = 200
 lua_table.health = 0
-lua_table.speed = 0.05
-lua_table.knock_speed = 0.5
+lua_table.speed = 5
+lua_table.knock_speed = 50
 lua_table.currentState = 0
 lua_table.is_stunned = false
 lua_table.is_taunt = false
@@ -136,7 +136,7 @@ local punching = false
 local swiping = false
 local smashing = false
 
---local is_in_range = false
+local rand_death_time = 0
 
 --------------------------------- Entity colliders
 local is_front_active = false
@@ -155,6 +155,8 @@ local BloodEmitter_UID = 0
 local StunnedEmitter_UID = 0 -- Also used by KB
 local TauntedEmitter_UID = 0
 local DustEmitter_UID = 0
+
+local dt = 0
 
 -- ______________________SCRIPT FUNCTIONS______________________
 
@@ -281,6 +283,12 @@ local function AttackColliderShutdown()
 		lua_table.GameObject:SetActiveGameObject(false, Stun_Coll)	--TODO-Colliders: Check
 		is_area_active = false
 	end
+
+	ResetJumpStun()
+	ResetPunch()
+	ResetSwipe()
+	ResetSmash()
+	
 end
 
 local function IsTargetInRange()
@@ -340,7 +348,7 @@ local function Seek()
 					
 				-- Apply movement vector to move character
 				lua_table.Transform:LookAt(corners[currCorner][1], lua_table.GhoulPos[2], corners[currCorner][3], lua_table.MyUID)
-				lua_table.Physics:Move(vec[1] * lua_table.speed, vec[3] * lua_table.speed, lua_table.MyUID)
+				lua_table.Physics:Move(vec[1] * lua_table.speed * dt, vec[3] * lua_table.speed * dt, lua_table.MyUID)
 				--lua_table.Particles:PlayParticleEmitter(DustEmitter_UID)
 				
 				else
@@ -405,10 +413,6 @@ end
 	
 local function Punch()
 
-	if IsTargetInRange() == true then
-		return 
-	end
-
 	if not start_punch then 
 		punch_timer = lua_table.System:GameTime() * 1000
 		start_punch = true
@@ -426,16 +430,17 @@ local function Punch()
 	
 	-- After its finished, switch state
 	if punch_timer + 1100 <= lua_table.System:GameTime() * 1000 then
-		lua_table.currentState = State.SWIPE
+		if IsTargetInRange() == true then
+			return 
+		else 
+			lua_table.currentState = State.SWIPE
+		end
+		
 	end
 	
 end
 
 local function Swipe()
-
-	if IsTargetInRange() == true then
-		return 
-	end
 
 	if not start_swipe then 
 		swipe_timer = lua_table.System:GameTime() * 1000
@@ -452,16 +457,17 @@ local function Swipe()
 	
 	-- After its finished, switch state
 	if swipe_timer + 1450 <= lua_table.System:GameTime() * 1000 then
-		lua_table.currentState = State.SMASH
+		if IsTargetInRange() == true then
+			return 
+		else 
+			lua_table.currentState = State.SMASH
+		end
+		
 		lua_table.System:LOG("Zomboid state: SEEK (1), cycle to jump")
 	end
 end
 
 local function Smash()
-
-	if IsTargetInRange() == true then
-		return 
-	end
 
 	if not start_smash then 
 		smash_timer = lua_table.System:GameTime() * 1000
@@ -514,13 +520,16 @@ local function KnockBack()
 		lua_table.System:LOG("Zomboid state: STUNNED (5), from KD")
 		
 	else 
-		lua_table.Physics:Move(knock_force[1] * lua_table.knock_speed, knock_force[3] * lua_table.knock_speed, lua_table.MyUID)
+		lua_table.Physics:Move(knock_force[1] * lua_table.knock_speed * dt, knock_force[3] * lua_table.knock_speed * dt, lua_table.MyUID)
 
 	end
 	
 end
 
 local function Die()
+
+	rand_death_time = math.random(45, 60)
+
 	if not start_death then 
 		lua_table.Particles:StopParticleEmitter(JumpStunEmitter_UID)
 		lua_table.Particles:StopParticleEmitter(BloodEmitter_UID)
@@ -531,7 +540,7 @@ local function Die()
 		-- This ensures hit particle plays when Players deal the last hit
 		lua_table.Particles:PlayParticleEmitter(BloodEmitter_UID)
 		lua_table.System:LOG("Im dying")  
-		lua_table.Animations:PlayAnimation("Death", 30.0, lua_table.MyUID)
+		lua_table.Animations:PlayAnimation("Death", rand_death_time, lua_table.MyUID)
 		start_death = true
 	end
 
@@ -756,9 +765,9 @@ end
 
 function lua_table:Update()
 
-	SearchPlayers() -- Constantly calculate distances between entity and players
+	dt = lua_table.System:DT()
 
-	
+	SearchPlayers() -- Constantly calculate distances between entity and players
 
 	-- Check if our entity is dead
 	if lua_table.health <= 0 then 
