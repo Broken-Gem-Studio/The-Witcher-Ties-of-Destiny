@@ -733,8 +733,19 @@ local function HandleSEEK()
 		end
 		--lua_table.SystemFunctions:LOG("DistanceMagnitudeAuxTarget-->"..DistanceMagnitudeAux_Target)
 		--lua_table.SystemFunctions:LOG("jumpAttack()")
-		
-		jumpAttack()
+		if CancelateJumpAttack == false
+		then
+			jumpAttack()
+		elseif CancelateJumpAttack == true
+		then
+			lua_table.JumpAttackDone = true
+			lua_table.CurrentSubState = SubState.NONE
+			lua_table.CurrentState = State.SEEK
+			lua_table.CurrentSubState = SubState.SEEK_TARGET
+			lua_table.SystemFunctions:LOG("JUMP_ATTACK DONE")
+			lua_table.SystemFunctions:LOG("SEEK----->SEEK")
+			lua_table.SystemFunctions:LOG("SEEKTARGET")
+		end
 	end
 
 	if DistanceMagnitudeAux_Target < 13.5 and lua_table.JumpAttackDone == false --and lua_table.CurrentSubState == SubState.JUMP_ATTACK
