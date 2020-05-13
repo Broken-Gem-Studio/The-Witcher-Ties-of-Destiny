@@ -704,7 +704,6 @@ local function GoDefaultState(change_blend_time)
 		lua_table.current_state = state.idle
 	end
 	
-	blending_started_at = game_time
 	lua_table.combo_num = 0
 	rightside = true
 
