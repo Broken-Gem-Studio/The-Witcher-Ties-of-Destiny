@@ -54,8 +54,8 @@ local attack_effects = {
 lua_table.MyUID = 0 --Entity UID
 lua_table.max_hp = 50
 lua_table.health = 0
-lua_table.speed = 0.07
-lua_table.knock_speed = 0.5
+lua_table.speed = 7
+lua_table.knock_speed = 50
 lua_table.currentState = 0
 lua_table.is_stunned = false
 lua_table.is_taunt = false
@@ -120,6 +120,8 @@ lua_table.collider_effect = 0
 local HitEmitter_UID = 0
 
 local random_attack = 0
+local random_death_time = 0
+local dt = 0
 
 -- ______________________SCRIPT FUNCTIONS______________________
 
@@ -269,7 +271,7 @@ local function Seek()
 				
 			-- Apply movement vector to move character
 			lua_table.Transform:LookAt(corners[currCorner][1], lua_table.GhoulPos[2], corners[currCorner][3], lua_table.MyUID)
-			lua_table.Physics:Move(vec[1] * lua_table.speed, vec[3] * lua_table.speed, lua_table.MyUID)
+			lua_table.Physics:Move(vec[1] * lua_table.speed * dt, vec[3] * lua_table.speed * dt, lua_table.MyUID)
 			
 			else
 				currCorner = currCorner + 1
@@ -289,7 +291,7 @@ local function Attack()
 	if lua_table.currentTargetDir >= lua_table.maxDistance then
 		lua_table.currentState = State.SEEK	
 		lua_table.System:LOG("Minion state: SEEK (1), target out of range")    
-		lua_table.Animations:PlayAnimation("Run", 30.0, lua_table.MyUID)
+		lua_table.Animations:PlayAnimation("Run", 45.0, lua_table.MyUID)
 
 		return
 	end
@@ -307,19 +309,19 @@ local function Attack()
 
 		if random_attack == 1 then 
 			lua_table.System:LOG("Attack1 chosen")
-			lua_table.Animations:PlayAnimation("Attack_1", 30.0, lua_table.MyUID)
-        elseif random_attack == 2 then 
+			lua_table.Animations:PlayAnimation("Attack_1", 45.0, lua_table.MyUID)
+		elseif random_attack == 2 then 
 			lua_table.System:LOG("Attack2 chosen")
-			lua_table.Animations:PlayAnimation("Attack_2", 45.0, lua_table.MyUID)
+			lua_table.Animations:PlayAnimation("Attack_2", 60.0, lua_table.MyUID)
 		elseif random_attack == 3 then 
 			lua_table.System:LOG("Attack3 chosen")
-			lua_table.Animations:PlayAnimation("Attack_3", 30.0, lua_table.MyUID)
+			lua_table.Animations:PlayAnimation("Attack_3", 45.0, lua_table.MyUID)
 		end
 		
 		attacked = true
 	end
 	
-	if attack_timer + 1000 <= lua_table.System:GameTime() * 1000 and attack_timer + 1100 >= lua_table.System:GameTime() * 1000 then
+	if attack_timer + 800 <= lua_table.System:GameTime() * 1000 and attack_timer + 1100 >= lua_table.System:GameTime() * 1000 then
 		lua_table.collider_effect = attack_effects.none
 		lua_table.collider_damage = 5
 		
@@ -327,15 +329,15 @@ local function Attack()
 		lua_table.GameObject:SetActiveGameObject(true, Front_Collider)
 	end
 
-	if attack_timer + 1100 <= lua_table.System:GameTime() * 1000 then 
+	if attack_timer + 900 <= lua_table.System:GameTime() * 1000 then 
 		is_front_active = false
 		lua_table.GameObject:SetActiveGameObject(false, Front_Collider)
 	end
 	
 	-- After he finished, switch state
-	if attack_timer + 1500 <= lua_table.System:GameTime() * 1000 then
+	if attack_timer + 1000 <= lua_table.System:GameTime() * 1000 then
 		lua_table.currentState = State.SEEK	
-		lua_table.Animations:PlayAnimation("Run", 30.0, lua_table.MyUID)
+		lua_table.Animations:PlayAnimation("Run", 45.0, lua_table.MyUID)
 		lua_table.System:LOG("Minion state: SEEK (1), cycle to seek")
 	end
 	
@@ -349,7 +351,7 @@ local function Stun()
 	end
 
 	if stun_timer + lua_table.stun_duration <= lua_table.System:GameTime() * 1000 then
-		lua_table.Animations:PlayAnimation("Run", 30.0, lua_table.MyUID)
+		lua_table.Animations:PlayAnimation("Run", 45.0, lua_table.MyUID)
 	
 		lua_table.currentState = State.SEEK	
 		lua_table.System:LOG("Minion state: SEEK (1), from stun")
@@ -369,18 +371,21 @@ local function KnockBack()
 		lua_table.System:LOG("Minion state: STUNNED (5), from KD")
 		
 	else 
-		lua_table.Physics:Move(knock_force[1] * lua_table.knock_speed, knock_force[3] * lua_table.knock_speed, lua_table.MyUID)
+		lua_table.Physics:Move(knock_force[1] * lua_table.knock_speed * dt, knock_force[3] * lua_table.knock_speed * dt, lua_table.MyUID)
 
 	end
 	
 end
 
 local function Die()
+
+	random_death_time = math.random(40, 60)
+
 	if not start_death then 
 		lua_table.Particles:StopParticleEmitter(HitEmitter_UID)
 		death_timer = lua_table.System:GameTime() * 1000
 		lua_table.System:LOG("Im dying")  
-		lua_table.Animations:PlayAnimation("Death", 30.0, lua_table.MyUID)
+		lua_table.Animations:PlayAnimation("Death", random_death_time, lua_table.MyUID)
 		lua_table.Particles:PlayParticleEmitter(HitEmitter_UID)
 		start_death = true
 	end
@@ -395,9 +400,9 @@ end
 -- ______________________COLLISIONS______________________
 function lua_table:OnTriggerEnter()	
 	local collider = lua_table.Physics:OnTriggerEnter(lua_table.MyUID)
-    local layer = lua_table.GameObject:GetLayerByID(collider)
+	local layer = lua_table.GameObject:GetLayerByID(collider)
 
-    if layer == layers.player_attack then 
+	if layer == layers.player_attack then 
 		local parent = lua_table.GameObject:GetGameObjectParent(collider)
 		local script = lua_table.GameObject:GetScript(parent)
 		
@@ -459,7 +464,7 @@ function lua_table:OnTriggerEnter()
 				lua_table.System:LOG("Hit registered")
 			end
 		end
-    end
+	end
 end
 
 function lua_table:OnCollisionEnter()
@@ -494,7 +499,7 @@ function lua_table:RequestedTrigger(collider_GO)
 				knock_vector[2] = lua_table.GhoulPos[2] - coll_pos[2]
 				knock_vector[3] = lua_table.GhoulPos[3] - coll_pos[3]
 
- 				local module = math.sqrt(knock_vector[1] ^ 2 + knock_vector[3] ^ 2)
+				 local module = math.sqrt(knock_vector[1] ^ 2 + knock_vector[3] ^ 2)
 
 				knock_force[1] = knock_vector[1] / module
 				knock_force[2] = knock_vector[2]
@@ -570,11 +575,15 @@ function lua_table:Start()
 
 	-- Initialize Nav
 	navID = lua_table.Recast:GetAreaFromName("Walkable")
+
+
 	
 end
 
 function lua_table:Update()
 
+	dt = lua_table.System:DT()
+	
 	SearchPlayers() -- Constantly calculate distances between entity and players
 
 	-- Check if our entity is dead
@@ -642,7 +651,7 @@ function lua_table:Update()
 	-- 	knock_vector[2] = lua_table.GhoulPos[2] - lua_table.currentTargetPos[2]
 	-- 	knock_vector[3] = lua_table.GhoulPos[3] - lua_table.currentTargetPos[3]
 						
- 	-- 	local module = math.sqrt(knock_vector[1] ^ 2 + knock_vector[3] ^ 2)
+	 -- 	local module = math.sqrt(knock_vector[1] ^ 2 + knock_vector[3] ^ 2)
 
 	-- 	knock_force[1] = knock_vector[1] / module
 	-- 	knock_force[2] = knock_vector[2]
