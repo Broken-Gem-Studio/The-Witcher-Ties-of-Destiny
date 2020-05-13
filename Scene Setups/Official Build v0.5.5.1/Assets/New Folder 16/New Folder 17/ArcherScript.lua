@@ -19,7 +19,7 @@ local Attack_Collider_UID = 0
 
 -- Archer Values -------------------------
 lua_table.health = 80
-lua_table.speed = 0.12
+lua_table.speed = 0.75
 
 -- 
 lua_table.DistanceToTarget = 0
@@ -493,6 +493,7 @@ end
 function lua_table:Update()
 
     GetClosestPlayer()
+    lua_table.speed = 8 * lua_table.System:DT()
 
     -- ------------------------------------Decide Target----------------------------------
     if not start_taunt
