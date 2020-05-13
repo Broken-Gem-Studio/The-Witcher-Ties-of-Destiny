@@ -375,21 +375,21 @@ lua_table.light_damage = 1.0					--Multiplier of Base Damage
 lua_table.light_movement_velocity = 5.0
 
 lua_table.light_1_block_time = 300			--Input block duration	(block new attacks)
-lua_table.light_1_collider_front_start = 460	--Collider activation time
-lua_table.light_1_collider_front_end = 560	--Collider deactivation time
+lua_table.light_1_collider_front_start = 200	--Collider activation time
+lua_table.light_1_collider_front_end = 300	--Collider deactivation time
 lua_table.light_1_duration = 750			--Attack end (return to idle)
 lua_table.light_1_animation_speed = 70.0
 
 lua_table.light_2_block_time = 200			--Input block duration	(block new attacks)
-lua_table.light_2_collider_front_start = 340	--Collider activation time
-lua_table.light_2_collider_front_end = 440	--Collider deactivation time
+lua_table.light_2_collider_front_start = 100	--Collider activation time
+lua_table.light_2_collider_front_end = 200	--Collider deactivation time
 lua_table.light_2_duration = 670			--Attack end (return to idle)
 lua_table.light_2_animation_speed = 70.0
 
 lua_table.light_3_velocity_start = 100
 lua_table.light_3_block_time = 300			--Input block duration	(block new attacks)
-lua_table.light_3_collider_front_start = 350	--Collider activation time
-lua_table.light_3_collider_front_end = 450	--Collider deactivation time
+lua_table.light_3_collider_front_start = 200	--Collider activation time
+lua_table.light_3_collider_front_end = 300	--Collider deactivation time
 lua_table.light_3_duration = 820			--Attack end (return to idle)
 lua_table.light_3_animation_speed = 70.0	
 
@@ -399,20 +399,20 @@ lua_table.medium_movement_velocity = 5.0
 lua_table.medium_movement_velocity_start = 200
 
 lua_table.medium_1_block_time = 300			--Input block duration	(block new attacks)
-lua_table.medium_1_collider_front_start = 350	--Collider activation time
-lua_table.medium_1_collider_front_end = 500	--Collider deactivation time
+lua_table.medium_1_collider_front_start = 200	--Collider activation time
+lua_table.medium_1_collider_front_end = 300	--Collider deactivation time
 lua_table.medium_1_duration = 700			--Attack end (return to idle)
 lua_table.medium_1_animation_speed = 50.0
 
 lua_table.medium_2_block_time = 300			--Input block duration	(block new attacks)
-lua_table.medium_2_collider_front_start = 550	--Collider activation time
-lua_table.medium_2_collider_front_end = 650	--Collider deactivation time
+lua_table.medium_2_collider_front_start = 200	--Collider activation time
+lua_table.medium_2_collider_front_end = 300	--Collider deactivation time
 lua_table.medium_2_duration = 800			--Attack end (return to idle)
 lua_table.medium_2_animation_speed = 50.0
 
 lua_table.medium_3_block_time = 300			--Input block duration	(block new attacks)
-lua_table.medium_3_collider_front_start = 600	--Collider activation time
-lua_table.medium_3_collider_front_end = 700	--Collider deactivation time
+lua_table.medium_3_collider_front_start = 200	--Collider activation time
+lua_table.medium_3_collider_front_end = 300	--Collider deactivation time
 lua_table.medium_3_duration = 900			--Attack end (return to idle)
 lua_table.medium_3_animation_speed = 50.0
 
@@ -421,20 +421,20 @@ lua_table.heavy_damage = 2.0				--Multiplier of Base Damage
 lua_table.heavy_movement_velocity = 1.5
 
 lua_table.heavy_1_block_time = 700			--Input block duration	(block new attacks)
-lua_table.heavy_1_collider_front_start = 1000	--Collider activation time
-lua_table.heavy_1_collider_front_end = 1150	--Collider deactivation time
+lua_table.heavy_1_collider_front_start = 600	--Collider activation time
+lua_table.heavy_1_collider_front_end = 700	--Collider deactivation time
 lua_table.heavy_1_duration = 1600			--Attack end (return to idle)
 lua_table.heavy_1_animation_speed = 50.0
 
 lua_table.heavy_2_block_time = 400			--Input block duration	(block new attacks)
-lua_table.heavy_2_collider_front_start = 400	--Collider activation time
-lua_table.heavy_2_collider_front_end = 500	--Collider deactivation time
+lua_table.heavy_2_collider_front_start = 300	--Collider activation time
+lua_table.heavy_2_collider_front_end = 400	--Collider deactivation time
 lua_table.heavy_2_duration = 1050			--Attack end (return to idle)
 lua_table.heavy_2_animation_speed = 50.0
 
 lua_table.heavy_3_block_time = 600			--Input block duration	(block new attacks)
-lua_table.heavy_3_collider_front_start = 850	--Collider activation time
-lua_table.heavy_3_collider_front_end = 950	--Collider deactivation time
+lua_table.heavy_3_collider_front_start = 500	--Collider activation time
+lua_table.heavy_3_collider_front_end = 600	--Collider deactivation time
 lua_table.heavy_3_duration = 1300			--Attack end (return to idle)
 lua_table.heavy_3_animation_speed = 50.0
 
@@ -1603,7 +1603,8 @@ local function ActionInputs()	--Process Action Inputs
 	if action_made 	--IF action performed
 	then
 		lua_table.AnimationFunctions:SetBlendTime(0.1, jaskier_GO_UID)
-
+		blending_started_at = game_time
+		
 		AttackColliderShutdown()
 
 		if lua_table.current_state >= state.light_1 and lua_table.current_state <= state.heavy_3 or lua_table.current_state == state.song_1	--IF attack or song_1
