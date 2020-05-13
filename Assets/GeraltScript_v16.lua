@@ -706,8 +706,6 @@ local function GoDefaultState(change_blend_time)
 
 	lua_table.combo_num = 0
 	rightside = true
-
-	lua_table.AnimationFunctions:PlayAnimation(animation_library.idle, 150.0, particles_library.slash_GO_UID)
 end
 
 --States END	----------------------------------------------------------------------------
@@ -1452,7 +1450,7 @@ local function ActionInputs()	--Process Action Inputs
 				local jaskier_revive_pos = lua_table.TransformFunctions:GetPosition(jaskier_revive_GO_UID)
 
 				--IF magnitude between Geralt and Jaskier revive is < revive_range
-				if math.sqrt( (jaskier_revive_pos[1] - geralt_pos[1]) ^ 2 + (jaskier_revive_pos[3] - geralt_pos[3]) ^ 2 ) < lua_table.revive_range
+				if math.sqrt((jaskier_revive_pos[1] - geralt_pos[1]) ^ 2 + (jaskier_revive_pos[3] - geralt_pos[3]) ^ 2) < lua_table.revive_range
 				then
 					revive_target = lua_table.GameObjectFunctions:GetScript(jaskier_GO_UID)
 	
@@ -2027,7 +2025,12 @@ function lua_table:Update()
 					then
 						local chained_action = false
 
-						if lua_table.current_state == state.evade
+						if lua_table.current_state == state.revive
+						then
+							lua_table.AudioFunctions:StopAudioEventGO(audio_library.revive, geralt_GO_UID)
+							current_audio = audio_library.none
+							revive_target = nil
+						elseif lua_table.current_state == state.evade
 						then
 							lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.run_dust_GO_UID)
 						elseif lua_table.current_state == state.ability
@@ -2060,7 +2063,7 @@ function lua_table:Update()
 
 						if not chained_action then	--IF action not performed automatically after ending previous one, return to idle/move
 							--Return to move or idle
-							if lua_table.current_state == state.evade then
+							if lua_table.current_state == state.evade or lua_table.current_state == state.revive then
 								GoDefaultState(false)	--Don't change BlendDuration
 							else
 								GoDefaultState(true)	--Change BlendDuration
@@ -2068,24 +2071,10 @@ function lua_table:Update()
 						end
 
 					--ELSE (For all the following): IF action ongoing at the moment
-					elseif lua_table.current_state == state.revive
+					elseif lua_table.current_state == state.revive and lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_revive, key_state.key_up)
 					then
-						local stop_revive = false
-
-						if lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_revive, key_state.key_up) then
-							revive_target.being_revived = false
-							stop_revive = true
-						elseif time_since_action > current_action_duration then
-							stop_revive = true
-						end
-
-						if stop_revive then
-							lua_table.AudioFunctions:StopAudioEventGO(audio_library.revive, geralt_GO_UID)
-							current_audio = audio_library.none
-							
-							revive_target = nil
-							GoDefaultState(false)
-						end
+						ReviveShutdown()
+						GoDefaultState(false)
 
 					elseif lua_table.current_state == state.evade and DirectionInBounds()	--ELSEIF evading
 					then
