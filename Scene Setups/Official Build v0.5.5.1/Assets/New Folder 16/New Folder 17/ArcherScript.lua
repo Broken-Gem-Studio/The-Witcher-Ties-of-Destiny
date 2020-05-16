@@ -401,7 +401,7 @@ local function Shoot()
         local X = math.sin(math.rad(rot_fixed))
         local Z = math.cos(math.rad(rot_fixed))
 
-        lua_table.Scene:Instantiate(lua_table.arrow, pos[1] + X*3, pos[2] + 3, pos[3]+ Z*3, rotation[1], rotation[2], rotation[3])
+        lua_table.Scene:Instantiate(lua_table.arrow, pos[1] + X*3, pos[2] + 3, pos[3]+ Z*3, 0, rot_fixed - 90, 0)
 
         lua_table.start_shooting = false
     end
