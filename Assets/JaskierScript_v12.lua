@@ -926,6 +926,7 @@ end
 --Character Particles BEGIN	----------------------------------------------------------------------------
 
 local function ParticlesShutdown()
+	lua_table.AnimationFunctions:PlayAnimation(animation_library.evade, lua_table.evade_animation_speed, particles_library.slash_GO_UID)
 	lua_table.GameObjectFunctions:SetActiveGameObject(false, particles_library.slash_mesh_GO_UID)
 
 	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.run_dust_GO_UID)
@@ -1944,7 +1945,7 @@ function lua_table:Awake()
 	lua_table.GameObjectFunctions:SetActiveGameObject(false, particles_library.slash_mesh_GO_UID)
 
 	--Set Particle GO Animations to for smooth blending to required animations
-	lua_table.AnimationFunctions:PlayAnimation(animation_library.idle, lua_table.idle_animation_speed, particles_library.slash_GO_UID)
+	lua_table.AnimationFunctions:PlayAnimation(animation_library.evade, lua_table.evade_animation_speed, particles_library.slash_GO_UID)
 
 	--Get attack_colliders GO_UIDs by name
 	attack_colliders.front_1.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.front_1.GO_name)
@@ -2122,6 +2123,7 @@ function lua_table:Update()
 							lua_table.ultimate_active = false
 						elseif lua_table.current_state >= state.light_1 and lua_table.current_state <= state.heavy_3	--IF attack finished
 						then
+							lua_table.AnimationFunctions:PlayAnimation(animation_library.evade, lua_table.evade_animation_speed, particles_library.slash_GO_UID)
 							lua_table.GameObjectFunctions:SetActiveGameObject(false, particles_library.slash_mesh_GO_UID)
 
 							if attack_input_given	--IF attack input was given before time ran out, process it instantly
