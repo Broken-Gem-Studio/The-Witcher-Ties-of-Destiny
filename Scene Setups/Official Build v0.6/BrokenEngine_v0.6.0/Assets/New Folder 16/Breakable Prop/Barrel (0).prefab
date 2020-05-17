@@ -1,4 +1,150 @@
 {
+    "Astilla": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "layer": "6",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "18": {
+                "Active": false,
+                "Duration": "1000",
+                "GradientColor": false,
+                "HorizontalBill": "0",
+                "Loop": false,
+                "PartAutoBlending": true,
+                "PartBlendEquation": 0,
+                "PartBlendFunc": 0,
+                "PartMBlFuncDst": 7,
+                "PartMBlFuncSrc": 6,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1863459330.dds"
+                },
+                "VerticalBill": "1",
+                "animation": "0",
+                "colors": [
+                    {
+                        "a": "1.000000",
+                        "x": "0.698039",
+                        "y": "0.447059",
+                        "z": "0.164706"
+                    }
+                ],
+                "curves": [
+                    {
+                        "0": {
+                            "NextX": "0.100000",
+                            "NextY": "0.100000",
+                            "PX": "0.000000",
+                            "PY": "0.000000",
+                            "PrevX": "0.000000",
+                            "PrevY": "0.000000"
+                        },
+                        "1": {
+                            "NextX": "1.000000",
+                            "NextY": "1.000000",
+                            "PX": "1.000000",
+                            "PY": "1.000000",
+                            "PrevX": "-0.100000",
+                            "PrevY": "-0.100000"
+                        },
+                        "multiplier": "1.000000",
+                        "name": "##scale",
+                        "num_points": "2",
+                        "type": "0"
+                    },
+                    {
+                        "0": {
+                            "NextX": "0.100000",
+                            "NextY": "0.100000",
+                            "PX": "0.000000",
+                            "PY": "0.000000",
+                            "PrevX": "0.000000",
+                            "PrevY": "0.000000"
+                        },
+                        "1": {
+                            "NextX": "1.000000",
+                            "NextY": "1.000000",
+                            "PX": "1.000000",
+                            "PY": "1.000000",
+                            "PrevX": "-0.100000",
+                            "PrevY": "-0.100000"
+                        },
+                        "multiplier": "1.000000",
+                        "name": "##rotation",
+                        "num_points": "2",
+                        "type": "0"
+                    }
+                ],
+                "cycles": "1.000000",
+                "emisionRate": "1000.000000",
+                "externalAccelerationX": "0.000000",
+                "externalAccelerationY": "0.000000",
+                "externalAccelerationZ": "0.000000",
+                "followEmitter": true,
+                "grad_duration": "0",
+                "num_colors": "1",
+                "num_curves": "2",
+                "num_gradients": "0",
+                "particleScaleOverTime": "0.000000",
+                "particleScaleRandomFactor1": "0.100000",
+                "particleScaleRandomFactor2": "0.700000",
+                "particlesLifeTime": "1000",
+                "particlesPerCreation": "15",
+                "particlesScaleX": "1.000000",
+                "particlesScaleY": "1.000000",
+                "particlesVelocityX": "0.000000",
+                "particlesVelocityY": "5.000000",
+                "particlesVelocityZ": "0.000000",
+                "positionX": "0.000000",
+                "positionY": "0.000000",
+                "positionZ": "0.000000",
+                "rotationOvertime1": [
+                    "0",
+                    "0",
+                    "-100"
+                ],
+                "rotationOvertime2": [
+                    "0",
+                    "0",
+                    "100"
+                ],
+                "rotationX": "0.000000",
+                "rotationY": "0.000000",
+                "rotationZ": "0.000000",
+                "rotationconstants": "1",
+                "scaleconstants": "1",
+                "separateAxis": "0",
+                "sizeX": "1.000000",
+                "sizeY": "0.500000",
+                "sizeZ": "1.000000",
+                "startFrame": "0",
+                "tiles_X": "1",
+                "tiles_Y": "1",
+                "velocityRandomFactor1X": "-7.000000",
+                "velocityRandomFactor1Y": "0.000000",
+                "velocityRandomFactor1Z": "-7.000000",
+                "velocityRandomFactor2X": "7.000000",
+                "velocityRandomFactor2Y": "0.000000",
+                "velocityRandomFactor2Z": "7.000000",
+                "velocityconstants": "0"
+            }
+        },
+        "Parent": "1749865721",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "654067431"
+    },
     "Barrel": {
         "Active": true,
         "Components": {
@@ -16,14 +162,14 @@
                 "scalez": "1.000000"
             }
         },
-        "Parent": "1519275438",
+        "Parent": "342462996",
         "PrefabChild": true,
         "PrefabInstance": true,
         "Static": false,
-        "UID": "562743366"
+        "UID": "92204751"
     },
     "Cylinder002": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "layer": "5",
@@ -71,7 +217,7 @@
             "16": {
                 "Active": false,
                 "colliderType": "4",
-                "draggedUID": "703558160",
+                "draggedUID": "2094170050",
                 "draw": "0",
                 "firstCreation": "0",
                 "globalMatrixw": "1.000000",
@@ -111,19 +257,19 @@
                 "Active": false,
                 "Resources": {
                     "ResourceMaterial": {
-                        "path": "Assets/05 - Default.mat"
+                        "path": "Assets/New Folder 16/Breakable Prop/Barrel.mat"
                     }
                 }
             }
         },
-        "Parent": "64228418",
+        "Parent": "558348488",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "585736524"
+        "UID": "1178588701"
     },
     "Destructed": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "layer": "5",
@@ -176,17 +322,17 @@
                 }
             },
             "19": {
-                "Active": true
+                "Active": false
             }
         },
-        "Parent": "562743366",
+        "Parent": "92204751",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "64228418"
+        "UID": "558348488"
     },
     "Object2818": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "layer": "5",
@@ -234,7 +380,7 @@
             "16": {
                 "Active": false,
                 "colliderType": "4",
-                "draggedUID": "1640309156",
+                "draggedUID": "1241394100",
                 "draw": "0",
                 "firstCreation": "0",
                 "globalMatrixw": "1.000000",
@@ -274,19 +420,19 @@
                 "Active": false,
                 "Resources": {
                     "ResourceMaterial": {
-                        "path": "Assets/05 - Default.mat"
+                        "path": "Assets/New Folder 16/Breakable Prop/Barrel.mat"
                     }
                 }
             }
         },
-        "Parent": "64228418",
+        "Parent": "558348488",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "995564521"
+        "UID": "1321284098"
     },
     "Object2819": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "layer": "5",
@@ -374,19 +520,19 @@
                 "Active": false,
                 "Resources": {
                     "ResourceMaterial": {
-                        "path": "Assets/05 - Default.mat"
+                        "path": "Assets/New Folder 16/Breakable Prop/Barrel.mat"
                     }
                 }
             }
         },
-        "Parent": "64228418",
+        "Parent": "558348488",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "15325969"
+        "UID": "1658167613"
     },
     "Object2820": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "layer": "5",
@@ -474,19 +620,19 @@
                 "Active": false,
                 "Resources": {
                     "ResourceMaterial": {
-                        "path": "Assets/05 - Default.mat"
+                        "path": "Assets/New Folder 16/Breakable Prop/Barrel.mat"
                     }
                 }
             }
         },
-        "Parent": "64228418",
+        "Parent": "558348488",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1857398837"
+        "UID": "1008972894"
     },
     "Object2821": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "layer": "5",
@@ -574,19 +720,19 @@
                 "Active": false,
                 "Resources": {
                     "ResourceMaterial": {
-                        "path": "Assets/05 - Default.mat"
+                        "path": "Assets/New Folder 16/Breakable Prop/Barrel.mat"
                     }
                 }
             }
         },
-        "Parent": "64228418",
+        "Parent": "558348488",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1089143025"
+        "UID": "1511759804"
     },
     "Object2822": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "layer": "5",
@@ -674,19 +820,19 @@
                 "Active": false,
                 "Resources": {
                     "ResourceMaterial": {
-                        "path": "Assets/05 - Default.mat"
+                        "path": "Assets/New Folder 16/Breakable Prop/Barrel.mat"
                     }
                 }
             }
         },
-        "Parent": "64228418",
+        "Parent": "558348488",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1726451602"
+        "UID": "2055774814"
     },
     "Object2823": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "layer": "5",
@@ -774,19 +920,19 @@
                 "Active": false,
                 "Resources": {
                     "ResourceMaterial": {
-                        "path": "Assets/05 - Default.mat"
+                        "path": "Assets/New Folder 16/Breakable Prop/Barrel.mat"
                     }
                 }
             }
         },
-        "Parent": "64228418",
+        "Parent": "558348488",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "479776605"
+        "UID": "1755703885"
     },
     "Object2824": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "layer": "5",
@@ -874,19 +1020,19 @@
                 "Active": false,
                 "Resources": {
                     "ResourceMaterial": {
-                        "path": "Assets/05 - Default.mat"
+                        "path": "Assets/New Folder 16/Breakable Prop/Barrel.mat"
                     }
                 }
             }
         },
-        "Parent": "64228418",
+        "Parent": "558348488",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "566371267"
+        "UID": "1238473992"
     },
     "Object2825": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "layer": "5",
@@ -934,7 +1080,7 @@
             "16": {
                 "Active": false,
                 "colliderType": "4",
-                "draggedUID": "702060149",
+                "draggedUID": "460010559",
                 "draw": "0",
                 "firstCreation": "0",
                 "globalMatrixw": "1.000000",
@@ -974,19 +1120,19 @@
                 "Active": false,
                 "Resources": {
                     "ResourceMaterial": {
-                        "path": "Assets/05 - Default.mat"
+                        "path": "Assets/New Folder 16/Breakable Prop/Barrel.mat"
                     }
                 }
             }
         },
-        "Parent": "64228418",
+        "Parent": "558348488",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1386737240"
+        "UID": "181886335"
     },
     "Object2826": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "layer": "5",
@@ -1034,7 +1180,7 @@
             "16": {
                 "Active": false,
                 "colliderType": "4",
-                "draggedUID": "1401827809",
+                "draggedUID": "971500428",
                 "draw": "0",
                 "firstCreation": "0",
                 "globalMatrixw": "1.000000",
@@ -1074,19 +1220,19 @@
                 "Active": false,
                 "Resources": {
                     "ResourceMaterial": {
-                        "path": "Assets/05 - Default.mat"
+                        "path": "Assets/New Folder 16/Breakable Prop/Barrel.mat"
                     }
                 }
             }
         },
-        "Parent": "64228418",
+        "Parent": "558348488",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1611067861"
+        "UID": "1544946323"
     },
     "Object2827": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "layer": "5",
@@ -1134,7 +1280,7 @@
             "16": {
                 "Active": false,
                 "colliderType": "4",
-                "draggedUID": "2112068827",
+                "draggedUID": "1833835523",
                 "draw": "0",
                 "firstCreation": "0",
                 "globalMatrixw": "1.000000",
@@ -1174,19 +1320,19 @@
                 "Active": false,
                 "Resources": {
                     "ResourceMaterial": {
-                        "path": "Assets/05 - Default.mat"
+                        "path": "Assets/New Folder 16/Breakable Prop/Barrel.mat"
                     }
                 }
             }
         },
-        "Parent": "64228418",
+        "Parent": "558348488",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1084667871"
+        "UID": "1842009941"
     },
     "Object2828": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "layer": "5",
@@ -1234,7 +1380,7 @@
             "16": {
                 "Active": false,
                 "colliderType": "4",
-                "draggedUID": "2074058209",
+                "draggedUID": "1961102993",
                 "draw": "0",
                 "firstCreation": "0",
                 "globalMatrixw": "1.000000",
@@ -1274,24 +1420,24 @@
                 "Active": false,
                 "Resources": {
                     "ResourceMaterial": {
-                        "path": "Assets/05 - Default.mat"
+                        "path": "Assets/New Folder 16/Breakable Prop/Barrel.mat"
                     }
                 }
             }
         },
-        "Parent": "64228418",
+        "Parent": "558348488",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1546883783"
+        "UID": "1293154462"
     },
     "Particles": {
-        "Active": true,
+        "Active": false,
         "Components": {
             "0": {
                 "layer": "6",
                 "positionx": "0.000000",
-                "positiony": "0.000000",
+                "positiony": "1.053343",
                 "positionz": "0.000000",
                 "rotationw": "1.000000",
                 "rotationx": "0.000000",
@@ -1300,132 +1446,15 @@
                 "scalex": "1.000000",
                 "scaley": "1.000000",
                 "scalez": "1.000000"
-            },
-            "18": {
-                "Active": false,
-                "Duration": "1000",
-                "GradientColor": false,
-                "HorizontalBill": "0",
-                "Loop": false,
-                "Resources": {
-                    "ResourceTexture": "Library/Textures/682389167.dds"
-                },
-                "VerticalBill": "0",
-                "animation": "1",
-                "colors": [
-                    {
-                        "a": "1.000000",
-                        "x": "0.773481",
-                        "y": "1.000000",
-                        "z": "0.000000"
-                    }
-                ],
-                "curves": [
-                    {
-                        "0": {
-                            "NextX": "0.100000",
-                            "NextY": "0.100000",
-                            "PX": "0.000000",
-                            "PY": "0.000000",
-                            "PrevX": "0.000000",
-                            "PrevY": "0.000000"
-                        },
-                        "1": {
-                            "NextX": "1.000000",
-                            "NextY": "1.000000",
-                            "PX": "1.000000",
-                            "PY": "1.000000",
-                            "PrevX": "-0.100000",
-                            "PrevY": "-0.100000"
-                        },
-                        "multiplier": "1.000000",
-                        "name": "##scale",
-                        "num_points": "2",
-                        "type": "0"
-                    },
-                    {
-                        "0": {
-                            "NextX": "0.100000",
-                            "NextY": "0.100000",
-                            "PX": "0.000000",
-                            "PY": "0.000000",
-                            "PrevX": "0.000000",
-                            "PrevY": "0.000000"
-                        },
-                        "1": {
-                            "NextX": "1.000000",
-                            "NextY": "1.000000",
-                            "PX": "1.000000",
-                            "PY": "1.000000",
-                            "PrevX": "-0.100000",
-                            "PrevY": "-0.100000"
-                        },
-                        "multiplier": "1.000000",
-                        "name": "##rotation",
-                        "num_points": "2",
-                        "type": "0"
-                    }
-                ],
-                "cycles": "1.000000",
-                "emisionRate": "1000.000000",
-                "externalAccelerationX": "0.000000",
-                "externalAccelerationY": "0.000000",
-                "externalAccelerationZ": "0.000000",
-                "grad_duration": "1000",
-                "num_colors": "1",
-                "num_curves": "2",
-                "num_gradients": "0",
-                "particleScaleOverTime": "0.150000",
-                "particleScaleRandomFactor1": "1.000000",
-                "particleScaleRandomFactor2": "1.000000",
-                "particlesLifeTime": "1200",
-                "particlesPerCreation": "34",
-                "particlesScaleX": "0.800000",
-                "particlesScaleY": "1.500000",
-                "particlesVelocityX": "0.000000",
-                "particlesVelocityY": "6.800000",
-                "particlesVelocityZ": "0.000000",
-                "positionX": "0.000000",
-                "positionY": "0.350000",
-                "positionZ": "0.000000",
-                "rotationOvertime1": [
-                    "0",
-                    "0",
-                    "-274"
-                ],
-                "rotationOvertime2": [
-                    "0",
-                    "0",
-                    "274"
-                ],
-                "rotationX": "0.000000",
-                "rotationY": "0.000000",
-                "rotationZ": "0.000000",
-                "rotationconstants": "1",
-                "scaleconstants": "0",
-                "separateAxis": "0",
-                "sizeX": "0.000000",
-                "sizeY": "0.000000",
-                "sizeZ": "0.000000",
-                "startFrame": "0",
-                "tiles_X": "8",
-                "tiles_Y": "8",
-                "velocityRandomFactor1X": "5.000000",
-                "velocityRandomFactor1Y": "0.000000",
-                "velocityRandomFactor1Z": "5.000000",
-                "velocityRandomFactor2X": "-5.000000",
-                "velocityRandomFactor2Y": "0.000000",
-                "velocityRandomFactor2Z": "-5.000000",
-                "velocityconstants": "0"
             }
         },
-        "Parent": "64228418",
+        "Parent": "558348488",
         "PrefabChild": true,
-        "PrefabInstance": false,
+        "PrefabInstance": true,
         "Static": false,
-        "UID": "1438442840"
+        "UID": "1749865721"
     },
-    "PreviewTexture": "Library/Textures/2048755786.dds",
+    "PreviewTexture": "Library/Textures/1812597079.dds",
     "Prop": {
         "Active": true,
         "Components": {
@@ -1562,15 +1591,175 @@
                 "Active": true,
                 "Resources": {
                     "ResourceMaterial": {
-                        "path": "Assets/05 - Default.mat"
+                        "path": "Assets/New Folder 16/Breakable Prop/Barrel.mat"
                     }
                 }
             }
         },
-        "Parent": "562743366",
+        "Parent": "92204751",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "76569442"
+        "UID": "316955864"
+    },
+    "Smoke": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "layer": "6",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "18": {
+                "Active": false,
+                "Duration": "1000",
+                "GradientColor": true,
+                "HorizontalBill": "0",
+                "Loop": false,
+                "PartAutoBlending": true,
+                "PartBlendEquation": 0,
+                "PartBlendFunc": 0,
+                "PartMBlFuncDst": 7,
+                "PartMBlFuncSrc": 6,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/2119931366.dds"
+                },
+                "VerticalBill": "0",
+                "animation": "1",
+                "colors": [
+                    {
+                        "a": "0.149020",
+                        "x": "0.839216",
+                        "y": "0.686275",
+                        "z": "0.462745"
+                    },
+                    {
+                        "a": "0.000000",
+                        "x": "1.000000",
+                        "y": "0.999996",
+                        "z": "0.999990"
+                    }
+                ],
+                "curves": [
+                    {
+                        "0": {
+                            "NextX": "0.100000",
+                            "NextY": "0.100000",
+                            "PX": "0.000000",
+                            "PY": "0.000000",
+                            "PrevX": "0.000000",
+                            "PrevY": "0.000000"
+                        },
+                        "1": {
+                            "NextX": "1.000000",
+                            "NextY": "1.000000",
+                            "PX": "1.000000",
+                            "PY": "1.000000",
+                            "PrevX": "-0.100000",
+                            "PrevY": "-0.100000"
+                        },
+                        "multiplier": "1.000000",
+                        "name": "##scale",
+                        "num_points": "2",
+                        "type": "0"
+                    },
+                    {
+                        "0": {
+                            "NextX": "0.100000",
+                            "NextY": "0.100000",
+                            "PX": "0.000000",
+                            "PY": "0.000000",
+                            "PrevX": "0.000000",
+                            "PrevY": "0.000000"
+                        },
+                        "1": {
+                            "NextX": "1.000000",
+                            "NextY": "1.000000",
+                            "PX": "1.000000",
+                            "PY": "1.000000",
+                            "PrevX": "-0.100000",
+                            "PrevY": "-0.100000"
+                        },
+                        "multiplier": "1.000000",
+                        "name": "##rotation",
+                        "num_points": "2",
+                        "type": "0"
+                    }
+                ],
+                "cycles": "0.500000",
+                "emisionRate": "1000.000000",
+                "externalAccelerationX": "0.000000",
+                "externalAccelerationY": "10.000000",
+                "externalAccelerationZ": "0.000000",
+                "followEmitter": true,
+                "grad_duration": "1000",
+                "gradients": [
+                    {
+                        "a": "-0.000149",
+                        "x": "0.000161",
+                        "y": "0.000314",
+                        "z": "0.000537"
+                    }
+                ],
+                "num_colors": "2",
+                "num_curves": "2",
+                "num_gradients": "1",
+                "particleScaleOverTime": "0.000000",
+                "particleScaleRandomFactor1": "3.000000",
+                "particleScaleRandomFactor2": "7.000000",
+                "particlesLifeTime": "1000",
+                "particlesPerCreation": "10",
+                "particlesScaleX": "1.000000",
+                "particlesScaleY": "1.000000",
+                "particlesVelocityX": "0.000000",
+                "particlesVelocityY": "0.000000",
+                "particlesVelocityZ": "2.000000",
+                "positionX": "0.000000",
+                "positionY": "0.000000",
+                "positionZ": "0.000000",
+                "rotationOvertime1": [
+                    "0",
+                    "0",
+                    "4"
+                ],
+                "rotationOvertime2": [
+                    "0",
+                    "0",
+                    "15"
+                ],
+                "rotationX": "0.000000",
+                "rotationY": "0.000000",
+                "rotationZ": "90.000000",
+                "rotationconstants": "1",
+                "scaleconstants": "1",
+                "separateAxis": "0",
+                "sizeX": "1.000000",
+                "sizeY": "0.500000",
+                "sizeZ": "1.000000",
+                "startFrame": "0",
+                "tiles_X": "5",
+                "tiles_Y": "3",
+                "velocityRandomFactor1X": "2.500000",
+                "velocityRandomFactor1Y": "2.000000",
+                "velocityRandomFactor1Z": "0.000000",
+                "velocityRandomFactor2X": "-2.500000",
+                "velocityRandomFactor2Y": "-2.500000",
+                "velocityRandomFactor2Z": "0.000000",
+                "velocityconstants": "0"
+            }
+        },
+        "Parent": "1749865721",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1585362663"
     }
 }
