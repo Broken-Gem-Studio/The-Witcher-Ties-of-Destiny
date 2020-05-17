@@ -248,7 +248,7 @@ local function HandleZoomLayers()
 						-- Switch up to Layer 2
 						current_zoom_layer = zoom.LAYER_2
 						current_state = state.SWITCHING
-						lua_table.SystemFunctions:LOG ("Camera: Switching to Zoom Layer 2")
+						--lua_table.SystemFunctions:LOG ("Camera: Switching to Zoom Layer 2")
 					end
 
 				-- Layer 2
@@ -261,7 +261,7 @@ local function HandleZoomLayers()
 						-- Switch down to Layer 1
 						current_zoom_layer = zoom.LAYER_1
 						current_state = state.SWITCHING
-						lua_table.SystemFunctions:LOG ("Camera: Switching to Zoom Layer 1")
+						--lua_table.SystemFunctions:LOG ("Camera: Switching to Zoom Layer 1")
 					
 					-- When ONE player gets out of lua_table.Layer_2_FOV_ratio_1
 					elseif lua_table.CameraFunctions:GetPositionInFrustum(lua_table.P1_pos[x], lua_table.P1_pos[y], lua_table.P1_pos[z], lua_table.Layer_2_FOV_ratio_1, lua_table.Layer_2_FOV_ratio_2) == 1 or
@@ -270,7 +270,7 @@ local function HandleZoomLayers()
 						-- Switch up to Layer 3
 				 		current_zoom_layer = zoom.LAYER_3
 				 		current_state = state.SWITCHING
-						 lua_table.SystemFunctions:LOG ("Camera: Switching to Zoom Layer 3")
+						-- lua_table.SystemFunctions:LOG ("Camera: Switching to Zoom Layer 3")
 					end
 
 				-- Layer 3
@@ -283,13 +283,13 @@ local function HandleZoomLayers()
 						-- Switch down to Layer 2
 						current_zoom_layer = zoom.LAYER_2
 						current_state = state.SWITCHING
-						lua_table.SystemFunctions:LOG ("Camera: Switching to Zoom Layer 2")
+						--lua_table.SystemFunctions:LOG ("Camera: Switching to Zoom Layer 2")
 
 					-- When ONE player gets out of lua_table.Layer_3_FOV_ratio_1
 					elseif lua_table.CameraFunctions:GetPositionInFrustum(lua_table.P1_pos[x], lua_table.P1_pos[y], lua_table.P1_pos[z], lua_table.Layer_3_FOV_ratio_1, lua_table.Layer_3_FOV_ratio_2) == 1 or
 					lua_table.CameraFunctions:GetPositionInFrustum(lua_table.Kikimora_pos[x], lua_table.Kikimora_pos[y], lua_table.Kikimora_pos[z], lua_table.Layer_3_FOV_ratio_1, lua_table.Layer_3_FOV_ratio_2) == 1
 					then
-						lua_table.SystemFunctions:LOG ("Camera: SHOULD BLOCK PLAYER")
+						--lua_table.SystemFunctions:LOG ("Camera: SHOULD BLOCK PLAYER")
 					else
 						--lua_table.SystemFunctions:LOG ("Camera: nothing")
 					end
@@ -312,7 +312,7 @@ local function HandleZoomLayers()
 						-- Switch up to Layer 2
 						current_zoom_layer = zoom.LAYER_2
 						current_state = state.SWITCHING
-						lua_table.SystemFunctions:LOG ("Camera: Switching to Zoom Layer 2")
+						--lua_table.SystemFunctions:LOG ("Camera: Switching to Zoom Layer 2")
 					end
 
 				-- Layer 2
@@ -325,7 +325,7 @@ local function HandleZoomLayers()
 						-- Switch down to Layer 1
 						current_zoom_layer = zoom.LAYER_1
 						current_state = state.SWITCHING
-						lua_table.SystemFunctions:LOG ("Camera: Switching to Zoom Layer 1")
+						--lua_table.SystemFunctions:LOG ("Camera: Switching to Zoom Layer 1")
 					
 					-- When ONE player gets out of lua_table.Layer_2_FOV_ratio_1
 					elseif lua_table.CameraFunctions:GetPositionInFrustum(lua_table.P1_pos[x], lua_table.P1_pos[y], lua_table.P1_pos[z], lua_table.Layer_2_FOV_ratio_1, lua_table.Layer_2_FOV_ratio_2) == 1 or
@@ -334,7 +334,7 @@ local function HandleZoomLayers()
 						-- Switch up to Layer 3
 					 	current_zoom_layer = zoom.LAYER_3
 					 	current_state = state.SWITCHING
-						lua_table.SystemFunctions:LOG ("Camera: Switching to Zoom Layer 3")
+						--lua_table.SystemFunctions:LOG ("Camera: Switching to Zoom Layer 3")
 					end
 
 				-- Layer 3
@@ -347,13 +347,13 @@ local function HandleZoomLayers()
 						-- Switch down to Layer 2
 						current_zoom_layer = zoom.LAYER_2
 						current_state = state.SWITCHING
-						lua_table.SystemFunctions:LOG ("Camera: Switching to Zoom Layer 2")
+						--lua_table.SystemFunctions:LOG ("Camera: Switching to Zoom Layer 2")
 
 					-- When ONE player gets out of lua_table.Layer_3_FOV_ratio_1
 					elseif lua_table.CameraFunctions:GetPositionInFrustum(lua_table.P1_pos[x], lua_table.P1_pos[y], lua_table.P1_pos[z], lua_table.Layer_3_FOV_ratio_1, lua_table.Layer_3_FOV_ratio_2) == 1 or
 					lua_table.CameraFunctions:GetPositionInFrustum(lua_table.P2_pos[x], lua_table.P2_pos[y], lua_table.P2_pos[z], lua_table.Layer_3_FOV_ratio_1, lua_table.Layer_3_FOV_ratio_2) == 1
 					then
-						lua_table.SystemFunctions:LOG ("Camera: SHOULD BLOCK PLAYER")
+						--lua_table.SystemFunctions:LOG ("Camera: SHOULD BLOCK PLAYER")
 					else
 						--lua_table.SystemFunctions:LOG ("Camera: nothing")
 					end
@@ -370,7 +370,7 @@ local function HandleZoomLayers()
 						-- Switch up to Layer 2
 						current_zoom_layer = zoom.LAYER_2
 						current_state = state.SWITCHING
-						lua_table.SystemFunctions:LOG ("Camera: Switching to Zoom Layer 2")
+						--lua_table.SystemFunctions:LOG ("Camera: Switching to Zoom Layer 2")
 					end
 
 				-- Layer 2
@@ -384,7 +384,7 @@ local function HandleZoomLayers()
 						-- Switch down to Layer 1
 						current_zoom_layer = zoom.LAYER_1
 						current_state = state.SWITCHING
-						lua_table.SystemFunctions:LOG ("Camera: Switching to Zoom Layer 1")
+						--lua_table.SystemFunctions:LOG ("Camera: Switching to Zoom Layer 1")
 					
 					-- When ONE player gets out of lua_table.Layer_2_FOV_ratio_1
 					elseif lua_table.CameraFunctions:GetPositionInFrustum(lua_table.P1_pos[x], lua_table.P1_pos[y], lua_table.P1_pos[z], lua_table.Layer_2_FOV_ratio_1, lua_table.Layer_2_FOV_ratio_2) == 1 or
@@ -394,7 +394,7 @@ local function HandleZoomLayers()
 						-- Switch up to Layer 3
 					 	current_zoom_layer = zoom.LAYER_3
 					 	current_state = state.SWITCHING
-						lua_table.SystemFunctions:LOG ("Camera: Switching to Zoom Layer 3")
+						--lua_table.SystemFunctions:LOG ("Camera: Switching to Zoom Layer 3")
 					end
 
 				-- Layer 3
@@ -408,14 +408,14 @@ local function HandleZoomLayers()
 						-- Switch down to Layer 2
 						current_zoom_layer = zoom.LAYER_2
 						current_state = state.SWITCHING
-						lua_table.SystemFunctions:LOG ("Camera: Switching to Zoom Layer 2")
+						--lua_table.SystemFunctions:LOG ("Camera: Switching to Zoom Layer 2")
 
 					-- When ONE player gets out of lua_table.Layer_3_FOV_ratio_1
 					elseif lua_table.CameraFunctions:GetPositionInFrustum(lua_table.P1_pos[x], lua_table.P1_pos[y], lua_table.P1_pos[z], lua_table.Layer_3_FOV_ratio_1, lua_table.Layer_3_FOV_ratio_2) == 1 or
 					lua_table.CameraFunctions:GetPositionInFrustum(lua_table.P2_pos[x], lua_table.P2_pos[y], lua_table.P2_pos[z], lua_table.Layer_3_FOV_ratio_1, lua_table.Layer_3_FOV_ratio_2) == 1 or
 					lua_table.CameraFunctions:GetPositionInFrustum(lua_table.Kikimora_pos[x], lua_table.Kikimora_pos[y], lua_table.Kikimora_pos[z], lua_table.Layer_3_FOV_ratio_1, lua_table.Layer_3_FOV_ratio_2) == 1
 					then
-						lua_table.SystemFunctions:LOG ("Camera: SHOULD BLOCK PLAYER")
+						--lua_table.SystemFunctions:LOG ("Camera: SHOULD BLOCK PLAYER")
 					else
 						--lua_table.SystemFunctions:LOG ("Camera: nothing")
 					end
@@ -445,7 +445,7 @@ local function HandleSwitch()
 			-- if math.abs(dis) > lua_table.asymptotic_average_snapping_threshold
 			then
 				current_state = state.DYNAMIC -- Enables Position Checking again
-				lua_table.SystemFunctions:LOG ("Camera: Switching to Zoom Layer 1 COMPLETE")
+				--lua_table.SystemFunctions:LOG ("Camera: Switching to Zoom Layer 1 COMPLETE")
             end
 			
 		elseif current_zoom_layer == zoom.LAYER_2
@@ -462,7 +462,7 @@ local function HandleSwitch()
 			-- if math.abs(dis) > lua_table.asymptotic_average_snapping_threshold
 			then
 				current_state = state.DYNAMIC -- Enables Position Checking again
-				lua_table.SystemFunctions:LOG ("Camera: Switching to Zoom Layer 2 COMPLETE")
+				--lua_table.SystemFunctions:LOG ("Camera: Switching to Zoom Layer 2 COMPLETE")
 			end
 
 		elseif current_zoom_layer == zoom.LAYER_3
@@ -480,7 +480,7 @@ local function HandleSwitch()
 			then
 				current_state = state.DYNAMIC -- Enables Position Checking again
 				-- current_state = state.STATIC
-				lua_table.SystemFunctions:LOG ("Camera: Switching to Zoom Layer 3 COMPLETE")
+				--lua_table.SystemFunctions:LOG ("Camera: Switching to Zoom Layer 3 COMPLETE")
 			end
 		end
 	end
@@ -498,7 +498,7 @@ local function HandleTarget()
 
 			if lua_table.P1_pos[x] == nil or lua_table.P1_pos[y] == nil or lua_table.P1_pos[z] == nil
 			then
-				lua_table.SystemFunctions:LOG ("Camera: Kikimora position nil")
+				--lua_table.SystemFunctions:LOG ("Camera: Kikimora position nil")
 			else
 				got_pos_once = true
 			end
@@ -544,7 +544,7 @@ local function HandleTarget()
 
 		if lua_table.P1_pos[x] == nil or lua_table.P1_pos[y] == nil or lua_table.P1_pos[z] == nil
 		then
-			lua_table.SystemFunctions:LOG ("Camera: Player 1 position nil")
+			--lua_table.SystemFunctions:LOG ("Camera: Player 1 position nil")
 		end
 
 		if bossfight == false
@@ -568,7 +568,7 @@ local function HandleTarget()
 		
 		if lua_table.P1_pos[x] == nil or lua_table.P1_pos[y] == nil or lua_table.P1_pos[z] == nil
 		then
-			lua_table.SystemFunctions:LOG ("Camera: Player 1 position nil")
+			--lua_table.SystemFunctions:LOG ("Camera: Player 1 position nil")
 		end
 
 		-- Gets position from Player 2 gameobject Id 
@@ -576,7 +576,7 @@ local function HandleTarget()
 
 		if lua_table.P2_pos[x] == nil or lua_table.P2_pos[y] == nil or lua_table.P2_pos[z] == nil
 		then
-			lua_table.SystemFunctions:LOG ("Camera: Player 2 position nil")
+			--lua_table.SystemFunctions:LOG ("Camera: Player 2 position nil")
 		end
 
 		if bossfight == false
