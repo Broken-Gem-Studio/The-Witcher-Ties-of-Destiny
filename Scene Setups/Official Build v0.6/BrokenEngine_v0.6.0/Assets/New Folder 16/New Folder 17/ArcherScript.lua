@@ -19,7 +19,7 @@ local Attack_Collider_UID = 0
 
 -- Archer Values -------------------------
 lua_table.health = 80
-lua_table.speed = 0.08
+lua_table.speed = 0.75
 
 -- 
 lua_table.DistanceToTarget = 0
@@ -308,7 +308,7 @@ local function Seek()
     if start_agro == false 
     then 
         lua_table.Audio:PlayAudioEvent("Play_Bandit_voice_2")
-        lua_table.AnimationSystem:PlayAnimation("Hit",30.0, MyUID)
+        lua_table.AnimationSystem:PlayAnimation("Hit",45.0, MyUID)
         agro_time = PerfGameTime()
         start_agro = true
     end
@@ -317,7 +317,7 @@ local function Seek()
     then
         if start_running == false 
         then
-            lua_table.AnimationSystem:PlayAnimation("Run",30.0, MyUID)
+            lua_table.AnimationSystem:PlayAnimation("Run",45.0, MyUID)
             start_running = true
             lua_table.GameObjectFunctions:SetActiveGameObject(true, ParticleWalking_UID)
         end
@@ -376,19 +376,19 @@ local function Shoot()
         shoot_time = PerfGameTime()
         -- PLAY ANIMATION TAKING ARROW (lasts 1s)
         --lua_table.System:LOG ("TAKING ARROW")
-        lua_table.AnimationSystem:PlayAnimation("DrawArrow",30.0, MyUID)
+        lua_table.AnimationSystem:PlayAnimation("DrawArrow",45.0, MyUID)
         lua_table.start_taking_arrow = false
         lua_table.Audio:PlayAudioEvent("Play_Bandit_bow_pulling_rope")
     end
 
-    if shoot_time + 1000 <= PerfGameTime() and lua_table.start_aiming == true 
+    if shoot_time + 500 <= PerfGameTime() and lua_table.start_aiming == true 
     then
        -- lua_table.System:LOG ("AIMING")
-        lua_table.AnimationSystem:PlayAnimation("Aim",30.0, MyUID)
+        lua_table.AnimationSystem:PlayAnimation("Aim",45.0, MyUID)
         lua_table.start_aiming = false
     end
 
-    if shoot_time + 2000 <= PerfGameTime() and lua_table.start_shooting == true 
+    if shoot_time + 1000 <= PerfGameTime() and lua_table.start_shooting == true 
     then
         
         lua_table.Audio:PlayAudioEvent("Play_Bandit_throw_arrow")
@@ -401,12 +401,12 @@ local function Shoot()
         local X = math.sin(math.rad(rot_fixed))
         local Z = math.cos(math.rad(rot_fixed))
 
-        lua_table.Scene:Instantiate(lua_table.arrow, pos[1] + X*3, pos[2] + 3, pos[3]+ Z*3, rotation[1], rotation[2], rotation[3])
+        lua_table.Scene:Instantiate(lua_table.arrow, pos[1] + X*3, pos[2] + 3, pos[3]+ Z*3, 0, rot_fixed - 90, 0)
 
         lua_table.start_shooting = false
     end
 
-    if shoot_time + 2500 <= PerfGameTime() 
+    if shoot_time + 1250 <= PerfGameTime() 
     then
         if lua_table.start_taking_arrow == false then lua_table.start_taking_arrow = true
         end
@@ -435,9 +435,9 @@ local function MeleeHit()
         lua_table.random = math.random(1,10)
 
         if lua_table.random % 2 == 0 then 
-            lua_table.AnimationSystem:PlayAnimation("MeleeKick",30.0, MyUID)
+            lua_table.AnimationSystem:PlayAnimation("MeleeKick",45.0, MyUID)
         else 
-            lua_table.AnimationSystem:PlayAnimation("MeleePunch",30.0, MyUID)
+            lua_table.AnimationSystem:PlayAnimation("MeleePunch",45.0, MyUID)
         end
         
         --lua_table.System:LOG ("MELEE ATTACK")
@@ -446,15 +446,15 @@ local function MeleeHit()
 
    
 
-    if melee_time + 450 <= PerfGameTime() then
+    if melee_time + 225 <= PerfGameTime() then
         lua_table.GameObjectFunctions:SetActiveGameObject(true, Attack_Collider_UID)
     end
 
-    if melee_time + 550 <= PerfGameTime() then
+    if melee_time + 275 <= PerfGameTime() then
         lua_table.GameObjectFunctions:SetActiveGameObject(false, Attack_Collider_UID)
     end
 
-    if melee_time + 1500 <= PerfGameTime() then
+    if melee_time + 750 <= PerfGameTime() then
         start_melee = true
     end
 
@@ -493,6 +493,7 @@ end
 function lua_table:Update()
 
     GetClosestPlayer()
+    lua_table.speed = 8 * lua_table.System:DT()
 
     -- ------------------------------------Decide Target----------------------------------
     if not start_taunt
@@ -596,7 +597,8 @@ function lua_table:Update()
             if start_death == false 
             then
                 lua_table.Audio:PlayAudioEvent("Play_Bandit_death_3")
-                lua_table.AnimationSystem:PlayAnimation("Death",30.0, MyUID) -- 2.33sec
+                local rand = math.random(35,55)
+                lua_table.AnimationSystem:PlayAnimation("Death",rand, MyUID) -- 2.33sec
                 time_death = PerfGameTime()
                 start_death = true
 
