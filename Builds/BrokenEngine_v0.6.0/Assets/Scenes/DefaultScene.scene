@@ -1,0 +1,722 @@
+{
+    "1125208099": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "UID": 57101566,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "4": {
+                "Active": false,
+                "UID": 129828246,
+                "index": 2,
+                "priority": "0",
+                "visible": "1"
+            },
+            "7": {
+                "Active": false,
+                "Resources": {
+                    "ResourceTexture": null
+                },
+                "UID": 475895889,
+                "colliderh": "50",
+                "colliderw": "220",
+                "colliderx": "397",
+                "collidery": "306",
+                "draggable": "0",
+                "function": "GoToMainMenu",
+                "hovered_color.a": "1.000000",
+                "hovered_color.b": "0.500000",
+                "hovered_color.g": "0.500000",
+                "hovered_color.r": "0.500000",
+                "idle_color.a": "1.000000",
+                "idle_color.b": "1.000000",
+                "idle_color.g": "1.000000",
+                "idle_color.r": "1.000000",
+                "index": 1,
+                "interactable": "1",
+                "locked_color.a": "1.000000",
+                "locked_color.b": "1.000000",
+                "locked_color.g": "1.000000",
+                "locked_color.r": "1.000000",
+                "position2Dx": "-184.000000",
+                "position2Dy": "0.000000",
+                "priority": "3",
+                "script": "1240583705",
+                "selected_color.a": "1.000000",
+                "selected_color.b": "1.000000",
+                "selected_color.g": "0.250000",
+                "selected_color.r": "0.250000",
+                "size2Dx": "220.000000",
+                "size2Dy": "50.000000",
+                "visible": "1"
+            }
+        },
+        "Index": 6,
+        "Name": "MainMenu",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1240583705",
+        "Static": false
+    },
+    "1237493595": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "UID": 645143502,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "6": {
+                "Active": false,
+                "UID": 915275737,
+                "colorA": "1.000000",
+                "colorB": "0.000001",
+                "colorG": "0.000001",
+                "colorR": "0.000001",
+                "font": "7",
+                "index": 1,
+                "position2Dx": "-169.000000",
+                "position2Dy": "-7.500000",
+                "priority": "0",
+                "rotation2D": "0.000000",
+                "scale2Dx": "0.600000",
+                "scale2Dy": "0.600000",
+                "text": "Main Menu",
+                "visible": "1"
+            }
+        },
+        "Index": 0,
+        "Name": "Text(8)",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1125208099",
+        "Static": false
+    },
+    "1240583705": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1033327112,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/WinLose.lua"
+                },
+                "Script variables": {
+                    "Count": 0
+                },
+                "UID": 1580988858,
+                "index": 2
+            },
+            "4": {
+                "Active": true,
+                "UID": 564690052,
+                "index": 1,
+                "priority": "0",
+                "visible": "1"
+            }
+        },
+        "Index": 0,
+        "Name": "Win/Lose",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "-1",
+        "Static": false
+    },
+    "1282321145": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "UID": 1290262961,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "6": {
+                "Active": false,
+                "UID": 156653771,
+                "colorA": "1.000000",
+                "colorB": "0.000001",
+                "colorG": "0.000001",
+                "colorR": "0.000001",
+                "font": "7",
+                "index": 1,
+                "position2Dx": "-55.000000",
+                "position2Dy": "-10.000000",
+                "priority": "1",
+                "rotation2D": "0.000000",
+                "scale2Dx": "0.850000",
+                "scale2Dy": "0.850000",
+                "text": "Victory",
+                "visible": "1"
+            }
+        },
+        "Index": 2,
+        "Name": "Victory",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1240583705",
+        "Static": false
+    },
+    "13644543": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "UID": 758956229,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "6": {
+                "Active": false,
+                "UID": 456484774,
+                "colorA": "1.000000",
+                "colorB": "0.000001",
+                "colorG": "0.000001",
+                "colorR": "0.000001",
+                "font": "7",
+                "index": 1,
+                "position2Dx": "51.500000",
+                "position2Dy": "-7.000000",
+                "priority": "0",
+                "rotation2D": "0.000000",
+                "scale2Dx": "0.600000",
+                "scale2Dy": "0.600000",
+                "text": "Next Level",
+                "visible": "1"
+            }
+        },
+        "Index": 0,
+        "Name": "Text(9)",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "969982153",
+        "Static": false
+    },
+    "1470231325": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "UID": 1314527217,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "6": {
+                "Active": false,
+                "UID": 1536274205,
+                "colorA": "1.000000",
+                "colorB": "0.000001",
+                "colorG": "0.000001",
+                "colorR": "0.000001",
+                "font": "7",
+                "index": 1,
+                "position2Dx": "-55.000000",
+                "position2Dy": "-10.000000",
+                "priority": "1",
+                "rotation2D": "0.000000",
+                "scale2Dx": "0.850000",
+                "scale2Dy": "0.850000",
+                "text": "Defeat",
+                "visible": "1"
+            }
+        },
+        "Index": 3,
+        "Name": "Defeat",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1240583705",
+        "Static": false
+    },
+    "1523387470": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "UID": 1984174481,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "5": {
+                "Active": false,
+                "ColorA": "0.000000",
+                "ColorB": "0.000000",
+                "ColorG": "0.000000",
+                "ColorR": "0.000000",
+                "Resources": {
+                    "ResourceTexture": null
+                },
+                "UID": 1178464779,
+                "index": 1,
+                "position2Dx": "0.000000",
+                "position2Dy": "0.000000",
+                "priority": "2",
+                "size2Dx": "1024.000000",
+                "size2Dy": "412.000000",
+                "visible": "1"
+            }
+        },
+        "Index": 1,
+        "Name": "Fade",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1240583705",
+        "Static": false
+    },
+    "1726912096": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "UID": 327574674,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "4": {
+                "Active": false,
+                "UID": 400148502,
+                "index": 2,
+                "priority": "0",
+                "visible": "1"
+            },
+            "7": {
+                "Active": false,
+                "Resources": {
+                    "ResourceTexture": null
+                },
+                "UID": 1947531061,
+                "colliderh": "50",
+                "colliderw": "220",
+                "colliderx": "579",
+                "collidery": "306",
+                "draggable": "0",
+                "function": "GoToMainMenu",
+                "hovered_color.a": "1.000000",
+                "hovered_color.b": "0.500000",
+                "hovered_color.g": "0.500000",
+                "hovered_color.r": "0.500000",
+                "idle_color.a": "1.000000",
+                "idle_color.b": "1.000000",
+                "idle_color.g": "1.000000",
+                "idle_color.r": "1.000000",
+                "index": 1,
+                "interactable": "1",
+                "locked_color.a": "1.000000",
+                "locked_color.b": "1.000000",
+                "locked_color.g": "1.000000",
+                "locked_color.r": "1.000000",
+                "position2Dx": "0.000000",
+                "position2Dy": "0.000000",
+                "priority": "3",
+                "script": "1240583705",
+                "selected_color.a": "1.000000",
+                "selected_color.b": "1.000000",
+                "selected_color.g": "0.250000",
+                "selected_color.r": "0.250000",
+                "size2Dx": "220.000000",
+                "size2Dy": "50.000000",
+                "visible": "1"
+            }
+        },
+        "Index": 5,
+        "Name": "OnlyMainMenu",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1240583705",
+        "Static": false
+    },
+    "302984663": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "UID": 1510841889,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "5": {
+                "Active": false,
+                "ColorA": "1.000000",
+                "ColorB": "0.999990",
+                "ColorG": "0.999990",
+                "ColorR": "1.000000",
+                "Resources": {
+                    "ResourceTexture": null
+                },
+                "UID": 426640362,
+                "index": 1,
+                "position2Dx": "0.000000",
+                "position2Dy": "0.000000",
+                "priority": "0",
+                "size2Dx": "1035.000000",
+                "size2Dy": "130.000000",
+                "visible": "1"
+            }
+        },
+        "Index": 0,
+        "Name": "Background",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1240583705",
+        "Static": false
+    },
+    "685726100": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "UID": 227851643,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "6": {
+                "Active": false,
+                "UID": 1945020561,
+                "colorA": "1.000000",
+                "colorB": "0.000001",
+                "colorG": "0.000001",
+                "colorR": "0.000001",
+                "font": "7",
+                "index": 1,
+                "position2Dx": "-53.000000",
+                "position2Dy": "-6.500000",
+                "priority": "0",
+                "rotation2D": "0.000000",
+                "scale2Dx": "0.600000",
+                "scale2Dy": "0.600000",
+                "text": "Main Menu",
+                "visible": "1"
+            }
+        },
+        "Index": 0,
+        "Name": "Text(10)",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1726912096",
+        "Static": false
+    },
+    "969982153": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "UID": 1356710451,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "4": {
+                "Active": false,
+                "UID": 315958701,
+                "index": 2,
+                "priority": "0",
+                "visible": "1"
+            },
+            "7": {
+                "Active": false,
+                "Resources": {
+                    "ResourceTexture": null
+                },
+                "UID": 617579423,
+                "colliderh": "50",
+                "colliderw": "220",
+                "colliderx": "744",
+                "collidery": "306",
+                "draggable": "0",
+                "function": "GoToNextLevel",
+                "hovered_color.a": "1.000000",
+                "hovered_color.b": "0.500000",
+                "hovered_color.g": "0.500000",
+                "hovered_color.r": "0.500000",
+                "idle_color.a": "1.000000",
+                "idle_color.b": "1.000000",
+                "idle_color.g": "1.000000",
+                "idle_color.r": "1.000000",
+                "index": 1,
+                "interactable": "1",
+                "locked_color.a": "1.000000",
+                "locked_color.b": "1.000000",
+                "locked_color.g": "1.000000",
+                "locked_color.r": "1.000000",
+                "position2Dx": "166.000000",
+                "position2Dy": "0.000000",
+                "priority": "3",
+                "script": "1240583705",
+                "selected_color.a": "1.000000",
+                "selected_color.b": "1.000000",
+                "selected_color.g": "0.250000",
+                "selected_color.r": "0.250000",
+                "size2Dx": "220.000000",
+                "size2Dy": "50.000000",
+                "visible": "1"
+            }
+        },
+        "Index": 4,
+        "Name": "NextLevel",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1240583705",
+        "Static": false
+    },
+    "Navigation Data": {
+        "Areas": [
+            {
+                "cost": 1.0,
+                "name": "Walkable"
+            },
+            {
+                "cost": 1.0,
+                "name": "Not Walkable"
+            },
+            {
+                "cost": 2.0,
+                "name": "Jump"
+            },
+            {
+                "cost": 1.0,
+                "name": ""
+            },
+            {
+                "cost": 1.0,
+                "name": ""
+            },
+            {
+                "cost": 1.0,
+                "name": ""
+            },
+            {
+                "cost": 1.0,
+                "name": ""
+            },
+            {
+                "cost": 1.0,
+                "name": ""
+            },
+            {
+                "cost": 1.0,
+                "name": ""
+            },
+            {
+                "cost": 1.0,
+                "name": ""
+            },
+            {
+                "cost": 1.0,
+                "name": ""
+            },
+            {
+                "cost": 1.0,
+                "name": ""
+            },
+            {
+                "cost": 1.0,
+                "name": ""
+            },
+            {
+                "cost": 1.0,
+                "name": ""
+            },
+            {
+                "cost": 1.0,
+                "name": ""
+            },
+            {
+                "cost": 1.0,
+                "name": ""
+            },
+            {
+                "cost": 1.0,
+                "name": ""
+            },
+            {
+                "cost": 1.0,
+                "name": ""
+            },
+            {
+                "cost": 1.0,
+                "name": ""
+            },
+            {
+                "cost": 1.0,
+                "name": ""
+            },
+            {
+                "cost": 1.0,
+                "name": ""
+            },
+            {
+                "cost": 1.0,
+                "name": ""
+            },
+            {
+                "cost": 1.0,
+                "name": ""
+            },
+            {
+                "cost": 1.0,
+                "name": ""
+            },
+            {
+                "cost": 1.0,
+                "name": ""
+            },
+            {
+                "cost": 1.0,
+                "name": ""
+            },
+            {
+                "cost": 1.0,
+                "name": ""
+            },
+            {
+                "cost": 1.0,
+                "name": ""
+            },
+            {
+                "cost": 1.0,
+                "name": ""
+            },
+            {
+                "cost": 1.0,
+                "name": ""
+            },
+            {
+                "cost": 1.0,
+                "name": ""
+            }
+        ],
+        "agentHeight": 2.0,
+        "agentRadius": 0.5,
+        "buildTiledMesh": true,
+        "detailSampleDist": 6.0,
+        "detailSampleMaxError": 1.0,
+        "edgeMaxError": 1.2999999523162842,
+        "edgeMaxLen": 12.0,
+        "maxSlope": 45.0,
+        "regionMergeSize": 20.0,
+        "regionMinSize": 8.0,
+        "stepHeight": 0.4000000059604645,
+        "vertsPerPoly": 6.0,
+        "voxelHeight": 0.20000000298023224,
+        "voxelSize": 0.15000000596046448
+    },
+    "SceneAmbientColor": {
+        "B": 0.9999899864196777,
+        "G": 0.9999899864196777,
+        "R": 1.0
+    },
+    "octreeBox": {
+        "maxX": 100.0,
+        "maxY": 100.0,
+        "maxZ": 100.0,
+        "minX": -100.0,
+        "minY": -100.0,
+        "minZ": -100.0
+    }
+}
