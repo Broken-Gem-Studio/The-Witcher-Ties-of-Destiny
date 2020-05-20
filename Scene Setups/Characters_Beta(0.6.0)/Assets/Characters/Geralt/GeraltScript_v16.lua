@@ -387,20 +387,20 @@ lua_table.light_movement_velocity = 3.0
 lua_table.light_1_movement_velocity = 1.5
 
 lua_table.light_1_block_time = 300			--Input block duration	(block new attacks)
-lua_table.light_1_collider_front_start = 100	--Collider activation time
-lua_table.light_1_collider_front_end = 200	--Collider deactivation time
+lua_table.light_1_collider_front_start = 300	--Collider activation time
+lua_table.light_1_collider_front_end = 450	--Collider deactivation time
 lua_table.light_1_duration = 750			--Attack end (return to idle)
 lua_table.light_1_animation_speed = 50.0	--Slow time: 320ms
 
 lua_table.light_2_block_time = 300			--Input block duration	(block new attacks)
-lua_table.light_2_collider_front_start = 100	--Collider activation time
-lua_table.light_2_collider_front_end = 200	--Collider deactivation time
+lua_table.light_2_collider_front_start = 300	--Collider activation time
+lua_table.light_2_collider_front_end = 450	--Collider deactivation time
 lua_table.light_2_duration = 750			--Attack end (return to idle)
 lua_table.light_2_animation_speed = 50.0	--Slow time: 320ms
 
 lua_table.light_3_block_time = 300			--Input block duration	(block new attacks)
-lua_table.light_3_collider_front_start = 100	--Collider activation time
-lua_table.light_3_collider_front_end = 200	--Collider deactivation time
+lua_table.light_3_collider_front_start = 300	--Collider activation time
+lua_table.light_3_collider_front_end = 450	--Collider deactivation time
 lua_table.light_3_duration = 850			--Attack end (return to idle)
 lua_table.light_3_animation_speed = 50.0	--Slow time: 320ms
 
@@ -413,20 +413,20 @@ lua_table.medium_3_movement_velocity = 6.0
 lua_table.medium_3_movement_velocity_start = 350
 
 lua_table.medium_1_block_time = 350			--Input block duration	(block new attacks)
-lua_table.medium_1_collider_front_start = 300	--Collider activation time
-lua_table.medium_1_collider_front_end = 400	--Collider deactivation time
+lua_table.medium_1_collider_front_start = 350	--Collider activation time
+lua_table.medium_1_collider_front_end = 500	--Collider deactivation time
 lua_table.medium_1_duration = 1100			--Attack end (return to idle)
 lua_table.medium_1_animation_speed = 60.0	--Slow time: 370ms
 
 lua_table.medium_2_block_time = 250			--Input block duration	(block new attacks)
-lua_table.medium_2_collider_front_start = 100	--Collider activation time
-lua_table.medium_2_collider_front_end = 200	--Collider deactivation time
+lua_table.medium_2_collider_front_start = 250	--Collider activation time
+lua_table.medium_2_collider_front_end = 400	--Collider deactivation time
 lua_table.medium_2_duration = 900			--Attack end (return to idle)
 lua_table.medium_2_animation_speed = 50.0	--Slow time: 370ms
 
 lua_table.medium_3_block_time = 600			--Input block duration	(block new attacks)
-lua_table.medium_3_collider_front_start = 500	--Collider activation time
-lua_table.medium_3_collider_front_end = 600	--Collider deactivation time
+lua_table.medium_3_collider_front_start = 600	--Collider activation time
+lua_table.medium_3_collider_front_end = 750	--Collider deactivation time
 lua_table.medium_3_duration = 1300			--Attack end (return to idle)
 lua_table.medium_3_animation_speed = 50.0	--Slow time: 370ms
 
@@ -441,20 +441,20 @@ lua_table.heavy_1_movement_velocity_end = 2.5
 lua_table.heavy_1_movement_start_2 = 700
 
 lua_table.heavy_1_block_time = 800			--Input block duration	(block new attacks)
-lua_table.heavy_1_collider_front_start = 600	--Collider activation time
-lua_table.heavy_1_collider_front_end = 700	--Collider deactivation time
+lua_table.heavy_1_collider_front_start = 800	--Collider activation time
+lua_table.heavy_1_collider_front_end = 950	--Collider deactivation time
 lua_table.heavy_1_duration = 1200			--Attack end (return to idle)
 lua_table.heavy_1_animation_speed = 40.0	--Slow time: 430ms
 
 lua_table.heavy_2_block_time = 350			--Input block duration	(block new attacks)
-lua_table.heavy_2_collider_front_start = 200	--Collider activation time
-lua_table.heavy_2_collider_front_end = 300	--Collider deactivation time
+lua_table.heavy_2_collider_front_start = 350	--Collider activation time
+lua_table.heavy_2_collider_front_end = 500	--Collider deactivation time
 lua_table.heavy_2_duration = 1000			--Attack end (return to idle)
 lua_table.heavy_2_animation_speed = 40.0	--Slow time: 430ms
 
 lua_table.heavy_3_block_time = 600			--Input block duration	(block new attacks)
-lua_table.heavy_3_collider_front_start = 500	--Collider activation time
-lua_table.heavy_3_collider_front_end = 600	--Collider deactivation time
+lua_table.heavy_3_collider_front_start = 600	--Collider activation time
+lua_table.heavy_3_collider_front_end = 750	--Collider deactivation time
 lua_table.heavy_3_duration = 1600			--Attack end (return to idle)
 lua_table.heavy_3_animation_speed = 40.0	--Slow time: 430ms
 
