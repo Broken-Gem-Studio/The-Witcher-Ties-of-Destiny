@@ -1035,6 +1035,34 @@ local function CheckCameraBounds()	--Check if we're currently outside the camera
 	if bounds_vector.x ~= 0 or bounds_vector.z ~= 0 then
 		bounds_angle = math.rad(bounds_angle)
 		off_bounds = true
+
+		if lua_table.current_state > state.idle then
+			lua_table.AnimationFunctions:SetBlendTime(0.1, jaskier_GO_UID)
+
+			AttackColliderShutdown()
+			ParticlesShutdown()
+			AudioShutdown()
+
+			SaveDirection()
+
+			knockback_curr_velocity = lua_table.knockback_orig_velocity
+
+			lua_table.AnimationFunctions:PlayAnimation(animation_library.knockback, 60.0, jaskier_GO_UID)
+			current_animation = animation_library.knockback
+
+			if lua_table.current_health > 0
+			then
+				lua_table.AudioFunctions:PlayAudioEventGO(audio_library.knockback, jaskier_GO_UID)	--TODO-AUDIO:
+				current_audio = audio_library.knockback
+			end	--TODO-Audio:
+
+			lua_table.previous_state = lua_table.current_state
+			lua_table.current_state = state.knocked
+
+			current_action_duration = attack_effects_durations[attack_effects_ID.knockback]
+			action_started_at = game_time
+			lua_table.InputFunctions:ShakeController(lua_table.player_ID, 1.0, current_action_duration)
+		end
 	else
 		off_bounds = false
 	end
@@ -1818,7 +1846,6 @@ local function ProcessIncomingHit(collider_GO)
 		AttackColliderShutdown()
 		ParticlesShutdown()
 		AudioShutdown()
-		ReviveShutdown()
 
 		if enemy_script.collider_effect == attack_effects_ID.stun
 		then
