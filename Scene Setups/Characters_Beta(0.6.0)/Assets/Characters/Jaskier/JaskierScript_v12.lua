@@ -311,7 +311,7 @@ lua_table.max_energy_orig = 100
 
 local energy_reg_real
 lua_table.energy_reg_mod = 1.0
-lua_table.energy_reg_orig = 5
+lua_table.energy_reg_orig = 7
 
 --Attacks
 	--Layers
@@ -552,7 +552,7 @@ lua_table.max_ultimate = 100.0
 
 local ultimate_reg_real
 lua_table.ultimate_reg_mod = 1.0
-lua_table.ultimate_reg_orig = 10	--Ideally, 2 or something similar
+lua_table.ultimate_reg_orig = 1.5	--1 minute between ultimates
 
 lua_table.ultimate_active = false
 
@@ -2370,7 +2370,7 @@ function lua_table:Update()
 	--DEBUG LOGS
 	--lua_table.SystemFunctions:LOG("Delta Time: " .. dt)
 	--lua_table.SystemFunctions:LOG("State: " .. lua_table.current_state)
-	lua_table.SystemFunctions:LOG("Time passed: " .. time_since_action)
+	--lua_table.SystemFunctions:LOG("Time passed: " .. time_since_action)
 	--rot_y = math.rad(GimbalLockWorkaroundY(lua_table.TransformFunctions:GetRotation()[2]))	--TODO: Remove GimbalLock stage when Euler bug is fixed
 	--lua_table.SystemFunctions:LOG("Angle Y: " .. rot_y)
 	--lua_table.SystemFunctions:LOG("Ultimate: " .. lua_table.current_ultimate)

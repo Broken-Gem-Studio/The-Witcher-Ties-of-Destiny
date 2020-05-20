@@ -312,7 +312,7 @@ lua_table.max_energy_orig = 100
 
 local energy_reg_real
 lua_table.energy_reg_mod = 1.0
-lua_table.energy_reg_orig = 5
+lua_table.energy_reg_orig = 7
 
 --Attacks
 	--Layers
@@ -494,7 +494,7 @@ lua_table.max_ultimate = 100.0
 
 local ultimate_reg_real
 lua_table.ultimate_reg_mod = 1.0
-lua_table.ultimate_reg_orig = 10	--Ideally, 2 or something similar
+lua_table.ultimate_reg_orig = 1.5	--1 minute between ultimates
 
 local ultimate_started_at = 0.0
 lua_table.ultimate_duration = 3600
@@ -543,7 +543,10 @@ lua_table.combo_1_size = 4
 lua_table.combo_1_damage = 2.0	--slide + 4 hits
 lua_table.combo_1_duration = 1500
 lua_table.combo_1_animation_speed = 35.0
-lua_table.combo_1_movement_velocity = 6.5
+lua_table.combo_1_movement_velocity_1 = 6.5
+lua_table.combo_1_movement_velocity_2 = 4.0
+lua_table.combo_1_velocity_change = 900
+lua_table.combo_1_velocity_stop = 1400
 
 lua_table.combo_1_collider_right_start = 900	--Collider activation time
 lua_table.combo_1_collider_right_end = 1000		--Collider deactivation time
@@ -559,7 +562,8 @@ lua_table.combo_2_size = 4
 lua_table.combo_2_damage = 3.5	--3 hit
 lua_table.combo_2_duration = 1400
 lua_table.combo_2_animation_speed = 30.0
-lua_table.combo_2_movement_velocity = 5.0
+lua_table.combo_2_movement_velocity_1 = 5.0
+lua_table.combo_2_velocity_change = 1000
 
 lua_table.combo_2_collider_left_start = 500		--Collider activation time
 lua_table.combo_2_collider_left_end = 600		--Collider deactivation time
@@ -573,7 +577,10 @@ lua_table.combo_3_size = 4
 lua_table.combo_3_damage = 4.0	--1 hit		--IMPROVE: + stun
 lua_table.combo_3_duration = 1800
 lua_table.combo_3_animation_speed = 30.0
-lua_table.combo_3_movement_velocity = 5.0
+lua_table.combo_3_movement_velocity_1 = 6.0
+lua_table.combo_3_movement_velocity_2 = 3.0
+lua_table.combo_3_velocity_change = 500
+lua_table.combo_3_velocity_stop = 1900
 
 lua_table.combo_3_collider_front_start = 1100	--Collider activation time
 lua_table.combo_3_collider_front_end = 1200		--Collider deactivation time
@@ -2180,8 +2187,14 @@ function lua_table:Update()
 
 					elseif lua_table.current_state == state.combo_1
 					then
-						if DirectionInBounds() and time_since_action < current_action_block_time then lua_table.PhysicsFunctions:Move(lua_table.combo_1_movement_velocity * rec_direction.x * dt, lua_table.combo_1_movement_velocity * rec_direction.z * dt, geralt_GO_UID) end
-						
+						if DirectionInBounds() and time_since_action < lua_table.combo_1_velocity_stop then
+							if time_since_action < lua_table.combo_1_velocity_change then
+								lua_table.PhysicsFunctions:Move(lua_table.combo_1_movement_velocity_1 * rec_direction.x * dt, lua_table.combo_1_movement_velocity_1 * rec_direction.z * dt, geralt_GO_UID)
+							else
+								lua_table.PhysicsFunctions:Move(lua_table.combo_1_movement_velocity_2 * rec_direction.x * dt, lua_table.combo_1_movement_velocity_2 * rec_direction.z * dt, geralt_GO_UID)
+							end
+						end
+
 						--Collider Evaluation
 						AttackColliderCheck("combo_1", "right", 1)
 						AttackColliderCheck("combo_1", "front", 1)
@@ -2190,7 +2203,7 @@ function lua_table:Update()
 
 					elseif lua_table.current_state == state.combo_2
 					then
-						if DirectionInBounds() and time_since_action < current_action_block_time then lua_table.PhysicsFunctions:Move(lua_table.combo_2_movement_velocity * rec_direction.x * dt, lua_table.combo_2_movement_velocity * rec_direction.z * dt, geralt_GO_UID) end
+						if DirectionInBounds() and time_since_action < lua_table.combo_2_velocity_change then lua_table.PhysicsFunctions:Move(lua_table.combo_2_movement_velocity_1 * rec_direction.x * dt, lua_table.combo_2_movement_velocity_1 * rec_direction.z * dt, geralt_GO_UID) end
 						
 						--Collider Evaluation
 						AttackColliderCheck("combo_2", "left", 1)
@@ -2199,7 +2212,13 @@ function lua_table:Update()
 
 					elseif lua_table.current_state == state.combo_3
 					then
-						if DirectionInBounds() and time_since_action < current_action_block_time then lua_table.PhysicsFunctions:Move(lua_table.combo_3_movement_velocity * rec_direction.x * dt, lua_table.combo_3_movement_velocity * rec_direction.z * dt, geralt_GO_UID) end
+						if DirectionInBounds() and time_since_action < lua_table.combo_3_velocity_stop then
+							if time_since_action < lua_table.combo_3_velocity_change then
+								lua_table.PhysicsFunctions:Move(lua_table.combo_3_movement_velocity_1 * rec_direction.x * dt, lua_table.combo_3_movement_velocity_1 * rec_direction.z * dt, geralt_GO_UID)
+							else
+								lua_table.PhysicsFunctions:Move(lua_table.combo_3_movement_velocity_2 * rec_direction.x * dt, lua_table.combo_3_movement_velocity_2 * rec_direction.z * dt, geralt_GO_UID)
+							end
+						end
 
 						--Collider Evaluation
 						AttackColliderCheck("combo_3", "front", 1)
@@ -2314,7 +2333,7 @@ function lua_table:Update()
 	--DEBUG LOGS
 	--lua_table.SystemFunctions:LOG("Delta Time: " .. dt)
 	--lua_table.SystemFunctions:LOG("State: " .. lua_table.current_state)
-	--lua_table.SystemFunctions:LOG("Time passed: " .. time_since_action)
+	lua_table.SystemFunctions:LOG("Time passed: " .. time_since_action)
 	--rot_y = math.rad(GimbalLockWorkaroundY(lua_table.TransformFunctions:GetRotation()[2]))	--TODO: Remove GimbalLock stage when Euler bug is fixed
 	--lua_table.SystemFunctions:LOG("Angle Y: " .. rot_y)
 	--lua_table.SystemFunctions:LOG("Ultimate: " .. lua_table.current_ultimate)
