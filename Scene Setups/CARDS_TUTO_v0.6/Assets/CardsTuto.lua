@@ -10,6 +10,10 @@ function GetTableCardsTuto()
     --TEST CONDITIONS
     local step1 = false
     local step2 = false
+    local step3 = false
+    local step4 = false
+    local step5 = false
+    local step6 = false
     local continue_meter1 = 0
     local continue_meter2 = 0
     local continue_meter1_full = false
@@ -78,7 +82,25 @@ function GetTableCardsTuto()
             continue_meter1_full = false
             continue_meter2_full = false
             step2 = false
+            step3 = false
+            step4 = false
+            step5 = false
+            step6 = false
             step1 = true
+        end
+
+        if lua_table["Inputs"]:KeyDown("S")
+        then
+            continue_meter1 = 0
+            continue_meter2 = 0
+            continue_meter1_full = false
+            continue_meter2_full = false
+            step1 = false
+            step3 = false
+            step4 = false
+            step5 = false
+            step6 = false
+            step2 =  true
         end
 
         if lua_table["Inputs"]:KeyDown("D")
@@ -88,7 +110,53 @@ function GetTableCardsTuto()
             continue_meter1_full = false
             continue_meter2_full = false
             step1 = false
-            step2 =  true
+            step2 = false
+            step4 = false
+            step5 = false
+            step6 = false
+            step3 = true
+        end
+
+        if lua_table["Inputs"]:KeyDown("E")
+        then
+            continue_meter1 = 0
+            continue_meter2 = 0
+            continue_meter1_full = false
+            continue_meter2_full = false
+            step1 = false
+            step2 = false
+            step3 = false
+            step5 = false
+            step6 = false
+            step4 = true
+        end
+
+        if lua_table["Inputs"]:KeyDown("F")
+        then
+            continue_meter1 = 0
+            continue_meter2 = 0
+            continue_meter1_full = false
+            continue_meter2_full = false
+            step1 = false
+            step2 = false
+            step3 = false
+            step4 = false
+            step6 = false
+            step5 = true
+        end
+
+        if lua_table["Inputs"]:KeyDown("G")
+        then
+            continue_meter1 = 0
+            continue_meter2 = 0
+            continue_meter1_full = false
+            continue_meter2_full = false
+            step1 = false
+            step2 = false
+            step3 = false
+            step4 = false
+            step5 = false
+            step6 = true
         end
 
 
@@ -113,6 +181,62 @@ function GetTableCardsTuto()
         HideCard()
 
         lua_table["UI"]:MakeElementVisible("Image", ULTIMATE)
+        lua_table["UI"]:MakeElementVisible("Image", CARD_PLAYER1_BUTTON)
+        lua_table["UI"]:MakeElementVisible("Image", CARD_PLAYER2_BUTTON)
+        lua_table["UI"]:MakeElementVisible("CiruclarBar", P1_METER)
+        lua_table["UI"]:MakeElementVisible("CiruclarBar", P2_METER)
+       
+       end
+
+       --SPECIAL
+       if step3 == true
+       then
+
+        HideCard()
+
+        lua_table["UI"]:MakeElementVisible("Image", SPECIAL)
+        lua_table["UI"]:MakeElementVisible("Image", CARD_PLAYER1_BUTTON)
+        lua_table["UI"]:MakeElementVisible("Image", CARD_PLAYER2_BUTTON)
+        lua_table["UI"]:MakeElementVisible("CiruclarBar", P1_METER)
+        lua_table["UI"]:MakeElementVisible("CiruclarBar", P2_METER)
+       
+       end
+
+       --ENEMY
+       if step4 == true
+       then
+
+        HideCard()
+
+        lua_table["UI"]:MakeElementVisible("Image", ENEMY)
+        lua_table["UI"]:MakeElementVisible("Image", CARD_PLAYER1_BUTTON)
+        lua_table["UI"]:MakeElementVisible("Image", CARD_PLAYER2_BUTTON)
+        lua_table["UI"]:MakeElementVisible("CiruclarBar", P1_METER)
+        lua_table["UI"]:MakeElementVisible("CiruclarBar", P2_METER)
+       
+       end
+
+       --COMBOS
+       if step5 == true
+       then
+
+        HideCard()
+
+        lua_table["UI"]:MakeElementVisible("Image", COMBOS)
+        lua_table["UI"]:MakeElementVisible("Image", CARD_PLAYER1_BUTTON)
+        lua_table["UI"]:MakeElementVisible("Image", CARD_PLAYER2_BUTTON)
+        lua_table["UI"]:MakeElementVisible("CiruclarBar", P1_METER)
+        lua_table["UI"]:MakeElementVisible("CiruclarBar", P2_METER)
+       
+       end
+
+       --POTIS
+       if step6 == true
+       then
+
+        HideCard()
+
+        lua_table["UI"]:MakeElementVisible("Image", POTIS)
         lua_table["UI"]:MakeElementVisible("Image", CARD_PLAYER1_BUTTON)
         lua_table["UI"]:MakeElementVisible("Image", CARD_PLAYER2_BUTTON)
         lua_table["UI"]:MakeElementVisible("CiruclarBar", P1_METER)
