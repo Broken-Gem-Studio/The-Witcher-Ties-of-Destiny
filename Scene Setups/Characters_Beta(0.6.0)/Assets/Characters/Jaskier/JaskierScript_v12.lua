@@ -376,21 +376,21 @@ lua_table.light_damage = 1.0					--Multiplier of Base Damage
 lua_table.light_movement_velocity = 6.5
 
 lua_table.light_1_block_time = 300			--Input block duration	(block new attacks)
-lua_table.light_1_collider_front_start = 200	--Collider activation time
-lua_table.light_1_collider_front_end = 300	--Collider deactivation time
+lua_table.light_1_collider_front_start = 300	--Collider activation time
+lua_table.light_1_collider_front_end = 400	--Collider deactivation time
 lua_table.light_1_duration = 750			--Attack end (return to idle)
 lua_table.light_1_animation_speed = 70.0
 
 lua_table.light_2_block_time = 200			--Input block duration	(block new attacks)
-lua_table.light_2_collider_front_start = 100	--Collider activation time
-lua_table.light_2_collider_front_end = 200	--Collider deactivation time
+lua_table.light_2_collider_front_start = 200	--Collider activation time
+lua_table.light_2_collider_front_end = 300	--Collider deactivation time
 lua_table.light_2_duration = 670			--Attack end (return to idle)
 lua_table.light_2_animation_speed = 70.0
 
 lua_table.light_3_velocity_start = 100
 lua_table.light_3_block_time = 300			--Input block duration	(block new attacks)
-lua_table.light_3_collider_front_start = 200	--Collider activation time
-lua_table.light_3_collider_front_end = 300	--Collider deactivation time
+lua_table.light_3_collider_front_start = 250	--Collider activation time
+lua_table.light_3_collider_front_end = 350	--Collider deactivation time
 lua_table.light_3_duration = 820			--Attack end (return to idle)
 lua_table.light_3_animation_speed = 70.0	
 
@@ -405,20 +405,20 @@ lua_table.medium_3_movement_velocity = 6.0
 lua_table.medium_3_movement_velocity_start = 300
 
 lua_table.medium_1_block_time = 300			--Input block duration	(block new attacks)
-lua_table.medium_1_collider_front_start = 200	--Collider activation time
-lua_table.medium_1_collider_front_end = 300	--Collider deactivation time
+lua_table.medium_1_collider_front_start = 300	--Collider activation time
+lua_table.medium_1_collider_front_end = 400	--Collider deactivation time
 lua_table.medium_1_duration = 700			--Attack end (return to idle)
 lua_table.medium_1_animation_speed = 50.0
 
-lua_table.medium_2_block_time = 300			--Input block duration	(block new attacks)
-lua_table.medium_2_collider_front_start = 200	--Collider activation time
-lua_table.medium_2_collider_front_end = 300	--Collider deactivation time
+lua_table.medium_2_block_time = 350			--Input block duration	(block new attacks)
+lua_table.medium_2_collider_front_start = 350	--Collider activation time
+lua_table.medium_2_collider_front_end = 450	--Collider deactivation time
 lua_table.medium_2_duration = 800			--Attack end (return to idle)
 lua_table.medium_2_animation_speed = 50.0
 
-lua_table.medium_3_block_time = 300			--Input block duration	(block new attacks)
-lua_table.medium_3_collider_front_start = 200	--Collider activation time
-lua_table.medium_3_collider_front_end = 300	--Collider deactivation time
+lua_table.medium_3_block_time = 350			--Input block duration	(block new attacks)
+lua_table.medium_3_collider_front_start = 350	--Collider activation time
+lua_table.medium_3_collider_front_end = 450	--Collider deactivation time
 lua_table.medium_3_duration = 900			--Attack end (return to idle)
 lua_table.medium_3_animation_speed = 50.0
 
@@ -434,23 +434,23 @@ lua_table.heavy_3_movement_velocity = 3.0
 lua_table.heavy_3_movement_velocity_start = 260
 lua_table.heavy_3_movement_velocity_end = 500
 
-lua_table.heavy_1_block_time = 700			--Input block duration	(block new attacks)
-lua_table.heavy_1_collider_front_start = 600	--Collider activation time
-lua_table.heavy_1_collider_front_end = 700	--Collider deactivation time
+lua_table.heavy_1_block_time = 800			--Input block duration	(block new attacks)
+lua_table.heavy_1_collider_front_start = 750	--Collider activation time
+lua_table.heavy_1_collider_front_end = 850	--Collider deactivation time
 lua_table.heavy_1_duration = 1600			--Attack end (return to idle)
-lua_table.heavy_1_animation_speed = 50.0
+lua_table.heavy_1_animation_speed = 40.0
 
-lua_table.heavy_2_block_time = 400			--Input block duration	(block new attacks)
+lua_table.heavy_2_block_time = 500			--Input block duration	(block new attacks)
 lua_table.heavy_2_collider_front_start = 300	--Collider activation time
 lua_table.heavy_2_collider_front_end = 400	--Collider deactivation time
 lua_table.heavy_2_duration = 1050			--Attack end (return to idle)
-lua_table.heavy_2_animation_speed = 50.0
+lua_table.heavy_2_animation_speed = 40.0
 
-lua_table.heavy_3_block_time = 600			--Input block duration	(block new attacks)
-lua_table.heavy_3_collider_front_start = 500	--Collider activation time
-lua_table.heavy_3_collider_front_end = 600	--Collider deactivation time
+lua_table.heavy_3_block_time = 700			--Input block duration	(block new attacks)
+lua_table.heavy_3_collider_front_start = 600	--Collider activation time
+lua_table.heavy_3_collider_front_end = 800	--Collider deactivation time
 lua_table.heavy_3_duration = 1300			--Attack end (return to idle)
-lua_table.heavy_3_animation_speed = 50.0
+lua_table.heavy_3_animation_speed = 40.0
 
 --Evade		
 lua_table.evade_velocity = 18			--12
@@ -890,6 +890,10 @@ local function AttackColliderCheck(attack_type, collider_id, collider_num)	--Che
 		--else
 			--lua_table.SystemFunctions:LOG("Collider Active: " .. attack_type .. "_" .. collider_id)
 		end
+	elseif attack_colliders[collider_id .. "_" .. collider_num].active	--IF > end time and collider active, deactivate
+	then
+		lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders[collider_id .. "_" .. collider_num].GO_UID)	--TODO-Colliders: Check
+		attack_colliders[collider_id .. "_" .. collider_num].active = false
 	end
 end
 
@@ -2189,10 +2193,19 @@ function lua_table:Update()
 						end
 
 						--Collider Evaluation
-						if lua_table.current_state == state.light_1 then AttackColliderCheck("light_1", "front", 2)
-						elseif lua_table.current_state == state.light_2 then AttackColliderCheck("light_2", "front", 2)
-						elseif lua_table.current_state == state.light_3 then AttackColliderCheck("light_3", "front", 1)
+						if lua_table.current_state == state.light_1 then
+							AttackColliderCheck("light_1", "front", 2)
+
+						elseif lua_table.current_state == state.light_2 then
+							AttackColliderCheck("light_2", "front", 2)
+
+						elseif lua_table.current_state == state.light_3 then
+							AttackColliderCheck("light_3", "front", 1)
+
 						end
+
+						-- if time_since_action > 800 then lua_table.AnimationFunctions:SetCurrentAnimationSpeed(5.0, geralt_GO_UID) end
+						-- blending_started_at = game_time
 
 					elseif lua_table.current_state == state.medium_1 or lua_table.current_state == state.medium_2 or lua_table.current_state == state.medium_3	--IF Medium Attacking
 					then
@@ -2207,9 +2220,15 @@ function lua_table:Update()
 						end
 
 						--Collider Evaluation
-						if lua_table.current_state == state.medium_1 then AttackColliderCheck("medium_1", "front", 1)
-						elseif lua_table.current_state == state.medium_2 then AttackColliderCheck("medium_2", "front", 1)
-						elseif lua_table.current_state == state.medium_3 then AttackColliderCheck("medium_3", "front", 1)
+						if lua_table.current_state == state.medium_1 then
+							AttackColliderCheck("medium_1", "front", 1)
+
+						elseif lua_table.current_state == state.medium_2 then
+							AttackColliderCheck("medium_2", "front", 1)
+
+						elseif lua_table.current_state == state.medium_3 then
+							AttackColliderCheck("medium_3", "front", 1)
+
 						end
 
 					elseif lua_table.current_state == state.heavy_1 or lua_table.current_state == state.heavy_2 or lua_table.current_state == state.heavy_3	--IF Heavy Attacking
@@ -2225,9 +2244,15 @@ function lua_table:Update()
 						end
 
 						--Collider Evaluation
-						if lua_table.current_state == state.heavy_1 then AttackColliderCheck("heavy_1", "front", 2)
-						elseif lua_table.current_state == state.heavy_2 then AttackColliderCheck("heavy_2", "front", 2)
-						elseif lua_table.current_state == state.heavy_3 then AttackColliderCheck("heavy_3", "front", 2)
+						if lua_table.current_state == state.heavy_1
+						then AttackColliderCheck("heavy_1", "front", 2)
+
+						elseif lua_table.current_state == state.heavy_2
+						then AttackColliderCheck("heavy_2", "front", 2)
+
+						elseif lua_table.current_state == state.heavy_3
+						then AttackColliderCheck("heavy_3", "front", 2)
+							
 						end
 
 					elseif lua_table.current_state == state.song_1 and time_since_action > lua_table.song_1_effect_start

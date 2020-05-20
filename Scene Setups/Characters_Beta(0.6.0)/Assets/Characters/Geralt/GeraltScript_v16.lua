@@ -886,6 +886,10 @@ local function AttackColliderCheck(attack_type, collider_id, collider_num)	--Che
 		--else
 			--lua_table.SystemFunctions:LOG("Collider Active: " .. attack_type .. "_" .. collider_id)
 		end
+	elseif attack_colliders[collider_id .. "_" .. collider_num].active	--IF > end time and collider active, deactivate
+	then
+		lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders[collider_id .. "_" .. collider_num].GO_UID)	--TODO-Colliders: Check
+		attack_colliders[collider_id .. "_" .. collider_num].active = false
 	end
 end
 
@@ -2205,11 +2209,6 @@ function lua_table:Update()
 								lua_table.PhysicsFunctions:Move(lua_table.heavy_movement_velocity_end * rec_direction.x * dt, lua_table.heavy_movement_velocity_end * rec_direction.z * dt, geralt_GO_UID)
 							end
 						end
-
-						-- DEBUG SETCURRENTANIMATION
-						-- if time_since_action > 800 then lua_table.AnimationFunctions:SetCurrentAnimationSpeed(5.0, geralt_GO_UID)
-						-- elseif time_since_action > 400 then lua_table.AnimationFunctions:SetCurrentAnimationSpeed(15.0, geralt_GO_UID)
-						-- else lua_table.AnimationFunctions:SetCurrentAnimationSpeed(30.0, geralt_GO_UID) end
 
 						--Collider Evaluation
 						if lua_table.current_state == state.heavy_1 then AttackColliderCheck("heavy_1", "front", 2)
