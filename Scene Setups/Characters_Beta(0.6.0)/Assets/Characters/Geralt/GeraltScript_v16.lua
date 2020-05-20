@@ -561,9 +561,9 @@ lua_table.combo_2 = { 'M', 'M', 'M', 'M' }--{ 'M', 'H', 'M', 'L' }	--High Spin
 lua_table.combo_2_size = 4
 lua_table.combo_2_damage = 3.5	--3 hit
 lua_table.combo_2_duration = 1400
-lua_table.combo_2_animation_speed = 30.0
-lua_table.combo_2_movement_velocity_1 = 5.0
-lua_table.combo_2_velocity_change = 1000
+lua_table.combo_2_animation_speed = 40.0
+lua_table.combo_2_movement_velocity_1 = 6.5
+lua_table.combo_2_velocity_change = 850
 
 lua_table.combo_2_collider_left_start = 500		--Collider activation time
 lua_table.combo_2_collider_left_end = 600		--Collider deactivation time
