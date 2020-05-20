@@ -542,11 +542,11 @@ lua_table.combo_1 = { 'L', 'L', 'L', 'L' }--{ 'L', 'L', 'H', 'M' }	--Slide Attac
 lua_table.combo_1_size = 4
 lua_table.combo_1_damage = 2.0	--slide + 4 hits
 lua_table.combo_1_duration = 1500
-lua_table.combo_1_animation_speed = 35.0
-lua_table.combo_1_movement_velocity_1 = 6.5
+lua_table.combo_1_animation_speed = 45.0
+lua_table.combo_1_movement_velocity_1 = 8.0
 lua_table.combo_1_movement_velocity_2 = 4.0
-lua_table.combo_1_velocity_change = 900
-lua_table.combo_1_velocity_stop = 1400
+lua_table.combo_1_velocity_change = 600
+lua_table.combo_1_velocity_stop = 1200
 
 lua_table.combo_1_collider_right_start = 900	--Collider activation time
 lua_table.combo_1_collider_right_end = 1000		--Collider deactivation time
