@@ -541,6 +541,7 @@ lua_table.combo_stack = { 'N', 'N', 'N', 'N' }	-- Last 4 attacks performed (0=no
 lua_table.combo_1 = { 'L', 'L', 'L', 'L' }--{ 'L', 'L', 'H', 'M' }	--Slide Attack
 lua_table.combo_1_size = 4
 lua_table.combo_1_damage = 2.0	--slide + 4 hits
+lua_table.combo_1_effect = attack_effects_ID.knockback
 lua_table.combo_1_duration = 1500
 lua_table.combo_1_animation_speed = 45.0
 lua_table.combo_1_movement_velocity_1 = 8.0
@@ -560,6 +561,7 @@ lua_table.combo_1_collider_back_end = 1000		--Collider deactivation time
 lua_table.combo_2 = { 'M', 'M', 'M', 'M' }--{ 'M', 'H', 'M', 'L' }	--High Spin
 lua_table.combo_2_size = 4
 lua_table.combo_2_damage = 3.5	--3 hit
+lua_table.combo_2_effect = attack_effects_ID.stun
 lua_table.combo_2_duration = 1400
 lua_table.combo_2_animation_speed = 40.0
 lua_table.combo_2_movement_velocity_1 = 6.5
@@ -575,6 +577,7 @@ lua_table.combo_2_collider_front_end = 1100		--Collider deactivation time
 lua_table.combo_3 = { 'H', 'H', 'H', 'H' }--{ 'H', 'M', 'L', 'H' }	--Jump Attack
 lua_table.combo_3_size = 4
 lua_table.combo_3_damage = 4.0	--1 hit		--IMPROVE: + stun
+lua_table.combo_3_effect = attack_effects_ID.knockback
 lua_table.combo_3_duration = 1800
 lua_table.combo_3_animation_speed = 30.0
 lua_table.combo_3_movement_velocity_1 = 6.0
@@ -1201,7 +1204,7 @@ local function PerformCombo(combo_type)
 		end
 		
 		lua_table.collider_damage = base_damage_real * lua_table[combo_type .. "_damage"]
-		lua_table.collider_effect = attack_effects_ID.none
+		lua_table.collider_effect = lua_table[combo_type .. "_effect"]
 
 		lua_table.previous_state = lua_table.current_state
 		lua_table.current_state = state[combo_type]

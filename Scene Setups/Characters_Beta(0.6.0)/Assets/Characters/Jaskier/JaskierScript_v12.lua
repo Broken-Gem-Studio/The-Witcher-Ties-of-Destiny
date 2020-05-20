@@ -2253,13 +2253,13 @@ function lua_table:Update()
 
 							--Direct and Activate Note Particles 1
 							lua_table.ParticlesFunctions:SetParticlesVelocity(50 * rec_direction.x, 0, 50 * rec_direction.z, particles_library.song_cone_particles_1_GO_UID)
-							lua_table.ParticlesFunctions:SetRandomParticlesVelocity(50 * rec_direction.z, 0, 50 * rec_direction.x, particles_library.song_cone_particles_1_GO_UID)
+							lua_table.ParticlesFunctions:SetRandomParticlesVelocity(50 * rec_direction.z, 0, 50 * rec_direction.x, -50 * rec_direction.z, 0, -50 * rec_direction.x, particles_library.song_cone_particles_1_GO_UID)
 							lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.song_cone_particles_1_GO_UID)	--TODO-Particles: Activate Aard particles on hand
 							lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.song_cone_particles_1_GO_UID)	--TODO-Particles:
 
 							--Direct and Activate Note Particles 2
 							lua_table.ParticlesFunctions:SetParticlesVelocity(50 * rec_direction.x, 0, 50 * rec_direction.z, particles_library.song_cone_particles_2_GO_UID)
-							lua_table.ParticlesFunctions:SetRandomParticlesVelocity(50 * rec_direction.z, 0, 50 * rec_direction.x, particles_library.song_cone_particles_2_GO_UID)
+							lua_table.ParticlesFunctions:SetRandomParticlesVelocity(50 * rec_direction.z, 0, 50 * rec_direction.x, -50 * rec_direction.z, 0, -50 * rec_direction.x, particles_library.song_cone_particles_2_GO_UID)
 							lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.song_cone_particles_2_GO_UID)	--TODO-Particles: Activate Aard particles on hand
 							lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.song_cone_particles_2_GO_UID)	--TODO-Particles:
 
