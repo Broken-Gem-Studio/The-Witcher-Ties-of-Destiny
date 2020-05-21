@@ -980,17 +980,14 @@ end
 --Character Movement BEGIN	----------------------------------------------------------------------------
 
 local function SaveDirection()
-	rot_y = math.rad(GimbalLockWorkaroundY(lua_table.TransformFunctions:GetRotation(geralt_GO_UID)[2]))	--TODO: Remove GimbalLock stage when Euler bug is fixed
-	
+	rot_y = math.rad(GimbalLockWorkaroundY(lua_table.TransformFunctions:GetRotation(jaskier_GO_UID)[2]))	--TODO: Remove GimbalLock stage when Euler bug is fixed
+
 	if mov_input.used_input.x ~= 0 or mov_input.used_input.z ~= 0	--IF input given, use as direction
 	then
 		local magnitude = math.sqrt(mov_input.used_input.x ^ 2 + mov_input.used_input.z ^ 2)
-
-		rec_direction.x = mov_input.used_input.x / magnitude
-		rec_direction.z = mov_input.used_input.z / magnitude
+		rec_direction.x, rec_direction.z = mov_input.used_input.x / magnitude, mov_input.used_input.z / magnitude
 	else															--IF no input, use Y angle to move FORWARD
-		rec_direction.x = math.sin(rot_y)
-		rec_direction.z = math.cos(rot_y)
+		rec_direction.x, rec_direction.z = math.sin(rot_y), math.cos(rot_y)
 	end
 end
 
@@ -1060,33 +1057,39 @@ local function CheckCameraBounds()	--Check if we're currently outside the camera
 		bounds_angle = math.rad(bounds_angle)
 		off_bounds = true
 
-		-- if lua_table.current_state > state.idle then
-		-- 	lua_table.AnimationFunctions:SetBlendTime(0.1, jaskier_GO_UID)
+		if lua_table.current_state > state.idle then
+			lua_table.AnimationFunctions:SetBlendTime(0.1, jaskier_GO_UID)
 
-		-- 	AttackColliderShutdown()
-		-- 	ParticlesShutdown()
-		-- 	AudioShutdown()
+			AttackColliderShutdown()
+			ParticlesShutdown(false)
+			AudioShutdown()
 
-		-- 	SaveDirection()
+			local jaskier_pos = lua_table.TransformFunctions:GetPosition(jaskier_GO_UID)	--Look at and set direction from knockback
+			lua_table.TransformFunctions:LookAt(jaskier_pos[1] - bounds_vector.x, jaskier_pos[2], jaskier_pos[3] - bounds_vector.z, jaskier_GO_UID)
 
-		-- 	knockback_curr_velocity = lua_table.knockback_orig_velocity
+			local magnitude = math.sqrt(bounds_vector.x ^ 2 + bounds_vector.z ^ 2)
+			rec_direction.x = bounds_vector.x / magnitude
+			rec_direction.z = bounds_vector.z / magnitude
 
-		-- 	lua_table.AnimationFunctions:PlayAnimation(animation_library.knockback, 60.0, jaskier_GO_UID)
-		-- 	current_animation = animation_library.knockback
+			knockback_curr_velocity = lua_table.knockback_orig_velocity
 
-		-- 	if lua_table.current_health > 0
-		-- 	then
-		-- 		lua_table.AudioFunctions:PlayAudioEventGO(audio_library.knockback, jaskier_GO_UID)	--TODO-AUDIO:
-		-- 		current_audio = audio_library.knockback
-		-- 	end	--TODO-Audio:
+			lua_table.AnimationFunctions:PlayAnimation(animation_library.knockback, 60.0, jaskier_GO_UID)
+			current_animation = animation_library.knockback
 
-		-- 	lua_table.previous_state = lua_table.current_state
-		-- 	lua_table.current_state = state.knocked
+			if lua_table.current_health > 0
+			then
+				lua_table.AudioFunctions:PlayAudioEventGO(audio_library.knockback, jaskier_GO_UID)	--TODO-AUDIO:
+				current_audio = audio_library.knockback
+			end	--TODO-Audio:
 
-		-- 	current_action_duration = attack_effects_durations[attack_effects_ID.knockback]
-		-- 	action_started_at = game_time
-		-- 	lua_table.InputFunctions:ShakeController(lua_table.player_ID, 1.0, current_action_duration)
-		-- end
+			lua_table.previous_state = lua_table.current_state
+			lua_table.current_state = state.knocked
+
+			current_action_duration = attack_effects_durations[attack_effects_ID.knockback]
+			action_started_at = game_time
+			lua_table.InputFunctions:ShakeController(lua_table.player_ID, 1.0, current_action_duration)
+		end
+
 	else
 		off_bounds = false
 	end
