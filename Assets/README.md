@@ -43,6 +43,7 @@ and animation speeds, not scripting variables storing milisecond values.
 **GeraltScript_v14_5**: Added Potion Particles Management.
 **GeraltScript_v15**: New Child GO setup + animation/audio "library" system.
 **GeraltScript_v16**: Character Speeds Polish (Faster).
+**GeraltScript_v17**: Character Polish + Reworked Some Core Functions (Knockback Fixes).
 
 **JaskierScript_v0**: Straight up copy of Geralt Code.
 **JaskierScript_v1**: Jaskier from the Vertical Slice 2. Movement, evade, basic attacks.
@@ -58,3 +59,4 @@ and animation speeds, not scripting variables storing milisecond values.
 **JaskierScript_v10_5**: Added Potion Particles Management.
 **JaskierScript_v11**: New Child GO setup + animation/audio "library" system.
 **JaskierScript_v12**: Character Speeds Polish (Faster).
+**JaskierScript_v13**: Character Polish + Reworked Some Core Functions (Knockback Fixes).

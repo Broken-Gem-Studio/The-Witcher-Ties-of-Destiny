@@ -1,4 +1,4 @@
-function	GetTableJaskierScript_v12()
+function	GetTableJaskierScript_v13()
 local lua_table = {}
 lua_table.SystemFunctions = Scripting.System()
 lua_table.TransformFunctions = Scripting.Transform()
@@ -436,7 +436,7 @@ lua_table.heavy_damage = 2.0				--Multiplier of Base Damage
 lua_table.heavy_1_movement_velocity = 5.0
 lua_table.heavy_1_movement_velocity_start = 650
 lua_table.heavy_1_movement_velocity_end = 1000
-lua_table.heavy_2_movement_velocity = 4.0
+lua_table.heavy_2_movement_velocity = 3.0
 lua_table.heavy_2_movement_velocity_start = 300
 lua_table.heavy_3_movement_velocity = 3.0
 lua_table.heavy_3_movement_velocity_start = 260
@@ -980,37 +980,37 @@ end
 --Character Movement BEGIN	----------------------------------------------------------------------------
 
 local function SaveDirection()
+	rot_y = math.rad(GimbalLockWorkaroundY(lua_table.TransformFunctions:GetRotation(jaskier_GO_UID)[2]))	--TODO: Remove GimbalLock stage when Euler bug is fixed
+
 	if mov_input.used_input.x ~= 0 or mov_input.used_input.z ~= 0	--IF input given, use as direction
 	then
 		local magnitude = math.sqrt(mov_input.used_input.x ^ 2 + mov_input.used_input.z ^ 2)
-
-		rec_direction.x = mov_input.used_input.x / magnitude
-		rec_direction.z = mov_input.used_input.z / magnitude
+		rec_direction.x, rec_direction.z = mov_input.used_input.x / magnitude, mov_input.used_input.z / magnitude
 	else															--IF no input, use Y angle to move FORWARD
-		----------------------------------------------
-		--NOTE: This a more step-by-step of the line below
-		--rot_y = lua_table.TransformFunctions:GetRotationY()	--Used to move the character FORWARD, velocity applied later on Update()
-		--rot_y = GimbalLockWorkaroundY(rot_y)
-		--rot_y = math.rad(rot_y)
-		----------------------------------------------
-
-		rot_y = math.rad(GimbalLockWorkaroundY(lua_table.TransformFunctions:GetRotation(jaskier_GO_UID)[2]))	--TODO: Remove GimbalLock stage when Euler bug is fixed
-
-		rec_direction.x = math.sin(rot_y)
-		rec_direction.z = math.cos(rot_y)
+		rec_direction.x, rec_direction.z = math.sin(rot_y), math.cos(rot_y)
 	end
 end
 
-local function DirectionInBounds()	--Every time we try to set a velocity, this is checked first to allow it
+local function InvertSavedDirection()
+	rot_y = rot_y + math.pi
+	rec_direction.x, rec_direction.z = -rec_direction.x, -rec_direction.z
+end
+
+local function DirectionInBounds(use_Y_angle)	--Every time we try to set a velocity, this is checked first to allow it
 	local ret = true
+	local vec_x, vec_z
 
 	if off_bounds then
-		rot_y = math.rad(GimbalLockWorkaroundY(lua_table.TransformFunctions:GetRotation(jaskier_GO_UID)[2]))	--TODO: Remove GimbalLock stage when Euler bug is fixed
-		
-		lua_table.SystemFunctions:LOG("Angle Between: " .. math.deg(BidimensionalAngleBetweenVectors(math.sin(rot_y), math.cos(rot_y), bounds_vector.x, bounds_vector.z)))
+		if use_Y_angle
+		then
+			rot_y = math.rad(GimbalLockWorkaroundY(lua_table.TransformFunctions:GetRotation(jaskier_GO_UID)[2]))	--TODO: Remove GimbalLock stage when Euler bug is fixed
+			vec_x, vec_z = math.sin(rot_y), math.cos(rot_y)
+		else
+			vec_x, vec_z = rec_direction.x, rec_direction.z
+		end
 
 		--IF angle between character Front (Z) and set Bounds Vector > Bounds Angle, in other words, if direction too far away from what camera requires to stay within bounds
-		if BidimensionalAngleBetweenVectors(math.sin(rot_y), math.cos(rot_y), bounds_vector.x, bounds_vector.z) > bounds_angle
+		if BidimensionalAngleBetweenVectors(vec_x, vec_z, bounds_vector.x, bounds_vector.z) > bounds_angle
 		then
 			ret = false	--Return: movement not approved by camera bounds
 		end
@@ -1061,10 +1061,15 @@ local function CheckCameraBounds()	--Check if we're currently outside the camera
 			lua_table.AnimationFunctions:SetBlendTime(0.1, jaskier_GO_UID)
 
 			AttackColliderShutdown()
-			ParticlesShutdown()
+			ParticlesShutdown(false)
 			AudioShutdown()
 
-			SaveDirection()
+			local jaskier_pos = lua_table.TransformFunctions:GetPosition(jaskier_GO_UID)	--Look at and set direction from knockback
+			lua_table.TransformFunctions:LookAt(jaskier_pos[1] - bounds_vector.x, jaskier_pos[2], jaskier_pos[3] - bounds_vector.z, jaskier_GO_UID)
+
+			local magnitude = math.sqrt(bounds_vector.x ^ 2 + bounds_vector.z ^ 2)
+			rec_direction.x = bounds_vector.x / magnitude
+			rec_direction.z = bounds_vector.z / magnitude
 
 			knockback_curr_velocity = lua_table.knockback_orig_velocity
 
@@ -1084,6 +1089,7 @@ local function CheckCameraBounds()	--Check if we're currently outside the camera
 			action_started_at = game_time
 			lua_table.InputFunctions:ShakeController(lua_table.player_ID, 1.0, current_action_duration)
 		end
+
 	else
 		off_bounds = false
 	end
@@ -1106,7 +1112,7 @@ local function MoveCharacter(reversed_rotation)	--Bool param used to mark moonwa
 		lua_table.TransformFunctions:LookAt(position[1] - mov_velocity.x, position[2], position[3] - mov_velocity.z, jaskier_GO_UID)
 	end
 
-	if DirectionInBounds()	--Only allow movement if camera bounds allows it
+	if DirectionInBounds(true)	--Only allow movement if camera bounds allows it
 	then
 		lua_table.PhysicsFunctions:Move(mov_velocity.x * dt, mov_velocity.z * dt, jaskier_GO_UID)
 	end		
@@ -1892,7 +1898,16 @@ local function ProcessIncomingHit(collider_GO)
 
 		elseif enemy_script.collider_effect == attack_effects_ID.knockback
 		then
-			SaveDirection()
+			local jaskier_pos = lua_table.TransformFunctions:GetPosition(jaskier_GO_UID)	--Look at and set direction from knockback
+			local knockback_pos = lua_table.TransformFunctions:GetPosition(collider_GO)
+			lua_table.TransformFunctions:LookAt(knockback_pos[1], jaskier_pos[2], knockback_pos[3], jaskier_GO_UID)
+
+			rec_direction.x = jaskier_pos[1] - knockback_pos[1]
+			rec_direction.z = jaskier_pos[3] - knockback_pos[3]
+			local magnitude = math.sqrt(rec_direction.x ^ 2 + rec_direction.z ^ 2)
+			rec_direction.x = rec_direction.x / magnitude
+			rec_direction.z = rec_direction.z / magnitude
+
 			knockback_curr_velocity = lua_table.knockback_orig_velocity
 
 			lua_table.AnimationFunctions:PlayAnimation(animation_library.knockback, 60.0, jaskier_GO_UID)
@@ -2212,13 +2227,13 @@ function lua_table:Update()
 						ReviveShutdown()
 						GoDefaultState(false)
 
-					elseif lua_table.current_state == state.evade and DirectionInBounds()				--ELSEIF evading
+					elseif lua_table.current_state == state.evade and DirectionInBounds(true)				--ELSEIF evading
 					then
 						lua_table.PhysicsFunctions:Move(lua_table.evade_velocity * rec_direction.x * dt, lua_table.evade_velocity * rec_direction.z * dt, jaskier_GO_UID)	--IMPROVE: Speed set on every frame bad?
 
 					elseif lua_table.current_state == state.light_1 or lua_table.current_state == state.light_2 or lua_table.current_state == state.light_3	--IF Light Attacking
 					then
-						if DirectionInBounds() and not input_slow_active then
+						if DirectionInBounds(true) and not input_slow_active then
 							if lua_table.current_state == state.light_3 and time_since_action > lua_table.light_3_velocity_start and time_since_action < current_action_block_time then
 								lua_table.PhysicsFunctions:Move(lua_table.light_movement_velocity * rec_direction.x * dt, lua_table.light_movement_velocity * rec_direction.z * dt, jaskier_GO_UID)
 							end
@@ -2239,7 +2254,7 @@ function lua_table:Update()
 
 					elseif lua_table.current_state == state.medium_1 or lua_table.current_state == state.medium_2 or lua_table.current_state == state.medium_3	--IF Medium Attacking
 					then
-						if DirectionInBounds() and not input_slow_active then
+						if DirectionInBounds(true) and not input_slow_active then
 							if lua_table.current_state == state.medium_1 and time_since_action > lua_table.medium_1_movement_velocity_start then
 								lua_table.PhysicsFunctions:Move(lua_table.medium_1_movement_velocity * rec_direction.x * dt, lua_table.medium_1_movement_velocity * rec_direction.z * dt, jaskier_GO_UID)
 							elseif lua_table.current_state == state.medium_2 and time_since_action > lua_table.medium_2_movement_velocity_start then
@@ -2264,7 +2279,7 @@ function lua_table:Update()
 
 					elseif lua_table.current_state == state.heavy_1 or lua_table.current_state == state.heavy_2 or lua_table.current_state == state.heavy_3	--IF Heavy Attacking
 					then
-						if DirectionInBounds() and not input_slow_active then
+						if DirectionInBounds(true) and not input_slow_active then
 							if lua_table.current_state == state.heavy_1 and time_since_action > lua_table.heavy_1_movement_velocity_start and time_since_action < lua_table.heavy_1_movement_velocity_end then
 								lua_table.PhysicsFunctions:Move(lua_table.heavy_1_movement_velocity * rec_direction.x * dt, lua_table.heavy_1_movement_velocity * rec_direction.z * dt, jaskier_GO_UID)
 							elseif lua_table.current_state == state.heavy_2 and time_since_action > lua_table.heavy_2_movement_velocity_start then
@@ -2387,10 +2402,10 @@ function lua_table:Update()
 					then
 						GoDefaultState(true)
 		
-					elseif lua_table.current_state == state.knocked and not lua_table.standing_up_bool	--IF currently knocked
+					elseif lua_table.current_state == state.knocked and not lua_table.standing_up_bool and DirectionInBounds(false)	--IF currently knocked
 					then
 						knockback_curr_velocity = knockback_curr_velocity + lua_table.knockback_acceleration * dt
-						lua_table.PhysicsFunctions:Move(knockback_curr_velocity * -rec_direction.x * dt, knockback_curr_velocity * -rec_direction.z * dt, jaskier_GO_UID)
+						lua_table.PhysicsFunctions:Move(knockback_curr_velocity * rec_direction.x * dt, knockback_curr_velocity * rec_direction.z * dt, jaskier_GO_UID)
 					end
 				end
 			end

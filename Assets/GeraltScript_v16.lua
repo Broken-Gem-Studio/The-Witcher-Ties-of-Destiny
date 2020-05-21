@@ -534,6 +534,10 @@ local current_action_block_time = 0	-- Duration of input block from current acti
 local current_action_duration = 0	-- Duration of current action/event (return to idle)	WARNING: Only relevant to actions with animation loops
 local action_started_at = 0			-- Marks start of actions (and getting revived)
 
+--Idle and Blend Time
+local idle_started_at = 0
+local idle_blend_finished = false
+
 --Combos
 lua_table.combo_num = 0							-- Starting at 0, increases by 1 for each attack well timed, starting at 4, each new attack will be checked for a succesful combo. Bad timing or performing a combo resets to 0
 lua_table.combo_stack = { 'N', 'N', 'N', 'N' }	-- Last 4 attacks performed (0=none, 1=light, 2=heavy). Use push_back tactic.
@@ -711,13 +715,16 @@ local function GoDefaultState(change_blend_time)
 		end
 	else
 		if change_blend_time then
-			lua_table.AnimationFunctions:SetBlendTime(0.5, geralt_GO_UID)
+			lua_table.AnimationFunctions:SetBlendTime(0.2, geralt_GO_UID)
 		end
 
 		lua_table.AnimationFunctions:SetBlendTime(0.1, particles_library.slash_GO_UID)
 		lua_table.AnimationFunctions:PlayAnimation(animation_library.idle, lua_table.idle_animation_speed, geralt_GO_UID)
 		current_animation = animation_library.idle
-		
+
+		idle_started_at = game_time
+		idle_blend_finished = false
+
 		lua_table.current_state = state.idle
 	end
 
@@ -2049,10 +2056,15 @@ function lua_table:Update()
 					JoystickInputs(lua_table.key_aim, aim_input)
 				end
 
+				-- Mark Idle Blend Time Finished
+				if lua_table.current_state == state.idle and not idle_blend_finished and game_time - idle_started_at > lua_table.blend_time_duration then idle_blend_finished = true end
+
 				--IF state == idle/move or action_input_block_time has ended (Input-allowed environment)
-				if lua_table.current_state <= state.run or time_since_action > current_action_block_time
+				if lua_table.current_state == state.idle and idle_blend_finished
+				or lua_table.current_state == state.run
+				or lua_table.current_state > state.run and time_since_action > current_action_block_time
 				then
-					ActionInputs()
+					if ActionInputs() then time_since_action = game_time - action_started_at end	-- Recalculate time passed if action performed
 				end
 
 				--IF there's no action being performed
@@ -2364,7 +2376,7 @@ function lua_table:Update()
 	--DEBUG LOGS
 	--lua_table.SystemFunctions:LOG("Delta Time: " .. dt)
 	--lua_table.SystemFunctions:LOG("State: " .. lua_table.current_state)
-	lua_table.SystemFunctions:LOG("Time passed: " .. time_since_action)
+	--lua_table.SystemFunctions:LOG("Time passed: " .. time_since_action)
 	--rot_y = math.rad(GimbalLockWorkaroundY(lua_table.TransformFunctions:GetRotation()[2]))	--TODO: Remove GimbalLock stage when Euler bug is fixed
 	--lua_table.SystemFunctions:LOG("Angle Y: " .. rot_y)
 	--lua_table.SystemFunctions:LOG("Ultimate: " .. lua_table.current_ultimate)
