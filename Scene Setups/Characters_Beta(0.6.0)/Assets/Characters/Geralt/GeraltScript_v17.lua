@@ -1892,6 +1892,11 @@ end
 function lua_table:Awake()
 	lua_table.SystemFunctions:LOG("GeraltScript AWAKE")
 
+	--Assign Controller
+	if geralt_controller_select ~= nil then
+		lua_table.player_ID = geralt_controller_select
+	end
+	
 	--Get GO_UIDs
 	geralt_GO_UID = lua_table.GameObjectFunctions:GetMyUID()
 	jaskier_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier")
