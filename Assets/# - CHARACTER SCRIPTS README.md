@@ -61,3 +61,5 @@ and animation speeds, not scripting variables storing milisecond values.
 **JaskierScript_v11**: New Child GO setup + animation/audio "library" system.
 **JaskierScript_v12**: Character Speeds Polish (Faster).
 **JaskierScript_v13**: Character Polish + Reworked Some Core Functions (Knockback Fixes).
+
+**DISCLAIMER**: The latest != always the better. It usually is, but read the README to make sure.
