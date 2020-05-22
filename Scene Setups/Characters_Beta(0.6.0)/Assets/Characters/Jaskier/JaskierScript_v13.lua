@@ -238,6 +238,12 @@ local key_state = {
 	key_up = "UP"
 }
 
+local character_ID = {
+	geralt = 0,
+	jaskier = 1,
+	yennefer = 2,
+	ciri = 3
+}
 lua_table.player_ID = 2
 
 lua_table.key_ultimate_1 = "AXIS_TRIGGERLEFT"
@@ -1972,8 +1978,10 @@ function lua_table:Awake()
 	lua_table.SystemFunctions:LOG("JaskierScript AWAKE")
 
 	--Assign Controller
-	if jaskier_controller_select ~= nil then
-		lua_table.player_ID = jaskier_controller_select
+	if player1_focus ~= nil and player1_focus == character_ID.jaskier then
+		lua_table.player_ID = 1
+	elseif player2_focus ~= nil and player2_focus == character_ID.jaskier then
+		lua_table.player_ID = 2
 	end
 
 	--Get GO_UIDs
