@@ -254,6 +254,12 @@ function GetTableCardsTuto()
         lua_table["UI"]:MakeElementVisible("Image", CARD_PLAYER2_BUTTON)
         lua_table["UI"]:MakeElementVisible("CiruclarBar", P1_METER)
         lua_table["UI"]:MakeElementVisible("CiruclarBar", P2_METER)
+
+        if continue_meter1_full == true and continue_meter2_full == true
+        then
+            step1 = false
+            HideCard()
+        end
     
 
        end
@@ -299,6 +305,12 @@ function GetTableCardsTuto()
             then
                 step2 = true
                 step25 = false
+            end
+
+            if continue_meter1_full == true and continue_meter2_full == true
+            then
+                step25 = false
+                HideCard()
             end
 
        end
@@ -347,6 +359,12 @@ function GetTableCardsTuto()
                 step35 = false
             end
 
+            if continue_meter1_full == true and continue_meter2_full == true
+            then
+                step35 = false
+                HideCard()
+            end
+
        end
 
        --ENEMY
@@ -360,6 +378,12 @@ function GetTableCardsTuto()
         lua_table["UI"]:MakeElementVisible("Image", CARD_PLAYER2_BUTTON)
         lua_table["UI"]:MakeElementVisible("CiruclarBar", P1_METER)
         lua_table["UI"]:MakeElementVisible("CiruclarBar", P2_METER)
+
+        if continue_meter1_full == true and continue_meter2_full == true
+        then
+            step4 = false
+            HideCard()
+        end
        
        end
 
@@ -404,6 +428,12 @@ function GetTableCardsTuto()
             then
                 step5 = true
                 step55 = false
+            end
+
+            if continue_meter1_full == true and continue_meter2_full == true
+            then
+                step55 = false
+                HideCard()
             end
 
        end
@@ -451,6 +481,12 @@ function GetTableCardsTuto()
                 step65 = false
             end
 
+            if continue_meter1_full == true and continue_meter2_full == true
+            then
+                step65 = false
+                HideCard()
+            end
+
        end
 
        --BONFIRE
@@ -464,6 +500,12 @@ function GetTableCardsTuto()
         lua_table["UI"]:MakeElementVisible("Image", CARD_PLAYER2_BUTTON)
         lua_table["UI"]:MakeElementVisible("CiruclarBar", P1_METER)
         lua_table["UI"]:MakeElementVisible("CiruclarBar", P2_METER)
+
+        if continue_meter1_full == true and continue_meter2_full == true
+        then
+            step7 = false
+            HideCard()
+        end
        
        end
     
