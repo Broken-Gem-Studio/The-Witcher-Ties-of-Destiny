@@ -77,7 +77,7 @@ function GetTableCharacterSelection()
      
         if current_selection < 3
         then
-            if lua_table["Inputs"]:IsGamepadButton(2, "BUTTON_DPAD_RIGHT", "DOWN")
+            if lua_table["Inputs"]:KeyDown("D")
             then
                 current_selection = player2_focus + 1
             end
@@ -85,7 +85,7 @@ function GetTableCharacterSelection()
 
         if current_selection > 0
         then
-            if lua_table["Inputs"]:IsGamepadButton(2, "BUTTON_DPAD_LEFT", "DOWN")
+            if lua_table["Inputs"]:KeyDown("A")
             then
                 current_selection = player2_focus - 1
             end
@@ -97,9 +97,19 @@ function GetTableCharacterSelection()
 
     local function CheckIfLocked()
 
-        if lua_table["Inputs"]:IsGamepadButton(1, "BUTTON_A", "DOWN")
+        if lua_table["Inputs"]:IsGamepadButton(1, "BUTTON_A", "DOWN") 
         then
-            player1_locked = true
+            if player1_focus == player2_focus
+            then
+
+                if player2_locked == true
+                then
+                    player1_locked = false
+                end
+                
+            else
+                player1_locked = true
+            end
         end
 
         if lua_table["Inputs"]:IsGamepadButton(1, "BUTTON_B", "DOWN")
@@ -109,12 +119,22 @@ function GetTableCharacterSelection()
 
         -----------
 
-        if lua_table["Inputs"]:IsGamepadButton(2, "BUTTON_A", "DOWN")
+        if lua_table["Inputs"]:KeyDown("F") 
         then
-            player2_locked = true
+            if player2_focus == player1_focus
+            then
+
+                if player1_locked == true
+                then
+                    player2_locked = false
+                end
+                
+            else
+                player2_locked = true
+            end
         end
 
-        if lua_table["Inputs"]:IsGamepadButton(2, "BUTTON_B", "DOWN")
+        if lua_table["Inputs"]:KeyDown("G")
         then
             player2_locked = false
         end
