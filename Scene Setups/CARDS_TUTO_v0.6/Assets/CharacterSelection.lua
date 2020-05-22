@@ -14,11 +14,13 @@ function GetTableCharacterSelection()
         ciri = 3
     }
 
-    local player1_focus = 0
-    local player2_focus = 0
+    player1_focus = 0--HECHAS GLOBAL PARA PODERLAS COGER DESDE SCRIPT CARLES
+    player2_focus = 0
 
     local player1_locked = false
     local player2_locked = false
+
+    lua_table.next = false
 
     --SIMBOLS
     local P1_ON_GERALT = 0
@@ -101,6 +103,7 @@ function GetTableCharacterSelection()
         then
             if player1_focus == player2_focus
             then
+                player1_locked = true--to avoid bug when p1 and p2 are in the same character and none has selected it
 
                 if player2_locked == true
                 then
@@ -123,6 +126,7 @@ function GetTableCharacterSelection()
         then
             if player2_focus == player1_focus
             then
+                player2_locked = true
 
                 if player1_locked == true
                 then
@@ -165,6 +169,16 @@ function GetTableCharacterSelection()
     end
     
     function lua_table:Update()
+
+        if next == true
+        then
+            lua_table["System"]:LOG("NEXT SCENE")--cambiar de escena, o que la pillen next desde otro script y si es true que empiece esa escena
+        end
+
+        if player1_locked == true and player2_locked == true
+        then
+            next = true
+        end
 
         CheckIfLocked()
 
@@ -237,7 +251,8 @@ function GetTableCharacterSelection()
 
         
 
-
+        lua_table["System"]:LOG("P1 FOCUS: " .. player1_focus)
+        lua_table["System"]:LOG("P2 FOCUS: " .. player2_focus)
 
     end
     
