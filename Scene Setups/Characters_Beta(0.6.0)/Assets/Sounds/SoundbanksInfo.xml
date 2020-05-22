@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="11" SoundbankVersion="134">
 	<RootPaths>
-		<ProjectRoot>C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\</ProjectRoot>
-		<SourceFilesRoot>C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\Assets\Sounds\</SoundBanksRoot>
+		<ProjectRoot>E:\UPC University\3rd year\2nd quatri\Project III\Wwise Projects\Interactive Music\TheWitcherWwiseProject\</ProjectRoot>
+		<SourceFilesRoot>E:\UPC University\3rd year\2nd quatri\Project III\Wwise Projects\Interactive Music\TheWitcherWwiseProject\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>E:\GitHub\The-Witcher-Ties-of-Destiny\Scene Setups\Official Build v0.5.5.1\Assets\Sounds\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>E:\UPC University\3rd year\2nd quatri\Project III\Wwise Projects\Interactive Music\TheWitcherWwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
@@ -77,7 +77,7 @@
 				<Event Id="1313557377" Name="Play_Geralt_attack_4" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_attack_4" GUID="{1D2167E7-16C3-4329-A057-C881B73572DB}"/>
 				<Event Id="1313557376" Name="Play_Geralt_attack_5" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_attack_5" GUID="{146F9BDA-F989-46D7-86D5-A2F365D7D55D}"/>
 				<Event Id="1313557379" Name="Play_Geralt_attack_6" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_attack_6" GUID="{D6616C86-4BAE-4205-8261-423A44FDF9BD}"/>
-				<Event Id="183137626" Name="Play_Geralt_death" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_death" GUID="{31017346-8E48-4658-9AEA-7BAFD1E31709}"/>
+				<Event Id="183137626" Name="Play_Geralt_death" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_death" GUID="{6944EC66-45F8-4616-890E-59350399C3FE}"/>
 				<Event Id="846883548" Name="Play_Geralt_getting_up" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_getting_up" GUID="{E96128B7-4EB8-4E63-9131-796D6B833B8B}"/>
 				<Event Id="2453819625" Name="Play_Geralt_knockback" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_knockback" GUID="{84AF827A-8994-43F6-8C3A-648B211A6EEF}"/>
 				<Event Id="102879625" Name="Play_Geralt_potion" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_potion" GUID="{CA5CF4C9-DE3C-4CC5-B0DE-68F38A9ABABC}"/>
@@ -277,6 +277,10 @@
 				<File Id="147275617" Language="SFX">
 					<ShortName>Kikimora_sound_5.wav</ShortName>
 					<Path>SFX\Kikimora_sound_5_10C4C929.wem</Path>
+				</File>
+				<File Id="148817783" Language="SFX">
+					<ShortName>Geralt_death.wav</ShortName>
+					<Path>SFX\Geralt_death_10C4C929.wem</Path>
 				</File>
 				<File Id="153701030" Language="SFX">
 					<ShortName>Geralt_attack_2_3.wav</ShortName>
@@ -781,10 +785,6 @@
 				<File Id="1007535269" Language="SFX">
 					<ShortName>Silver for Monsters_loop.wav</ShortName>
 					<Path>SFX\Silver for Monsters_loop_D79FB2B7.wem</Path>
-				</File>
-				<File Id="1011696154" Language="SFX">
-					<ShortName>Geralt_death.wav</ShortName>
-					<Path>SFX\Geralt_death_10C4C929.wem</Path>
 				</File>
 				<File Id="1027606032" Language="SFX">
 					<ShortName>Kikimora_sound_2.wav</ShortName>
