@@ -44,6 +44,7 @@ and animation speeds, not scripting variables storing milisecond values.
 **GeraltScript_v15**: New Child GO setup + animation/audio "library" system.
 **GeraltScript_v16**: Character Speeds Polish (Faster).
 **GeraltScript_v17**: Character Polish + Reworked Some Core Functions (Knockback Fixes).
+**GeraltScript_v17_5**: GeraltScript_17 with some test code about camera rotation + controller inputs (DO NOT USE).
 
 **JaskierScript_v0**: Straight up copy of Geralt Code.
 **JaskierScript_v1**: Jaskier from the Vertical Slice 2. Movement, evade, basic attacks.
