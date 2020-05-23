@@ -34,12 +34,13 @@ local jaskier_GO_UID
 local geralt_revive_GO_UID
 local jaskier_revive_GO_UID
 
-lua_table.level_scene = 0
-
 	--Particles
 	--Jaskier_Guitar (Child of "???"): 0/0/0
 	--Jaskier_Ultimate (Child of Jaskier): 0/0/0
 	--Jaskier_Ability (Child of ???): 0/0/0
+
+--Scene
+--lua_table.level_scene = 0
 
 --Animations
 local animation_library = {
@@ -2119,6 +2120,8 @@ function lua_table:Update()
 			AudioShutdown()
 			ReviveShutdown()
 
+			lua_table.PhysicsFunctions:SetActiveController(false, jaskier_GO_UID)
+
 			lua_table.death_started_at = game_time
 
 			lua_table.AnimationFunctions:SetBlendTime(0.1, jaskier_GO_UID)
@@ -2437,6 +2440,8 @@ function lua_table:Update()
 
 				elseif game_time - lua_table.revive_started_at > lua_table.revive_time		--IF revival complete
 				then
+					lua_table.PhysicsFunctions:SetActiveController(true, jaskier_GO_UID)
+
 					lua_table.AnimationFunctions:PlayAnimation(animation_library.stand_up, lua_table.stand_up_animation_speed, jaskier_GO_UID)	--TODO-Animations: Stand up
 					current_animation = animation_library.stand_up
 
@@ -2463,13 +2468,13 @@ function lua_table:Update()
 					lua_table.GameObjectFunctions:SetActiveGameObject(false, lua_table.GameObjectFunctions:FindGameObject("Jaskier_Mesh"))
 					lua_table.GameObjectFunctions:SetActiveGameObject(false, lua_table.GameObjectFunctions:FindGameObject("Jaskier_Pivot"))
 
-					if geralt_GO_UID ~= nil
-					and geralt_GO_UID ~= 0
-					and lua_table.GameObjectFunctions:GetScript(geralt_GO_UID).current_state <= state.down
-					and lua_table.level_scene ~= 0
-					then
-						lua_table.SceneFunctions:LoadScene(lua_table.level_scene)
-					end
+					-- if geralt_GO_UID ~= nil
+					-- and geralt_GO_UID ~= 0
+					-- and lua_table.GameObjectFunctions:GetScript(geralt_GO_UID).current_state <= state.down
+					-- and lua_table.level_scene ~= 0
+					-- then
+					-- 	lua_table.SceneFunctions:LoadScene(lua_table.level_scene)
+					-- end
 				end
 			end
 		elseif game_time - blending_started_at > lua_table.blend_time_duration and lua_table.AnimationFunctions:CurrentAnimationEnded(jaskier_GO_UID) == 1

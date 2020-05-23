@@ -34,13 +34,13 @@ local jaskier_GO_UID
 local geralt_revive_GO_UID
 local jaskier_revive_GO_UID
 
---Current Level GO
-lua_table.level_scene = 0
-
 	--Particles
 	--Geralt_Sword (Child of "Sword"): 70/25/0
 	--Geralt_Ultimate (Child of Geralt): 0/0/0
 	--Geralt_Ability (Child of Left Hand): 0/0/0
+
+--Scene
+--lua_table.level_scene = 0
 
 --Animations
 local animation_library = {
@@ -2043,6 +2043,8 @@ function lua_table:Update()
 			AudioShutdown()
 			ReviveShutdown()
 
+			lua_table.PhysicsFunctions:SetActiveController(false, geralt_GO_UID)
+
 			lua_table.death_started_at = game_time
 
 			lua_table.AnimationFunctions:SetBlendTime(0.1, geralt_GO_UID)
@@ -2358,6 +2360,8 @@ function lua_table:Update()
 
 				elseif game_time - lua_table.revive_started_at > lua_table.revive_time		--IF revival complete
 				then
+					lua_table.PhysicsFunctions:SetActiveController(true, geralt_GO_UID)
+
 					lua_table.AnimationFunctions:PlayAnimation(animation_library.stand_up, lua_table.stand_up_animation_speed, geralt_GO_UID)	--TODO-Animations: Stand up
 					current_animation = animation_library.stand_up
 
@@ -2384,13 +2388,13 @@ function lua_table:Update()
 					lua_table.GameObjectFunctions:SetActiveGameObject(false, lua_table.GameObjectFunctions:FindGameObject("Geralt_Mesh"))
 					lua_table.GameObjectFunctions:SetActiveGameObject(false, lua_table.GameObjectFunctions:FindGameObject("Geralt_Pivot"))
 
-					if jaskier_GO_UID ~= nil
-					and jaskier_GO_UID ~= 0
-					and lua_table.GameObjectFunctions:GetScript(jaskier_GO_UID).current_state <= state.down
-					and lua_table.level_scene ~= 0
-					then
-						lua_table.SceneFunctions:LoadScene(lua_table.level_scene)
-					end
+					-- if jaskier_GO_UID ~= nil
+					-- and jaskier_GO_UID ~= 0
+					-- and lua_table.GameObjectFunctions:GetScript(jaskier_GO_UID).current_state <= state.down
+					-- and lua_table.level_scene ~= 0
+					-- then
+					-- 	lua_table.SceneFunctions:LoadScene(lua_table.level_scene)
+					-- end
 				end
 			end
 		elseif game_time - blending_started_at > lua_table.blend_time_duration and lua_table.AnimationFunctions:CurrentAnimationEnded(geralt_GO_UID) == 1
