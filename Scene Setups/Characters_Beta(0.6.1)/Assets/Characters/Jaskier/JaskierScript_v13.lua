@@ -34,12 +34,13 @@ local jaskier_GO_UID
 local geralt_revive_GO_UID
 local jaskier_revive_GO_UID
 
-lua_table.level_scene = 0
-
 	--Particles
 	--Jaskier_Guitar (Child of "???"): 0/0/0
 	--Jaskier_Ultimate (Child of Jaskier): 0/0/0
 	--Jaskier_Ability (Child of ???): 0/0/0
+
+--Scene
+--lua_table.level_scene = 0
 
 --Animations
 local animation_library = {
@@ -814,6 +815,7 @@ local function DebugInputs()
 			elseif lua_table.current_state == state.down then lua_table.being_revived = true 
 			elseif lua_table.current_state == state.dead
 			then
+				lua_table.PhysicsFunctions:SetActiveController(true, jaskier_GO_UID)
 				lua_table.GameObjectFunctions:SetActiveGameObject(true, lua_table.GameObjectFunctions:FindGameObject("Jaskier_Mesh"))
 				lua_table.GameObjectFunctions:SetActiveGameObject(true, lua_table.GameObjectFunctions:FindGameObject("Jaskier_Pivot"))
 				lua_table:Start()
@@ -1485,7 +1487,6 @@ local function ActionInputs()	--Process Action Inputs
 	if attack_input_given then	--IF attack input made
 		if game_time - attack_input_started_at > attack_input_timeframe		--IF surpassed double press timeframe
 		or attack_inputs[lua_table.key_light] and attack_inputs[lua_table.key_medium]				--IF both buttons have been pressed
-		or keyboard_mode
 		then
 			if attack_inputs[lua_table.key_light] and attack_inputs[lua_table.key_medium]		--Both inputs (Heavy)
 			then
@@ -1959,6 +1960,22 @@ end
 
 --Collider Calls END
 
+local function DetectNearbyEnemies()
+	if game_time - enemy_detection_started_at > enemy_detection_time
+	then
+		local jaskier_pos = lua_table.TransformFunctions:GetPosition(jaskier_GO_UID)
+		local enemy_list = lua_table.PhysicsFunctions:OverlapSphere(jaskier_pos[1], jaskier_pos[2], jaskier_pos[3], lua_table.enemy_detection_range, layers.enemy)
+
+		if lua_table.enemies_nearby then
+			if enemy_list[1] == nil then lua_table.enemies_nearby = false end
+		else
+			if enemy_list[1] ~= nil then lua_table.enemies_nearby = true end
+		end
+
+		enemy_detection_started_at = game_time
+	end
+end
+
 local function CalculateTrapezoid(trapezoid_table)
 	trapezoid_table.point_B.x = trapezoid_table.offset_x + math.tan(trapezoid_table.angle) * (trapezoid_table.range - trapezoid_table.offset_z)
 	trapezoid_table.point_B.z = trapezoid_table.range
@@ -2071,26 +2088,13 @@ function lua_table:Update()
 	game_time = PerfGameTime()
 
 	DebugInputs()
-
-	if game_time - enemy_detection_started_at > enemy_detection_time
-	then
-		local jaskier_pos = lua_table.TransformFunctions:GetPosition(jaskier_GO_UID)
-		local enemy_list = lua_table.PhysicsFunctions:OverlapSphere(jaskier_pos[1], jaskier_pos[2], jaskier_pos[3], lua_table.enemy_detection_range, layers.enemy)
-
-		if lua_table.enemies_nearby then
-			if enemy_list[1] == nil then lua_table.enemies_nearby = false end
-		else
-			if enemy_list[1] ~= nil then lua_table.enemies_nearby = true end
-		end
-
-		enemy_detection_started_at = game_time
-	end
-
 	if must_update_stats then CalculateStats() end
-	CheckCameraBounds()
 
 	if lua_table.current_state ~= state.dead	--IF not dead (stuff done while downed too)
 	then
+		DetectNearbyEnemies()
+		CheckCameraBounds()
+
 		--Energy Regeneration
 		if lua_table.current_energy < lua_table.max_energy_real then lua_table.current_energy = lua_table.current_energy + energy_reg_real * dt end	--IF can increase, increase energy
 		if lua_table.current_energy > lua_table.max_energy_real then lua_table.current_energy = lua_table.max_energy_real end						--IF above max, set to max
@@ -2118,6 +2122,8 @@ function lua_table:Update()
 			ParticlesShutdown()
 			AudioShutdown()
 			ReviveShutdown()
+
+			lua_table.PhysicsFunctions:SetActiveController(false, jaskier_GO_UID)
 
 			lua_table.death_started_at = game_time
 
@@ -2212,14 +2218,14 @@ function lua_table:Update()
 							lua_table.ultimate_active = false
 						elseif lua_table.current_state >= state.light_1 and lua_table.current_state <= state.heavy_3	--IF attack finished
 						then
-							lua_table.AnimationFunctions:PlayAnimation(animation_library.evade, lua_table.evade_animation_speed, particles_library.slash_GO_UID)
-							lua_table.GameObjectFunctions:SetActiveGameObject(false, particles_library.slash_mesh_GO_UID)
-
 							if attack_input_given	--IF attack input was given before time ran out, process it instantly
 							then
 								attack_input_timeframe = 0
 								chained_action = ActionInputs()
 								attack_input_timeframe = 70
+							else
+								lua_table.AnimationFunctions:PlayAnimation(animation_library.evade, lua_table.evade_animation_speed, particles_library.slash_GO_UID)
+							lua_table.GameObjectFunctions:SetActiveGameObject(false, particles_library.slash_mesh_GO_UID)
 							end
 						end
 
@@ -2437,6 +2443,8 @@ function lua_table:Update()
 
 				elseif game_time - lua_table.revive_started_at > lua_table.revive_time		--IF revival complete
 				then
+					lua_table.PhysicsFunctions:SetActiveController(true, jaskier_GO_UID)
+
 					lua_table.AnimationFunctions:PlayAnimation(animation_library.stand_up, lua_table.stand_up_animation_speed, jaskier_GO_UID)	--TODO-Animations: Stand up
 					current_animation = animation_library.stand_up
 
@@ -2463,13 +2471,13 @@ function lua_table:Update()
 					lua_table.GameObjectFunctions:SetActiveGameObject(false, lua_table.GameObjectFunctions:FindGameObject("Jaskier_Mesh"))
 					lua_table.GameObjectFunctions:SetActiveGameObject(false, lua_table.GameObjectFunctions:FindGameObject("Jaskier_Pivot"))
 
-					if geralt_GO_UID ~= nil
-					and geralt_GO_UID ~= 0
-					and lua_table.GameObjectFunctions:GetScript(geralt_GO_UID).current_state <= state.down
-					and lua_table.level_scene ~= 0
-					then
-						lua_table.SceneFunctions:LoadScene(lua_table.level_scene)
-					end
+					-- if geralt_GO_UID ~= nil
+					-- and geralt_GO_UID ~= 0
+					-- and lua_table.GameObjectFunctions:GetScript(geralt_GO_UID).current_state <= state.down
+					-- and lua_table.level_scene ~= 0
+					-- then
+					-- 	lua_table.SceneFunctions:LoadScene(lua_table.level_scene)
+					-- end
 				end
 			end
 		elseif game_time - blending_started_at > lua_table.blend_time_duration and lua_table.AnimationFunctions:CurrentAnimationEnded(jaskier_GO_UID) == 1

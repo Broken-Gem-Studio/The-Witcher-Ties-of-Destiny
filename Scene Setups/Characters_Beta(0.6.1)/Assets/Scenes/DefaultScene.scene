@@ -97,7 +97,7 @@
                 "PartMBlFuncDst": 7,
                 "PartMBlFuncSrc": 6,
                 "Resources": {
-                    "ResourceTexture": "Library/Textures/1986280391.dds"
+                    "ResourceTexture": "Library/Textures/2113909885.dds"
                 },
                 "UID": 1661991544,
                 "VerticalBill": "0",
@@ -508,8 +508,8 @@
                 "rotationy": "0.000040",
                 "rotationz": "-0.000037",
                 "scalex": "1.000000",
-                "scaley": "1.000434",
-                "scalez": "1.000434"
+                "scaley": "1.000440",
+                "scalez": "1.000440"
             },
             "13": {
                 "Active": true,
@@ -803,8 +803,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.070461",
-                "scaley": "15.157488",
-                "scalez": "1.368084"
+                "scaley": "15.157539",
+                "scalez": "1.368090"
             },
             "1": {
                 "Active": true,
@@ -887,8 +887,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000434",
-                "scalez": "1.000434"
+                "scaley": "1.000440",
+                "scalez": "1.000440"
             }
         },
         "Index": 0,
@@ -1098,8 +1098,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000434",
-                "scalez": "1.000434"
+                "scaley": "1.000440",
+                "scalez": "1.000440"
             }
         },
         "Index": 0,
@@ -1429,8 +1429,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000434",
-                "scalez": "1.000434"
+                "scaley": "1.000440",
+                "scalez": "1.000440"
             }
         },
         "Index": 0,
@@ -2469,8 +2469,8 @@
                 "rotationx": "0.388476",
                 "rotationy": "0.030072",
                 "rotationz": "0.916844",
-                "scalex": "1.000864",
-                "scaley": "1.000864",
+                "scalex": "1.000876",
+                "scaley": "1.000876",
                 "scalez": "1.000000"
             },
             "13": {
@@ -2977,8 +2977,8 @@
                 "rotationy": "0.000028",
                 "rotationz": "-0.000027",
                 "scalex": "2.540000",
-                "scaley": "2.540539",
-                "scalez": "2.540539"
+                "scaley": "2.540546",
+                "scalez": "2.540546"
             },
             "13": {
                 "Active": true,
@@ -3533,8 +3533,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.540000",
-                "scaley": "2.540535",
-                "scalez": "2.540535"
+                "scaley": "2.540542",
+                "scalez": "2.540542"
             },
             "1": {
                 "Active": true,
@@ -4211,7 +4211,7 @@
                     "ResourceScript": "Assets/Characters/Geralt/GeraltScript_v17.lua"
                 },
                 "Script variables": {
-                    "Count": 193,
+                    "Count": 201,
                     "Variable 0": {
                         "DisplayObjectName": false,
                         "Name": "ability_angle",
@@ -4235,73 +4235,73 @@
                     },
                     "Variable 100": {
                         "DisplayObjectName": false,
-                        "Name": "heavy_movement_velocity_end",
+                        "Name": "heavy_3_effect",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 1.0
                     },
                     "Variable 101": {
                         "DisplayObjectName": false,
-                        "Name": "heavy_movement_velocity_start",
+                        "Name": "heavy_3_size",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 3.0
                     },
                     "Variable 102": {
                         "DisplayObjectName": false,
+                        "Name": "heavy_damage",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2.0
+                    },
+                    "Variable 103": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_movement_velocity_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 104": {
+                        "DisplayObjectName": false,
+                        "Name": "heavy_movement_velocity_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 3.0
+                    },
+                    "Variable 105": {
+                        "DisplayObjectName": false,
                         "Name": "idle_animation_speed",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 30.0
                     },
-                    "Variable 103": {
+                    "Variable 106": {
                         "DisplayObjectName": false,
                         "Name": "input_walk_threshold",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.95
                     },
-                    "Variable 104": {
+                    "Variable 107": {
                         "DisplayObjectName": false,
                         "Name": "item_selected",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 1.0
                     },
-                    "Variable 105": {
+                    "Variable 108": {
                         "DisplayObjectName": false,
                         "Name": "item_type_max",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 3.0
                     },
-                    "Variable 106": {
+                    "Variable 109": {
                         "DisplayObjectName": false,
                         "Name": "key_ability",
                         "ObjectName": "",
                         "Type": "String",
                         "Value": "BUTTON_X"
-                    },
-                    "Variable 107": {
-                        "DisplayObjectName": false,
-                        "Name": "key_aim",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "AXIS_RIGHT"
-                    },
-                    "Variable 108": {
-                        "DisplayObjectName": false,
-                        "Name": "key_evade",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "BUTTON_A"
-                    },
-                    "Variable 109": {
-                        "DisplayObjectName": false,
-                        "Name": "key_light",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "BUTTON_Y"
                     },
                     "Variable 11": {
                         "DisplayObjectName": false,
@@ -4312,73 +4312,73 @@
                     },
                     "Variable 110": {
                         "DisplayObjectName": false,
+                        "Name": "key_aim",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "AXIS_RIGHT"
+                    },
+                    "Variable 111": {
+                        "DisplayObjectName": false,
+                        "Name": "key_evade",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "BUTTON_A"
+                    },
+                    "Variable 112": {
+                        "DisplayObjectName": false,
+                        "Name": "key_light",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "BUTTON_Y"
+                    },
+                    "Variable 113": {
+                        "DisplayObjectName": false,
                         "Name": "key_medium",
                         "ObjectName": "",
                         "Type": "String",
                         "Value": "BUTTON_B"
                     },
-                    "Variable 111": {
+                    "Variable 114": {
                         "DisplayObjectName": false,
                         "Name": "key_move",
                         "ObjectName": "",
                         "Type": "String",
                         "Value": "AXIS_LEFT"
                     },
-                    "Variable 112": {
+                    "Variable 115": {
                         "DisplayObjectName": false,
                         "Name": "key_next_consumable",
                         "ObjectName": "",
                         "Type": "String",
                         "Value": "BUTTON_DPAD_RIGHT"
                     },
-                    "Variable 113": {
+                    "Variable 116": {
                         "DisplayObjectName": false,
                         "Name": "key_notdef5",
                         "ObjectName": "",
                         "Type": "String",
                         "Value": "BUTTON_BACK"
                     },
-                    "Variable 114": {
+                    "Variable 117": {
                         "DisplayObjectName": false,
                         "Name": "key_notdef6",
                         "ObjectName": "",
                         "Type": "String",
                         "Value": "BUTTON_START"
                     },
-                    "Variable 115": {
+                    "Variable 118": {
                         "DisplayObjectName": false,
                         "Name": "key_prev_consumable",
                         "ObjectName": "",
                         "Type": "String",
                         "Value": "BUTTON_DPAD_LEFT"
                     },
-                    "Variable 116": {
+                    "Variable 119": {
                         "DisplayObjectName": false,
                         "Name": "key_revive",
                         "ObjectName": "",
                         "Type": "String",
                         "Value": "BUTTON_LEFTSHOULDER"
-                    },
-                    "Variable 117": {
-                        "DisplayObjectName": false,
-                        "Name": "key_ultimate_1",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "AXIS_TRIGGERLEFT"
-                    },
-                    "Variable 118": {
-                        "DisplayObjectName": false,
-                        "Name": "key_ultimate_2",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "AXIS_TRIGGERRIGHT"
-                    },
-                    "Variable 119": {
-                        "DisplayObjectName": false,
-                        "Name": "key_use_item",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "BUTTON_RIGHTSHOULDER"
                     },
                     "Variable 12": {
                         "DisplayObjectName": false,
@@ -4389,73 +4389,73 @@
                     },
                     "Variable 120": {
                         "DisplayObjectName": false,
+                        "Name": "key_ultimate_1",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "AXIS_TRIGGERLEFT"
+                    },
+                    "Variable 121": {
+                        "DisplayObjectName": false,
+                        "Name": "key_ultimate_2",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "AXIS_TRIGGERRIGHT"
+                    },
+                    "Variable 122": {
+                        "DisplayObjectName": false,
+                        "Name": "key_use_item",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "BUTTON_RIGHTSHOULDER"
+                    },
+                    "Variable 123": {
+                        "DisplayObjectName": false,
                         "Name": "knockback_acceleration",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": -6.0
                     },
-                    "Variable 121": {
+                    "Variable 124": {
                         "DisplayObjectName": false,
                         "Name": "knockback_orig_velocity",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 10.0
                     },
-                    "Variable 122": {
-                        "DisplayObjectName": false,
-                        "Name": "level_scene",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 123": {
+                    "Variable 125": {
                         "DisplayObjectName": false,
                         "Name": "light_1_animation_speed",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 50.0
                     },
-                    "Variable 124": {
+                    "Variable 126": {
                         "DisplayObjectName": false,
                         "Name": "light_1_block_time",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 300.0
                     },
-                    "Variable 125": {
+                    "Variable 127": {
                         "DisplayObjectName": false,
                         "Name": "light_1_collider_front_end",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 450.0
                     },
-                    "Variable 126": {
+                    "Variable 128": {
                         "DisplayObjectName": false,
                         "Name": "light_1_collider_front_start",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 300.0
                     },
-                    "Variable 127": {
+                    "Variable 129": {
                         "DisplayObjectName": false,
                         "Name": "light_1_duration",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 750.0
-                    },
-                    "Variable 128": {
-                        "DisplayObjectName": false,
-                        "Name": "light_1_movement_velocity",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 1.5
-                    },
-                    "Variable 129": {
-                        "DisplayObjectName": false,
-                        "Name": "light_2_animation_speed",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 50.0
                     },
                     "Variable 13": {
                         "DisplayObjectName": false,
@@ -4466,73 +4466,73 @@
                     },
                     "Variable 130": {
                         "DisplayObjectName": false,
-                        "Name": "light_2_block_time",
+                        "Name": "light_1_movement_velocity",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 300.0
+                        "Value": 1.5
                     },
                     "Variable 131": {
                         "DisplayObjectName": false,
-                        "Name": "light_2_collider_front_end",
+                        "Name": "light_2_animation_speed",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 450.0
+                        "Value": 50.0
                     },
                     "Variable 132": {
                         "DisplayObjectName": false,
-                        "Name": "light_2_collider_front_start",
+                        "Name": "light_2_block_time",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 300.0
                     },
                     "Variable 133": {
                         "DisplayObjectName": false,
+                        "Name": "light_2_collider_front_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 450.0
+                    },
+                    "Variable 134": {
+                        "DisplayObjectName": false,
+                        "Name": "light_2_collider_front_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 300.0
+                    },
+                    "Variable 135": {
+                        "DisplayObjectName": false,
                         "Name": "light_2_duration",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 750.0
                     },
-                    "Variable 134": {
+                    "Variable 136": {
                         "DisplayObjectName": false,
                         "Name": "light_3_animation_speed",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 50.0
                     },
-                    "Variable 135": {
+                    "Variable 137": {
                         "DisplayObjectName": false,
                         "Name": "light_3_block_time",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 300.0
                     },
-                    "Variable 136": {
+                    "Variable 138": {
                         "DisplayObjectName": false,
                         "Name": "light_3_collider_front_end",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 450.0
                     },
-                    "Variable 137": {
+                    "Variable 139": {
                         "DisplayObjectName": false,
                         "Name": "light_3_collider_front_start",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 300.0
-                    },
-                    "Variable 138": {
-                        "DisplayObjectName": false,
-                        "Name": "light_3_duration",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 850.0
-                    },
-                    "Variable 139": {
-                        "DisplayObjectName": false,
-                        "Name": "light_damage",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 1.0
                     },
                     "Variable 14": {
                         "DisplayObjectName": false,
@@ -4543,73 +4543,73 @@
                     },
                     "Variable 140": {
                         "DisplayObjectName": false,
-                        "Name": "light_movement_velocity",
+                        "Name": "light_3_damage",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 3.0
+                        "Value": 3.5
                     },
                     "Variable 141": {
                         "DisplayObjectName": false,
-                        "Name": "max_energy_mod",
+                        "Name": "light_3_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 850.0
+                    },
+                    "Variable 142": {
+                        "DisplayObjectName": false,
+                        "Name": "light_3_effect",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 1.0
                     },
-                    "Variable 142": {
-                        "DisplayObjectName": false,
-                        "Name": "max_energy_orig",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 100.0
-                    },
                     "Variable 143": {
                         "DisplayObjectName": false,
-                        "Name": "max_energy_real",
+                        "Name": "light_3_size",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 0.0
+                        "Value": 3.0
                     },
                     "Variable 144": {
                         "DisplayObjectName": false,
-                        "Name": "max_health_mod",
+                        "Name": "light_damage",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 1.0
                     },
                     "Variable 145": {
                         "DisplayObjectName": false,
-                        "Name": "max_health_orig",
+                        "Name": "light_movement_velocity",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 200.0
+                        "Value": 3.0
                     },
                     "Variable 146": {
                         "DisplayObjectName": false,
-                        "Name": "max_health_real",
+                        "Name": "max_energy_mod",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 0.0
+                        "Value": 1.0
                     },
                     "Variable 147": {
                         "DisplayObjectName": false,
-                        "Name": "max_ultimate",
+                        "Name": "max_energy_orig",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 100.0
                     },
                     "Variable 148": {
                         "DisplayObjectName": false,
-                        "Name": "medium_1_animation_speed",
+                        "Name": "max_energy_real",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 60.0
+                        "Value": 0.0
                     },
                     "Variable 149": {
                         "DisplayObjectName": false,
-                        "Name": "medium_1_block_time",
+                        "Name": "max_health_mod",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 350.0
+                        "Value": 1.0
                     },
                     "Variable 15": {
                         "DisplayObjectName": false,
@@ -4620,70 +4620,70 @@
                     },
                     "Variable 150": {
                         "DisplayObjectName": false,
+                        "Name": "max_health_orig",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 200.0
+                    },
+                    "Variable 151": {
+                        "DisplayObjectName": false,
+                        "Name": "max_health_real",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 152": {
+                        "DisplayObjectName": false,
+                        "Name": "max_ultimate",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 100.0
+                    },
+                    "Variable 153": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_1_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 60.0
+                    },
+                    "Variable 154": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_1_block_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 350.0
+                    },
+                    "Variable 155": {
+                        "DisplayObjectName": false,
                         "Name": "medium_1_collider_front_end",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 500.0
                     },
-                    "Variable 151": {
+                    "Variable 156": {
                         "DisplayObjectName": false,
                         "Name": "medium_1_collider_front_start",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 350.0
                     },
-                    "Variable 152": {
+                    "Variable 157": {
                         "DisplayObjectName": false,
                         "Name": "medium_1_duration",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 1100.0
                     },
-                    "Variable 153": {
+                    "Variable 158": {
                         "DisplayObjectName": false,
                         "Name": "medium_1_movement_velocity_start",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 200.0
                     },
-                    "Variable 154": {
-                        "DisplayObjectName": false,
-                        "Name": "medium_2_animation_speed",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 50.0
-                    },
-                    "Variable 155": {
-                        "DisplayObjectName": false,
-                        "Name": "medium_2_block_time",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 250.0
-                    },
-                    "Variable 156": {
-                        "DisplayObjectName": false,
-                        "Name": "medium_2_collider_front_end",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 400.0
-                    },
-                    "Variable 157": {
-                        "DisplayObjectName": false,
-                        "Name": "medium_2_collider_front_start",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 250.0
-                    },
-                    "Variable 158": {
-                        "DisplayObjectName": false,
-                        "Name": "medium_2_duration",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 900.0
-                    },
                     "Variable 159": {
                         "DisplayObjectName": false,
-                        "Name": "medium_3_animation_speed",
+                        "Name": "medium_2_animation_speed",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 50.0
@@ -4697,73 +4697,73 @@
                     },
                     "Variable 160": {
                         "DisplayObjectName": false,
+                        "Name": "medium_2_block_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 250.0
+                    },
+                    "Variable 161": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_2_collider_front_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 400.0
+                    },
+                    "Variable 162": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_2_collider_front_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 250.0
+                    },
+                    "Variable 163": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_2_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 900.0
+                    },
+                    "Variable 164": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_3_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 50.0
+                    },
+                    "Variable 165": {
+                        "DisplayObjectName": false,
                         "Name": "medium_3_block_time",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 600.0
                     },
-                    "Variable 161": {
+                    "Variable 166": {
                         "DisplayObjectName": false,
                         "Name": "medium_3_collider_front_end",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 750.0
                     },
-                    "Variable 162": {
+                    "Variable 167": {
                         "DisplayObjectName": false,
                         "Name": "medium_3_collider_front_start",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 600.0
                     },
-                    "Variable 163": {
+                    "Variable 168": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_3_damage",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 3.5
+                    },
+                    "Variable 169": {
                         "DisplayObjectName": false,
                         "Name": "medium_3_duration",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 1300.0
-                    },
-                    "Variable 164": {
-                        "DisplayObjectName": false,
-                        "Name": "medium_3_movement_velocity",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 6.0
-                    },
-                    "Variable 165": {
-                        "DisplayObjectName": false,
-                        "Name": "medium_3_movement_velocity_start",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 350.0
-                    },
-                    "Variable 166": {
-                        "DisplayObjectName": false,
-                        "Name": "medium_damage",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 1.5
-                    },
-                    "Variable 167": {
-                        "DisplayObjectName": false,
-                        "Name": "medium_movement_velocity",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 1.0
-                    },
-                    "Variable 168": {
-                        "DisplayObjectName": false,
-                        "Name": "mov_velocity_max_mod",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 1.0
-                    },
-                    "Variable 169": {
-                        "DisplayObjectName": false,
-                        "Name": "mov_velocity_max_orig",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 9.0
                     },
                     "Variable 17": {
                         "DisplayObjectName": false,
@@ -4774,73 +4774,73 @@
                     },
                     "Variable 170": {
                         "DisplayObjectName": false,
+                        "Name": "medium_3_effect",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2.0
+                    },
+                    "Variable 171": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_3_movement_velocity",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 6.0
+                    },
+                    "Variable 172": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_3_movement_velocity_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 350.0
+                    },
+                    "Variable 173": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_3_size",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 3.0
+                    },
+                    "Variable 174": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_damage",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.5
+                    },
+                    "Variable 175": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_movement_velocity",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 176": {
+                        "DisplayObjectName": false,
+                        "Name": "mov_velocity_max_mod",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 177": {
+                        "DisplayObjectName": false,
+                        "Name": "mov_velocity_max_orig",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 9.0
+                    },
+                    "Variable 178": {
+                        "DisplayObjectName": false,
                         "Name": "player_ID",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 1.0
                     },
-                    "Variable 171": {
+                    "Variable 179": {
                         "DisplayObjectName": false,
                         "Name": "potion_active",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": false
-                    },
-                    "Variable 172": {
-                        "DisplayObjectName": false,
-                        "Name": "potion_duration",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 5000.0
-                    },
-                    "Variable 173": {
-                        "DisplayObjectName": false,
-                        "Name": "potion_in_effect",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 174": {
-                        "DisplayObjectName": false,
-                        "Name": "previous_state",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 175": {
-                        "DisplayObjectName": false,
-                        "Name": "revive_animation_speed",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 25.0
-                    },
-                    "Variable 176": {
-                        "DisplayObjectName": false,
-                        "Name": "revive_range",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 2.0
-                    },
-                    "Variable 177": {
-                        "DisplayObjectName": false,
-                        "Name": "revive_started_at",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 178": {
-                        "DisplayObjectName": false,
-                        "Name": "revive_time",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 3000.0
-                    },
-                    "Variable 179": {
-                        "DisplayObjectName": false,
-                        "Name": "run_animation_speed",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 35.0
                     },
                     "Variable 18": {
                         "DisplayObjectName": false,
@@ -4851,73 +4851,73 @@
                     },
                     "Variable 180": {
                         "DisplayObjectName": false,
+                        "Name": "potion_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 5000.0
+                    },
+                    "Variable 181": {
+                        "DisplayObjectName": false,
+                        "Name": "potion_in_effect",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 182": {
+                        "DisplayObjectName": false,
+                        "Name": "previous_state",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 183": {
+                        "DisplayObjectName": false,
+                        "Name": "revive_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 25.0
+                    },
+                    "Variable 184": {
+                        "DisplayObjectName": false,
+                        "Name": "revive_range",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2.0
+                    },
+                    "Variable 185": {
+                        "DisplayObjectName": false,
+                        "Name": "revive_started_at",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 186": {
+                        "DisplayObjectName": false,
+                        "Name": "revive_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 3000.0
+                    },
+                    "Variable 187": {
+                        "DisplayObjectName": false,
+                        "Name": "run_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 35.0
+                    },
+                    "Variable 188": {
+                        "DisplayObjectName": false,
                         "Name": "stand_up_animation_speed",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 150.0
                     },
-                    "Variable 181": {
+                    "Variable 189": {
                         "DisplayObjectName": false,
                         "Name": "standing_up_bool",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": false
-                    },
-                    "Variable 182": {
-                        "DisplayObjectName": false,
-                        "Name": "ultimate_active",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    },
-                    "Variable 183": {
-                        "DisplayObjectName": false,
-                        "Name": "ultimate_animation_speed",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 45.0
-                    },
-                    "Variable 184": {
-                        "DisplayObjectName": false,
-                        "Name": "ultimate_damage_mod_increase",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 1.0
-                    },
-                    "Variable 185": {
-                        "DisplayObjectName": false,
-                        "Name": "ultimate_duration",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 3600.0
-                    },
-                    "Variable 186": {
-                        "DisplayObjectName": false,
-                        "Name": "ultimate_effect_duration",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 10000.0
-                    },
-                    "Variable 187": {
-                        "DisplayObjectName": false,
-                        "Name": "ultimate_energy_reg_increase",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 1.0
-                    },
-                    "Variable 188": {
-                        "DisplayObjectName": false,
-                        "Name": "ultimate_health_reg_increase",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.2
-                    },
-                    "Variable 189": {
-                        "DisplayObjectName": false,
-                        "Name": "ultimate_reg_mod",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 1.0
                     },
                     "Variable 19": {
                         "DisplayObjectName": false,
@@ -4928,24 +4928,73 @@
                     },
                     "Variable 190": {
                         "DisplayObjectName": false,
+                        "Name": "ultimate_active",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 191": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 45.0
+                    },
+                    "Variable 192": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_damage_mod_increase",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 193": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 3600.0
+                    },
+                    "Variable 194": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_effect_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 10000.0
+                    },
+                    "Variable 195": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_energy_reg_increase",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 196": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_health_reg_increase",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.2
+                    },
+                    "Variable 197": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_reg_mod",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 198": {
+                        "DisplayObjectName": false,
                         "Name": "ultimate_reg_orig",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 1.5
                     },
-                    "Variable 191": {
+                    "Variable 199": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_scream_start",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 2500.0
-                    },
-                    "Variable 192": {
-                        "DisplayObjectName": false,
-                        "Name": "walk_animation_speed",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 45.0
                     },
                     "Variable 2": {
                         "DisplayObjectName": false,
@@ -4960,6 +5009,13 @@
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 750.0
+                    },
+                    "Variable 200": {
+                        "DisplayObjectName": false,
+                        "Name": "walk_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 45.0
                     },
                     "Variable 21": {
                         "DisplayObjectName": false,
@@ -5551,20 +5607,20 @@
                     },
                     "Variable 98": {
                         "DisplayObjectName": false,
+                        "Name": "heavy_3_damage",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 3.5
+                    },
+                    "Variable 99": {
+                        "DisplayObjectName": false,
                         "Name": "heavy_3_duration",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 1600.0
-                    },
-                    "Variable 99": {
-                        "DisplayObjectName": false,
-                        "Name": "heavy_damage",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 2.0
                     }
                 },
-                "UID": 479334023,
+                "UID": 300707528,
                 "index": 4
             },
             "14": {
@@ -5919,8 +5975,8 @@
                 "rotationy": "-0.000000",
                 "rotationz": "-0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000434",
-                "scalez": "1.000434"
+                "scaley": "1.000440",
+                "scalez": "1.000440"
             }
         },
         "Index": 0,
@@ -5997,8 +6053,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000434",
-                "scalez": "1.000434"
+                "scaley": "1.000440",
+                "scalez": "1.000440"
             }
         },
         "Index": 0,
@@ -6023,8 +6079,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000434",
-                "scalez": "1.000434"
+                "scaley": "1.000440",
+                "scalez": "1.000440"
             }
         },
         "Index": 0,
@@ -6739,8 +6795,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000434",
-                "scalez": "1.000434"
+                "scaley": "1.000440",
+                "scalez": "1.000440"
             }
         },
         "Index": 0,
@@ -6844,8 +6900,8 @@
                 "rotationx": "0.388476",
                 "rotationy": "0.030072",
                 "rotationz": "0.916844",
-                "scalex": "1.000862",
-                "scaley": "1.000862",
+                "scalex": "1.000874",
+                "scaley": "1.000874",
                 "scalez": "1.000000"
             },
             "13": {
@@ -7230,8 +7286,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000434",
-                "scalez": "1.000434"
+                "scaley": "1.000440",
+                "scalez": "1.000440"
             }
         },
         "Index": 0,
@@ -8085,8 +8141,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.540000",
-                "scaley": "2.540536",
-                "scalez": "2.540536"
+                "scaley": "2.540543",
+                "scalez": "2.540543"
             },
             "1": {
                 "Active": true,
@@ -8417,8 +8473,8 @@
                 "rotationx": "-0.000169",
                 "rotationy": "-0.004364",
                 "rotationz": "0.999931",
-                "scalex": "1.000868",
-                "scaley": "1.000859",
+                "scalex": "1.000880",
+                "scaley": "1.000871",
                 "scalez": "1.000000"
             },
             "13": {
@@ -8519,8 +8575,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000434",
-                "scalez": "1.000434"
+                "scaley": "1.000440",
+                "scalez": "1.000440"
             }
         },
         "Index": 0,
@@ -9076,7 +9132,7 @@
                 "PartMBlFuncDst": 7,
                 "PartMBlFuncSrc": 6,
                 "Resources": {
-                    "ResourceTexture": "Library/Textures/46348291.dds"
+                    "ResourceTexture": "Library/Textures/281841561.dds"
                 },
                 "UID": 895784313,
                 "VerticalBill": "0",
@@ -9396,7 +9452,7 @@
                     "ResourceScript": "Assets/Characters/Jaskier/JaskierScript_v13.lua"
                 },
                 "Script variables": {
-                    "Count": 209,
+                    "Count": 208,
                     "Variable 0": {
                         "DisplayObjectName": false,
                         "Name": "ability_cooldown",
@@ -9420,73 +9476,73 @@
                     },
                     "Variable 100": {
                         "DisplayObjectName": false,
-                        "Name": "max_energy_real",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 101": {
-                        "DisplayObjectName": false,
                         "Name": "max_health_mod",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 1.0
                     },
-                    "Variable 102": {
+                    "Variable 101": {
                         "DisplayObjectName": false,
                         "Name": "max_health_orig",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 200.0
                     },
-                    "Variable 103": {
+                    "Variable 102": {
                         "DisplayObjectName": false,
                         "Name": "max_health_real",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
                     },
-                    "Variable 104": {
+                    "Variable 103": {
                         "DisplayObjectName": false,
                         "Name": "max_ultimate",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 100.0
                     },
-                    "Variable 105": {
+                    "Variable 104": {
                         "DisplayObjectName": false,
                         "Name": "medium_1_animation_speed",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 50.0
                     },
-                    "Variable 106": {
+                    "Variable 105": {
                         "DisplayObjectName": false,
                         "Name": "medium_1_block_time",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 300.0
                     },
-                    "Variable 107": {
+                    "Variable 106": {
                         "DisplayObjectName": false,
                         "Name": "medium_1_collider_front_end",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 350.0
                     },
-                    "Variable 108": {
+                    "Variable 107": {
                         "DisplayObjectName": false,
                         "Name": "medium_1_collider_front_start",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 250.0
                     },
-                    "Variable 109": {
+                    "Variable 108": {
                         "DisplayObjectName": false,
                         "Name": "medium_1_duration",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 450.0
+                    },
+                    "Variable 109": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_1_movement_velocity",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 6.0
                     },
                     "Variable 11": {
                         "DisplayObjectName": false,
@@ -9497,73 +9553,73 @@
                     },
                     "Variable 110": {
                         "DisplayObjectName": false,
-                        "Name": "medium_1_movement_velocity",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 6.0
-                    },
-                    "Variable 111": {
-                        "DisplayObjectName": false,
                         "Name": "medium_1_movement_velocity_start",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 180.0
                     },
-                    "Variable 112": {
+                    "Variable 111": {
                         "DisplayObjectName": false,
                         "Name": "medium_1_slow_start",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 350.0
                     },
-                    "Variable 113": {
+                    "Variable 112": {
                         "DisplayObjectName": false,
                         "Name": "medium_2_animation_speed",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 50.0
                     },
-                    "Variable 114": {
+                    "Variable 113": {
                         "DisplayObjectName": false,
                         "Name": "medium_2_block_time",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 350.0
                     },
-                    "Variable 115": {
+                    "Variable 114": {
                         "DisplayObjectName": false,
                         "Name": "medium_2_collider_front_end",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 450.0
                     },
-                    "Variable 116": {
+                    "Variable 115": {
                         "DisplayObjectName": false,
                         "Name": "medium_2_collider_front_start",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 350.0
                     },
-                    "Variable 117": {
+                    "Variable 116": {
                         "DisplayObjectName": false,
                         "Name": "medium_2_duration",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 530.0
                     },
-                    "Variable 118": {
+                    "Variable 117": {
                         "DisplayObjectName": false,
                         "Name": "medium_2_movement_velocity",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 7.0
                     },
-                    "Variable 119": {
+                    "Variable 118": {
                         "DisplayObjectName": false,
                         "Name": "medium_2_movement_velocity_start",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 300.0
+                    },
+                    "Variable 119": {
+                        "DisplayObjectName": false,
+                        "Name": "medium_2_slow_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 400.0
                     },
                     "Variable 12": {
                         "DisplayObjectName": false,
@@ -9574,73 +9630,73 @@
                     },
                     "Variable 120": {
                         "DisplayObjectName": false,
-                        "Name": "medium_2_slow_start",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 400.0
-                    },
-                    "Variable 121": {
-                        "DisplayObjectName": false,
                         "Name": "medium_3_animation_speed",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 50.0
                     },
-                    "Variable 122": {
+                    "Variable 121": {
                         "DisplayObjectName": false,
                         "Name": "medium_3_block_time",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 350.0
                     },
-                    "Variable 123": {
+                    "Variable 122": {
                         "DisplayObjectName": false,
                         "Name": "medium_3_collider_front_end",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 450.0
                     },
-                    "Variable 124": {
+                    "Variable 123": {
                         "DisplayObjectName": false,
                         "Name": "medium_3_collider_front_start",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 350.0
                     },
-                    "Variable 125": {
+                    "Variable 124": {
                         "DisplayObjectName": false,
                         "Name": "medium_3_duration",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 600.0
                     },
-                    "Variable 126": {
+                    "Variable 125": {
                         "DisplayObjectName": false,
                         "Name": "medium_3_movement_velocity",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 7.0
                     },
-                    "Variable 127": {
+                    "Variable 126": {
                         "DisplayObjectName": false,
                         "Name": "medium_3_movement_velocity_start",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 300.0
                     },
-                    "Variable 128": {
+                    "Variable 127": {
                         "DisplayObjectName": false,
                         "Name": "medium_3_slow_start",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 430.0
                     },
-                    "Variable 129": {
+                    "Variable 128": {
                         "DisplayObjectName": false,
                         "Name": "medium_damage",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 1.5
+                    },
+                    "Variable 129": {
+                        "DisplayObjectName": false,
+                        "Name": "mov_velocity_max_mod",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
                     },
                     "Variable 13": {
                         "DisplayObjectName": false,
@@ -9651,73 +9707,73 @@
                     },
                     "Variable 130": {
                         "DisplayObjectName": false,
-                        "Name": "mov_velocity_max_mod",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 1.0
-                    },
-                    "Variable 131": {
-                        "DisplayObjectName": false,
                         "Name": "mov_velocity_max_orig",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 9.0
                     },
-                    "Variable 132": {
+                    "Variable 131": {
                         "DisplayObjectName": false,
                         "Name": "note_num",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
                     },
-                    "Variable 133": {
+                    "Variable 132": {
                         "DisplayObjectName": false,
                         "Name": "player_ID",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 2.0
                     },
-                    "Variable 134": {
+                    "Variable 133": {
                         "DisplayObjectName": false,
                         "Name": "potion_active",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": false
                     },
-                    "Variable 135": {
+                    "Variable 134": {
                         "DisplayObjectName": false,
                         "Name": "potion_duration",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 5000.0
                     },
-                    "Variable 136": {
+                    "Variable 135": {
                         "DisplayObjectName": false,
                         "Name": "potion_in_effect",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
                     },
-                    "Variable 137": {
+                    "Variable 136": {
                         "DisplayObjectName": false,
                         "Name": "previous_state",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
                     },
-                    "Variable 138": {
+                    "Variable 137": {
                         "DisplayObjectName": false,
                         "Name": "revive_animation_speed",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 25.0
                     },
-                    "Variable 139": {
+                    "Variable 138": {
                         "DisplayObjectName": false,
                         "Name": "revive_range",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 2.0
+                    },
+                    "Variable 139": {
+                        "DisplayObjectName": false,
+                        "Name": "revive_started_at",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
                     },
                     "Variable 14": {
                         "DisplayObjectName": false,
@@ -9728,73 +9784,73 @@
                     },
                     "Variable 140": {
                         "DisplayObjectName": false,
-                        "Name": "revive_started_at",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 141": {
-                        "DisplayObjectName": false,
                         "Name": "revive_time",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 3000.0
                     },
-                    "Variable 142": {
+                    "Variable 141": {
                         "DisplayObjectName": false,
                         "Name": "run_animation_speed",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 45.0
                     },
-                    "Variable 143": {
+                    "Variable 142": {
                         "DisplayObjectName": false,
                         "Name": "song_1_animation_name",
                         "ObjectName": "",
                         "Type": "String",
                         "Value": "guitar_slam_one_handed"
                     },
-                    "Variable 144": {
+                    "Variable 143": {
                         "DisplayObjectName": false,
                         "Name": "song_1_animation_speed",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 50.0
                     },
-                    "Variable 145": {
+                    "Variable 144": {
                         "DisplayObjectName": false,
                         "Name": "song_1_collider_line_1_end",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 900.0
                     },
-                    "Variable 146": {
+                    "Variable 145": {
                         "DisplayObjectName": false,
                         "Name": "song_1_collider_line_1_start",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 800.0
                     },
-                    "Variable 147": {
+                    "Variable 146": {
                         "DisplayObjectName": false,
                         "Name": "song_1_collider_line_2_end",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 1000.0
                     },
-                    "Variable 148": {
+                    "Variable 147": {
                         "DisplayObjectName": false,
                         "Name": "song_1_collider_line_2_start",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 900.0
                     },
-                    "Variable 149": {
+                    "Variable 148": {
                         "DisplayObjectName": false,
                         "Name": "song_1_collider_line_3_end",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 1100.0
+                    },
+                    "Variable 149": {
+                        "DisplayObjectName": false,
+                        "Name": "song_1_collider_line_3_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1000.0
                     },
                     "Variable 15": {
                         "DisplayObjectName": false,
@@ -9805,73 +9861,73 @@
                     },
                     "Variable 150": {
                         "DisplayObjectName": false,
-                        "Name": "song_1_collider_line_3_start",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 1000.0
-                    },
-                    "Variable 151": {
-                        "DisplayObjectName": false,
                         "Name": "song_1_collider_line_4_end",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 1200.0
                     },
-                    "Variable 152": {
+                    "Variable 151": {
                         "DisplayObjectName": false,
                         "Name": "song_1_collider_line_4_start",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 1100.0
                     },
-                    "Variable 153": {
+                    "Variable 152": {
                         "DisplayObjectName": false,
                         "Name": "song_1_damage",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 4.0
                     },
-                    "Variable 154": {
+                    "Variable 153": {
                         "DisplayObjectName": false,
                         "Name": "song_1_duration",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 1440.0
                     },
-                    "Variable 155": {
+                    "Variable 154": {
                         "DisplayObjectName": false,
                         "Name": "song_1_effect_active",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": false
                     },
-                    "Variable 156": {
+                    "Variable 155": {
                         "DisplayObjectName": false,
                         "Name": "song_1_effect_start",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 750.0
                     },
-                    "Variable 157": {
+                    "Variable 156": {
                         "DisplayObjectName": false,
                         "Name": "song_1_size",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 4.0
                     },
-                    "Variable 158": {
+                    "Variable 157": {
                         "DisplayObjectName": false,
                         "Name": "song_1_status_effect",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
                     },
-                    "Variable 159": {
+                    "Variable 158": {
                         "DisplayObjectName": false,
                         "Name": "song_2_animation_name",
                         "ObjectName": "",
                         "Type": "String",
                         "Value": "guitar_slam_two_handed"
+                    },
+                    "Variable 159": {
+                        "DisplayObjectName": false,
+                        "Name": "song_2_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 50.0
                     },
                     "Variable 16": {
                         "DisplayObjectName": false,
@@ -9882,73 +9938,73 @@
                     },
                     "Variable 160": {
                         "DisplayObjectName": false,
-                        "Name": "song_2_animation_speed",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 50.0
-                    },
-                    "Variable 161": {
-                        "DisplayObjectName": false,
                         "Name": "song_2_damage",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 3.0
                     },
-                    "Variable 162": {
+                    "Variable 161": {
                         "DisplayObjectName": false,
                         "Name": "song_2_duration",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 1700.0
                     },
-                    "Variable 163": {
+                    "Variable 162": {
                         "DisplayObjectName": false,
                         "Name": "song_2_effect_active",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": false
                     },
-                    "Variable 164": {
+                    "Variable 163": {
                         "DisplayObjectName": false,
                         "Name": "song_2_effect_start",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 850.0
                     },
-                    "Variable 165": {
+                    "Variable 164": {
                         "DisplayObjectName": false,
                         "Name": "song_2_size",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 4.0
                     },
-                    "Variable 166": {
+                    "Variable 165": {
                         "DisplayObjectName": false,
                         "Name": "song_2_status_effect",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 1.0
                     },
-                    "Variable 167": {
+                    "Variable 166": {
                         "DisplayObjectName": false,
                         "Name": "song_3_animation_name",
                         "ObjectName": "",
                         "Type": "String",
                         "Value": "moonwalk"
                     },
-                    "Variable 168": {
+                    "Variable 167": {
                         "DisplayObjectName": false,
                         "Name": "song_3_animation_speed",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 30.0
                     },
-                    "Variable 169": {
+                    "Variable 168": {
                         "DisplayObjectName": false,
                         "Name": "song_3_damage",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
+                    },
+                    "Variable 169": {
+                        "DisplayObjectName": false,
+                        "Name": "song_3_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 3700.0
                     },
                     "Variable 17": {
                         "DisplayObjectName": false,
@@ -9959,73 +10015,73 @@
                     },
                     "Variable 170": {
                         "DisplayObjectName": false,
-                        "Name": "song_3_duration",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 3700.0
-                    },
-                    "Variable 171": {
-                        "DisplayObjectName": false,
                         "Name": "song_3_effect_active",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": false
                     },
-                    "Variable 172": {
+                    "Variable 171": {
                         "DisplayObjectName": false,
                         "Name": "song_3_effect_end",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 2000.0
                     },
-                    "Variable 173": {
+                    "Variable 172": {
                         "DisplayObjectName": false,
                         "Name": "song_3_effect_start",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
                     },
-                    "Variable 174": {
+                    "Variable 173": {
                         "DisplayObjectName": false,
                         "Name": "song_3_moonwalk_velocity_mod",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.6
                     },
-                    "Variable 175": {
+                    "Variable 174": {
                         "DisplayObjectName": false,
                         "Name": "song_3_range",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 10.0
                     },
-                    "Variable 176": {
+                    "Variable 175": {
                         "DisplayObjectName": false,
                         "Name": "song_3_secondary_animation_name",
                         "ObjectName": "",
                         "Type": "String",
                         "Value": "guitar_slam_two_handed"
                     },
-                    "Variable 177": {
+                    "Variable 176": {
                         "DisplayObjectName": false,
                         "Name": "song_3_secondary_animation_speed",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 50.0
                     },
-                    "Variable 178": {
+                    "Variable 177": {
                         "DisplayObjectName": false,
                         "Name": "song_3_secondary_damage",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 5.0
                     },
-                    "Variable 179": {
+                    "Variable 178": {
                         "DisplayObjectName": false,
                         "Name": "song_3_secondary_effect_active",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": false
+                    },
+                    "Variable 179": {
+                        "DisplayObjectName": false,
+                        "Name": "song_3_secondary_effect_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2850.0
                     },
                     "Variable 18": {
                         "DisplayObjectName": false,
@@ -10036,73 +10092,73 @@
                     },
                     "Variable 180": {
                         "DisplayObjectName": false,
-                        "Name": "song_3_secondary_effect_start",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 2850.0
-                    },
-                    "Variable 181": {
-                        "DisplayObjectName": false,
                         "Name": "song_3_secondary_range",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 15.0
                     },
-                    "Variable 182": {
+                    "Variable 181": {
                         "DisplayObjectName": false,
                         "Name": "song_3_secondary_status_effect",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 2.0
                     },
-                    "Variable 183": {
+                    "Variable 182": {
                         "DisplayObjectName": false,
                         "Name": "song_3_size",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 4.0
                     },
-                    "Variable 184": {
+                    "Variable 183": {
                         "DisplayObjectName": false,
                         "Name": "song_3_status_effect",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 3.0
                     },
-                    "Variable 185": {
+                    "Variable 184": {
                         "DisplayObjectName": false,
                         "Name": "song_4_animation_speed",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 30.0
                     },
-                    "Variable 186": {
+                    "Variable 185": {
                         "DisplayObjectName": false,
                         "Name": "song_4_damage",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 2.5
                     },
-                    "Variable 187": {
+                    "Variable 186": {
                         "DisplayObjectName": false,
                         "Name": "song_4_duration",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 1400.0
                     },
-                    "Variable 188": {
+                    "Variable 187": {
                         "DisplayObjectName": false,
                         "Name": "song_4_effect_start",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
                     },
-                    "Variable 189": {
+                    "Variable 188": {
                         "DisplayObjectName": false,
                         "Name": "song_4_size",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 4.0
+                    },
+                    "Variable 189": {
+                        "DisplayObjectName": false,
+                        "Name": "stand_up_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 90.0
                     },
                     "Variable 19": {
                         "DisplayObjectName": false,
@@ -10113,73 +10169,73 @@
                     },
                     "Variable 190": {
                         "DisplayObjectName": false,
-                        "Name": "stand_up_animation_speed",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 90.0
-                    },
-                    "Variable 191": {
-                        "DisplayObjectName": false,
                         "Name": "standing_up_bool",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": false
                     },
-                    "Variable 192": {
+                    "Variable 191": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_active",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": false
                     },
-                    "Variable 193": {
+                    "Variable 192": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_animation_speed",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 30.0
                     },
-                    "Variable 194": {
+                    "Variable 193": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_concert_end",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 3000.0
                     },
-                    "Variable 195": {
+                    "Variable 194": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_damage",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 5.0
                     },
-                    "Variable 196": {
+                    "Variable 195": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_duration",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 4700.0
                     },
-                    "Variable 197": {
+                    "Variable 196": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_effect_active",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": false
                     },
-                    "Variable 198": {
+                    "Variable 197": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_finish_start",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 3850.0
                     },
-                    "Variable 199": {
+                    "Variable 198": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_range",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 15.0
+                    },
+                    "Variable 199": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_reg_mod",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
                     },
                     "Variable 2": {
                         "DisplayObjectName": false,
@@ -10197,61 +10253,54 @@
                     },
                     "Variable 200": {
                         "DisplayObjectName": false,
-                        "Name": "ultimate_reg_mod",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 1.0
-                    },
-                    "Variable 201": {
-                        "DisplayObjectName": false,
                         "Name": "ultimate_reg_orig",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 1.5
                     },
-                    "Variable 202": {
+                    "Variable 201": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_secondary_animation_speed",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 50.0
                     },
-                    "Variable 203": {
+                    "Variable 202": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_secondary_damage",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 2.5
                     },
-                    "Variable 204": {
+                    "Variable 203": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_secondary_effect_active",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": false
                     },
-                    "Variable 205": {
+                    "Variable 204": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_secondary_effect_start",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 3850.0
                     },
-                    "Variable 206": {
+                    "Variable 205": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_secondary_status_effect",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 2.0
                     },
-                    "Variable 207": {
+                    "Variable 206": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_status_effect",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
                     },
-                    "Variable 208": {
+                    "Variable 207": {
                         "DisplayObjectName": false,
                         "Name": "walk_animation_speed",
                         "ObjectName": "",
@@ -10680,31 +10729,31 @@
                     },
                     "Variable 76": {
                         "DisplayObjectName": false,
-                        "Name": "level_scene",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 77": {
-                        "DisplayObjectName": false,
                         "Name": "light_1_animation_speed",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 70.0
                     },
-                    "Variable 78": {
+                    "Variable 77": {
                         "DisplayObjectName": false,
                         "Name": "light_1_block_time",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 300.0
                     },
-                    "Variable 79": {
+                    "Variable 78": {
                         "DisplayObjectName": false,
                         "Name": "light_1_collider_front_end",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 400.0
+                    },
+                    "Variable 79": {
+                        "DisplayObjectName": false,
+                        "Name": "light_1_collider_front_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 300.0
                     },
                     "Variable 8": {
                         "DisplayObjectName": false,
@@ -10715,73 +10764,73 @@
                     },
                     "Variable 80": {
                         "DisplayObjectName": false,
-                        "Name": "light_1_collider_front_start",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 300.0
-                    },
-                    "Variable 81": {
-                        "DisplayObjectName": false,
                         "Name": "light_1_duration",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 500.0
                     },
-                    "Variable 82": {
+                    "Variable 81": {
                         "DisplayObjectName": false,
                         "Name": "light_1_slow_start",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 400.0
                     },
-                    "Variable 83": {
+                    "Variable 82": {
                         "DisplayObjectName": false,
                         "Name": "light_2_animation_speed",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 70.0
                     },
-                    "Variable 84": {
+                    "Variable 83": {
                         "DisplayObjectName": false,
                         "Name": "light_2_block_time",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 200.0
                     },
-                    "Variable 85": {
+                    "Variable 84": {
                         "DisplayObjectName": false,
                         "Name": "light_2_collider_front_end",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 300.0
                     },
-                    "Variable 86": {
+                    "Variable 85": {
                         "DisplayObjectName": false,
                         "Name": "light_2_collider_front_start",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 200.0
                     },
-                    "Variable 87": {
+                    "Variable 86": {
                         "DisplayObjectName": false,
                         "Name": "light_2_duration",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 450.0
                     },
-                    "Variable 88": {
+                    "Variable 87": {
                         "DisplayObjectName": false,
                         "Name": "light_2_slow_start",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 350.0
                     },
-                    "Variable 89": {
+                    "Variable 88": {
                         "DisplayObjectName": false,
                         "Name": "light_3_animation_speed",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 70.0
+                    },
+                    "Variable 89": {
+                        "DisplayObjectName": false,
+                        "Name": "light_3_block_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 300.0
                     },
                     "Variable 9": {
                         "DisplayObjectName": false,
@@ -10792,76 +10841,76 @@
                     },
                     "Variable 90": {
                         "DisplayObjectName": false,
-                        "Name": "light_3_block_time",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 300.0
-                    },
-                    "Variable 91": {
-                        "DisplayObjectName": false,
                         "Name": "light_3_collider_front_end",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 350.0
                     },
-                    "Variable 92": {
+                    "Variable 91": {
                         "DisplayObjectName": false,
                         "Name": "light_3_collider_front_start",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 250.0
                     },
-                    "Variable 93": {
+                    "Variable 92": {
                         "DisplayObjectName": false,
                         "Name": "light_3_duration",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 500.0
                     },
-                    "Variable 94": {
+                    "Variable 93": {
                         "DisplayObjectName": false,
                         "Name": "light_3_slow_start",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 400.0
                     },
-                    "Variable 95": {
+                    "Variable 94": {
                         "DisplayObjectName": false,
                         "Name": "light_3_velocity_start",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 100.0
                     },
-                    "Variable 96": {
+                    "Variable 95": {
                         "DisplayObjectName": false,
                         "Name": "light_damage",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 1.0
                     },
-                    "Variable 97": {
+                    "Variable 96": {
                         "DisplayObjectName": false,
                         "Name": "light_movement_velocity",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 6.5
                     },
-                    "Variable 98": {
+                    "Variable 97": {
                         "DisplayObjectName": false,
                         "Name": "max_energy_mod",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 1.0
                     },
-                    "Variable 99": {
+                    "Variable 98": {
                         "DisplayObjectName": false,
                         "Name": "max_energy_orig",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 100.0
+                    },
+                    "Variable 99": {
+                        "DisplayObjectName": false,
+                        "Name": "max_energy_real",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
                     }
                 },
-                "UID": 1965624550,
+                "UID": 1793568497,
                 "index": 4
             },
             "14": {
@@ -11055,9 +11104,9 @@
                 "rotationx": "0.536806",
                 "rotationy": "-0.449375",
                 "rotationz": "0.566528",
-                "scalex": "0.999566",
-                "scaley": "0.999566",
-                "scalez": "0.999566"
+                "scalex": "0.999560",
+                "scaley": "0.999560",
+                "scalez": "0.999560"
             },
             "13": {
                 "Active": true,
@@ -11293,8 +11342,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000434",
-                "scalez": "1.000434"
+                "scaley": "1.000440",
+                "scalez": "1.000440"
             }
         },
         "Index": 0,
@@ -11319,8 +11368,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000434",
-                "scalez": "1.000434"
+                "scaley": "1.000440",
+                "scalez": "1.000440"
             }
         },
         "Index": 0,
@@ -11710,8 +11759,8 @@
                 "rotationx": "-0.000534",
                 "rotationy": "-0.000084",
                 "rotationz": "0.999921",
-                "scalex": "1.000865",
-                "scaley": "1.000867",
+                "scalex": "1.000877",
+                "scaley": "1.000879",
                 "scalez": "1.000000"
             },
             "13": {
@@ -11946,8 +11995,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000434",
-                "scalez": "1.000434"
+                "scaley": "1.000440",
+                "scalez": "1.000440"
             }
         },
         "Index": 0,
@@ -12243,7 +12292,7 @@
                 "PartMBlFuncDst": 7,
                 "PartMBlFuncSrc": 6,
                 "Resources": {
-                    "ResourceTexture": "Library/Textures/1592599741.dds"
+                    "ResourceTexture": "Library/Textures/1816940213.dds"
                 },
                 "UID": 1094183005,
                 "VerticalBill": "0",
@@ -12691,8 +12740,8 @@
                 "rotationx": "0.000598",
                 "rotationy": "0.002538",
                 "rotationz": "0.999918",
-                "scalex": "0.999566",
-                "scaley": "0.999566",
+                "scalex": "0.999560",
+                "scaley": "0.999560",
                 "scalez": "1.000000"
             },
             "13": {
@@ -12793,8 +12842,8 @@
                 "rotationx": "0.000205",
                 "rotationy": "-0.005509",
                 "rotationz": "0.999924",
-                "scalex": "1.000437",
-                "scaley": "1.000663",
+                "scalex": "1.000443",
+                "scaley": "1.000669",
                 "scalez": "1.000000"
             },
             "13": {
@@ -12827,9 +12876,9 @@
                 "rotationx": "-0.550319",
                 "rotationy": "-0.440850",
                 "rotationz": "0.555183",
-                "scalex": "1.000434",
-                "scaley": "1.000434",
-                "scalez": "1.000434"
+                "scalex": "1.000440",
+                "scaley": "1.000440",
+                "scalez": "1.000440"
             },
             "13": {
                 "Active": true,
@@ -12862,8 +12911,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000434",
-                "scalez": "1.000434"
+                "scaley": "1.000440",
+                "scalez": "1.000440"
             }
         },
         "Index": 0,

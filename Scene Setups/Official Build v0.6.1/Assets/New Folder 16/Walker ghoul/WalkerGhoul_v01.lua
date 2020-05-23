@@ -1,4 +1,5 @@
 function GetTableWalkerGhoul_v01()
+
 local lua_table = {}
 lua_table.SystemFunctions = Scripting.System()
 lua_table.ObjectFunctions = Scripting.GameObject()
@@ -120,7 +121,7 @@ local alertTime = 2
 -----------------------------------------------------------------------------
 
 local function NormalizeVector(vector)
-    module = math.sqrt(vector[1] ^ 2 + vector[3] ^ 2)
+	module = math.sqrt(vector[1] ^ 2 + vector[3] ^ 2)
 
     local newVector = {0, 0, 0}
     newVector[1] = vector[1] / module
@@ -181,15 +182,15 @@ end
 local function HandleGhoulValues()
     -- Handle health
     if lua_table.health <= 0
-    then 
-        currentState = State.DEATH
-    end
+	then 
+		currentState = State.DEATH
+	end
 
     -- Handle crowd control effects
     if lua_table.stunned and lua_table.SystemFunctions:GameTime() > lastTimeStunned + stunTime
     then
         lua_table.stunned = false
-        lua_table.ParticleFunctions:StopParticleEmitter(lua_table.StunEmitter_UUID)
+        --lua_table.ParticleFunctions:StopParticleEmitter(lua_table.StunEmitter_UUID)
     end    
     if lua_table.taunted and lua_table.SystemFunctions:GameTime() > lastTimeTaunted + tauntTime
     then
@@ -199,7 +200,9 @@ local function HandleGhoulValues()
     if lua_table.hit and lua_table.SystemFunctions:GameTime() > lastTimeHit + hitTime
     then
         lua_table.hit = false
-        lua_table.ParticleFunctions:StopParticleEmitter(lua_table.BodyEmitter_UUID)
+        lua_table.ParticleFunctions:StopParticleEmitter(lua_table.BodyEmitter1_UUID)
+        lua_table.ParticleFunctions:StopParticleEmitter(lua_table.BodyEmitter2_UUID)
+        lua_table.ParticleFunctions:StopParticleEmitter(lua_table.BodyEmitter3_UUID)
     end
 
     -- Handle evade budget reset
@@ -228,7 +231,6 @@ local function Idle()
             lua_table.EvadePosition = lua_table.ClosestPosition
             lastTimeEvaded = lua_table.SystemFunctions:GameTime()
             evades = evades - 1
-            lua_table.ParticleFunctions:PlayParticleEmitter(lua_table.FeetEmitter_UUID)
             lua_table.AnimationFunctions:PlayAnimation("Evade", 40, MyUUID)  
             --lua_table.AudioFunctions:PlayAudioEvent()
             lua_table.SystemFunctions:LOG("Ghoul state is EVADE")
@@ -276,8 +278,7 @@ local function Idle()
 
             elseif lua_table.SystemFunctions:GameTime() > lastTimeArrived + waitingForNextPursue
             then
-                currentState = State.SEEK           
-                lua_table.ParticleFunctions:PlayParticleEmitter(lua_table.FeetEmitter_UUID)      
+                currentState = State.SEEK               
                 lua_table.PathCorners = lua_table.NavigationFunctions:CalculatePath(lua_table.MyPosition[1], lua_table.MyPosition[2], lua_table.MyPosition[3], lua_table.ClosestPosition[1], lua_table.ClosestPosition[2], lua_table.ClosestPosition[3], 1 << lua_table.WalkableID)
                 lua_table.AnimationFunctions:PlayAnimation("Run", 30, MyUUID)                             
                 lua_table.SystemFunctions:LOG("Ghoul state is SEEK") 
@@ -312,7 +313,6 @@ local function Seek()
         lua_table.PhysicsFunctions:Move(0, 0, MyUUID)
         lastTimeArrived = lua_table.SystemFunctions:GameTime()
         cornerCounter = 1
-        lua_table.ParticleFunctions:StopParticleEmitter(lua_table.FeetEmitter_UUID)
         currentState = State.IDLE
         lua_table.AnimationFunctions:PlayAnimation("Idle", 30, MyUUID)
     end
@@ -335,7 +335,6 @@ local function Evade()
     else
         currentState = State.IDLE
         lua_table.AnimationFunctions:PlayAnimation("Idle", 30, MyUUID)
-        lua_table.ParticleFunctions:StopParticleEmitter(lua_table.FeetEmitter_UUID)
     end
 end
 
@@ -365,15 +364,18 @@ local function Scream()
     -- Locks position and screams
     elseif canStartScreaming == true
     then    
-        lua_table.ParticleFunctions:PlayParticleEmitter(lua_table.ScreamEmitter_UUID)    
-        lua_table.ParticleFunctions:SetParticlesVelocity(lua_table.ScreamingVelocity[1] * 40, 0, lua_table.ScreamingVelocity[3] * 40, lua_table.ScreamEmitter_UUID)           
+        lua_table.ParticleFunctions:PlayParticleEmitter(lua_table.ScreamEmitter1_UUID)   
+        lua_table.ParticleFunctions:PlayParticleEmitter(lua_table.ScreamEmitter2_UUID)  
+        lua_table.ParticleFunctions:SetParticlesVelocity(lua_table.ScreamingVelocity[1] * 40, 0, lua_table.ScreamingVelocity[3] * 40, lua_table.ScreamEmitter1_UUID)  
+        lua_table.ParticleFunctions:SetParticlesVelocity(lua_table.ScreamingVelocity[1] * 40, 0, lua_table.ScreamingVelocity[3] * 40, lua_table.ScreamEmitter2_UUID)              
         lua_table.ObjectFunctions:SetActiveGameObject(true, lua_table.ScreamCollider_UUID)  
         canStartScreaming = false
 
     elseif lua_table.SystemFunctions:GameTime() > lastTimeScreamed + preparingScreamTime + screamingTime
     then
         lua_table.ObjectFunctions:SetActiveGameObject(false, lua_table.ScreamCollider_UUID)  
-        lua_table.ParticleFunctions:StopParticleEmitter(lua_table.ScreamEmitter_UUID)   
+        lua_table.ParticleFunctions:StopParticleEmitter(lua_table.ScreamEmitter1_UUID)   
+        lua_table.ParticleFunctions:StopParticleEmitter(lua_table.ScreamEmitter2_UUID)   
         currentState = State.IDLE
         canStartScreaming = true
         lua_table.AnimationFunctions:PlayAnimation("Idle", 30, MyUUID) 
@@ -413,7 +415,7 @@ local function Knockback()
         local velocity = NormalizeVector(lua_table.VectorToObjective)
         lua_table.PhysicsFunctions:Move((-velocity[1] * lua_table.knockbackSpeed * dt) / (lua_table.ObjectiveDistance * 1.5), (-velocity[3] * lua_table.knockbackSpeed * dt) / (lua_table.ObjectiveDistance * 1.5), MyUUID)     
     else
-        lua_table.ParticleFunctions:StopParticleEmitter(lua_table.KnockbackEmitter_UUID)
+        --lua_table.ParticleFunctions:StopParticleEmitter(lua_table.KnockbackEmitter_UUID)
         currentState = State.IDLE
         lua_table.AnimationFunctions:PlayAnimation("Idle", 30, MyUUID)
     end 
@@ -425,6 +427,11 @@ local function Die()
         local aux = lua_table.SystemFunctions:RandomNumberInRange(15, 45)
         lua_table.AnimationFunctions:PlayAnimation("Death", aux, MyUUID)
         lua_table.AudioFunctions:PlayAudioEvent("Play_Ghoul_death_2")
+
+        --lua_table.ParticleFunctions:StopParticleEmitter(lua_table.KnockbackEmitter_UUID)
+        --lua_table.ParticleFunctions:StopParticleEmitter(lua_table.StunEmitter_UUID)
+        lua_table.ParticleFunctions:StopParticleEmitter(lua_table.TauntEmitter_UUID)
+
         lua_table.dead = true
         lastTimeDead = lua_table.SystemFunctions:GameTime()
         lua_table.SystemFunctions:LOG("Ghoul state is DEATH")
@@ -439,7 +446,7 @@ end
 -----------------------------------------------------------------------------
 
 function lua_table:OnTriggerEnter()	
-    local collider = lua_table.PhysicsFunctions:OnTriggerEnter(MyUUID)
+	local collider = lua_table.PhysicsFunctions:OnTriggerEnter(MyUUID)
     local layer = lua_table.ObjectFunctions:GetLayerByID(collider)
 
     if layer == Layer.PLAYER_ATTACK and currentState ~= State.DEATH	
@@ -456,16 +463,17 @@ function lua_table:OnTriggerEnter()
             player_table = lua_table.ObjectFunctions:GetScript(collider)
         end
         
-        lua_table.health = lua_table.health - player_table.collider_damage
+		lua_table.health = lua_table.health - player_table.collider_damage
         lua_table.ObjectivePlayer_UUID = collider
         
         if player_table.collider_effect ~= Effect.NONE
         then            
             lua_table.ObjectFunctions:SetActiveGameObject(false, lua_table.ScreamCollider_UUID)  
             lua_table.ObjectFunctions:SetActiveGameObject(false, lua_table.PunchCollider_UUID) 
+            lua_table.collider_effect = 0
 
-            lua_table.ParticleFunctions:StopParticleEmitter(lua_table.ScreamEmitter_UUID)  
-            lua_table.ParticleFunctions:StopParticleEmitter(lua_table.FeetEmitter_UUID) 
+            lua_table.ParticleFunctions:StopParticleEmitter(lua_table.ScreamEmitter1_UUID) 
+            lua_table.ParticleFunctions:StopParticleEmitter(lua_table.ScreamEmitter2_UUID)  
         end
 
         if player_table.collider_effect == Effect.STUN
@@ -473,13 +481,13 @@ function lua_table:OnTriggerEnter()
             lua_table.stunned = true            
             lastTimeStunned = lua_table.SystemFunctions:GameTime()
             currentState = State.IDLE
-            lua_table.ParticleFunctions:PlayParticleEmitter(lua_table.StunEmitter_UUID)
+            --lua_table.ParticleFunctions:PlayParticleEmitter(lua_table.StunEmitter_UUID)
 
-        elseif player_table.collider_effect == Effect.KNOCKBACK
+		elseif player_table.collider_effect == Effect.KNOCKBACK
         then
             currentState = State.KNOCKBACK
             lastTimeKnockback = lua_table.SystemFunctions:GameTime()       
-            lua_table.ParticleFunctions:PlayParticleEmitter(lua_table.KnockbackEmitter_UUID)
+            --lua_table.ParticleFunctions:PlayParticleEmitter(lua_table.KnockbackEmitter_UUID)
             
         elseif player_table.collider_effect == Effect.TAUNT
         then
@@ -496,18 +504,21 @@ function lua_table:OnTriggerEnter()
                 
                 lua_table.ObjectFunctions:SetActiveGameObject(false, lua_table.ScreamCollider_UUID)  
                 lua_table.ObjectFunctions:SetActiveGameObject(false, lua_table.PunchCollider_UUID) 
+                lua_table.collider_effect = 0
 
-                lua_table.ParticleFunctions:StopParticleEmitter(lua_table.ScreamEmitter_UUID)  
-                lua_table.ParticleFunctions:StopParticleEmitter(lua_table.FeetEmitter_UUID) 
+                lua_table.ParticleFunctions:StopParticleEmitter(lua_table.ScreamEmitter1_UUID)  
+                lua_table.ParticleFunctions:StopParticleEmitter(lua_table.ScreamEmitter2_UUID)  
 
                 lua_table.hit = true
                 lastTimeHit = lua_table.SystemFunctions:GameTime()
                 lua_table.AnimationFunctions:PlayAnimation("Hit", 50, MyUUID)
-                lua_table.AudioFunctions:PlayAudioEvent("Play_Ghoul_hurt_1")                          
+                lua_table.AudioFunctions:PlayAudioEvent("Play_Ghoul_hurt_2")                          
                 lua_table.SystemFunctions:LOG("Ghoul has been HIT") 
             end         
 
-            lua_table.ParticleFunctions:PlayParticleEmitter(lua_table.BodyEmitter_UUID)
+            lua_table.ParticleFunctions:PlayParticleEmitter(lua_table.BodyEmitter1_UUID)
+            lua_table.ParticleFunctions:PlayParticleEmitter(lua_table.BodyEmitter2_UUID)
+            lua_table.ParticleFunctions:PlayParticleEmitter(lua_table.BodyEmitter3_UUID)
         end
     end
 end
@@ -517,14 +528,15 @@ function lua_table:RequestedTrigger(collider_object)
 
     lua_table.ObjectFunctions:SetActiveGameObject(false, lua_table.ScreamCollider_UUID)  
     lua_table.ObjectFunctions:SetActiveGameObject(false, lua_table.PunchCollider_UUID) 
+    lua_table.collider_effect = 0
 
-    lua_table.ParticleFunctions:StopParticleEmitter(lua_table.ScreamEmitter_UUID)   
-    lua_table.ParticleFunctions:StopParticleEmitter(lua_table.FeetEmitter_UUID) 
+    lua_table.ParticleFunctions:StopParticleEmitter(lua_table.ScreamEmitter1_UUID)  
+    lua_table.ParticleFunctions:StopParticleEmitter(lua_table.ScreamEmitter2_UUID)    
 
-    if currentState ~= State.DEATH	
-    then
-        local player_table = lua_table.ObjectFunctions:GetScript(collider_object)
-        lua_table.health = lua_table.health - player_table.collider_damage   
+	if currentState ~= State.DEATH	
+	then
+		local player_table = lua_table.ObjectFunctions:GetScript(collider_object)
+		lua_table.health = lua_table.health - player_table.collider_damage   
         lua_table.ObjectivePlayer_UUID = collider_object
 
         if player_table.collider_effect == Effect.STUN
@@ -532,33 +544,35 @@ function lua_table:RequestedTrigger(collider_object)
             lua_table.stunned = true            
             lastTimeStunned = lua_table.SystemFunctions:GameTime()
             currentState = State.IDLE
-            lua_table.ParticleFunctions:PlayParticleEmitter(lua_table.StunEmitter_UUID)
+            --lua_table.ParticleFunctions:PlayParticleEmitter(lua_table.StunEmitter_UUID)
 
-        elseif player_table.collider_effect == Effect.KNOCKBACK
+		elseif player_table.collider_effect == Effect.KNOCKBACK
         then
             currentState = State.KNOCKBACK
             lastTimeKnockback = lua_table.SystemFunctions:GameTime()    
-            lua_table.ParticleFunctions:PlayParticleEmitter(lua_table.KnockbackEmitter_UUID)        
+            --lua_table.ParticleFunctions:PlayParticleEmitter(lua_table.KnockbackEmitter_UUID)        
 
         elseif player_table.collider_effect == Effect.TAUNT
         then
             lua_table.taunted = true
             lastTimeTaunted = lua_table.SystemFunctions:GameTime()
             currentState = State.IDLE
-            lua_table.ParticleFunctions:PlayParticleEmitter(lua_table.TauntEmitter_UUID) 
+            lua_table.ParticleFunctions:PlayParticleEmitter(lua_table.TauntEmitter_UUID)  
 
         else
             lua_table.hit = true
             lastTimeHit = lua_table.SystemFunctions:GameTime()
             currentState = State.IDLE     
-            lua_table.ParticleFunctions:PlayParticleEmitter(lua_table.BodyEmitter_UUID)  
+            lua_table.ParticleFunctions:PlayParticleEmitter(lua_table.BodyEmitter1_UUID)  
+            lua_table.ParticleFunctions:PlayParticleEmitter(lua_table.BodyEmitter2_UUID)  
+            lua_table.ParticleFunctions:PlayParticleEmitter(lua_table.BodyEmitter3_UUID)  
         end
-    end
+	end
 end
 
 function lua_table:OnCollisionEnter()
-    local collider = lua_table.PhysicsFunctions:OnCollisionEnter(MyUUID)
-    --lua_table.SystemFunctions:LOG("OnCollisionEnter(): entered collider from GameObject with UUID " .. collider)
+	local collider = lua_table.PhysicsFunctions:OnCollisionEnter(MyUUID)
+	--lua_table.SystemFunctions:LOG("OnCollisionEnter(): entered collider from GameObject with UUID " .. collider)
 end
 
 -----------------------------------------------------------------------------
@@ -570,15 +584,18 @@ function lua_table:Awake()
    lua_table.Geralt_UUID = lua_table.ObjectFunctions:FindGameObject("Geralt")
    lua_table.Jaskier_UUID = lua_table.ObjectFunctions:FindGameObject("Jaskier") 
    lua_table.Camera_UUID = lua_table.ObjectFunctions:FindGameObject("Camera") 
-   lua_table.ScreamEmitter_UUID = lua_table.ObjectFunctions:FindChildGameObject("ScreamEmitter")
-   lua_table.FeetEmitter_UUID = lua_table.ObjectFunctions:FindChildGameObject("FeetEmitter")
-   lua_table.BodyEmitter_UUID = lua_table.ObjectFunctions:FindChildGameObject("BodyEmitter")
-   lua_table.KnockbackEmitter_UUID = lua_table.ObjectFunctions:FindChildGameObject("KnockbackEmitter")
+   MyUUID = lua_table.ObjectFunctions:GetMyUID()
+
+   lua_table.ScreamEmitter1_UUID = lua_table.ObjectFunctions:FindChildGameObject("ScreamEmitter_1")
+   lua_table.ScreamEmitter2_UUID = lua_table.ObjectFunctions:FindChildGameObject("ScreamEmitter_2")
+   lua_table.BodyEmitter1_UUID = lua_table.ObjectFunctions:FindChildGameObject("BodyEmitter_1")
+   lua_table.BodyEmitter2_UUID = lua_table.ObjectFunctions:FindChildGameObject("BodyEmitter_2")
+   lua_table.BodyEmitter3_UUID = lua_table.ObjectFunctions:FindChildGameObject("BodyEmitter_3")
+   --lua_table.KnockbackEmitter_UUID = lua_table.ObjectFunctions:FindChildGameObject("KnockbackEmitter")
+   --lua_table.StunEmitter_UUID = lua_table.ObjectFunctions:FindChildGameObject("StunEmitter")
    lua_table.TauntEmitter_UUID = lua_table.ObjectFunctions:FindChildGameObject("TauntEmitter")
-   lua_table.StunEmitter_UUID = lua_table.ObjectFunctions:FindChildGameObject("StunEmitter")
    lua_table.ScreamCollider_UUID = lua_table.ObjectFunctions:FindChildGameObject("ScreamCollider")
    lua_table.PunchCollider_UUID = lua_table.ObjectFunctions:FindChildGameObject("PunchCollider")
-   MyUUID = lua_table.ObjectFunctions:GetMyUID()
 
    -- Get navigation areas
    lua_table.WalkableID = lua_table.NavigationFunctions:GetAreaFromName("Walkable")
@@ -593,19 +610,23 @@ function lua_table:Start()
     lua_table.ObjectFunctions:SetActiveGameObject(false, lua_table.ScreamCollider_UUID)     
     lua_table.ObjectFunctions:SetActiveGameObject(false, lua_table.PunchCollider_UUID)    
 
-   lua_table.ParticleFunctions:ActivateParticlesEmission(lua_table.ScreamEmitter_UUID)
-   lua_table.ParticleFunctions:ActivateParticlesEmission(lua_table.FeetEmitter_UUID)
-   lua_table.ParticleFunctions:ActivateParticlesEmission(lua_table.BodyEmitter_UUID)
-   lua_table.ParticleFunctions:ActivateParticlesEmission(lua_table.KnockbackEmitter_UUID)
+   lua_table.ParticleFunctions:ActivateParticlesEmission(lua_table.ScreamEmitter1_UUID)
+   lua_table.ParticleFunctions:ActivateParticlesEmission(lua_table.ScreamEmitter2_UUID)
+   lua_table.ParticleFunctions:ActivateParticlesEmission(lua_table.BodyEmitter1_UUID)
+   lua_table.ParticleFunctions:ActivateParticlesEmission(lua_table.BodyEmitter2_UUID)
+   lua_table.ParticleFunctions:ActivateParticlesEmission(lua_table.BodyEmitter3_UUID)
    lua_table.ParticleFunctions:ActivateParticlesEmission(lua_table.TauntEmitter_UUID)
-   lua_table.ParticleFunctions:ActivateParticlesEmission(lua_table.StunEmitter_UUID)
+   --lua_table.ParticleFunctions:ActivateParticlesEmission(lua_table.KnockbackEmitter_UUID)
+   --lua_table.ParticleFunctions:ActivateParticlesEmission(lua_table.StunEmitter_UUID)
 
-   lua_table.ParticleFunctions:StopParticleEmitter(lua_table.ScreamEmitter_UUID)
-   lua_table.ParticleFunctions:StopParticleEmitter(lua_table.FeetEmitter_UUID)
-   lua_table.ParticleFunctions:StopParticleEmitter(lua_table.BodyEmitter_UUID)
-   lua_table.ParticleFunctions:StopParticleEmitter(lua_table.KnockbackEmitter_UUID)
+   lua_table.ParticleFunctions:StopParticleEmitter(lua_table.ScreamEmitter1_UUID)
+   lua_table.ParticleFunctions:StopParticleEmitter(lua_table.ScreamEmitter2_UUID)
+   lua_table.ParticleFunctions:StopParticleEmitter(lua_table.BodyEmitter1_UUID)
+   lua_table.ParticleFunctions:StopParticleEmitter(lua_table.BodyEmitter2_UUID)
+   lua_table.ParticleFunctions:StopParticleEmitter(lua_table.BodyEmitter3_UUID)
    lua_table.ParticleFunctions:StopParticleEmitter(lua_table.TauntEmitter_UUID)
-   lua_table.ParticleFunctions:StopParticleEmitter(lua_table.StunEmitter_UUID)
+   --lua_table.ParticleFunctions:StopParticleEmitter(lua_table.KnockbackEmitter_UUID)
+   --lua_table.ParticleFunctions:StopParticleEmitter(lua_table.StunEmitter_UUID)
 end
 
 function lua_table:Update()    
@@ -631,7 +652,7 @@ function lua_table:Update()
             Idle()
         elseif currentState == State.SEEK
         then       
-            Seek()
+	    	Seek()
         elseif currentState == State.EVADE
         then    	
             Evade()
@@ -644,12 +665,12 @@ function lua_table:Update()
         elseif currentState == State.PUNCHING
         then    	
             Punch()
-        elseif currentState == State.KNOCKBACK
-        then	
-            Knockback()
-        elseif currentState == State.DEATH 
-        then	
-            Die()
+	    elseif currentState == State.KNOCKBACK
+	    then	
+	    	Knockback()
+	    elseif currentState == State.DEATH 
+	    then	
+	    	Die()
         end   
     end
 end
