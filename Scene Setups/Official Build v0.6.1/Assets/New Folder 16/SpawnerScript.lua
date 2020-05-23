@@ -7,29 +7,13 @@ lua_table.Scene = Scripting.Scenes()
 lua_table.SpawnRadius = 5
 lua_table.SpawnRate = 3
 
-lua_table.InfiniteEnemies = true
 lua_table.NumberofEnemies = 10
 
-lua_table.Prefab_Archer = 0
-lua_table.Prefab_Lumberjack = 0
-lua_table.Prefab_walker_Ghoul = 0
-lua_table.Prefab_Zomboid = 0
-lua_table.Prefab_minion = 0
+lua_table.Enemy_Prefab = 0
 
 lua_table.time = 0
 
 lua_table.ActiveDistance = 60
-
-local enemies = {
-    RANDOM = -1,
-    ARCHER = 0,
-    LUMBERJACK = 1,
-    WALKER_GHOUL = 2,
-    ZOMBOID = 3,
-    MINION = 4
-}
-
-lua_table.enemy_to_spawn = enemies.RANDOM
 
 local MyUID = 0
 local position = {}
@@ -39,35 +23,11 @@ local camera_UID = 0
 local camera_pos = {}
 lua_table.DistanceToCamera = 0
 
-local function GetEnemyPrefab(type)
+local function Spawn()
 
-    if type == enemies.ARCHER then 
-        return lua_table.Prefab_Archer
-    elseif type == enemies.LUMBERJACK then
-        return lua_table.Prefab_Lumberjack
-    elseif type == enemies.WALKER_GHOUL then
-        return lua_table.Prefab_walker_Ghoul
-    elseif type == enemies.ZOMBOID then
-        return lua_table.Prefab_Zomboid
-    elseif type == enemies.MINION then
-        return lua_table.Prefab_minion
-    end
-end
-
-local function Spawn(enemy_type)
-
-    if enemy_type == enemies.RANDOM then
-        local random = math.random(0,4)
-        local pos_randX = math.random(-lua_table.SpawnRadius,lua_table.SpawnRadius)
-        local pos_randZ = math.random(-lua_table.SpawnRadius,lua_table.SpawnRadius)
-        local enemy = GetEnemyPrefab(random)
-        lua_table.Scene:Instantiate(enemy, position[1]+pos_randX, position[2], position[3] + pos_randZ, 0, 0, 0)
-    else
-        local enemy = GetEnemyPrefab(enemy_type)
-        local pos_randX = math.random(-lua_table.SpawnRadius,lua_table.SpawnRadius)
-        local pos_randZ = math.random(-lua_table.SpawnRadius,lua_table.SpawnRadius)
-        lua_table.Scene:Instantiate(enemy, position[1]+pos_randX, position[2], position[3] + pos_randZ, 0, 0, 0)
-    end
+    local pos_randX = math.random(-lua_table.SpawnRadius,lua_table.SpawnRadius)
+    local pos_randZ = math.random(-lua_table.SpawnRadius,lua_table.SpawnRadius)
+    lua_table.Scene:Instantiate(lua_table.Enemy_Prefab, position[1]+pos_randX, position[2], position[3] + pos_randZ, 0, 0, 0)
 
 end
 
@@ -97,12 +57,11 @@ function lua_table:Update()
 
     if lua_table.time >= lua_table.SpawnRate and lua_table.ActiveDistance >= lua_table.DistanceToCamera then
 
-        if lua_table.NumberofEnemies > 0  or lua_table.InfiniteEnemies then
+        if lua_table.NumberofEnemies > 0 then
 
-            Spawn(lua_table.enemy_to_spawn)
+            Spawn()
 
-            if not lua_table.InfiniteEnemies then lua_table.NumberofEnemies = lua_table.NumberofEnemies - 1
-            end
+            lua_table.NumberofEnemies = lua_table.NumberofEnemies - 1
         end
 
         lua_table.time = 0
