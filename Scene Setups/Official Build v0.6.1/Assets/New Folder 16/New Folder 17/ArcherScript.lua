@@ -9,6 +9,7 @@ lua_table.AnimationSystem = Scripting.Animations()
 lua_table.Navigation = Scripting.Navigation()
 lua_table.Audio = Scripting.Audio()
 lua_table.Particles = Scripting.Particles()
+lua_table.InputFunctions = Scripting.Inputs()
 
 -- Targets
 lua_table.geralt = "Geralt"
@@ -99,6 +100,7 @@ local ParticleStun_UID = 0
 local Blood1 = 0
 local Blood2 = 0
 local Blood3 = 0
+local Taunt_UID = 0
 
 lua_table.random = 0
 
@@ -189,6 +191,7 @@ function lua_table:OnTriggerEnter()
                 start_taunt = true
                 taunt_time = PerfGameTime()
                 Taunt_GO_UID = parent
+                lua_table.Particles:PlayParticleEmitter(Taunt_UID)
             end
         else -- animatio hit
             lua_table.AnimationSystem:PlayAnimation("Hit",30.0, MyUID)
@@ -243,6 +246,7 @@ function lua_table:RequestedTrigger(collider_GO)
                 start_taunt = true
                 taunt_time = PerfGameTime()
                 Taunt_GO_UID = collider_GO
+                lua_table.Particles:PlayParticleEmitter(Taunt_UID)
 
             end
         else -- animatio hit
@@ -483,6 +487,9 @@ function lua_table:Awake()
     lua_table.Particles:StopParticleEmitter(Blood1)
     lua_table.Particles:StopParticleEmitter(Blood2)
     lua_table.Particles:StopParticleEmitter(Blood3)
+
+    Taunt_UID = lua_table.GameObjectFunctions:FindChildGameObject("Aggro")
+    lua_table.Particles:StopParticleEmitter(Taunt_UID)
 end
 
 function lua_table:Start()
@@ -500,6 +507,14 @@ function lua_table:Start()
 end
 
 function lua_table:Update()
+
+    --if lua_table.InputFunctions:KeyDown("K") then 
+       -- start_taunt = true
+       --taunt_time = PerfGameTime()
+        --Taunt_GO_UID = Jaskier_ID
+        --lua_table.Particles:PlayParticleEmitter(Taunt_UID)
+        
+   -- end
 
     GetClosestPlayer()
     lua_table.speed = 8 * lua_table.System:DT()
@@ -575,6 +590,7 @@ function lua_table:Update()
 
         if start_taunt and taunt_time + 5000 <= PerfGameTime() then
             start_taunt = false
+            lua_table.Particles:StopParticleEmitter(Taunt_UID)
         end
 
 
