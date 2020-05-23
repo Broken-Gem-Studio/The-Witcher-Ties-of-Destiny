@@ -6,7 +6,7 @@
     "EditorUI": {
         "About": false,
         "Build": false,
-        "Console": false,
+        "Console": true,
         "Hierarchy": true,
         "Inspector": true,
         "Navigation": true,
@@ -15,7 +15,7 @@
         "Rendering": true,
         "Resources": false,
         "Scene": true,
-        "Settings": true,
+        "Settings": false,
         "ShaderEditor": false,
         "ShadowsScene": false,
         "Toolbar": true
@@ -70,7 +70,7 @@
             "Group": 1023,
             "GroupSize": 10,
             "Layer": 2,
-            "Name": "Enemy"
+            "Name": "Player_Attack"
         },
         "Layer3": {
             "0": true,
@@ -87,7 +87,7 @@
             "Group": 1023,
             "GroupSize": 10,
             "Layer": 3,
-            "Name": "UI"
+            "Name": "Enemy"
         },
         "Layer4": {
             "0": true,
@@ -104,7 +104,7 @@
             "Group": 1023,
             "GroupSize": 10,
             "Layer": 4,
-            "Name": "Ignore Raycast"
+            "Name": "Enemy_Attack"
         },
         "Layer5": {
             "0": true,

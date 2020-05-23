@@ -96,8 +96,9 @@ local taunt_time = 0
 ---------------------------------------------
 ----- PARTICLES------------------------------
 local ParticleStun_UID = 0
-local ParticleWalking_UID = 0
-local ParticleBlood_UID = 0
+local Blood1 = 0
+local Blood2 = 0
+local Blood3 = 0
 
 lua_table.random = 0
 
@@ -194,8 +195,11 @@ function lua_table:OnTriggerEnter()
             hit_time = PerfGameTime()
             lua_table.start_hit = true
             lua_table.Audio:PlayAudioEvent("Play_Bandit_getting_hit")
-            --lua_table.GameObjectFunctions:SetActiveGameObject(true, ParticleBlood_UID)
-            lua_table.Particles:PlayParticleEmitter(ParticleBlood_UID)
+
+            lua_table.Particles:PlayParticleEmitter(Blood1)
+            lua_table.Particles:PlayParticleEmitter(Blood2)
+            lua_table.Particles:PlayParticleEmitter(Blood3)
+            
         end
     end
 end
@@ -245,8 +249,12 @@ function lua_table:RequestedTrigger(collider_GO)
             lua_table.AnimationSystem:PlayAnimation("Hit",30.0, MyUID)
             hit_time = PerfGameTime()
             lua_table.start_hit = true
-            --lua_table.GameObjectFunctions:SetActiveGameObject(true, ParticleBlood_UID)
-            lua_table.Particles:PlayParticleEmitter(ParticleBlood_UID)
+
+            lua_table.Audio:PlayAudioEvent("Play_Bandit_getting_hit")
+
+            lua_table.Particles:PlayParticleEmitter(Blood1)
+            lua_table.Particles:PlayParticleEmitter(Blood2)
+            lua_table.Particles:PlayParticleEmitter(Blood3)
         end
   end
 end
@@ -319,7 +327,6 @@ local function Seek()
         then
             lua_table.AnimationSystem:PlayAnimation("Run",45.0, MyUID)
             start_running = true
-            lua_table.GameObjectFunctions:SetActiveGameObject(true, ParticleWalking_UID)
         end
 
         if time_path + 1000 <= PerfGameTime() then
@@ -469,17 +476,19 @@ end
 
 function lua_table:Awake()
     lua_table.System:LOG ("This Log was called from ArcherScript on AWAKE")
-    ParticleBlood_UID = lua_table.GameObjectFunctions:FindChildGameObject("ParticleArcher_Blood")
+    Blood1 = lua_table.GameObjectFunctions:FindChildGameObject("Blood1")
+    Blood2 = lua_table.GameObjectFunctions:FindChildGameObject("Blood2")
+    Blood3 = lua_table.GameObjectFunctions:FindChildGameObject("Blood3")
 
-    lua_table.Particles:StopParticleEmitter(ParticleBlood_UID)
+    lua_table.Particles:StopParticleEmitter(Blood1)
+    lua_table.Particles:StopParticleEmitter(Blood2)
+    lua_table.Particles:StopParticleEmitter(Blood3)
 end
 
 function lua_table:Start()
     Geralt_ID = lua_table.GameObjectFunctions:FindGameObject(lua_table.geralt)
     Jaskier_ID = lua_table.GameObjectFunctions:FindGameObject(lua_table.jaskier)
     Attack_Collider_UID = lua_table.GameObjectFunctions:FindChildGameObject(lua_table.Attack_Collider)
-
-    ParticleWalking_UID = lua_table.GameObjectFunctions:FindChildGameObject("ParticleArcher_Walking")
     ParticleStun_UID = lua_table.GameObjectFunctions:FindChildGameObject("ParticleArcher_Stunned")
     
 
@@ -558,7 +567,6 @@ function lua_table:Update()
             start_running = false
             actual_corner = 2
             calculate_path = true
-            lua_table.GameObjectFunctions:SetActiveGameObject(false, ParticleWalking_UID)
         end
         if lua_table.currentState ~= State.IDL then
             start_idle = false 
@@ -602,8 +610,6 @@ function lua_table:Update()
                 time_death = PerfGameTime()
                 start_death = true
 
-                --lua_table.GameObjectFunctions:SetActiveGameObject(false, ParticleBlood_UID)
-
                 local tuto_manager = lua_table.GameObjectFunctions:FindGameObject("TutorialManager")
                 if tuto_manager ~= 0
                 then 
@@ -618,7 +624,6 @@ function lua_table:Update()
             end
         elseif lua_table.start_hit == true and hit_time + 1500 <= PerfGameTime() then
             lua_table.start_hit = false
-            --lua_table.GameObjectFunctions:SetActiveGameObject(false, ParticleBlood_UID)
 
         elseif lua_table.start_knockback == true then
             if knockback_time + 200 <= PerfGameTime() then 
