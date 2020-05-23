@@ -1,4 +1,5 @@
 function GetTableWalkerGhoul_v01()
+
 local lua_table = {}
 lua_table.SystemFunctions = Scripting.System()
 lua_table.ObjectFunctions = Scripting.GameObject()
@@ -120,7 +121,7 @@ local alertTime = 2
 -----------------------------------------------------------------------------
 
 local function NormalizeVector(vector)
-    module = math.sqrt(vector[1] ^ 2 + vector[3] ^ 2)
+	module = math.sqrt(vector[1] ^ 2 + vector[3] ^ 2)
 
     local newVector = {0, 0, 0}
     newVector[1] = vector[1] / module
@@ -181,9 +182,9 @@ end
 local function HandleGhoulValues()
     -- Handle health
     if lua_table.health <= 0
-    then 
-        currentState = State.DEATH
-    end
+	then 
+		currentState = State.DEATH
+	end
 
     -- Handle crowd control effects
     if lua_table.stunned and lua_table.SystemFunctions:GameTime() > lastTimeStunned + stunTime
@@ -439,7 +440,7 @@ end
 -----------------------------------------------------------------------------
 
 function lua_table:OnTriggerEnter()	
-    local collider = lua_table.PhysicsFunctions:OnTriggerEnter(MyUUID)
+	local collider = lua_table.PhysicsFunctions:OnTriggerEnter(MyUUID)
     local layer = lua_table.ObjectFunctions:GetLayerByID(collider)
 
     if layer == Layer.PLAYER_ATTACK and currentState ~= State.DEATH	
@@ -456,13 +457,14 @@ function lua_table:OnTriggerEnter()
             player_table = lua_table.ObjectFunctions:GetScript(collider)
         end
         
-        lua_table.health = lua_table.health - player_table.collider_damage
+		lua_table.health = lua_table.health - player_table.collider_damage
         lua_table.ObjectivePlayer_UUID = collider
         
         if player_table.collider_effect ~= Effect.NONE
         then            
             lua_table.ObjectFunctions:SetActiveGameObject(false, lua_table.ScreamCollider_UUID)  
             lua_table.ObjectFunctions:SetActiveGameObject(false, lua_table.PunchCollider_UUID) 
+            lua_table.collider_effect = 0
 
             lua_table.ParticleFunctions:StopParticleEmitter(lua_table.ScreamEmitter_UUID)  
             lua_table.ParticleFunctions:StopParticleEmitter(lua_table.FeetEmitter_UUID) 
@@ -475,7 +477,7 @@ function lua_table:OnTriggerEnter()
             currentState = State.IDLE
             lua_table.ParticleFunctions:PlayParticleEmitter(lua_table.StunEmitter_UUID)
 
-        elseif player_table.collider_effect == Effect.KNOCKBACK
+		elseif player_table.collider_effect == Effect.KNOCKBACK
         then
             currentState = State.KNOCKBACK
             lastTimeKnockback = lua_table.SystemFunctions:GameTime()       
@@ -496,6 +498,7 @@ function lua_table:OnTriggerEnter()
                 
                 lua_table.ObjectFunctions:SetActiveGameObject(false, lua_table.ScreamCollider_UUID)  
                 lua_table.ObjectFunctions:SetActiveGameObject(false, lua_table.PunchCollider_UUID) 
+                lua_table.collider_effect = 0
 
                 lua_table.ParticleFunctions:StopParticleEmitter(lua_table.ScreamEmitter_UUID)  
                 lua_table.ParticleFunctions:StopParticleEmitter(lua_table.FeetEmitter_UUID) 
@@ -503,7 +506,7 @@ function lua_table:OnTriggerEnter()
                 lua_table.hit = true
                 lastTimeHit = lua_table.SystemFunctions:GameTime()
                 lua_table.AnimationFunctions:PlayAnimation("Hit", 50, MyUUID)
-                lua_table.AudioFunctions:PlayAudioEvent("Play_Ghoul_hurt_1")                          
+                lua_table.AudioFunctions:PlayAudioEvent("Play_Ghoul_hurt_2")                          
                 lua_table.SystemFunctions:LOG("Ghoul has been HIT") 
             end         
 
@@ -517,14 +520,15 @@ function lua_table:RequestedTrigger(collider_object)
 
     lua_table.ObjectFunctions:SetActiveGameObject(false, lua_table.ScreamCollider_UUID)  
     lua_table.ObjectFunctions:SetActiveGameObject(false, lua_table.PunchCollider_UUID) 
+    lua_table.collider_effect = 0
 
     lua_table.ParticleFunctions:StopParticleEmitter(lua_table.ScreamEmitter_UUID)   
     lua_table.ParticleFunctions:StopParticleEmitter(lua_table.FeetEmitter_UUID) 
 
-    if currentState ~= State.DEATH	
-    then
-        local player_table = lua_table.ObjectFunctions:GetScript(collider_object)
-        lua_table.health = lua_table.health - player_table.collider_damage   
+	if currentState ~= State.DEATH	
+	then
+		local player_table = lua_table.ObjectFunctions:GetScript(collider_object)
+		lua_table.health = lua_table.health - player_table.collider_damage   
         lua_table.ObjectivePlayer_UUID = collider_object
 
         if player_table.collider_effect == Effect.STUN
@@ -534,7 +538,7 @@ function lua_table:RequestedTrigger(collider_object)
             currentState = State.IDLE
             lua_table.ParticleFunctions:PlayParticleEmitter(lua_table.StunEmitter_UUID)
 
-        elseif player_table.collider_effect == Effect.KNOCKBACK
+		elseif player_table.collider_effect == Effect.KNOCKBACK
         then
             currentState = State.KNOCKBACK
             lastTimeKnockback = lua_table.SystemFunctions:GameTime()    
@@ -553,12 +557,12 @@ function lua_table:RequestedTrigger(collider_object)
             currentState = State.IDLE     
             lua_table.ParticleFunctions:PlayParticleEmitter(lua_table.BodyEmitter_UUID)  
         end
-    end
+	end
 end
 
 function lua_table:OnCollisionEnter()
-    local collider = lua_table.PhysicsFunctions:OnCollisionEnter(MyUUID)
-    --lua_table.SystemFunctions:LOG("OnCollisionEnter(): entered collider from GameObject with UUID " .. collider)
+	local collider = lua_table.PhysicsFunctions:OnCollisionEnter(MyUUID)
+	--lua_table.SystemFunctions:LOG("OnCollisionEnter(): entered collider from GameObject with UUID " .. collider)
 end
 
 -----------------------------------------------------------------------------
@@ -631,7 +635,7 @@ function lua_table:Update()
             Idle()
         elseif currentState == State.SEEK
         then       
-            Seek()
+	    	Seek()
         elseif currentState == State.EVADE
         then    	
             Evade()
@@ -644,12 +648,12 @@ function lua_table:Update()
         elseif currentState == State.PUNCHING
         then    	
             Punch()
-        elseif currentState == State.KNOCKBACK
-        then	
-            Knockback()
-        elseif currentState == State.DEATH 
-        then	
-            Die()
+	    elseif currentState == State.KNOCKBACK
+	    then	
+	    	Knockback()
+	    elseif currentState == State.DEATH 
+	    then	
+	    	Die()
         end   
     end
 end
