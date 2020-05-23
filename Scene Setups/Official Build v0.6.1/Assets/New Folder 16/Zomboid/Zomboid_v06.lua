@@ -80,6 +80,8 @@ local Swipe_DMG = 25
 local Smash_DMG = 50
 
 --------------------------------- Time management
+local start_idle = false
+
 local start_jump = false
 local jump_timer = 0
 
@@ -153,10 +155,12 @@ lua_table.collider_effect = 0
 
 --------------------------------- Entity particles
 local JumpStunEmitter_UID = 0
+local JumpStunDustEmitter_UID = 0
 local BloodEmitter1_UID = 0
 local BloodEmitter2_UID = 0
 local BloodEmitter3_UID = 0
 local TauntedEmitter_UID = 0
+local StunMarkEmitter_UID = 0
 
 local dt = 0
 
@@ -255,7 +259,10 @@ local function SearchPlayers() -- Check if targets are within range
 	end
 
 	if lua_table.GeraltDistance == -1 and lua_table.JaskierDistance == -1 then
-		lua_table.currentState = State.IDLE
+		AttackColliderShutdown()
+		lua_table.currentTarget = -1
+		lua_table.currentTargetDir = -1
+		lua_table.currentTargetPos = -1
 	end
 
 end
@@ -302,12 +309,16 @@ end
 
 local function Idle() 
 	
-	if lua_table.GeraltDistance ~= -1 or lua_table.JaskierDistance ~= -1 then
+	if lua_table.GeraltDistance ~= -1 or lua_table.JaskierDistance ~= -1 then -- if one player is alive
 		if lua_table.currentTargetDir <= lua_table.AggroRange then
 			lua_table.Animations:PlayAnimation("Walk", 50.0, lua_table.MyUID)
 			lua_table.currentState = State.SEEK
 			lua_table.System:LOG("Titan state: SEEK (1)") 
 		end
+	else 
+		AttackColliderShutdown()
+		lua_table.Animations:PlayAnimation("Idle", 30.0, lua_table.MyUID)
+
 	end
 	
 end
@@ -360,30 +371,40 @@ end
 
 	
 local function JumpStun() -- Smash the ground with a jump, then stun
+
+	local play_particles = true
 	
+	-- Mark the affected area
 	if not start_jump then 
 		jump_timer = lua_table.System:GameTime() * 1000
+		lua_table.Particles:PlayParticleEmitter(StunMarkEmitter_UID)
 		start_jump = true
 		
 	end
-
+	-- Play jump anticipation
 	if jump_timer <= lua_table.System:GameTime() * 1000 and not jumping then
 		lua_table.System:LOG("Jump")
-		--lua_table.Particles:PlayParticleEmitter(JumpStunEmitter_UID)
 		lua_table.Animations:PlayAnimation("Jump_Stun_1", 30.0, lua_table.MyUID)
-
 		jumping = true
 	end
-
+	-- Play actual jump
 	if jump_timer + 450 <= lua_table.System:GameTime() * 1000 and not stunning then
 		lua_table.System:LOG("Land and stun")
-		--lua_table.Particles:StopParticleEmitter(JumpStunEmitter_UID)
 		lua_table.Animations:PlayAnimation("Jump_Stun_2", 50.0, lua_table.MyUID)
-		
 		stunning = true
 	end
 
+	-- Apply the damage/effect by the jump
 	ToggleCollider(Stun_Coll, 1250, 1350, jump_timer, is_area_active, Stun_DMG, attack_effects.stun)
+
+	-- Leave crack in the ground
+	if jump_timer + 1250 <= lua_table.System:GameTime() * 1000 and play_particles == true then
+	
+		lua_table.Particles:PlayParticleEmitter(JumpStunEmitter_UID)
+		lua_table.Particles:PlayParticleEmitter(JumpStunDustEmitter_UID)
+		
+		play_particles = false
+	end
 		
 	if jump_timer + 1400 <= lua_table.System:GameTime() * 1000 then
 		lua_table.currentState = State.PUNCH
@@ -715,23 +736,38 @@ end
 function lua_table:Awake()
 	lua_table.System:LOG("TankGhoul AWAKE")
 	-- Get Emitters
-	--JumpStunEmitter_UID = lua_table.GameObject:FindChildGameObject("ZomboidJS_Emitter")
+	JumpStunEmitter_UID = lua_table.GameObject:FindChildGameObject("ZomboidJS_Emitter")
+	JumpStunDustEmitter_UID = lua_table.GameObject:FindChildGameObject("ZomboidJSDust_Emitter")
 	BloodEmitter1_UID = lua_table.GameObject:FindChildGameObject("ZomboidBlood1_Emitter")
 	BloodEmitter2_UID = lua_table.GameObject:FindChildGameObject("ZomboidBlood2_Emitter")
 	BloodEmitter3_UID = lua_table.GameObject:FindChildGameObject("ZomboidBlood3_Emitter")
 	TauntedEmitter_UID = lua_table.GameObject:FindChildGameObject("ZomboidTaunted_Emitter")
+	StunMarkEmitter_UID = lua_table.GameObject:FindChildGameObject("Zomboid_StunMark_Emitter")
 
 	-- Stop Emitters
-	--lua_table.Particles:StopParticleEmitter(JumpStunEmitter_UID)
-	lua_table.Particles:StopParticleEmitter(BloodEmitter1_UID)
-	lua_table.Particles:StopParticleEmitter(BloodEmitter2_UID)
-	lua_table.Particles:StopParticleEmitter(BloodEmitter3_UID)
-	lua_table.Particles:StopParticleEmitter(TauntedEmitter_UID)
+
+
 
 end
 
 function lua_table:Start()
 	lua_table.System:LOG("TankGhoul START")
+
+	lua_table.Particles:ActivateParticlesEmission(JumpStunEmitter_UID)
+	lua_table.Particles:ActivateParticlesEmission(JumpStunDustEmitter_UID)
+	lua_table.Particles:ActivateParticlesEmission(BloodEmitter1_UID)
+	lua_table.Particles:ActivateParticlesEmission(BloodEmitter2_UID)
+	lua_table.Particles:ActivateParticlesEmission(BloodEmitter3_UID)
+	lua_table.Particles:ActivateParticlesEmission(TauntedEmitter_UID)
+	lua_table.Particles:ActivateParticlesEmission(StunMarkEmitter_UID)
+
+	lua_table.Particles:StopParticleEmitter(JumpStunEmitter_UID)
+	lua_table.Particles:StopParticleEmitter(JumpStunDustEmitter_UID)
+	lua_table.Particles:StopParticleEmitter(BloodEmitter1_UID)
+	lua_table.Particles:StopParticleEmitter(BloodEmitter2_UID)
+	lua_table.Particles:StopParticleEmitter(BloodEmitter3_UID)
+	lua_table.Particles:StopParticleEmitter(TauntedEmitter_UID)
+	lua_table.Particles:StopParticleEmitter(StunMarkEmitter_UID)
 
 	-- Getting Entity and Player UIDs
 	lua_table.MyUID = lua_table.GameObject:GetMyUID()
@@ -778,6 +814,14 @@ function lua_table:Update()
 		lua_table.System:LOG("Titan state: Death (6)")
 		has_died = true
 	end
+
+	if lua_table.currentTarget == -1  and lua_table.currentTargetDir == -1 and lua_table.currentTargetPos == -1 then 
+		lua_table.currentState = State.IDLE
+		lua_table.currentTarget = 0
+		lua_table.currentTargetDir = 0
+		lua_table.currentTargetPos = 0
+	end
+
 
 	-- Check which state the entity is in and then handle them accordingly
 	if lua_table.currentState == State.IDLE then 
