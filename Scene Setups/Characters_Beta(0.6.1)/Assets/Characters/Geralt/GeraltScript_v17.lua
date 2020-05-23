@@ -802,6 +802,7 @@ local function DebugInputs()
 			then
 				lua_table.GameObjectFunctions:SetActiveGameObject(true, lua_table.GameObjectFunctions:FindGameObject("Geralt_Mesh"))
 				lua_table.GameObjectFunctions:SetActiveGameObject(true, lua_table.GameObjectFunctions:FindGameObject("Geralt_Pivot"))
+				lua_table.PhysicsFunctions:SetActiveController(true, geralt_GO_UID)
 				lua_table:Start()
 
 				if jaskier_GO_UID ~= nil and jaskier_GO_UID ~= 0
@@ -1880,6 +1881,22 @@ end
 
 --Collider Calls END
 
+local function DetectNearbyEnemies()
+	if game_time - enemy_detection_started_at > enemy_detection_time
+	then
+		local geralt_pos = lua_table.TransformFunctions:GetPosition(geralt_GO_UID)
+		local enemy_list = lua_table.PhysicsFunctions:OverlapSphere(geralt_pos[1], geralt_pos[2], geralt_pos[3], lua_table.enemy_detection_range, layers.enemy)
+
+		if lua_table.enemies_nearby then
+			if enemy_list[1] == nil then lua_table.enemies_nearby = false end
+		else
+			if enemy_list[1] ~= nil then lua_table.enemies_nearby = true end
+		end
+
+		enemy_detection_started_at = game_time
+	end
+end
+
 local function CalculateAbilityTrapezoid()
 	ability_trapezoid.point_B.x = lua_table.ability_offset_x + math.tan(lua_table.ability_angle) * (lua_table.ability_range - lua_table.ability_offset_z)
 	ability_trapezoid.point_B.z = lua_table.ability_range
@@ -1995,26 +2012,13 @@ function lua_table:Update()
 	game_time = PerfGameTime()
 
 	DebugInputs()
-
-	if game_time - enemy_detection_started_at > enemy_detection_time
-	then
-		local geralt_pos = lua_table.TransformFunctions:GetPosition(geralt_GO_UID)
-		local enemy_list = lua_table.PhysicsFunctions:OverlapSphere(geralt_pos[1], geralt_pos[2], geralt_pos[3], lua_table.enemy_detection_range, layers.enemy)
-
-		if lua_table.enemies_nearby then
-			if enemy_list[1] == nil then lua_table.enemies_nearby = false end
-		else
-			if enemy_list[1] ~= nil then lua_table.enemies_nearby = true end
-		end
-
-		enemy_detection_started_at = game_time
-	end
-
 	if must_update_stats then CalculateStats() end
-	CheckCameraBounds()
 
 	if lua_table.current_state ~= state.dead	--IF not dead (stuff done while downed too)
 	then
+		DetectNearbyEnemies()
+		CheckCameraBounds()
+
 		--Energy Regeneration
 		if lua_table.current_energy < lua_table.max_energy_real then lua_table.current_energy = lua_table.current_energy + energy_reg_real * dt end	--IF can increase, increase energy
 		if lua_table.current_energy > lua_table.max_energy_real then lua_table.current_energy = lua_table.max_energy_real end						--IF above max, set to max

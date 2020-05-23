@@ -815,6 +815,7 @@ local function DebugInputs()
 			elseif lua_table.current_state == state.down then lua_table.being_revived = true 
 			elseif lua_table.current_state == state.dead
 			then
+				lua_table.PhysicsFunctions:SetActiveController(true, jaskier_GO_UID)
 				lua_table.GameObjectFunctions:SetActiveGameObject(true, lua_table.GameObjectFunctions:FindGameObject("Jaskier_Mesh"))
 				lua_table.GameObjectFunctions:SetActiveGameObject(true, lua_table.GameObjectFunctions:FindGameObject("Jaskier_Pivot"))
 				lua_table:Start()
@@ -1960,6 +1961,22 @@ end
 
 --Collider Calls END
 
+local function DetectNearbyEnemies()
+	if game_time - enemy_detection_started_at > enemy_detection_time
+	then
+		local jaskier_pos = lua_table.TransformFunctions:GetPosition(jaskier_GO_UID)
+		local enemy_list = lua_table.PhysicsFunctions:OverlapSphere(jaskier_pos[1], jaskier_pos[2], jaskier_pos[3], lua_table.enemy_detection_range, layers.enemy)
+
+		if lua_table.enemies_nearby then
+			if enemy_list[1] == nil then lua_table.enemies_nearby = false end
+		else
+			if enemy_list[1] ~= nil then lua_table.enemies_nearby = true end
+		end
+
+		enemy_detection_started_at = game_time
+	end
+end
+
 local function CalculateTrapezoid(trapezoid_table)
 	trapezoid_table.point_B.x = trapezoid_table.offset_x + math.tan(trapezoid_table.angle) * (trapezoid_table.range - trapezoid_table.offset_z)
 	trapezoid_table.point_B.z = trapezoid_table.range
@@ -2072,26 +2089,13 @@ function lua_table:Update()
 	game_time = PerfGameTime()
 
 	DebugInputs()
-
-	if game_time - enemy_detection_started_at > enemy_detection_time
-	then
-		local jaskier_pos = lua_table.TransformFunctions:GetPosition(jaskier_GO_UID)
-		local enemy_list = lua_table.PhysicsFunctions:OverlapSphere(jaskier_pos[1], jaskier_pos[2], jaskier_pos[3], lua_table.enemy_detection_range, layers.enemy)
-
-		if lua_table.enemies_nearby then
-			if enemy_list[1] == nil then lua_table.enemies_nearby = false end
-		else
-			if enemy_list[1] ~= nil then lua_table.enemies_nearby = true end
-		end
-
-		enemy_detection_started_at = game_time
-	end
-
 	if must_update_stats then CalculateStats() end
-	CheckCameraBounds()
 
 	if lua_table.current_state ~= state.dead	--IF not dead (stuff done while downed too)
 	then
+		DetectNearbyEnemies()
+		CheckCameraBounds()
+
 		--Energy Regeneration
 		if lua_table.current_energy < lua_table.max_energy_real then lua_table.current_energy = lua_table.current_energy + energy_reg_real * dt end	--IF can increase, increase energy
 		if lua_table.current_energy > lua_table.max_energy_real then lua_table.current_energy = lua_table.max_energy_real end						--IF above max, set to max
