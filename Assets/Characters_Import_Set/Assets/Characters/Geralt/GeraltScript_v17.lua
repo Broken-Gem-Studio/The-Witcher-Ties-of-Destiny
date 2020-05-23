@@ -239,6 +239,12 @@ local key_state = {
 	key_up = "UP"
 }
 
+local character_ID = {
+	geralt = 0,
+	jaskier = 1,
+	yennefer = 2,
+	ciri = 3
+}
 lua_table.player_ID = 1
 
 lua_table.key_ultimate_1 = "AXIS_TRIGGERLEFT"
@@ -1891,6 +1897,13 @@ end
 --Main Code
 function lua_table:Awake()
 	lua_table.SystemFunctions:LOG("GeraltScript AWAKE")
+
+	--Assign Controller
+	if player1_focus ~= nil and player1_focus == character_ID.geralt then
+		lua_table.player_ID = 1
+	elseif player2_focus ~= nil and player2_focus == character_ID.geralt then
+		lua_table.player_ID = 2
+	end
 
 	--Get GO_UIDs
 	geralt_GO_UID = lua_table.GameObjectFunctions:GetMyUID()
