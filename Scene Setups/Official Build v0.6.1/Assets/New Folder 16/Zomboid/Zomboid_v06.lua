@@ -824,7 +824,7 @@ function lua_table:Update()
 	end
 
 	-- Manual reset for taunt state
-	if taunt_timer + 3000 <= lua_table.System:GameTime() * 1000 then
+	if taunt_timer + 5000 <= lua_table.System:GameTime() * 1000 then
 		--lua_table.Particles:StopParticleEmitter(TauntedEmitter_UID)
 		lua_table.is_taunt = false
 		start_taunt = false	
