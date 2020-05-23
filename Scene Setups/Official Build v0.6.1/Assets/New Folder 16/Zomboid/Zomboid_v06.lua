@@ -1,4 +1,4 @@
-function GetTableZomboid_v04()
+function GetTableZomboid_v06()
 local lua_table = {}
 lua_table.System = Scripting.System()
 lua_table.GameObject = Scripting.GameObject()
@@ -8,8 +8,8 @@ lua_table.Animations = Scripting.Animations()
 lua_table.Recast = Scripting.Navigation()
 lua_table.Particles = Scripting.Particles()
 lua_table.Audio = Scripting.Audio()
--- DEBUG PURPOSES
---lua_table.Input = Scripting.Inputs()
+-- DEBUG PURPOSES. COMMENT BELOW WHEN NOT USING
+lua_table.Input = Scripting.Inputs()
 
 -----------------------------------------------------------------------------------------
 -- Inspector Variables
@@ -56,10 +56,10 @@ local attack_effects = {
 ------------   All the values below are placeholders, will change them when testing
 -- Ghoul values 
 lua_table.MyUID = 0 --Entity UID
-lua_table.max_hp = 200
+lua_table.max_hp = 600
 lua_table.health = 0
-lua_table.speed = 0.05
-lua_table.knock_speed = 0.5
+lua_table.speed = 5
+lua_table.knock_speed = 17
 lua_table.currentState = 0
 lua_table.is_stunned = false
 lua_table.is_taunt = false
@@ -67,17 +67,17 @@ lua_table.is_knockback = false
 lua_table.is_dead = false
 	
 --------------------------------- Aggro values 
-lua_table.AggroRange = 100
-lua_table.minDistance = 3.5 -- If entity is inside this distance, then attack
-lua_table.jumpDistance = 7
+lua_table.AggroRange = 30
+lua_table.minDistance = 4 -- If entity is inside this distance, then attack
+lua_table.jumpDistance = 8
 --
 lua_table.stun_duration = 4000
 
---------------------------------- Damage values || TOTAL DMG = 75
-local Stun_DMG = 20
-local Punch_DMG = 10
-local Swipe_DMG = 15
-local Smash_DMG = 30
+--------------------------------- Damage values || TOTAL DMG = 100
+local Stun_DMG = 10
+local Punch_DMG = 15
+local Swipe_DMG = 25
+local Smash_DMG = 50
 
 --------------------------------- Time management
 local start_jump = false
@@ -94,6 +94,9 @@ local start_smash = false
 local smash_timer = 0
 
 --Special status timers
+local start_hit = false
+local hit_timer = 0
+
 local start_stun = false
 local stun_timer = 0
 
@@ -135,15 +138,14 @@ local stunning = false
 local punching = false
 local swiping = false
 local smashing = false
+local has_died = false
 
---local is_in_range = false
+local rand_death_time = 0
 
 --------------------------------- Entity colliders
 local is_front_active = false
 local is_area_active = false
 
-lua_table.FrontName = "Zomboid_Front_Att"
-lua_table.StunName = "Zomboid_Area"
 local Front_Att_Coll = 0
 local Stun_Coll = 0
 lua_table.collider_damage = 0
@@ -151,10 +153,12 @@ lua_table.collider_effect = 0
 
 --------------------------------- Entity particles
 local JumpStunEmitter_UID = 0
-local BloodEmitter_UID = 0
-local StunnedEmitter_UID = 0 -- Also used by KB
+local BloodEmitter1_UID = 0
+local BloodEmitter2_UID = 0
+local BloodEmitter3_UID = 0
 local TauntedEmitter_UID = 0
-local DustEmitter_UID = 0
+
+local dt = 0
 
 -- ______________________SCRIPT FUNCTIONS______________________
 
@@ -281,27 +285,28 @@ local function AttackColliderShutdown()
 		lua_table.GameObject:SetActiveGameObject(false, Stun_Coll)	--TODO-Colliders: Check
 		is_area_active = false
 	end
+	
 end
 
 local function IsTargetInRange()
 	if lua_table.currentTargetDir >= lua_table.jumpDistance then
 		lua_table.Animations:PlayAnimation("Walk", 50.0, lua_table.MyUID)
 		lua_table.currentState = State.SEEK	
-		lua_table.System:LOG("Zomboid state: SEEK (1), target out of range")    
+		lua_table.System:LOG("Titan state: SEEK (1), target out of range")    
 		
 		return true
 	else 
 		return false
 	end
 end
-	
+
 local function Idle() 
 	
 	if lua_table.GeraltDistance ~= -1 or lua_table.JaskierDistance ~= -1 then
 		if lua_table.currentTargetDir <= lua_table.AggroRange then
 			lua_table.Animations:PlayAnimation("Walk", 50.0, lua_table.MyUID)
 			lua_table.currentState = State.SEEK
-			lua_table.System:LOG("Zomboid state: SEEK (1)") 
+			lua_table.System:LOG("Titan state: SEEK (1)") 
 		end
 	end
 	
@@ -311,50 +316,45 @@ local function Seek()
 	
 	-- Now we get the direction vector and then we normalize it and aply a velocity in every component
 
-	--if start_aggro and aggro_timer + 2000 <= lua_table.System:GameTime() * 1000 then
 		if lua_table.currentTargetDir < lua_table.AggroRange and lua_table.currentTargetDir > lua_table.minDistance then
 						
-			if navigation_timer + 500 <= lua_table.System:GameTime() * 1000 then
-				start_navigation = true
-			end
-
-			if start_navigation == true then
-				corners = lua_table.Recast:CalculatePath(lua_table.GhoulPos[1], lua_table.GhoulPos[2], lua_table.GhoulPos[3], lua_table.currentTargetPos[1], lua_table.currentTargetPos[2], lua_table.currentTargetPos[3], 1 << navID)
-				navigation_timer = lua_table.System:GameTime() * 1000
-				start_navigation = false
-				currCorner = 2
-			end
-
-			local nextCorner = {0, 0, 0}
-			nextCorner[1] = corners[currCorner][1] - lua_table.GhoulPos[1]
-			nextCorner[2] = corners[currCorner][2] - lua_table.GhoulPos[2]
-			nextCorner[3] = corners[currCorner][3] - lua_table.GhoulPos[3]
-	
-			path_distance = math.sqrt(nextCorner[1] ^ 2 + nextCorner[3] ^ 2)
-			
-			if path_distance > 0.2 then 
-	
-				vec[1] = nextCorner[1] / path_distance
-				vec[2] = 0
-				vec[3] = nextCorner[3] / path_distance
-					
-				-- Apply movement vector to move character
-				lua_table.Transform:LookAt(corners[currCorner][1], lua_table.GhoulPos[2], corners[currCorner][3], lua_table.MyUID)
-				lua_table.Physics:Move(vec[1] * lua_table.speed, vec[3] * lua_table.speed, lua_table.MyUID)
-				--lua_table.Particles:PlayParticleEmitter(DustEmitter_UID)
-				
-				else
-					currCorner = currCorner + 1
-					lua_table.PhysicsSystem:Move(0, 0, lua_table.MyUID)
-			end
-				
+		if navigation_timer + 500 <= lua_table.System:GameTime() * 1000 then
+			start_navigation = true
 		end
-	--end
+		if start_navigation == true then
+			corners = lua_table.Recast:CalculatePath(lua_table.GhoulPos[1], lua_table.GhoulPos[2], lua_table.GhoulPos[3], lua_table.currentTargetPos[1], lua_table.currentTargetPos[2], lua_table.currentTargetPos[3], 1 << navID)
+			navigation_timer = lua_table.System:GameTime() * 1000
+			start_navigation = false
+			currCorner = 2
+		end
+		
+		local nextCorner = {0, 0, 0}
+		nextCorner[1] = corners[currCorner][1] - lua_table.GhoulPos[1]
+		nextCorner[2] = corners[currCorner][2] - lua_table.GhoulPos[2]
+		nextCorner[3] = corners[currCorner][3] - lua_table.GhoulPos[3]
+
+		path_distance = math.sqrt(nextCorner[1] ^ 2 + nextCorner[3] ^ 2)
+		
+		if path_distance > 0.2 then 
+
+			vec[1] = nextCorner[1] / path_distance
+			vec[2] = 0
+			vec[3] = nextCorner[3] / path_distance
+				
+			-- Apply movement vector to move character
+			lua_table.Transform:LookAt(corners[currCorner][1], lua_table.GhoulPos[2], corners[currCorner][3], lua_table.MyUID)
+			lua_table.Physics:Move(vec[1] * lua_table.speed * dt, vec[3] * lua_table.speed * dt, lua_table.MyUID)
+			
+			else
+				currCorner = currCorner + 1
+				lua_table.PhysicsSystem:Move(0, 0, lua_table.MyUID)
+		end
+			
+	end
 	
 	if lua_table.currentTargetDir <= lua_table.minDistance then
-		--lua_table.Particles:StopParticleEmitter(DustEmitter_UID)
 		lua_table.currentState = State.JUMP
-		lua_table.System:LOG("Zomboid state: JUMP (2)")
+		lua_table.System:LOG("Titan state: JUMP (2)")
 	end
 end
 
@@ -369,37 +369,25 @@ local function JumpStun() -- Smash the ground with a jump, then stun
 
 	if jump_timer <= lua_table.System:GameTime() * 1000 and not jumping then
 		lua_table.System:LOG("Jump")
-		lua_table.Particles:PlayParticleEmitter(JumpStunEmitter_UID)
-		lua_table.Animations:PlayAnimation("Jump_Stun_1", 8.0, lua_table.MyUID)
+		--lua_table.Particles:PlayParticleEmitter(JumpStunEmitter_UID)
+		lua_table.Animations:PlayAnimation("Jump_Stun_1", 30.0, lua_table.MyUID)
+
 		jumping = true
 	end
 
-	if jump_timer + 1200 <= lua_table.System:GameTime() * 1000 and not stunning then
+	if jump_timer + 450 <= lua_table.System:GameTime() * 1000 and not stunning then
 		lua_table.System:LOG("Land and stun")
-		lua_table.Particles:StopParticleEmitter(JumpStunEmitter_UID)
-		lua_table.Animations:PlayAnimation("Jump_Stun_2", 40.0, lua_table.MyUID)
+		--lua_table.Particles:StopParticleEmitter(JumpStunEmitter_UID)
+		lua_table.Animations:PlayAnimation("Jump_Stun_2", 50.0, lua_table.MyUID)
 		
 		stunning = true
 	end
 
-	ToggleCollider(Stun_Coll, 2000, 2100, jump_timer, is_area_active, Stun_DMG, attack_effects.stun)
-
-	-- if jump_timer + 2000 <= lua_table.System:GameTime() * 1000 then 
-	-- 	lua_table.collider_effect = attack_effects.stun
-	-- 	lua_table.collider_damage = 15
-		   
-	-- 	is_area_active = true
-	-- 	lua_table.GameObject:SetActiveGameObject(true, Stun_Coll)
-	-- end
-
-	-- if jump_timer + 2100 <= lua_table.System:GameTime() * 1000 then 
-	-- 	is_area_active = false
-	-- 	lua_table.GameObject:SetActiveGameObject(false, Stun_Coll)
-	-- end
+	ToggleCollider(Stun_Coll, 1250, 1350, jump_timer, is_area_active, Stun_DMG, attack_effects.stun)
 		
-	if jump_timer + 2250 <= lua_table.System:GameTime() * 1000 then
+	if jump_timer + 1400 <= lua_table.System:GameTime() * 1000 then
 		lua_table.currentState = State.PUNCH
-		lua_table.System:LOG("Zomboid state: PUNCH (3)")  
+		lua_table.System:LOG("Titan state: PUNCH (3)")  
 	end
 end
 	
@@ -426,21 +414,24 @@ local function Punch()
 	
 	-- After its finished, switch state
 	if punch_timer + 1100 <= lua_table.System:GameTime() * 1000 then
-		lua_table.currentState = State.SWIPE
+		if IsTargetInRange() == true then
+			return 
+		else 
+			lua_table.currentState = State.SWIPE
+		end
+		
 	end
 	
 end
 
 local function Swipe()
 
-	if IsTargetInRange() == true then
-		return 
-	end
-
 	if not start_swipe then 
 		swipe_timer = lua_table.System:GameTime() * 1000
 		start_swipe = true
 	end
+
+	lua_table.Transform:LookAt(lua_table.currentTargetPos[1], lua_table.GhoulPos[2], lua_table.currentTargetPos[3], lua_table.MyUID)
 
 	if swipe_timer <= lua_table.System:GameTime() * 1000 and not swiping then
 		lua_table.System:LOG("Swipe to target")
@@ -452,21 +443,25 @@ local function Swipe()
 	
 	-- After its finished, switch state
 	if swipe_timer + 1450 <= lua_table.System:GameTime() * 1000 then
-		lua_table.currentState = State.SMASH
-		lua_table.System:LOG("Zomboid state: SEEK (1), cycle to jump")
+
+		if IsTargetInRange() == true then
+			return 
+		else 
+			lua_table.currentState = State.SMASH
+		end
+		
+		lua_table.System:LOG("Titan state: SEEK (1), cycle to jump")
 	end
 end
 
 local function Smash()
 
-	if IsTargetInRange() == true then
-		return 
-	end
-
 	if not start_smash then 
 		smash_timer = lua_table.System:GameTime() * 1000
 		start_smash = true
 	end
+
+	lua_table.Transform:LookAt(lua_table.currentTargetPos[1], lua_table.GhoulPos[2], lua_table.currentTargetPos[3], lua_table.MyUID)
 
 	if smash_timer <= lua_table.System:GameTime() * 1000 and not smashing then
 		lua_table.System:LOG("Crush to target")
@@ -480,7 +475,7 @@ local function Smash()
 	if smash_timer + 1400 <= lua_table.System:GameTime() * 1000 then
 		lua_table.Animations:PlayAnimation("Walk", 50.0, lua_table.MyUID)
 		lua_table.currentState = State.SEEK
-		lua_table.System:LOG("Zomboid state: SEEK (1), cycle to jump")
+		lua_table.System:LOG("Titan state: SEEK (1), cycle to jump")
 	end
 
 end
@@ -493,12 +488,11 @@ local function Stun()
 	end
 
 	if stun_timer + lua_table.stun_duration <= lua_table.System:GameTime() * 1000 then
-		lua_table.Particles:StopParticleEmitter(StunnedEmitter_UID)
 		lua_table.Animations:PlayAnimation("Walk", 50.0, lua_table.MyUID)
 		lua_table.is_knockback = false
 
 		lua_table.currentState = State.SEEK	
-		lua_table.System:LOG("Zomboid state: SEEK (1), from stun")
+		lua_table.System:LOG("Titan state: SEEK (1), from stun")
 	end
 	
 end
@@ -511,32 +505,39 @@ local function KnockBack()
 
 	if knockback_timer + 500 <= lua_table.System:GameTime() * 1000 then
 		lua_table.currentState = State.STUNNED	
-		lua_table.System:LOG("Zomboid state: STUNNED (5), from KD")
+		lua_table.System:LOG("Titan state: STUNNED (5), from KD")
 		
 	else 
-		lua_table.Physics:Move(knock_force[1] * lua_table.knock_speed, knock_force[3] * lua_table.knock_speed, lua_table.MyUID)
+		lua_table.Physics:Move(knock_force[1] * lua_table.knock_speed * dt, knock_force[3] * lua_table.knock_speed * dt, lua_table.MyUID)
 
 	end
 	
 end
 
 local function Die()
+
+	rand_death_time = math.random(45, 60)
+
 	if not start_death then 
-		lua_table.Particles:StopParticleEmitter(JumpStunEmitter_UID)
-		lua_table.Particles:StopParticleEmitter(BloodEmitter_UID)
-		lua_table.Particles:StopParticleEmitter(StunnedEmitter_UID)
-		--lua_table.Particles:StopParticleEmitter(Taunted_Emitter)
+		
+		--lua_table.Particles:StopParticleEmitter(JumpStunEmitter_UID)
+		lua_table.Particles:StopParticleEmitter(BloodEmitter1_UID)
+		lua_table.Particles:StopParticleEmitter(BloodEmitter2_UID)
+		lua_table.Particles:StopParticleEmitter(BloodEmitter3_UID)
+		lua_table.Particles:StopParticleEmitter(TauntedEmitter_UID)
+
 		death_timer = lua_table.System:GameTime() * 1000
 
 		-- This ensures hit particle plays when Players deal the last hit
-		lua_table.Particles:PlayParticleEmitter(BloodEmitter_UID)
-		lua_table.System:LOG("Im dying")  
-		lua_table.Animations:PlayAnimation("Death", 30.0, lua_table.MyUID)
+		lua_table.Particles:PlayParticleEmitter(BloodEmitter1_UID)
+		lua_table.Particles:PlayParticleEmitter(BloodEmitter2_UID)
+		lua_table.Particles:PlayParticleEmitter(BloodEmitter3_UID)
+
+		lua_table.Animations:PlayAnimation("Death", rand_death_time, lua_table.MyUID)
 		start_death = true
 	end
 
 	if death_timer + 7000 <= lua_table.System:GameTime() * 1000 then
-		lua_table.System:LOG("Im dead!!!!!!!!!")  
 		lua_table.GameObject:DestroyGameObject(lua_table.MyUID) -- Delete GO from scene
 	end
 	
@@ -550,6 +551,7 @@ function lua_table:OnTriggerEnter()
     if layer == layers.player_attack then 
 		local parent = lua_table.GameObject:GetGameObjectParent(collider)
 		local script = lua_table.GameObject:GetScript(parent)
+		local player_state = script.current_state
 		
 		if lua_table.currentState ~= State.DEATH then
 
@@ -560,11 +562,10 @@ function lua_table:OnTriggerEnter()
 				if script.collider_effect == attack_effects.stun then ----------------------------------------------------- React to stun effect
 					AttackColliderShutdown()
 					lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
-					lua_table.Particles:PlayParticleEmitter(StunnedEmitter_UID)
 					start_stun = true
 					lua_table.currentState = State.STUNNED
 					
-					lua_table.System:LOG("Zomboid state: STUNNED (5)")  
+					lua_table.System:LOG("Titan state: STUNNED (5)")  
 
 				elseif script.collider_effect == attack_effects.knockback then ------------------------------------------------ React to kb effect
 					AttackColliderShutdown()
@@ -587,7 +588,7 @@ function lua_table:OnTriggerEnter()
 					lua_table.currentState = State.KNOCKBACK
 					start_knockback = true
 					lua_table.is_knockback = true
-					lua_table.System:LOG("Zomboid state: KNOCKBACK (4)") 
+					lua_table.System:LOG("Titan state: KNOCKBACK (4)") 
 					
 				elseif script.collider_effect == attack_effects.taunt then ---------------------------------------------------- React to taunt effect
 					AttackColliderShutdown()
@@ -604,17 +605,24 @@ function lua_table:OnTriggerEnter()
 				end
 	
 			else
-				AttackColliderShutdown()
+				if player_state >= 14 and lua_table.currentState ~= State.JUMP then -- State == heavy_1/heavy_2/heavy_3 and combos cancel animation
+					AttackColliderShutdown()
 				
-				start_hit = true
-
-				if start_hit then 
+					start_hit = true
 					hit_timer = lua_table.System:GameTime() * 1000
-					start_hit = false
+					
+					lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
+					lua_table.Particles:PlayParticleEmitter(BloodEmitter1_UID)
+					lua_table.Particles:PlayParticleEmitter(BloodEmitter2_UID)
+					lua_table.Particles:PlayParticleEmitter(BloodEmitter3_UID)
+					lua_table.System:LOG("Heavy hit registered")
+					
+				else --if player_state <= 13 then 
+					lua_table.Particles:PlayParticleEmitter(BloodEmitter1_UID)
+					lua_table.Particles:PlayParticleEmitter(BloodEmitter2_UID)
+					lua_table.Particles:PlayParticleEmitter(BloodEmitter3_UID)
+					lua_table.System:LOG("Light/Medium registered")
 				end
-				lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
-				lua_table.Particles:PlayParticleEmitter(BloodEmitter_UID)
-				lua_table.System:LOG("Hit registered")
 			end
 		end
     end
@@ -630,7 +638,7 @@ function lua_table:RequestedTrigger(collider_GO)
 
 	local script = lua_table.GameObject:GetScript(collider_GO)
 	
-	if lua_table.currentState ~= State.DEATH then
+	if lua_table.currentState ~= State.DEATH and lua_table.currentState ~= State.JUMP then
 
 		lua_table.health = lua_table.health - script.collider_damage
 
@@ -639,11 +647,10 @@ function lua_table:RequestedTrigger(collider_GO)
 			if script.collider_effect == attack_effects.stun then ----------------------------------------------------- React to stun effect
 				AttackColliderShutdown()
 				lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
-				lua_table.Particles:PlayParticleEmitter(StunnedEmitter_UID)
 				start_stun = true
 				lua_table.currentState = State.STUNNED
 				
-				lua_table.System:LOG("Zomboid state: STUNNED (5)")  
+				lua_table.System:LOG("Titan state: STUNNED (5)")  
 			elseif script.collider_effect == attack_effects.knockback then ------------------------------------------------ React to kb effect
 				AttackColliderShutdown()
 
@@ -664,7 +671,7 @@ function lua_table:RequestedTrigger(collider_GO)
 				lua_table.currentState = State.KNOCKBACK
 				start_knockback = true
 				lua_table.is_knockback = true
-				lua_table.System:LOG("Zomboid state: KNOCKBACK (4)") 
+				lua_table.System:LOG("Titan state: KNOCKBACK (4)") 
 
 			elseif script.collider_effect == attack_effects.taunt then ---------------------------------------------------- React to taunt effect
 				AttackColliderShutdown()
@@ -677,22 +684,29 @@ function lua_table:RequestedTrigger(collider_GO)
 					lua_table.System:LOG("Getting taunted by Jaskier") 
 					start_taunt = false
 				end
-
-				--lua_table.Particles:PlayParticleEmitter(TauntedEmitter_UID)
-		
 			end
 
 		else
-			AttackColliderShutdown()
-			start_hit = true
+			if player_state >= 14 then -- State == heavy_1/heavy_2/heavy_3 and combos cancel animation
+				AttackColliderShutdown()
+			
+				start_hit = true
 
 				if start_hit then 
 					hit_timer = lua_table.System:GameTime() * 1000
 					start_hit = false
 				end
 				lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
-				lua_table.Particles:PlayParticleEmitter(BloodEmitter_UID)
+				lua_table.Particles:PlayParticleEmitter(BloodEmitter1_UID)
+				lua_table.Particles:PlayParticleEmitter(BloodEmitter2_UID)
+				lua_table.Particles:PlayParticleEmitter(BloodEmitter3_UID)
 				lua_table.System:LOG("Hit registered")
+			else --if player_state <= 13 then 
+				lua_table.Particles:PlayParticleEmitter(BloodEmitter1_UID)
+				lua_table.Particles:PlayParticleEmitter(BloodEmitter2_UID)
+				lua_table.Particles:PlayParticleEmitter(BloodEmitter3_UID)
+				lua_table.System:LOG("Hit registered")
+			end
 		end
 	end
 end
@@ -701,20 +715,18 @@ end
 function lua_table:Awake()
 	lua_table.System:LOG("TankGhoul AWAKE")
 	-- Get Emitters
-	JumpStunEmitter_UID = lua_table.GameObject:FindChildGameObject("ZomboidJS_Emitter")
-	BloodEmitter_UID = lua_table.GameObject:FindChildGameObject("ZomboidBlood_Emitter")
-	StunnedEmitter_UID = lua_table.GameObject:FindChildGameObject("ZomboidStun_Emitter")
-	--TauntedEmitter_UID = lua_table.GameObject:FindChildGameObject("Taunted_Emitter")
-	--HitsEmitter_UID = lua_table.GameObject:FindChildGameObject("Attack_Emitter")
-	--DustEmitter_UID = lua_table.GameObject:FindChildGameObject("ZomboidDust_Emitter")
+	--JumpStunEmitter_UID = lua_table.GameObject:FindChildGameObject("ZomboidJS_Emitter")
+	BloodEmitter1_UID = lua_table.GameObject:FindChildGameObject("ZomboidBlood1_Emitter")
+	BloodEmitter2_UID = lua_table.GameObject:FindChildGameObject("ZomboidBlood2_Emitter")
+	BloodEmitter3_UID = lua_table.GameObject:FindChildGameObject("ZomboidBlood3_Emitter")
+	TauntedEmitter_UID = lua_table.GameObject:FindChildGameObject("ZomboidTaunted_Emitter")
 
-	-- StopEmitters
-	lua_table.Particles:StopParticleEmitter(JumpStunEmitter_UID)
-	lua_table.Particles:StopParticleEmitter(BloodEmitter_UID)
-	lua_table.Particles:StopParticleEmitter(StunnedEmitter_UID)
-	--lua_table.Particles:StopParticleEmitter(Taunted_Emitter)
-	--lua_table.Particles:StopParticleEmitter(Attack_Emitter)
-	--lua_table.Particles:StopParticleEmitter(DustEmitter_UID)
+	-- Stop Emitters
+	--lua_table.Particles:StopParticleEmitter(JumpStunEmitter_UID)
+	lua_table.Particles:StopParticleEmitter(BloodEmitter1_UID)
+	lua_table.Particles:StopParticleEmitter(BloodEmitter2_UID)
+	lua_table.Particles:StopParticleEmitter(BloodEmitter3_UID)
+	lua_table.Particles:StopParticleEmitter(TauntedEmitter_UID)
 
 end
 
@@ -741,12 +753,12 @@ function lua_table:Start()
 
 	lua_table.currentState = State.IDLE
 	lua_table.Animations:PlayAnimation("Idle", 30.0, lua_table.MyUID)
-	lua_table.System:LOG("Zomboid state: IDLE (0)") 
+	lua_table.System:LOG("Titan state: IDLE (0)") 
 	lua_table.health = lua_table.max_hp
 
 	-- Get colliders
-	Front_Att_Coll = lua_table.GameObject:FindChildGameObject(lua_table.FrontName)
-	Stun_Coll = lua_table.GameObject:FindChildGameObject(lua_table.StunName)
+	Front_Att_Coll = lua_table.GameObject:FindChildGameObject("Zomboid_Front_Att")
+	Stun_Coll = lua_table.GameObject:FindChildGameObject("Zomboid_Area")
 	
 
 	-- Initialize Nav
@@ -756,14 +768,15 @@ end
 
 function lua_table:Update()
 
+	dt = lua_table.System:DT()
+
 	SearchPlayers() -- Constantly calculate distances between entity and players
 
-	
-
 	-- Check if our entity is dead
-	if lua_table.health <= 0 then 
+	if lua_table.health <= 0 and has_died == false then 
 		lua_table.currentState = State.DEATH
-		lua_table.System:LOG("Zomboid state: Death (6)")
+		lua_table.System:LOG("Titan state: Death (6)")
+		has_died = true
 	end
 
 	-- Check which state the entity is in and then handle them accordingly
@@ -811,7 +824,7 @@ function lua_table:Update()
 	end
 
 	-- Manual reset for taunt state
-	if taunt_timer + 5000 <= lua_table.System:GameTime() * 1000 then
+	if taunt_timer + 3000 <= lua_table.System:GameTime() * 1000 then
 		--lua_table.Particles:StopParticleEmitter(TauntedEmitter_UID)
 		lua_table.is_taunt = false
 		start_taunt = false	
@@ -819,12 +832,9 @@ function lua_table:Update()
 	
 	end
 
-	-- Manual reset for taunt state
-	if hit_timer + 500 <= lua_table.System:GameTime() * 1000 then
-		lua_table.Particles:StopParticleEmitter(BloodEmitter_UID)
-		start_hit = false	
-		hit_timer = 0
-	
+	-- Manual reset for hit state
+	if hit_timer + 1500 <= lua_table.System:GameTime() * 1000 and start_hit == true then
+		start_hit = false
 	end
 
 	
@@ -836,11 +846,10 @@ function lua_table:Update()
 	-- if lua_table.Input:KeyUp("s") then
 		
 	-- 	lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
-	--  lua_table.Particles:PlayParticleEmitter(StunnedEmitter_UID)
 	-- 	start_stun = true
 	-- 	lua_table.currentState = State.STUNNED
 		
-	-- 	lua_table.System:LOG("Zomboid state: STUNNED (5)")  
+	-- 	lua_table.System:LOG("Titan state: STUNNED (5)")  
 	-- end
 
 	-- ------------------------------------------------ TEST KD
@@ -862,26 +871,22 @@ function lua_table:Update()
 	-- 	lua_table.currentState = State.KNOCKBACK
 	-- 	start_knockback = true
 	-- 	lua_table.is_knockback = true
-	-- 	lua_table.System:LOG("Zomboid state: KNOCKBACK (4)") 
+	-- 	lua_table.System:LOG("Titan state: KNOCKBACK (4)") 
 	
 	-- end
 	-- ------------------------------------------------ TEST TAUNT
-	-- if lua_table.Input:KeyUp("t") then
-	-- 	start_taunt = true
+	if lua_table.Input:KeyUp("t") then
+		start_taunt = true
 
-	-- 	if start_taunt then 
-	-- 		knockback_timer = lua_table.System:GameTime() * 1000
-	-- 		lua_table.is_taunt = true
-	-- 		lua_table.System:LOG("Getting taunted by Jaskier") 
-	-- 		start_taunt = false
-	-- 	end
-	
-	-- 	if knockback_timer + 5000 <= lua_table.System:GameTime() * 1000 then
-	-- 		lua_table.is_taunt = false
-	
-	-- 	end
+		if start_taunt then 
+			taunt_timer = lua_table.System:GameTime() * 1000
+			lua_table.PlayParticleEmitter(TauntedEmitter_UID)
+			lua_table.is_taunt = true
+			lua_table.System:LOG("Getting taunted by Jaskier") 
+			start_taunt = false
+		end
 
-	-- end
+	end
 	
 end
 
