@@ -1252,20 +1252,15 @@ local function CheckCombos()
 	local combo_achieved = false
 
 	lua_table.combo_num = lua_table.combo_num + 1
-	if lua_table.combo_num >= 3 then			--IF 3+ attacks
-		if PerformCombo("light_3")
-		or PerformCombo("medium_3")
-		or PerformCombo("heavy_3")
-		or PerformCombo("combo_1")
-		or PerformCombo("combo_2")
-		or PerformCombo("combo_3")
-		then
-			lua_table.InputFunctions:ShakeController(lua_table.player_ID, 1.0, current_action_duration)
-			combo_achieved = true
-			rightside = true
-			lua_table.combo_num = 0
-		end
+	if lua_table.combo_num == 3 and (PerformCombo("light_3") or PerformCombo("medium_3") or PerformCombo("heavy_3"))
+	or lua_table.combo_num == 4 and (PerformCombo("combo_1") or PerformCombo("combo_2") or PerformCombo("combo_3"))
+	then
+		lua_table.InputFunctions:ShakeController(lua_table.player_ID, 1.0, current_action_duration)
+		combo_achieved = true
+		rightside = true
 	end
+
+	if combo_achieved or lua_table.combo_num == 4 then lua_table.combo_num = 0 end
 
 	return combo_achieved
 end

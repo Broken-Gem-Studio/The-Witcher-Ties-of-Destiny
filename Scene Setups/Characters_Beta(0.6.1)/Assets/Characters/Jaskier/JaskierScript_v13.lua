@@ -1450,16 +1450,14 @@ local function CheckCombos()
 	local combo_achieved = false
 
 	lua_table.chained_attacks_num = lua_table.chained_attacks_num + 1
-
-	if lua_table.chained_attacks_num >= 3 then			--IF 3+ attacks
-		if PerformCombo("light_3")
-		or PerformCombo("medium_3")
-		or PerformCombo("heavy_3")
-		then
+	if lua_table.chained_attacks_num == 3 then
+		if PerformCombo("light_3") or PerformCombo("medium_3") or PerformCombo("heavy_3") then
 			lua_table.InputFunctions:ShakeController(lua_table.player_ID, 1.0, current_action_duration)
 			combo_achieved = true
 			rightside = true
 			lua_table.chained_attacks_num = 0
+		else
+			lua_table.chained_attacks_num = -1	--IF not combo, then setup so that counter restarts from a the next RIGHT hit
 		end
 	end
 
