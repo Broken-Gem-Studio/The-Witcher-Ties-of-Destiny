@@ -12,8 +12,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.070461",
-                "scaley": "15.156810",
-                "scalez": "1.368005"
+                "scaley": "15.157488",
+                "scalez": "1.368084"
             },
             "1": {
                 "Active": true,
@@ -26,6 +26,9 @@
             },
             "2": {
                 "Active": true,
+                "CastsShadows": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
                 "Resources": {
                     "ResourceMaterial": {
                         "path": "Assets/Characters/Jaskier/Jaskier_Lute.mat"
@@ -33,11 +36,11 @@
                 }
             }
         },
-        "Parent": "1991084301",
+        "Parent": "1247326828",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1210706071"
+        "UID": "197374802"
     },
     "Dummy001": {
         "Active": true,
@@ -56,11 +59,11 @@
                 "scalez": "1.000000"
             }
         },
-        "Parent": "717182831",
+        "Parent": "325621360",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1991084301"
+        "UID": "1247326828"
     },
     "In_Side": {
         "Active": true,
@@ -85,11 +88,11 @@
                 }
             }
         },
-        "Parent": "1973941592",
+        "Parent": "1198764424",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1719070514"
+        "UID": "1520989943"
     },
     "Jaskier": {
         "Active": true,
@@ -1607,11 +1610,11 @@
                 "Active": true
             }
         },
-        "Parent": "93077927",
+        "Parent": "1110068362",
         "PrefabChild": true,
         "PrefabInstance": true,
         "Static": false,
-        "UID": "1499414384"
+        "UID": "1648926446"
     },
     "Jaskier_Circle_1": {
         "Active": true,
@@ -1647,16 +1650,16 @@
                 "animation": "0",
                 "colors": [
                     {
-                        "a": "0.000000",
-                        "x": "0.160080",
-                        "y": "0.130948",
-                        "z": "0.790055"
+                        "a": "1.000000",
+                        "x": "0.129412",
+                        "y": "0.647059",
+                        "z": "0.788235"
                     },
                     {
                         "a": "1.000000",
-                        "x": "0.130948",
-                        "y": "0.167363",
-                        "z": "0.790055"
+                        "x": "0.129412",
+                        "y": "0.647059",
+                        "z": "0.788235"
                     }
                 ],
                 "curves": [
@@ -1714,11 +1717,21 @@
                 "grad_duration": "600",
                 "gradients": [
                     {
-                        "a": "0.001667",
-                        "x": "-0.000049",
-                        "y": "0.000061",
+                        "a": "0.000000",
+                        "x": "0.000000",
+                        "y": "0.000000",
                         "z": "0.000000"
                     }
+                ],
+                "maxInitialRotation": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "minInitialRotation": [
+                    "0",
+                    "0",
+                    "0"
                 ],
                 "num_colors": "2",
                 "num_curves": "2",
@@ -1736,6 +1749,8 @@
                 "positionX": "0.000000",
                 "positionY": "0.000000",
                 "positionZ": "0.000000",
+                "randomInitialRotation": false,
+                "randomStartFrame": true,
                 "rotationOvertime1": [
                     "0",
                     "0",
@@ -1767,11 +1782,11 @@
                 "velocityconstants": "0"
             }
         },
-        "Parent": "1499414384",
+        "Parent": "1648926446",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1057025251"
+        "UID": "1629727310"
     },
     "Jaskier_Circle_2": {
         "Active": true,
@@ -1807,16 +1822,16 @@
                 "animation": "0",
                 "colors": [
                     {
-                        "a": "0.000000",
-                        "x": "0.664448",
-                        "y": "0.143158",
-                        "z": "0.740332"
+                        "a": "1.000000",
+                        "x": "0.733333",
+                        "y": "0.294118",
+                        "z": "0.796078"
                     },
                     {
-                        "a": "1.000000",
-                        "x": "0.570895",
-                        "y": "0.148347",
-                        "z": "0.745856"
+                        "a": "0.000000",
+                        "x": "0.733333",
+                        "y": "0.294118",
+                        "z": "0.796078"
                     }
                 ],
                 "curves": [
@@ -1874,11 +1889,21 @@
                 "grad_duration": "600",
                 "gradients": [
                     {
-                        "a": "0.001667",
-                        "x": "-0.000156",
-                        "y": "0.000009",
-                        "z": "0.000009"
+                        "a": "-0.001667",
+                        "x": "0.000000",
+                        "y": "0.000000",
+                        "z": "0.000000"
                     }
+                ],
+                "maxInitialRotation": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "minInitialRotation": [
+                    "0",
+                    "0",
+                    "0"
                 ],
                 "num_colors": "2",
                 "num_curves": "2",
@@ -1896,6 +1921,8 @@
                 "positionX": "0.000000",
                 "positionY": "0.000000",
                 "positionZ": "0.000000",
+                "randomInitialRotation": false,
+                "randomStartFrame": true,
                 "rotationOvertime1": [
                     "0",
                     "0",
@@ -1927,11 +1954,11 @@
                 "velocityconstants": "0"
             }
         },
-        "Parent": "1499414384",
+        "Parent": "1648926446",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1185384475"
+        "UID": "946560265"
     },
     "Jaskier_Circle_Length": {
         "Active": true,
@@ -1950,11 +1977,11 @@
                 "scalez": "1.000018"
             }
         },
-        "Parent": "1499414384",
+        "Parent": "1648926446",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "810216678"
+        "UID": "1376314033"
     },
     "Jaskier_Concert_1": {
         "Active": true,
@@ -1990,22 +2017,16 @@
                 "animation": "0",
                 "colors": [
                     {
-                        "a": "0.000000",
-                        "x": "0.160080",
-                        "y": "0.130948",
-                        "z": "0.790055"
-                    },
-                    {
-                        "a": "0.000000",
-                        "x": "0.160080",
-                        "y": "0.130948",
-                        "z": "0.790055"
-                    },
-                    {
                         "a": "1.000000",
-                        "x": "0.130948",
-                        "y": "0.167363",
-                        "z": "0.790055"
+                        "x": "0.129412",
+                        "y": "0.647059",
+                        "z": "0.788235"
+                    },
+                    {
+                        "a": "0.000000",
+                        "x": "0.129412",
+                        "y": "0.647059",
+                        "z": "0.788235"
                     }
                 ],
                 "curves": [
@@ -2063,21 +2084,25 @@
                 "grad_duration": "1000",
                 "gradients": [
                     {
-                        "a": "0.001667",
-                        "x": "-0.000049",
-                        "y": "0.000061",
-                        "z": "0.000000"
-                    },
-                    {
-                        "a": "0.001000",
-                        "x": "-0.000029",
-                        "y": "0.000036",
+                        "a": "-0.001000",
+                        "x": "0.000000",
+                        "y": "0.000000",
                         "z": "0.000000"
                     }
                 ],
-                "num_colors": "3",
+                "maxInitialRotation": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "minInitialRotation": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "num_colors": "2",
                 "num_curves": "2",
-                "num_gradients": "2",
+                "num_gradients": "1",
                 "particleScaleOverTime": "-0.100000",
                 "particleScaleRandomFactor1": "1.000000",
                 "particleScaleRandomFactor2": "1.000000",
@@ -2091,6 +2116,8 @@
                 "positionX": "0.000000",
                 "positionY": "0.000000",
                 "positionZ": "0.000000",
+                "randomInitialRotation": false,
+                "randomStartFrame": true,
                 "rotationOvertime1": [
                     "0",
                     "90",
@@ -2122,11 +2149,11 @@
                 "velocityconstants": "0"
             }
         },
-        "Parent": "1499414384",
+        "Parent": "1648926446",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "142383289"
+        "UID": "1786446000"
     },
     "Jaskier_Concert_2": {
         "Active": true,
@@ -2162,16 +2189,16 @@
                 "animation": "0",
                 "colors": [
                     {
-                        "a": "0.000000",
-                        "x": "0.664448",
-                        "y": "0.143158",
-                        "z": "0.740332"
+                        "a": "1.000000",
+                        "x": "0.733333",
+                        "y": "0.294118",
+                        "z": "0.796078"
                     },
                     {
-                        "a": "1.000000",
-                        "x": "0.570895",
-                        "y": "0.148347",
-                        "z": "0.745856"
+                        "a": "0.000000",
+                        "x": "0.733333",
+                        "y": "0.294118",
+                        "z": "0.796078"
                     }
                 ],
                 "curves": [
@@ -2229,11 +2256,21 @@
                 "grad_duration": "1000",
                 "gradients": [
                     {
-                        "a": "0.001000",
-                        "x": "-0.000094",
-                        "y": "0.000005",
-                        "z": "0.000006"
+                        "a": "-0.001000",
+                        "x": "0.000000",
+                        "y": "0.000000",
+                        "z": "0.000000"
                     }
+                ],
+                "maxInitialRotation": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "minInitialRotation": [
+                    "0",
+                    "0",
+                    "0"
                 ],
                 "num_colors": "2",
                 "num_curves": "2",
@@ -2251,6 +2288,8 @@
                 "positionX": "0.000000",
                 "positionY": "0.000000",
                 "positionZ": "0.000000",
+                "randomInitialRotation": false,
+                "randomStartFrame": true,
                 "rotationOvertime1": [
                     "0",
                     "90",
@@ -2282,11 +2321,11 @@
                 "velocityconstants": "0"
             }
         },
-        "Parent": "1499414384",
+        "Parent": "1648926446",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "82448917"
+        "UID": "494066348"
     },
     "Jaskier_Cone_1": {
         "Active": true,
@@ -2307,7 +2346,7 @@
             "18": {
                 "Active": true,
                 "Duration": "300",
-                "GradientColor": false,
+                "GradientColor": true,
                 "HorizontalBill": "0",
                 "Loop": false,
                 "PartAutoBlending": true,
@@ -2323,9 +2362,15 @@
                 "colors": [
                     {
                         "a": "1.000000",
-                        "x": "1.000000",
-                        "y": "0.999990",
-                        "z": "0.999990"
+                        "x": "0.129412",
+                        "y": "0.647059",
+                        "z": "0.788235"
+                    },
+                    {
+                        "a": "0.000000",
+                        "x": "0.129412",
+                        "y": "0.647059",
+                        "z": "0.788235"
                     }
                 ],
                 "curves": [
@@ -2380,10 +2425,28 @@
                 "externalAccelerationY": "0.000000",
                 "externalAccelerationZ": "0.000000",
                 "followEmitter": false,
-                "grad_duration": "0",
-                "num_colors": "1",
+                "grad_duration": "400",
+                "gradients": [
+                    {
+                        "a": "-0.002500",
+                        "x": "0.000000",
+                        "y": "0.000000",
+                        "z": "0.000000"
+                    }
+                ],
+                "maxInitialRotation": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "minInitialRotation": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "num_colors": "2",
                 "num_curves": "2",
-                "num_gradients": "0",
+                "num_gradients": "1",
                 "particleScaleOverTime": "-0.100000",
                 "particleScaleRandomFactor1": "1.000000",
                 "particleScaleRandomFactor2": "1.000000",
@@ -2397,6 +2460,8 @@
                 "positionX": "0.000000",
                 "positionY": "0.000000",
                 "positionZ": "0.000000",
+                "randomInitialRotation": false,
+                "randomStartFrame": true,
                 "rotationOvertime1": [
                     "0",
                     "0",
@@ -2428,11 +2493,11 @@
                 "velocityconstants": "0"
             }
         },
-        "Parent": "1499414384",
+        "Parent": "1648926446",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "2003463412"
+        "UID": "641534076"
     },
     "Jaskier_Cone_2": {
         "Active": true,
@@ -2453,7 +2518,7 @@
             "18": {
                 "Active": true,
                 "Duration": "300",
-                "GradientColor": false,
+                "GradientColor": true,
                 "HorizontalBill": "0",
                 "Loop": false,
                 "PartAutoBlending": true,
@@ -2469,9 +2534,15 @@
                 "colors": [
                     {
                         "a": "1.000000",
-                        "x": "1.000000",
-                        "y": "1.000000",
-                        "z": "1.000000"
+                        "x": "0.733333",
+                        "y": "0.294118",
+                        "z": "0.796078"
+                    },
+                    {
+                        "a": "0.000000",
+                        "x": "0.733333",
+                        "y": "0.294118",
+                        "z": "0.796078"
                     }
                 ],
                 "curves": [
@@ -2526,10 +2597,28 @@
                 "externalAccelerationY": "0.000000",
                 "externalAccelerationZ": "0.000000",
                 "followEmitter": false,
-                "grad_duration": "0",
-                "num_colors": "1",
+                "grad_duration": "400",
+                "gradients": [
+                    {
+                        "a": "-0.002500",
+                        "x": "0.000000",
+                        "y": "0.000000",
+                        "z": "0.000000"
+                    }
+                ],
+                "maxInitialRotation": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "minInitialRotation": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "num_colors": "2",
                 "num_curves": "2",
-                "num_gradients": "0",
+                "num_gradients": "1",
                 "particleScaleOverTime": "-0.100000",
                 "particleScaleRandomFactor1": "1.000000",
                 "particleScaleRandomFactor2": "1.000000",
@@ -2543,6 +2632,8 @@
                 "positionX": "0.000000",
                 "positionY": "0.000000",
                 "positionZ": "0.000000",
+                "randomInitialRotation": false,
+                "randomStartFrame": true,
                 "rotationOvertime1": [
                     "0",
                     "0",
@@ -2574,11 +2665,11 @@
                 "velocityconstants": "0"
             }
         },
-        "Parent": "1499414384",
+        "Parent": "1648926446",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "159979133"
+        "UID": "519458990"
     },
     "Jaskier_Cone_C": {
         "Active": true,
@@ -2597,11 +2688,11 @@
                 "scalez": "1.000018"
             }
         },
-        "Parent": "1499414384",
+        "Parent": "1648926446",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1915850555"
+        "UID": "879014890"
     },
     "Jaskier_Cone_D": {
         "Active": true,
@@ -2620,11 +2711,11 @@
                 "scalez": "1.000018"
             }
         },
-        "Parent": "1499414384",
+        "Parent": "1648926446",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1074690838"
+        "UID": "1054168131"
     },
     "Jaskier_Cone_Length": {
         "Active": true,
@@ -2643,11 +2734,11 @@
                 "scalez": "1.000018"
             }
         },
-        "Parent": "1499414384",
+        "Parent": "1648926446",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "573087271"
+        "UID": "1985812126"
     },
     "Jaskier_Front_1": {
         "Active": false,
@@ -2706,6 +2797,9 @@
             },
             "2": {
                 "Active": false,
+                "CastsShadows": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
                 "Resources": {
                     "ResourceMaterial": {
                         "path": "DefaultMaterial"
@@ -2713,11 +2807,11 @@
                 }
             }
         },
-        "Parent": "1499414384",
+        "Parent": "1648926446",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "810295515"
+        "UID": "544369004"
     },
     "Jaskier_Front_2": {
         "Active": false,
@@ -2775,11 +2869,11 @@
                 "tmpScalez": "6.000000"
             }
         },
-        "Parent": "1499414384",
+        "Parent": "1648926446",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "2099745673"
+        "UID": "1147640109"
     },
     "Jaskier_Health_Potion": {
         "Active": true,
@@ -2874,6 +2968,16 @@
                 "externalAccelerationZ": "0.000000",
                 "followEmitter": true,
                 "grad_duration": "0",
+                "maxInitialRotation": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "minInitialRotation": [
+                    "0",
+                    "0",
+                    "0"
+                ],
                 "num_colors": "1",
                 "num_curves": "2",
                 "num_gradients": "0",
@@ -2890,6 +2994,8 @@
                 "positionX": "0.000000",
                 "positionY": "0.000000",
                 "positionZ": "0.000000",
+                "randomInitialRotation": false,
+                "randomStartFrame": true,
                 "rotationOvertime1": [
                     "0",
                     "0",
@@ -2921,11 +3027,11 @@
                 "velocityconstants": "0"
             }
         },
-        "Parent": "1499414384",
+        "Parent": "1648926446",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1039980426"
+        "UID": "550510282"
     },
     "Jaskier_Line_1": {
         "Active": false,
@@ -2983,11 +3089,11 @@
                 "tmpScalez": "4.000000"
             }
         },
-        "Parent": "1499414384",
+        "Parent": "1648926446",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1336126772"
+        "UID": "723025228"
     },
     "Jaskier_Line_2": {
         "Active": false,
@@ -3045,11 +3151,11 @@
                 "tmpScalez": "4.000000"
             }
         },
-        "Parent": "1499414384",
+        "Parent": "1648926446",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "2080339960"
+        "UID": "722712908"
     },
     "Jaskier_Line_3": {
         "Active": false,
@@ -3107,11 +3213,11 @@
                 "tmpScalez": "4.000000"
             }
         },
-        "Parent": "1499414384",
+        "Parent": "1648926446",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "461266892"
+        "UID": "453518658"
     },
     "Jaskier_Line_4": {
         "Active": false,
@@ -3169,11 +3275,11 @@
                 "tmpScalez": "4.000000"
             }
         },
-        "Parent": "1499414384",
+        "Parent": "1648926446",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "391830694"
+        "UID": "2117910424"
     },
     "Jaskier_Mesh": {
         "Active": true,
@@ -3202,6 +3308,9 @@
             },
             "2": {
                 "Active": true,
+                "CastsShadows": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
                 "Resources": {
                     "ResourceMaterial": {
                         "path": "Assets/Characters/Jaskier/Jaskier_Body.mat"
@@ -3209,11 +3318,11 @@
                 }
             }
         },
-        "Parent": "1499414384",
+        "Parent": "1648926446",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1548747794"
+        "UID": "1874779287"
     },
     "Jaskier_Pivot": {
         "Active": true,
@@ -3232,11 +3341,11 @@
                 "scalez": "0.025400"
             }
         },
-        "Parent": "1499414384",
+        "Parent": "1648926446",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "216250204"
+        "UID": "2100159214"
     },
     "Jaskier_Power_Potion": {
         "Active": true,
@@ -3331,6 +3440,16 @@
                 "externalAccelerationZ": "0.000000",
                 "followEmitter": true,
                 "grad_duration": "1000",
+                "maxInitialRotation": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "minInitialRotation": [
+                    "0",
+                    "0",
+                    "0"
+                ],
                 "num_colors": "1",
                 "num_curves": "2",
                 "num_gradients": "0",
@@ -3347,6 +3466,8 @@
                 "positionX": "0.000000",
                 "positionY": "0.000000",
                 "positionZ": "0.000000",
+                "randomInitialRotation": false,
+                "randomStartFrame": true,
                 "rotationOvertime1": [
                     "0",
                     "0",
@@ -3378,11 +3499,11 @@
                 "velocityconstants": "0"
             }
         },
-        "Parent": "1499414384",
+        "Parent": "1648926446",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1385094234"
+        "UID": "534835315"
     },
     "Jaskier_Revive": {
         "Active": true,
@@ -3401,11 +3522,11 @@
                 "scalez": "1.000000"
             }
         },
-        "Parent": "1499414384",
+        "Parent": "1648926446",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "739197702"
+        "UID": "575458407"
     },
     "Jaskier_Run_Dust": {
         "Active": true,
@@ -3526,6 +3647,16 @@
                         "z": "-0.000346"
                     }
                 ],
+                "maxInitialRotation": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "minInitialRotation": [
+                    "0",
+                    "0",
+                    "0"
+                ],
                 "num_colors": "3",
                 "num_curves": "2",
                 "num_gradients": "2",
@@ -3542,6 +3673,8 @@
                 "positionX": "0.000000",
                 "positionY": "0.000000",
                 "positionZ": "0.000000",
+                "randomInitialRotation": false,
+                "randomStartFrame": true,
                 "rotationOvertime1": [
                     "0",
                     "0",
@@ -3573,11 +3706,11 @@
                 "velocityconstants": "0"
             }
         },
-        "Parent": "1499414384",
+        "Parent": "1648926446",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1949412654"
+        "UID": "113030428"
     },
     "Jaskier_Slash": {
         "Active": true,
@@ -3607,11 +3740,11 @@
                 }
             }
         },
-        "Parent": "1499414384",
+        "Parent": "1648926446",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "920096907"
+        "UID": "113477135"
     },
     "Jaskier_Stamina_Potion": {
         "Active": true,
@@ -3706,6 +3839,16 @@
                 "externalAccelerationZ": "0.000000",
                 "followEmitter": true,
                 "grad_duration": "1000",
+                "maxInitialRotation": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "minInitialRotation": [
+                    "0",
+                    "0",
+                    "0"
+                ],
                 "num_colors": "1",
                 "num_curves": "2",
                 "num_gradients": "0",
@@ -3722,6 +3865,8 @@
                 "positionX": "0.000000",
                 "positionY": "0.000000",
                 "positionZ": "0.000000",
+                "randomInitialRotation": false,
+                "randomStartFrame": true,
                 "rotationOvertime1": [
                     "0",
                     "0",
@@ -3753,11 +3898,11 @@
                 "velocityconstants": "0"
             }
         },
-        "Parent": "1499414384",
+        "Parent": "1648926446",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "2066079941"
+        "UID": "935695113"
     },
     "Out_Side": {
         "Active": true,
@@ -3782,11 +3927,11 @@
                 }
             }
         },
-        "Parent": "1973941592",
+        "Parent": "1198764424",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1997124237"
+        "UID": "422188033"
     },
     "Position_Ring": {
         "Active": true,
@@ -3800,8 +3945,8 @@
                 "rotationx": "0.388476",
                 "rotationy": "0.030072",
                 "rotationz": "0.916844",
-                "scalex": "1.000704",
-                "scaley": "1.000704",
+                "scalex": "1.000862",
+                "scaley": "1.000862",
                 "scalez": "1.000000"
             },
             "13": {
@@ -3811,13 +3956,13 @@
                 }
             }
         },
-        "Parent": "2147148387",
+        "Parent": "1393554838",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "281183657"
+        "UID": "1665172232"
     },
-    "PreviewTexture": "Library/Textures/506317002.dds",
+    "PreviewTexture": "Library/Textures/1879738906.dds",
     "Slash_Controller": {
         "Active": true,
         "Components": {
@@ -3841,11 +3986,11 @@
                 }
             }
         },
-        "Parent": "281183657",
+        "Parent": "1665172232",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1973941592"
+        "UID": "1198764424"
     },
     "Slash_Jaskier": {
         "Active": true,
@@ -3864,11 +4009,11 @@
                 "scalez": "0.025400"
             }
         },
-        "Parent": "920096907",
+        "Parent": "113477135",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "2147148387"
+        "UID": "1393554838"
     },
     "Slash_Mesh_Jaskier": {
         "Active": true,
@@ -3883,8 +4028,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.540000",
-                "scaley": "2.540437",
-                "scalez": "2.540437"
+                "scaley": "2.540535",
+                "scalez": "2.540535"
             },
             "1": {
                 "Active": true,
@@ -3897,6 +4042,9 @@
             },
             "2": {
                 "Active": true,
+                "CastsShadows": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
                 "Resources": {
                     "ResourceMaterial": {
                         "path": "Assets/Characters/Jaskier/Jaskier_Slash.mat"
@@ -3904,11 +4052,11 @@
                 }
             }
         },
-        "Parent": "920096907",
+        "Parent": "113477135",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "777055884"
+        "UID": "1946762169"
     },
     "mixamorig:Head": {
         "Active": true,
@@ -3933,11 +4081,11 @@
                 }
             }
         },
-        "Parent": "428880982",
+        "Parent": "138446901",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "510219934"
+        "UID": "905086785"
     },
     "mixamorig:HeadTop_End": {
         "Active": true,
@@ -3952,15 +4100,15 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000355",
-                "scalez": "1.000355"
+                "scaley": "1.000434",
+                "scalez": "1.000434"
             }
         },
-        "Parent": "510219934",
+        "Parent": "905086785",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "495019987"
+        "UID": "1581888211"
     },
     "mixamorig:Hips": {
         "Active": true,
@@ -3975,8 +4123,8 @@
                 "rotationy": "0.000040",
                 "rotationz": "-0.000037",
                 "scalex": "1.000000",
-                "scaley": "1.000355",
-                "scalez": "1.000355"
+                "scaley": "1.000434",
+                "scalez": "1.000434"
             },
             "13": {
                 "Active": true,
@@ -3985,11 +4133,11 @@
                 }
             }
         },
-        "Parent": "216250204",
+        "Parent": "2100159214",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1695087214"
+        "UID": "1613048252"
     },
     "mixamorig:LeftArm": {
         "Active": true,
@@ -4014,11 +4162,11 @@
                 }
             }
         },
-        "Parent": "1540305854",
+        "Parent": "999554680",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "890464742"
+        "UID": "788795245"
     },
     "mixamorig:LeftFoot": {
         "Active": true,
@@ -4028,7 +4176,7 @@
                 "positionx": "0.000000",
                 "positiony": "34.904800",
                 "positionz": "0.000000",
-                "rotationw": "0.882768",
+                "rotationw": "0.882767",
                 "rotationx": "0.468685",
                 "rotationy": "-0.003518",
                 "rotationz": "0.032303",
@@ -4043,11 +4191,11 @@
                 }
             }
         },
-        "Parent": "1971253351",
+        "Parent": "1460179881",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1392121142"
+        "UID": "1602613415"
     },
     "mixamorig:LeftForeArm": {
         "Active": true,
@@ -4072,11 +4220,11 @@
                 }
             }
         },
-        "Parent": "890464742",
+        "Parent": "788795245",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1487881186"
+        "UID": "1261931061"
     },
     "mixamorig:LeftHand": {
         "Active": true,
@@ -4101,11 +4249,11 @@
                 }
             }
         },
-        "Parent": "1487881186",
+        "Parent": "1261931061",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1754853814"
+        "UID": "1198915464"
     },
     "mixamorig:LeftHandIndex1": {
         "Active": true,
@@ -4130,11 +4278,11 @@
                 }
             }
         },
-        "Parent": "1754853814",
+        "Parent": "1198915464",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "37739370"
+        "UID": "1299127548"
     },
     "mixamorig:LeftHandIndex2": {
         "Active": true,
@@ -4159,11 +4307,11 @@
                 }
             }
         },
-        "Parent": "37739370",
+        "Parent": "1299127548",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1080178489"
+        "UID": "990258609"
     },
     "mixamorig:LeftHandIndex3": {
         "Active": true,
@@ -4188,11 +4336,11 @@
                 }
             }
         },
-        "Parent": "1080178489",
+        "Parent": "990258609",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "376748376"
+        "UID": "2127097548"
     },
     "mixamorig:LeftHandIndex4": {
         "Active": true,
@@ -4207,15 +4355,15 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000355",
-                "scalez": "1.000355"
+                "scaley": "1.000434",
+                "scalez": "1.000434"
             }
         },
-        "Parent": "376748376",
+        "Parent": "2127097548",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "233421038"
+        "UID": "186092188"
     },
     "mixamorig:LeftHandMiddle1": {
         "Active": true,
@@ -4240,11 +4388,11 @@
                 }
             }
         },
-        "Parent": "1754853814",
+        "Parent": "1198915464",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "997329749"
+        "UID": "155378397"
     },
     "mixamorig:LeftHandMiddle2": {
         "Active": true,
@@ -4269,11 +4417,11 @@
                 }
             }
         },
-        "Parent": "997329749",
+        "Parent": "155378397",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "505696678"
+        "UID": "724247598"
     },
     "mixamorig:LeftHandMiddle3": {
         "Active": true,
@@ -4298,11 +4446,11 @@
                 }
             }
         },
-        "Parent": "505696678",
+        "Parent": "724247598",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1261510120"
+        "UID": "2073472445"
     },
     "mixamorig:LeftHandMiddle4": {
         "Active": true,
@@ -4317,15 +4465,15 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000355",
-                "scalez": "1.000355"
+                "scaley": "1.000434",
+                "scalez": "1.000434"
             }
         },
-        "Parent": "1261510120",
+        "Parent": "2073472445",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1957353161"
+        "UID": "1226858358"
     },
     "mixamorig:LeftHandPinky1": {
         "Active": true,
@@ -4350,11 +4498,11 @@
                 }
             }
         },
-        "Parent": "1754853814",
+        "Parent": "1198915464",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "14634302"
+        "UID": "1091166540"
     },
     "mixamorig:LeftHandPinky2": {
         "Active": true,
@@ -4379,11 +4527,11 @@
                 }
             }
         },
-        "Parent": "14634302",
+        "Parent": "1091166540",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "947490864"
+        "UID": "871668715"
     },
     "mixamorig:LeftHandPinky3": {
         "Active": true,
@@ -4408,11 +4556,11 @@
                 }
             }
         },
-        "Parent": "947490864",
+        "Parent": "871668715",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1006257645"
+        "UID": "707226442"
     },
     "mixamorig:LeftHandPinky4": {
         "Active": true,
@@ -4427,15 +4575,15 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000355",
-                "scalez": "1.000355"
+                "scaley": "1.000434",
+                "scalez": "1.000434"
             }
         },
-        "Parent": "1006257645",
+        "Parent": "707226442",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1451970111"
+        "UID": "307060066"
     },
     "mixamorig:LeftHandRing1": {
         "Active": true,
@@ -4460,11 +4608,11 @@
                 }
             }
         },
-        "Parent": "1754853814",
+        "Parent": "1198915464",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1260866347"
+        "UID": "1776632748"
     },
     "mixamorig:LeftHandRing2": {
         "Active": true,
@@ -4489,11 +4637,11 @@
                 }
             }
         },
-        "Parent": "1260866347",
+        "Parent": "1776632748",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "86906068"
+        "UID": "185448602"
     },
     "mixamorig:LeftHandRing3": {
         "Active": true,
@@ -4518,11 +4666,11 @@
                 }
             }
         },
-        "Parent": "86906068",
+        "Parent": "185448602",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1025926629"
+        "UID": "445434078"
     },
     "mixamorig:LeftHandRing4": {
         "Active": true,
@@ -4537,15 +4685,15 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000355",
-                "scalez": "1.000355"
+                "scaley": "1.000434",
+                "scalez": "1.000434"
             }
         },
-        "Parent": "1025926629",
+        "Parent": "445434078",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "731738389"
+        "UID": "1902081758"
     },
     "mixamorig:LeftHandThumb1": {
         "Active": true,
@@ -4570,11 +4718,11 @@
                 }
             }
         },
-        "Parent": "1754853814",
+        "Parent": "1198915464",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1751306435"
+        "UID": "254981463"
     },
     "mixamorig:LeftHandThumb2": {
         "Active": true,
@@ -4599,11 +4747,11 @@
                 }
             }
         },
-        "Parent": "1751306435",
+        "Parent": "254981463",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "26285416"
+        "UID": "964609421"
     },
     "mixamorig:LeftHandThumb3": {
         "Active": true,
@@ -4628,11 +4776,11 @@
                 }
             }
         },
-        "Parent": "26285416",
+        "Parent": "964609421",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "360880092"
+        "UID": "963890457"
     },
     "mixamorig:LeftHandThumb4": {
         "Active": true,
@@ -4647,15 +4795,15 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000355",
-                "scalez": "1.000355"
+                "scaley": "1.000434",
+                "scalez": "1.000434"
             }
         },
-        "Parent": "360880092",
+        "Parent": "963890457",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1421698879"
+        "UID": "301021694"
     },
     "mixamorig:LeftLeg": {
         "Active": true,
@@ -4680,11 +4828,11 @@
                 }
             }
         },
-        "Parent": "850588656",
+        "Parent": "1522516274",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1971253351"
+        "UID": "1460179881"
     },
     "mixamorig:LeftShoulder": {
         "Active": true,
@@ -4709,11 +4857,11 @@
                 }
             }
         },
-        "Parent": "761717032",
+        "Parent": "714546735",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1540305854"
+        "UID": "999554680"
     },
     "mixamorig:LeftToeBase": {
         "Active": true,
@@ -4738,11 +4886,11 @@
                 }
             }
         },
-        "Parent": "1392121142",
+        "Parent": "1602613415",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "634070778"
+        "UID": "888202183"
     },
     "mixamorig:LeftToe_End": {
         "Active": true,
@@ -4757,15 +4905,15 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000355",
-                "scalez": "1.000355"
+                "scaley": "1.000434",
+                "scalez": "1.000434"
             }
         },
-        "Parent": "634070778",
+        "Parent": "888202183",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "967787406"
+        "UID": "732567278"
     },
     "mixamorig:LeftUpLeg": {
         "Active": true,
@@ -4779,8 +4927,8 @@
                 "rotationx": "0.000205",
                 "rotationy": "-0.005509",
                 "rotationz": "0.999924",
-                "scalex": "1.000358",
-                "scaley": "1.000570",
+                "scalex": "1.000437",
+                "scaley": "1.000663",
                 "scalez": "1.000000"
             },
             "13": {
@@ -4790,11 +4938,11 @@
                 }
             }
         },
-        "Parent": "1695087214",
+        "Parent": "1613048252",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "850588656"
+        "UID": "1522516274"
     },
     "mixamorig:Neck": {
         "Active": true,
@@ -4819,11 +4967,11 @@
                 }
             }
         },
-        "Parent": "761717032",
+        "Parent": "714546735",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "428880982"
+        "UID": "138446901"
     },
     "mixamorig:RightArm": {
         "Active": true,
@@ -4848,11 +4996,11 @@
                 }
             }
         },
-        "Parent": "968947871",
+        "Parent": "1087785283",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "215923680"
+        "UID": "1688376288"
     },
     "mixamorig:RightFoot": {
         "Active": true,
@@ -4877,11 +5025,11 @@
                 }
             }
         },
-        "Parent": "1223875610",
+        "Parent": "1542956317",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1735181791"
+        "UID": "734755623"
     },
     "mixamorig:RightForeArm": {
         "Active": true,
@@ -4906,11 +5054,11 @@
                 }
             }
         },
-        "Parent": "215923680",
+        "Parent": "1688376288",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "436996280"
+        "UID": "1780644656"
     },
     "mixamorig:RightHand": {
         "Active": true,
@@ -4935,11 +5083,11 @@
                 }
             }
         },
-        "Parent": "436996280",
+        "Parent": "1780644656",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "717182831"
+        "UID": "325621360"
     },
     "mixamorig:RightHandIndex1": {
         "Active": true,
@@ -4964,11 +5112,11 @@
                 }
             }
         },
-        "Parent": "717182831",
+        "Parent": "325621360",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1834224341"
+        "UID": "1830716536"
     },
     "mixamorig:RightHandIndex2": {
         "Active": true,
@@ -4993,11 +5141,11 @@
                 }
             }
         },
-        "Parent": "1834224341",
+        "Parent": "1830716536",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "417775906"
+        "UID": "1014019759"
     },
     "mixamorig:RightHandIndex3": {
         "Active": true,
@@ -5022,11 +5170,11 @@
                 }
             }
         },
-        "Parent": "417775906",
+        "Parent": "1014019759",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "457836658"
+        "UID": "692229861"
     },
     "mixamorig:RightHandIndex4": {
         "Active": true,
@@ -5041,15 +5189,15 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000355",
-                "scalez": "1.000355"
+                "scaley": "1.000434",
+                "scalez": "1.000434"
             }
         },
-        "Parent": "457836658",
+        "Parent": "692229861",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "2093677844"
+        "UID": "2054630354"
     },
     "mixamorig:RightHandMiddle1": {
         "Active": true,
@@ -5074,11 +5222,11 @@
                 }
             }
         },
-        "Parent": "717182831",
+        "Parent": "325621360",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1345153352"
+        "UID": "1534149164"
     },
     "mixamorig:RightHandMiddle2": {
         "Active": true,
@@ -5103,11 +5251,11 @@
                 }
             }
         },
-        "Parent": "1345153352",
+        "Parent": "1534149164",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1307157569"
+        "UID": "1752279652"
     },
     "mixamorig:RightHandMiddle3": {
         "Active": true,
@@ -5132,11 +5280,11 @@
                 }
             }
         },
-        "Parent": "1307157569",
+        "Parent": "1752279652",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1702602430"
+        "UID": "1210633116"
     },
     "mixamorig:RightHandMiddle4": {
         "Active": true,
@@ -5151,15 +5299,15 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000355",
-                "scalez": "1.000355"
+                "scaley": "1.000434",
+                "scalez": "1.000434"
             }
         },
-        "Parent": "1702602430",
+        "Parent": "1210633116",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "81431924"
+        "UID": "1049991580"
     },
     "mixamorig:RightHandPinky1": {
         "Active": true,
@@ -5184,11 +5332,11 @@
                 }
             }
         },
-        "Parent": "717182831",
+        "Parent": "325621360",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "15152724"
+        "UID": "1120447300"
     },
     "mixamorig:RightHandPinky2": {
         "Active": true,
@@ -5213,11 +5361,11 @@
                 }
             }
         },
-        "Parent": "15152724",
+        "Parent": "1120447300",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "533326927"
+        "UID": "1465479672"
     },
     "mixamorig:RightHandPinky3": {
         "Active": true,
@@ -5242,11 +5390,11 @@
                 }
             }
         },
-        "Parent": "533326927",
+        "Parent": "1465479672",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "761728037"
+        "UID": "1212175342"
     },
     "mixamorig:RightHandPinky4": {
         "Active": true,
@@ -5261,15 +5409,15 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000355",
-                "scalez": "1.000355"
+                "scaley": "1.000434",
+                "scalez": "1.000434"
             }
         },
-        "Parent": "761728037",
+        "Parent": "1212175342",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "159001312"
+        "UID": "1047125576"
     },
     "mixamorig:RightHandRing1": {
         "Active": true,
@@ -5294,11 +5442,11 @@
                 }
             }
         },
-        "Parent": "717182831",
+        "Parent": "325621360",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1699626114"
+        "UID": "1302361987"
     },
     "mixamorig:RightHandRing2": {
         "Active": true,
@@ -5323,11 +5471,11 @@
                 }
             }
         },
-        "Parent": "1699626114",
+        "Parent": "1302361987",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1173249447"
+        "UID": "689353293"
     },
     "mixamorig:RightHandRing3": {
         "Active": true,
@@ -5352,11 +5500,11 @@
                 }
             }
         },
-        "Parent": "1173249447",
+        "Parent": "689353293",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1111752295"
+        "UID": "1501068797"
     },
     "mixamorig:RightHandRing4": {
         "Active": true,
@@ -5371,15 +5519,15 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000355",
-                "scalez": "1.000355"
+                "scaley": "1.000434",
+                "scalez": "1.000434"
             }
         },
-        "Parent": "1111752295",
+        "Parent": "1501068797",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1700925021"
+        "UID": "766518329"
     },
     "mixamorig:RightHandThumb1": {
         "Active": true,
@@ -5404,11 +5552,11 @@
                 }
             }
         },
-        "Parent": "717182831",
+        "Parent": "325621360",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1410140520"
+        "UID": "803955359"
     },
     "mixamorig:RightHandThumb2": {
         "Active": true,
@@ -5433,11 +5581,11 @@
                 }
             }
         },
-        "Parent": "1410140520",
+        "Parent": "803955359",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1030736668"
+        "UID": "162273531"
     },
     "mixamorig:RightHandThumb3": {
         "Active": true,
@@ -5462,11 +5610,11 @@
                 }
             }
         },
-        "Parent": "1030736668",
+        "Parent": "162273531",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "604014676"
+        "UID": "1881518531"
     },
     "mixamorig:RightHandThumb4": {
         "Active": true,
@@ -5481,15 +5629,15 @@
                 "rotationy": "-0.000000",
                 "rotationz": "-0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000355",
-                "scalez": "1.000355"
+                "scaley": "1.000434",
+                "scalez": "1.000434"
             }
         },
-        "Parent": "604014676",
+        "Parent": "1881518531",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "80982242"
+        "UID": "994147045"
     },
     "mixamorig:RightLeg": {
         "Active": true,
@@ -5514,11 +5662,11 @@
                 }
             }
         },
-        "Parent": "1027568501",
+        "Parent": "1477329035",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1223875610"
+        "UID": "1542956317"
     },
     "mixamorig:RightShoulder": {
         "Active": true,
@@ -5543,11 +5691,11 @@
                 }
             }
         },
-        "Parent": "761717032",
+        "Parent": "714546735",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "968947871"
+        "UID": "1087785283"
     },
     "mixamorig:RightToeBase": {
         "Active": true,
@@ -5572,11 +5720,11 @@
                 }
             }
         },
-        "Parent": "1735181791",
+        "Parent": "734755623",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "546392873"
+        "UID": "1360757343"
     },
     "mixamorig:RightToe_End": {
         "Active": true,
@@ -5591,15 +5739,15 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000355",
-                "scalez": "1.000355"
+                "scaley": "1.000434",
+                "scalez": "1.000434"
             }
         },
-        "Parent": "546392873",
+        "Parent": "1360757343",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "2040371822"
+        "UID": "1045889598"
     },
     "mixamorig:RightUpLeg": {
         "Active": true,
@@ -5613,8 +5761,8 @@
                 "rotationx": "-0.000169",
                 "rotationy": "-0.004364",
                 "rotationz": "0.999931",
-                "scalex": "1.000710",
-                "scaley": "1.000701",
+                "scalex": "1.000868",
+                "scaley": "1.000859",
                 "scalez": "1.000000"
             },
             "13": {
@@ -5624,11 +5772,11 @@
                 }
             }
         },
-        "Parent": "1695087214",
+        "Parent": "1613048252",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1027568501"
+        "UID": "1477329035"
     },
     "mixamorig:Spine": {
         "Active": true,
@@ -5653,11 +5801,11 @@
                 }
             }
         },
-        "Parent": "1695087214",
+        "Parent": "1613048252",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "978337706"
+        "UID": "1151683529"
     },
     "mixamorig:Spine1": {
         "Active": true,
@@ -5682,11 +5830,11 @@
                 }
             }
         },
-        "Parent": "978337706",
+        "Parent": "1151683529",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1110597527"
+        "UID": "762044470"
     },
     "mixamorig:Spine2": {
         "Active": true,
@@ -5711,10 +5859,10 @@
                 }
             }
         },
-        "Parent": "1110597527",
+        "Parent": "762044470",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "761717032"
+        "UID": "714546735"
     }
 }
