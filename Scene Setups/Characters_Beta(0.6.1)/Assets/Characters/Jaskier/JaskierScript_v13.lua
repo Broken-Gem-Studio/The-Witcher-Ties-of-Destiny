@@ -114,6 +114,10 @@ local audio_library = {
 	--For regular attacks it's Play_Jaskier_attack_1_1, _1_2, _2_1, _2_2, etc
 	attack = "Play_Jaskier_attack_",
 
+	light_3 = "Play_Jaskier_attack_1_3",
+	medium_3 = "Play_Jaskier_attack_3_3",
+	heavy_3 = "Play_Jaskier_attack_2_3",
+
 	one_handed_slam = "Play_Jaskier_attack_4",
 	two_handed_slam = "Play_Jaskier_attack_5",
 	moonwalk = "moonwalk",
@@ -406,6 +410,11 @@ lua_table.light_3_duration = 500			--Attack end (return to idle)
 lua_table.light_3_animation_speed = 70.0	
 lua_table.light_3_slow_start = 400
 
+lua_table.light_3 = { 'N', 'L', 'L', 'L' }
+lua_table.light_3_size = 3
+lua_table.light_3_damage = 3.5
+lua_table.light_3_effect = attack_effects_ID.knockback
+
 --Medium Attack
 lua_table.medium_damage = 1.5					--Multiplier of Base Damage
 
@@ -436,6 +445,11 @@ lua_table.medium_3_collider_front_end = 450	--Collider deactivation time
 lua_table.medium_3_duration = 600			--Attack end (return to idle)
 lua_table.medium_3_animation_speed = 50.0
 lua_table.medium_3_slow_start = 430
+
+lua_table.medium_3 = { 'N', 'M', 'M', 'M' }
+lua_table.medium_3_size = 3
+lua_table.medium_3_damage = 3.5
+lua_table.medium_3_effect = attack_effects_ID.stun
 
 --Heavy Attack
 lua_table.heavy_damage = 2.0				--Multiplier of Base Damage
@@ -469,6 +483,11 @@ lua_table.heavy_3_collider_front_end = 800	--Collider deactivation time
 lua_table.heavy_3_duration = 1000			--Attack end (return to idle)
 lua_table.heavy_3_animation_speed = 40.0
 lua_table.heavy_3_slow_start = 900
+
+lua_table.heavy_3 = { 'N', 'H', 'H', 'H' }
+lua_table.heavy_3_size = 3
+lua_table.heavy_3_damage = 3.5
+lua_table.heavy_3_effect = attack_effects_ID.knockback
 
 --Evade		
 lua_table.evade_velocity = 18			--12
@@ -1400,6 +1419,51 @@ local function CheckSongs()
 	return song_succesful
 end
 
+local function PerformCombo(combo_type)
+	local string_match = false
+
+	if CompareArrays(lua_table.note_stack, lua_table[combo_type], 2)
+	then
+		current_action_block_time = lua_table[combo_type .. "_block_time"]
+		current_action_duration = lua_table[combo_type .. "_duration"]
+
+		lua_table.AnimationFunctions:PlayAnimation(combo_type, lua_table[combo_type .. "_animation_speed"], jaskier_GO_UID)
+		lua_table.AnimationFunctions:PlayAnimation(combo_type, lua_table[combo_type .. "_animation_speed"], particles_library.slash_GO_UID)
+		current_animation = combo_type
+
+		lua_table.AudioFunctions:PlayAudioEventGO(audio_library[combo_type], jaskier_GO_UID)	--TODO-AUDIO: Play sound of combo_type
+		current_audio = audio_library[combo_type]
+		
+		lua_table.collider_damage = base_damage_real * lua_table[combo_type .. "_damage"]
+		lua_table.collider_effect = lua_table[combo_type .. "_effect"]
+
+		lua_table.previous_state = lua_table.current_state
+		lua_table.current_state = state[combo_type]
+
+		string_match = true
+	end
+
+	return string_match
+end
+
+local function CheckCombos()
+	local combo_achieved = false
+
+	lua_table.chained_attacks_num = lua_table.chained_attacks_num + 1
+	if lua_table.chained_attacks_num == 3 then
+		if PerformCombo("light_3") or PerformCombo("medium_3") or PerformCombo("heavy_3") then
+			lua_table.InputFunctions:ShakeController(lua_table.player_ID, 1.0, current_action_duration)
+			combo_achieved = true
+			rightside = true
+			lua_table.chained_attacks_num = 0
+		else
+			lua_table.chained_attacks_num = -1	--IF not combo, then setup so that counter restarts from a the next RIGHT hit
+		end
+	end
+
+	return combo_achieved
+end
+
 local function RegularAttack(attack_type)
 	local attack_sound_id 
 
@@ -1407,35 +1471,33 @@ local function RegularAttack(attack_type)
 	elseif attack_type == "medium" then attack_sound_id = 3
 	else attack_sound_id = 2 end
 
-	if lua_table.current_state == state.heavy_3 then	--Heavy_3 animation starts and ends on the right, therefore in this particular case we stay on the right
-		rightside = not rightside
-	end
+	-- if lua_table.current_state == state.heavy_3 then	--Heavy_3 animation starts and ends on the right, therefore in this particular case we stay on the right
+	-- 	rightside = not rightside
+	-- end
 
 	if lua_table.note_num < 4 then
 		lua_table.note_num = lua_table.note_num + 1
 	end
-
-	lua_table.chained_attacks_num = lua_table.chained_attacks_num + 1
-
+	
 	if rightside	--IF rightside
 	then
-		if lua_table.chained_attacks_num > 2	--IF more than 2 attacks chained
-		then
-			current_action_block_time = lua_table[attack_type .. "_3_block_time"]	--Set duration of input block (no new actions)
-			current_action_duration = lua_table[attack_type .. "_3_duration"]		--Set duration of the current action (to return to idle/move)
+		-- if lua_table.chained_attacks_num > 2	--IF more than 2 attacks chained
+		-- then
+		-- 	current_action_block_time = lua_table[attack_type .. "_3_block_time"]	--Set duration of input block (no new actions)
+		-- 	current_action_duration = lua_table[attack_type .. "_3_duration"]		--Set duration of the current action (to return to idle/move)
 
-			lua_table.AnimationFunctions:PlayAnimation(attack_type .. "_3", lua_table[attack_type .. "_3_animation_speed"], jaskier_GO_UID)
-			lua_table.AnimationFunctions:PlayAnimation(attack_type .. "_3", lua_table[attack_type .. "_3_animation_speed"], particles_library.slash_GO_UID)
-			current_animation = attack_type .. "_3"
+		-- 	lua_table.AnimationFunctions:PlayAnimation(attack_type .. "_3", lua_table[attack_type .. "_3_animation_speed"], jaskier_GO_UID)
+		-- 	lua_table.AnimationFunctions:PlayAnimation(attack_type .. "_3", lua_table[attack_type .. "_3_animation_speed"], particles_library.slash_GO_UID)
+		-- 	current_animation = attack_type .. "_3"
 
-			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.attack .. attack_sound_id .. "_3", jaskier_GO_UID, jaskier_GO_UID)	--TODO-AUDIO: Play attack_3 sound
-			current_audio = audio_library.attack .. attack_sound_id .. "_3"
+		-- 	lua_table.AudioFunctions:PlayAudioEventGO(audio_library.attack .. attack_sound_id .. "_3", jaskier_GO_UID, jaskier_GO_UID)	--TODO-AUDIO: Play attack_3 sound
+		-- 	current_audio = audio_library.attack .. attack_sound_id .. "_3"
 
-			current_slow_start = lua_table[attack_type .. "_3" .. "_slow_start"]
+		-- 	current_slow_start = lua_table[attack_type .. "_3" .. "_slow_start"]
 
-			lua_table.previous_state = lua_table.current_state
-			lua_table.current_state = state[attack_type .. "_3"]
-		else
+		-- 	lua_table.previous_state = lua_table.current_state
+		-- 	lua_table.current_state = state[attack_type .. "_3"]
+		-- else
 			current_action_block_time = lua_table[attack_type .. "_1_block_time"]	--Set duration of input block (no new actions)
 			current_action_duration = lua_table[attack_type .. "_1_duration"]		--Set duration of the current action (to return to idle/move)
 
@@ -1450,7 +1512,7 @@ local function RegularAttack(attack_type)
 
 			lua_table.previous_state = lua_table.current_state
 			lua_table.current_state = state[attack_type .. "_1"]
-		end
+		-- end
 	else			--IF leftside
 		current_action_block_time = lua_table[attack_type .. "_2_block_time"]	--Set duration of input block (no new actions)
 		current_action_duration = lua_table[attack_type .. "_2_duration"]		--Set duration of the current action (to return to idle/move)
@@ -1471,11 +1533,6 @@ local function RegularAttack(attack_type)
 	lua_table.collider_damage = base_damage_real * lua_table[attack_type .. "_damage"]
 	lua_table.collider_effect = attack_effects_ID.none
 	rightside = not rightside
-
-	input_slow_active = false
-
-	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.run_dust_GO_UID)				--TODO-Particles: Deactivate movement dust particles
-	--lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.guitar_particles_GO_UID)	--TODO-Particles: Turn on particles on Sword
 end
 
 local function ActionInputs()	--Process Action Inputs
@@ -1493,7 +1550,11 @@ local function ActionInputs()	--Process Action Inputs
 				action_started_at = game_time		--Set timer start mark
 				PushBack(lua_table.note_stack, 'H')			--Add new input to stack
 
-				RegularAttack("heavy")
+				combo_achieved = CheckCombos()
+
+				if not combo_achieved then
+					RegularAttack("heavy")
+				end
 
 				SaveDirection()
 
@@ -1507,8 +1568,12 @@ local function ActionInputs()	--Process Action Inputs
 				action_started_at = game_time		--Set timer start mark
 				PushBack(lua_table.note_stack, 'L')			--Add new input to stack
 
-				RegularAttack("light")
+				combo_achieved = CheckCombos()
 
+				if not combo_achieved then
+					RegularAttack("light")
+				end
+				
 				SaveDirection()
 
 				local position = lua_table.TransformFunctions:GetPosition(jaskier_GO_UID)	--Rotate to direction
@@ -1521,8 +1586,12 @@ local function ActionInputs()	--Process Action Inputs
 				action_started_at = game_time		--Set timer start mark
 				PushBack(lua_table.note_stack, 'M')			--Add new input to stack
 		
-				RegularAttack("medium")
-		
+				combo_achieved = CheckCombos()
+
+				if not combo_achieved then
+					RegularAttack("medium")
+				end
+
 				SaveDirection()
 		
 				local position = lua_table.TransformFunctions:GetPosition(jaskier_GO_UID)	--Rotate to direction
@@ -1541,7 +1610,7 @@ local function ActionInputs()	--Process Action Inputs
 			action_started_at = game_time							--Set timer start mark
 			current_action_block_time = lua_table.evade_duration
 			current_action_duration = lua_table.evade_duration
-
+			
 			SaveDirection()
 
 			--Do Evade
@@ -1692,6 +1761,7 @@ local function ActionInputs()	--Process Action Inputs
 
 		if lua_table.current_state >= state.light_1 and lua_table.current_state <= state.heavy_3 or lua_table.current_state == state.song_1	--IF attack or song_1
 		then
+			input_slow_active = false
 			lua_table.AnimationFunctions:SetBlendTime(0.1, particles_library.slash_GO_UID)
 			lua_table.GameObjectFunctions:SetActiveGameObject(true, particles_library.slash_mesh_GO_UID)
 		else
