@@ -4,6 +4,13 @@
 		<WorkUnit Name="Default Work Unit" ID="{BBC84895-8EB0-4FB4-B54C-1348347D5C38}" PersistMode="Standalone">
 			<ChildrenList>
 				<SoundBank Name="Human_enemies" ID="{7C0896AD-4B8C-4824-9E19-AB8704EC514B}">
+					<PropertyList>
+						<Property Name="Maximum" Type="int32">
+							<ValueList>
+								<Value>99000000</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ObjectInclusionList>
 						<ObjectRef Name="Human_enemies" ID="{53EC2C8D-3B4E-4053-A8B3-A825B974EED4}" WorkUnitID="{704E5E75-56AA-4381-96D8-951456C36A40}" Filter="7" Origin="Manual"/>
 					</ObjectInclusionList>
@@ -11,6 +18,13 @@
 					<GameSyncExclusionList/>
 				</SoundBank>
 				<SoundBank Name="Geralt" ID="{8EA598ED-534C-4E07-AD63-BE884DF18186}">
+					<PropertyList>
+						<Property Name="Maximum" Type="int32">
+							<ValueList>
+								<Value>99000000</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ObjectInclusionList>
 						<ObjectRef Name="Geralt" ID="{E5CACF5E-D61C-4297-A0DC-A83B9BE30E76}" WorkUnitID="{704E5E75-56AA-4381-96D8-951456C36A40}" Filter="7" Origin="Manual"/>
 					</ObjectInclusionList>
@@ -18,6 +32,13 @@
 					<GameSyncExclusionList/>
 				</SoundBank>
 				<SoundBank Name="Jaskier" ID="{E6A3DD8C-E46F-43B1-98D8-AB4D0719B870}">
+					<PropertyList>
+						<Property Name="Maximum" Type="int32">
+							<ValueList>
+								<Value>99000000</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ObjectInclusionList>
 						<ObjectRef Name="Jaskier" ID="{61844BFC-F40A-4789-BD92-6D1F13AA59BD}" WorkUnitID="{704E5E75-56AA-4381-96D8-951456C36A40}" Filter="7" Origin="Manual"/>
 					</ObjectInclusionList>
@@ -25,6 +46,13 @@
 					<GameSyncExclusionList/>
 				</SoundBank>
 				<SoundBank Name="Pause_menu" ID="{BA628090-1843-4BAF-8FB6-23698673180C}">
+					<PropertyList>
+						<Property Name="Maximum" Type="int32">
+							<ValueList>
+								<Value>99000000</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ObjectInclusionList>
 						<ObjectRef Name="Pause_menu" ID="{3B6D860D-56D0-4733-9F49-0DAC5AAA41E7}" WorkUnitID="{704E5E75-56AA-4381-96D8-951456C36A40}" Filter="7" Origin="Manual"/>
 					</ObjectInclusionList>
@@ -32,6 +60,13 @@
 					<GameSyncExclusionList/>
 				</SoundBank>
 				<SoundBank Name="Main_menu" ID="{AB00AEDB-660D-41EC-9BAC-AB4B6F6231A3}">
+					<PropertyList>
+						<Property Name="Maximum" Type="int32">
+							<ValueList>
+								<Value>99000000</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ObjectInclusionList>
 						<ObjectRef Name="Main_menu" ID="{FB932E43-5548-4A97-BC4B-7A285F7095AE}" WorkUnitID="{704E5E75-56AA-4381-96D8-951456C36A40}" Filter="7" Origin="Manual"/>
 					</ObjectInclusionList>
@@ -39,6 +74,13 @@
 					<GameSyncExclusionList/>
 				</SoundBank>
 				<SoundBank Name="Props" ID="{56EB9197-3F88-4F69-8C0C-39DC94FE44E5}">
+					<PropertyList>
+						<Property Name="Maximum" Type="int32">
+							<ValueList>
+								<Value>99000000</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ObjectInclusionList>
 						<ObjectRef Name="Props" ID="{3A14CDF4-73E4-46D9-9CA1-43198A97DD5F}" WorkUnitID="{704E5E75-56AA-4381-96D8-951456C36A40}" Filter="7" Origin="Manual"/>
 					</ObjectInclusionList>
@@ -46,6 +88,13 @@
 					<GameSyncExclusionList/>
 				</SoundBank>
 				<SoundBank Name="Monster_enemies" ID="{A9231DDA-CECD-4DE2-86B7-68877AE0CE52}">
+					<PropertyList>
+						<Property Name="Maximum" Type="int32">
+							<ValueList>
+								<Value>99000000</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ObjectInclusionList>
 						<ObjectRef Name="Monster_enemies" ID="{D4B8E18C-2BC9-4998-8AFC-5EC3C0A936AF}" WorkUnitID="{704E5E75-56AA-4381-96D8-951456C36A40}" Filter="7" Origin="Manual"/>
 					</ObjectInclusionList>
@@ -53,9 +102,58 @@
 					<GameSyncExclusionList/>
 				</SoundBank>
 				<SoundBank Name="Level_2" ID="{78BFC6AA-4E68-4E49-82CB-5C1C3F74E88D}">
+					<PropertyList>
+						<Property Name="Maximum" Type="int32">
+							<ValueList>
+								<Value>99000000</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ObjectInclusionList>
 						<ObjectRef Name="Level_2" ID="{F1FB1A6C-A2D4-47C1-92F3-4F5788AAE2C8}" WorkUnitID="{704E5E75-56AA-4381-96D8-951456C36A40}" Filter="7" Origin="Manual"/>
 					</ObjectInclusionList>
+					<ObjectExclusionList>
+						<ObjectRef Name="Cinematic_Level_2" ID="{722EE7E0-4879-4302-B66F-78C0983E3E19}" WorkUnitID="{704E5E75-56AA-4381-96D8-951456C36A40}"/>
+						<ObjectRef Name="Play_Lvl2_wind_4" ID="{3E76D509-A20F-4946-AC76-7A8F991A25CD}" WorkUnitID="{704E5E75-56AA-4381-96D8-951456C36A40}"/>
+						<ObjectRef Name="Play_Lvl2_wind_3" ID="{FA93AB2A-27FA-4BFE-8E13-9EB898DA2578}" WorkUnitID="{704E5E75-56AA-4381-96D8-951456C36A40}"/>
+					</ObjectExclusionList>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="Cinematic_Level_2" ID="{072960AB-CBAC-463C-BD02-D96B3FEB600A}">
+					<PropertyList>
+						<Property Name="Maximum" Type="int32">
+							<ValueList>
+								<Value>99000000</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ObjectInclusionList>
+						<ObjectRef Name="Cinematic_Level_2" ID="{722EE7E0-4879-4302-B66F-78C0983E3E19}" WorkUnitID="{704E5E75-56AA-4381-96D8-951456C36A40}" Filter="7" Origin="Manual"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="Music_Levels" ID="{33FB938F-5AD6-4AAE-9D1E-414D7E3A499F}">
+					<PropertyList>
+						<Property Name="Maximum" Type="int32">
+							<ValueList>
+								<Value>99000000</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ObjectInclusionList/>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="Music_Menus" ID="{DAB2BABB-64A4-497F-8337-6E304FFC60B6}">
+					<PropertyList>
+						<Property Name="Maximum" Type="int32">
+							<ValueList>
+								<Value>99000000</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ObjectInclusionList/>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
 				</SoundBank>

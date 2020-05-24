@@ -52,10 +52,10 @@ local attack_effects = {
 ------------   All the values below are placeholders, will change them when testing
 -- Ghoul values 
 lua_table.MyUID = 0 --Entity UID
-lua_table.max_hp = 50
+lua_table.max_hp = 80
 lua_table.health = 0
 lua_table.speed = 7
-lua_table.knock_speed = 50
+lua_table.knock_speed = 35
 lua_table.currentState = 0
 lua_table.is_stunned = false
 lua_table.is_taunt = false
@@ -63,7 +63,7 @@ lua_table.is_knockback = false
 lua_table.is_dead = false
 	
 -- Aggro values 
-lua_table.AggroRange = 100
+lua_table.AggroRange = 25
 lua_table.minDistance = 2.5 -- If entity is inside this distance, then attack
 lua_table.maxDistance = 5
 --
@@ -116,6 +116,8 @@ lua_table.collider_damage = 0
 lua_table.collider_effect = 0
 
 local HitEmitter_UID = 0
+local HitEmitter2_UID = 0
+local HitEmitter3_UID = 0
 
 local random_attack = 0
 local random_death_anim = 0
@@ -373,6 +375,8 @@ local function Die()
 		end
 		
 		lua_table.Particles:PlayParticleEmitter(HitEmitter_UID)
+		lua_table.Particles:PlayParticleEmitter(HitEmitter2_UID)
+		lua_table.Particles:PlayParticleEmitter(HitEmitter3_UID)
 		start_death = true
 	end
 
@@ -447,6 +451,8 @@ function lua_table:OnTriggerEnter()
 				AttackColliderShutdown()
 				lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
 				lua_table.Particles:PlayParticleEmitter(HitEmitter_UID)
+				lua_table.Particles:PlayParticleEmitter(HitEmitter2_UID)
+				lua_table.Particles:PlayParticleEmitter(HitEmitter3_UID)
 				lua_table.System:LOG("Hit registered")
 			end
 		end
@@ -516,6 +522,8 @@ function lua_table:RequestedTrigger(collider_GO)
 			AttackColliderShutdown()
 			lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
 			lua_table.Particles:PlayParticleEmitter(HitEmitter_UID)
+			lua_table.Particles:PlayParticleEmitter(HitEmitter2_UID)
+			lua_table.Particles:PlayParticleEmitter(HitEmitter3_UID)
 			lua_table.System:LOG("Hit registered")
 		end
 	end
@@ -526,12 +534,22 @@ function lua_table:Awake()
 	lua_table.System:LOG("Minion AWAKE")
 
 	HitEmitter_UID = lua_table.GameObject:FindChildGameObject("MinionHit_Emitter")
-	
-	lua_table.Particles:StopParticleEmitter(HitEmitter_UID)
+	HitEmitter2_UID = lua_table.GameObject:FindChildGameObject("MinionHit2_Emitter")
+	HitEmitter3_UID = lua_table.GameObject:FindChildGameObject("MinionHit3_Emitter")
+
 end
 
 function lua_table:Start()
 	lua_table.System:LOG("Minion START")
+	
+	lua_table.Particles:ActivateParticlesEmission(HitEmitter_UID)
+	lua_table.Particles:ActivateParticlesEmission(HitEmitter2_UID)
+	lua_table.Particles:ActivateParticlesEmission(HitEmitter3_UID)
+
+	lua_table.Particles:StopParticleEmitter(HitEmitter_UID)
+	lua_table.Particles:StopParticleEmitter(HitEmitter2_UID)
+	lua_table.Particles:StopParticleEmitter(HitEmitter3_UID)
+
 
 	-- Getting Entity and Player UIDs
 	lua_table.MyUID = lua_table.GameObject:GetMyUID()

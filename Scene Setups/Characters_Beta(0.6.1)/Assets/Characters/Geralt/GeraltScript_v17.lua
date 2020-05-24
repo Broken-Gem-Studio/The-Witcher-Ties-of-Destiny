@@ -228,6 +228,7 @@ lua_table.inventory = {	--Character inventory (number of each item)
 }
 lua_table.item_selected = lua_table.item_library.health_potion
 lua_table.item_type_max = 3
+lua_table.item_pickup_range = 2
 
 	--Potions
 	lua_table.potion_in_effect = 0
@@ -265,10 +266,10 @@ lua_table.key_ability = "BUTTON_X"
 lua_table.key_move = "AXIS_LEFT"
 lua_table.key_aim = "AXIS_RIGHT"
 
---lua_table.key_pickup_item = "BUTTON_DPAD_UP"
+lua_table.key_pickup_item = "BUTTON_DPAD_UP"
 lua_table.key_prev_consumable = "BUTTON_DPAD_LEFT"
 lua_table.key_next_consumable = "BUTTON_DPAD_RIGHT"
---lua_table.key_drop_consumable = "BUTTON_DPAD_DOWN"
+lua_table.key_drop_consumable = "BUTTON_DPAD_DOWN"
 
 lua_table.key_notdef5 = "BUTTON_BACK"
 lua_table.key_notdef6 = "BUTTON_START"
@@ -331,7 +332,10 @@ lua_table.energy_reg_orig = 7
 		player = 1,
 		player_attack = 2,
 		enemy = 3,
-		enemy_attack = 4
+		enemy_attack = 4,
+		prop = 5,
+		particle_prop = 6,
+		potion = 7
 	}
 
 	--Attack Data
@@ -1252,20 +1256,15 @@ local function CheckCombos()
 	local combo_achieved = false
 
 	lua_table.combo_num = lua_table.combo_num + 1
-	if lua_table.combo_num >= 3 then			--IF 3+ attacks
-		if PerformCombo("light_3")
-		or PerformCombo("medium_3")
-		or PerformCombo("heavy_3")
-		or PerformCombo("combo_1")
-		or PerformCombo("combo_2")
-		or PerformCombo("combo_3")
-		then
-			lua_table.InputFunctions:ShakeController(lua_table.player_ID, 1.0, current_action_duration)
-			combo_achieved = true
-			rightside = true
-			lua_table.combo_num = 0
-		end
+	if lua_table.combo_num == 3 and (PerformCombo("light_3") or PerformCombo("medium_3") or PerformCombo("heavy_3"))
+	or lua_table.combo_num == 4 and (PerformCombo("combo_1") or PerformCombo("combo_2") or PerformCombo("combo_3"))
+	then
+		lua_table.InputFunctions:ShakeController(lua_table.player_ID, 1.0, current_action_duration)
+		combo_achieved = true
+		rightside = true
 	end
+
+	if combo_achieved or lua_table.combo_num == 4 then lua_table.combo_num = 0 end
 
 	return combo_achieved
 end
@@ -1746,19 +1745,19 @@ local function PrevItem()	--Jump to prev item you have num > 0 in inventory
 end
 
 --Potion Functions
-local function TakePotion(potion_id)
-	if lua_table.inventory[potion_id] > 0 then	--IF potions of type left
+local function TakePotion()
+	if lua_table.inventory[lua_table.item_selected] > 0 then	--IF potions of type left
 
 		if lua_table.item_selected == lua_table.item_library.health_potion then TakeHealthPotion()
 		elseif lua_table.item_selected == lua_table.item_library.stamina_potion then TakeStaminaPotion()
 		elseif lua_table.item_selected == lua_table.item_library.power_potion then TakePowerPotion() end
 
-		lua_table.potion_in_effect = potion_id	-- Save Potion number id to later use
+		lua_table.potion_in_effect = lua_table.item_selected	-- Save Potion number id to later use
 
 		potion_taken_at = game_time		--Mark drink time
 		lua_table.potion_active = true	--Mark potion in effect
 
-		lua_table.inventory[potion_id] = lua_table.inventory[potion_id] - 1	--Remove potion from inventory
+		lua_table.inventory[lua_table.item_selected] = lua_table.inventory[lua_table.item_selected] - 1	--Remove potion from inventory
 		must_update_stats = true	--Flag stats for update
 	else
 		--TODO-Audio: Play some sound to indicate not possible
@@ -1774,12 +1773,39 @@ local function EndPotion()
 	must_update_stats = true	--Flag stats for update
 end
 
+local function PickupItem()
+	local geralt_pos = lua_table.TransformFunctions:GetPosition(geralt_GO_UID)
+	local nearby_items = {}--lua_table.PhysicsFunctions:OverlapSphere(geralt_pos[1], geralt_pos[2], geralt_pos[3], lua_table.item_pickup_range, layers.potion)	--TODO-Potions: Uncomment when layer exists
+
+	if nearby_items[1] ~= nil then
+		local item_script = lua_table.GameObjectFunctions:GetScript(nearby_items[1])
+
+		if lua_table.inventory[item_script.item_id] < lua_table.item_type_max then
+			lua_table.inventory[item_script.item_id] = lua_table.inventory[item_script.item_id] + 1	--Add potion to inventory
+			lua_table.GameObjectFunctions:DestroyGameObject(item_script.my_GO_UID)	--Alternative: item_script:GameObjectFunctions:GetMyUID()
+		else
+			--TODO-Audio: Play some sound to indicate not possible
+		end
+	else
+		--TODO-Audio: Play some sound to indicate not possible
+	end
+end
+
+local function DropItem()
+	if lua_table.inventory[lua_table.item_selected] > 0 then	--IF potions of type left
+		--TODO-Potions: Instantiate a potion of said type on character Location
+		lua_table.inventory[lua_table.item_selected] = lua_table.inventory[lua_table.item_selected] - 1	--Remove potion from inventory
+	else
+		--TODO-Audio: Play some sound to indicate not possible
+	end
+end
+
 local function SecondaryInputs()	--Process Secondary Inputs
 	if not lua_table.potion_active then
 		if lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_use_item, key_state.key_down)		--Take potion
 		or keyboard_mode and lua_table.InputFunctions:KeyDown("R")
 		then
-			TakePotion(lua_table.item_selected)
+			TakePotion()
 
 			--if lua_table.inventory[lua_table.item_selected] == 0 then NextItem() end	--IF no more if that type of item, jump to next
 		end
@@ -1796,6 +1822,12 @@ local function SecondaryInputs()	--Process Secondary Inputs
 	then
 		if not NextItem() then	--TODO-Audio: Make not possible sound
 		end
+	elseif lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_pickup_item, key_state.key_down)
+	then	--Take Consumable
+		PickupItem()
+	elseif lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_drop_consumable, key_state.key_down)	--Drop Consumable
+	then
+		DropItem()
 	end
 end
 
@@ -2451,9 +2483,9 @@ function lua_table:Update()
 
 	--Item LOGS
 	--lua_table.SystemFunctions:LOG("Geralt Item: " .. lua_table.item_selected)
-	--lua_table.SystemFunctions:LOG("Geralt Health Potions Left: " .. lua_table.inventory[1])
-	--lua_table.SystemFunctions:LOG("Geralt Energy Potions Left: " .. lua_table.inventory[2])
-	--lua_table.SystemFunctions:LOG("Geralt Damage Potions Left: " .. lua_table.inventory[3])
+	lua_table.SystemFunctions:LOG("Geralt Health Potions Left: " .. lua_table.inventory[1])
+	lua_table.SystemFunctions:LOG("Geralt Energy Potions Left: " .. lua_table.inventory[2])
+	lua_table.SystemFunctions:LOG("Geralt Damage Potions Left: " .. lua_table.inventory[3])
 
 	--Stats LOGS
 	--lua_table.SystemFunctions:LOG("Geralt Health: " .. lua_table.current_health)
