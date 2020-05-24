@@ -195,11 +195,11 @@ end
 local function Step6()
     lua_table.InterfaceFunctions:MakeElementVisible("Text", textUID)
     lua_table.InterfaceFunctions:SetText("Press A to move great distances and dodge attacks. Consumes 1 energy bar (yellow)", textUID)
-    lua_table.SystemFunctions:LOG("adeu: "..lua_table.PauseStep6)
+    lua_table.SystemFunctions:LOG("hola STEP 6 ")
 
-    if lua_table.PauseStep6 == true
+    if lua_table.PauseStep6 == true and move == false
     then
-        lua_table.SystemFunctions:LOG("Game Paused STEP 6")
+        lua_table.SystemFunctions:LOG("hola PAUSE STEP == TRUE")
         lua_table.SystemFunctions:PauseGame()        
     end
 
