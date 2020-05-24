@@ -74,22 +74,21 @@ lua_table.blend_time_duration = 200	--Animation is marked as ended during blend 
 local particles_library = {
 	none = 0,
 
-	run_dust_GO_UID = 0,
 	--guitar_particles_GO_UID = 0,
+	run_particles_GO_UID_children = {},
+	song_circle_GO_UID_children = {},
+	song_cone_GO_UID_children = {},
+	concert_GO_UID_children = {},
 
-	song_circle_particles_1_GO_UID = 0,
-	song_circle_particles_2_GO_UID = 0,
+	--Particle Tables
 
-	song_cone_particles_1_GO_UID = 0,
-	song_cone_particles_2_GO_UID = 0,
 
-	concert_particles_1_GO_UID = 0,
-	concert_particles_2_GO_UID = 0,
-
+	--Standalone Particles
 	health_potion_particles_GO_UID = 0,
 	stamina_potion_particles_GO_UID = 0,
 	power_potion_particles_GO_UID = 0,
 
+	--FBX Particles
 	slash_GO_UID = 0,
 	slash_mesh_GO_UID = 0
 }
@@ -747,7 +746,9 @@ local function GoDefaultState(change_blend_time)
 			lua_table.current_velocity = run_velocity
 			lua_table.current_state = state.run
 
-			lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.run_dust_GO_UID)	--TODO-Particles: Activate movement dust particles
+			for i = 1, #particles_library.run_particles_GO_UID_children do
+				lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.run_particles_GO_UID_children[i])	--TODO-Particles:
+			end
 		else
 			lua_table.AnimationFunctions:PlayAnimation(animation_library.walk, lua_table.walk_animation_speed, jaskier_GO_UID)
 			current_animation = animation_library.walk
@@ -981,16 +982,19 @@ local function ParticlesShutdown()
 	lua_table.AnimationFunctions:PlayAnimation(animation_library.evade, lua_table.evade_animation_speed, particles_library.slash_GO_UID)
 	lua_table.GameObjectFunctions:SetActiveGameObject(false, particles_library.slash_mesh_GO_UID)
 
-	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.run_dust_GO_UID)
+	for i = 1, #particles_library.run_particles_GO_UID_children do
+		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.run_particles_GO_UID_children[i])	--TODO-Particles:
+	end
 
-	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.song_circle_particles_1_GO_UID)
-	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.song_circle_particles_2_GO_UID)
-
-	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.song_cone_particles_1_GO_UID)
-	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.song_cone_particles_2_GO_UID)
-
-	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.concert_particles_1_GO_UID)
-	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.concert_particles_2_GO_UID)
+	for i = 1, #particles_library.song_circle_GO_UID_children do
+		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.song_circle_GO_UID_children[i])	--TODO-Particles:
+	end
+	for i = 1, #particles_library.song_cone_GO_UID_children do
+		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.song_cone_GO_UID_children[i])	--TODO-Particles:
+	end
+	for i = 1, #particles_library.concert_GO_UID_children do
+		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.concert_GO_UID_children[i])	--TODO-Particles:
+	end
 
 	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.health_potion_particles_GO_UID)
 	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.stamina_potion_particles_GO_UID)
@@ -1168,7 +1172,9 @@ local function MovementInputs()	--Process Movement Inputs
 				lua_table.AudioFunctions:PlayAudioEventGO(audio_library.run, jaskier_GO_UID)	--TODO-AUDIO: Play run sound
 				current_audio = audio_library.run
 
-				lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.run_dust_GO_UID)	--TODO-Particles: Activate movement dust particles
+				for i = 1, #particles_library.run_particles_GO_UID_children do
+					lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.run_particles_GO_UID_children[i])	--TODO-Particles:
+				end
 
 				lua_table.current_state = state.run
 			else																					--IF small input
@@ -1193,7 +1199,9 @@ local function MovementInputs()	--Process Movement Inputs
 			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.run, jaskier_GO_UID)	--TODO-AUDIO: Play walk sound
 			current_audio = audio_library.run
 
-			lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.run_dust_GO_UID)	--TODO-Particles: Activate movement dust particles
+			for i = 1, #particles_library.run_particles_GO_UID_children do
+				lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.run_particles_GO_UID_children[i])	--TODO-Particles:
+			end
 
 			lua_table.previous_state = lua_table.current_state
 			lua_table.current_state = state.run
@@ -1208,7 +1216,9 @@ local function MovementInputs()	--Process Movement Inputs
 			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.walk, jaskier_GO_UID)	--TODO-AUDIO: Play walk sound
 			current_audio = audio_library.walk
 
-			lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.run_dust_GO_UID)	--TODO-Particles: Deactivate movement dust particles
+			for i = 1, #particles_library.run_particles_GO_UID_children do
+				lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.run_particles_GO_UID_children[i])	--TODO-Particles:
+			end
 
 			lua_table.previous_state = lua_table.current_state
 			lua_table.current_state = state.walk
@@ -1227,7 +1237,10 @@ local function MovementInputs()	--Process Movement Inputs
 		else lua_table.AudioFunctions:StopAudioEventGO(audio_library.walk, jaskier_GO_UID) end	--TODO-AUDIO: Stop run sound
 		current_audio = audio_library.none
 
-		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.run_dust_GO_UID)	--TODO-Particles: Deactivate movement dust particles
+		for i = 1, #particles_library.run_particles_GO_UID_children do
+			lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.run_particles_GO_UID_children[i])	--TODO-Particles:
+		end
+
 		lua_table.previous_state = lua_table.current_state
 		lua_table.current_state = state.idle
 	end
@@ -1280,8 +1293,9 @@ local function UltimateConcert()
 	then
 		if lua_table.ultimate_effect_active
 		then
-			lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.concert_particles_1_GO_UID)	--TODO-Particles:
-			lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.concert_particles_2_GO_UID)	--TODO-Particles:
+			for i = 1, #particles_library.concert_GO_UID_children do
+				lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.concert_GO_UID_children[i])	--TODO-Particles:
+			end
 			lua_table.ultimate_effect_active = false
 
 			--Setup for stage_2
@@ -1299,8 +1313,9 @@ local function UltimateConcert()
 	else	--IF > start time and < end time
 		if not lua_table.ultimate_effect_active	--IF effect unactive, activate
 		then
-			lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.concert_particles_1_GO_UID)	--TODO-Particles:
-			lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.concert_particles_2_GO_UID)	--TODO-Particles:
+			for i = 1, #particles_library.concert_GO_UID_children do
+				lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.concert_GO_UID_children[i])	--TODO-Particles:
+			end
 			lua_table.ultimate_effect_active = true
 		end
 
@@ -1312,8 +1327,9 @@ local function UltimateFinish()
 	if not lua_table.ultimate_secondary_effect_active	--IF effect unactive, activate
 	then
 		lua_table.InputFunctions:ShakeController(lua_table.player_ID, 1.0, 300)
-		lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.song_circle_particles_1_GO_UID)	--TODO-Particles:
-		lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.song_circle_particles_2_GO_UID)	--TODO-Particles:
+		for i = 1, #particles_library.song_circle_GO_UID_children do
+			lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.song_circle_GO_UID_children[i])	--TODO-Particles:
+		end
 		Song_Circle_Effect(lua_table.ultimate_range)
 		lua_table.ultimate_secondary_effect_active = true
 	end
@@ -1366,8 +1382,9 @@ local function Song_3_Knockback()
 	if not lua_table.song_3_secondary_effect_active	--IF effect unactive, activate
 	then
 		lua_table.InputFunctions:ShakeController(lua_table.player_ID, 1.0, 300)
-		lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.song_circle_particles_1_GO_UID)	--TODO-Particles:
-		lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.song_circle_particles_2_GO_UID)	--TODO-Particles:
+		for i = 1, #particles_library.song_circle_GO_UID_children do
+			lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.song_circle_GO_UID_children[i])	--TODO-Particles:
+		end
 		Song_Circle_Effect(lua_table.song_3_secondary_range)
 		lua_table.song_3_secondary_effect_active = true
 	end
@@ -1632,7 +1649,9 @@ local function ActionInputs()	--Process Action Inputs
 			lua_table.previous_state = lua_table.current_state
 			lua_table.current_state = state.evade
 
-			lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.run_dust_GO_UID)	--TODO-Particles: Activate movement dust particles
+			for i = 1, #particles_library.run_particles_GO_UID_children do
+				lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.run_particles_GO_UID_children[i])	--TODO-Particles:
+			end
 
 			action_made = true
 			
@@ -1770,12 +1789,14 @@ local function ActionInputs()	--Process Action Inputs
 			lua_table.GameObjectFunctions:SetActiveGameObject(true, particles_library.slash_mesh_GO_UID)
 		else
 			lua_table.GameObjectFunctions:SetActiveGameObject(false, particles_library.slash_mesh_GO_UID)
-			--lua_table.ParticlesFunctions:StopParticleEmitter_GO(guitar_GO_UID)	--TODO-Particles: Deactivate Particles on Guitar
+			--lua_table.ParticlesFunctions:StopParticleEmitter(guitar_GO_UID)	--TODO-Particles: Deactivate Particles on Guitar
 		end
 
 		if lua_table.previous_state == state.walk or lua_table.previous_state == state.run
 		then
-			lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.run_dust_GO_UID)	--TODO-Particles: Deactivate Dust Particles
+			for i = 1, #particles_library.run_particles_GO_UID_children do
+				lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.run_particles_GO_UID_children[i])	--TODO-Particles:
+			end
 
 			if lua_table.previous_state == state.walk then lua_table.AudioFunctions:StopAudioEventGO(audio_library.walk, jaskier_GO_UID)
 			elseif lua_table.previous_state == state.run then lua_table.AudioFunctions:StopAudioEventGO(audio_library.run, jaskier_GO_UID)
@@ -2119,31 +2140,32 @@ function lua_table:Awake()
 	jaskier_revive_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Revive")
 
 	--Get Particle Emitters GO_UID
-	particles_library.run_dust_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Run_Dust")
 	--guitar_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Guitar")
-	particles_library.song_circle_particles_1_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Circle_1")
-	particles_library.song_circle_particles_2_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Circle_2")
 
-	particles_library.song_cone_particles_1_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Cone_1")
-	particles_library.song_cone_particles_2_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Cone_2")
+	particles_library.run_particles_GO_UID_children = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindGameObject("Jaskier_Run"))
 
-	particles_library.concert_particles_1_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Concert_1")
-	particles_library.concert_particles_2_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Concert_2")
+	particles_library.song_circle_GO_UID_children = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindGameObject("Jaskier_Song_Circle"))
+	particles_library.song_cone_GO_UID_children = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindGameObject("Jaskier_Song_Cone"))
+	particles_library.concert_GO_UID_children = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindGameObject("Jaskier_Song_Concert"))
 	
 	particles_library.health_potion_particles_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Health_Potion")
 	particles_library.stamina_potion_particles_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Stamina_Potion")
 	particles_library.power_potion_particles_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Power_Potion")
 
 	--Stop Particle Emitters
-	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.run_dust_GO_UID)
-	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.song_circle_particles_1_GO_UID)
-	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.song_circle_particles_2_GO_UID)
+	for i = 1, #particles_library.run_particles_GO_UID_children do
+		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.run_particles_GO_UID_children[i])	--TODO-Particles:
+	end
 
-	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.song_cone_particles_1_GO_UID)
-	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.song_cone_particles_2_GO_UID)
-
-	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.concert_particles_1_GO_UID)
-	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.concert_particles_2_GO_UID)
+	for i = 1, #particles_library.song_circle_GO_UID_children do
+		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.song_circle_GO_UID_children[i])	--TODO-Particles:
+	end
+	for i = 1, #particles_library.song_cone_GO_UID_children do
+		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.song_cone_GO_UID_children[i])	--TODO-Particles:
+	end
+	for i = 1, #particles_library.concert_GO_UID_children do
+		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.concert_GO_UID_children[i])		--TODO-Particles:
+	end
 
 	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.health_potion_particles_GO_UID)
 	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.stamina_potion_particles_GO_UID)
@@ -2309,18 +2331,21 @@ function lua_table:Update()
 							lua_table.song_1_effect_active = false
 						elseif lua_table.current_state == state.song_2
 						then
-							lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.song_cone_particles_1_GO_UID)	--TODO-Particles:
-							lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.song_cone_particles_2_GO_UID)	--TODO-Particles:
+							for i = 1, #particles_library.song_cone_GO_UID_children do
+								lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.song_cone_GO_UID_children[i])	--TODO-Particles:
+							end
 							lua_table.song_2_effect_active = false
 						elseif lua_table.current_state == state.song_3
 						then
-							lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.song_circle_particles_1_GO_UID)	--TODO-Particles:
-							lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.song_circle_particles_2_GO_UID)	--TODO-Particles:
+							for i = 1, #particles_library.song_circle_GO_UID_children do
+								lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.song_circle_GO_UID_children[i])	--TODO-Particles:
+							end
 							lua_table.song_3_secondary_effect_active = false
 						elseif lua_table.current_state == state.ultimate
 						then
-							lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.song_circle_particles_1_GO_UID)	--TODO-Particles:
-							lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.song_circle_particles_2_GO_UID)	--TODO-Particles:
+							for i = 1, #particles_library.song_circle_GO_UID_children do
+								lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.song_circle_GO_UID_children[i])	--TODO-Particles:
+							end
 							lua_table.ultimate_secondary_effect_active = false
 							lua_table.ultimate_active = false
 						elseif lua_table.current_state >= state.light_1 and lua_table.current_state <= state.heavy_3	--IF attack finished
@@ -2449,17 +2474,12 @@ function lua_table:Update()
 
 							SaveDirection()
 
-							--Direct and Activate Note Particles 1
-							lua_table.ParticlesFunctions:SetParticlesVelocity(50 * rec_direction.x, 0, 50 * rec_direction.z, particles_library.song_cone_particles_1_GO_UID)
-							lua_table.ParticlesFunctions:SetRandomParticlesVelocity(50 * rec_direction.z, 0, 50 * rec_direction.x, -50 * rec_direction.z, 0, -50 * rec_direction.x, particles_library.song_cone_particles_1_GO_UID)
-							lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.song_cone_particles_1_GO_UID)	--TODO-Particles: Activate Aard particles on hand
-							lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.song_cone_particles_1_GO_UID)	--TODO-Particles:
-
-							--Direct and Activate Note Particles 2
-							lua_table.ParticlesFunctions:SetParticlesVelocity(50 * rec_direction.x, 0, 50 * rec_direction.z, particles_library.song_cone_particles_2_GO_UID)
-							lua_table.ParticlesFunctions:SetRandomParticlesVelocity(50 * rec_direction.z, 0, 50 * rec_direction.x, -50 * rec_direction.z, 0, -50 * rec_direction.x, particles_library.song_cone_particles_2_GO_UID)
-							lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.song_cone_particles_2_GO_UID)	--TODO-Particles: Activate Aard particles on hand
-							lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.song_cone_particles_2_GO_UID)	--TODO-Particles:
+							--Direct and Activate Note Particles
+							for i = 1, #particles_library.song_cone_GO_UID_children do
+								lua_table.ParticlesFunctions:SetParticlesVelocity(50 * rec_direction.x, 0, 50 * rec_direction.z, particles_library.song_cone_GO_UID_children[i])
+								lua_table.ParticlesFunctions:SetRandomParticlesVelocity(50 * rec_direction.z, 0, 50 * rec_direction.x, -50 * rec_direction.z, 0, -50 * rec_direction.x, particles_library.song_cone_GO_UID_children[i])
+								lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.song_cone_GO_UID_children[i])	--TODO-Particles: Activate Aard particles on hand
+							end
 
 							Song_Cone_Effect(song_2_trapezoid)
 							lua_table.song_2_effect_active = true
