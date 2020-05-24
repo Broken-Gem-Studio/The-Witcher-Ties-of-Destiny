@@ -66,9 +66,11 @@ local attack_colliders = {
 	front = { GO_name = "Lumberjack_Front", GO_UID = 0 , active = false}	
 }
 local particles = {
-	ambient = { GO_name = "ambient_particles", GO_UID = 0 , active = false},
-	alert1 = { GO_name = "alert_scream_particles_1", GO_UID = 0 , active = false},
-	alert2 = { GO_name = "alert_scream_particles_2", GO_UID = 0 , active = false}
+	ambientParticles = { GO_name = "ambient_particles_lumberjack", GO_UID = 0 , active = false},
+	alertParticles = { GO_name = "alert_scream_particles_lumberjack", GO_UID = 0 , active = false},
+	GroundHitParticles1 = { GO_name = "ground_hit_particles_lumberjack1", GO_UID = 0 , active = false},--smoke
+	GroundHitParticles2 = { GO_name = "ground_hit_particles_lumberjack2", GO_UID = 0 , active = false},-- ground crack
+	stuntParticles = { GO_name = "stunt_particles_lumberjack", GO_UID = 0 , active = false}
 }
 
 --Colliders
@@ -105,6 +107,8 @@ local dt = 0
 local TargetAlive_TimeController = 0
 
 local AnimationRandomizer = 0
+
+local VectorNormalized = false
 
 ---HandlePRE_DETECTION()
 local SpawnPos = 0
@@ -275,7 +279,7 @@ local function NormalizeDirVector()
 	
 	Nvec3x = vec3x / distance_to_corner--DistanceMagnitude--
 	Nvec3z = vec3z / distance_to_corner--DistanceMagnitude-- -- Normalized values
-
+	VectorNormalized = true
 	--lua_table.SystemFunctions:LOG("Nvec3x NormalizeDirVector():"..Nvec3x)
 	--lua_table.SystemFunctions:LOG("Nvec3z NormalizeDirVector():"..Nvec3z)
 
@@ -283,8 +287,9 @@ end
 local function NormalizeDirVector_AuxTarget()
 	
 	
-	Nvec3x = vec3x / DistanceMagnitudeAux_Target
+	Nvec3x = vec3x / DistanceMagnitudeAux_Target 
 	Nvec3z = vec3z / DistanceMagnitudeAux_Target -- Normalized values for jumpattack
+	VectorNormalized = true
 	--lua_table.SystemFunctions:LOG("Nvec3x after NormalizedirVector_AuxTarget:------------"..Nvec3x)
 	--lua_table.SystemFunctions:LOG("Nvec3z after NormalizedirVector_AuxTarget:------------"..Nvec3z)
 end
@@ -298,11 +303,13 @@ local function ApplyVelocity()
 	then 
 		if FirstSeekCalled == true and DistanceMagnitude > 0.3 --do this because if not then lumberjack shakes --error lumberjack
 		then
+			lua_table.SystemFunctions:LOG("LUMBERJACK 1")
 			Nvec3x = Nvec3x*PatrolSpeed 
 			Nvec3z = Nvec3z*PatrolSpeed 
 			--lua_table.SystemFunctions:LOG("ARRIVED , LookLeftRight_AnimController, FirstSeekCalled"..Arrived2PatrolTarget..LookLeftRight_AnimController,FirstSeekCalled)
 		elseif Arrived2PatrolTarget == false and LookLeftRight_AnimController == false and FirstSeekCalled == true and DistanceMagnitude <= lua_table.MinDistanceFromPlayer 
 		then
+		    lua_table.SystemFunctions:LOG("LUMBERJACK 2")
 			Nvec3x = Nvec3x * 0.0000000001 --this is to don't convert the lookAt vector to 0 but do not move the dir vector
 		    Nvec3z = Nvec3z * 0.0000000001
 			Arrived2PatrolTarget = true
@@ -311,14 +318,17 @@ local function ApplyVelocity()
 	then
 		if DistanceMagnitude > lua_table.MinDistanceFromPlayer and lua_table.CurrentSubState == SubState.SEEK_TARGET 
 		then
+			lua_table.SystemFunctions:LOG("LUMBERJACK 3")
 			Nvec3x = Nvec3x*lua_table.MaxSpeed 
 			Nvec3z = Nvec3z*lua_table.MaxSpeed 
 		elseif DistanceMagnitude > lua_table.MinDistanceFromPlayer and lua_table.CurrentSubState == SubState.ALERT
 		then
+			lua_table.SystemFunctions:LOG("LUMBERJACK 4")
 			Nvec3x = Nvec3x * 0.0000000001
 			Nvec3z = Nvec3z * 0.0000000001
 		elseif lua_table.CurrentSubState == SubState.JUMP_ATTACK
 		then
+			lua_table.SystemFunctions:LOG("LUMBERJACK 5")
 			Nvec3x = Nvec3x*lua_table.JumpAttackSpeed
 			Nvec3z = Nvec3z*lua_table.JumpAttackSpeed 
 		end
@@ -330,6 +340,7 @@ local function ApplyVelocity()
 	
 	if Do_KnockBack == true and lua_table.CurrentSpecialEffect == SpecialEffect.KNOCKBACK
 	then
+		lua_table.SystemFunctions:LOG("LUMBERJACK 6")
 		Nvec3x = Nvec3x * KnockbackVelocity 
 		Nvec3z = Nvec3z * KnockbackVelocity 
 	elseif Do_KnockBack == false and lua_table.CurrentSpecialEffect == SpecialEffect.KNOCKBACK
@@ -421,7 +432,7 @@ end
 
 local function HandleAggro()
 	ret = true
-	lua_table.SystemFunctions:LOG("HANDLEAGGRO()")
+	--lua_table.SystemFunctions:LOG("HANDLEAGGRO()")
 	JaskierScript = lua_table.GameObjectFunctions:GetScript(Jaskier)
 	--lua_table.SystemFunctions:LOG("jaskierscript"..JaskierScript)
 
@@ -434,16 +445,16 @@ local function HandleAggro()
 			then
 				lua_table.CurrentTarget = Geralt
 				lua_table.LastCurrentTarget = Geralt
-				lua_table.SystemFunctions:LOG("LUMBERJACK GERALT IN AGGRO")
+				--lua_table.SystemFunctions:LOG("LUMBERJACK GERALT IN AGGRO")
 				return true			
 			elseif JaskierDistance < lua_table.AggroDistance  
 			then
 				--lua_table.CurrentState = State.PRE_DETECTION
 				lua_table.CurrentTarget = Jaskier
 				lua_table.LastCurrentTarget = Jaskier
-				lua_table.SystemFunctions:LOG("LUMBERJACK JASKIER IN AGGRO")
+				--lua_table.SystemFunctions:LOG("LUMBERJACK JASKIER IN AGGRO")
 			else
-				lua_table.SystemFunctions:LOG("LUMBERJACK NO PLAYERS INSIDE AGGRO DISTANCE")
+				--lua_table.SystemFunctions:LOG("LUMBERJACK NO PLAYERS INSIDE AGGRO DISTANCE")
 				return false
 			end	
 	elseif lua_table.CurrentTarget ~= 0 and Players() == true 
@@ -516,20 +527,22 @@ local function jumpAttack()
 
 	if JumpAttack_AnimController == false
 	then
-		--lua_table.SystemFunctions:LOG("LUMBERJACK JUMP_ATTACK! ")
+		lua_table.SystemFunctions:LOG("LUMBERJACK JUMP_ATTACK! ")
 		lua_table.AnimationSystem:PlayAnimation("JUMP_ATTACK",35.0,MyUID)
 		lua_table.CurrentSubState = SubState.JUMP_ATTACK
 		JumpAttack_AnimController = true
 		JumpAttack_TimeController = PerfGameTime()
 	
 		lua_table.attack_effects = attack_effects.stun
-		lua_table.collider_damage = 100
+		lua_table.collider_damage = 40
 		lua_table.collider_effect = 1
 	end
 	if DistanceMagnitudeAux_Target <= lua_table.MinDistanceFromPlayer and lua_table.CurrentSubState == SubState.JUMP_ATTACK and PerfGameTime() - JumpAttack_TimeController > 1800
 	then	
 		--cambiar q se ponga aqui el state atack y el sub estate
 		lua_table.JumpAttackDone = true
+		lua_table.ParticleSystem:PlayParticleEmitter(particles.GroundHitParticles1.GO_UID)
+		lua_table.ParticleSystem:PlayParticleEmitter(particles.GroundHitParticles2.GO_UID)
 		UseAuxVariables = false
 		AfterJumpAttackTimer = PerfGameTime()
 		
@@ -567,7 +580,7 @@ local function Attack()
 		Attack1_FirstController = true
 		lua_table.AnimationSystem:PlayAnimation("ATTACK_1",30.0,MyUID)
 		lua_table.attack_effects = attack_effects.none
-		lua_table.collider_damage = 100
+		lua_table.collider_damage = 20
 		lua_table.collider_effect = 0
 		Attack1_AnimController = true
 	end
@@ -725,8 +738,6 @@ end
 
 local function HandleSEEK()
 	
-
-	
 	Time_HandleSeek = PerfGameTime() 
 
 	if Time_HandleSeek - CalculatePath_Timer > 500
@@ -753,6 +764,7 @@ local function HandleSEEK()
 		if Alert_AnimController == false
 		then
 			lua_table.AnimationSystem:PlayAnimation("ALERT",40.0,MyUID)
+			lua_table.ParticleSystem:PlayParticleEmitter(particles.alertParticles.GO_UID)
 			lua_table.SoundSystem:PlayAudioEvent("Play_Bandit_voice_2")
 			Alert_AnimController = true
 			Alert_TimeController = PerfGameTime()
@@ -771,7 +783,7 @@ local function HandleSEEK()
 	then
 		if Run_AnimController == false
 		then
-		  --lua_table.SystemFunctions:LOG("LUMBERJACK ANIMATION RUN  ")
+		    lua_table.SystemFunctions:LOG("LUMBERJACK ANIMATION RUN  ")
 			lua_table.AnimationSystem:PlayAnimation("RUN",30.0,MyUID)
 			Run_AnimController = true
 		end
@@ -807,9 +819,9 @@ local function HandleSEEK()
 			lua_table.CurrentSubState = SubState.NONE
 			lua_table.CurrentState = State.SEEK
 			lua_table.CurrentSubState = SubState.SEEK_TARGET
-			--lua_table.SystemFunctions:LOG("LUMBERJACK JUMP_ATTACK DONE")
-			--lua_table.SystemFunctions:LOG("LUMBERJACK SEEK----->SEEK")
-			--lua_table.SystemFunctions:LOG("LUMBERJACK SEEKTARGET")
+			lua_table.SystemFunctions:LOG("LUMBERJACK JUMP_ATTACK DONE")
+			lua_table.SystemFunctions:LOG("LUMBERJACK SEEK----->SEEK")
+			lua_table.SystemFunctions:LOG("LUMBERJACK SEEKTARGET")
 		end
 	end
 
@@ -835,8 +847,8 @@ local function HandleSEEK()
 			lua_table.CurrentState = State.ATTACK
 			lua_table.CurrentSubState = SubState.NONE
 			Run_AnimController = false
-			--lua_table.SystemFunctions:LOG("LUMBERJACK JUMP_ATTACK DONE")
-		   -- lua_table.SystemFunctions:LOG("LUMBERJACK SEEK----->ATTACK")
+			lua_table.SystemFunctions:LOG("LUMBERJACK JUMP_ATTACK DONE")
+		    lua_table.SystemFunctions:LOG("LUMBERJACK SEEK----->ATTACK")
 			UseAuxVariables = false
 		end
 		if DistanceMagnitude >= lua_table.MinDistanceFromPlayer 
@@ -844,8 +856,8 @@ local function HandleSEEK()
 			lua_table.AnimationSystem:PlayAnimation("RUN",30.0,MyUID)
 			lua_table.CurrentState = State.SEEK
 			lua_table.CurrentSubState = SubState.SEEK_TARGET
-			--lua_table.SystemFunctions:LOG("LUMBERJACK SEEK----->SEEK")
-			--lua_table.SystemFunctions:LOG("LUMBERJACK SEEKTARGET")
+			lua_table.SystemFunctions:LOG("LUMBERJACK SEEK----->SEEK")
+			lua_table.SystemFunctions:LOG("LUMBERJACK SEEKTARGET")
 			UseAuxVariables = false
 		end
 	end
@@ -856,7 +868,7 @@ local function HandleSEEK()
 		lua_table.CurrentState = State.ATTACK
 		lua_table.CurrentSubState = SubState.NONE
 		Run_AnimController = false
-		--lua_table.SystemFunctions:LOG("LUMBERJACK SEEK----->ATTACK")
+		lua_table.SystemFunctions:LOG("LUMBERJACK SEEK----->ATTACK")
 		UseAuxVariables = false
 	end
 
@@ -865,7 +877,6 @@ local function HandleSEEK()
 	then 
 		lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.jump_attack.GO_UID)
 		attack_colliders.jump_attack.active = false
-		lua_table.SoundSystem:PlayAudioEvent("Play_Barrel_crush_1")
 		lua_table.SystemFunctions:LOG("LUMBERJACK jump_attack collider OFF   -"..attack_colliders.jump_attack.GO_UID)
 	end
 
@@ -905,8 +916,14 @@ local function HandleAttack()
 		lua_table.CurrentState = State.SEEK
 		lua_table.CurrentSubState = SubState.SEEK_TARGET
 		lua_table.JumpAttackDone = true
-		--lua_table.SystemFunctions:LOG("LUMBERJACK ATTACK----->SEEK")
-		--lua_table.SystemFunctions:LOG("LUMBERJACK SEEK_TARGET")
+		lua_table.SystemFunctions:LOG("LUMBERJACK ATTACK----->SEEK mmmmmmmmmmmmmmmmmmmmmmmmmm")
+		lua_table.SystemFunctions:LOG("LUMBERJACK SEEK_TARGET")
+		if attack_colliders.front.active == true
+		then
+			lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.front.GO_UID)
+			attack_colliders.front.active = false
+		end
+
 		DelayIlde_AnimController = false 
 	end
 end
@@ -935,7 +952,7 @@ function lua_table:OnTriggerEnter()
 	then
 		local collider_parent = lua_table.GameObjectFunctions:GetGameObjectParent(collider_GO)
  		local player_script = {}
-	
+
 		--lua_table.SystemFunctions:LOG("OnTriggerEnter Lumberjack")
 
  		if collider_parent ~= 0 
@@ -953,13 +970,13 @@ function lua_table:OnTriggerEnter()
 			
 			if player_script.collider_effect == attack_effects.stun
 			then
-				--lua_table.SystemFunctions:LOG("LUMBERJACK RequestedTrigger effect: stun")
+				lua_table.SystemFunctions:LOG("LUMBERJACK RequestedTrigger effect: stun")
 				lua_table.CurrentSpecialEffect = SpecialEffect.STUNNED
 				StunnedTimeController = PerfGameTime()
 			end
 			if player_script.collider_effect == attack_effects.knockback
 			then
-				--lua_table.SystemFunctions:LOG("LUMBERJACK RequestedTrigger effect: knockback")
+				lua_table.SystemFunctions:LOG("LUMBERJACK RequestedTrigger effect: knockback")
 				lua_table.CurrentSpecialEffect = SpecialEffect.KNOCKBACK
 				KnockbackTimeController = PerfGameTime()
 			end
@@ -987,19 +1004,19 @@ function lua_table:RequestedTrigger(collider_GO)
 			
 			if player_script.collider_effect == attack_effects.stun
 			then
-				--lua_table.SystemFunctions:LOG("LUMBERJACK RequestedTrigger effect: stun")
+				lua_table.SystemFunctions:LOG("LUMBERJACK RequestedTrigger effect: stun")
 				lua_table.CurrentSpecialEffect = SpecialEffect.STUNNED
 				StunnedTimeController = PerfGameTime()
 			end
 			if player_script.collider_effect == attack_effects.knockback
 			then
-				--lua_table.SystemFunctions:LOG("LUMBERJACK RequestedTrigger effect: knockback")
+				lua_table.SystemFunctions:LOG("LUMBERJACK RequestedTrigger effect: knockback")
 				lua_table.CurrentSpecialEffect = SpecialEffect.KNOCKBACK
 				KnockbackTimeController = PerfGameTime()
 			end
 			if player_script.collider_effect == attack_effects.taunt
 			then
-				--lua_table.SystemFunctions:LOG("LUMBERJACK RequestedTrigger effect: taunt")
+				lua_table.SystemFunctions:LOG("LUMBERJACK RequestedTrigger effect: taunt")
 				lua_table.CurrentSpecialEffect = SpecialEffect.TAUNT
 			end
 		end
@@ -1026,9 +1043,17 @@ function lua_table:Awake()
 	---GET MY INITIAL POS---
 	SpawnPos = lua_table.TransformFunctions:GetPosition(MyUID)
 	
+	---GET MY colliders UIDS
+	
+	attack_colliders.front.GO_UID = lua_table.GameObjectFunctions:FindChildGameObject(attack_colliders.front.GO_name)
+	attack_colliders.jump_attack.GO_UID = lua_table.GameObjectFunctions:FindChildGameObject(attack_colliders.jump_attack.GO_name)
 
-	---GET MY COLLIDERS UIDS
+	---GET MY particles UIDS
 
+	particles.alertParticles.GO_UID = lua_table.GameObjectFunctions:FindChildGameObject(particles.alertParticles.GO_name)
+	particles.GroundHitParticles1.GO_UID = lua_table.GameObjectFunctions:FindChildGameObject(particles.GroundHitParticles1.GO_name)
+	particles.GroundHitParticles2.GO_UID = lua_table.GameObjectFunctions:FindChildGameObject(particles.GroundHitParticles2.GO_name)
+	particles.stuntParticles.GO_UID = lua_table.GameObjectFunctions:FindChildGameObject(particles.stuntParticles.GO_name)
 
 end
 
@@ -1043,38 +1068,17 @@ function lua_table:Start()
 	end
 	lua_table.CurrentSpecialEffect = SpecialEffect.NONE
 
-
-	---bolumena
-
 	--lua_table.SoundSystem:SetVolume(0.09)
-
-
-	attack_colliders.front.GO_UID = lua_table.GameObjectFunctions:FindChildGameObject(attack_colliders.front.GO_name)
-	attack_colliders.jump_attack.GO_UID = lua_table.GameObjectFunctions:FindChildGameObject(attack_colliders.jump_attack.GO_name)
-	--lua_table.SystemFunctions:LOG("FRONT GO---"..attack_colliders.front.GO_name)
-	--lua_table.SystemFunctions:LOG("FRONT GO UID"..attack_colliders.front.GO_UID)
-	--lua_table.SystemFunctions:LOG("JUMP GO---"..attack_colliders.jump_attack.GO_name)
-	--lua_table.SystemFunctions:LOG("JUMP GO UID"..attack_colliders.jump_attack.GO_UID)
-
-	--################################PARTICLES FOR THE FUTURE#########################################
-	--particles.ambient.GO_UID = lua_table.GameObjectFunctions:FindChildGameObject(particles.ambient.GO_name)
-	--particles.alert1.GO_UID = lua_table.GameObjectFunctions:FindChildGameObject(particles.alert1.GO_name)
-	--particles.alert2.GO_UID = lua_table.GameObjectFunctions:FindChildGameObject(particles.alert1.GO_name)
-	--lua_table.ParticleSystem:PlayParticleEmitter(particles.ambient.GO_UID)
 	
-	--lua_table.GameObjectFunctions:SetActiveGameObject(true, particles.ambient.GO_UID)
-	--particles.ambient.active = true
-
-	--lua_table.GameObjectFunctions:SetActiveGameObject(true, particles.alert1.GO_UID)
-	--particles.alert1.active = true
-
-	--ua_table.ParticleSystem:StopParticleEmitter(particles.alert1.GO_UID)
+	lua_table.ParticleSystem:StopParticleEmitter(particles.alertParticles.GO_UID)
+	lua_table.ParticleSystem:StopParticleEmitter(particles.GroundHitParticles1.GO_UID)
+	lua_table.ParticleSystem:StopParticleEmitter(particles.GroundHitParticles2.GO_UID)
+	lua_table.ParticleSystem:StopParticleEmitter(particles.stuntParticles.GO_UID)
 
 	TargetAlive_TimeController = PerfGameTime()
 
 	--------nav mesh -------------
 	navigation_ID = lua_table.NavSystem:GetAreaFromName("Walkable")
-
 
 	-------Randomizer for animations -------
 	AnimationRandomizer = math.random(0,300)
@@ -1104,7 +1108,7 @@ function lua_table:Update()
 					--lua_table.SystemFunctions:LOG("LUMBERJACK HEALTH FOR TARGET"..player_script_.current_health)
 					if player_script_.current_state == -3 or player_script_.current_state == -40
 					then
-						--lua_table.SystemFunctions:LOG("LUMBERJACK CALLING HandleAggro()")  
+						lua_table.SystemFunctions:LOG("LUMBERJACK CALLING HandleAggro()")  
 						HandleAggro()
 					else
 						TargetAlive_TimeController = PerfGameTime()
@@ -1115,7 +1119,7 @@ function lua_table:Update()
 		--############################################################################# HANDLE AGGRO CALLED EVERY 300mls
 		if lua_table.CurrentHealth <= 1 
 		then
-			--lua_table.SystemFunctions:LOG("LUMBERJACK STATE ---> DEAD")
+			lua_table.SystemFunctions:LOG("LUMBERJACK STATE ---> DEAD")
 			lua_table.CurrentState = State.DEATH
 		end
 		--############################################################################# PLAYER IS ALIVE OR DEAD DONE
@@ -1138,11 +1142,11 @@ function lua_table:Update()
 			end
 		elseif  lua_table.CurrentHealth > 1 and lua_table.CurrentSpecialEffect == SpecialEffect.STUNNED and lua_table.CurrentSubState ~= SubState.JUMP_ATTACK
 		then
-			--lua_table.SystemFunctions:LOG("LUMBERJACK ###################################   SpecialEffect.STUNED   #####################################")
+			lua_table.SystemFunctions:LOG("LUMBERJACK ###################################   SpecialEffect.STUNED   #####################################")
 			CancelateJumpAttack = true
 			if Stun_AnimController == false
 			then
-				lua_table.AnimationSystem:PlayAnimation("HIT",30,MyUID)
+				lua_table.AnimationSystem:PlayAnimation("SIT_DOWN",30,MyUID)
 				Stun_AnimController = true
 			end
 			if CurrTime - StunnedTimeController > 2000
@@ -1155,11 +1159,12 @@ function lua_table:Update()
 			end
 		elseif lua_table.CurrentSpecialEffect == SpecialEffect.KNOCKBACK and lua_table.CurrentHealth > 1
 		then
-			--lua_table.SystemFunctions:LOG("LUMBERJACK ###################################   SpecialEffect.KNOCKBACK   #####################################")
+			lua_table.SystemFunctions:LOG("LUMBERJACK ###################################   SpecialEffect.KNOCKBACK   #####################################")
 			CancelateJumpAttack = true
 			if knockback_AnimController == false
 			then
 				lua_table.AnimationSystem:PlayAnimation("SIT_DOWN",30,MyUID)
+				lua_table.ParticleSystem:PlayParticleEmitter(particles.stuntParticles.GO_UID)
 				knockback_AnimController = true
 			end
 			--################################DO KNOCKBACK TECH ###############################
@@ -1170,7 +1175,7 @@ function lua_table:Update()
 				KnockbackVelocity = 50
 				Nvec3x = -Nvec3x --this is to correct the direction
 				Nvec3z = -Nvec3z
-				lua_table.SystemFunctions:LOG("LUMBERJACK Do_KnockBack = true")
+				--lua_table.SystemFunctions:LOG("LUMBERJACK Do_KnockBack = true")
 			else
 				Do_KnockBack = false
 				if ChangeDirectionToPositive == false
@@ -1180,19 +1185,19 @@ function lua_table:Update()
 					Nvec3z = -Nvec3z
 					ChangeDirectionToPositive = true
 				end
-				lua_table.SystemFunctions:LOG("LUMBERJACK Do_KnockBack = false")
+				--lua_table.SystemFunctions:LOG("LUMBERJACK Do_KnockBack = false")
 			end
 			if Do_KnockBack == false 
 			then
-				lua_table.SystemFunctions:LOG("LUMBERJACK VELOCITY TO ZEROOOOOO")
+				--lua_table.SystemFunctions:LOG("LUMBERJACK VELOCITY TO ZEROOOOOO")
 				KnockbackVelocity = 0
 				if lua_table.CurrentSubState == SubState.JUMP_ATTACK
 				then
-					lua_table.SystemFunctions:LOG("LUMBERJACK NormalizedirVector_AuxTarget()")
+					--lua_table.SystemFunctions:LOG("LUMBERJACK NormalizedirVector_AuxTarget()")
 					NormalizeDirVector_AuxTarget()
 				elseif lua_table.CurrentSubState == SubState.SEEK_TARGET
 				then
-					lua_table.SystemFunctions:LOG("LUMBERJACK NormalizeDirVector()")
+					--lua_table.SystemFunctions:LOG("LUMBERJACK NormalizeDirVector()")
 					NormalizeDirVector()
 				end
 			end
@@ -1204,7 +1209,7 @@ function lua_table:Update()
 					lua_table.AnimationSystem:PlayAnimation("STAND_UP",30,MyUID)
 					StandUpAnimController = true
 				end
-				if CurrTime - KnockbackTimeController > 5000
+				if CurrTime - KnockbackTimeController > 3100
 				then
 					lua_table.CurrentSpecialEffect = SpecialEffect.NONE
 					knockback_AnimController = false
@@ -1219,7 +1224,7 @@ function lua_table:Update()
 			end
 		elseif lua_table.CurrentSpecialEffect == SpecialEffect.HIT 
 		then	
-			--lua_table.SystemFunctions:LOG("LUMBERJACK ###################################   SpecialEffect.HIT   #####################################")
+			lua_table.SystemFunctions:LOG("LUMBERJACK ###################################   SpecialEffect.HIT   #####################################")
 			if Hit_AnimController == false
 			then
 				Hit_TimeController = PerfGameTime()
@@ -1246,10 +1251,20 @@ function lua_table:Update()
 		if lua_table.Dead == false
 		then
 			
+			if VectorNormalized == false
+			then
+				NormalizeDirVector()
+			end
+
 			lua_table.TransformFunctions:LookAt(lua_table.Pos[1] + vec3x,lua_table.Pos[2],lua_table.Pos[3] + vec3z,MyUID) -- PROVISIONAL, QUEDA MUY ARTIFICIAL
-			
-			ApplyVelocity() --decides if move function will move or not in x and z axis		
-			lua_table.PhysicsSystem:Move(Nvec3x* dt,Nvec3z* dt,MyUID)
+		
+			ApplyVelocity() --decides if move function will move or not in x and z axis	
+			lua_table.SystemFunctions:LOG("LUMBERJACK VELxy:   "..Nvec3x..Nvec3z)
+			if VectorNormalized == true
+			then
+				lua_table.PhysicsSystem:Move(Nvec3x* dt,Nvec3z* dt,MyUID)
+				VectorNormalized = false
+			end	
 		end
 	end
 	
