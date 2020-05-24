@@ -232,7 +232,7 @@ local function Idle()
             lastTimeEvaded = lua_table.SystemFunctions:GameTime()
             evades = evades - 1
             lua_table.AnimationFunctions:PlayAnimation("Evade", 40, MyUUID)  
-            --lua_table.AudioFunctions:PlayAudioEvent()
+            lua_table.AudioFunctions:PlayAudioEvent("Play_Screamer_ghoul_fall_back")
             lua_table.SystemFunctions:LOG("Ghoul state is EVADE")
 
         elseif lua_table.ClosestDistance <= lua_table.screamDistance
@@ -242,7 +242,7 @@ local function Idle()
                 currentState = State.SUMMONING
                 lastTimeSummoned = lua_table.SystemFunctions:GameTime()
                 lua_table.AnimationFunctions:PlayAnimation("Scream", 30, MyUUID)        
-                lua_table.AudioFunctions:PlayAudioEvent("Play_Ghoul_Scream_2")
+                lua_table.AudioFunctions:PlayAudioEvent("Play_Screamer_ghoul_scream_variation")
                 lua_table.SystemFunctions:LOG("Ghoul state is SUMMONING")
 
             elseif lua_table.SystemFunctions:GameTime() > lastTimeScreamed + screamingCooldown
@@ -252,7 +252,7 @@ local function Idle()
                 lua_table.collider_damage = 0
                 lua_table.collider_effect = 2
                 lua_table.AnimationFunctions:PlayAnimation("Roar", 40, MyUUID)   
-                lua_table.AudioFunctions:PlayAudioEvent("Play_Ghoul_Scream_1")       
+                lua_table.AudioFunctions:PlayAudioEvent("Play_Screamer_ghoul_scream_attack")       
                 lua_table.SystemFunctions:LOG("Ghoul state is SCREAMING")
             
             elseif lua_table.SystemFunctions:GameTime() > lastTimePunch + punchCooldown and lua_table.ClosestDistance < 4
@@ -261,8 +261,7 @@ local function Idle()
                 lastTimePunch = lua_table.SystemFunctions:GameTime()                   
                 lua_table.collider_damage = 30
                 lua_table.collider_effect = 0
-                lua_table.AnimationFunctions:PlayAnimation("Punch", 50, MyUUID)   
-                --lua_table.AudioFunctions:PlayAudioEvent()       
+                lua_table.AnimationFunctions:PlayAnimation("Punch", 50, MyUUID)  
                 lua_table.SystemFunctions:LOG("Ghoul state is PUNCHING")
             end
 
@@ -271,7 +270,6 @@ local function Idle()
             if first_time == true
             then
                 currentState = State.ALERT
-                --lua_table.AudioFunctions:PlayAudioEvent()
                 lua_table.AnimationFunctions:PlayAnimation("Alert", 30, MyUUID) 
                 lastTimeAlert = lua_table.SystemFunctions:GameTime()
                 first_time = false
@@ -341,6 +339,7 @@ end
 local function Summon()
     if lua_table.SystemFunctions:GameTime() > lastTimeSummoned + summoningTime
     then
+        lua_table.AudioFunctions:PlayAudioEvent("Play_Screamer_ghoul_minion_spawn")    
         lua_table.SceneFunctions:Instantiate(lua_table.ghoul_UUID, lua_table.MyPosition[1], lua_table.MyPosition[2], lua_table.MyPosition[3] + 3, 0, 0, 0)
         lua_table.SceneFunctions:Instantiate(lua_table.ghoul_UUID, lua_table.MyPosition[1] + 3, lua_table.MyPosition[2], lua_table.MyPosition[3], 0, 0, 0)
         lua_table.SceneFunctions:Instantiate(lua_table.ghoul_UUID, lua_table.MyPosition[1] - 3, lua_table.MyPosition[2], lua_table.MyPosition[3], 0, 0, 0)
@@ -426,7 +425,7 @@ local function Die()
     then
         local aux = lua_table.SystemFunctions:RandomNumberInRange(15, 45)
         lua_table.AnimationFunctions:PlayAnimation("Death", aux, MyUUID)
-        lua_table.AudioFunctions:PlayAudioEvent("Play_Ghoul_death_2")
+        lua_table.AudioFunctions:PlayAudioEvent("Play_Screamer_ghoul_death")
 
         --lua_table.ParticleFunctions:StopParticleEmitter(lua_table.KnockbackEmitter_UUID)
         --lua_table.ParticleFunctions:StopParticleEmitter(lua_table.StunEmitter_UUID)
@@ -512,7 +511,7 @@ function lua_table:OnTriggerEnter()
                 lua_table.hit = true
                 lastTimeHit = lua_table.SystemFunctions:GameTime()
                 lua_table.AnimationFunctions:PlayAnimation("Hit", 50, MyUUID)
-                lua_table.AudioFunctions:PlayAudioEvent("Play_Ghoul_hurt_2")                          
+                lua_table.AudioFunctions:PlayAudioEvent("Play_Screamer_ghoul_damaged")                          
                 lua_table.SystemFunctions:LOG("Ghoul has been HIT") 
             end         
 
