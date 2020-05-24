@@ -1101,28 +1101,6 @@
 										</Action>
 									</ChildrenList>
 								</Event>
-								<Event Name="Play_Titan_ghoul_fall_back" ID="{9A23B9AF-C30C-45C3-BA42-076DAC3B1E77}">
-									<ChildrenList>
-										<Action Name="" ID="{59551734-487F-4235-AA2D-7D1AB2DAA15D}" ShortID="553376074">
-											<ReferenceList>
-												<Reference Name="Target">
-													<ObjectRef Name="Titan_ghoul_fall_back" ID="{AC09B63D-FC5A-4A2F-A799-DC72CD695C45}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
-												</Reference>
-											</ReferenceList>
-										</Action>
-									</ChildrenList>
-								</Event>
-								<Event Name="Play_Titan_ghoul_minion_spawn" ID="{0E2677B3-2B05-448C-92F2-D6AC162CABEA}">
-									<ChildrenList>
-										<Action Name="" ID="{448FE0A2-8762-4A94-9FF3-AD1FF2C727F7}" ShortID="785309760">
-											<ReferenceList>
-												<Reference Name="Target">
-													<ObjectRef Name="Titan_ghoul_minion_spawn" ID="{172F4CBB-0F62-4FD4-A49A-5564F8F9C399}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
-												</Reference>
-											</ReferenceList>
-										</Action>
-									</ChildrenList>
-								</Event>
 								<Event Name="Play_Titan_ghoul_scream_attack" ID="{42150154-784F-4211-844F-33570AD82624}">
 									<ChildrenList>
 										<Action Name="" ID="{81AB1385-4D2D-40E6-81DA-AE6BFD6C1750}" ShortID="827800268">
@@ -1241,12 +1219,34 @@
 										</Action>
 									</ChildrenList>
 								</Event>
-								<Event Name="Play_Screamer_ghoul_scream" ID="{0CE11443-8612-484D-BB1B-1A265E28463C}">
+								<Event Name="Play_Screamer_ghoul_scream_attack" ID="{0CE11443-8612-484D-BB1B-1A265E28463C}">
 									<ChildrenList>
 										<Action Name="" ID="{EBB2B65B-BB4C-4FBF-8BB8-33CB8188D7D0}" ShortID="886665262">
 											<ReferenceList>
 												<Reference Name="Target">
 													<ObjectRef Name="Screamer_ghoul_scream" ID="{9C390EEE-AEFE-4806-8F3F-C81B6204DA20}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Screamer_ghoul_fall_back" ID="{9A23B9AF-C30C-45C3-BA42-076DAC3B1E77}">
+									<ChildrenList>
+										<Action Name="" ID="{59551734-487F-4235-AA2D-7D1AB2DAA15D}" ShortID="553376074">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Titan_ghoul_fall_back" ID="{AC09B63D-FC5A-4A2F-A799-DC72CD695C45}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Screamer_ghoul_minion_spawn" ID="{0E2677B3-2B05-448C-92F2-D6AC162CABEA}">
+									<ChildrenList>
+										<Action Name="" ID="{448FE0A2-8762-4A94-9FF3-AD1FF2C727F7}" ShortID="785309760">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Titan_ghoul_minion_spawn" ID="{172F4CBB-0F62-4FD4-A49A-5564F8F9C399}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
 												</Reference>
 											</ReferenceList>
 										</Action>
