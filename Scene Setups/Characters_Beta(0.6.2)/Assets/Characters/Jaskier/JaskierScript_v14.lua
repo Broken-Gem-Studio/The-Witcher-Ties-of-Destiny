@@ -75,13 +75,13 @@ local particles_library = {
 	none = 0,
 
 	--guitar_particles_GO_UID = 0,
+
+	--Particle Tables
 	run_particles_GO_UID_children = {},
+	revive_particles_GO_UID_children = {},
 	song_circle_GO_UID_children = {},
 	song_cone_GO_UID_children = {},
 	concert_GO_UID_children = {},
-
-	--Particle Tables
-
 
 	--Standalone Particles
 	health_potion_particles_GO_UID = 0,
@@ -2143,6 +2143,7 @@ function lua_table:Awake()
 	--guitar_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Guitar")
 
 	particles_library.run_particles_GO_UID_children = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindGameObject("Jaskier_Run"))
+	particles_library.revive_particles_GO_UID_children = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindGameObject("Jaskier_Revive"))
 
 	particles_library.song_circle_GO_UID_children = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindGameObject("Jaskier_Song_Circle"))
 	particles_library.song_cone_GO_UID_children = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindGameObject("Jaskier_Song_Cone"))
@@ -2155,6 +2156,9 @@ function lua_table:Awake()
 	--Stop Particle Emitters
 	for i = 1, #particles_library.run_particles_GO_UID_children do
 		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.run_particles_GO_UID_children[i])	--TODO-Particles:
+	end
+	for i = 1, #particles_library.revive_particles_GO_UID_children do
+		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.revive_particles_GO_UID_children[i])	--TODO-Particles:
 	end
 
 	for i = 1, #particles_library.song_circle_GO_UID_children do
@@ -2566,6 +2570,11 @@ function lua_table:Update()
 				then
 					death_stopped_at = game_time			--Mark revival start (for death timer)
 					lua_table.revive_started_at = death_stopped_at	--Mark revival start (for revival timer)
+
+					for i = 1, #particles_library.revive_particles_GO_UID_children do
+						lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.revive_particles_GO_UID_children[i])	--TODO-Particles:
+					end
+
 					stopped_death = true					--Flag death timer stop
 
 				elseif game_time - lua_table.revive_started_at > lua_table.revive_time		--IF revival complete
@@ -2574,6 +2583,10 @@ function lua_table:Update()
 
 					lua_table.AnimationFunctions:PlayAnimation(animation_library.stand_up, lua_table.stand_up_animation_speed, jaskier_GO_UID)	--TODO-Animations: Stand up
 					current_animation = animation_library.stand_up
+
+					for i = 1, #particles_library.revive_particles_GO_UID_children do
+						lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.revive_particles_GO_UID_children[i])	--TODO-Particles:
+					end
 
 					blending_started_at = game_time
 
@@ -2588,6 +2601,11 @@ function lua_table:Update()
 				if stopped_death				--IF death timer was stopped
 				then
 					lua_table.death_started_at = lua_table.death_started_at + game_time - death_stopped_at	--Resume timer
+
+					for i = 1, #particles_library.revive_particles_GO_UID_children do
+						lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.revive_particles_GO_UID_children[i])	--TODO-Particles:
+					end
+
 					stopped_death = false				--Flag timer resuming
 
 				elseif game_time - lua_table.death_started_at > lua_table.down_time	--IF death timer finished
