@@ -722,6 +722,7 @@ function lua_table:RequestedTrigger(collider_GO)
 					start_hit = false
 				end
 				lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
+				lua_table.Audio:PlayAudioEvent("Play_Titan_ghoul_take_damage")
 				lua_table.Particles:PlayParticleEmitter(BloodEmitter1_UID)
 				lua_table.Particles:PlayParticleEmitter(BloodEmitter2_UID)
 				lua_table.Particles:PlayParticleEmitter(BloodEmitter3_UID)
