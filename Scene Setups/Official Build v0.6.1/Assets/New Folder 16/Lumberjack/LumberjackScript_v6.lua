@@ -178,7 +178,7 @@ local DistanceMagnitudeAux_Target = 50
 local UseAuxVariables = false
 local CancelateJumpAttack = false
 local JumpAttack_CautionTime = 0
-
+local AttackAudioDone = true
 --Die()
 
 lua_table.Dead = false
@@ -552,6 +552,7 @@ local function jumpAttack()
 			lua_table.GameObjectFunctions:SetActiveGameObject(true, attack_colliders.jump_attack.GO_UID)
 			attack_colliders.jump_attack.active = true
 			lua_table.SystemFunctions:LOG("LUMBERJACK jump_attack collider ON   -"..attack_colliders.jump_attack.GO_UID)
+			
 		end	
 	end
 	
@@ -580,10 +581,18 @@ local function Attack()
 		Attack1_TimeController = PerfGameTime()
 		Attack1_FirstController = true
 		lua_table.AnimationSystem:PlayAnimation("ATTACK_1",30.0,MyUID)
+		
 		lua_table.attack_effects = attack_effects.none
 		lua_table.collider_damage = 20
 		lua_table.collider_effect = 0
 		Attack1_AnimController = true
+		AttackAudioDone = false
+	end
+
+	if PerfGameTime() - Attack1_TimeController > 600 and AttackAudioDone == false
+	then
+		lua_table.SoundSystem:PlayAudioEvent("Play_Lumberjack_Axe_Swing_Attack")
+		AttackAudioDone = true
 	end
 
 	if TimeSinceLastAttack > 900 and TimeSinceLastAttack < 1100
@@ -593,7 +602,6 @@ local function Attack()
 			lua_table.GameObjectFunctions:SetActiveGameObject(true, attack_colliders.front.GO_UID)
 			attack_colliders.front.active = true
 			lua_table.SystemFunctions:LOG("LUMBERJACK attack collider activate ")
-			lua_table.SoundSystem:PlayAudioEvent("Play_Bandit_lumberjack_attack")
 		end
 	end
 
@@ -625,7 +633,7 @@ end
 local function Die()
 	lua_table.Dead = true
 	lua_table.AnimationSystem:PlayAnimation("DEATH",35.0,MyUID)
-	lua_table.SoundSystem:PlayAudioEvent("Play_Bandit_death_3")
+	
 
 	tuto_manager = lua_table.GameObjectFunctions:FindGameObject("TutorialManager")
     if tuto_manager ~= 0 
@@ -766,7 +774,7 @@ local function HandleSEEK()
 		then
 			lua_table.AnimationSystem:PlayAnimation("ALERT",40.0,MyUID)
 			
-			lua_table.SoundSystem:PlayAudioEvent("Play_Bandit_voice_2")
+			lua_table.SoundSystem:PlayAudioEvent("Play_Enemy_Humanoid_Discover_Players")
 			Alert_AnimController = true
 			Alert_TimeController = PerfGameTime()
 			--lua_table.ParticleSystem:PlayParticleEmitter(particles.alert1.GO_UID)
@@ -795,7 +803,7 @@ local function HandleSEEK()
 	--#####################################################################################   SEEK DONE
 	if DistanceMagnitude < 10 and DistanceMagnitude > 9 and lua_table.JumpAttackDone == false 
 	then
-		UseAuxVariables = true	
+		UseAuxVariables = true
 	end
 
 	if UseAuxVariables == true
@@ -809,6 +817,7 @@ local function HandleSEEK()
 		then 
 			Aux_TargetPos = lua_table.TransformFunctions:GetPosition(lua_table.CurrentTarget)
 			lua_table.SystemFunctions:LOG("LUMBERJACK FIRST TARGET POS")
+			lua_table.SoundSystem:PlayAudioEvent("Play_Lumberjack_Heavy_Axe_Attack_Hit_edit")
 			Aux_TargetExist = true
 		end
 		if CancelateJumpAttack == false
@@ -1233,7 +1242,7 @@ function lua_table:Update()
 				Hit_TimeController = PerfGameTime()
 				lua_table.AnimationSystem:PlayAnimation("HIT",50,MyUID)
 				lua_table.ParticleSystem:PlayParticleEmitter(particles.hitParticles.GO_UID)
-				lua_table.SoundSystem:PlayAudioEvent("Play_Bandit_getting_hit")
+				lua_table.SoundSystem:PlayAudioEvent("Play_Enemy_Humanoid_Hit")
 				
 				Hit_AnimController = true
 			end
