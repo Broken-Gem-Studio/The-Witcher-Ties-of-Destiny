@@ -70,7 +70,8 @@ local particles = {
 	alertParticles = { GO_name = "alert_scream_particles_lumberjack", GO_UID = 0 , active = false},
 	GroundHitParticles1 = { GO_name = "ground_hit_particles_lumberjack1", GO_UID = 0 , active = false},--smoke
 	GroundHitParticles2 = { GO_name = "ground_hit_particles_lumberjack2", GO_UID = 0 , active = false},-- ground crack
-	stuntParticles = { GO_name = "stunt_particles_lumberjack", GO_UID = 0 , active = false}
+	stuntParticles = { GO_name = "stunt_particles_lumberjack", GO_UID = 0 , active = false},
+	hitParticles = { GO_name = "hit_particles_lumberjack", GO_UID = 0 , active = false}
 }
 
 --Colliders
@@ -309,9 +310,9 @@ local function ApplyVelocity()
 			--lua_table.SystemFunctions:LOG("ARRIVED , LookLeftRight_AnimController, FirstSeekCalled"..Arrived2PatrolTarget..LookLeftRight_AnimController,FirstSeekCalled)
 		elseif Arrived2PatrolTarget == false and LookLeftRight_AnimController == false and FirstSeekCalled == true and DistanceMagnitude <= lua_table.MinDistanceFromPlayer 
 		then
-		    lua_table.SystemFunctions:LOG("LUMBERJACK 2")
-			Nvec3x = Nvec3x * 0.0000000001 --this is to don't convert the lookAt vector to 0 but do not move the dir vector
-		    Nvec3z = Nvec3z * 0.0000000001
+		    lua_table.SystemFunctions:LOG("LUMBERJACK 22222222")
+			Nvec3x = Nvec3x * 0.000000000 --this is to don't convert the lookAt vector to 0 but do not move the dir vector
+		    Nvec3z = Nvec3z * 0.000000000
 			Arrived2PatrolTarget = true
 		end
 	elseif lua_table.CurrentState == State.SEEK and Do_KnockBack == false
@@ -740,7 +741,7 @@ local function HandleSEEK()
 	
 	Time_HandleSeek = PerfGameTime() 
 
-	if Time_HandleSeek - CalculatePath_Timer > 500
+	if Time_HandleSeek - CalculatePath_Timer > 200
 	then
 		calculatepath = true
 	end
@@ -764,7 +765,7 @@ local function HandleSEEK()
 		if Alert_AnimController == false
 		then
 			lua_table.AnimationSystem:PlayAnimation("ALERT",40.0,MyUID)
-			lua_table.ParticleSystem:PlayParticleEmitter(particles.alertParticles.GO_UID)
+			
 			lua_table.SoundSystem:PlayAudioEvent("Play_Bandit_voice_2")
 			Alert_AnimController = true
 			Alert_TimeController = PerfGameTime()
@@ -1054,6 +1055,7 @@ function lua_table:Awake()
 	particles.GroundHitParticles1.GO_UID = lua_table.GameObjectFunctions:FindChildGameObject(particles.GroundHitParticles1.GO_name)
 	particles.GroundHitParticles2.GO_UID = lua_table.GameObjectFunctions:FindChildGameObject(particles.GroundHitParticles2.GO_name)
 	particles.stuntParticles.GO_UID = lua_table.GameObjectFunctions:FindChildGameObject(particles.stuntParticles.GO_name)
+	particles.hitParticles.GO_UID = lua_table.GameObjectFunctions:FindChildGameObject(particles.hitParticles.GO_name)
 
 end
 
@@ -1074,6 +1076,7 @@ function lua_table:Start()
 	lua_table.ParticleSystem:StopParticleEmitter(particles.GroundHitParticles1.GO_UID)
 	lua_table.ParticleSystem:StopParticleEmitter(particles.GroundHitParticles2.GO_UID)
 	lua_table.ParticleSystem:StopParticleEmitter(particles.stuntParticles.GO_UID)
+	lua_table.ParticleSystem:StopParticleEmitter(particles.hitParticles.GO_UID)
 
 	TargetAlive_TimeController = PerfGameTime()
 
@@ -1228,7 +1231,8 @@ function lua_table:Update()
 			if Hit_AnimController == false
 			then
 				Hit_TimeController = PerfGameTime()
-				lua_table.AnimationSystem:PlayAnimation("HIT",40,MyUID)
+				lua_table.AnimationSystem:PlayAnimation("HIT",50,MyUID)
+				lua_table.ParticleSystem:PlayParticleEmitter(particles.hitParticles.GO_UID)
 				lua_table.SoundSystem:PlayAudioEvent("Play_Bandit_getting_hit")
 				
 				Hit_AnimController = true
@@ -1244,6 +1248,7 @@ function lua_table:Update()
 			end
 		elseif lua_table.CurrentSpecialEffect == SpecialEffect.TAUNT
 		then
+		    lua_table.ParticleSystem:PlayParticleEmitter(particles.alertParticles.GO_UID)
 			lua_table.CurrentTarget = JASKIER
 			lua_table.CurrentSpecialEffect = SpecialEffect.NONE
 		end
@@ -1251,7 +1256,7 @@ function lua_table:Update()
 		if lua_table.Dead == false
 		then
 			
-			if VectorNormalized == false
+			if VectorNormalized == false and lua_table.CurrentState ~= State.PRE_DETECTION
 			then
 				NormalizeDirVector()
 			end

@@ -451,6 +451,7 @@ local function MeleeHit()
             lua_table.AnimationSystem:PlayAnimation("MeleePunch",45.0, MyUID)
         end
         
+        lua_table.Audio:PlayAudioEvent("Play_Archer_Melee_Attack")
         --lua_table.System:LOG ("MELEE ATTACK")
         start_melee = false
     end
@@ -459,7 +460,7 @@ local function MeleeHit()
 
     if melee_time + 225 <= PerfGameTime() then
         lua_table.GameObjectFunctions:SetActiveGameObject(true, Attack_Collider_UID)
-        lua_table.Audio:PlayAudioEvent("Play_Archer_Melee_Attack")
+        
     end
 
     if melee_time + 275 <= PerfGameTime() then
