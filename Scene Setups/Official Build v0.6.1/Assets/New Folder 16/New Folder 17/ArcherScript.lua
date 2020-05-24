@@ -197,7 +197,7 @@ function lua_table:OnTriggerEnter()
             lua_table.AnimationSystem:PlayAnimation("Hit",30.0, MyUID)
             hit_time = PerfGameTime()
             lua_table.start_hit = true
-            lua_table.Audio:PlayAudioEvent("Play_Enemy_Humanoid_Hit_01")
+            lua_table.Audio:PlayAudioEvent("Play_Enemy_Humanoid_Hit")
 
             lua_table.Particles:PlayParticleEmitter(Blood1)
             lua_table.Particles:PlayParticleEmitter(Blood2)
@@ -254,7 +254,7 @@ function lua_table:RequestedTrigger(collider_GO)
             hit_time = PerfGameTime()
             lua_table.start_hit = true
 
-            lua_table.Audio:PlayAudioEvent("Play_Enemy_Humanoid_Hit_01")
+            lua_table.Audio:PlayAudioEvent("Play_Enemy_Humanoid_Hit")
 
             lua_table.Particles:PlayParticleEmitter(Blood1)
             lua_table.Particles:PlayParticleEmitter(Blood2)
@@ -319,7 +319,7 @@ local function Seek()
 
     if start_agro == false 
     then 
-        lua_table.Audio:PlayAudioEvent("Play_Enemy_Humanoid_Discover_Players_03")
+        lua_table.Audio:PlayAudioEvent("Play_Enemy_Humanoid_Discover_Players")
         lua_table.AnimationSystem:PlayAnimation("Hit",45.0, MyUID)
         agro_time = PerfGameTime()
         start_agro = true
@@ -389,7 +389,7 @@ local function Shoot()
         --lua_table.System:LOG ("TAKING ARROW")
         lua_table.AnimationSystem:PlayAnimation("DrawArrow",45.0, MyUID)
         lua_table.start_taking_arrow = false
-        lua_table.Audio:PlayAudioEvent("Play_Bandit_bow_pulling_rope")
+        --lua_table.Audio:PlayAudioEvent("Play_Bandit_bow_pulling_rope")
     end
 
     if shoot_time + 500 <= PerfGameTime() and lua_table.start_aiming == true 
@@ -402,7 +402,7 @@ local function Shoot()
     if shoot_time + 1000 <= PerfGameTime() and lua_table.start_shooting == true 
     then
         
-        lua_table.Audio:PlayAudioEvent("Play_Archer_Ranged_Attack_01")
+        lua_table.Audio:PlayAudioEvent("Play_Archer_Ranged_Attack")
 
         local rotation = lua_table.Transform:GetRotation(MyUID)
         local pos = lua_table.Transform:GetPosition(MyUID)
@@ -459,7 +459,7 @@ local function MeleeHit()
 
     if melee_time + 225 <= PerfGameTime() then
         lua_table.GameObjectFunctions:SetActiveGameObject(true, Attack_Collider_UID)
-        lua_table.Audio:PlayAudioEvent("Play_Archer_Melee_Attack_01")
+        lua_table.Audio:PlayAudioEvent("Play_Archer_Melee_Attack")
     end
 
     if melee_time + 275 <= PerfGameTime() then
