@@ -378,6 +378,7 @@ local function JumpStun() -- Smash the ground with a jump, then stun
 	if not start_jump then 
 		jump_timer = lua_table.System:GameTime() * 1000
 		lua_table.Particles:PlayParticleEmitter(StunMarkEmitter_UID)
+		lua_table.Audio:PlayAudioEvent("Play_Titan_ghoul_scream_attack")
 		start_jump = true
 		
 	end
@@ -549,6 +550,8 @@ local function Die()
 
 		death_timer = lua_table.System:GameTime() * 1000
 
+		lua_table.Audio:PlayAudioEvent("Play_Titan_ghoul_death")
+
 		-- This ensures hit particle plays when Players deal the last hit
 		lua_table.Particles:PlayParticleEmitter(BloodEmitter1_UID)
 		lua_table.Particles:PlayParticleEmitter(BloodEmitter2_UID)
@@ -633,6 +636,7 @@ function lua_table:OnTriggerEnter()
 					hit_timer = lua_table.System:GameTime() * 1000
 					
 					lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
+					lua_table.Audio:PlayAudioEvent("Play_Titan_ghoul_take_damage")
 					lua_table.Particles:PlayParticleEmitter(BloodEmitter1_UID)
 					lua_table.Particles:PlayParticleEmitter(BloodEmitter2_UID)
 					lua_table.Particles:PlayParticleEmitter(BloodEmitter3_UID)
@@ -718,6 +722,7 @@ function lua_table:RequestedTrigger(collider_GO)
 					start_hit = false
 				end
 				lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
+				lua_table.Audio:PlayAudioEvent("Play_Titan_ghoul_take_damage")
 				lua_table.Particles:PlayParticleEmitter(BloodEmitter1_UID)
 				lua_table.Particles:PlayParticleEmitter(BloodEmitter2_UID)
 				lua_table.Particles:PlayParticleEmitter(BloodEmitter3_UID)
