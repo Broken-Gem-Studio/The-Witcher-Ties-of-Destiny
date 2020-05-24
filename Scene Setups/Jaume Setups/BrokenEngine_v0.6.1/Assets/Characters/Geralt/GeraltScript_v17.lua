@@ -1857,7 +1857,7 @@ local function ProcessIncomingHit(collider_GO)
 end
 
 function lua_table:OnTriggerEnter()
-	lua_table.SystemFunctions:LOG("On Trigger Enter")
+	--lua_table.SystemFunctions:LOG("On Trigger Enter")
 	
 	local collider_GO = lua_table.PhysicsFunctions:OnTriggerEnter(geralt_GO_UID)
 
@@ -1868,7 +1868,7 @@ function lua_table:OnTriggerEnter()
 end
 
 function lua_table:OnCollisionEnter()
-	lua_table.SystemFunctions:LOG("On Collision Enter")
+	--lua_table.SystemFunctions:LOG("On Collision Enter")
 
 	local collider_GO = lua_table.PhysicsFunctions:OnCollisionEnter(geralt_GO_UID)
 
