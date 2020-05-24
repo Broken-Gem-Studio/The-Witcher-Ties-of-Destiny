@@ -7,6 +7,7 @@ lua_table.Physics =  Scripting.Physics()
 lua_table.Animations = Scripting.Animations()
 lua_table.Recast = Scripting.Navigation()
 lua_table.Particles = Scripting.Particles()
+lua_table.Audio = Scripting.Audio()
 -- DEBUG PURPOSES
 --lua_table.Input = Scripting.Inputs()
 
@@ -292,12 +293,15 @@ local function Attack()
 		if random_attack == 1 then 
 			lua_table.System:LOG("Attack1 chosen")
 			lua_table.Animations:PlayAnimation("Attack_1", 45.0, lua_table.MyUID)
+			lua_table.Audio:PlayAudioEvent("Play_Minion_right_punch")
 		elseif random_attack == 2 then 
 			lua_table.System:LOG("Attack2 chosen")
 			lua_table.Animations:PlayAnimation("Attack_2", 60.0, lua_table.MyUID)
+			lua_table.Audio:PlayAudioEvent("Play_Minion_both_arms_attack")
 		elseif random_attack == 3 then 
 			lua_table.System:LOG("Attack3 chosen")
 			lua_table.Animations:PlayAnimation("Attack_3", 45.0, lua_table.MyUID)
+			lua_table.Audio:PlayAudioEvent("Play_Minion_right_punch")
 		end
 		
 		attacked = true
@@ -367,6 +371,8 @@ local function Die()
 		death_timer = lua_table.System:GameTime() * 1000
 		lua_table.System:LOG("Im dying")  
 		lua_table.Animations:PlayAnimation("Death", random_death_time, lua_table.MyUID)
+
+		lua_table.Audio:PlayAudioEvent("Play_Minion_death")
 
 		lua_table.Particles:PlayParticleEmitter(HitEmitter_UID)
 		lua_table.Particles:PlayParticleEmitter(HitEmitter2_UID)
@@ -444,6 +450,9 @@ function lua_table:OnTriggerEnter()
 			else
 				AttackColliderShutdown()
 				lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
+				
+				lua_table.Audio:PlayAudioEvent("Play_Minion_take_damage")
+
 				lua_table.Particles:PlayParticleEmitter(HitEmitter_UID)
 				lua_table.Particles:PlayParticleEmitter(HitEmitter2_UID)
 				lua_table.Particles:PlayParticleEmitter(HitEmitter3_UID)
