@@ -304,32 +304,32 @@ local function ApplyVelocity()
 	then 
 		if FirstSeekCalled == true and DistanceMagnitude > 0.3 --do this because if not then lumberjack shakes --error lumberjack
 		then
-			--lua_table.SystemFunctions:LOG("LUMBERJACK 1")
+			lua_table.SystemFunctions:LOG("LUMBERJACK 1")
 			Nvec3x = Nvec3x*PatrolSpeed 
 			Nvec3z = Nvec3z*PatrolSpeed 
 			--lua_table.SystemFunctions:LOG("ARRIVED , LookLeftRight_AnimController, FirstSeekCalled"..Arrived2PatrolTarget..LookLeftRight_AnimController,FirstSeekCalled)
 		elseif Arrived2PatrolTarget == false and LookLeftRight_AnimController == false and FirstSeekCalled == true and DistanceMagnitude <= lua_table.MinDistanceFromPlayer 
 		then
-		    --lua_table.SystemFunctions:LOG("LUMBERJACK 2")
-			Nvec3x = Nvec3x * 0.0000000001 --this is to don't convert the lookAt vector to 0 but do not move the dir vector
-		    Nvec3z = Nvec3z * 0.0000000001
+		    lua_table.SystemFunctions:LOG("LUMBERJACK 22222222")
+			Nvec3x = Nvec3x * 0.000000000 --this is to don't convert the lookAt vector to 0 but do not move the dir vector
+		    Nvec3z = Nvec3z * 0.000000000
 			Arrived2PatrolTarget = true
 		end
 	elseif lua_table.CurrentState == State.SEEK and Do_KnockBack == false
 	then
 		if DistanceMagnitude > lua_table.MinDistanceFromPlayer and lua_table.CurrentSubState == SubState.SEEK_TARGET 
 		then
-			--lua_table.SystemFunctions:LOG("LUMBERJACK 3")
+			lua_table.SystemFunctions:LOG("LUMBERJACK 3")
 			Nvec3x = Nvec3x*lua_table.MaxSpeed 
 			Nvec3z = Nvec3z*lua_table.MaxSpeed 
 		elseif DistanceMagnitude > lua_table.MinDistanceFromPlayer and lua_table.CurrentSubState == SubState.ALERT
 		then
-			--lua_table.SystemFunctions:LOG("LUMBERJACK 4")
+			lua_table.SystemFunctions:LOG("LUMBERJACK 4")
 			Nvec3x = Nvec3x * 0.0000000001
 			Nvec3z = Nvec3z * 0.0000000001
 		elseif lua_table.CurrentSubState == SubState.JUMP_ATTACK
 		then
-			--lua_table.SystemFunctions:LOG("LUMBERJACK 5")
+			lua_table.SystemFunctions:LOG("LUMBERJACK 5")
 			Nvec3x = Nvec3x*lua_table.JumpAttackSpeed
 			Nvec3z = Nvec3z*lua_table.JumpAttackSpeed 
 		end
@@ -341,7 +341,7 @@ local function ApplyVelocity()
 	
 	if Do_KnockBack == true and lua_table.CurrentSpecialEffect == SpecialEffect.KNOCKBACK
 	then
-		--lua_table.SystemFunctions:LOG("LUMBERJACK 6")
+		lua_table.SystemFunctions:LOG("LUMBERJACK 6")
 		Nvec3x = Nvec3x * KnockbackVelocity 
 		Nvec3z = Nvec3z * KnockbackVelocity 
 	elseif Do_KnockBack == false and lua_table.CurrentSpecialEffect == SpecialEffect.KNOCKBACK
@@ -1256,7 +1256,7 @@ function lua_table:Update()
 		if lua_table.Dead == false
 		then
 			
-			if VectorNormalized == false
+			if VectorNormalized == false and lua_table.CurrentState ~= State.PRE_DETECTION
 			then
 				NormalizeDirVector()
 			end
@@ -1264,7 +1264,7 @@ function lua_table:Update()
 			lua_table.TransformFunctions:LookAt(lua_table.Pos[1] + vec3x,lua_table.Pos[2],lua_table.Pos[3] + vec3z,MyUID) -- PROVISIONAL, QUEDA MUY ARTIFICIAL
 		
 			ApplyVelocity() --decides if move function will move or not in x and z axis	
-			--lua_table.SystemFunctions:LOG("LUMBERJACK VELxy:   "..Nvec3x..Nvec3z)
+			lua_table.SystemFunctions:LOG("LUMBERJACK VELxy:   "..Nvec3x..Nvec3z)
 			if VectorNormalized == true
 			then
 				lua_table.PhysicsSystem:Move(Nvec3x* dt,Nvec3z* dt,MyUID)
