@@ -5,1983 +5,1968 @@
   "SchemaVersion": "11",
   "SoundbankVersion": "134",
   "RootPaths": {
-   "ProjectRoot": "E:\\UPC University\\3rd year\\2nd quatri\\Project III\\Wwise Projects\\Interactive Music\\TheWitcherWwiseProject\\",
-   "SourceFilesRoot": "E:\\UPC University\\3rd year\\2nd quatri\\Project III\\Wwise Projects\\Interactive Music\\TheWitcherWwiseProject\\.cache\\Windows\\",
-   "SoundBanksRoot": "E:\\GitHub\\The-Witcher-Ties-of-Destiny\\Scene Setups\\Official Build v0.5.5.1\\Assets\\Sounds\\",
+   "ProjectRoot": "E:\\GitHub\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\",
+   "SourceFilesRoot": "E:\\GitHub\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\.cache\\Windows\\",
+   "SoundBanksRoot": "E:\\GitHub\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseSoundBanks\\",
    "ExternalSourcesInputFile": "",
-   "ExternalSourcesOutputRoot": "E:\\UPC University\\3rd year\\2nd quatri\\Project III\\Wwise Projects\\Interactive Music\\TheWitcherWwiseProject\\GeneratedSoundBanks\\Windows"
+   "ExternalSourcesOutputRoot": "E:\\GitHub\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\GeneratedSoundBanks\\Windows"
   },
   "DialogueEvents": [],
   "StreamedFiles": [],
   "MediaFilesNotInAnyBank": [],
   "SoundBanks": [
    {
+    "Id": "47710518",
+    "Language": "SFX",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Geralt",
+    "ShortName": "Geralt",
+    "Path": "Geralt.bnk",
+    "IncludedEvents": [
+     {
+      "Id": "3449812404",
+      "Name": "Play_Geralt_aard",
+      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_aard"
+     },
+     {
+      "Id": "3065709658",
+      "Name": "Play_Geralt_aard_other_version",
+      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_aard_other_version"
+     },
+     {
+      "Id": "850689337",
+      "Name": "Play_Geralt_fall_down_get_up",
+      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_fall_down_get_up"
+     },
+     {
+      "Id": "493066829",
+      "Name": "Play_Geralt_heavy_roll",
+      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_heavy_roll"
+     },
+     {
+      "Id": "2664027291",
+      "Name": "Play_Geralt_hit_sound",
+      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_hit_sound"
+     },
+     {
+      "Id": "109907202",
+      "Name": "Play_Geralt_light_roll",
+      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_light_roll"
+     },
+     {
+      "Id": "1400200427",
+      "Name": "Play_Geralt_medium_rolll",
+      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_medium_rolll"
+     },
+     {
+      "Id": "1207104021",
+      "Name": "Play_Geralt_naked_roll",
+      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_naked_roll"
+     },
+     {
+      "Id": "3821841965",
+      "Name": "Play_Geralt_potion_1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_potion_1"
+     },
+     {
+      "Id": "3821841966",
+      "Name": "Play_Geralt_potion_2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_potion_2"
+     },
+     {
+      "Id": "3821841967",
+      "Name": "Play_Geralt_potion_3",
+      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_potion_3"
+     },
+     {
+      "Id": "3821841960",
+      "Name": "Play_Geralt_potion_4",
+      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_potion_4"
+     },
+     {
+      "Id": "2239504807",
+      "Name": "Play_Geralt_potion_life_fx_1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_potion_life_fx_1"
+     },
+     {
+      "Id": "2239504804",
+      "Name": "Play_Geralt_potion_life_fx_2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_potion_life_fx_2"
+     },
+     {
+      "Id": "2239504805",
+      "Name": "Play_Geralt_potion_life_fx_3",
+      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_potion_life_fx_3"
+     },
+     {
+      "Id": "1246444623",
+      "Name": "Play_Geralt_potion_other_version",
+      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_potion_other_version"
+     },
+     {
+      "Id": "966697903",
+      "Name": "Play_Geralt_revive",
+      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_revive"
+     },
+     {
+      "Id": "2896484239",
+      "Name": "Play_Geralt_sword_metal",
+      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_sword_metal"
+     },
+     {
+      "Id": "780578552",
+      "Name": "Play_Geralt_sword_swing",
+      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_sword_swing"
+     },
+     {
+      "Id": "3444359250",
+      "Name": "Play_Geralt_ulti_fix_1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_ulti_fix_1"
+     },
+     {
+      "Id": "3444359249",
+      "Name": "Play_Geralt_ulti_fix_2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_ulti_fix_2"
+     },
+     {
+      "Id": "3444359248",
+      "Name": "Play_Geralt_ulti_fix_3",
+      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_ulti_fix_3"
+     },
+     {
+      "Id": "3444359255",
+      "Name": "Play_Geralt_ulti_fix_4",
+      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_ulti_fix_4"
+     },
+     {
+      "Id": "3444359254",
+      "Name": "Play_Geralt_ulti_fix_5",
+      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_ulti_fix_5"
+     },
+     {
+      "Id": "4167477001",
+      "Name": "Play_Geralt_walk_run_concrete",
+      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_walk_run_concrete"
+     },
+     {
+      "Id": "2190072003",
+      "Name": "Play_Geralt_walk_run_dirt",
+      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_walk_run_dirt"
+     }
+    ],
+    "IncludedMemoryFiles": [
+     {
+      "Id": "44849575",
+      "Language": "SFX",
+      "ShortName": "Geralt_ulti_fix_3.wav",
+      "Path": "SFX\\Geralt_ulti_fix_3_10C4C929.wem"
+     },
+     {
+      "Id": "73997410",
+      "Language": "SFX",
+      "ShortName": "Geralt_sword_metal_1.wav",
+      "Path": "SFX\\Geralt_sword_metal_1_10C4C929.wem"
+     },
+     {
+      "Id": "79634573",
+      "Language": "SFX",
+      "ShortName": "Geralt_walk_run_concrete_1.wav",
+      "Path": "SFX\\Geralt_walk_run_concrete_1_10C4C929.wem"
+     },
+     {
+      "Id": "117949325",
+      "Language": "SFX",
+      "ShortName": "Geralt_sword_swing_2.wav",
+      "Path": "SFX\\Geralt_sword_swing_2_10C4C929.wem"
+     },
+     {
+      "Id": "128637521",
+      "Language": "SFX",
+      "ShortName": "Geralt_aard_2.wav",
+      "Path": "SFX\\Geralt_aard_2_10C4C929.wem"
+     },
+     {
+      "Id": "133725744",
+      "Language": "SFX",
+      "ShortName": "Geralt_walk_run_dirt_1.wav",
+      "Path": "SFX\\Geralt_walk_run_dirt_1_10C4C929.wem"
+     },
+     {
+      "Id": "151722805",
+      "Language": "SFX",
+      "ShortName": "Geralt_aard_3.wav",
+      "Path": "SFX\\Geralt_aard_3_10C4C929.wem"
+     },
+     {
+      "Id": "162466375",
+      "Language": "SFX",
+      "ShortName": "Geralt_heavy_roll.wav",
+      "Path": "SFX\\Geralt_heavy_roll_10C4C929.wem"
+     },
+     {
+      "Id": "171157079",
+      "Language": "SFX",
+      "ShortName": "Geralt_sword_swing_3.wav",
+      "Path": "SFX\\Geralt_sword_swing_3_10C4C929.wem"
+     },
+     {
+      "Id": "172005850",
+      "Language": "SFX",
+      "ShortName": "Geralt_sword_swing_5.wav",
+      "Path": "SFX\\Geralt_sword_swing_5_10C4C929.wem"
+     },
+     {
+      "Id": "180178723",
+      "Language": "SFX",
+      "ShortName": "Geralt_fall_down_get_up.wav",
+      "Path": "SFX\\Geralt_fall_down_get_up_10C4C929.wem"
+     },
+     {
+      "Id": "185787947",
+      "Language": "SFX",
+      "ShortName": "Geralt_hit_sound_1.wav",
+      "Path": "SFX\\Geralt_hit_sound_1_10C4C929.wem"
+     },
+     {
+      "Id": "199674729",
+      "Language": "SFX",
+      "ShortName": "Geralt_potion_3.wav",
+      "Path": "SFX\\Geralt_potion_3_10C4C929.wem"
+     },
+     {
+      "Id": "204592245",
+      "Language": "SFX",
+      "ShortName": "Geralt_ulti_fix_5.wav",
+      "Path": "SFX\\Geralt_ulti_fix_5_10C4C929.wem"
+     },
+     {
+      "Id": "219678610",
+      "Language": "SFX",
+      "ShortName": "Geralt_sword_swing_6.wav",
+      "Path": "SFX\\Geralt_sword_swing_6_10C4C929.wem"
+     },
+     {
+      "Id": "231596752",
+      "Language": "SFX",
+      "ShortName": "Geralt_ulti_fix_2.wav",
+      "Path": "SFX\\Geralt_ulti_fix_2_10C4C929.wem"
+     },
+     {
+      "Id": "299164818",
+      "Language": "SFX",
+      "ShortName": "Geralt_walk_run_concrete_3.wav",
+      "Path": "SFX\\Geralt_walk_run_concrete_3_10C4C929.wem"
+     },
+     {
+      "Id": "359010293",
+      "Language": "SFX",
+      "ShortName": "Geralt_aard_5.wav",
+      "Path": "SFX\\Geralt_aard_5_10C4C929.wem"
+     },
+     {
+      "Id": "411375851",
+      "Language": "SFX",
+      "ShortName": "Geralt_aard_other_version.wav",
+      "Path": "SFX\\Geralt_aard_other_version_10C4C929.wem"
+     },
+     {
+      "Id": "432117263",
+      "Language": "SFX",
+      "ShortName": "Geralt_medium_rolll.wav",
+      "Path": "SFX\\Geralt_medium_rolll_10C4C929.wem"
+     },
+     {
+      "Id": "439538193",
+      "Language": "SFX",
+      "ShortName": "Geralt_potion_life_fx_1.wav",
+      "Path": "SFX\\Geralt_potion_life_fx_1_10C4C929.wem"
+     },
+     {
+      "Id": "460537679",
+      "Language": "SFX",
+      "ShortName": "Geralt_naked_roll.wav",
+      "Path": "SFX\\Geralt_naked_roll_10C4C929.wem"
+     },
+     {
+      "Id": "555205089",
+      "Language": "SFX",
+      "ShortName": "Geralt_aard_4.wav",
+      "Path": "SFX\\Geralt_aard_4_10C4C929.wem"
+     },
+     {
+      "Id": "572502002",
+      "Language": "SFX",
+      "ShortName": "Geralt_aard_1.wav",
+      "Path": "SFX\\Geralt_aard_1_10C4C929.wem"
+     },
+     {
+      "Id": "610791877",
+      "Language": "SFX",
+      "ShortName": "Geralt_hit_sound_2.wav",
+      "Path": "SFX\\Geralt_hit_sound_2_10C4C929.wem"
+     },
+     {
+      "Id": "664142138",
+      "Language": "SFX",
+      "ShortName": "Geralt_potion_4.wav",
+      "Path": "SFX\\Geralt_potion_4_10C4C929.wem"
+     },
+     {
+      "Id": "682688629",
+      "Language": "SFX",
+      "ShortName": "Geralt_walk_run_dirt_3.wav",
+      "Path": "SFX\\Geralt_walk_run_dirt_3_10C4C929.wem"
+     },
+     {
+      "Id": "695074333",
+      "Language": "SFX",
+      "ShortName": "Geralt_potion_1.wav",
+      "Path": "SFX\\Geralt_potion_1_10C4C929.wem"
+     },
+     {
+      "Id": "707240897",
+      "Language": "SFX",
+      "ShortName": "Geralt_walk_run_dirt_2.wav",
+      "Path": "SFX\\Geralt_walk_run_dirt_2_10C4C929.wem"
+     },
+     {
+      "Id": "711324990",
+      "Language": "SFX",
+      "ShortName": "Geralt_potion_life_fx_2.wav",
+      "Path": "SFX\\Geralt_potion_life_fx_2_10C4C929.wem"
+     },
+     {
+      "Id": "721273645",
+      "Language": "SFX",
+      "ShortName": "Geralt_sword_swing_1.wav",
+      "Path": "SFX\\Geralt_sword_swing_1_10C4C929.wem"
+     },
+     {
+      "Id": "778762832",
+      "Language": "SFX",
+      "ShortName": "Geralt_light_roll.wav",
+      "Path": "SFX\\Geralt_light_roll_10C4C929.wem"
+     },
+     {
+      "Id": "791529419",
+      "Language": "SFX",
+      "ShortName": "Geralt_walk-_run_concrete_4.wav",
+      "Path": "SFX\\Geralt_walk-_run_concrete_4_10C4C929.wem"
+     },
+     {
+      "Id": "797279493",
+      "Language": "SFX",
+      "ShortName": "Geralt_sword_swing_8.wav",
+      "Path": "SFX\\Geralt_sword_swing_8_10C4C929.wem"
+     },
+     {
+      "Id": "806385269",
+      "Language": "SFX",
+      "ShortName": "Geralt_sword_swing_10.wav",
+      "Path": "SFX\\Geralt_sword_swing_10_10C4C929.wem"
+     },
+     {
+      "Id": "826802467",
+      "Language": "SFX",
+      "ShortName": "Geralt_sword_swing_7.wav",
+      "Path": "SFX\\Geralt_sword_swing_7_10C4C929.wem"
+     },
+     {
+      "Id": "851998395",
+      "Language": "SFX",
+      "ShortName": "Geralt_aard_6.wav",
+      "Path": "SFX\\Geralt_aard_6_10C4C929.wem"
+     },
+     {
+      "Id": "887117839",
+      "Language": "SFX",
+      "ShortName": "Geralt_walk_run_concrete_2.wav",
+      "Path": "SFX\\Geralt_walk_run_concrete_2_10C4C929.wem"
+     },
+     {
+      "Id": "893593226",
+      "Language": "SFX",
+      "ShortName": "Geralt_ulti_fix_4.wav",
+      "Path": "SFX\\Geralt_ulti_fix_4_10C4C929.wem"
+     },
+     {
+      "Id": "894454233",
+      "Language": "SFX",
+      "ShortName": "Geralt_potion_life_fx_3.wav",
+      "Path": "SFX\\Geralt_potion_life_fx_3_10C4C929.wem"
+     },
+     {
+      "Id": "899531312",
+      "Language": "SFX",
+      "ShortName": "Geralt_ulti_fix_1.wav",
+      "Path": "SFX\\Geralt_ulti_fix_1_10C4C929.wem"
+     },
+     {
+      "Id": "912795110",
+      "Language": "SFX",
+      "ShortName": "Geralt_sword_swing_4.wav",
+      "Path": "SFX\\Geralt_sword_swing_4_10C4C929.wem"
+     },
+     {
+      "Id": "916892162",
+      "Language": "SFX",
+      "ShortName": "Geralt_potion_2.wav",
+      "Path": "SFX\\Geralt_potion_2_10C4C929.wem"
+     },
+     {
+      "Id": "928024526",
+      "Language": "SFX",
+      "ShortName": "Geralt_walk_run_dirt_4.wav",
+      "Path": "SFX\\Geralt_walk_run_dirt_4_10C4C929.wem"
+     },
+     {
+      "Id": "937650596",
+      "Language": "SFX",
+      "ShortName": "Geralt_sword_metal_2.wav",
+      "Path": "SFX\\Geralt_sword_metal_2_10C4C929.wem"
+     },
+     {
+      "Id": "951626463",
+      "Language": "SFX",
+      "ShortName": "Geralt_sword_swing_9.wav",
+      "Path": "SFX\\Geralt_sword_swing_9_10C4C929.wem"
+     },
+     {
+      "Id": "953748758",
+      "Language": "SFX",
+      "ShortName": "Geralt_potion_other_version.wav",
+      "Path": "SFX\\Geralt_potion_other_version_10C4C929.wem"
+     },
+     {
+      "Id": "989150009",
+      "Language": "SFX",
+      "ShortName": "Geralt_revive.wav",
+      "Path": "SFX\\Geralt_revive_10C4C929.wem"
+     },
+     {
+      "Id": "1061166551",
+      "Language": "SFX",
+      "ShortName": "Geralt_walk_run_dirt_5.wav",
+      "Path": "SFX\\Geralt_walk_run_dirt_5_10C4C929.wem"
+     }
+    ]
+   },
+   {
+    "Id": "968010305",
+    "Language": "SFX",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Props",
+    "ShortName": "Props",
+    "Path": "Props.bnk",
+    "IncludedEvents": [
+     {
+      "Id": "2533588661",
+      "Name": "Play_Prop_hit_wood",
+      "ObjectPath": "\\Events\\Default Work Unit\\Props\\Play_Prop_hit_wood"
+     },
+     {
+      "Id": "2941887487",
+      "Name": "Play_Prop_wood_break",
+      "ObjectPath": "\\Events\\Default Work Unit\\Props\\Play_Prop_wood_break"
+     }
+    ],
+    "IncludedMemoryFiles": [
+     {
+      "Id": "268052903",
+      "Language": "SFX",
+      "ShortName": "Prop_wood_break_2.wav",
+      "Path": "SFX\\Prop_wood_break_2_10C4C929.wem"
+     },
+     {
+      "Id": "303446093",
+      "Language": "SFX",
+      "ShortName": "Prop_hit_wood_2.wav",
+      "Path": "SFX\\Prop_hit_wood_2_10C4C929.wem"
+     },
+     {
+      "Id": "393501687",
+      "Language": "SFX",
+      "ShortName": "Prop_hit_wood_3.wav",
+      "Path": "SFX\\Prop_hit_wood_3_10C4C929.wem"
+     },
+     {
+      "Id": "671956304",
+      "Language": "SFX",
+      "ShortName": "Prop_wood_break_1.wav",
+      "Path": "SFX\\Prop_wood_break_1_10C4C929.wem"
+     },
+     {
+      "Id": "994506821",
+      "Language": "SFX",
+      "ShortName": "Prop_hit_wood_4.wav",
+      "Path": "SFX\\Prop_hit_wood_4_10C4C929.wem"
+     },
+     {
+      "Id": "1056089616",
+      "Language": "SFX",
+      "ShortName": "Prop_hit_wood_1.wav",
+      "Path": "SFX\\Prop_hit_wood_1_10C4C929.wem"
+     }
+    ]
+   },
+   {
+    "Id": "1016515008",
+    "Language": "SFX",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Monster_enemies",
+    "ShortName": "Monster_enemies",
+    "Path": "Monster_enemies.bnk",
+    "IncludedEvents": [
+     {
+      "Id": "2779782817",
+      "Name": "Play_Kikimora_damaged",
+      "ObjectPath": "\\Events\\Default Work Unit\\Monster_enemies\\Kikimora\\Play_Kikimora_damaged"
+     },
+     {
+      "Id": "4129361266",
+      "Name": "Play_Kikimora_death",
+      "ObjectPath": "\\Events\\Default Work Unit\\Monster_enemies\\Kikimora\\Play_Kikimora_death"
+     },
+     {
+      "Id": "360314807",
+      "Name": "Play_Kikimora_fall",
+      "ObjectPath": "\\Events\\Default Work Unit\\Monster_enemies\\Kikimora\\Play_Kikimora_fall"
+     },
+     {
+      "Id": "2548185504",
+      "Name": "Play_Kikimora_lash",
+      "ObjectPath": "\\Events\\Default Work Unit\\Monster_enemies\\Kikimora\\Play_Kikimora_lash"
+     },
+     {
+      "Id": "1562990284",
+      "Name": "Play_Kikimora_punch",
+      "ObjectPath": "\\Events\\Default Work Unit\\Monster_enemies\\Kikimora\\Play_Kikimora_punch"
+     },
+     {
+      "Id": "2008134487",
+      "Name": "Play_Kikimora_scream",
+      "ObjectPath": "\\Events\\Default Work Unit\\Monster_enemies\\Kikimora\\Play_Kikimora_scream"
+     },
+     {
+      "Id": "3439824559",
+      "Name": "Play_Kikimora_scream_1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Monster_enemies\\Kikimora\\Play_Kikimora_scream_1"
+     },
+     {
+      "Id": "3439824554",
+      "Name": "Play_Kikimora_scream_4",
+      "ObjectPath": "\\Events\\Default Work Unit\\Monster_enemies\\Kikimora\\Play_Kikimora_scream_4"
+     },
+     {
+      "Id": "287198644",
+      "Name": "Play_Kikimora_sweep",
+      "ObjectPath": "\\Events\\Default Work Unit\\Monster_enemies\\Kikimora\\Play_Kikimora_sweep"
+     },
+     {
+      "Id": "2771098367",
+      "Name": "Play_Minion_both_arms_attack",
+      "ObjectPath": "\\Events\\Default Work Unit\\Monster_enemies\\Minion\\Play_Minion_both_arms_attack"
+     },
+     {
+      "Id": "1869957515",
+      "Name": "Play_Minion_death",
+      "ObjectPath": "\\Events\\Default Work Unit\\Monster_enemies\\Minion\\Play_Minion_death"
+     },
+     {
+      "Id": "637833570",
+      "Name": "Play_Minion_right_punch",
+      "ObjectPath": "\\Events\\Default Work Unit\\Monster_enemies\\Minion\\Play_Minion_right_punch"
+     },
+     {
+      "Id": "3179047082",
+      "Name": "Play_Minion_take_damage",
+      "ObjectPath": "\\Events\\Default Work Unit\\Monster_enemies\\Minion\\Play_Minion_take_damage"
+     },
+     {
+      "Id": "2475881258",
+      "Name": "Play_Minion_take_damage_scream",
+      "ObjectPath": "\\Events\\Default Work Unit\\Monster_enemies\\Minion\\Play_Minion_take_damage_scream"
+     },
+     {
+      "Id": "2307526086",
+      "Name": "Play_Screamer_ghoul_damaged",
+      "ObjectPath": "\\Events\\Default Work Unit\\Monster_enemies\\Screamer_ghoul\\Play_Screamer_ghoul_damaged"
+     },
+     {
+      "Id": "3599177725",
+      "Name": "Play_Screamer_ghoul_death",
+      "ObjectPath": "\\Events\\Default Work Unit\\Monster_enemies\\Screamer_ghoul\\Play_Screamer_ghoul_death"
+     },
+     {
+      "Id": "4053344040",
+      "Name": "Play_Screamer_ghoul_fall_back",
+      "ObjectPath": "\\Events\\Default Work Unit\\Monster_enemies\\Screamer_ghoul\\Play_Screamer_ghoul_fall_back"
+     },
+     {
+      "Id": "2105735622",
+      "Name": "Play_Screamer_ghoul_killed",
+      "ObjectPath": "\\Events\\Default Work Unit\\Monster_enemies\\Screamer_ghoul\\Play_Screamer_ghoul_killed"
+     },
+     {
+      "Id": "3298395927",
+      "Name": "Play_Screamer_ghoul_minion_spawn",
+      "ObjectPath": "\\Events\\Default Work Unit\\Monster_enemies\\Screamer_ghoul\\Play_Screamer_ghoul_minion_spawn"
+     },
+     {
+      "Id": "1192696521",
+      "Name": "Play_Screamer_ghoul_scream_attack",
+      "ObjectPath": "\\Events\\Default Work Unit\\Monster_enemies\\Screamer_ghoul\\Play_Screamer_ghoul_scream_attack"
+     },
+     {
+      "Id": "211157864",
+      "Name": "Play_Screamer_ghoul_scream_variation",
+      "ObjectPath": "\\Events\\Default Work Unit\\Monster_enemies\\Screamer_ghoul\\Play_Screamer_ghoul_scream_variation"
+     },
+     {
+      "Id": "1110615769",
+      "Name": "Play_Titan_ghoul_scream_attack",
+      "ObjectPath": "\\Events\\Default Work Unit\\Monster_enemies\\Titan_ghoul\\Play_Titan_ghoul_scream_attack"
+     },
+     {
+      "Id": "1347311224",
+      "Name": "Play_Titan_ghoul_take_damage",
+      "ObjectPath": "\\Events\\Default Work Unit\\Monster_enemies\\Titan_ghoul\\Play_Titan_ghoul_take_damage"
+     },
+     {
+      "Id": "547580181",
+      "Name": "Play_Titan_ghoull_death",
+      "ObjectPath": "\\Events\\Default Work Unit\\Monster_enemies\\Titan_ghoul\\Play_Titan_ghoull_death"
+     }
+    ],
+    "IncludedMemoryFiles": [
+     {
+      "Id": "2342711",
+      "Language": "SFX",
+      "ShortName": "Walker_Ghoul_take_damage_3.wav",
+      "Path": "SFX\\Walker_Ghoul_take_damage_3_10C4C929.wem"
+     },
+     {
+      "Id": "9678931",
+      "Language": "SFX",
+      "ShortName": "Kikimora_punch.wav",
+      "Path": "SFX\\Kikimora_punch_10C4C929.wem"
+     },
+     {
+      "Id": "12815014",
+      "Language": "SFX",
+      "ShortName": "Kikimora_scream_4.wav",
+      "Path": "SFX\\Kikimora_scream_4_10C4C929.wem"
+     },
+     {
+      "Id": "14737380",
+      "Language": "SFX",
+      "ShortName": "Kikimora_scream_3.wav",
+      "Path": "SFX\\Kikimora_scream_3_10C4C929.wem"
+     },
+     {
+      "Id": "29980648",
+      "Language": "SFX",
+      "ShortName": "Minion_take_damage_scream_2.wav",
+      "Path": "SFX\\Minion_take_damage_scream_2_10C4C929.wem"
+     },
+     {
+      "Id": "74048227",
+      "Language": "SFX",
+      "ShortName": "Kikimora_damaged_2.wav",
+      "Path": "SFX\\Kikimora_damaged_2_10C4C929.wem"
+     },
+     {
+      "Id": "91784012",
+      "Language": "SFX",
+      "ShortName": "Minion_death_2.wav",
+      "Path": "SFX\\Minion_death_2_10C4C929.wem"
+     },
+     {
+      "Id": "95769308",
+      "Language": "SFX",
+      "ShortName": "Walker_Ghoul_minion_spawn_2.wav",
+      "Path": "SFX\\Walker_Ghoul_minion_spawn_2_10C4C929.wem"
+     },
+     {
+      "Id": "117845744",
+      "Language": "SFX",
+      "ShortName": "Kikimora_sweep.wav",
+      "Path": "SFX\\Kikimora_sweep_10C4C929.wem"
+     },
+     {
+      "Id": "207123423",
+      "Language": "SFX",
+      "ShortName": "Minion_right_punch.wav",
+      "Path": "SFX\\Minion_right_punch_10C4C929.wem"
+     },
+     {
+      "Id": "209745940",
+      "Language": "SFX",
+      "ShortName": "Red_Ghoul_killed_1.wav",
+      "Path": "SFX\\Red_Ghoul_killed_1_10C4C929.wem"
+     },
+     {
+      "Id": "226365713",
+      "Language": "SFX",
+      "ShortName": "Walker_Ghoul_fall_back_2.wav",
+      "Path": "SFX\\Walker_Ghoul_fall_back_2_10C4C929.wem"
+     },
+     {
+      "Id": "279734841",
+      "Language": "SFX",
+      "ShortName": "Walker_Ghoul_take_damage_4.wav",
+      "Path": "SFX\\Walker_Ghoul_take_damage_4_10C4C929.wem"
+     },
+     {
+      "Id": "300951795",
+      "Language": "SFX",
+      "ShortName": "Minion_take_damage_2.wav",
+      "Path": "SFX\\Minion_take_damage_2_10C4C929.wem"
+     },
+     {
+      "Id": "365134146",
+      "Language": "SFX",
+      "ShortName": "Red_Ghoul_scream_variation_3.wav",
+      "Path": "SFX\\Red_Ghoul_scream_variation_3_10C4C929.wem"
+     },
+     {
+      "Id": "365638502",
+      "Language": "SFX",
+      "ShortName": "Minion_take_damage_1.wav",
+      "Path": "SFX\\Minion_take_damage_1_10C4C929.wem"
+     },
+     {
+      "Id": "375540798",
+      "Language": "SFX",
+      "ShortName": "Kikimora_damaged_3.wav",
+      "Path": "SFX\\Kikimora_damaged_3_10C4C929.wem"
+     },
+     {
+      "Id": "395695818",
+      "Language": "SFX",
+      "ShortName": "Walker_Ghoul_scream_attack_2.wav",
+      "Path": "SFX\\Walker_Ghoul_scream_attack_2_10C4C929.wem"
+     },
+     {
+      "Id": "402399703",
+      "Language": "SFX",
+      "ShortName": "Walker_Ghoul_scream_attack_3.wav",
+      "Path": "SFX\\Walker_Ghoul_scream_attack_3_10C4C929.wem"
+     },
+     {
+      "Id": "417361631",
+      "Language": "SFX",
+      "ShortName": "Kikimora_damaged_1.wav",
+      "Path": "SFX\\Kikimora_damaged_1_10C4C929.wem"
+     },
+     {
+      "Id": "447066000",
+      "Language": "SFX",
+      "ShortName": "Walker_Ghoul_death_2.wav",
+      "Path": "SFX\\Walker_Ghoul_death_2_10C4C929.wem"
+     },
+     {
+      "Id": "453690833",
+      "Language": "SFX",
+      "ShortName": "Kikimora_scream_2.wav",
+      "Path": "SFX\\Kikimora_scream_2_10C4C929.wem"
+     },
+     {
+      "Id": "461005737",
+      "Language": "SFX",
+      "ShortName": "Red_Ghoul_damaged_2.wav",
+      "Path": "SFX\\Red_Ghoul_damaged_2_10C4C929.wem"
+     },
+     {
+      "Id": "478261543",
+      "Language": "SFX",
+      "ShortName": "Minion_both_arms_attack.wav",
+      "Path": "SFX\\Minion_both_arms_attack_10C4C929.wem"
+     },
+     {
+      "Id": "486913171",
+      "Language": "SFX",
+      "ShortName": "Kikimora_scream_1.wav",
+      "Path": "SFX\\Kikimora_scream_1_10C4C929.wem"
+     },
+     {
+      "Id": "505540955",
+      "Language": "SFX",
+      "ShortName": "Kikimora_fall.wav",
+      "Path": "SFX\\Kikimora_fall_10C4C929.wem"
+     },
+     {
+      "Id": "530346917",
+      "Language": "SFX",
+      "ShortName": "Walker_Ghoul_scream_attack_1.wav",
+      "Path": "SFX\\Walker_Ghoul_scream_attack_1_10C4C929.wem"
+     },
+     {
+      "Id": "546863126",
+      "Language": "SFX",
+      "ShortName": "Walker_Ghoul_fall_back_1.wav",
+      "Path": "SFX\\Walker_Ghoul_fall_back_1_10C4C929.wem"
+     },
+     {
+      "Id": "547501419",
+      "Language": "SFX",
+      "ShortName": "Minion_death_1.wav",
+      "Path": "SFX\\Minion_death_1_10C4C929.wem"
+     },
+     {
+      "Id": "564748602",
+      "Language": "SFX",
+      "ShortName": "Walker_Ghoul_take_damage_1.wav",
+      "Path": "SFX\\Walker_Ghoul_take_damage_1_10C4C929.wem"
+     },
+     {
+      "Id": "597063675",
+      "Language": "SFX",
+      "ShortName": "Minion_death_3.wav",
+      "Path": "SFX\\Minion_death_3_10C4C929.wem"
+     },
+     {
+      "Id": "608064169",
+      "Language": "SFX",
+      "ShortName": "Red_Ghoul_scream_variation_1.wav",
+      "Path": "SFX\\Red_Ghoul_scream_variation_1_10C4C929.wem"
+     },
+     {
+      "Id": "613516105",
+      "Language": "SFX",
+      "ShortName": "Red_Ghoul_scream_1.wav",
+      "Path": "SFX\\Red_Ghoul_scream_1_10C4C929.wem"
+     },
+     {
+      "Id": "619914627",
+      "Language": "SFX",
+      "ShortName": "Kikimora_lash.wav",
+      "Path": "SFX\\Kikimora_lash_10C4C929.wem"
+     },
+     {
+      "Id": "696452794",
+      "Language": "SFX",
+      "ShortName": "Walker_Ghoul_minion_spawn_1.wav",
+      "Path": "SFX\\Walker_Ghoul_minion_spawn_1_10C4C929.wem"
+     },
+     {
+      "Id": "728864066",
+      "Language": "SFX",
+      "ShortName": "Walker_Ghoul_scream_attack_4.wav",
+      "Path": "SFX\\Walker_Ghoul_scream_attack_4_10C4C929.wem"
+     },
+     {
+      "Id": "831253138",
+      "Language": "SFX",
+      "ShortName": "Kikimora_death.wav",
+      "Path": "SFX\\Kikimora_death_10C4C929.wem"
+     },
+     {
+      "Id": "840382938",
+      "Language": "SFX",
+      "ShortName": "Red_Ghoul_scream_2.wav",
+      "Path": "SFX\\Red_Ghoul_scream_2_10C4C929.wem"
+     },
+     {
+      "Id": "875630680",
+      "Language": "SFX",
+      "ShortName": "Walker_Ghoul_take_damage_2.wav",
+      "Path": "SFX\\Walker_Ghoul_take_damage_2_10C4C929.wem"
+     },
+     {
+      "Id": "889268760",
+      "Language": "SFX",
+      "ShortName": "Red_Ghoul_death_2.wav",
+      "Path": "SFX\\Red_Ghoul_death_2_10C4C929.wem"
+     },
+     {
+      "Id": "903740306",
+      "Language": "SFX",
+      "ShortName": "Red_Ghoul_death_1.wav",
+      "Path": "SFX\\Red_Ghoul_death_1_10C4C929.wem"
+     },
+     {
+      "Id": "955305240",
+      "Language": "SFX",
+      "ShortName": "Red_Ghoul_damaged_1.wav",
+      "Path": "SFX\\Red_Ghoul_damaged_1_10C4C929.wem"
+     },
+     {
+      "Id": "968672774",
+      "Language": "SFX",
+      "ShortName": "Red_Ghoul_scream_variation_2.wav",
+      "Path": "SFX\\Red_Ghoul_scream_variation_2_10C4C929.wem"
+     },
+     {
+      "Id": "1009242023",
+      "Language": "SFX",
+      "ShortName": "Red_Ghoul_killed_2.wav",
+      "Path": "SFX\\Red_Ghoul_killed_2_10C4C929.wem"
+     },
+     {
+      "Id": "1038864665",
+      "Language": "SFX",
+      "ShortName": "Red_Ghoul_death_3.wav",
+      "Path": "SFX\\Red_Ghoul_death_3_10C4C929.wem"
+     },
+     {
+      "Id": "1047616197",
+      "Language": "SFX",
+      "ShortName": "Minion_take_damage_scream_1.wav",
+      "Path": "SFX\\Minion_take_damage_scream_1_10C4C929.wem"
+     },
+     {
+      "Id": "1050045866",
+      "Language": "SFX",
+      "ShortName": "Walker_Ghoul_death_1.wav",
+      "Path": "SFX\\Walker_Ghoul_death_1_10C4C929.wem"
+     }
+    ]
+   },
+   {
+    "Id": "1290008370",
+    "Language": "SFX",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Level_2",
+    "ShortName": "Level_2",
+    "Path": "Level_2.bnk",
+    "IncludedEvents": [
+     {
+      "Id": "4115872312",
+      "Name": "Play_Lvl2_fire_ambience_1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Level_2\\Play_Lvl2_fire_ambience_1"
+     },
+     {
+      "Id": "4115872315",
+      "Name": "Play_Lvl2_fire_ambience_2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Level_2\\Play_Lvl2_fire_ambience_2"
+     },
+     {
+      "Id": "4115872314",
+      "Name": "Play_Lvl2_fire_ambience_3",
+      "ObjectPath": "\\Events\\Default Work Unit\\Level_2\\Play_Lvl2_fire_ambience_3"
+     },
+     {
+      "Id": "2013879219",
+      "Name": "Play_Lvl2_wind_1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Level_2\\Play_Lvl2_wind_1"
+     },
+     {
+      "Id": "2013879216",
+      "Name": "Play_Lvl2_wind_2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Level_2\\Play_Lvl2_wind_2"
+     }
+    ],
+    "IncludedMemoryFiles": [
+     {
+      "Id": "303593917",
+      "Language": "SFX",
+      "ShortName": "Lvl2_fire_ambience_3.wav",
+      "Path": "SFX\\Lvl2_fire_ambience_3_10C4C929.wem"
+     },
+     {
+      "Id": "380592605",
+      "Language": "SFX",
+      "ShortName": "Lvl2_fire_ambience_1.wav",
+      "Path": "SFX\\Lvl2_fire_ambience_1_10C4C929.wem"
+     },
+     {
+      "Id": "490493165",
+      "Language": "SFX",
+      "ShortName": "Lvl2_wind_2.wav",
+      "Path": "SFX\\Lvl2_wind_2_10C4C929.wem"
+     },
+     {
+      "Id": "526975984",
+      "Language": "SFX",
+      "ShortName": "Lvl2_wind_1.wav",
+      "Path": "SFX\\Lvl2_wind_1_10C4C929.wem"
+     },
+     {
+      "Id": "823104144",
+      "Language": "SFX",
+      "ShortName": "Lvl2_fire ambience_2.wav",
+      "Path": "SFX\\Lvl2_fire ambience_2_10C4C929.wem"
+     }
+    ]
+   },
+   {
     "Id": "1355168291",
-    "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk"
    },
    {
-    "Id": "3161908922",
-    "GUID": "{5762A5AA-BC05-4CDC-904A-D151D178B2A2}",
+    "Id": "1614123467",
     "Language": "SFX",
-    "ObjectPath": "\\SoundBanks\\Default Work Unit\\main",
-    "ShortName": "main",
-    "Path": "main.bnk",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Music_Menus",
+    "ShortName": "Music_Menus",
+    "Path": "Music_Menus.bnk"
+   },
+   {
+    "Id": "1735538792",
+    "Language": "SFX",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Jaskier",
+    "ShortName": "Jaskier",
+    "Path": "Jaskier.bnk",
     "IncludedEvents": [
      {
-      "Id": "3307195674",
-      "Name": "Play_Attack_slow",
-      "ObjectPath": "\\Events\\Default Work Unit\\Misc\\Play_Attack_slow",
-      "GUID": "{2B799091-24F3-42D8-8DA2-C566649FFAAB}"
+      "Id": "2927481656",
+      "Name": "Play_Jaskier_acoustic_gitar_smash",
+      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_acoustic_gitar_smash"
      },
      {
-      "Id": "721993780",
-      "Name": "Play_Bandit_arrow_hit",
-      "ObjectPath": "\\Events\\Default Work Unit\\Bandit\\Play_Bandit_arrow_hit",
-      "GUID": "{0E67C7FC-24B1-46E5-9F3C-6C2D31FA72C2}"
+      "Id": "2312986841",
+      "Name": "Play_Jaskier_fall_down_get_up",
+      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_fall_down_get_up"
      },
      {
-      "Id": "3370108054",
-      "Name": "Play_Bandit_bow_pulling_rope",
-      "ObjectPath": "\\Events\\Default Work Unit\\Bandit\\Play_Bandit_bow_pulling_rope",
-      "GUID": "{815ADECF-D1F1-4633-84BC-220C0E4E06DD}"
+      "Id": "1679104389",
+      "Name": "Play_Jaskier_guitar_swing_1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_guitar_swing_1"
      },
      {
-      "Id": "1110140359",
-      "Name": "Play_Bandit_death_1",
-      "ObjectPath": "\\Events\\Default Work Unit\\Bandit\\Play_Bandit_death_1",
-      "GUID": "{B71E307E-837F-4CCC-8A9B-89F23FCCAFD7}"
+      "Id": "305605743",
+      "Name": "Play_Jaskier_guitar_swing_10",
+      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_guitar_swing_10"
      },
      {
-      "Id": "1110140356",
-      "Name": "Play_Bandit_death_2",
-      "ObjectPath": "\\Events\\Default Work Unit\\Bandit\\Play_Bandit_death_2",
-      "GUID": "{7313B3F3-A867-4F0C-9424-8600849384B9}"
+      "Id": "1679104390",
+      "Name": "Play_Jaskier_guitar_swing_2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_guitar_swing_2"
      },
      {
-      "Id": "1110140357",
-      "Name": "Play_Bandit_death_3",
-      "ObjectPath": "\\Events\\Default Work Unit\\Bandit\\Play_Bandit_death_3",
-      "GUID": "{FB643BDA-A035-4EE2-BD98-7BADC777EC6F}"
+      "Id": "1679104391",
+      "Name": "Play_Jaskier_guitar_swing_3",
+      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_guitar_swing_3"
      },
      {
-      "Id": "2734086463",
-      "Name": "Play_Bandit_getting_hit",
-      "ObjectPath": "\\Events\\Default Work Unit\\Bandit\\Play_Bandit_getting_hit",
-      "GUID": "{DF62BD66-05C2-4EA9-8CBF-9C3D58CDC9B0}"
+      "Id": "1679104384",
+      "Name": "Play_Jaskier_guitar_swing_4",
+      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_guitar_swing_4"
      },
      {
-      "Id": "3372312822",
-      "Name": "Play_Bandit_lumberjack_attack",
-      "ObjectPath": "\\Events\\Default Work Unit\\Bandit\\Play_Bandit_lumberjack_attack",
-      "GUID": "{6A0F7889-5B42-489A-940A-2A682C49FF1A}"
+      "Id": "1679104385",
+      "Name": "Play_Jaskier_guitar_swing_5",
+      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_guitar_swing_5"
      },
      {
-      "Id": "1871329907",
-      "Name": "Play_Bandit_throw_arrow",
-      "ObjectPath": "\\Events\\Default Work Unit\\Bandit\\Play_Bandit_throw_arrow",
-      "GUID": "{4354DC8F-9C06-4181-977D-ECE3FF2177AF}"
+      "Id": "1679104386",
+      "Name": "Play_Jaskier_guitar_swing_6",
+      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_guitar_swing_6"
      },
      {
-      "Id": "1900505411",
-      "Name": "Play_Bandit_voice_1",
-      "ObjectPath": "\\Events\\Default Work Unit\\Bandit\\Play_Bandit_voice_1",
-      "GUID": "{F3B599F1-B7EE-40A6-AB24-45643BD85EC4}"
+      "Id": "1679104387",
+      "Name": "Play_Jaskier_guitar_swing_7",
+      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_guitar_swing_7"
      },
      {
-      "Id": "1900505408",
-      "Name": "Play_Bandit_voice_2",
-      "ObjectPath": "\\Events\\Default Work Unit\\Bandit\\Play_Bandit_voice_2",
-      "GUID": "{0581A8D0-2805-4BCF-BF1F-AD8468C8B580}"
+      "Id": "1679104396",
+      "Name": "Play_Jaskier_guitar_swing_8",
+      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_guitar_swing_8"
      },
      {
-      "Id": "1900505409",
-      "Name": "Play_Bandit_voice_3",
-      "ObjectPath": "\\Events\\Default Work Unit\\Bandit\\Play_Bandit_voice_3",
-      "GUID": "{F97AA84A-3E39-4291-B6FD-B9A0F3B517DE}"
+      "Id": "1679104397",
+      "Name": "Play_Jaskier_guitar_swing_9",
+      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_guitar_swing_9"
      },
      {
-      "Id": "915743558",
-      "Name": "Play_Barrel_crush_1",
-      "ObjectPath": "\\Events\\Default Work Unit\\Misc\\Prop\\Play_Barrel_crush_1",
-      "GUID": "{98253344-25BE-4BC0-B0D4-93FC8E2A14DB}"
+      "Id": "743065899",
+      "Name": "Play_Jaskier_hit_sound_1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_hit_sound_1"
      },
      {
-      "Id": "915743557",
-      "Name": "Play_Barrel_crush_2",
-      "ObjectPath": "\\Events\\Default Work Unit\\Misc\\Prop\\Play_Barrel_crush_2",
-      "GUID": "{2E78A87B-9666-49FF-AB90-94BD7E0B925B}"
-     },
-     {
-      "Id": "763926535",
-      "Name": "Play_Broken_Wood_Sound_1",
-      "ObjectPath": "\\Events\\Default Work Unit\\Misc\\Prop\\Play_Broken_Wood_Sound_1",
-      "GUID": "{C04E4544-D6DE-421B-AFB7-D92D69B85CD9}"
-     },
-     {
-      "Id": "763926532",
-      "Name": "Play_Broken_Wood_Sound_2",
-      "ObjectPath": "\\Events\\Default Work Unit\\Misc\\Prop\\Play_Broken_Wood_Sound_2",
-      "GUID": "{7D6528F8-4BCA-4D2F-B558-16079E2F1767}"
-     },
-     {
-      "Id": "374802272",
-      "Name": "Play_Change_item",
-      "ObjectPath": "\\Events\\Default Work Unit\\HUD\\Play_Change_item",
-      "GUID": "{96ED60F9-9A6A-4215-9404-25987C9CEFE4}"
-     },
-     {
-      "Id": "3821598058",
-      "Name": "Play_Click_1",
-      "ObjectPath": "\\Events\\Default Work Unit\\UI\\Play_Click_1",
-      "GUID": "{73A2953F-1DC0-4CC6-9941-FD4456C7E46E}"
-     },
-     {
-      "Id": "3821598057",
-      "Name": "Play_Click_2",
-      "ObjectPath": "\\Events\\Default Work Unit\\UI\\Play_Click_2",
-      "GUID": "{6E8067B6-DCBF-4FE3-BD95-DE54FA46818C}"
-     },
-     {
-      "Id": "3821598056",
-      "Name": "Play_Click_3",
-      "ObjectPath": "\\Events\\Default Work Unit\\UI\\Play_Click_3",
-      "GUID": "{7B6EF1CC-D8C0-4ACF-A81D-F38543B0344C}"
-     },
-     {
-      "Id": "3821598063",
-      "Name": "Play_Click_4",
-      "ObjectPath": "\\Events\\Default Work Unit\\UI\\Play_Click_4",
-      "GUID": "{29C0CD60-1112-4009-8E9D-C90C99234B04}"
-     },
-     {
-      "Id": "3845195164",
-      "Name": "Play_Combo_1",
-      "ObjectPath": "\\Events\\Default Work Unit\\HUD\\Play_Combo_1",
-      "GUID": "{89CF293C-5C13-4FC7-A8FF-AE0DA11D209D}"
-     },
-     {
-      "Id": "3845195167",
-      "Name": "Play_Combo_2",
-      "ObjectPath": "\\Events\\Default Work Unit\\HUD\\Play_Combo_2",
-      "GUID": "{07954C27-CC04-4129-AD76-405F1B28ED2E}"
-     },
-     {
-      "Id": "3845195166",
-      "Name": "Play_Combo_3",
-      "ObjectPath": "\\Events\\Default Work Unit\\HUD\\Play_Combo_3",
-      "GUID": "{3664497F-EB6E-4DCF-A505-3B6FD5C7FDC0}"
-     },
-     {
-      "Id": "1749253064",
-      "Name": "Play_Combo_Geralt",
-      "ObjectPath": "\\Events\\Default Work Unit\\HUD\\Play_Combo_Geralt",
-      "GUID": "{763AAB52-AA70-4725-97A9-8E15DF023CB7}"
-     },
-     {
-      "Id": "249260787",
-      "Name": "Play_Commanding_the_Fury_loopable",
-      "ObjectPath": "\\Events\\Default Work Unit\\BGM\\Play_Commanding_the_Fury_loopable",
-      "GUID": "{53FABAC3-B77E-464A-A03D-413FACF46B5D}"
-     },
-     {
-      "Id": "2710797174",
-      "Name": "Play_Drinking_potion",
-      "ObjectPath": "\\Events\\Default Work Unit\\Misc\\Play_Drinking_potion",
-      "GUID": "{2243496A-DEA7-4BF9-8D76-150C3E6B90CD}"
-     },
-     {
-      "Id": "2415117513",
-      "Name": "Play_Endrega_attack_1",
-      "ObjectPath": "\\Events\\Default Work Unit\\Endrega\\Play_Endrega_attack_1",
-      "GUID": "{EA9EFEB0-AA27-475E-B610-140DFA491BE4}"
-     },
-     {
-      "Id": "2415117514",
-      "Name": "Play_Endrega_attack_2",
-      "ObjectPath": "\\Events\\Default Work Unit\\Endrega\\Play_Endrega_attack_2",
-      "GUID": "{D938011B-C1C0-4F25-B0DC-902594EA9B12}"
-     },
-     {
-      "Id": "3767323473",
-      "Name": "Play_Endrega_death",
-      "ObjectPath": "\\Events\\Default Work Unit\\Endrega\\Play_Endrega_death",
-      "GUID": "{F00A6038-1601-4B7E-BD8B-B930459A1E64}"
-     },
-     {
-      "Id": "2536823708",
-      "Name": "Play_Endrega_hit_1",
-      "ObjectPath": "\\Events\\Default Work Unit\\Endrega\\Play_Endrega_hit_1",
-      "GUID": "{2BA12976-E9C5-4757-9467-8B1A31A54E40}"
-     },
-     {
-      "Id": "2536823711",
-      "Name": "Play_Endrega_hit_2",
-      "ObjectPath": "\\Events\\Default Work Unit\\Endrega\\Play_Endrega_hit_2",
-      "GUID": "{607D9CE4-F117-4A42-B26F-3EDEE21FD350}"
-     },
-     {
-      "Id": "2536823710",
-      "Name": "Play_Endrega_hit_3",
-      "ObjectPath": "\\Events\\Default Work Unit\\Endrega\\Play_Endrega_hit_3",
-      "GUID": "{56104D7D-CF8A-40EA-BEE7-E1D4FBEB704C}"
-     },
-     {
-      "Id": "2536823705",
-      "Name": "Play_Endrega_hit_4",
-      "ObjectPath": "\\Events\\Default Work Unit\\Endrega\\Play_Endrega_hit_4",
-      "GUID": "{649E0235-6F57-4785-AD68-978D9981807D}"
-     },
-     {
-      "Id": "936258477",
-      "Name": "Play_Endrega_poisonous_gas_attack",
-      "ObjectPath": "\\Events\\Default Work Unit\\Endrega\\Play_Endrega_poisonous_gas_attack",
-      "GUID": "{DF27AD17-292A-4AF8-B05F-DFE4E185B394}"
-     },
-     {
-      "Id": "3455174023",
-      "Name": "Play_Endrega_ranged_attack",
-      "ObjectPath": "\\Events\\Default Work Unit\\Endrega\\Play_Endrega_ranged_attack",
-      "GUID": "{F9957273-4B6A-4490-8D7C-A00EEB558F6E}"
-     },
-     {
-      "Id": "4198089520",
-      "Name": "Play_Endrega_spin_attack",
-      "ObjectPath": "\\Events\\Default Work Unit\\Endrega\\Play_Endrega_spin_attack",
-      "GUID": "{FC6B2D6B-1F63-48AD-A1D3-02DB403D916D}"
-     },
-     {
-      "Id": "1890008868",
-      "Name": "Play_Endrega_swipe_attack",
-      "ObjectPath": "\\Events\\Default Work Unit\\Endrega\\Play_Endrega_swipe_attack",
-      "GUID": "{3840A1C8-5880-40B6-A31E-27BECDA4F6FA}"
-     },
-     {
-      "Id": "1131835515",
-      "Name": "Play_Endrega_throw_projectile",
-      "ObjectPath": "\\Events\\Default Work Unit\\Endrega\\Play_Endrega_throw_projectile",
-      "GUID": "{24E7E90C-612F-4E8F-980D-A32BF0E87530}"
-     },
-     {
-      "Id": "3692757640",
-      "Name": "Play_Geralt_aard_1",
-      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_aard_1",
-      "GUID": "{E599E28C-E7AD-4078-8E8D-C9F05235C385}"
-     },
-     {
-      "Id": "3692757643",
-      "Name": "Play_Geralt_aard_2",
-      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_aard_2",
-      "GUID": "{01553BEB-7265-4BF0-BFCD-1C09B1D873F1}"
-     },
-     {
-      "Id": "1313557380",
-      "Name": "Play_Geralt_attack_1",
-      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_attack_1",
-      "GUID": "{15A023E1-DFFF-4AE4-857E-2396C2473983}"
-     },
-     {
-      "Id": "4108748632",
-      "Name": "Play_Geralt_attack_1_1",
-      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_attack_1_1",
-      "GUID": "{EC9B0741-862A-400D-BBD3-14F2D511A278}"
-     },
-     {
-      "Id": "4108748635",
-      "Name": "Play_Geralt_attack_1_2",
-      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_attack_1_2",
-      "GUID": "{92C51DD3-9BA7-4299-B705-A121A2608E5D}"
-     },
-     {
-      "Id": "4108748634",
-      "Name": "Play_Geralt_attack_1_3",
-      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_attack_1_3",
-      "GUID": "{88FF848F-64DF-4850-9A55-057CA2C04BD2}"
-     },
-     {
-      "Id": "1313557383",
-      "Name": "Play_Geralt_attack_2",
-      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_attack_2",
-      "GUID": "{AF3AFED2-F3BF-4E04-9C64-90A66D542BB8}"
-     },
-     {
-      "Id": "4109293087",
-      "Name": "Play_Geralt_attack_2_1",
-      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_attack_2_1",
-      "GUID": "{17FFC6E5-FA56-4353-B350-D74637151F85}"
-     },
-     {
-      "Id": "4109293084",
-      "Name": "Play_Geralt_attack_2_2",
-      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_attack_2_2",
-      "GUID": "{EAE240C7-4749-4246-94ED-B76DC7EBAB2D}"
-     },
-     {
-      "Id": "4109293085",
-      "Name": "Play_Geralt_attack_2_3",
-      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_attack_2_3",
-      "GUID": "{CE9DD667-02B5-49A3-8E53-EA435CA574A1}"
-     },
-     {
-      "Id": "1313557382",
-      "Name": "Play_Geralt_attack_3",
-      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_attack_3",
-      "GUID": "{6316D7F3-1C49-4371-93FE-3EF720A40F99}"
-     },
-     {
-      "Id": "887843174",
-      "Name": "Play_Geralt_attack_3_1",
-      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_attack_3_1",
-      "GUID": "{AAA99C19-3470-43E8-839B-3F39FE2FAA1D}"
-     },
-     {
-      "Id": "887843173",
-      "Name": "Play_Geralt_attack_3_2",
-      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_attack_3_2",
-      "GUID": "{CFABEF68-3A94-492C-BA7A-3B3F5BDC4A79}"
-     },
-     {
-      "Id": "887843172",
-      "Name": "Play_Geralt_attack_3_3",
-      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_attack_3_3",
-      "GUID": "{BDCF2876-8279-44A8-BF73-FA2DA3495732}"
-     },
-     {
-      "Id": "1313557377",
-      "Name": "Play_Geralt_attack_4",
-      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_attack_4",
-      "GUID": "{1D2167E7-16C3-4329-A057-C881B73572DB}"
-     },
-     {
-      "Id": "1313557376",
-      "Name": "Play_Geralt_attack_5",
-      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_attack_5",
-      "GUID": "{146F9BDA-F989-46D7-86D5-A2F365D7D55D}"
-     },
-     {
-      "Id": "1313557379",
-      "Name": "Play_Geralt_attack_6",
-      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_attack_6",
-      "GUID": "{D6616C86-4BAE-4205-8261-423A44FDF9BD}"
-     },
-     {
-      "Id": "183137626",
-      "Name": "Play_Geralt_death",
-      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_death",
-      "GUID": "{6944EC66-45F8-4616-890E-59350399C3FE}"
-     },
-     {
-      "Id": "846883548",
-      "Name": "Play_Geralt_getting_up",
-      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_getting_up",
-      "GUID": "{E96128B7-4EB8-4E63-9131-796D6B833B8B}"
-     },
-     {
-      "Id": "2453819625",
-      "Name": "Play_Geralt_knockback",
-      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_knockback",
-      "GUID": "{84AF827A-8994-43F6-8C3A-648B211A6EEF}"
-     },
-     {
-      "Id": "102879625",
-      "Name": "Play_Geralt_potion",
-      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_potion",
-      "GUID": "{CA5CF4C9-DE3C-4CC5-B0DE-68F38A9ABABC}"
-     },
-     {
-      "Id": "966697903",
-      "Name": "Play_Geralt_revive",
-      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_revive",
-      "GUID": "{07C09C63-16AF-4AFD-8CDC-37640F5DAE5B}"
-     },
-     {
-      "Id": "170171029",
-      "Name": "Play_Geralt_roll",
-      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_roll",
-      "GUID": "{6EC5D73C-5A34-4BA0-A69A-1A7D2DBDF52D}"
-     },
-     {
-      "Id": "3557814099",
-      "Name": "Play_Geralt_run",
-      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_run",
-      "GUID": "{5FB022FF-B3C4-4F2C-9D6A-81AB0D39EBF6}"
-     },
-     {
-      "Id": "4181334820",
-      "Name": "Play_Geralt_stand_up",
-      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_stand_up",
-      "GUID": "{33A17223-B58D-46B1-85C5-643E020B45B9}"
-     },
-     {
-      "Id": "2375497796",
-      "Name": "Play_Geralt_stun",
-      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_stun",
-      "GUID": "{152C19DF-E6CE-407D-9328-238759B502F1}"
-     },
-     {
-      "Id": "3147769583",
-      "Name": "Play_Geralt_walk",
-      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_walk",
-      "GUID": "{7DB026AE-A3C7-418D-9869-A5E1C006F4FB}"
-     },
-     {
-      "Id": "2673589978",
-      "Name": "Play_Ghoul_death_1",
-      "ObjectPath": "\\Events\\Default Work Unit\\Ghoul\\Play_Ghoul_death_1",
-      "GUID": "{9B363419-E178-49D5-AA3B-C14E44D3FAD5}"
-     },
-     {
-      "Id": "2673589977",
-      "Name": "Play_Ghoul_death_2",
-      "ObjectPath": "\\Events\\Default Work Unit\\Ghoul\\Play_Ghoul_death_2",
-      "GUID": "{5F6D6A3A-E252-4B7C-9C6B-A6E66D19C592}"
-     },
-     {
-      "Id": "3118598783",
-      "Name": "Play_Ghoul_hurt_1",
-      "ObjectPath": "\\Events\\Default Work Unit\\Ghoul\\Play_Ghoul_hurt_1",
-      "GUID": "{7E5E123E-291F-48C3-BCD0-D0C6558E18F8}"
-     },
-     {
-      "Id": "3118598780",
-      "Name": "Play_Ghoul_hurt_2",
-      "ObjectPath": "\\Events\\Default Work Unit\\Ghoul\\Play_Ghoul_hurt_2",
-      "GUID": "{68061374-46F2-4330-B179-F553C6BB7E3C}"
-     },
-     {
-      "Id": "4257892175",
-      "Name": "Play_Ghoul_Scream_1",
-      "ObjectPath": "\\Events\\Default Work Unit\\Ghoul\\Play_Ghoul_Scream_1",
-      "GUID": "{D4A44CC1-51C1-48AD-A17E-C3521B2A9288}"
-     },
-     {
-      "Id": "4257892172",
-      "Name": "Play_Ghoul_Scream_2",
-      "ObjectPath": "\\Events\\Default Work Unit\\Ghoul\\Play_Ghoul_Scream_2",
-      "GUID": "{407F1E40-6B9B-46A8-9BF0-4C61F9D579A7}"
-     },
-     {
-      "Id": "19983055",
-      "Name": "Play_Hit_Wood_Sound_1",
-      "ObjectPath": "\\Events\\Default Work Unit\\Misc\\Prop\\Play_Hit_Wood_Sound_1",
-      "GUID": "{72AE24FD-ABDE-4607-99DF-65852477A790}"
-     },
-     {
-      "Id": "19983052",
-      "Name": "Play_Hit_Wood_Sound_2",
-      "ObjectPath": "\\Events\\Default Work Unit\\Misc\\Prop\\Play_Hit_Wood_Sound_2",
-      "GUID": "{A0F810C3-41C4-460B-B4E9-CA91E26CEB1E}"
-     },
-     {
-      "Id": "19983053",
-      "Name": "Play_Hit_Wood_Sound_3",
-      "ObjectPath": "\\Events\\Default Work Unit\\Misc\\Prop\\Play_Hit_Wood_Sound_3",
-      "GUID": "{39419DBE-7642-4D66-A5F9-DD8A9069C226}"
-     },
-     {
-      "Id": "755075876",
-      "Name": "Play_Jaskier_attack_1",
-      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_attack_1",
-      "GUID": "{F087887B-005F-4FEF-9433-41D00A2BE6E7}"
-     },
-     {
-      "Id": "3879315896",
-      "Name": "Play_Jaskier_attack_1_1",
-      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_attack_1_1",
-      "GUID": "{4CB1293E-9AC1-4937-8392-8E3C43BCDEDA}"
-     },
-     {
-      "Id": "3879315899",
-      "Name": "Play_Jaskier_attack_1_2",
-      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_attack_1_2",
-      "GUID": "{2AC7B449-2803-4C3E-A2CF-1400B85F57A9}"
-     },
-     {
-      "Id": "3879315898",
-      "Name": "Play_Jaskier_attack_1_3",
-      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_attack_1_3",
-      "GUID": "{89D95C79-39A6-4B4F-90DC-98061701F8A6}"
-     },
-     {
-      "Id": "755075879",
-      "Name": "Play_Jaskier_attack_2",
-      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_attack_2",
-      "GUID": "{868E15C2-88F0-4E9C-9923-BC6ABA51E9BD}"
-     },
-     {
-      "Id": "3879757183",
-      "Name": "Play_Jaskier_attack_2_1",
-      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_attack_2_1",
-      "GUID": "{1B23BA27-BF31-4463-A71F-94DC97A0C676}"
-     },
-     {
-      "Id": "3879757180",
-      "Name": "Play_Jaskier_attack_2_2",
-      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_attack_2_2",
-      "GUID": "{113A5FE2-B334-4FF4-B036-FC7142FE073C}"
-     },
-     {
-      "Id": "3879757181",
-      "Name": "Play_Jaskier_attack_2_3",
-      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_attack_2_3",
-      "GUID": "{51905CAA-F4EB-47A0-AD45-6312B62A86E0}"
-     },
-     {
-      "Id": "755075878",
-      "Name": "Play_Jaskier_attack_3",
-      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_attack_3",
-      "GUID": "{7DD3D6CA-230A-4055-B9DF-CFB099E16A54}"
-     },
-     {
-      "Id": "2805842374",
-      "Name": "Play_Jaskier_attack_3_1",
-      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_attack_3_1",
-      "GUID": "{0E3CF4A3-A08E-4C77-8F57-F0F9FD33BE08}"
-     },
-     {
-      "Id": "2805842373",
-      "Name": "Play_Jaskier_attack_3_2",
-      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_attack_3_2",
-      "GUID": "{7DFAFA83-66B7-4BC0-B420-05DFB4D33677}"
-     },
-     {
-      "Id": "2805842372",
-      "Name": "Play_Jaskier_attack_3_3",
-      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_attack_3_3",
-      "GUID": "{0572514F-BE30-419D-AC25-1A8E1B0D3328}"
-     },
-     {
-      "Id": "755075873",
-      "Name": "Play_Jaskier_attack_4",
-      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_attack_4",
-      "GUID": "{7BC3EF3B-4BDA-4C01-87DD-F13472859E4D}"
-     },
-     {
-      "Id": "755075872",
-      "Name": "Play_Jaskier_attack_5",
-      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_attack_5",
-      "GUID": "{400A6454-D96C-4F73-ADF4-5DB8051064D8}"
-     },
-     {
-      "Id": "1154354746",
-      "Name": "Play_Jaskier_death",
-      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_death",
-      "GUID": "{B56A3D0B-1AE1-4138-AE9D-684E6AAF3009}"
-     },
-     {
-      "Id": "2118298236",
-      "Name": "Play_Jaskier_getting_up",
-      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_getting_up",
-      "GUID": "{0F998D59-AF90-43A6-8E6F-D5F98C5EECC3}"
-     },
-     {
-      "Id": "2075994674",
-      "Name": "Play_Jaskier_heavy_impact",
-      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_heavy_impact",
-      "GUID": "{435184C3-CA0A-4815-AC4A-CACD6705FB8E}"
+      "Id": "743065896",
+      "Name": "Play_Jaskier_hit_sound_2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_hit_sound_2"
      },
      {
       "Id": "1018718152",
       "Name": "Play_Jaskier_jump",
-      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_jump",
-      "GUID": "{3071E46D-323A-4F1A-A052-02F30C796E03}"
+      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_jump"
      },
      {
-      "Id": "1701959369",
-      "Name": "Play_Jaskier_knockback",
-      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_knockback",
-      "GUID": "{5770C550-742F-4B68-A126-3685A1B62A72}"
+      "Id": "2111794168",
+      "Name": "Play_Jaskier_mandolin_single_hits_1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_mandolin_single_hits_1"
      },
      {
-      "Id": "704499477",
-      "Name": "Play_Jaskier_light_impact",
-      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_light_impact",
-      "GUID": "{9D315249-A9D6-40C7-AC78-7F7A05BAF343}"
+      "Id": "2111794171",
+      "Name": "Play_Jaskier_mandolin_single_hits_2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_mandolin_single_hits_2"
+     },
+     {
+      "Id": "2111794170",
+      "Name": "Play_Jaskier_mandolin_single_hits_3",
+      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_mandolin_single_hits_3"
+     },
+     {
+      "Id": "2111794173",
+      "Name": "Play_Jaskier_mandolin_single_hits_4",
+      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_mandolin_single_hits_4"
+     },
+     {
+      "Id": "2111794172",
+      "Name": "Play_Jaskier_mandolin_single_hits_5",
+      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_mandolin_single_hits_5"
+     },
+     {
+      "Id": "2111794175",
+      "Name": "Play_Jaskier_mandolin_single_hits_6",
+      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_mandolin_single_hits_6"
+     },
+     {
+      "Id": "2111794174",
+      "Name": "Play_Jaskier_mandolin_single_hits_7",
+      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_mandolin_single_hits_7"
+     },
+     {
+      "Id": "2111794161",
+      "Name": "Play_Jaskier_mandolin_single_hits_8",
+      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_mandolin_single_hits_8"
+     },
+     {
+      "Id": "2558139597",
+      "Name": "Play_Jaskier_potion_1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_potion_1"
+     },
+     {
+      "Id": "2558139598",
+      "Name": "Play_Jaskier_potion_2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_potion_2"
+     },
+     {
+      "Id": "2558139599",
+      "Name": "Play_Jaskier_potion_3",
+      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_potion_3"
+     },
+     {
+      "Id": "2558139592",
+      "Name": "Play_Jaskier_potion_4",
+      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_potion_4"
+     },
+     {
+      "Id": "115621703",
+      "Name": "Play_Jaskier_potion_life_fx_1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_potion_life_fx_1"
+     },
+     {
+      "Id": "115621700",
+      "Name": "Play_Jaskier_potion_life_fx_2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_potion_life_fx_2"
+     },
+     {
+      "Id": "115621701",
+      "Name": "Play_Jaskier_potion_life_fx_3",
+      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_potion_life_fx_3"
      },
      {
       "Id": "4116481551",
       "Name": "Play_Jaskier_revive",
-      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_revive",
-      "GUID": "{6B62D5F8-A1C4-4ED1-8794-8FF3D75557FD}"
+      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_revive"
      },
      {
-      "Id": "462417715",
-      "Name": "Play_Jaskier_run",
-      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_run",
-      "GUID": "{A33955F2-4DBE-4360-A1F6-E0E6DCA2CCEE}"
+      "Id": "3648986701",
+      "Name": "Play_Jaskier_walk_run_concrete_1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_walk_run_concrete_1"
      },
      {
-      "Id": "2858442791",
-      "Name": "Play_Jaskier_song_1",
-      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_song_1",
-      "GUID": "{899948FA-8FE4-491C-B053-ED1EF6ADC959}"
+      "Id": "3648986702",
+      "Name": "Play_Jaskier_walk_run_concrete_2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_walk_run_concrete_2"
      },
      {
-      "Id": "2858442788",
-      "Name": "Play_Jaskier_song_2",
-      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_song_2",
-      "GUID": "{438F6334-6763-4D6E-865F-05D53B072100}"
+      "Id": "3648986703",
+      "Name": "Play_Jaskier_walk_run_concrete_3",
+      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_walk_run_concrete_3"
      },
      {
-      "Id": "2517954756",
-      "Name": "Play_Jaskier_stand_up",
-      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_stand_up",
-      "GUID": "{D67D371B-C7D5-4935-AE00-E491C23D94B3}"
+      "Id": "3648986696",
+      "Name": "Play_Jaskier_walk_run_concrete_4",
+      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_walk_run_concrete_4"
      },
      {
-      "Id": "4229367204",
-      "Name": "Play_Jaskier_stun",
-      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_stun",
-      "GUID": "{4DDB6821-EF37-4BD7-B76A-D1EFA0700847}"
+      "Id": "2439869443",
+      "Name": "Play_Jaskier_walk_run_dirt_1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_walk_run_dirt_1"
      },
      {
-      "Id": "748248399",
-      "Name": "Play_Jaskier_walk",
-      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_walk",
-      "GUID": "{AF14C054-96B2-401F-90F9-B5944FE2FFC0}"
+      "Id": "2439869440",
+      "Name": "Play_Jaskier_walk_run_dirt_2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_walk_run_dirt_2"
      },
      {
-      "Id": "4129361266",
-      "Name": "Play_Kikimora_death",
-      "ObjectPath": "\\Events\\Default Work Unit\\Kikimora\\Play_Kikimora_death",
-      "GUID": "{7F3D3167-7DFC-4EA9-9A06-CB3E3566DF5A}"
+      "Id": "2439869441",
+      "Name": "Play_Jaskier_walk_run_dirt_3",
+      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_walk_run_dirt_3"
      },
      {
-      "Id": "3409660243",
-      "Name": "Play_Kikimora_hit",
-      "ObjectPath": "\\Events\\Default Work Unit\\Kikimora\\Play_Kikimora_hit",
-      "GUID": "{2E5638A3-8644-4BEE-B109-7757E58BD482}"
+      "Id": "2439869446",
+      "Name": "Play_Jaskier_walk_run_dirt_4",
+      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_walk_run_dirt_4"
      },
      {
-      "Id": "2548185504",
-      "Name": "Play_Kikimora_lash",
-      "ObjectPath": "\\Events\\Default Work Unit\\Kikimora\\Play_Kikimora_lash",
-      "GUID": "{CB7D134F-185E-4AB0-9ADB-37F0A2375FCA}"
-     },
-     {
-      "Id": "2489507373",
-      "Name": "Play_Kikimora_sound_1",
-      "ObjectPath": "\\Events\\Default Work Unit\\Kikimora\\Play_Kikimora_sound_1",
-      "GUID": "{0FC7AE17-B8D2-42CE-8DA3-80A3C724EE12}"
-     },
-     {
-      "Id": "2489507374",
-      "Name": "Play_Kikimora_sound_2",
-      "ObjectPath": "\\Events\\Default Work Unit\\Kikimora\\Play_Kikimora_sound_2",
-      "GUID": "{B9C3E6F6-4EE6-402D-AA6F-8D2B51E12B4B}"
-     },
-     {
-      "Id": "2489507375",
-      "Name": "Play_Kikimora_sound_3",
-      "ObjectPath": "\\Events\\Default Work Unit\\Kikimora\\Play_Kikimora_sound_3",
-      "GUID": "{801535CC-528E-49CB-BB21-DE51E64DDCBC}"
-     },
-     {
-      "Id": "2489507368",
-      "Name": "Play_Kikimora_sound_4",
-      "ObjectPath": "\\Events\\Default Work Unit\\Kikimora\\Play_Kikimora_sound_4",
-      "GUID": "{F0858185-DC9D-4FBE-9D58-8C0974C50125}"
-     },
-     {
-      "Id": "2489507369",
-      "Name": "Play_Kikimora_sound_5",
-      "ObjectPath": "\\Events\\Default Work Unit\\Kikimora\\Play_Kikimora_sound_5",
-      "GUID": "{D00C3717-B898-4C13-B3AF-4A8EB6F61A08}"
-     },
-     {
-      "Id": "2489507370",
-      "Name": "Play_Kikimora_sound_6",
-      "ObjectPath": "\\Events\\Default Work Unit\\Kikimora\\Play_Kikimora_sound_6",
-      "GUID": "{DA9CF824-8EFE-4E26-8562-A2EAC06A1786}"
-     },
-     {
-      "Id": "287198644",
-      "Name": "Play_Kikimora_sweep",
-      "ObjectPath": "\\Events\\Default Work Unit\\Kikimora\\Play_Kikimora_sweep",
-      "GUID": "{9584CB72-9C0E-4237-9363-5AF86BEDF6BE}"
-     },
-     {
-      "Id": "814842324",
-      "Name": "Play_Level_1_Music",
-      "ObjectPath": "\\Events\\Default Work Unit\\Play_Level_1_Music",
-      "GUID": "{B966A44D-ABA3-4DE3-BBF0-893D7BCB6E03}"
-     },
-     {
-      "Id": "3852706691",
-      "Name": "Play_Low_HP",
-      "ObjectPath": "\\Events\\Default Work Unit\\HUD\\Play_Low_HP",
-      "GUID": "{5C575A29-4D9B-43BB-A168-FE5023755F12}"
-     },
-     {
-      "Id": "160635907",
-      "Name": "Play_lvl1_Intro_conversation_Cutscene",
-      "ObjectPath": "\\Events\\Default Work Unit\\Dialogues\\Play_lvl1_Intro_conversation_Cutscene",
-      "GUID": "{6F03570E-E8B3-4EDE-892A-6D09F36880EF}"
-     },
-     {
-      "Id": "3306210749",
-      "Name": "Play_Main_menu",
-      "ObjectPath": "\\Events\\Default Work Unit\\BGM\\Play_Main_menu",
-      "GUID": "{1F775DBC-09A3-4B90-A08D-747FE5E15B1E}"
-     },
-     {
-      "Id": "4155944947",
-      "Name": "Play_menu_1",
-      "ObjectPath": "\\Events\\Default Work Unit\\Menu sign animation\\Play_menu_1",
-      "GUID": "{879ED0BE-840E-4408-9B6A-AA48F6C71634}"
-     },
-     {
-      "Id": "4155944944",
-      "Name": "Play_menu_2",
-      "ObjectPath": "\\Events\\Default Work Unit\\Menu sign animation\\Play_menu_2",
-      "GUID": "{3836AF38-305A-4D1C-B54C-CE011466438D}"
-     },
-     {
-      "Id": "1506867313",
-      "Name": "Play_Nilfgaardian_death_1",
-      "ObjectPath": "\\Events\\Default Work Unit\\Nilfgaardian\\Play_Nilfgaardian_death_1",
-      "GUID": "{2F9E1639-8F07-4274-A020-25089DDA3B86}"
-     },
-     {
-      "Id": "1506867314",
-      "Name": "Play_Nilfgaardian_death_2",
-      "ObjectPath": "\\Events\\Default Work Unit\\Nilfgaardian\\Play_Nilfgaardian_death_2",
-      "GUID": "{3C9E33AF-651C-492C-9721-9ED97559F58B}"
-     },
-     {
-      "Id": "1506867315",
-      "Name": "Play_Nilfgaardian_death_3",
-      "ObjectPath": "\\Events\\Default Work Unit\\Nilfgaardian\\Play_Nilfgaardian_death_3",
-      "GUID": "{4C7F70DE-85CA-4102-8DFF-D91DDA3EB182}"
-     },
-     {
-      "Id": "1753727864",
-      "Name": "Play_Nilfgaardian_hit_1",
-      "ObjectPath": "\\Events\\Default Work Unit\\Nilfgaardian\\Play_Nilfgaardian_hit_1",
-      "GUID": "{7ACE8F43-E413-4B08-B674-87CCBB497035}"
-     },
-     {
-      "Id": "1753727867",
-      "Name": "Play_Nilfgaardian_hit_2",
-      "ObjectPath": "\\Events\\Default Work Unit\\Nilfgaardian\\Play_Nilfgaardian_hit_2",
-      "GUID": "{7AF274FB-4D5C-4074-984F-255A6E4DC491}"
-     },
-     {
-      "Id": "208439943",
-      "Name": "Play_Nilfgaardian_lancer_charge_steps",
-      "ObjectPath": "\\Events\\Default Work Unit\\Nilfgaardian\\Play_Nilfgaardian_lancer_charge_steps",
-      "GUID": "{2E99662B-09DC-4256-8FB4-06706FCFDCFE}"
-     },
-     {
-      "Id": "581451192",
-      "Name": "Play_Nilfgaardian_lancer_shield_attack_impact",
-      "ObjectPath": "\\Events\\Default Work Unit\\Nilfgaardian\\Play_Nilfgaardian_lancer_shield_attack_impact",
-      "GUID": "{C97824CF-00F6-460F-8D93-9FEA24C72A82}"
-     },
-     {
-      "Id": "3672334832",
-      "Name": "Play_Nilfgaardian_lancer_shielded_impact_1",
-      "ObjectPath": "\\Events\\Default Work Unit\\Nilfgaardian\\Play_Nilfgaardian_lancer_shielded_impact_1",
-      "GUID": "{69B965C9-8C69-4291-A57C-3EDF3CF990B7}"
-     },
-     {
-      "Id": "3672334835",
-      "Name": "Play_Nilfgaardian_lancer_shielded_impact_2",
-      "ObjectPath": "\\Events\\Default Work Unit\\Nilfgaardian\\Play_Nilfgaardian_lancer_shielded_impact_2",
-      "GUID": "{1B7A6578-DDED-4650-8AAA-FFEB0644BDDF}"
-     },
-     {
-      "Id": "2295894765",
-      "Name": "Play_Nilfgaardian_lancer_spear_attack",
-      "ObjectPath": "\\Events\\Default Work Unit\\Nilfgaardian\\Play_Nilfgaardian_lancer_spear_attack",
-      "GUID": "{9F4DF674-795D-420A-9A59-86E2F33B43B1}"
-     },
-     {
-      "Id": "3927487520",
-      "Name": "Play_Nilfgaardian_swordsman_attack",
-      "ObjectPath": "\\Events\\Default Work Unit\\Nilfgaardian\\Play_Nilfgaardian_swordsman_attack",
-      "GUID": "{385A6660-A324-42B5-836B-08CC6156B8AD}"
-     },
-     {
-      "Id": "1211440689",
-      "Name": "Play_Nilfgaardian_voice_1",
-      "ObjectPath": "\\Events\\Default Work Unit\\Nilfgaardian\\Play_Nilfgaardian_voice_1",
-      "GUID": "{9B39166F-E017-42FE-936F-4F12B1436B88}"
-     },
-     {
-      "Id": "1211440690",
-      "Name": "Play_Nilfgaardian_voice_2",
-      "ObjectPath": "\\Events\\Default Work Unit\\Nilfgaardian\\Play_Nilfgaardian_voice_2",
-      "GUID": "{CEA39F6F-2906-46E7-AE0C-4ACAE2F66619}"
-     },
-     {
-      "Id": "1211440691",
-      "Name": "Play_Nilfgaardian_voice_3",
-      "ObjectPath": "\\Events\\Default Work Unit\\Nilfgaardian\\Play_Nilfgaardian_voice_3",
-      "GUID": "{678114A0-B7EB-4FC0-A76D-45BA6940F6CE}"
-     },
-     {
-      "Id": "1211440692",
-      "Name": "Play_Nilfgaardian_voice_4",
-      "ObjectPath": "\\Events\\Default Work Unit\\Nilfgaardian\\Play_Nilfgaardian_voice_4",
-      "GUID": "{CB274AA7-48FF-459A-B628-06C83EFDB82F}"
-     },
-     {
-      "Id": "1211440693",
-      "Name": "Play_Nilfgaardian_voice_5",
-      "ObjectPath": "\\Events\\Default Work Unit\\Nilfgaardian\\Play_Nilfgaardian_voice_5",
-      "GUID": "{BAB6CF61-741C-4A61-9D3A-DCC7BEF96A04}"
-     },
-     {
-      "Id": "1211440694",
-      "Name": "Play_Nilfgaardian_voice_6",
-      "ObjectPath": "\\Events\\Default Work Unit\\Nilfgaardian\\Play_Nilfgaardian_voice_6",
-      "GUID": "{D26EAC21-F147-4294-A21C-B3161CDE8AEA}"
-     },
-     {
-      "Id": "1261783110",
-      "Name": "Play_Nilfgaardian_walking_sound_group_1",
-      "ObjectPath": "\\Events\\Default Work Unit\\Nilfgaardian\\Play_Nilfgaardian_walking_sound_group_1",
-      "GUID": "{7776ED88-AF25-478E-A67E-E36283B272BE}"
-     },
-     {
-      "Id": "1261783109",
-      "Name": "Play_Nilfgaardian_walking_sound_group_2",
-      "ObjectPath": "\\Events\\Default Work Unit\\Nilfgaardian\\Play_Nilfgaardian_walking_sound_group_2",
-      "GUID": "{CA1BCEFF-60BC-4A1E-8C3F-47A2FBF6FBE3}"
-     },
-     {
-      "Id": "306299682",
-      "Name": "Play_No_energy",
-      "ObjectPath": "\\Events\\Default Work Unit\\HUD\\Play_No_energy",
-      "GUID": "{30B46D50-8605-45F8-862C-1499C237F665}"
-     },
-     {
-      "Id": "2108537051",
-      "Name": "Play_No_potion",
-      "ObjectPath": "\\Events\\Default Work Unit\\HUD\\Play_No_potion",
-      "GUID": "{4F223081-BF82-4D39-AFE6-C92439ADEE19}"
-     },
-     {
-      "Id": "1201227192",
-      "Name": "Play_Potion_health",
-      "ObjectPath": "\\Events\\Default Work Unit\\Misc\\Play_Potion_health",
-      "GUID": "{C05B1189-7F21-461A-9DCD-5E5DA23A5762}"
-     },
-     {
-      "Id": "3383813377",
-      "Name": "Play_Potion_power",
-      "ObjectPath": "\\Events\\Default Work Unit\\Misc\\Play_Potion_power",
-      "GUID": "{8B4A3ADF-B4C5-41AD-BBE6-071424C53D2E}"
-     },
-     {
-      "Id": "3850640881",
-      "Name": "Play_Potion_stamina",
-      "ObjectPath": "\\Events\\Default Work Unit\\Misc\\Play_Potion_stamina",
-      "GUID": "{F87DA683-79E7-4510-B476-65F236C69D5D}"
-     },
-     {
-      "Id": "2927391090",
-      "Name": "Play_Select_1",
-      "ObjectPath": "\\Events\\Default Work Unit\\UI\\Play_Select_1",
-      "GUID": "{C2EEB4EE-E028-4B8C-9FC4-7276D51EF138}"
-     },
-     {
-      "Id": "2927391089",
-      "Name": "Play_Select_2",
-      "ObjectPath": "\\Events\\Default Work Unit\\UI\\Play_Select_2",
-      "GUID": "{2B559040-1031-4A4E-9025-39C18D8FB499}"
-     },
-     {
-      "Id": "2927391088",
-      "Name": "Play_Select_3",
-      "ObjectPath": "\\Events\\Default Work Unit\\UI\\Play_Select_3",
-      "GUID": "{E0D0B0E3-1E60-4FCB-84CE-A5FF72620C4F}"
-     },
-     {
-      "Id": "2712680258",
-      "Name": "Play_Sheathe",
-      "ObjectPath": "\\Events\\Default Work Unit\\HUD\\Play_Sheathe",
-      "GUID": "{7090FF2D-CA0C-4D3D-86E4-64DD393B3186}"
-     },
-     {
-      "Id": "3963492094",
-      "Name": "Play_Silver_for_Monsters_loop",
-      "ObjectPath": "\\Events\\Default Work Unit\\BGM\\Play_Silver_for_Monsters_loop",
-      "GUID": "{4EFCE6DB-0E6E-4803-8431-5B2FFCA7695C}"
-     },
-     {
-      "Id": "3329043269",
-      "Name": "Play_Silver_for_Monsters_Music",
-      "ObjectPath": "\\Events\\Default Work Unit\\BGM\\Play_Silver_for_Monsters_Music",
-      "GUID": "{7304625C-F9C9-4C79-96BB-DD461A690D70}"
-     },
-     {
-      "Id": "1836364305",
-      "Name": "Play_Special_up",
-      "ObjectPath": "\\Events\\Default Work Unit\\HUD\\Play_Special_up",
-      "GUID": "{AA12B4D1-2D1C-48F1-889B-B5801AC35C28}"
-     },
-     {
-      "Id": "3838623592",
-      "Name": "Play_Spikeroog_loop",
-      "ObjectPath": "\\Events\\Default Work Unit\\BGM\\Play_Spikeroog_loop",
-      "GUID": "{9EEBB313-0AAC-4C32-B20D-34C7F83CE86F}"
-     },
-     {
-      "Id": "562633715",
-      "Name": "Play_Spikeroog_Music",
-      "ObjectPath": "\\Events\\Default Work Unit\\BGM\\Play_Spikeroog_Music",
-      "GUID": "{933D0AF9-4CBE-4D9E-B129-4607DDF7B116}"
-     },
-     {
-      "Id": "1898041542",
-      "Name": "Play_Trial_of_the_Grasses_loop",
-      "ObjectPath": "\\Events\\Default Work Unit\\BGM\\Play_Trial_of_the_Grasses_loop",
-      "GUID": "{B55F229E-54D3-42C1-8F48-9F4C0D19EA45}"
-     },
-     {
-      "Id": "1586346464",
-      "Name": "Play_Ulti_Geralt",
-      "ObjectPath": "\\Events\\Default Work Unit\\HUD\\Play_Ulti_Geralt",
-      "GUID": "{3030CC2C-8167-43B9-B3C2-7D88E203910F}"
-     },
-     {
-      "Id": "2342786857",
-      "Name": "Play_Unsheathe",
-      "ObjectPath": "\\Events\\Default Work Unit\\HUD\\Play_Unsheathe",
-      "GUID": "{923841CB-A707-4E89-A184-F07B49502665}"
-     },
-     {
-      "Id": "3553846485",
-      "Name": "Play_Used_potion",
-      "ObjectPath": "\\Events\\Default Work Unit\\HUD\\Play_Used_potion",
-      "GUID": "{5C78EAF2-C35F-4E4B-A0A3-603E6693BC3A}"
-     },
-     {
-      "Id": "1098472812",
-      "Name": "Play_Witch_Hunters_loopable",
-      "ObjectPath": "\\Events\\Default Work Unit\\BGM\\Play_Witch_Hunters_loopable",
-      "GUID": "{49CB802C-921E-46BF-9C56-3AB0FF9B6F56}"
-     },
-     {
-      "Id": "152572334",
-      "Name": "Play_Wooden_object_break_1",
-      "ObjectPath": "\\Events\\Default Work Unit\\Misc\\Prop\\Play_Wooden_object_break_1",
-      "GUID": "{C90F93A7-A644-4675-BE81-BBECDB2246DA}"
-     },
-     {
-      "Id": "152572333",
-      "Name": "Play_Wooden_object_break_2",
-      "ObjectPath": "\\Events\\Default Work Unit\\Misc\\Prop\\Play_Wooden_object_break_2",
-      "GUID": "{1669E4E0-9FD1-405B-8A0A-0C2AD1617D5C}"
-     },
-     {
-      "Id": "152572332",
-      "Name": "Play_Wooden_object_break_3",
-      "ObjectPath": "\\Events\\Default Work Unit\\Misc\\Prop\\Play_Wooden_object_break_3",
-      "GUID": "{02CA2657-BBFE-4AEA-A41F-BE787A50FD7A}"
-     },
-     {
-      "Id": "152572331",
-      "Name": "Play_Wooden_object_break_4",
-      "ObjectPath": "\\Events\\Default Work Unit\\Misc\\Prop\\Play_Wooden_object_break_4",
-      "GUID": "{70A4C885-EFCF-4F6B-BF0B-5CC174BA281A}"
-     },
-     {
-      "Id": "152572330",
-      "Name": "Play_Wooden_object_break_5",
-      "ObjectPath": "\\Events\\Default Work Unit\\Misc\\Prop\\Play_Wooden_object_break_5",
-      "GUID": "{AE125AC2-C62F-4146-855F-528D66CE443F}"
-     },
-     {
-      "Id": "152572329",
-      "Name": "Play_Wooden_object_break_6",
-      "ObjectPath": "\\Events\\Default Work Unit\\Misc\\Prop\\Play_Wooden_object_break_6",
-      "GUID": "{18469FA4-92F1-4883-B691-526BB5D8CECB}"
-     },
-     {
-      "Id": "310070311",
-      "Name": "Play_Wrong_Jaskier",
-      "ObjectPath": "\\Events\\Default Work Unit\\HUD\\Play_Wrong_Jaskier",
-      "GUID": "{7BA806AF-D46E-4B34-AE89-F647BA01618C}"
+      "Id": "2439869447",
+      "Name": "Play_Jaskier_walk_run_dirt_5",
+      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_walk_run_dirt_5"
      }
     ],
     "IncludedMemoryFiles": [
      {
-      "Id": "10857962",
+      "Id": "22946343",
       "Language": "SFX",
-      "ShortName": "Death_2.wav",
-      "Path": "SFX\\Death_2_10C4C929.wem"
+      "ShortName": "Jaskier_potion_4.wav",
+      "Path": "SFX\\Jaskier_potion_4_10C4C929.wem"
      },
      {
-      "Id": "11830719",
+      "Id": "26022165",
       "Language": "SFX",
-      "ShortName": "Endrega_death.wav",
-      "Path": "SFX\\Endrega_death_10C4C929.wem"
+      "ShortName": "Jaskier_guitar_swing_7.wav",
+      "Path": "SFX\\Jaskier_guitar_swing_7_10C4C929.wem"
      },
      {
-      "Id": "16865468",
+      "Id": "93263325",
       "Language": "SFX",
-      "ShortName": "Ulti_Geralt.wav",
-      "Path": "SFX\\Ulti_Geralt_10C4C929.wem"
+      "ShortName": "Jaskier_acoustic_gitar_smash.wav",
+      "Path": "SFX\\Jaskier_acoustic_gitar_smash_10C4C929.wem"
      },
      {
-      "Id": "18670337",
+      "Id": "99508910",
       "Language": "SFX",
-      "ShortName": "Geralt_potion.wav",
-      "Path": "SFX\\Geralt_potion_10C4C929.wem"
+      "ShortName": "Jaskier_guitar_swing_1.wav",
+      "Path": "SFX\\Jaskier_guitar_swing_1_10C4C929.wem"
      },
      {
-      "Id": "19931772",
+      "Id": "163990787",
       "Language": "SFX",
-      "ShortName": "Jaskier_attack_1_3.wav",
-      "Path": "SFX\\Jaskier_attack_1_3_10C4C929.wem"
+      "ShortName": "Jaskier_guitar_swing_4.wav",
+      "Path": "SFX\\Jaskier_guitar_swing_4_10C4C929.wem"
      },
      {
-      "Id": "23639834",
+      "Id": "191414039",
       "Language": "SFX",
-      "ShortName": "menu 1.wav",
-      "Path": "SFX\\menu 1_10C4C929.wem"
+      "ShortName": "Jaskier_mandolin_single_hits_4.wav",
+      "Path": "SFX\\Jaskier_mandolin_single_hits_4_10C4C929.wem"
      },
      {
-      "Id": "42164179",
+      "Id": "215839451",
       "Language": "SFX",
-      "ShortName": "Jaskier_attack_1.wav",
-      "Path": "SFX\\Jaskier_attack_1_10C4C929.wem"
+      "ShortName": "Jaskier_walk_run_concrete_1.wav",
+      "Path": "SFX\\Jaskier_walk_run_concrete_1_10C4C929.wem"
      },
      {
-      "Id": "42690380",
+      "Id": "286403294",
       "Language": "SFX",
-      "ShortName": "Special_up.wav",
-      "Path": "SFX\\Special_up_10C4C929.wem"
+      "ShortName": "Jaskier_guitar_swing_8.wav",
+      "Path": "SFX\\Jaskier_guitar_swing_8_10C4C929.wem"
      },
      {
-      "Id": "42978305",
+      "Id": "288422242",
       "Language": "SFX",
-      "ShortName": "Wooden _object_break_3.wav",
-      "Path": "SFX\\Wooden _object_break_3_10C4C929.wem"
+      "ShortName": "Jaskier_potion_life_fx_2.wav",
+      "Path": "SFX\\Jaskier_potion_life_fx_2_10C4C929.wem"
      },
      {
-      "Id": "44445549",
+      "Id": "417883437",
       "Language": "SFX",
-      "ShortName": "Drinking_potion.wav",
-      "Path": "SFX\\Drinking_potion_10C4C929.wem"
+      "ShortName": "Jaskier_walk_run_concrete_4.wav",
+      "Path": "SFX\\Jaskier_walk_run_concrete_4_10C4C929.wem"
      },
      {
-      "Id": "50051284",
+      "Id": "434500287",
       "Language": "SFX",
-      "ShortName": "Geralt_attack_1.wav",
-      "Path": "SFX\\Geralt_attack_1_10C4C929.wem"
+      "ShortName": "Jaskier_mandolin_single_hits_1.wav",
+      "Path": "SFX\\Jaskier_mandolin_single_hits_1_10C4C929.wem"
      },
      {
-      "Id": "62967244",
+      "Id": "437857490",
       "Language": "SFX",
-      "ShortName": "Kikimora_hit.wav",
-      "Path": "SFX\\Kikimora_hit_10C4C929.wem"
+      "ShortName": "Jaskier_guitar_swing_2.wav",
+      "Path": "SFX\\Jaskier_guitar_swing_2_10C4C929.wem"
      },
      {
-      "Id": "65106484",
+      "Id": "454737914",
       "Language": "SFX",
-      "ShortName": "Jaskier_knockback.wav",
-      "Path": "SFX\\Jaskier_knockback_10C4C929.wem"
+      "ShortName": "Jaskier_guitar_swing_6.wav",
+      "Path": "SFX\\Jaskier_guitar_swing_6_10C4C929.wem"
      },
      {
-      "Id": "74455116",
+      "Id": "554817720",
       "Language": "SFX",
-      "ShortName": "Geralt_attack_1_3.wav",
-      "Path": "SFX\\Geralt_attack_1_3_10C4C929.wem"
+      "ShortName": "Jaskier_walk_run_dirt_3.wav",
+      "Path": "SFX\\Jaskier_walk_run_dirt_3_10C4C929.wem"
      },
      {
-      "Id": "93577160",
-      "Language": "SFX",
-      "ShortName": "Endrega_hit_4.wav",
-      "Path": "SFX\\Endrega_hit_4_10C4C929.wem"
-     },
-     {
-      "Id": "98986038",
-      "Language": "SFX",
-      "ShortName": "Kikimora_sound_4.wav",
-      "Path": "SFX\\Kikimora_sound_4_10C4C929.wem"
-     },
-     {
-      "Id": "107875743",
-      "Language": "SFX",
-      "ShortName": "Geralt_walk.wav",
-      "Path": "SFX\\Geralt_walk_D79FB2B7.wem"
-     },
-     {
-      "Id": "111760900",
-      "Language": "SFX",
-      "ShortName": "Kikimora_sound_1.wav",
-      "Path": "SFX\\Kikimora_sound_1_10C4C929.wem"
-     },
-     {
-      "Id": "114544205",
-      "Language": "SFX",
-      "ShortName": "Hurt_2.wav",
-      "Path": "SFX\\Hurt_2_10C4C929.wem"
-     },
-     {
-      "Id": "116319969",
-      "Language": "SFX",
-      "ShortName": "Hit_Wood_Sound_3.wav",
-      "Path": "SFX\\Hit_Wood_Sound_3_10C4C929.wem"
-     },
-     {
-      "Id": "119497876",
-      "Language": "SFX",
-      "ShortName": "Geralt_attack_3_3.wav",
-      "Path": "SFX\\Geralt_attack_3_3_10C4C929.wem"
-     },
-     {
-      "Id": "136835117",
-      "Language": "SFX",
-      "ShortName": "Bandit_throw_arrow.wav",
-      "Path": "SFX\\Bandit_throw_arrow_10C4C929.wem"
-     },
-     {
-      "Id": "147275617",
-      "Language": "SFX",
-      "ShortName": "Kikimora_sound_5.wav",
-      "Path": "SFX\\Kikimora_sound_5_10C4C929.wem"
-     },
-     {
-      "Id": "148817783",
-      "Language": "SFX",
-      "ShortName": "Geralt_death.wav",
-      "Path": "SFX\\Geralt_death_10C4C929.wem"
-     },
-     {
-      "Id": "153701030",
-      "Language": "SFX",
-      "ShortName": "Geralt_attack_2_3.wav",
-      "Path": "SFX\\Geralt_attack_2_3_10C4C929.wem"
-     },
-     {
-      "Id": "156552986",
-      "Language": "SFX",
-      "ShortName": "Geralt_stun.wav",
-      "Path": "SFX\\Geralt_stun_10C4C929.wem"
-     },
-     {
-      "Id": "159793472",
-      "Language": "SFX",
-      "ShortName": "Nilfgaardian_death_2.wav",
-      "Path": "SFX\\Nilfgaardian_death_2_10C4C929.wem"
-     },
-     {
-      "Id": "182565632",
-      "Language": "SFX",
-      "ShortName": "Jaskier_attack_2_1.wav",
-      "Path": "SFX\\Jaskier_attack_2_1_10C4C929.wem"
-     },
-     {
-      "Id": "192295729",
-      "Language": "SFX",
-      "ShortName": "Click_1.wav",
-      "Path": "SFX\\Click_1_10C4C929.wem"
-     },
-     {
-      "Id": "197599633",
-      "Language": "SFX",
-      "ShortName": "Attack_slow.wav",
-      "Path": "SFX\\Attack_slow_10C4C929.wem"
-     },
-     {
-      "Id": "200739784",
-      "Language": "SFX",
-      "ShortName": "Main_menu.wav",
-      "Path": "SFX\\Main_menu_10C4C929.wem"
-     },
-     {
-      "Id": "204538574",
-      "Language": "SFX",
-      "ShortName": "Jaskier_attack_3_1.wav",
-      "Path": "SFX\\Jaskier_attack_3_1_10C4C929.wem"
-     },
-     {
-      "Id": "206758793",
-      "Language": "SFX",
-      "ShortName": "Scream_1.wav",
-      "Path": "SFX\\Scream_1_10C4C929.wem"
-     },
-     {
-      "Id": "208653567",
-      "Language": "SFX",
-      "ShortName": "Nilfgaardian_voice_4.wav",
-      "Path": "SFX\\Nilfgaardian_voice_4_10C4C929.wem"
-     },
-     {
-      "Id": "209369785",
-      "Language": "SFX",
-      "ShortName": "Geralt_aard_1.wav",
-      "Path": "SFX\\Geralt_aard_1_10C4C929.wem"
-     },
-     {
-      "Id": "224900403",
-      "Language": "SFX",
-      "ShortName": "Scream_2.wav",
-      "Path": "SFX\\Scream_2_10C4C929.wem"
-     },
-     {
-      "Id": "227347102",
-      "Language": "SFX",
-      "ShortName": "Geralt_attack_2_2.wav",
-      "Path": "SFX\\Geralt_attack_2_2_10C4C929.wem"
-     },
-     {
-      "Id": "232514687",
-      "Language": "SFX",
-      "ShortName": "Kikimora_lash.wav",
-      "Path": "SFX\\Kikimora_lash_10C4C929.wem"
-     },
-     {
-      "Id": "251990255",
+      "Id": "586003345",
       "Language": "SFX",
       "ShortName": "Jaskier_jump.wav",
       "Path": "SFX\\Jaskier_jump_10C4C929.wem"
      },
      {
-      "Id": "258996778",
+      "Id": "590511381",
       "Language": "SFX",
-      "ShortName": "Geralt_attack_5.wav",
-      "Path": "SFX\\Geralt_attack_5_10C4C929.wem"
+      "ShortName": "Jaskier_guitar_swing_5.wav",
+      "Path": "SFX\\Jaskier_guitar_swing_5_10C4C929.wem"
      },
      {
-      "Id": "296504993",
+      "Id": "622300700",
       "Language": "SFX",
-      "ShortName": "Endrega_hit_2.wav",
-      "Path": "SFX\\Endrega_hit_2_10C4C929.wem"
+      "ShortName": "Jaskier_walk_run_concrete_2.wav",
+      "Path": "SFX\\Jaskier_walk_run_concrete_2_10C4C929.wem"
      },
      {
-      "Id": "300709793",
+      "Id": "638660470",
       "Language": "SFX",
-      "ShortName": "Jaskier_heavy_impact.wav",
-      "Path": "SFX\\Jaskier_heavy_impact_10C4C929.wem"
+      "ShortName": "Jaskier_potion_1.wav",
+      "Path": "SFX\\Jaskier_potion_1_10C4C929.wem"
      },
      {
-      "Id": "304489908",
+      "Id": "658497880",
       "Language": "SFX",
-      "ShortName": "Change_item.wav",
-      "Path": "SFX\\Change_item_10C4C929.wem"
+      "ShortName": "Jaskier_potion_life_fx_3.wav",
+      "Path": "SFX\\Jaskier_potion_life_fx_3_10C4C929.wem"
      },
      {
-      "Id": "327084643",
+      "Id": "668632756",
       "Language": "SFX",
-      "ShortName": "Nilfgaardian_death_1.wav",
-      "Path": "SFX\\Nilfgaardian_death_1_10C4C929.wem"
+      "ShortName": "Jaskier_mandolin_single_hits_7.wav",
+      "Path": "SFX\\Jaskier_mandolin_single_hits_7_10C4C929.wem"
      },
      {
-      "Id": "353744191",
+      "Id": "693213339",
       "Language": "SFX",
-      "ShortName": "Nilfgaardian_hit_2.wav",
-      "Path": "SFX\\Nilfgaardian_hit_2_10C4C929.wem"
+      "ShortName": "Jaskier_potion_life_fx_1.wav",
+      "Path": "SFX\\Jaskier_potion_life_fx_1_10C4C929.wem"
      },
      {
-      "Id": "353787941",
+      "Id": "727945761",
       "Language": "SFX",
-      "ShortName": "Select_3.wav",
-      "Path": "SFX\\Select_3_10C4C929.wem"
+      "ShortName": "Jaskier_mandolin_single_hits_2.wav",
+      "Path": "SFX\\Jaskier_mandolin_single_hits_2_10C4C929.wem"
      },
      {
-      "Id": "356947014",
+      "Id": "768107901",
       "Language": "SFX",
-      "ShortName": "Jaskier_attack_2.wav",
-      "Path": "SFX\\Jaskier_attack_2_10C4C929.wem"
+      "ShortName": "Jaskier_guitar_swing_9.wav",
+      "Path": "SFX\\Jaskier_guitar_swing_9_10C4C929.wem"
      },
      {
-      "Id": "371537414",
+      "Id": "768909275",
       "Language": "SFX",
-      "ShortName": "Wooden _object_break_4.wav",
-      "Path": "SFX\\Wooden _object_break_4_10C4C929.wem"
+      "ShortName": "Jaskier_hit_sound_2.wav",
+      "Path": "SFX\\Jaskier_hit_sound_2_10C4C929.wem"
      },
      {
-      "Id": "383247196",
+      "Id": "778216361",
       "Language": "SFX",
-      "ShortName": "Bandit_lumberjack_attack.wav",
-      "Path": "SFX\\Bandit_lumberjack_attack_10C4C929.wem"
+      "ShortName": "Jaskier_walk_run_dirt_5.wav",
+      "Path": "SFX\\Jaskier_walk_run_dirt_5_10C4C929.wem"
      },
      {
-      "Id": "397416824",
+      "Id": "799026736",
       "Language": "SFX",
-      "ShortName": "Jaskier_walk.wav",
-      "Path": "SFX\\Jaskier_walk_D79FB2B7.wem"
+      "ShortName": "Jaskier_mandolin_single_hits_5.wav",
+      "Path": "SFX\\Jaskier_mandolin_single_hits_5_10C4C929.wem"
      },
      {
-      "Id": "398883563",
+      "Id": "808607622",
       "Language": "SFX",
-      "ShortName": "Bandit_death_3.wav",
-      "Path": "SFX\\Bandit_death_3_10C4C929.wem"
+      "ShortName": "Jaskier_walk_run_dirt_1.wav",
+      "Path": "SFX\\Jaskier_walk_run_dirt_1_10C4C929.wem"
      },
      {
-      "Id": "407717971",
+      "Id": "824055105",
       "Language": "SFX",
-      "ShortName": "Low_HP.wav",
-      "Path": "SFX\\Low_HP_10C4C929.wem"
+      "ShortName": "Jaskier_mandolin_single_hits_3.wav",
+      "Path": "SFX\\Jaskier_mandolin_single_hits_3_10C4C929.wem"
      },
      {
-      "Id": "411737697",
+      "Id": "830769361",
       "Language": "SFX",
-      "ShortName": "Spikeroog_Music.wav",
-      "Path": "SFX\\Spikeroog_Music_10C4C929.wem"
+      "ShortName": "Jaskier_fall_down_get_up.wav",
+      "Path": "SFX\\Jaskier_fall_down_get_up_10C4C929.wem"
      },
      {
-      "Id": "419036123",
+      "Id": "832614274",
       "Language": "SFX",
-      "ShortName": "Wooden _object_break_6.wav",
-      "Path": "SFX\\Wooden _object_break_6_10C4C929.wem"
+      "ShortName": "Jaskier_mandolin_single_hits_6.wav",
+      "Path": "SFX\\Jaskier_mandolin_single_hits_6_10C4C929.wem"
      },
      {
-      "Id": "424627454",
+      "Id": "838344944",
       "Language": "SFX",
-      "ShortName": "Combo_2.wav",
-      "Path": "SFX\\Combo_2_10C4C929.wem"
+      "ShortName": "Jaskier_potion_3.wav",
+      "Path": "SFX\\Jaskier_potion_3_10C4C929.wem"
      },
      {
-      "Id": "425465836",
+      "Id": "840754560",
       "Language": "SFX",
-      "ShortName": "No_energy.wav",
-      "Path": "SFX\\No_energy_10C4C929.wem"
+      "ShortName": "Jaskier_mandolin_single_hits_8.wav",
+      "Path": "SFX\\Jaskier_mandolin_single_hits_8_10C4C929.wem"
      },
      {
-      "Id": "431375691",
+      "Id": "847161361",
       "Language": "SFX",
-      "ShortName": "Jaskier_getting_up.wav",
-      "Path": "SFX\\Jaskier_getting_up_10C4C929.wem"
+      "ShortName": "Jaskier_hit_sound_1.wav",
+      "Path": "SFX\\Jaskier_hit_sound_1_10C4C929.wem"
      },
      {
-      "Id": "432307875",
+      "Id": "871442106",
       "Language": "SFX",
-      "ShortName": "Geralt_run.wav",
-      "Path": "SFX\\Geralt_run_D79FB2B7.wem"
+      "ShortName": "Jaskier_guitar_swing_3.wav",
+      "Path": "SFX\\Jaskier_guitar_swing_3_10C4C929.wem"
      },
      {
-      "Id": "437438864",
-      "Language": "SFX",
-      "ShortName": "Bandit_arrow_hit.wav",
-      "Path": "SFX\\Bandit_arrow_hit_10C4C929.wem"
-     },
-     {
-      "Id": "448243594",
-      "Language": "SFX",
-      "ShortName": "Geralt_getting_up.wav",
-      "Path": "SFX\\Geralt_getting_up_10C4C929.wem"
-     },
-     {
-      "Id": "450469794",
-      "Language": "SFX",
-      "ShortName": "Used_potion.wav",
-      "Path": "SFX\\Used_potion_10C4C929.wem"
-     },
-     {
-      "Id": "453433090",
-      "Language": "SFX",
-      "ShortName": "Witch_Hunters_loopable.wav",
-      "Path": "SFX\\Witch_Hunters_loopable_D79FB2B7.wem"
-     },
-     {
-      "Id": "463355959",
-      "Language": "SFX",
-      "ShortName": "Geralt_roll.wav",
-      "Path": "SFX\\Geralt_roll_10C4C929.wem"
-     },
-     {
-      "Id": "468793888",
-      "Language": "SFX",
-      "ShortName": "Unsheathe.wav",
-      "Path": "SFX\\Unsheathe_10C4C929.wem"
-     },
-     {
-      "Id": "472302571",
-      "Language": "SFX",
-      "ShortName": "Jaskier_attack_1_1.wav",
-      "Path": "SFX\\Jaskier_attack_1_1_10C4C929.wem"
-     },
-     {
-      "Id": "472755767",
-      "Language": "SFX",
-      "ShortName": "No_potion.wav",
-      "Path": "SFX\\No_potion_10C4C929.wem"
-     },
-     {
-      "Id": "480316483",
-      "Language": "SFX",
-      "ShortName": "Potion_stamina.wav",
-      "Path": "SFX\\Potion_stamina_10C4C929.wem"
-     },
-     {
-      "Id": "482190655",
-      "Language": "SFX",
-      "ShortName": "Endrega_hit_3.wav",
-      "Path": "SFX\\Endrega_hit_3_10C4C929.wem"
-     },
-     {
-      "Id": "485668321",
-      "Language": "SFX",
-      "ShortName": "Jaskier_attack_2_3.wav",
-      "Path": "SFX\\Jaskier_attack_2_3_10C4C929.wem"
-     },
-     {
-      "Id": "487354981",
-      "Language": "SFX",
-      "ShortName": "Broken_Wood_Sound_2.wav",
-      "Path": "SFX\\Broken_Wood_Sound_2_10C4C929.wem"
-     },
-     {
-      "Id": "504146452",
-      "Language": "SFX",
-      "ShortName": "Jaskier_attack_3.wav",
-      "Path": "SFX\\Jaskier_attack_3_10C4C929.wem"
-     },
-     {
-      "Id": "515124059",
-      "Language": "SFX",
-      "ShortName": "Hurt_1.wav",
-      "Path": "SFX\\Hurt_1_10C4C929.wem"
-     },
-     {
-      "Id": "517919059",
-      "Language": "SFX",
-      "ShortName": "Nilfgaardian_lancer_shielded_impact_1.wav",
-      "Path": "SFX\\Nilfgaardian_lancer_shielded_impact_1_10C4C929.wem"
-     },
-     {
-      "Id": "524483945",
-      "Language": "SFX",
-      "ShortName": "Hit_Wood_Sound_2.wav",
-      "Path": "SFX\\Hit_Wood_Sound_2_10C4C929.wem"
-     },
-     {
-      "Id": "538864268",
-      "Language": "SFX",
-      "ShortName": "Nilfgaardian_lancer_spear_attack.wav",
-      "Path": "SFX\\Nilfgaardian_lancer_spear_attack_10C4C929.wem"
-     },
-     {
-      "Id": "540931213",
-      "Language": "SFX",
-      "ShortName": "Bandit_voice_3.wav",
-      "Path": "SFX\\Bandit_voice_3_10C4C929.wem"
-     },
-     {
-      "Id": "542539570",
-      "Language": "SFX",
-      "ShortName": "menu 2.wav",
-      "Path": "SFX\\menu 2_10C4C929.wem"
-     },
-     {
-      "Id": "554921365",
-      "Language": "SFX",
-      "ShortName": "Barrel_crush_2.wav",
-      "Path": "SFX\\Barrel_crush_2_10C4C929.wem"
-     },
-     {
-      "Id": "571402870",
-      "Language": "SFX",
-      "ShortName": "Endrega_hit_1.wav",
-      "Path": "SFX\\Endrega_hit_1_10C4C929.wem"
-     },
-     {
-      "Id": "573160604",
-      "Language": "SFX",
-      "ShortName": "Nilfgaardian_voice_3.wav",
-      "Path": "SFX\\Nilfgaardian_voice_3_10C4C929.wem"
-     },
-     {
-      "Id": "574450286",
-      "Language": "SFX",
-      "ShortName": "Bandit_getting_hit.wav",
-      "Path": "SFX\\Bandit_getting_hit_10C4C929.wem"
-     },
-     {
-      "Id": "582382049",
-      "Language": "SFX",
-      "ShortName": "Barrel_crush_1.wav",
-      "Path": "SFX\\Barrel_crush_1_10C4C929.wem"
-     },
-     {
-      "Id": "593384814",
-      "Language": "SFX",
-      "ShortName": "Geralt_attack_6.wav",
-      "Path": "SFX\\Geralt_attack_6_10C4C929.wem"
-     },
-     {
-      "Id": "627245341",
-      "Language": "SFX",
-      "ShortName": "Click_4.wav",
-      "Path": "SFX\\Click_4_10C4C929.wem"
-     },
-     {
-      "Id": "629075274",
-      "Language": "SFX",
-      "ShortName": "Click_2.wav",
-      "Path": "SFX\\Click_2_10C4C929.wem"
-     },
-     {
-      "Id": "635543895",
-      "Language": "SFX",
-      "ShortName": "Kikimora_sound_3.wav",
-      "Path": "SFX\\Kikimora_sound_3_10C4C929.wem"
-     },
-     {
-      "Id": "638514727",
-      "Language": "SFX",
-      "ShortName": "Wooden _object_break_1.wav",
-      "Path": "SFX\\Wooden _object_break_1_10C4C929.wem"
-     },
-     {
-      "Id": "651036345",
-      "Language": "SFX",
-      "ShortName": "Bandit_voice_1.wav",
-      "Path": "SFX\\Bandit_voice_1_10C4C929.wem"
-     },
-     {
-      "Id": "652919959",
-      "Language": "SFX",
-      "ShortName": "Geralt_attack_1_1.wav",
-      "Path": "SFX\\Geralt_attack_1_1_10C4C929.wem"
-     },
-     {
-      "Id": "656411060",
-      "Language": "SFX",
-      "ShortName": "Trial_of_the_Grasses_loop.wav",
-      "Path": "SFX\\Trial_of_the_Grasses_loop_D79FB2B7.wem"
-     },
-     {
-      "Id": "663277561",
-      "Language": "SFX",
-      "ShortName": "Jaskier_attack_5.wav",
-      "Path": "SFX\\Jaskier_attack_5_10C4C929.wem"
-     },
-     {
-      "Id": "664211785",
-      "Language": "SFX",
-      "ShortName": "Geralt_knockback.wav",
-      "Path": "SFX\\Geralt_knockback_10C4C929.wem"
-     },
-     {
-      "Id": "666558630",
-      "Language": "SFX",
-      "ShortName": "Hit_Wood_Sound_1.wav",
-      "Path": "SFX\\Hit_Wood_Sound_1_10C4C929.wem"
-     },
-     {
-      "Id": "670177758",
-      "Language": "SFX",
-      "ShortName": "Nilfgaardian_walking_sound_group_1.wav",
-      "Path": "SFX\\Nilfgaardian_walking_sound_group_1_10C4C929.wem"
-     },
-     {
-      "Id": "675537179",
-      "Language": "SFX",
-      "ShortName": "Jaskier_attack_3_3.wav",
-      "Path": "SFX\\Jaskier_attack_3_3_10C4C929.wem"
-     },
-     {
-      "Id": "678798885",
-      "Language": "SFX",
-      "ShortName": "Bandit_bow_pulling_rope.wav",
-      "Path": "SFX\\Bandit_bow_pulling_rope_10C4C929.wem"
-     },
-     {
-      "Id": "686708653",
-      "Language": "SFX",
-      "ShortName": "Nilfgaardian_lancer_charge_steps.wav",
-      "Path": "SFX\\Nilfgaardian_lancer_charge_steps_10C4C929.wem"
-     },
-     {
-      "Id": "693294943",
-      "Language": "SFX",
-      "ShortName": "Geralt_attack_3_1.wav",
-      "Path": "SFX\\Geralt_attack_3_1_10C4C929.wem"
-     },
-     {
-      "Id": "714479025",
-      "Language": "SFX",
-      "ShortName": "Combo_Geralt.wav",
-      "Path": "SFX\\Combo_Geralt_10C4C929.wem"
-     },
-     {
-      "Id": "718062163",
-      "Language": "SFX",
-      "ShortName": "Kikimora_death.wav",
-      "Path": "SFX\\Kikimora_death_10C4C929.wem"
-     },
-     {
-      "Id": "722641653",
-      "Language": "SFX",
-      "ShortName": "Nilfgaardian_lancer_shield_attack_impact.wav",
-      "Path": "SFX\\Nilfgaardian_lancer_shield_attack_impact_10C4C929.wem"
-     },
-     {
-      "Id": "725349003",
-      "Language": "SFX",
-      "ShortName": "Bandit_death_2.wav",
-      "Path": "SFX\\Bandit_death_2_10C4C929.wem"
-     },
-     {
-      "Id": "726843628",
-      "Language": "SFX",
-      "ShortName": "Jaskier_song_2.wav",
-      "Path": "SFX\\Jaskier_song_2_10C4C929.wem"
-     },
-     {
-      "Id": "727623854",
-      "Language": "SFX",
-      "ShortName": "Jaskier_light_impact.wav",
-      "Path": "SFX\\Jaskier_light_impact_10C4C929.wem"
-     },
-     {
-      "Id": "728715402",
-      "Language": "SFX",
-      "ShortName": "Potion_power.wav",
-      "Path": "SFX\\Potion_power_10C4C929.wem"
-     },
-     {
-      "Id": "732150300",
-      "Language": "SFX",
-      "ShortName": "Kikimora_sound_6.wav",
-      "Path": "SFX\\Kikimora_sound_6_10C4C929.wem"
-     },
-     {
-      "Id": "733805711",
-      "Language": "SFX",
-      "ShortName": "Endrega_attack_1.wav",
-      "Path": "SFX\\Endrega_attack_1_10C4C929.wem"
-     },
-     {
-      "Id": "734215852",
-      "Language": "SFX",
-      "ShortName": "Nilfgaardian_swordsman_attack.wav",
-      "Path": "SFX\\Nilfgaardian_swordsman_attack_10C4C929.wem"
-     },
-     {
-      "Id": "737848629",
-      "Language": "SFX",
-      "ShortName": "Nilfgaardian_voice_6.wav",
-      "Path": "SFX\\Nilfgaardian_voice_6_10C4C929.wem"
-     },
-     {
-      "Id": "744631003",
-      "Language": "SFX",
-      "ShortName": "Nilfgaardian_voice_5.wav",
-      "Path": "SFX\\Nilfgaardian_voice_5_10C4C929.wem"
-     },
-     {
-      "Id": "748889956",
-      "Language": "SFX",
-      "ShortName": "Geralt_attack_1_2.wav",
-      "Path": "SFX\\Geralt_attack_1_2_10C4C929.wem"
-     },
-     {
-      "Id": "755021203",
-      "Language": "SFX",
-      "ShortName": "Bandit_voice_2.wav",
-      "Path": "SFX\\Bandit_voice_2_10C4C929.wem"
-     },
-     {
-      "Id": "762588901",
-      "Language": "SFX",
-      "ShortName": "Nilfgaardian_voice_1.wav",
-      "Path": "SFX\\Nilfgaardian_voice_1_10C4C929.wem"
-     },
-     {
-      "Id": "767955911",
-      "Language": "SFX",
-      "ShortName": "Potion_health.wav",
-      "Path": "SFX\\Potion_health_10C4C929.wem"
-     },
-     {
-      "Id": "770188479",
-      "Language": "SFX",
-      "ShortName": "Broken_Wood_Sound_1.wav",
-      "Path": "SFX\\Broken_Wood_Sound_1_10C4C929.wem"
-     },
-     {
-      "Id": "770521231",
-      "Language": "SFX",
-      "ShortName": "Kikimora_sweep.wav",
-      "Path": "SFX\\Kikimora_sweep_10C4C929.wem"
-     },
-     {
-      "Id": "779466043",
-      "Language": "SFX",
-      "ShortName": "Death_1.wav",
-      "Path": "SFX\\Death_1_10C4C929.wem"
-     },
-     {
-      "Id": "779484844",
-      "Language": "SFX",
-      "ShortName": "Endrega_swipe_attack.wav",
-      "Path": "SFX\\Endrega_swipe_attack_10C4C929.wem"
-     },
-     {
-      "Id": "801983478",
-      "Language": "SFX",
-      "ShortName": "Jaskier_death.wav",
-      "Path": "SFX\\Jaskier_death_10C4C929.wem"
-     },
-     {
-      "Id": "812562921",
-      "Language": "SFX",
-      "ShortName": "Nilfgaardian_walking_sound_group_2.wav",
-      "Path": "SFX\\Nilfgaardian_walking_sound_group_2_10C4C929.wem"
-     },
-     {
-      "Id": "817830684",
-      "Language": "SFX",
-      "ShortName": "Jaskier_stun.wav",
-      "Path": "SFX\\Jaskier_stun_10C4C929.wem"
-     },
-     {
-      "Id": "825806971",
+      "Id": "890223427",
       "Language": "SFX",
       "ShortName": "Jaskier_revive.wav",
       "Path": "SFX\\Jaskier_revive_10C4C929.wem"
      },
      {
-      "Id": "828646804",
+      "Id": "901958049",
       "Language": "SFX",
-      "ShortName": "Jaskier_attack_1_2.wav",
-      "Path": "SFX\\Jaskier_attack_1_2_10C4C929.wem"
+      "ShortName": "Jaskier_walk_run_dirt_4.wav",
+      "Path": "SFX\\Jaskier_walk_run_dirt_4_10C4C929.wem"
      },
      {
-      "Id": "836266546",
+      "Id": "995710726",
       "Language": "SFX",
-      "ShortName": "Geralt_attack_3.wav",
-      "Path": "SFX\\Geralt_attack_3_10C4C929.wem"
+      "ShortName": "Jaskier_walk_run_concrete_3.wav",
+      "Path": "SFX\\Jaskier_walk_run_concrete_3_10C4C929.wem"
      },
      {
-      "Id": "839684132",
+      "Id": "1004558716",
       "Language": "SFX",
-      "ShortName": "Jaskier_song_1.wav",
-      "Path": "SFX\\Jaskier_song_1_10C4C929.wem"
+      "ShortName": "Jaskier_walk_run_dirt_2.wav",
+      "Path": "SFX\\Jaskier_walk_run_dirt_2_10C4C929.wem"
      },
      {
-      "Id": "850535411",
+      "Id": "1034730759",
       "Language": "SFX",
-      "ShortName": "Endrega_attack_2.wav",
-      "Path": "SFX\\Endrega_attack_2_10C4C929.wem"
+      "ShortName": "Jaskier_guitar_swing_10.wav",
+      "Path": "SFX\\Jaskier_guitar_swing_10_10C4C929.wem"
      },
      {
-      "Id": "869637482",
+      "Id": "1037239967",
       "Language": "SFX",
-      "ShortName": "Select_2.wav",
-      "Path": "SFX\\Select_2_10C4C929.wem"
+      "ShortName": "Jaskier_potion_2.wav",
+      "Path": "SFX\\Jaskier_potion_2_10C4C929.wem"
+     }
+    ]
+   },
+   {
+    "Id": "2005704188",
+    "Language": "SFX",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main_menu",
+    "ShortName": "Main_menu",
+    "Path": "Main_menu.bnk",
+    "IncludedEvents": [
+     {
+      "Id": "1807448786",
+      "Name": "Play_Main_Menu_mouse_over",
+      "ObjectPath": "\\Events\\Default Work Unit\\Main_menu\\Play_Main_Menu_mouse_over"
      },
      {
-      "Id": "897983978",
-      "Language": "SFX",
-      "ShortName": "Jaskier_attack_4.wav",
-      "Path": "SFX\\Jaskier_attack_4_10C4C929.wem"
+      "Id": "3490144350",
+      "Name": "Play_Main_Menu_play_1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Main_menu\\Play_Main_Menu_play_1"
      },
      {
-      "Id": "906243943",
-      "Language": "SFX",
-      "ShortName": "Geralt_attack_2_1.wav",
-      "Path": "SFX\\Geralt_attack_2_1_10C4C929.wem"
+      "Id": "3490144349",
+      "Name": "Play_Main_Menu_play_2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Main_menu\\Play_Main_Menu_play_2"
      },
      {
-      "Id": "911171874",
-      "Language": "SFX",
-      "ShortName": "Geralt_aard_2.wav",
-      "Path": "SFX\\Geralt_aard_2_10C4C929.wem"
+      "Id": "3490144348",
+      "Name": "Play_Main_Menu_play_3",
+      "ObjectPath": "\\Events\\Default Work Unit\\Main_menu\\Play_Main_Menu_play_3"
      },
      {
-      "Id": "916559652",
-      "Language": "SFX",
-      "ShortName": "Geralt_attack_2.wav",
-      "Path": "SFX\\Geralt_attack_2_10C4C929.wem"
+      "Id": "3132133293",
+      "Name": "Play_Main_Menu_quit",
+      "ObjectPath": "\\Events\\Default Work Unit\\Main_menu\\Play_Main_Menu_quit"
      },
      {
-      "Id": "929697370",
-      "Language": "SFX",
-      "ShortName": "Endrega_spin_attack.wav",
-      "Path": "SFX\\Endrega_spin_attack_10C4C929.wem"
+      "Id": "1404515904",
+      "Name": "Play_Main_Menu_select",
+      "ObjectPath": "\\Events\\Default Work Unit\\Main_menu\\Play_Main_Menu_select"
      },
      {
-      "Id": "930253887",
+      "Id": "53612744",
+      "Name": "Play_Main_Menu_sign_moving",
+      "ObjectPath": "\\Events\\Default Work Unit\\Main_menu\\Play_Main_Menu_sign_moving"
+     }
+    ],
+    "IncludedMemoryFiles": [
+     {
+      "Id": "169634504",
       "Language": "SFX",
-      "ShortName": "Click_3.wav",
-      "Path": "SFX\\Click_3_10C4C929.wem"
+      "ShortName": "Main_Menu_sign_moving.wav",
+      "Path": "SFX\\Main_Menu_sign_moving_10C4C929.wem"
      },
      {
-      "Id": "931141599",
+      "Id": "350016511",
       "Language": "SFX",
-      "ShortName": "Wrong_Jaskier.wav",
-      "Path": "SFX\\Wrong_Jaskier_10C4C929.wem"
+      "ShortName": "Main_Menu_play_1.wav",
+      "Path": "SFX\\Main_Menu_play_1_10C4C929.wem"
      },
      {
-      "Id": "932385781",
+      "Id": "739128251",
       "Language": "SFX",
-      "ShortName": "Nilfgaardian_voice_2.wav",
-      "Path": "SFX\\Nilfgaardian_voice_2_10C4C929.wem"
+      "ShortName": "Main_Menu_mouse_over.wav",
+      "Path": "SFX\\Main_Menu_mouse_over_10C4C929.wem"
      },
      {
-      "Id": "938294294",
+      "Id": "773357058",
       "Language": "SFX",
-      "ShortName": "Combo_1.wav",
-      "Path": "SFX\\Combo_1_10C4C929.wem"
+      "ShortName": "Main_Menu_play_3.wav",
+      "Path": "SFX\\Main_Menu_play_3_10C4C929.wem"
      },
      {
-      "Id": "944017648",
+      "Id": "778154793",
       "Language": "SFX",
-      "ShortName": "Endrega_ranged_attack.wav",
-      "Path": "SFX\\Endrega_ranged_attack_10C4C929.wem"
+      "ShortName": "Main_Menu_select.wav",
+      "Path": "SFX\\Main_Menu_select_10C4C929.wem"
      },
      {
-      "Id": "945792529",
+      "Id": "810283932",
       "Language": "SFX",
-      "ShortName": "Geralt_revive.wav",
-      "Path": "SFX\\Geralt_revive_10C4C929.wem"
+      "ShortName": "Main_Menu_quit.wav",
+      "Path": "SFX\\Main_Menu_quit_10C4C929.wem"
      },
      {
-      "Id": "948865473",
+      "Id": "1014676219",
       "Language": "SFX",
-      "ShortName": "Endrega_throw_projectile.wav",
-      "Path": "SFX\\Endrega_throw_projectile_10C4C929.wem"
+      "ShortName": "Main_Menu_play_2.wav",
+      "Path": "SFX\\Main_Menu_play_2_10C4C929.wem"
+     }
+    ]
+   },
+   {
+    "Id": "2209143460",
+    "Language": "SFX",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Music_Levels",
+    "ShortName": "Music_Levels",
+    "Path": "Music_Levels.bnk"
+   },
+   {
+    "Id": "2380338445",
+    "Language": "SFX",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Human_enemies",
+    "ShortName": "Human_enemies",
+    "Path": "Human_enemies.bnk",
+    "IncludedEvents": [
+     {
+      "Id": "176324301",
+      "Name": "Play_Archer_Melee_Attack",
+      "ObjectPath": "\\Events\\Default Work Unit\\Human_enemies\\Play_Archer_Melee_Attack"
      },
      {
-      "Id": "954539098",
-      "Language": "SFX",
-      "ShortName": "Geralt_attack_4.wav",
-      "Path": "SFX\\Geralt_attack_4_10C4C929.wem"
+      "Id": "2370528178",
+      "Name": "Play_Archer_Ranged_Attack",
+      "ObjectPath": "\\Events\\Default Work Unit\\Human_enemies\\Play_Archer_Ranged_Attack"
      },
      {
-      "Id": "958687658",
-      "Language": "SFX",
-      "ShortName": "Jaskier_attack_2_2.wav",
-      "Path": "SFX\\Jaskier_attack_2_2_10C4C929.wem"
+      "Id": "3274957762",
+      "Name": "Play_Enemy_Conversation_01_Pt1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Human_enemies\\Play_Enemy_Conversation_01_Pt1"
      },
      {
-      "Id": "964777775",
-      "Language": "SFX",
-      "ShortName": "Geralt_stand_up.wav",
-      "Path": "SFX\\Geralt_stand_up_10C4C929.wem"
+      "Id": "3274957761",
+      "Name": "Play_Enemy_Conversation_01_Pt2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Human_enemies\\Play_Enemy_Conversation_01_Pt2"
      },
      {
-      "Id": "970957591",
-      "Language": "SFX",
-      "ShortName": "Spikeroog_loop.wav",
-      "Path": "SFX\\Spikeroog_loop_D79FB2B7.wem"
+      "Id": "4138452717",
+      "Name": "Play_Enemy_Conversation_02_Pt1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Human_enemies\\Play_Enemy_Conversation_02_Pt1"
      },
      {
-      "Id": "981534970",
-      "Language": "SFX",
-      "ShortName": "Jaskier_run.wav",
-      "Path": "SFX\\Jaskier_run_D79FB2B7.wem"
+      "Id": "4138452718",
+      "Name": "Play_Enemy_Conversation_02_Pt2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Human_enemies\\Play_Enemy_Conversation_02_Pt2"
      },
      {
-      "Id": "983053762",
-      "Language": "SFX",
-      "ShortName": "Combo_3.wav",
-      "Path": "SFX\\Combo_3_10C4C929.wem"
+      "Id": "3050120924",
+      "Name": "Play_Enemy_Conversation_03_Pt1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Human_enemies\\Play_Enemy_Conversation_03_Pt1"
      },
      {
-      "Id": "996892358",
-      "Language": "SFX",
-      "ShortName": "Sheathe.wav",
-      "Path": "SFX\\Sheathe_10C4C929.wem"
+      "Id": "3050120927",
+      "Name": "Play_Enemy_Conversation_03_Pt2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Human_enemies\\Play_Enemy_Conversation_03_Pt2"
      },
      {
-      "Id": "1001893542",
-      "Language": "SFX",
-      "ShortName": "lvl1_Intro_conversation_Cutscene.wav",
-      "Path": "SFX\\lvl1_Intro_conversation_Cutscene_10C4C929.wem"
+      "Id": "338570839",
+      "Name": "Play_Enemy_Conversation_04_Pt1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Human_enemies\\Play_Enemy_Conversation_04_Pt1"
      },
      {
-      "Id": "1003297931",
-      "Language": "SFX",
-      "ShortName": "Bandit_death_1.wav",
-      "Path": "SFX\\Bandit_death_1_10C4C929.wem"
+      "Id": "338570836",
+      "Name": "Play_Enemy_Conversation_04_Pt2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Human_enemies\\Play_Enemy_Conversation_04_Pt2"
      },
      {
-      "Id": "1003889211",
-      "Language": "SFX",
-      "ShortName": "Silver for Monsters_Music.wav",
-      "Path": "SFX\\Silver for Monsters_Music_10C4C929.wem"
+      "Id": "1207288606",
+      "Name": "Play_Enemy_Conversation_05_Pt1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Human_enemies\\Play_Enemy_Conversation_05_Pt1"
      },
      {
-      "Id": "1007535269",
-      "Language": "SFX",
-      "ShortName": "Silver for Monsters_loop.wav",
-      "Path": "SFX\\Silver for Monsters_loop_D79FB2B7.wem"
+      "Id": "1207288605",
+      "Name": "Play_Enemy_Conversation_05_Pt2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Human_enemies\\Play_Enemy_Conversation_05_Pt2"
      },
      {
-      "Id": "1027606032",
-      "Language": "SFX",
-      "ShortName": "Kikimora_sound_2.wav",
-      "Path": "SFX\\Kikimora_sound_2_10C4C929.wem"
+      "Id": "3327589689",
+      "Name": "Play_Enemy_Conversation_06_Pt1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Human_enemies\\Play_Enemy_Conversation_06_Pt1"
      },
      {
-      "Id": "1032789066",
-      "Language": "SFX",
-      "ShortName": "Select_1.wav",
-      "Path": "SFX\\Select_1_10C4C929.wem"
+      "Id": "3327589690",
+      "Name": "Play_Enemy_Conversation_06_Pt2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Human_enemies\\Play_Enemy_Conversation_06_Pt2"
      },
      {
-      "Id": "1039785393",
-      "Language": "SFX",
-      "ShortName": "Wooden _object_break_5.wav",
-      "Path": "SFX\\Wooden _object_break_5_10C4C929.wem"
+      "Id": "2126728328",
+      "Name": "Play_Enemy_Conversation_07_Pt1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Human_enemies\\Play_Enemy_Conversation_07_Pt1"
      },
      {
-      "Id": "1040256317",
-      "Language": "SFX",
-      "ShortName": "Commanding_the_Fury_loopable.wav",
-      "Path": "SFX\\Commanding_the_Fury_loopable_D79FB2B7.wem"
+      "Id": "2126728331",
+      "Name": "Play_Enemy_Conversation_07_Pt2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Human_enemies\\Play_Enemy_Conversation_07_Pt2"
      },
      {
-      "Id": "1040633260",
-      "Language": "SFX",
-      "ShortName": "Nilfgaardian_hit_1.wav",
-      "Path": "SFX\\Nilfgaardian_hit_1_10C4C929.wem"
+      "Id": "2135203437",
+      "Name": "Play_Enemy_Humanoid_Discover_Players",
+      "ObjectPath": "\\Events\\Default Work Unit\\Human_enemies\\Play_Enemy_Humanoid_Discover_Players"
      },
      {
-      "Id": "1042649412",
-      "Language": "SFX",
-      "ShortName": "Endrega_poisonous_gas_attack.wav",
-      "Path": "SFX\\Endrega_poisonous_gas_attack_10C4C929.wem"
+      "Id": "282993986",
+      "Name": "Play_Enemy_Humanoid_Hit",
+      "ObjectPath": "\\Events\\Default Work Unit\\Human_enemies\\Play_Enemy_Humanoid_Hit"
      },
      {
-      "Id": "1044178864",
-      "Language": "SFX",
-      "ShortName": "Jaskier_stand_up.wav",
-      "Path": "SFX\\Jaskier_stand_up_10C4C929.wem"
+      "Id": "1511621515",
+      "Name": "Play_Lumberjack_Axe_Swing_Attack",
+      "ObjectPath": "\\Events\\Default Work Unit\\Human_enemies\\Play_Lumberjack_Axe_Swing_Attack"
      },
      {
-      "Id": "1044541996",
-      "Language": "SFX",
-      "ShortName": "Wooden _object_break_2.wav",
-      "Path": "SFX\\Wooden _object_break_2_10C4C929.wem"
+      "Id": "1628159071",
+      "Name": "Play_Lumberjack_Heavy_Axe_Attack_Hit_edit",
+      "ObjectPath": "\\Events\\Default Work Unit\\Human_enemies\\Play_Lumberjack_Heavy_Axe_Attack_Hit_edit"
      },
      {
-      "Id": "1044982786",
+      "Id": "1677382623",
+      "Name": "Play_Lumberjack_Heavy_Axe_Attack_Warning",
+      "ObjectPath": "\\Events\\Default Work Unit\\Human_enemies\\Play_Lumberjack_Heavy_Axe_Attack_Warning"
+     }
+    ],
+    "IncludedMemoryFiles": [
+     {
+      "Id": "18402602",
       "Language": "SFX",
-      "ShortName": "Jaskier_attack_3_2.wav",
-      "Path": "SFX\\Jaskier_attack_3_2_10C4C929.wem"
+      "ShortName": "Enemy_Humanoid_Hit_04.wav",
+      "Path": "SFX\\Enemy_Humanoid_Hit_04_10C4C929.wem"
      },
      {
-      "Id": "1051506999",
+      "Id": "32911787",
       "Language": "SFX",
-      "ShortName": "Geralt_attack_3_2.wav",
-      "Path": "SFX\\Geralt_attack_3_2_10C4C929.wem"
+      "ShortName": "Enemy_Humanoid_Discover_Players_06.wav",
+      "Path": "SFX\\Enemy_Humanoid_Discover_Players_06_10C4C929.wem"
      },
      {
-      "Id": "1052234597",
+      "Id": "38504863",
       "Language": "SFX",
-      "ShortName": "Nilfgaardian_lancer_shielded_impact_2.wav",
-      "Path": "SFX\\Nilfgaardian_lancer_shielded_impact_2_10C4C929.wem"
+      "ShortName": "Lumberjack_Axe_Swing_Attack_02.wav",
+      "Path": "SFX\\Lumberjack_Axe_Swing_Attack_02_10C4C929.wem"
      },
      {
-      "Id": "1057906617",
+      "Id": "68335128",
       "Language": "SFX",
-      "ShortName": "Nilfgaardian_death_3.wav",
-      "Path": "SFX\\Nilfgaardian_death_3_10C4C929.wem"
+      "ShortName": "Lumberjack_Heavy_Axe_Attack_Warning.wav",
+      "Path": "SFX\\Lumberjack_Heavy_Axe_Attack_Warning_10C4C929.wem"
+     },
+     {
+      "Id": "89517690",
+      "Language": "SFX",
+      "ShortName": "Archer_Ranged_Attack_06.wav",
+      "Path": "SFX\\Archer_Ranged_Attack_06_10C4C929.wem"
+     },
+     {
+      "Id": "93454566",
+      "Language": "SFX",
+      "ShortName": "Enemy_Humanoid_Discover_Players_04.wav",
+      "Path": "SFX\\Enemy_Humanoid_Discover_Players_04_10C4C929.wem"
+     },
+     {
+      "Id": "221338818",
+      "Language": "SFX",
+      "ShortName": "Archer_Melee_Attack_02.wav",
+      "Path": "SFX\\Archer_Melee_Attack_02_10C4C929.wem"
+     },
+     {
+      "Id": "223352680",
+      "Language": "SFX",
+      "ShortName": "Enemy_Humanoid_Hit_02.wav",
+      "Path": "SFX\\Enemy_Humanoid_Hit_02_10C4C929.wem"
+     },
+     {
+      "Id": "226089155",
+      "Language": "SFX",
+      "ShortName": "Archer_Ranged_Attack_02.wav",
+      "Path": "SFX\\Archer_Ranged_Attack_02_10C4C929.wem"
+     },
+     {
+      "Id": "279373937",
+      "Language": "SFX",
+      "ShortName": "Enemy_Humanoid_Hit_05.wav",
+      "Path": "SFX\\Enemy_Humanoid_Hit_05_10C4C929.wem"
+     },
+     {
+      "Id": "307705603",
+      "Language": "SFX",
+      "ShortName": "Enemy_Humanoid_Discover_Players_05.wav",
+      "Path": "SFX\\Enemy_Humanoid_Discover_Players_05_10C4C929.wem"
+     },
+     {
+      "Id": "427305471",
+      "Language": "SFX",
+      "ShortName": "Archer_Melee_Attack_01.wav",
+      "Path": "SFX\\Archer_Melee_Attack_01_10C4C929.wem"
+     },
+     {
+      "Id": "432246566",
+      "Language": "SFX",
+      "ShortName": "Enemy_Humanoid_Discover_Players_07.wav",
+      "Path": "SFX\\Enemy_Humanoid_Discover_Players_07_10C4C929.wem"
+     },
+     {
+      "Id": "450631756",
+      "Language": "SFX",
+      "ShortName": "Archer_Ranged_Attack_04.wav",
+      "Path": "SFX\\Archer_Ranged_Attack_04_10C4C929.wem"
+     },
+     {
+      "Id": "465473952",
+      "Language": "SFX",
+      "ShortName": "Archer_Melee_Attack_03.wav",
+      "Path": "SFX\\Archer_Melee_Attack_03_10C4C929.wem"
+     },
+     {
+      "Id": "529686413",
+      "Language": "SFX",
+      "ShortName": "Enemy_Humanoid_Hit_10.wav",
+      "Path": "SFX\\Enemy_Humanoid_Hit_10_10C4C929.wem"
+     },
+     {
+      "Id": "544469667",
+      "Language": "SFX",
+      "ShortName": "Enemy_Humanoid_Hit_06.wav",
+      "Path": "SFX\\Enemy_Humanoid_Hit_06_10C4C929.wem"
+     },
+     {
+      "Id": "621884099",
+      "Language": "SFX",
+      "ShortName": "Enemy_Humanoid_Discover_Players_03.wav",
+      "Path": "SFX\\Enemy_Humanoid_Discover_Players_03_10C4C929.wem"
+     },
+     {
+      "Id": "676812370",
+      "Language": "SFX",
+      "ShortName": "Archer_Melee_Attack_04.wav",
+      "Path": "SFX\\Archer_Melee_Attack_04_10C4C929.wem"
+     },
+     {
+      "Id": "739176845",
+      "Language": "SFX",
+      "ShortName": "Archer_Ranged_Attack_03.wav",
+      "Path": "SFX\\Archer_Ranged_Attack_03_10C4C929.wem"
+     },
+     {
+      "Id": "799558388",
+      "Language": "SFX",
+      "ShortName": "Enemy_Humanoid_Discover_Players_09.wav",
+      "Path": "SFX\\Enemy_Humanoid_Discover_Players_09_10C4C929.wem"
+     },
+     {
+      "Id": "809577715",
+      "Language": "SFX",
+      "ShortName": "Enemy_Humanoid_Hit_08.wav",
+      "Path": "SFX\\Enemy_Humanoid_Hit_08_10C4C929.wem"
+     },
+     {
+      "Id": "827319613",
+      "Language": "SFX",
+      "ShortName": "Enemy_Humanoid_Hit_01.wav",
+      "Path": "SFX\\Enemy_Humanoid_Hit_01_10C4C929.wem"
+     },
+     {
+      "Id": "830202095",
+      "Language": "SFX",
+      "ShortName": "Enemy_Humanoid_Hit_03.wav",
+      "Path": "SFX\\Enemy_Humanoid_Hit_03_10C4C929.wem"
+     },
+     {
+      "Id": "869057959",
+      "Language": "SFX",
+      "ShortName": "Enemy_Humanoid_Discover_Players_08.wav",
+      "Path": "SFX\\Enemy_Humanoid_Discover_Players_08_10C4C929.wem"
+     },
+     {
+      "Id": "943478083",
+      "Language": "SFX",
+      "ShortName": "Enemy_Humanoid_Discover_Players_02.wav",
+      "Path": "SFX\\Enemy_Humanoid_Discover_Players_02_10C4C929.wem"
+     },
+     {
+      "Id": "963543063",
+      "Language": "SFX",
+      "ShortName": "Lumberjack_Heavy_Axe_Attack_Hit_edit.wav",
+      "Path": "SFX\\Lumberjack_Heavy_Axe_Attack_Hit_edit_10C4C929.wem"
+     },
+     {
+      "Id": "1010062889",
+      "Language": "SFX",
+      "ShortName": "Archer_Ranged_Attack_05.wav",
+      "Path": "SFX\\Archer_Ranged_Attack_05_10C4C929.wem"
+     },
+     {
+      "Id": "1033290929",
+      "Language": "SFX",
+      "ShortName": "Enemy_Humanoid_Hit_07.wav",
+      "Path": "SFX\\Enemy_Humanoid_Hit_07_10C4C929.wem"
+     },
+     {
+      "Id": "1038780852",
+      "Language": "SFX",
+      "ShortName": "Enemy_Humanoid_Hit_09.wav",
+      "Path": "SFX\\Enemy_Humanoid_Hit_09_10C4C929.wem"
+     },
+     {
+      "Id": "1059971743",
+      "Language": "SFX",
+      "ShortName": "Lumberjack_Axe_Swing_Attack_01.wav",
+      "Path": "SFX\\Lumberjack_Axe_Swing_Attack_01_10C4C929.wem"
+     },
+     {
+      "Id": "1060340399",
+      "Language": "SFX",
+      "ShortName": "Enemy_Humanoid_Discover_Players_01.wav",
+      "Path": "SFX\\Enemy_Humanoid_Discover_Players_01_10C4C929.wem"
+     },
+     {
+      "Id": "1066614702",
+      "Language": "SFX",
+      "ShortName": "Archer_Ranged_Attack_01.wav",
+      "Path": "SFX\\Archer_Ranged_Attack_01_10C4C929.wem"
+     }
+    ]
+   },
+   {
+    "Id": "3354210172",
+    "Language": "SFX",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Cinematic_Level_2",
+    "ShortName": "Cinematic_Level_2",
+    "Path": "Cinematic_Level_2.bnk",
+    "IncludedEvents": [
+     {
+      "Id": "3251283761",
+      "Name": "Play_Lvl2_Ambience_Crickets_Loop",
+      "ObjectPath": "\\Events\\Default Work Unit\\Cinematic_Level_2\\Play_Lvl2_Ambience_Crickets_Loop"
+     },
+     {
+      "Id": "4201290927",
+      "Name": "Play_Lvl2_Ambience_Wind_Loop",
+      "ObjectPath": "\\Events\\Default Work Unit\\Cinematic_Level_2\\Play_Lvl2_Ambience_Wind_Loop"
+     },
+     {
+      "Id": "3372924164",
+      "Name": "Play_Lvl2_Button_Skip_Cinematic_Pressed",
+      "ObjectPath": "\\Events\\Default Work Unit\\Cinematic_Level_2\\Play_Lvl2_Button_Skip_Cinematic_Pressed"
+     },
+     {
+      "Id": "3901497125",
+      "Name": "Play_Lvl2_Cinematic_Skipped",
+      "ObjectPath": "\\Events\\Default Work Unit\\Cinematic_Level_2\\Play_Lvl2_Cinematic_Skipped"
+     }
+    ],
+    "IncludedMemoryFiles": [
+     {
+      "Id": "171106237",
+      "Language": "SFX",
+      "ShortName": "Lvl2_Button_Skip_Cinematic_Pressed.wav",
+      "Path": "SFX\\Lvl2_Button_Skip_Cinematic_Pressed_10C4C929.wem"
+     },
+     {
+      "Id": "451877459",
+      "Language": "SFX",
+      "ShortName": "Lvl2_Ambience_Wind_Loop.wav",
+      "Path": "SFX\\Lvl2_Ambience_Wind_Loop_10C4C929.wem"
+     },
+     {
+      "Id": "471617832",
+      "Language": "SFX",
+      "ShortName": "Lvl2_Cinematic_Skipped.wav",
+      "Path": "SFX\\Lvl2_Cinematic_Skipped_10C4C929.wem"
+     },
+     {
+      "Id": "725990850",
+      "Language": "SFX",
+      "ShortName": "Lvl2_Ambience_Crickets_Loop.wav",
+      "Path": "SFX\\Lvl2_Ambience_Crickets_Loop_10C4C929.wem"
+     }
+    ]
+   },
+   {
+    "Id": "3422541661",
+    "Language": "SFX",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Pause_menu",
+    "ShortName": "Pause_menu",
+    "Path": "Pause_menu.bnk",
+    "IncludedEvents": [
+     {
+      "Id": "3182384320",
+      "Name": "Play_Button_main_menu",
+      "ObjectPath": "\\Events\\Default Work Unit\\Pause_menu\\Play_Button_main_menu"
+     },
+     {
+      "Id": "3725905392",
+      "Name": "Play_Button_resume",
+      "ObjectPath": "\\Events\\Default Work Unit\\Pause_menu\\Play_Button_resume"
+     },
+     {
+      "Id": "2149137476",
+      "Name": "Play_Mouse_over",
+      "ObjectPath": "\\Events\\Default Work Unit\\Pause_menu\\Play_Mouse_over"
+     },
+     {
+      "Id": "4233560256",
+      "Name": "Play_Pause",
+      "ObjectPath": "\\Events\\Default Work Unit\\Pause_menu\\Play_Pause"
+     }
+    ],
+    "IncludedMemoryFiles": [
+     {
+      "Id": "557831847",
+      "Language": "SFX",
+      "ShortName": "Pause.wav",
+      "Path": "SFX\\Pause_10C4C929.wem"
+     },
+     {
+      "Id": "585365819",
+      "Language": "SFX",
+      "ShortName": "Mouse_over.wav",
+      "Path": "SFX\\Mouse_over_10C4C929.wem"
+     },
+     {
+      "Id": "900834264",
+      "Language": "SFX",
+      "ShortName": "Button_resume.wav",
+      "Path": "SFX\\Button_resume_10C4C929.wem"
+     },
+     {
+      "Id": "1046985453",
+      "Language": "SFX",
+      "ShortName": "Button_main_menu.wav",
+      "Path": "SFX\\Button_main_menu_10C4C929.wem"
      }
     ]
    }
