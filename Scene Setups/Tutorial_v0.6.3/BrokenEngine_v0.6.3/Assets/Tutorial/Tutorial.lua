@@ -31,7 +31,8 @@ local Step = {
     STEP_9 = 9,
     STEP_10 = 10,
     STEP_11 = 11,
-    STEP_12 = 12
+    STEP_12 = 12,
+    STEP_13 = 13
 }
 
 lua_table.currentStep = Step.STEP_1
@@ -39,6 +40,7 @@ lua_table.currentStep = Step.STEP_1
 local MyUUID = 0
 local GeraltNumber = 1
 local JaskierNumber = 2
+local tableGeralt, tableJaskier
 local textUID = 0
 
 -- Variables STEP 1
@@ -106,6 +108,50 @@ local enemy10_9_dead = false
 local moveStep10 = false
 lua_table.PauseStep10 = false
 
+-- Variables STEP 11
+local enemy11_1, enemy11_2, enemy11_3, enemy11_4, enemy11_5, enemy11_6, enemy11_7, enemy11_8, enemy11_9
+local tableEnemy11_1, tableEnemy11_2, tableEnemy11_3, tableEnemy11_4, tableEnemy11_5, tableEnemy11_6, tableEnemy11_7, tableEnemy11_8, tableEnemy11_9
+local enemy11_1_dead = false
+local enemy11_2_dead = false
+local enemy11_3_dead = false
+local enemy11_4_dead = false
+local enemy11_5_dead = false
+local enemy11_6_dead = false
+local enemy11_7_dead = false
+local enemy11_8_dead = false
+local enemy11_9_dead = false
+local moveStep11 = false
+lua_table.PauseStep11 = false
+
+-- Variables STEP 12
+local enemy12_1, enemy12_2, enemy12_3, enemy12_4, enemy12_5, enemy12_6, enemy12_7, enemy12_8, enemy12_9, enemy12_10, enemy12_11, enemy12_12, enemy12_13, enemy12_14, enemy12_15, enemy12_16 
+local tableEnemy12_1, tableEnemy12_2, tableEnemy12_3, tableEnemy12_4, tableEnemy12_5, tableEnemy12_6, tableEnemy12_7, tableEnemy11_8
+local tableEnemy12_9, tableEnemy12_10, tableEnemy12_11, tableEnemy12_12, tableEnemy12_13, tableEnemy12_14, tableEnemy12_15, tableEnemy12_16
+local enemy12_1_dead = false
+local enemy12_2_dead = false
+local enemy12_3_dead = false
+local enemy12_4_dead = false
+local enemy12_5_dead = false
+local enemy12_6_dead = false
+local enemy12_7_dead = false
+local enemy12_8_dead = false
+local enemy12_9_dead = false
+local enemy12_10_dead = false
+local enemy12_11_dead = false
+local enemy12_12_dead = false
+local enemy12_13_dead = false
+local enemy12_14_dead = false
+local enemy12_15_dead = false
+local enemy12_16_dead = false
+local moveStep12 = false
+local jaskierUlt = false
+local geraltUlt = false
+lua_table.PauseStep12 = false
+
+
+-- ARCHERS
+local archer_1, archer_2, archer_3, archer_4, archer_5, archer_6, archer_7, archer_8, archer_9
+local tableArcher_1, tableArcher_2, tableArcher_3, tableArcher_4, tableArcher_5, tableArcher_6, tableArcher_7, tableArcher_8, tableArcher_9
 ------------------------------------------------------------------------------
 -- STEPS
 ------------------------------------------------------------------------------
@@ -466,6 +512,273 @@ local function Step10()
 end
 
 
+local function Step11()
+    lua_table.InterfaceFunctions:MakeElementVisible("Text", textUID)
+    lua_table.InterfaceFunctions:SetText("STEP 11", textUID)
+
+    if lua_table.PauseStep11 == true and moveStep11 == false
+    then
+        lua_table.SystemFunctions:PauseGame()     
+    end
+
+    if lua_table.InputFunctions:IsGamepadButton(GeraltNumber, "BUTTON_START", KeyState.DOWN) == true and moveStep11 == false
+    then
+        lua_table.PauseStep11 = false
+        moveStep11 = true
+        lua_table.SystemFunctions:ResumeGame()
+    end
+
+    if enemy11_1_dead == false 
+    then
+        if tableEnemy11_1.currentState == 4
+        then
+            enemy11_1_dead = true
+        end
+    end
+
+    if enemy11_2_dead == false 
+    then
+        if tableEnemy11_2.currentState == 4
+        then
+            enemy11_2_dead = true
+        end
+    end
+
+    if enemy11_3_dead == false 
+    then
+        if tableEnemy11_3.currentState == 5
+        then
+            enemy11_3_dead = true
+        end
+    end
+
+    if enemy11_4_dead == false 
+    then
+        if tableEnemy11_4.currentState == 5
+        then
+            enemy11_4_dead = true
+        end
+    end
+
+    if enemy11_5_dead == false 
+    then
+        if tableEnemy11_5.currentState == 5
+        then
+            enemy11_5_dead = true
+        end
+    end
+
+    if enemy11_6_dead == false 
+    then
+        if tableEnemy11_6.currentState == 5
+        then
+            enemy11_6_dead = true
+        end
+    end
+
+    if enemy11_7_dead == false 
+    then
+        if tableEnemy11_7.currentState == 5
+        then
+            enemy11_7_dead = true
+        end
+    end
+
+    if enemy11_8_dead == false 
+    then
+        if tableEnemy11_8.currentState == 5
+        then
+            enemy11_8_dead = true
+        end
+    end
+
+    if enemy11_9_dead == false 
+    then
+        if tableEnemy11_9.CurrentState == 5
+        then
+            enemy11_9_dead = true
+        end
+    end
+
+    if enemy11_1_dead == true and enemy11_2_dead == true and enemy11_3_dead == true and enemy11_4_dead == true and enemy11_5_dead == true and 
+    enemy11_6_dead == true and enemy11_7_dead == true and enemy11_8_dead == true and enemy11_9_dead == true
+    then
+        lua_table.currentStep = Step.STEP_11
+    end
+end
+
+
+local function Step12()
+    lua_table.InterfaceFunctions:MakeElementVisible("Text", textUID)
+    lua_table.InterfaceFunctions:SetText("STEP 12", textUID)
+
+    if lua_table.PauseStep12 == true and moveStep12 == false
+    then
+        lua_table.SystemFunctions:PauseGame()     
+    end
+
+    if lua_table.InputFunctions:IsGamepadButton(GeraltNumber, "BUTTON_START", KeyState.DOWN) == true and moveStep12 == false
+    then
+        lua_table.PauseStep12 = false
+        moveStep12 = true
+        lua_table.SystemFunctions:ResumeGame()
+    end
+
+    if enemy12_1_dead == false 
+    then
+        if tableEnemy12_1.currentState == 5
+        then
+            enemy12_1_dead = true
+        end
+    end
+
+    if enemy12_2_dead == false 
+    then
+        if tableEnemy12_2.currentState == 5
+        then
+            enemy12_2_dead = true
+        end
+    end
+
+    if enemy12_3_dead == false 
+    then
+        if tableEnemy12_3.currentState == 5
+        then
+            enemy12_3_dead = true
+        end
+    end
+
+    if enemy12_4_dead == false 
+    then
+        if tableEnemy12_4.currentState == 5
+        then
+            enemy12_4_dead = true
+        end
+    end
+
+    if enemy12_5_dead == false 
+    then
+        if tableEnemy12_5.currentState == 5
+        then
+            enemy12_5_dead = true
+        end
+    end
+
+    if enemy12_6_dead == false 
+    then
+        if tableEnemy12_6.currentState == 5
+        then
+            enemy12_6_dead = true
+        end
+    end
+
+    if enemy12_7_dead == false 
+    then
+        if tableEnemy12_7.currentState == 5
+        then
+            enemy12_7_dead = true
+        end
+    end
+
+    if enemy12_8_dead == false 
+    then
+        if tableEnemy12_8.currentState == 5
+        then
+            enemy12_8_dead = true
+        end
+    end
+
+    if enemy12_9_dead == false 
+    then
+        if tableEnemy12_9.currentState == 7
+        then
+            enemy12_9_dead = true
+        end
+    end
+
+    if enemy12_10_dead == false 
+    then
+        if tableEnemy12_10.currentState == 7
+        then
+            enemy12_10_dead = true
+        end
+    end
+
+    if enemy12_11_dead == false 
+    then
+        if tableEnemy12_11.currentState == 7
+        then
+            enemy12_11_dead = true
+        end
+    end
+
+    if enemy12_12_dead == false 
+    then
+        if tableEnemy12_12.currentState == 7
+        then
+            enemy12_12_dead = true
+        end
+    end
+
+    if enemy12_13_dead == false 
+    then
+        if tableEnemy12_13.currentState == 7
+        then
+            enemy12_13_dead = true
+        end
+    end
+
+    if enemy12_14_dead == false 
+    then
+        if tableEnemy12_14.currentState == 7
+        then
+            enemy12_14_dead = true
+        end
+    end
+
+    if enemy12_15_dead == false 
+    then
+        if tableEnemy12_15.currentState == 7
+        then
+            enemy12_15_dead = true
+        end
+    end
+
+    if enemy12_16_dead == false 
+    then
+        if tableEnemy12_16.currentState == 7
+        then
+            enemy12_16_dead = true
+        end
+    end
+
+    if tableGeralt.current_state == 5
+    then
+        geraltUlt = true
+    end
+    
+    if tableJaskier.current_state == 5
+    then
+        jaskierUlt = true
+    end
+
+    if enemy12_1_dead == true and enemy12_2_dead == true and enemy12_3_dead == true and enemy12_4_dead == true and 
+    enemy12_5_dead == true and enemy12_6_dead == true and enemy12_7_dead == true and enemy12_8_dead == true and
+    enemy12_9_dead == true and enemy12_10_dead == true and enemy12_11_dead == true and enemy12_12_dead == true and
+    enemy12_13_dead == true and enemy12_14_dead == true and enemy12_15_dead == true and enemy12_16_dead == true and
+    geraltUlt == true and jaskierUlt == true 
+    then
+        lua_table.currentStep = Step.STEP_13
+    end
+end
+
+
+local function Step13()
+    lua_table.InterfaceFunctions:MakeElementVisible("Text", textUID)
+    lua_table.InterfaceFunctions:SetText("STEP 13", textUID)
+end
+
+
 local function EnemiesManager()
     
     if move == false
@@ -515,6 +828,40 @@ local function EnemiesManager()
         tableEnemy10_8.currentState = 0
         tableEnemy10_9.CurrentState = 1
     end
+
+    if moveStep11 == false
+    then
+        tableEnemy11_1.CurrentState = 1
+        tableEnemy11_2.CurrentState = 1
+        tableEnemy11_3.currentState = 0
+        tableEnemy11_4.currentState = 0
+        tableEnemy11_5.currentState = 0
+        tableEnemy11_6.currentState = 0
+        tableEnemy11_7.currentState = 0
+        tableEnemy11_8.currentState = 0
+        tableEnemy11_9.currentState = 0
+    end
+
+    if moveStep12 == false
+    then
+        tableEnemy12_1.currentState = 0
+        tableEnemy12_2.currentState = 0
+        tableEnemy12_3.currentState = 0
+        tableEnemy12_4.currentState = 0
+        tableEnemy12_5.currentState = 0
+        tableEnemy12_6.currentState = 0
+        tableEnemy12_7.currentState = 0
+        tableEnemy12_8.currentState = 0
+        tableEnemy12_9.currentState = 1
+        tableEnemy12_10.currentState = 1
+        tableEnemy12_11.currentState = 1
+        tableEnemy12_12.currentState = 1
+        tableEnemy12_13.currentState = 1
+        tableEnemy12_14.currentState = 1
+        tableEnemy12_15.currentState = 1
+        tableEnemy12_16.currentState = 1
+
+    end
 end
 
 function lua_table:Awake()
@@ -523,6 +870,9 @@ function lua_table:Awake()
     
     lua_table.Geralt_UUID = lua_table.ObjectFunctions:FindGameObject("Geralt")
     lua_table.Jaskier_UUID = lua_table.ObjectFunctions:FindGameObject("Jaskier") 
+
+    tableGeralt = lua_table.ObjectFunctions:GetScript(lua_table.Geralt_UUID)
+    tableJaskier = lua_table.ObjectFunctions:GetScript(lua_table.Jaskier_UUID)
 
     enemy1 = lua_table.ObjectFunctions:FindGameObject("enemy1")
     enemy2 = lua_table.ObjectFunctions:FindGameObject("enemy2")
@@ -585,6 +935,81 @@ function lua_table:Awake()
     tableEnemy10_7 = lua_table.ObjectFunctions:GetScript(enemy10_7)
     tableEnemy10_8 = lua_table.ObjectFunctions:GetScript(enemy10_8)
     tableEnemy10_9 = lua_table.ObjectFunctions:GetScript(enemy10_9)
+
+    archer_1 = lua_table.ObjectFunctions:FindGameObject("Archer_1")
+    archer_2 = lua_table.ObjectFunctions:FindGameObject("Archer_2")
+    archer_3 = lua_table.ObjectFunctions:FindGameObject("Archer_3")
+    archer_4 = lua_table.ObjectFunctions:FindGameObject("Archer_4")
+    archer_5 = lua_table.ObjectFunctions:FindGameObject("Archer_5")
+    archer_6 = lua_table.ObjectFunctions:FindGameObject("Archer_6")
+    archer_7 = lua_table.ObjectFunctions:FindGameObject("Archer_7")
+    archer_8 = lua_table.ObjectFunctions:FindGameObject("Archer_8")
+    archer_9 = lua_table.ObjectFunctions:FindGameObject("Archer_9")
+
+    tableArcher_1 = lua_table.ObjectFunctions:GetScript(archer_1)
+    tableArcher_2 = lua_table.ObjectFunctions:GetScript(archer_2)
+    tableArcher_3 = lua_table.ObjectFunctions:GetScript(archer_3)
+    tableArcher_4 = lua_table.ObjectFunctions:GetScript(archer_4)
+    tableArcher_5 = lua_table.ObjectFunctions:GetScript(archer_5)
+    tableArcher_6 = lua_table.ObjectFunctions:GetScript(archer_6)
+    tableArcher_7 = lua_table.ObjectFunctions:GetScript(archer_7)
+    tableArcher_8 = lua_table.ObjectFunctions:GetScript(archer_8)
+    tableArcher_9 = lua_table.ObjectFunctions:GetScript(archer_9)
+
+    enemy11_1 = lua_table.ObjectFunctions:FindGameObject("enemy11_1")
+    enemy11_2 = lua_table.ObjectFunctions:FindGameObject("enemy11_2")
+    enemy11_3 = lua_table.ObjectFunctions:FindGameObject("enemy11_3")
+    enemy11_4 = lua_table.ObjectFunctions:FindGameObject("enemy11_4")
+    enemy11_5 = lua_table.ObjectFunctions:FindGameObject("enemy11_5")
+    enemy11_6 = lua_table.ObjectFunctions:FindGameObject("enemy11_6")
+    enemy11_7 = lua_table.ObjectFunctions:FindGameObject("enemy11_7")
+    enemy11_8 = lua_table.ObjectFunctions:FindGameObject("enemy11_8")
+    enemy11_9 = lua_table.ObjectFunctions:FindGameObject("enemy11_9")
+
+    tableEnemy11_1 = lua_table.ObjectFunctions:GetScript(enemy11_1)
+    tableEnemy11_2 = lua_table.ObjectFunctions:GetScript(enemy11_2)
+    tableEnemy11_3 = lua_table.ObjectFunctions:GetScript(enemy11_3)
+    tableEnemy11_4 = lua_table.ObjectFunctions:GetScript(enemy11_4)
+    tableEnemy11_5 = lua_table.ObjectFunctions:GetScript(enemy11_5)
+    tableEnemy11_6 = lua_table.ObjectFunctions:GetScript(enemy11_6)
+    tableEnemy11_7 = lua_table.ObjectFunctions:GetScript(enemy11_7)
+    tableEnemy11_8 = lua_table.ObjectFunctions:GetScript(enemy11_8)
+    tableEnemy11_9 = lua_table.ObjectFunctions:GetScript(enemy11_9)
+
+    enemy12_1 = lua_table.ObjectFunctions:FindGameObject("enemy12_1")
+    enemy12_2 = lua_table.ObjectFunctions:FindGameObject("enemy12_2")
+    enemy12_3 = lua_table.ObjectFunctions:FindGameObject("enemy12_3")
+    enemy12_4 = lua_table.ObjectFunctions:FindGameObject("enemy12_4")
+    enemy12_5 = lua_table.ObjectFunctions:FindGameObject("enemy12_5")
+    enemy12_6 = lua_table.ObjectFunctions:FindGameObject("enemy12_6")
+    enemy12_7 = lua_table.ObjectFunctions:FindGameObject("enemy12_7")
+    enemy12_8 = lua_table.ObjectFunctions:FindGameObject("enemy12_8")
+    enemy12_9 = lua_table.ObjectFunctions:FindGameObject("enemy12_9")
+    enemy12_10 = lua_table.ObjectFunctions:FindGameObject("enemy12_10")
+    enemy12_11 = lua_table.ObjectFunctions:FindGameObject("enemy12_11")
+    enemy12_12 = lua_table.ObjectFunctions:FindGameObject("enemy12_12")
+    enemy12_13 = lua_table.ObjectFunctions:FindGameObject("enemy12_13")
+    enemy12_14 = lua_table.ObjectFunctions:FindGameObject("enemy12_14")
+    enemy12_15 = lua_table.ObjectFunctions:FindGameObject("enemy12_15")
+    enemy12_16 = lua_table.ObjectFunctions:FindGameObject("enemy12_16")
+
+    tableEnemy12_1 = lua_table.ObjectFunctions:GetScript(enemy12_1)
+    tableEnemy12_2 = lua_table.ObjectFunctions:GetScript(enemy12_2)
+    tableEnemy12_3 = lua_table.ObjectFunctions:GetScript(enemy12_3)
+    tableEnemy12_4 = lua_table.ObjectFunctions:GetScript(enemy12_4)
+    tableEnemy12_5 = lua_table.ObjectFunctions:GetScript(enemy12_5)
+    tableEnemy12_6 = lua_table.ObjectFunctions:GetScript(enemy12_6)
+    tableEnemy12_7 = lua_table.ObjectFunctions:GetScript(enemy12_7)
+    tableEnemy12_8 = lua_table.ObjectFunctions:GetScript(enemy12_8)
+    tableEnemy12_9 = lua_table.ObjectFunctions:GetScript(enemy12_9)
+    tableEnemy12_10 = lua_table.ObjectFunctions:GetScript(enemy12_10)
+    tableEnemy12_11 = lua_table.ObjectFunctions:GetScript(enemy12_11)
+    tableEnemy12_12 = lua_table.ObjectFunctions:GetScript(enemy12_12)
+    tableEnemy12_13 = lua_table.ObjectFunctions:GetScript(enemy12_13)
+    tableEnemy12_14 = lua_table.ObjectFunctions:GetScript(enemy12_14)
+    tableEnemy12_15 = lua_table.ObjectFunctions:GetScript(enemy12_15)
+    tableEnemy12_16 = lua_table.ObjectFunctions:GetScript(enemy12_16)
+
 end
 
 function lua_table:Start()
@@ -632,6 +1057,18 @@ function lua_table:Update()
     elseif lua_table.currentStep == Step.STEP_10
     then
         Step10()
+    
+    elseif lua_table.currentStep == Step.STEP_11
+    then
+        Step11()
+    
+    elseif lua_table.currentStep == Step.STEP_12
+    then
+        Step12()
+    
+    elseif lua_table.currentStep == Step.STEP_13
+    then
+        Step13()
     else
 
     end
