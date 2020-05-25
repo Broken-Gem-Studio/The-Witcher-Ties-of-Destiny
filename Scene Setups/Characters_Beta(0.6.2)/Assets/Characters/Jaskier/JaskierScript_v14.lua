@@ -1470,7 +1470,11 @@ end
 local function CheckCombos()
 	local combo_achieved = false
 
+	if lua_table.note_num < 4 then
+		lua_table.note_num = lua_table.note_num + 1
+	end
 	lua_table.chained_attacks_num = lua_table.chained_attacks_num + 1
+	
 	if lua_table.chained_attacks_num == 3 then
 		if PerformCombo("light_3") or PerformCombo("medium_3") or PerformCombo("heavy_3") then
 			lua_table.InputFunctions:ShakeController(lua_table.player_ID, 1.0, current_action_duration)
@@ -1495,10 +1499,6 @@ local function RegularAttack(attack_type)
 	-- if lua_table.current_state == state.heavy_3 then	--Heavy_3 animation starts and ends on the right, therefore in this particular case we stay on the right
 	-- 	rightside = not rightside
 	-- end
-
-	if lua_table.note_num < 4 then
-		lua_table.note_num = lua_table.note_num + 1
-	end
 	
 	if rightside	--IF rightside
 	then
@@ -2643,12 +2643,12 @@ function lua_table:Update()
 	--DEBUG LOGS
 	--lua_table.SystemFunctions:LOG("Delta Time: " .. dt)
 	--lua_table.SystemFunctions:LOG("State: " .. lua_table.current_state)
-	lua_table.SystemFunctions:LOG("Time passed: " .. time_since_action)
+	--lua_table.SystemFunctions:LOG("Time passed: " .. time_since_action)
 	--rot_y = math.rad(GimbalLockWorkaroundY(lua_table.TransformFunctions:GetRotation()[2]))	--TODO: Remove GimbalLock stage when Euler bug is fixed
 	--lua_table.SystemFunctions:LOG("Angle Y: " .. rot_y)
 	--lua_table.SystemFunctions:LOG("Ultimate: " .. lua_table.current_ultimate)
-	--lua_table.SystemFunctions:LOG("Chain num: " .. lua_table.chained_attacks_num)
-	--lua_table.SystemFunctions:LOG("Note num: " .. lua_table.note_num)
+	lua_table.SystemFunctions:LOG("Chain num: " .. lua_table.chained_attacks_num)
+	lua_table.SystemFunctions:LOG("Note num: " .. lua_table.note_num)
 	--lua_table.SystemFunctions:LOG("Song string: " .. lua_table.note_stack[1] .. ", " .. lua_table.note_stack[2] .. ", " .. lua_table.note_stack[3] .. ", " .. lua_table.note_stack[4])
 
 	--Animation
