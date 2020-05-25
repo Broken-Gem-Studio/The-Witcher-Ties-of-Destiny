@@ -38,11 +38,11 @@ local Step = {
 
 lua_table.currentStep = Step.STEP_1
 
-local MyUUID = 0
-local GeraltNumber = 1
-local JaskierNumber = 2
+lua_table.MyUUID = 0
+lua_table.GeraltNumber = 1
+lua_table.JaskierNumber = 2
 local tableGeralt, tableJaskier
-local textUID = 0
+lua_table.textUID = 0
 
 -- Variables STEP 1
 local geraltHasMoved = false
@@ -58,10 +58,13 @@ local jaskierAttackB = false
 -- Variables STEP 4
 local enemy1, enemy2, enemy3, enemy4
 local enemyTable1, enemyTable2, enemyTable3, enemyTable4 
-local enemyDead1 = false 
-local enemyDead2 = false
-local enemyDead3 = false
-local enemyDead4 = false
+local enemy4Dead = {
+    enemyDead1 = 0,
+    enemyDead2 = 0,
+    enemyDead3 = 0,
+    enemyDead4 = 0    
+}
+
 lua_table.MoveEnemies = false
 
 -- Variables STEP 5
@@ -73,19 +76,30 @@ local tableChestProp5
 local geraltRoll = false
 local jaskierRoll = false
 local ghoul1, ghoul2, ghoul3, ghoul4
+local tableGhoul1, tableGhoul2, tableGhoul4, tableGhoul4
+local ghoul_1_dead = false
+local ghoul_2_dead = false
+local ghoul_3_dead = false 
+local ghoul_4_dead = false 
 local move = false
+local geraltStart6 = false
+local jaskierStart6 = false
 lua_table.PauseStep6 = false
 
 -- Variables STEP 7
 lua_table.MoveEnemies7 = false
 local enemy7_1, enemy7_2, enemy7_3, enemy7_4, enemy7_5, enemy7_6
 local tableEnemy7_1, tableEnemy7_2, tableEnemy7_3, tableEnemy7_4, tableEnemy7_5, tableEnemy7_6
-local enemy7_1_dead = false
-local enemy7_2_dead = false
-local enemy7_3_dead = false 
-local enemy7_4_dead = false 
-local enemy7_5_dead = false 
-local enemy7_6_dead = false
+
+local enemy7dead = {
+    enemy7_1_dead = 0,
+    enemy7_2_dead = 0,
+    enemy7_3_dead = 0,
+    enemy7_4_dead = 0, 
+    enemy7_5_dead = 0, 
+    enemy7_6_dead = 0 
+}
+
 
 -- Variables STEP 9
 local lumberjack
@@ -93,22 +107,29 @@ local tableLumberjack
 local lumberjackDead = false
 local moveStep9 = false
 local activateEnemiesStep10 = false
+local geraltStart9 = false
+local jaskierStart9 = false
 lua_table.PauseStep9 = false
 
 -- Variables STEP 10
 local enemy10_1, enemy10_2, enemy10_3, enemy10_4, enemy10_5, enemy10_6, enemy10_7, enemy10_8, enemy10_9
 local tableEnemy10_1, tableEnemy10_2, tableEnemy10_3, tableEnemy10_4, tableEnemy10_5, tableEnemy10_6, tableEnemy10_7, tableEnemy10_8, tableEnemy10_9
-local enemy10_1_dead = false
-local enemy10_2_dead = false
-local enemy10_3_dead = false
-local enemy10_4_dead = false
-local enemy10_5_dead = false
-local enemy10_6_dead = false
-local enemy10_7_dead = false
-local enemy10_8_dead = false
-local enemy10_9_dead = false
+local enemy10dead = {
+    enemy10_1_dead = 0,
+    enemy10_2_dead = 0,
+    enemy10_3_dead = 0,
+    enemy10_4_dead = 0,
+    enemy10_5_dead = 0,
+    enemy10_6_dead = 0,
+    enemy10_7_dead = 0,
+    enemy10_8_dead = 0,
+    enemy10_9_dead = 0    
+}
+
 local moveStep10 = false
 lua_table.PauseStep10 = false
+local geraltStart10 = false
+local jaskierStart10 = false
 
 -- Variables STEP 11
 local enemy11_1, enemy11_2, enemy11_3, enemy11_4, enemy11_5, enemy11_6, enemy11_7, enemy11_8, enemy11_9
@@ -123,6 +144,8 @@ local enemy11_7_dead = false
 local enemy11_8_dead = false
 local enemy11_9_dead = false
 local moveStep11 = false
+local geraltStart11 = false
+local jaskierStart11 = false
 lua_table.PauseStep11 = false
 
 -- Variables STEP 12
@@ -148,6 +171,8 @@ local enemy12_16_dead = false
 local moveStep12 = false
 local jaskierUlt = false
 local geraltUlt = false
+local geraltStart12 = false
+local jaskierStart12 = false
 lua_table.PauseStep12 = false
 
 -- Variables STEP 13
@@ -162,53 +187,53 @@ local tableArcher_1, tableArcher_2, tableArcher_3, tableArcher_4, tableArcher_5,
 ------------------------------------------------------------------------------
 
 local function Step1()
-    lua_table.InterfaceFunctions:MakeElementVisible("Text", textUID)
-    lua_table.InterfaceFunctions:SetText("Use the left joystick to move the player", textUID)
+    lua_table.InterfaceFunctions:MakeElementVisible("Text", lua_table.textUID)
+    lua_table.InterfaceFunctions:SetText("Use the left joystick to move the player", lua_table.textUID)
 
-    if lua_table.InputFunctions:GetAxisValue(GeraltNumber, "AXIS_LEFT" .. "X", 0.01) > 0 or lua_table.InputFunctions:GetAxisValue(GeraltNumber, "AXIS_LEFT" .. "Y", 0.01) > 0
+    if lua_table.InputFunctions:GetAxisValue(lua_table.GeraltNumber, "AXIS_LEFT" .. "X", 0.01) > 0 or lua_table.InputFunctions:GetAxisValue(lua_table.GeraltNumber, "AXIS_LEFT" .. "Y", 0.01) > 0
     then
         geraltHasMoved = true
     end
 
-    if lua_table.InputFunctions:GetAxisValue(JaskierNumber, "AXIS_LEFT" .. "X", 0.01) > 0 or lua_table.InputFunctions:GetAxisValue(JaskierNumber, "AXIS_LEFT" .. "Y", 0.01) > 0
+    if lua_table.InputFunctions:GetAxisValue(lua_table.JaskierNumber, "AXIS_LEFT" .. "X", 0.01) > 0 or lua_table.InputFunctions:GetAxisValue(lua_table.JaskierNumber, "AXIS_LEFT" .. "Y", 0.01) > 0
     then
         jaskierHasMoved = true
     end
     
     if geraltHasMoved == true and jaskierHasMoved == true and lua_table.StartStep2 == true
     then
-        lua_table.InterfaceFunctions:MakeElementInvisible("Text", textUID)
+        lua_table.InterfaceFunctions:MakeElementInvisible("Text", lua_table.textUID)
         lua_table.currentStep = Step.STEP_2
     end
 end
 
 local function Step2()
-    lua_table.InterfaceFunctions:MakeElementVisible("Text", textUID)
-    lua_table.InterfaceFunctions:SetText("Press Y to make a light attack. Press B to make a medium attack", textUID)
+    lua_table.InterfaceFunctions:MakeElementVisible("Text", lua_table.textUID)
+    lua_table.InterfaceFunctions:SetText("Press Y to make a light attack. Press B to make a medium attack", lua_table.textUID)
 
-    if lua_table.InputFunctions:IsGamepadButton(GeraltNumber, "BUTTON_Y", KeyState.DOWN) == true
+    if lua_table.InputFunctions:IsGamepadButton(lua_table.GeraltNumber, "BUTTON_Y", KeyState.DOWN) == true
     then
         geraltAttackY = true
     end
 
-    if lua_table.InputFunctions:IsGamepadButton(GeraltNumber, "BUTTON_B", KeyState.DOWN) == true
+    if lua_table.InputFunctions:IsGamepadButton(lua_table.GeraltNumber, "BUTTON_B", KeyState.DOWN) == true
     then
         geraltAttackB = true
     end
 
-    if lua_table.InputFunctions:IsGamepadButton(JaskierNumber, "BUTTON_Y", KeyState.DOWN) == true
+    if lua_table.InputFunctions:IsGamepadButton(lua_table.JaskierNumber, "BUTTON_Y", KeyState.DOWN) == true
     then
         jaskierAttackY = true
     end
 
-    if lua_table.InputFunctions:IsGamepadButton(JaskierNumber, "BUTTON_B", KeyState.DOWN) == true
+    if lua_table.InputFunctions:IsGamepadButton(lua_table.JaskierNumber, "BUTTON_B", KeyState.DOWN) == true
     then
         jaskierAttackB = true
     end
 
     if geraltAttackY == true and geraltAttackB == true and jaskierAttackY == true and jaskierAttackB == true
     then
-        lua_table.InterfaceFunctions:MakeElementInvisible("Text", textUID)
+        lua_table.InterfaceFunctions:MakeElementInvisible("Text", lua_table.textUID)
         lua_table.currentStep = Step.STEP_3
     end
 end
@@ -218,50 +243,50 @@ local function Step3()
 end
 
 local function Step4()
-    lua_table.InterfaceFunctions:MakeElementVisible("Text", textUID)
-    lua_table.InterfaceFunctions:SetText("Kill all the enemies", textUID)
+    lua_table.InterfaceFunctions:MakeElementVisible("Text", lua_table.textUID)
+    lua_table.InterfaceFunctions:SetText("Kill all the enemies", lua_table.textUID)
 
-    if enemyDead1 == false 
+    if enemy4Dead.enemyDead1 == 0 
     then
         if enemyTable1.currentState == 5
         then
-            enemyDead1 = true
+            enemy4Dead.enemyDead1 = 1
         end
     end
 
-    if enemyDead2 == false 
+    if enemy4Dead.enemyDead2 == 0 
     then
         if enemyTable2.currentState == 5
         then
-            enemyDead2 = true
+            enemy4Dead.enemyDead2 = 1
         end
     end
 
-    if enemyDead3 == false 
+    if enemy4Dead.enemyDead3 == 0 
     then
         if enemyTable3.currentState == 5
         then
-            enemyDead3 = true
+            enemy4Dead.enemyDead3 = 1
         end
     end
 
-    if enemyDead4 == false 
+    if enemy4Dead.enemyDead4 == 0 
     then
         if enemyTable4.currentState == 5
         then
-            enemyDead4 = true
+            enemy4Dead.enemyDead4 = 1
         end
     end
 
-    if enemyDead1 == true and enemyDead2 == true and enemyDead3 == true and enemyDead4 == true 
+    if enemy4Dead.enemyDead1 == 1 and enemy4Dead.enemyDead2 == 1 and enemy4Dead.enemyDead3 == 1 and enemy4Dead.enemyDead4 == 1 
     then
         lua_table.currentStep = Step.STEP_6
     end
 end
 
 local function Step5()
-    lua_table.InterfaceFunctions:MakeElementVisible("Text", textUID)
-    lua_table.InterfaceFunctions:SetText("Break the chest", textUID)
+    lua_table.InterfaceFunctions:MakeElementVisible("Text", lua_table.textUID)
+    lua_table.InterfaceFunctions:SetText("Break the chest", lua_table.textUID)
 
     if tableChestProp5.health == 0
     then
@@ -270,92 +295,130 @@ local function Step5()
 end
 
 local function Step6()
-    lua_table.InterfaceFunctions:MakeElementVisible("Text", textUID)
-    lua_table.InterfaceFunctions:SetText("Press A to move great distances and dodge attacks. Consumes 1 energy bar (yellow)", textUID)
+    lua_table.InterfaceFunctions:MakeElementVisible("Text", lua_table.textUID)
 
     if lua_table.PauseStep6 == true and move == false
-    then
-        lua_table.SystemFunctions:PauseGame()        
-    end
-
-    if lua_table.InputFunctions:IsGamepadButton(GeraltNumber, "BUTTON_START", KeyState.DOWN) == true and move == false
-    then
-        lua_table.PauseStep6 = false
-        move = true
-        lua_table.SystemFunctions:ResumeGame()
-    end
-
-    if lua_table.InputFunctions:IsGamepadButton(GeraltNumber, "BUTTON_A", KeyState.DOWN) == true
-    then
-        geraltRoll = true
-    end
-
-    if lua_table.InputFunctions:IsGamepadButton(JaskierNumber, "BUTTON_A", KeyState.DOWN) == true
-    then
-        jaskierRoll = true
-    end
-
-    if geraltRoll == true and jaskierRoll == true
-    then
-        lua_table.currentStep = Step.STEP_5
-    end
+        then
+            lua_table.InterfaceFunctions:SetText("Press A to move great distances and dodge attacks. Consumes 1 energy bar (yellow)", lua_table.textUID)   
+            lua_table.SystemFunctions:PauseGame()     
+        end
+    
+        if lua_table.InputFunctions:IsGamepadButton(lua_table.GeraltNumber, "BUTTON_START", KeyState.DOWN) == true and geraltStart6 == false
+        then
+            geraltStart6 = true
+            lua_table.SystemFunctions:LOG("Geralt STRAT")
+        end
+    
+        if lua_table.InputFunctions:IsGamepadButton(lua_table.JaskierNumber, "BUTTON_START", KeyState.DOWN) == true and jaskierStart6 == false
+        then
+            jaskierStart6 = true
+            lua_table.SystemFunctions:LOG("Jaskier STRAT")
+        end
+    
+        if geraltStart6 == true and jaskierStart6 == true
+        then
+            lua_table.SystemFunctions:ResumeGame()
+            move = true
+        end
+    
+        if lua_table.InputFunctions:IsGamepadButton(lua_table.GeraltNumber, "BUTTON_A", KeyState.DOWN) == true
+        then
+            geraltRoll = true
+        end
+    
+        if lua_table.InputFunctions:IsGamepadButton(lua_table.JaskierNumber, "BUTTON_A", KeyState.DOWN) == true
+        then
+            jaskierRoll = true
+        end
+    
+        if ghoul_1_dead == false 
+        then
+            if tableGhoul1.currentState == 5
+            then
+                ghoul_1_dead = true
+            end
+        end
+    
+        if ghoul_2_dead == false 
+        then
+            if tableGhoul2.currentState == 5
+            then
+                ghoul_2_dead = true
+            end
+        end
+    
+        if ghoul_3_dead == false 
+        then
+            if tableGhoul3.currentState == 5
+            then
+                ghoul_3_dead = true
+            end
+        end
+    
+        if ghoul_4_dead == false 
+        then
+            if tableGhoul4.currentState == 5
+            then
+                ghoul_4_dead = true
+            end
+        end
+    
+        if geraltRoll == true and jaskierRoll == true and ghoul_1_dead == true and ghoul_2_dead == true and ghoul_3_dead == true and ghoul_4_dead == true
+        then
+            lua_table.currentStep = Step.STEP_5
+        end
 end
 
 
 local function Step7()
-    lua_table.InterfaceFunctions:MakeElementVisible("Text", textUID)
-    lua_table.InterfaceFunctions:SetText("Kill the enemeis - STEP 7", textUID)
+    lua_table.InterfaceFunctions:MakeElementVisible("Text", lua_table.textUID)
+    lua_table.InterfaceFunctions:SetText("Kill the enemeis - STEP 7", lua_table.textUID)
 
-    if enemy7_1_dead == false 
+    if enemy7dead.enemy7_1_dead == 0 
     then
         if tableEnemy7_1.currentState == 5
         then
-            lua_table.SystemFunctions:LOG("Enemy 7.1 DEAD")
-            enemy7_1_dead = true
+            enemy7dead.enemy7_1_dead = 1
         end
     end
-    if enemy7_2_dead == false 
+    if enemy7dead.enemy7_2_dead == 0 
     then
         if tableEnemy7_2.currentState == 5
         then
-            lua_table.SystemFunctions:LOG("Enemy 7.2 DEAD")
-            enemy7_2_dead = true
+            enemy7dead.enemy7_2_dead = 1
         end
     end
-    if enemy7_3_dead == false 
+    if enemy7dead.enemy7_3_dead == 0 
     then
         if tableEnemy7_3.currentState == 5
         then
-            lua_table.SystemFunctions:LOG("Enemy 7.3 DEAD")
-            enemy7_3_dead = true
+            enemy7dead.enemy7_3_dead = 1
         end
     end
-    if enemy7_4_dead == false 
+    if enemy7dead.enemy7_4_dead == 0 
     then
         if tableEnemy7_4.currentState == 5
         then
-            lua_table.SystemFunctions:LOG("Enemy 7.4 DEAD")
-            enemy7_4_dead = true
+            enemy7dead.enemy7_4_dead = 1
         end
     end
-    if enemy7_5_dead == false 
+    if enemy7dead.enemy7_5_dead == 0 
     then
         if tableEnemy7_5.currentState == 5
         then
-            lua_table.SystemFunctions:LOG("Enemy 7.5 DEAD")
-            enemy7_5_dead = true
+            enemy7dead.enemy7_5_dead = 1
         end
     end
-    if enemy7_6_dead == false 
+    if enemy7dead.enemy7_6_dead == 0 
     then
         if tableEnemy7_6.currentState == 5
         then
-            lua_table.SystemFunctions:LOG("Enemy 7.6 DEAD")
-            enemy7_6_dead = true
+            enemy7dead.enemy7_6_dead = 1
         end
     end
 
-    if enemy7_1_dead == true and enemy7_2_dead == true and enemy7_3_dead == true and enemy7_4_dead == true and enemy7_5_dead == true and enemy7_6_dead == true
+    if enemy7dead.enemy7_1_dead == 1 and enemy7dead.enemy7_2_dead == 1 and enemy7dead.enemy7_3_dead == 1 and 
+    enemy7dead.enemy7_4_dead == 1 and enemy7dead.enemy7_5_dead == 1 and enemy7dead.enemy7_6_dead == 1
     then
         lua_table.currentStep = Step.STEP_8
     end
@@ -363,15 +426,15 @@ local function Step7()
 end
 
 local function Step8()
-    lua_table.InterfaceFunctions:MakeElementVisible("Text", textUID)
-    lua_table.InterfaceFunctions:SetText("STEP 8", textUID)
+    lua_table.InterfaceFunctions:MakeElementVisible("Text", lua_table.textUID)
+    lua_table.InterfaceFunctions:SetText("STEP 8", lua_table.textUID)
 
     lua_table.currentStep = Step.STEP_9
 end
 
 local function Step9()
-    lua_table.InterfaceFunctions:MakeElementVisible("Text", textUID)
-    lua_table.InterfaceFunctions:SetText("STEP 9", textUID)
+    lua_table.InterfaceFunctions:MakeElementVisible("Text", lua_table.textUID)
+    lua_table.InterfaceFunctions:SetText("STEP 9", lua_table.textUID)
 
     if lua_table.PauseStep9 == true and moveStep9 == false
     then
@@ -379,12 +442,22 @@ local function Step9()
         lua_table.SystemFunctions:LOG("PASUE GAME STEP 9")   
     end
 
-    if lua_table.InputFunctions:IsGamepadButton(GeraltNumber, "BUTTON_START", KeyState.DOWN) == true and moveStep9 == false
+    if lua_table.InputFunctions:IsGamepadButton(lua_table.GeraltNumber, "BUTTON_START", KeyState.DOWN) == true and geraltStart9 == false
     then
         lua_table.PauseStep9 = false
-        moveStep9 = true
+        geraltStart9 = true
+    end
+
+    if lua_table.InputFunctions:IsGamepadButton(lua_table.JaskierNumber, "BUTTON_START", KeyState.DOWN) == true and jaskierStart9 == false
+    then
+        lua_table.PauseStep9 = false
+        jaskierStart9 = true
+    end
+
+    if geraltStart9 == true and jaskierStart9 == true
+    then
         lua_table.SystemFunctions:ResumeGame()
-        lua_table.SystemFunctions:LOG("RESUME GAME STEP 9")
+        moveStep9 = true
     end
 
     if lumberjackDead == false 
@@ -405,95 +478,106 @@ end
 
 
 local function Step10()
-    lua_table.InterfaceFunctions:MakeElementVisible("Text", textUID)
-    lua_table.InterfaceFunctions:SetText("STEP 10", textUID)
+    lua_table.InterfaceFunctions:MakeElementVisible("Text", lua_table.textUID)
+    lua_table.InterfaceFunctions:SetText("STEP 10", lua_table.textUID)
 
     if lua_table.PauseStep10 == true and moveStep10 == false
     then
         lua_table.SystemFunctions:PauseGame()     
     end
 
-    if lua_table.InputFunctions:IsGamepadButton(GeraltNumber, "BUTTON_START", KeyState.DOWN) == true and moveStep10 == false
+    if lua_table.InputFunctions:IsGamepadButton(lua_table.GeraltNumber, "BUTTON_START", KeyState.DOWN) == true and geraltStart10 == false
     then
         lua_table.PauseStep10 = false
-        moveStep10 = true
-        lua_table.SystemFunctions:ResumeGame()
+        geraltStart10 = true
     end
 
-    if enemy10_1_dead == false 
+    if lua_table.InputFunctions:IsGamepadButton(lua_table.JaskierNumber, "BUTTON_START", KeyState.DOWN) == true and jaskierStart10 == false
+    then
+        lua_table.PauseStep10 = false
+        jaskierStart10 = true
+    end
+
+    if geraltStart10 == true and jaskierStart10 == true
+    then
+        lua_table.SystemFunctions:ResumeGame()
+        moveStep10 = true
+    end
+
+    if enemy10dead.enemy10_1_dead == 0 
     then
         if tableEnemy10_1.currentState == 5
         then
-            enemy10_1_dead = true
+            enemy10dead.enemy10_1_dead = 1
         end
     end
 
-    if enemy10_2_dead == false 
+    if enemy10dead.enemy10_2_dead == 0 
     then
         if tableEnemy10_2.currentState == 5
         then
-            enemy10_2_dead = true
+            enemy10dead.enemy10_2_dead = 1
         end
     end
 
-    if enemy10_3_dead == false 
+    if enemy10dead.enemy10_3_dead == 0 
     then
         if tableEnemy10_3.currentState == 5
         then
-            enemy10_3_dead = true
+            enemy10dead.enemy10_3_dead = 1
         end
     end
 
-    if enemy10_4_dead == false 
+    if enemy10dead.enemy10_4_dead == 0 
     then
         if tableEnemy10_4.currentState == 5
         then
-            enemy10_4_dead = true
+            enemy10dead.enemy10_4_dead = 1
         end
     end
 
-    if enemy10_5_dead == false 
+    if enemy10dead.enemy10_5_dead == 0 
     then
         if tableEnemy10_5.currentState == 5
         then
-            enemy10_5_dead = true
+            enemy10dead.enemy10_5_dead = 1
         end
     end
 
-    if enemy10_6_dead == false 
+    if enemy10dead.enemy10_6_dead == 0 
     then
         if tableEnemy10_6.currentState == 5
         then
-            enemy10_6_dead = true
+            enemy10dead.enemy10_6_dead = 1
         end
     end
 
-    if enemy10_7_dead == false 
+    if enemy10dead.enemy10_7_dead == 0 
     then
         if tableEnemy10_7.currentState == 5
         then
-            enemy10_7_dead = true
+            enemy10dead.enemy10_7_dead = 1
         end
     end
 
-    if enemy10_8_dead == false 
+    if enemy10dead.enemy10_8_dead == 0 
     then
         if tableEnemy10_8.currentState == 5
         then
-            enemy10_8_dead = true
+            enemy10dead.enemy10_8_dead = 1
         end
     end
 
-    if enemy10_9_dead == false 
+    if enemy10dead.enemy10_9_dead == 0 
     then
         if tableEnemy10_9.CurrentState == 4
         then
-            enemy10_9_dead = true
+            enemy10dead.enemy10_9_dead = 1
         end
     end
 
-    if enemy10_1_dead == true and enemy10_2_dead == true and enemy10_3_dead == true and enemy10_4_dead == true and enemy10_5_dead == true and 
-    enemy10_6_dead == true and enemy10_7_dead == true and enemy10_8_dead == true and enemy10_9_dead == true
+    if enemy10dead.enemy10_1_dead == 1 and enemy10dead.enemy10_2_dead == 1 and enemy10dead.enemy10_3_dead == 1 and enemy10dead.enemy10_4_dead == 1 and enemy10dead.enemy10_5_dead == 1 and 
+    enemy10dead.enemy10_6_dead == 1 and enemy10dead.enemy10_7_dead == 1 and enemy10dead.enemy10_8_dead == 1 and enemy10dead.enemy10_9_dead == 1
     then
         lua_table.currentStep = Step.STEP_11
     end
@@ -501,19 +585,30 @@ end
 
 
 local function Step11()
-    lua_table.InterfaceFunctions:MakeElementVisible("Text", textUID)
-    lua_table.InterfaceFunctions:SetText("STEP 11", textUID)
+    lua_table.InterfaceFunctions:MakeElementVisible("Text", lua_table.textUID)
+    lua_table.InterfaceFunctions:SetText("STEP 11", lua_table.textUID)
 
     if lua_table.PauseStep11 == true and moveStep11 == false
     then
         lua_table.SystemFunctions:PauseGame()     
     end
 
-    if lua_table.InputFunctions:IsGamepadButton(GeraltNumber, "BUTTON_START", KeyState.DOWN) == true and moveStep11 == false
+    if lua_table.InputFunctions:IsGamepadButton(lua_table.GeraltNumber, "BUTTON_START", KeyState.DOWN) == true and geraltStart11 == false
     then
         lua_table.PauseStep11 = false
-        moveStep11 = true
+        geraltStart11 = true
+    end
+
+    if lua_table.InputFunctions:IsGamepadButton(lua_table.JaskierNumber, "BUTTON_START", KeyState.DOWN) == true and jaskierStart11 == false
+    then
+        lua_table.PauseStep11 = false
+        jaskierStart11 = true
+    end
+
+    if geraltStart11 == true and jaskierStart11 == true
+    then
         lua_table.SystemFunctions:ResumeGame()
+        moveStep11 = true
     end
 
     if enemy11_1_dead == false 
@@ -597,19 +692,30 @@ end
 
 
 local function Step12()
-    lua_table.InterfaceFunctions:MakeElementVisible("Text", textUID)
-    lua_table.InterfaceFunctions:SetText("STEP 12", textUID)
+    lua_table.InterfaceFunctions:MakeElementVisible("Text", lua_table.textUID)
+    lua_table.InterfaceFunctions:SetText("STEP 12", lua_table.textUID)
 
     if lua_table.PauseStep12 == true and moveStep12 == false
     then
         lua_table.SystemFunctions:PauseGame()     
     end
 
-    if lua_table.InputFunctions:IsGamepadButton(GeraltNumber, "BUTTON_START", KeyState.DOWN) == true and moveStep12 == false
+    if lua_table.InputFunctions:IsGamepadButton(lua_table.GeraltNumber, "BUTTON_START", KeyState.DOWN) == true and geraltStart12 == false
     then
         lua_table.PauseStep12 = false
-        moveStep12 = true
+        geraltStart12 = true
+    end
+
+    if lua_table.InputFunctions:IsGamepadButton(lua_table.JaskierNumber, "BUTTON_START", KeyState.DOWN) == true and jaskierStart12 == false
+    then
+        lua_table.PauseStep12 = false
+        jaskierStart12 = true
+    end
+
+    if geraltStart12 == true and jaskierStart12 == true
+    then
         lua_table.SystemFunctions:ResumeGame()
+        moveStep12 = true
     end
 
     if enemy12_1_dead == false 
@@ -762,8 +868,8 @@ end
 
 
 local function Step13()
-    lua_table.InterfaceFunctions:MakeElementVisible("Text", textUID)
-    lua_table.InterfaceFunctions:SetText("STEP 13", textUID)
+    lua_table.InterfaceFunctions:MakeElementVisible("Text", lua_table.textUID)
+    lua_table.InterfaceFunctions:SetText("STEP 13", lua_table.textUID)
 
     
     if lua_table.SaveGame13 == true and hasSaved == false
@@ -787,10 +893,10 @@ local function EnemiesManager()
     
     if move == false
     then
-        ghoulTable1.currentState = 0
-        ghoulTable2.currentState = 0
-        ghoulTable3.currentState = 0
-        ghoulTable4.currentState = 0
+        tableGhoul1.currentState = 0
+        tableGhoul2.currentState = 0
+        tableGhoul3.currentState = 0
+        tableGhoul4.currentState = 0
     end
 
     if lua_table.MoveEnemies == false
@@ -869,8 +975,8 @@ local function EnemiesManager()
 end
 
 function lua_table:Awake()
-    MyUUID = lua_table.ObjectFunctions:GetMyUID()
-    textUID = lua_table.ObjectFunctions:FindGameObject("Text")
+    lua_table.MyUUID = lua_table.ObjectFunctions:GetMyUID()
+    lua_table.textUID = lua_table.ObjectFunctions:FindGameObject("Text")
     
     lua_table.Geralt_UUID = lua_table.ObjectFunctions:FindGameObject("Geralt")
     lua_table.Jaskier_UUID = lua_table.ObjectFunctions:FindGameObject("Jaskier") 
@@ -893,10 +999,10 @@ function lua_table:Awake()
     ghoul3 =  lua_table.ObjectFunctions:FindGameObject("enemy6_3")
     ghoul4 =  lua_table.ObjectFunctions:FindGameObject("enemy6_4")
 
-    ghoulTable1 = lua_table.ObjectFunctions:GetScript(ghoul1)
-    ghoulTable2 = lua_table.ObjectFunctions:GetScript(ghoul2)
-    ghoulTable3 = lua_table.ObjectFunctions:GetScript(ghoul3)
-    ghoulTable4 = lua_table.ObjectFunctions:GetScript(ghoul4)
+    tableGhoul1 = lua_table.ObjectFunctions:GetScript(ghoul1)
+    tableGhoul2 = lua_table.ObjectFunctions:GetScript(ghoul2)
+    tableGhoul3 = lua_table.ObjectFunctions:GetScript(ghoul3)
+    tableGhoul4 = lua_table.ObjectFunctions:GetScript(ghoul4)
 
     chest5 = lua_table.ObjectFunctions:FindGameObject("Box_Prop")
     chestProp5 = lua_table.ObjectFunctions:FindGameObject("PropStep5")
