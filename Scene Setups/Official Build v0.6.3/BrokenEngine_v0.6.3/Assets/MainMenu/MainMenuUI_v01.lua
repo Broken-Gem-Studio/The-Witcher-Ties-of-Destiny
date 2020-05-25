@@ -135,12 +135,12 @@ function lua_table:Update()
 	-- Scene loading
 	if lua_table.loadLevel1 == true
 	then	
-		lua_table.SceneFunctions:LoadScene(lua_table.scene_1)
+		--lua_table.SceneFunctions:LoadScene(lua_table.scene_1)
 	end
 
 	if lua_table.loadLevel2 == true
 	then	
-		lua_table.SceneFunctions:LoadScene(lua_table.scene_2)
+		--lua_table.SceneFunctions:LoadScene(lua_table.scene_2)
 	end
 end
 
