@@ -1,4 +1,4 @@
-function GetTableDeadCorpse()
+function GetTableDeadRecruiter()
 
 local lua_table = {}
 lua_table.System = Scripting.System()
@@ -14,9 +14,10 @@ end
 function lua_table:Start()
     if playedAnim == false
     then
-        lua_table.Animations:PlayAnimation("Death", 30.0, lua_table.MyUID)
+        lua_table.Animations:PlayAnimation("Death_1", 30.0, lua_table.MyUID)
         playedAnim = true
     end
 end
+
 return lua_table
 end

@@ -72,7 +72,6 @@ local ghoul1, ghoul2, ghoul3, ghoul4
 local move = false
 lua_table.PauseStep6 = false
 
-
 -- Variables STEP 7
 lua_table.MoveEnemies7 = false
 local enemy7_1, enemy7_2, enemy7_3, enemy7_4, enemy7_5, enemy7_6
@@ -83,6 +82,29 @@ local enemy7_3_dead = false
 local enemy7_4_dead = false 
 local enemy7_5_dead = false 
 local enemy7_6_dead = false
+
+-- Variables STEP 9
+local lumberjack
+local tableLumberjack
+local lumberjackDead = false
+local moveStep9 = false
+local activateEnemiesStep10 = false
+lua_table.PauseStep9 = false
+
+-- Variables STEP 10
+local enemy10_1, enemy10_2, enemy10_3, enemy10_4, enemy10_5, enemy10_6, enemy10_7, enemy10_8, enemy10_9
+local tableEnemy10_1, tableEnemy10_2, tableEnemy10_3, tableEnemy10_4, tableEnemy10_5, tableEnemy10_6, tableEnemy10_7, tableEnemy10_8, tableEnemy10_9
+local enemy10_1_dead = false
+local enemy10_2_dead = false
+local enemy10_3_dead = false
+local enemy10_4_dead = false
+local enemy10_5_dead = false
+local enemy10_6_dead = false
+local enemy10_7_dead = false
+local enemy10_8_dead = false
+local enemy10_9_dead = false
+local moveStep10 = false
+lua_table.PauseStep10 = false
 
 ------------------------------------------------------------------------------
 -- STEPS
@@ -310,8 +332,142 @@ local function Step8()
     lua_table.InterfaceFunctions:MakeElementVisible("Text", textUID)
     lua_table.InterfaceFunctions:SetText("STEP 8", textUID)
 
+    lua_table.currentStep = Step.STEP_9
 end
+
+local function Step9()
+    lua_table.InterfaceFunctions:MakeElementVisible("Text", textUID)
+    lua_table.InterfaceFunctions:SetText("STEP 9", textUID)
+
+    if lua_table.PauseStep9 == true and moveStep9 == false
+    then
+        lua_table.SystemFunctions:PauseGame()     
+        lua_table.SystemFunctions:LOG("PASUE GAME STEP 9")   
+    end
+
+    if lua_table.InputFunctions:IsGamepadButton(GeraltNumber, "BUTTON_START", KeyState.DOWN) == true and moveStep9 == false
+    then
+        lua_table.PauseStep9 = false
+        moveStep9 = true
+        lua_table.SystemFunctions:ResumeGame()
+        lua_table.SystemFunctions:LOG("RESUME GAME STEP 9")
+    end
+
+    if lumberjackDead == false 
+    then
+        if tableLumberjack.CurrentState == 4
+        then
+            lua_table.SystemFunctions:LOG("LUMBERJACK DEAD")
+            lumberjackDead = true
+        end
+    end
+
+    if lumberjackDead == true
+    then
+        activateEnemiesStep10 = true
+        lua_table.currentStep = Step.STEP_10
+    end
+end
+
+
+local function Step10()
+    lua_table.InterfaceFunctions:MakeElementVisible("Text", textUID)
+    lua_table.InterfaceFunctions:SetText("STEP 10", textUID)
+
+    if lua_table.PauseStep10 == true and moveStep10 == false
+    then
+        lua_table.SystemFunctions:PauseGame()     
+    end
+
+    if lua_table.InputFunctions:IsGamepadButton(GeraltNumber, "BUTTON_START", KeyState.DOWN) == true and moveStep10 == false
+    then
+        lua_table.PauseStep10 = false
+        moveStep10 = true
+        lua_table.SystemFunctions:ResumeGame()
+    end
+
+    if enemy10_1_dead == false 
+    then
+        if tableEnemy10_1.currentState == 5
+        then
+            enemy10_1_dead = true
+        end
+    end
+
+    if enemy10_2_dead == false 
+    then
+        if tableEnemy10_2.currentState == 5
+        then
+            enemy10_2_dead = true
+        end
+    end
+
+    if enemy10_3_dead == false 
+    then
+        if tableEnemy10_3.currentState == 5
+        then
+            enemy10_3_dead = true
+        end
+    end
+
+    if enemy10_4_dead == false 
+    then
+        if tableEnemy10_4.currentState == 5
+        then
+            enemy10_4_dead = true
+        end
+    end
+
+    if enemy10_5_dead == false 
+    then
+        if tableEnemy10_5.currentState == 5
+        then
+            enemy10_5_dead = true
+        end
+    end
+
+    if enemy10_6_dead == false 
+    then
+        if tableEnemy10_6.currentState == 5
+        then
+            enemy10_6_dead = true
+        end
+    end
+
+    if enemy10_7_dead == false 
+    then
+        if tableEnemy10_7.currentState == 5
+        then
+            enemy10_7_dead = true
+        end
+    end
+
+    if enemy10_8_dead == false 
+    then
+        if tableEnemy10_8.currentState == 5
+        then
+            enemy10_8_dead = true
+        end
+    end
+
+    if enemy10_9_dead == false 
+    then
+        if tableEnemy10_9.CurrentState == 4
+        then
+            enemy10_9_dead = true
+        end
+    end
+
+    if enemy10_1_dead == true and enemy10_2_dead == true and enemy10_3_dead == true and enemy10_4_dead == true and enemy10_5_dead == true and 
+    enemy10_6_dead == true and enemy10_7_dead == true and enemy10_8_dead == true and enemy10_9_dead == true
+    then
+        lua_table.currentStep = Step.STEP_11
+    end
+end
+
+
 local function EnemiesManager()
+    
     if move == false
     then
         ghoulTable1.currentState = 0
@@ -337,6 +493,28 @@ local function EnemiesManager()
         tableEnemy7_5.currentState = 0
         tableEnemy7_6.currentState = 0
     end
+
+    if moveStep9 == false
+    then
+        tableLumberjack.CurrentState = 1
+    end
+
+    if activateEnemiesStep10 == false
+    then
+        tableEnemy10_1.currentState = 0
+        tableEnemy10_2.currentState = 0
+        tableEnemy10_3.currentState = 0
+        tableEnemy10_4.currentState = 0
+    end
+
+    if moveStep10 == false
+    then
+        tableEnemy10_5.currentState = 0
+        tableEnemy10_6.currentState = 0
+        tableEnemy10_7.currentState = 0
+        tableEnemy10_8.currentState = 0
+        tableEnemy10_9.CurrentState = 1
+    end
 end
 
 function lua_table:Awake()
@@ -356,10 +534,10 @@ function lua_table:Awake()
     enemyTable3 = lua_table.ObjectFunctions:GetScript(enemy3)
     enemyTable4 = lua_table.ObjectFunctions:GetScript(enemy4)
 
-    ghoul1 =  lua_table.ObjectFunctions:FindGameObject("ghoul1")
-    ghoul2 =  lua_table.ObjectFunctions:FindGameObject("ghoul2")
-    ghoul3 =  lua_table.ObjectFunctions:FindGameObject("ghoul3")
-    ghoul4 =  lua_table.ObjectFunctions:FindGameObject("ghoul4")
+    ghoul1 =  lua_table.ObjectFunctions:FindGameObject("enemy6_1")
+    ghoul2 =  lua_table.ObjectFunctions:FindGameObject("enemy6_2")
+    ghoul3 =  lua_table.ObjectFunctions:FindGameObject("enemy6_3")
+    ghoul4 =  lua_table.ObjectFunctions:FindGameObject("enemy6_4")
 
     ghoulTable1 = lua_table.ObjectFunctions:GetScript(ghoul1)
     ghoulTable2 = lua_table.ObjectFunctions:GetScript(ghoul2)
@@ -384,6 +562,29 @@ function lua_table:Awake()
     tableEnemy7_5 = lua_table.ObjectFunctions:GetScript(enemy7_5)
     tableEnemy7_6 = lua_table.ObjectFunctions:GetScript(enemy7_6)
 
+    lumberjack = lua_table.ObjectFunctions:FindGameObject("Lumberjack")
+
+    tableLumberjack = lua_table.ObjectFunctions:GetScript(lumberjack)
+
+    enemy10_1 = lua_table.ObjectFunctions:FindGameObject("enemy10_1")
+    enemy10_2 = lua_table.ObjectFunctions:FindGameObject("enemy10_2")
+    enemy10_3 = lua_table.ObjectFunctions:FindGameObject("enemy10_3")
+    enemy10_4 = lua_table.ObjectFunctions:FindGameObject("enemy10_4")
+    enemy10_5 = lua_table.ObjectFunctions:FindGameObject("enemy10_5")
+    enemy10_6 = lua_table.ObjectFunctions:FindGameObject("enemy10_6")
+    enemy10_7 = lua_table.ObjectFunctions:FindGameObject("enemy10_7")
+    enemy10_8 = lua_table.ObjectFunctions:FindGameObject("enemy10_8")
+    enemy10_9 = lua_table.ObjectFunctions:FindGameObject("enemy10_9")
+
+    tableEnemy10_1 = lua_table.ObjectFunctions:GetScript(enemy10_1)
+    tableEnemy10_2 = lua_table.ObjectFunctions:GetScript(enemy10_2)
+    tableEnemy10_3 = lua_table.ObjectFunctions:GetScript(enemy10_3)
+    tableEnemy10_4 = lua_table.ObjectFunctions:GetScript(enemy10_4)
+    tableEnemy10_5 = lua_table.ObjectFunctions:GetScript(enemy10_5)
+    tableEnemy10_6 = lua_table.ObjectFunctions:GetScript(enemy10_6)
+    tableEnemy10_7 = lua_table.ObjectFunctions:GetScript(enemy10_7)
+    tableEnemy10_8 = lua_table.ObjectFunctions:GetScript(enemy10_8)
+    tableEnemy10_9 = lua_table.ObjectFunctions:GetScript(enemy10_9)
 end
 
 function lua_table:Start()
@@ -423,7 +624,16 @@ function lua_table:Update()
     elseif lua_table.currentStep == Step.STEP_8
     then
         Step8()
+    
+    elseif lua_table.currentStep == Step.STEP_9
+    then
+        Step9()
+    
+    elseif lua_table.currentStep == Step.STEP_10
+    then
+        Step10()
     else
+
     end
 end
 

@@ -1,4 +1,4 @@
-function GetTableTriggerStep6()
+function GetTableTriggerStep10()
 local lua_table = {}
 lua_table.System = Scripting.System()
 lua_table.SystemFunctions = Scripting.System()
@@ -16,7 +16,7 @@ function lua_table:OnTriggerEnter()
 
     if colliderGO == geraltUID or colliderGO == jaskierUID
     then    
-        managerTable.PauseStep6 = true
+        managerTable.PauseStep10 = true
     end
 end
 
