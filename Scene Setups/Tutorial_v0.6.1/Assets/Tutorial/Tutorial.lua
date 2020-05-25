@@ -135,7 +135,7 @@ end
 local function Step4()
     lua_table.InterfaceFunctions:MakeElementVisible("Text", textUID)
     lua_table.InterfaceFunctions:SetText("Kill all the enemies", textUID)
-    
+    --[[
     if lua_table.MoveEnemies == false
     then
         enemyTable1.currentState = 0
@@ -143,7 +143,7 @@ local function Step4()
         enemyTable3.currentState = 0
         enemyTable4.currentState = 0
     end
-
+]]
     if enemyDead1 == false 
     then
         if enemyTable1.currentState == 5
@@ -202,7 +202,7 @@ local function Step6()
         lua_table.SystemFunctions:LOG("hola PAUSE STEP == TRUE")
         lua_table.SystemFunctions:PauseGame()        
     end
-
+    --[[
     if move == false
     then
         lua_table.SystemFunctions:LOG("hola move == false")
@@ -211,7 +211,7 @@ local function Step6()
         ghoulTable3.currentState = 0
         ghoulTable4.currentState = 0
     end
-
+]]
     if lua_table.InputFunctions:IsGamepadButton(GeraltNumber, "BUTTON_START", KeyState.DOWN) == true and move == false
     then
         lua_table.SystemFunctions:LOG("RESUME FUCKING GAME STEP 6")
@@ -233,6 +233,25 @@ local function Step6()
     if geraltRoll == true and jaskierRoll == true
     then
         lua_table.currentStep = Step.STEP_5
+    end
+end
+
+local function EnemiesManager()
+    if move == false
+    then
+        lua_table.SystemFunctions:LOG("hola move == false")
+        ghoulTable1.currentState = 0
+        ghoulTable2.currentState = 0
+        ghoulTable3.currentState = 0
+        ghoulTable4.currentState = 0
+    end
+
+    if lua_table.MoveEnemies == false
+    then
+        enemyTable1.currentState = 0
+        enemyTable2.currentState = 0
+        enemyTable3.currentState = 0
+        enemyTable4.currentState = 0
     end
 end
 
@@ -270,6 +289,7 @@ end
 
 function lua_table:Update()
 
+    EnemiesManager()
     if lua_table.currentStep == Step.STEP_1
     then
         Step1()
