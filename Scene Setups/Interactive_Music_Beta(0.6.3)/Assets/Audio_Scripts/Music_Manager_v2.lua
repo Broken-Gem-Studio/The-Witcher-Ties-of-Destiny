@@ -28,24 +28,19 @@ function lua_table:Start()
 	my_UID = lua_table.GameObjectFunctions:GetMyUID()
 	lua_table.AudioFunctions:PlayAudioEvent("Play_Level_1_Music")
 
-	lua_table.AudioFunctions:SetAudioSwitch("Level_1_Switch","Default",my_UID)
+	lua_table.AudioFunctions:SetAudioSwitch("Lvl_1_Music_Switch","Exploration",my_UID)
 	lua_table.AudioFunctions:SetVolume(0.3,my_UID)
 
 end
 
 function lua_table:Update()
-	-- Request Music
-	-- if geralt_script.enemies_nearby or jaskier_script.enemies_nearby
-	-- then
-	-- 	if lua_table.current_music ~= music_types.combat then lua_table.requested_music = music_types.combat end
-	-- else
-	-- 	if lua_table.current_music ~= music_types.default then lua_table.requested_music = music_types.default end
-	-- end
-
+	
 	if geralt_script.enemies_nearby == true or jaskier_script.enemies_nearby == true then
 		lua_table.Enemies_Nearby = true
+		lua_table.AudioFunctions:SetAudioSwitch("Lvl_1_Music_Switch","Combat",my_UID)
 	elseif geralt_script.enemies_nearby == false and jaskier_script.enemies_nearby == false then
 		lua_table.Enemies_Nearby = false
+		lua_table.AudioFunctions:SetAudioSwitch("Lvl_1_Music_Switch","Exploration",my_UID)
 	end
 
 end

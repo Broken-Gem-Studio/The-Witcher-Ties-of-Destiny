@@ -108,6 +108,8 @@ namespace AK
         static const AkUniqueID PLAY_KIKIMORA_SCREAM_1 = 3439824559U;
         static const AkUniqueID PLAY_KIKIMORA_SCREAM_4 = 3439824554U;
         static const AkUniqueID PLAY_KIKIMORA_SWEEP = 287198644U;
+        static const AkUniqueID PLAY_LEVEL_1_MUSIC = 814842324U;
+        static const AkUniqueID PLAY_LEVEL_2_MUSIC = 2048014091U;
         static const AkUniqueID PLAY_LUMBERJACK_AXE_SWING_ATTACK = 1511621515U;
         static const AkUniqueID PLAY_LUMBERJACK_HEAVY_AXE_ATTACK_HIT_EDIT = 1628159071U;
         static const AkUniqueID PLAY_LUMBERJACK_HEAVY_AXE_ATTACK_WARNING = 1677382623U;
@@ -147,6 +149,32 @@ namespace AK
         static const AkUniqueID PLAY_TITAN_GHOUL_TAKE_DAMAGE = 1347311224U;
         static const AkUniqueID PLAY_TITAN_GHOULL_DEATH = 547580181U;
     } // namespace EVENTS
+
+    namespace SWITCHES
+    {
+        namespace LVL_1_MUSIC_SWITCH
+        {
+            static const AkUniqueID GROUP = 1315527568U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID COMBAT = 2764240573U;
+                static const AkUniqueID EXPLORATION = 2582085496U;
+            } // namespace SWITCH
+        } // namespace LVL_1_MUSIC_SWITCH
+
+        namespace LVL_2_MUSIC_SWITCH
+        {
+            static const AkUniqueID GROUP = 1415887973U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID COMBAT = 2764240573U;
+                static const AkUniqueID EXPLORATION = 2582085496U;
+            } // namespace SWITCH
+        } // namespace LVL_2_MUSIC_SWITCH
+
+    } // namespace SWITCHES
 
     namespace GAME_PARAMETERS
     {
