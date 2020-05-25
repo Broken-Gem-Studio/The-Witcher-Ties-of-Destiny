@@ -25,6 +25,8 @@ and animation speeds, not scripting variables storing milisecond values.
 **Jaskier_v3**: Knocknack, Stun, Death, and Stand Up Animations.
 	- Uses JaskierScript_v9.
 	
+**CharacterAttackScript**: Goes inside the attack colliders to give the character scripts the "hit" message.
+
 **GeraltScript_v1**: With Geralt_v1.
 **GeraltScript_v2**: Only up to build 0.2.4 with Geralt_v2.
 **GeraltScript_v3**: First varied namespaces (0.2.5 and up) with Geralt_v3.
