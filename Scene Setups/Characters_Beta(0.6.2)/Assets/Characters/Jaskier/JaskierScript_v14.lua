@@ -2001,8 +2001,16 @@ local function ProcessIncomingHit(collider_GO)
 	local collider_parent = lua_table.GameObjectFunctions:GetGameObjectParent(collider_GO)
 	local enemy_script = {}
 
-	if collider_parent ~= 0 then	--IF collider has parent, data is saved on parent (it means the collider is repurposed for different damages)
+	if collider_parent ~= 0 then	--IF collider has parent, relevant data is saved on the highest parent in the hierarchy ("the manager")
+		-- local tmp_parent = lua_table.GameObjectFunctions:GetGameObjectParent(collider_parent)
+
+		-- while tmp_parent ~= 0 do	-- tmp_parent checks if <root> is the current parent of collider_parent, if it is then collider_parent is the highest parent in the hierarchy ("the manager")
+		-- 	collider_parent = tmp_parent
+		-- 	tmp_parent = lua_table.GameObjectFunctions:GetGameObjectParent(tmp_parent)
+		-- end
+
 		enemy_script = lua_table.GameObjectFunctions:GetScript(collider_parent)
+		
 	else							--IF collider has no parent, data is saved within collider
 		enemy_script = lua_table.GameObjectFunctions:GetScript(collider_GO)
 	end
