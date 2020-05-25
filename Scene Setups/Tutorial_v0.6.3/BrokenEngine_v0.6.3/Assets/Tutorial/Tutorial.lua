@@ -20,6 +20,7 @@ local KeyState = {
 }
 
 local Step = {
+    NONE = 0,
     STEP_1 = 1,
     STEP_2 = 2,
     STEP_3 = 3,
@@ -46,6 +47,7 @@ local textUID = 0
 -- Variables STEP 1
 local geraltHasMoved = false
 local jaskierHasMoved = false
+lua_table.StartStep2 = false
 
 -- Variables STEP 2
 local geraltAttackY = false
@@ -148,6 +150,9 @@ local jaskierUlt = false
 local geraltUlt = false
 lua_table.PauseStep12 = false
 
+-- Variables STEP 13
+lua_table.SaveGame13 = false
+local hasSaved = false
 
 -- ARCHERS
 local archer_1, archer_2, archer_3, archer_4, archer_5, archer_6, archer_7, archer_8, archer_9
@@ -170,7 +175,7 @@ local function Step1()
         jaskierHasMoved = true
     end
 
-    if geraltHasMoved == true and jaskierHasMoved == true
+    if geraltHasMoved == true and jaskierHasMoved == true -- and lua_table.StartStep2 == true
     then
         lua_table.InterfaceFunctions:MakeElementInvisible("Text", textUID)
         lua_table.currentStep = Step.STEP_2
@@ -215,15 +220,7 @@ end
 local function Step4()
     lua_table.InterfaceFunctions:MakeElementVisible("Text", textUID)
     lua_table.InterfaceFunctions:SetText("Kill all the enemies", textUID)
-    --[[
-    if lua_table.MoveEnemies == false
-    then
-        enemyTable1.currentState = 0
-        enemyTable2.currentState = 0
-        enemyTable3.currentState = 0
-        enemyTable4.currentState = 0
-    end
-]]
+
     if enemyDead1 == false 
     then
         if enemyTable1.currentState == 5
@@ -280,16 +277,7 @@ local function Step6()
     then
         lua_table.SystemFunctions:PauseGame()        
     end
-    --[[
-    if move == false
-    then
-        lua_table.SystemFunctions:LOG("hola move == false")
-        ghoulTable1.currentState = 0
-        ghoulTable2.currentState = 0
-        ghoulTable3.currentState = 0
-        ghoulTable4.currentState = 0
-    end
-]]
+
     if lua_table.InputFunctions:IsGamepadButton(GeraltNumber, "BUTTON_START", KeyState.DOWN) == true and move == false
     then
         lua_table.PauseStep6 = false
@@ -776,6 +764,22 @@ end
 local function Step13()
     lua_table.InterfaceFunctions:MakeElementVisible("Text", textUID)
     lua_table.InterfaceFunctions:SetText("STEP 13", textUID)
+
+    
+    if lua_table.SaveGame13 == true and hasSaved == false
+    then
+        hasSaved = true
+
+        -- SAVE GAME FUNCTION
+    end
+    
+    if hasSaved == true
+    then
+        lua_table.currentStep = Step.NONE
+    end
+    
+    lua_table.currentStep = Step.NONE
+    
 end
 
 
@@ -1070,7 +1074,7 @@ function lua_table:Update()
     then
         Step13()
     else
-
+        lua_table.currentStep = Step.NONE
     end
 end
 
