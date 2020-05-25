@@ -125,7 +125,7 @@
                 "index": 0,
                 "layer": "0",
                 "positionx": "0.000000",
-                "positiony": "0.000000",
+                "positiony": "4.000000",
                 "positionz": "0.000000",
                 "rotationw": "1.000000",
                 "rotationx": "0.000000",
@@ -153,7 +153,7 @@
                 "positionx": "-1.165900",
                 "positiony": "9.181004",
                 "positionz": "-0.111496",
-                "rotationw": "0.997934",
+                "rotationw": "0.997933",
                 "rotationx": "-0.006888",
                 "rotationy": "0.011560",
                 "rotationz": "-0.062831",
@@ -225,9 +225,9 @@
                 "rotationx": "0.536806",
                 "rotationy": "-0.449375",
                 "rotationz": "0.566528",
-                "scalex": "0.999519",
-                "scaley": "0.999519",
-                "scalez": "0.999519"
+                "scalex": "0.999510",
+                "scaley": "0.999510",
+                "scalez": "0.999510"
             },
             "13": {
                 "Active": true,
@@ -337,6 +337,56 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "829237070",
+        "Static": false
+    },
+    "1084769423": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1969637911,
+                "index": 0,
+                "layer": "0",
+                "positionx": "63.359245",
+                "positiony": "18.437672",
+                "positionz": "90.081573",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/329994650.mesh"
+                    }
+                },
+                "UID": 592722546,
+                "index": 1
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/Sewer_Material.mat"
+                    }
+                },
+                "UID": 2038097961,
+                "index": 2
+            }
+        },
+        "Index": 1,
+        "Name": "Sewer_Joint",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1401597136",
         "Static": false
     },
     "1090431420": {
@@ -884,9 +934,9 @@
                 "draw": "1",
                 "firstCreation": "1",
                 "globalMatrixw": "1.000000",
-                "globalMatrixx": "-65.648514",
-                "globalMatrixy": "19.663185",
-                "globalMatrixz": "64.168282",
+                "globalMatrixx": "-51.059837",
+                "globalMatrixy": "15.293589",
+                "globalMatrixz": "49.908546",
                 "globalPositionx": "1.000000",
                 "globalPositiony": "1.000000",
                 "globalPositionz": "1.000000",
@@ -1116,8 +1166,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.540000",
-                "scaley": "2.540593",
-                "scalez": "2.540593"
+                "scaley": "2.540604",
+                "scalez": "2.540604"
             },
             "1": {
                 "Active": true,
@@ -1378,8 +1428,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000481",
-                "scalez": "1.000481"
+                "scaley": "1.000490",
+                "scalez": "1.000490"
             }
         },
         "Index": 0,
@@ -2185,8 +2235,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.070461",
-                "scaley": "15.157891",
-                "scalez": "1.368131"
+                "scaley": "15.157969",
+                "scalez": "1.368140"
             },
             "1": {
                 "Active": true,
@@ -2294,8 +2344,8 @@
                 "rotationx": "-0.000169",
                 "rotationy": "-0.004364",
                 "rotationz": "0.999931",
-                "scalex": "1.000962",
-                "scaley": "1.000953",
+                "scalex": "1.000980",
+                "scaley": "1.000971",
                 "scalez": "1.000000"
             },
             "13": {
@@ -2504,8 +2554,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000481",
-                "scalez": "1.000481"
+                "scaley": "1.000490",
+                "scalez": "1.000490"
             }
         },
         "Index": 0,
@@ -3025,6 +3075,32 @@
         "Parent": "2012709519",
         "Static": false
     },
+    "1401597136": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 489698116,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Index": 29,
+        "Name": "Sewers",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1565139470",
+        "Static": false
+    },
     "1402655023": {
         "Active": true,
         "Components": {
@@ -3074,8 +3150,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000481",
-                "scalez": "1.000481"
+                "scaley": "1.000490",
+                "scalez": "1.000490"
             }
         },
         "Index": 0,
@@ -3184,8 +3260,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000481",
-                "scalez": "1.000481"
+                "scaley": "1.000490",
+                "scalez": "1.000490"
             }
         },
         "Index": 0,
@@ -3358,8 +3434,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000481",
-                "scalez": "1.000481"
+                "scaley": "1.000490",
+                "scalez": "1.000490"
             }
         },
         "Index": 0,
@@ -3433,9 +3509,9 @@
                 "rotationx": "-0.550319",
                 "rotationy": "-0.440850",
                 "rotationz": "0.555183",
-                "scalex": "1.000481",
-                "scaley": "1.000481",
-                "scalez": "1.000481"
+                "scalex": "1.000490",
+                "scaley": "1.000490",
+                "scalez": "1.000490"
             },
             "13": {
                 "Active": true,
@@ -3468,8 +3544,8 @@
                 "rotationy": "0.000040",
                 "rotationz": "-0.000037",
                 "scalex": "1.000000",
-                "scaley": "1.000481",
-                "scalez": "1.000481"
+                "scaley": "1.000490",
+                "scalez": "1.000490"
             },
             "13": {
                 "Active": true,
@@ -3978,8 +4054,8 @@
                 "rotationx": "0.388476",
                 "rotationy": "0.030072",
                 "rotationz": "0.916844",
-                "scalex": "1.000958",
-                "scaley": "1.000958",
+                "scalex": "1.000976",
+                "scaley": "1.000976",
                 "scalez": "1.000000"
             },
             "13": {
@@ -4112,9 +4188,9 @@
                 "rotationx": "-0.000000",
                 "rotationy": "0.766044",
                 "rotationz": "-0.000000",
-                "scalex": "0.450001",
-                "scaley": "0.450000",
-                "scalez": "0.450001"
+                "scalex": "0.350000",
+                "scaley": "0.350000",
+                "scalez": "0.350000"
             }
         },
         "Index": 3,
@@ -4156,6 +4232,56 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "613629083",
+        "Static": false
+    },
+    "1583650903": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 688939268,
+                "index": 0,
+                "layer": "0",
+                "positionx": "53.324696",
+                "positiony": "7.154939",
+                "positionz": "95.829453",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/777472044.mesh"
+                    }
+                },
+                "UID": 593521683,
+                "index": 1
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/CityLevel_Final/FoamWater.mat"
+                    }
+                },
+                "UID": 1840240216,
+                "index": 2
+            }
+        },
+        "Index": 0,
+        "Name": "Box018",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1401597136",
         "Static": false
     },
     "1587022692": {
@@ -4483,8 +4609,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000481",
-                "scalez": "1.000481"
+                "scaley": "1.000490",
+                "scalez": "1.000490"
             }
         },
         "Index": 0,
@@ -4608,9 +4734,9 @@
                 "UID": 68301290,
                 "index": 0,
                 "layer": "1",
-                "positionx": "-301.600739",
-                "positiony": "3.565903",
-                "positionz": "190.280548",
+                "positionx": "-231.602295",
+                "positiony": "3.237646",
+                "positionz": "146.685089",
                 "rotationw": "1.000000",
                 "rotationx": "0.000000",
                 "rotationy": "0.000000",
@@ -6191,9 +6317,9 @@
                 "height": "2.500000",
                 "index": 3,
                 "nonWalkableMode": "1",
-                "positionX": "-301.600739",
-                "positionY": "3.565903",
-                "positionZ": "190.280548",
+                "positionX": "-231.602295",
+                "positionY": "3.237646",
+                "positionZ": "146.685089",
                 "radius": "1.000000",
                 "slopeLimit": "45.000000",
                 "stepOffset": "0.020000"
@@ -6252,8 +6378,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.540000",
-                "scaley": "2.540594",
-                "scalez": "2.540594"
+                "scaley": "2.540606",
+                "scalez": "2.540606"
             },
             "1": {
                 "Active": true,
@@ -8127,8 +8253,8 @@
                 "rotationx": "-0.000534",
                 "rotationy": "-0.000084",
                 "rotationz": "0.999921",
-                "scalex": "1.000959",
-                "scaley": "1.000961",
+                "scalex": "1.000976",
+                "scaley": "1.000978",
                 "scalez": "1.000000"
             },
             "13": {
@@ -8794,8 +8920,8 @@
                 "rotationx": "0.000598",
                 "rotationy": "0.002538",
                 "rotationz": "0.999918",
-                "scalex": "0.999519",
-                "scaley": "0.999519",
+                "scalex": "0.999510",
+                "scaley": "0.999510",
                 "scalez": "1.000000"
             },
             "13": {
@@ -8829,8 +8955,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000481",
-                "scalez": "1.000481"
+                "scaley": "1.000490",
+                "scalez": "1.000490"
             }
         },
         "Index": 0,
@@ -8904,8 +9030,8 @@
                 "rotationx": "0.000205",
                 "rotationy": "-0.005509",
                 "rotationz": "0.999924",
-                "scalex": "1.000484",
-                "scaley": "1.000710",
+                "scalex": "1.000493",
+                "scaley": "1.000719",
                 "scalez": "1.000000"
             },
             "13": {
@@ -9007,8 +9133,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000481",
-                "scalez": "1.000481"
+                "scaley": "1.000490",
+                "scalez": "1.000490"
             }
         },
         "Index": 0,
@@ -10873,8 +10999,8 @@
                 "rotationy": "0.000028",
                 "rotationz": "-0.000027",
                 "scalex": "2.540000",
-                "scaley": "2.540597",
-                "scalez": "2.540597"
+                "scaley": "2.540608",
+                "scalez": "2.540608"
             },
             "13": {
                 "Active": true,
@@ -11467,7 +11593,7 @@
                 "PartMBlFuncDst": 7,
                 "PartMBlFuncSrc": 6,
                 "Resources": {
-                    "ResourceTexture": "Library/Textures/316785344.dds"
+                    "ResourceTexture": "Library/Textures/296922939.dds"
                 },
                 "UID": 288439247,
                 "VerticalBill": "0",
@@ -11623,7 +11749,7 @@
                 "positionx": "0.000000",
                 "positiony": "34.904800",
                 "positionz": "0.000000",
-                "rotationw": "0.882768",
+                "rotationw": "0.882767",
                 "rotationx": "0.468685",
                 "rotationy": "-0.003518",
                 "rotationz": "0.032303",
@@ -11850,9 +11976,9 @@
                 "UID": 1911988224,
                 "index": 0,
                 "layer": "0",
-                "positionx": "-299.521210",
+                "positionx": "-233.722733",
                 "positiony": "26.068001",
-                "positionz": "172.931854",
+                "positionz": "137.552628",
                 "rotationw": "0.952396",
                 "rotationx": "0.304864",
                 "rotationy": "0.000000",
@@ -12054,17 +12180,17 @@
                 "index": 2
             },
             "20": {
-                "Active": true,
+                "Active": false,
                 "UID": 1994338978,
                 "index": 3
             },
             "3": {
-                "ACTIVECAM": true,
-                "ASPECTRATIO": 2.261538505554199,
+                "ACTIVECAM": false,
+                "ASPECTRATIO": 2.3889315128326416,
                 "Active": true,
-                "CULLINGCAM": true,
+                "CULLINGCAM": false,
                 "FARPLANE": 1000.0,
-                "FOV": 44.43663024902344,
+                "FOV": 42.28131866455078,
                 "NEARPLANE": 0.10000000149011612,
                 "UID": 610800162,
                 "index": 1
@@ -13121,8 +13247,8 @@
                 "rotationy": "-0.000000",
                 "rotationz": "-0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000481",
-                "scalez": "1.000481"
+                "scaley": "1.000490",
+                "scalez": "1.000490"
             }
         },
         "Index": 0,
@@ -13219,9 +13345,9 @@
                 "UID": 999092011,
                 "index": 0,
                 "layer": "1",
-                "positionx": "-297.866730",
+                "positionx": "-232.068253",
                 "positiony": "3.565903",
-                "positionz": "181.861557",
+                "positionz": "141.865997",
                 "rotationw": "1.000000",
                 "rotationx": "0.000000",
                 "rotationy": "0.000000",
@@ -14711,9 +14837,9 @@
                 "height": "2.500000",
                 "index": 3,
                 "nonWalkableMode": "1",
-                "positionX": "-297.866730",
+                "positionX": "-232.068253",
                 "positionY": "3.565903",
-                "positionZ": "181.861557",
+                "positionZ": "141.865997",
                 "radius": "1.000000",
                 "slopeLimit": "45.000000",
                 "stepOffset": "0.020000"
@@ -15007,8 +15133,8 @@
                 "rotationx": "0.388476",
                 "rotationy": "0.030072",
                 "rotationz": "0.916844",
-                "scalex": "1.000956",
-                "scaley": "1.000956",
+                "scalex": "1.000974",
+                "scaley": "1.000974",
                 "scalez": "1.000000"
             },
             "13": {
@@ -15042,8 +15168,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000481",
-                "scalez": "1.000481"
+                "scaley": "1.000490",
+                "scalez": "1.000490"
             }
         },
         "Index": 0,
@@ -15102,8 +15228,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000481",
-                "scalez": "1.000481"
+                "scaley": "1.000490",
+                "scalez": "1.000490"
             }
         },
         "Index": 0,
@@ -15128,8 +15254,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000481",
-                "scalez": "1.000481"
+                "scaley": "1.000490",
+                "scalez": "1.000490"
             }
         },
         "Index": 0,
@@ -15507,8 +15633,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000481",
-                "scalez": "1.000481"
+                "scaley": "1.000490",
+                "scalez": "1.000490"
             }
         },
         "Index": 0,
