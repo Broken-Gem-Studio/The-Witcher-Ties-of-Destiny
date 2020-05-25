@@ -12,7 +12,6 @@ lua_table.level1_uid = 0
 lua_table.level2_uid = 0
 lua_table.mm_uid = 0
 
-local background = 0
 local fade = 0
 local win = 0
 local lose = 0
@@ -35,54 +34,19 @@ local jaskier_z = 0
 local is_win = false
 local is_lose = false
 
-local bg_flag = false
-local win_flag = false
-local lose_flag = false
 local fade_flag = false
-local mm_flag = false
-
-local bg_alpha = 0
 local fade_alpha = 0
-local win_alpha = 0
-local lose_alpha = 0
-local mm_alpha = 0
-local nl_alpha = 0
-local omm_alpha = 0
 
 local function Victory()
     lua_table.System:PauseGame()
-        
-    if bg_flag == false
+    
+    --victory sound**
+
+    lua_table.GO:SetActiveGameObject(true, win)
+    lua_table.GO:SetActiveGameObject(true, fade)
+
+    if and fade_flag == false
     then
-        lua_table.GO:SetActiveGameObject(true, background)
-
-        bg_alpha = bg_alpha + 2
-        lua_table.UI:ChangeUIComponentAlpha("Image", bg_alpha, background)
-
-        if bg_alpha == 256
-        then
-            bg_flag = true
-        end
-    end
-
-    if bg_flag == true and win_flag == false
-    then
-        --victory sound**
-        lua_table.GO:SetActiveGameObject(true, win)
-
-        win_alpha = win_alpha + 4
-        lua_table.UI:ChangeUIComponentAlpha("Image", win_alpha, win)
-
-        if win_alpha == 256
-        then
-            win_flag = true
-        end
-    end
-
-    if win_flag == true and fade_flag == false
-    then
-        lua_table.GO:SetActiveGameObject(true, fade)
-
         fade_alpha = fade_alpha + 2
         lua_table.UI:ChangeUIComponentAlpha("Image", fade_alpha, fade)
 
@@ -96,74 +60,25 @@ local function Victory()
     then
         if current_level == 1
         then
-            if mm_flag == false
-            then
-                lua_table.GO:SetActiveGameObject(true, mainmenu)
-                lua_table.GO:SetActiveGameObject(true, nextlevel)
-
-                nl_alpha = nl_alpha + 4
-                mm_alpha = mm_alpha + 4
-                lua_table.UI:ChangeUIComponentAlpha("Image", nl_alpha, mainmenu)
-                lua_table.UI:ChangeUIComponentAlpha("Image", mm_alpha, nextlevel)
-
-                if nl_alpha == 256 and mm_alpha == 256
-                then
-                    mm_flag = true
-                end
-            end
+            lua_table.GO:SetActiveGameObject(true, mainmenu)
+            lua_table.GO:SetActiveGameObject(true, nextlevel)
         elseif current_level == 2
         then
-            if mm_flag == false
-            then
-                lua_table.GO:SetActiveGameObject(true, only_mainmenu)
-
-                omm_alpha = omm_alpha + 4
-                lua_table.UI:ChangeUIComponentAlpha("Image", omm_alpha, only_mainmenu)
-
-                if omm_alpha == 256
-                then
-                    mm_flag = true
-                end
-            end
+            lua_table.GO:SetActiveGameObject(true, only_mainmenu)
         end
     end
 end
 
 local function Defeat()
     lua_table.System:PauseGame()
-    
-    if bg_flag == false
+
+    --defeat sound**
+
+    lua_table.GO:SetActiveGameObject(true, lose)
+    lua_table.GO:SetActiveGameObject(true, fade)
+
+    if fade_flag == false
     then
-        lua_table.GO:SetActiveGameObject(true, background)
-
-        bg_alpha = bg_alpha + 2
-        lua_table.UI:ChangeUIComponentAlpha("Image", bg_alpha, background)
-
-        if bg_alpha == 256
-        then
-            bg_flag = true
-        end
-    end
-
-    if bg_flag == true and lose_flag == false
-    then
-        --defeat sound**
-
-        lua_table.GO:SetActiveGameObject(true, lose)
-
-        lose_alpha = lose_alpha + 4
-        lua_table.UI:ChangeUIComponentAlpha("Image", lose_alpha, lose)
-
-        if lose_alpha == 256
-        then
-            lose_flag = true
-        end
-    end
-
-    if lose_flag == true and fade_flag == false
-    then
-        lua_table.GO:SetActiveGameObject(true, fade)
-
         fade_alpha = fade_alpha + 2
         lua_table.UI:ChangeUIComponentAlpha("Image", fade_alpha, fade)
 
@@ -173,23 +88,19 @@ local function Defeat()
         end
     end
 
-    ResetLevel()
+    if fade_flag == true
+    then
+        ResetLevel()
+    end
 end
 
 local function ResetLevel()
-    --set bools to false
+    --reset variables
     is_lose = false
-    bg_flag = false
-    lose_flag = false
     fade_flag = false
-
-    --reset alphas
-    bg_alpha = 0
     fade_alpha = 0
-    lose_alpha = 0
 
     --set ui inactive
-    lua_table.GO:SetActiveGameObject(false, background)
     lua_table.GO:SetActiveGameObject(false, lose)
     lua_table.GO:SetActiveGameObject(false, fade)
 
@@ -207,23 +118,12 @@ local function ResetLevel()
 end
 
 function lua_table:GoToMainMenu()
-    --set bools to false
+    --reset variables
     is_win = false
-    bg_flag = false
-    win_flag = false
     fade_flag = false
-    mm_flag = false
-
-    --reset alphas
-    bg_alpha = 0
     fade_alpha = 0
-    win_alpha = 0
-    mm_alpha = 0
-    nl_alpha = 0
-    omm_alpha = 0
 
     --set ui inactive
-    lua_table.GO:SetActiveGameObject(false, background)
     lua_table.GO:SetActiveGameObject(false, win)
     lua_table.GO:SetActiveGameObject(false, fade)
     lua_table.GO:SetActiveGameObject(false, mainmenu)
@@ -238,22 +138,12 @@ function lua_table:GoToMainMenu()
 end
 
 function lua_table:GoToNextLevel()
-    --set bools to false
+    --reset variables
     is_win = false
-    bg_flag = false
-    win_flag = false
     fade_flag = false
-    mm_flag = false
-
-    --reset alphas
-    bg_alpha = 0
     fade_alpha = 0
-    win_alpha = 0
-    mm_alpha = 0
-    nl_alpha = 0
 
     --set ui inactive
-    lua_table.GO:SetActiveGameObject(false, background)
     lua_table.GO:SetActiveGameObject(false, win)
     lua_table.GO:SetActiveGameObject(false, fade)
     lua_table.GO:SetActiveGameObject(false, mainmenu)
@@ -324,19 +214,18 @@ end
 
 -------------------------------------------------
 function lua_table:Awake()
-    background = lua_table.GO:FindGameObject("Background")
     win = lua_table.GO:FindGameObject("Victory")
     lose = lua_table.GO:FindGameObject("Defeat")
     fade = lua_table.GO:FindGameObject("Fade")
     mainmenu = lua_table.GO:FindGameObject("MainMenu")
     nextlevel = lua_table.GO:FindGameObject("NextLevel")
     only_mainmenu = lua_table.GO:FindGameObject("OnlyMainMenu")
-
+    
     Geralt = lua_table.GO:FindGameObject("Geralt")
-    geralt_script = lua_table.GO:GetScript(Geralt)
-
+    --geralt_script = lua_table.GO:GetScript(Geralt)
+    
     Jaskier = lua_table.GO:FindGameObject("Jaskier")
-    jaskier_script = lua_table.GO:GetScript(Jaskier)
+    --jaskier_script = lua_table.GO:GetScript(Jaskier)
 end
 
 function lua_table:Start()
@@ -358,13 +247,11 @@ function lua_table:Update()
     -----------
 
     --win condition
-    if current_level == 1 and is_win == false
+    if current_level == 1 and is_win == false --and win condition**
     then
-        --check if win**
         is_win = true
-    elseif current_level == 2 and is_win == false
+    elseif current_level == 2 and is_win == false --and kikimora is dead**
     then
-        --check if kikimora is dead**
         is_win = true
     end
 
