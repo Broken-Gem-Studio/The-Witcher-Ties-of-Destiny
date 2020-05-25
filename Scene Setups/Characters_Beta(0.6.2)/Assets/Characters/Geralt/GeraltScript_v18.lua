@@ -575,7 +575,7 @@ local idle_blend_finished = false
 lua_table.combo_num = 0							-- Starting at 0, increases by 1 for each attack well timed, starting at 4, each new attack will be checked for a succesful combo. Bad timing or performing a combo resets to 0
 lua_table.combo_stack = { 'N', 'N', 'N', 'N' }	-- Last 4 attacks performed. Uses push_back tactic.
 
-lua_table.combo_1 = { 'L', 'L', 'L', 'L' }--{ 'L', 'L', 'H', 'M' }	--Slide Attack
+lua_table.combo_1 = { 'M', 'H', 'L', 'L' }	--Slide Attack
 lua_table.combo_1_size = 4
 lua_table.combo_1_damage = 2.0	--slide + 4 hits
 lua_table.combo_1_effect = attack_effects_ID.knockback
@@ -596,7 +596,7 @@ lua_table.combo_1_collider_left_end = 950		--Collider deactivation time
 lua_table.combo_1_collider_back_start = 900		--Collider activation time
 lua_table.combo_1_collider_back_end = 1000		--Collider deactivation time
 
-lua_table.combo_2 = { 'M', 'M', 'M', 'M' }--{ 'M', 'H', 'M', 'L' }	--High Spin
+lua_table.combo_2 = { 'H', 'L', 'M', 'M' }	--High Spin
 lua_table.combo_2_size = 4
 lua_table.combo_2_damage = 3.5	--3 hit
 lua_table.combo_2_effect = attack_effects_ID.stun
@@ -613,7 +613,7 @@ lua_table.combo_2_collider_right_end = 750		--Collider deactivation time
 lua_table.combo_2_collider_front_start = 900	--Collider activation time
 lua_table.combo_2_collider_front_end = 1100		--Collider deactivation time
 
-lua_table.combo_3 = { 'H', 'H', 'H', 'H' }--{ 'H', 'M', 'L', 'H' }	--Jump Attack
+lua_table.combo_3 = { 'L', 'M', 'H', 'H' }	--Jump Attack
 lua_table.combo_3_size = 4
 lua_table.combo_3_damage = 4.0	--1 hit		--IMPROVE: + stun
 lua_table.combo_3_effect = attack_effects_ID.knockback

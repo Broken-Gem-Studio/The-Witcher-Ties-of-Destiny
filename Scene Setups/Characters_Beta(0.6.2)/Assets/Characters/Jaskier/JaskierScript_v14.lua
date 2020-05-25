@@ -511,7 +511,7 @@ lua_table.note_num = 0							-- Starting at 0, increases by 1 for each attack we
 lua_table.note_stack = { 'N', 'N', 'N', 'N' }	-- Last 4 attacks performed (0=none, 1=light, 2=heavy). Use push_back tactic.
 
 	--Song 1
-	lua_table.song_1 = { 'L', 'L', 'L', 'L' }--{ 'L', 'L', 'L', 'M' }	--Penetrating Line of Damage (Row of colliders in front of jaskier get turned on one right after the other)
+	lua_table.song_1 = { 'M', 'H', 'L', 'L' }	--Penetrating Line of Damage (Row of colliders in front of jaskier get turned on one right after the other)
 	lua_table.song_1_size = 4
 	lua_table.song_1_effect_start = 750
 	lua_table.song_1_effect_active = false
@@ -534,7 +534,7 @@ lua_table.note_stack = { 'N', 'N', 'N', 'N' }	-- Last 4 attacks performed (0=non
 	lua_table.song_1_collider_line_4_end = 1200
 
 	--Song 2
-	lua_table.song_2 = { 'M', 'M', 'M', 'M' }--{ 'M', 'M', 'H', 'L' }	--Large Stun Cone (AoE applied once, gives animation_library.stun effect)
+	lua_table.song_2 = { 'H', 'L', 'M', 'M' }	--Large Stun Cone (AoE applied once, gives animation_library.stun effect)
 	lua_table.song_2_size = 4
 	lua_table.song_2_effect_start = 850
 	lua_table.song_2_effect_active = false
@@ -556,7 +556,7 @@ lua_table.note_stack = { 'N', 'N', 'N', 'N' }	-- Last 4 attacks performed (0=non
 	}
 
 	--Song 3
-	lua_table.song_3 = { 'H', 'H', 'H', 'H' }--{ 'H', 'H', 'M', 'H' }	--Taunt Moonwalk + Circle Knockback (Both use a circle AoE, first "taunt" scond animation_library.knockback)
+	lua_table.song_3 = { 'L', 'M', 'H', 'H' }	--Taunt Moonwalk + Circle Knockback (Both use a circle AoE, first "taunt" scond animation_library.knockback)
 	lua_table.song_3_size = 4
 	lua_table.song_3_effect_start = 0
 	lua_table.song_3_effect_end = 2000
