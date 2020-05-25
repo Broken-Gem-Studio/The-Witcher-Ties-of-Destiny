@@ -29,16 +29,20 @@ function lua_table:Update()
 		then
 			lua_table.InterfaceFunctions:MakeElementVisible("Image", lua_table.pauseImage_UUID)
 			lua_table.InterfaceFunctions:MakeElementVisible("Image", lua_table.parchmentImage_UUID)
-			lua_table.InterfaceFunctions:MakeElementVisible("Button", lua_table.menuButton_UUID)
-			lua_table.InterfaceFunctions:MakeElementVisible("Button", lua_table.resumeButton_UUID)
+			lua_table.ObjectFunctions:SetActiveGameObject(true, lua_table.menuButton_UUID)
+			lua_table.InterfaceFunctions:SetUIElementInteractable("Button", lua_table.menuButton_UUID, true)
+			lua_table.ObjectFunctions:SetActiveGameObject(true, lua_table.resumeButton_UUID)
+			lua_table.InterfaceFunctions:SetUIElementInteractable("Button", lua_table.resumeButton_UUID, true)
 			lua_table.SystemFunctions:PauseGame()
 			gamePaused = true
 		else
+			lua_table.SystemFunctions:ResumeGame()
 			lua_table.InterfaceFunctions:MakeElementInvisible("Image", lua_table.pauseImage_UUID)
 			lua_table.InterfaceFunctions:MakeElementInvisible("Image", lua_table.parchmentImage_UUID)
-			lua_table.InterfaceFunctions:MakeElementInvisible("Button", lua_table.menuButton_UUID)
-			lua_table.InterfaceFunctions:MakeElementInvisible("Button", lua_table.resumeButton_UUID)
-			lua_table.SystemFunctions:ResumeGame()
+			lua_table.ObjectFunctions:SetActiveGameObject(false, lua_table.menuButton_UUID)
+			lua_table.InterfaceFunctions:SetUIElementInteractable("Button", lua_table.menuButton_UUID, false)
+			lua_table.ObjectFunctions:SetActiveGameObject(false, lua_table.resumeButton_UUID)
+			lua_table.InterfaceFunctions:SetUIElementInteractable("Button", lua_table.resumeButton_UUID, false)
 			gamePaused = false
 		end
 	end
@@ -56,11 +60,14 @@ end
 
 function lua_table:ResumeGame()
 	lua_table.SystemFunctions:ResumeGame()
+	gamePaused = false
+
 	lua_table.InterfaceFunctions:MakeElementInvisible("Image", lua_table.pauseImage_UUID)
 	lua_table.InterfaceFunctions:MakeElementInvisible("Image", lua_table.parchmentImage_UUID)
-	lua_table.InterfaceFunctions:MakeElementInvisible("Button", lua_table.menuButton_UUID)
-	lua_table.InterfaceFunctions:MakeElementInvisible("Button", lua_table.resumeButton_UUID)
-	gamePaused = false
+	lua_table.ObjectFunctions:SetActiveGameObject(false, lua_table.menuButton_UUID)
+	lua_table.InterfaceFunctions:SetUIElementInteractable("Button", lua_table.menuButton_UUID, false)
+	lua_table.ObjectFunctions:SetActiveGameObject(false, lua_table.resumeButton_UUID)
+	lua_table.InterfaceFunctions:SetUIElementInteractable("Button", lua_table.resumeButton_UUID, false)
 end
 
 return lua_table
