@@ -174,8 +174,8 @@ local function Step1()
     then
         jaskierHasMoved = true
     end
-
-    if geraltHasMoved == true and jaskierHasMoved == true -- and lua_table.StartStep2 == true
+    
+    if geraltHasMoved == true and jaskierHasMoved == true and lua_table.StartStep2 == true
     then
         lua_table.InterfaceFunctions:MakeElementInvisible("Text", textUID)
         lua_table.currentStep = Step.STEP_2
