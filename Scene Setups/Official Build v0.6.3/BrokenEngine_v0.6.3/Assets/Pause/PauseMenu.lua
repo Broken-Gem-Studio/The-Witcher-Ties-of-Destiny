@@ -23,6 +23,7 @@ end
 
 function lua_table:Update()
 	if lua_table.InputFunctions:KeyDown("P")
+	or lua_table.InputFunctions:IsGamepadButton(1, "BUTTON_START", "DOWN") or lua_table.InputFunctions:IsGamepadButton(2, "BUTTON_START", "DOWN")
 	then
 		if gamePaused == false
 		then
