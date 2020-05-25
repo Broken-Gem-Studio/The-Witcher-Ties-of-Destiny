@@ -680,12 +680,57 @@
 									</PropertyList>
 									<ChildrenList>
 										<MusicTransition Name="Transition" ID="{F7D4C70E-0E7B-464F-B815-810FCEF94974}">
-											<TransitionInfo/>
+											<PropertyList>
+												<Property Name="EnableDestinationFadeIn" Type="bool" Value="True"/>
+												<Property Name="EnableSourceFadeOut" Type="bool" Value="True"/>
+												<Property Name="PlayDestinationPreEntry" Type="bool" Value="False"/>
+												<Property Name="PlaySourcePostExit" Type="bool" Value="False"/>
+											</PropertyList>
+											<TransitionInfo>
+												<SourceFadeOut>
+													<MusicFade Name="Source Fade-out" ID="{6B40C3B4-0F83-4DD4-A5F5-9117D101BC54}">
+														<PropertyList>
+															<Property Name="FadeOffset" Type="Real64" Value="1"/>
+															<Property Name="FadeTime" Type="Real64" Value="2"/>
+															<Property Name="FadeType" Type="int16" Value="1"/>
+														</PropertyList>
+													</MusicFade>
+												</SourceFadeOut>
+												<DestinationFadeIn>
+													<MusicFade Name="Destination Fade-in" ID="{AF982D5E-B955-4B8F-A4D5-AFAA61BBA4FE}">
+														<PropertyList>
+															<Property Name="FadeOffset" Type="Real64" Value="-1"/>
+															<Property Name="FadeTime" Type="Real64" Value="2"/>
+														</PropertyList>
+													</MusicFade>
+												</DestinationFadeIn>
+											</TransitionInfo>
 										</MusicTransition>
 									</ChildrenList>
 									<TransitionInfo/>
 								</MusicTransition>
 							</TransitionList>
+							<ArgumentList>
+								<ArgumentRef Name="Lvl_2_Music_Switch" ID="{9DA45392-D8E7-497A-B952-16CE7000534B}"/>
+							</ArgumentList>
+							<EntryList>
+								<Entry>
+									<Path>
+										<PathElementRef Name="Combat" ID="{A1945A8A-BA25-45B4-8A79-B2E534BC4615}"/>
+									</Path>
+									<AudioNodeInfo>
+										<AudioNodeRef Name="Combat_Music" ID="{5F31CECD-FCDB-4CCF-A3E3-54DF82D92C60}" WorkUnitID="{900849B3-5BE8-4F7B-8EC5-9E5DD796D73F}" Platform="Linked"/>
+									</AudioNodeInfo>
+								</Entry>
+								<Entry>
+									<Path>
+										<PathElementRef Name="Exploration" ID="{F965EDE7-E1DE-42EE-A489-F984E9B2CAD1}"/>
+									</Path>
+									<AudioNodeInfo>
+										<AudioNodeRef Name="Exploration_Music" ID="{08361BC4-C6E1-46B8-9D60-FA8398FF069A}" WorkUnitID="{900849B3-5BE8-4F7B-8EC5-9E5DD796D73F}" Platform="Linked"/>
+									</AudioNodeInfo>
+								</Entry>
+							</EntryList>
 						</MusicSwitchContainer>
 					</ChildrenList>
 				</Folder>
