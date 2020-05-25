@@ -361,8 +361,10 @@ function lua_table:Awake()
     ghoulTable4 = lua_table.ObjectFunctions:GetScript(ghoul4)
 
     chest5 = lua_table.ObjectFunctions:FindGameObject("Box_Prop")
-    chestProp5 = lua_table.ObjectFunctions:FindChidGameObjectFromGO("Prop", chest5)
+    chestProp5 = lua_table.ObjectFunctions:FindGameObject("PropStep5")
     tableChestProp5 = lua_table.ObjectFunctions:GetScript(chestProp5)
+    
+
     --[[
     enemy7_1 = lua_table.ObjectFunctions:FindGameObject("enemy7_1")
     enemy7_2 = lua_table.ObjectFunctions:FindGameObject("enemy7_2")
@@ -381,6 +383,9 @@ function lua_table:Awake()
 end
 
 function lua_table:Start()
+    lua_table.SystemFunctions:LOG("AWAKE MANAGER")
+    lua_table.SystemFunctions:LOG("Box Prop: "..chest5)
+    lua_table.SystemFunctions:LOG("Prop: "..chestProp5)
 end
 
 function lua_table:Update()
