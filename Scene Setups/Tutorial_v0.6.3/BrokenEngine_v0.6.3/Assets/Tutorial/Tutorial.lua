@@ -72,13 +72,18 @@ local ghoul1, ghoul2, ghoul3, ghoul4
 local move = false
 lua_table.PauseStep6 = false
 
---[[
+
 -- Variables STEP 7
 lua_table.MoveEnemies7 = false
 local enemy7_1, enemy7_2, enemy7_3, enemy7_4, enemy7_5, enemy7_6
 local tableEnemy7_1, tableEnemy7_2, tableEnemy7_3, tableEnemy7_4, tableEnemy7_5, tableEnemy7_6
-local enemy7_1_dead, enemy7_2_dead, enemy7_3_dead, enemy7_4_dead, enemy7_5_dead, enemy7_6_dead
-]]
+local enemy7_1_dead = false
+local enemy7_2_dead = false
+local enemy7_3_dead = false 
+local enemy7_4_dead = false 
+local enemy7_5_dead = false 
+local enemy7_6_dead = false
+
 ------------------------------------------------------------------------------
 -- STEPS
 ------------------------------------------------------------------------------
@@ -87,7 +92,6 @@ local function Step1()
     lua_table.InterfaceFunctions:MakeElementVisible("Text", textUID)
     lua_table.InterfaceFunctions:SetText("Use the left joystick to move the player", textUID)
 
-    lua_table.SystemFunctions:LOG("STEP 1")
     if lua_table.InputFunctions:GetAxisValue(GeraltNumber, "AXIS_LEFT" .. "X", 0.01) > 0 or lua_table.InputFunctions:GetAxisValue(GeraltNumber, "AXIS_LEFT" .. "Y", 0.01) > 0
     then
         geraltHasMoved = true
@@ -100,7 +104,6 @@ local function Step1()
 
     if geraltHasMoved == true and jaskierHasMoved == true
     then
-        lua_table.SystemFunctions:LOG("TEXT invisible")
         lua_table.InterfaceFunctions:MakeElementInvisible("Text", textUID)
         lua_table.currentStep = Step.STEP_2
     end
@@ -132,7 +135,6 @@ local function Step2()
 
     if geraltAttackY == true and geraltAttackB == true and jaskierAttackY == true and jaskierAttackB == true
     then
-        lua_table.SystemFunctions:LOG("TEXT invisible")
         lua_table.InterfaceFunctions:MakeElementInvisible("Text", textUID)
         lua_table.currentStep = Step.STEP_3
     end
@@ -205,11 +207,9 @@ end
 local function Step6()
     lua_table.InterfaceFunctions:MakeElementVisible("Text", textUID)
     lua_table.InterfaceFunctions:SetText("Press A to move great distances and dodge attacks. Consumes 1 energy bar (yellow)", textUID)
-    lua_table.SystemFunctions:LOG("hola STEP 6 ")
 
     if lua_table.PauseStep6 == true and move == false
     then
-        lua_table.SystemFunctions:LOG("hola PAUSE STEP == TRUE")
         lua_table.SystemFunctions:PauseGame()        
     end
     --[[
@@ -224,7 +224,6 @@ local function Step6()
 ]]
     if lua_table.InputFunctions:IsGamepadButton(GeraltNumber, "BUTTON_START", KeyState.DOWN) == true and move == false
     then
-        lua_table.SystemFunctions:LOG("RESUME FUCKING GAME STEP 6")
         lua_table.PauseStep6 = false
         move = true
         lua_table.SystemFunctions:ResumeGame()
@@ -246,7 +245,7 @@ local function Step6()
     end
 end
 
---[[
+
 local function Step7()
     lua_table.InterfaceFunctions:MakeElementVisible("Text", textUID)
     lua_table.InterfaceFunctions:SetText("Kill the enemeis - STEP 7", textUID)
@@ -255,6 +254,7 @@ local function Step7()
     then
         if tableEnemy7_1.currentState == 5
         then
+            lua_table.SystemFunctions:LOG("Enemy 7.1 DEAD")
             enemy7_1_dead = true
         end
     end
@@ -262,6 +262,7 @@ local function Step7()
     then
         if tableEnemy7_2.currentState == 5
         then
+            lua_table.SystemFunctions:LOG("Enemy 7.2 DEAD")
             enemy7_2_dead = true
         end
     end
@@ -269,6 +270,7 @@ local function Step7()
     then
         if tableEnemy7_3.currentState == 5
         then
+            lua_table.SystemFunctions:LOG("Enemy 7.3 DEAD")
             enemy7_3_dead = true
         end
     end
@@ -276,6 +278,7 @@ local function Step7()
     then
         if tableEnemy7_4.currentState == 5
         then
+            lua_table.SystemFunctions:LOG("Enemy 7.4 DEAD")
             enemy7_4_dead = true
         end
     end
@@ -283,6 +286,7 @@ local function Step7()
     then
         if tableEnemy7_5.currentState == 5
         then
+            lua_table.SystemFunctions:LOG("Enemy 7.5 DEAD")
             enemy7_5_dead = true
         end
     end
@@ -290,6 +294,7 @@ local function Step7()
     then
         if tableEnemy7_6.currentState == 5
         then
+            lua_table.SystemFunctions:LOG("Enemy 7.6 DEAD")
             enemy7_6_dead = true
         end
     end
@@ -300,11 +305,15 @@ local function Step7()
     end
 
 end
-]]
+
+local function Step8()
+    lua_table.InterfaceFunctions:MakeElementVisible("Text", textUID)
+    lua_table.InterfaceFunctions:SetText("STEP 8", textUID)
+
+end
 local function EnemiesManager()
     if move == false
     then
-        lua_table.SystemFunctions:LOG("hola move == false")
         ghoulTable1.currentState = 0
         ghoulTable2.currentState = 0
         ghoulTable3.currentState = 0
@@ -318,7 +327,7 @@ local function EnemiesManager()
         enemyTable3.currentState = 0
         enemyTable4.currentState = 0
     end
-    --[[
+
     if lua_table.MoveEnemies7 == false
     then
         tableEnemy7_1.currentState = 0
@@ -328,15 +337,12 @@ local function EnemiesManager()
         tableEnemy7_5.currentState = 0
         tableEnemy7_6.currentState = 0
     end
-]]
 end
 
 function lua_table:Awake()
     MyUUID = lua_table.ObjectFunctions:GetMyUID()
     textUID = lua_table.ObjectFunctions:FindGameObject("Text")
     
-    lua_table.SystemFunctions:LOG("text uuid: "..textUID)
-
     lua_table.Geralt_UUID = lua_table.ObjectFunctions:FindGameObject("Geralt")
     lua_table.Jaskier_UUID = lua_table.ObjectFunctions:FindGameObject("Jaskier") 
 
@@ -364,8 +370,6 @@ function lua_table:Awake()
     chestProp5 = lua_table.ObjectFunctions:FindGameObject("PropStep5")
     tableChestProp5 = lua_table.ObjectFunctions:GetScript(chestProp5)
     
-
-    --[[
     enemy7_1 = lua_table.ObjectFunctions:FindGameObject("enemy7_1")
     enemy7_2 = lua_table.ObjectFunctions:FindGameObject("enemy7_2")
     enemy7_3 = lua_table.ObjectFunctions:FindGameObject("enemy7_3")
@@ -379,13 +383,10 @@ function lua_table:Awake()
     tableEnemy7_4 = lua_table.ObjectFunctions:GetScript(enemy7_4)
     tableEnemy7_5 = lua_table.ObjectFunctions:GetScript(enemy7_5)
     tableEnemy7_6 = lua_table.ObjectFunctions:GetScript(enemy7_6)
-]]
+
 end
 
 function lua_table:Start()
-    lua_table.SystemFunctions:LOG("AWAKE MANAGER")
-    lua_table.SystemFunctions:LOG("Box Prop: "..chest5)
-    lua_table.SystemFunctions:LOG("Prop: "..chestProp5)
 end
 
 function lua_table:Update()
@@ -418,6 +419,10 @@ function lua_table:Update()
     elseif lua_table.currentStep == Step.STEP_7
     then
         Step7()
+
+    elseif lua_table.currentStep == Step.STEP_8
+    then
+        Step8()
     else
     end
 end
