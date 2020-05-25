@@ -8,7 +8,7 @@ local winlose_script = 0
 
 lua_table.checkpoint
 
-local function OnTriggerEnter()
+function lua_table:OnTriggerEnter()
     if lua_table.GO:GetLayerByID(1)
     then
         last_checkpoint = lua_table.checkpoint
