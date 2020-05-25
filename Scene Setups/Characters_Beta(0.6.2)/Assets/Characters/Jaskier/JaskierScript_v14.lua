@@ -389,7 +389,12 @@ lua_table.energy_reg_orig = 7
 --Light Attack
 lua_table.light_damage = 1.0					--Multiplier of Base Damage
 
-lua_table.light_movement_velocity = 6.5
+lua_table.light_3_movement_1_velocity = 7.0
+lua_table.light_3_movement_1_start = 150
+lua_table.light_3_movement_1_end = 400
+lua_table.light_3_movement_2_velocity = -6.0
+lua_table.light_3_movement_2_start = 600
+lua_table.light_3_movement_2_end = 800
 
 lua_table.light_1_block_time = 300			--Input block duration	(block new attacks)
 lua_table.light_1_collider_front_start = 300	--Collider activation time
@@ -405,13 +410,12 @@ lua_table.light_2_duration = 450			--Attack end (return to idle)
 lua_table.light_2_animation_speed = 70.0
 lua_table.light_2_slow_start = 350
 
-lua_table.light_3_velocity_start = 100
-lua_table.light_3_block_time = 300			--Input block duration	(block new attacks)
-lua_table.light_3_collider_front_start = 250	--Collider activation time
-lua_table.light_3_collider_front_end = 350	--Collider deactivation time
+lua_table.light_3_block_time = 2000			--Input block duration	(block new attacks)
+lua_table.light_3_collider_front_start = 350	--Collider activation time
+lua_table.light_3_collider_front_end = 450	--Collider deactivation time
 lua_table.light_3_duration = 500			--Attack end (return to idle)
-lua_table.light_3_animation_speed = 70.0	
-lua_table.light_3_slow_start = 400
+lua_table.light_3_animation_speed = 60.0	
+--lua_table.light_3_slow_start = 2000
 
 lua_table.light_3 = { 'N', 'L', 'L', 'L' }
 lua_table.light_3_size = 3
@@ -422,11 +426,15 @@ lua_table.light_3_effect = attack_effects_ID.knockback
 lua_table.medium_damage = 1.5					--Multiplier of Base Damage
 
 lua_table.medium_1_movement_velocity = 6.0
-lua_table.medium_1_movement_velocity_start = 180
+lua_table.medium_1_movement_start = 180
 lua_table.medium_2_movement_velocity = 7.0
-lua_table.medium_2_movement_velocity_start = 300
-lua_table.medium_3_movement_velocity = 7.0
-lua_table.medium_3_movement_velocity_start = 300
+lua_table.medium_2_movement_start = 300
+lua_table.medium_3_movement_1_velocity = 7.0
+lua_table.medium_3_movement_1_start = 300
+lua_table.medium_3_movement_1_end = 550
+lua_table.medium_3_movement_2_velocity = -6.0
+lua_table.medium_3_movement_2_start = 800
+lua_table.medium_3_movement_2_end = 1100
 
 lua_table.medium_1_block_time = 300			--Input block duration	(block new attacks)
 lua_table.medium_1_collider_front_start = 250	--Collider activation time
@@ -442,12 +450,12 @@ lua_table.medium_2_duration = 530			--Attack end (return to idle)
 lua_table.medium_2_animation_speed = 50.0
 lua_table.medium_2_slow_start = 400
 
-lua_table.medium_3_block_time = 350			--Input block duration	(block new attacks)
+lua_table.medium_3_block_time = 2000			--Input block duration	(block new attacks)
 lua_table.medium_3_collider_front_start = 350	--Collider activation time
 lua_table.medium_3_collider_front_end = 450	--Collider deactivation time
 lua_table.medium_3_duration = 600			--Attack end (return to idle)
 lua_table.medium_3_animation_speed = 50.0
-lua_table.medium_3_slow_start = 430
+--lua_table.medium_3_slow_start = 2000
 
 lua_table.medium_3 = { 'N', 'M', 'M', 'M' }
 lua_table.medium_3_size = 3
@@ -458,13 +466,16 @@ lua_table.medium_3_effect = attack_effects_ID.stun
 lua_table.heavy_damage = 2.0				--Multiplier of Base Damage
 
 lua_table.heavy_1_movement_velocity = 5.0
-lua_table.heavy_1_movement_velocity_start = 650
-lua_table.heavy_1_movement_velocity_end = 1000
+lua_table.heavy_1_movement_start = 650
+lua_table.heavy_1_movement_end = 1000
 lua_table.heavy_2_movement_velocity = 3.0
-lua_table.heavy_2_movement_velocity_start = 300
-lua_table.heavy_3_movement_velocity = 3.0
-lua_table.heavy_3_movement_velocity_start = 260
-lua_table.heavy_3_movement_velocity_end = 500
+lua_table.heavy_2_movement_start = 300
+lua_table.heavy_3_movement_1_velocity = 3.0
+lua_table.heavy_3_movement_1_start = 260
+lua_table.heavy_3_movement_1_end = 500
+lua_table.heavy_3_movement_2_velocity = -3.0
+lua_table.heavy_3_movement_2_start = 1000
+lua_table.heavy_3_movement_2_end = 1400
 
 lua_table.heavy_1_block_time = 800			--Input block duration	(block new attacks)
 lua_table.heavy_1_collider_front_start = 750	--Collider activation time
@@ -480,12 +491,12 @@ lua_table.heavy_2_duration = 830			--Attack end (return to idle)
 lua_table.heavy_2_animation_speed = 40.0
 lua_table.heavy_2_slow_start = 700
 
-lua_table.heavy_3_block_time = 700			--Input block duration	(block new attacks)
+lua_table.heavy_3_block_time = 2000			--Input block duration	(block new attacks)
 lua_table.heavy_3_collider_front_start = 600	--Collider activation time
 lua_table.heavy_3_collider_front_end = 800	--Collider deactivation time
 lua_table.heavy_3_duration = 1000			--Attack end (return to idle)
 lua_table.heavy_3_animation_speed = 40.0
-lua_table.heavy_3_slow_start = 900
+--lua_table.heavy_3_slow_start = 2000
 
 lua_table.heavy_3 = { 'N', 'H', 'H', 'H' }
 lua_table.heavy_3_size = 3
@@ -1447,6 +1458,7 @@ local function PerformCombo(combo_type)
 	then
 		current_action_block_time = lua_table[combo_type .. "_block_time"]
 		current_action_duration = lua_table[combo_type .. "_duration"]
+		current_slow_start = 3000
 
 		lua_table.AnimationFunctions:PlayAnimation(combo_type, lua_table[combo_type .. "_animation_speed"], jaskier_GO_UID)
 		lua_table.AnimationFunctions:PlayAnimation(combo_type, lua_table[combo_type .. "_animation_speed"], particles_library.slash_GO_UID)
@@ -2369,7 +2381,7 @@ function lua_table:Update()
 								attack_input_timeframe = 70
 							else
 								lua_table.AnimationFunctions:PlayAnimation(animation_library.evade, lua_table.evade_animation_speed, particles_library.slash_GO_UID)
-							lua_table.GameObjectFunctions:SetActiveGameObject(false, particles_library.slash_mesh_GO_UID)
+								lua_table.GameObjectFunctions:SetActiveGameObject(false, particles_library.slash_mesh_GO_UID)
 							end
 						end
 
@@ -2397,8 +2409,15 @@ function lua_table:Update()
 					elseif lua_table.current_state == state.light_1 or lua_table.current_state == state.light_2 or lua_table.current_state == state.light_3	--IF Light Attacking
 					then
 						if DirectionInBounds(true) and not input_slow_active then
-							if lua_table.current_state == state.light_3 and time_since_action > lua_table.light_3_velocity_start and time_since_action < current_action_block_time then
-								lua_table.PhysicsFunctions:Move(lua_table.light_movement_velocity * rec_direction.x * dt, lua_table.light_movement_velocity * rec_direction.z * dt, jaskier_GO_UID)
+							if lua_table.current_state == state.light_3 then
+								if time_since_action > lua_table.light_3_movement_2_start and time_since_action < lua_table.light_3_movement_2_end
+								then
+									lua_table.PhysicsFunctions:Move(lua_table.light_3_movement_2_velocity * rec_direction.x * dt, lua_table.light_3_movement_2_velocity * rec_direction.z * dt, jaskier_GO_UID)
+
+								elseif time_since_action > lua_table.light_3_movement_1_start and time_since_action < lua_table.light_3_movement_1_end
+								then
+									lua_table.PhysicsFunctions:Move(lua_table.light_3_movement_1_velocity * rec_direction.x * dt, lua_table.light_3_movement_1_velocity * rec_direction.z * dt, jaskier_GO_UID)
+								end
 							end
 						end
 
@@ -2418,12 +2437,23 @@ function lua_table:Update()
 					elseif lua_table.current_state == state.medium_1 or lua_table.current_state == state.medium_2 or lua_table.current_state == state.medium_3	--IF Medium Attacking
 					then
 						if DirectionInBounds(true) and not input_slow_active then
-							if lua_table.current_state == state.medium_1 and time_since_action > lua_table.medium_1_movement_velocity_start then
+							if lua_table.current_state == state.medium_1 and time_since_action > lua_table.medium_1_movement_start
+							then
 								lua_table.PhysicsFunctions:Move(lua_table.medium_1_movement_velocity * rec_direction.x * dt, lua_table.medium_1_movement_velocity * rec_direction.z * dt, jaskier_GO_UID)
-							elseif lua_table.current_state == state.medium_2 and time_since_action > lua_table.medium_2_movement_velocity_start then
+
+							elseif lua_table.current_state == state.medium_2 and time_since_action > lua_table.medium_2_movement_start
+							then
 								lua_table.PhysicsFunctions:Move(lua_table.medium_2_movement_velocity * rec_direction.x * dt, lua_table.medium_2_movement_velocity * rec_direction.z * dt, jaskier_GO_UID)
-							elseif lua_table.current_state == state.medium_3 and time_since_action > lua_table.medium_3_movement_velocity_start then
-								lua_table.PhysicsFunctions:Move(lua_table.medium_3_movement_velocity * rec_direction.x * dt, lua_table.medium_3_movement_velocity * rec_direction.z * dt, jaskier_GO_UID)
+
+							elseif lua_table.current_state == state.medium_3 then
+								if time_since_action > lua_table.medium_3_movement_2_start and time_since_action < lua_table.medium_3_movement_2_end
+								then
+									lua_table.PhysicsFunctions:Move(lua_table.medium_3_movement_2_velocity * rec_direction.x * dt, lua_table.medium_3_movement_2_velocity * rec_direction.z * dt, jaskier_GO_UID)
+
+								elseif time_since_action > lua_table.medium_3_movement_1_start and time_since_action < lua_table.medium_3_movement_1_end
+								then
+									lua_table.PhysicsFunctions:Move(lua_table.medium_3_movement_1_velocity * rec_direction.x * dt, lua_table.medium_3_movement_1_velocity * rec_direction.z * dt, jaskier_GO_UID)
+								end
 							end
 						end
 
@@ -2443,12 +2473,23 @@ function lua_table:Update()
 					elseif lua_table.current_state == state.heavy_1 or lua_table.current_state == state.heavy_2 or lua_table.current_state == state.heavy_3	--IF Heavy Attacking
 					then
 						if DirectionInBounds(true) and not input_slow_active then
-							if lua_table.current_state == state.heavy_1 and time_since_action > lua_table.heavy_1_movement_velocity_start and time_since_action < lua_table.heavy_1_movement_velocity_end then
+							if lua_table.current_state == state.heavy_1 and time_since_action > lua_table.heavy_1_movement_start and time_since_action < lua_table.heavy_1_movement_end
+							then
 								lua_table.PhysicsFunctions:Move(lua_table.heavy_1_movement_velocity * rec_direction.x * dt, lua_table.heavy_1_movement_velocity * rec_direction.z * dt, jaskier_GO_UID)
-							elseif lua_table.current_state == state.heavy_2 and time_since_action > lua_table.heavy_2_movement_velocity_start then
+
+							elseif lua_table.current_state == state.heavy_2 and time_since_action > lua_table.heavy_2_movement_start
+							then
 								lua_table.PhysicsFunctions:Move(lua_table.heavy_2_movement_velocity * rec_direction.x * dt, lua_table.heavy_2_movement_velocity * rec_direction.z * dt, jaskier_GO_UID)
-							elseif lua_table.current_state == state.heavy_3 and time_since_action > lua_table.heavy_3_movement_velocity_start and time_since_action < lua_table.heavy_3_movement_velocity_end then
-								lua_table.PhysicsFunctions:Move(lua_table.heavy_3_movement_velocity * rec_direction.x * dt, lua_table.heavy_3_movement_velocity * rec_direction.z * dt, jaskier_GO_UID)
+								
+							elseif lua_table.current_state == state.heavy_3 then
+								if time_since_action > lua_table.heavy_3_movement_2_start and time_since_action < lua_table.heavy_3_movement_2_end
+								then
+									lua_table.PhysicsFunctions:Move(lua_table.heavy_3_movement_2_velocity * rec_direction.x * dt, lua_table.heavy_3_movement_2_velocity * rec_direction.z * dt, jaskier_GO_UID)
+
+								elseif time_since_action > lua_table.heavy_3_movement_1_start and time_since_action < lua_table.heavy_3_movement_1_end
+								then
+									lua_table.PhysicsFunctions:Move(lua_table.heavy_3_movement_1_velocity * rec_direction.x * dt, lua_table.heavy_3_movement_1_velocity * rec_direction.z * dt, jaskier_GO_UID)
+								end
 							end
 						end
 
@@ -2643,12 +2684,12 @@ function lua_table:Update()
 	--DEBUG LOGS
 	--lua_table.SystemFunctions:LOG("Delta Time: " .. dt)
 	--lua_table.SystemFunctions:LOG("State: " .. lua_table.current_state)
-	--lua_table.SystemFunctions:LOG("Time passed: " .. time_since_action)
+	lua_table.SystemFunctions:LOG("Time passed: " .. time_since_action)
 	--rot_y = math.rad(GimbalLockWorkaroundY(lua_table.TransformFunctions:GetRotation()[2]))	--TODO: Remove GimbalLock stage when Euler bug is fixed
 	--lua_table.SystemFunctions:LOG("Angle Y: " .. rot_y)
 	--lua_table.SystemFunctions:LOG("Ultimate: " .. lua_table.current_ultimate)
-	lua_table.SystemFunctions:LOG("Chain num: " .. lua_table.chained_attacks_num)
-	lua_table.SystemFunctions:LOG("Note num: " .. lua_table.note_num)
+	--lua_table.SystemFunctions:LOG("Chain num: " .. lua_table.chained_attacks_num)
+	--lua_table.SystemFunctions:LOG("Note num: " .. lua_table.note_num)
 	--lua_table.SystemFunctions:LOG("Song string: " .. lua_table.note_stack[1] .. ", " .. lua_table.note_stack[2] .. ", " .. lua_table.note_stack[3] .. ", " .. lua_table.note_stack[4])
 
 	--Animation

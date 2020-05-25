@@ -432,9 +432,9 @@ lua_table.light_3_effect = attack_effects_ID.stun
 lua_table.medium_damage = 1.5					--Multiplier of Base Damage
 
 lua_table.medium_movement_velocity = 1.0
-lua_table.medium_1_movement_velocity_start = 200
+lua_table.medium_1_movement_start = 200
 lua_table.medium_3_movement_velocity = 6.0
-lua_table.medium_3_movement_velocity_start = 350
+lua_table.medium_3_movement_start = 350
 lua_table.medium_3_movement_end = 600
 
 lua_table.medium_1_block_time = 350			--Input block duration	(block new attacks)
@@ -463,11 +463,11 @@ lua_table.medium_3_effect = attack_effects_ID.knockback
 --Heavy Attack
 lua_table.heavy_damage = 2.0				--Multiplier of Base Damage
 
-lua_table.heavy_movement_velocity_start = 3.0
-lua_table.heavy_movement_velocity_end = 1.0
-lua_table.heavy_1_movement_velocity_start = 2.5
+lua_table.heavy_movement_start = 3.0
+lua_table.heavy_movement_end = 1.0
+lua_table.heavy_1_movement_velocity_1 = 2.5
 lua_table.heavy_1_movement_start_1 = 200
-lua_table.heavy_1_movement_velocity_end = 3.0
+lua_table.heavy_1_movement_velocity_2 = 3.0
 lua_table.heavy_1_movement_start_2 = 700
 lua_table.heavy_2_movement_end = 350
 lua_table.heavy_3_movement_end = 600
@@ -2322,11 +2322,11 @@ function lua_table:Update()
 					then
 						if DirectionInBounds(true)	--IF in bounds
 						then
-							if lua_table.current_state == state.medium_1 and time_since_action > lua_table.medium_1_movement_velocity_start and time_since_action < current_action_block_time + 50 then
+							if lua_table.current_state == state.medium_1 and time_since_action > lua_table.medium_1_movement_start and time_since_action < current_action_block_time + 50 then
 								lua_table.PhysicsFunctions:Move(lua_table.medium_3_movement_velocity * rec_direction.x * dt, lua_table.medium_3_movement_velocity * rec_direction.z * dt, geralt_GO_UID)
 							elseif lua_table.current_state == state.medium_2 and time_since_action < current_action_block_time then
 								lua_table.PhysicsFunctions:Move(lua_table.medium_movement_velocity * rec_direction.x * dt, lua_table.medium_movement_velocity * rec_direction.z * dt, geralt_GO_UID)
-							elseif lua_table.current_state == state.medium_3 and time_since_action > lua_table.medium_3_movement_velocity_start and time_since_action < lua_table.medium_3_movement_end then
+							elseif lua_table.current_state == state.medium_3 and time_since_action > lua_table.medium_3_movement_start and time_since_action < lua_table.medium_3_movement_end then
 								lua_table.PhysicsFunctions:Move(lua_table.medium_3_movement_velocity * rec_direction.x * dt, lua_table.medium_3_movement_velocity * rec_direction.z * dt, geralt_GO_UID)
 							end
 						end
@@ -2344,16 +2344,16 @@ function lua_table:Update()
 							if lua_table.current_state == state.heavy_1
 							then
 								if time_since_action > lua_table.heavy_1_movement_start_2 then
-									lua_table.PhysicsFunctions:Move(lua_table.heavy_1_movement_velocity_end * rec_direction.x * dt, lua_table.heavy_1_movement_velocity_end * rec_direction.z * dt, geralt_GO_UID)
+									lua_table.PhysicsFunctions:Move(lua_table.heavy_1_movement_velocity_2 * rec_direction.x * dt, lua_table.heavy_1_movement_velocity_2 * rec_direction.z * dt, geralt_GO_UID)
 								elseif time_since_action > lua_table.heavy_1_movement_start_1 then
-									lua_table.PhysicsFunctions:Move(lua_table.heavy_1_movement_velocity_start * rec_direction.x * dt, lua_table.heavy_1_movement_velocity_start * rec_direction.z * dt, geralt_GO_UID)
+									lua_table.PhysicsFunctions:Move(lua_table.heavy_1_movement_velocity_1 * rec_direction.x * dt, lua_table.heavy_1_movement_velocity_1 * rec_direction.z * dt, geralt_GO_UID)
 								end
 								
 							elseif lua_table.current_state == state.heavy_2 and time_since_action < lua_table.heavy_2_movement_end or lua_table.current_state == state.heavy_3 and time_since_action < lua_table.heavy_3_movement_end
 							then
-								lua_table.PhysicsFunctions:Move(lua_table.heavy_movement_velocity_start * rec_direction.x * dt, lua_table.heavy_movement_velocity_start * rec_direction.z * dt, geralt_GO_UID)
+								lua_table.PhysicsFunctions:Move(lua_table.heavy_movement_start * rec_direction.x * dt, lua_table.heavy_movement_start * rec_direction.z * dt, geralt_GO_UID)
 							else
-								lua_table.PhysicsFunctions:Move(lua_table.heavy_movement_velocity_end * rec_direction.x * dt, lua_table.heavy_movement_velocity_end * rec_direction.z * dt, geralt_GO_UID)
+								lua_table.PhysicsFunctions:Move(lua_table.heavy_movement_end * rec_direction.x * dt, lua_table.heavy_movement_end * rec_direction.z * dt, geralt_GO_UID)
 							end
 						end
 
