@@ -375,7 +375,7 @@ lua_table.energy_reg_orig = 7
 	--Attack Feedback
 	local enemy_is_hit = 0
 	local enemy_hit_started_at = 0
-	local enemy_hit_duration = 100
+	local enemy_hit_duration = 200
 
 	--Attack Inputs
 	local rightside = true		-- Last attack side, marks the animation of next attack
@@ -424,7 +424,7 @@ lua_table.light_3_animation_speed = 60.0
 
 lua_table.light_3 = { 'N', 'L', 'L', 'L' }
 lua_table.light_3_size = 3
-lua_table.light_3_damage = 3.5
+lua_table.light_3_damage = 1.25
 lua_table.light_3_effect = attack_effects_ID.knockback
 
 --Medium Attack
@@ -464,7 +464,7 @@ lua_table.medium_3_animation_speed = 50.0
 
 lua_table.medium_3 = { 'N', 'M', 'M', 'M' }
 lua_table.medium_3_size = 3
-lua_table.medium_3_damage = 3.5
+lua_table.medium_3_damage = 1.75
 lua_table.medium_3_effect = attack_effects_ID.stun
 
 --Heavy Attack
@@ -505,7 +505,7 @@ lua_table.heavy_3_animation_speed = 40.0
 
 lua_table.heavy_3 = { 'N', 'H', 'H', 'H' }
 lua_table.heavy_3_size = 3
-lua_table.heavy_3_damage = 3.5
+lua_table.heavy_3_damage = 2.25
 lua_table.heavy_3_effect = attack_effects_ID.knockback
 
 --Evade		
