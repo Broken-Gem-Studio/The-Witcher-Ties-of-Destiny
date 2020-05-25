@@ -1,4 +1,4 @@
-function GetTableKikimoraScript_v8 ()
+function GetTableKikimoraScript_v10 ()
 local lua_table = {}
 lua_table.SystemFunctions = Scripting.System ()
 lua_table.TransformFunctions = Scripting.Transform ()
@@ -61,6 +61,8 @@ local phase = -- not in use rn
 local current_phase = phase.CHILL -- Should initialize at awake(?)
 
 lua_table.awakened = false -- bool for other scripts
+lua_table.dead = false
+
 local state =  
 {
     UNACTIVE = -1,
@@ -86,6 +88,18 @@ local current_state = state.UNACTIVE -- Should initialize at awake(?)
 
 local start_swapping = false
 local finish_swapping = false
+
+local jumping_state = 
+{
+    TO_BE_DETERMINED = 0,
+
+    UPWARDS = 1,
+    DOWNWARDS = 2
+}
+local current_jumping_state = jumping_state.TO_BE_DETERMINED
+
+local start_jumping = false
+local finish_jumping = false
 
 -----------------------------------------------------------------------------------------
 -- Attacks Variables
@@ -164,6 +178,8 @@ local animation =
 {
     awakening = { anim_name = "awakening", anim_frames = 59, anim_speed = 30, anim_blendtime = 0 },
 
+    awakening_reverse = { anim_name = "awakening_reverse", anim_frames = 59, anim_speed = 30, anim_blendtime = 0 },
+
     swap_phase = { anim_name = "swap_phase", anim_frames = 135, anim_speed = 30, anim_blendtime = 0 },
     
     idle = { anim_name = "idle", anim_frames = 42, anim_speed = 30, anim_blendtime = 0 },
@@ -192,7 +208,7 @@ local animation =
     sweep_right_execution = { anim_name = "sweep_right_execution", anim_frames = 5, anim_speed = 30, anim_blendtime = 0 },
     sweep_right_recovery = { anim_name = "sweep_right_recovery", anim_frames = 34, anim_speed = 30, anim_blendtime = 0 },
     
-    stomp_anticipation = { anim_name = "stomp_anticipation", anim_frames = 34, anim_speed = 30, anim_blendtime = 0 },
+    stomp_anticipation = { anim_name = "stomp_anticipation", anim_frames = 34, anim_speed = 20, anim_blendtime = 0 }, -- custom speed
     stomp_execution = { anim_name = "stomp_execution", anim_frames = 3, anim_speed = 30, anim_blendtime = 0 },
     stomp_recovery = { anim_name = "stomp_recovery", anim_frames = 69, anim_speed = 30, anim_blendtime = 0 },
     
@@ -201,9 +217,9 @@ local animation =
     roar_recovery = { anim_name = "roar_recovery", anim_frames = 32, anim_speed = 30, anim_blendtime = 0 },
 }
 
--- -----------------------------------------------------------------------------------------
--- -- Collider Variables
--- -----------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------
+-- Collider Variables
+-----------------------------------------------------------------------------------------
 
 local attack_collider = --most vars initialized in awake
 {
@@ -239,12 +255,34 @@ lua_table.collider_damage = 0
 lua_table.collider_effect = 0
 
 -----------------------------------------------------------------------------------------
+-- Particles Variables
+-----------------------------------------------------------------------------------------
+
+local particles = 
+{
+    scream = { part_name = "KikimoraScream", part_UID = 0, part_active = false, part_pos = {} },
+
+    dustcloud_stomp_left = { part_name = "DustCloud_Stomp_Left", part_UID = 0, part_active = false, part_pos = {} },
+    groundcrack_stomp_left = { part_name = "GroundCrack_Stomp_Left", part_UID = 0, part_active = false, part_pos = {} },
+
+    dustcloud_stomp_right = { part_name = "DustCloud_Stomp_Right", part_UID = 0, part_active = false, part_pos = {} },
+    groundcrack_stomp_right = { part_name = "GroundCrack_Stomp_Right", part_UID = 0, part_active = false, part_pos = {} },
+
+    dustcloud_leash_left = { part_name = "DustCloud_Leash_Left", part_UID = 0, part_active = false, part_pos = {} },
+    groundcrack_leash_left = { part_name = "GroundCrack_Leash_Left", part_UID = 0, part_active = false, part_pos = {} },
+
+    dustcloud_leash_right = { part_name = "DustCloud_Leash_Right", part_UID = 0, part_active = false, part_pos = {} },
+    groundcrack_leash_right = { part_name = "GroundCrack_Leash_Right", part_UID = 0, part_active = false, part_pos = {} },
+}
+
+-----------------------------------------------------------------------------------------
 -- Game Objects Variables
 -----------------------------------------------------------------------------------------
 
 -- Kikimora GO UID
 lua_table.my_UID = 0
 lua_table.my_position = {}
+lua_table.my_rotation = {}
 lua_table.my_mesh_UID = 0
 lua_table.mesh_GO = "Kikimora_Low"
 
@@ -284,10 +322,14 @@ local z = 3
 local game_time = 0
 local attack_timer = 0
 local attack_subdivision_timer = 0
+local jump_timer = 0
 local state_timer = 0
 local animation_timer = 0
 
 local randy = 0
+
+local awakening_audio_played = false
+local death_audio_played = false
 
 -----------------------------------------------------------------------------------------
 -- Methods
@@ -312,6 +354,12 @@ local function DebugInputs()
         if lua_table.InputFunctions:KeyDown("j")
         then 
             player_in_awakening_distance = true
+        end
+
+        if lua_table.InputFunctions:KeyDown("h")
+        then 
+            current_state = state.JUMPING
+            start_jumping = true
         end
 	end
 end
@@ -770,6 +818,10 @@ local function HandleRoarAttack()
                 -- START EXECUTION OF ATTACK ANIMATION
                 lua_table.AnimationFunctions:PlayAnimation(animation.roar_execution.anim_name, animation.roar_execution.anim_speed, lua_table.my_UID)
 
+                -- ACTIVATE PARTICLE
+                lua_table.GameObjectFunctions:SetActiveGameObject(true, particles.scream.part_UID)
+                lua_table.ParticlesFunctions:PlayParticleEmitter(particles.scream.part_UID)
+
                 -- Execution Timer
                 attack_subdivision_timer = game_time + attack.roar.att_execution_duration
 
@@ -789,6 +841,9 @@ local function HandleRoarAttack()
                 attack_collider.roar.coll_current_rot[z] = attack_collider.roar.coll_init_rot[z]
                 
                 lua_table.TransformFunctions:SetObjectRotation(attack_collider.roar.coll_current_rot[x], attack_collider.roar.coll_current_rot[y], attack_collider.roar.coll_current_rot[z], attack_collider.roar.coll_UID)
+            
+                -- AUDIO PLAY
+                lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_scream", lua_table.my_UID)
             end
         end
 
@@ -809,6 +864,9 @@ local function HandleRoarAttack()
                 
                 -- START RECOVERY OF ATTACK ANIMATION
                 lua_table.AnimationFunctions:PlayAnimation(animation.roar_recovery.anim_name, animation.roar_execution.anim_speed, lua_table.my_UID) 
+
+                -- DEACTIVATE PARTICLE
+                lua_table.GameObjectFunctions:SetActiveGameObject(false, particles.scream.part_UID)
 
                 -- Execution Timer
                 attack_subdivision_timer = game_time + attack.roar.att_recovery_duration
@@ -919,11 +977,25 @@ local function HandleStompAttack()
                 -- START RECOVERY OF ATTACK ANIMATION
                 lua_table.AnimationFunctions:PlayAnimation(animation.stomp_recovery.anim_name, animation.stomp_recovery.anim_speed, lua_table.my_UID)
 
+                -- ACTIVATE PARTICLES
+                lua_table.GameObjectFunctions:SetActiveGameObject(true, particles.dustcloud_stomp_left.part_UID)
+                lua_table.GameObjectFunctions:SetActiveGameObject(true, particles.groundcrack_stomp_left.part_UID)
+                lua_table.GameObjectFunctions:SetActiveGameObject(true, particles.dustcloud_stomp_right.part_UID)
+                lua_table.GameObjectFunctions:SetActiveGameObject(true, particles.groundcrack_stomp_right.part_UID)
+
+                lua_table.ParticlesFunctions:PlayParticleEmitter(particles.dustcloud_stomp_left.part_UID)
+                lua_table.ParticlesFunctions:PlayParticleEmitter(particles.groundcrack_stomp_left.part_UID)
+                lua_table.ParticlesFunctions:PlayParticleEmitter(particles.dustcloud_stomp_right.part_UID)
+                lua_table.ParticlesFunctions:PlayParticleEmitter(particles.groundcrack_stomp_right.part_UID)
+
                 -- Execution Timer
                 attack_subdivision_timer = game_time + attack.stomp.att_recovery_duration
 
                 -- Deactivate collider
                 lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_collider.stomp.coll_UID)
+
+                -- AUDIO PLAY
+                lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_lash", lua_table.my_UID)
             end
         end
 
@@ -934,6 +1006,12 @@ local function HandleStompAttack()
             then
                 --attack.stomp.att_cooldown_bool = true
                 --attack.stomp.att_timer = game_time + attack.stomp.att_cooldown_time
+
+                -- DEACTIVATE PARTICLES
+                lua_table.GameObjectFunctions:SetActiveGameObject(false, particles.dustcloud_stomp_left.part_UID)
+                lua_table.GameObjectFunctions:SetActiveGameObject(false, particles.groundcrack_stomp_left.part_UID)
+                lua_table.GameObjectFunctions:SetActiveGameObject(false, particles.dustcloud_stomp_right.part_UID)
+                lua_table.GameObjectFunctions:SetActiveGameObject(false, particles.groundcrack_stomp_right.part_UID)
 
                 attack_finished = true
                 attack_counter = attack_counter + 1
@@ -1000,6 +1078,10 @@ local function HandleSweepAttack()
                 attack_collider.sweep.coll_current_rot[z] = attack_collider.sweep.coll_init_rot[z]
                 
                 lua_table.TransformFunctions:SetObjectRotation(attack_collider.sweep.coll_current_rot[x], attack_collider.sweep.coll_current_rot[y], attack_collider.sweep.coll_current_rot[z], attack_collider.sweep.coll_UID)
+            
+                -- AUDIO PLAY
+                lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_sweep", lua_table.my_UID)
+
             end
         end
 
@@ -1123,7 +1205,10 @@ local function HandleSweepLeftAttack()
                 attack_collider.sweep_left.coll_current_rot[z] = attack_collider.sweep_left.coll_init_rot[z]
                 
                 lua_table.TransformFunctions:SetObjectRotation(attack_collider.sweep_left.coll_current_rot[x], attack_collider.sweep_left.coll_current_rot[y], attack_collider.sweep_left.coll_current_rot[z], attack_collider.sweep_left.coll_UID)
-            
+                
+                -- AUDIO PLAY
+                lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_sweep", lua_table.my_UID)
+
             end
         end
 
@@ -1167,7 +1252,7 @@ local function HandleSweepLeftAttack()
             then
                 --attack.sweep_left.att_cooldown_bool = true
                 --attack.sweep_left.att_timer = game_time + attack.sweep_left.att_cooldown_time
-
+                
                 attack_finished = true
                 attack_counter = attack_counter + 1
 
@@ -1247,7 +1332,9 @@ local function HandleSweepRightAttack()
                 attack_collider.sweep_right.coll_current_rot[z] = attack_collider.sweep_right.coll_init_rot[z]
                 
                 lua_table.TransformFunctions:SetObjectRotation(attack_collider.sweep_right.coll_current_rot[x], attack_collider.sweep_right.coll_current_rot[y], attack_collider.sweep_right.coll_current_rot[z], attack_collider.sweep_right.coll_UID)
-            
+
+                -- AUDIO PLAY
+                lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_sweep", lua_table.my_UID)
             end
         end
 
@@ -1373,6 +1460,9 @@ local function HandleLeashLeftAttack()
                 
                 lua_table.TransformFunctions:SetObjectRotation(attack_collider.leash_left.coll_current_rot[x], attack_collider.leash_left.coll_current_rot[y], attack_collider.leash_left.coll_current_rot[z], attack_collider.leash_left.coll_UID)
             
+                -- AUDIO PLAY
+                lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_lash", lua_table.my_UID)
+                
             end
         end
 
@@ -1401,6 +1491,12 @@ local function HandleLeashLeftAttack()
                 -- START RECOVERY OF ATTACK ANIMATION
                 lua_table.AnimationFunctions:PlayAnimation(animation.leash_left_recovery.anim_name, animation.leash_left_recovery.anim_speed, lua_table.my_UID)
 
+                -- ACTIVATE PARTICLES
+                lua_table.GameObjectFunctions:SetActiveGameObject(true, particles.dustcloud_leash_left.part_UID)
+                lua_table.GameObjectFunctions:SetActiveGameObject(true, particles.groundcrack_leash_left.part_UID)
+                lua_table.ParticlesFunctions:PlayParticleEmitter(particles.dustcloud_leash_left.part_UID)
+                lua_table.ParticlesFunctions:PlayParticleEmitter(particles.groundcrack_leash_left.part_UID)
+
                 -- Execution Timer
                 attack_subdivision_timer = game_time + attack.leash_left.att_recovery_duration
 
@@ -1416,6 +1512,10 @@ local function HandleLeashLeftAttack()
             then
                 --attack.leash_left.att_cooldown_bool = true
                 --attack.leash_left.att_timer = game_time + attack.leash_left.att_cooldown_time
+
+                -- DEACTIVATE PARTICLES
+                lua_table.GameObjectFunctions:SetActiveGameObject(false, particles.dustcloud_leash_left.part_UID)
+                lua_table.GameObjectFunctions:SetActiveGameObject(false, particles.groundcrack_leash_left.part_UID)
 
                 attack_finished = true
                 attack_counter = attack_counter + 1
@@ -1496,7 +1596,10 @@ local function HandleLeashRightAttack()
                 attack_collider.leash_right.coll_current_rot[z] = attack_collider.leash_right.coll_init_rot[z]
                 
                 lua_table.TransformFunctions:SetObjectRotation(attack_collider.leash_right.coll_current_rot[x], attack_collider.leash_right.coll_current_rot[y], attack_collider.leash_right.coll_current_rot[z], attack_collider.leash_right.coll_UID)
-            
+
+                -- AUDIO PLAY
+                lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_lash", lua_table.my_UID)
+
             end
         end
 
@@ -1526,6 +1629,12 @@ local function HandleLeashRightAttack()
                 -- START EXECUTION OF ATTACK ANIMATION
                 lua_table.AnimationFunctions:PlayAnimation(animation.leash_right_recovery.anim_name, animation.leash_right_recovery.anim_speed, lua_table.my_UID)
 
+                -- ACTIVATE PARTICLES
+                lua_table.GameObjectFunctions:SetActiveGameObject(true, particles.dustcloud_leash_right.part_UID)
+                lua_table.GameObjectFunctions:SetActiveGameObject(true, particles.groundcrack_leash_right.part_UID)
+                lua_table.ParticlesFunctions:PlayParticleEmitter(particles.dustcloud_leash_right.part_UID)
+                lua_table.ParticlesFunctions:PlayParticleEmitter(particles.groundcrack_leash_right.part_UID)
+
                 -- Execution Timer
                 attack_subdivision_timer = game_time + attack.leash_right.att_recovery_duration
 
@@ -1542,6 +1651,10 @@ local function HandleLeashRightAttack()
                 --attack.leash_right.att_cooldown_bool = true
                 --attack.leash_right.att_timer = game_time + attack.leash_right.att_cooldown_time
 
+                -- DEACTIVATE PARTICLES
+                lua_table.GameObjectFunctions:SetActiveGameObject(false, particles.dustcloud_leash_right.part_UID)
+                lua_table.GameObjectFunctions:SetActiveGameObject(false, particles.groundcrack_leash_right.part_UID)
+
                 attack_finished = true
                 attack_counter = attack_counter + 1
 
@@ -1557,7 +1670,7 @@ end
 local function HandleAttacks()
 
     -- For now kikimora will always want to attack (except when all attacks are on cooldown)
-    if current_state ~= state.ATTACKING and current_state ~= state.AWAKENING and current_state ~= state.SWAPPING_PHASE and current_state ~= state.UNACTIVE and current_state ~= state.DEAD
+    if current_state~= state.JUMPING and current_state ~= state.ATTACKING and current_state ~= state.AWAKENING and current_state ~= state.SWAPPING_PHASE and current_state ~= state.UNACTIVE and current_state ~= state.DEAD
     then
         if current_attack_pattern == attack_pattern.TO_BE_DETERMINED and attack_pattern_cooldown_bool == false
         then
@@ -1682,6 +1795,56 @@ local function HandleAttacks()
     end
 end
 
+local function HandleJump( x, y, z)
+
+    -- First entry only
+    if start_jumping == true
+    then
+        -- Resetting stats
+        current_attack_pattern = attack_pattern.TO_BE_DETERMINED
+        current_attack_type = attack_type.TO_BE_DETERMINED
+        current_attack_subdivision = attack_subdivision.TO_BE_DETERMINED
+        
+        start_jumping = false
+
+        lua_table.AnimationFunctions:PlayAnimation(animation.awakening_reverse.anim_name, animation.awakening_reverse.anim_speed, lua_table.my_UID)
+
+        current_jumping_state = jumping_state.UPWARDS
+
+        local awakening_reverse_duration = animation.awakening_reverse.anim_frames / animation.awakening_reverse.anim_speed
+
+        jump_timer = game_time + awakening_reverse_duration
+    end
+
+    -- When finishes upwards movement
+    if game_time >= jump_timer and current_jumping_state == jumping_state.UPWARDS
+    then
+        -- Changes position (hardcoded for now)
+        --lua_table.TransformFunctions:SetPosition(lua_table.my_position[x] + 25, lua_table.my_position[y], lua_table.my_position[z], lua_table.my_UID)
+        lua_table.TransformFunctions:SetLocalPosition(25, 0, 0, lua_table.my_UID)
+
+        -- Changes rotation too
+        --lua_table.TransformFunctions:SetObjectRotation(lua_table.my_rotation[x], lua_table.my_rotation[y] + 45, lua_table.my_rotation[z], lua_table.my_UID)
+        lua_table.TransformFunctions:SetObjectRotation(0, 60, 0, lua_table.my_UID)
+
+        lua_table.AnimationFunctions:PlayAnimation(animation.awakening.anim_name, animation.awakening.anim_speed, lua_table.my_UID)
+
+        current_jumping_state = jumping_state.DOWNWARDS
+
+        local awakening_duration = animation.awakening.anim_frames / animation.awakening.anim_speed
+
+        jump_timer = game_time + awakening_duration
+    end
+
+    -- When finishes downwards movement
+    if game_time >= jump_timer and current_jumping_state == jumping_state.DOWNWARDS
+    then
+        current_jumping_state = jumping_state.TO_BE_DETERMINED
+
+        finish_jumping = true
+    end
+end
+
 local function HandlePlayerPosition()
 
 	if P1_id ~= 0
@@ -1762,9 +1925,17 @@ local function HandleStates()
 
     if current_state == state.AWAKENING
     then
+
         if game_time >= animation_timer
         then
             lua_table.GameObjectFunctions:SetActiveGameObject(true, lua_table.my_mesh_UID)
+        end
+
+        if game_time >= animation_timer + 0.5 and awakening_audio_played == false
+        then
+            awakening_audio_played = true
+            -- AUDIO PLAY
+            lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_damaged", lua_table.my_UID)
         end
 
         if game_time >= state_timer
@@ -1799,7 +1970,13 @@ local function HandleStates()
 
     if current_state == state.JUMPING
     then
-        -- Not jumping for now
+        HandleJump()
+
+        if finish_jumping == true
+        then
+            current_state = state.IDLE
+            finish_jumping = false
+        end
     end
 
     if current_state == state.TAUNTING
@@ -1816,6 +1993,9 @@ local function HandleStates()
     then
         if start_swapping == true
         then
+
+            start_swapping = false
+
             -- Resetting stats
             current_attack_pattern = attack_pattern.TO_BE_DETERMINED
             current_attack_type = attack_type.TO_BE_DETERMINED
@@ -1827,8 +2007,10 @@ local function HandleStates()
             local swap_phase_duration = animation.swap_phase.anim_frames / animation.swap_phase.anim_speed
 
             animation_timer = game_time + swap_phase_duration
+    
+            -- AUDIO PLAY
+            lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_scream_1", lua_table.my_UID)
             
-            start_swapping = false
         end
     
         if game_time >= animation_timer
@@ -1845,13 +2027,17 @@ local function HandleStates()
     if lua_table.current_health <= 0 and current_state ~= state.DEAD
     then 
         current_state = state.DEAD
-         -- Resetting stats
-         current_attack_pattern = attack_pattern.TO_BE_DETERMINED
-         current_attack_type = attack_type.TO_BE_DETERMINED
-         current_attack_subdivision = attack_subdivision.TO_BE_DETERMINED
+
+        -- Resetting stats
+        current_attack_pattern = attack_pattern.TO_BE_DETERMINED
+        current_attack_type = attack_type.TO_BE_DETERMINED
+        current_attack_subdivision = attack_subdivision.TO_BE_DETERMINED
 
          -- Play death animation
         lua_table.AnimationFunctions:PlayAnimation(animation.death.anim_name, animation.death.anim_speed, lua_table.my_UID)
+
+        -- AUDIO PLAY
+        lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_death", lua_table.my_UID)
 
         local death_duration = animation.death.anim_frames / animation.death.anim_speed
         
@@ -1867,10 +2053,15 @@ local function HandleStates()
         current_attack_type = attack_type.TO_BE_DETERMINED
         current_attack_subdivision = attack_subdivision.TO_BE_DETERMINED
 
-        if game_time >= animation_timer
+        if game_time >= animation_timer and death_audio_played == false
         then  
+            death_audio_played = true
+
             -- Shut all particles
             lua_table.awakened = false
+            
+            -- AUDIO PLAY
+            lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_lash", lua_table.my_UID)
         end
 
         if game_time >= state_timer
@@ -1882,8 +2073,9 @@ local function HandleStates()
             then
                 lua_table.SeceneFunctions:LoadScene(lua_table.scene_UID)
             end
+
+            lua_table.dead = true
         end
-        
     end
 end
 
@@ -1893,6 +2085,12 @@ function lua_table:Awake ()
 	
 	-- Get my own UID
     lua_table.my_UID = lua_table.GameObjectFunctions:GetMyUID()
+
+    -- Get my position
+    lua_table.my_position = lua_table.TransformFunctions:GetPosition(lua_table.my_UID)
+
+    -- Get my rotation
+    lua_table.my_rotation = lua_table.TransformFunctions:GetRotation(lua_table.my_UID)
 
     -- Get my own mesh
     lua_table.my_mesh_UID = lua_table.GameObjectFunctions:FindGameObject(lua_table.mesh_GO)
@@ -1943,6 +2141,8 @@ function lua_table:Awake ()
 
     -- Animation Speeds
     animation.awakening.anim_speed = animation.awakening.anim_speed * lua_table.speed_modificator_base
+
+    animation.awakening_reverse.anim_speed =  animation.awakening_reverse.anim_speed * lua_table.speed_modificator_base
 
     animation.swap_phase.anim_speed = animation.swap_phase.anim_speed * lua_table.speed_modificator_base
     
@@ -2360,15 +2560,42 @@ function lua_table:Awake ()
     attack_collider.roar.coll_ang_velocity[x] = (attack_collider.roar.coll_final_rot[x] - attack_collider.roar.coll_init_rot[x]) / attack.roar.att_execution_duration 
     attack_collider.roar.coll_ang_velocity[y] = (attack_collider.roar.coll_final_rot[y] - attack_collider.roar.coll_init_rot[y]) / attack.roar.att_execution_duration 
     attack_collider.roar.coll_ang_velocity[z] = (attack_collider.roar.coll_final_rot[z] - attack_collider.roar.coll_init_rot[z]) / attack.roar.att_execution_duration 
-    attack_collider.roar.coll_init_scale[x] = 30
+    attack_collider.roar.coll_init_scale[x] = 10
     attack_collider.roar.coll_init_scale[y] = 10
-    attack_collider.roar.coll_init_scale[z] = 30 
-    attack_collider.roar.coll_final_scale[x] = 30
+    attack_collider.roar.coll_init_scale[z] = 20 
+    attack_collider.roar.coll_final_scale[x] = 10
     attack_collider.roar.coll_final_scale[y] = 10
-    attack_collider.roar.coll_final_scale[z] = 30
+    attack_collider.roar.coll_final_scale[z] = 20
     attack_collider.roar.coll_growth_velocity[x] = (attack_collider.roar.coll_init_scale[x] - attack_collider.roar.coll_final_scale[x]) / attack.roar.att_execution_duration 
     attack_collider.roar.coll_growth_velocity[y] = (attack_collider.roar.coll_init_scale[y] - attack_collider.roar.coll_final_scale[y]) / attack.roar.att_execution_duration 
     attack_collider.roar.coll_growth_velocity[z] = (attack_collider.roar.coll_init_scale[z] - attack_collider.roar.coll_final_scale[z]) / attack.roar.att_execution_duration
+
+    ---------------------------------------------------------------------------
+	-- Particles Init
+    ---------------------------------------------------------------------------
+
+    particles.scream.part_UID = lua_table.GameObjectFunctions:FindGameObject(particles.scream.part_name)
+    lua_table.GameObjectFunctions:SetActiveGameObject(false, particles.scream.part_UID)
+
+    particles.dustcloud_stomp_left.part_UID = lua_table.GameObjectFunctions:FindGameObject(particles.dustcloud_stomp_left.part_name)
+    lua_table.GameObjectFunctions:SetActiveGameObject(false, particles.dustcloud_stomp_left.part_UID)
+    particles.groundcrack_stomp_left.part_UID = lua_table.GameObjectFunctions:FindGameObject(particles.groundcrack_stomp_left.part_name)
+    lua_table.GameObjectFunctions:SetActiveGameObject(false, particles.groundcrack_stomp_left.part_UID)
+
+    particles.dustcloud_stomp_right.part_UID = lua_table.GameObjectFunctions:FindGameObject(particles.dustcloud_stomp_right.part_name)
+    lua_table.GameObjectFunctions:SetActiveGameObject(false, particles.dustcloud_stomp_right.part_UID)
+    particles.groundcrack_stomp_right.part_UID = lua_table.GameObjectFunctions:FindGameObject(particles.groundcrack_stomp_right.part_name)
+    lua_table.GameObjectFunctions:SetActiveGameObject(false, particles.groundcrack_stomp_right.part_UID)
+
+    particles.dustcloud_leash_left.part_UID = lua_table.GameObjectFunctions:FindGameObject(particles.dustcloud_leash_left.part_name)
+    lua_table.GameObjectFunctions:SetActiveGameObject(false, particles.dustcloud_leash_left.part_UID)
+    particles.groundcrack_leash_left.part_UID = lua_table.GameObjectFunctions:FindGameObject(particles.groundcrack_leash_left.part_name)
+    lua_table.GameObjectFunctions:SetActiveGameObject(false, particles.groundcrack_leash_left.part_UID)
+
+    particles.dustcloud_leash_right.part_UID = lua_table.GameObjectFunctions:FindGameObject(particles.dustcloud_leash_right.part_name)
+    lua_table.GameObjectFunctions:SetActiveGameObject(false, particles.dustcloud_leash_right.part_UID)
+    particles.groundcrack_leash_right.part_UID = lua_table.GameObjectFunctions:FindGameObject(particles.groundcrack_leash_right.part_name)
+    lua_table.GameObjectFunctions:SetActiveGameObject(false, particles.groundcrack_leash_right.part_UID)
 
     ---------------------------------------------------------------------------
 	-- Health Init
@@ -2387,6 +2614,7 @@ function lua_table:Start ()
     --lua_table.TransformFunctions:SetScale(attack_collider.stomp.coll_init_scale[x], attack_collider.stomp.coll_init_scale[y], attack_collider.stomp.coll_init_scale[z], attack_collider.stomp.coll_name)
     --lua_table.TransformFunctions:SetScale(attack_collider.roar.coll_init_scale[x], attack_collider.roar.coll_init_scale[y], attack_collider.roar.coll_init_scale[z], attack_collider.roar.coll_name)
 
+    ---------------------------------------------------------------------------
     HandlePlayerPosition()
     HandleStates()
 
@@ -2427,7 +2655,10 @@ function lua_table:OnTriggerEnter()
 
 		damage_received = lua_table.collider_parent_script.collider_damage
 
-		lua_table.SystemFunctions:LOG ("Kikimora: damage received: ".. damage_received)
+        lua_table.SystemFunctions:LOG ("Kikimora: damage received: ".. damage_received)
+        
+        -- AUDIO PLAY
+        lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_damaged", lua_table.my_UID)
 
         lua_table.current_health = lua_table.current_health - damage_received
     end
