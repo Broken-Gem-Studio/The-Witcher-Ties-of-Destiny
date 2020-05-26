@@ -38,6 +38,10 @@ function GetTableWinLose()
     local lose_flag = false
     local fade_flag = false
     local fade_alpha = 0
+
+    local load_level1 = false
+    local load_level2 = false
+    local load_mainmenu = false
     
     local function Victory()
         lua_table.System:PauseGame()
@@ -130,10 +134,10 @@ function GetTableWinLose()
             --load current level
             if current_level == 1
             then
-                lua_table.Scene:LoadScene(lua_table.level1_uid);
+                load_level1 = true
             elseif current_level == 2
             then
-                lua_table.Scene:LoadScene(lua_table.level2_uid);
+                load_level2 = true
             end
         end
     end
@@ -156,7 +160,7 @@ function GetTableWinLose()
         lua_table.System:ResumeGame()
     
         --load main menu
-        lua_table.Scene:LoadScene(lua_table.mm_uid)
+        load_mainmenu = true
     end
     
     function lua_table:GoToNextLevel()
@@ -178,7 +182,7 @@ function GetTableWinLose()
     
         --load next level (level 2)
         current_level = 2
-        lua_table.Scene:LoadScene(lua_table.level2_uid);
+        load_level2 = true
     end
     
     local function GetCheckpointPos()
@@ -268,6 +272,18 @@ function GetTableWinLose()
             is_lose = true
         end
         -----------
+
+        --change scene
+        if load_level1 == true
+        then
+            lua_table.Scene:LoadScene(lua_table.level1_uid)
+        elseif load_level2 == true
+        then
+            lua_table.Scene:LoadScene(lua_table.level2_uid)
+        elseif load_mainmenu == true
+        then
+            lua_table.Scene:LoadScene(lua_table.mm_uid)
+        end
     
         ----win condition
         --if current_level == 1 and is_win == false --and win condition**
