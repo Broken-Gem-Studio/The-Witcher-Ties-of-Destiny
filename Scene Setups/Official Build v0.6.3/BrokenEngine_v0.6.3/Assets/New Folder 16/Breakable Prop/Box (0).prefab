@@ -1,9 +1,9 @@
 {
     "Astilla": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
-                "layer": "6",
+                "layer": "0",
                 "positionx": "0.000000",
                 "positiony": "0.000000",
                 "positionz": "0.000000",
@@ -16,7 +16,7 @@
                 "scalez": "1.000000"
             },
             "18": {
-                "Active": false,
+                "Active": true,
                 "Duration": "1000",
                 "GradientColor": false,
                 "HorizontalBill": "0",
@@ -26,10 +26,11 @@
                 "PartBlendFunc": 0,
                 "PartMBlFuncDst": 7,
                 "PartMBlFuncSrc": 6,
+                "ParticlesBillboarding": true,
                 "Resources": {
                     "ResourceTexture": "Library/Textures/1863459330.dds"
                 },
-                "VerticalBill": "1",
+                "VerticalBill": "0",
                 "animation": "0",
                 "colors": [
                     {
@@ -92,6 +93,16 @@
                 "externalAccelerationZ": "0.000000",
                 "followEmitter": true,
                 "grad_duration": "0",
+                "maxInitialRotation": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "minInitialRotation": [
+                    "0",
+                    "0",
+                    "0"
+                ],
                 "num_colors": "1",
                 "num_curves": "2",
                 "num_gradients": "0",
@@ -108,6 +119,8 @@
                 "positionX": "0.000000",
                 "positionY": "0.000000",
                 "positionZ": "0.000000",
+                "randomInitialRotation": false,
+                "randomStartFrame": true,
                 "rotationOvertime1": [
                     "0",
                     "0",
@@ -139,34 +152,57 @@
                 "velocityconstants": "0"
             }
         },
-        "Parent": "360017668",
+        "Parent": "2016606706",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1508419691"
+        "UID": "2137088507"
     },
-    "Box_Prop": {
+    "Barrel_Particles": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-0.033172",
+                "positiony": "0.665904",
+                "positionz": "0.000000",
+                "rotationw": "0.707107",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.707107",
+                "scalex": "0.999995",
+                "scaley": "0.999995",
+                "scalez": "1.000000"
+            }
+        },
+        "Parent": "552623291",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "2016606706"
+    },
+    "Box": {
         "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
                 "positionx": "0.000000",
-                "positiony": "0.648369",
+                "positiony": "0.000000",
                 "positionz": "0.000000",
-                "rotationw": "0.707107",
+                "rotationw": "1.000000",
                 "rotationx": "0.000000",
                 "rotationy": "0.000000",
-                "rotationz": "-0.707107",
-                "scalex": "1.000013",
-                "scaley": "1.000013",
+                "rotationz": "0.000000",
+                "scalex": "1.000023",
+                "scaley": "1.000023",
                 "scalez": "1.000000"
             }
         },
-        "Parent": "342462996",
+        "Parent": "181884093",
         "PrefabChild": true,
         "PrefabInstance": true,
         "Static": false,
-        "UID": "129727878"
+        "UID": "552623291"
     },
     "Destructed": {
         "Active": false,
@@ -190,20 +226,20 @@
                     "ResourceScript": "Assets/New Folder 16/Breakable Prop/Destroyed_Prop.lua"
                 },
                 "Script variables": {
-                    "Count": 4,
+                    "Count": 6,
                     "Variable 0": {
-                        "DisplayObjectName": false,
-                        "Name": "Player",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 1": {
                         "DisplayObjectName": false,
                         "Name": "Random",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 1.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": true,
+                        "Name": "health_potion",
+                        "ObjectName": "Drop_Particle_Red (0).prefab",
+                        "Type": "Double",
+                        "Value": 2009469253.0
                     },
                     "Variable 2": {
                         "DisplayObjectName": false,
@@ -213,6 +249,20 @@
                         "Value": 0.0
                     },
                     "Variable 3": {
+                        "DisplayObjectName": true,
+                        "Name": "power_potion",
+                        "ObjectName": "Drop_Particle_Purple (0).prefab",
+                        "Type": "Double",
+                        "Value": 1013338032.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": true,
+                        "Name": "stamina_potion",
+                        "ObjectName": "Drop_Particle_Yellow (0).prefab",
+                        "Type": "Double",
+                        "Value": 775736879.0
+                    },
+                    "Variable 5": {
                         "DisplayObjectName": false,
                         "Name": "type",
                         "ObjectName": "",
@@ -236,11 +286,11 @@
                 "Active": false
             }
         },
-        "Parent": "129727878",
+        "Parent": "552623291",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1615858603"
+        "UID": "1564396621"
     },
     "Object009": {
         "Active": false,
@@ -267,6 +317,22 @@
                     }
                 }
             },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/RemoveDestroyable.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "scale",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.025
+                    }
+                }
+            },
             "15": {
                 "Active": false,
                 "angular_damping": "0.000000",
@@ -295,12 +361,12 @@
                 "draw": "0",
                 "firstCreation": "0",
                 "globalMatrixw": "1.000000",
-                "globalMatrixx": "0.961407",
-                "globalMatrixy": "0.139049",
+                "globalMatrixx": "0.961411",
+                "globalMatrixy": "0.578179",
                 "globalMatrixz": "-0.000156",
                 "globalPositionx": "4.417007",
                 "globalPositiony": "41.184914",
-                "globalPositionz": "11.988744",
+                "globalPositionz": "11.988745",
                 "hasBeenDeactivated": "0",
                 "height": "1.000000",
                 "isConvex": "0",
@@ -318,7 +384,7 @@
                 "offsetz": "-0.000000",
                 "originalScalex": "4.417007",
                 "originalScaley": "41.184914",
-                "originalScalez": "11.988744",
+                "originalScalez": "11.988745",
                 "radius": "1.000000",
                 "scalex": "1.000000",
                 "scaley": "1.000000",
@@ -329,6 +395,9 @@
             },
             "2": {
                 "Active": false,
+                "CastsShadows": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
                 "Resources": {
                     "ResourceMaterial": {
                         "path": "Assets/New Folder 16/Breakable Prop/New material 88.mat"
@@ -336,11 +405,11 @@
                 }
             }
         },
-        "Parent": "1615858603",
+        "Parent": "1564396621",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1760951368"
+        "UID": "929025742"
     },
     "Object010": {
         "Active": false,
@@ -367,6 +436,22 @@
                     }
                 }
             },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/RemoveDestroyable.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "scale",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.025
+                    }
+                }
+            },
             "15": {
                 "Active": false,
                 "angular_damping": "0.000000",
@@ -395,8 +480,8 @@
                 "draw": "0",
                 "firstCreation": "0",
                 "globalMatrixw": "1.000000",
-                "globalMatrixx": "0.239955",
-                "globalMatrixy": "0.139049",
+                "globalMatrixx": "0.239956",
+                "globalMatrixy": "0.578180",
                 "globalMatrixz": "-0.000156",
                 "globalPositionx": "4.417007",
                 "globalPositiony": "41.184914",
@@ -429,6 +514,9 @@
             },
             "2": {
                 "Active": false,
+                "CastsShadows": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
                 "Resources": {
                     "ResourceMaterial": {
                         "path": "Assets/New Folder 16/Breakable Prop/New material 88.mat"
@@ -436,11 +524,11 @@
                 }
             }
         },
-        "Parent": "1615858603",
+        "Parent": "1564396621",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1501267945"
+        "UID": "1788703436"
     },
     "Object011": {
         "Active": false,
@@ -464,6 +552,22 @@
                     "ResourceMesh": {
                         "PreviewTexture": "",
                         "path": "Library/Meshes/1616661504.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/RemoveDestroyable.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "scale",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.025
                     }
                 }
             },
@@ -495,30 +599,30 @@
                 "draw": "0",
                 "firstCreation": "0",
                 "globalMatrixw": "1.000000",
-                "globalMatrixx": "0.397105",
-                "globalMatrixy": "0.676605",
+                "globalMatrixx": "0.397106",
+                "globalMatrixy": "1.115738",
                 "globalMatrixz": "-0.522507",
                 "globalPositionx": "41.184917",
                 "globalPositiony": "4.417011",
-                "globalPositionz": "25.925928",
+                "globalPositionz": "25.925930",
                 "hasBeenDeactivated": "0",
                 "height": "1.000000",
                 "isConvex": "0",
                 "isTrigger": "0",
                 "lastIndex": "0",
                 "localMatrixw": "1.000000",
-                "localMatrixx": "-0.000000",
-                "localMatrixy": "-0.000000",
-                "localMatrixz": "0.000001",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "-0.000001",
                 "localPositionx": "0.000000",
                 "localPositiony": "0.000000",
                 "localPositionz": "0.000000",
-                "offsetx": "-0.000000",
-                "offsety": "-0.000000",
-                "offsetz": "0.000001",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "-0.000001",
                 "originalScalex": "41.184917",
                 "originalScaley": "4.417011",
-                "originalScalez": "25.925928",
+                "originalScalez": "25.925930",
                 "radius": "1.000000",
                 "scalex": "1.000000",
                 "scaley": "1.000000",
@@ -529,6 +633,9 @@
             },
             "2": {
                 "Active": false,
+                "CastsShadows": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
                 "Resources": {
                     "ResourceMaterial": {
                         "path": "Assets/New Folder 16/Breakable Prop/New material 88.mat"
@@ -536,36 +643,13 @@
                 }
             }
         },
-        "Parent": "1615858603",
+        "Parent": "1564396621",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1746499355"
+        "UID": "892711873"
     },
-    "Particles": {
-        "Active": false,
-        "Components": {
-            "0": {
-                "layer": "6",
-                "positionx": "0.000000",
-                "positiony": "0.669491",
-                "positionz": "0.000000",
-                "rotationw": "1.000000",
-                "rotationx": "0.000000",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "1.000000",
-                "scaley": "1.000000",
-                "scalez": "1.000000"
-            }
-        },
-        "Parent": "1615858603",
-        "PrefabChild": true,
-        "PrefabInstance": true,
-        "Static": false,
-        "UID": "360017668"
-    },
-    "PreviewTexture": "Library/Textures/539671990.dds",
+    "PreviewTexture": "Library/Textures/1097145954.dds",
     "Prop": {
         "Active": true,
         "Components": {
@@ -597,36 +681,29 @@
                     "ResourceScript": "Assets/New Folder 16/Breakable Prop/Prop_Script.lua"
                 },
                 "Script variables": {
-                    "Count": 5,
+                    "Count": 4,
                     "Variable 0": {
-                        "DisplayObjectName": false,
-                        "Name": "Destroyable",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 1": {
                         "DisplayObjectName": false,
                         "Name": "current_type",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 1.0
                     },
-                    "Variable 2": {
+                    "Variable 1": {
                         "DisplayObjectName": false,
                         "Name": "health",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 1.0
+                        "Value": 2.0
                     },
-                    "Variable 3": {
+                    "Variable 2": {
                         "DisplayObjectName": false,
                         "Name": "myUID",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
                     },
-                    "Variable 4": {
+                    "Variable 3": {
                         "DisplayObjectName": false,
                         "Name": "parent",
                         "ObjectName": "",
@@ -663,10 +740,10 @@
                 "draw": "0",
                 "firstCreation": "1",
                 "globalMatrixw": "1.000000",
-                "globalMatrixx": "0.637399",
-                "globalMatrixy": "0.648369",
+                "globalMatrixx": "-0.000000",
+                "globalMatrixy": "0.637405",
                 "globalMatrixz": "-0.000000",
-                "globalPositionx": "49.408482",
+                "globalPositionx": "49.408485",
                 "globalPositiony": "49.751934",
                 "globalPositionz": "49.209450",
                 "hasBeenDeactivated": "0",
@@ -675,16 +752,16 @@
                 "isTrigger": "0",
                 "lastIndex": "1",
                 "localMatrixw": "1.000000",
-                "localMatrixx": "-0.000013",
+                "localMatrixx": "-0.000010",
                 "localMatrixy": "-0.000008",
-                "localMatrixz": "25.094116",
+                "localMatrixz": "25.094112",
                 "localPositionx": "0.000000",
                 "localPositiony": "0.000000",
                 "localPositionz": "0.000000",
-                "offsetx": "-0.000013",
+                "offsetx": "-0.000010",
                 "offsety": "-0.000008",
-                "offsetz": "25.094116",
-                "originalScalex": "49.408482",
+                "offsetz": "25.094112",
+                "originalScalex": "49.408485",
                 "originalScaley": "49.751934",
                 "originalScalez": "49.209450",
                 "radius": "1.000000",
@@ -700,6 +777,9 @@
             },
             "2": {
                 "Active": true,
+                "CastsShadows": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
                 "Resources": {
                     "ResourceMaterial": {
                         "path": "Assets/New Folder 16/Breakable Prop/New material 88.mat"
@@ -707,17 +787,17 @@
                 }
             }
         },
-        "Parent": "129727878",
+        "Parent": "552623291",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1548472050"
+        "UID": "2102092189"
     },
     "Smoke": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
-                "layer": "6",
+                "layer": "0",
                 "positionx": "0.000000",
                 "positiony": "0.000000",
                 "positionz": "0.000000",
@@ -730,7 +810,7 @@
                 "scalez": "1.000000"
             },
             "18": {
-                "Active": false,
+                "Active": true,
                 "Duration": "1000",
                 "GradientColor": true,
                 "HorizontalBill": "0",
@@ -740,6 +820,7 @@
                 "PartBlendFunc": 0,
                 "PartMBlFuncDst": 7,
                 "PartMBlFuncSrc": 6,
+                "ParticlesBillboarding": true,
                 "Resources": {
                     "ResourceTexture": "Library/Textures/2119931366.dds"
                 },
@@ -820,6 +901,16 @@
                         "z": "0.000537"
                     }
                 ],
+                "maxInitialRotation": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "minInitialRotation": [
+                    "0",
+                    "0",
+                    "0"
+                ],
                 "num_colors": "2",
                 "num_curves": "2",
                 "num_gradients": "1",
@@ -836,6 +927,8 @@
                 "positionX": "0.000000",
                 "positionY": "0.000000",
                 "positionZ": "0.000000",
+                "randomInitialRotation": false,
+                "randomStartFrame": true,
                 "rotationOvertime1": [
                     "0",
                     "0",
@@ -867,11 +960,11 @@
                 "velocityconstants": "0"
             }
         },
-        "Parent": "360017668",
+        "Parent": "2016606706",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1442001517"
+        "UID": "2129430746"
     },
     "pCube109": {
         "Active": false,
@@ -898,6 +991,22 @@
                     }
                 }
             },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/RemoveDestroyable.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "scale",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.025
+                    }
+                }
+            },
             "15": {
                 "Active": false,
                 "angular_damping": "0.000000",
@@ -926,12 +1035,12 @@
                 "draw": "0",
                 "firstCreation": "0",
                 "globalMatrixw": "1.000000",
-                "globalMatrixx": "0.610608",
-                "globalMatrixy": "0.139049",
+                "globalMatrixx": "0.610610",
+                "globalMatrixy": "0.578179",
                 "globalMatrixz": "-0.000157",
                 "globalPositionx": "4.417024",
                 "globalPositiony": "41.184921",
-                "globalPositionz": "15.632994",
+                "globalPositionz": "15.632995",
                 "hasBeenDeactivated": "0",
                 "height": "1.000000",
                 "isConvex": "0",
@@ -949,7 +1058,7 @@
                 "offsetz": "0.000000",
                 "originalScalex": "4.417024",
                 "originalScaley": "41.184921",
-                "originalScalez": "15.632994",
+                "originalScalez": "15.632995",
                 "radius": "1.000000",
                 "scalex": "1.000000",
                 "scaley": "1.000000",
@@ -960,6 +1069,9 @@
             },
             "2": {
                 "Active": false,
+                "CastsShadows": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
                 "Resources": {
                     "ResourceMaterial": {
                         "path": "Assets/New Folder 16/Breakable Prop/New material 88.mat"
@@ -967,11 +1079,11 @@
                 }
             }
         },
-        "Parent": "1615858603",
+        "Parent": "1564396621",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "874601454"
+        "UID": "1169082306"
     },
     "pCube110": {
         "Active": false,
@@ -998,6 +1110,22 @@
                     }
                 }
             },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/RemoveDestroyable.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "scale",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.025
+                    }
+                }
+            },
             "15": {
                 "Active": false,
                 "angular_damping": "0.000000",
@@ -1026,8 +1154,8 @@
                 "draw": "0",
                 "firstCreation": "0",
                 "globalMatrixw": "1.000000",
-                "globalMatrixx": "0.759113",
-                "globalMatrixy": "0.676605",
+                "globalMatrixx": "0.759116",
+                "globalMatrixy": "1.115738",
                 "globalMatrixz": "-0.522507",
                 "globalPositionx": "41.184917",
                 "globalPositiony": "4.417027",
@@ -1060,6 +1188,9 @@
             },
             "2": {
                 "Active": false,
+                "CastsShadows": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
                 "Resources": {
                     "ResourceMaterial": {
                         "path": "Assets/New Folder 16/Breakable Prop/New material 88.mat"
@@ -1067,11 +1198,11 @@
                 }
             }
         },
-        "Parent": "1615858603",
+        "Parent": "1564396621",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "876501896"
+        "UID": "901521079"
     },
     "pCube112": {
         "Active": false,
@@ -1095,6 +1226,22 @@
                     "ResourceMesh": {
                         "PreviewTexture": "",
                         "path": "Library/Meshes/1055274072.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/RemoveDestroyable.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "scale",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.025
                     }
                 }
             },
@@ -1126,8 +1273,8 @@
                 "draw": "0",
                 "firstCreation": "0",
                 "globalMatrixw": "1.000000",
-                "globalMatrixx": "1.166875",
-                "globalMatrixy": "0.647194",
+                "globalMatrixx": "1.166880",
+                "globalMatrixy": "1.086327",
                 "globalMatrixz": "-0.532887",
                 "globalPositionx": "47.738007",
                 "globalPositiony": "5.952952",
@@ -1160,6 +1307,9 @@
             },
             "2": {
                 "Active": false,
+                "CastsShadows": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
                 "Resources": {
                     "ResourceMaterial": {
                         "path": "Assets/New Folder 16/Breakable Prop/New material 88.mat"
@@ -1167,11 +1317,11 @@
                 }
             }
         },
-        "Parent": "1615858603",
+        "Parent": "1564396621",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "43188264"
+        "UID": "294490190"
     },
     "pCube113": {
         "Active": false,
@@ -1195,6 +1345,22 @@
                     "ResourceMesh": {
                         "PreviewTexture": "",
                         "path": "Library/Meshes/462232627.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/RemoveDestroyable.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "scale",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.025
                     }
                 }
             },
@@ -1227,7 +1393,7 @@
                 "firstCreation": "0",
                 "globalMatrixw": "1.000000",
                 "globalMatrixx": "0.107371",
-                "globalMatrixy": "0.652310",
+                "globalMatrixy": "1.091443",
                 "globalMatrixz": "-0.532888",
                 "globalPositionx": "47.738007",
                 "globalPositiony": "5.952940",
@@ -1260,6 +1426,9 @@
             },
             "2": {
                 "Active": false,
+                "CastsShadows": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
                 "Resources": {
                     "ResourceMaterial": {
                         "path": "Assets/New Folder 16/Breakable Prop/New material 88.mat"
@@ -1267,11 +1436,11 @@
                 }
             }
         },
-        "Parent": "1615858603",
+        "Parent": "1564396621",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "333022144"
+        "UID": "675140081"
     },
     "pCube116": {
         "Active": false,
@@ -1295,6 +1464,22 @@
                     "ResourceMesh": {
                         "PreviewTexture": "",
                         "path": "Library/Meshes/1733638315.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/RemoveDestroyable.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "scale",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.025
                     }
                 }
             },
@@ -1326,8 +1511,8 @@
                 "draw": "0",
                 "firstCreation": "0",
                 "globalMatrixw": "1.000000",
-                "globalMatrixx": "0.633800",
-                "globalMatrixy": "0.124280",
+                "globalMatrixx": "0.633802",
+                "globalMatrixy": "0.563410",
                 "globalMatrixz": "-0.017995",
                 "globalPositionx": "8.420078",
                 "globalPositiony": "48.802231",
@@ -1339,14 +1524,14 @@
                 "lastIndex": "0",
                 "localMatrixw": "1.000000",
                 "localMatrixx": "-0.000008",
-                "localMatrixy": "0.000000",
-                "localMatrixz": "-0.000000",
+                "localMatrixy": "-0.000000",
+                "localMatrixz": "0.000002",
                 "localPositionx": "0.000000",
                 "localPositiony": "0.000000",
                 "localPositionz": "0.000000",
                 "offsetx": "-0.000008",
-                "offsety": "0.000000",
-                "offsetz": "-0.000000",
+                "offsety": "-0.000000",
+                "offsetz": "0.000002",
                 "originalScalex": "8.420078",
                 "originalScaley": "48.802231",
                 "originalScalez": "49.674301",
@@ -1360,6 +1545,9 @@
             },
             "2": {
                 "Active": false,
+                "CastsShadows": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
                 "Resources": {
                     "ResourceMaterial": {
                         "path": "Assets/New Folder 16/Breakable Prop/New material 88.mat"
@@ -1367,11 +1555,11 @@
                 }
             }
         },
-        "Parent": "1615858603",
+        "Parent": "1564396621",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1101234412"
+        "UID": "1952997412"
     },
     "pCube121": {
         "Active": false,
@@ -1395,6 +1583,22 @@
                     "ResourceMesh": {
                         "PreviewTexture": "",
                         "path": "Library/Meshes/1673119195.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/RemoveDestroyable.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "scale",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.025
                     }
                 }
             },
@@ -1422,12 +1626,12 @@
             "16": {
                 "Active": false,
                 "colliderType": "4",
-                "draggedUID": "521756459",
+                "draggedUID": "1683629604",
                 "draw": "0",
                 "firstCreation": "0",
                 "globalMatrixw": "1.000000",
-                "globalMatrixx": "0.633801",
-                "globalMatrixy": "0.650764",
+                "globalMatrixx": "0.633803",
+                "globalMatrixy": "1.089896",
                 "globalMatrixz": "0.000029",
                 "globalPositionx": "1.000000",
                 "globalPositiony": "1.000000",
@@ -1460,6 +1664,9 @@
             },
             "2": {
                 "Active": false,
+                "CastsShadows": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
                 "Resources": {
                     "ResourceMaterial": {
                         "path": "Assets/New Folder 16/Breakable Prop/New material 88.mat"
@@ -1467,11 +1674,11 @@
                 }
             }
         },
-        "Parent": "1615858603",
+        "Parent": "1564396621",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1727316305"
+        "UID": "1705711047"
     },
     "pCube123": {
         "Active": false,
@@ -1495,6 +1702,22 @@
                     "ResourceMesh": {
                         "PreviewTexture": "",
                         "path": "Library/Meshes/532261300.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/RemoveDestroyable.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "scale",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.025
                     }
                 }
             },
@@ -1524,10 +1747,10 @@
                 "colliderType": "1",
                 "draggedUID": "0",
                 "draw": "0",
-                "firstCreation": "0",
+                "firstCreation": "1",
                 "globalMatrixw": "1.000000",
-                "globalMatrixx": "1.090042",
-                "globalMatrixy": "0.663733",
+                "globalMatrixx": "-0.015365",
+                "globalMatrixy": "1.090054",
                 "globalMatrixz": "-0.028144",
                 "globalPositionx": "41.184940",
                 "globalPositiony": "41.173748",
@@ -1536,15 +1759,15 @@
                 "height": "1.000000",
                 "isConvex": "0",
                 "isTrigger": "0",
-                "lastIndex": "0",
+                "lastIndex": "1",
                 "localMatrixw": "1.000000",
-                "localMatrixx": "0.000002",
+                "localMatrixx": "-0.000001",
                 "localMatrixy": "0.000000",
                 "localMatrixz": "0.000000",
                 "localPositionx": "0.000000",
                 "localPositiony": "0.000000",
                 "localPositionz": "0.000000",
-                "offsetx": "0.000002",
+                "offsetx": "-0.000001",
                 "offsety": "0.000000",
                 "offsetz": "0.000000",
                 "originalScalex": "41.184940",
@@ -1560,6 +1783,9 @@
             },
             "2": {
                 "Active": false,
+                "CastsShadows": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
                 "Resources": {
                     "ResourceMaterial": {
                         "path": "Assets/New Folder 16/Breakable Prop/New material 88.mat"
@@ -1567,10 +1793,10 @@
                 }
             }
         },
-        "Parent": "1615858603",
+        "Parent": "1564396621",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "551722052"
+        "UID": "1758091381"
     }
 }

@@ -1,9 +1,9 @@
 {
     "Astilla": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
-                "layer": "6",
+                "layer": "0",
                 "positionx": "0.000000",
                 "positiony": "0.000000",
                 "positionz": "0.000000",
@@ -16,7 +16,7 @@
                 "scalez": "1.000000"
             },
             "18": {
-                "Active": false,
+                "Active": true,
                 "Duration": "1000",
                 "GradientColor": false,
                 "HorizontalBill": "0",
@@ -26,10 +26,11 @@
                 "PartBlendFunc": 0,
                 "PartMBlFuncDst": 7,
                 "PartMBlFuncSrc": 6,
+                "ParticlesBillboarding": true,
                 "Resources": {
                     "ResourceTexture": "Library/Textures/1863459330.dds"
                 },
-                "VerticalBill": "1",
+                "VerticalBill": "0",
                 "animation": "0",
                 "colors": [
                     {
@@ -92,6 +93,16 @@
                 "externalAccelerationZ": "0.000000",
                 "followEmitter": true,
                 "grad_duration": "0",
+                "maxInitialRotation": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "minInitialRotation": [
+                    "0",
+                    "0",
+                    "0"
+                ],
                 "num_colors": "1",
                 "num_curves": "2",
                 "num_gradients": "0",
@@ -108,6 +119,8 @@
                 "positionX": "0.000000",
                 "positionY": "0.000000",
                 "positionZ": "0.000000",
+                "randomInitialRotation": false,
+                "randomStartFrame": true,
                 "rotationOvertime1": [
                     "0",
                     "0",
@@ -139,11 +152,11 @@
                 "velocityconstants": "0"
             }
         },
-        "Parent": "1749865721",
+        "Parent": "1066749976",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "654067431"
+        "UID": "1773114895"
     },
     "Barrel": {
         "Active": true,
@@ -162,11 +175,34 @@
                 "scalez": "1.000000"
             }
         },
-        "Parent": "342462996",
+        "Parent": "181884093",
         "PrefabChild": true,
         "PrefabInstance": true,
         "Static": false,
-        "UID": "92204751"
+        "UID": "37369033"
+    },
+    "Barrel_Particles": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.919112",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Parent": "37369033",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1066749976"
     },
     "Cylinder002": {
         "Active": false,
@@ -193,6 +229,22 @@
                     }
                 }
             },
+            "12": {
+                "Active": false,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/RemoveDestroyable.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "scale",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.025
+                    }
+                }
+            },
             "15": {
                 "Active": false,
                 "angular_damping": "0.000000",
@@ -217,12 +269,12 @@
             "16": {
                 "Active": false,
                 "colliderType": "4",
-                "draggedUID": "2094170050",
+                "draggedUID": "1570287621",
                 "draw": "0",
                 "firstCreation": "0",
                 "globalMatrixw": "1.000000",
-                "globalMatrixx": "-0.835778",
-                "globalMatrixy": "1.160949",
+                "globalMatrixx": "-0.919356",
+                "globalMatrixy": "1.664545",
                 "globalMatrixz": "0.159061",
                 "globalPositionx": "1.000000",
                 "globalPositiony": "1.000000",
@@ -249,12 +301,15 @@
                 "scalex": "1.000000",
                 "scaley": "1.000000",
                 "scalez": "1.000000",
-                "tmpScalex": "1.000000",
-                "tmpScaley": "1.000000",
-                "tmpScalez": "1.000000"
+                "tmpScalex": "0.020320",
+                "tmpScaley": "0.025400",
+                "tmpScalez": "0.025400"
             },
             "2": {
                 "Active": false,
+                "CastsShadows": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
                 "Resources": {
                     "ResourceMaterial": {
                         "path": "Assets/New Folder 16/Breakable Prop/Barrel.mat"
@@ -262,11 +317,11 @@
                 }
             }
         },
-        "Parent": "558348488",
+        "Parent": "2112516473",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1178588701"
+        "UID": "796834644"
     },
     "Destructed": {
         "Active": false,
@@ -280,7 +335,7 @@
                 "rotationx": "0.000000",
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
-                "scalex": "1.000000",
+                "scalex": "1.100000",
                 "scaley": "1.000000",
                 "scalez": "1.000000"
             },
@@ -290,20 +345,20 @@
                     "ResourceScript": "Assets/New Folder 16/Breakable Prop/Destroyed_Prop.lua"
                 },
                 "Script variables": {
-                    "Count": 4,
+                    "Count": 6,
                     "Variable 0": {
-                        "DisplayObjectName": false,
-                        "Name": "Player",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 1": {
                         "DisplayObjectName": false,
                         "Name": "Random",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 1.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": true,
+                        "Name": "health_potion",
+                        "ObjectName": "Drop_Particle_Red (0).prefab",
+                        "Type": "Double",
+                        "Value": 2009469253.0
                     },
                     "Variable 2": {
                         "DisplayObjectName": false,
@@ -313,6 +368,20 @@
                         "Value": 0.0
                     },
                     "Variable 3": {
+                        "DisplayObjectName": true,
+                        "Name": "power_potion",
+                        "ObjectName": "Drop_Particle_Purple (0).prefab",
+                        "Type": "Double",
+                        "Value": 1013338032.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": true,
+                        "Name": "stamina_potion",
+                        "ObjectName": "Drop_Particle_Yellow (0).prefab",
+                        "Type": "Double",
+                        "Value": 775736879.0
+                    },
+                    "Variable 5": {
                         "DisplayObjectName": false,
                         "Name": "type",
                         "ObjectName": "",
@@ -325,11 +394,11 @@
                 "Active": false
             }
         },
-        "Parent": "92204751",
+        "Parent": "37369033",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "558348488"
+        "UID": "2112516473"
     },
     "Object2818": {
         "Active": false,
@@ -356,6 +425,22 @@
                     }
                 }
             },
+            "12": {
+                "Active": false,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/RemoveDestroyable.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "scale",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.025
+                    }
+                }
+            },
             "15": {
                 "Active": false,
                 "angular_damping": "0.000000",
@@ -380,12 +465,12 @@
             "16": {
                 "Active": false,
                 "colliderType": "4",
-                "draggedUID": "1241394100",
+                "draggedUID": "896960165",
                 "draw": "0",
                 "firstCreation": "0",
                 "globalMatrixw": "1.000000",
-                "globalMatrixx": "-0.003972",
-                "globalMatrixy": "-0.012332",
+                "globalMatrixx": "-0.004369",
+                "globalMatrixy": "0.491264",
                 "globalMatrixz": "0.008169",
                 "globalPositionx": "1.000000",
                 "globalPositiony": "1.000000",
@@ -412,12 +497,15 @@
                 "scalex": "1.000000",
                 "scaley": "1.000000",
                 "scalez": "1.000000",
-                "tmpScalex": "1.000000",
-                "tmpScaley": "1.000000",
-                "tmpScalez": "1.000000"
+                "tmpScalex": "0.020320",
+                "tmpScaley": "0.025400",
+                "tmpScalez": "0.025400"
             },
             "2": {
                 "Active": false,
+                "CastsShadows": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
                 "Resources": {
                     "ResourceMaterial": {
                         "path": "Assets/New Folder 16/Breakable Prop/Barrel.mat"
@@ -425,11 +513,11 @@
                 }
             }
         },
-        "Parent": "558348488",
+        "Parent": "2112516473",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1321284098"
+        "UID": "479696973"
     },
     "Object2819": {
         "Active": false,
@@ -456,6 +544,22 @@
                     }
                 }
             },
+            "12": {
+                "Active": false,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/RemoveDestroyable.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "scale",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.025
+                    }
+                }
+            },
             "15": {
                 "Active": false,
                 "angular_damping": "0.000000",
@@ -480,12 +584,12 @@
             "16": {
                 "Active": false,
                 "colliderType": "4",
-                "draggedUID": "1078369710",
+                "draggedUID": "586676352",
                 "draw": "0",
                 "firstCreation": "0",
                 "globalMatrixw": "1.000000",
-                "globalMatrixx": "-0.009166",
-                "globalMatrixy": "1.689015",
+                "globalMatrixx": "-0.010083",
+                "globalMatrixy": "2.192611",
                 "globalMatrixz": "0.002624",
                 "globalPositionx": "1.000000",
                 "globalPositiony": "1.000000",
@@ -512,12 +616,15 @@
                 "scalex": "1.000000",
                 "scaley": "1.000000",
                 "scalez": "1.000000",
-                "tmpScalex": "1.000000",
-                "tmpScaley": "1.000000",
-                "tmpScalez": "1.000000"
+                "tmpScalex": "0.020320",
+                "tmpScaley": "0.025400",
+                "tmpScalez": "0.025400"
             },
             "2": {
                 "Active": false,
+                "CastsShadows": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
                 "Resources": {
                     "ResourceMaterial": {
                         "path": "Assets/New Folder 16/Breakable Prop/Barrel.mat"
@@ -525,11 +632,11 @@
                 }
             }
         },
-        "Parent": "558348488",
+        "Parent": "2112516473",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1658167613"
+        "UID": "1464762736"
     },
     "Object2820": {
         "Active": false,
@@ -556,6 +663,22 @@
                     }
                 }
             },
+            "12": {
+                "Active": false,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/RemoveDestroyable.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "scale",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.025
+                    }
+                }
+            },
             "15": {
                 "Active": false,
                 "angular_damping": "0.000000",
@@ -580,12 +703,12 @@
             "16": {
                 "Active": false,
                 "colliderType": "4",
-                "draggedUID": "1149280790",
+                "draggedUID": "2002820299",
                 "draw": "0",
                 "firstCreation": "0",
                 "globalMatrixw": "1.000000",
-                "globalMatrixx": "-0.011240",
-                "globalMatrixy": "0.646922",
+                "globalMatrixx": "-0.012364",
+                "globalMatrixy": "1.150518",
                 "globalMatrixz": "0.005139",
                 "globalPositionx": "1.000000",
                 "globalPositiony": "1.000000",
@@ -612,12 +735,15 @@
                 "scalex": "1.000000",
                 "scaley": "1.000000",
                 "scalez": "1.000000",
-                "tmpScalex": "1.000000",
-                "tmpScaley": "1.000000",
-                "tmpScalez": "1.000000"
+                "tmpScalex": "0.020320",
+                "tmpScaley": "0.025400",
+                "tmpScalez": "0.025400"
             },
             "2": {
                 "Active": false,
+                "CastsShadows": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
                 "Resources": {
                     "ResourceMaterial": {
                         "path": "Assets/New Folder 16/Breakable Prop/Barrel.mat"
@@ -625,11 +751,11 @@
                 }
             }
         },
-        "Parent": "558348488",
+        "Parent": "2112516473",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1008972894"
+        "UID": "690497967"
     },
     "Object2821": {
         "Active": false,
@@ -656,6 +782,22 @@
                     }
                 }
             },
+            "12": {
+                "Active": false,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/RemoveDestroyable.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "scale",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.025
+                    }
+                }
+            },
             "15": {
                 "Active": false,
                 "angular_damping": "0.000000",
@@ -680,12 +822,12 @@
             "16": {
                 "Active": false,
                 "colliderType": "4",
-                "draggedUID": "984677017",
+                "draggedUID": "91353322",
                 "draw": "0",
                 "firstCreation": "0",
                 "globalMatrixw": "1.000000",
-                "globalMatrixx": "-0.548970",
-                "globalMatrixy": "1.160083",
+                "globalMatrixx": "-0.603867",
+                "globalMatrixy": "1.663679",
                 "globalMatrixz": "0.707902",
                 "globalPositionx": "1.000000",
                 "globalPositiony": "1.000000",
@@ -712,12 +854,15 @@
                 "scalex": "1.000000",
                 "scaley": "1.000000",
                 "scalez": "1.000000",
-                "tmpScalex": "1.000000",
-                "tmpScaley": "1.000000",
-                "tmpScalez": "1.000000"
+                "tmpScalex": "0.020320",
+                "tmpScaley": "0.025400",
+                "tmpScalez": "0.025400"
             },
             "2": {
                 "Active": false,
+                "CastsShadows": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
                 "Resources": {
                     "ResourceMaterial": {
                         "path": "Assets/New Folder 16/Breakable Prop/Barrel.mat"
@@ -725,11 +870,11 @@
                 }
             }
         },
-        "Parent": "558348488",
+        "Parent": "2112516473",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1511759804"
+        "UID": "1737522412"
     },
     "Object2822": {
         "Active": false,
@@ -756,6 +901,22 @@
                     }
                 }
             },
+            "12": {
+                "Active": false,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/RemoveDestroyable.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "scale",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.025
+                    }
+                }
+            },
             "15": {
                 "Active": false,
                 "angular_damping": "0.000000",
@@ -780,12 +941,12 @@
             "16": {
                 "Active": false,
                 "colliderType": "4",
-                "draggedUID": "78137376",
+                "draggedUID": "1410552195",
                 "draw": "0",
                 "firstCreation": "0",
                 "globalMatrixw": "1.000000",
-                "globalMatrixx": "0.117831",
-                "globalMatrixy": "1.160035",
+                "globalMatrixx": "0.129614",
+                "globalMatrixy": "1.663631",
                 "globalMatrixz": "0.842968",
                 "globalPositionx": "1.000000",
                 "globalPositiony": "1.000000",
@@ -812,12 +973,15 @@
                 "scalex": "1.000000",
                 "scaley": "1.000000",
                 "scalez": "1.000000",
-                "tmpScalex": "1.000000",
-                "tmpScaley": "1.000000",
-                "tmpScalez": "1.000000"
+                "tmpScalex": "0.020320",
+                "tmpScaley": "0.025400",
+                "tmpScalez": "0.025400"
             },
             "2": {
                 "Active": false,
+                "CastsShadows": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
                 "Resources": {
                     "ResourceMaterial": {
                         "path": "Assets/New Folder 16/Breakable Prop/Barrel.mat"
@@ -825,11 +989,11 @@
                 }
             }
         },
-        "Parent": "558348488",
+        "Parent": "2112516473",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "2055774814"
+        "UID": "294010342"
     },
     "Object2823": {
         "Active": false,
@@ -856,6 +1020,22 @@
                     }
                 }
             },
+            "12": {
+                "Active": false,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/RemoveDestroyable.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "scale",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.025
+                    }
+                }
+            },
             "15": {
                 "Active": false,
                 "angular_damping": "0.000000",
@@ -880,12 +1060,12 @@
             "16": {
                 "Active": false,
                 "colliderType": "4",
-                "draggedUID": "426176645",
+                "draggedUID": "1774674432",
                 "draw": "0",
                 "firstCreation": "0",
                 "globalMatrixw": "1.000000",
-                "globalMatrixx": "0.680375",
-                "globalMatrixy": "1.160035",
+                "globalMatrixx": "0.748412",
+                "globalMatrixy": "1.663631",
                 "globalMatrixz": "0.562583",
                 "globalPositionx": "1.000000",
                 "globalPositiony": "1.000000",
@@ -912,12 +1092,15 @@
                 "scalex": "1.000000",
                 "scaley": "1.000000",
                 "scalez": "1.000000",
-                "tmpScalex": "1.000000",
-                "tmpScaley": "1.000000",
-                "tmpScalez": "1.000000"
+                "tmpScalex": "0.020320",
+                "tmpScaley": "0.025400",
+                "tmpScalez": "0.025400"
             },
             "2": {
                 "Active": false,
+                "CastsShadows": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
                 "Resources": {
                     "ResourceMaterial": {
                         "path": "Assets/New Folder 16/Breakable Prop/Barrel.mat"
@@ -925,11 +1108,11 @@
                 }
             }
         },
-        "Parent": "558348488",
+        "Parent": "2112516473",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1755703885"
+        "UID": "1627380825"
     },
     "Object2824": {
         "Active": false,
@@ -956,6 +1139,22 @@
                     }
                 }
             },
+            "12": {
+                "Active": false,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/RemoveDestroyable.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "scale",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.025
+                    }
+                }
+            },
             "15": {
                 "Active": false,
                 "angular_damping": "0.000000",
@@ -980,12 +1179,12 @@
             "16": {
                 "Active": false,
                 "colliderType": "4",
-                "draggedUID": "1210134593",
+                "draggedUID": "1284483774",
                 "draw": "0",
                 "firstCreation": "0",
                 "globalMatrixw": "1.000000",
-                "globalMatrixx": "0.824146",
-                "globalMatrixy": "1.159988",
+                "globalMatrixx": "0.906561",
+                "globalMatrixy": "1.663584",
                 "globalMatrixz": "-0.117859",
                 "globalPositionx": "1.000000",
                 "globalPositiony": "1.000000",
@@ -1012,12 +1211,15 @@
                 "scalex": "1.000000",
                 "scaley": "1.000000",
                 "scalez": "1.000000",
-                "tmpScalex": "1.000000",
-                "tmpScaley": "1.000000",
-                "tmpScalez": "1.000000"
+                "tmpScalex": "0.020320",
+                "tmpScaley": "0.025400",
+                "tmpScalez": "0.025400"
             },
             "2": {
                 "Active": false,
+                "CastsShadows": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
                 "Resources": {
                     "ResourceMaterial": {
                         "path": "Assets/New Folder 16/Breakable Prop/Barrel.mat"
@@ -1025,11 +1227,11 @@
                 }
             }
         },
-        "Parent": "558348488",
+        "Parent": "2112516473",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1238473992"
+        "UID": "790685252"
     },
     "Object2825": {
         "Active": false,
@@ -1056,6 +1258,22 @@
                     }
                 }
             },
+            "12": {
+                "Active": false,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/RemoveDestroyable.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "scale",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.025
+                    }
+                }
+            },
             "15": {
                 "Active": false,
                 "angular_damping": "0.000000",
@@ -1080,12 +1298,12 @@
             "16": {
                 "Active": false,
                 "colliderType": "4",
-                "draggedUID": "460010559",
+                "draggedUID": "1530801280",
                 "draw": "0",
                 "firstCreation": "0",
                 "globalMatrixw": "1.000000",
-                "globalMatrixx": "0.528621",
-                "globalMatrixy": "1.160499",
+                "globalMatrixx": "0.581483",
+                "globalMatrixy": "1.664095",
                 "globalMatrixz": "-0.698535",
                 "globalPositionx": "1.000000",
                 "globalPositiony": "1.000000",
@@ -1112,12 +1330,15 @@
                 "scalex": "1.000000",
                 "scaley": "1.000000",
                 "scalez": "1.000000",
-                "tmpScalex": "1.000000",
-                "tmpScaley": "1.000000",
-                "tmpScalez": "1.000000"
+                "tmpScalex": "0.020320",
+                "tmpScaley": "0.025400",
+                "tmpScalez": "0.025400"
             },
             "2": {
                 "Active": false,
+                "CastsShadows": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
                 "Resources": {
                     "ResourceMaterial": {
                         "path": "Assets/New Folder 16/Breakable Prop/Barrel.mat"
@@ -1125,11 +1346,11 @@
                 }
             }
         },
-        "Parent": "558348488",
+        "Parent": "2112516473",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "181886335"
+        "UID": "1849605941"
     },
     "Object2826": {
         "Active": false,
@@ -1156,6 +1377,22 @@
                     }
                 }
             },
+            "12": {
+                "Active": false,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/RemoveDestroyable.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "scale",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.025
+                    }
+                }
+            },
             "15": {
                 "Active": false,
                 "angular_damping": "0.000000",
@@ -1180,12 +1417,12 @@
             "16": {
                 "Active": false,
                 "colliderType": "4",
-                "draggedUID": "971500428",
+                "draggedUID": "597481564",
                 "draw": "0",
                 "firstCreation": "0",
                 "globalMatrixw": "1.000000",
-                "globalMatrixx": "-0.159377",
-                "globalMatrixy": "1.160802",
+                "globalMatrixx": "-0.175315",
+                "globalMatrixy": "1.664398",
                 "globalMatrixz": "-0.821647",
                 "globalPositionx": "1.000000",
                 "globalPositiony": "1.000000",
@@ -1212,12 +1449,15 @@
                 "scalex": "1.000000",
                 "scaley": "1.000000",
                 "scalez": "1.000000",
-                "tmpScalex": "1.000000",
-                "tmpScaley": "1.000000",
-                "tmpScalez": "1.000000"
+                "tmpScalex": "0.020320",
+                "tmpScaley": "0.025400",
+                "tmpScalez": "0.025400"
             },
             "2": {
                 "Active": false,
+                "CastsShadows": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
                 "Resources": {
                     "ResourceMaterial": {
                         "path": "Assets/New Folder 16/Breakable Prop/Barrel.mat"
@@ -1225,11 +1465,11 @@
                 }
             }
         },
-        "Parent": "558348488",
+        "Parent": "2112516473",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1544946323"
+        "UID": "1853293300"
     },
     "Object2827": {
         "Active": false,
@@ -1256,6 +1496,22 @@
                     }
                 }
             },
+            "12": {
+                "Active": false,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/RemoveDestroyable.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "scale",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.025
+                    }
+                }
+            },
             "15": {
                 "Active": false,
                 "angular_damping": "0.000000",
@@ -1280,12 +1536,12 @@
             "16": {
                 "Active": false,
                 "colliderType": "4",
-                "draggedUID": "1833835523",
+                "draggedUID": "505724854",
                 "draw": "0",
                 "firstCreation": "0",
                 "globalMatrixw": "1.000000",
-                "globalMatrixx": "-0.720282",
-                "globalMatrixy": "1.160887",
+                "globalMatrixx": "-0.792310",
+                "globalMatrixy": "1.664483",
                 "globalMatrixz": "-0.527279",
                 "globalPositionx": "1.000000",
                 "globalPositiony": "1.000000",
@@ -1312,12 +1568,15 @@
                 "scalex": "1.000000",
                 "scaley": "1.000000",
                 "scalez": "1.000000",
-                "tmpScalex": "1.000000",
-                "tmpScaley": "1.000000",
-                "tmpScalez": "1.000000"
+                "tmpScalex": "0.020320",
+                "tmpScaley": "0.025400",
+                "tmpScalez": "0.025400"
             },
             "2": {
                 "Active": false,
+                "CastsShadows": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
                 "Resources": {
                     "ResourceMaterial": {
                         "path": "Assets/New Folder 16/Breakable Prop/Barrel.mat"
@@ -1325,11 +1584,11 @@
                 }
             }
         },
-        "Parent": "558348488",
+        "Parent": "2112516473",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1842009941"
+        "UID": "872876599"
     },
     "Object2828": {
         "Active": false,
@@ -1353,6 +1612,22 @@
                     "ResourceMesh": {
                         "PreviewTexture": "",
                         "path": "Library/Meshes/2083640069.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": false,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/RemoveDestroyable.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "scale",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.025
                     }
                 }
             },
@@ -1380,12 +1655,12 @@
             "16": {
                 "Active": false,
                 "colliderType": "4",
-                "draggedUID": "1961102993",
+                "draggedUID": "1075667769",
                 "draw": "0",
                 "firstCreation": "0",
                 "globalMatrixw": "1.000000",
-                "globalMatrixx": "-0.003421",
-                "globalMatrixy": "2.322806",
+                "globalMatrixx": "-0.003763",
+                "globalMatrixy": "2.826402",
                 "globalMatrixz": "-0.000565",
                 "globalPositionx": "1.000000",
                 "globalPositiony": "1.000000",
@@ -1412,12 +1687,15 @@
                 "scalex": "1.000000",
                 "scaley": "1.000000",
                 "scalez": "1.000000",
-                "tmpScalex": "1.000000",
-                "tmpScaley": "1.000000",
-                "tmpScalez": "1.000000"
+                "tmpScalex": "0.020320",
+                "tmpScaley": "0.025400",
+                "tmpScalez": "0.025400"
             },
             "2": {
                 "Active": false,
+                "CastsShadows": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
                 "Resources": {
                     "ResourceMaterial": {
                         "path": "Assets/New Folder 16/Breakable Prop/Barrel.mat"
@@ -1425,36 +1703,13 @@
                 }
             }
         },
-        "Parent": "558348488",
+        "Parent": "2112516473",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1293154462"
+        "UID": "1049456173"
     },
-    "Particles": {
-        "Active": false,
-        "Components": {
-            "0": {
-                "layer": "6",
-                "positionx": "0.000000",
-                "positiony": "1.053343",
-                "positionz": "0.000000",
-                "rotationw": "1.000000",
-                "rotationx": "0.000000",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "1.000000",
-                "scaley": "1.000000",
-                "scalez": "1.000000"
-            }
-        },
-        "Parent": "558348488",
-        "PrefabChild": true,
-        "PrefabInstance": true,
-        "Static": false,
-        "UID": "1749865721"
-    },
-    "PreviewTexture": "Library/Textures/1812597079.dds",
+    "PreviewTexture": "Library/Textures/1945354649.dds",
     "Prop": {
         "Active": true,
         "Components": {
@@ -1486,36 +1741,29 @@
                     "ResourceScript": "Assets/New Folder 16/Breakable Prop/Prop_Script.lua"
                 },
                 "Script variables": {
-                    "Count": 5,
+                    "Count": 4,
                     "Variable 0": {
-                        "DisplayObjectName": false,
-                        "Name": "Destroyable",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 1": {
                         "DisplayObjectName": false,
                         "Name": "current_type",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 0.0
+                        "Value": 1.0
                     },
-                    "Variable 2": {
+                    "Variable 1": {
                         "DisplayObjectName": false,
                         "Name": "health",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 2.0
                     },
-                    "Variable 3": {
+                    "Variable 2": {
                         "DisplayObjectName": false,
                         "Name": "myUID",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
                     },
-                    "Variable 4": {
+                    "Variable 3": {
                         "DisplayObjectName": false,
                         "Name": "parent",
                         "ObjectName": "",
@@ -1580,15 +1828,18 @@
                 "scalex": "1.000000",
                 "scaley": "1.000000",
                 "scalez": "1.000000",
-                "tmpScalex": "1.000000",
-                "tmpScaley": "1.000000",
-                "tmpScalez": "1.000000"
+                "tmpScalex": "2.147699",
+                "tmpScaley": "2.154233",
+                "tmpScalez": "2.392678"
             },
             "19": {
                 "Active": true
             },
             "2": {
                 "Active": true,
+                "CastsShadows": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
                 "Resources": {
                     "ResourceMaterial": {
                         "path": "Assets/New Folder 16/Breakable Prop/Barrel.mat"
@@ -1596,17 +1847,17 @@
                 }
             }
         },
-        "Parent": "92204751",
+        "Parent": "37369033",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "316955864"
+        "UID": "352098552"
     },
     "Smoke": {
-        "Active": false,
+        "Active": true,
         "Components": {
             "0": {
-                "layer": "6",
+                "layer": "0",
                 "positionx": "0.000000",
                 "positiony": "0.000000",
                 "positionz": "0.000000",
@@ -1619,7 +1870,7 @@
                 "scalez": "1.000000"
             },
             "18": {
-                "Active": false,
+                "Active": true,
                 "Duration": "1000",
                 "GradientColor": true,
                 "HorizontalBill": "0",
@@ -1629,6 +1880,7 @@
                 "PartBlendFunc": 0,
                 "PartMBlFuncDst": 7,
                 "PartMBlFuncSrc": 6,
+                "ParticlesBillboarding": true,
                 "Resources": {
                     "ResourceTexture": "Library/Textures/2119931366.dds"
                 },
@@ -1709,6 +1961,16 @@
                         "z": "0.000537"
                     }
                 ],
+                "maxInitialRotation": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "minInitialRotation": [
+                    "0",
+                    "0",
+                    "0"
+                ],
                 "num_colors": "2",
                 "num_curves": "2",
                 "num_gradients": "1",
@@ -1725,6 +1987,8 @@
                 "positionX": "0.000000",
                 "positionY": "0.000000",
                 "positionZ": "0.000000",
+                "randomInitialRotation": false,
+                "randomStartFrame": true,
                 "rotationOvertime1": [
                     "0",
                     "0",
@@ -1756,10 +2020,10 @@
                 "velocityconstants": "0"
             }
         },
-        "Parent": "1749865721",
+        "Parent": "1066749976",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1585362663"
+        "UID": "82140647"
     }
 }
