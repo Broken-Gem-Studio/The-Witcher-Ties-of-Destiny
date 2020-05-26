@@ -237,9 +237,10 @@ function GetTableCOMBO()
         if lua_table.p1.combo_num == 0
         then
 
-            if lua_table.p1.current_state >= 17
+            if lua_table.p1.current_state >= 17 or lua_table.p1.current_state == 10 or lua_table.p1.current_state == 13 or lua_table.p1.current_state == 16
             then
-
+                
+                
                 if lua_table.p1.combo_stack[4] == 'L' 
                 then
                     lua_table["UI"]:MakeElementVisible("Image", COMBO_LIGHT_ID)
@@ -257,6 +258,7 @@ function GetTableCOMBO()
                     lua_table["UI"]:MakeElementVisible("Image", COMBO_HEAVY_ID)
                 
                 end
+                
 
                 if lua_table.p1.combo_stack[3] == 'L' 
                 then
@@ -315,7 +317,7 @@ function GetTableCOMBO()
 
             end
 
-            if lua_table.p1.current_state < 17
+            if lua_table.p1.current_state < 17 and lua_table.p1.current_state ~= 10 and lua_table.p1.current_state ~= 13 and lua_table.p1.current_state ~= 16
             then
                 lua_table.p1.combo_stack[4] = 0
                 lua_table.p1.combo_stack[3] = 0
@@ -361,6 +363,7 @@ function GetTableCOMBO()
             lua_table["UI"]:MakeElementInvisible("Image", COMBO_MEDIUM_ID)
         end
     end
+    
     
         -------
     if lua_table.combo_num ~= 0
@@ -441,9 +444,11 @@ function GetTableCOMBO()
 
     --COMBOS GERALT
 
-    if lua_table.p1.current_state >= 17
+    if lua_table.p1.current_state >= 17 or lua_table.p1.current_state == 10 or lua_table.p1.current_state == 13 or lua_table.p1.current_state == 16
     then
         combo = true
+    else
+        combo = false
     end
        
 
@@ -557,6 +562,33 @@ function GetTableCOMBO()
         end
 
         if lua_table.p2.ability_performed == true and combo_J == true and lua_table.p2.current_state >= 17
+        then
+            --lua_table["Audio"]:PlayAudioEvent("Play_Geralt_aard_2")
+            lua_table["UI"]:MakeElementInvisible("Image", SWORD_UP_ID_J)
+            lua_table["UI"]:MakeElementVisible("Image", SWORD_FIRE_ID_J)
+            combo_J = false
+
+        end
+
+        if combo_J == true and lua_table.p2.current_state == 10
+        then
+            --lua_table["Audio"]:PlayAudioEvent("Play_Geralt_aard_2")
+            lua_table["UI"]:MakeElementInvisible("Image", SWORD_UP_ID_J)
+            lua_table["UI"]:MakeElementVisible("Image", SWORD_FIRE_ID_J)
+            combo_J = false
+
+        end
+
+        if combo_J == true and lua_table.p2.current_state == 13
+        then
+            --lua_table["Audio"]:PlayAudioEvent("Play_Geralt_aard_2")
+            lua_table["UI"]:MakeElementInvisible("Image", SWORD_UP_ID_J)
+            lua_table["UI"]:MakeElementVisible("Image", SWORD_FIRE_ID_J)
+            combo_J = false
+
+        end
+
+        if combo_J == true and lua_table.p2.current_state == 16
         then
             --lua_table["Audio"]:PlayAudioEvent("Play_Geralt_aard_2")
             lua_table["UI"]:MakeElementInvisible("Image", SWORD_UP_ID_J)
@@ -691,25 +723,40 @@ function GetTableCOMBO()
         
 
         --COMBOS
-        if lua_table.p2.note_num == 4 and combo_J == false and  lua_table.p2.note_stack[4] == 'L' and  lua_table.p2.note_stack[3] == 'L' and  lua_table.p2.note_stack[2] == 'L' and  lua_table.p2.note_stack[1] == 'L'
+        if lua_table.p2.note_num == 4 and combo_J == false and  lua_table.p2.note_stack[4] == 'L' and  lua_table.p2.note_stack[3] == 'L' and  lua_table.p2.note_stack[2] == 'H' and  lua_table.p2.note_stack[1] == 'M'
         then
             --lua_table["Audio"]:PlayAudioEvent("")--combo1
             --lua_table["Inputs"]:ShakeController(2, 1.0, 1000)--vibration
             combo_J = true
         end
 
-        if lua_table.p2.note_num == 4 and combo_J == false and  lua_table.p2.note_stack[4] == 'M' and  lua_table.p2.note_stack[3] == 'M' and  lua_table.p2.note_stack[2] == 'M' and  lua_table.p2.note_stack[1] == 'M'
+        if lua_table.p2.note_num == 4 and combo_J == false and  lua_table.p2.note_stack[4] == 'M' and  lua_table.p2.note_stack[3] == 'M' and  lua_table.p2.note_stack[2] == 'L' and  lua_table.p2.note_stack[1] == 'H'
         then
             --lua_table["Audio"]:PlayAudioEvent("")--combo2
             --lua_table["Inputs"]:ShakeController(2, 1.0, 1000)--vibration
             combo_J = true
         end
 
-        if lua_table.p2.note_num == 4 and combo_J == false and  lua_table.p2.note_stack[4] == 'H' and  lua_table.p2.note_stack[3] == 'H' and  lua_table.p2.note_stack[2] == 'H' and  lua_table.p2.note_stack[1] == 'H'
+        if lua_table.p2.note_num == 4 and combo_J == false and  lua_table.p2.note_stack[4] == 'H' and  lua_table.p2.note_stack[3] == 'H' and  lua_table.p2.note_stack[2] == 'M' and  lua_table.p2.note_stack[1] == 'L'
         then
             --lua_table["Audio"]:PlayAudioEvent("")--combo3
             --lua_table["Inputs"]:ShakeController(2, 1.0, 1000)--vibration
             combo_J = true
+        end
+
+        if lua_table.p2.current_state == 10 
+        then
+            lua_table["UI"]:MakeElementVisible("Image", SWORD_FIRE_ID_J)
+        end
+
+        if  lua_table.p2.current_state == 13 
+        then
+            lua_table["UI"]:MakeElementVisible("Image", SWORD_FIRE_ID_J)
+        end
+
+        if lua_table.p2.current_state == 16
+        then
+            lua_table["UI"]:MakeElementVisible("Image", SWORD_FIRE_ID_J)
         end
 
 

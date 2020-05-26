@@ -104,38 +104,44 @@ function GetTableNewUlti()
         lua_table["System"]:LOG ("ULTIMATE2 UPDATE: " .. lua_table.ultimatelocal2)
 
         --ULTI GERALT
-        if lua_table.ultimatelocal == 0 and lua_table.ultiP1.ultimate_active == false--WHEN ULTIMATE IS USED, WE PUT IMAGE AS 0%
+        if lua_table.ultiP1.current_state == -3 or lua_table.ultiP1.current_state == -4 or lua_table.ultiP1.being_revived == true
+        then
+            lua_table["UI"]:MakeElementInvisible("Image", ULTIDHUNDRED)
+        end
+
+        if lua_table.ultimatelocal < 20 and lua_table.ultiP1.ultimate_active == false and lua_table.ultiP1.current_state > -3 and lua_table.ultiP1.being_revived == false--WHEN ULTIMATE IS USED, WE PUT IMAGE AS 0%
         then
             lua_table["UI"]:MakeElementInvisible("Image", ULTIDUSING)
+            lua_table["UI"]:MakeElementInvisible("Image", ULTIDHUNDRED)
             lua_table["UI"]:MakeElementVisible("Image", ULTIDCERO)
             used = false
         end
 
-        if lua_table.ultimatelocal >= 20
+        if lua_table.ultimatelocal >= 20 and lua_table.ultiP1.current_state  > -3 and lua_table.ultiP1.being_revived == false
         then
             lua_table["UI"]:MakeElementInvisible("Image", ULTIDCERO)
             lua_table["UI"]:MakeElementVisible("Image", ULTIDTWENTY)
         end
 
-        if lua_table.ultimatelocal >= 40
+        if lua_table.ultimatelocal >= 40 and lua_table.ultiP1.current_state  > -3 and lua_table.ultiP1.being_revived == false
         then
             lua_table["UI"]:MakeElementInvisible("Image", ULTIDTWENTY)
             lua_table["UI"]:MakeElementVisible("Image", ULTIDFORTY)
         end
 
-        if lua_table.ultimatelocal >= 60
+        if lua_table.ultimatelocal >= 60 and lua_table.ultiP1.current_state > -3 and lua_table.ultiP1.being_revived == false
         then
             lua_table["UI"]:MakeElementInvisible("Image", ULTIDFORTY)
             lua_table["UI"]:MakeElementVisible("Image", ULTIDSIXTY)
         end
 
-        if lua_table.ultimatelocal >= 80
+        if lua_table.ultimatelocal >= 80 and lua_table.ultiP1.current_state > -3 and lua_table.ultiP1.being_revived == false
         then
             lua_table["UI"]:MakeElementInvisible("Image", ULTIDSIXTY)
             lua_table["UI"]:MakeElementVisible("Image", ULTIDEIGHTY)
         end
 
-        if lua_table.ultimatelocal == 100--LAST IMAGE ULTI IS READY
+        if lua_table.ultimatelocal == 100 and lua_table.ultiP1.current_state  > -3 and lua_table.ultiP1.being_revived == false--LAST IMAGE ULTI IS READY
         then
             lua_table["UI"]:MakeElementInvisible("Image", ULTIDEIGHTY)
             lua_table["UI"]:MakeElementVisible("Image", ULTIDHUNDRED)
@@ -159,46 +165,52 @@ function GetTableNewUlti()
 
         --
 
-        if lua_table.ultiP1.ultimate_active == true--SI ESTA USANDO LA ULTI MOSTRAR IMAGEN 100% ULTIMATE ACTIVE TIENE QUE SER LUA_TABLE
+        if lua_table.ultiP1.ultimate_active == true and lua_table.ultiP1.current_state  > -3 and lua_table.ultiP1.being_revived == false--SI ESTA USANDO LA ULTI MOSTRAR IMAGEN 100% ULTIMATE ACTIVE TIENE QUE SER LUA_TABLE
         then
-            lua_table["UI"]:MakeElementInvisible("Image", ULTIDHUNDRED)
+            --lua_table["UI"]:MakeElementVisible("Image", ULTIDHUNDRED)
             lua_table["UI"]:MakeElementVisible("Image", ULTIDUSING)--poner otra imagen en vez de la de 100
         end
 
         --ULTI JASKIER
 
-        if lua_table.ultimatelocal2 == 0 and lua_table.ultiP2.ultimate_active == false--WHEN ULTIMATE IS USED, WE PUT IMAGE AS 0%
+        if lua_table.ultiP2.current_state == -3 or lua_table.ultiP2.current_state == -4  or lua_table.ultiP2.being_revived == true
+        then
+            lua_table["UI"]:MakeElementInvisible("Image", ULTID2HUNDRED)
+        end
+
+        if lua_table.ultimatelocal2 < 20 and lua_table.ultiP2.ultimate_active == false and lua_table.ultiP2.current_state > -3 and lua_table.ultiP2.being_revived == false--WHEN ULTIMATE IS USED, WE PUT IMAGE AS 0%
         then
             lua_table["UI"]:MakeElementInvisible("Image", ULTID2USING)
+            lua_table["UI"]:MakeElementInvisible("Image", ULTID2HUNDRED)
             lua_table["UI"]:MakeElementVisible("Image", ULTID2CERO)
             used2 = false
         end
 
-        if lua_table.ultimatelocal2 >= 20
+        if lua_table.ultimatelocal2 >= 20 and lua_table.ultiP2.current_state > -3 and lua_table.ultiP2.being_revived == false
         then
             lua_table["UI"]:MakeElementInvisible("Image", ULTID2CERO)
             lua_table["UI"]:MakeElementVisible("Image", ULTID2TWENTY)
         end
 
-        if lua_table.ultimatelocal2 >= 40
+        if lua_table.ultimatelocal2 >= 40 and lua_table.ultiP2.current_state > -3 and lua_table.ultiP2.being_revived == false
         then
             lua_table["UI"]:MakeElementInvisible("Image", ULTID2TWENTY)
             lua_table["UI"]:MakeElementVisible("Image", ULTID2FORTY)
         end
 
-        if lua_table.ultimatelocal2 >= 60
+        if lua_table.ultimatelocal2 >= 60 and lua_table.ultiP2.current_state > -3 and lua_table.ultiP2.being_revived == false
         then
             lua_table["UI"]:MakeElementInvisible("Image", ULTID2FORTY)
             lua_table["UI"]:MakeElementVisible("Image", ULTID2SIXTY)
         end
 
-        if lua_table.ultimatelocal2 >= 80
+        if lua_table.ultimatelocal2 >= 80 and lua_table.ultiP2.current_state > -3 and lua_table.ultiP2.being_revived == false
         then
             lua_table["UI"]:MakeElementInvisible("Image", ULTID2SIXTY)
             lua_table["UI"]:MakeElementVisible("Image", ULTID2EIGHTY)
         end
 
-        if lua_table.ultimatelocal2 == 100--LAST IMAGE ULTI IS READY
+        if lua_table.ultimatelocal2 == 100 and lua_table.ultiP2.current_state > -3 and lua_table.ultiP2.being_revived == false--LAST IMAGE ULTI IS READY
         then
             lua_table["UI"]:MakeElementInvisible("Image", ULTID2EIGHTY)
             lua_table["UI"]:MakeElementVisible("Image", ULTID2HUNDRED)
@@ -222,9 +234,9 @@ function GetTableNewUlti()
  
          --
 
-        if lua_table.ultiP2.ultimate_active == true--EN EL CASO DE JASKIER IGUAL NO HACE FALTA QUE SE MANTENGA LA IMAGEN PORQUE SU ULTI NO DURA TIEMPO
+        if lua_table.ultiP2.ultimate_active == true and lua_table.ultiP2.current_state > -3 and lua_table.ultiP2.being_revived == false--EN EL CASO DE JASKIER IGUAL NO HACE FALTA QUE SE MANTENGA LA IMAGEN PORQUE SU ULTI NO DURA TIEMPO
         then
-            lua_table["UI"]:MakeElementInvisible("Image", ULTID2HUNDRED)
+            --lua_table["UI"]:MakeElementVisible("Image", ULTID2HUNDRED)
             lua_table["UI"]:MakeElementVisible("Image", ULTID2USING)
         end
 

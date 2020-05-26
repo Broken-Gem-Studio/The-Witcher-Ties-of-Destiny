@@ -1562,6 +1562,17 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Play_Main_Menu_Music" ID="{0AE28D7A-BA48-4317-84A9-E9DDB2BC5B03}">
+					<ChildrenList>
+						<Action Name="" ID="{7492C9AF-DE56-48AE-8A01-E22DCD21E3E5}" ShortID="692903178">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Music_Menu_Main_Captains_Tribute" ID="{D633C0BE-E3E1-45DC-9FE6-10842AC54A96}" WorkUnitID="{900849B3-5BE8-4F7B-8EC5-9E5DD796D73F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

@@ -18,8 +18,8 @@ function lua_table:Awake()
 	lua_table.AnimationFunctions:PlayAnimation("Fall", 30, MyUUID)
 	lastTimeFallen = lua_table.SystemFunctions:GameTime()
 	
-	lua_table.AudioFunctions:PlayAudioEvent("Play_menu_2")
-	lua_table.AudioFunctions:PlayAudioEvent("Play_Main_menu")
+	lua_table.AudioFunctions:PlayAudioEvent("Play_Main_Menu_Music")
+	lua_table.AudioFunctions:PlayAudioEvent("Play_Main_Menu_sign_moving")
 end
 
 function lua_table:Start()

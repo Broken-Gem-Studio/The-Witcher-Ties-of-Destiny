@@ -135,12 +135,12 @@ function lua_table:Update()
 	-- Scene loading
 	if lua_table.loadLevel1 == true
 	then	
-		lua_table.SceneFunctions:LoadScene(lua_table.scene_1)
+		--lua_table.SceneFunctions:LoadScene(lua_table.scene_1)
 	end
 
 	if lua_table.loadLevel2 == true
 	then	
-		lua_table.SceneFunctions:LoadScene(lua_table.scene_2)
+		--lua_table.SceneFunctions:LoadScene(lua_table.scene_2)
 	end
 end
 
@@ -156,7 +156,8 @@ end
 function lua_table:PlayGame()
 	playingGame = true
 	lua_table.lastCameraPos = lua_table.TransformFuctions:GetPosition(camera_UUID)
-    lua_table.AudioFunctions:PlayAudioEvent("Play_Click_1")
+	lua_table.AudioFunctions:PlayAudioEvent("Play_Main_Menu_play_1")
+	
 	lua_table.ObjectFunctions:SetActiveGameObject(false, quitButton)
 	lua_table.InterfaceFunctions:SetUIElementInteractable("Button", quitButton, false)
 	lua_table.ObjectFunctions:SetActiveGameObject(false, playButton)
@@ -164,12 +165,12 @@ function lua_table:PlayGame()
 end
 
 function lua_table:QuitGame()
-    lua_table.AudioFunctions:PlayAudioEvent("Play_Select_1")
+    lua_table.AudioFunctions:PlayAudioEvent("Play_Main_Menu_quit")
 	lua_table.SceneFunctions:QuitGame()
 end
 
 function lua_table:ShowFirstLevel()
-    lua_table.AudioFunctions:PlayAudioEvent("Play_Select_3")
+    lua_table.AudioFunctions:PlayAudioEvent("Play_Main_Menu_select")
 	lua_table.ObjectFunctions:SetActiveGameObject(true, firstLevelPlay)
 	lua_table.InterfaceFunctions:SetUIElementInteractable("Button", firstLevelPlay, true)
 	lua_table.ObjectFunctions:SetActiveGameObject(false, secondLevelPlay)
@@ -180,7 +181,7 @@ function lua_table:ShowFirstLevel()
 end
 
 function lua_table:ShowSecondLevel()
-    lua_table.AudioFunctions:PlayAudioEvent("Play_Select_3")
+    lua_table.AudioFunctions:PlayAudioEvent("Play_Main_Menu_select")
 	lua_table.ObjectFunctions:SetActiveGameObject(true, secondLevelPlay)
 	lua_table.InterfaceFunctions:SetUIElementInteractable("Button", secondLevelPlay, true)
 	lua_table.ObjectFunctions:SetActiveGameObject(false, firstLevelPlay)
@@ -191,7 +192,7 @@ function lua_table:ShowSecondLevel()
 end
 
 function lua_table:PlayFirstLevel()
-	lua_table.AudioFunctions:PlayAudioEvent("Play_Click_1")
+	lua_table.AudioFunctions:PlayAudioEvent("Play_Main_Menu_play_2")
 	current_level = 1
 	
 	lua_table.ObjectFunctions:SetActiveGameObject(false, showFirstLevel)
@@ -207,7 +208,7 @@ function lua_table:PlayFirstLevel()
 end
 
 function lua_table:PlaySecondLevel()
-	lua_table.AudioFunctions:PlayAudioEvent("Play_Click_1")
+	lua_table.AudioFunctions:PlayAudioEvent("Play_Main_Menu_play_2")
 	current_level = 2
 
 	lua_table.ObjectFunctions:SetActiveGameObject(false, showFirstLevel)

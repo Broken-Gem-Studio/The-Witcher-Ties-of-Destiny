@@ -123,6 +123,7 @@ namespace AK
         static const AkUniqueID PLAY_LVL2_WIND_1 = 2013879219U;
         static const AkUniqueID PLAY_LVL2_WIND_2 = 2013879216U;
         static const AkUniqueID PLAY_MAIN_MENU_MOUSE_OVER = 1807448786U;
+        static const AkUniqueID PLAY_MAIN_MENU_MUSIC = 2895168921U;
         static const AkUniqueID PLAY_MAIN_MENU_PLAY_1 = 3490144350U;
         static const AkUniqueID PLAY_MAIN_MENU_PLAY_2 = 3490144349U;
         static const AkUniqueID PLAY_MAIN_MENU_PLAY_3 = 3490144348U;

@@ -90,7 +90,9 @@ function lua_table:Update()
     if lua_table.p1.being_revived == true
     then
         lua_table["UI"]:MakeElementVisible("Image", revivaval1ID)
-        lua_table["UI"]:MakeElementInvisible("Image", revive1ID)
+        lua_table["UI"]:PlayUIAnimation(revivaval1ID)
+    
+        --lua_table["UI"]:MakeElementInvisible("Image", revive1ID)
         lua_table["UI"]:MakeElementInvisible("Image", death1ID)
         lua_table["UI"]:SetText("REVIVING", timer1ID)
     end
@@ -131,7 +133,8 @@ function lua_table:Update()
     if lua_table.p2.being_revived == true
     then
         lua_table["UI"]:MakeElementVisible("Image", revivaval2ID)
-        lua_table["UI"]:MakeElementInvisible("Image", revive2ID)
+        lua_table["UI"]:PlayUIAnimation(revivaval2ID)
+        --lua_table["UI"]:MakeElementInvisible("Image", revive2ID)
         lua_table["UI"]:MakeElementInvisible("Image", death2ID)
         lua_table["UI"]:SetText("REVIVING", timer2ID)
     end
