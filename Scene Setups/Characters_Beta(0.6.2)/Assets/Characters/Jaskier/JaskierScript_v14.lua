@@ -2173,7 +2173,8 @@ function lua_table:OnTriggerEnter()
 	
 	local collider_GO = lua_table.PhysicsFunctions:OnTriggerEnter(jaskier_GO_UID)
 
-	if not godmode and lua_table.current_state > state.down and lua_table.GameObjectFunctions:GetLayerByID(collider_GO) == layers.enemy_attack	--IF collider is tagged as an enemy attack
+	if collider_GO ~= nil and collider_GO ~= 0 and
+	not godmode and lua_table.current_state > state.down and lua_table.GameObjectFunctions:GetLayerByID(collider_GO) == layers.enemy_attack	--IF collider is tagged as an enemy attack
 	then
 		ProcessIncomingHit(collider_GO)
 	end
@@ -2184,7 +2185,8 @@ function lua_table:OnCollisionEnter()
 
 	local collider_GO = lua_table.PhysicsFunctions:OnCollisionEnter(jaskier_GO_UID)
 
-	if not godmode and lua_table.current_state > state.down and lua_table.GameObjectFunctions:GetLayerByID(collider_GO) == layers.enemy_attack	--IF collider is tagged as an enemy attack
+	if collider_GO ~= nil and collider_GO ~= 0 and
+	not godmode and lua_table.current_state > state.down and lua_table.GameObjectFunctions:GetLayerByID(collider_GO) == layers.enemy_attack	--IF collider is tagged as an enemy attack
 	then
 		ProcessIncomingHit(collider_GO)
 	end
