@@ -1,0 +1,1923 @@
+{
+    "Kikimora": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "3",
+                "positionx": "983.572327",
+                "positiony": "12.429298",
+                "positionz": "-708.021118",
+                "rotationw": "0.942540",
+                "rotationx": "0.000000",
+                "rotationy": "-0.334093",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Boss/KikimoraScript_v5.lua"
+                },
+                "Script variables": {
+                    "Count": 20,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "awakened",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "awakening_distance",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 20.0
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "health",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2000.0
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "health_percentage_phase_1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 100.0
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "health_percentage_phase_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 66.0
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "health_percentage_phase_3",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 33.0
+                    },
+                    "Variable 14": {
+                        "DisplayObjectName": false,
+                        "Name": "jaskier_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Jaskier"
+                    },
+                    "Variable 15": {
+                        "DisplayObjectName": false,
+                        "Name": "my_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 16": {
+                        "DisplayObjectName": true,
+                        "Name": "scene_UID",
+                        "ObjectName": "Untitled scene 2.scene",
+                        "Type": "Double",
+                        "Value": 1901820971.0
+                    },
+                    "Variable 17": {
+                        "DisplayObjectName": false,
+                        "Name": "speed_modificator_phase_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.5
+                    },
+                    "Variable 18": {
+                        "DisplayObjectName": false,
+                        "Name": "speed_modificator_phase_3",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2.0
+                    },
+                    "Variable 19": {
+                        "DisplayObjectName": false,
+                        "Name": "yennefer_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Yennefer"
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "ciri_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Ciri"
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "collider_damage",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": false,
+                        "Name": "collider_effect",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": false,
+                        "Name": "current_health",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": false,
+                        "Name": "current_health_percentage",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": false,
+                        "Name": "damage_received_mod",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": false,
+                        "Name": "damage_received_orig",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": -1.0
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "geralt_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Geralt"
+                    }
+                }
+            },
+            "14": {
+                "Active": true,
+                "Animations": {
+                    "BlendTime": "0.300000",
+                    "UseDefault": false
+                },
+                "Resources": {
+                    "ResourceAnimation": "Library/Animations/291543719.anim",
+                    "ResourceAnimator": "1150448976"
+                }
+            },
+            "16": {
+                "Active": true,
+                "colliderType": "2",
+                "draggedUID": "0",
+                "draw": "1",
+                "firstCreation": "0",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "986.091492",
+                "globalMatrixy": "19.429298",
+                "globalMatrixz": "-711.128174",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "0",
+                "isTrigger": "0",
+                "lastIndex": "2",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "7.000000",
+                "localMatrixz": "-4.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "7.000000",
+                "localPositionz": "-4.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "15.000000",
+                "scalex": "15.000000",
+                "scaley": "15.000000",
+                "scalez": "15.000000",
+                "tmpScalex": "1.000000",
+                "tmpScaley": "1.000000",
+                "tmpScalez": "1.000000"
+            },
+            "17": {
+                "contactOffset": "0.010000",
+                "draw": "0",
+                "gravity": "1",
+                "height": "1.000000",
+                "nonWalkableMode": "1",
+                "positionX": "983.572327",
+                "positionY": "12.429298",
+                "positionZ": "-708.021118",
+                "radius": "15.000000",
+                "slopeLimit": "45.000000",
+                "stepOffset": "0.300000"
+            }
+        },
+        "Parent": "833349065",
+        "PrefabChild": true,
+        "PrefabInstance": true,
+        "Static": false,
+        "UID": "2007271288"
+    },
+    "Kikimora_Mesh": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-0.073148",
+                "positiony": "0.107695",
+                "positionz": "32.506554",
+                "rotationw": "0.500000",
+                "rotationx": "-0.500000",
+                "rotationy": "0.500000",
+                "rotationz": "0.500000",
+                "scalex": "0.149417",
+                "scaley": "0.149417",
+                "scalez": "0.149417"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/1631393036.mesh"
+                    }
+                }
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/Mesh_Slash_Default.mat"
+                    }
+                }
+            }
+        },
+        "Parent": "2007271288",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "736013323"
+    },
+    "Leash_Left_Attack": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "layer": "4",
+                "positionx": "15.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "30.000000",
+                "scaley": "5.000000",
+                "scalez": "5.000000"
+            },
+            "1": {
+                "Active": false,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2.mesh"
+                    }
+                }
+            },
+            "16": {
+                "Active": false,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "1",
+                "firstCreation": "0",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "985.086609",
+                "globalMatrixy": "39.919689",
+                "globalMatrixz": "-693.528931",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "0",
+                "isTrigger": "1",
+                "lastIndex": "0",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "30.000000",
+                "tmpScaley": "5.000000",
+                "tmpScalez": "5.000000"
+            },
+            "2": {
+                "Active": false,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/New Folder 16/Boss/New material 76.mat"
+                    }
+                }
+            }
+        },
+        "Parent": "876259516",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "348319460"
+    },
+    "Leash_Left_Pivot": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "5.000000",
+                "positiony": "14.500000",
+                "positionz": "5.000000",
+                "rotationw": "0.800103",
+                "rotationx": "-0.191342",
+                "rotationy": "-0.331414",
+                "rotationz": "0.461940",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Boss/PivotKikimoraScript_v1.lua"
+                },
+                "Script variables": {
+                    "Count": 5,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "collider_damage",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "collider_effect",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "kikimora_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Kikimora"
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "kikimora_id",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": false,
+                        "Name": "my_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    }
+                }
+            },
+            "2": {
+                "Active": false,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "DefaultMaterial"
+                    }
+                }
+            }
+        },
+        "Parent": "2007271288",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "876259516"
+    },
+    "Leash_Right_Attack": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "layer": "4",
+                "positionx": "-15.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "30.000000",
+                "scaley": "5.000000",
+                "scalez": "5.000000"
+            },
+            "1": {
+                "Active": false,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2.mesh"
+                    }
+                }
+            },
+            "16": {
+                "Active": false,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "1",
+                "firstCreation": "0",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "969.080200",
+                "globalMatrixy": "39.919689",
+                "globalMatrixz": "-706.506836",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "0",
+                "isTrigger": "1",
+                "lastIndex": "0",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "30.000000",
+                "tmpScaley": "5.000000",
+                "tmpScalez": "5.000000"
+            },
+            "2": {
+                "Active": false,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/New Folder 16/Boss/New material 76.mat"
+                    }
+                }
+            }
+        },
+        "Parent": "963782736",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1391312541"
+    },
+    "Leash_Right_Pivot": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-5.000000",
+                "positiony": "14.500000",
+                "positionz": "5.000000",
+                "rotationw": "0.800103",
+                "rotationx": "-0.191342",
+                "rotationy": "0.331414",
+                "rotationz": "-0.461940",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Boss/PivotKikimoraScript_v1.lua"
+                },
+                "Script variables": {
+                    "Count": 5,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "collider_damage",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "collider_effect",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "kikimora_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Kikimora"
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "kikimora_id",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": false,
+                        "Name": "my_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    }
+                }
+            },
+            "2": {
+                "Active": false,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "DefaultMaterial"
+                    }
+                }
+            }
+        },
+        "Parent": "2007271288",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "963782736"
+    },
+    "PreviewTexture": "Library/Textures/1761051172.dds",
+    "Roar_Attack": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "layer": "4",
+                "positionx": "0.000000",
+                "positiony": "14.500000",
+                "positionz": "18.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "40.000000",
+                "scaley": "10.000000",
+                "scalez": "30.000000"
+            },
+            "1": {
+                "Active": false,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2.mesh"
+                    }
+                }
+            },
+            "16": {
+                "Active": false,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "1",
+                "firstCreation": "0",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "972.236084",
+                "globalMatrixy": "26.929298",
+                "globalMatrixz": "-694.039368",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "0",
+                "isTrigger": "1",
+                "lastIndex": "0",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "40.000000",
+                "tmpScaley": "10.000000",
+                "tmpScalez": "30.000000"
+            },
+            "2": {
+                "Active": false,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/New Folder 16/Boss/New material 76.mat"
+                    }
+                }
+            }
+        },
+        "Parent": "2007271288",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "173035379"
+    },
+    "SpiderHub": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-11.513878",
+                "positiony": "-48.967514",
+                "positionz": "379.477020",
+                "rotationw": "-0.023509",
+                "rotationx": "0.706716",
+                "rotationy": "-0.023509",
+                "rotationz": "0.706716",
+                "scalex": "1.657900",
+                "scaley": "1.657987",
+                "scalez": "1.657987"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1656326540.bone"
+                }
+            }
+        },
+        "Parent": "1660345336",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "152886940"
+    },
+    "SpiderLLeg11": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-49.377457",
+                "positiony": "97.138107",
+                "positionz": "13.216726",
+                "rotationw": "0.004906",
+                "rotationx": "0.399806",
+                "rotationy": "0.775417",
+                "rotationz": "0.488733",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1295576156.bone"
+                }
+            }
+        },
+        "Parent": "152886940",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1212695208"
+    },
+    "SpiderLLeg12": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "163.812469",
+                "positiony": "0.000031",
+                "positionz": "0.000015",
+                "rotationw": "0.710574",
+                "rotationx": "0.224252",
+                "rotationy": "0.169304",
+                "rotationz": "0.645083",
+                "scalex": "1.000001",
+                "scaley": "0.999998",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/101499598.bone"
+                }
+            }
+        },
+        "Parent": "1212695208",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "733494363"
+    },
+    "SpiderLLeg13": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "113.513550",
+                "positiony": "-0.000004",
+                "positionz": "0.000000",
+                "rotationw": "0.669949",
+                "rotationx": "0.074897",
+                "rotationy": "-0.370260",
+                "rotationz": "-0.639114",
+                "scalex": "1.000003",
+                "scaley": "0.999997",
+                "scalez": "1.000001"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/602696453.bone"
+                }
+            }
+        },
+        "Parent": "733494363",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1597404410"
+    },
+    "SpiderLLeg21": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-55.106735",
+                "positiony": "42.997681",
+                "positionz": "33.565784",
+                "rotationw": "-0.368971",
+                "rotationx": "0.631705",
+                "rotationy": "0.518273",
+                "rotationz": "0.442948",
+                "scalex": "1.000000",
+                "scaley": "1.000087",
+                "scalez": "1.000088"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1931965730.bone"
+                }
+            }
+        },
+        "Parent": "152886940",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1156801421"
+    },
+    "SpiderLLeg22": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "107.387650",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "0.943865",
+                "rotationx": "0.047095",
+                "rotationy": "-0.073173",
+                "rotationz": "-0.318663",
+                "scalex": "0.999996",
+                "scaley": "1.000004",
+                "scalez": "1.000001"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1282313728.bone"
+                }
+            }
+        },
+        "Parent": "1156801421",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "592518000"
+    },
+    "SpiderLLeg23": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "121.757584",
+                "positiony": "0.000015",
+                "positionz": "0.000000",
+                "rotationw": "0.984769",
+                "rotationx": "-0.003212",
+                "rotationy": "-0.000644",
+                "rotationz": "-0.173839",
+                "scalex": "1.000020",
+                "scaley": "0.999985",
+                "scalez": "0.999996"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/646775580.bone"
+                }
+            }
+        },
+        "Parent": "592518000",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "682302777"
+    },
+    "SpiderLLeg31": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-11.923233",
+                "positiony": "-39.736572",
+                "positionz": "43.211330",
+                "rotationw": "-0.202251",
+                "rotationx": "0.330696",
+                "rotationy": "0.618391",
+                "rotationz": "0.683613",
+                "scalex": "0.999914",
+                "scaley": "0.999913",
+                "scalez": "0.999913"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/619654252.bone"
+                }
+            }
+        },
+        "Parent": "152886940",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "263365877"
+    },
+    "SpiderLLeg32": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "119.123863",
+                "positiony": "-0.000015",
+                "positionz": "-0.000137",
+                "rotationw": "0.789609",
+                "rotationx": "0.055434",
+                "rotationy": "0.035462",
+                "rotationz": "0.610072",
+                "scalex": "1.000000",
+                "scaley": "1.000029",
+                "scalez": "0.999999"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/773884004.bone"
+                }
+            }
+        },
+        "Parent": "263365877",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "580344531"
+    },
+    "SpiderLLeg33": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "184.234268",
+                "positiony": "0.000004",
+                "positionz": "0.000002",
+                "rotationw": "0.589942",
+                "rotationx": "-0.098084",
+                "rotationy": "0.070879",
+                "rotationz": "-0.798326",
+                "scalex": "0.999994",
+                "scaley": "1.000000",
+                "scalez": "1.000007"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/725544884.bone"
+                }
+            }
+        },
+        "Parent": "580344531",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1409258093"
+    },
+    "SpiderLLeg41": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-9.416122",
+                "positiony": "-133.102112",
+                "positionz": "66.270798",
+                "rotationw": "0.796438",
+                "rotationx": "-0.151005",
+                "rotationy": "-0.408655",
+                "rotationz": "-0.419386",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/149693909.bone"
+                }
+            }
+        },
+        "Parent": "152886940",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1872312264"
+    },
+    "SpiderLLeg42": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "120.682343",
+                "positiony": "0.000114",
+                "positionz": "0.000015",
+                "rotationw": "0.688891",
+                "rotationx": "-0.137626",
+                "rotationy": "-0.345890",
+                "rotationz": "-0.621971",
+                "scalex": "1.000000",
+                "scaley": "0.999999",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/361022901.bone"
+                }
+            }
+        },
+        "Parent": "1872312264",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "2142242691"
+    },
+    "SpiderLLeg43": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "181.966141",
+                "positiony": "0.000000",
+                "positionz": "0.000031",
+                "rotationw": "0.983493",
+                "rotationx": "-0.177982",
+                "rotationy": "-0.030367",
+                "rotationz": "0.011876",
+                "scalex": "1.000000",
+                "scaley": "1.000002",
+                "scalez": "0.999998"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/626786033.bone"
+                }
+            }
+        },
+        "Parent": "2142242691",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "191622314"
+    },
+    "SpiderRLeg11": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-49.377457",
+                "positiony": "97.138115",
+                "positionz": "-13.216733",
+                "rotationw": "-0.051086",
+                "rotationx": "0.380226",
+                "rotationy": "0.790120",
+                "rotationz": "-0.478046",
+                "scalex": "0.999913",
+                "scaley": "0.999913",
+                "scalez": "0.999913"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/804547464.bone"
+                }
+            }
+        },
+        "Parent": "152886940",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "768707830"
+    },
+    "SpiderRLeg12": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "163.812469",
+                "positiony": "0.000061",
+                "positionz": "-0.000015",
+                "rotationw": "0.651040",
+                "rotationx": "-0.213011",
+                "rotationy": "-0.185637",
+                "rotationz": "0.704494",
+                "scalex": "1.000000",
+                "scaley": "0.999999",
+                "scalez": "1.000001"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/2042825779.bone"
+                }
+            }
+        },
+        "Parent": "768707830",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "767865543"
+    },
+    "SpiderRLeg13": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "113.513580",
+                "positiony": "0.000011",
+                "positionz": "-0.000015",
+                "rotationw": "0.603741",
+                "rotationx": "-0.072158",
+                "rotationy": "0.403199",
+                "rotationz": "-0.683901",
+                "scalex": "1.000006",
+                "scaley": "0.999998",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/899914664.bone"
+                }
+            }
+        },
+        "Parent": "767865543",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "109060785"
+    },
+    "SpiderRLeg21": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-55.106750",
+                "positiony": "42.997669",
+                "positionz": "-33.565781",
+                "rotationw": "0.394159",
+                "rotationx": "0.678869",
+                "rotationy": "0.456193",
+                "rotationz": "-0.419121",
+                "scalex": "0.999914",
+                "scaley": "0.999913",
+                "scalez": "0.999869"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/699415582.bone"
+                }
+            }
+        },
+        "Parent": "152886940",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1566220340"
+    },
+    "SpiderRLeg22": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "107.387650",
+                "positiony": "0.000015",
+                "positionz": "0.000015",
+                "rotationw": "0.897930",
+                "rotationx": "-0.038816",
+                "rotationy": "0.096670",
+                "rotationz": "-0.427634",
+                "scalex": "0.999997",
+                "scaley": "1.000004",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/26586243.bone"
+                }
+            }
+        },
+        "Parent": "1566220340",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1196631068"
+    },
+    "SpiderRLeg23": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "121.757568",
+                "positiony": "0.000000",
+                "positionz": "-0.000023",
+                "rotationw": "0.972559",
+                "rotationx": "0.005670",
+                "rotationy": "0.000272",
+                "rotationz": "-0.232588",
+                "scalex": "0.999991",
+                "scaley": "1.000007",
+                "scalez": "1.000002"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/123421119.bone"
+                }
+            }
+        },
+        "Parent": "1196631068",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1170983510"
+    },
+    "SpiderRLeg31": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-11.923233",
+                "positiony": "-39.736599",
+                "positionz": "-43.211330",
+                "rotationw": "-0.178055",
+                "rotationx": "-0.311004",
+                "rotationy": "-0.625106",
+                "rotationz": "0.693408",
+                "scalex": "0.999914",
+                "scaley": "0.999912",
+                "scalez": "0.999914"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1968022344.bone"
+                }
+            }
+        },
+        "Parent": "152886940",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "121258649"
+    },
+    "SpiderRLeg32": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "119.123825",
+                "positiony": "0.000015",
+                "positionz": "0.000090",
+                "rotationw": "0.749304",
+                "rotationx": "-0.054899",
+                "rotationy": "-0.038339",
+                "rotationz": "0.658832",
+                "scalex": "1.000002",
+                "scaley": "0.999996",
+                "scalez": "1.000001"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1977403836.bone"
+                }
+            }
+        },
+        "Parent": "121258649",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "390185672"
+    },
+    "SpiderRLeg33": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "184.234207",
+                "positiony": "0.000008",
+                "positionz": "0.000000",
+                "rotationw": "0.528036",
+                "rotationx": "0.086868",
+                "rotationy": "-0.073197",
+                "rotationz": "-0.841590",
+                "scalex": "0.999915",
+                "scaley": "0.999910",
+                "scalez": "1.000001"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/570898540.bone"
+                }
+            }
+        },
+        "Parent": "390185672",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1596019409"
+    },
+    "SpiderRLeg41": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-9.416168",
+                "positiony": "-133.102081",
+                "positionz": "-66.270782",
+                "rotationw": "0.822943",
+                "rotationx": "0.121635",
+                "rotationy": "0.386065",
+                "rotationz": "-0.398652",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/98307927.bone"
+                }
+            }
+        },
+        "Parent": "152886940",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1368410915"
+    },
+    "SpiderRLeg42": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "120.682312",
+                "positiony": "0.000153",
+                "positionz": "0.000015",
+                "rotationw": "0.629234",
+                "rotationx": "0.123394",
+                "rotationy": "0.373391",
+                "rotationz": "-0.670386",
+                "scalex": "0.999999",
+                "scaley": "1.000001",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/265802678.bone"
+                }
+            }
+        },
+        "Parent": "1368410915",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1319281354"
+    },
+    "SpiderRLeg43": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "181.966125",
+                "positiony": "0.000061",
+                "positionz": "0.000015",
+                "rotationw": "0.983489",
+                "rotationx": "0.177420",
+                "rotationy": "0.033253",
+                "rotationz": "0.012914",
+                "scalex": "1.000000",
+                "scaley": "0.999999",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/581658839.bone"
+                }
+            }
+        },
+        "Parent": "1319281354",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1811564644"
+    },
+    "Spider_ARraw": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "7.579437",
+                "positiony": "61.181808",
+                "positionz": "21.024391",
+                "rotationw": "0.510192",
+                "rotationx": "-0.046474",
+                "rotationy": "-0.155068",
+                "rotationz": "0.844688",
+                "scalex": "0.999913",
+                "scaley": "0.999913",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/626943159.bone"
+                }
+            }
+        },
+        "Parent": "152886940",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1227491614"
+    },
+    "Spider_L": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "7.579422",
+                "positiony": "61.181770",
+                "positionz": "-21.024391",
+                "rotationw": "0.510193",
+                "rotationx": "0.046474",
+                "rotationy": "0.155068",
+                "rotationz": "0.844688",
+                "scalex": "1.000087",
+                "scaley": "1.000087",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1680648381.bone"
+                }
+            }
+        },
+        "Parent": "152886940",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "81925929"
+    },
+    "Spider_Pivot": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            }
+        },
+        "Parent": "2007271288",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1660345336"
+    },
+    "Spider_awrar": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "-51.477600",
+                "positionz": "0.000004",
+                "rotationw": "0.691658",
+                "rotationx": "0.000000",
+                "rotationy": "-0.000000",
+                "rotationz": "-0.722225",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/583026443.bone"
+                }
+            }
+        },
+        "Parent": "152886940",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "48536477"
+    },
+    "Stomp_Attack": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "layer": "4",
+                "positionx": "0.000000",
+                "positiony": "14.500000",
+                "positionz": "12.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "18.000000",
+                "scaley": "1.000000",
+                "scalez": "12.000000"
+            },
+            "1": {
+                "Active": false,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2.mesh"
+                    }
+                }
+            },
+            "16": {
+                "Active": false,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "1",
+                "firstCreation": "0",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "976.014832",
+                "globalMatrixy": "26.929298",
+                "globalMatrixz": "-698.699951",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "0",
+                "isTrigger": "1",
+                "lastIndex": "0",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "18.000000",
+                "tmpScaley": "1.000000",
+                "tmpScalez": "12.000000"
+            },
+            "2": {
+                "Active": false,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/New Folder 16/Boss/New material 76.mat"
+                    }
+                }
+            }
+        },
+        "Parent": "2007271288",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1166288486"
+    },
+    "Sweep_Left_Attack": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "layer": "4",
+                "positionx": "15.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "30.000000",
+                "scaley": "3.000000",
+                "scalez": "3.000000"
+            },
+            "1": {
+                "Active": false,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2.mesh"
+                    }
+                }
+            },
+            "16": {
+                "Active": false,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "1",
+                "firstCreation": "0",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "995.223755",
+                "globalMatrixy": "26.929298",
+                "globalMatrixz": "-698.574219",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "0",
+                "isTrigger": "1",
+                "lastIndex": "0",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "30.000000",
+                "tmpScaley": "3.000000",
+                "tmpScalez": "3.000000"
+            },
+            "2": {
+                "Active": false,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/New Folder 16/Boss/New material 76.mat"
+                    }
+                }
+            }
+        },
+        "Parent": "1813990736",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "483234633"
+    },
+    "Sweep_Left_Pivot": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "14.500000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Boss/PivotKikimoraScript_v1.lua"
+                },
+                "Script variables": {
+                    "Count": 5,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "collider_damage",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "collider_effect",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "kikimora_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Kikimora"
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "kikimora_id",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": false,
+                        "Name": "my_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    }
+                }
+            },
+            "2": {
+                "Active": false,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "DefaultMaterial"
+                    }
+                }
+            }
+        },
+        "Parent": "2007271288",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1813990736"
+    },
+    "Sweep_Right_Attack": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "layer": "4",
+                "positionx": "-15.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "30.000000",
+                "scaley": "3.000000",
+                "scalez": "3.000000"
+            },
+            "1": {
+                "Active": false,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2.mesh"
+                    }
+                }
+            },
+            "16": {
+                "Active": false,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "1",
+                "firstCreation": "0",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "971.920898",
+                "globalMatrixy": "26.929298",
+                "globalMatrixz": "-717.468018",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "0",
+                "isTrigger": "1",
+                "lastIndex": "0",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "30.000000",
+                "tmpScaley": "3.000000",
+                "tmpScalez": "3.000000"
+            },
+            "2": {
+                "Active": false,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/New Folder 16/Boss/New material 76.mat"
+                    }
+                }
+            }
+        },
+        "Parent": "799570191",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1952653724"
+    },
+    "Sweep_Right_Pivot": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "14.500000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Boss/PivotKikimoraScript_v1.lua"
+                },
+                "Script variables": {
+                    "Count": 5,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "collider_damage",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "collider_effect",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "kikimora_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Kikimora"
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "kikimora_id",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": false,
+                        "Name": "my_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    }
+                }
+            },
+            "2": {
+                "Active": false,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "DefaultMaterial"
+                    }
+                }
+            }
+        },
+        "Parent": "2007271288",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "799570191"
+    }
+}

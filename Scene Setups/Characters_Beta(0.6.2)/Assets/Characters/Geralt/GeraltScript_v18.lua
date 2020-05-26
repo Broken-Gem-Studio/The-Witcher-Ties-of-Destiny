@@ -1377,9 +1377,8 @@ local function RegularAttack(attack_type)
 end
 
 local function AardPush()
-	--1. Collect colliders of all enemies inside a radius
+	--1. Get Geralt Pos
 	local geralt_pos = lua_table.TransformFunctions:GetPosition(geralt_GO_UID)
-	local enemy_list = lua_table.PhysicsFunctions:OverlapSphere(geralt_pos[1], geralt_pos[2], geralt_pos[3], lua_table.ability_range, layers.enemy)
 
 	--2. Transform ability trapezoid to Geralt's current rotation
 	SaveDirection()
@@ -1395,6 +1394,7 @@ local function AardPush()
 	D_x, D_z = D_x + geralt_pos[1], D_z + geralt_pos[3]
 
 	--4. We must check that the enemy is inside the AoE
+	local enemy_list = lua_table.PhysicsFunctions:OverlapSphere(geralt_pos[1], geralt_pos[2], geralt_pos[3], lua_table.ability_range, layers.enemy)
 	for i = 1, #enemy_list do
 		local enemy_pos = lua_table.TransformFunctions:GetPosition(enemy_list[i])
 
@@ -1404,6 +1404,20 @@ local function AardPush()
 		then
 			local enemy_script = lua_table.GameObjectFunctions:GetScript(enemy_list[i])
 			enemy_script:RequestedTrigger(geralt_GO_UID)	--TODO-Ability:
+		end
+	end
+
+	--4. We must check that the prop is inside the AoE
+	local prop_list = lua_table.PhysicsFunctions:OverlapSphere(geralt_pos[1], geralt_pos[2], geralt_pos[3], lua_table.ability_range, layers.prop)
+	for i = 1, #prop_list do
+		local prop_pos = lua_table.TransformFunctions:GetPosition(prop_list[i])
+
+		if BidimensionalPointInVectorSide(B_x, B_z, C_x, C_z, prop_pos[1], prop_pos[3]) < 0	--If left side of all the trapezoid vectors BC, CD, DA ( \_/ )
+		and BidimensionalPointInVectorSide(C_x, C_z, D_x, D_z, prop_pos[1], prop_pos[3]) < 0
+		and BidimensionalPointInVectorSide(D_x, D_z, A_x, A_z, prop_pos[1], prop_pos[3]) < 0
+		then
+			local prop_script = lua_table.GameObjectFunctions:GetScript(prop_list[i])
+			prop_script:RequestedTrigger(geralt_GO_UID)	--TODO-Ability:
 		end
 	end
 end
