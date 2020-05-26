@@ -97,7 +97,7 @@
                 "PartMBlFuncDst": 7,
                 "PartMBlFuncSrc": 6,
                 "Resources": {
-                    "ResourceTexture": "Library/Textures/805414340.dds"
+                    "ResourceTexture": "Library/Textures/1064731931.dds"
                 },
                 "UID": 1661991544,
                 "VerticalBill": "0",
@@ -508,8 +508,8 @@
                 "rotationy": "0.000040",
                 "rotationz": "-0.000037",
                 "scalex": "1.000000",
-                "scaley": "1.000519",
-                "scalez": "1.000519"
+                "scaley": "1.000521",
+                "scalez": "1.000521"
             },
             "13": {
                 "Active": true,
@@ -855,8 +855,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.070461",
-                "scaley": "15.158218",
-                "scalez": "1.368169"
+                "scaley": "15.158236",
+                "scalez": "1.368171"
             },
             "1": {
                 "Active": true,
@@ -939,8 +939,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000519",
-                "scalez": "1.000519"
+                "scaley": "1.000521",
+                "scalez": "1.000521"
             }
         },
         "Index": 0,
@@ -1176,8 +1176,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000519",
-                "scalez": "1.000519"
+                "scaley": "1.000521",
+                "scalez": "1.000521"
             }
         },
         "Index": 0,
@@ -1533,8 +1533,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000519",
-                "scalez": "1.000519"
+                "scaley": "1.000521",
+                "scalez": "1.000521"
             }
         },
         "Index": 0,
@@ -2584,8 +2584,8 @@
                 "rotationx": "0.388476",
                 "rotationy": "0.030072",
                 "rotationz": "0.916844",
-                "scalex": "1.001034",
-                "scaley": "1.001034",
+                "scalex": "1.001038",
+                "scaley": "1.001038",
                 "scalez": "1.000000"
             },
             "13": {
@@ -3116,8 +3116,8 @@
                 "rotationy": "0.000028",
                 "rotationz": "-0.000027",
                 "scalex": "2.540000",
-                "scaley": "2.540644",
-                "scalez": "2.540644"
+                "scaley": "2.540646",
+                "scalez": "2.540646"
             },
             "13": {
                 "Active": true,
@@ -3672,8 +3672,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.540000",
-                "scaley": "2.540640",
-                "scalez": "2.540640"
+                "scaley": "2.540643",
+                "scalez": "2.540643"
             },
             "1": {
                 "Active": true,
@@ -4376,7 +4376,7 @@
                     "ResourceScript": "Assets/Characters/Geralt/GeraltScript_v18.lua"
                 },
                 "Script variables": {
-                    "Count": 211,
+                    "Count": 214,
                     "Variable 0": {
                         "DisplayObjectName": false,
                         "Name": "ability_angle",
@@ -4417,7 +4417,7 @@
                         "Name": "heavy_3_damage",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 3.5
+                        "Value": 2.25
                     },
                     "Variable 103": {
                         "DisplayObjectName": false,
@@ -4767,7 +4767,7 @@
                         "Name": "light_3_damage",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 3.5
+                        "Value": 1.25
                     },
                     "Variable 149": {
                         "DisplayObjectName": false,
@@ -4991,7 +4991,7 @@
                         "Name": "medium_3_damage",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 3.5
+                        "Value": 1.75
                     },
                     "Variable 178": {
                         "DisplayObjectName": false,
@@ -5100,66 +5100,66 @@
                     },
                     "Variable 191": {
                         "DisplayObjectName": false,
-                        "Name": "potion_in_effect",
+                        "Name": "potion_health_prefab",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
                     },
                     "Variable 192": {
                         "DisplayObjectName": false,
-                        "Name": "previous_state",
+                        "Name": "potion_in_effect",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
                     },
                     "Variable 193": {
                         "DisplayObjectName": false,
-                        "Name": "revive_animation_speed",
+                        "Name": "potion_power_prefab",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 25.0
+                        "Value": 0.0
                     },
                     "Variable 194": {
                         "DisplayObjectName": false,
-                        "Name": "revive_range",
+                        "Name": "potion_stamina_prefab",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 2.0
+                        "Value": 0.0
                     },
                     "Variable 195": {
                         "DisplayObjectName": false,
-                        "Name": "revive_started_at",
+                        "Name": "previous_state",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
                     },
                     "Variable 196": {
                         "DisplayObjectName": false,
+                        "Name": "revive_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 25.0
+                    },
+                    "Variable 197": {
+                        "DisplayObjectName": false,
+                        "Name": "revive_range",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2.0
+                    },
+                    "Variable 198": {
+                        "DisplayObjectName": false,
+                        "Name": "revive_started_at",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 199": {
+                        "DisplayObjectName": false,
                         "Name": "revive_time",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 3000.0
-                    },
-                    "Variable 197": {
-                        "DisplayObjectName": false,
-                        "Name": "run_animation_speed",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 35.0
-                    },
-                    "Variable 198": {
-                        "DisplayObjectName": false,
-                        "Name": "stand_up_animation_speed",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 150.0
-                    },
-                    "Variable 199": {
-                        "DisplayObjectName": false,
-                        "Name": "standing_up_bool",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
                     },
                     "Variable 2": {
                         "DisplayObjectName": false,
@@ -5177,73 +5177,73 @@
                     },
                     "Variable 200": {
                         "DisplayObjectName": false,
+                        "Name": "run_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 35.0
+                    },
+                    "Variable 201": {
+                        "DisplayObjectName": false,
+                        "Name": "stand_up_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 150.0
+                    },
+                    "Variable 202": {
+                        "DisplayObjectName": false,
+                        "Name": "standing_up_bool",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 203": {
+                        "DisplayObjectName": false,
                         "Name": "ultimate_active",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": false
                     },
-                    "Variable 201": {
+                    "Variable 204": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_animation_speed",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 45.0
                     },
-                    "Variable 202": {
+                    "Variable 205": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_damage_mod_increase",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 1.0
                     },
-                    "Variable 203": {
+                    "Variable 206": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_duration",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 3600.0
                     },
-                    "Variable 204": {
+                    "Variable 207": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_effect_duration",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 10000.0
                     },
-                    "Variable 205": {
+                    "Variable 208": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_energy_reg_increase",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 1.0
                     },
-                    "Variable 206": {
+                    "Variable 209": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_health_reg_increase",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.2
-                    },
-                    "Variable 207": {
-                        "DisplayObjectName": false,
-                        "Name": "ultimate_reg_mod",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 1.0
-                    },
-                    "Variable 208": {
-                        "DisplayObjectName": false,
-                        "Name": "ultimate_reg_orig",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 1.5
-                    },
-                    "Variable 209": {
-                        "DisplayObjectName": false,
-                        "Name": "ultimate_scream_start",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 2500.0
                     },
                     "Variable 21": {
                         "DisplayObjectName": false,
@@ -5253,6 +5253,27 @@
                         "Value": 750.0
                     },
                     "Variable 210": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_reg_mod",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 211": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_reg_orig",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.5
+                    },
+                    "Variable 212": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_scream_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2500.0
+                    },
+                    "Variable 213": {
                         "DisplayObjectName": false,
                         "Name": "walk_animation_speed",
                         "ObjectName": "",
@@ -5855,7 +5876,7 @@
                         "Value": 2000.0
                     }
                 },
-                "UID": 771291,
+                "UID": 439868604,
                 "index": 4
             },
             "14": {
@@ -5955,7 +5976,7 @@
                 "PartMBlFuncDst": 7,
                 "PartMBlFuncSrc": 6,
                 "Resources": {
-                    "ResourceTexture": "Library/Textures/953125288.dds"
+                    "ResourceTexture": "Library/Textures/1222721842.dds"
                 },
                 "UID": 1853417413,
                 "VerticalBill": "0",
@@ -6373,8 +6394,8 @@
                 "rotationy": "-0.000000",
                 "rotationz": "-0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000519",
-                "scalez": "1.000519"
+                "scaley": "1.000521",
+                "scalez": "1.000521"
             }
         },
         "Index": 0,
@@ -6451,8 +6472,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000519",
-                "scalez": "1.000519"
+                "scaley": "1.000521",
+                "scalez": "1.000521"
             }
         },
         "Index": 0,
@@ -6477,8 +6498,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000519",
-                "scalez": "1.000519"
+                "scaley": "1.000521",
+                "scalez": "1.000521"
             }
         },
         "Index": 0,
@@ -7228,8 +7249,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000519",
-                "scalez": "1.000519"
+                "scaley": "1.000521",
+                "scalez": "1.000521"
             }
         },
         "Index": 0,
@@ -7331,8 +7352,8 @@
                 "rotationx": "0.388476",
                 "rotationy": "0.030072",
                 "rotationz": "0.916844",
-                "scalex": "1.001032",
-                "scaley": "1.001032",
+                "scalex": "1.001036",
+                "scaley": "1.001036",
                 "scalez": "1.000000"
             },
             "13": {
@@ -7717,8 +7738,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000519",
-                "scalez": "1.000519"
+                "scaley": "1.000521",
+                "scalez": "1.000521"
             }
         },
         "Index": 0,
@@ -8570,8 +8591,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.540000",
-                "scaley": "2.540642",
-                "scalez": "2.540642"
+                "scaley": "2.540644",
+                "scalez": "2.540644"
             },
             "1": {
                 "Active": true,
@@ -8937,8 +8958,8 @@
                 "rotationx": "-0.000169",
                 "rotationy": "-0.004364",
                 "rotationz": "0.999931",
-                "scalex": "1.001038",
-                "scaley": "1.001029",
+                "scalex": "1.001042",
+                "scaley": "1.001033",
                 "scalez": "1.000000"
             },
             "13": {
@@ -9050,8 +9071,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000519",
-                "scalez": "1.000519"
+                "scaley": "1.000521",
+                "scalez": "1.000521"
             }
         },
         "Index": 0,
@@ -9633,7 +9654,7 @@
                 "PartMBlFuncDst": 7,
                 "PartMBlFuncSrc": 6,
                 "Resources": {
-                    "ResourceTexture": "Library/Textures/1040036914.dds"
+                    "ResourceTexture": "Library/Textures/734155593.dds"
                 },
                 "UID": 895784313,
                 "VerticalBill": "0",
@@ -9953,7 +9974,7 @@
                     "ResourceScript": "Assets/Characters/Jaskier/JaskierScript_v14.lua"
                 },
                 "Script variables": {
-                    "Count": 228,
+                    "Count": 231,
                     "Variable 0": {
                         "DisplayObjectName": false,
                         "Name": "ability_cooldown",
@@ -9980,7 +10001,7 @@
                         "Name": "light_3_damage",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 3.5
+                        "Value": 1.25
                     },
                     "Variable 101": {
                         "DisplayObjectName": false,
@@ -10267,7 +10288,7 @@
                         "Name": "medium_3_damage",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 3.5
+                        "Value": 1.75
                     },
                     "Variable 139": {
                         "DisplayObjectName": false,
@@ -10397,35 +10418,35 @@
                     },
                     "Variable 155": {
                         "DisplayObjectName": false,
-                        "Name": "potion_in_effect",
+                        "Name": "potion_health_prefab",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
                     },
                     "Variable 156": {
                         "DisplayObjectName": false,
-                        "Name": "previous_state",
+                        "Name": "potion_in_effect",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
                     },
                     "Variable 157": {
                         "DisplayObjectName": false,
-                        "Name": "revive_animation_speed",
+                        "Name": "potion_power_prefab",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 25.0
+                        "Value": 0.0
                     },
                     "Variable 158": {
                         "DisplayObjectName": false,
-                        "Name": "revive_range",
+                        "Name": "potion_stamina_prefab",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 2.0
+                        "Value": 0.0
                     },
                     "Variable 159": {
                         "DisplayObjectName": false,
-                        "Name": "revive_started_at",
+                        "Name": "previous_state",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
@@ -10439,70 +10460,70 @@
                     },
                     "Variable 160": {
                         "DisplayObjectName": false,
+                        "Name": "revive_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 25.0
+                    },
+                    "Variable 161": {
+                        "DisplayObjectName": false,
+                        "Name": "revive_range",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2.0
+                    },
+                    "Variable 162": {
+                        "DisplayObjectName": false,
+                        "Name": "revive_started_at",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 163": {
+                        "DisplayObjectName": false,
                         "Name": "revive_time",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 3000.0
                     },
-                    "Variable 161": {
+                    "Variable 164": {
                         "DisplayObjectName": false,
                         "Name": "run_animation_speed",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 45.0
                     },
-                    "Variable 162": {
+                    "Variable 165": {
                         "DisplayObjectName": false,
                         "Name": "song_1_animation_name",
                         "ObjectName": "",
                         "Type": "String",
                         "Value": "guitar_slam_one_handed"
                     },
-                    "Variable 163": {
+                    "Variable 166": {
                         "DisplayObjectName": false,
                         "Name": "song_1_animation_speed",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 50.0
                     },
-                    "Variable 164": {
+                    "Variable 167": {
                         "DisplayObjectName": false,
                         "Name": "song_1_collider_line_1_end",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 900.0
                     },
-                    "Variable 165": {
+                    "Variable 168": {
                         "DisplayObjectName": false,
                         "Name": "song_1_collider_line_1_start",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 800.0
                     },
-                    "Variable 166": {
-                        "DisplayObjectName": false,
-                        "Name": "song_1_collider_line_2_end",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 1000.0
-                    },
-                    "Variable 167": {
-                        "DisplayObjectName": false,
-                        "Name": "song_1_collider_line_2_start",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 900.0
-                    },
-                    "Variable 168": {
-                        "DisplayObjectName": false,
-                        "Name": "song_1_collider_line_3_end",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 1100.0
-                    },
                     "Variable 169": {
                         "DisplayObjectName": false,
-                        "Name": "song_1_collider_line_3_start",
+                        "Name": "song_1_collider_line_2_end",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 1000.0
@@ -10516,73 +10537,73 @@
                     },
                     "Variable 170": {
                         "DisplayObjectName": false,
-                        "Name": "song_1_collider_line_4_end",
+                        "Name": "song_1_collider_line_2_start",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 1200.0
+                        "Value": 900.0
                     },
                     "Variable 171": {
                         "DisplayObjectName": false,
-                        "Name": "song_1_collider_line_4_start",
+                        "Name": "song_1_collider_line_3_end",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 1100.0
                     },
                     "Variable 172": {
                         "DisplayObjectName": false,
+                        "Name": "song_1_collider_line_3_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1000.0
+                    },
+                    "Variable 173": {
+                        "DisplayObjectName": false,
+                        "Name": "song_1_collider_line_4_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1200.0
+                    },
+                    "Variable 174": {
+                        "DisplayObjectName": false,
+                        "Name": "song_1_collider_line_4_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1100.0
+                    },
+                    "Variable 175": {
+                        "DisplayObjectName": false,
                         "Name": "song_1_damage",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 4.0
                     },
-                    "Variable 173": {
+                    "Variable 176": {
                         "DisplayObjectName": false,
                         "Name": "song_1_duration",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 1440.0
                     },
-                    "Variable 174": {
+                    "Variable 177": {
                         "DisplayObjectName": false,
                         "Name": "song_1_effect_active",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": false
                     },
-                    "Variable 175": {
+                    "Variable 178": {
                         "DisplayObjectName": false,
                         "Name": "song_1_effect_start",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 750.0
                     },
-                    "Variable 176": {
+                    "Variable 179": {
                         "DisplayObjectName": false,
                         "Name": "song_1_size",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 4.0
-                    },
-                    "Variable 177": {
-                        "DisplayObjectName": false,
-                        "Name": "song_1_status_effect",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 178": {
-                        "DisplayObjectName": false,
-                        "Name": "song_2_animation_name",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "guitar_slam_two_handed"
-                    },
-                    "Variable 179": {
-                        "DisplayObjectName": false,
-                        "Name": "song_2_animation_speed",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 50.0
                     },
                     "Variable 18": {
                         "DisplayObjectName": false,
@@ -10593,73 +10614,73 @@
                     },
                     "Variable 180": {
                         "DisplayObjectName": false,
+                        "Name": "song_1_status_effect",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 181": {
+                        "DisplayObjectName": false,
+                        "Name": "song_2_animation_name",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "guitar_slam_two_handed"
+                    },
+                    "Variable 182": {
+                        "DisplayObjectName": false,
+                        "Name": "song_2_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 50.0
+                    },
+                    "Variable 183": {
+                        "DisplayObjectName": false,
                         "Name": "song_2_damage",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 3.0
                     },
-                    "Variable 181": {
+                    "Variable 184": {
                         "DisplayObjectName": false,
                         "Name": "song_2_duration",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 1700.0
                     },
-                    "Variable 182": {
+                    "Variable 185": {
                         "DisplayObjectName": false,
                         "Name": "song_2_effect_active",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": false
                     },
-                    "Variable 183": {
+                    "Variable 186": {
                         "DisplayObjectName": false,
                         "Name": "song_2_effect_start",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 850.0
                     },
-                    "Variable 184": {
+                    "Variable 187": {
                         "DisplayObjectName": false,
                         "Name": "song_2_size",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 4.0
                     },
-                    "Variable 185": {
+                    "Variable 188": {
                         "DisplayObjectName": false,
                         "Name": "song_2_status_effect",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 1.0
                     },
-                    "Variable 186": {
+                    "Variable 189": {
                         "DisplayObjectName": false,
                         "Name": "song_3_animation_name",
                         "ObjectName": "",
                         "Type": "String",
                         "Value": "moonwalk"
-                    },
-                    "Variable 187": {
-                        "DisplayObjectName": false,
-                        "Name": "song_3_animation_speed",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 30.0
-                    },
-                    "Variable 188": {
-                        "DisplayObjectName": false,
-                        "Name": "song_3_damage",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 189": {
-                        "DisplayObjectName": false,
-                        "Name": "song_3_duration",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 3700.0
                     },
                     "Variable 19": {
                         "DisplayObjectName": false,
@@ -10670,73 +10691,73 @@
                     },
                     "Variable 190": {
                         "DisplayObjectName": false,
+                        "Name": "song_3_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 30.0
+                    },
+                    "Variable 191": {
+                        "DisplayObjectName": false,
+                        "Name": "song_3_damage",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 192": {
+                        "DisplayObjectName": false,
+                        "Name": "song_3_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 3700.0
+                    },
+                    "Variable 193": {
+                        "DisplayObjectName": false,
                         "Name": "song_3_effect_active",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": false
                     },
-                    "Variable 191": {
+                    "Variable 194": {
                         "DisplayObjectName": false,
                         "Name": "song_3_effect_end",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 2000.0
                     },
-                    "Variable 192": {
+                    "Variable 195": {
                         "DisplayObjectName": false,
                         "Name": "song_3_effect_start",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
                     },
-                    "Variable 193": {
+                    "Variable 196": {
                         "DisplayObjectName": false,
                         "Name": "song_3_moonwalk_velocity_mod",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.6
                     },
-                    "Variable 194": {
+                    "Variable 197": {
                         "DisplayObjectName": false,
                         "Name": "song_3_range",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 10.0
                     },
-                    "Variable 195": {
+                    "Variable 198": {
                         "DisplayObjectName": false,
                         "Name": "song_3_secondary_animation_name",
                         "ObjectName": "",
                         "Type": "String",
                         "Value": "guitar_slam_two_handed"
                     },
-                    "Variable 196": {
+                    "Variable 199": {
                         "DisplayObjectName": false,
                         "Name": "song_3_secondary_animation_speed",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 50.0
-                    },
-                    "Variable 197": {
-                        "DisplayObjectName": false,
-                        "Name": "song_3_secondary_damage",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 5.0
-                    },
-                    "Variable 198": {
-                        "DisplayObjectName": false,
-                        "Name": "song_3_secondary_effect_active",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    },
-                    "Variable 199": {
-                        "DisplayObjectName": false,
-                        "Name": "song_3_secondary_effect_start",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 2850.0
                     },
                     "Variable 2": {
                         "DisplayObjectName": false,
@@ -10754,73 +10775,73 @@
                     },
                     "Variable 200": {
                         "DisplayObjectName": false,
+                        "Name": "song_3_secondary_damage",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 5.0
+                    },
+                    "Variable 201": {
+                        "DisplayObjectName": false,
+                        "Name": "song_3_secondary_effect_active",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 202": {
+                        "DisplayObjectName": false,
+                        "Name": "song_3_secondary_effect_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2850.0
+                    },
+                    "Variable 203": {
+                        "DisplayObjectName": false,
                         "Name": "song_3_secondary_range",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 15.0
                     },
-                    "Variable 201": {
+                    "Variable 204": {
                         "DisplayObjectName": false,
                         "Name": "song_3_secondary_status_effect",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 2.0
                     },
-                    "Variable 202": {
+                    "Variable 205": {
                         "DisplayObjectName": false,
                         "Name": "song_3_size",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 4.0
                     },
-                    "Variable 203": {
+                    "Variable 206": {
                         "DisplayObjectName": false,
                         "Name": "song_3_status_effect",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 3.0
                     },
-                    "Variable 204": {
+                    "Variable 207": {
                         "DisplayObjectName": false,
                         "Name": "song_4_animation_speed",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 30.0
                     },
-                    "Variable 205": {
+                    "Variable 208": {
                         "DisplayObjectName": false,
                         "Name": "song_4_damage",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 2.5
                     },
-                    "Variable 206": {
+                    "Variable 209": {
                         "DisplayObjectName": false,
                         "Name": "song_4_duration",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 1400.0
-                    },
-                    "Variable 207": {
-                        "DisplayObjectName": false,
-                        "Name": "song_4_effect_start",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 208": {
-                        "DisplayObjectName": false,
-                        "Name": "song_4_size",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 4.0
-                    },
-                    "Variable 209": {
-                        "DisplayObjectName": false,
-                        "Name": "stand_up_animation_speed",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 90.0
                     },
                     "Variable 21": {
                         "DisplayObjectName": false,
@@ -10831,73 +10852,73 @@
                     },
                     "Variable 210": {
                         "DisplayObjectName": false,
+                        "Name": "song_4_effect_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 211": {
+                        "DisplayObjectName": false,
+                        "Name": "song_4_size",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 4.0
+                    },
+                    "Variable 212": {
+                        "DisplayObjectName": false,
+                        "Name": "stand_up_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 90.0
+                    },
+                    "Variable 213": {
+                        "DisplayObjectName": false,
                         "Name": "standing_up_bool",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": false
                     },
-                    "Variable 211": {
+                    "Variable 214": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_active",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": false
                     },
-                    "Variable 212": {
+                    "Variable 215": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_animation_speed",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 30.0
                     },
-                    "Variable 213": {
+                    "Variable 216": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_concert_end",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 3000.0
                     },
-                    "Variable 214": {
+                    "Variable 217": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_damage",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 5.0
                     },
-                    "Variable 215": {
+                    "Variable 218": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_duration",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 4700.0
                     },
-                    "Variable 216": {
+                    "Variable 219": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_effect_active",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": false
-                    },
-                    "Variable 217": {
-                        "DisplayObjectName": false,
-                        "Name": "ultimate_finish_start",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 3850.0
-                    },
-                    "Variable 218": {
-                        "DisplayObjectName": false,
-                        "Name": "ultimate_range",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 15.0
-                    },
-                    "Variable 219": {
-                        "DisplayObjectName": false,
-                        "Name": "ultimate_reg_mod",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 1.0
                     },
                     "Variable 22": {
                         "DisplayObjectName": false,
@@ -10908,59 +10929,73 @@
                     },
                     "Variable 220": {
                         "DisplayObjectName": false,
+                        "Name": "ultimate_finish_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 3850.0
+                    },
+                    "Variable 221": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_range",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 15.0
+                    },
+                    "Variable 222": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_reg_mod",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 223": {
+                        "DisplayObjectName": false,
                         "Name": "ultimate_reg_orig",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 1.5
                     },
-                    "Variable 221": {
+                    "Variable 224": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_secondary_animation_speed",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 50.0
                     },
-                    "Variable 222": {
+                    "Variable 225": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_secondary_damage",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 2.5
                     },
-                    "Variable 223": {
+                    "Variable 226": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_secondary_effect_active",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": false
                     },
-                    "Variable 224": {
+                    "Variable 227": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_secondary_effect_start",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 3850.0
                     },
-                    "Variable 225": {
+                    "Variable 228": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_secondary_status_effect",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 2.0
                     },
-                    "Variable 226": {
+                    "Variable 229": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_status_effect",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
-                    },
-                    "Variable 227": {
-                        "DisplayObjectName": false,
-                        "Name": "walk_animation_speed",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 40.0
                     },
                     "Variable 23": {
                         "DisplayObjectName": false,
@@ -10968,6 +11003,13 @@
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 7.0
+                    },
+                    "Variable 230": {
+                        "DisplayObjectName": false,
+                        "Name": "walk_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 40.0
                     },
                     "Variable 24": {
                         "DisplayObjectName": false,
@@ -11177,7 +11219,7 @@
                         "Name": "heavy_3_damage",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 3.5
+                        "Value": 2.25
                     },
                     "Variable 51": {
                         "DisplayObjectName": false,
@@ -11551,7 +11593,7 @@
                         "Value": 300.0
                     }
                 },
-                "UID": 10959536,
+                "UID": 975272864,
                 "index": 4
             },
             "14": {
@@ -11745,9 +11787,9 @@
                 "rotationx": "0.536806",
                 "rotationy": "-0.449375",
                 "rotationz": "0.566528",
-                "scalex": "0.999481",
-                "scaley": "0.999481",
-                "scalez": "0.999481"
+                "scalex": "0.999479",
+                "scaley": "0.999479",
+                "scalez": "0.999479"
             },
             "13": {
                 "Active": true,
@@ -11983,8 +12025,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000519",
-                "scalez": "1.000519"
+                "scaley": "1.000521",
+                "scalez": "1.000521"
             }
         },
         "Index": 0,
@@ -12009,8 +12051,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000519",
-                "scalez": "1.000519"
+                "scaley": "1.000521",
+                "scalez": "1.000521"
             }
         },
         "Index": 0,
@@ -12400,8 +12442,8 @@
                 "rotationx": "-0.000534",
                 "rotationy": "-0.000084",
                 "rotationz": "0.999921",
-                "scalex": "1.001033",
-                "scaley": "1.001036",
+                "scalex": "1.001037",
+                "scaley": "1.001040",
                 "scalez": "1.000000"
             },
             "13": {
@@ -12636,8 +12678,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000519",
-                "scalez": "1.000519"
+                "scaley": "1.000521",
+                "scalez": "1.000521"
             }
         },
         "Index": 0,
@@ -12933,7 +12975,7 @@
                 "PartMBlFuncDst": 7,
                 "PartMBlFuncSrc": 6,
                 "Resources": {
-                    "ResourceTexture": "Library/Textures/1505246879.dds"
+                    "ResourceTexture": "Library/Textures/515116753.dds"
                 },
                 "UID": 1094183005,
                 "VerticalBill": "0",
@@ -13381,8 +13423,8 @@
                 "rotationx": "0.000598",
                 "rotationy": "0.002538",
                 "rotationz": "0.999918",
-                "scalex": "0.999481",
-                "scaley": "0.999481",
+                "scalex": "0.999479",
+                "scaley": "0.999479",
                 "scalez": "1.000000"
             },
             "13": {
@@ -13465,7 +13507,7 @@
                 "PartMBlFuncDst": 7,
                 "PartMBlFuncSrc": 6,
                 "Resources": {
-                    "ResourceTexture": "Library/Textures/1387012016.dds"
+                    "ResourceTexture": "Library/Textures/1583318036.dds"
                 },
                 "UID": 1581854874,
                 "VerticalBill": "0",
@@ -13646,8 +13688,8 @@
                 "rotationx": "0.000205",
                 "rotationy": "-0.005509",
                 "rotationz": "0.999924",
-                "scalex": "1.000550",
-                "scaley": "1.000773",
+                "scalex": "1.000554",
+                "scaley": "1.000777",
                 "scalez": "1.000000"
             },
             "13": {
@@ -13680,9 +13722,9 @@
                 "rotationx": "-0.550319",
                 "rotationy": "-0.440850",
                 "rotationz": "0.555183",
-                "scalex": "1.000519",
-                "scaley": "1.000519",
-                "scalez": "1.000519"
+                "scalex": "1.000521",
+                "scaley": "1.000521",
+                "scalez": "1.000521"
             },
             "13": {
                 "Active": true,
@@ -13715,8 +13757,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000519",
-                "scalez": "1.000519"
+                "scaley": "1.000521",
+                "scalez": "1.000521"
             }
         },
         "Index": 0,

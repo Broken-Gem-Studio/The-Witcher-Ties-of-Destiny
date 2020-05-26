@@ -212,6 +212,15 @@ lua_table.critical_damage_add = 0
 lua_table.critical_damage_orig = 2.0
 
 --Items
+lua_table.potion_health_prefab = 0
+lua_table.potion_stamina_prefab = 0
+lua_table.potion_power_prefab = 0
+local item_prefabs = {	--Table that saves the prefab values
+	0,
+	0,
+	0
+}
+
 lua_table.item_library = {	--Used to flag a readable name with a number id, allows for item indexing based on number
 	health_potion = 1,
 	stamina_potion = 2,
@@ -1842,7 +1851,8 @@ end
 
 local function DropItem()
 	if lua_table.inventory[lua_table.item_selected] > 0 then	--IF potions of type left
-		--TODO-Potions: Instantiate a potion of said type on character Location
+		local geralt_pos = lua_table.TransformFunctions:GetPosition(geralt_GO_UID)
+		lua_table.SceneFunctions:Instantiate(item_prefabs[lua_table.item_selected], geralt_pos[1], geralt_pos[2], geralt_pos[3], 0.0, 0.0, 0.0) --Instantiate a potion of said type on character Location
 		lua_table.inventory[lua_table.item_selected] = lua_table.inventory[lua_table.item_selected] - 1	--Remove potion from inventory
 	else
 		--TODO-Audio: Play some sound to indicate not possible
@@ -2040,6 +2050,11 @@ function lua_table:Awake()
 
 	geralt_revive_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt_Revive")
 	jaskier_revive_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Revive")
+
+	--Assign Prefabs
+	item_prefabs[1] = lua_table.potion_health_prefab
+	item_prefabs[2] = lua_table.potion_stamina_prefab
+	item_prefabs[3] = lua_table.potion_power_prefab
 
 	--Get Particle Emitters GO_UID
 	--sword_particles_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt_Sword")
