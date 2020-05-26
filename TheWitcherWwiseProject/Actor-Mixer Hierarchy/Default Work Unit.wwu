@@ -43,25 +43,6 @@
 								<ActiveSource Name="Geralt_revive" ID="{4A3D626D-FFE9-45A2-972E-A04B826B2DEB}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
-						<Sound Name="Geralt_heavy_roll" ID="{03D766A1-E848-4A72-AB2F-56FC2B89B0E4}" ShortID="416554240">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="Geralt_heavy_roll" ID="{0076E34B-3C9A-47EF-AB25-D1DFD9B5765F}" ShortID="162466375">
-									<Language>SFX</Language>
-									<AudioFile>Geralt_heavy_roll.wav</AudioFile>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="Geralt_heavy_roll" ID="{0076E34B-3C9A-47EF-AB25-D1DFD9B5765F}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
 						<Sound Name="Geralt_light_roll" ID="{AEDA7277-6C49-4F54-92B4-9803F7ED71A4}" ShortID="39519762">
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -79,25 +60,6 @@
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="Geralt_light_roll" ID="{EF1E2578-C4EA-4534-8254-BA4D9F535E86}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="Geralt_medium_rolll" ID="{C405F96F-87A8-4FD1-AA45-DEA3DB081311}" ShortID="943009598">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="Geralt_medium_rolll" ID="{15D85506-3BFC-4DC7-B013-4384DF3F1AF3}" ShortID="432117263">
-									<Language>SFX</Language>
-									<AudioFile>Geralt_medium_rolll.wav</AudioFile>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="Geralt_medium_rolll" ID="{15D85506-3BFC-4DC7-B013-4384DF3F1AF3}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Geralt_naked_roll" ID="{668C3FEF-39A5-497F-835A-6559482A4882}" ShortID="148588933">
@@ -119,102 +81,7 @@
 								<ActiveSource Name="Geralt_naked_roll" ID="{D9469DBA-D051-432A-8F4B-1650E7278FC9}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
-						<Sound Name="Geralt_potion_1" ID="{AC77A554-270E-4F0F-B06F-174D1850C91F}" ShortID="675739008">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="Geralt_potion_1" ID="{B6A7B118-994E-493F-BBF6-9D1D8AFB0B47}" ShortID="695074333">
-									<Language>SFX</Language>
-									<AudioFile>Geralt_potion_1.wav</AudioFile>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="Geralt_potion_1" ID="{B6A7B118-994E-493F-BBF6-9D1D8AFB0B47}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="Geralt_potion_2" ID="{5D2DD54F-14D5-4563-A086-F92943BCCE06}" ShortID="59199507">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="Geralt_potion_2" ID="{8C719FA1-4490-4555-ADDA-BCC4C4C21C81}" ShortID="916892162">
-									<Language>SFX</Language>
-									<AudioFile>Geralt_potion_2.wav</AudioFile>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="Geralt_potion_2" ID="{8C719FA1-4490-4555-ADDA-BCC4C4C21C81}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="Geralt_potion_3" ID="{1A42A44F-96ED-4FCA-B9FC-0BD860D89E61}" ShortID="790311591">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="Geralt_potion_3" ID="{507930B1-A8E3-4F93-81FF-1D337454B009}" ShortID="199674729">
-									<Language>SFX</Language>
-									<AudioFile>Geralt_potion_3.wav</AudioFile>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="Geralt_potion_3" ID="{507930B1-A8E3-4F93-81FF-1D337454B009}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="Geralt_potion_4" ID="{ADD6D55A-D5FD-42BA-92D3-833172354A10}" ShortID="846832812">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="Geralt_potion_4" ID="{4413273A-D438-472A-A41E-67D2AD35C26A}" ShortID="664142138">
-									<Language>SFX</Language>
-									<AudioFile>Geralt_potion_4.wav</AudioFile>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="Geralt_potion_4" ID="{4413273A-D438-472A-A41E-67D2AD35C26A}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="Geralt_potion_life_fx_1" ID="{A04118E0-702F-4539-B939-2C5E290E0431}" ShortID="672447588">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="Geralt_potion_life_fx_1" ID="{EC672634-CD6F-4199-9A15-C6D78886F782}" ShortID="439538193">
-									<Language>SFX</Language>
-									<AudioFile>Geralt_potion_life_fx_1.wav</AudioFile>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="Geralt_potion_life_fx_1" ID="{EC672634-CD6F-4199-9A15-C6D78886F782}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="Geralt_potion_life_fx_2" ID="{6B6719A9-94FC-44E4-9516-1FFF24F85079}" ShortID="1044339601">
+						<Sound Name="Geralt_potion_fx" ID="{6B6719A9-94FC-44E4-9516-1FFF24F85079}" ShortID="1044339601">
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -231,158 +98,6 @@
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="Geralt_potion_life_fx_2" ID="{A4F9B9CE-6B85-4C38-9741-D20026EA9C6D}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="Geralt_potion_life_fx_3" ID="{770C2054-F249-430B-BDC7-BDAC275CE74F}" ShortID="1048375017">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="Geralt_potion_life_fx_3" ID="{347DEC50-99A5-4B84-B723-6D4C457C418F}" ShortID="894454233">
-									<Language>SFX</Language>
-									<AudioFile>Geralt_potion_life_fx_3.wav</AudioFile>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="Geralt_potion_life_fx_3" ID="{347DEC50-99A5-4B84-B723-6D4C457C418F}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="Geralt_potion_other_version" ID="{DD582EFD-7C06-4FDD-970F-4D9888CCBB53}" ShortID="821817130">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="Geralt_potion_other_version" ID="{47802677-5808-4EC6-AE53-023F5AB267A4}" ShortID="953748758">
-									<Language>SFX</Language>
-									<AudioFile>Geralt_potion_other_version.wav</AudioFile>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="Geralt_potion_other_version" ID="{47802677-5808-4EC6-AE53-023F5AB267A4}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="Geralt_ulti_fix_1" ID="{DA7B1524-59DC-45D4-80C2-5761695C60E3}" ShortID="921583701">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="Geralt_ulti_fix_1" ID="{08472B83-081F-4179-9D4A-AF5445DFA13E}" ShortID="899531312">
-									<Language>SFX</Language>
-									<AudioFile>Geralt_ulti_fix_1.wav</AudioFile>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="Geralt_ulti_fix_1" ID="{08472B83-081F-4179-9D4A-AF5445DFA13E}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="Geralt_ulti_fix_2" ID="{27D9E872-B6B1-45EE-9845-0F6AC7BAEDC9}" ShortID="35876655">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="Geralt_ulti_fix_2" ID="{5A22593C-C056-487E-89AB-021E068C4A7C}" ShortID="231596752">
-									<Language>SFX</Language>
-									<AudioFile>Geralt_ulti_fix_2.wav</AudioFile>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="Geralt_ulti_fix_2" ID="{5A22593C-C056-487E-89AB-021E068C4A7C}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="Geralt_ulti_fix_3" ID="{E86EE213-AF39-4BF4-B40F-2647A7A37D37}" ShortID="673512063">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="Geralt_ulti_fix_3" ID="{F1635980-5276-4E78-BE60-172D04A62178}" ShortID="44849575">
-									<Language>SFX</Language>
-									<AudioFile>Geralt_ulti_fix_3.wav</AudioFile>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="Geralt_ulti_fix_3" ID="{F1635980-5276-4E78-BE60-172D04A62178}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="Geralt_ulti_fix_4" ID="{E1149D17-B6EC-472C-B0D9-4588D52A4C39}" ShortID="670244951">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="Geralt_ulti_fix_4" ID="{B91D3834-BB05-49FA-97E9-F6BC874FD951}" ShortID="893593226">
-									<Language>SFX</Language>
-									<AudioFile>Geralt_ulti_fix_4.wav</AudioFile>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="Geralt_ulti_fix_4" ID="{B91D3834-BB05-49FA-97E9-F6BC874FD951}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="Geralt_ulti_fix_5" ID="{45E3CF66-E842-45F3-B41B-90CED9287C24}" ShortID="981567591">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="Geralt_ulti_fix_5" ID="{391565F4-2641-4EF5-8782-9395FC389DE5}" ShortID="204592245">
-									<Language>SFX</Language>
-									<AudioFile>Geralt_ulti_fix_5.wav</AudioFile>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="Geralt_ulti_fix_5" ID="{391565F4-2641-4EF5-8782-9395FC389DE5}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="Geralt_aard_other_version" ID="{1D9F8038-AB1E-47C3-ADA7-40D9D41549EB}" ShortID="198872543">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="Geralt_aard_other_version" ID="{2B177F53-A2B0-439B-9093-0BFB72D5ABE7}" ShortID="411375851">
-									<Language>SFX</Language>
-									<AudioFile>Geralt_aard_other_version.wav</AudioFile>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="Geralt_aard_other_version" ID="{2B177F53-A2B0-439B-9093-0BFB72D5ABE7}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<RandomSequenceContainer Name="Geralt_aard" ID="{9AD552B7-E39A-42A0-AFE8-F07E03C33F6B}" ShortID="44646464">
@@ -1008,6 +723,25 @@
 								</Sound>
 							</ChildrenList>
 						</RandomSequenceContainer>
+						<Sound Name="Geralt_Ultimate" ID="{C9178704-FE81-41E2-952C-78EC1D3DE9CA}" ShortID="927624911">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="GeraltUltimate sound" ID="{3A23DAAD-E30D-4AD3-8B82-5EAD02EAFF02}" ShortID="251122567">
+									<Language>SFX</Language>
+									<AudioFile>GeraltUltimate sound.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="GeraltUltimate sound" ID="{3A23DAAD-E30D-4AD3-8B82-5EAD02EAFF02}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Jaskier" ID="{7F0333D8-EF2D-41C6-970A-4F827204363D}" ShortID="300713006">
@@ -1069,102 +803,7 @@
 								<ActiveSource Name="Jaskier_revive" ID="{BB2540CD-EEEF-4B46-AAF3-07D6AE8BBC24}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
-						<Sound Name="Jaskier_potion_1" ID="{75619485-3F82-4F56-A608-FADD95A01B0E}" ShortID="386771161">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="Jaskier_potion_1" ID="{AC0470FD-FC23-49CE-ABA6-B09B89C452E4}" ShortID="638660470">
-									<Language>SFX</Language>
-									<AudioFile>Jaskier_potion_1.wav</AudioFile>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="Jaskier_potion_1" ID="{AC0470FD-FC23-49CE-ABA6-B09B89C452E4}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="Jaskier_potion_2" ID="{82FEBCE2-E1B0-4EB4-966E-6EA10F21EADA}" ShortID="692176736">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="Jaskier_potion_2" ID="{38C05698-3A69-4678-B53C-EBC4CF38CBB7}" ShortID="1037239967">
-									<Language>SFX</Language>
-									<AudioFile>Jaskier_potion_2.wav</AudioFile>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="Jaskier_potion_2" ID="{38C05698-3A69-4678-B53C-EBC4CF38CBB7}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="Jaskier_potion_3" ID="{2C1F939A-EA72-49F2-92FD-2260375FABFE}" ShortID="708687599">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="Jaskier_potion_3" ID="{A95B6DD0-0B70-4E98-AD6D-23A6751DAE90}" ShortID="838344944">
-									<Language>SFX</Language>
-									<AudioFile>Jaskier_potion_3.wav</AudioFile>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="Jaskier_potion_3" ID="{A95B6DD0-0B70-4E98-AD6D-23A6751DAE90}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="Jaskier_potion_4" ID="{F6E42A8C-59EB-4979-BC48-988A27F5E6E9}" ShortID="914749093">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="Jaskier_potion_4" ID="{70EBAA6D-5CC1-444D-B6D7-512D04F69889}" ShortID="22946343">
-									<Language>SFX</Language>
-									<AudioFile>Jaskier_potion_4.wav</AudioFile>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="Jaskier_potion_4" ID="{70EBAA6D-5CC1-444D-B6D7-512D04F69889}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="Jaskier_potion_life_fx_1" ID="{65B6E456-DB4B-4AF4-87FE-541E59FE51DF}" ShortID="14120255">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="Jaskier_potion_life_fx_1" ID="{3F71F0C7-F992-4A0C-88BD-AE5FCC7CCEE0}" ShortID="693213339">
-									<Language>SFX</Language>
-									<AudioFile>Jaskier_potion_life_fx_1.wav</AudioFile>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="Jaskier_potion_life_fx_1" ID="{3F71F0C7-F992-4A0C-88BD-AE5FCC7CCEE0}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="Jaskier_potion_life_fx_2" ID="{770A94C0-9566-479E-BD71-4FF376239517}" ShortID="543387439">
+						<Sound Name="Jaskier_potion_fx" ID="{770A94C0-9566-479E-BD71-4FF376239517}" ShortID="543387439">
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -1181,25 +820,6 @@
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="Jaskier_potion_life_fx_2" ID="{DA00DA2C-8133-4485-80CB-F6C5C27498AC}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="Jaskier_potion_life_fx_3" ID="{2277DE0E-610B-4372-8CA7-02E8B580CA66}" ShortID="192865257">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="Jaskier_potion_life_fx_3" ID="{D3D3319D-014D-40FC-91AE-B2FCCD30D2FF}" ShortID="658497880">
-									<Language>SFX</Language>
-									<AudioFile>Jaskier_potion_life_fx_3.wav</AudioFile>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="Jaskier_potion_life_fx_3" ID="{D3D3319D-014D-40FC-91AE-B2FCCD30D2FF}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Jaskier_acoustic_gitar_smash" ID="{31FAA83B-FC2F-4BEC-9363-067274AB1309}" ShortID="17800907">
@@ -1473,170 +1093,6 @@
 								</Sound>
 							</ChildrenList>
 						</RandomSequenceContainer>
-						<RandomSequenceContainer Name="Jaskier_mandolin_single_hits" ID="{AA5CEE3B-B672-4667-8DC9-99FAD934798F}" ShortID="265700476">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<Sound Name="Jaskier_mandolin_single_hits_1" ID="{5C2D56B4-4EE4-4135-A77F-6BB53CBA6644}" ShortID="445511959">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Jaskier_mandolin_single_hits_1" ID="{65AADC68-4293-4756-8614-C95B0CA46490}" ShortID="434500287">
-											<Language>SFX</Language>
-											<AudioFile>Jaskier_mandolin_single_hits_1.wav</AudioFile>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Jaskier_mandolin_single_hits_1" ID="{65AADC68-4293-4756-8614-C95B0CA46490}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="Jaskier_mandolin_single_hits_2" ID="{3DA72C87-FBFA-4930-8CD1-E1136FF3DB10}" ShortID="878349201">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Jaskier_mandolin_single_hits_2" ID="{AAEEF64D-67C5-42BC-B75B-AA5321C8B283}" ShortID="727945761">
-											<Language>SFX</Language>
-											<AudioFile>Jaskier_mandolin_single_hits_2.wav</AudioFile>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Jaskier_mandolin_single_hits_2" ID="{AAEEF64D-67C5-42BC-B75B-AA5321C8B283}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="Jaskier_mandolin_single_hits_3" ID="{3DA08B54-7960-478B-9187-A19901F9EBFB}" ShortID="523364182">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Jaskier_mandolin_single_hits_3" ID="{C124B590-0D49-4F81-B409-593A855AD67D}" ShortID="824055105">
-											<Language>SFX</Language>
-											<AudioFile>Jaskier_mandolin_single_hits_3.wav</AudioFile>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Jaskier_mandolin_single_hits_3" ID="{C124B590-0D49-4F81-B409-593A855AD67D}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="Jaskier_mandolin_single_hits_4" ID="{0990690E-EBC9-4B0F-9C4C-3B3823DE6715}" ShortID="582693955">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Jaskier_mandolin_single_hits_4" ID="{D90CC1F7-7AD1-4CE2-8308-9005C8897B43}" ShortID="191414039">
-											<Language>SFX</Language>
-											<AudioFile>Jaskier_mandolin_single_hits_4.wav</AudioFile>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Jaskier_mandolin_single_hits_4" ID="{D90CC1F7-7AD1-4CE2-8308-9005C8897B43}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="Jaskier_mandolin_single_hits_5" ID="{DEC07B09-376F-4AE3-958C-B251E0235F79}" ShortID="272816483">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Jaskier_mandolin_single_hits_5" ID="{A9E12DCA-D854-42CF-B02A-97E42A2BA210}" ShortID="799026736">
-											<Language>SFX</Language>
-											<AudioFile>Jaskier_mandolin_single_hits_5.wav</AudioFile>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Jaskier_mandolin_single_hits_5" ID="{A9E12DCA-D854-42CF-B02A-97E42A2BA210}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="Jaskier_mandolin_single_hits_6" ID="{B9ECFB16-7529-429F-9608-B80D70169015}" ShortID="551940402">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Jaskier_mandolin_single_hits_6" ID="{1771943B-AC8D-48E0-B7D2-8337BE9F521C}" ShortID="832614274">
-											<Language>SFX</Language>
-											<AudioFile>Jaskier_mandolin_single_hits_6.wav</AudioFile>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Jaskier_mandolin_single_hits_6" ID="{1771943B-AC8D-48E0-B7D2-8337BE9F521C}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="Jaskier_mandolin_single_hits_7" ID="{47E95F46-BA4B-4985-A320-220801D65281}" ShortID="981159513">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Jaskier_mandolin_single_hits_7" ID="{B37C5DED-4D8A-4F84-A39F-4C78FA7E4020}" ShortID="668632756">
-											<Language>SFX</Language>
-											<AudioFile>Jaskier_mandolin_single_hits_7.wav</AudioFile>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Jaskier_mandolin_single_hits_7" ID="{B37C5DED-4D8A-4F84-A39F-4C78FA7E4020}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="Jaskier_mandolin_single_hits_8" ID="{AF87CAC6-CF45-455D-8FBD-62DAE39DDEB3}" ShortID="4095258">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Jaskier_mandolin_single_hits_8" ID="{402568A6-2F1B-461A-BE61-8126420F4DD3}" ShortID="840754560">
-											<Language>SFX</Language>
-											<AudioFile>Jaskier_mandolin_single_hits_8.wav</AudioFile>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Jaskier_mandolin_single_hits_8" ID="{402568A6-2F1B-461A-BE61-8126420F4DD3}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-							</ChildrenList>
-						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="Jaskier_walk_run_concrete" ID="{8BB4F6A5-2B41-4B37-B965-733214935F79}" ShortID="692039756">
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -1832,6 +1288,25 @@
 								</Sound>
 							</ChildrenList>
 						</RandomSequenceContainer>
+						<Sound Name="Jaskier_Ultimate" ID="{FE4B2247-1507-439E-9743-5A52A977B2F1}" ShortID="146895864">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Jaskier_Ultimate" ID="{8CC16940-097D-42E4-950F-3701B6C49D08}" ShortID="520180337">
+									<Language>SFX</Language>
+									<AudioFile>Jaskier_Ultimate.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Jaskier_Ultimate" ID="{8CC16940-097D-42E4-950F-3701B6C49D08}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Monster_enemies" ID="{6BE1DBA3-2D1F-4599-B700-2769B0C31077}" ShortID="106042545">
