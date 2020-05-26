@@ -27,14 +27,24 @@ local BarID = 0 -- Ciruclar bar for skip
 local time = 0
 local started_time = 0
 local start_motion_time = 0
+local forest_speech_time = 0
 
 -- Camera Positions
 local CurrentCameraPos = {}
 local Pos_Minions = {508.406, 57.469, -204.635}
+local Pos_Kiki = {889.392, 97.577, -365.724}
 
 -- Cinematic conditions 
 local follow_jaskier = false
+
 local camera_panning = true
+local FadeOut1 = true
+local FadeIn2 = false
+local FadeIn2_Time = 0
+local FadeOut2 = false
+local FadeIn3 = false
+local FadeIn3_Time = 0
+
 local conversation_finished = false
 local start_motion = false
 
@@ -123,18 +133,73 @@ function lua_table:Update()
 
 
 
-        if CurrentCameraPos[1] == Pos_Minions[1]
+        if time > 15
         then
-            -- local pos = lua_table.Transform:GetPosition(lua_table.GameObjectFunctions:GetMyUID()) 
-            -- local cube_pos = lua_table.Transform:GetPosition(Cube_ID)
-
-            -- offset[1] = pos[1] - cube_pos[1]
-            -- offset[2] = pos[2] - cube_pos[2]
-            -- offset[3] = pos[3] - cube_pos[3]
-
             camera_panning = false
         end
     end
+
+    if time >= 21 and FadeOut1 == true
+    then
+        local fade_time = time - 21
+        local value = fade_time / 4
+        local alpha = Lerp(0, 1, value)
+        lua_table.UI:ChangeUIComponentColor("Image",0,0,0, alpha, Fade)
+
+        if value >= 1 then
+            FadeOut1 = false
+            FadeIn2 = true
+            FadeIn2_Time = time
+            lua_table.Transform:SetPosition(889.392, 23.327, -365.724, lua_table.GameObjectFunctions:GetMyUID())
+            lua_table.Transform:SetObjectRotation(159.255, 0, 180.000, lua_table.GameObjectFunctions:GetMyUID())
+        end
+    end
+
+    if FadeIn2 == true then
+        local fade_time = time - FadeIn2_Time
+        local value = fade_time / 4
+        local alpha = Lerp(1, 0, value)
+        lua_table.UI:ChangeUIComponentColor("Image",0,0,0, alpha, Fade)
+
+        GoTo(Pos_Kiki, 0.1)
+
+        if time > 40 then
+
+            FadeIn2 = false
+            FadeOut2 = true
+        end
+    end
+
+    if FadeOut2 == true and time >= 40 + forest_speech_time
+    then
+        local fade_time = time - 40 + forest_speech_time
+        local value = fade_time / 4
+        local alpha = Lerp(0, 1, value)
+        lua_table.UI:ChangeUIComponentColor("Image",0,0,0, alpha, Fade)
+
+        if value >= 1
+        then
+            FadeOut2 = false
+            FadeIn3 = true
+            FadeIn3_Time = time
+            lua_table.Transform:SetPosition(342.586, 44.228, -334.858, lua_table.GameObjectFunctions:GetMyUID())
+            lua_table.Transform:SetObjectRotation(43.914, 66.061, -41.268, lua_table.GameObjectFunctions:GetMyUID())
+        end
+    end
+
+    if FadeIn3 == true then
+        local fade_time = time - FadeIn3_Time
+        local value = fade_time / 4
+        local alpha = Lerp(1, 0, value)
+        lua_table.UI:ChangeUIComponentColor("Image",0,0,0, alpha, Fade)
+
+        if time > 55 then
+
+            FadeIn3 = false
+        end
+    end
+
+
     
     -- if not camera_panning -- Follow Cube
     -- then 
