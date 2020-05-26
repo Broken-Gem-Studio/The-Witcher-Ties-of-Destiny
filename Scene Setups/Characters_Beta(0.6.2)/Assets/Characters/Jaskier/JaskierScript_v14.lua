@@ -1983,7 +1983,7 @@ local function PickupItem()
 		local item_script = lua_table.GameObjectFunctions:GetScript(nearby_items[1])
 
 		if lua_table.inventory[item_script.item_id] < lua_table.item_type_max then
-			lua_table.GameObjectFunctions:DestroyGameObject(item_script.myUID)	--Alternative: item_script.GameObjectFunctions:GetMyUID()
+			lua_table.GameObjectFunctions:DestroyGameObject(item_script.my_UID)	--Alternative: item_script.GameObjectFunctions:GetMyUID()
 			lua_table.inventory[item_script.item_id] = lua_table.inventory[item_script.item_id] + 1	--Add potion to inventory
 			--TODO-Audio: Play pickup item sound
 		else
