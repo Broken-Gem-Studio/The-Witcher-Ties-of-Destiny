@@ -572,12 +572,15 @@ lua_table.stand_up_animation_speed = 150.0
 
 --Revive/Death
 local revive_target				-- Target character script
+lua_table.being_revived = false	-- Revival flag (managed by rescuer character)
 lua_table.revive_range = 2		-- Revive distance
-lua_table.revive_time = 3000	-- Time to revive
-lua_table.down_time = 10000		-- Time until death (restarted by revival attempt)
 lua_table.revive_animation_speed = 25.0
 
-lua_table.being_revived = false	-- Revival flag (managed by rescuer character)
+lua_table.revive_time = 3000	-- Time to revive
+lua_table.down_time = 10000		-- Time until death (restarted by revival attempt)
+
+local pulsation_started_at = 0
+local pulsation_interval_duration = 800
 
 local stopped_death = false		-- Death timer stop flag
 lua_table.death_started_at = 0		-- Death timer start
@@ -1374,9 +1377,8 @@ local function RegularAttack(attack_type)
 end
 
 local function AardPush()
-	--1. Collect colliders of all enemies inside a radius
+	--1. Get Geralt Pos
 	local geralt_pos = lua_table.TransformFunctions:GetPosition(geralt_GO_UID)
-	local enemy_list = lua_table.PhysicsFunctions:OverlapSphere(geralt_pos[1], geralt_pos[2], geralt_pos[3], lua_table.ability_range, layers.enemy)
 
 	--2. Transform ability trapezoid to Geralt's current rotation
 	SaveDirection()
@@ -1392,6 +1394,7 @@ local function AardPush()
 	D_x, D_z = D_x + geralt_pos[1], D_z + geralt_pos[3]
 
 	--4. We must check that the enemy is inside the AoE
+	local enemy_list = lua_table.PhysicsFunctions:OverlapSphere(geralt_pos[1], geralt_pos[2], geralt_pos[3], lua_table.ability_range, layers.enemy)
 	for i = 1, #enemy_list do
 		local enemy_pos = lua_table.TransformFunctions:GetPosition(enemy_list[i])
 
@@ -1401,6 +1404,20 @@ local function AardPush()
 		then
 			local enemy_script = lua_table.GameObjectFunctions:GetScript(enemy_list[i])
 			enemy_script:RequestedTrigger(geralt_GO_UID)	--TODO-Ability:
+		end
+	end
+
+	--4. We must check that the prop is inside the AoE
+	local prop_list = lua_table.PhysicsFunctions:OverlapSphere(geralt_pos[1], geralt_pos[2], geralt_pos[3], lua_table.ability_range, layers.prop)
+	for i = 1, #prop_list do
+		local prop_pos = lua_table.TransformFunctions:GetPosition(prop_list[i])
+
+		if BidimensionalPointInVectorSide(B_x, B_z, C_x, C_z, prop_pos[1], prop_pos[3]) < 0	--If left side of all the trapezoid vectors BC, CD, DA ( \_/ )
+		and BidimensionalPointInVectorSide(C_x, C_z, D_x, D_z, prop_pos[1], prop_pos[3]) < 0
+		and BidimensionalPointInVectorSide(D_x, D_z, A_x, A_z, prop_pos[1], prop_pos[3]) < 0
+		then
+			local prop_script = lua_table.GameObjectFunctions:GetScript(prop_list[i])
+			prop_script:RequestedTrigger(geralt_GO_UID)	--TODO-Ability:
 		end
 	end
 end
@@ -1586,7 +1603,8 @@ local function ActionInputs()	--Process Action Inputs
 	
 					if revive_target.current_state == state.down and not revive_target.being_revived	--IF player downed and no one reviving
 					then
-						action_started_at = game_time	--Set timer start mark
+						action_started_at = game_time		--Set timer start mark
+						pulsation_started_at = game_time	--Set pulsation start mark
 						current_action_block_time = lua_table.revive_time
 						current_action_duration = lua_table.revive_time
 
@@ -1616,7 +1634,8 @@ local function ActionInputs()	--Process Action Inputs
 	
 						if revive_target.current_state == state.down and not revive_target.being_revived	--IF player downed and no one reviving
 						then
-							action_started_at = game_time	--Set timer start mark
+							action_started_at = game_time		--Set timer start mark
+							pulsation_started_at = game_time	--Set pulsation start mark
 							current_action_block_time = lua_table.revive_time
 							current_action_duration = lua_table.revive_time
 	
@@ -2331,10 +2350,17 @@ function lua_table:Update()
 							end
 						end
 
-						if lua_table.current_state == state.revive and lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_revive, key_state.key_up)
+						if lua_table.current_state == state.revive
 						then
-							ReviveShutdown()
-							GoDefaultState(false)
+							if lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_revive, key_state.key_up)
+							then
+								ReviveShutdown()
+								GoDefaultState(false)
+							elseif game_time - pulsation_started_at > pulsation_interval_duration
+							then
+								lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.small.intensity, controller_shake.small.duration)
+								pulsation_started_at = game_time
+							end
 
 						elseif lua_table.current_state == state.evade and DirectionInBounds(true)	--ELSEIF evading
 						then
@@ -2344,6 +2370,7 @@ function lua_table:Update()
 						then
 							AardPush()
 							SaveDirection()
+							lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.big.intensity, controller_shake.big.duration)
 
 							--Activate Aard Sphere Collider
 							lua_table.GameObjectFunctions:SetActiveGameObject(true, attack_colliders.aard_circle_1.GO_UID)
@@ -2524,33 +2551,40 @@ function lua_table:Update()
 				if not stopped_death		--IF stop mark hasn't been done yet
 				then
 					death_stopped_at = game_time			--Mark revival start (for death timer)
-					lua_table.revive_started_at = death_stopped_at	--Mark revival start (for revival timer)
+					lua_table.revive_started_at = game_time	--Mark revival start (for revival timer)
+					pulsation_started_at = game_time		--Mark revival pulsation start
 
 					for i = 1, #particles_library.revive_particles_GO_UID_children do
 						lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.revive_particles_GO_UID_children[i])	--TODO-Particles:
 					end
 
-					stopped_death = true					--Flag death timer stop
-
-				elseif game_time - lua_table.revive_started_at > lua_table.revive_time		--IF revival complete
-				then
-					lua_table.PhysicsFunctions:SetActiveController(true, geralt_GO_UID)
-
-					lua_table.AnimationFunctions:PlayAnimation(animation_library.stand_up, lua_table.stand_up_animation_speed, geralt_GO_UID)	--TODO-Animations: Stand up
-					current_animation = animation_library.stand_up
-
-					for i = 1, #particles_library.revive_particles_GO_UID_children do
-						lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.revive_particles_GO_UID_children[i])	--TODO-Particles:
+					stopped_death = true	--Flag death timer stop
+				else
+					if game_time - pulsation_started_at > pulsation_interval_duration then
+						lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.small.intensity, controller_shake.small.duration)
+						pulsation_started_at = game_time
 					end
 
-					blending_started_at = game_time
+					if game_time - lua_table.revive_started_at > lua_table.revive_time		--IF revival complete
+					then
+						lua_table.PhysicsFunctions:SetActiveController(true, geralt_GO_UID)
 
-					lua_table.AudioFunctions:PlayAudioEventGO(audio_library.stand_up, geralt_GO_UID)	--TODO-AUDIO: Stand Up Sound
-					current_audio = audio_library.stand_up
-					lua_table.standing_up_bool = true
+						lua_table.AnimationFunctions:PlayAnimation(animation_library.stand_up, lua_table.stand_up_animation_speed, geralt_GO_UID)	--TODO-Animations: Stand up
+						current_animation = animation_library.stand_up
 
-					stopped_death = false
-					lua_table.current_health = lua_table.max_health_real / 2	--Get half health
+						for i = 1, #particles_library.revive_particles_GO_UID_children do
+							lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.revive_particles_GO_UID_children[i])	--TODO-Particles:
+						end
+
+						blending_started_at = game_time
+
+						lua_table.AudioFunctions:PlayAudioEventGO(audio_library.stand_up, geralt_GO_UID)	--TODO-AUDIO: Stand Up Sound
+						current_audio = audio_library.stand_up
+						lua_table.standing_up_bool = true
+
+						stopped_death = false
+						lua_table.current_health = lua_table.max_health_real / 2	--Get half health
+					end
 				end
 			else								--IF other player isn't reviving
 				if stopped_death				--IF death timer was stopped
@@ -2596,6 +2630,8 @@ function lua_table:Update()
 	--lua_table.SystemFunctions:LOG("Ultimate: " .. lua_table.current_ultimate)
 	--lua_table.SystemFunctions:LOG("Combo num: " .. lua_table.combo_num)
 	--lua_table.SystemFunctions:LOG("Combo string: " .. lua_table.combo_stack[1] .. ", " .. lua_table.combo_stack[2] .. ", " .. lua_table.combo_stack[3] .. ", " .. lua_table.combo_stack[4])
+
+	--if lua_table.being_revived then lua_table.SystemFunctions:LOG("REVIVE TIME: " .. (game_time - lua_table.revive_started_at)) end
 
 	--Attack inputs
 	--if attack_input_given then lua_table.SystemFunctions:LOG("ATTACK INPUT GIVEN ----------------") end
