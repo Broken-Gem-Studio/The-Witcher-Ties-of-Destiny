@@ -1286,17 +1286,22 @@ end
 
 local function Song_Circle_Effect(area_range)
 	local jaskier_pos = lua_table.TransformFunctions:GetPosition(jaskier_GO_UID)
-	local enemy_list = lua_table.PhysicsFunctions:OverlapSphere(jaskier_pos[1], jaskier_pos[2], jaskier_pos[3], area_range, layers.enemy)
 
+	local enemy_list = lua_table.PhysicsFunctions:OverlapSphere(jaskier_pos[1], jaskier_pos[2], jaskier_pos[3], area_range, layers.enemy)
 	for i = 1, #enemy_list do
 		local enemy_script = lua_table.GameObjectFunctions:GetScript(enemy_list[i])
-		--enemy_script:RequestedTrigger(jaskier_GO_UID)	--TODO-Ability:
+		enemy_script:RequestedTrigger(jaskier_GO_UID)	--TODO-Ability:
+	end
+
+	local prop_list = lua_table.PhysicsFunctions:OverlapSphere(jaskier_pos[1], jaskier_pos[2], jaskier_pos[3], area_range, layers.prop)
+	for i = 1, #prop_list do
+		local prop_script = lua_table.GameObjectFunctions:GetScript(prop_list[i])
+		prop_script:RequestedTrigger(jaskier_GO_UID)	--TODO-Ability:
 	end
 end
 
 local function Song_Cone_Effect(trapezoid_table)	--Uses trapezoid because it can adpot varied shapes, including a basic cone
 	local jaskier_pos = lua_table.TransformFunctions:GetPosition(jaskier_GO_UID)
-	local enemy_list = lua_table.PhysicsFunctions:OverlapSphere(jaskier_pos[1], jaskier_pos[2], jaskier_pos[3], trapezoid_table.range, layers.enemy)
 
 	SaveDirection()
 	local A_z, A_x = BidimensionalRotate(trapezoid_table.point_A.z, trapezoid_table.point_A.x, rot_y)
@@ -1309,6 +1314,7 @@ local function Song_Cone_Effect(trapezoid_table)	--Uses trapezoid because it can
 	C_x, C_z = C_x + jaskier_pos[1], C_z + jaskier_pos[3]
 	D_x, D_z = D_x + jaskier_pos[1], D_z + jaskier_pos[3]
 
+	local enemy_list = lua_table.PhysicsFunctions:OverlapSphere(jaskier_pos[1], jaskier_pos[2], jaskier_pos[3], trapezoid_table.range, layers.enemy)
 	for i = 1, #enemy_list do
 		local enemy_pos = lua_table.TransformFunctions:GetPosition(enemy_list[i])
 
@@ -1318,6 +1324,19 @@ local function Song_Cone_Effect(trapezoid_table)	--Uses trapezoid because it can
 		then
 			local enemy_script = lua_table.GameObjectFunctions:GetScript(enemy_list[i])
 			enemy_script:RequestedTrigger(jaskier_GO_UID)	--TODO-Ability:
+		end
+	end
+
+	local prop_list = lua_table.PhysicsFunctions:OverlapSphere(jaskier_pos[1], jaskier_pos[2], jaskier_pos[3], trapezoid_table.range, layers.prop)
+	for i = 1, #prop_list do
+		local prop_pos = lua_table.TransformFunctions:GetPosition(prop_list[i])
+
+		if BidimensionalPointInVectorSide(B_x, B_z, C_x, C_z, prop_pos[1], prop_pos[3]) < 0	--If left side of all the trapezoid vectors BC, CD, DA ( \_/ )
+		and BidimensionalPointInVectorSide(C_x, C_z, D_x, D_z, prop_pos[1], prop_pos[3]) < 0
+		and BidimensionalPointInVectorSide(D_x, D_z, A_x, A_z, prop_pos[1], prop_pos[3]) < 0
+		then
+			local prop_script = lua_table.GameObjectFunctions:GetScript(prop_list[i])
+			prop_script:RequestedTrigger(jaskier_GO_UID)	--TODO-Ability:
 		end
 	end
 end
