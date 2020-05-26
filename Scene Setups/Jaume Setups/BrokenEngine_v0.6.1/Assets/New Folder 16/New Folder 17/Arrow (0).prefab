@@ -1,0 +1,214 @@
+{
+    "Arrow": {
+        "Components": {
+            "0": {
+                "layer": "4",
+                "positionx": "0.000000",
+                "positiony": "2.091841",
+                "positionz": "31.918285",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.100000",
+                "scaley": "0.100000",
+                "scalez": "1.000000"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/3.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/New Folder 17/ArrowScript.lua"
+                },
+                "Script variables": {
+                    "Count": 3,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "collider_damage",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 10.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "collider_effect",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "force",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 30.0
+                    }
+                }
+            },
+            "15": {
+                "Active": true,
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "1.000000",
+                "freezePosition_X": "0",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "0",
+                "freezeRotation_X": "0",
+                "freezeRotation_Y": "0",
+                "freezeRotation_Z": "0",
+                "is_kinematic": "0",
+                "linear_damping": "0.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "0.000000",
+                "linear_velz": "0.000000",
+                "mass": "0.010000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": true,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "0",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "0.000197",
+                "globalMatrixy": "2.091841",
+                "globalMatrixz": "31.918285",
+                "globalPositionx": "0.994092",
+                "globalPositiony": "0.996057",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "0",
+                "isTrigger": "0",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.001967",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.001967",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "0.994092",
+                "originalScaley": "0.996057",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "1.000000",
+                "tmpScaley": "1.000000",
+                "tmpScalez": "1.000000"
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/New material 15.mat"
+                    }
+                }
+            }
+        },
+        "Parent": "942716798",
+        "PrefabChild": true,
+        "PrefabInstance": true,
+        "UID": "1728759907"
+    },
+    "ParticleArrow": {
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-0.600000",
+                "positiony": "-0.400000",
+                "positionz": "-0.600000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "18": {
+                "Active": true,
+                "Duration": "1000",
+                "GradientColor": false,
+                "Loop": true,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/572986970.dds"
+                },
+                "animation": "0",
+                "colors": [
+                    {
+                        "a": "1.000000",
+                        "x": "1.000000",
+                        "y": "1.000000",
+                        "z": "1.000000"
+                    }
+                ],
+                "constants": "0",
+                "cycles": "1",
+                "emisionRate": "50.000000",
+                "externalAccelerationX": "0.000000",
+                "externalAccelerationY": "0.000000",
+                "externalAccelerationZ": "0.000000",
+                "grad_duration": "0",
+                "num_colors": "1",
+                "num_gradients": "0",
+                "particleScaleOverTime": "0.000000",
+                "particleScaleRandomFactor": "1.000000",
+                "particlesLifeTime": "500",
+                "particlesPerCreation": "2",
+                "particlesScaleX": "0.700000",
+                "particlesScaleY": "0.700000",
+                "particlesVelocityX": "0.000000",
+                "particlesVelocityY": "0.000000",
+                "particlesVelocityZ": "3.000000",
+                "positionX": "0.000000",
+                "positionY": "0.000000",
+                "positionZ": "0.000000",
+                "rotationOvertime1": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "rotationOvertime2": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "rotationX": "0.000000",
+                "rotationY": "0.000000",
+                "rotationZ": "0.000000",
+                "separateAxis": "0",
+                "sizeX": "0.000000",
+                "sizeY": "0.000000",
+                "sizeZ": "0.000000",
+                "startFrame": "0",
+                "tiles_X": "1",
+                "tiles_Y": "1",
+                "velocityRandomFactorX": "1.000000",
+                "velocityRandomFactorY": "0.000000",
+                "velocityRandomFactorZ": "1.000000"
+            }
+        },
+        "Parent": "1728759907",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "UID": "125005485"
+    },
+    "PreviewTexture": "Library/Textures/1666475349.dds"
+}
