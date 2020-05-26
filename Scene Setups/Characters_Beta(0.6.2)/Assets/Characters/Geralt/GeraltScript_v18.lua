@@ -360,7 +360,7 @@ lua_table.energy_reg_orig = 7
 	}
 	local attack_effects_durations = {	--Effects Enum
 		2000,	--stun
-		1500,	--knockback	(Uses standup_time to get up)
+		1500	--knockback	(Uses standup_time to get up)
 	}
 		--Knockback
 		local knockback_curr_velocity
@@ -398,6 +398,12 @@ lua_table.energy_reg_orig = 7
 	local enemy_is_hit = 0
 	local enemy_hit_started_at = 0
 	local enemy_hit_duration = 200
+
+	local controller_shake = {
+		small = { intensity = 1.0, duration = 100 },
+		medium = { intensity = 1.0, duration = 200 },
+		big = { intensity = 1.0, duration = 300 }
+	}
 
 	--Attack Inputs
 	local rightside = true		-- Last attack side, marks the animation of next attack
@@ -566,12 +572,15 @@ lua_table.stand_up_animation_speed = 150.0
 
 --Revive/Death
 local revive_target				-- Target character script
+lua_table.being_revived = false	-- Revival flag (managed by rescuer character)
 lua_table.revive_range = 2		-- Revive distance
-lua_table.revive_time = 3000	-- Time to revive
-lua_table.down_time = 10000		-- Time until death (restarted by revival attempt)
 lua_table.revive_animation_speed = 25.0
 
-lua_table.being_revived = false	-- Revival flag (managed by rescuer character)
+lua_table.revive_time = 3000	-- Time to revive
+lua_table.down_time = 10000		-- Time until death (restarted by revival attempt)
+
+local pulsation_started_at = 0
+local pulsation_interval_duration = 800
 
 local stopped_death = false		-- Death timer stop flag
 lua_table.death_started_at = 0		-- Death timer start
@@ -1140,7 +1149,7 @@ local function CheckCameraBounds()	--Check if we're currently outside the camera
 
 			current_action_duration = attack_effects_durations[attack_effects_ID.knockback]
 			action_started_at = game_time
-			lua_table.InputFunctions:ShakeController(lua_table.player_ID, 1.0, current_action_duration)
+			lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.medium.intensity, controller_shake.medium.duration)
 		end
 
 	else
@@ -1297,7 +1306,6 @@ local function CheckCombos()
 	if lua_table.combo_num == 3 and (PerformCombo("light_3") or PerformCombo("medium_3") or PerformCombo("heavy_3"))
 	or lua_table.combo_num == 4 and (PerformCombo("combo_1") or PerformCombo("combo_2") or PerformCombo("combo_3"))
 	then
-		lua_table.InputFunctions:ShakeController(lua_table.player_ID, 1.0, current_action_duration)
 		combo_achieved = true
 		rightside = true
 	end
@@ -1581,7 +1589,8 @@ local function ActionInputs()	--Process Action Inputs
 	
 					if revive_target.current_state == state.down and not revive_target.being_revived	--IF player downed and no one reviving
 					then
-						action_started_at = game_time	--Set timer start mark
+						action_started_at = game_time		--Set timer start mark
+						pulsation_started_at = game_time	--Set pulsation start mark
 						current_action_block_time = lua_table.revive_time
 						current_action_duration = lua_table.revive_time
 
@@ -1611,7 +1620,8 @@ local function ActionInputs()	--Process Action Inputs
 	
 						if revive_target.current_state == state.down and not revive_target.being_revived	--IF player downed and no one reviving
 						then
-							action_started_at = game_time	--Set timer start mark
+							action_started_at = game_time		--Set timer start mark
+							pulsation_started_at = game_time	--Set pulsation start mark
 							current_action_block_time = lua_table.revive_time
 							current_action_duration = lua_table.revive_time
 	
@@ -1968,7 +1978,7 @@ local function ProcessIncomingHit(collider_GO)
 
 		current_action_duration = attack_effects_durations[enemy_script.collider_effect]
 		action_started_at = game_time
-		lua_table.InputFunctions:ShakeController(lua_table.player_ID, 1.0, current_action_duration)
+		lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.medium.intensity, controller_shake.medium.duration)
 	end
 end
 
@@ -2244,6 +2254,7 @@ function lua_table:Update()
 							lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.ultimate_particles_GO_UID_children[i])	--TODO-Particles:
 						end
 						UltimateState(true)	--Ultimate turn on (boost stats)
+						lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.big.intensity, controller_shake.big.duration)
 
 						lua_table.current_ultimate = 0.0
 						ultimate_effect_started_at = game_time
@@ -2315,12 +2326,27 @@ function lua_table:Update()
 							lua_table.AnimationFunctions:SetAnimationPause(false, geralt_GO_UID)
 							lua_table.AnimationFunctions:SetAnimationPause(false, particles_library.slash_GO_UID)
 							enemy_is_hit = 2
+
+							if lua_table.current_state >= state.combo_1 and lua_table.current_state <= state.combo_3 then
+								lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.big.intensity, controller_shake.big.duration)
+							elseif lua_table.current_state == state.light_3 or lua_table.current_state == state.medium_3 or lua_table.current_state == state.heavy_3 then
+								lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.medium.intensity, controller_shake.medium.duration)
+							else
+								lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.small.intensity, controller_shake.small.duration)
+							end
 						end
 
-						if lua_table.current_state == state.revive and lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_revive, key_state.key_up)
+						if lua_table.current_state == state.revive
 						then
-							ReviveShutdown()
-							GoDefaultState(false)
+							if lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_revive, key_state.key_up)
+							then
+								ReviveShutdown()
+								GoDefaultState(false)
+							elseif game_time - pulsation_started_at > pulsation_interval_duration
+							then
+								lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.small.intensity, controller_shake.small.duration)
+								pulsation_started_at = game_time
+							end
 
 						elseif lua_table.current_state == state.evade and DirectionInBounds(true)	--ELSEIF evading
 						then
@@ -2330,6 +2356,7 @@ function lua_table:Update()
 						then
 							AardPush()
 							SaveDirection()
+							lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.big.intensity, controller_shake.big.duration)
 
 							--Activate Aard Sphere Collider
 							lua_table.GameObjectFunctions:SetActiveGameObject(true, attack_colliders.aard_circle_1.GO_UID)
@@ -2510,33 +2537,40 @@ function lua_table:Update()
 				if not stopped_death		--IF stop mark hasn't been done yet
 				then
 					death_stopped_at = game_time			--Mark revival start (for death timer)
-					lua_table.revive_started_at = death_stopped_at	--Mark revival start (for revival timer)
+					lua_table.revive_started_at = game_time	--Mark revival start (for revival timer)
+					pulsation_started_at = game_time		--Mark revival pulsation start
 
 					for i = 1, #particles_library.revive_particles_GO_UID_children do
 						lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.revive_particles_GO_UID_children[i])	--TODO-Particles:
 					end
 
-					stopped_death = true					--Flag death timer stop
-
-				elseif game_time - lua_table.revive_started_at > lua_table.revive_time		--IF revival complete
-				then
-					lua_table.PhysicsFunctions:SetActiveController(true, geralt_GO_UID)
-
-					lua_table.AnimationFunctions:PlayAnimation(animation_library.stand_up, lua_table.stand_up_animation_speed, geralt_GO_UID)	--TODO-Animations: Stand up
-					current_animation = animation_library.stand_up
-
-					for i = 1, #particles_library.revive_particles_GO_UID_children do
-						lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.revive_particles_GO_UID_children[i])	--TODO-Particles:
+					stopped_death = true	--Flag death timer stop
+				else
+					if game_time - pulsation_started_at > pulsation_interval_duration then
+						lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.small.intensity, controller_shake.small.duration)
+						pulsation_started_at = game_time
 					end
 
-					blending_started_at = game_time
+					if game_time - lua_table.revive_started_at > lua_table.revive_time		--IF revival complete
+					then
+						lua_table.PhysicsFunctions:SetActiveController(true, geralt_GO_UID)
 
-					lua_table.AudioFunctions:PlayAudioEventGO(audio_library.stand_up, geralt_GO_UID)	--TODO-AUDIO: Stand Up Sound
-					current_audio = audio_library.stand_up
-					lua_table.standing_up_bool = true
+						lua_table.AnimationFunctions:PlayAnimation(animation_library.stand_up, lua_table.stand_up_animation_speed, geralt_GO_UID)	--TODO-Animations: Stand up
+						current_animation = animation_library.stand_up
 
-					stopped_death = false
-					lua_table.current_health = lua_table.max_health_real / 2	--Get half health
+						for i = 1, #particles_library.revive_particles_GO_UID_children do
+							lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.revive_particles_GO_UID_children[i])	--TODO-Particles:
+						end
+
+						blending_started_at = game_time
+
+						lua_table.AudioFunctions:PlayAudioEventGO(audio_library.stand_up, geralt_GO_UID)	--TODO-AUDIO: Stand Up Sound
+						current_audio = audio_library.stand_up
+						lua_table.standing_up_bool = true
+
+						stopped_death = false
+						lua_table.current_health = lua_table.max_health_real / 2	--Get half health
+					end
 				end
 			else								--IF other player isn't reviving
 				if stopped_death				--IF death timer was stopped
@@ -2582,6 +2616,8 @@ function lua_table:Update()
 	--lua_table.SystemFunctions:LOG("Ultimate: " .. lua_table.current_ultimate)
 	--lua_table.SystemFunctions:LOG("Combo num: " .. lua_table.combo_num)
 	--lua_table.SystemFunctions:LOG("Combo string: " .. lua_table.combo_stack[1] .. ", " .. lua_table.combo_stack[2] .. ", " .. lua_table.combo_stack[3] .. ", " .. lua_table.combo_stack[4])
+
+	--if lua_table.being_revived then lua_table.SystemFunctions:LOG("REVIVE TIME: " .. (game_time - lua_table.revive_started_at)) end
 
 	--Attack inputs
 	--if attack_input_given then lua_table.SystemFunctions:LOG("ATTACK INPUT GIVEN ----------------") end

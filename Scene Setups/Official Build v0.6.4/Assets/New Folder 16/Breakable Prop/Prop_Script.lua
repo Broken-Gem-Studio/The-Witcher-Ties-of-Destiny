@@ -78,9 +78,25 @@ local function playParticles()
 	end
 end
 
+function lua_table::RequestTrigger(collider)
+
+	local layer = lua_table.GameObjectFunctions:GetLayerByID(collider)
+	if layer == 1 --Checks if its player/enemy attack collider layer
+	then
+		playParticles()
+		lua_table.health = lua_table.health - 1
+		if lua_table.health > 0
+		then
+			lua_table.AudioFunctions:PlayAudioEventGO("Play_Prop_hit_wood",lua_table.myUID)
+		elseif lua_table.health == 0
+		then			
+			lua_table.AudioFunctions:PlayAudioEventGO("Play_Prop_wood_break",lua_table.myUID)
+		end
+	end
+end
+
 function lua_table:OnTriggerEnter()
 	local collider = lua_table.PhysicsFunctions:OnTriggerEnter(lua_table.myUID)
-	lua_table.SystemFunctions:LOG("T:" .. collider)
 
 	local layer = lua_table.GameObjectFunctions:GetLayerByID(collider)
 	if layer == 2 or layer == 4 --Checks if its player/enemy attack collider layer
@@ -89,43 +105,15 @@ function lua_table:OnTriggerEnter()
 		lua_table.health = lua_table.health - 1
 		if lua_table.health > 0
 		then
-			-- Audio SFX (randomized)
-			randy = lua_table.SystemFunctions:RandomNumberInRange(1, 4)
-			if (randy < 2)
-			then
-				lua_table.AudioFunctions:PlayAudioEvent("Play_Hit_Wood_Sound_1")
-			elseif (randy < 3)
-			then
-				lua_table.AudioFunctions:PlayAudioEvent("Play_Hit_Wood_Sound_2")
-			else
-				lua_table.AudioFunctions:PlayAudioEvent("Play_Hit_Wood_Sound_3")
-			end
+			lua_table.AudioFunctions:PlayAudioEventGO("Play_Prop_hit_wood",lua_table.myUID)
 		elseif lua_table.health == 0
 		then
 			if layer == 2 and Player == 0
 			then
 				Player = collider
 			end
-
-			randy = lua_table.SystemFunctions:RandomNumberInRange(1, 3)
-			if (randy < 2)
-			then
-				if lua_table.current_type == type.BARREL
-				then
-					lua_table.AudioFunctions:PlayAudioEvent("Play_Barrel_crush_1")
-				elseif lua_table.current_type == type.BOX
-				then
-					lua_table.AudioFunctions:PlayAudioEvent("Play_Broken_Wood_Sound_1")
-				end
-			else
-				if lua_table.current_type == type.BARREL
-				then
-					lua_table.AudioFunctions:PlayAudioEvent("Play_Barrel_crush_2")
-				elseif lua_table.current_type == type.BOX
-				then
-					lua_table.AudioFunctions:PlayAudioEvent("Play_Broken_Wood_Sound_2")
-				end
-			end
+			
+			lua_table.AudioFunctions:PlayAudioEventGO("Play_Prop_wood_break",lua_table.myUID)
 		end
 	end
 end
