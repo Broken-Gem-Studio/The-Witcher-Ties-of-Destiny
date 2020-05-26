@@ -12,8 +12,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.070461",
-                "scaley": "15.158193",
-                "scalez": "1.368166"
+                "scaley": "15.158467",
+                "scalez": "1.368198"
             },
             "1": {
                 "Active": true,
@@ -36,11 +36,11 @@
                 }
             }
         },
-        "Parent": "2026873976",
+        "Parent": "485251974",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1842638726"
+        "UID": "1662430897"
     },
     "Dummy001": {
         "Active": true,
@@ -59,11 +59,11 @@
                 "scalez": "1.000000"
             }
         },
-        "Parent": "926068010",
+        "Parent": "955071335",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "2026873976"
+        "UID": "485251974"
     },
     "In_Side": {
         "Active": true,
@@ -88,11 +88,11 @@
                 }
             }
         },
-        "Parent": "788841253",
+        "Parent": "297415205",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "170086735"
+        "UID": "306662931"
     },
     "Jaskier": {
         "Active": true,
@@ -116,7 +116,7 @@
                     "ResourceScript": "Assets/Characters/Jaskier/JaskierScript_v14.lua"
                 },
                 "Script variables": {
-                    "Count": 228,
+                    "Count": 231,
                     "Variable 0": {
                         "DisplayObjectName": false,
                         "Name": "ability_cooldown",
@@ -143,7 +143,7 @@
                         "Name": "light_3_damage",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 3.5
+                        "Value": 1.25
                     },
                     "Variable 101": {
                         "DisplayObjectName": false,
@@ -430,7 +430,7 @@
                         "Name": "medium_3_damage",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 3.5
+                        "Value": 1.75
                     },
                     "Variable 139": {
                         "DisplayObjectName": false,
@@ -560,35 +560,35 @@
                     },
                     "Variable 155": {
                         "DisplayObjectName": false,
-                        "Name": "potion_in_effect",
+                        "Name": "potion_health_prefab",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
                     },
                     "Variable 156": {
                         "DisplayObjectName": false,
-                        "Name": "previous_state",
+                        "Name": "potion_in_effect",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
                     },
                     "Variable 157": {
                         "DisplayObjectName": false,
-                        "Name": "revive_animation_speed",
+                        "Name": "potion_power_prefab",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 25.0
+                        "Value": 0.0
                     },
                     "Variable 158": {
                         "DisplayObjectName": false,
-                        "Name": "revive_range",
+                        "Name": "potion_stamina_prefab",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 2.0
+                        "Value": 0.0
                     },
                     "Variable 159": {
                         "DisplayObjectName": false,
-                        "Name": "revive_started_at",
+                        "Name": "previous_state",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
@@ -602,70 +602,70 @@
                     },
                     "Variable 160": {
                         "DisplayObjectName": false,
+                        "Name": "revive_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 25.0
+                    },
+                    "Variable 161": {
+                        "DisplayObjectName": false,
+                        "Name": "revive_range",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2.0
+                    },
+                    "Variable 162": {
+                        "DisplayObjectName": false,
+                        "Name": "revive_started_at",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 163": {
+                        "DisplayObjectName": false,
                         "Name": "revive_time",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 3000.0
                     },
-                    "Variable 161": {
+                    "Variable 164": {
                         "DisplayObjectName": false,
                         "Name": "run_animation_speed",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 45.0
                     },
-                    "Variable 162": {
+                    "Variable 165": {
                         "DisplayObjectName": false,
                         "Name": "song_1_animation_name",
                         "ObjectName": "",
                         "Type": "String",
                         "Value": "guitar_slam_one_handed"
                     },
-                    "Variable 163": {
+                    "Variable 166": {
                         "DisplayObjectName": false,
                         "Name": "song_1_animation_speed",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 50.0
                     },
-                    "Variable 164": {
+                    "Variable 167": {
                         "DisplayObjectName": false,
                         "Name": "song_1_collider_line_1_end",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 900.0
                     },
-                    "Variable 165": {
+                    "Variable 168": {
                         "DisplayObjectName": false,
                         "Name": "song_1_collider_line_1_start",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 800.0
                     },
-                    "Variable 166": {
-                        "DisplayObjectName": false,
-                        "Name": "song_1_collider_line_2_end",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 1000.0
-                    },
-                    "Variable 167": {
-                        "DisplayObjectName": false,
-                        "Name": "song_1_collider_line_2_start",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 900.0
-                    },
-                    "Variable 168": {
-                        "DisplayObjectName": false,
-                        "Name": "song_1_collider_line_3_end",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 1100.0
-                    },
                     "Variable 169": {
                         "DisplayObjectName": false,
-                        "Name": "song_1_collider_line_3_start",
+                        "Name": "song_1_collider_line_2_end",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 1000.0
@@ -679,73 +679,73 @@
                     },
                     "Variable 170": {
                         "DisplayObjectName": false,
-                        "Name": "song_1_collider_line_4_end",
+                        "Name": "song_1_collider_line_2_start",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 1200.0
+                        "Value": 900.0
                     },
                     "Variable 171": {
                         "DisplayObjectName": false,
-                        "Name": "song_1_collider_line_4_start",
+                        "Name": "song_1_collider_line_3_end",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 1100.0
                     },
                     "Variable 172": {
                         "DisplayObjectName": false,
+                        "Name": "song_1_collider_line_3_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1000.0
+                    },
+                    "Variable 173": {
+                        "DisplayObjectName": false,
+                        "Name": "song_1_collider_line_4_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1200.0
+                    },
+                    "Variable 174": {
+                        "DisplayObjectName": false,
+                        "Name": "song_1_collider_line_4_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1100.0
+                    },
+                    "Variable 175": {
+                        "DisplayObjectName": false,
                         "Name": "song_1_damage",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 4.0
                     },
-                    "Variable 173": {
+                    "Variable 176": {
                         "DisplayObjectName": false,
                         "Name": "song_1_duration",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 1440.0
                     },
-                    "Variable 174": {
+                    "Variable 177": {
                         "DisplayObjectName": false,
                         "Name": "song_1_effect_active",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": false
                     },
-                    "Variable 175": {
+                    "Variable 178": {
                         "DisplayObjectName": false,
                         "Name": "song_1_effect_start",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 750.0
                     },
-                    "Variable 176": {
+                    "Variable 179": {
                         "DisplayObjectName": false,
                         "Name": "song_1_size",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 4.0
-                    },
-                    "Variable 177": {
-                        "DisplayObjectName": false,
-                        "Name": "song_1_status_effect",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 178": {
-                        "DisplayObjectName": false,
-                        "Name": "song_2_animation_name",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "guitar_slam_two_handed"
-                    },
-                    "Variable 179": {
-                        "DisplayObjectName": false,
-                        "Name": "song_2_animation_speed",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 50.0
                     },
                     "Variable 18": {
                         "DisplayObjectName": false,
@@ -756,73 +756,73 @@
                     },
                     "Variable 180": {
                         "DisplayObjectName": false,
+                        "Name": "song_1_status_effect",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 181": {
+                        "DisplayObjectName": false,
+                        "Name": "song_2_animation_name",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "guitar_slam_two_handed"
+                    },
+                    "Variable 182": {
+                        "DisplayObjectName": false,
+                        "Name": "song_2_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 50.0
+                    },
+                    "Variable 183": {
+                        "DisplayObjectName": false,
                         "Name": "song_2_damage",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 3.0
                     },
-                    "Variable 181": {
+                    "Variable 184": {
                         "DisplayObjectName": false,
                         "Name": "song_2_duration",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 1700.0
                     },
-                    "Variable 182": {
+                    "Variable 185": {
                         "DisplayObjectName": false,
                         "Name": "song_2_effect_active",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": false
                     },
-                    "Variable 183": {
+                    "Variable 186": {
                         "DisplayObjectName": false,
                         "Name": "song_2_effect_start",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 850.0
                     },
-                    "Variable 184": {
+                    "Variable 187": {
                         "DisplayObjectName": false,
                         "Name": "song_2_size",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 4.0
                     },
-                    "Variable 185": {
+                    "Variable 188": {
                         "DisplayObjectName": false,
                         "Name": "song_2_status_effect",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 1.0
                     },
-                    "Variable 186": {
+                    "Variable 189": {
                         "DisplayObjectName": false,
                         "Name": "song_3_animation_name",
                         "ObjectName": "",
                         "Type": "String",
-                        "Value": "moonwalk"
-                    },
-                    "Variable 187": {
-                        "DisplayObjectName": false,
-                        "Name": "song_3_animation_speed",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 30.0
-                    },
-                    "Variable 188": {
-                        "DisplayObjectName": false,
-                        "Name": "song_3_damage",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 189": {
-                        "DisplayObjectName": false,
-                        "Name": "song_3_duration",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 3700.0
+                        "Value": "Play_Jaskier_moonwalk"
                     },
                     "Variable 19": {
                         "DisplayObjectName": false,
@@ -833,73 +833,73 @@
                     },
                     "Variable 190": {
                         "DisplayObjectName": false,
+                        "Name": "song_3_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 30.0
+                    },
+                    "Variable 191": {
+                        "DisplayObjectName": false,
+                        "Name": "song_3_damage",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 192": {
+                        "DisplayObjectName": false,
+                        "Name": "song_3_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 3700.0
+                    },
+                    "Variable 193": {
+                        "DisplayObjectName": false,
                         "Name": "song_3_effect_active",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": false
                     },
-                    "Variable 191": {
+                    "Variable 194": {
                         "DisplayObjectName": false,
                         "Name": "song_3_effect_end",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 2000.0
                     },
-                    "Variable 192": {
+                    "Variable 195": {
                         "DisplayObjectName": false,
                         "Name": "song_3_effect_start",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
                     },
-                    "Variable 193": {
+                    "Variable 196": {
                         "DisplayObjectName": false,
                         "Name": "song_3_moonwalk_velocity_mod",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.6
                     },
-                    "Variable 194": {
+                    "Variable 197": {
                         "DisplayObjectName": false,
                         "Name": "song_3_range",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 10.0
                     },
-                    "Variable 195": {
+                    "Variable 198": {
                         "DisplayObjectName": false,
                         "Name": "song_3_secondary_animation_name",
                         "ObjectName": "",
                         "Type": "String",
                         "Value": "guitar_slam_two_handed"
                     },
-                    "Variable 196": {
+                    "Variable 199": {
                         "DisplayObjectName": false,
                         "Name": "song_3_secondary_animation_speed",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 50.0
-                    },
-                    "Variable 197": {
-                        "DisplayObjectName": false,
-                        "Name": "song_3_secondary_damage",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 5.0
-                    },
-                    "Variable 198": {
-                        "DisplayObjectName": false,
-                        "Name": "song_3_secondary_effect_active",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    },
-                    "Variable 199": {
-                        "DisplayObjectName": false,
-                        "Name": "song_3_secondary_effect_start",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 2850.0
                     },
                     "Variable 2": {
                         "DisplayObjectName": false,
@@ -917,73 +917,73 @@
                     },
                     "Variable 200": {
                         "DisplayObjectName": false,
+                        "Name": "song_3_secondary_damage",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 5.0
+                    },
+                    "Variable 201": {
+                        "DisplayObjectName": false,
+                        "Name": "song_3_secondary_effect_active",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 202": {
+                        "DisplayObjectName": false,
+                        "Name": "song_3_secondary_effect_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2850.0
+                    },
+                    "Variable 203": {
+                        "DisplayObjectName": false,
                         "Name": "song_3_secondary_range",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 15.0
                     },
-                    "Variable 201": {
+                    "Variable 204": {
                         "DisplayObjectName": false,
                         "Name": "song_3_secondary_status_effect",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 2.0
                     },
-                    "Variable 202": {
+                    "Variable 205": {
                         "DisplayObjectName": false,
                         "Name": "song_3_size",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 4.0
                     },
-                    "Variable 203": {
+                    "Variable 206": {
                         "DisplayObjectName": false,
                         "Name": "song_3_status_effect",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 3.0
                     },
-                    "Variable 204": {
+                    "Variable 207": {
                         "DisplayObjectName": false,
                         "Name": "song_4_animation_speed",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 30.0
                     },
-                    "Variable 205": {
+                    "Variable 208": {
                         "DisplayObjectName": false,
                         "Name": "song_4_damage",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 2.5
                     },
-                    "Variable 206": {
+                    "Variable 209": {
                         "DisplayObjectName": false,
                         "Name": "song_4_duration",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 1400.0
-                    },
-                    "Variable 207": {
-                        "DisplayObjectName": false,
-                        "Name": "song_4_effect_start",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 208": {
-                        "DisplayObjectName": false,
-                        "Name": "song_4_size",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 4.0
-                    },
-                    "Variable 209": {
-                        "DisplayObjectName": false,
-                        "Name": "stand_up_animation_speed",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 90.0
                     },
                     "Variable 21": {
                         "DisplayObjectName": false,
@@ -994,73 +994,73 @@
                     },
                     "Variable 210": {
                         "DisplayObjectName": false,
+                        "Name": "song_4_effect_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 211": {
+                        "DisplayObjectName": false,
+                        "Name": "song_4_size",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 4.0
+                    },
+                    "Variable 212": {
+                        "DisplayObjectName": false,
+                        "Name": "stand_up_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 90.0
+                    },
+                    "Variable 213": {
+                        "DisplayObjectName": false,
                         "Name": "standing_up_bool",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": false
                     },
-                    "Variable 211": {
+                    "Variable 214": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_active",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": false
                     },
-                    "Variable 212": {
+                    "Variable 215": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_animation_speed",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 30.0
                     },
-                    "Variable 213": {
+                    "Variable 216": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_concert_end",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 3000.0
                     },
-                    "Variable 214": {
+                    "Variable 217": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_damage",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 5.0
                     },
-                    "Variable 215": {
+                    "Variable 218": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_duration",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 4700.0
                     },
-                    "Variable 216": {
+                    "Variable 219": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_effect_active",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": false
-                    },
-                    "Variable 217": {
-                        "DisplayObjectName": false,
-                        "Name": "ultimate_finish_start",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 3850.0
-                    },
-                    "Variable 218": {
-                        "DisplayObjectName": false,
-                        "Name": "ultimate_range",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 15.0
-                    },
-                    "Variable 219": {
-                        "DisplayObjectName": false,
-                        "Name": "ultimate_reg_mod",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 1.0
                     },
                     "Variable 22": {
                         "DisplayObjectName": false,
@@ -1071,59 +1071,73 @@
                     },
                     "Variable 220": {
                         "DisplayObjectName": false,
+                        "Name": "ultimate_finish_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 3850.0
+                    },
+                    "Variable 221": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_range",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 15.0
+                    },
+                    "Variable 222": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_reg_mod",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 223": {
+                        "DisplayObjectName": false,
                         "Name": "ultimate_reg_orig",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 1.5
                     },
-                    "Variable 221": {
+                    "Variable 224": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_secondary_animation_speed",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 50.0
                     },
-                    "Variable 222": {
+                    "Variable 225": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_secondary_damage",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 2.5
                     },
-                    "Variable 223": {
+                    "Variable 226": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_secondary_effect_active",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": false
                     },
-                    "Variable 224": {
+                    "Variable 227": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_secondary_effect_start",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 3850.0
                     },
-                    "Variable 225": {
+                    "Variable 228": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_secondary_status_effect",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 2.0
                     },
-                    "Variable 226": {
+                    "Variable 229": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_status_effect",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
-                    },
-                    "Variable 227": {
-                        "DisplayObjectName": false,
-                        "Name": "walk_animation_speed",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 40.0
                     },
                     "Variable 23": {
                         "DisplayObjectName": false,
@@ -1131,6 +1145,13 @@
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 7.0
+                    },
+                    "Variable 230": {
+                        "DisplayObjectName": false,
+                        "Name": "walk_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 40.0
                     },
                     "Variable 24": {
                         "DisplayObjectName": false,
@@ -1340,7 +1361,7 @@
                         "Name": "heavy_3_damage",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 3.5
+                        "Value": 2.25
                     },
                     "Variable 51": {
                         "DisplayObjectName": false,
@@ -1743,11 +1764,11 @@
                 "Active": true
             }
         },
-        "Parent": "597528178",
+        "Parent": "743435612",
         "PrefabChild": true,
         "PrefabInstance": true,
         "Static": false,
-        "UID": "1491767753"
+        "UID": "1667359838"
     },
     "Jaskier_Circle_1": {
         "Active": true,
@@ -1915,11 +1936,11 @@
                 "velocityconstants": "0"
             }
         },
-        "Parent": "2017716577",
+        "Parent": "1281639256",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "2035371474"
+        "UID": "2041004446"
     },
     "Jaskier_Circle_2": {
         "Active": true,
@@ -2087,11 +2108,11 @@
                 "velocityconstants": "0"
             }
         },
-        "Parent": "2017716577",
+        "Parent": "1281639256",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "2098006106"
+        "UID": "1061109126"
     },
     "Jaskier_Circle_Length": {
         "Active": true,
@@ -2100,7 +2121,7 @@
                 "layer": "0",
                 "positionx": "0.000000",
                 "positiony": "0.000000",
-                "positionz": "10.000000",
+                "positionz": "15.000000",
                 "rotationw": "1.000000",
                 "rotationx": "0.000000",
                 "rotationy": "0.000000",
@@ -2110,11 +2131,11 @@
                 "scalez": "1.000018"
             }
         },
-        "Parent": "892693217",
+        "Parent": "1809252021",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1527884154"
+        "UID": "600312380"
     },
     "Jaskier_Concert_1": {
         "Active": true,
@@ -2282,11 +2303,11 @@
                 "velocityconstants": "0"
             }
         },
-        "Parent": "794027756",
+        "Parent": "365128666",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "2142138503"
+        "UID": "460683825"
     },
     "Jaskier_Concert_2": {
         "Active": true,
@@ -2454,11 +2475,11 @@
                 "velocityconstants": "0"
             }
         },
-        "Parent": "794027756",
+        "Parent": "365128666",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "482359402"
+        "UID": "858926047"
     },
     "Jaskier_Cone_1": {
         "Active": true,
@@ -2626,11 +2647,11 @@
                 "velocityconstants": "0"
             }
         },
-        "Parent": "741460412",
+        "Parent": "2072580270",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "3437266"
+        "UID": "1389768446"
     },
     "Jaskier_Cone_2": {
         "Active": true,
@@ -2798,11 +2819,11 @@
                 "velocityconstants": "0"
             }
         },
-        "Parent": "741460412",
+        "Parent": "2072580270",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "935211369"
+        "UID": "45779734"
     },
     "Jaskier_Cone_C": {
         "Active": true,
@@ -2821,11 +2842,11 @@
                 "scalez": "1.000018"
             }
         },
-        "Parent": "892693217",
+        "Parent": "1809252021",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1284745725"
+        "UID": "2117282310"
     },
     "Jaskier_Cone_D": {
         "Active": true,
@@ -2844,11 +2865,11 @@
                 "scalez": "1.000018"
             }
         },
-        "Parent": "892693217",
+        "Parent": "1809252021",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "962763309"
+        "UID": "118846674"
     },
     "Jaskier_Cone_Length": {
         "Active": true,
@@ -2867,11 +2888,11 @@
                 "scalez": "1.000018"
             }
         },
-        "Parent": "892693217",
+        "Parent": "1809252021",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1515198783"
+        "UID": "21470066"
     },
     "Jaskier_Front_1": {
         "Active": false,
@@ -2938,11 +2959,11 @@
                 "tmpScalez": "3.999928"
             }
         },
-        "Parent": "1491767753",
+        "Parent": "1667359838",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1363575394"
+        "UID": "285416184"
     },
     "Jaskier_Front_2": {
         "Active": false,
@@ -3009,11 +3030,11 @@
                 "tmpScalez": "6.000000"
             }
         },
-        "Parent": "1491767753",
+        "Parent": "1667359838",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "66892290"
+        "UID": "2130276045"
     },
     "Jaskier_Health_Potion": {
         "Active": true,
@@ -3167,11 +3188,11 @@
                 "velocityconstants": "0"
             }
         },
-        "Parent": "672063402",
+        "Parent": "716470484",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "792522228"
+        "UID": "815268411"
     },
     "Jaskier_Line_1": {
         "Active": false,
@@ -3229,11 +3250,11 @@
                 "tmpScalez": "4.000000"
             }
         },
-        "Parent": "1491767753",
+        "Parent": "1667359838",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1820406392"
+        "UID": "293960573"
     },
     "Jaskier_Line_2": {
         "Active": false,
@@ -3291,11 +3312,11 @@
                 "tmpScalez": "4.000000"
             }
         },
-        "Parent": "1491767753",
+        "Parent": "1667359838",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "471022433"
+        "UID": "309896923"
     },
     "Jaskier_Line_3": {
         "Active": false,
@@ -3353,11 +3374,11 @@
                 "tmpScalez": "4.000000"
             }
         },
-        "Parent": "1491767753",
+        "Parent": "1667359838",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "977518203"
+        "UID": "1712958421"
     },
     "Jaskier_Line_4": {
         "Active": false,
@@ -3415,11 +3436,11 @@
                 "tmpScalez": "4.000000"
             }
         },
-        "Parent": "1491767753",
+        "Parent": "1667359838",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "2038037633"
+        "UID": "1668859590"
     },
     "Jaskier_Mesh": {
         "Active": true,
@@ -3458,11 +3479,11 @@
                 }
             }
         },
-        "Parent": "1491767753",
+        "Parent": "1667359838",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1758595399"
+        "UID": "1030742813"
     },
     "Jaskier_Pivot": {
         "Active": true,
@@ -3481,11 +3502,11 @@
                 "scalez": "0.025400"
             }
         },
-        "Parent": "1491767753",
+        "Parent": "1667359838",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "685107368"
+        "UID": "1031835721"
     },
     "Jaskier_Potions": {
         "Active": true,
@@ -3504,11 +3525,11 @@
                 "scalez": "1.000000"
             }
         },
-        "Parent": "1491767753",
+        "Parent": "1667359838",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "672063402"
+        "UID": "716470484"
     },
     "Jaskier_Power_Potion": {
         "Active": true,
@@ -3662,11 +3683,11 @@
                 "velocityconstants": "0"
             }
         },
-        "Parent": "672063402",
+        "Parent": "716470484",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "122436551"
+        "UID": "1532315830"
     },
     "Jaskier_Revive": {
         "Active": true,
@@ -3685,169 +3706,11 @@
                 "scalez": "1.000000"
             }
         },
-        "Parent": "1491767753",
+        "Parent": "1667359838",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "187667677"
-    },
-    "Jaskier_Revive_1": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "layer": "0",
-                "positionx": "0.000000",
-                "positiony": "0.000000",
-                "positionz": "0.000000",
-                "rotationw": "1.000000",
-                "rotationx": "0.000000",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "1.000000",
-                "scaley": "1.000000",
-                "scalez": "1.000000"
-            },
-            "18": {
-                "Active": true,
-                "Duration": "1000",
-                "GradientColor": false,
-                "HorizontalBill": "0",
-                "Loop": true,
-                "PartAutoBlending": true,
-                "PartBlendEquation": 0,
-                "PartBlendFunc": 0,
-                "PartMBlFuncDst": 7,
-                "PartMBlFuncSrc": 6,
-                "Resources": {
-                    "ResourceTexture": "Library/Textures/280622247.dds"
-                },
-                "VerticalBill": "0",
-                "animation": "0",
-                "colors": [
-                    {
-                        "a": "1.000000",
-                        "x": "1.000000",
-                        "y": "1.000000",
-                        "z": "1.000000"
-                    }
-                ],
-                "curves": [
-                    {
-                        "0": {
-                            "NextX": "0.100000",
-                            "NextY": "0.100000",
-                            "PX": "0.000000",
-                            "PY": "0.000000",
-                            "PrevX": "0.000000",
-                            "PrevY": "0.000000"
-                        },
-                        "1": {
-                            "NextX": "1.000000",
-                            "NextY": "1.000000",
-                            "PX": "1.000000",
-                            "PY": "1.000000",
-                            "PrevX": "-0.100000",
-                            "PrevY": "-0.100000"
-                        },
-                        "multiplier": "1.000000",
-                        "name": "##scale",
-                        "num_points": "2",
-                        "type": "0"
-                    },
-                    {
-                        "0": {
-                            "NextX": "0.100000",
-                            "NextY": "0.100000",
-                            "PX": "0.000000",
-                            "PY": "0.000000",
-                            "PrevX": "0.000000",
-                            "PrevY": "0.000000"
-                        },
-                        "1": {
-                            "NextX": "1.000000",
-                            "NextY": "1.000000",
-                            "PX": "1.000000",
-                            "PY": "1.000000",
-                            "PrevX": "-0.100000",
-                            "PrevY": "-0.100000"
-                        },
-                        "multiplier": "1.000000",
-                        "name": "##rotation",
-                        "num_points": "2",
-                        "type": "0"
-                    }
-                ],
-                "cycles": "1.000000",
-                "emisionRate": "500.000000",
-                "externalAccelerationX": "0.000000",
-                "externalAccelerationY": "10.000000",
-                "externalAccelerationZ": "0.000000",
-                "followEmitter": true,
-                "grad_duration": "0",
-                "maxInitialRotation": [
-                    "0",
-                    "0",
-                    "0"
-                ],
-                "minInitialRotation": [
-                    "0",
-                    "0",
-                    "0"
-                ],
-                "num_colors": "1",
-                "num_curves": "2",
-                "num_gradients": "0",
-                "particleScaleOverTime": "0.000000",
-                "particleScaleRandomFactor1": "1.000000",
-                "particleScaleRandomFactor2": "1.000000",
-                "particlesLifeTime": "1000",
-                "particlesPerCreation": "1",
-                "particlesScaleX": "1.000000",
-                "particlesScaleY": "1.000000",
-                "particlesVelocityX": "0.000000",
-                "particlesVelocityY": "0.000000",
-                "particlesVelocityZ": "0.000000",
-                "positionX": "0.000000",
-                "positionY": "0.000000",
-                "positionZ": "0.000000",
-                "randomInitialRotation": false,
-                "randomStartFrame": false,
-                "rotationOvertime1": [
-                    "0",
-                    "0",
-                    "0"
-                ],
-                "rotationOvertime2": [
-                    "0",
-                    "0",
-                    "0"
-                ],
-                "rotationX": "0.000000",
-                "rotationY": "0.000000",
-                "rotationZ": "0.000000",
-                "rotationconstants": "0",
-                "scaleconstants": "0",
-                "separateAxis": "0",
-                "sizeX": "0.000000",
-                "sizeY": "0.000000",
-                "sizeZ": "0.000000",
-                "startFrame": "0",
-                "tiles_X": "1",
-                "tiles_Y": "1",
-                "velocityRandomFactor1X": "5.000000",
-                "velocityRandomFactor1Y": "5.000000",
-                "velocityRandomFactor1Z": "5.000000",
-                "velocityRandomFactor2X": "0.000000",
-                "velocityRandomFactor2Y": "0.000000",
-                "velocityRandomFactor2Z": "0.000000",
-                "velocityconstants": "0"
-            }
-        },
-        "Parent": "187667677",
-        "PrefabChild": true,
-        "PrefabInstance": false,
-        "Static": false,
-        "UID": "320832069"
+        "UID": "416083127"
     },
     "Jaskier_Run": {
         "Active": true,
@@ -3866,195 +3729,11 @@
                 "scalez": "1.000000"
             }
         },
-        "Parent": "1491767753",
+        "Parent": "1667359838",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "440739028"
-    },
-    "Jaskier_Run_Dust": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "layer": "0",
-                "positionx": "0.000000",
-                "positiony": "0.000000",
-                "positionz": "0.000000",
-                "rotationw": "1.000000",
-                "rotationx": "0.000000",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "1.000000",
-                "scaley": "1.000000",
-                "scalez": "1.000000"
-            },
-            "18": {
-                "Active": true,
-                "Duration": "600",
-                "GradientColor": true,
-                "HorizontalBill": "0",
-                "Loop": true,
-                "PartAutoBlending": true,
-                "PartBlendEquation": 0,
-                "PartBlendFunc": 0,
-                "PartMBlFuncDst": 7,
-                "PartMBlFuncSrc": 6,
-                "Resources": {
-                    "ResourceTexture": "Library/Textures/938294315.dds"
-                },
-                "VerticalBill": "0",
-                "animation": "0",
-                "colors": [
-                    {
-                        "a": "0.650980",
-                        "x": "0.603922",
-                        "y": "0.513726",
-                        "z": "0.317647"
-                    },
-                    {
-                        "a": "1.000000",
-                        "x": "0.658824",
-                        "y": "0.600000",
-                        "z": "0.380392"
-                    },
-                    {
-                        "a": "0.000000",
-                        "x": "0.211765",
-                        "y": "0.203922",
-                        "z": "0.172549"
-                    }
-                ],
-                "curves": [
-                    {
-                        "0": {
-                            "NextX": "0.100000",
-                            "NextY": "0.100000",
-                            "PX": "0.000000",
-                            "PY": "0.000000",
-                            "PrevX": "0.000000",
-                            "PrevY": "0.000000"
-                        },
-                        "1": {
-                            "NextX": "1.000000",
-                            "NextY": "1.000000",
-                            "PX": "1.000000",
-                            "PY": "1.000000",
-                            "PrevX": "-0.100000",
-                            "PrevY": "-0.100000"
-                        },
-                        "multiplier": "1.000000",
-                        "name": "##scale",
-                        "num_points": "2",
-                        "type": "0"
-                    },
-                    {
-                        "0": {
-                            "NextX": "0.100000",
-                            "NextY": "0.100000",
-                            "PX": "0.000000",
-                            "PY": "0.000000",
-                            "PrevX": "0.000000",
-                            "PrevY": "0.000000"
-                        },
-                        "1": {
-                            "NextX": "1.000000",
-                            "NextY": "1.000000",
-                            "PX": "1.000000",
-                            "PY": "1.000000",
-                            "PrevX": "-0.100000",
-                            "PrevY": "-0.100000"
-                        },
-                        "multiplier": "1.000000",
-                        "name": "##rotation",
-                        "num_points": "2",
-                        "type": "0"
-                    }
-                ],
-                "cycles": "1.000000",
-                "emisionRate": "200.000000",
-                "externalAccelerationX": "0.000000",
-                "externalAccelerationY": "3.000000",
-                "externalAccelerationZ": "0.000000",
-                "followEmitter": false,
-                "grad_duration": "600",
-                "gradients": [
-                    {
-                        "a": "0.000582",
-                        "x": "0.000092",
-                        "y": "0.000144",
-                        "z": "0.000105"
-                    },
-                    {
-                        "a": "-0.001667",
-                        "x": "-0.000745",
-                        "y": "-0.000660",
-                        "z": "-0.000346"
-                    }
-                ],
-                "maxInitialRotation": [
-                    "0",
-                    "0",
-                    "0"
-                ],
-                "minInitialRotation": [
-                    "0",
-                    "0",
-                    "0"
-                ],
-                "num_colors": "3",
-                "num_curves": "2",
-                "num_gradients": "2",
-                "particleScaleOverTime": "0.000000",
-                "particleScaleRandomFactor1": "1.000000",
-                "particleScaleRandomFactor2": "1.000000",
-                "particlesLifeTime": "1200",
-                "particlesPerCreation": "5",
-                "particlesScaleX": "0.300000",
-                "particlesScaleY": "0.300000",
-                "particlesVelocityX": "0.000000",
-                "particlesVelocityY": "4.500000",
-                "particlesVelocityZ": "0.000000",
-                "positionX": "0.000000",
-                "positionY": "0.000000",
-                "positionZ": "0.000000",
-                "randomInitialRotation": false,
-                "randomStartFrame": true,
-                "rotationOvertime1": [
-                    "0",
-                    "0",
-                    "-5"
-                ],
-                "rotationOvertime2": [
-                    "0",
-                    "0",
-                    "5"
-                ],
-                "rotationX": "0.000000",
-                "rotationY": "0.000000",
-                "rotationZ": "0.000000",
-                "rotationconstants": "1",
-                "scaleconstants": "0",
-                "separateAxis": "0",
-                "sizeX": "0.000000",
-                "sizeY": "0.000000",
-                "sizeZ": "0.000000",
-                "startFrame": "0",
-                "tiles_X": "1",
-                "tiles_Y": "1",
-                "velocityRandomFactor1X": "2.000000",
-                "velocityRandomFactor1Y": "-1.000000",
-                "velocityRandomFactor1Z": "1.500000",
-                "velocityRandomFactor2X": "-2.000000",
-                "velocityRandomFactor2Y": "-2.000000",
-                "velocityRandomFactor2Z": "-1.500000",
-                "velocityconstants": "0"
-            }
-        },
-        "Parent": "440739028",
-        "PrefabChild": true,
-        "PrefabInstance": false,
-        "Static": false,
-        "UID": "1445520052"
+        "UID": "1886690783"
     },
     "Jaskier_Slash": {
         "Active": true,
@@ -4084,11 +3763,11 @@
                 }
             }
         },
-        "Parent": "1491767753",
+        "Parent": "1667359838",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1025390931"
+        "UID": "314250841"
     },
     "Jaskier_Song_Circle": {
         "Active": true,
@@ -4107,11 +3786,11 @@
                 "scalez": "1.000000"
             }
         },
-        "Parent": "892693217",
+        "Parent": "1809252021",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "2017716577"
+        "UID": "1281639256"
     },
     "Jaskier_Song_Concert": {
         "Active": true,
@@ -4130,11 +3809,11 @@
                 "scalez": "1.000000"
             }
         },
-        "Parent": "892693217",
+        "Parent": "1809252021",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "794027756"
+        "UID": "365128666"
     },
     "Jaskier_Song_Cone": {
         "Active": true,
@@ -4153,11 +3832,11 @@
                 "scalez": "1.000000"
             }
         },
-        "Parent": "892693217",
+        "Parent": "1809252021",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "741460412"
+        "UID": "2072580270"
     },
     "Jaskier_Songs": {
         "Active": true,
@@ -4176,11 +3855,11 @@
                 "scalez": "1.000000"
             }
         },
-        "Parent": "1491767753",
+        "Parent": "1667359838",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "892693217"
+        "UID": "1809252021"
     },
     "Jaskier_Stamina_Potion": {
         "Active": true,
@@ -4334,11 +4013,11 @@
                 "velocityconstants": "0"
             }
         },
-        "Parent": "672063402",
+        "Parent": "716470484",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "352409806"
+        "UID": "1788897695"
     },
     "Out_Side": {
         "Active": true,
@@ -4363,11 +4042,11 @@
                 }
             }
         },
-        "Parent": "788841253",
+        "Parent": "297415205",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "383747877"
+        "UID": "2044984324"
     },
     "Position_Ring": {
         "Active": true,
@@ -4381,8 +4060,8 @@
                 "rotationx": "0.388476",
                 "rotationy": "0.030072",
                 "rotationz": "0.916844",
-                "scalex": "1.001026",
-                "scaley": "1.001026",
+                "scalex": "1.001090",
+                "scaley": "1.001090",
                 "scalez": "1.000000"
             },
             "13": {
@@ -4392,13 +4071,13 @@
                 }
             }
         },
-        "Parent": "608701598",
+        "Parent": "1398025453",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "2119148107"
+        "UID": "1528730332"
     },
-    "PreviewTexture": "Library/Textures/147369632.dds",
+    "PreviewTexture": "Library/Textures/1006013976.dds",
     "Slash_Controller": {
         "Active": true,
         "Components": {
@@ -4422,11 +4101,11 @@
                 }
             }
         },
-        "Parent": "2119148107",
+        "Parent": "1528730332",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "788841253"
+        "UID": "297415205"
     },
     "Slash_Jaskier": {
         "Active": true,
@@ -4445,11 +4124,11 @@
                 "scalez": "0.025400"
             }
         },
-        "Parent": "1025390931",
+        "Parent": "314250841",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "608701598"
+        "UID": "1398025453"
     },
     "Slash_Mesh_Jaskier": {
         "Active": true,
@@ -4464,8 +4143,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.540000",
-                "scaley": "2.540637",
-                "scalez": "2.540637"
+                "scaley": "2.540676",
+                "scalez": "2.540676"
             },
             "1": {
                 "Active": true,
@@ -4488,11 +4167,11 @@
                 }
             }
         },
-        "Parent": "1025390931",
+        "Parent": "314250841",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "2090613577"
+        "UID": "2041889272"
     },
     "mixamorig:Head": {
         "Active": true,
@@ -4517,11 +4196,11 @@
                 }
             }
         },
-        "Parent": "823175306",
+        "Parent": "756616457",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "391891537"
+        "UID": "767975534"
     },
     "mixamorig:HeadTop_End": {
         "Active": true,
@@ -4536,15 +4215,15 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000516",
-                "scalez": "1.000516"
+                "scaley": "1.000548",
+                "scalez": "1.000548"
             }
         },
-        "Parent": "391891537",
+        "Parent": "767975534",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "100962342"
+        "UID": "1324293255"
     },
     "mixamorig:Hips": {
         "Active": true,
@@ -4559,8 +4238,8 @@
                 "rotationy": "0.000040",
                 "rotationz": "-0.000037",
                 "scalex": "1.000000",
-                "scaley": "1.000516",
-                "scalez": "1.000516"
+                "scaley": "1.000548",
+                "scalez": "1.000548"
             },
             "13": {
                 "Active": true,
@@ -4569,11 +4248,11 @@
                 }
             }
         },
-        "Parent": "685107368",
+        "Parent": "1031835721",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "100784011"
+        "UID": "1959255944"
     },
     "mixamorig:LeftArm": {
         "Active": true,
@@ -4598,11 +4277,11 @@
                 }
             }
         },
-        "Parent": "888470096",
+        "Parent": "1622913501",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "57585428"
+        "UID": "1156249863"
     },
     "mixamorig:LeftFoot": {
         "Active": true,
@@ -4627,11 +4306,11 @@
                 }
             }
         },
-        "Parent": "1092407434",
+        "Parent": "956537577",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1364604009"
+        "UID": "1634754847"
     },
     "mixamorig:LeftForeArm": {
         "Active": true,
@@ -4656,11 +4335,11 @@
                 }
             }
         },
-        "Parent": "57585428",
+        "Parent": "1156249863",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1950597486"
+        "UID": "847204128"
     },
     "mixamorig:LeftHand": {
         "Active": true,
@@ -4685,11 +4364,11 @@
                 }
             }
         },
-        "Parent": "1950597486",
+        "Parent": "847204128",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "2124187467"
+        "UID": "412746986"
     },
     "mixamorig:LeftHandIndex1": {
         "Active": true,
@@ -4714,11 +4393,11 @@
                 }
             }
         },
-        "Parent": "2124187467",
+        "Parent": "412746986",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1594289352"
+        "UID": "379231799"
     },
     "mixamorig:LeftHandIndex2": {
         "Active": true,
@@ -4743,11 +4422,11 @@
                 }
             }
         },
-        "Parent": "1594289352",
+        "Parent": "379231799",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1179196750"
+        "UID": "1333121961"
     },
     "mixamorig:LeftHandIndex3": {
         "Active": true,
@@ -4772,11 +4451,11 @@
                 }
             }
         },
-        "Parent": "1179196750",
+        "Parent": "1333121961",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "704590587"
+        "UID": "1188307088"
     },
     "mixamorig:LeftHandIndex4": {
         "Active": true,
@@ -4791,15 +4470,15 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000516",
-                "scalez": "1.000516"
+                "scaley": "1.000548",
+                "scalez": "1.000548"
             }
         },
-        "Parent": "704590587",
+        "Parent": "1188307088",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1479792753"
+        "UID": "1467756620"
     },
     "mixamorig:LeftHandMiddle1": {
         "Active": true,
@@ -4824,11 +4503,11 @@
                 }
             }
         },
-        "Parent": "2124187467",
+        "Parent": "412746986",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1270775435"
+        "UID": "821782172"
     },
     "mixamorig:LeftHandMiddle2": {
         "Active": true,
@@ -4853,11 +4532,11 @@
                 }
             }
         },
-        "Parent": "1270775435",
+        "Parent": "821782172",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "625271029"
+        "UID": "37273438"
     },
     "mixamorig:LeftHandMiddle3": {
         "Active": true,
@@ -4882,11 +4561,11 @@
                 }
             }
         },
-        "Parent": "625271029",
+        "Parent": "37273438",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "353301672"
+        "UID": "853781422"
     },
     "mixamorig:LeftHandMiddle4": {
         "Active": true,
@@ -4901,15 +4580,15 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000516",
-                "scalez": "1.000516"
+                "scaley": "1.000548",
+                "scalez": "1.000548"
             }
         },
-        "Parent": "353301672",
+        "Parent": "853781422",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "2085497221"
+        "UID": "916515749"
     },
     "mixamorig:LeftHandPinky1": {
         "Active": true,
@@ -4934,11 +4613,11 @@
                 }
             }
         },
-        "Parent": "2124187467",
+        "Parent": "412746986",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "885165924"
+        "UID": "561357818"
     },
     "mixamorig:LeftHandPinky2": {
         "Active": true,
@@ -4963,11 +4642,11 @@
                 }
             }
         },
-        "Parent": "885165924",
+        "Parent": "561357818",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1946060492"
+        "UID": "237755225"
     },
     "mixamorig:LeftHandPinky3": {
         "Active": true,
@@ -4992,11 +4671,11 @@
                 }
             }
         },
-        "Parent": "1946060492",
+        "Parent": "237755225",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1934224302"
+        "UID": "2100052296"
     },
     "mixamorig:LeftHandPinky4": {
         "Active": true,
@@ -5011,15 +4690,15 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000516",
-                "scalez": "1.000516"
+                "scaley": "1.000548",
+                "scalez": "1.000548"
             }
         },
-        "Parent": "1934224302",
+        "Parent": "2100052296",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "373077113"
+        "UID": "611761115"
     },
     "mixamorig:LeftHandRing1": {
         "Active": true,
@@ -5044,11 +4723,11 @@
                 }
             }
         },
-        "Parent": "2124187467",
+        "Parent": "412746986",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "186973708"
+        "UID": "377416464"
     },
     "mixamorig:LeftHandRing2": {
         "Active": true,
@@ -5073,11 +4752,11 @@
                 }
             }
         },
-        "Parent": "186973708",
+        "Parent": "377416464",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1398140201"
+        "UID": "1649219099"
     },
     "mixamorig:LeftHandRing3": {
         "Active": true,
@@ -5102,11 +4781,11 @@
                 }
             }
         },
-        "Parent": "1398140201",
+        "Parent": "1649219099",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "927666252"
+        "UID": "774737330"
     },
     "mixamorig:LeftHandRing4": {
         "Active": true,
@@ -5121,15 +4800,15 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000516",
-                "scalez": "1.000516"
+                "scaley": "1.000548",
+                "scalez": "1.000548"
             }
         },
-        "Parent": "927666252",
+        "Parent": "774737330",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1628930614"
+        "UID": "1788373878"
     },
     "mixamorig:LeftHandThumb1": {
         "Active": true,
@@ -5154,11 +4833,11 @@
                 }
             }
         },
-        "Parent": "2124187467",
+        "Parent": "412746986",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1314362871"
+        "UID": "1570874472"
     },
     "mixamorig:LeftHandThumb2": {
         "Active": true,
@@ -5183,11 +4862,11 @@
                 }
             }
         },
-        "Parent": "1314362871",
+        "Parent": "1570874472",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "831759574"
+        "UID": "951924343"
     },
     "mixamorig:LeftHandThumb3": {
         "Active": true,
@@ -5212,11 +4891,11 @@
                 }
             }
         },
-        "Parent": "831759574",
+        "Parent": "951924343",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1036760099"
+        "UID": "431853936"
     },
     "mixamorig:LeftHandThumb4": {
         "Active": true,
@@ -5231,15 +4910,15 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000516",
-                "scalez": "1.000516"
+                "scaley": "1.000548",
+                "scalez": "1.000548"
             }
         },
-        "Parent": "1036760099",
+        "Parent": "431853936",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1201993162"
+        "UID": "1331820256"
     },
     "mixamorig:LeftLeg": {
         "Active": true,
@@ -5264,11 +4943,11 @@
                 }
             }
         },
-        "Parent": "854555082",
+        "Parent": "1491787078",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1092407434"
+        "UID": "956537577"
     },
     "mixamorig:LeftShoulder": {
         "Active": true,
@@ -5293,11 +4972,11 @@
                 }
             }
         },
-        "Parent": "1007760973",
+        "Parent": "850707034",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "888470096"
+        "UID": "1622913501"
     },
     "mixamorig:LeftToeBase": {
         "Active": true,
@@ -5322,11 +5001,11 @@
                 }
             }
         },
-        "Parent": "1364604009",
+        "Parent": "1634754847",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "419167309"
+        "UID": "928879281"
     },
     "mixamorig:LeftToe_End": {
         "Active": true,
@@ -5341,15 +5020,15 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000516",
-                "scalez": "1.000516"
+                "scaley": "1.000548",
+                "scalez": "1.000548"
             }
         },
-        "Parent": "419167309",
+        "Parent": "928879281",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "691940806"
+        "UID": "181876743"
     },
     "mixamorig:LeftUpLeg": {
         "Active": true,
@@ -5363,8 +5042,8 @@
                 "rotationx": "0.000205",
                 "rotationy": "-0.005509",
                 "rotationz": "0.999924",
-                "scalex": "1.000544",
-                "scaley": "1.000767",
+                "scalex": "1.000603",
+                "scaley": "1.000827",
                 "scalez": "1.000000"
             },
             "13": {
@@ -5374,11 +5053,11 @@
                 }
             }
         },
-        "Parent": "100784011",
+        "Parent": "1959255944",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "854555082"
+        "UID": "1491787078"
     },
     "mixamorig:Neck": {
         "Active": true,
@@ -5403,11 +5082,11 @@
                 }
             }
         },
-        "Parent": "1007760973",
+        "Parent": "850707034",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "823175306"
+        "UID": "756616457"
     },
     "mixamorig:RightArm": {
         "Active": true,
@@ -5432,11 +5111,11 @@
                 }
             }
         },
-        "Parent": "385235751",
+        "Parent": "705289704",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "574952988"
+        "UID": "760893529"
     },
     "mixamorig:RightFoot": {
         "Active": true,
@@ -5461,11 +5140,11 @@
                 }
             }
         },
-        "Parent": "1938177531",
+        "Parent": "1636683019",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "722926506"
+        "UID": "2026155979"
     },
     "mixamorig:RightForeArm": {
         "Active": true,
@@ -5490,11 +5169,11 @@
                 }
             }
         },
-        "Parent": "574952988",
+        "Parent": "760893529",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1854281115"
+        "UID": "41778313"
     },
     "mixamorig:RightHand": {
         "Active": true,
@@ -5519,11 +5198,11 @@
                 }
             }
         },
-        "Parent": "1854281115",
+        "Parent": "41778313",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "926068010"
+        "UID": "955071335"
     },
     "mixamorig:RightHandIndex1": {
         "Active": true,
@@ -5548,11 +5227,11 @@
                 }
             }
         },
-        "Parent": "926068010",
+        "Parent": "955071335",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "2120122007"
+        "UID": "1470324972"
     },
     "mixamorig:RightHandIndex2": {
         "Active": true,
@@ -5577,11 +5256,11 @@
                 }
             }
         },
-        "Parent": "2120122007",
+        "Parent": "1470324972",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "2020740096"
+        "UID": "1391874063"
     },
     "mixamorig:RightHandIndex3": {
         "Active": true,
@@ -5606,11 +5285,11 @@
                 }
             }
         },
-        "Parent": "2020740096",
+        "Parent": "1391874063",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "2145024999"
+        "UID": "612052895"
     },
     "mixamorig:RightHandIndex4": {
         "Active": true,
@@ -5625,15 +5304,15 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000516",
-                "scalez": "1.000516"
+                "scaley": "1.000548",
+                "scalez": "1.000548"
             }
         },
-        "Parent": "2145024999",
+        "Parent": "612052895",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "625159352"
+        "UID": "1364079021"
     },
     "mixamorig:RightHandMiddle1": {
         "Active": true,
@@ -5658,11 +5337,11 @@
                 }
             }
         },
-        "Parent": "926068010",
+        "Parent": "955071335",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1168171843"
+        "UID": "376199760"
     },
     "mixamorig:RightHandMiddle2": {
         "Active": true,
@@ -5687,11 +5366,11 @@
                 }
             }
         },
-        "Parent": "1168171843",
+        "Parent": "376199760",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1938685966"
+        "UID": "692932148"
     },
     "mixamorig:RightHandMiddle3": {
         "Active": true,
@@ -5716,11 +5395,11 @@
                 }
             }
         },
-        "Parent": "1938685966",
+        "Parent": "692932148",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1760941289"
+        "UID": "1556429700"
     },
     "mixamorig:RightHandMiddle4": {
         "Active": true,
@@ -5735,15 +5414,15 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000516",
-                "scalez": "1.000516"
+                "scaley": "1.000548",
+                "scalez": "1.000548"
             }
         },
-        "Parent": "1760941289",
+        "Parent": "1556429700",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "799557886"
+        "UID": "314799727"
     },
     "mixamorig:RightHandPinky1": {
         "Active": true,
@@ -5768,11 +5447,11 @@
                 }
             }
         },
-        "Parent": "926068010",
+        "Parent": "955071335",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1095967319"
+        "UID": "1601175832"
     },
     "mixamorig:RightHandPinky2": {
         "Active": true,
@@ -5797,11 +5476,11 @@
                 }
             }
         },
-        "Parent": "1095967319",
+        "Parent": "1601175832",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "99254542"
+        "UID": "1733967549"
     },
     "mixamorig:RightHandPinky3": {
         "Active": true,
@@ -5826,11 +5505,11 @@
                 }
             }
         },
-        "Parent": "99254542",
+        "Parent": "1733967549",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1745576183"
+        "UID": "1908996471"
     },
     "mixamorig:RightHandPinky4": {
         "Active": true,
@@ -5845,15 +5524,15 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000516",
-                "scalez": "1.000516"
+                "scaley": "1.000548",
+                "scalez": "1.000548"
             }
         },
-        "Parent": "1745576183",
+        "Parent": "1908996471",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "512369266"
+        "UID": "627878308"
     },
     "mixamorig:RightHandRing1": {
         "Active": true,
@@ -5878,11 +5557,11 @@
                 }
             }
         },
-        "Parent": "926068010",
+        "Parent": "955071335",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1957291516"
+        "UID": "1486046583"
     },
     "mixamorig:RightHandRing2": {
         "Active": true,
@@ -5907,11 +5586,11 @@
                 }
             }
         },
-        "Parent": "1957291516",
+        "Parent": "1486046583",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "17815051"
+        "UID": "729493524"
     },
     "mixamorig:RightHandRing3": {
         "Active": true,
@@ -5936,11 +5615,11 @@
                 }
             }
         },
-        "Parent": "17815051",
+        "Parent": "729493524",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1203601352"
+        "UID": "80382854"
     },
     "mixamorig:RightHandRing4": {
         "Active": true,
@@ -5955,15 +5634,15 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000516",
-                "scalez": "1.000516"
+                "scaley": "1.000548",
+                "scalez": "1.000548"
             }
         },
-        "Parent": "1203601352",
+        "Parent": "80382854",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1117821652"
+        "UID": "2139777899"
     },
     "mixamorig:RightHandThumb1": {
         "Active": true,
@@ -5988,11 +5667,11 @@
                 }
             }
         },
-        "Parent": "926068010",
+        "Parent": "955071335",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1201350259"
+        "UID": "389030242"
     },
     "mixamorig:RightHandThumb2": {
         "Active": true,
@@ -6017,11 +5696,11 @@
                 }
             }
         },
-        "Parent": "1201350259",
+        "Parent": "389030242",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1160782130"
+        "UID": "610722318"
     },
     "mixamorig:RightHandThumb3": {
         "Active": true,
@@ -6046,11 +5725,11 @@
                 }
             }
         },
-        "Parent": "1160782130",
+        "Parent": "610722318",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "708068826"
+        "UID": "1069774525"
     },
     "mixamorig:RightHandThumb4": {
         "Active": true,
@@ -6065,15 +5744,15 @@
                 "rotationy": "-0.000000",
                 "rotationz": "-0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000516",
-                "scalez": "1.000516"
+                "scaley": "1.000548",
+                "scalez": "1.000548"
             }
         },
-        "Parent": "708068826",
+        "Parent": "1069774525",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "972618061"
+        "UID": "1891843418"
     },
     "mixamorig:RightLeg": {
         "Active": true,
@@ -6098,11 +5777,11 @@
                 }
             }
         },
-        "Parent": "1257685022",
+        "Parent": "877141691",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1938177531"
+        "UID": "1636683019"
     },
     "mixamorig:RightShoulder": {
         "Active": true,
@@ -6127,11 +5806,11 @@
                 }
             }
         },
-        "Parent": "1007760973",
+        "Parent": "850707034",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "385235751"
+        "UID": "705289704"
     },
     "mixamorig:RightToeBase": {
         "Active": true,
@@ -6156,11 +5835,11 @@
                 }
             }
         },
-        "Parent": "722926506",
+        "Parent": "2026155979",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "292039487"
+        "UID": "1247093470"
     },
     "mixamorig:RightToe_End": {
         "Active": true,
@@ -6175,15 +5854,15 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000516",
-                "scalez": "1.000516"
+                "scaley": "1.000548",
+                "scalez": "1.000548"
             }
         },
-        "Parent": "292039487",
+        "Parent": "1247093470",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1853438278"
+        "UID": "1130626660"
     },
     "mixamorig:RightUpLeg": {
         "Active": true,
@@ -6197,8 +5876,8 @@
                 "rotationx": "-0.000169",
                 "rotationy": "-0.004364",
                 "rotationz": "0.999931",
-                "scalex": "1.001032",
-                "scaley": "1.001023",
+                "scalex": "1.001096",
+                "scaley": "1.001087",
                 "scalez": "1.000000"
             },
             "13": {
@@ -6208,11 +5887,11 @@
                 }
             }
         },
-        "Parent": "100784011",
+        "Parent": "1959255944",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1257685022"
+        "UID": "877141691"
     },
     "mixamorig:Spine": {
         "Active": true,
@@ -6237,11 +5916,11 @@
                 }
             }
         },
-        "Parent": "100784011",
+        "Parent": "1959255944",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "228971702"
+        "UID": "1493098722"
     },
     "mixamorig:Spine1": {
         "Active": true,
@@ -6266,11 +5945,11 @@
                 }
             }
         },
-        "Parent": "228971702",
+        "Parent": "1493098722",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "467753261"
+        "UID": "2080191327"
     },
     "mixamorig:Spine2": {
         "Active": true,
@@ -6295,10 +5974,10 @@
                 }
             }
         },
-        "Parent": "467753261",
+        "Parent": "2080191327",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1007760973"
+        "UID": "850707034"
     }
 }
