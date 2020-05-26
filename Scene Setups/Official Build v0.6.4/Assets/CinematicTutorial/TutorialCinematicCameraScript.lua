@@ -16,13 +16,12 @@ function GetTableTutorialCinematicCameraScript()
     lua_table.cube[4] = "Cube_4"
     lua_table.cube[5] = "Cube_5"
     lua_table.cube[6] = "Cube_6"
-    lua_table.cube[7] = "Cube_7"
-    lua_table.cube[8] = "Cube_8"
-    lua_table.cube[9] = "Cube_9"
 
     -- Camera target IDs
     local cube_ID = {}
     local BarID = 0
+    local FadeScreen = 0
+    local fade_speed = 0
 
     -- Time management
     local time = 0
@@ -31,7 +30,6 @@ function GetTableTutorialCinematicCameraScript()
     lua_table.skip_threshold = 0
 
     --Values declaration
-    local values_sum = 0
     local values = {}
     values.x = 0
     values.y = 0
@@ -61,10 +59,7 @@ function GetTableTutorialCinematicCameraScript()
         local x = Lerp(pos[1], target_pos[1], values.x)
         local y = Lerp(pos[2], target_pos[2], values.y)
         local z = Lerp(pos[3], target_pos[3], values.z)
-                        
         lua_table.Transform:SetPosition(x, y, z, lua_table.GameObjectFunctions:GetMyUID())
-
-        values_sum = values.x + values.y + values.z
     end
 
     function lua_table:Awake()
@@ -73,19 +68,16 @@ function GetTableTutorialCinematicCameraScript()
 
     function lua_table:Start()
         -- Camera initial position (Players unseen)
-        lua_table.Transform:SetPosition(0, 25, -18, lua_table.GameObjectFunctions:GetMyUID())
+        lua_table.Transform:SetPosition(-47, 45, 287, lua_table.GameObjectFunctions:GetMyUID())
 
         cube_ID[1] = lua_table.GameObjectFunctions:FindGameObject(lua_table.cube[1])
-        cube_ID[2] = lua_table.GameObjectFunctions:FindGameObject(lua_table.cube[2])
-        cube_ID[3] = lua_table.GameObjectFunctions:FindGameObject(lua_table.cube[3])
-        cube_ID[4] = lua_table.GameObjectFunctions:FindGameObject(lua_table.cube[4])
-        cube_ID[5] = lua_table.GameObjectFunctions:FindGameObject(lua_table.cube[5])
-        cube_ID[6] = lua_table.GameObjectFunctions:FindGameObject(lua_table.cube[6])
-        cube_ID[7] = lua_table.GameObjectFunctions:FindGameObject(lua_table.cube[7])
-        cube_ID[8] = lua_table.GameObjectFunctions:FindGameObject(lua_table.cube[8])
-        cube_ID[9] = lua_table.GameObjectFunctions:FindGameObject(lua_table.cube[9])
+        -- cube_ID[2] = lua_table.GameObjectFunctions:FindGameObject(lua_table.cube[2])
+        -- cube_ID[3] = lua_table.GameObjectFunctions:FindGameObject(lua_table.cube[3])
+        -- cube_ID[4] = lua_table.GameObjectFunctions:FindGameObject(lua_table.cube[4])
+        -- cube_ID[5] = lua_table.GameObjectFunctions:FindGameObject(lua_table.cube[5])
 
         BarID = lua_table.GameObjectFunctions:FindGameObject("SkipBar")
+        FadeScreen = lua_table.GameObjectFunctions:FindGameObject("TutorialFadeScreen")
 
         started_time = lua_table.System:GameTime()
     end
@@ -97,6 +89,7 @@ function GetTableTutorialCinematicCameraScript()
             lua_table.skip_threshold = 0.00
         end
 
+        -------------------- Skip scene
         if lua_table.Input:IsGamepadButton(1, "BUTTON_A", "REPEAT") and next_scene == true then
             lua_table.skip_threshold = lua_table.skip_threshold + 0.4
         else 
@@ -110,42 +103,36 @@ function GetTableTutorialCinematicCameraScript()
 
         lua_table.UI:SetUICircularBarPercentage(lua_table.skip_threshold, BarID)
 
-        if time > 0 and time < 5 -- First
+        --------------------------------------------------------------------------------------------------------------------------------------------------
+
+        if time > 0 and time < 12 -- First
         then
-            GoTo(1, 1.5)
+            GoTo(1, 0.75)
         end
-        if time > 5 and time < 10 -- Second
+
+        if time > 8 and time < 12
         then
-            GoTo(2, 0.75)
+            fade_speed = fade_speed + 0.01
+            lua_table.UI:ChangeUIComponentAlpha("Image", fade_speed, FadeScreen)
         end
-        if time > 10 and time < 15 -- Third
-        then
-            GoTo(3, 0.75)
-        end
-        if time > 15 and time < 20 -- Fourth
-        then
-            GoTo(4, 0.75)
-        end
-        if time > 20 and time < 25 -- Fifth
-        then
-            GoTo(5, 0.75)
-        end
-        if time > 25 and time < 30 -- Seventh
-        then
-            GoTo(6, 0.75)
-        end
-        if time > 30 and time < 35 -- Eighth
-        then
-            GoTo(7, 0.75)
-        end
-        if time > 35 and time < 40 -- Nineth
-        then
-            GoTo(8, 0.75)
-        end
-        if time > 40 and time < 45 -- Tenth
-        then
-            GoTo(9, 0.5)
-        end
+        
+        
+        -- if time > 5 and time < 10 -- Second
+        -- then
+        --     GoTo(2, 0.75)
+        -- end
+        -- if time > 10 and time < 15 -- Third
+        -- then
+        --     GoTo(3, 0.75)
+        -- end
+        -- if time > 15 and time < 20 -- Fourth
+        -- then
+        --     GoTo(4, 0.75)
+        -- end
+        -- if time > 20 and time < 25 -- Fifth
+        -- then
+        --     GoTo(5, 0.75)
+        -- end
 
         if time > 55 and next_scene == true
         then
