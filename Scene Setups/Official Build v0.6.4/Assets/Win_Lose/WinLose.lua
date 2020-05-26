@@ -30,6 +30,12 @@ function GetTableWinLose()
     local jaskier_x = 0
     local jaskier_y = 0
     local jaskier_z = 0
+
+    local Kikimora = 0
+    local kikimora_script = 0
+
+    local FinalEnemy = 0
+    local finalenemy_script = 0
     
     local is_win = false
     local is_lose = false
@@ -84,14 +90,14 @@ function GetTableWinLose()
     
         if fade_flag == true
         then
-            --if current_level == 1
-            --then
+            if current_level == 1
+            then
                 lua_table.GO:SetActiveGameObject(true, mainmenu)
                 lua_table.GO:SetActiveGameObject(true, nextlevel)
-            --elseif current_level == 2
-            --then
-            --    lua_table.GO:SetActiveGameObject(true, only_mainmenu)
-            --end
+            elseif current_level == 2
+            then
+                lua_table.GO:SetActiveGameObject(true, only_mainmenu)
+            end
         end
     end
     
@@ -220,6 +226,15 @@ function GetTableWinLose()
             jaskier_x = 0
             jaskier_y = 0
             jaskier_z = 0
+        elseif last_checkpoint == 2
+        then
+            geralt_x = 0
+            geralt_y = 0
+            geralt_z = 0
+    
+            jaskier_x = 0
+            jaskier_y = 0
+            jaskier_z = 0
         end
     end
     
@@ -264,10 +279,32 @@ function GetTableWinLose()
         only_mainmenu = lua_table.GO:FindGameObject("OnlyMainMenu")
         
         Geralt = lua_table.GO:FindGameObject("Geralt")
-        --geralt_script = lua_table.GO:GetScript(Geralt)
+        if Geralt > 0
+        then
+            geralt_script = lua_table.GO:GetScript(Geralt)
+        end
         
         Jaskier = lua_table.GO:FindGameObject("Jaskier")
-        --jaskier_script = lua_table.GO:GetScript(Jaskier)
+        if Jaskier > 0
+        then
+            jaskier_script = lua_table.GO:GetScript(Jaskier)
+        end
+        
+        if current_level == 1
+        then
+            FinalEnemy = lua_table.GO:FindGameObject("FinalEnemy")
+            if FinalEnemy > 0
+            then
+                finalenemy_script = lua_table.GO:GetScript(FinalEnemy)
+            end
+        elseif current_level == 2
+        then
+            Kikimora = lua_table.GO:FindGameObject("Kikimora")
+            if Kikimora > 0
+            then
+                kikimora_script = lua_table.GO:GetScript(Kikimora)
+            end
+        end
     end
     
     function lua_table:Start()
@@ -291,29 +328,33 @@ function GetTableWinLose()
         --change scene
         if load_level1 == true
         then
+            load_level1 = false
             lua_table.Scene:LoadScene(lua_table.level1_uid)
         elseif load_level2 == true
         then
+            load_level2 = false
             lua_table.Scene:LoadScene(lua_table.level2_uid)
         elseif load_mainmenu == true
         then
+            load_mainmenu = false
             lua_table.Scene:LoadScene(lua_table.mm_uid)
         end
     
-        ----win condition
-        --if current_level == 1 and is_win == false --and win condition**
-        --then
-        --    is_win = true
-        --elseif current_level == 2 and is_win == false --and kikimora is dead**
-        --then
-        --    is_win = true
-        --end
-    
-        ----lose condition
-        --if geralt_script.current_state <= -3 and jaskier_script.current_state <= -3 and is_lose == false
-        --then
-        --    is_lose = true
-        --end
+        --win condition
+        if current_level == 1 and FinalEnemy > 0 and finalenemy_script.current_state == 5 and is_win == false
+        then
+            is_win = true
+        elseif current_level == 2 and Kikimora > 0 and kikimora_script.dead == true and is_win == false
+        then
+            is_win = true
+        end
+
+        
+        --lose condition
+        if Geralt > 0 and Jaskier > 0 and geralt_script.current_state <= -3 and jaskier_script.current_state <= -3 and is_lose == false
+        then
+            is_lose = true
+        end
     
         --check win/lose bools
         if is_win == true
