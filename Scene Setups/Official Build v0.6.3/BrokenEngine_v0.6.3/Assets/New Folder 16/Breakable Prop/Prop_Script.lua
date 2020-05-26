@@ -44,18 +44,19 @@ lua_table.current_type = type.BOX
 -----------------------------------------------------------------------------------------
 -- Methods
 -----------------------------------------------------------------------------------------
+local barrel_particles
+local barrel_particles_parent
 
 -- Main Code
 function lua_table:Awake ()
-	lua_table.SystemFunctions:LOG ("This Log was called from Camera Script on AWAKE")
 	-- Get my own UID
-	lua_table.myUID = lua_table.GameObjectFunctions:GetMyUID()
-	lua_table.parent = lua_table.GameObjectFunctions:GetGameObjectParent(lua_table.myUID)
-	
 end
 
 function lua_table:Start ()
-	lua_table.SystemFunctions:LOG ("This Log was called from Camera Script on START")
+	lua_table.myUID = lua_table.GameObjectFunctions:GetMyUID()
+	lua_table.parent = lua_table.GameObjectFunctions:GetGameObjectParent(lua_table.myUID)
+	barrel_particles_parent = lua_table.GameObjectFunctions:FindChildGameObjectFromGO("Barrel_Particles", lua_table.parent)
+	barrel_particles = lua_table.GameObjectFunctions:GetGOChilds(barrel_particles_parent)
 end
 
 function lua_table:Update ()
@@ -66,15 +67,14 @@ function lua_table:Update ()
 		lua_table.GameObjectFunctions:SetActiveGameObject(false,lua_table.myUID)
 		Destroyable = lua_table.GameObjectFunctions:FindChildGameObjectFromGO("Destructed",lua_table.parent)
 		lua_table.GameObjectFunctions:SetActiveGameObject(true,Destroyable)
-		lua_table.TransformFunctions:SetPosition(position[1],position[2],position[3],Destroyable)
-		lua_table.TransformFunctions:SetObjectRotation(rotation[1] + 90,rotation[2],rotation[3],Destroyable)
-		if Player ~= 0
-		then
-		  local playerID = lua_table.GameObjectFunctions:GetGameObjectParent(Player)
-				local propTable = lua_table.GameObjectFunctions:GetScript(Destroyable)
-				propTable.Player = playerID
-		end
+		playParticles()
 		current_state = state.DESTROYED
+	end
+end
+
+local function playParticles()
+	for i = 1, #barrel_particles do
+		lua_table.ParticlesFunctions:PlayParticleEmitter(barrel_particles[i])
 	end
 end
 
@@ -85,7 +85,7 @@ function lua_table:OnTriggerEnter()
 	local layer = lua_table.GameObjectFunctions:GetLayerByID(collider)
 	if layer == 2 or layer == 4 --Checks if its player/enemy attack collider layer
 	then
-	
+		playParticles()
 		lua_table.health = lua_table.health - 1
 		if lua_table.health > 0
 		then

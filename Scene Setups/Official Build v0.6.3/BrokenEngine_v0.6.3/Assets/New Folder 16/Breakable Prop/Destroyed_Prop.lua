@@ -4,19 +4,22 @@ lua_table.System = Scripting.System()
 lua_table.Particles = Scripting.Particles()
 lua_table.GameObjectFunctions = Scripting.GameObject()
 lua_table.AudioFunctions = Scripting.Audio()
+lua_table.Scenes = Scripting.Scenes()
+lua_table.Transform = Scripting.Transform()
 
 lua_table.type = 0
 lua_table.Random = 1
-lua_table.Player = 0
 lua_table.myUID = 0
 
+lua_table.power_potion = 0
+lua_table.stamina_potion = 0
+lua_table.health_potion = 0
 
-local Emmiter_UID = 0
+local barrel_particles
 
 function lua_table:Awake()
 	lua_table.myUID = lua_table.GameObjectFunctions:GetMyUID()
-  Emmiter_UID = lua_table.GameObjectFunctions:FindChildGameObject("Particles")
-
+	local parent = lua_table.GameObjectFunctions:GetGameObjectParent(lua_table.myUID)
 end
 
 function lua_table:Start()
@@ -34,38 +37,23 @@ function lua_table:Start()
 			lua_table.type = 2
 		end
 	end
-	
-	local script = lua_table.GameObjectFunctions:GetScript(lua_table.Player)
-
+	local position = {}
+	local rotation = {}
+	position = lua_table.Transform:GetPosition(lua_table.myUID)
+	rotation = lua_table.Transform:GetRotation(lua_table.myUID)
 	if lua_table.type == 0
 	then
-    local potion = script.item_library.health_potion
-    if potion < 5
-    then
-		lua_table.AudioFunctions:PlayAudioEvent("Play_Potion_health")
-		potion = potion + 1
-		lua_table.Particles:SetParticleColor(255,255,0,255,Emmiter_UID)
-    end
+		lua_table.Scenes:Instantiate(lua_table.health_potion, position[1], position[2], position[3], rotation[1], rotation[2], rotation[3])
 	elseif lua_table.type == 1
 	then
-    local potion = script.item_library.stamina_potion
-    if potion < 5
-    then
-		lua_table.AudioFunctions:PlayAudioEvent("Play_Potion_stamina")
-		potion = potion + 1
-		lua_table.Particles:SetParticleColor(255,0,0,255,Emmiter_UID)
-    end
+		lua_table.Scenes:Instantiate(lua_table.stamina_potion, position[1], position[2], position[3], rotation[1], rotation[2], rotation[3])
 	elseif lua_table.type == 2
 	then
-    local potion = script.item_library.power_potion
-    if potion < 5
-    then
-		lua_table.AudioFunctions:PlayAudioEvent("Play_Potion_power")
-		potion = potion + 1
-		lua_table.Particles:SetParticleColor(255,0,200,255,Emmiter_UID)
-    end
+		lua_table.Scenes:Instantiate(lua_table.power_potion, position[1], position[2], position[3], rotation[1], rotation[2], rotation[3])
 	end
+
 end
+
 
 function lua_table:Update()
 
