@@ -390,7 +390,7 @@ lua_table.energy_reg_orig = 7
 		attack_hit = 2,
 		attack_finished = 3
 	}
-	local enemy_hit_curr_stage = nemy_hit_stages.awaiting_attack
+	local enemy_hit_curr_stage = enemy_hit_stages.awaiting_attack
 	local enemy_hit_started_at = 0
 	local enemy_hit_duration = 200
 	
