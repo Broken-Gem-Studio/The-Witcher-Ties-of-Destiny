@@ -173,6 +173,8 @@ local jaskierUlt = false
 local geraltUlt = false
 local geraltStart12 = false
 local jaskierStart12 = false
+local geraltSpell = false
+local jaskierSpell = false
 lua_table.PauseStep12 = false
 
 -- Variables STEP 13
@@ -611,6 +613,16 @@ local function Step11()
         moveStep11 = true
     end
 
+    if lua_table.InputFunctions:IsGamepadButton(lua_table.GeraltNumber, "BUTTON_X", "DOWN")
+    then
+        geraltSpell = true
+    end
+
+    if lua_table.InputFunctions:IsGamepadButton(lua_table.JaskierNumber, "BUTTON_X", "DOWN")
+    then
+        jaskierSpell = true
+    end 
+
     if enemy11_1_dead == false 
     then
         if tableEnemy11_1.currentState == 4
@@ -684,7 +696,7 @@ local function Step11()
     end
 
     if enemy11_1_dead == true and enemy11_2_dead == true and enemy11_3_dead == true and enemy11_4_dead == true and enemy11_5_dead == true and 
-    enemy11_6_dead == true and enemy11_7_dead == true and enemy11_8_dead == true and enemy11_9_dead == true
+    enemy11_6_dead == true and enemy11_7_dead == true and enemy11_8_dead == true and enemy11_9_dead == true and jaskierSpell == true and geraltSpell == true
     then
         lua_table.currentStep = Step.STEP_11
     end
