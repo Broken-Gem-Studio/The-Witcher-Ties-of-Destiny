@@ -79,10 +79,13 @@ local geraltRoll = false
 local jaskierRoll = false
 local ghoul1, ghoul2, ghoul3, ghoul4
 local tableGhoul1, tableGhoul2, tableGhoul4, tableGhoul4
-local ghoul_1_dead = false
-local ghoul_2_dead = false
-local ghoul_3_dead = false 
-local ghoul_4_dead = false 
+local ghoulsDead = {
+    ghoul_1_dead = 0,
+    ghoul_2_dead = 0,
+    ghoul_3_dead = 0,
+    ghoul_4_dead = 0 
+}
+
 local move = false
 local geraltStart6 = false
 local jaskierStart6 = false
@@ -136,15 +139,18 @@ local jaskierStart10 = false
 -- Variables STEP 11
 local enemy11_1, enemy11_2, enemy11_3, enemy11_4, enemy11_5, enemy11_6, enemy11_7, enemy11_8, enemy11_9
 local tableEnemy11_1, tableEnemy11_2, tableEnemy11_3, tableEnemy11_4, tableEnemy11_5, tableEnemy11_6, tableEnemy11_7, tableEnemy11_8, tableEnemy11_9
-local enemy11_1_dead = false
-local enemy11_2_dead = false
-local enemy11_3_dead = false
-local enemy11_4_dead = false
-local enemy11_5_dead = false
-local enemy11_6_dead = false
-local enemy11_7_dead = false
-local enemy11_8_dead = false
-local enemy11_9_dead = false
+local enemy11dead = {
+    enemy11_1_dead = 0,
+    enemy11_2_dead = 0,
+    enemy11_3_dead = 0,
+    enemy11_4_dead = 0,
+    enemy11_5_dead = 0,
+    enemy11_6_dead = 0,
+    enemy11_7_dead = 0,
+    enemy11_8_dead = 0,
+    enemy11_9_dead = 0   
+}
+
 local moveStep11 = false
 local geraltStart11 = false
 local jaskierStart11 = false
@@ -336,39 +342,39 @@ local function Step6()
             jaskierRoll = true
         end
     
-        if ghoul_1_dead == false 
+        if ghoulsDead.ghoul_1_dead == 0 
         then
             if tableGhoul1.currentState == 5
             then
-                ghoul_1_dead = true
+                ghoulsDead.ghoul_1_dead = 1
             end
         end
     
-        if ghoul_2_dead == false 
+        if ghoulsDead.ghoul_2_dead == 0 
         then
             if tableGhoul2.currentState == 5
             then
-                ghoul_2_dead = true
+                ghoulsDead.ghoul_2_dead = 1
             end
         end
     
-        if ghoul_3_dead == false 
+        if ghoulsDead.ghoul_3_dead == 0 
         then
             if tableGhoul3.currentState == 5
             then
-                ghoul_3_dead = true
+                ghoulsDead.ghoul_3_dead = 1
             end
         end
     
-        if ghoul_4_dead == false 
+        if ghoulsDead.ghoul_4_dead == 0 
         then
             if tableGhoul4.currentState == 5
             then
-                ghoul_4_dead = true
+                ghoulsDead.ghoul_4_dead = 1
             end
         end
     
-        if geraltRoll == true and jaskierRoll == true and ghoul_1_dead == true and ghoul_2_dead == true and ghoul_3_dead == true and ghoul_4_dead == true
+        if geraltRoll == true and jaskierRoll == true and ghoulsDead.ghoul_1_dead == 1 and ghoulsDead.ghoul_2_dead == 1 and ghoulsDead.ghoul_3_dead == 1 and ghoulsDead.ghoul_4_dead == 1
         then
             lua_table.currentStep = Step.STEP_5
         end
@@ -626,80 +632,80 @@ local function Step11()
         jaskierSpell = true
     end 
 
-    if enemy11_1_dead == false 
+    if enemy11dead.enemy11_1_dead == 0 
     then
         if tableEnemy11_1.currentState == 4
         then
-            enemy11_1_dead = true
+            enemy11dead.enemy11_1_dead = 1
         end
     end
 
-    if enemy11_2_dead == false 
+    if enemy11dead.enemy11_2_dead == 0 
     then
         if tableEnemy11_2.currentState == 4
         then
-            enemy11_2_dead = true
+            enemy11dead.enemy11_2_dead = 1
         end
     end
 
-    if enemy11_3_dead == false 
+    if enemy11dead.enemy11_3_dead == 0 
     then
         if tableEnemy11_3.currentState == 5
         then
-            enemy11_3_dead = true
+            enemy11dead.enemy11_3_dead = 1
         end
     end
 
-    if enemy11_4_dead == false 
+    if enemy11dead.enemy11_4_dead == 0 
     then
         if tableEnemy11_4.currentState == 5
         then
-            enemy11_4_dead = true
+            enemy11dead.enemy11_4_dead = 1
         end
     end
 
-    if enemy11_5_dead == false 
+    if enemy11dead.enemy11_5_dead == 0 
     then
         if tableEnemy11_5.currentState == 5
         then
-            enemy11_5_dead = true
+            enemy11dead.enemy11_5_dead = 1
         end
     end
 
-    if enemy11_6_dead == false 
+    if enemy11dead.enemy11_6_dead == 0 
     then
         if tableEnemy11_6.currentState == 5
         then
-            enemy11_6_dead = true
+            enemy11dead.enemy11_6_dead = 1
         end
     end
 
-    if enemy11_7_dead == false 
+    if enemy11dead.enemy11_7_dead == 0 
     then
         if tableEnemy11_7.currentState == 5
         then
-            enemy11_7_dead = true
+            enemy11dead.enemy11_7_dead = 1
         end
     end
 
-    if enemy11_8_dead == false 
+    if enemy11dead.enemy11_8_dead == 0 
     then
         if tableEnemy11_8.currentState == 5
         then
-            enemy11_8_dead = true
+            enemy11dead.enemy11_8_dead = 1
         end
     end
 
-    if enemy11_9_dead == false 
+    if enemy11dead.enemy11_9_dead == 0 
     then
         if tableEnemy11_9.CurrentState == 5
         then
-            enemy11_9_dead = true
+            enemy11dead.enemy11_9_dead = 1
         end
     end
 
-    if enemy11_1_dead == true and enemy11_2_dead == true and enemy11_3_dead == true and enemy11_4_dead == true and enemy11_5_dead == true and 
-    enemy11_6_dead == true and enemy11_7_dead == true and enemy11_8_dead == true and enemy11_9_dead == true and jaskierSpell == true and geraltSpell == true
+    if enemy11dead.enemy11_1_dead == 1 and enemy11dead.enemy11_2_dead == 1 and enemy11dead.enemy11_3_dead == 1 and enemy11dead.enemy11_4_dead == 1 and enemy11dead.enemy11_5_dead == 1 and 
+    enemy11dead.enemy11_6_dead == 1 and enemy11dead.enemy11_7_dead == 1 and enemy11dead.enemy11_8_dead == 1 and enemy11dead.enemy11_9_dead == 1 and jaskierSpell == true and geraltSpell == true
     then
         lua_table.currentStep = Step.STEP_11
     end
