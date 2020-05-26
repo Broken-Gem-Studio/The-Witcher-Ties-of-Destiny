@@ -356,7 +356,7 @@ lua_table.energy_reg_orig = 7
 	}
 	local attack_effects_durations = {	--Effects Enum
 		2000,	--stun
-		1500,	--knockback
+		1500	--knockback
 	}
 		--Knockback
 		local knockback_curr_velocity
@@ -385,6 +385,12 @@ lua_table.energy_reg_orig = 7
 	local enemy_is_hit = 0
 	local enemy_hit_started_at = 0
 	local enemy_hit_duration = 200
+	
+	local controller_shake = {
+		small = { intensity = 1.0, duration = 100 },
+		medium = { intensity = 1.0, duration = 200 },
+		big = { intensity = 1.0, duration = 300 }
+	}
 
 	--Attack Inputs
 	local rightside = true		-- Last attack side, marks the animation of next attack
@@ -1147,7 +1153,7 @@ local function CheckCameraBounds()	--Check if we're currently outside the camera
 
 			current_action_duration = attack_effects_durations[attack_effects_ID.knockback]
 			action_started_at = game_time
-			lua_table.InputFunctions:ShakeController(lua_table.player_ID, 1.0, current_action_duration)
+			lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.medium.intensity, controller_shake.medium.duration)
 		end
 
 	else
@@ -1351,7 +1357,7 @@ end
 local function UltimateFinish()
 	if not lua_table.ultimate_secondary_effect_active	--IF effect unactive, activate
 	then
-		lua_table.InputFunctions:ShakeController(lua_table.player_ID, 1.0, 300)
+		lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.big.intensity, controller_shake.big.duration)
 		for i = 1, #particles_library.song_circle_GO_UID_children do
 			lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.song_circle_GO_UID_children[i])	--TODO-Particles:
 		end
@@ -1406,7 +1412,7 @@ end
 local function Song_3_Knockback()
 	if not lua_table.song_3_secondary_effect_active	--IF effect unactive, activate
 	then
-		lua_table.InputFunctions:ShakeController(lua_table.player_ID, 1.0, 300)
+		lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.big.intensity, controller_shake.big.duration)
 		for i = 1, #particles_library.song_circle_GO_UID_children do
 			lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.song_circle_GO_UID_children[i])	--TODO-Particles:
 		end
@@ -1503,7 +1509,6 @@ local function CheckCombos()
 	
 	if lua_table.chained_attacks_num == 3 then
 		if PerformCombo("light_3") or PerformCombo("medium_3") or PerformCombo("heavy_3") then
-			lua_table.InputFunctions:ShakeController(lua_table.player_ID, 1.0, current_action_duration)
 			combo_achieved = true
 			rightside = true
 			lua_table.chained_attacks_num = 0
@@ -2111,7 +2116,7 @@ local function ProcessIncomingHit(collider_GO)
 
 		current_action_duration = attack_effects_durations[enemy_script.collider_effect]
 		action_started_at = game_time
-		lua_table.InputFunctions:ShakeController(lua_table.player_ID, 1.0, current_action_duration)
+		lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.medium.intensity, controller_shake.medium.duration)
 	end
 end
 
@@ -2440,6 +2445,7 @@ function lua_table:Update()
 						then
 							lua_table.AnimationFunctions:SetAnimationPause(false, jaskier_GO_UID)
 							lua_table.AnimationFunctions:SetAnimationPause(false, particles_library.slash_GO_UID)
+							lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.small.intensity, controller_shake.small.duration)
 							enemy_is_hit = 2
 						end
 
@@ -2555,7 +2561,7 @@ function lua_table:Update()
 						elseif lua_table.current_state == state.song_1 and time_since_action > lua_table.song_1_effect_start
 						then
 							if not lua_table.song_1_effect_active then
-								lua_table.InputFunctions:ShakeController(lua_table.player_ID, 1.0, 300)
+								lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.big.intensity, controller_shake.big.duration)
 								--lua_table.ParticlesFunctions:PlayParticleEmitter(jaskier_song_1_GO_UID)	--TODO-Particles:
 								lua_table.song_1_effect_active = true
 							end
@@ -2569,7 +2575,7 @@ function lua_table:Update()
 						elseif lua_table.current_state == state.song_2 and time_since_action > lua_table.song_2_effect_start
 						then
 							if not lua_table.song_2_effect_active then
-								lua_table.InputFunctions:ShakeController(lua_table.player_ID, 1.0, 300)
+								lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.big.intensity, controller_shake.big.duration)
 
 								SaveDirection()
 

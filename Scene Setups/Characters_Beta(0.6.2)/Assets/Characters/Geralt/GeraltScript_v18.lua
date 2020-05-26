@@ -360,7 +360,7 @@ lua_table.energy_reg_orig = 7
 	}
 	local attack_effects_durations = {	--Effects Enum
 		2000,	--stun
-		1500,	--knockback	(Uses standup_time to get up)
+		1500	--knockback	(Uses standup_time to get up)
 	}
 		--Knockback
 		local knockback_curr_velocity
