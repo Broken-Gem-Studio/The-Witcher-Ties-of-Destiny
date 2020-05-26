@@ -2033,7 +2033,7 @@ local function PickupItem()
 		local item_script = lua_table.GameObjectFunctions:GetScript(nearby_items[1])
 
 		if lua_table.inventory[item_script.item_id] < lua_table.item_type_max then
-			lua_table.GameObjectFunctions:DestroyGameObject(item_script.my_UID)	--Alternative: item_script.GameObjectFunctions:GetMyUID()
+			lua_table.GameObjectFunctions:DestroyGameObject(item_script.myUID)	--Alternative: item_script.GameObjectFunctions:GetMyUID()
 			lua_table.inventory[item_script.item_id] = lua_table.inventory[item_script.item_id] + 1	--Add potion to inventory
 			--TODO-Audio: Play pickup item sound
 		else
@@ -2171,9 +2171,14 @@ end
 function lua_table:OnTriggerEnter()
 	lua_table.SystemFunctions:LOG("On Trigger Enter")
 	
-	local collider_GO = lua_table.PhysicsFunctions:OnTriggerEnter(jaskier_GO_UID)
+	local collider_GO = 0
 
-	if not godmode and lua_table.current_state > state.down and lua_table.GameObjectFunctions:GetLayerByID(collider_GO) == layers.enemy_attack	--IF collider is tagged as an enemy attack
+	if jaskier_GO_UID ~= nil and jaskier_GO_UID ~= 0 then
+		collider_GO = lua_table.PhysicsFunctions:OnTriggerEnter(jaskier_GO_UID)
+	end
+
+	if collider_GO ~= nil and collider_GO ~= 0 and
+	not godmode and lua_table.current_state > state.down and lua_table.GameObjectFunctions:GetLayerByID(collider_GO) == layers.enemy_attack	--IF collider is tagged as an enemy attack
 	then
 		ProcessIncomingHit(collider_GO)
 	end
@@ -2182,9 +2187,14 @@ end
 function lua_table:OnCollisionEnter()
 	lua_table.SystemFunctions:LOG("On Collision Enter")
 
-	local collider_GO = lua_table.PhysicsFunctions:OnCollisionEnter(jaskier_GO_UID)
+	local collider_GO = 0
 
-	if not godmode and lua_table.current_state > state.down and lua_table.GameObjectFunctions:GetLayerByID(collider_GO) == layers.enemy_attack	--IF collider is tagged as an enemy attack
+	if jaskier_GO_UID ~= nil and jaskier_GO_UID ~= 0 then
+		collider_GO = lua_table.PhysicsFunctions:OnCollisionEnter(jaskier_GO_UID)
+	end
+
+	if collider_GO ~= nil and collider_GO ~= 0 and
+	not godmode and lua_table.current_state > state.down and lua_table.GameObjectFunctions:GetLayerByID(collider_GO) == layers.enemy_attack	--IF collider is tagged as an enemy attack
 	then
 		ProcessIncomingHit(collider_GO)
 	end
