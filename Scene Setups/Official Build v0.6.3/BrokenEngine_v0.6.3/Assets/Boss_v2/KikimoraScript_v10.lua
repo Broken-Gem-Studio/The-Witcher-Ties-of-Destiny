@@ -32,8 +32,8 @@ lua_table.attack_pattern_cooldown_phase_2 = 4
 lua_table.attack_pattern_cooldown_phase_3 = 3
 
 lua_table.speed_modificator_base = 1.25      -- This affect all anims speed
-lua_table.speed_modificator_phase_2 = 1.25  -- This affect only attack speeds (adds up with base)
-lua_table.speed_modificator_phase_3 = 1.5   -- This affect only attack speeds (adds up with base)
+lua_table.speed_modificator_phase_2 = 1.2  -- This affect only attack speeds (adds up with base)
+lua_table.speed_modificator_phase_3 = 1.4   -- This affect only attack speeds (adds up with base)
 
 local damage_received_real = -1
 lua_table.damage_received_mod = 1.0
@@ -273,6 +273,14 @@ local particles =
 
     dustcloud_leash_right = { part_name = "DustCloud_Leash_Right", part_UID = 0, part_active = false, part_pos = {} },
     groundcrack_leash_right = { part_name = "GroundCrack_Leash_Right", part_UID = 0, part_active = false, part_pos = {} },
+
+    kiki_sweep_particle_left = { part_name = "Kiki_Sweep_Particle_Left", part_UID = 0, part_active = false, part_pos = {} },
+    kiki_sweep_particle_right = { part_name = "Kiki_Sweep_Particle_Right", part_UID = 0, part_active = false, part_pos = {} },
+
+    kiki_sweep_left_particle = { part_name = "Kiki_Sweep_Left_Particle", part_UID = 0, part_active = false, part_pos = {} },
+    kiki_sweep_right_particle = { part_name = "Kiki_Sweep_Right_Particle", part_UID = 0, part_active = false, part_pos = {} },
+
+
 }
 
 -----------------------------------------------------------------------------------------
@@ -1078,7 +1086,10 @@ local function HandleSweepAttack()
                 attack_collider.sweep.coll_current_rot[z] = attack_collider.sweep.coll_init_rot[z]
                 
                 lua_table.TransformFunctions:SetObjectRotation(attack_collider.sweep.coll_current_rot[x], attack_collider.sweep.coll_current_rot[y], attack_collider.sweep.coll_current_rot[z], attack_collider.sweep.coll_UID)
-            
+                
+                -- ACTIVATE PARTCLES 
+                lua_table.GameObjectFunctions:SetActiveGameObject(true, particles.kiki_sweep_particle_left.part_UID)
+                lua_table.GameObjectFunctions:SetActiveGameObject(true, particles.kiki_sweep_particle_right.part_UID)
                 -- AUDIO PLAY
                 lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_sweep", lua_table.my_UID)
 
@@ -1125,6 +1136,10 @@ local function HandleSweepAttack()
             then
                 --attack.sweep_left.att_cooldown_bool = true
                 --attack.sweep_left.att_timer = game_time + attack.sweep_left.att_cooldown_time
+
+                -- DEACTIVATE PARTCLES 
+                lua_table.GameObjectFunctions:SetActiveGameObject(false, particles.kiki_sweep_particle_left.part_UID)
+                lua_table.GameObjectFunctions:SetActiveGameObject(false, particles.kiki_sweep_particle_right.part_UID)
 
                 attack_finished = true
                 attack_counter = attack_counter + 1
@@ -1206,6 +1221,9 @@ local function HandleSweepLeftAttack()
                 
                 lua_table.TransformFunctions:SetObjectRotation(attack_collider.sweep_left.coll_current_rot[x], attack_collider.sweep_left.coll_current_rot[y], attack_collider.sweep_left.coll_current_rot[z], attack_collider.sweep_left.coll_UID)
                 
+                -- ACTIVATE PARTCLES 
+                lua_table.GameObjectFunctions:SetActiveGameObject(true, particles.kiki_sweep_left_particle.part_UID)
+
                 -- AUDIO PLAY
                 lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_sweep", lua_table.my_UID)
 
@@ -1242,6 +1260,7 @@ local function HandleSweepLeftAttack()
 
                 -- Deactivate collider
                 lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_collider.sweep_left.coll_UID)
+                
             end
         end
 
@@ -1252,6 +1271,9 @@ local function HandleSweepLeftAttack()
             then
                 --attack.sweep_left.att_cooldown_bool = true
                 --attack.sweep_left.att_timer = game_time + attack.sweep_left.att_cooldown_time
+
+                 -- DEACTIVATE PARTCLES 
+                 lua_table.GameObjectFunctions:SetActiveGameObject(false, particles.kiki_sweep_left_particle.part_UID)
                 
                 attack_finished = true
                 attack_counter = attack_counter + 1
@@ -1332,6 +1354,9 @@ local function HandleSweepRightAttack()
                 attack_collider.sweep_right.coll_current_rot[z] = attack_collider.sweep_right.coll_init_rot[z]
                 
                 lua_table.TransformFunctions:SetObjectRotation(attack_collider.sweep_right.coll_current_rot[x], attack_collider.sweep_right.coll_current_rot[y], attack_collider.sweep_right.coll_current_rot[z], attack_collider.sweep_right.coll_UID)
+                
+                -- ACTIVATE PARTCLES 
+                lua_table.GameObjectFunctions:SetActiveGameObject(true, particles.kiki_sweep_right_particle.part_UID)
 
                 -- AUDIO PLAY
                 lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_sweep", lua_table.my_UID)
@@ -1379,6 +1404,9 @@ local function HandleSweepRightAttack()
             then
                 --attack.sweep_right.att_cooldown_bool = true
                 --attack.sweep_right.att_timer = game_time + attack.sweep_right.att_cooldown_time
+
+                -- DEACTIVATE PARTCLES 
+                lua_table.GameObjectFunctions:SetActiveGameObject(false, particles.kiki_sweep_right_particle.part_UID)
 
                 attack_finished = true
                 attack_counter = attack_counter + 1
@@ -2596,6 +2624,18 @@ function lua_table:Awake ()
     lua_table.GameObjectFunctions:SetActiveGameObject(false, particles.dustcloud_leash_right.part_UID)
     particles.groundcrack_leash_right.part_UID = lua_table.GameObjectFunctions:FindGameObject(particles.groundcrack_leash_right.part_name)
     lua_table.GameObjectFunctions:SetActiveGameObject(false, particles.groundcrack_leash_right.part_UID)
+
+    particles.kiki_sweep_particle_left.part_UID = lua_table.GameObjectFunctions:FindGameObject(particles.kiki_sweep_particle_left.part_name)
+    lua_table.GameObjectFunctions:SetActiveGameObject(false, particles.kiki_sweep_particle_left.part_UID)
+
+    particles.kiki_sweep_particle_right.part_UID = lua_table.GameObjectFunctions:FindGameObject(particles.kiki_sweep_particle_right.part_name)
+    lua_table.GameObjectFunctions:SetActiveGameObject(false, particles.kiki_sweep_particle_right.part_UID)
+
+    particles.kiki_sweep_left_particle.part_UID = lua_table.GameObjectFunctions:FindGameObject(particles.kiki_sweep_left_particle.part_name)
+    lua_table.GameObjectFunctions:SetActiveGameObject(false, particles.kiki_sweep_left_particle.part_UID)
+
+    particles.kiki_sweep_right_particle.part_UID = lua_table.GameObjectFunctions:FindGameObject(particles.kiki_sweep_right_particle.part_name)
+    lua_table.GameObjectFunctions:SetActiveGameObject(false, particles.kiki_sweep_right_particle.part_UID)
 
     ---------------------------------------------------------------------------
 	-- Health Init
