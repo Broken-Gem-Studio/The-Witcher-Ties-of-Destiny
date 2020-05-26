@@ -1983,8 +1983,9 @@ local function PickupItem()
 		local item_script = lua_table.GameObjectFunctions:GetScript(nearby_items[1])
 
 		if lua_table.inventory[item_script.item_id] < lua_table.item_type_max then
+			lua_table.GameObjectFunctions:DestroyGameObject(item_script.myUID)	--Alternative: item_script.GameObjectFunctions:GetMyUID()
 			lua_table.inventory[item_script.item_id] = lua_table.inventory[item_script.item_id] + 1	--Add potion to inventory
-			lua_table.GameObjectFunctions:DestroyGameObject(item_script.my_UID)	--Alternative: item_script.GameObjectFunctions:GetMyUID()
+			--TODO-Audio: Play pickup item sound
 		else
 			--TODO-Audio: Play some sound to indicate not possible
 		end
@@ -1998,6 +1999,7 @@ local function DropItem()
 		local jaskier_pos = lua_table.TransformFunctions:GetPosition(jaskier_GO_UID)
 		lua_table.SceneFunctions:Instantiate(item_prefabs[lua_table.item_selected], jaskier_pos[1], jaskier_pos[2], jaskier_pos[3], 0.0, 0.0, 0.0)
 		lua_table.inventory[lua_table.item_selected] = lua_table.inventory[lua_table.item_selected] - 1	--Remove potion from inventory
+		--TODO-Audio: Drop item item sound
 	else
 		--TODO-Audio: Play some sound to indicate not possible
 	end
