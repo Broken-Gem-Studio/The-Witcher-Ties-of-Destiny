@@ -338,7 +338,7 @@ lua_table.energy_reg_orig = 7
 		enemy_attack = 4,
 		prop = 5,
 		particle_prop = 6,
-		potion = 7
+		item = 7
 	}
 
 	--Attack Data
@@ -1824,14 +1824,14 @@ end
 
 local function PickupItem()
 	local geralt_pos = lua_table.TransformFunctions:GetPosition(geralt_GO_UID)
-	local nearby_items = {}--lua_table.PhysicsFunctions:OverlapSphere(geralt_pos[1], geralt_pos[2], geralt_pos[3], lua_table.item_pickup_range, layers.potion)	--TODO-Potions: Uncomment when layer exists
+	local nearby_items = lua_table.PhysicsFunctions:OverlapSphere(geralt_pos[1], geralt_pos[2], geralt_pos[3], lua_table.item_pickup_range, layers.item)	--TODO-Potions: Uncomment when layer exists
 
 	if nearby_items[1] ~= nil then
 		local item_script = lua_table.GameObjectFunctions:GetScript(nearby_items[1])
 
 		if lua_table.inventory[item_script.item_id] < lua_table.item_type_max then
 			lua_table.inventory[item_script.item_id] = lua_table.inventory[item_script.item_id] + 1	--Add potion to inventory
-			lua_table.GameObjectFunctions:DestroyGameObject(item_script.my_GO_UID)	--Alternative: item_script.GameObjectFunctions:GetMyUID()
+			lua_table.GameObjectFunctions:DestroyGameObject(item_script.my_UID)	--Alternative: item_script.GameObjectFunctions:GetMyUID()
 		else
 			--TODO-Audio: Play some sound to indicate not possible
 		end
