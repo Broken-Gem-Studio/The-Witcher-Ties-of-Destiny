@@ -12,6 +12,16 @@ function GetTableWinLose()
     lua_table.level2_uid = 0
     lua_table.mm_uid = 0
 
+    lua_table.geralt_pos0
+    lua_table.geralt_pos1
+    lua_table.geralt_pos2
+        
+    lua_table.jaskier_pos0
+    lua_table.jaskier_pos1
+    lua_table.jaskier_pos2
+
+    local pos0 = 0
+
     local fade = 0
     local win = 0
     local lose = 0
@@ -207,34 +217,39 @@ function GetTableWinLose()
     end
     
     local function GetCheckpointPos()
-        -- define checkpoint positions**
         if last_checkpoint == nil or last_checkpoint == 0
         then
-            geralt_x = 0
-            geralt_y = 0
-            geralt_z = 0
-    
-            jaskier_x = 0
-            jaskier_y = 0
-            jaskier_z = 0
+            pos = lua_table.Transform:GetPosition(lua_table.geralt_pos0)
+            geralt_x = pos[1]
+            geralt_y = pos[2]
+            geralt_z = pos[3]
+
+            pos = lua_table.Transform:GetPosition(lua_table.jaskier_pos0)
+            jaskier_x = pos[1]
+            jaskier_y = pos[2]
+            jaskier_z = pos[3]
         elseif last_checkpoint == 1
         then
-            geralt_x = 0
-            geralt_y = 0
-            geralt_z = 0
-    
-            jaskier_x = 0
-            jaskier_y = 0
-            jaskier_z = 0
+            pos = lua_table.Transform:GetPosition(lua_table.geralt_pos1)
+            geralt_x = pos[1]
+            geralt_y = pos[2]
+            geralt_z = pos[3]
+
+            pos = lua_table.Transform:GetPosition(lua_table.jaskier_pos1)
+            jaskier_x = pos[1]
+            jaskier_y = pos[2]
+            jaskier_z = pos[3]
         elseif last_checkpoint == 2
         then
-            geralt_x = 0
-            geralt_y = 0
-            geralt_z = 0
-    
-            jaskier_x = 0
-            jaskier_y = 0
-            jaskier_z = 0
+            pos = lua_table.Transform:GetPosition(lua_table.geralt_pos2)
+            geralt_x = pos[1]
+            geralt_y = pos[2]
+            geralt_z = pos[3]
+
+            pos = lua_table.Transform:GetPosition(lua_table.jaskier_pos2)
+            jaskier_x = pos[1]
+            jaskier_y = pos[2]
+            jaskier_z = pos[3]
         end
     end
     

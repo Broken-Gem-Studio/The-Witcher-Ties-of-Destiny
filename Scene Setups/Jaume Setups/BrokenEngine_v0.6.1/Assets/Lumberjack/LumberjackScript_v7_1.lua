@@ -179,6 +179,9 @@ local UseAuxVariables = false
 local CancelateJumpAttack = false
 local JumpAttack_CautionTime = 0
 local AttackAudioDone = true
+
+local AfterJumpAttackTime = 0
+local checkTimeAfterJumpAttack = false
 --Die()
 
 lua_table.Dead = false
@@ -212,7 +215,7 @@ lua_table.player_2_Dead = false
 lua_table.collider_damage = 0
 lua_table.collider_effect = 0
 
-lua_table.MaxHealth = 500
+lua_table.MaxHealth = 40000
 lua_table.CurrentHealth = 0
 lua_table.MaxSpeed = 5
 lua_table.JumpAttackSpeed = 3
@@ -579,15 +582,29 @@ local function Attack()
 		--lua_table.SystemFunctions:LOG("2 ")
 		Attack1_TimeController = PerfGameTime()
 		Attack1_FirstController = true
-		lua_table.AnimationSystem:PlayAnimation("ATTACK_1",30.0,MyUID)
+		CONTROLLER = lua_table.SystemFunctions:RandomNumberInRange(0,10)
+		TimeForAttack = 0
+		if CONTROLLER <= 5
+		then
+			lua_table.AnimationSystem:PlayAnimation("ATTACK_2",30.0,MyUID)
+			lua_table.collider_damage = 40
+			lua_table.collider_effect = 0
+			TimeForAttack = 1200
+		elseif CONTROLLER > 5
+		then
+			lua_table.AnimationSystem:PlayAnimation("ATTACK_1",30.0,MyUID)
+			lua_table.collider_damage = 20
+			lua_table.collider_effect = 0
+			TimeForAttack = 600
+		end
+		
 		lua_table.attack_effects = attack_effects.none
-		lua_table.collider_damage = 20
-		lua_table.collider_effect = 0
+		
 		Attack1_AnimController = true
 		AttackAudioDone = false
 	end
 
-	if PerfGameTime() - Attack1_TimeController > 600 and AttackAudioDone == false
+	if PerfGameTime() - Attack1_TimeController > TimeForAttack and AttackAudioDone == false
 	then
 		lua_table.SoundSystem:PlayAudioEvent("Play_Lumberjack_Axe_Swing_Attack")
 		AttackAudioDone = true
@@ -839,8 +856,14 @@ local function HandleSEEK()
 	end
 
 	--#####################################################################################   JUMP ATTACK DONE
+	if JumpAttackDone == true and checkTimeAfterJumpAttack == false
+	then
+		AfterJumpAttackTime = PerfGameTime()
+		checkTimeAfterJumpAttack = true
+		lua_table.AnimationSystem:PlayAnimation("IDLE",30.0,MyUID)
+	end
 
-	if DistanceMagnitudeAux_Target <= lua_table.MinDistanceFromPlayer and lua_table.JumpAttackDone == true and lua_table.CurrentSubState == SubState.JUMP_ATTACK
+	if DistanceMagnitudeAux_Target <= lua_table.MinDistanceFromPlayer and lua_table.JumpAttackDone == true and lua_table.CurrentSubState == SubState.JUMP_ATTACK and Time_HandleSeek - AfterJumpAttackTime > 500
 	then
 		if DistanceMagnitudeAux_Target <= lua_table.MinDistanceFromPlayer
 		then
@@ -875,7 +898,7 @@ local function HandleSEEK()
 	end
 
 	--#####################################################################################   CASE WHEN GERALT RUN FROM ATTACK
-	if Time_HandleSeek - AfterJumpAttackTimer > 100 and attack_colliders.jump_attack.active == true
+	if Time_HandleSeek - AfterJumpAttackTimer > 100 and attack_colliders.jump_attack.active == true and Time_HandleSeek - AfterJumpAttackTime > 500
 	then 
 		lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.jump_attack.GO_UID)
 		attack_colliders.jump_attack.active = false
