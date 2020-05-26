@@ -399,6 +399,12 @@ lua_table.energy_reg_orig = 7
 	local enemy_hit_started_at = 0
 	local enemy_hit_duration = 200
 
+	local controller_shake = {
+		small = { intensity = 1.0, duration = 100 },
+		medium = { intensity = 1.0, duration = 200 },
+		big = { intensity = 1.0, duration = 300 }
+	}
+
 	--Attack Inputs
 	local rightside = true		-- Last attack side, marks the animation of next attack
 
@@ -1140,7 +1146,7 @@ local function CheckCameraBounds()	--Check if we're currently outside the camera
 
 			current_action_duration = attack_effects_durations[attack_effects_ID.knockback]
 			action_started_at = game_time
-			lua_table.InputFunctions:ShakeController(lua_table.player_ID, 1.0, current_action_duration)
+			lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.medium.intensity, controller_shake.medium.duration)
 		end
 
 	else
@@ -1297,7 +1303,6 @@ local function CheckCombos()
 	if lua_table.combo_num == 3 and (PerformCombo("light_3") or PerformCombo("medium_3") or PerformCombo("heavy_3"))
 	or lua_table.combo_num == 4 and (PerformCombo("combo_1") or PerformCombo("combo_2") or PerformCombo("combo_3"))
 	then
-		lua_table.InputFunctions:ShakeController(lua_table.player_ID, 1.0, current_action_duration)
 		combo_achieved = true
 		rightside = true
 	end
@@ -1968,7 +1973,7 @@ local function ProcessIncomingHit(collider_GO)
 
 		current_action_duration = attack_effects_durations[enemy_script.collider_effect]
 		action_started_at = game_time
-		lua_table.InputFunctions:ShakeController(lua_table.player_ID, 1.0, current_action_duration)
+		lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.medium.intensity, controller_shake.medium.duration)
 	end
 end
 
@@ -2244,6 +2249,7 @@ function lua_table:Update()
 							lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.ultimate_particles_GO_UID_children[i])	--TODO-Particles:
 						end
 						UltimateState(true)	--Ultimate turn on (boost stats)
+						lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.big.intensity, controller_shake.big.duration)
 
 						lua_table.current_ultimate = 0.0
 						ultimate_effect_started_at = game_time
@@ -2315,6 +2321,14 @@ function lua_table:Update()
 							lua_table.AnimationFunctions:SetAnimationPause(false, geralt_GO_UID)
 							lua_table.AnimationFunctions:SetAnimationPause(false, particles_library.slash_GO_UID)
 							enemy_is_hit = 2
+
+							if lua_table.current_state >= state.combo_1 and lua_table.current_state <= state.combo_3 then
+								lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.big.intensity, controller_shake.big.duration)
+							elseif lua_table.current_state == state.light_3 or lua_table.current_state == state.medium_3 or lua_table.current_state == state.heavy_3 then
+								lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.medium.intensity, controller_shake.medium.duration)
+							else
+								lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.small.intensity, controller_shake.small.duration)
+							end
 						end
 
 						if lua_table.current_state == state.revive and lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_revive, key_state.key_up)
