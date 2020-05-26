@@ -5,6 +5,7 @@ lua_table.AudioFunctions = Scripting.Audio()
 lua_table.GameObjectFunctions = Scripting.GameObject()
 
 lua_table.Enemies_Nearby = false
+lua_table.Level = "1"
 
 -- GOs
 local camera_GO_UID	--If we decide to make it so battle music sounds when inside the frustum, currently does nothing
@@ -26,9 +27,10 @@ end
 
 function lua_table:Start()
 	my_UID = lua_table.GameObjectFunctions:GetMyUID()
-	lua_table.AudioFunctions:PlayAudioEvent("Play_Level_1_Music")
+	local audio_event = "Play_Level_" .. lua_table.Level .. "_Music"
+	lua_table.AudioFunctions:PlayAudioEvent(audio_event)
 
-	lua_table.AudioFunctions:SetAudioSwitch("Lvl_1_Music_Switch","Exploration",my_UID)
+	lua_table.AudioFunctions:SetAudioSwitch("Lvl_" .. lua_table.Level .. "_Music_Switch","Exploration",my_UID)
 	lua_table.AudioFunctions:SetVolume(0.3,my_UID)
 
 end
@@ -37,10 +39,10 @@ function lua_table:Update()
 	
 	if geralt_script.enemies_nearby == true or jaskier_script.enemies_nearby == true then
 		lua_table.Enemies_Nearby = true
-		lua_table.AudioFunctions:SetAudioSwitch("Lvl_1_Music_Switch","Combat",my_UID)
+		lua_table.AudioFunctions:SetAudioSwitch("Lvl_" .. lua_table.Level .. "_Music_Switch","Combat",my_UID)
 	elseif geralt_script.enemies_nearby == false and jaskier_script.enemies_nearby == false then
 		lua_table.Enemies_Nearby = false
-		lua_table.AudioFunctions:SetAudioSwitch("Lvl_1_Music_Switch","Exploration",my_UID)
+		lua_table.AudioFunctions:SetAudioSwitch("Lvl_" .. lua_table.Level .. "_Music_Switch","Exploration",my_UID)
 	end
 
 end
