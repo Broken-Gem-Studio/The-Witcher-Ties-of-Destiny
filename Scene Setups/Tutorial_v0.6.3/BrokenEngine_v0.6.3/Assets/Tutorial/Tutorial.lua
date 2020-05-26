@@ -11,6 +11,8 @@ lua_table.SceneFunctions = Scripting.Scenes()
 ------------------------------------------------------------------------------
 -- VARIABLES
 ------------------------------------------------------------------------------
+local CARTAS = 0
+local TABLE_CARTAS = 0
 
 local KeyState = {
     IDLE = "IDLE",
@@ -304,7 +306,7 @@ local function Step6()
             lua_table.InterfaceFunctions:SetText("Press A to move great distances and dodge attacks. Consumes 1 energy bar (yellow)", lua_table.textUID)   
             lua_table.SystemFunctions:PauseGame()     
         end
-    
+    --[[
         if lua_table.InputFunctions:IsGamepadButton(lua_table.GeraltNumber, "BUTTON_START", KeyState.DOWN) == true and geraltStart6 == false
         then
             geraltStart6 = true
@@ -316,8 +318,9 @@ local function Step6()
             jaskierStart6 = true
             lua_table.SystemFunctions:LOG("Jaskier STRAT")
         end
+        --]]
     
-        if geraltStart6 == true and jaskierStart6 == true
+        if TABLE_CARTAS.continue_meter1_full == true and TABLE_CARTAS.continue_meter2_full == true
         then
             lua_table.SystemFunctions:ResumeGame()
             move = true
@@ -987,6 +990,9 @@ local function EnemiesManager()
 end
 
 function lua_table:Awake()
+    CARTAS = lua_table.ObjectFunctions:FindGameObject("CARTAS")
+    TABLE_CARTAS = lua_table.ObjectFunctions:GetScript(CARTAS)
+
     lua_table.MyUUID = lua_table.ObjectFunctions:GetMyUID()
     lua_table.textUID = lua_table.ObjectFunctions:FindGameObject("Text")
     
