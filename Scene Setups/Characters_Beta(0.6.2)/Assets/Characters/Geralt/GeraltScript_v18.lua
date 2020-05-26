@@ -103,31 +103,31 @@ local audio_library = {
 	none = "",
 
 	death = "Play_Geralt_death",
-	stand_up = "Play_Geralt_stand_up",
+	stand_up = "Play_Geralt_fall_down_get_up",
 
-	knockback = "Play_Geralt_knockback",
-	stun = "Play_Geralt_stun",
+	-- knockback = ,
+	-- stun = "Play_Geralt_stun",
+	hurt = "Play_Geralt_hit_sound",
 
-	walk = "Play_Geralt_walk",
-	run = "Play_Geralt_run",
+	walk = "Play_Geralt_walk_run_dirt",
+	run = "Play_Geralt_walk_run_dirt",
 
-	evade = "Play_Geralt_roll",
-	aard = "Play_Geralt_aard_2",
-	ultimate = "Play_Geralt_potion",
+	evade = "Play_Geralt_light_roll",
+	aard = "Play_Geralt_aard",
+	ultimate = "Play_Geralt_Ultimate",
 	revive = "Play_Geralt_revive",
 
-	--For regular attacks it's Play_Geralt_attack_1_1, _1_2, _2_1, _2_2, etc
-	attack = "Play_Geralt_attack_",
+	attack_miss = "Play_Geralt_sword_swing",
+	attack_hit = "Play_Geralt_sword_metal",
 
-	light_3 = "Play_Geralt_attack_1_3",
-	medium_3 = "Play_Geralt_attack_3_3",
-	heavy_3 = "Play_Geralt_attack_2_3",
+	combo_1 = "Play_Geralt_combo_1",	--Slide
+	combo_2 = "Play_Geralt_combo_2",	--Spin
+	combo_3 = "Play_Geralt_combo_3",	--Jump
 
-	combo_1 = "Play_Geralt_attack_4",
-	combo_2 = "Play_Geralt_attack_5",
-	combo_3 = "Play_Geralt_attack_6"
+	item_potion = "Play_Geralt_potion_fx"
 }
 local current_audio = audio_library.none
+local current_paused_audio = audio_library.none
 
 --Areas
 local enemy_detection_started_at = 0
@@ -395,7 +395,14 @@ lua_table.energy_reg_orig = 7
 	--lua_table.collider_effect_duration = 0			--Effect duration
 	
 	--Attack Feedback
-	local enemy_is_hit = 0
+	local enemy_hit_stages = {
+		awaiting_attack = -1,
+		attack_performed = 0,
+		attack_miss = 1,
+		attack_hit = 2,
+		attack_finished = 3
+	}
+	local enemy_hit_curr_stage = enemy_hit_stages.awaiting_attack
 	local enemy_hit_started_at = 0
 	local enemy_hit_duration = 200
 
@@ -955,6 +962,11 @@ local function AttackColliderCheck(attack_type, collider_id, collider_num)	--Che
 		then
 			lua_table.GameObjectFunctions:SetActiveGameObject(true, attack_colliders[collider_id .. "_" .. collider_num].GO_UID)	--TODO-Colliders: Check
 			attack_colliders[collider_id .. "_" .. collider_num].active = true
+
+			if enemy_hit_curr_stage == enemy_hit_stages.awaiting_attack then
+				enemy_hit_curr_stage = enemy_hit_stages.attack_performed
+			end
+
 		--else
 			--lua_table.SystemFunctions:LOG("Collider Active: " .. attack_type .. "_" .. collider_id)
 		end
@@ -1284,8 +1296,11 @@ local function PerformCombo(combo_type)
 		lua_table.AnimationFunctions:PlayAnimation(combo_type, lua_table[combo_type .. "_animation_speed"], particles_library.slash_GO_UID)
 		current_animation = combo_type
 
-		lua_table.AudioFunctions:PlayAudioEventGO(audio_library[combo_type], geralt_GO_UID)	--TODO-AUDIO: Play sound of combo_type
-		current_audio = audio_library[combo_type]
+		if combo_type == "combo_1" or combo_type == "combo_2" or combo_type == "combo_3"
+		then
+			lua_table.AudioFunctions:PlayAudioEventGO(audio_library[combo_type], geralt_GO_UID)	--TODO-AUDIO: Play sound of combo_type
+			current_audio = audio_library[combo_type]
+		end
 		
 		lua_table.collider_damage = base_damage_real * lua_table[combo_type .. "_damage"]
 		lua_table.collider_effect = lua_table[combo_type .. "_effect"]
@@ -1316,12 +1331,6 @@ local function CheckCombos()
 end
 
 local function RegularAttack(attack_type)
-	local attack_sound_id 
-
-	if attack_type == "light" then attack_sound_id = 1
-	elseif attack_type == "medium" then attack_sound_id = 2
-	else attack_sound_id = 3 end
-
 	-- if lua_table.current_state == state.heavy_3 or lua_table.current_state == state.medium_3 then	--Exceptions that don't change side
 	-- 	rightside = not rightside
 	-- end
@@ -1337,9 +1346,6 @@ local function RegularAttack(attack_type)
 		-- 	lua_table.AnimationFunctions:PlayAnimation(attack_type .. "_3", lua_table[attack_type .. "_3_animation_speed"], particles_library.slash_GO_UID)
 		-- 	current_animation = attack_type .. "_3"
 
-		-- 	lua_table.AudioFunctions:PlayAudioEventGO(audio_library.attack .. attack_sound_id .. "_3", geralt_GO_UID)	--TODO-AUDIO: Play attack_3 sound
-		-- 	current_audio = audio_library.attack .. attack_sound_id .. "_3"
-
 		-- 	lua_table.previous_state = lua_table.current_state
 		-- 	lua_table.current_state = state[attack_type .. "_3"]
 		-- else
@@ -1349,9 +1355,6 @@ local function RegularAttack(attack_type)
 			lua_table.AnimationFunctions:PlayAnimation(attack_type .. "_1", lua_table[attack_type .. "_1_animation_speed"], geralt_GO_UID)
 			lua_table.AnimationFunctions:PlayAnimation(attack_type .. "_1", lua_table[attack_type .. "_1_animation_speed"], particles_library.slash_GO_UID)
 			current_animation = attack_type .. "_1"
-
-			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.attack .. attack_sound_id .. "_1", geralt_GO_UID)	--TODO-AUDIO: Play attack_1 sound
-			current_audio = audio_library.attack .. attack_sound_id .. "_1"
 
 			lua_table.previous_state = lua_table.current_state
 			lua_table.current_state = state[attack_type .. "_1"]
@@ -1363,9 +1366,6 @@ local function RegularAttack(attack_type)
 		lua_table.AnimationFunctions:PlayAnimation(attack_type .. "_2", lua_table[attack_type .. "_2_animation_speed"], geralt_GO_UID)
 		lua_table.AnimationFunctions:PlayAnimation(attack_type .. "_2", lua_table[attack_type .. "_2_animation_speed"], particles_library.slash_GO_UID)
 		current_animation = attack_type .. "_2"
-
-		lua_table.AudioFunctions:PlayAudioEventGO(audio_library.attack .. attack_sound_id .. "_2", geralt_GO_UID)	--TODO-AUDIO: Play attack_2 sound
-		current_audio = audio_library.attack .. attack_sound_id .. "_2"
 
 		lua_table.previous_state = lua_table.current_state
 		lua_table.current_state = state[attack_type .. "_2"]
@@ -1614,9 +1614,6 @@ local function ActionInputs()	--Process Action Inputs
 						lua_table.TransformFunctions:LookAt(jaskier_revive_pos[1], geralt_pos[2], jaskier_revive_pos[3], geralt_GO_UID)
 						lua_table.AnimationFunctions:PlayAnimation(animation_library.revive, lua_table.revive_animation_speed, geralt_GO_UID)
 						current_animation = animation_library.revive
-
-						lua_table.AudioFunctions:PlayAudioEventGO(audio_library.revive, geralt_GO_UID)	--TODO-AUDIO:
-						current_audio = audio_library.revive
 	
 						lua_table.previous_state = lua_table.current_state
 						lua_table.current_state = state.revive
@@ -1645,9 +1642,6 @@ local function ActionInputs()	--Process Action Inputs
 							lua_table.AnimationFunctions:PlayAnimation(animation_library.revive, lua_table.revive_animation_speed, geralt_GO_UID)
 							current_animation = animation_library.revive
 
-							lua_table.AudioFunctions:PlayAudioEventGO(audio_library.revive, geralt_GO_UID)	--TODO-AUDIO: Ultimate Sound
-							current_audio = audio_library.revive
-
 							lua_table.previous_state = lua_table.current_state
 							lua_table.current_state = state.revive
 							action_made = true
@@ -1671,7 +1665,7 @@ local function ActionInputs()	--Process Action Inputs
 		then
 			lua_table.AnimationFunctions:SetBlendTime(0.1, particles_library.slash_GO_UID)
 			lua_table.GameObjectFunctions:SetActiveGameObject(true, particles_library.slash_mesh_GO_UID)
-			enemy_is_hit = 0
+			enemy_hit_curr_stage = enemy_hit_stages.awaiting_attack
 		else
 			lua_table.GameObjectFunctions:SetActiveGameObject(false, particles_library.slash_mesh_GO_UID)
 			--lua_table.ParticlesFunctions:StopParticleEmitter(sword_particles_GO_UID)	--TODO-Particles: Deactivate Particles on Sword
@@ -1725,7 +1719,7 @@ local function ReviveShutdown()	--IF I was reviving, not anymore
 end
 
 function lua_table:EnemyHit()
-	if enemy_is_hit == 0 then
+	if enemy_hit_curr_stage <= enemy_hit_stages.attack_miss then
 		lua_table.AnimationFunctions:SetAnimationPause(true, geralt_GO_UID)
 		lua_table.AnimationFunctions:SetAnimationPause(true, particles_library.slash_GO_UID)
 
@@ -1733,7 +1727,21 @@ function lua_table:EnemyHit()
 		-- current_action_duration = current_action_duration + enemy_hit_duration
 		action_started_at = action_started_at + enemy_hit_duration
 		enemy_hit_started_at = game_time
-		enemy_is_hit = 1
+
+		if enemy_hit_curr_stage == enemy_hit_stages.attack_miss then
+			lua_table.AudioFunctions:StopAudioEventGO(audio_library.attack_miss, geralt_GO_UID)
+		end
+		
+		if lua_table.current_state == state.combo_1 then current_paused_audio = audio_library.combo_1
+		elseif lua_table.current_state == state.combo_2 then current_paused_audio = audio_library.combo_2
+		elseif lua_table.current_state == state.combo_3 then current_paused_audio = audio_library.combo_3 end
+		-- elseif lua_table.current_state == state.light_3 then current_paused_audio = audio_library.light_3
+		-- elseif lua_table.current_state == state.medium_3 then current_paused_audio = audio_library.medium_3
+		-- elseif lua_table.current_state == state.heavy_3 then current_paused_audio = audio_library.heavy_3 end
+
+		lua_table.AudioFunctions:PauseAudioEventGO(current_paused_audio, geralt_GO_UID)
+
+		enemy_hit_curr_stage = enemy_hit_stages.attack_hit
 	end
 end
 
@@ -1835,6 +1843,9 @@ local function TakePotion()
 		elseif lua_table.item_selected == lua_table.item_library.power_potion then TakePowerPotion() end
 
 		lua_table.potion_in_effect = lua_table.item_selected	-- Save Potion number id to later use
+
+		lua_table.AudioFunctions:PlayAudioEventGO(audio_library.item_potion, geralt_GO_UID)	--TODO-AUDIO:
+		--current_audio = audio_library.item_potion
 
 		potion_taken_at = game_time		--Mark drink time
 		lua_table.potion_active = true	--Mark potion in effect
@@ -1940,6 +1951,9 @@ local function ProcessIncomingHit(collider_GO)
 
 	lua_table.current_health = lua_table.current_health - enemy_script.collider_damage
 
+	lua_table.AudioFunctions:PlayAudioEventGO(audio_library.hurt, geralt_GO_UID)	--TODO-AUDIO:
+	--current_audio = audio_library.hurt
+
 	if enemy_script.collider_effect ~= attack_effects_ID.none and lua_table.current_state >= state.idle	--IF effect and ready to take one
 	then
 		lua_table.AnimationFunctions:SetBlendTime(0.1, geralt_GO_UID)
@@ -1999,9 +2013,14 @@ end
 function lua_table:OnTriggerEnter()
 	lua_table.SystemFunctions:LOG("On Trigger Enter")
 	
-	local collider_GO = lua_table.PhysicsFunctions:OnTriggerEnter(geralt_GO_UID)
+	local collider_GO = 0
 
-	if not godmode and lua_table.current_state > state.down and lua_table.GameObjectFunctions:GetLayerByID(collider_GO) == layers.enemy_attack	--IF collider is tagged as an enemy attack
+	if geralt_GO_UID ~= nil and geralt_GO_UID ~= 0 then
+		collider_GO = lua_table.PhysicsFunctions:OnTriggerEnter(geralt_GO_UID)
+	end
+
+	if collider_GO ~= nil and collider_GO ~= 0 and
+	not godmode and lua_table.current_state > state.down and lua_table.GameObjectFunctions:GetLayerByID(collider_GO) == layers.enemy_attack	--IF collider is tagged as an enemy attack
 	then
 		ProcessIncomingHit(collider_GO)
 	end
@@ -2010,9 +2029,14 @@ end
 function lua_table:OnCollisionEnter()
 	lua_table.SystemFunctions:LOG("On Collision Enter")
 
-	local collider_GO = lua_table.PhysicsFunctions:OnCollisionEnter(geralt_GO_UID)
+	local collider_GO = 0
 
-	if not godmode and lua_table.current_state > state.down and lua_table.GameObjectFunctions:GetLayerByID(collider_GO) == layers.enemy_attack	--IF collider is tagged as an enemy attack
+	if geralt_GO_UID ~= nil and geralt_GO_UID ~= 0 then
+		collider_GO = lua_table.PhysicsFunctions:OnCollisionEnter(geralt_GO_UID)
+	end
+
+	if collider_GO ~= nil and collider_GO ~= 0 and
+	not godmode and lua_table.current_state > state.down and lua_table.GameObjectFunctions:GetLayerByID(collider_GO) == layers.enemy_attack	--IF collider is tagged as an enemy attack
 	then
 		ProcessIncomingHit(collider_GO)
 	end
@@ -2333,13 +2357,25 @@ function lua_table:Update()
 
 					--ELSE (For all the following): IF action ongoing at the moment
 					else
-						if enemy_is_hit == 1
+						if enemy_hit_curr_stage == enemy_hit_stages.attack_performed
+						then
+							lua_table.AudioFunctions:PlayAudioEventGO(audio_library.attack_miss, geralt_GO_UID)
+							--current_audio = audio_library.attack_miss
+
+							enemy_hit_curr_stage = enemy_hit_stages.attack_miss
+
+						elseif enemy_hit_curr_stage == enemy_hit_stages.attack_hit
 						and lua_table.current_state <= state.combo_3 and lua_table.current_state >= state.light_1
 						and game_time - enemy_hit_started_at > enemy_hit_duration
 						then
 							lua_table.AnimationFunctions:SetAnimationPause(false, geralt_GO_UID)
 							lua_table.AnimationFunctions:SetAnimationPause(false, particles_library.slash_GO_UID)
-							enemy_is_hit = 2
+
+							lua_table.AudioFunctions:ResumeAudioEventGO(current_paused_audio, geralt_GO_UID)
+							current_paused_audio = audio_library.none
+
+							lua_table.AudioFunctions:PlayAudioEventGO(audio_library.attack_hit, geralt_GO_UID)
+							--current_audio = audio_library.attack_hit
 
 							if lua_table.current_state >= state.combo_1 and lua_table.current_state <= state.combo_3 then
 								lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.big.intensity, controller_shake.big.duration)
@@ -2348,6 +2384,8 @@ function lua_table:Update()
 							else
 								lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.small.intensity, controller_shake.small.duration)
 							end
+
+							enemy_hit_curr_stage = enemy_hit_stages.attack_finished
 						end
 
 						if lua_table.current_state == state.revive
@@ -2389,7 +2427,7 @@ function lua_table:Update()
 
 						elseif lua_table.current_state == state.light_1 or lua_table.current_state == state.light_2 or lua_table.current_state == state.light_3	--IF Light Attacking
 						then
-							if DirectionInBounds(true) and enemy_is_hit ~= 1 and time_since_action < lua_table.light_movement_end	--IF in bounds
+							if DirectionInBounds(true) and enemy_hit_curr_stage ~= enemy_hit_stages.attack_hit and time_since_action < lua_table.light_movement_end	--IF in bounds
 							then
 								if lua_table.current_state == state.light_1 then
 									lua_table.PhysicsFunctions:Move(lua_table.light_1_movement_velocity * rec_direction.x * dt, lua_table.light_1_movement_velocity * rec_direction.z * dt, geralt_GO_UID)
@@ -2406,7 +2444,7 @@ function lua_table:Update()
 
 						elseif lua_table.current_state == state.medium_1 or lua_table.current_state == state.medium_2 or lua_table.current_state == state.medium_3	--IF Medium Attacking
 						then
-							if DirectionInBounds(true) and enemy_is_hit ~= 1	--IF in bounds
+							if DirectionInBounds(true) and enemy_hit_curr_stage ~= enemy_hit_stages.attack_hit	--IF in bounds
 							then
 								if lua_table.current_state == state.medium_1 and time_since_action > lua_table.medium_1_movement_start and time_since_action < current_action_block_time + 50 then
 									lua_table.PhysicsFunctions:Move(lua_table.medium_3_movement_velocity * rec_direction.x * dt, lua_table.medium_3_movement_velocity * rec_direction.z * dt, geralt_GO_UID)
@@ -2425,7 +2463,7 @@ function lua_table:Update()
 
 						elseif lua_table.current_state == state.heavy_1 or lua_table.current_state == state.heavy_2 or lua_table.current_state == state.heavy_3	--IF Heavy Attacking
 						then
-							if DirectionInBounds(true) and enemy_is_hit ~= 1
+							if DirectionInBounds(true) and enemy_hit_curr_stage ~= enemy_hit_stages.attack_hit
 							then
 								if lua_table.current_state == state.heavy_1
 								then
@@ -2451,7 +2489,7 @@ function lua_table:Update()
 
 						elseif lua_table.current_state == state.combo_1
 						then
-							if DirectionInBounds(true) and enemy_is_hit ~= 1 and time_since_action < lua_table.combo_1_velocity_stop then
+							if DirectionInBounds(true) and enemy_hit_curr_stage ~= enemy_hit_stages.attack_hit and time_since_action < lua_table.combo_1_velocity_stop then
 								if time_since_action < lua_table.combo_1_velocity_change then
 									lua_table.PhysicsFunctions:Move(lua_table.combo_1_movement_velocity_1 * rec_direction.x * dt, lua_table.combo_1_movement_velocity_1 * rec_direction.z * dt, geralt_GO_UID)
 								else
@@ -2467,7 +2505,7 @@ function lua_table:Update()
 
 						elseif lua_table.current_state == state.combo_2
 						then
-							if DirectionInBounds(true) and enemy_is_hit ~= 1 and time_since_action < lua_table.combo_2_velocity_change
+							if DirectionInBounds(true) and enemy_hit_curr_stage ~= enemy_hit_stages.attack_hit and time_since_action < lua_table.combo_2_velocity_change
 							then
 								lua_table.PhysicsFunctions:Move(lua_table.combo_2_movement_velocity_1 * rec_direction.x * dt, lua_table.combo_2_movement_velocity_1 * rec_direction.z * dt, geralt_GO_UID)
 							end
@@ -2479,7 +2517,7 @@ function lua_table:Update()
 
 						elseif lua_table.current_state == state.combo_3
 						then
-							if DirectionInBounds(true) and enemy_is_hit ~= 1 and time_since_action < lua_table.combo_3_velocity_stop then
+							if DirectionInBounds(true) and enemy_hit_curr_stage ~= enemy_hit_stages.attack_hit and time_since_action < lua_table.combo_3_velocity_stop then
 								if time_since_action < lua_table.combo_3_velocity_change then
 									lua_table.PhysicsFunctions:Move(lua_table.combo_3_movement_velocity_1 * rec_direction.x * dt, lua_table.combo_3_movement_velocity_1 * rec_direction.z * dt, geralt_GO_UID)
 								else
@@ -2558,6 +2596,9 @@ function lua_table:Update()
 						lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.revive_particles_GO_UID_children[i])	--TODO-Particles:
 					end
 
+					lua_table.AudioFunctions:PlayAudioEventGO(audio_library.revive, geralt_GO_UID)	--TODO-AUDIO:
+					current_audio = audio_library.revive
+
 					stopped_death = true	--Flag death timer stop
 				else
 					if game_time - pulsation_started_at > pulsation_interval_duration then
@@ -2594,6 +2635,9 @@ function lua_table:Update()
 					for i = 1, #particles_library.revive_particles_GO_UID_children do
 						lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.revive_particles_GO_UID_children[i])	--TODO-Particles:
 					end
+
+					lua_table.AudioFunctions:StopAudioEventGO(audio_library.revive, geralt_GO_UID)	--TODO-AUDIO:
+					current_audio = audio_library.revive
 
 					stopped_death = false				--Flag timer resuming
 

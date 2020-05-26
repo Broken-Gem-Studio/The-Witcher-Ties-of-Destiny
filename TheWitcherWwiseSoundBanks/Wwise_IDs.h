@@ -117,6 +117,7 @@ namespace AK
             {
                 static const AkUniqueID COMBAT = 2764240573U;
                 static const AkUniqueID EXPLORATION = 2582085496U;
+                static const AkUniqueID PAUSE = 3092587493U;
             } // namespace SWITCH
         } // namespace LVL_1_MUSIC_SWITCH
 
@@ -128,6 +129,7 @@ namespace AK
             {
                 static const AkUniqueID COMBAT = 2764240573U;
                 static const AkUniqueID EXPLORATION = 2582085496U;
+                static const AkUniqueID PAUSE = 3092587493U;
             } // namespace SWITCH
         } // namespace LVL_2_MUSIC_SWITCH
 
