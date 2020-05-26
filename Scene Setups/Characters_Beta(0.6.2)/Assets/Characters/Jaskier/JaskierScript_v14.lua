@@ -649,12 +649,15 @@ lua_table.stand_up_animation_speed = 90.0
 
 --Revive/Death
 local revive_target				-- Target character script
+lua_table.being_revived = false	-- Revival flag (managed by rescuer character)
 lua_table.revive_range = 2		-- Revive distance
-lua_table.revive_time = 3000	-- Time to revive
-lua_table.down_time = 10000		-- Time until death (restarted by revival attempt)
 lua_table.revive_animation_speed = 25.0
 
-lua_table.being_revived = false	-- Revival flag (managed by rescuer character)
+lua_table.revive_time = 3000	-- Time to revive
+lua_table.down_time = 10000		-- Time until death (restarted by revival attempt)
+
+local pulsation_started_at = 0
+local pulsation_interval_duration = 800
 
 local stopped_death = false		-- Death timer stop flag
 lua_table.death_started_at = 0		-- Death timer start
@@ -1749,7 +1752,8 @@ local function ActionInputs()	--Process Action Inputs
 	
 					if revive_target.current_state == state.down and not revive_target.being_revived	--IF player downed and no one reviving
 					then
-						action_started_at = game_time	--Set timer start mark
+						action_started_at = game_time		--Set timer start mark
+						pulsation_started_at = game_time	--Set pulsation start mark
 						current_action_block_time = lua_table.revive_time
 						current_action_duration = lua_table.revive_time
 
@@ -1779,7 +1783,8 @@ local function ActionInputs()	--Process Action Inputs
 	
 						if revive_target.current_state == state.down and not revive_target.being_revived	--IF player downed and no one reviving
 						then
-							action_started_at = game_time	--Set timer start mark
+							action_started_at = game_time		--Set timer start mark
+							pulsation_started_at = game_time	--Set pulsation start mark
 							current_action_block_time = lua_table.revive_time
 							current_action_duration = lua_table.revive_time
 	
@@ -2455,10 +2460,17 @@ function lua_table:Update()
 							end
 						end
 
-						if lua_table.current_state == state.revive and lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_revive, key_state.key_up)
+						if lua_table.current_state == state.revive
 						then
-							ReviveShutdown()
-							GoDefaultState(false)
+							if lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_revive, key_state.key_up)
+							then
+								ReviveShutdown()
+								GoDefaultState(false)
+							elseif game_time - pulsation_started_at > pulsation_interval_duration
+							then
+								lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.small.intensity, controller_shake.small.duration)
+								pulsation_started_at = game_time
+							end
 
 						elseif lua_table.current_state == state.evade and DirectionInBounds(true)				--ELSEIF evading
 						then
@@ -2677,33 +2689,40 @@ function lua_table:Update()
 				if not stopped_death		--IF stop mark hasn't been done yet
 				then
 					death_stopped_at = game_time			--Mark revival start (for death timer)
-					lua_table.revive_started_at = death_stopped_at	--Mark revival start (for revival timer)
+					lua_table.revive_started_at = game_time	--Mark revival start (for revival timer)
+					pulsation_started_at = game_time		--Mark revival pulsation start
 
 					for i = 1, #particles_library.revive_particles_GO_UID_children do
 						lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.revive_particles_GO_UID_children[i])	--TODO-Particles:
 					end
 
-					stopped_death = true					--Flag death timer stop
-
-				elseif game_time - lua_table.revive_started_at > lua_table.revive_time		--IF revival complete
-				then
-					lua_table.PhysicsFunctions:SetActiveController(true, jaskier_GO_UID)
-
-					lua_table.AnimationFunctions:PlayAnimation(animation_library.stand_up, lua_table.stand_up_animation_speed, jaskier_GO_UID)	--TODO-Animations: Stand up
-					current_animation = animation_library.stand_up
-
-					for i = 1, #particles_library.revive_particles_GO_UID_children do
-						lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.revive_particles_GO_UID_children[i])	--TODO-Particles:
+					stopped_death = true	--Flag death timer stop
+				else
+					if game_time - pulsation_started_at > pulsation_interval_duration then
+						lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.small.intensity, controller_shake.small.duration)
+						pulsation_started_at = game_time
 					end
 
-					blending_started_at = game_time
+					if game_time - lua_table.revive_started_at > lua_table.revive_time		--IF revival complete
+					then
+						lua_table.PhysicsFunctions:SetActiveController(true, jaskier_GO_UID)
 
-					lua_table.AudioFunctions:PlayAudioEventGO(audio_library.stand_up, jaskier_GO_UID)
-					current_audio = audio_library.stand_up
+						lua_table.AnimationFunctions:PlayAnimation(animation_library.stand_up, lua_table.stand_up_animation_speed, jaskier_GO_UID)	--TODO-Animations: Stand up
+						current_animation = animation_library.stand_up
 
-					lua_table.standing_up_bool = true
-					stopped_death = false
-					lua_table.current_health = lua_table.max_health_real / 2	--Get half health
+						for i = 1, #particles_library.revive_particles_GO_UID_children do
+							lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.revive_particles_GO_UID_children[i])	--TODO-Particles:
+						end
+
+						blending_started_at = game_time
+
+						lua_table.AudioFunctions:PlayAudioEventGO(audio_library.stand_up, jaskier_GO_UID)
+						current_audio = audio_library.stand_up
+
+						lua_table.standing_up_bool = true
+						stopped_death = false
+						lua_table.current_health = lua_table.max_health_real / 2	--Get half health
+					end
 				end
 			else								--IF other player isn't reviving
 				if stopped_death				--IF death timer was stopped
@@ -2750,6 +2769,8 @@ function lua_table:Update()
 	--lua_table.SystemFunctions:LOG("Chain num: " .. lua_table.chained_attacks_num)
 	--lua_table.SystemFunctions:LOG("Note num: " .. lua_table.note_num)
 	--lua_table.SystemFunctions:LOG("Song string: " .. lua_table.note_stack[1] .. ", " .. lua_table.note_stack[2] .. ", " .. lua_table.note_stack[3] .. ", " .. lua_table.note_stack[4])
+
+	--if lua_table.being_revived then lua_table.SystemFunctions:LOG("REVIVE TIME: " .. (game_time - lua_table.revive_started_at)) end
 
 	--Animation
 	--if lua_table.AnimationFunctions:CurrentAnimationEnded(jaskier_GO_UID) == 1 then lua_table.SystemFunctions:LOG("ANIMATION ENDED. ------------") end
