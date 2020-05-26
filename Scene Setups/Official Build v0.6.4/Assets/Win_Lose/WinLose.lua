@@ -42,6 +42,9 @@ function GetTableWinLose()
     local load_level1 = false
     local load_level2 = false
     local load_mainmenu = false
+
+    local play_win = false
+    local play_lose = false
     
     local function Victory()
         lua_table.System:PauseGame()
@@ -51,9 +54,15 @@ function GetTableWinLose()
         lua_table.GO:SetActiveGameObject(true, win)
         if win_flag == false
         then
-            --start animation**
-            if lua_table.Input:KeyRepeat("F3") --finished**
+            if play_win == true
             then
+                play_win = false
+                lua_table.UI:PlayUIAnimation(win)
+            end
+
+            if lua_table.UI:UIAnimationFinished(win) == true
+            then
+                play_win = true
                 win_flag = true
             end
         end
@@ -94,9 +103,15 @@ function GetTableWinLose()
         lua_table.GO:SetActiveGameObject(true, lose)
         if lose_flag == false
         then
-            --start animation**
-            if lua_table.Input:KeyRepeat("F4") --finished**
+            if play_lose == true
             then
+                play_lose = false
+                lua_table.UI:PlayUIAnimation(lose)
+            end
+
+            if lua_table.UI:UIAnimationFinished(lose) == true
+            then
+                play_lose = true
                 lose_flag = true
             end
         end
