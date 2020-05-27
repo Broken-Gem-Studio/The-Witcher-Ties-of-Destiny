@@ -53,7 +53,7 @@ function lua_table:Update()
 
     if lua_table.boss.awakened == false
     then
-        lua_table["UI"]:MakeElementInvisible("Bar", BossBar)
+        lua_table["UI"]:MakeElementInvisible("Image", BossBar)
         lua_table["UI"]:MakeElementInvisible("Image", BossBackground)
         lua_table["UI"]:MakeElementInvisible("Image", BossCapsule)
         --lua_table["UI"]:MakeElementInvisible("Text", BossText)
