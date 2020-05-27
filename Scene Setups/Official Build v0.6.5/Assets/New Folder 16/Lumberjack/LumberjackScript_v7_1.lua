@@ -1089,6 +1089,14 @@ function lua_table:Start()
 
 	--lua_table.SoundSystem:SetVolume(0.09)
 	
+
+	lua_table.ParticleSystem:ActivateParticlesEmission(particles.alertParticles.GO_UID)
+	lua_table.ParticleSystem:ActivateParticlesEmission(particles.GroundHitParticles1.GO_UID)
+	lua_table.ParticleSystem:ActivateParticlesEmission(particles.GroundHitParticles2.GO_UID)
+	lua_table.ParticleSystem:ActivateParticlesEmission(particles.stuntParticles.GO_UID)
+	lua_table.ParticleSystem:ActivateParticlesEmission(particles.hitParticles.GO_UID)
+
+
 	lua_table.ParticleSystem:StopParticleEmitter(particles.alertParticles.GO_UID)
 	lua_table.ParticleSystem:StopParticleEmitter(particles.GroundHitParticles1.GO_UID)
 	lua_table.ParticleSystem:StopParticleEmitter(particles.GroundHitParticles2.GO_UID)
