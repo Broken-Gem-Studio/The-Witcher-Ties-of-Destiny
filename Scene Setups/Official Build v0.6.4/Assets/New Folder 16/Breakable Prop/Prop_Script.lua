@@ -78,7 +78,7 @@ local function playParticles()
 	end
 end
 
-function lua_table::RequestTrigger(collider)
+function lua_table:RequestedTrigger(collider)
 
 	local layer = lua_table.GameObjectFunctions:GetLayerByID(collider)
 	if layer == 1 --Checks if its player/enemy attack collider layer

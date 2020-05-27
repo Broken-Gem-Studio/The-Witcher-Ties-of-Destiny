@@ -212,7 +212,7 @@ lua_table.player_2_Dead = false
 lua_table.collider_damage = 0
 lua_table.collider_effect = 0
 
-lua_table.MaxHealth = 40000
+lua_table.MaxHealth = 500
 lua_table.CurrentHealth = 0
 lua_table.MaxSpeed = 5
 lua_table.JumpAttackSpeed = 3

@@ -165,11 +165,23 @@ function GetTableNewUlti()
 
         --
 
-        if lua_table.ultiP1.ultimate_active == true and lua_table.ultiP1.current_state  > -3 and lua_table.ultiP1.being_revived == false--SI ESTA USANDO LA ULTI MOSTRAR IMAGEN 100% ULTIMATE ACTIVE TIENE QUE SER LUA_TABLE
+        if lua_table.ultiP1.ultimate_active == true 
         then
-            --lua_table["UI"]:MakeElementVisible("Image", ULTIDHUNDRED)
-            lua_table["UI"]:MakeElementVisible("Image", ULTIDUSING)--poner otra imagen en vez de la de 100
+            if lua_table.ultiP1.current_state  ~= -3 and lua_table.ultiP1.current_state  ~= -4 and lua_table.ultiP1.being_revived == false
+            then
+                lua_table["UI"]:MakeElementVisible("Image", ULTIDUSING)
+
+            else
+                lua_table["UI"]:MakeElementInvisible("Image", ULTIDUSING)
+            end
+
         end
+
+        if lua_table.ultiP1.ultimate_active == false
+        then
+            lua_table["UI"]:MakeElementInvisible("Image", ULTIDUSING)
+        end
+
 
         --ULTI JASKIER
 
@@ -234,11 +246,22 @@ function GetTableNewUlti()
  
          --
 
-        if lua_table.ultiP2.ultimate_active == true and lua_table.ultiP2.current_state > -3 and lua_table.ultiP2.being_revived == false--EN EL CASO DE JASKIER IGUAL NO HACE FALTA QUE SE MANTENGA LA IMAGEN PORQUE SU ULTI NO DURA TIEMPO
-        then
-            --lua_table["UI"]:MakeElementVisible("Image", ULTID2HUNDRED)
-            lua_table["UI"]:MakeElementVisible("Image", ULTID2USING)
-        end
+         if lua_table.ultiP2.ultimate_active == true 
+         then
+             if lua_table.ultiP2.current_state  ~= -3 and lua_table.ultiP2.current_state  ~= -4 and lua_table.ultiP2.being_revived == false
+             then
+                 lua_table["UI"]:MakeElementVisible("Image", ULTID2USING)
+ 
+             else
+                 lua_table["UI"]:MakeElementInvisible("Image", ULTID2USING)
+             end
+ 
+         end
+ 
+         if lua_table.ultiP2.ultimate_active == false
+         then
+             lua_table["UI"]:MakeElementInvisible("Image", ULTID2USING)
+         end
 
     
     end
