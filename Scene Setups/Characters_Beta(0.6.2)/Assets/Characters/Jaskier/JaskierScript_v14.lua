@@ -63,7 +63,8 @@ local animation_library = {
 
 	one_handed_slam = "guitar_slam_one_handed",
 	two_handed_slam = "guitar_slam_two_handed",
-	concert = "guitar_play_2"
+	concert = "guitar_play_2",
+	moonwalk = "moonwalk"
 }
 local current_animation = animation_library.none
 
@@ -78,6 +79,7 @@ local particles_library = {
 
 	--Particle Tables
 	run_particles_GO_UID_children = {},
+	blood_particles_GO_UID_children = {},
 	revive_particles_GO_UID_children = {},
 	song_circle_GO_UID_children = {},
 	song_cone_GO_UID_children = {},
@@ -601,7 +603,7 @@ lua_table.note_stack = { 'N', 'N', 'N', 'N' }	-- Last 4 attacks performed (0=non
 	lua_table.song_3_effect_end = 2000
 	lua_table.song_3_effect_active = false
 	lua_table.song_3_duration = 3700
-	lua_table.song_3_animation_name = audio_library.moonwalk
+	lua_table.song_3_animation_name = animation_library.moonwalk
 	lua_table.song_3_animation_speed = 30.0
 	lua_table.song_3_damage = 0.0
 	lua_table.song_3_status_effect = attack_effects_ID.taunt
@@ -2113,6 +2115,10 @@ local function ProcessIncomingHit(collider_GO)
 	lua_table.AudioFunctions:PlayAudioEventGO(audio_library.hurt, jaskier_GO_UID)	--TODO-AUDIO:
 	--current_audio = audio_library.hurt
 
+	for i = 1, #particles_library.blood_particles_GO_UID_children do
+		lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.blood_particles_GO_UID_children[i])	--TODO-Particles:
+	end
+
 	if enemy_script.collider_effect ~= attack_effects_ID.none and lua_table.current_state >= state.idle	--IF effect and ready to take one
 	then
 		lua_table.AnimationFunctions:SetBlendTime(0.1, jaskier_GO_UID)
@@ -2262,6 +2268,7 @@ function lua_table:Awake()
 	--guitar_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Guitar")
 
 	particles_library.run_particles_GO_UID_children = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindGameObject("Jaskier_Run"))
+	particles_library.blood_particles_GO_UID_children = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindGameObject("Jaskier_Blood"))
 	particles_library.revive_particles_GO_UID_children = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindGameObject("Jaskier_Revive"))
 
 	particles_library.song_circle_GO_UID_children = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindGameObject("Jaskier_Song_Circle"))
@@ -2275,6 +2282,9 @@ function lua_table:Awake()
 	--Stop Particle Emitters
 	for i = 1, #particles_library.run_particles_GO_UID_children do
 		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.run_particles_GO_UID_children[i])	--TODO-Particles:
+	end
+	for i = 1, #particles_library.blood_particles_GO_UID_children do
+		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.blood_particles_GO_UID_children[i])	--TODO-Particles:
 	end
 	for i = 1, #particles_library.revive_particles_GO_UID_children do
 		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.revive_particles_GO_UID_children[i])	--TODO-Particles:
