@@ -10,6 +10,8 @@ local Geralt_UID = 0
 local started_time = 0
 local play_animation = true
 lua_table.current_state = 0
+lua_table.collider_damage = 0
+lua_table.collider_effect = 0
 
 function lua_table:Awake()
     lua_table.System:LOG ("This Log was called from GeraltCutscene on AWAKE")
