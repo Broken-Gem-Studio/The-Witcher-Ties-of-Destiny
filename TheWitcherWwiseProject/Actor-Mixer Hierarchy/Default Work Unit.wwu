@@ -742,6 +742,25 @@
 								<ActiveSource Name="GeraltUltimate sound" ID="{3A23DAAD-E30D-4AD3-8B82-5EAD02EAFF02}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
+						<Sound Name="Geralt_combo_sound" ID="{562B41F8-4F6B-49FA-977E-D1A13B27D185}" ShortID="306828841">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Geralt_combo_sound" ID="{2E2C3B07-0814-4C38-BD10-276CEA8D3A5B}" ShortID="697976836">
+									<Language>SFX</Language>
+									<AudioFile>Geralt_combo_sound.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Geralt_combo_sound" ID="{2E2C3B07-0814-4C38-BD10-276CEA8D3A5B}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Jaskier" ID="{7F0333D8-EF2D-41C6-970A-4F827204363D}" ShortID="300713006">
@@ -820,25 +839,6 @@
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="Jaskier_potion_life_fx_2" ID="{DA00DA2C-8133-4485-80CB-F6C5C27498AC}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="Jaskier_acoustic_gitar_smash" ID="{31FAA83B-FC2F-4BEC-9363-067274AB1309}" ShortID="17800907">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="Jaskier_acoustic_gitar_smash" ID="{0EF7CBBD-214D-4166-9997-4843E1637D81}" ShortID="93263325">
-									<Language>SFX</Language>
-									<AudioFile>Jaskier_acoustic_gitar_smash.wav</AudioFile>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="Jaskier_acoustic_gitar_smash" ID="{0EF7CBBD-214D-4166-9997-4843E1637D81}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<RandomSequenceContainer Name="Jaskier_guitar_swing" ID="{63D99D17-6BD3-4BA8-A88E-C81CB59FCDD7}" ShortID="425749674">
@@ -1288,7 +1288,7 @@
 								</Sound>
 							</ChildrenList>
 						</RandomSequenceContainer>
-						<Sound Name="Jaskier_Ultimate" ID="{FE4B2247-1507-439E-9743-5A52A977B2F1}" ShortID="146895864">
+						<Sound Name="jaskier song 1" ID="{0816E686-9C4C-4055-8EA0-A269152A8811}" ShortID="476048609">
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -1298,13 +1298,108 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="Jaskier_Ultimate" ID="{8CC16940-097D-42E4-950F-3701B6C49D08}" ShortID="520180337">
+								<AudioFileSource Name="jaskier song 1" ID="{5AF5E6E2-90B3-48F8-87C6-D52CA5851938}" ShortID="420840914">
+									<Language>SFX</Language>
+									<AudioFile>jaskier song 1.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="jaskier song 1" ID="{5AF5E6E2-90B3-48F8-87C6-D52CA5851938}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="jaskier song 2-3" ID="{9F04CB7D-89A1-42BE-AFCC-B6705B70D49C}" ShortID="366969281">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="jaskier song 2-3" ID="{331D240C-A5A1-4FC7-88D5-A2E75702F984}" ShortID="696598848">
+									<Language>SFX</Language>
+									<AudioFile>jaskier song 2-3.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="jaskier song 2-3" ID="{331D240C-A5A1-4FC7-88D5-A2E75702F984}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Jaskier_guitar_smash" ID="{38D3E2DC-39B4-49D3-A5E5-C04C0DE9AB83}" ShortID="916263479">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Jaskier_guitar_smash" ID="{0ABDE2BA-6790-412D-9BD6-E89995662C98}" ShortID="950570503">
+									<Language>SFX</Language>
+									<AudioFile>Jaskier_guitar_smash.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Jaskier_guitar_smash" ID="{0ABDE2BA-6790-412D-9BD6-E89995662C98}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Jaskier_Ultimate" ID="{A6E62677-A283-4299-B538-39D74317811C}" ShortID="111953914">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Jaskier_Ultimate" ID="{70E62624-E6CE-47F5-B57F-54E10C297035}" ShortID="858627309">
 									<Language>SFX</Language>
 									<AudioFile>Jaskier_Ultimate.wav</AudioFile>
 								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="Jaskier_Ultimate" ID="{8CC16940-097D-42E4-950F-3701B6C49D08}" Platform="Linked"/>
+								<ActiveSource Name="Jaskier_Ultimate" ID="{70E62624-E6CE-47F5-B57F-54E10C297035}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Jaskier_moonwalk" ID="{5BC27BF3-AB44-4CE4-AB84-BD8C3CB462DA}" ShortID="242890711">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Jaskier_moonwalk" ID="{6AE23417-0A28-448D-869A-157F67090BED}" ShortID="853122775">
+									<Language>SFX</Language>
+									<AudioFile>Jaskier_moonwalk.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Jaskier_moonwalk" ID="{6AE23417-0A28-448D-869A-157F67090BED}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Potion_fx" ID="{EBF3F20C-96E3-4E77-A108-D5D02A03E1BA}" ShortID="434834378">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Potion_fx" ID="{DED7D7FC-0266-4820-A0C1-803CCF461A34}" ShortID="31365157">
+									<Language>SFX</Language>
+									<AudioFile>Potion_fx.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Potion_fx" ID="{DED7D7FC-0266-4820-A0C1-803CCF461A34}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
