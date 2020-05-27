@@ -9,7 +9,7 @@
                 "positionx": "349.002838",
                 "positiony": "38.612278",
                 "positionz": "-313.026642",
-                "rotationw": "0.579227",
+                "rotationw": "0.579228",
                 "rotationx": "-0.579228",
                 "rotationy": "0.405580",
                 "rotationz": "0.405580",
@@ -409,6 +409,57 @@
         "Parent": "1574175972",
         "Static": false
     },
+    "1037260335": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1451785858,
+                "index": 0,
+                "layer": "0",
+                "positionx": "309.837128",
+                "positiony": "24.784159",
+                "positionz": "167.780045",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/1682443312.mesh"
+                    }
+                },
+                "UID": 1317890116,
+                "index": 1
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/Grass_1.mat"
+                    }
+                },
+                "UID": 1588947961,
+                "index": 2
+            }
+        },
+        "Index": 4,
+        "Name": "Grass_Part_5",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1750951057",
+        "Static": false
+    },
     "1043369677": {
         "Active": true,
         "Components": {
@@ -762,55 +813,30 @@
         "Parent": "425397941",
         "Static": false
     },
-    "1055547285": {
+    "1054317442": {
         "Active": true,
         "Components": {
             "0": {
-                "UID": 1026484951,
+                "UID": 1349869866,
                 "index": 0,
                 "layer": "0",
-                "positionx": "308.275391",
-                "positiony": "50.298401",
-                "positionz": "-517.623596",
-                "rotationw": "0.707107",
-                "rotationx": "-0.707107",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
-                "scalex": "0.025400",
-                "scaley": "0.025400",
-                "scalez": "0.025400"
-            },
-            "1": {
-                "Active": true,
-                "Resources": {
-                    "ResourceMesh": {
-                        "PreviewTexture": "",
-                        "path": "Library/Meshes/1007851447.mesh"
-                    }
-                },
-                "UID": 947968705,
-                "index": 1
-            },
-            "2": {
-                "Active": true,
-                "CastsShadows": true,
-                "LightAffected": true,
-                "OnlyShadows": false,
-                "ReceivesShadows": true,
-                "Resources": {
-                    "ResourceMaterial": {
-                        "path": "Assets/Part_2.mat"
-                    }
-                },
-                "UID": 2061771201,
-                "index": 2
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
             }
         },
-        "Index": 5,
-        "Name": "Part_2",
+        "Index": 1,
+        "Name": "GrassTwo",
         "Navigation Area": 0,
         "Navigation Static": false,
-        "Parent": "479455030",
+        "Parent": "1670362181",
         "Static": false
     },
     "1058647252": {
@@ -828,8 +854,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000556",
-                "scalez": "1.000556"
+                "scaley": "1.000561",
+                "scalez": "1.000561"
             }
         },
         "Index": 0,
@@ -1104,9 +1130,9 @@
                 "rotationx": "-0.197860",
                 "rotationy": "0.414638",
                 "rotationz": "0.412815",
-                "scalex": "19.685184",
+                "scalex": "19.685186",
                 "scaley": "19.684792",
-                "scalez": "19.685091"
+                "scalez": "19.685087"
             }
         },
         "Index": 0,
@@ -1130,8 +1156,8 @@
                 "rotationx": "-0.000534",
                 "rotationy": "-0.000084",
                 "rotationz": "0.999921",
-                "scalex": "1.001107",
-                "scaley": "1.001109",
+                "scalex": "1.001117",
+                "scaley": "1.001119",
                 "scalez": "1.000000"
             },
             "13": {
@@ -2154,8 +2180,8 @@
                 "rotationx": "0.000205",
                 "rotationy": "-0.005509",
                 "rotationz": "0.999924",
-                "scalex": "1.000611",
-                "scaley": "1.000841",
+                "scalex": "1.000617",
+                "scaley": "1.000851",
                 "scalez": "1.000000"
             },
             "13": {
@@ -2620,8 +2646,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.540000",
-                "scaley": "2.540687",
-                "scalez": "2.540687"
+                "scaley": "2.540694",
+                "scalez": "2.540694"
             },
             "1": {
                 "Active": true,
@@ -2885,7 +2911,7 @@
                 "visible": "1"
             }
         },
-        "Index": 11,
+        "Index": 10,
         "Name": "JASK",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -3234,6 +3260,57 @@
         "Parent": "1556501719",
         "Static": false
     },
+    "1218974075": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 819366215,
+                "index": 0,
+                "layer": "0",
+                "positionx": "198.180328",
+                "positiony": "30.093822",
+                "positionz": "62.976124",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/379899441.mesh"
+                    }
+                },
+                "UID": 1487139254,
+                "index": 1
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/Grass_1.mat"
+                    }
+                },
+                "UID": 1640413570,
+                "index": 2
+            }
+        },
+        "Index": 2,
+        "Name": "Grass_Part_3",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1750951057",
+        "Static": false
+    },
     "1219195787": {
         "Active": true,
         "Components": {
@@ -3321,32 +3398,6 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "599201099",
-        "Static": false
-    },
-    "1223035835": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "UID": 735166650,
-                "index": 0,
-                "layer": "0",
-                "positionx": "520.440002",
-                "positiony": "15.978000",
-                "positionz": "-103.001999",
-                "rotationw": "0.819152",
-                "rotationx": "0.000000",
-                "rotationy": "0.573577",
-                "rotationz": "0.000000",
-                "scalex": "0.450000",
-                "scaley": "0.450000",
-                "scalez": "0.450000"
-            }
-        },
-        "Index": 3,
-        "Name": "ForestLevel",
-        "Navigation Area": 0,
-        "Navigation Static": false,
-        "Parent": "-1",
         "Static": false
     },
     "1235105218": {
@@ -3601,57 +3652,6 @@
         "Parent": "569549544",
         "Static": false
     },
-    "1244392954": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "UID": 1222912622,
-                "index": 0,
-                "layer": "0",
-                "positionx": "-190.794388",
-                "positiony": "-12.119338",
-                "positionz": "1.888538",
-                "rotationw": "0.707107",
-                "rotationx": "-0.707107",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "0.365678",
-                "scaley": "0.365678",
-                "scalez": "0.365678"
-            },
-            "1": {
-                "Active": true,
-                "Resources": {
-                    "ResourceMesh": {
-                        "PreviewTexture": "",
-                        "path": "Library/Meshes/999015292.mesh"
-                    }
-                },
-                "UID": 1262987300,
-                "index": 1
-            },
-            "2": {
-                "Active": true,
-                "CastsShadows": true,
-                "LightAffected": true,
-                "OnlyShadows": false,
-                "ReceivesShadows": true,
-                "Resources": {
-                    "ResourceMaterial": {
-                        "path": "Assets/Part_15.mat"
-                    }
-                },
-                "UID": 1720886885,
-                "index": 2
-            }
-        },
-        "Index": 3,
-        "Name": "Part_15",
-        "Navigation Area": 0,
-        "Navigation Static": false,
-        "Parent": "1800318309",
-        "Static": false
-    },
     "1246764211": {
         "Active": true,
         "Components": {
@@ -3847,32 +3847,6 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1829605938",
-        "Static": false
-    },
-    "1251264985": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "UID": 2059580699,
-                "index": 0,
-                "layer": "0",
-                "positionx": "0.000000",
-                "positiony": "0.000000",
-                "positionz": "0.000000",
-                "rotationw": "1.000000",
-                "rotationx": "0.000000",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "1.000000",
-                "scaley": "1.000000",
-                "scalez": "1.000000"
-            }
-        },
-        "Index": 0,
-        "Name": "GrassOne",
-        "Navigation Area": 0,
-        "Navigation Static": false,
-        "Parent": "1223035835",
         "Static": false
     },
     "1252410935": {
@@ -4202,6 +4176,57 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "928863890",
+        "Static": false
+    },
+    "1263268183": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1902116471,
+                "index": 0,
+                "layer": "0",
+                "positionx": "308.275391",
+                "positiony": "50.298401",
+                "positionz": "-517.623596",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/1020038909.mesh"
+                    }
+                },
+                "UID": 524251589,
+                "index": 1
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/Part8.mat"
+                    }
+                },
+                "UID": 287813357,
+                "index": 2
+            }
+        },
+        "Index": 11,
+        "Name": "Part_8",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "85472484",
         "Static": false
     },
     "1264217268": {
@@ -6210,9 +6235,9 @@
                 "rotationx": "0.612624",
                 "rotationy": "0.523173",
                 "rotationz": "-0.456502",
-                "scalex": "0.999884",
-                "scaley": "0.999883",
-                "scalez": "0.999881"
+                "scalex": "0.999879",
+                "scaley": "0.999878",
+                "scalez": "0.999876"
             },
             "13": {
                 "Active": true,
@@ -6392,57 +6417,6 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "536516197",
-        "Static": false
-    },
-    "1362665475": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "UID": 886690591,
-                "index": 0,
-                "layer": "0",
-                "positionx": "308.275391",
-                "positiony": "50.298401",
-                "positionz": "-517.623596",
-                "rotationw": "0.707107",
-                "rotationx": "-0.707107",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "0.025400",
-                "scaley": "0.025400",
-                "scalez": "0.025400"
-            },
-            "1": {
-                "Active": true,
-                "Resources": {
-                    "ResourceMesh": {
-                        "PreviewTexture": "",
-                        "path": "Library/Meshes/1668343151.mesh"
-                    }
-                },
-                "UID": 720719349,
-                "index": 1
-            },
-            "2": {
-                "Active": true,
-                "CastsShadows": true,
-                "LightAffected": true,
-                "OnlyShadows": false,
-                "ReceivesShadows": true,
-                "Resources": {
-                    "ResourceMaterial": {
-                        "path": "Assets/Part_6.mat"
-                    }
-                },
-                "UID": 1246384574,
-                "index": 2
-            }
-        },
-        "Index": 9,
-        "Name": "Part_6",
-        "Navigation Area": 0,
-        "Navigation Static": false,
-        "Parent": "479455030",
         "Static": false
     },
     "1363815979": {
@@ -6700,57 +6674,6 @@
         "Parent": "1308546469",
         "Static": false
     },
-    "1367128645": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "UID": 470852047,
-                "index": 0,
-                "layer": "0",
-                "positionx": "308.275391",
-                "positiony": "50.298401",
-                "positionz": "-517.623596",
-                "rotationw": "0.707107",
-                "rotationx": "-0.707107",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "0.025400",
-                "scaley": "0.025400",
-                "scalez": "0.025400"
-            },
-            "1": {
-                "Active": true,
-                "Resources": {
-                    "ResourceMesh": {
-                        "PreviewTexture": "",
-                        "path": "Library/Meshes/744909509.mesh"
-                    }
-                },
-                "UID": 1999976379,
-                "index": 1
-            },
-            "2": {
-                "Active": true,
-                "CastsShadows": true,
-                "LightAffected": true,
-                "OnlyShadows": false,
-                "ReceivesShadows": true,
-                "Resources": {
-                    "ResourceMaterial": {
-                        "path": "Assets/Part_3.mat"
-                    }
-                },
-                "UID": 1810778173,
-                "index": 2
-            }
-        },
-        "Index": 6,
-        "Name": "Part_3",
-        "Navigation Area": 0,
-        "Navigation Static": false,
-        "Parent": "479455030",
-        "Static": false
-    },
     "1374452053": {
         "Active": true,
         "Components": {
@@ -6906,8 +6829,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000556",
-                "scalez": "1.000556"
+                "scaley": "1.000561",
+                "scalez": "1.000561"
             }
         },
         "Index": 0,
@@ -7479,7 +7402,7 @@
                 "ParticlesBill": true,
                 "ParticlesFaceCulling": true,
                 "Resources": {
-                    "ResourceTexture": "Library/Textures/930937024.dds"
+                    "ResourceTexture": "Library/Textures/589812297.dds"
                 },
                 "UID": 1197264670,
                 "VerticalBill": "0",
@@ -7626,6 +7549,57 @@
         "Parent": "296094462",
         "Static": false
     },
+    "1424292528": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 59151630,
+                "index": 0,
+                "layer": "0",
+                "positionx": "953.639343",
+                "positiony": "60.098423",
+                "positionz": "67.513283",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2025858488.mesh"
+                    }
+                },
+                "UID": 1469480931,
+                "index": 1
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/JoinedMaterial_#1.mat"
+                    }
+                },
+                "UID": 610954071,
+                "index": 2
+            }
+        },
+        "Index": 2,
+        "Name": "Grass_Part_7",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1054317442",
+        "Static": false
+    },
     "1427660020": {
         "Active": true,
         "Components": {
@@ -7640,8 +7614,8 @@
                 "rotationx": "-0.046474",
                 "rotationy": "-0.155068",
                 "rotationz": "0.844688",
-                "scalex": "1.000117",
-                "scaley": "1.000117",
+                "scalex": "1.000122",
+                "scaley": "1.000122",
                 "scalez": "1.000000"
             },
             "13": {
@@ -7940,8 +7914,8 @@
                 "rotationy": "0.000040",
                 "rotationz": "-0.000037",
                 "scalex": "1.000000",
-                "scaley": "1.000556",
-                "scalez": "1.000556"
+                "scaley": "1.000561",
+                "scalez": "1.000561"
             },
             "13": {
                 "Active": true,
@@ -8451,6 +8425,98 @@
         "Parent": "1829605938",
         "Static": false
     },
+    "1480014630": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1005834707,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/1660192227.mesh"
+                    }
+                },
+                "UID": 2071374671,
+                "index": 1
+            },
+            "16": {
+                "Active": true,
+                "UID": 1924427786,
+                "colliderType": "4",
+                "draggedUID": "1480014630",
+                "draw": "1",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "674.222168",
+                "globalMatrixy": "32.882042",
+                "globalMatrixz": "-475.912354",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "index": 3,
+                "isConvex": "0",
+                "isTrigger": "0",
+                "lastIndex": "0",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "1.000000",
+                "tmpScaley": "1.000000",
+                "tmpScalez": "1.000000"
+            },
+            "2": {
+                "Active": false,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/DefaultMaterial.mat"
+                    }
+                },
+                "UID": 1206622700,
+                "index": 2
+            }
+        },
+        "Index": 0,
+        "Name": "ColliderMesh_submesh",
+        "Navigation Area": 0,
+        "Navigation Static": true,
+        "Parent": "1905985867",
+        "Static": false
+    },
     "1481224171": {
         "Active": true,
         "Components": {
@@ -8630,33 +8696,33 @@
         "Parent": "569549544",
         "Static": false
     },
-    "150386210": {
+    "1502957498": {
         "Active": true,
         "Components": {
             "0": {
-                "UID": 1199324115,
+                "UID": 1439380341,
                 "index": 0,
                 "layer": "0",
-                "positionx": "-190.794388",
-                "positiony": "-12.119338",
-                "positionz": "1.888538",
+                "positionx": "308.275391",
+                "positiony": "50.298401",
+                "positionz": "-517.623596",
                 "rotationw": "0.707107",
                 "rotationx": "-0.707107",
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
-                "scalex": "0.365678",
-                "scaley": "0.365678",
-                "scalez": "0.365678"
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
             },
             "1": {
                 "Active": true,
                 "Resources": {
                     "ResourceMesh": {
                         "PreviewTexture": "",
-                        "path": "Library/Meshes/996367800.mesh"
+                        "path": "Library/Meshes/770500482.mesh"
                     }
                 },
-                "UID": 1832531408,
+                "UID": 921817153,
                 "index": 1
             },
             "2": {
@@ -8667,18 +8733,18 @@
                 "ReceivesShadows": true,
                 "Resources": {
                     "ResourceMaterial": {
-                        "path": "Assets/Part_18.mat"
+                        "path": "Assets/Part_7.mat"
                     }
                 },
-                "UID": 665688098,
+                "UID": 283218418,
                 "index": 2
             }
         },
-        "Index": 6,
-        "Name": "Part_18",
+        "Index": 10,
+        "Name": "Part_7",
         "Navigation Area": 0,
         "Navigation Static": false,
-        "Parent": "1800318309",
+        "Parent": "85472484",
         "Static": false
     },
     "1509861323": {
@@ -8792,57 +8858,6 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "198990106",
-        "Static": false
-    },
-    "1515294426": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "UID": 773231078,
-                "index": 0,
-                "layer": "0",
-                "positionx": "308.275391",
-                "positiony": "50.298401",
-                "positionz": "-517.623596",
-                "rotationw": "0.707107",
-                "rotationx": "-0.707107",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "0.025400",
-                "scaley": "0.025400",
-                "scalez": "0.025400"
-            },
-            "1": {
-                "Active": true,
-                "Resources": {
-                    "ResourceMesh": {
-                        "PreviewTexture": "",
-                        "path": "Library/Meshes/992160846.mesh"
-                    }
-                },
-                "UID": 818442,
-                "index": 1
-            },
-            "2": {
-                "Active": true,
-                "CastsShadows": true,
-                "LightAffected": true,
-                "OnlyShadows": false,
-                "ReceivesShadows": true,
-                "Resources": {
-                    "ResourceMaterial": {
-                        "path": "Assets/Part_9.mat"
-                    }
-                },
-                "UID": 1146175660,
-                "index": 2
-            }
-        },
-        "Index": 12,
-        "Name": "Part_9",
-        "Navigation Area": 0,
-        "Navigation Static": false,
-        "Parent": "479455030",
         "Static": false
     },
     "1518637967": {
@@ -9001,8 +9016,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.070461",
-                "scaley": "15.158536",
-                "scalez": "1.368206"
+                "scaley": "15.158579",
+                "scalez": "1.368211"
             },
             "1": {
                 "Active": true,
@@ -10498,57 +10513,6 @@
         "Parent": "1922445668",
         "Static": false
     },
-    "1555412502": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "UID": 1033135630,
-                "index": 0,
-                "layer": "0",
-                "positionx": "198.180328",
-                "positiony": "30.093822",
-                "positionz": "62.976124",
-                "rotationw": "0.707107",
-                "rotationx": "-0.707107",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "0.025400",
-                "scaley": "0.025400",
-                "scalez": "0.025400"
-            },
-            "1": {
-                "Active": true,
-                "Resources": {
-                    "ResourceMesh": {
-                        "PreviewTexture": "",
-                        "path": "Library/Meshes/379899441.mesh"
-                    }
-                },
-                "UID": 118423612,
-                "index": 1
-            },
-            "2": {
-                "Active": true,
-                "CastsShadows": true,
-                "LightAffected": true,
-                "OnlyShadows": false,
-                "ReceivesShadows": true,
-                "Resources": {
-                    "ResourceMaterial": {
-                        "path": "Assets/Grass_1.mat"
-                    }
-                },
-                "UID": 580570219,
-                "index": 2
-            }
-        },
-        "Index": 2,
-        "Name": "Grass_Part_3",
-        "Navigation Area": 0,
-        "Navigation Static": false,
-        "Parent": "1251264985",
-        "Static": false
-    },
     "1556501719": {
         "Active": true,
         "Components": {
@@ -10563,8 +10527,8 @@
                 "rotationx": "0.388476",
                 "rotationy": "0.030072",
                 "rotationz": "0.916844",
-                "scalex": "1.001108",
-                "scaley": "1.001108",
+                "scalex": "1.001118",
+                "scaley": "1.001118",
                 "scalez": "1.000000"
             },
             "13": {
@@ -12164,6 +12128,7 @@
                 "gravity": "1",
                 "height": "2.500000",
                 "index": 3,
+                "nonWalkableMode": "0",
                 "positionX": "386.874542",
                 "positionY": "46.951595",
                 "positionZ": "-328.242645",
@@ -12177,7 +12142,7 @@
                 "index": 4
             }
         },
-        "Index": 7,
+        "Index": 6,
         "Name": "Geralt",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -12614,8 +12579,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000556",
-                "scalez": "1.000556"
+                "scaley": "1.000561",
+                "scalez": "1.000561"
             }
         },
         "Index": 0,
@@ -13013,6 +12978,57 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "536516197",
+        "Static": false
+    },
+    "1613771834": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 350890100,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-190.794388",
+                "positiony": "-12.119338",
+                "positionz": "1.888538",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.365678",
+                "scaley": "0.365678",
+                "scalez": "0.365678"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/1419560468.mesh"
+                    }
+                },
+                "UID": 1693167475,
+                "index": 1
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/Terrain_2.mat"
+                    }
+                },
+                "UID": 340425851,
+                "index": 2
+            }
+        },
+        "Index": 0,
+        "Name": "Ground_Part_2",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "2622727",
         "Static": false
     },
     "1622826213": {
@@ -14917,6 +14933,7 @@
                 "gravity": "1",
                 "height": "2.500000",
                 "index": 3,
+                "nonWalkableMode": "0",
                 "positionX": "378.419464",
                 "positionY": "48.006321",
                 "positionZ": "-329.594452",
@@ -14930,62 +14947,11 @@
                 "index": 4
             }
         },
-        "Index": 8,
+        "Index": 7,
         "Name": "Jaskier",
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "-1",
-        "Static": false
-    },
-    "1635237395": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "UID": 1432074965,
-                "index": 0,
-                "layer": "0",
-                "positionx": "-190.794388",
-                "positiony": "-12.119338",
-                "positionz": "1.888538",
-                "rotationw": "0.707107",
-                "rotationx": "-0.707107",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "0.365678",
-                "scaley": "0.365678",
-                "scalez": "0.365678"
-            },
-            "1": {
-                "Active": true,
-                "Resources": {
-                    "ResourceMesh": {
-                        "PreviewTexture": "",
-                        "path": "Library/Meshes/1419560468.mesh"
-                    }
-                },
-                "UID": 1267858996,
-                "index": 1
-            },
-            "2": {
-                "Active": true,
-                "CastsShadows": true,
-                "LightAffected": true,
-                "OnlyShadows": false,
-                "ReceivesShadows": true,
-                "Resources": {
-                    "ResourceMaterial": {
-                        "path": "Assets/Terrain_2.mat"
-                    }
-                },
-                "UID": 1590817875,
-                "index": 2
-            }
-        },
-        "Index": 0,
-        "Name": "Ground_Part_2",
-        "Navigation Area": 0,
-        "Navigation Static": false,
-        "Parent": "1800318309",
         "Static": false
     },
     "1635664790": {
@@ -15069,57 +15035,6 @@
         "Parent": "1595319566",
         "Static": false
     },
-    "1641055720": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "UID": 1223282208,
-                "index": 0,
-                "layer": "0",
-                "positionx": "308.275391",
-                "positiony": "50.298401",
-                "positionz": "-517.623596",
-                "rotationw": "0.707107",
-                "rotationx": "-0.707107",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "0.025400",
-                "scaley": "0.025400",
-                "scalez": "0.025400"
-            },
-            "1": {
-                "Active": true,
-                "Resources": {
-                    "ResourceMesh": {
-                        "PreviewTexture": "",
-                        "path": "Library/Meshes/1020038909.mesh"
-                    }
-                },
-                "UID": 1224130442,
-                "index": 1
-            },
-            "2": {
-                "Active": true,
-                "CastsShadows": true,
-                "LightAffected": true,
-                "OnlyShadows": false,
-                "ReceivesShadows": true,
-                "Resources": {
-                    "ResourceMaterial": {
-                        "path": "Assets/Part8.mat"
-                    }
-                },
-                "UID": 149487640,
-                "index": 2
-            }
-        },
-        "Index": 11,
-        "Name": "Part_8",
-        "Navigation Area": 0,
-        "Navigation Static": false,
-        "Parent": "479455030",
-        "Static": false
-    },
     "1641147636": {
         "Active": true,
         "Components": {
@@ -15154,56 +15069,55 @@
         "Parent": "553407106",
         "Static": false
     },
-    "1645380130": {
+    "1643575022": {
         "Active": true,
         "Components": {
             "0": {
-                "UID": 437251242,
+                "UID": 1110580772,
                 "index": 0,
                 "layer": "0",
-                "positionx": "0.000000",
-                "positiony": "0.000000",
-                "positionz": "0.000000",
-                "rotationw": "1.000000",
-                "rotationx": "0.000000",
+                "positionx": "361.481140",
+                "positiony": "32.222572",
+                "positionz": "-292.316284",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
-                "scalex": "1.000000",
-                "scaley": "1.000000",
-                "scalez": "1.000000"
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/368644651.mesh"
+                    }
+                },
+                "UID": 1742700824,
+                "index": 1
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/Grass_1.mat"
+                    }
+                },
+                "UID": 42979498,
+                "index": 2
             }
         },
-        "Index": 1,
-        "Name": "GrassTwo",
+        "Index": 0,
+        "Name": "Grass_Part_1",
         "Navigation Area": 0,
         "Navigation Static": false,
-        "Parent": "1223035835",
-        "Static": false
-    },
-    "164615237": {
-        "Active": false,
-        "Components": {
-            "0": {
-                "UID": 9664997,
-                "index": 0,
-                "layer": "0",
-                "positionx": "0.000000",
-                "positiony": "0.000000",
-                "positionz": "0.000000",
-                "rotationw": "1.000000",
-                "rotationx": "0.000000",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "1.000000",
-                "scaley": "1.000000",
-                "scalez": "1.000000"
-            }
-        },
-        "Index": 2,
-        "Name": "MeshCol",
-        "Navigation Area": 0,
-        "Navigation Static": false,
-        "Parent": "1223035835",
+        "Parent": "1750951057",
         "Static": false
     },
     "1653155206": {
@@ -15221,8 +15135,8 @@
                 "rotationy": "-0.000000",
                 "rotationz": "-0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000556",
-                "scalez": "1.000556"
+                "scaley": "1.000561",
+                "scalez": "1.000561"
             }
         },
         "Index": 0,
@@ -15601,6 +15515,175 @@
         "Parent": "1679335300",
         "Static": false
     },
+    "1669185366": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 820884870,
+                "index": 0,
+                "layer": "0",
+                "positionx": "541.780945",
+                "positiony": "55.452007",
+                "positionz": "101.090813",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/847604484.mesh"
+                    }
+                },
+                "UID": 1990720306,
+                "index": 1
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/Grass_1.mat"
+                    }
+                },
+                "UID": 1638813940,
+                "index": 2
+            }
+        },
+        "Index": 5,
+        "Name": "Grass_Part_6",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1750951057",
+        "Static": false
+    },
+    "1669960034": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "UID": 1368511105,
+                "index": 0,
+                "layer": "0",
+                "positionx": "895.594482",
+                "positiony": "37.564541",
+                "positionz": "37.701500",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": false,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/1048388656.mesh"
+                    }
+                },
+                "UID": 1852158403,
+                "index": 1
+            },
+            "16": {
+                "Active": false,
+                "UID": 1317107501,
+                "colliderType": "4",
+                "draggedUID": "1114767849",
+                "draw": "1",
+                "firstCreation": "0",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "674.222168",
+                "globalMatrixy": "32.882042",
+                "globalMatrixz": "-475.912323",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "index": 2,
+                "isConvex": "0",
+                "isTrigger": "0",
+                "lastIndex": "0",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "1.000000",
+                "tmpScaley": "1.000000",
+                "tmpScalez": "1.000000"
+            },
+            "2": {
+                "Active": false,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/DefaultMaterial.mat"
+                    }
+                },
+                "UID": 1470590335,
+                "index": 3
+            }
+        },
+        "Index": 0,
+        "Name": "ColliderMesh",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "359411168",
+        "Static": false
+    },
+    "1670362181": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 539358663,
+                "index": 0,
+                "layer": "0",
+                "positionx": "520.440002",
+                "positiony": "15.978000",
+                "positionz": "-103.001999",
+                "rotationw": "0.819152",
+                "rotationx": "0.000000",
+                "rotationy": "0.573577",
+                "rotationz": "0.000000",
+                "scalex": "0.450000",
+                "scaley": "0.450000",
+                "scalez": "0.450000"
+            }
+        },
+        "Index": 11,
+        "Name": "ForestLevelV3",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "-1",
+        "Static": false
+    },
     "16709511": {
         "Active": true,
         "Components": {
@@ -15681,6 +15764,57 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "655796120",
+        "Static": false
+    },
+    "1684768745": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1055188871,
+                "index": 0,
+                "layer": "0",
+                "positionx": "308.275391",
+                "positiony": "50.298401",
+                "positionz": "-517.623596",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/1172486308.mesh"
+                    }
+                },
+                "UID": 36307668,
+                "index": 1
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/Part_5.mat"
+                    }
+                },
+                "UID": 187901309,
+                "index": 2
+            }
+        },
+        "Index": 8,
+        "Name": "Part_5",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "85472484",
         "Static": false
     },
     "1690637844": {
@@ -15902,149 +16036,6 @@
         "Parent": "277691229",
         "Static": false
     },
-    "1692087149": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "UID": 2009484233,
-                "index": 0,
-                "layer": "0",
-                "positionx": "-190.794388",
-                "positiony": "-12.119338",
-                "positionz": "1.888538",
-                "rotationw": "0.707107",
-                "rotationx": "-0.707107",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "0.365678",
-                "scaley": "0.365678",
-                "scalez": "0.365678"
-            },
-            "1": {
-                "Active": true,
-                "Resources": {
-                    "ResourceMesh": {
-                        "PreviewTexture": "",
-                        "path": "Library/Meshes/105838406.mesh"
-                    }
-                },
-                "UID": 184634584,
-                "index": 1
-            },
-            "2": {
-                "Active": true,
-                "CastsShadows": true,
-                "LightAffected": true,
-                "OnlyShadows": false,
-                "ReceivesShadows": true,
-                "Resources": {
-                    "ResourceMaterial": {
-                        "path": "Assets/Part_13.mat"
-                    }
-                },
-                "UID": 1754745369,
-                "index": 2
-            }
-        },
-        "Index": 1,
-        "Name": "Part_13",
-        "Navigation Area": 0,
-        "Navigation Static": false,
-        "Parent": "1800318309",
-        "Static": false
-    },
-    "1698269634": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "UID": 1133003716,
-                "index": 0,
-                "layer": "0",
-                "positionx": "895.594482",
-                "positiony": "37.564541",
-                "positionz": "37.701500",
-                "rotationw": "0.707107",
-                "rotationx": "-0.707107",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "0.025400",
-                "scaley": "0.025400",
-                "scalez": "0.025400"
-            },
-            "1": {
-                "Active": true,
-                "Resources": {
-                    "ResourceMesh": {
-                        "PreviewTexture": "",
-                        "path": "Library/Meshes/1048388656.mesh"
-                    }
-                },
-                "UID": 1629873679,
-                "index": 1
-            },
-            "16": {
-                "Active": true,
-                "UID": 399498179,
-                "colliderType": "4",
-                "draggedUID": "1698269634",
-                "draw": "1",
-                "firstCreation": "1",
-                "globalMatrixw": "1.000000",
-                "globalMatrixx": "674.222168",
-                "globalMatrixy": "32.882042",
-                "globalMatrixz": "-475.912323",
-                "globalPositionx": "1.000000",
-                "globalPositiony": "1.000000",
-                "globalPositionz": "1.000000",
-                "hasBeenDeactivated": "0",
-                "height": "1.000000",
-                "index": 2,
-                "isConvex": "0",
-                "isTrigger": "0",
-                "lastIndex": "0",
-                "localMatrixw": "1.000000",
-                "localMatrixx": "0.000000",
-                "localMatrixy": "0.000000",
-                "localMatrixz": "0.000000",
-                "localPositionx": "0.000000",
-                "localPositiony": "0.000000",
-                "localPositionz": "0.000000",
-                "offsetx": "0.000000",
-                "offsety": "0.000000",
-                "offsetz": "0.000000",
-                "originalScalex": "1.000000",
-                "originalScaley": "1.000000",
-                "originalScalez": "1.000000",
-                "radius": "1.000000",
-                "scalex": "1.000000",
-                "scaley": "1.000000",
-                "scalez": "1.000000",
-                "tmpScalex": "1.000000",
-                "tmpScaley": "1.000000",
-                "tmpScalez": "1.000000"
-            },
-            "2": {
-                "Active": false,
-                "CastsShadows": true,
-                "LightAffected": true,
-                "OnlyShadows": false,
-                "ReceivesShadows": true,
-                "Resources": {
-                    "ResourceMaterial": {
-                        "path": "Assets/DefaultMaterial.mat"
-                    }
-                },
-                "UID": 1762636858,
-                "index": 3
-            }
-        },
-        "Index": 0,
-        "Name": "ColliderMesh",
-        "Navigation Area": 0,
-        "Navigation Static": false,
-        "Parent": "1704674785",
-        "Static": false
-    },
     "1702270449": {
         "Active": true,
         "Components": {
@@ -16077,32 +16068,6 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "187293922",
-        "Static": false
-    },
-    "1704674785": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "UID": 724374626,
-                "index": 0,
-                "layer": "0",
-                "positionx": "0.000000",
-                "positiony": "0.000000",
-                "positionz": "0.000061",
-                "rotationw": "1.000000",
-                "rotationx": "0.000000",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "1.000000",
-                "scaley": "1.000000",
-                "scalez": "1.000000"
-            }
-        },
-        "Index": 3,
-        "Name": "MeshCollider",
-        "Navigation Area": 0,
-        "Navigation Static": false,
-        "Parent": "1223035835",
         "Static": false
     },
     "1706628155": {
@@ -16686,6 +16651,57 @@
         "Parent": "1296050902",
         "Static": false
     },
+    "1738159295": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1452637682,
+                "index": 0,
+                "layer": "0",
+                "positionx": "308.275391",
+                "positiony": "50.298401",
+                "positionz": "-517.623596",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/1762334686.mesh"
+                    }
+                },
+                "UID": 493186704,
+                "index": 1
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/Part_4.mat"
+                    }
+                },
+                "UID": 35487301,
+                "index": 2
+            }
+        },
+        "Index": 7,
+        "Name": "Part_4",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "85472484",
+        "Static": false
+    },
     "1739091535": {
         "Active": true,
         "Components": {
@@ -16796,6 +16812,32 @@
         "Parent": "989160954",
         "Static": false
     },
+    "1750951057": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1937908928,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Index": 0,
+        "Name": "GrassOne",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1670362181",
+        "Static": false
+    },
     "1752899005": {
         "Active": true,
         "Components": {
@@ -16844,8 +16886,8 @@
                 "rotationx": "0.212514",
                 "rotationy": "0.197291",
                 "rotationz": "0.757052",
-                "scalex": "1.000118",
-                "scaley": "1.000115",
+                "scalex": "1.000123",
+                "scaley": "1.000120",
                 "scalez": "0.999999"
             },
             "13": {
@@ -16991,8 +17033,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.540000",
-                "scaley": "2.540686",
-                "scalez": "2.540686"
+                "scaley": "2.540692",
+                "scalez": "2.540692"
             },
             "1": {
                 "Active": true,
@@ -17260,7 +17302,7 @@
                 "rotationx": "0.063757",
                 "rotationy": "-0.427262",
                 "rotationz": "-0.725667",
-                "scalex": "0.999886",
+                "scalex": "0.999881",
                 "scaley": "0.999997",
                 "scalez": "1.000001"
             },
@@ -17376,13 +17418,13 @@
                 "positionx": "525.467041",
                 "positiony": "35.107220",
                 "positionz": "-187.502701",
-                "rotationw": "0.744255",
+                "rotationw": "0.744256",
                 "rotationx": "0.000000",
                 "rotationy": "0.667895",
                 "rotationz": "0.000000",
-                "scalex": "1.000001",
+                "scalex": "1.000000",
                 "scaley": "1.000000",
-                "scalez": "1.000001"
+                "scalez": "1.000000"
             },
             "18": {
                 "Active": false,
@@ -17616,83 +17658,6 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "989160954",
-        "Static": false
-    },
-    "1800318309": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "UID": 793757701,
-                "index": 0,
-                "layer": "0",
-                "positionx": "0.000000",
-                "positiony": "0.000000",
-                "positionz": "0.000000",
-                "rotationw": "1.000000",
-                "rotationx": "0.000000",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "1.000000",
-                "scaley": "1.000000",
-                "scalez": "1.000000"
-            }
-        },
-        "Index": 5,
-        "Name": "PartTwo",
-        "Navigation Area": 0,
-        "Navigation Static": false,
-        "Parent": "1223035835",
-        "Static": false
-    },
-    "1804414381": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "UID": 154630214,
-                "index": 0,
-                "layer": "0",
-                "positionx": "308.275391",
-                "positiony": "50.299999",
-                "positionz": "-517.623596",
-                "rotationw": "0.707107",
-                "rotationx": "-0.707107",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "0.025400",
-                "scaley": "0.025400",
-                "scalez": "0.025400"
-            },
-            "1": {
-                "Active": true,
-                "Resources": {
-                    "ResourceMesh": {
-                        "PreviewTexture": "",
-                        "path": "Library/Meshes/353207160.mesh"
-                    }
-                },
-                "UID": 174606483,
-                "index": 1
-            },
-            "2": {
-                "Active": true,
-                "CastsShadows": true,
-                "LightAffected": true,
-                "OnlyShadows": false,
-                "ReceivesShadows": true,
-                "Resources": {
-                    "ResourceMaterial": {
-                        "path": "Assets/Terrain_1.mat"
-                    }
-                },
-                "UID": 1520510923,
-                "index": 2
-            }
-        },
-        "Index": 0,
-        "Name": "Ground_Part_1",
-        "Navigation Area": 0,
-        "Navigation Static": false,
-        "Parent": "479455030",
         "Static": false
     },
     "180474914": {
@@ -18072,7 +18037,7 @@
                 "scalez": "1.000000"
             }
         },
-        "Index": 5,
+        "Index": 4,
         "Name": "Particles",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -18556,7 +18521,7 @@
                 "visible": "1"
             }
         },
-        "Index": 9,
+        "Index": 8,
         "Name": "BOSSHUD",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -19072,6 +19037,57 @@
         "Parent": "1574175972",
         "Static": false
     },
+    "1875480152": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1554140012,
+                "index": 0,
+                "layer": "0",
+                "positionx": "308.275391",
+                "positiony": "50.298401",
+                "positionz": "-517.623596",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/1668343151.mesh"
+                    }
+                },
+                "UID": 1965705004,
+                "index": 1
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/Part_6.mat"
+                    }
+                },
+                "UID": 1657711115,
+                "index": 2
+            }
+        },
+        "Index": 9,
+        "Name": "Part_6",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "85472484",
+        "Static": false
+    },
     "1875571691": {
         "Active": true,
         "Components": {
@@ -19130,6 +19146,134 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1627909531",
+        "Static": false
+    },
+    "1901316667": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1512029932,
+                "index": 0,
+                "layer": "0",
+                "positionx": "308.275391",
+                "positiony": "50.298401",
+                "positionz": "-517.623596",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/1534807666.mesh"
+                    }
+                },
+                "UID": 1535003479,
+                "index": 1
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/Part_11.mat"
+                    }
+                },
+                "UID": 1101002151,
+                "index": 2
+            }
+        },
+        "Index": 3,
+        "Name": "Part_11",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "85472484",
+        "Static": false
+    },
+    "1905985867": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1317480751,
+                "index": 0,
+                "layer": "0",
+                "positionx": "895.594482",
+                "positiony": "37.564537",
+                "positionz": "37.701477",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "-0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            }
+        },
+        "Index": 5,
+        "Name": "ColliderMesh",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1670362181",
+        "Static": false
+    },
+    "1909436796": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 751409542,
+                "index": 0,
+                "layer": "0",
+                "positionx": "274.892883",
+                "positiony": "19.041903",
+                "positionz": "-41.300846",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/832181974.mesh"
+                    }
+                },
+                "UID": 1182082662,
+                "index": 1
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/Grass_1.mat"
+                    }
+                },
+                "UID": 1908690768,
+                "index": 2
+            }
+        },
+        "Index": 1,
+        "Name": "Grass_Part_2",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1750951057",
         "Static": false
     },
     "1909561408": {
@@ -19343,7 +19487,7 @@
                 "positionx": "0.000000",
                 "positiony": "34.904800",
                 "positionz": "0.000000",
-                "rotationw": "0.882767",
+                "rotationw": "0.882768",
                 "rotationx": "0.468685",
                 "rotationy": "-0.003518",
                 "rotationz": "0.032303",
@@ -19474,6 +19618,57 @@
         "Parent": "846450144",
         "Static": false
     },
+    "1935313429": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1905325863,
+                "index": 0,
+                "layer": "0",
+                "positionx": "250.249481",
+                "positiony": "27.218075",
+                "positionz": "356.485443",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/570385409.mesh"
+                    }
+                },
+                "UID": 627032733,
+                "index": 1
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/Grass_1.mat"
+                    }
+                },
+                "UID": 598327977,
+                "index": 2
+            }
+        },
+        "Index": 3,
+        "Name": "Grass_Part_4",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1750951057",
+        "Static": false
+    },
     "1935325": {
         "Active": true,
         "Components": {
@@ -19506,57 +19701,6 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "434240771",
-        "Static": false
-    },
-    "1937332456": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "UID": 1288023057,
-                "index": 0,
-                "layer": "0",
-                "positionx": "361.481140",
-                "positiony": "32.222572",
-                "positionz": "-292.316284",
-                "rotationw": "0.707107",
-                "rotationx": "-0.707107",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "0.025400",
-                "scaley": "0.025400",
-                "scalez": "0.025400"
-            },
-            "1": {
-                "Active": true,
-                "Resources": {
-                    "ResourceMesh": {
-                        "PreviewTexture": "",
-                        "path": "Library/Meshes/368644651.mesh"
-                    }
-                },
-                "UID": 978603618,
-                "index": 1
-            },
-            "2": {
-                "Active": true,
-                "CastsShadows": true,
-                "LightAffected": true,
-                "OnlyShadows": false,
-                "ReceivesShadows": true,
-                "Resources": {
-                    "ResourceMaterial": {
-                        "path": "Assets/Grass_1.mat"
-                    }
-                },
-                "UID": 296304056,
-                "index": 2
-            }
-        },
-        "Index": 0,
-        "Name": "Grass_Part_1",
-        "Navigation Area": 0,
-        "Navigation Static": false,
-        "Parent": "1251264985",
         "Static": false
     },
     "1947368821": {
@@ -19650,6 +19794,57 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "536516197",
+        "Static": false
+    },
+    "1948889405": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1831301187,
+                "index": 0,
+                "layer": "0",
+                "positionx": "308.275391",
+                "positiony": "50.298401",
+                "positionz": "-517.623596",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/992160846.mesh"
+                    }
+                },
+                "UID": 915817737,
+                "index": 1
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/Part_9.mat"
+                    }
+                },
+                "UID": 1357188247,
+                "index": 2
+            }
+        },
+        "Index": 12,
+        "Name": "Part_9",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "85472484",
         "Static": false
     },
     "1953884239": {
@@ -20189,9 +20384,9 @@
                 "rotationx": "0.536806",
                 "rotationy": "-0.449375",
                 "rotationz": "0.566528",
-                "scalex": "0.999444",
-                "scaley": "0.999444",
-                "scalez": "0.999444"
+                "scalex": "0.999439",
+                "scaley": "0.999439",
+                "scalez": "0.999439"
             },
             "13": {
                 "Active": true,
@@ -20207,6 +20402,57 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1574175972",
+        "Static": false
+    },
+    "1981528034": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1131267621,
+                "index": 0,
+                "layer": "0",
+                "positionx": "308.275391",
+                "positiony": "50.299999",
+                "positionz": "-517.623596",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/353207160.mesh"
+                    }
+                },
+                "UID": 1020287916,
+                "index": 1
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/Terrain_1.mat"
+                    }
+                },
+                "UID": 1148408017,
+                "index": 2
+            }
+        },
+        "Index": 0,
+        "Name": "Ground_Part_1",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "85472484",
         "Static": false
     },
     "198987004": {
@@ -20290,7 +20536,7 @@
                 "visible": "1"
             }
         },
-        "Index": 10,
+        "Index": 9,
         "Name": "GER",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -20738,57 +20984,6 @@
         "Parent": "1627909531",
         "Static": false
     },
-    "2017502047": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "UID": 256769694,
-                "index": 0,
-                "layer": "0",
-                "positionx": "1321.647461",
-                "positiony": "-1.482089",
-                "positionz": "418.956238",
-                "rotationw": "0.707107",
-                "rotationx": "-0.707107",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "0.025400",
-                "scaley": "0.025400",
-                "scalez": "0.025400"
-            },
-            "1": {
-                "Active": true,
-                "Resources": {
-                    "ResourceMesh": {
-                        "PreviewTexture": "",
-                        "path": "Library/Meshes/464520996.mesh"
-                    }
-                },
-                "UID": 908988346,
-                "index": 1
-            },
-            "2": {
-                "Active": true,
-                "CastsShadows": true,
-                "LightAffected": true,
-                "OnlyShadows": false,
-                "ReceivesShadows": true,
-                "Resources": {
-                    "ResourceMaterial": {
-                        "path": "Assets/JoinedMaterial_#1.mat"
-                    }
-                },
-                "UID": 482043423,
-                "index": 2
-            }
-        },
-        "Index": 0,
-        "Name": "Grass_Part_10",
-        "Navigation Area": 0,
-        "Navigation Static": false,
-        "Parent": "1645380130",
-        "Static": false
-    },
     "2018495006": {
         "Active": true,
         "Components": {
@@ -20984,57 +21179,6 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1296050902",
-        "Static": false
-    },
-    "2028087213": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "UID": 2073677191,
-                "index": 0,
-                "layer": "0",
-                "positionx": "309.837128",
-                "positiony": "24.784159",
-                "positionz": "167.780045",
-                "rotationw": "0.707107",
-                "rotationx": "-0.707107",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "0.025400",
-                "scaley": "0.025400",
-                "scalez": "0.025400"
-            },
-            "1": {
-                "Active": true,
-                "Resources": {
-                    "ResourceMesh": {
-                        "PreviewTexture": "",
-                        "path": "Library/Meshes/1682443312.mesh"
-                    }
-                },
-                "UID": 449094095,
-                "index": 1
-            },
-            "2": {
-                "Active": true,
-                "CastsShadows": true,
-                "LightAffected": true,
-                "OnlyShadows": false,
-                "ReceivesShadows": true,
-                "Resources": {
-                    "ResourceMaterial": {
-                        "path": "Assets/Grass_1.mat"
-                    }
-                },
-                "UID": 1165571322,
-                "index": 2
-            }
-        },
-        "Index": 4,
-        "Name": "Grass_Part_5",
-        "Navigation Area": 0,
-        "Navigation Static": false,
-        "Parent": "1251264985",
         "Static": false
     },
     "2029001778": {
@@ -21295,8 +21439,8 @@
                 "rotationy": "0.000028",
                 "rotationz": "-0.000027",
                 "scalex": "2.540000",
-                "scaley": "2.540690",
-                "scalez": "2.540690"
+                "scaley": "2.540696",
+                "scalez": "2.540696"
             },
             "13": {
                 "Active": true,
@@ -21329,8 +21473,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000556",
-                "scalez": "1.000556"
+                "scaley": "1.000561",
+                "scalez": "1.000561"
             }
         },
         "Index": 0,
@@ -21340,33 +21484,33 @@
         "Parent": "2011454411",
         "Static": false
     },
-    "2059939635": {
+    "2063380997": {
         "Active": true,
         "Components": {
             "0": {
-                "UID": 1668825276,
+                "UID": 1737468497,
                 "index": 0,
                 "layer": "0",
-                "positionx": "1019.032104",
-                "positiony": "-4.097524",
-                "positionz": "516.850220",
+                "positionx": "-190.794388",
+                "positiony": "-12.119338",
+                "positionz": "1.888538",
                 "rotationw": "0.707107",
                 "rotationx": "-0.707107",
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
-                "scalex": "0.025400",
-                "scaley": "0.025400",
-                "scalez": "0.025400"
+                "scalex": "0.365678",
+                "scaley": "0.365678",
+                "scalez": "0.365678"
             },
             "1": {
                 "Active": true,
                 "Resources": {
                     "ResourceMesh": {
                         "PreviewTexture": "",
-                        "path": "Library/Meshes/1773182078.mesh"
+                        "path": "Library/Meshes/996367800.mesh"
                     }
                 },
-                "UID": 2124270402,
+                "UID": 835361421,
                 "index": 1
             },
             "2": {
@@ -21377,18 +21521,18 @@
                 "ReceivesShadows": true,
                 "Resources": {
                     "ResourceMaterial": {
-                        "path": "Assets/JoinedMaterial_#1.mat"
+                        "path": "Assets/Part_18.mat"
                     }
                 },
-                "UID": 925856046,
+                "UID": 545363387,
                 "index": 2
             }
         },
-        "Index": 4,
-        "Name": "Grass_Part_9",
+        "Index": 6,
+        "Name": "Part_18",
         "Navigation Area": 0,
         "Navigation Static": false,
-        "Parent": "1645380130",
+        "Parent": "2622727",
         "Static": false
     },
     "2064652644": {
@@ -21423,57 +21567,6 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "180474914",
-        "Static": false
-    },
-    "2077933734": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "UID": 1008213070,
-                "index": 0,
-                "layer": "0",
-                "positionx": "308.275391",
-                "positiony": "50.298401",
-                "positionz": "-517.623596",
-                "rotationw": "0.707107",
-                "rotationx": "-0.707107",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "0.025400",
-                "scaley": "0.025400",
-                "scalez": "0.025400"
-            },
-            "1": {
-                "Active": true,
-                "Resources": {
-                    "ResourceMesh": {
-                        "PreviewTexture": "",
-                        "path": "Library/Meshes/537895573.mesh"
-                    }
-                },
-                "UID": 151660628,
-                "index": 1
-            },
-            "2": {
-                "Active": true,
-                "CastsShadows": true,
-                "LightAffected": true,
-                "OnlyShadows": false,
-                "ReceivesShadows": true,
-                "Resources": {
-                    "ResourceMaterial": {
-                        "path": "Assets/Part_1.mat"
-                    }
-                },
-                "UID": 1734973336,
-                "index": 2
-            }
-        },
-        "Index": 1,
-        "Name": "Part_1",
-        "Navigation Area": 0,
-        "Navigation Static": false,
-        "Parent": "479455030",
         "Static": false
     },
     "2080019608": {
@@ -21603,8 +21696,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000556",
-                "scalez": "1.000556"
+                "scaley": "1.000561",
+                "scalez": "1.000561"
             }
         },
         "Index": 0,
@@ -21667,57 +21760,6 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "569549544",
-        "Static": false
-    },
-    "2096563160": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "UID": 1753154455,
-                "index": 0,
-                "layer": "0",
-                "positionx": "-190.794388",
-                "positiony": "-12.119338",
-                "positionz": "1.888538",
-                "rotationw": "0.707107",
-                "rotationx": "-0.707107",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "0.365678",
-                "scaley": "0.365678",
-                "scalez": "0.365678"
-            },
-            "1": {
-                "Active": true,
-                "Resources": {
-                    "ResourceMesh": {
-                        "PreviewTexture": "",
-                        "path": "Library/Meshes/1890768943.mesh"
-                    }
-                },
-                "UID": 1985750663,
-                "index": 1
-            },
-            "2": {
-                "Active": true,
-                "CastsShadows": true,
-                "LightAffected": true,
-                "OnlyShadows": false,
-                "ReceivesShadows": true,
-                "Resources": {
-                    "ResourceMaterial": {
-                        "path": "Assets/Part_16.mat"
-                    }
-                },
-                "UID": 1392165804,
-                "index": 2
-            }
-        },
-        "Index": 4,
-        "Name": "Part_16",
-        "Navigation Area": 0,
-        "Navigation Static": false,
-        "Parent": "1800318309",
         "Static": false
     },
     "2097624166": {
@@ -22352,8 +22394,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000556",
-                "scalez": "1.000556"
+                "scaley": "1.000561",
+                "scalez": "1.000561"
             }
         },
         "Index": 0,
@@ -22433,8 +22475,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000556",
-                "scalez": "1.000556"
+                "scaley": "1.000561",
+                "scalez": "1.000561"
             }
         },
         "Index": 0,
@@ -22554,6 +22596,57 @@
         "Parent": "599201099",
         "Static": false
     },
+    "215821448": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1696518794,
+                "index": 0,
+                "layer": "0",
+                "positionx": "1545.455933",
+                "positiony": "-8.753212",
+                "positionz": "462.381104",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/915518888.mesh"
+                    }
+                },
+                "UID": 1734372074,
+                "index": 1
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/JoinedMaterial_#1.mat"
+                    }
+                },
+                "UID": 7660438,
+                "index": 2
+            }
+        },
+        "Index": 1,
+        "Name": "Grass_Part_11",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1054317442",
+        "Static": false
+    },
     "216054140": {
         "Active": true,
         "Components": {
@@ -22569,8 +22662,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000556",
-                "scalez": "1.000556"
+                "scaley": "1.000561",
+                "scalez": "1.000561"
             }
         },
         "Index": 0,
@@ -22750,8 +22843,8 @@
                 "rotationx": "0.000598",
                 "rotationy": "0.002538",
                 "rotationz": "0.999918",
-                "scalex": "0.999444",
-                "scaley": "0.999444",
+                "scalex": "0.999439",
+                "scaley": "0.999439",
                 "scalez": "1.000000"
             },
             "13": {
@@ -23097,8 +23190,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000556",
-                "scalez": "1.000556"
+                "scaley": "1.000561",
+                "scalez": "1.000561"
             }
         },
         "Index": 0,
@@ -23381,11 +23474,11 @@
             },
             "3": {
                 "ACTIVECAM": true,
-                "ASPECTRATIO": 2.08369779586792,
+                "ASPECTRATIO": 1.8787729740142822,
                 "Active": true,
                 "CULLINGCAM": true,
                 "FARPLANE": 1000.0,
-                "FOV": 47.81803894042969,
+                "FOV": 52.36509323120117,
                 "NEARPLANE": 0.10000000149011612,
                 "UID": 671506755,
                 "index": 4
@@ -23622,6 +23715,32 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "605446692",
+        "Static": false
+    },
+    "2622727": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 2022744966,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Index": 4,
+        "Name": "PartTwo",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1670362181",
         "Static": false
     },
     "265265657": {
@@ -23948,6 +24067,57 @@
         "Parent": "1932760852",
         "Static": false
     },
+    "269385049": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 361360371,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-190.794388",
+                "positiony": "-12.119338",
+                "positionz": "1.888538",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.365678",
+                "scaley": "0.365678",
+                "scalez": "0.365678"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/999015292.mesh"
+                    }
+                },
+                "UID": 499464786,
+                "index": 1
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/Part_15.mat"
+                    }
+                },
+                "UID": 1182653882,
+                "index": 2
+            }
+        },
+        "Index": 3,
+        "Name": "Part_15",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "2622727",
+        "Static": false
+    },
     "276785631": {
         "Active": true,
         "Components": {
@@ -24027,57 +24197,6 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1557478173",
-        "Static": false
-    },
-    "288977050": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "UID": 1077624613,
-                "index": 0,
-                "layer": "0",
-                "positionx": "-190.794388",
-                "positiony": "-12.119338",
-                "positionz": "1.888538",
-                "rotationw": "0.707107",
-                "rotationx": "-0.707107",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "0.365678",
-                "scaley": "0.365678",
-                "scalez": "0.365678"
-            },
-            "1": {
-                "Active": true,
-                "Resources": {
-                    "ResourceMesh": {
-                        "PreviewTexture": "",
-                        "path": "Library/Meshes/559271269.mesh"
-                    }
-                },
-                "UID": 814490081,
-                "index": 1
-            },
-            "2": {
-                "Active": true,
-                "CastsShadows": true,
-                "LightAffected": true,
-                "OnlyShadows": false,
-                "ReceivesShadows": true,
-                "Resources": {
-                    "ResourceMaterial": {
-                        "path": "Assets/Part_14.mat"
-                    }
-                },
-                "UID": 1308230266,
-                "index": 2
-            }
-        },
-        "Index": 2,
-        "Name": "Part_14",
-        "Navigation Area": 0,
-        "Navigation Static": false,
-        "Parent": "1800318309",
         "Static": false
     },
     "291754999": {
@@ -24657,57 +24776,6 @@
         "Parent": "1296050902",
         "Static": false
     },
-    "330938431": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "UID": 1071643477,
-                "index": 0,
-                "layer": "0",
-                "positionx": "1124.530884",
-                "positiony": "20.291523",
-                "positionz": "282.630005",
-                "rotationw": "0.707107",
-                "rotationx": "-0.707107",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "0.025400",
-                "scaley": "0.025400",
-                "scalez": "0.025400"
-            },
-            "1": {
-                "Active": true,
-                "Resources": {
-                    "ResourceMesh": {
-                        "PreviewTexture": "",
-                        "path": "Library/Meshes/2010309029.mesh"
-                    }
-                },
-                "UID": 1013648143,
-                "index": 1
-            },
-            "2": {
-                "Active": true,
-                "CastsShadows": true,
-                "LightAffected": true,
-                "OnlyShadows": false,
-                "ReceivesShadows": true,
-                "Resources": {
-                    "ResourceMaterial": {
-                        "path": "Assets/JoinedMaterial_#1.mat"
-                    }
-                },
-                "UID": 589756089,
-                "index": 2
-            }
-        },
-        "Index": 3,
-        "Name": "Grass_Part_8",
-        "Navigation Area": 0,
-        "Navigation Static": false,
-        "Parent": "1645380130",
-        "Static": false
-    },
     "338260723": {
         "Active": true,
         "Components": {
@@ -24929,6 +24997,57 @@
         "Parent": "482124874",
         "Static": false
     },
+    "339866332": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 165063124,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-190.794388",
+                "positiony": "-12.119338",
+                "positionz": "1.888538",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.365678",
+                "scaley": "0.365678",
+                "scalez": "0.365678"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/105838406.mesh"
+                    }
+                },
+                "UID": 674760907,
+                "index": 1
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/Part_13.mat"
+                    }
+                },
+                "UID": 1324328122,
+                "index": 2
+            }
+        },
+        "Index": 1,
+        "Name": "Part_13",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "2622727",
+        "Static": false
+    },
     "340755008": {
         "Active": true,
         "Components": {
@@ -25018,6 +25137,57 @@
         "Parent": "989160954",
         "Static": false
     },
+    "35039102": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1488828213,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-190.794388",
+                "positiony": "-12.119338",
+                "positionz": "1.888538",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.365678",
+                "scaley": "0.365678",
+                "scalez": "0.365678"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/771986797.mesh"
+                    }
+                },
+                "UID": 1115827524,
+                "index": 1
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/Part_17.mat"
+                    }
+                },
+                "UID": 1954601826,
+                "index": 2
+            }
+        },
+        "Index": 5,
+        "Name": "Part_17",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "2622727",
+        "Static": false
+    },
     "353225518": {
         "Active": true,
         "Components": {
@@ -25073,6 +25243,32 @@
         "Parent": "599201099",
         "Static": false
     },
+    "359411168": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "UID": 1158644179,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000061",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Index": 2,
+        "Name": "MeshCollider",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1670362181",
+        "Static": false
+    },
     "359903281": {
         "Active": true,
         "Components": {
@@ -25105,108 +25301,6 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "2131634310",
-        "Static": false
-    },
-    "360275770": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "UID": 1596000233,
-                "index": 0,
-                "layer": "0",
-                "positionx": "-190.794388",
-                "positiony": "-12.119338",
-                "positionz": "1.888538",
-                "rotationw": "0.707107",
-                "rotationx": "-0.707107",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "0.365678",
-                "scaley": "0.365678",
-                "scalez": "0.365678"
-            },
-            "1": {
-                "Active": true,
-                "Resources": {
-                    "ResourceMesh": {
-                        "PreviewTexture": "",
-                        "path": "Library/Meshes/771986797.mesh"
-                    }
-                },
-                "UID": 33358619,
-                "index": 1
-            },
-            "2": {
-                "Active": true,
-                "CastsShadows": true,
-                "LightAffected": true,
-                "OnlyShadows": false,
-                "ReceivesShadows": true,
-                "Resources": {
-                    "ResourceMaterial": {
-                        "path": "Assets/Part_17.mat"
-                    }
-                },
-                "UID": 1030590992,
-                "index": 2
-            }
-        },
-        "Index": 5,
-        "Name": "Part_17",
-        "Navigation Area": 0,
-        "Navigation Static": false,
-        "Parent": "1800318309",
-        "Static": false
-    },
-    "363418120": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "UID": 2089496812,
-                "index": 0,
-                "layer": "0",
-                "positionx": "250.249481",
-                "positiony": "27.218075",
-                "positionz": "356.485443",
-                "rotationw": "0.707107",
-                "rotationx": "-0.707107",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "0.025400",
-                "scaley": "0.025400",
-                "scalez": "0.025400"
-            },
-            "1": {
-                "Active": true,
-                "Resources": {
-                    "ResourceMesh": {
-                        "PreviewTexture": "",
-                        "path": "Library/Meshes/570385409.mesh"
-                    }
-                },
-                "UID": 167816825,
-                "index": 1
-            },
-            "2": {
-                "Active": true,
-                "CastsShadows": true,
-                "LightAffected": true,
-                "OnlyShadows": false,
-                "ReceivesShadows": true,
-                "Resources": {
-                    "ResourceMaterial": {
-                        "path": "Assets/Grass_1.mat"
-                    }
-                },
-                "UID": 1264133645,
-                "index": 2
-            }
-        },
-        "Index": 3,
-        "Name": "Grass_Part_4",
-        "Navigation Area": 0,
-        "Navigation Static": false,
-        "Parent": "1251264985",
         "Static": false
     },
     "371421118": {
@@ -25815,57 +25909,6 @@
         "Parent": "1067454401",
         "Static": false
     },
-    "410066023": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "UID": 1276439773,
-                "index": 0,
-                "layer": "0",
-                "positionx": "541.780945",
-                "positiony": "55.452007",
-                "positionz": "101.090813",
-                "rotationw": "0.707107",
-                "rotationx": "-0.707107",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "0.025400",
-                "scaley": "0.025400",
-                "scalez": "0.025400"
-            },
-            "1": {
-                "Active": true,
-                "Resources": {
-                    "ResourceMesh": {
-                        "PreviewTexture": "",
-                        "path": "Library/Meshes/847604484.mesh"
-                    }
-                },
-                "UID": 1992639526,
-                "index": 1
-            },
-            "2": {
-                "Active": true,
-                "CastsShadows": true,
-                "LightAffected": true,
-                "OnlyShadows": false,
-                "ReceivesShadows": true,
-                "Resources": {
-                    "ResourceMaterial": {
-                        "path": "Assets/Grass_1.mat"
-                    }
-                },
-                "UID": 2112843446,
-                "index": 2
-            }
-        },
-        "Index": 5,
-        "Name": "Grass_Part_6",
-        "Navigation Area": 0,
-        "Navigation Static": false,
-        "Parent": "1251264985",
-        "Static": false
-    },
     "413924071": {
         "Active": true,
         "Components": {
@@ -26110,57 +26153,6 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "989160954",
-        "Static": false
-    },
-    "441131012": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "UID": 1065932847,
-                "index": 0,
-                "layer": "0",
-                "positionx": "308.275391",
-                "positiony": "50.298401",
-                "positionz": "-517.623596",
-                "rotationw": "0.707107",
-                "rotationx": "-0.707107",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "0.025400",
-                "scaley": "0.025400",
-                "scalez": "0.025400"
-            },
-            "1": {
-                "Active": true,
-                "Resources": {
-                    "ResourceMesh": {
-                        "PreviewTexture": "",
-                        "path": "Library/Meshes/1418753611.mesh"
-                    }
-                },
-                "UID": 718351608,
-                "index": 1
-            },
-            "2": {
-                "Active": true,
-                "CastsShadows": true,
-                "LightAffected": true,
-                "OnlyShadows": false,
-                "ReceivesShadows": true,
-                "Resources": {
-                    "ResourceMaterial": {
-                        "path": "Assets/Part_10.mat"
-                    }
-                },
-                "UID": 1758129232,
-                "index": 2
-            }
-        },
-        "Index": 2,
-        "Name": "Part_10",
-        "Navigation Area": 0,
-        "Navigation Static": false,
-        "Parent": "479455030",
         "Static": false
     },
     "442007493": {
@@ -26581,6 +26573,57 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1583793327",
+        "Static": false
+    },
+    "450058525": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1602870961,
+                "index": 0,
+                "layer": "0",
+                "positionx": "308.275391",
+                "positiony": "50.298401",
+                "positionz": "-517.623596",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/744909509.mesh"
+                    }
+                },
+                "UID": 1638943073,
+                "index": 1
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/Part_3.mat"
+                    }
+                },
+                "UID": 459585635,
+                "index": 2
+            }
+        },
+        "Index": 6,
+        "Name": "Part_3",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "85472484",
         "Static": false
     },
     "452563559": {
@@ -27126,57 +27169,6 @@
         "Parent": "704477463",
         "Static": false
     },
-    "47114858": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "UID": 1618201014,
-                "index": 0,
-                "layer": "0",
-                "positionx": "1545.455933",
-                "positiony": "-8.753212",
-                "positionz": "462.381104",
-                "rotationw": "0.707107",
-                "rotationx": "-0.707107",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "0.025400",
-                "scaley": "0.025400",
-                "scalez": "0.025400"
-            },
-            "1": {
-                "Active": true,
-                "Resources": {
-                    "ResourceMesh": {
-                        "PreviewTexture": "",
-                        "path": "Library/Meshes/915518888.mesh"
-                    }
-                },
-                "UID": 1633190427,
-                "index": 1
-            },
-            "2": {
-                "Active": true,
-                "CastsShadows": true,
-                "LightAffected": true,
-                "OnlyShadows": false,
-                "ReceivesShadows": true,
-                "Resources": {
-                    "ResourceMaterial": {
-                        "path": "Assets/JoinedMaterial_#1.mat"
-                    }
-                },
-                "UID": 1534060458,
-                "index": 2
-            }
-        },
-        "Index": 1,
-        "Name": "Grass_Part_11",
-        "Navigation Area": 0,
-        "Navigation Static": false,
-        "Parent": "1645380130",
-        "Static": false
-    },
     "473163029": {
         "Active": true,
         "Components": {
@@ -27295,32 +27287,6 @@
         "Parent": "724810761",
         "Static": false
     },
-    "479455030": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "UID": 179870598,
-                "index": 0,
-                "layer": "0",
-                "positionx": "0.000000",
-                "positiony": "0.000000",
-                "positionz": "0.000000",
-                "rotationw": "1.000000",
-                "rotationx": "0.000000",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "1.000000",
-                "scaley": "1.000000",
-                "scalez": "1.000000"
-            }
-        },
-        "Index": 4,
-        "Name": "PartOne",
-        "Navigation Area": 0,
-        "Navigation Static": false,
-        "Parent": "1223035835",
-        "Static": false
-    },
     "482124874": {
         "Active": true,
         "Components": {
@@ -27335,9 +27301,9 @@
                 "rotationx": "-0.547404",
                 "rotationy": "0.835716",
                 "rotationz": "-0.040962",
-                "scalex": "19.686884",
-                "scaley": "19.687023",
-                "scalez": "19.687096"
+                "scalex": "19.686914",
+                "scaley": "19.687044",
+                "scalez": "19.687134"
             }
         },
         "Index": 0,
@@ -27361,8 +27327,8 @@
                 "rotationx": "-0.000169",
                 "rotationy": "-0.004364",
                 "rotationz": "0.999931",
-                "scalex": "1.001112",
-                "scaley": "1.001103",
+                "scalex": "1.001122",
+                "scaley": "1.001113",
                 "scalez": "1.000000"
             },
             "13": {
@@ -27696,57 +27662,6 @@
         "Parent": "1135217963",
         "Static": false
     },
-    "517203444": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "UID": 405349369,
-                "index": 0,
-                "layer": "0",
-                "positionx": "308.275391",
-                "positiony": "50.298401",
-                "positionz": "-517.623596",
-                "rotationw": "0.707107",
-                "rotationx": "-0.707107",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "0.025400",
-                "scaley": "0.025400",
-                "scalez": "0.025400"
-            },
-            "1": {
-                "Active": true,
-                "Resources": {
-                    "ResourceMesh": {
-                        "PreviewTexture": "",
-                        "path": "Library/Meshes/1172486308.mesh"
-                    }
-                },
-                "UID": 745813922,
-                "index": 1
-            },
-            "2": {
-                "Active": true,
-                "CastsShadows": true,
-                "LightAffected": true,
-                "OnlyShadows": false,
-                "ReceivesShadows": true,
-                "Resources": {
-                    "ResourceMaterial": {
-                        "path": "Assets/Part_5.mat"
-                    }
-                },
-                "UID": 303962749,
-                "index": 2
-            }
-        },
-        "Index": 8,
-        "Name": "Part_5",
-        "Navigation Area": 0,
-        "Navigation Static": false,
-        "Parent": "479455030",
-        "Static": false
-    },
     "520271509": {
         "Active": true,
         "Components": {
@@ -27829,8 +27744,8 @@
                 "rotationx": "0.388476",
                 "rotationy": "0.030072",
                 "rotationz": "0.916844",
-                "scalex": "1.001106",
-                "scaley": "1.001106",
+                "scalex": "1.001116",
+                "scaley": "1.001116",
                 "scalez": "1.000000"
             },
             "13": {
@@ -28091,7 +28006,7 @@
                 "scalez": "1.000000"
             }
         },
-        "Index": 6,
+        "Index": 5,
         "Name": "Spwaners",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -28153,57 +28068,6 @@
         "Parent": "198990106",
         "Static": false
     },
-    "545092366": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "UID": 266559449,
-                "index": 0,
-                "layer": "0",
-                "positionx": "308.275391",
-                "positiony": "50.298401",
-                "positionz": "-517.623596",
-                "rotationw": "0.707107",
-                "rotationx": "-0.707107",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "0.025400",
-                "scaley": "0.025400",
-                "scalez": "0.025400"
-            },
-            "1": {
-                "Active": true,
-                "Resources": {
-                    "ResourceMesh": {
-                        "PreviewTexture": "",
-                        "path": "Library/Meshes/958742687.mesh"
-                    }
-                },
-                "UID": 1729205102,
-                "index": 1
-            },
-            "2": {
-                "Active": true,
-                "CastsShadows": true,
-                "LightAffected": true,
-                "OnlyShadows": false,
-                "ReceivesShadows": true,
-                "Resources": {
-                    "ResourceMaterial": {
-                        "path": "Assets/Part_12.mat"
-                    }
-                },
-                "UID": 1055155522,
-                "index": 2
-            }
-        },
-        "Index": 4,
-        "Name": "Part_12",
-        "Navigation Area": 0,
-        "Navigation Static": false,
-        "Parent": "479455030",
-        "Static": false
-    },
     "547085720": {
         "Active": true,
         "Components": {
@@ -28252,9 +28116,9 @@
                 "rotationx": "-0.512172",
                 "rotationy": "0.806715",
                 "rotationz": "0.189061",
-                "scalex": "19.687067",
-                "scaley": "19.686998",
-                "scalez": "19.685915"
+                "scalex": "19.687168",
+                "scaley": "19.687040",
+                "scalez": "19.686039"
             }
         },
         "Index": 0,
@@ -28278,9 +28142,9 @@
                 "rotationx": "-0.550319",
                 "rotationy": "-0.440850",
                 "rotationz": "0.555183",
-                "scalex": "1.000556",
-                "scaley": "1.000556",
-                "scalez": "1.000556"
+                "scalex": "1.000561",
+                "scaley": "1.000561",
+                "scalez": "1.000561"
             },
             "13": {
                 "Active": true,
@@ -28296,57 +28160,6 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1574175972",
-        "Static": false
-    },
-    "558984065": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "UID": 2086185407,
-                "index": 0,
-                "layer": "0",
-                "positionx": "953.639343",
-                "positiony": "60.098423",
-                "positionz": "67.513283",
-                "rotationw": "0.707107",
-                "rotationx": "-0.707107",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "0.025400",
-                "scaley": "0.025400",
-                "scalez": "0.025400"
-            },
-            "1": {
-                "Active": true,
-                "Resources": {
-                    "ResourceMesh": {
-                        "PreviewTexture": "",
-                        "path": "Library/Meshes/2025858488.mesh"
-                    }
-                },
-                "UID": 1552723196,
-                "index": 1
-            },
-            "2": {
-                "Active": true,
-                "CastsShadows": true,
-                "LightAffected": true,
-                "OnlyShadows": false,
-                "ReceivesShadows": true,
-                "Resources": {
-                    "ResourceMaterial": {
-                        "path": "Assets/JoinedMaterial_#1.mat"
-                    }
-                },
-                "UID": 2109806030,
-                "index": 2
-            }
-        },
-        "Index": 2,
-        "Name": "Grass_Part_7",
-        "Navigation Area": 0,
-        "Navigation Static": false,
-        "Parent": "1645380130",
         "Static": false
     },
     "562826619": {
@@ -28746,6 +28559,108 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1557478173",
+        "Static": false
+    },
+    "60766472": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 2139642214,
+                "index": 0,
+                "layer": "0",
+                "positionx": "308.275391",
+                "positiony": "50.298401",
+                "positionz": "-517.623596",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/537895573.mesh"
+                    }
+                },
+                "UID": 1679923092,
+                "index": 1
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/Part_1.mat"
+                    }
+                },
+                "UID": 1671205218,
+                "index": 2
+            }
+        },
+        "Index": 1,
+        "Name": "Part_1",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "85472484",
+        "Static": false
+    },
+    "612691663": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 24780962,
+                "index": 0,
+                "layer": "0",
+                "positionx": "1124.530884",
+                "positiony": "20.291523",
+                "positionz": "282.630005",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2010309029.mesh"
+                    }
+                },
+                "UID": 845986861,
+                "index": 1
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/JoinedMaterial_#1.mat"
+                    }
+                },
+                "UID": 1564747059,
+                "index": 2
+            }
+        },
+        "Index": 3,
+        "Name": "Grass_Part_8",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1054317442",
         "Static": false
     },
     "614856534": {
@@ -29228,8 +29143,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000556",
-                "scalez": "1.000556"
+                "scaley": "1.000561",
+                "scalez": "1.000561"
             }
         },
         "Index": 0,
@@ -29271,6 +29186,57 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1380140809",
+        "Static": false
+    },
+    "675672127": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 589458753,
+                "index": 0,
+                "layer": "0",
+                "positionx": "308.275391",
+                "positiony": "50.298401",
+                "positionz": "-517.623596",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/958742687.mesh"
+                    }
+                },
+                "UID": 295348443,
+                "index": 1
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/Part_12.mat"
+                    }
+                },
+                "UID": 298030078,
+                "index": 2
+            }
+        },
+        "Index": 4,
+        "Name": "Part_12",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "85472484",
         "Static": false
     },
     "679600790": {
@@ -30793,8 +30759,8 @@
                 "rotationx": "-0.187734",
                 "rotationy": "-0.215086",
                 "rotationz": "0.811608",
-                "scalex": "0.999888",
-                "scaley": "0.999889",
+                "scalex": "0.999883",
+                "scaley": "0.999884",
                 "scalez": "1.000002"
             },
             "13": {
@@ -30991,6 +30957,57 @@
         "Parent": "993940105",
         "Static": false
     },
+    "738589362": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1704549623,
+                "index": 0,
+                "layer": "0",
+                "positionx": "1019.032104",
+                "positiony": "-4.097524",
+                "positionz": "516.850220",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/1773182078.mesh"
+                    }
+                },
+                "UID": 355486016,
+                "index": 1
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/JoinedMaterial_#1.mat"
+                    }
+                },
+                "UID": 1690371908,
+                "index": 2
+            }
+        },
+        "Index": 4,
+        "Name": "Grass_Part_9",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1054317442",
+        "Static": false
+    },
     "744122981": {
         "Active": true,
         "Components": {
@@ -31023,57 +31040,6 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1796488362",
-        "Static": false
-    },
-    "747961456": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "UID": 1168702125,
-                "index": 0,
-                "layer": "0",
-                "positionx": "308.275391",
-                "positiony": "50.298401",
-                "positionz": "-517.623596",
-                "rotationw": "0.707107",
-                "rotationx": "-0.707107",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "0.025400",
-                "scaley": "0.025400",
-                "scalez": "0.025400"
-            },
-            "1": {
-                "Active": true,
-                "Resources": {
-                    "ResourceMesh": {
-                        "PreviewTexture": "",
-                        "path": "Library/Meshes/770500482.mesh"
-                    }
-                },
-                "UID": 202743442,
-                "index": 1
-            },
-            "2": {
-                "Active": true,
-                "CastsShadows": true,
-                "LightAffected": true,
-                "OnlyShadows": false,
-                "ReceivesShadows": true,
-                "Resources": {
-                    "ResourceMaterial": {
-                        "path": "Assets/Part_7.mat"
-                    }
-                },
-                "UID": 1938647398,
-                "index": 2
-            }
-        },
-        "Index": 10,
-        "Name": "Part_7",
-        "Navigation Area": 0,
-        "Navigation Static": false,
-        "Parent": "479455030",
         "Static": false
     },
     "752015999": {
@@ -31751,6 +31717,57 @@
         "Parent": "569549544",
         "Static": false
     },
+    "79762522": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 314487918,
+                "index": 0,
+                "layer": "0",
+                "positionx": "308.275391",
+                "positiony": "50.298401",
+                "positionz": "-517.623596",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/1418753611.mesh"
+                    }
+                },
+                "UID": 1367557913,
+                "index": 1
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/Part_10.mat"
+                    }
+                },
+                "UID": 2061971228,
+                "index": 2
+            }
+        },
+        "Index": 2,
+        "Name": "Part_10",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "85472484",
+        "Static": false
+    },
     "809634167": {
         "Active": true,
         "Components": {
@@ -32030,8 +32047,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000556",
-                "scalez": "1.000556"
+                "scaley": "1.000561",
+                "scalez": "1.000561"
             }
         },
         "Index": 0,
@@ -32041,16 +32058,16 @@
         "Parent": "428916212",
         "Static": false
     },
-    "818550705": {
+    "817959914": {
         "Active": true,
         "Components": {
             "0": {
-                "UID": 442349366,
+                "UID": 830909987,
                 "index": 0,
                 "layer": "0",
-                "positionx": "308.275391",
-                "positiony": "50.298401",
-                "positionz": "-517.623596",
+                "positionx": "1321.647461",
+                "positiony": "-1.482089",
+                "positionz": "418.956238",
                 "rotationw": "0.707107",
                 "rotationx": "-0.707107",
                 "rotationy": "0.000000",
@@ -32064,10 +32081,10 @@
                 "Resources": {
                     "ResourceMesh": {
                         "PreviewTexture": "",
-                        "path": "Library/Meshes/1534807666.mesh"
+                        "path": "Library/Meshes/464520996.mesh"
                     }
                 },
-                "UID": 1889712306,
+                "UID": 2017205688,
                 "index": 1
             },
             "2": {
@@ -32078,18 +32095,18 @@
                 "ReceivesShadows": true,
                 "Resources": {
                     "ResourceMaterial": {
-                        "path": "Assets/Part_11.mat"
+                        "path": "Assets/JoinedMaterial_#1.mat"
                     }
                 },
-                "UID": 222306218,
+                "UID": 889141389,
                 "index": 2
             }
         },
-        "Index": 3,
-        "Name": "Part_11",
+        "Index": 0,
+        "Name": "Grass_Part_10",
         "Navigation Area": 0,
         "Navigation Static": false,
-        "Parent": "479455030",
+        "Parent": "1054317442",
         "Static": false
     },
     "828445268": {
@@ -32940,6 +32957,32 @@
         "Parent": "846450144",
         "Static": false
     },
+    "85472484": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 38153898,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Index": 3,
+        "Name": "PartOne",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1670362181",
+        "Static": false
+    },
     "85778119": {
         "Active": true,
         "Components": {
@@ -33035,6 +33078,57 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "371421118",
+        "Static": false
+    },
+    "859077526": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 985281464,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-190.794388",
+                "positiony": "-12.119338",
+                "positionz": "1.888538",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.365678",
+                "scaley": "0.365678",
+                "scalez": "0.365678"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/559271269.mesh"
+                    }
+                },
+                "UID": 1358152670,
+                "index": 1
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/Part_14.mat"
+                    }
+                },
+                "UID": 94577013,
+                "index": 2
+            }
+        },
+        "Index": 2,
+        "Name": "Part_14",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "2622727",
         "Static": false
     },
     "860573173": {
@@ -33212,6 +33306,57 @@
         "Parent": "1557478173",
         "Static": false
     },
+    "877309719": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1233487367,
+                "index": 0,
+                "layer": "0",
+                "positionx": "308.275391",
+                "positiony": "50.298401",
+                "positionz": "-517.623596",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/1007851447.mesh"
+                    }
+                },
+                "UID": 900418024,
+                "index": 1
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/Part_2.mat"
+                    }
+                },
+                "UID": 808109327,
+                "index": 2
+            }
+        },
+        "Index": 5,
+        "Name": "Part_2",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "85472484",
+        "Static": false
+    },
     "878131580": {
         "Active": true,
         "Components": {
@@ -33282,8 +33427,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000556",
-                "scalez": "1.000556"
+                "scaley": "1.000561",
+                "scalez": "1.000561"
             }
         },
         "Index": 0,
@@ -33376,6 +33521,57 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "318645054",
+        "Static": false
+    },
+    "881807178": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 875409095,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-190.794388",
+                "positiony": "-12.119338",
+                "positionz": "1.888538",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.365678",
+                "scaley": "0.365678",
+                "scalez": "0.365678"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/1890768943.mesh"
+                    }
+                },
+                "UID": 1270701135,
+                "index": 1
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/Part_16.mat"
+                    }
+                },
+                "UID": 1894881670,
+                "index": 2
+            }
+        },
+        "Index": 4,
+        "Name": "Part_16",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "2622727",
         "Static": false
     },
     "884948928": {
@@ -33482,13 +33678,13 @@
                 "positionx": "145.943115",
                 "positiony": "-3.292969",
                 "positionz": "23.541016",
-                "rotationw": "0.622221",
+                "rotationw": "0.622222",
                 "rotationx": "-0.419583",
                 "rotationy": "0.561080",
                 "rotationz": "0.349256",
-                "scalex": "19.683933",
-                "scaley": "19.684713",
-                "scalez": "19.684708"
+                "scalex": "19.683924",
+                "scaley": "19.684706",
+                "scalez": "19.684696"
             }
         },
         "Index": 0,
@@ -33605,7 +33801,7 @@
                 "positionx": "-1.165900",
                 "positiony": "9.181004",
                 "positionz": "-0.111496",
-                "rotationw": "0.997933",
+                "rotationw": "0.997934",
                 "rotationx": "-0.006888",
                 "rotationy": "0.011560",
                 "rotationz": "-0.062831",
@@ -34317,57 +34513,6 @@
         "Parent": "1174429485",
         "Static": false
     },
-    "93191211": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "UID": 159685298,
-                "index": 0,
-                "layer": "0",
-                "positionx": "308.275391",
-                "positiony": "50.298401",
-                "positionz": "-517.623596",
-                "rotationw": "0.707107",
-                "rotationx": "-0.707107",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "0.025400",
-                "scaley": "0.025400",
-                "scalez": "0.025400"
-            },
-            "1": {
-                "Active": true,
-                "Resources": {
-                    "ResourceMesh": {
-                        "PreviewTexture": "",
-                        "path": "Library/Meshes/1762334686.mesh"
-                    }
-                },
-                "UID": 2074775186,
-                "index": 1
-            },
-            "2": {
-                "Active": true,
-                "CastsShadows": true,
-                "LightAffected": true,
-                "OnlyShadows": false,
-                "ReceivesShadows": true,
-                "Resources": {
-                    "ResourceMaterial": {
-                        "path": "Assets/Part_4.mat"
-                    }
-                },
-                "UID": 1730676345,
-                "index": 2
-            }
-        },
-        "Index": 7,
-        "Name": "Part_4",
-        "Navigation Area": 0,
-        "Navigation Static": false,
-        "Parent": "479455030",
-        "Static": false
-    },
     "933678203": {
         "Active": true,
         "Components": {
@@ -34382,8 +34527,8 @@
                 "rotationx": "0.046474",
                 "rotationy": "0.155068",
                 "rotationz": "0.844688",
-                "scalex": "1.000117",
-                "scaley": "1.000117",
+                "scalex": "1.000122",
+                "scaley": "1.000122",
                 "scalez": "1.000000"
             },
             "13": {
@@ -34501,7 +34646,7 @@
                 "positionx": "120.682297",
                 "positiony": "0.000229",
                 "positionz": "-0.000031",
-                "rotationw": "0.912569",
+                "rotationw": "0.912570",
                 "rotationx": "0.192342",
                 "rotationy": "0.174447",
                 "rotationz": "-0.315895",
@@ -34875,57 +35020,6 @@
         "Parent": "135178289",
         "Static": false
     },
-    "975999849": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "UID": 2018930167,
-                "index": 0,
-                "layer": "0",
-                "positionx": "274.892883",
-                "positiony": "19.041903",
-                "positionz": "-41.300846",
-                "rotationw": "0.707107",
-                "rotationx": "-0.707107",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "0.025400",
-                "scaley": "0.025400",
-                "scalez": "0.025400"
-            },
-            "1": {
-                "Active": true,
-                "Resources": {
-                    "ResourceMesh": {
-                        "PreviewTexture": "",
-                        "path": "Library/Meshes/832181974.mesh"
-                    }
-                },
-                "UID": 690009616,
-                "index": 1
-            },
-            "2": {
-                "Active": true,
-                "CastsShadows": true,
-                "LightAffected": true,
-                "OnlyShadows": false,
-                "ReceivesShadows": true,
-                "Resources": {
-                    "ResourceMaterial": {
-                        "path": "Assets/Grass_1.mat"
-                    }
-                },
-                "UID": 2097775793,
-                "index": 2
-            }
-        },
-        "Index": 1,
-        "Name": "Grass_Part_2",
-        "Navigation Area": 0,
-        "Navigation Static": false,
-        "Parent": "1251264985",
-        "Static": false
-    },
     "985134672": {
         "Active": true,
         "Components": {
@@ -35025,7 +35119,7 @@
                 "positionx": "349.002838",
                 "positiony": "38.612278",
                 "positionz": "-313.026642",
-                "rotationw": "0.579227",
+                "rotationw": "0.579228",
                 "rotationx": "-0.579228",
                 "rotationy": "0.405580",
                 "rotationz": "0.405580",
@@ -35058,7 +35152,7 @@
                 "index": 2
             }
         },
-        "Index": 4,
+        "Index": 3,
         "Name": "TreesLeafs",
         "Navigation Area": 0,
         "Navigation Static": false,
