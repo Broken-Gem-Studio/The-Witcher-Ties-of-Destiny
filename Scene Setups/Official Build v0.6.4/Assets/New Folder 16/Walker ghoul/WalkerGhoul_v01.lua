@@ -203,6 +203,7 @@ local function HandleGhoulValues()
         lua_table.ParticleFunctions:StopParticleEmitter(lua_table.BodyEmitter1_UUID)
         lua_table.ParticleFunctions:StopParticleEmitter(lua_table.BodyEmitter2_UUID)
         lua_table.ParticleFunctions:StopParticleEmitter(lua_table.BodyEmitter3_UUID)
+        lua_table.ParticleFunctions:StopParticleEmitter(lua_table.BodyEmitter4_UUID)
     end
 
     -- Handle evade budget reset
@@ -518,6 +519,7 @@ function lua_table:OnTriggerEnter()
             lua_table.ParticleFunctions:PlayParticleEmitter(lua_table.BodyEmitter1_UUID)
             lua_table.ParticleFunctions:PlayParticleEmitter(lua_table.BodyEmitter2_UUID)
             lua_table.ParticleFunctions:PlayParticleEmitter(lua_table.BodyEmitter3_UUID)
+            lua_table.ParticleFunctions:PlayParticleEmitter(lua_table.BodyEmitter4_UUID)
         end
     end
 end
@@ -564,7 +566,8 @@ function lua_table:RequestedTrigger(collider_object)
             currentState = State.IDLE     
             lua_table.ParticleFunctions:PlayParticleEmitter(lua_table.BodyEmitter1_UUID)  
             lua_table.ParticleFunctions:PlayParticleEmitter(lua_table.BodyEmitter2_UUID)  
-            lua_table.ParticleFunctions:PlayParticleEmitter(lua_table.BodyEmitter3_UUID)  
+            lua_table.ParticleFunctions:PlayParticleEmitter(lua_table.BodyEmitter3_UUID) 
+            lua_table.ParticleFunctions:PlayParticleEmitter(lua_table.BodyEmitter4_UUID)   
         end
 	end
 end
@@ -590,6 +593,7 @@ function lua_table:Awake()
    lua_table.BodyEmitter1_UUID = lua_table.ObjectFunctions:FindChildGameObject("BodyEmitter_1")
    lua_table.BodyEmitter2_UUID = lua_table.ObjectFunctions:FindChildGameObject("BodyEmitter_2")
    lua_table.BodyEmitter3_UUID = lua_table.ObjectFunctions:FindChildGameObject("BodyEmitter_3")
+   lua_table.BodyEmitter4_UUID = lua_table.ObjectFunctions:FindChildGameObject("BodyEmitter_4")
    --lua_table.KnockbackEmitter_UUID = lua_table.ObjectFunctions:FindChildGameObject("KnockbackEmitter")
    --lua_table.StunEmitter_UUID = lua_table.ObjectFunctions:FindChildGameObject("StunEmitter")
    lua_table.TauntEmitter_UUID = lua_table.ObjectFunctions:FindChildGameObject("TauntEmitter")
@@ -614,6 +618,7 @@ function lua_table:Start()
    lua_table.ParticleFunctions:ActivateParticlesEmission(lua_table.BodyEmitter1_UUID)
    lua_table.ParticleFunctions:ActivateParticlesEmission(lua_table.BodyEmitter2_UUID)
    lua_table.ParticleFunctions:ActivateParticlesEmission(lua_table.BodyEmitter3_UUID)
+   lua_table.ParticleFunctions:ActivateParticlesEmission(lua_table.BodyEmitter4_UUID)
    lua_table.ParticleFunctions:ActivateParticlesEmission(lua_table.TauntEmitter_UUID)
    --lua_table.ParticleFunctions:ActivateParticlesEmission(lua_table.KnockbackEmitter_UUID)
    --lua_table.ParticleFunctions:ActivateParticlesEmission(lua_table.StunEmitter_UUID)
@@ -623,6 +628,7 @@ function lua_table:Start()
    lua_table.ParticleFunctions:StopParticleEmitter(lua_table.BodyEmitter1_UUID)
    lua_table.ParticleFunctions:StopParticleEmitter(lua_table.BodyEmitter2_UUID)
    lua_table.ParticleFunctions:StopParticleEmitter(lua_table.BodyEmitter3_UUID)
+   lua_table.ParticleFunctions:StopParticleEmitter(lua_table.BodyEmitter4_UUID)
    lua_table.ParticleFunctions:StopParticleEmitter(lua_table.TauntEmitter_UUID)
    --lua_table.ParticleFunctions:StopParticleEmitter(lua_table.KnockbackEmitter_UUID)
    --lua_table.ParticleFunctions:StopParticleEmitter(lua_table.StunEmitter_UUID)
