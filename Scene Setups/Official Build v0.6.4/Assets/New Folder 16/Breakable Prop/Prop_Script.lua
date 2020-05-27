@@ -59,6 +59,12 @@ function lua_table:Start ()
 	barrel_particles = lua_table.GameObjectFunctions:GetGOChilds(barrel_particles_parent)
 end
 
+local function playParticles()
+	for i = 1, #barrel_particles do
+		lua_table.ParticlesFunctions:PlayParticleEmitter(barrel_particles[i])
+	end
+end
+
 function lua_table:Update ()
 	local position = lua_table.TransformFunctions:GetPosition(lua_table.myUID)
 	local rotation = lua_table.TransformFunctions:GetRotation(lua_table.myUID)
@@ -69,12 +75,6 @@ function lua_table:Update ()
 		lua_table.GameObjectFunctions:SetActiveGameObject(true,Destroyable)
 		playParticles()
 		current_state = state.DESTROYED
-	end
-end
-
-local function playParticles()
-	for i = 1, #barrel_particles do
-		lua_table.ParticlesFunctions:PlayParticleEmitter(barrel_particles[i])
 	end
 end
 
