@@ -1160,7 +1160,29 @@
 						<Action Name="" ID="{7492C9AF-DE56-48AE-8A01-E22DCD21E3E5}" ShortID="692903178">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Music_Menu_Main_Captains_Tribute" ID="{D633C0BE-E3E1-45DC-9FE6-10842AC54A96}" WorkUnitID="{900849B3-5BE8-4F7B-8EC5-9E5DD796D73F}"/>
+									<ObjectRef Name="Music_Menu_Main_Loop" ID="{E9D2D858-2ACA-4100-B6FE-0E3F6574679B}" WorkUnitID="{900849B3-5BE8-4F7B-8EC5-9E5DD796D73F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Win_Menu_Music" ID="{3A638A68-A0A5-4630-BA90-82ECDB08B5BB}">
+					<ChildrenList>
+						<Action Name="" ID="{98EA2F0F-2EC5-46C2-8ACB-8E9229BC5C93}" ShortID="54574839">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Music_Menu_Win_Loop" ID="{850B88F8-150D-4135-98D1-36B0553295E0}" WorkUnitID="{900849B3-5BE8-4F7B-8EC5-9E5DD796D73F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Lost_Menu_Music" ID="{CEB9E95B-8248-49FE-B2DD-BA1A76BCE546}">
+					<ChildrenList>
+						<Action Name="" ID="{1DE1532C-DE3A-48C8-976F-6C6E0EECB15F}" ShortID="334062940">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Music_Menu_Lost_Loop" ID="{541306D2-6612-4F8A-8C32-427EAAE291B3}" WorkUnitID="{900849B3-5BE8-4F7B-8EC5-9E5DD796D73F}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
