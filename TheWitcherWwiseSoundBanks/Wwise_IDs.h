@@ -174,9 +174,11 @@ namespace AK
         static const AkUniqueID LEVEL_2 = 1290008370U;
         static const AkUniqueID MAIN_MENU = 2005704188U;
         static const AkUniqueID MONSTER_ENEMIES = 1016515008U;
-        static const AkUniqueID MUSIC_LEVELS = 2209143460U;
+        static const AkUniqueID MUSIC_LEVEL_1_1 = 2244718989U;
+        static const AkUniqueID MUSIC_LEVEL_2_1 = 2244866146U;
         static const AkUniqueID MUSIC_MENUS = 1614123467U;
         static const AkUniqueID PAUSE_MENU = 3422541661U;
+        static const AkUniqueID PAUSE_MUSIC = 2735935537U;
         static const AkUniqueID PROPS = 968010305U;
     } // namespace BANKS
 

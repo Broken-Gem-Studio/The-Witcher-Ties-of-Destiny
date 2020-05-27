@@ -17,36 +17,25 @@
 			<Path>Geralt.bnk</Path>
 			<IncludedEvents>
 				<Event Id="3449812404" Name="Play_Geralt_aard" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_aard"/>
-				<Event Id="3065709658" Name="Play_Geralt_aard_other_version" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_aard_other_version"/>
 				<Event Id="850689337" Name="Play_Geralt_fall_down_get_up" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_fall_down_get_up"/>
-				<Event Id="493066829" Name="Play_Geralt_heavy_roll" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_heavy_roll"/>
 				<Event Id="2664027291" Name="Play_Geralt_hit_sound" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_hit_sound"/>
 				<Event Id="109907202" Name="Play_Geralt_light_roll" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_light_roll"/>
-				<Event Id="1400200427" Name="Play_Geralt_medium_rolll" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_medium_rolll"/>
 				<Event Id="1207104021" Name="Play_Geralt_naked_roll" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_naked_roll"/>
-				<Event Id="3821841965" Name="Play_Geralt_potion_1" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_potion_1"/>
-				<Event Id="3821841966" Name="Play_Geralt_potion_2" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_potion_2"/>
-				<Event Id="3821841967" Name="Play_Geralt_potion_3" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_potion_3"/>
-				<Event Id="3821841960" Name="Play_Geralt_potion_4" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_potion_4"/>
-				<Event Id="2239504807" Name="Play_Geralt_potion_life_fx_1" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_potion_life_fx_1"/>
-				<Event Id="2239504804" Name="Play_Geralt_potion_life_fx_2" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_potion_life_fx_2"/>
-				<Event Id="2239504805" Name="Play_Geralt_potion_life_fx_3" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_potion_life_fx_3"/>
-				<Event Id="1246444623" Name="Play_Geralt_potion_other_version" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_potion_other_version"/>
+				<Event Id="355904118" Name="Play_Geralt_potion_fx" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_potion_fx"/>
 				<Event Id="966697903" Name="Play_Geralt_revive" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_revive"/>
 				<Event Id="2896484239" Name="Play_Geralt_sword_metal" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_sword_metal"/>
 				<Event Id="780578552" Name="Play_Geralt_sword_swing" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_sword_swing"/>
-				<Event Id="3444359250" Name="Play_Geralt_ulti_fix_1" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_ulti_fix_1"/>
-				<Event Id="3444359249" Name="Play_Geralt_ulti_fix_2" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_ulti_fix_2"/>
-				<Event Id="3444359248" Name="Play_Geralt_ulti_fix_3" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_ulti_fix_3"/>
-				<Event Id="3444359255" Name="Play_Geralt_ulti_fix_4" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_ulti_fix_4"/>
-				<Event Id="3444359254" Name="Play_Geralt_ulti_fix_5" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_ulti_fix_5"/>
+				<Event Id="3955362993" Name="Play_Geralt_Ultimate" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_Ultimate"/>
 				<Event Id="4167477001" Name="Play_Geralt_walk_run_concrete" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_walk_run_concrete"/>
 				<Event Id="2190072003" Name="Play_Geralt_walk_run_dirt" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_walk_run_dirt"/>
+				<Event Id="3747619760" Name="Play_Gerlat_combo_1" ObjectPath="\Events\Default Work Unit\Geralt\Play_Gerlat_combo_1"/>
+				<Event Id="3747619763" Name="Play_Gerlat_combo_2" ObjectPath="\Events\Default Work Unit\Geralt\Play_Gerlat_combo_2"/>
+				<Event Id="3747619762" Name="Play_Gerlat_combo_3" ObjectPath="\Events\Default Work Unit\Geralt\Play_Gerlat_combo_3"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
-				<File Id="44849575" Language="SFX">
-					<ShortName>Geralt_ulti_fix_3.wav</ShortName>
-					<Path>SFX\Geralt_ulti_fix_3_10C4C929.wem</Path>
+				<File Id="31365157" Language="SFX">
+					<ShortName>Potion_fx.wav</ShortName>
+					<Path>SFX\Potion_fx_10C4C929.wem</Path>
 				</File>
 				<File Id="73997410" Language="SFX">
 					<ShortName>Geralt_sword_metal_1.wav</ShortName>
@@ -72,10 +61,6 @@
 					<ShortName>Geralt_aard_3.wav</ShortName>
 					<Path>SFX\Geralt_aard_3_10C4C929.wem</Path>
 				</File>
-				<File Id="162466375" Language="SFX">
-					<ShortName>Geralt_heavy_roll.wav</ShortName>
-					<Path>SFX\Geralt_heavy_roll_10C4C929.wem</Path>
-				</File>
 				<File Id="171157079" Language="SFX">
 					<ShortName>Geralt_sword_swing_3.wav</ShortName>
 					<Path>SFX\Geralt_sword_swing_3_10C4C929.wem</Path>
@@ -92,21 +77,13 @@
 					<ShortName>Geralt_hit_sound_1.wav</ShortName>
 					<Path>SFX\Geralt_hit_sound_1_10C4C929.wem</Path>
 				</File>
-				<File Id="199674729" Language="SFX">
-					<ShortName>Geralt_potion_3.wav</ShortName>
-					<Path>SFX\Geralt_potion_3_10C4C929.wem</Path>
-				</File>
-				<File Id="204592245" Language="SFX">
-					<ShortName>Geralt_ulti_fix_5.wav</ShortName>
-					<Path>SFX\Geralt_ulti_fix_5_10C4C929.wem</Path>
-				</File>
 				<File Id="219678610" Language="SFX">
 					<ShortName>Geralt_sword_swing_6.wav</ShortName>
 					<Path>SFX\Geralt_sword_swing_6_10C4C929.wem</Path>
 				</File>
-				<File Id="231596752" Language="SFX">
-					<ShortName>Geralt_ulti_fix_2.wav</ShortName>
-					<Path>SFX\Geralt_ulti_fix_2_10C4C929.wem</Path>
+				<File Id="251122567" Language="SFX">
+					<ShortName>GeraltUltimate sound.wav</ShortName>
+					<Path>SFX\GeraltUltimate sound_10C4C929.wem</Path>
 				</File>
 				<File Id="299164818" Language="SFX">
 					<ShortName>Geralt_walk_run_concrete_3.wav</ShortName>
@@ -115,18 +92,6 @@
 				<File Id="359010293" Language="SFX">
 					<ShortName>Geralt_aard_5.wav</ShortName>
 					<Path>SFX\Geralt_aard_5_10C4C929.wem</Path>
-				</File>
-				<File Id="411375851" Language="SFX">
-					<ShortName>Geralt_aard_other_version.wav</ShortName>
-					<Path>SFX\Geralt_aard_other_version_10C4C929.wem</Path>
-				</File>
-				<File Id="432117263" Language="SFX">
-					<ShortName>Geralt_medium_rolll.wav</ShortName>
-					<Path>SFX\Geralt_medium_rolll_10C4C929.wem</Path>
-				</File>
-				<File Id="439538193" Language="SFX">
-					<ShortName>Geralt_potion_life_fx_1.wav</ShortName>
-					<Path>SFX\Geralt_potion_life_fx_1_10C4C929.wem</Path>
 				</File>
 				<File Id="460537679" Language="SFX">
 					<ShortName>Geralt_naked_roll.wav</ShortName>
@@ -144,25 +109,17 @@
 					<ShortName>Geralt_hit_sound_2.wav</ShortName>
 					<Path>SFX\Geralt_hit_sound_2_10C4C929.wem</Path>
 				</File>
-				<File Id="664142138" Language="SFX">
-					<ShortName>Geralt_potion_4.wav</ShortName>
-					<Path>SFX\Geralt_potion_4_10C4C929.wem</Path>
-				</File>
 				<File Id="682688629" Language="SFX">
 					<ShortName>Geralt_walk_run_dirt_3.wav</ShortName>
 					<Path>SFX\Geralt_walk_run_dirt_3_10C4C929.wem</Path>
 				</File>
-				<File Id="695074333" Language="SFX">
-					<ShortName>Geralt_potion_1.wav</ShortName>
-					<Path>SFX\Geralt_potion_1_10C4C929.wem</Path>
+				<File Id="697976836" Language="SFX">
+					<ShortName>Geralt_combo_sound.wav</ShortName>
+					<Path>SFX\Geralt_combo_sound_10C4C929.wem</Path>
 				</File>
 				<File Id="707240897" Language="SFX">
 					<ShortName>Geralt_walk_run_dirt_2.wav</ShortName>
 					<Path>SFX\Geralt_walk_run_dirt_2_10C4C929.wem</Path>
-				</File>
-				<File Id="711324990" Language="SFX">
-					<ShortName>Geralt_potion_life_fx_2.wav</ShortName>
-					<Path>SFX\Geralt_potion_life_fx_2_10C4C929.wem</Path>
 				</File>
 				<File Id="721273645" Language="SFX">
 					<ShortName>Geralt_sword_swing_1.wav</ShortName>
@@ -196,25 +153,9 @@
 					<ShortName>Geralt_walk_run_concrete_2.wav</ShortName>
 					<Path>SFX\Geralt_walk_run_concrete_2_10C4C929.wem</Path>
 				</File>
-				<File Id="893593226" Language="SFX">
-					<ShortName>Geralt_ulti_fix_4.wav</ShortName>
-					<Path>SFX\Geralt_ulti_fix_4_10C4C929.wem</Path>
-				</File>
-				<File Id="894454233" Language="SFX">
-					<ShortName>Geralt_potion_life_fx_3.wav</ShortName>
-					<Path>SFX\Geralt_potion_life_fx_3_10C4C929.wem</Path>
-				</File>
-				<File Id="899531312" Language="SFX">
-					<ShortName>Geralt_ulti_fix_1.wav</ShortName>
-					<Path>SFX\Geralt_ulti_fix_1_10C4C929.wem</Path>
-				</File>
 				<File Id="912795110" Language="SFX">
 					<ShortName>Geralt_sword_swing_4.wav</ShortName>
 					<Path>SFX\Geralt_sword_swing_4_10C4C929.wem</Path>
-				</File>
-				<File Id="916892162" Language="SFX">
-					<ShortName>Geralt_potion_2.wav</ShortName>
-					<Path>SFX\Geralt_potion_2_10C4C929.wem</Path>
 				</File>
 				<File Id="928024526" Language="SFX">
 					<ShortName>Geralt_walk_run_dirt_4.wav</ShortName>
@@ -227,10 +168,6 @@
 				<File Id="951626463" Language="SFX">
 					<ShortName>Geralt_sword_swing_9.wav</ShortName>
 					<Path>SFX\Geralt_sword_swing_9_10C4C929.wem</Path>
-				</File>
-				<File Id="953748758" Language="SFX">
-					<ShortName>Geralt_potion_other_version.wav</ShortName>
-					<Path>SFX\Geralt_potion_other_version_10C4C929.wem</Path>
 				</File>
 				<File Id="989150009" Language="SFX">
 					<ShortName>Geralt_revive.wav</ShortName>
@@ -541,65 +478,44 @@
 			<ObjectPath>\SoundBanks\Default Work Unit\Music_Menus</ObjectPath>
 			<ShortName>Music_Menus</ShortName>
 			<Path>Music_Menus.bnk</Path>
+			<IncludedEvents>
+				<Event Id="2895168921" Name="Play_Main_Menu_Music" ObjectPath="\Events\Default Work Unit\Play_Main_Menu_Music"/>
+			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="697497514" Language="SFX">
+					<ShortName>Music\Music_Menu_Main_Captains_Tribute.wav</ShortName>
+					<Path>SFX\Music\Music_Menu_Main_Captains_Tribute_D79FB2B7.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
 		</SoundBank>
 		<SoundBank Id="1735538792" Language="SFX">
 			<ObjectPath>\SoundBanks\Default Work Unit\Jaskier</ObjectPath>
 			<ShortName>Jaskier</ShortName>
 			<Path>Jaskier.bnk</Path>
 			<IncludedEvents>
-				<Event Id="2927481656" Name="Play_Jaskier_acoustic_gitar_smash" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_acoustic_gitar_smash"/>
 				<Event Id="2312986841" Name="Play_Jaskier_fall_down_get_up" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_fall_down_get_up"/>
-				<Event Id="1679104389" Name="Play_Jaskier_guitar_swing_1" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_guitar_swing_1"/>
-				<Event Id="305605743" Name="Play_Jaskier_guitar_swing_10" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_guitar_swing_10"/>
-				<Event Id="1679104390" Name="Play_Jaskier_guitar_swing_2" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_guitar_swing_2"/>
-				<Event Id="1679104391" Name="Play_Jaskier_guitar_swing_3" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_guitar_swing_3"/>
-				<Event Id="1679104384" Name="Play_Jaskier_guitar_swing_4" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_guitar_swing_4"/>
-				<Event Id="1679104385" Name="Play_Jaskier_guitar_swing_5" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_guitar_swing_5"/>
-				<Event Id="1679104386" Name="Play_Jaskier_guitar_swing_6" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_guitar_swing_6"/>
-				<Event Id="1679104387" Name="Play_Jaskier_guitar_swing_7" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_guitar_swing_7"/>
-				<Event Id="1679104396" Name="Play_Jaskier_guitar_swing_8" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_guitar_swing_8"/>
-				<Event Id="1679104397" Name="Play_Jaskier_guitar_swing_9" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_guitar_swing_9"/>
-				<Event Id="743065899" Name="Play_Jaskier_hit_sound_1" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_hit_sound_1"/>
-				<Event Id="743065896" Name="Play_Jaskier_hit_sound_2" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_hit_sound_2"/>
+				<Event Id="1916833811" Name="Play_Jaskier_guitar_smash" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_guitar_smash"/>
+				<Event Id="4022547377" Name="Play_Jaskier_guitar_swing" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_guitar_swing"/>
+				<Event Id="4169710139" Name="Play_Jaskier_hit_sound" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_hit_sound"/>
 				<Event Id="1018718152" Name="Play_Jaskier_jump" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_jump"/>
-				<Event Id="2111794168" Name="Play_Jaskier_mandolin_single_hits_1" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_mandolin_single_hits_1"/>
-				<Event Id="2111794171" Name="Play_Jaskier_mandolin_single_hits_2" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_mandolin_single_hits_2"/>
-				<Event Id="2111794170" Name="Play_Jaskier_mandolin_single_hits_3" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_mandolin_single_hits_3"/>
-				<Event Id="2111794173" Name="Play_Jaskier_mandolin_single_hits_4" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_mandolin_single_hits_4"/>
-				<Event Id="2111794172" Name="Play_Jaskier_mandolin_single_hits_5" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_mandolin_single_hits_5"/>
-				<Event Id="2111794175" Name="Play_Jaskier_mandolin_single_hits_6" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_mandolin_single_hits_6"/>
-				<Event Id="2111794174" Name="Play_Jaskier_mandolin_single_hits_7" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_mandolin_single_hits_7"/>
-				<Event Id="2111794161" Name="Play_Jaskier_mandolin_single_hits_8" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_mandolin_single_hits_8"/>
-				<Event Id="2558139597" Name="Play_Jaskier_potion_1" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_potion_1"/>
-				<Event Id="2558139598" Name="Play_Jaskier_potion_2" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_potion_2"/>
-				<Event Id="2558139599" Name="Play_Jaskier_potion_3" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_potion_3"/>
-				<Event Id="2558139592" Name="Play_Jaskier_potion_4" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_potion_4"/>
-				<Event Id="115621703" Name="Play_Jaskier_potion_life_fx_1" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_potion_life_fx_1"/>
-				<Event Id="115621700" Name="Play_Jaskier_potion_life_fx_2" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_potion_life_fx_2"/>
-				<Event Id="115621701" Name="Play_Jaskier_potion_life_fx_3" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_potion_life_fx_3"/>
+				<Event Id="1967797464" Name="Play_Jaskier_moonwalk" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_moonwalk"/>
+				<Event Id="2721777174" Name="Play_Jaskier_potion_fx" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_potion_fx"/>
 				<Event Id="4116481551" Name="Play_Jaskier_revive" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_revive"/>
-				<Event Id="3648986701" Name="Play_Jaskier_walk_run_concrete_1" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_walk_run_concrete_1"/>
-				<Event Id="3648986702" Name="Play_Jaskier_walk_run_concrete_2" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_walk_run_concrete_2"/>
-				<Event Id="3648986703" Name="Play_Jaskier_walk_run_concrete_3" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_walk_run_concrete_3"/>
-				<Event Id="3648986696" Name="Play_Jaskier_walk_run_concrete_4" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_walk_run_concrete_4"/>
-				<Event Id="2439869443" Name="Play_Jaskier_walk_run_dirt_1" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_walk_run_dirt_1"/>
-				<Event Id="2439869440" Name="Play_Jaskier_walk_run_dirt_2" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_walk_run_dirt_2"/>
-				<Event Id="2439869441" Name="Play_Jaskier_walk_run_dirt_3" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_walk_run_dirt_3"/>
-				<Event Id="2439869446" Name="Play_Jaskier_walk_run_dirt_4" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_walk_run_dirt_4"/>
-				<Event Id="2439869447" Name="Play_Jaskier_walk_run_dirt_5" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_walk_run_dirt_5"/>
+				<Event Id="2858442791" Name="Play_Jaskier_song_1" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_song_1"/>
+				<Event Id="2858442788" Name="Play_Jaskier_song_2" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_song_2"/>
+				<Event Id="2858442789" Name="Play_Jaskier_song_3" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_song_3"/>
+				<Event Id="793067793" Name="Play_Jaskier_Ultimate" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_Ultimate"/>
+				<Event Id="2646163561" Name="Play_Jaskier_walk_run_concrete" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_walk_run_concrete"/>
+				<Event Id="4243245347" Name="Play_Jaskier_walk_run_dirt" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_walk_run_dirt"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
-				<File Id="22946343" Language="SFX">
-					<ShortName>Jaskier_potion_4.wav</ShortName>
-					<Path>SFX\Jaskier_potion_4_10C4C929.wem</Path>
-				</File>
 				<File Id="26022165" Language="SFX">
 					<ShortName>Jaskier_guitar_swing_7.wav</ShortName>
 					<Path>SFX\Jaskier_guitar_swing_7_10C4C929.wem</Path>
 				</File>
-				<File Id="93263325" Language="SFX">
-					<ShortName>Jaskier_acoustic_gitar_smash.wav</ShortName>
-					<Path>SFX\Jaskier_acoustic_gitar_smash_10C4C929.wem</Path>
+				<File Id="31365157" Language="SFX">
+					<ShortName>Potion_fx.wav</ShortName>
+					<Path>SFX\Potion_fx_10C4C929.wem</Path>
 				</File>
 				<File Id="99508910" Language="SFX">
 					<ShortName>Jaskier_guitar_swing_1.wav</ShortName>
@@ -609,10 +525,6 @@
 					<ShortName>Jaskier_guitar_swing_4.wav</ShortName>
 					<Path>SFX\Jaskier_guitar_swing_4_10C4C929.wem</Path>
 				</File>
-				<File Id="191414039" Language="SFX">
-					<ShortName>Jaskier_mandolin_single_hits_4.wav</ShortName>
-					<Path>SFX\Jaskier_mandolin_single_hits_4_10C4C929.wem</Path>
-				</File>
 				<File Id="215839451" Language="SFX">
 					<ShortName>Jaskier_walk_run_concrete_1.wav</ShortName>
 					<Path>SFX\Jaskier_walk_run_concrete_1_10C4C929.wem</Path>
@@ -621,17 +533,13 @@
 					<ShortName>Jaskier_guitar_swing_8.wav</ShortName>
 					<Path>SFX\Jaskier_guitar_swing_8_10C4C929.wem</Path>
 				</File>
-				<File Id="288422242" Language="SFX">
-					<ShortName>Jaskier_potion_life_fx_2.wav</ShortName>
-					<Path>SFX\Jaskier_potion_life_fx_2_10C4C929.wem</Path>
-				</File>
 				<File Id="417883437" Language="SFX">
 					<ShortName>Jaskier_walk_run_concrete_4.wav</ShortName>
 					<Path>SFX\Jaskier_walk_run_concrete_4_10C4C929.wem</Path>
 				</File>
-				<File Id="434500287" Language="SFX">
-					<ShortName>Jaskier_mandolin_single_hits_1.wav</ShortName>
-					<Path>SFX\Jaskier_mandolin_single_hits_1_10C4C929.wem</Path>
+				<File Id="420840914" Language="SFX">
+					<ShortName>jaskier song 1.wav</ShortName>
+					<Path>SFX\jaskier song 1_10C4C929.wem</Path>
 				</File>
 				<File Id="437857490" Language="SFX">
 					<ShortName>Jaskier_guitar_swing_2.wav</ShortName>
@@ -657,25 +565,9 @@
 					<ShortName>Jaskier_walk_run_concrete_2.wav</ShortName>
 					<Path>SFX\Jaskier_walk_run_concrete_2_10C4C929.wem</Path>
 				</File>
-				<File Id="638660470" Language="SFX">
-					<ShortName>Jaskier_potion_1.wav</ShortName>
-					<Path>SFX\Jaskier_potion_1_10C4C929.wem</Path>
-				</File>
-				<File Id="658497880" Language="SFX">
-					<ShortName>Jaskier_potion_life_fx_3.wav</ShortName>
-					<Path>SFX\Jaskier_potion_life_fx_3_10C4C929.wem</Path>
-				</File>
-				<File Id="668632756" Language="SFX">
-					<ShortName>Jaskier_mandolin_single_hits_7.wav</ShortName>
-					<Path>SFX\Jaskier_mandolin_single_hits_7_10C4C929.wem</Path>
-				</File>
-				<File Id="693213339" Language="SFX">
-					<ShortName>Jaskier_potion_life_fx_1.wav</ShortName>
-					<Path>SFX\Jaskier_potion_life_fx_1_10C4C929.wem</Path>
-				</File>
-				<File Id="727945761" Language="SFX">
-					<ShortName>Jaskier_mandolin_single_hits_2.wav</ShortName>
-					<Path>SFX\Jaskier_mandolin_single_hits_2_10C4C929.wem</Path>
+				<File Id="696598848" Language="SFX">
+					<ShortName>jaskier song 2-3.wav</ShortName>
+					<Path>SFX\jaskier song 2-3_10C4C929.wem</Path>
 				</File>
 				<File Id="768107901" Language="SFX">
 					<ShortName>Jaskier_guitar_swing_9.wav</ShortName>
@@ -689,37 +581,25 @@
 					<ShortName>Jaskier_walk_run_dirt_5.wav</ShortName>
 					<Path>SFX\Jaskier_walk_run_dirt_5_10C4C929.wem</Path>
 				</File>
-				<File Id="799026736" Language="SFX">
-					<ShortName>Jaskier_mandolin_single_hits_5.wav</ShortName>
-					<Path>SFX\Jaskier_mandolin_single_hits_5_10C4C929.wem</Path>
-				</File>
 				<File Id="808607622" Language="SFX">
 					<ShortName>Jaskier_walk_run_dirt_1.wav</ShortName>
 					<Path>SFX\Jaskier_walk_run_dirt_1_10C4C929.wem</Path>
-				</File>
-				<File Id="824055105" Language="SFX">
-					<ShortName>Jaskier_mandolin_single_hits_3.wav</ShortName>
-					<Path>SFX\Jaskier_mandolin_single_hits_3_10C4C929.wem</Path>
 				</File>
 				<File Id="830769361" Language="SFX">
 					<ShortName>Jaskier_fall_down_get_up.wav</ShortName>
 					<Path>SFX\Jaskier_fall_down_get_up_10C4C929.wem</Path>
 				</File>
-				<File Id="832614274" Language="SFX">
-					<ShortName>Jaskier_mandolin_single_hits_6.wav</ShortName>
-					<Path>SFX\Jaskier_mandolin_single_hits_6_10C4C929.wem</Path>
-				</File>
-				<File Id="838344944" Language="SFX">
-					<ShortName>Jaskier_potion_3.wav</ShortName>
-					<Path>SFX\Jaskier_potion_3_10C4C929.wem</Path>
-				</File>
-				<File Id="840754560" Language="SFX">
-					<ShortName>Jaskier_mandolin_single_hits_8.wav</ShortName>
-					<Path>SFX\Jaskier_mandolin_single_hits_8_10C4C929.wem</Path>
-				</File>
 				<File Id="847161361" Language="SFX">
 					<ShortName>Jaskier_hit_sound_1.wav</ShortName>
 					<Path>SFX\Jaskier_hit_sound_1_10C4C929.wem</Path>
+				</File>
+				<File Id="853122775" Language="SFX">
+					<ShortName>Jaskier_moonwalk.wav</ShortName>
+					<Path>SFX\Jaskier_moonwalk_10C4C929.wem</Path>
+				</File>
+				<File Id="858627309" Language="SFX">
+					<ShortName>Jaskier_Ultimate.wav</ShortName>
+					<Path>SFX\Jaskier_Ultimate_10C4C929.wem</Path>
 				</File>
 				<File Id="871442106" Language="SFX">
 					<ShortName>Jaskier_guitar_swing_3.wav</ShortName>
@@ -733,6 +613,10 @@
 					<ShortName>Jaskier_walk_run_dirt_4.wav</ShortName>
 					<Path>SFX\Jaskier_walk_run_dirt_4_10C4C929.wem</Path>
 				</File>
+				<File Id="950570503" Language="SFX">
+					<ShortName>Jaskier_guitar_smash.wav</ShortName>
+					<Path>SFX\Jaskier_guitar_smash_10C4C929.wem</Path>
+				</File>
 				<File Id="995710726" Language="SFX">
 					<ShortName>Jaskier_walk_run_concrete_3.wav</ShortName>
 					<Path>SFX\Jaskier_walk_run_concrete_3_10C4C929.wem</Path>
@@ -744,10 +628,6 @@
 				<File Id="1034730759" Language="SFX">
 					<ShortName>Jaskier_guitar_swing_10.wav</ShortName>
 					<Path>SFX\Jaskier_guitar_swing_10_10C4C929.wem</Path>
-				</File>
-				<File Id="1037239967" Language="SFX">
-					<ShortName>Jaskier_potion_2.wav</ShortName>
-					<Path>SFX\Jaskier_potion_2_10C4C929.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>
@@ -795,12 +675,39 @@
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>
-		<SoundBank Id="2209143460" Language="SFX">
-			<ObjectPath>\SoundBanks\Default Work Unit\Music_Levels</ObjectPath>
-			<ShortName>Music_Levels</ShortName>
-			<Path>Music_Levels.bnk</Path>
+		<SoundBank Id="2244718989" Language="SFX">
+			<ObjectPath>\SoundBanks\Default Work Unit\Music_Level_1_1</ObjectPath>
+			<ShortName>Music_Level_1_1</ShortName>
+			<Path>Music_Level_1_1.bnk</Path>
 			<IncludedEvents>
 				<Event Id="814842324" Name="Play_Level_1_Music" ObjectPath="\Events\Default Work Unit\Play_Level_1_Music"/>
+			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="484032302" Language="SFX">
+					<ShortName>Music\Music_Combat_Viking_Ship.wav</ShortName>
+					<Path>SFX\Music\Music_Combat_Viking_Ship_D79FB2B7.wem</Path>
+				</File>
+				<File Id="967037437" Language="SFX">
+					<ShortName>Music\Music_Lvl_1_Broken_Village.wav</ShortName>
+					<Path>SFX\Music\Music_Lvl_1_Broken_Village_D79FB2B7.wem</Path>
+				</File>
+				<File Id="997267315" Language="SFX">
+					<ShortName>Music\Music_Combat_The_Dark_Castle.wav</ShortName>
+					<Path>SFX\Music\Music_Combat_The_Dark_Castle_D79FB2B7.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
+			<ExcludedMemoryFiles>
+				<File Id="849114426" Language="SFX">
+					<ShortName>Music\Music_Menu_Pause_Relaxing_Green_Nature.wav</ShortName>
+					<Path>SFX\Music\Music_Menu_Pause_Relaxing_Green_Nature_D79FB2B7.wem</Path>
+				</File>
+			</ExcludedMemoryFiles>
+		</SoundBank>
+		<SoundBank Id="2244866146" Language="SFX">
+			<ObjectPath>\SoundBanks\Default Work Unit\Music_Level_2_1</ObjectPath>
+			<ShortName>Music_Level_2_1</ShortName>
+			<Path>Music_Level_2_1.bnk</Path>
+			<IncludedEvents>
 				<Event Id="2048014091" Name="Play_Level_2_Music" ObjectPath="\Events\Default Work Unit\Play_Level_2_Music"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
@@ -811,10 +718,6 @@
 				<File Id="621261315" Language="SFX">
 					<ShortName>Music\Music_Lvl_2_Loop_The village.wav</ShortName>
 					<Path>SFX\Music\Music_Lvl_2_Loop_The village_D79FB2B7.wem</Path>
-				</File>
-				<File Id="967037437" Language="SFX">
-					<ShortName>Music\Music_Lvl_1_Broken_Village.wav</ShortName>
-					<Path>SFX\Music\Music_Lvl_1_Broken_Village_D79FB2B7.wem</Path>
 				</File>
 				<File Id="997267315" Language="SFX">
 					<ShortName>Music\Music_Combat_The_Dark_Castle.wav</ShortName>
@@ -1040,6 +943,17 @@
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>
+		<SoundBank Id="2735935537" Language="SFX">
+			<ObjectPath>\SoundBanks\Default Work Unit\Pause_Music</ObjectPath>
+			<ShortName>Pause_Music</ShortName>
+			<Path>Pause_Music.bnk</Path>
+			<IncludedMemoryFiles>
+				<File Id="849114426" Language="SFX">
+					<ShortName>Music\Music_Menu_Pause_Relaxing_Green_Nature.wav</ShortName>
+					<Path>SFX\Music\Music_Menu_Pause_Relaxing_Green_Nature_D79FB2B7.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
+		</SoundBank>
 		<SoundBank Id="3354210172" Language="SFX">
 			<ObjectPath>\SoundBanks\Default Work Unit\Cinematic_Level_2</ObjectPath>
 			<ShortName>Cinematic_Level_2</ShortName>
@@ -1053,19 +967,19 @@
 			<IncludedMemoryFiles>
 				<File Id="171106237" Language="SFX">
 					<ShortName>Lvl2_Button_Skip_Cinematic_Pressed.wav</ShortName>
-					<Path>SFX\Lvl2_Button_Skip_Cinematic_Pressed_10C4C929.wem</Path>
+					<Path>SFX\Lvl2_Button_Skip_Cinematic_Pressed_66C02B12.wem</Path>
 				</File>
 				<File Id="451877459" Language="SFX">
 					<ShortName>Lvl2_Ambience_Wind_Loop.wav</ShortName>
-					<Path>SFX\Lvl2_Ambience_Wind_Loop_10C4C929.wem</Path>
+					<Path>SFX\Lvl2_Ambience_Wind_Loop_66C02B12.wem</Path>
 				</File>
 				<File Id="471617832" Language="SFX">
 					<ShortName>Lvl2_Cinematic_Skipped.wav</ShortName>
-					<Path>SFX\Lvl2_Cinematic_Skipped_10C4C929.wem</Path>
+					<Path>SFX\Lvl2_Cinematic_Skipped_66C02B12.wem</Path>
 				</File>
 				<File Id="725990850" Language="SFX">
 					<ShortName>Lvl2_Ambience_Crickets_Loop.wav</ShortName>
-					<Path>SFX\Lvl2_Ambience_Crickets_Loop_10C4C929.wem</Path>
+					<Path>SFX\Lvl2_Ambience_Crickets_Loop_66C02B12.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>
