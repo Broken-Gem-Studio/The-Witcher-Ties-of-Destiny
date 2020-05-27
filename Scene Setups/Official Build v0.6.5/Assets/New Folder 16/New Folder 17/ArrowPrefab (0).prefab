@@ -3,7 +3,7 @@
         "Active": true,
         "Components": {
             "0": {
-                "layer": "0",
+                "layer": "4",
                 "positionx": "0.000000",
                 "positiony": "0.000000",
                 "positionz": "0.000000",
@@ -50,7 +50,7 @@
                         "Name": "force",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 500.0
+                        "Value": 1250.0
                     }
                 }
             },
@@ -72,7 +72,7 @@
                 "linear_velx": "0.000000",
                 "linear_vely": "0.000000",
                 "linear_velz": "0.000000",
-                "mass": "0.010000",
+                "mass": "0.005000",
                 "use_gravity": "1"
             },
             "16": {
@@ -91,7 +91,7 @@
                 "hasBeenDeactivated": "0",
                 "height": "1.000000",
                 "isConvex": "0",
-                "isTrigger": "0",
+                "isTrigger": "1",
                 "lastIndex": "1",
                 "localMatrixw": "1.000000",
                 "localMatrixx": "-25.030491",
@@ -116,6 +116,10 @@
             },
             "2": {
                 "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
                 "Resources": {
                     "ResourceMaterial": {
                         "path": "Assets/New Folder 16/New Folder 17/ArrowMaterial.mat"
@@ -123,11 +127,11 @@
                 }
             }
         },
-        "Parent": "146352759",
+        "Parent": "1917036355",
         "PrefabChild": true,
         "PrefabInstance": true,
         "Static": false,
-        "UID": "1324025779"
+        "UID": "72547858"
     },
     "Arrow_Pivot": {
         "Active": true,
@@ -146,11 +150,11 @@
                 "scalez": "0.100000"
             }
         },
-        "Parent": "1410695931",
+        "Parent": "2120367721",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1044300253"
+        "UID": "1947725314"
     },
     "Arrow_Wind_Controller": {
         "Active": true,
@@ -175,11 +179,11 @@
                 }
             }
         },
-        "Parent": "1044300253",
+        "Parent": "1947725314",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "21561281"
+        "UID": "1876679826"
     },
     "Arrow_Wind_Mesh": {
         "Active": true,
@@ -208,6 +212,10 @@
             },
             "2": {
                 "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
                 "Resources": {
                     "ResourceMaterial": {
                         "path": "Assets/New Folder 16/New Folder 17/WindMaterial.mat"
@@ -215,13 +223,13 @@
                 }
             }
         },
-        "Parent": "1044300253",
+        "Parent": "1947725314",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "26875248"
+        "UID": "1273598819"
     },
-    "PreviewTexture": "Library/Textures/261772601.dds",
+    "PreviewTexture": "Library/Textures/2052604413.dds",
     "Wind": {
         "Active": true,
         "Components": {
@@ -235,8 +243,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "39.370079",
-                "scaley": "39.370197",
-                "scalez": "39.370197"
+                "scaley": "39.370380",
+                "scalez": "39.370380"
             },
             "14": {
                 "Active": true,
@@ -257,10 +265,10 @@
                 }
             }
         },
-        "Parent": "1324025779",
+        "Parent": "72547858",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1410695931"
+        "UID": "2120367721"
     }
 }

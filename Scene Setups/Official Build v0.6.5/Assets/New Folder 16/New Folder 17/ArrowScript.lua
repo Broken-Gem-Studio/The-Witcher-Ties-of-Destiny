@@ -6,9 +6,9 @@ lua_table.PhysicsSystem =  Scripting.Physics()
 lua_table.Transform = Scripting.Transform()
 lua_table.AnimationSystem = Scripting.Animations()
 
-lua_table.collider_damage = 10
+lua_table.collider_damage = 15
 lua_table.collider_effect = 0
-lua_table.force = 50
+lua_table.force = 1000
 
 local start_time = 0
 
@@ -42,7 +42,12 @@ end
 
 function lua_table:OnTriggerEnter()
     local collider_GO = lua_table.PhysicsSystem:OnTriggerEnter(MyUID)
-    
+    local layer = lua_table.GameObjectFunctions:GetLayerByID(collider_GO)
+
+    if layer ~= Layers.ENEMY and layer ~= Layers.ENEMY_ATTACK then
+        DestroyPlayer = true
+        destroy_time = lua_table.System:GameTime()
+    end
     
 end
 
@@ -90,8 +95,8 @@ function lua_table:Update()
     end
 	
 	if DestroyPlayer 
-	then 
-		lua_table.GameObjectFunctions:DestroyGameObject(MyUID)
+    then 
+        lua_table.GameObjectFunctions:DestroyGameObject(MyUID)
 	end
 end
 

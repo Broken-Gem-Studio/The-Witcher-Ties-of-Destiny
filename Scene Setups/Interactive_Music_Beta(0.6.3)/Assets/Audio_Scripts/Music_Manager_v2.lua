@@ -16,10 +16,16 @@ local geralt_script
 local jaskier_GO_UID
 local jaskier_script
 
+local pause_GO
+local pause_script
+
 function lua_table:Awake()
 	camera_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Camera")
 	geralt_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt")
 	jaskier_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier")
+
+	pause_GO = lua_table.GameObjectFunctions:FindGameObject("Pause")
+	pause_script = lua_table.GameObjectFunctions:GetScript(pause_GO)
 
 	if geralt_GO_UID ~= 0 then geralt_script = lua_table.GameObjectFunctions:GetScript(geralt_GO_UID) end
 	if jaskier_GO_UID ~= 0 then jaskier_script = lua_table.GameObjectFunctions:GetScript(jaskier_GO_UID) end
@@ -37,14 +43,19 @@ end
 
 function lua_table:Update()
 	
-	if geralt_script.enemies_nearby == true or jaskier_script.enemies_nearby == true then
-		lua_table.Enemies_Nearby = true
-		lua_table.AudioFunctions:SetAudioSwitch("Lvl_" .. lua_table.Level .. "_Music_Switch","Combat",my_UID)
-	elseif geralt_script.enemies_nearby == false and jaskier_script.enemies_nearby == false then
-		lua_table.Enemies_Nearby = false
-		lua_table.AudioFunctions:SetAudioSwitch("Lvl_" .. lua_table.Level .. "_Music_Switch","Exploration",my_UID)
-	end
+	if pause_script.gamePaused == false then
+		if geralt_script.enemies_nearby == true or jaskier_script.enemies_nearby == true then
+			lua_table.Enemies_Nearby = true
+			lua_table.AudioFunctions:SetAudioSwitch("Lvl_" .. lua_table.Level .. "_Music_Switch","Combat",my_UID)
+		elseif geralt_script.enemies_nearby == false and jaskier_script.enemies_nearby == false then
+			lua_table.Enemies_Nearby = false
+			lua_table.AudioFunctions:SetAudioSwitch("Lvl_" .. lua_table.Level .. "_Music_Switch","Exploration",my_UID)
+		end
+	elseif pause_script.gamePaused == true then
 
+		lua_table.AudioFunctions:SetAudioSwitch("Lvl_" .. lua_table.Level .. "_Music_Switch","Pause",my_UID)
+	end
+	
 end
 
 return lua_table
