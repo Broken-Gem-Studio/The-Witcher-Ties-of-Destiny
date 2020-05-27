@@ -110,14 +110,15 @@ local JC2 = 0
 local is_front_active = false
 local is_area_active = false
 
-lua_table.Minion_Front = "Recruit_Front_Attack"
+lua_table.Recruit_Front = "Recruit_Front_Attack"
 local Front_Collider = 0
 lua_table.collider_damage = 0
 lua_table.collider_effect = 0
 
-local HitEmitter_UID = 0
+local HitEmitter1_UID = 0
 local HitEmitter2_UID = 0
 local HitEmitter3_UID = 0
+local HitEmitter4_UID = 0
 
 local random_attack = 0
 local random_death_anim = 0
@@ -156,10 +157,10 @@ local function SearchPlayers() -- Check if targets are within range
 
 	lua_table.GeraltPos = lua_table.Transform:GetPosition(lua_table.geralt)
 	lua_table.JaskierPos = lua_table.Transform:GetPosition(lua_table.jaskier)
-	lua_table.GhoulPos = lua_table.Transform:GetPosition(lua_table.MyUID)
+	lua_table.RecruitPos = lua_table.Transform:GetPosition(lua_table.MyUID)
 	
-	GC1 = lua_table.GeraltPos[1] - lua_table.GhoulPos[1]
-	GC2 = lua_table.GeraltPos[3] - lua_table.GhoulPos[3]
+	GC1 = lua_table.GeraltPos[1] - lua_table.RecruitPos[1]
+	GC2 = lua_table.GeraltPos[3] - lua_table.RecruitPos[3]
 
 	if GeraltState.current_state > -3 then
 		lua_table.GeraltDistance = math.sqrt(GC1 ^ 2 + GC2 ^ 2)
@@ -167,8 +168,8 @@ local function SearchPlayers() -- Check if targets are within range
 		lua_table.GeraltDistance = -1
 	end
 
-	JC1 = lua_table.JaskierPos[1] - lua_table.GhoulPos[1]
-	JC2 = lua_table.JaskierPos[3] - lua_table.GhoulPos[3]
+	JC1 = lua_table.JaskierPos[1] - lua_table.RecruitPos[1]
+	JC2 = lua_table.JaskierPos[3] - lua_table.RecruitPos[3]
 	
 	if JaskierState.current_state > -3 then
 		lua_table.JaskierDistance =  math.sqrt(JC1 ^ 2 + JC2 ^ 2)
@@ -210,7 +211,7 @@ local function AttackColliderShutdown()
 		is_front_active = false
 	end
 
-	lua_table.Particles:StopParticleEmitter(HitEmitter_UID)
+	lua_table.Particles:StopParticleEmitter(HitEmitter1_UID)
 end
 	
 local function Idle() 
@@ -235,16 +236,16 @@ local function Seek()
 		end
 
 		if start_navigation == true then
-			corners = lua_table.Recast:CalculatePath(lua_table.GhoulPos[1], lua_table.GhoulPos[2], lua_table.GhoulPos[3], lua_table.currentTargetPos[1], lua_table.currentTargetPos[2], lua_table.currentTargetPos[3], 1 << navID)
+			corners = lua_table.Recast:CalculatePath(lua_table.RecruitPos[1], lua_table.RecruitPos[2], lua_table.RecruitPos[3], lua_table.currentTargetPos[1], lua_table.currentTargetPos[2], lua_table.currentTargetPos[3], 1 << navID)
 			navigation_timer = lua_table.System:GameTime() * 1000
 			start_navigation = false
 			currCorner = 2
 		end
 
 		local nextCorner = {0, 0, 0}
-		nextCorner[1] = corners[currCorner][1] - lua_table.GhoulPos[1]
-		nextCorner[2] = corners[currCorner][2] - lua_table.GhoulPos[2]
-		nextCorner[3] = corners[currCorner][3] - lua_table.GhoulPos[3]
+		nextCorner[1] = corners[currCorner][1] - lua_table.RecruitPos[1]
+		nextCorner[2] = corners[currCorner][2] - lua_table.RecruitPos[2]
+		nextCorner[3] = corners[currCorner][3] - lua_table.RecruitPos[3]
 
 		path_distance = math.sqrt(nextCorner[1] ^ 2 + nextCorner[3] ^ 2)
 		
@@ -255,12 +256,12 @@ local function Seek()
 			vec[3] = nextCorner[3] / path_distance
 				
 			-- Apply movement vector to move character
-			lua_table.Transform:LookAt(corners[currCorner][1], lua_table.GhoulPos[2], corners[currCorner][3], lua_table.MyUID)
+			lua_table.Transform:LookAt(corners[currCorner][1], lua_table.RecruitPos[2], corners[currCorner][3], lua_table.MyUID)
 			lua_table.Physics:Move(vec[1] * lua_table.speed * dt, vec[3] * lua_table.speed * dt, lua_table.MyUID)
 			
 			else
 				currCorner = currCorner + 1
-				lua_table.PhysicsSystem:Move(0, 0, lua_table.MyUID)
+				lua_table.Physics:Move(0, 0, lua_table.MyUID)
 		end
 			
 	end
@@ -286,7 +287,7 @@ local function Attack()
 		start_attack = true
 	end
 
-	lua_table.Transform:LookAt(lua_table.currentTargetPos[1], lua_table.GhoulPos[2], lua_table.currentTargetPos[3], lua_table.MyUID)
+	lua_table.Transform:LookAt(lua_table.currentTargetPos[1], lua_table.RecruitPos[2], lua_table.currentTargetPos[3], lua_table.MyUID)
 
 	if attack_timer <= lua_table.System:GameTime() * 1000 and not attacked then
 
@@ -365,8 +366,9 @@ local function Die()
 	random_death_anim = math.random(1, 2)
 
 	if not start_death then 
-		lua_table.Particles:StopParticleEmitter(HitEmitter_UID)
 		death_timer = lua_table.System:GameTime() * 1000
+
+		lua_table.Physics:SetActiveController(false, lua_table.MyUID)
 		
 		if random_death_anim == 1 then
 			lua_table.Animations:PlayAnimation("Death_1", random_death_time, lua_table.MyUID)
@@ -374,9 +376,10 @@ local function Die()
 			lua_table.Animations:PlayAnimation("Death_2", random_death_time, lua_table.MyUID)
 		end
 		
-		lua_table.Particles:PlayParticleEmitter(HitEmitter_UID)
+		lua_table.Particles:PlayParticleEmitter(HitEmitter1_UID)
 		lua_table.Particles:PlayParticleEmitter(HitEmitter2_UID)
 		lua_table.Particles:PlayParticleEmitter(HitEmitter3_UID)
+		lua_table.Particles:PlayParticleEmitter(HitEmitter4_UID)
 		start_death = true
 	end
 
@@ -405,6 +408,12 @@ function lua_table:OnTriggerEnter()
 				if script.collider_effect == attack_effects.stun then ----------------------------------------------------- React to stun effect
 					AttackColliderShutdown()
 					lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
+
+					lua_table.Particles:PlayParticleEmitter(HitEmitter1_UID)
+					lua_table.Particles:PlayParticleEmitter(HitEmitter2_UID)
+					lua_table.Particles:PlayParticleEmitter(HitEmitter3_UID)
+					lua_table.Particles:PlayParticleEmitter(HitEmitter4_UID)
+
 					start_stun = true
 					lua_table.currentState = State.STUNNED
 							
@@ -416,9 +425,9 @@ function lua_table:OnTriggerEnter()
 					local tmp = lua_table.Transform:GetPosition(collider)
 
 					local knock_vector = {0, 0, 0}
-					knock_vector[1] = lua_table.GhoulPos[1] - tmp[1]
-					knock_vector[2] = lua_table.GhoulPos[2] - tmp[2]
-					knock_vector[3] = lua_table.GhoulPos[3] - tmp[3]
+					knock_vector[1] = lua_table.RecruitPos[1] - tmp[1]
+					knock_vector[2] = lua_table.RecruitPos[2] - tmp[2]
+					knock_vector[3] = lua_table.RecruitPos[3] - tmp[3]
 
 					local module = math.sqrt(knock_vector[1] ^ 2 + knock_vector[3] ^ 2)
 
@@ -450,9 +459,10 @@ function lua_table:OnTriggerEnter()
 			else
 				AttackColliderShutdown()
 				lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
-				lua_table.Particles:PlayParticleEmitter(HitEmitter_UID)
+				lua_table.Particles:PlayParticleEmitter(HitEmitter1_UID)
 				lua_table.Particles:PlayParticleEmitter(HitEmitter2_UID)
 				lua_table.Particles:PlayParticleEmitter(HitEmitter3_UID)
+				lua_table.Particles:PlayParticleEmitter(HitEmitter4_UID)
 				lua_table.System:LOG("Hit registered")
 			end
 		end
@@ -478,6 +488,12 @@ function lua_table:RequestedTrigger(collider_GO)
 			if script.collider_effect == attack_effects.stun then ----------------------------------------------------- React to stun effect
 				AttackColliderShutdown()
 				lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
+
+				lua_table.Particles:PlayParticleEmitter(HitEmitter1_UID)
+				lua_table.Particles:PlayParticleEmitter(HitEmitter2_UID)
+				lua_table.Particles:PlayParticleEmitter(HitEmitter3_UID)
+				lua_table.Particles:PlayParticleEmitter(HitEmitter4_UID)
+
 				start_stun = true
 				lua_table.currentState = State.STUNNED
 				
@@ -487,9 +503,9 @@ function lua_table:RequestedTrigger(collider_GO)
 
 				local coll_pos = lua_table.Transform:GetPosition(collider_GO)
 				local knock_vector = {0, 0, 0}
-				knock_vector[1] = lua_table.GhoulPos[1] - coll_pos[1]
-				knock_vector[2] = lua_table.GhoulPos[2] - coll_pos[2]
-				knock_vector[3] = lua_table.GhoulPos[3] - coll_pos[3]
+				knock_vector[1] = lua_table.RecruitPos[1] - coll_pos[1]
+				knock_vector[2] = lua_table.RecruitPos[2] - coll_pos[2]
+				knock_vector[3] = lua_table.RecruitPos[3] - coll_pos[3]
 
 				 local module = math.sqrt(knock_vector[1] ^ 2 + knock_vector[3] ^ 2)
 
@@ -521,9 +537,10 @@ function lua_table:RequestedTrigger(collider_GO)
 		else
 			AttackColliderShutdown()
 			lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
-			lua_table.Particles:PlayParticleEmitter(HitEmitter_UID)
+			lua_table.Particles:PlayParticleEmitter(HitEmitter1_UID)
 			lua_table.Particles:PlayParticleEmitter(HitEmitter2_UID)
 			lua_table.Particles:PlayParticleEmitter(HitEmitter3_UID)
+			lua_table.Particles:PlayParticleEmitter(HitEmitter4_UID)
 			lua_table.System:LOG("Hit registered")
 		end
 	end
@@ -531,24 +548,27 @@ end
 
 -- ______________________MAIN CODE______________________
 function lua_table:Awake()
-	lua_table.System:LOG("Minion AWAKE")
+	lua_table.System:LOG("Recruit AWAKE")
 
-	HitEmitter_UID = lua_table.GameObject:FindChildGameObject("MinionHit_Emitter")
-	HitEmitter2_UID = lua_table.GameObject:FindChildGameObject("MinionHit2_Emitter")
-	HitEmitter3_UID = lua_table.GameObject:FindChildGameObject("MinionHit3_Emitter")
+	HitEmitter1_UID = lua_table.GameObject:FindChildGameObject("RecruitHit1_Emitter")
+	HitEmitter2_UID = lua_table.GameObject:FindChildGameObject("RecruitHit2_Emitter")
+	HitEmitter3_UID = lua_table.GameObject:FindChildGameObject("RecruitHit3_Emitter")
+	HitEmitter4_UID = lua_table.GameObject:FindChildGameObject("RecruitHit4_Emitter")
 
 end
 
 function lua_table:Start()
-	lua_table.System:LOG("Minion START")
+	lua_table.System:LOG("Recruit START")
 	
-	lua_table.Particles:ActivateParticlesEmission(HitEmitter_UID)
+	lua_table.Particles:ActivateParticlesEmission(HitEmitter1_UID)
 	lua_table.Particles:ActivateParticlesEmission(HitEmitter2_UID)
 	lua_table.Particles:ActivateParticlesEmission(HitEmitter3_UID)
+	lua_table.Particles:ActivateParticlesEmission(HitEmitter4_UID)
 
-	lua_table.Particles:StopParticleEmitter(HitEmitter_UID)
+	lua_table.Particles:StopParticleEmitter(HitEmitter1_UID)
 	lua_table.Particles:StopParticleEmitter(HitEmitter2_UID)
 	lua_table.Particles:StopParticleEmitter(HitEmitter3_UID)
+	lua_table.Particles:StopParticleEmitter(HitEmitter4_UID)
 
 
 	-- Getting Entity and Player UIDs
@@ -575,7 +595,7 @@ function lua_table:Start()
 	lua_table.health = lua_table.max_hp
 
 	-- Get colliders
-	Front_Collider = lua_table.GameObject:FindChildGameObject(lua_table.Minion_Front)
+	Front_Collider = lua_table.GameObject:FindChildGameObject(lua_table.Recruit_Front)
 
 	-- Initialize Nav
 	navID = lua_table.Recast:GetAreaFromName("Walkable")
@@ -648,9 +668,9 @@ function lua_table:Update()
 	-- -- Apply knockback to target, stun it for a second, then return to SEEK
 	-- if lua_table.Input:KeyUp("d") then
 	-- 	local knock_vector = {0, 0, 0}
-	-- 	knock_vector[1] = lua_table.GhoulPos[1] - lua_table.currentTargetPos[1]
-	-- 	knock_vector[2] = lua_table.GhoulPos[2] - lua_table.currentTargetPos[2]
-	-- 	knock_vector[3] = lua_table.GhoulPos[3] - lua_table.currentTargetPos[3]
+	-- 	knock_vector[1] = lua_table.RecruitPos[1] - lua_table.currentTargetPos[1]
+	-- 	knock_vector[2] = lua_table.RecruitPos[2] - lua_table.currentTargetPos[2]
+	-- 	knock_vector[3] = lua_table.RecruitPos[3] - lua_table.currentTargetPos[3]
 						
 	 -- 	local module = math.sqrt(knock_vector[1] ^ 2 + knock_vector[3] ^ 2)
 
