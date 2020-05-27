@@ -29,10 +29,10 @@
 						</Event>
 						<Event Name="Play_Jaskier_potion_fx" ID="{97D9103B-715E-4F39-A245-62CD1D1FD58A}">
 							<ChildrenList>
-								<Action Name="" ID="{91D5DFC6-E654-4AB3-8A3B-1E090808D760}" ShortID="954768237">
+								<Action Name="" ID="{80B3851D-028A-4542-85E7-053C3C3D1145}" ShortID="255015783">
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="Jaskier_potion_fx" ID="{770A94C0-9566-479E-BD71-4FF376239517}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+											<ObjectRef Name="Potion_fx" ID="{EBF3F20C-96E3-4E77-A108-D5D02A03E1BA}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -84,10 +84,10 @@
 						</Event>
 						<Event Name="Play_Jaskier_guitar_smash" ID="{A9A2E30F-2DC4-40E0-B2C3-083BB9FE60FC}">
 							<ChildrenList>
-								<Action Name="" ID="{001DAA7F-83AF-4BEA-BC8D-5B3C154DA1A6}" ShortID="865467508">
+								<Action Name="" ID="{507206F2-5533-462C-8A1C-6DE41140A67A}" ShortID="421007673">
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="Jaskier_acoustic_gitar_smash" ID="{31FAA83B-FC2F-4BEC-9363-067274AB1309}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+											<ObjectRef Name="Jaskier_guitar_smash" ID="{38D3E2DC-39B4-49D3-A5E5-C04C0DE9AB83}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -95,10 +95,10 @@
 						</Event>
 						<Event Name="Play_Jaskier_Ultimate" ID="{19CE520F-E742-452C-98D7-4C4A055FF057}">
 							<ChildrenList>
-								<Action Name="" ID="{0D023AEC-2874-4DA4-BC1F-802E16CC8C2D}" ShortID="7559505">
+								<Action Name="" ID="{A0784770-F063-4AB5-AFAE-26ECD9779B24}" ShortID="760337794">
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="Jaskier_Ultimate" ID="{FE4B2247-1507-439E-9743-5A52A977B2F1}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+											<ObjectRef Name="Jaskier_Ultimate" ID="{A6E62677-A283-4299-B538-39D74317811C}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -110,6 +110,50 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Jaskier_revive" ID="{A3DEA579-4E4C-4873-97DE-CB98447E327C}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Jaskier_song_1" ID="{1470C1E6-2ECF-477A-8A9C-F8D359E5AD44}">
+							<ChildrenList>
+								<Action Name="" ID="{CC173796-DD04-4B2D-B644-8BD5F0D5831A}" ShortID="541716574">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="jaskier song 1" ID="{0816E686-9C4C-4055-8EA0-A269152A8811}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Jaskier_song_2" ID="{88345EC2-2B6E-4E8A-B8CE-901B56E95D46}">
+							<ChildrenList>
+								<Action Name="" ID="{42D8C8B0-F5FE-4170-85B2-B68FDE9C648F}" ShortID="1021256618">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="jaskier song 2-3" ID="{9F04CB7D-89A1-42BE-AFCC-B6705B70D49C}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Jaskier_song_3" ID="{0B98286D-C855-4C64-A98F-F29597F3D574}">
+							<ChildrenList>
+								<Action Name="" ID="{034A1025-3505-41BE-8781-B35E68897B0B}" ShortID="516282006">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="jaskier song 2-3" ID="{9F04CB7D-89A1-42BE-AFCC-B6705B70D49C}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Jaskier_moonwalk" ID="{017160C3-1DFF-4524-9CC8-881075369274}">
+							<ChildrenList>
+								<Action Name="" ID="{7AE3CB1E-F8F3-4E46-81C9-E4881F18BBD0}" ShortID="683103150">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Jaskier_moonwalk" ID="{5BC27BF3-AB44-4CE4-AB84-BD8C3CB462DA}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -176,10 +220,10 @@
 						</Event>
 						<Event Name="Play_Geralt_potion_fx" ID="{EE9862F2-EBB3-4BA7-862B-F667052BFC6A}">
 							<ChildrenList>
-								<Action Name="" ID="{6F6AD96C-E73E-4A1F-ADB2-8CA68CEB791F}" ShortID="12599859">
+								<Action Name="" ID="{E0048D90-DCCC-4790-9954-13A79357869F}" ShortID="453183711">
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="Geralt_potion_fx" ID="{6B6719A9-94FC-44E4-9516-1FFF24F85079}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+											<ObjectRef Name="Potion_fx" ID="{EBF3F20C-96E3-4E77-A108-D5D02A03E1BA}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -246,6 +290,39 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Geralt_sword_swing" ID="{BD7CA9D7-2268-4B1A-AAAB-9EBE61DC645D}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Gerlat_combo_1" ID="{E59A3086-6426-40B4-8B98-87E3EAE27017}">
+							<ChildrenList>
+								<Action Name="" ID="{087D87A8-864D-4392-AF6F-FB1821EB5538}" ShortID="825512345">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Geralt_combo_sound" ID="{562B41F8-4F6B-49FA-977E-D1A13B27D185}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Gerlat_combo_2" ID="{A8DB60D6-424C-43DE-AB25-9C76A967462A}">
+							<ChildrenList>
+								<Action Name="" ID="{581BC35E-D51E-4E24-AB6E-DE0D79B225B2}" ShortID="326725988">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Geralt_combo_sound" ID="{562B41F8-4F6B-49FA-977E-D1A13B27D185}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Gerlat_combo_3" ID="{F30469BE-C9F9-4EE1-B15F-58F4D8E6A49E}">
+							<ChildrenList>
+								<Action Name="" ID="{AE48CA9C-06FA-4439-BDDC-9B4FE5C761B5}" ShortID="231651997">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Geralt_combo_sound" ID="{562B41F8-4F6B-49FA-977E-D1A13B27D185}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
