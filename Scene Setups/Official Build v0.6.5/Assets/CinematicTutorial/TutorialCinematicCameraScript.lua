@@ -12,12 +12,22 @@ function GetTableTutorialCinematicCameraScript()
 
     -- Camera target GO names
     lua_table.cube = {}
-    lua_table.cube[1] = "Cube_1"
-    lua_table.cube[2] = "Cube_2"
-    lua_table.cube[3] = "Cube_3"
-    lua_table.cube[4] = "Cube_4"
-    lua_table.cube[5] = "Cube_5"
-    lua_table.cube[6] = "Cube_6"
+    lua_table.cube[1] = 0
+    lua_table.cube[2] = 0
+    lua_table.cube[3] = 0
+
+    -- Scene enemies
+    local lumber1 = 0
+    local lumber2 = 0
+    local lumber3 = 0
+    local archer1 = 0
+    local archer2 = 0
+    local recruit1 = 0
+    local recruit2 = 0
+    local minion1 = 0
+    local minion2 = 0
+
+    local move_recruits = true
 
     -- Camera target IDs
     local cube_ID = {}
@@ -76,7 +86,19 @@ function GetTableTutorialCinematicCameraScript()
         cube_ID[1] = lua_table.GameObjectFunctions:FindGameObject("Cube_1")
         cube_ID[2] = lua_table.GameObjectFunctions:FindGameObject("Cube_2")
         cube_ID[3] = lua_table.GameObjectFunctions:FindGameObject("Cube_3")
-        --cube_ID[4] = lua_table.GameObjectFunctions:FindGameObject("Cube_4")
+
+        lumber1 = lua_table.GameObjectFunctions:FindGameObject("Lumber1")
+        lumber2 = lua_table.GameObjectFunctions:FindGameObject("Lumber2")
+        lumber3 = lua_table.GameObjectFunctions:FindGameObject("Lumber3")
+
+        archer1 = lua_table.GameObjectFunctions:FindGameObject("Archer1")
+        archer2 = lua_table.GameObjectFunctions:FindGameObject("Archer1")
+
+        recruit1 = lua_table.GameObjectFunctions:FindGameObject("Recruit1")
+        recruit2 = lua_table.GameObjectFunctions:FindGameObject("Recruit1")
+
+        minion1 = lua_table.GameObjectFunctions:FindGameObject("Minion1")
+        minion2 = lua_table.GameObjectFunctions:FindGameObject("Minion1")
 
 
         BarID = lua_table.GameObjectFunctions:FindGameObject("SkipBar")
@@ -120,6 +142,13 @@ function GetTableTutorialCinematicCameraScript()
                 local value = time / 4
                 local alpha = Lerp(1, 0, value)
                 lua_table.UI:ChangeUIComponentColor("Image", 0, 0, 0, alpha, FadeScreen)
+        end
+
+        if time > 4 and move_recruits == true
+        then
+            lua_table.GameObjectFunctions:SetActiveGameObject(true, recruit1)
+            lua_table.GameObjectFunctions:SetActiveGameObject(true, recruit2)
+            move_recruits = false
         end
 
         if time > 10 and time < 12
