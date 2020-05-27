@@ -940,6 +940,7 @@ local function HandleDeath()
 	then	
 		Die()
 		DeadTime = PerfGameTime()
+		--lua_table.PhysicsSystem:SetActiveController(false,MyUID)
 	end
 
 	TiMe = PerfGameTime()

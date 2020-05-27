@@ -163,6 +163,7 @@ local JumpStunDustEmitter_UID = 0
 local BloodEmitter1_UID = 0
 local BloodEmitter2_UID = 0
 local BloodEmitter3_UID = 0
+local BloodEmitter4_UID = 0
 local TauntedEmitter_UID = 0
 local StunMarkEmitter_UID = 0
 
@@ -350,7 +351,7 @@ local function Seek()
 
 		path_distance = math.sqrt(nextCorner[1] ^ 2 + nextCorner[3] ^ 2)
 		
-		if path_distance > 0.2 then 
+		if path_distance > 0.5 then 
 
 			vec[1] = nextCorner[1] / path_distance
 			vec[2] = 0
@@ -362,7 +363,7 @@ local function Seek()
 			
 			else
 				currCorner = currCorner + 1
-				lua_table.PhysicsSystem:Move(0, 0, lua_table.MyUID)
+				lua_table.Physics:Move(0, 0, lua_table.MyUID)
 		end
 			
 	end
@@ -551,9 +552,11 @@ local function Die()
 	if not start_death then 
 		
 		--lua_table.Particles:StopParticleEmitter(JumpStunEmitter_UID)
+		lua_table.Physics:SetActiveController(false, lua_table.MyUID)
 		lua_table.Particles:StopParticleEmitter(BloodEmitter1_UID)
 		lua_table.Particles:StopParticleEmitter(BloodEmitter2_UID)
 		lua_table.Particles:StopParticleEmitter(BloodEmitter3_UID)
+		lua_table.Particles:StopParticleEmitter(BloodEmitter4_UID)
 		lua_table.Particles:StopParticleEmitter(TauntedEmitter_UID)
 
 		death_timer = lua_table.System:GameTime() * 1000
@@ -564,6 +567,7 @@ local function Die()
 		lua_table.Particles:PlayParticleEmitter(BloodEmitter1_UID)
 		lua_table.Particles:PlayParticleEmitter(BloodEmitter2_UID)
 		lua_table.Particles:PlayParticleEmitter(BloodEmitter3_UID)
+		lua_table.Particles:PlayParticleEmitter(BloodEmitter4_UID)
 
 		lua_table.Animations:PlayAnimation("Death", rand_death_time, lua_table.MyUID)
 		start_death = true
@@ -594,6 +598,12 @@ function lua_table:OnTriggerEnter()
 				if script.collider_effect == attack_effects.stun then ----------------------------------------------------- React to stun effect
 					AttackColliderShutdown()
 					lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
+
+					lua_table.Particles:PlayParticleEmitter(BloodEmitter1_UID)
+					lua_table.Particles:PlayParticleEmitter(BloodEmitter2_UID)
+					lua_table.Particles:PlayParticleEmitter(BloodEmitter3_UID)
+					lua_table.Particles:PlayParticleEmitter(BloodEmitter4_UID)
+
 					start_stun = true
 					lua_table.currentState = State.STUNNED
 					
@@ -648,12 +658,15 @@ function lua_table:OnTriggerEnter()
 					lua_table.Particles:PlayParticleEmitter(BloodEmitter1_UID)
 					lua_table.Particles:PlayParticleEmitter(BloodEmitter2_UID)
 					lua_table.Particles:PlayParticleEmitter(BloodEmitter3_UID)
+					lua_table.Particles:PlayParticleEmitter(BloodEmitter4_UID)
+
 					lua_table.System:LOG("Heavy hit registered")
 					
 				else --if player_state <= 13 then 
 					lua_table.Particles:PlayParticleEmitter(BloodEmitter1_UID)
 					lua_table.Particles:PlayParticleEmitter(BloodEmitter2_UID)
 					lua_table.Particles:PlayParticleEmitter(BloodEmitter3_UID)
+					lua_table.Particles:PlayParticleEmitter(BloodEmitter4_UID)
 					lua_table.System:LOG("Light/Medium registered")
 				end
 			end
@@ -680,6 +693,12 @@ function lua_table:RequestedTrigger(collider_GO)
 			if script.collider_effect == attack_effects.stun then ----------------------------------------------------- React to stun effect
 				AttackColliderShutdown()
 				lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
+
+				lua_table.Particles:PlayParticleEmitter(BloodEmitter1_UID)
+				lua_table.Particles:PlayParticleEmitter(BloodEmitter2_UID)
+				lua_table.Particles:PlayParticleEmitter(BloodEmitter3_UID)
+				lua_table.Particles:PlayParticleEmitter(BloodEmitter4_UID)
+
 				start_stun = true
 				lua_table.currentState = State.STUNNED
 				
@@ -734,11 +753,13 @@ function lua_table:RequestedTrigger(collider_GO)
 				lua_table.Particles:PlayParticleEmitter(BloodEmitter1_UID)
 				lua_table.Particles:PlayParticleEmitter(BloodEmitter2_UID)
 				lua_table.Particles:PlayParticleEmitter(BloodEmitter3_UID)
+				lua_table.Particles:PlayParticleEmitter(BloodEmitter4_UID)
 				lua_table.System:LOG("Hit registered")
 			else --if player_state <= 13 then 
 				lua_table.Particles:PlayParticleEmitter(BloodEmitter1_UID)
 				lua_table.Particles:PlayParticleEmitter(BloodEmitter2_UID)
 				lua_table.Particles:PlayParticleEmitter(BloodEmitter3_UID)
+				lua_table.Particles:PlayParticleEmitter(BloodEmitter4_UID)
 				lua_table.System:LOG("Hit registered")
 			end
 		end
@@ -754,6 +775,7 @@ function lua_table:Awake()
 	BloodEmitter1_UID = lua_table.GameObject:FindChildGameObject("ZomboidBlood1_Emitter")
 	BloodEmitter2_UID = lua_table.GameObject:FindChildGameObject("ZomboidBlood2_Emitter")
 	BloodEmitter3_UID = lua_table.GameObject:FindChildGameObject("ZomboidBlood3_Emitter")
+	BloodEmitter4_UID = lua_table.GameObject:FindChildGameObject("ZomboidBlood4_Emitter")
 	TauntedEmitter_UID = lua_table.GameObject:FindChildGameObject("ZomboidTaunted_Emitter")
 	StunMarkEmitter_UID = lua_table.GameObject:FindChildGameObject("Zomboid_StunMark_Emitter")
 
@@ -771,6 +793,7 @@ function lua_table:Start()
 	lua_table.Particles:ActivateParticlesEmission(BloodEmitter1_UID)
 	lua_table.Particles:ActivateParticlesEmission(BloodEmitter2_UID)
 	lua_table.Particles:ActivateParticlesEmission(BloodEmitter3_UID)
+	lua_table.Particles:ActivateParticlesEmission(BloodEmitter4_UID)
 	lua_table.Particles:ActivateParticlesEmission(TauntedEmitter_UID)
 	lua_table.Particles:ActivateParticlesEmission(StunMarkEmitter_UID)
 
@@ -779,6 +802,7 @@ function lua_table:Start()
 	lua_table.Particles:StopParticleEmitter(BloodEmitter1_UID)
 	lua_table.Particles:StopParticleEmitter(BloodEmitter2_UID)
 	lua_table.Particles:StopParticleEmitter(BloodEmitter3_UID)
+	lua_table.Particles:StopParticleEmitter(BloodEmitter4_UID)
 	lua_table.Particles:StopParticleEmitter(TauntedEmitter_UID)
 	lua_table.Particles:StopParticleEmitter(StunMarkEmitter_UID)
 

@@ -116,9 +116,10 @@ local Front_Collider = 0
 lua_table.collider_damage = 0
 lua_table.collider_effect = 0
 
-local HitEmitter_UID = 0
+local HitEmitter1_UID = 0
 local HitEmitter2_UID = 0
 local HitEmitter3_UID = 0
+local HitEmitter4_UID = 0
 
 local random_attack = 0
 local random_death_time = 0
@@ -369,14 +370,19 @@ local function Die()
 
 	if not start_death then 
 		death_timer = lua_table.System:GameTime() * 1000
-		lua_table.System:LOG("Im dying")  
+
+		lua_table.Physics:SetActiveController(false, lua_table.MyUID)
+
+		lua_table.System:LOG("Im dying")
 		lua_table.Animations:PlayAnimation("Death", random_death_time, lua_table.MyUID)
 
 		lua_table.Audio:PlayAudioEvent("Play_Minion_death")
 
-		lua_table.Particles:PlayParticleEmitter(HitEmitter_UID)
+		lua_table.Particles:PlayParticleEmitter(HitEmitter1_UID)
 		lua_table.Particles:PlayParticleEmitter(HitEmitter2_UID)
 		lua_table.Particles:PlayParticleEmitter(HitEmitter3_UID)
+		lua_table.Particles:PlayParticleEmitter(HitEmitter4_UID)
+
 		start_death = true
 	end
 
@@ -405,6 +411,12 @@ function lua_table:OnTriggerEnter()
 				if script.collider_effect == attack_effects.stun then ----------------------------------------------------- React to stun effect
 					AttackColliderShutdown()
 					lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
+
+					lua_table.Particles:PlayParticleEmitter(HitEmitter1_UID)
+					lua_table.Particles:PlayParticleEmitter(HitEmitter2_UID)
+					lua_table.Particles:PlayParticleEmitter(HitEmitter3_UID)
+					lua_table.Particles:PlayParticleEmitter(HitEmitter4_UID)
+
 					start_stun = true
 					lua_table.currentState = State.STUNNED
 							
@@ -453,9 +465,10 @@ function lua_table:OnTriggerEnter()
 				
 				lua_table.Audio:PlayAudioEvent("Play_Minion_take_damage")
 
-				lua_table.Particles:PlayParticleEmitter(HitEmitter_UID)
+				lua_table.Particles:PlayParticleEmitter(HitEmitter1_UID)
 				lua_table.Particles:PlayParticleEmitter(HitEmitter2_UID)
 				lua_table.Particles:PlayParticleEmitter(HitEmitter3_UID)
+				lua_table.Particles:PlayParticleEmitter(HitEmitter4_UID)
 				lua_table.System:LOG("Hit registered")
 			end
 		end
@@ -481,6 +494,12 @@ function lua_table:RequestedTrigger(collider_GO)
 			if script.collider_effect == attack_effects.stun then ----------------------------------------------------- React to stun effect
 				AttackColliderShutdown()
 				lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
+
+				lua_table.Particles:PlayParticleEmitter(HitEmitter1_UID)
+				lua_table.Particles:PlayParticleEmitter(HitEmitter2_UID)
+				lua_table.Particles:PlayParticleEmitter(HitEmitter3_UID)
+				lua_table.Particles:PlayParticleEmitter(HitEmitter4_UID)
+
 				start_stun = true
 				lua_table.currentState = State.STUNNED
 				
@@ -524,7 +543,12 @@ function lua_table:RequestedTrigger(collider_GO)
 		else
 			AttackColliderShutdown()
 			lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
-			lua_table.Particles:PlayParticleEmitter(HitEmitter_UID)
+
+			lua_table.Particles:PlayParticleEmitter(HitEmitter1_UID)
+			lua_table.Particles:PlayParticleEmitter(HitEmitter2_UID)
+			lua_table.Particles:PlayParticleEmitter(HitEmitter3_UID)
+			lua_table.Particles:PlayParticleEmitter(HitEmitter4_UID)
+
 			lua_table.System:LOG("Hit registered")
 		end
 	end
@@ -534,21 +558,24 @@ end
 function lua_table:Awake()
 	lua_table.System:LOG("Minion AWAKE")
 
-	HitEmitter_UID = lua_table.GameObject:FindChildGameObject("MinionHit_Emitter")
+	HitEmitter1_UID = lua_table.GameObject:FindChildGameObject("MinionHit1_Emitter")
 	HitEmitter2_UID = lua_table.GameObject:FindChildGameObject("MinionHit2_Emitter")
 	HitEmitter3_UID = lua_table.GameObject:FindChildGameObject("MinionHit3_Emitter")
+	HitEmitter4_UID = lua_table.GameObject:FindChildGameObject("MinionHit4_Emitter")
 end
 
 function lua_table:Start()
 	lua_table.System:LOG("Minion START")
 
-	lua_table.Particles:ActivateParticlesEmission(HitEmitter_UID)
+	lua_table.Particles:ActivateParticlesEmission(HitEmitter1_UID)
 	lua_table.Particles:ActivateParticlesEmission(HitEmitter2_UID)
 	lua_table.Particles:ActivateParticlesEmission(HitEmitter3_UID)
+	lua_table.Particles:ActivateParticlesEmission(HitEmitter4_UID)
 
-	lua_table.Particles:StopParticleEmitter(HitEmitter_UID)
+	lua_table.Particles:StopParticleEmitter(HitEmitter1_UID)
 	lua_table.Particles:StopParticleEmitter(HitEmitter2_UID)
 	lua_table.Particles:StopParticleEmitter(HitEmitter3_UID)
+	lua_table.Particles:StopParticleEmitter(HitEmitter4_UID)
 
 	-- Getting Entity and Player UIDs
 	lua_table.MyUID = lua_table.GameObject:GetMyUID()

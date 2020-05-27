@@ -426,7 +426,8 @@ local function Die()
     then
         local aux = lua_table.SystemFunctions:RandomNumberInRange(15, 45)
         lua_table.AnimationFunctions:PlayAnimation("Death", aux, MyUUID)
-        lua_table.AudioFunctions:PlayAudioEvent("Play_Screamer_ghoul_death")
+        lua_table.AudioFunctions:PlayAudioEvent("Play_Screamer_ghoul_death")        
+        lua_table.PhysicsFunctions:SetActiveController(false, MyUUID)
 
         --lua_table.ParticleFunctions:StopParticleEmitter(lua_table.KnockbackEmitter_UUID)
         --lua_table.ParticleFunctions:StopParticleEmitter(lua_table.StunEmitter_UUID)
