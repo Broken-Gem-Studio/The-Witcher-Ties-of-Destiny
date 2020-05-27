@@ -7,7 +7,7 @@ lua_table.Transform = Scripting.Transform()
 local winlose = 0
 local winlose_script = 0
 
-lua_table.checkpoint
+lua_table.checkpoint = 0
 
 function lua_table:OnTriggerEnter()
     if lua_table.GO:GetLayerByID(1) and last_checkpoint < lua_table.checkpoint

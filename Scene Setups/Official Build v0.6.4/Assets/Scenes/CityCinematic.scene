@@ -125,6 +125,32 @@
         "Parent": "1295333767",
         "Static": false
     },
+    "1116684843": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1512465809,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-65.000000",
+                "positiony": "7.000000",
+                "positionz": "18.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Index": 5,
+        "Name": "Cube_2",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "-1",
+        "Static": false
+    },
     "1153381794": {
         "Active": true,
         "Components": {
@@ -659,16 +685,16 @@
                 "UID": 1975649560,
                 "index": 0,
                 "layer": "0",
-                "positionx": "-47.000000",
-                "positiony": "45.000000",
-                "positionz": "287.000000",
-                "rotationw": "0.071260",
-                "rotationx": "0.023183",
-                "rotationy": "0.951833",
-                "rotationz": "-0.297319",
-                "scalex": "1.000481",
-                "scaley": "0.999998",
-                "scalez": "1.000479"
+                "positionx": "-23.000000",
+                "positiony": "13.000000",
+                "positionz": "257.000000",
+                "rotationw": "-0.130832",
+                "rotationx": "-0.019820",
+                "rotationy": "0.961211",
+                "rotationz": "-0.241998",
+                "scalex": "1.000651",
+                "scaley": "0.999983",
+                "scalez": "1.000682"
             },
             "12": {
                 "Active": true,
@@ -676,15 +702,22 @@
                     "ResourceScript": "Assets/CinematicTutorial/TutorialCinematicCameraScript.lua"
                 },
                 "Script variables": {
-                    "Count": 2,
+                    "Count": 3,
                     "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "MyUID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 1": {
                         "DisplayObjectName": false,
                         "Name": "scene_uid",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
                     },
-                    "Variable 1": {
+                    "Variable 2": {
                         "DisplayObjectName": false,
                         "Name": "skip_threshold",
                         "ObjectName": "",
@@ -709,17 +742,17 @@
                 "index": 2
             },
             "20": {
-                "Active": false,
+                "Active": true,
                 "UID": 13843231,
                 "index": 3
             },
             "3": {
-                "ACTIVECAM": false,
-                "ASPECTRATIO": 1.9957292079925537,
+                "ACTIVECAM": true,
+                "ASPECTRATIO": 1.8901469707489014,
                 "Active": true,
-                "CULLINGCAM": false,
+                "CULLINGCAM": true,
                 "FARPLANE": 1000.0,
-                "FOV": 49.67586898803711,
+                "FOV": 52.09174728393555,
                 "NEARPLANE": 0.10000000149011612,
                 "UID": 370426410,
                 "index": 1
@@ -902,7 +935,7 @@
             },
             "5": {
                 "Active": true,
-                "ColorA": "0.000000",
+                "ColorA": "1.000000",
                 "ColorB": "0.000001",
                 "ColorG": "0.000001",
                 "ColorR": "0.000001",
@@ -918,8 +951,8 @@
                 "position2Dx": "0.000000",
                 "position2Dy": "0.000000",
                 "priority": "1",
-                "size2Dx": "1179.540039",
-                "size2Dy": "606.000000",
+                "size2Dx": "1260.880005",
+                "size2Dy": "579.900024",
                 "visible": "1"
             }
         },
@@ -2174,9 +2207,9 @@
                 "UID": 841227286,
                 "index": 0,
                 "layer": "0",
-                "positionx": "-57.000000",
-                "positiony": "20.000000",
-                "positionz": "145.000000",
+                "positionx": "-43.000000",
+                "positiony": "13.000000",
+                "positionz": "155.000000",
                 "rotationw": "1.000000",
                 "rotationx": "0.000000",
                 "rotationy": "0.000000",
@@ -2266,11 +2299,37 @@
                 "UID": 147417373,
                 "index": 1,
                 "priority": "0",
-                "visible": "1"
+                "visible": "0"
             }
         },
         "Index": 3,
         "Name": "TutorialCanvas",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "-1",
+        "Static": false
+    },
+    "960890897": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1922052340,
+                "index": 0,
+                "layer": "0",
+                "positionx": "163.000000",
+                "positiony": "33.000000",
+                "positionz": "-106.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Index": 6,
+        "Name": "Cube_3",
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "-1",
@@ -2411,7 +2470,6 @@
         "edgeMaxError": 1.2999999523162842,
         "edgeMaxLen": 12.0,
         "maxSlope": 45.0,
-        "navMeshUID": 248343121,
         "regionMergeSize": 20.0,
         "regionMinSize": 8.0,
         "stepHeight": 0.4000000059604645,
