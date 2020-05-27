@@ -82,9 +82,9 @@ local particles_library = {
 	blood_particles_GO_UID_children = {},
 	revive_particles_GO_UID_children = {},
 
-	potion_health_particles_GO_UID_children = 0,
-	potion_stamina_particles_GO_UID_children = 0,
-	potion_power_particles_GO_UID_children = 0,
+	potion_health_particles_GO_UID_children = {},
+	potion_stamina_particles_GO_UID_children = {},
+	potion_power_particles_GO_UID_children = {},
 
 	song_circle_GO_UID_children = {},
 	song_cone_GO_UID_children = {},

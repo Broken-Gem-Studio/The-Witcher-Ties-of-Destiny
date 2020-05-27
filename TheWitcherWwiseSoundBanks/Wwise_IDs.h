@@ -73,6 +73,7 @@ namespace AK
         static const AkUniqueID PLAY_KIKIMORA_SWEEP = 287198644U;
         static const AkUniqueID PLAY_LEVEL_1_MUSIC = 814842324U;
         static const AkUniqueID PLAY_LEVEL_2_MUSIC = 2048014091U;
+        static const AkUniqueID PLAY_LOST_MENU_MUSIC = 3007158762U;
         static const AkUniqueID PLAY_LUMBERJACK_AXE_SWING_ATTACK = 1511621515U;
         static const AkUniqueID PLAY_LUMBERJACK_HEAVY_AXE_ATTACK_HIT_EDIT = 1628159071U;
         static const AkUniqueID PLAY_LUMBERJACK_HEAVY_AXE_ATTACK_WARNING = 1677382623U;
@@ -112,6 +113,7 @@ namespace AK
         static const AkUniqueID PLAY_TITAN_GHOUL_SCREAM_ATTACK = 1110615769U;
         static const AkUniqueID PLAY_TITAN_GHOUL_TAKE_DAMAGE = 1347311224U;
         static const AkUniqueID PLAY_TITAN_GHOULL_DEATH = 547580181U;
+        static const AkUniqueID PLAY_WIN_MENU_MUSIC = 2973513758U;
     } // namespace EVENTS
 
     namespace SWITCHES
