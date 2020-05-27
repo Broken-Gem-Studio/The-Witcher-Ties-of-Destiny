@@ -12,15 +12,15 @@ function GetTableWinLose()
     lua_table.level2_uid = 0
     lua_table.mm_uid = 0
 
-    lua_table.geralt_pos0 = 0
-    lua_table.geralt_pos1 = 0
-    lua_table.geralt_pos2 = 0
-        
-    lua_table.jaskier_pos0 = 0
-    lua_table.jaskier_pos1 = 0
-    lua_table.jaskier_pos2 = 0
+    local pos = 0
 
-    local pos0 = 0
+    local geralt_pos0 = 0
+    local geralt_pos1 = 0
+    local geralt_pos2 = 0
+        
+    local jaskier_pos0 = 0
+    local jaskier_pos1 = 0
+    local jaskier_pos2 = 0
 
     local fade = 0
     local win = 0
@@ -100,14 +100,14 @@ function GetTableWinLose()
     
         if fade_flag == true
         then
-            if current_level == 1
-            then
+            --if current_level == 1
+            --then
                 lua_table.GO:SetActiveGameObject(true, mainmenu)
                 lua_table.GO:SetActiveGameObject(true, nextlevel)
-            elseif current_level == 2
-            then
-                lua_table.GO:SetActiveGameObject(true, only_mainmenu)
-            end
+            --elseif current_level == 2
+            --then
+            --    lua_table.GO:SetActiveGameObject(true, only_mainmenu)
+            --end
         end
     end
     
@@ -150,7 +150,6 @@ function GetTableWinLose()
         if fade_flag == true
         then
             --reset variables
-            is_lose = false
             lose_flag = false
             fade_flag = false
             fade_alpha = 0
@@ -163,13 +162,13 @@ function GetTableWinLose()
             lua_table.System:ResumeGame()
         
             --load current level
-            if current_level == 1
-            then
+            --if current_level == 1
+            --then
                 load_level1 = true
-            elseif current_level == 2
-            then
-                load_level2 = true
-            end
+            --elseif current_level == 2
+            --then
+            --    load_level2 = true
+            --end
         end
     end
     
@@ -219,41 +218,41 @@ function GetTableWinLose()
     local function GetCheckpointPos()
         if last_checkpoint == nil or last_checkpoint == 0
         then
-            pos = lua_table.Transform:GetPosition(lua_table.geralt_pos0)
+            pos = lua_table.Transform:GetPosition(geralt_pos0)
             geralt_x = pos[1]
             geralt_y = pos[2]
             geralt_z = pos[3]
 
-            pos = lua_table.Transform:GetPosition(lua_table.jaskier_pos0)
+            pos = lua_table.Transform:GetPosition(jaskier_pos0)
             jaskier_x = pos[1]
             jaskier_y = pos[2]
             jaskier_z = pos[3]
         elseif last_checkpoint == 1
         then
-            pos = lua_table.Transform:GetPosition(lua_table.geralt_pos1)
+            pos = lua_table.Transform:GetPosition(geralt_pos1)
             geralt_x = pos[1]
             geralt_y = pos[2]
             geralt_z = pos[3]
 
-            pos = lua_table.Transform:GetPosition(lua_table.jaskier_pos1)
+            pos = lua_table.Transform:GetPosition(jaskier_pos1)
             jaskier_x = pos[1]
             jaskier_y = pos[2]
             jaskier_z = pos[3]
         elseif last_checkpoint == 2
         then
-            pos = lua_table.Transform:GetPosition(lua_table.geralt_pos2)
+            pos = lua_table.Transform:GetPosition(geralt_pos2)
             geralt_x = pos[1]
             geralt_y = pos[2]
             geralt_z = pos[3]
 
-            pos = lua_table.Transform:GetPosition(lua_table.jaskier_pos2)
+            pos = lua_table.Transform:GetPosition(jaskier_pos2)
             jaskier_x = pos[1]
             jaskier_y = pos[2]
             jaskier_z = pos[3]
         end
     end
     
-    local function Checkpoint()
+    function lua_table:Checkpoint()
         --get characters' respawn pos
         GetCheckpointPos()
     
@@ -286,6 +285,7 @@ function GetTableWinLose()
     
     -------------------------------------------------
     function lua_table:Awake()
+        --UI
         win = lua_table.GO:FindGameObject("Victory")
         lose = lua_table.GO:FindGameObject("Defeat")
         fade = lua_table.GO:FindGameObject("Fade")
@@ -293,18 +293,21 @@ function GetTableWinLose()
         nextlevel = lua_table.GO:FindGameObject("NextLevel")
         only_mainmenu = lua_table.GO:FindGameObject("OnlyMainMenu")
         
+        --Geralt
         Geralt = lua_table.GO:FindGameObject("Geralt")
         if Geralt > 0
         then
             geralt_script = lua_table.GO:GetScript(Geralt)
         end
         
+        --Jaskier
         Jaskier = lua_table.GO:FindGameObject("Jaskier")
         if Jaskier > 0
         then
             jaskier_script = lua_table.GO:GetScript(Jaskier)
         end
         
+        --Win Condition
         if current_level == 1
         then
             FinalEnemy = lua_table.GO:FindGameObject("FinalEnemy")
@@ -320,13 +323,22 @@ function GetTableWinLose()
                 kikimora_script = lua_table.GO:GetScript(Kikimora)
             end
         end
+
+        --Respawn Pos
+        geralt_pos0 = lua_table.GO:FindGameObject("GeraltPos0")
+        geralt_pos1 = lua_table.GO:FindGameObject("GeraltPos1")
+        geralt_pos2 = lua_table.GO:FindGameObject("GeraltPos2")
+            
+        jaskier_pos0 = lua_table.GO:FindGameObject("JaskierPos0")
+        jaskier_pos1 = lua_table.GO:FindGameObject("JaskierPos1")
+        jaskier_pos2 = lua_table.GO:FindGameObject("JaskierPos2")
     end
     
     function lua_table:Start()
         --respawn on last checkpoint
         GetCheckpointPos()
         lua_table.Physics:SetCharacterPosition(geralt_x, geralt_y, geralt_z, Geralt)
-        lua_table.Physics:SetCharacterPosition(jaskier_x, jaskier_y, jaskier_z, Jaskier)  
+        lua_table.Physics:SetCharacterPosition(jaskier_x, jaskier_y, jaskier_z, Jaskier)
     end
     
     function lua_table:Update()
@@ -340,21 +352,15 @@ function GetTableWinLose()
         end
         -----------
 
-        --change scene
-        if load_level1 == true
+        --check win/lose bools
+        if is_win == true
         then
-            load_level1 = false
-            lua_table.Scene:LoadScene(lua_table.level1_uid)
-        elseif load_level2 == true
+            Victory()
+        elseif is_lose == true
         then
-            load_level2 = false
-            lua_table.Scene:LoadScene(lua_table.level2_uid)
-        elseif load_mainmenu == true
-        then
-            load_mainmenu = false
-            lua_table.Scene:LoadScene(lua_table.mm_uid)
+            Defeat()
         end
-    
+        
         --win condition
         if current_level == 1 and FinalEnemy > 0 and finalenemy_script.current_state == 5 and is_win == false
         then
@@ -363,21 +369,28 @@ function GetTableWinLose()
         then
             is_win = true
         end
-
-        
+    
         --lose condition
         if Geralt > 0 and Jaskier > 0 and geralt_script.current_state <= -3 and jaskier_script.current_state <= -3 and is_lose == false
         then
             is_lose = true
         end
-    
-        --check win/lose bools
-        if is_win == true
+
+        --change scene
+        if load_level1 == true
         then
-            Victory()
-        elseif is_lose == true
+            load_level1 = false
+            is_lose = false
+            lua_table.Scene:LoadScene(lua_table.level1_uid)
+        elseif load_level2 == true
         then
-            Defeat()
+            load_level2 = false
+            is_lose = false
+            lua_table.Scene:LoadScene(lua_table.level2_uid)
+        elseif load_mainmenu == true
+        then
+            load_mainmenu = false
+            lua_table.Scene:LoadScene(lua_table.mm_uid)
         end
     end
     

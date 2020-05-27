@@ -3,10 +3,10 @@
         "Active": true,
         "Components": {
             "0": {
-                "layer": "0",
-                "positionx": "0.000000",
-                "positiony": "0.000000",
-                "positionz": "0.000000",
+                "layer": "1",
+                "positionx": "402.016022",
+                "positiony": "40.033092",
+                "positionz": "-319.739594",
                 "rotationw": "1.000000",
                 "rotationx": "0.000000",
                 "rotationy": "0.000000",
@@ -27,7 +27,7 @@
                         "Name": "checkpoint",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 1.0
+                        "Value": 0.0
                     }
                 }
             },
@@ -38,9 +38,9 @@
                 "draw": "1",
                 "firstCreation": "1",
                 "globalMatrixw": "1.000000",
-                "globalMatrixx": "0.000000",
-                "globalMatrixy": "0.000000",
-                "globalMatrixz": "0.000000",
+                "globalMatrixx": "402.016022",
+                "globalMatrixy": "40.033092",
+                "globalMatrixz": "-319.739594",
                 "globalPositionx": "1.000000",
                 "globalPositiony": "1.000000",
                 "globalPositionz": "1.000000",
@@ -66,16 +66,104 @@
                 "scalex": "10.000000",
                 "scaley": "10.000000",
                 "scalez": "10.000000",
-                "tmpScalex": "1.000000",
-                "tmpScaley": "1.000000",
-                "tmpScalez": "1.000000"
+                "tmpScalex": "10.000000",
+                "tmpScaley": "10.000000",
+                "tmpScalez": "10.000000"
             }
         },
-        "Parent": "1323400187",
+        "Parent": "1089196068",
         "PrefabChild": true,
         "PrefabInstance": true,
         "Static": false,
-        "UID": "1205226522"
+        "UID": "1941965602"
     },
-    "PreviewTexture": "Library/Textures/1809929521.dds"
+    "GeraltPos0": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "1",
+                "positionx": "1.918365",
+                "positiony": "-4.329357",
+                "positionz": "-0.220398",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2.mesh"
+                    }
+                }
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "DefaultMaterial"
+                    }
+                }
+            }
+        },
+        "Parent": "1941965602",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "311729016"
+    },
+    "JaskierPos0": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "1",
+                "positionx": "-1.770874",
+                "positiony": "-3.287285",
+                "positionz": "2.188751",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2.mesh"
+                    }
+                }
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "DefaultMaterial"
+                    }
+                }
+            }
+        },
+        "Parent": "1941965602",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "416086354"
+    },
+    "PreviewTexture": "Library/Textures/1535539929.dds"
 }
