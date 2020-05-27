@@ -212,7 +212,7 @@ lua_table.player_2_Dead = false
 lua_table.collider_damage = 0
 lua_table.collider_effect = 0
 
-lua_table.MaxHealth = 500
+lua_table.MaxHealth = 350
 lua_table.CurrentHealth = 0
 lua_table.MaxSpeed = 5
 lua_table.JumpAttackSpeed = 3
@@ -535,7 +535,7 @@ local function jumpAttack()
 		JumpAttack_TimeController = PerfGameTime()
 	
 		lua_table.attack_effects = attack_effects.stun
-		lua_table.collider_damage = 40
+		lua_table.collider_damage = 30
 		lua_table.collider_effect = 1
 	end
 	if DistanceMagnitudeAux_Target <= lua_table.MinDistanceFromPlayer and lua_table.CurrentSubState == SubState.JUMP_ATTACK and PerfGameTime() - JumpAttack_TimeController > 1800
@@ -772,7 +772,7 @@ local function HandleSEEK()
 		then
 			lua_table.AnimationSystem:PlayAnimation("ALERT",40.0,MyUID)
 			
-			lua_table.SoundSystem:PlayAudioEvent("Play_Enemy_Humanoid_Discover_Players")
+			--lua_table.SoundSystem:PlayAudioEvent("Play_Enemy_Humanoid_Discover_Players")
 			Alert_AnimController = true
 			Alert_TimeController = PerfGameTime()
 			--lua_table.ParticleSystem:PlayParticleEmitter(particles.alert1.GO_UID)
@@ -940,7 +940,10 @@ local function HandleDeath()
 	then	
 		Die()
 		DeadTime = PerfGameTime()
+		lua_table.PhysicsSystem:SetActiveController(false,MyUID)
 	end
+
+	
 
 	TiMe = PerfGameTime()
 	if TiMe - DeadTime > lua_table.deathTimer
@@ -1134,7 +1137,7 @@ function lua_table:Update()
 			end
 		end
 		--############################################################################# HANDLE AGGRO CALLED EVERY 300mls
-		if lua_table.CurrentHealth <= 1 
+		if lua_table.CurrentHealth <= 1 and lua_table.CurrentSpecialEffect == SpecialEffect.NONE
 		then
 			lua_table.SystemFunctions:LOG("LUMBERJACK STATE ---> DEAD")
 			lua_table.CurrentState = State.DEATH
