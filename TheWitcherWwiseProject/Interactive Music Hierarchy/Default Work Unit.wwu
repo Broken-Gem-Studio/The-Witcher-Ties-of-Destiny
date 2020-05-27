@@ -285,7 +285,7 @@
 						<MusicSwitchContainer Name="Level_1_Music" ID="{00E2E994-E244-4AD9-B4A0-A5D0B1AF7FA6}" ShortID="807112482">
 							<ReferenceList>
 								<Reference Name="Conversion">
-									<ObjectRef Name="convert_to_OGG" ID="{1B9F26BD-F88B-48F8-9572-41879691A9CA}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
 								</Reference>
 								<Reference Name="OutputBus">
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
@@ -293,9 +293,6 @@
 							</ReferenceList>
 							<ChildrenList>
 								<MusicPlaylistContainer Name="Exploration_Music" ID="{A21F4938-915D-499E-905F-6D55F942B476}" ShortID="972372299">
-									<PropertyList>
-										<Property Name="OverrideConversion" Type="bool" Value="True"/>
-									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -395,9 +392,6 @@
 									</Playlist>
 								</MusicPlaylistContainer>
 								<MusicPlaylistContainer Name="Combat_Music_1" ID="{7BF89E19-B6FC-4D47-A260-21479BE83C99}" ShortID="348879266">
-									<PropertyList>
-										<Property Name="OverrideConversion" Type="bool" Value="True"/>
-									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<Custom CreatedFrom="{6D1B890C-9826-4384-BF07-C15223E9FB56}">
@@ -604,9 +598,6 @@
 									</Playlist>
 								</MusicPlaylistContainer>
 								<MusicPlaylistContainer Name="Pause_Music" ID="{D0907844-E468-49B5-BD0F-1935FA75AB99}" ShortID="327608810">
-									<PropertyList>
-										<Property Name="OverrideConversion" Type="bool" Value="True"/>
-									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<Custom CreatedFrom="{6D1B890C-9826-4384-BF07-C15223E9FB56}">
