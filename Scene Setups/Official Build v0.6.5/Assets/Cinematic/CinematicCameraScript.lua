@@ -40,7 +40,7 @@ local forest_speech_time = 0
 local CurrentCameraPos = {}
 local Pos_Minions = {508.406, 57.469, -204.635}
 local Pos_Kiki = {889.392, 97.577, -365.724}
-local Pos_Jaskier = {356.836, 44.228, -329.858}
+local Pos_Jaskier = {368.095, 37.109, -326.500}
 local ZoomPos1 = {403.086, 38.228, -319.858}
 local ZoomPos2 = {433.336, 31.978, -311.858}
 
@@ -55,7 +55,7 @@ local FadeOut2 = false
 local FadeIn3 = false
 local FadeIn3_Time = 0
 local MoveToJaskier = false
-local MoveToJaskier_Time = 0
+local MoveToJaskier_Time = 10000
 local ZoomToTown = false
 local ZoomToTown_Time = 0
 local FadeOut3 = false
@@ -151,7 +151,7 @@ function lua_table:Update()
     then
         GoTo(Pos_Minions, 1)
 
-        local value = time / 4
+        local value = time / 2
         local alpha = Lerp(1, 0, value)
         lua_table.UI:ChangeUIComponentColor("Image",0,0,0, alpha, Fade)
 
@@ -164,7 +164,7 @@ function lua_table:Update()
     if time >= 17 and FadeOut1 == true
     then
         local fade_time = time - 17
-        local value = fade_time / 4
+        local value = fade_time / 2
         local alpha = Lerp(0, 1, value)
         lua_table.UI:ChangeUIComponentColor("Image",0,0,0, alpha, Fade)
 
@@ -186,7 +186,7 @@ function lua_table:Update()
 
     if FadeIn2 == true then
         local fade_time = time - FadeIn2_Time
-        local value = fade_time / 4
+        local value = fade_time / 2
         local alpha = Lerp(1, 0, value)
         lua_table.UI:ChangeUIComponentColor("Image",0,0,0, alpha, Fade)
 
@@ -202,7 +202,7 @@ function lua_table:Update()
     if FadeOut2 == true and time >= 36 + forest_speech_time
     then
         local fade_time = time - 36 + forest_speech_time
-        local value = fade_time / 4
+        local value = fade_time / 2
         local alpha = Lerp(0, 1, value)
         lua_table.UI:ChangeUIComponentColor("Image",0,0,0, alpha, Fade)
 
@@ -211,29 +211,30 @@ function lua_table:Update()
             FadeOut2 = false
             FadeIn3 = true
             FadeIn3_Time = time
-            lua_table.Transform:SetPosition(342.586, 44.228, -334.858, lua_table.GameObjectFunctions:GetMyUID())
-            lua_table.Transform:SetObjectRotation(43.914, 66.061, -41.268, lua_table.GameObjectFunctions:GetMyUID())
+            lua_table.Transform:SetPosition(345.595, 37.109, -332.500, lua_table.GameObjectFunctions:GetMyUID())
+            lua_table.Transform:SetObjectRotation(42.666, 74.933, -41.272, lua_table.GameObjectFunctions:GetMyUID())
         end
     end
 
     if FadeIn3 == true then
         local fade_time = time - FadeIn3_Time
-        local value = fade_time / 4
+        local value = fade_time / 2
         local alpha = Lerp(1, 0, value)
         lua_table.UI:ChangeUIComponentColor("Image",0,0,0, alpha, Fade)
+        
+        MoveToJaskier = true
 
-        if time > 51 then
+        if time > 40 then
             MoveToJaskier_Time = time
-            MoveToJaskier = true
             FadeIn3 = false
         end
     end
 
-    if MoveToJaskier == true and time >= MoveToJaskier_Time + 10 
+    if MoveToJaskier == true and time >= MoveToJaskier_Time  
     then
-        GoTo(Pos_Jaskier, 0.1)
+        GoTo(Pos_Jaskier, 0.025)
 
-        if time >= MoveToJaskier_Time + 23
+        if time >= MoveToJaskier_Time + 27
         then
             MoveToJaskier = false
             ZoomToTown_Time = time
@@ -241,17 +242,17 @@ function lua_table:Update()
         end
     end
 
-    if ZoomToTown == true and time >= ZoomToTown_Time + 1
+    if ZoomToTown == true and time >= ZoomToTown_Time + 4
     then
         GoTo(ZoomPos2, 0.1)
 
-        if time >= ZoomToTown_Time + 1.5 and FadeOut3 == false
+        if time >= ZoomToTown_Time + 4.5 and FadeOut3 == false
         then
             FadeOut3 = true
             FadeOut3_Time = time
         end
 
-        if time >= ZoomToTown_Time + 4
+        if time >= ZoomToTown_Time + 7
         then
             ZoomToTown = false
         end
