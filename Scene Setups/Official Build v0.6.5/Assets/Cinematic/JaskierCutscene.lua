@@ -28,7 +28,7 @@ function lua_table:Update()
     time = lua_table.System:GameTime() - started_time
     lua_table.current_state = 0
 
-    if time >= 42 and play_animation == true 
+    if time >= 38 and play_animation == true 
     then
         lua_table.AnimationFunctions:PlayAnimation("Cutscene", lua_table.speed, Jaskier_UID)
         play_animation = false
