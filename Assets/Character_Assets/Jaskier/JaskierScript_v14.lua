@@ -81,14 +81,16 @@ local particles_library = {
 	run_particles_GO_UID_children = {},
 	blood_particles_GO_UID_children = {},
 	revive_particles_GO_UID_children = {},
+
+	potion_health_particles_GO_UID_children = 0,
+	potion_stamina_particles_GO_UID_children = 0,
+	potion_power_particles_GO_UID_children = 0,
+
 	song_circle_GO_UID_children = {},
 	song_cone_GO_UID_children = {},
 	concert_GO_UID_children = {},
 
 	--Standalone Particles
-	health_potion_particles_GO_UID = 0,
-	stamina_potion_particles_GO_UID = 0,
-	power_potion_particles_GO_UID = 0,
 
 	--FBX Particles
 	slash_GO_UID = 0,
@@ -1035,6 +1037,16 @@ local function ParticlesShutdown()
 		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.run_particles_GO_UID_children[i])	--TODO-Particles:
 	end
 
+	for i = 1, #particles_library.potion_health_particles_GO_UID_children do
+		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.potion_health_particles_GO_UID_children[i])	--TODO-Particles:
+	end
+	for i = 1, #particles_library.potion_stamina_particles_GO_UID_children do
+		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.potion_stamina_particles_GO_UID_children[i])	--TODO-Particles:
+	end
+	for i = 1, #particles_library.potion_power_particles_GO_UID_children do
+		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.potion_power_particles_GO_UID_children[i])	--TODO-Particles:
+	end
+
 	for i = 1, #particles_library.song_circle_GO_UID_children do
 		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.song_circle_GO_UID_children[i])	--TODO-Particles:
 	end
@@ -1044,10 +1056,6 @@ local function ParticlesShutdown()
 	for i = 1, #particles_library.concert_GO_UID_children do
 		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.concert_GO_UID_children[i])	--TODO-Particles:
 	end
-
-	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.health_potion_particles_GO_UID)
-	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.stamina_potion_particles_GO_UID)
-	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.power_potion_particles_GO_UID)
 end
 
 --Character Particles END	----------------------------------------------------------------------------
@@ -1915,7 +1923,9 @@ local function TakeHealthPotion()
 	lua_table.current_health = lua_table.current_health + lua_table.max_health_real / item_effects[lua_table.item_library.health_potion].health_recovery
 	lua_table.health_reg_mod = lua_table.health_reg_mod + item_effects[lua_table.item_library.health_potion].health_regen
 	
-	lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.health_potion_particles_GO_UID)
+	for i = 1, #particles_library.potion_health_particles_GO_UID_children do
+		lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.potion_health_particles_GO_UID_children[i])	--TODO-Particles: Stop movement dust particles
+	end
 
 	if lua_table.current_health > lua_table.max_health_real then lua_table.current_health = lua_table.max_health_real end	--IF above max, set to max
 end
@@ -1923,7 +1933,9 @@ end
 local function EndHealthPotion()
 	lua_table.health_reg_mod = lua_table.health_reg_mod - item_effects[lua_table.item_library.health_potion].health_regen
 
-	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.health_potion_particles_GO_UID)
+	for i = 1, #particles_library.potion_health_particles_GO_UID_children do
+		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.potion_health_particles_GO_UID_children[i])	--TODO-Particles: Stop movement dust particles
+	end
 end
 
 --Stamina Potion
@@ -1931,14 +1943,18 @@ local function TakeStaminaPotion()
 	lua_table.mov_velocity_max_mod = lua_table.mov_velocity_max_mod + item_effects[lua_table.item_library.stamina_potion].speed_increase
 	lua_table.energy_reg_mod = lua_table.energy_reg_mod + item_effects[lua_table.item_library.stamina_potion].energy_regen
 
-	lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.stamina_potion_particles_GO_UID)
+	for i = 1, #particles_library.potion_stamina_particles_GO_UID_children do
+		lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.potion_stamina_particles_GO_UID_children[i])	--TODO-Particles: Stop movement dust particles
+	end
 end
 
 local function EndStaminaPotion()
 	lua_table.mov_velocity_max_mod = lua_table.mov_velocity_max_mod - item_effects[lua_table.item_library.stamina_potion].speed_increase
 	lua_table.energy_reg_mod = lua_table.energy_reg_mod - item_effects[lua_table.item_library.stamina_potion].energy_regen
 
-	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.stamina_potion_particles_GO_UID)
+	for i = 1, #particles_library.potion_stamina_particles_GO_UID_children do
+		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.potion_stamina_particles_GO_UID_children[i])	--TODO-Particles: Stop movement dust particles
+	end
 end
 
 --Power Potion
@@ -1946,14 +1962,18 @@ local function TakePowerPotion()
 	lua_table.base_damage_mod = lua_table.base_damage_mod + item_effects[lua_table.item_library.power_potion].damage_increase
 	lua_table.critical_chance_add = lua_table.critical_chance_add + item_effects[lua_table.item_library.power_potion].critical_chance_increase
 
-	lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.power_potion_particles_GO_UID)
+	for i = 1, #particles_library.potion_power_particles_GO_UID_children do
+		lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.potion_power_particles_GO_UID_children[i])	--TODO-Particles: Stop movement dust particles
+	end
 end
 
 local function EndPowerPotion()
 	lua_table.base_damage_mod = lua_table.base_damage_mod - item_effects[lua_table.item_library.power_potion].damage_increase
 	lua_table.critical_chance_add = lua_table.critical_chance_add - item_effects[lua_table.item_library.power_potion].critical_chance_increase
 
-	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.power_potion_particles_GO_UID)
+	for i = 1, #particles_library.potion_power_particles_GO_UID_children do
+		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.potion_power_particles_GO_UID_children[i])	--TODO-Particles: Stop movement dust particles
+	end
 end
 
 --Inventory Swap
@@ -2271,13 +2291,13 @@ function lua_table:Awake()
 	particles_library.blood_particles_GO_UID_children = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindGameObject("Jaskier_Blood"))
 	particles_library.revive_particles_GO_UID_children = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindGameObject("Jaskier_Revive"))
 
+	particles_library.potion_health_particles_GO_UID_children = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindGameObject("Jaskier_Health_Potion"))
+	particles_library.potion_stamina_particles_GO_UID_children = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindGameObject("Jaskier_Stamina_Potion"))
+	particles_library.potion_power_particles_GO_UID_children = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindGameObject("Jaskier_Power_Potion"))
+
 	particles_library.song_circle_GO_UID_children = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindGameObject("Jaskier_Song_Circle"))
 	particles_library.song_cone_GO_UID_children = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindGameObject("Jaskier_Song_Cone"))
 	particles_library.concert_GO_UID_children = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindGameObject("Jaskier_Song_Concert"))
-	
-	particles_library.health_potion_particles_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Health_Potion")
-	particles_library.stamina_potion_particles_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Stamina_Potion")
-	particles_library.power_potion_particles_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Power_Potion")
 
 	--Stop Particle Emitters
 	for i = 1, #particles_library.run_particles_GO_UID_children do
@@ -2290,6 +2310,16 @@ function lua_table:Awake()
 		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.revive_particles_GO_UID_children[i])	--TODO-Particles:
 	end
 
+	for i = 1, #particles_library.potion_health_particles_GO_UID_children do
+		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.potion_health_particles_GO_UID_children[i])	--TODO-Particles:
+	end
+	for i = 1, #particles_library.potion_stamina_particles_GO_UID_children do
+		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.potion_stamina_particles_GO_UID_children[i])	--TODO-Particles:
+	end
+	for i = 1, #particles_library.potion_power_particles_GO_UID_children do
+		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.potion_power_particles_GO_UID_children[i])	--TODO-Particles:
+	end
+
 	for i = 1, #particles_library.song_circle_GO_UID_children do
 		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.song_circle_GO_UID_children[i])	--TODO-Particles:
 	end
@@ -2299,10 +2329,6 @@ function lua_table:Awake()
 	for i = 1, #particles_library.concert_GO_UID_children do
 		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.concert_GO_UID_children[i])		--TODO-Particles:
 	end
-
-	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.health_potion_particles_GO_UID)
-	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.stamina_potion_particles_GO_UID)
-	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.power_potion_particles_GO_UID)
 
 	--Hide GO Particles
 	lua_table.GameObjectFunctions:SetActiveGameObject(false, particles_library.slash_mesh_GO_UID)
