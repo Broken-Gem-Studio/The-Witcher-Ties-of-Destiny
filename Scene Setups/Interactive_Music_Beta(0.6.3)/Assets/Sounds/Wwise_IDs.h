@@ -34,71 +34,34 @@ namespace AK
         static const AkUniqueID PLAY_ENEMY_HUMANOID_DISCOVER_PLAYERS = 2135203437U;
         static const AkUniqueID PLAY_ENEMY_HUMANOID_HIT = 282993986U;
         static const AkUniqueID PLAY_GERALT_AARD = 3449812404U;
-        static const AkUniqueID PLAY_GERALT_AARD_OTHER_VERSION = 3065709658U;
         static const AkUniqueID PLAY_GERALT_FALL_DOWN_GET_UP = 850689337U;
-        static const AkUniqueID PLAY_GERALT_HEAVY_ROLL = 493066829U;
         static const AkUniqueID PLAY_GERALT_HIT_SOUND = 2664027291U;
         static const AkUniqueID PLAY_GERALT_LIGHT_ROLL = 109907202U;
-        static const AkUniqueID PLAY_GERALT_MEDIUM_ROLLL = 1400200427U;
         static const AkUniqueID PLAY_GERALT_NAKED_ROLL = 1207104021U;
-        static const AkUniqueID PLAY_GERALT_POTION_1 = 3821841965U;
-        static const AkUniqueID PLAY_GERALT_POTION_2 = 3821841966U;
-        static const AkUniqueID PLAY_GERALT_POTION_3 = 3821841967U;
-        static const AkUniqueID PLAY_GERALT_POTION_4 = 3821841960U;
-        static const AkUniqueID PLAY_GERALT_POTION_LIFE_FX_1 = 2239504807U;
-        static const AkUniqueID PLAY_GERALT_POTION_LIFE_FX_2 = 2239504804U;
-        static const AkUniqueID PLAY_GERALT_POTION_LIFE_FX_3 = 2239504805U;
-        static const AkUniqueID PLAY_GERALT_POTION_OTHER_VERSION = 1246444623U;
+        static const AkUniqueID PLAY_GERALT_POTION_FX = 355904118U;
         static const AkUniqueID PLAY_GERALT_REVIVE = 966697903U;
         static const AkUniqueID PLAY_GERALT_SWORD_METAL = 2896484239U;
         static const AkUniqueID PLAY_GERALT_SWORD_SWING = 780578552U;
-        static const AkUniqueID PLAY_GERALT_ULTI_FIX_1 = 3444359250U;
-        static const AkUniqueID PLAY_GERALT_ULTI_FIX_2 = 3444359249U;
-        static const AkUniqueID PLAY_GERALT_ULTI_FIX_3 = 3444359248U;
-        static const AkUniqueID PLAY_GERALT_ULTI_FIX_4 = 3444359255U;
-        static const AkUniqueID PLAY_GERALT_ULTI_FIX_5 = 3444359254U;
+        static const AkUniqueID PLAY_GERALT_ULTIMATE = 3955362993U;
         static const AkUniqueID PLAY_GERALT_WALK_RUN_CONCRETE = 4167477001U;
         static const AkUniqueID PLAY_GERALT_WALK_RUN_DIRT = 2190072003U;
-        static const AkUniqueID PLAY_JASKIER_ACOUSTIC_GITAR_SMASH = 2927481656U;
+        static const AkUniqueID PLAY_GERLAT_COMBO_1 = 3747619760U;
+        static const AkUniqueID PLAY_GERLAT_COMBO_2 = 3747619763U;
+        static const AkUniqueID PLAY_GERLAT_COMBO_3 = 3747619762U;
         static const AkUniqueID PLAY_JASKIER_FALL_DOWN_GET_UP = 2312986841U;
-        static const AkUniqueID PLAY_JASKIER_GUITAR_SWING_1 = 1679104389U;
-        static const AkUniqueID PLAY_JASKIER_GUITAR_SWING_2 = 1679104390U;
-        static const AkUniqueID PLAY_JASKIER_GUITAR_SWING_3 = 1679104391U;
-        static const AkUniqueID PLAY_JASKIER_GUITAR_SWING_4 = 1679104384U;
-        static const AkUniqueID PLAY_JASKIER_GUITAR_SWING_5 = 1679104385U;
-        static const AkUniqueID PLAY_JASKIER_GUITAR_SWING_6 = 1679104386U;
-        static const AkUniqueID PLAY_JASKIER_GUITAR_SWING_7 = 1679104387U;
-        static const AkUniqueID PLAY_JASKIER_GUITAR_SWING_8 = 1679104396U;
-        static const AkUniqueID PLAY_JASKIER_GUITAR_SWING_9 = 1679104397U;
-        static const AkUniqueID PLAY_JASKIER_GUITAR_SWING_10 = 305605743U;
-        static const AkUniqueID PLAY_JASKIER_HIT_SOUND_1 = 743065899U;
-        static const AkUniqueID PLAY_JASKIER_HIT_SOUND_2 = 743065896U;
+        static const AkUniqueID PLAY_JASKIER_GUITAR_SMASH = 1916833811U;
+        static const AkUniqueID PLAY_JASKIER_GUITAR_SWING = 4022547377U;
+        static const AkUniqueID PLAY_JASKIER_HIT_SOUND = 4169710139U;
         static const AkUniqueID PLAY_JASKIER_JUMP = 1018718152U;
-        static const AkUniqueID PLAY_JASKIER_MANDOLIN_SINGLE_HITS_1 = 2111794168U;
-        static const AkUniqueID PLAY_JASKIER_MANDOLIN_SINGLE_HITS_2 = 2111794171U;
-        static const AkUniqueID PLAY_JASKIER_MANDOLIN_SINGLE_HITS_3 = 2111794170U;
-        static const AkUniqueID PLAY_JASKIER_MANDOLIN_SINGLE_HITS_4 = 2111794173U;
-        static const AkUniqueID PLAY_JASKIER_MANDOLIN_SINGLE_HITS_5 = 2111794172U;
-        static const AkUniqueID PLAY_JASKIER_MANDOLIN_SINGLE_HITS_6 = 2111794175U;
-        static const AkUniqueID PLAY_JASKIER_MANDOLIN_SINGLE_HITS_7 = 2111794174U;
-        static const AkUniqueID PLAY_JASKIER_MANDOLIN_SINGLE_HITS_8 = 2111794161U;
-        static const AkUniqueID PLAY_JASKIER_POTION_1 = 2558139597U;
-        static const AkUniqueID PLAY_JASKIER_POTION_2 = 2558139598U;
-        static const AkUniqueID PLAY_JASKIER_POTION_3 = 2558139599U;
-        static const AkUniqueID PLAY_JASKIER_POTION_4 = 2558139592U;
-        static const AkUniqueID PLAY_JASKIER_POTION_LIFE_FX_1 = 115621703U;
-        static const AkUniqueID PLAY_JASKIER_POTION_LIFE_FX_2 = 115621700U;
-        static const AkUniqueID PLAY_JASKIER_POTION_LIFE_FX_3 = 115621701U;
+        static const AkUniqueID PLAY_JASKIER_MOONWALK = 1967797464U;
+        static const AkUniqueID PLAY_JASKIER_POTION_FX = 2721777174U;
         static const AkUniqueID PLAY_JASKIER_REVIVE = 4116481551U;
-        static const AkUniqueID PLAY_JASKIER_WALK_RUN_CONCRETE_1 = 3648986701U;
-        static const AkUniqueID PLAY_JASKIER_WALK_RUN_CONCRETE_2 = 3648986702U;
-        static const AkUniqueID PLAY_JASKIER_WALK_RUN_CONCRETE_3 = 3648986703U;
-        static const AkUniqueID PLAY_JASKIER_WALK_RUN_CONCRETE_4 = 3648986696U;
-        static const AkUniqueID PLAY_JASKIER_WALK_RUN_DIRT_1 = 2439869443U;
-        static const AkUniqueID PLAY_JASKIER_WALK_RUN_DIRT_2 = 2439869440U;
-        static const AkUniqueID PLAY_JASKIER_WALK_RUN_DIRT_3 = 2439869441U;
-        static const AkUniqueID PLAY_JASKIER_WALK_RUN_DIRT_4 = 2439869446U;
-        static const AkUniqueID PLAY_JASKIER_WALK_RUN_DIRT_5 = 2439869447U;
+        static const AkUniqueID PLAY_JASKIER_SONG_1 = 2858442791U;
+        static const AkUniqueID PLAY_JASKIER_SONG_2 = 2858442788U;
+        static const AkUniqueID PLAY_JASKIER_SONG_3 = 2858442789U;
+        static const AkUniqueID PLAY_JASKIER_ULTIMATE = 793067793U;
+        static const AkUniqueID PLAY_JASKIER_WALK_RUN_CONCRETE = 2646163561U;
+        static const AkUniqueID PLAY_JASKIER_WALK_RUN_DIRT = 4243245347U;
         static const AkUniqueID PLAY_KIKIMORA_DAMAGED = 2779782817U;
         static const AkUniqueID PLAY_KIKIMORA_DEATH = 4129361266U;
         static const AkUniqueID PLAY_KIKIMORA_FALL = 360314807U;
@@ -123,6 +86,7 @@ namespace AK
         static const AkUniqueID PLAY_LVL2_WIND_1 = 2013879219U;
         static const AkUniqueID PLAY_LVL2_WIND_2 = 2013879216U;
         static const AkUniqueID PLAY_MAIN_MENU_MOUSE_OVER = 1807448786U;
+        static const AkUniqueID PLAY_MAIN_MENU_MUSIC = 2895168921U;
         static const AkUniqueID PLAY_MAIN_MENU_PLAY_1 = 3490144350U;
         static const AkUniqueID PLAY_MAIN_MENU_PLAY_2 = 3490144349U;
         static const AkUniqueID PLAY_MAIN_MENU_PLAY_3 = 3490144348U;
@@ -160,6 +124,7 @@ namespace AK
             {
                 static const AkUniqueID COMBAT = 2764240573U;
                 static const AkUniqueID EXPLORATION = 2582085496U;
+                static const AkUniqueID PAUSE = 3092587493U;
             } // namespace SWITCH
         } // namespace LVL_1_MUSIC_SWITCH
 
@@ -171,6 +136,7 @@ namespace AK
             {
                 static const AkUniqueID COMBAT = 2764240573U;
                 static const AkUniqueID EXPLORATION = 2582085496U;
+                static const AkUniqueID PAUSE = 3092587493U;
             } // namespace SWITCH
         } // namespace LVL_2_MUSIC_SWITCH
 
@@ -208,9 +174,11 @@ namespace AK
         static const AkUniqueID LEVEL_2 = 1290008370U;
         static const AkUniqueID MAIN_MENU = 2005704188U;
         static const AkUniqueID MONSTER_ENEMIES = 1016515008U;
-        static const AkUniqueID MUSIC_LEVELS = 2209143460U;
+        static const AkUniqueID MUSIC_LEVEL_1_1 = 2244718989U;
+        static const AkUniqueID MUSIC_LEVEL_2_1 = 2244866146U;
         static const AkUniqueID MUSIC_MENUS = 1614123467U;
         static const AkUniqueID PAUSE_MENU = 3422541661U;
+        static const AkUniqueID PAUSE_MUSIC = 2735935537U;
         static const AkUniqueID PROPS = 968010305U;
     } // namespace BANKS
 
