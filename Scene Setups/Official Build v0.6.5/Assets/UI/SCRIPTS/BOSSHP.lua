@@ -13,6 +13,7 @@ lua_table.boss_hp = 0
 
 local BossBar = 0
 local BossCapsule = 0
+local BossBackground = 0
 --local BossText= 0
 local BossID = 0
 lua_table.boss = {}
@@ -21,6 +22,7 @@ lua_table.boss = {}
 function lua_table:Awake()
    
     BossBar = lua_table["GameObject"]:FindGameObject("BOSSHP")
+    BossBackground = lua_table["GameObject"]:FindGameObject("BOSSBACKGROUND")
     BossCapsule = lua_table["GameObject"]:FindGameObject("BOSSCAPSULE")
     --BossText = lua_table["GameObject"]:FindGameObject("BOSSTEXT")
     BossID = lua_table["GameObject"]:FindGameObject("Kikimora")
@@ -43,14 +45,16 @@ function lua_table:Update()
     --bool desde script de Pol
     if lua_table.boss.awakened == true
     then
-        lua_table["UI"]:MakeElementVisible("Bar", BossBar)--MIRAR SI ESTA BIEN BAR
+        lua_table["UI"]:MakeElementVisible("Image", BossBar)--MIRAR SI ESTA BIEN BAR
+        lua_table["UI"]:MakeElementVisible("Image", BossBackground)
         lua_table["UI"]:MakeElementVisible("Image", BossCapsule)
         --lua_table["UI"]:MakeElementVisible("Text", BossText)
     end
 
     if lua_table.boss.awakened == false
     then
-        lua_table["UI"]:MakeElementInvisible("Bar", BossBar)
+        lua_table["UI"]:MakeElementInvisible("Image", BossBar)
+        lua_table["UI"]:MakeElementInvisible("Image", BossBackground)
         lua_table["UI"]:MakeElementInvisible("Image", BossCapsule)
         --lua_table["UI"]:MakeElementInvisible("Text", BossText)
     end
