@@ -456,14 +456,13 @@ function GetTableCardsTuto()
             
         end
 
-        if lua_table.tuto.currentStep == 13 and lua_table.tuto.PauseStep13 == true--bonfire
+        if lua_table.tuto.currentStep == 13 and lua_table.tuto.SaveGame13 == true--bonfire
         then
+            Meter()
 
             if lua_table.continue_meter1_full == false and lua_table.continue_meter2_full == false
             then
                 lua_table["UI"]:MakeElementVisible("Image", BONFIRE)
-                lua_table["UI"]:MakeElementVisible("Image", CARD_PLAYER1_BUTTON)
-                lua_table["UI"]:MakeElementVisible("Image", CARD_PLAYER2_BUTTON)
                 lua_table["UI"]:MakeElementVisible("CircularBar", P1_METER)
                 lua_table["UI"]:MakeElementVisible("CircularBar", P2_METER)
            
