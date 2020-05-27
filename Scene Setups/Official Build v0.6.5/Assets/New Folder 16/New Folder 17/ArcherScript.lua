@@ -101,6 +101,7 @@ local ParticleStun_UID = 0
 local Blood1 = 0
 local Blood2 = 0
 local Blood3 = 0
+local Blood4 = 0
 local Taunt_UID = 0
 
 lua_table.random = 0
@@ -203,6 +204,7 @@ function lua_table:OnTriggerEnter()
             lua_table.Particles:PlayParticleEmitter(Blood1)
             lua_table.Particles:PlayParticleEmitter(Blood2)
             lua_table.Particles:PlayParticleEmitter(Blood3)
+            lua_table.Particles:PlayParticleEmitter(Blood4)
             
         end
     end
@@ -260,6 +262,7 @@ function lua_table:RequestedTrigger(collider_GO)
             lua_table.Particles:PlayParticleEmitter(Blood1)
             lua_table.Particles:PlayParticleEmitter(Blood2)
             lua_table.Particles:PlayParticleEmitter(Blood3)
+            lua_table.Particles:PlayParticleEmitter(Blood4)
         end
   end
 end
@@ -486,10 +489,12 @@ function lua_table:Awake()
     Blood1 = lua_table.GameObjectFunctions:FindChildGameObject("Blood1")
     Blood2 = lua_table.GameObjectFunctions:FindChildGameObject("Blood2")
     Blood3 = lua_table.GameObjectFunctions:FindChildGameObject("Blood3")
+    Blood4 = lua_table.GameObjectFunctions:FindChildGameObject("Blood4")
 
     lua_table.Particles:StopParticleEmitter(Blood1)
     lua_table.Particles:StopParticleEmitter(Blood2)
     lua_table.Particles:StopParticleEmitter(Blood3)
+    lua_table.Particles:StopParticleEmitter(Blood4)
 
     Taunt_UID = lua_table.GameObjectFunctions:FindChildGameObject("Aggro")
     lua_table.Particles:StopParticleEmitter(Taunt_UID)
@@ -628,6 +633,8 @@ function lua_table:Update()
                 lua_table.AnimationSystem:PlayAnimation("Death",rand, MyUID) -- 2.33sec
                 time_death = PerfGameTime()
                 start_death = true
+
+                lua_table.PhysicsSystem:SetActiveController(false, MyUID)
 
                 local tuto_manager = lua_table.GameObjectFunctions:FindGameObject("TutorialManager")
                 if tuto_manager ~= 0
