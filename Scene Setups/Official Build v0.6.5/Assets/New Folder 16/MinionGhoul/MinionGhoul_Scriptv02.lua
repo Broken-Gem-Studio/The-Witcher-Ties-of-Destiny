@@ -259,7 +259,7 @@ local function Seek()
 			
 			else
 				currCorner = currCorner + 1
-				lua_table.PhysicsSystem:Move(0, 0, lua_table.MyUID)
+				lua_table.Physics:Move(0, 0, lua_table.MyUID)
 		end
 			
 	end
