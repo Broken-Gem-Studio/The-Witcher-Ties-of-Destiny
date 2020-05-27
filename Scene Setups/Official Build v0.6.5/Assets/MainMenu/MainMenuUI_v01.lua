@@ -9,14 +9,15 @@ lua_table.CameraFunctions = Scripting.Camera()
 lua_table.ObjectFunctions = Scripting.GameObject()
 lua_table.TransformFuctions = Scripting.Transform()
 lua_table.AudioFunctions = Scripting.Audio()
+lua_table.InputFunctions = Scripting.Inputs()
 
 -----------------------------------------------------------------------------
 -- VARIABLES
 -----------------------------------------------------------------------------
 
 -- Lua table variabes
-lua_table.scene_1 = 0
-lua_table.scene_2 = 0
+
+
 lua_table.loadLevel1 = false
 lua_table.loadLevel2 = false
 lua_table.cameraSpeed = 25
@@ -105,7 +106,7 @@ function lua_table:Update()
 		then
 			if lua_table.currentCameraPos[1] > lua_table.lastCameraPos[1] - 70
 			then
-				lua_table.TransformFuctions:Translate(-lua_table.cameraSpeed * 1.5 * dt, -lua_table.cameraSpeed/6 * dt, -lua_table.cameraSpeed/5 * dt, camera_UUID)
+				lua_table.TransformFuctions:Translate(-lua_table.cameraSpeed * 1.5 * dt, -lua_table.cameraSpeed/6.5 * dt, -lua_table.cameraSpeed/5 * dt, camera_UUID)
 				lua_table.TransformFuctions:RotateObject(0, lua_table.cameraSpeed/3.5 * dt, 0, camera_UUID)
 			else 
 				lua_table.lastCameraPos = lua_table.TransformFuctions:GetPosition(camera_UUID)
@@ -114,9 +115,9 @@ function lua_table:Update()
 			
 		elseif step == 4
 		then
-			if lua_table.currentCameraPos[3] > lua_table.lastCameraPos[3] - 25
+			if lua_table.currentCameraPos[3] > lua_table.lastCameraPos[3] - 23
 			then
-				lua_table.TransformFuctions:Translate(-lua_table.cameraSpeed * 1.5 * dt, -lua_table.cameraSpeed/3.5 * dt, -lua_table.cameraSpeed * dt, camera_UUID)
+				lua_table.TransformFuctions:Translate(-lua_table.cameraSpeed * 1.95 * dt, -lua_table.cameraSpeed/4.5 * dt, -lua_table.cameraSpeed * dt, camera_UUID)
 				lua_table.TransformFuctions:RotateObject(0, lua_table.cameraSpeed/1.2 * dt, 0, camera_UUID)
 			else 
 				lua_table.lastCameraPos = lua_table.TransformFuctions:GetPosition(camera_UUID)
@@ -132,16 +133,18 @@ function lua_table:Update()
 		end
 	end
 	
-	-- Scene loading
-	if lua_table.loadLevel1 == true
-	then	
-		--lua_table.SceneFunctions:LoadScene(lua_table.scene_1)
+	
+
+	if lua_table.InputFunctions:IsGamepadButton(1, "BUTTON_B", "DOWN") and (lua_table.loadLevel1 == true or lua_table.loadLevel2 == true)
+	then
+		lua_table.ObjectFunctions:SetActiveGameObject(true, showFirstLevel)
+		lua_table.InterfaceFunctions:SetUIElementInteractable("Button", showFirstLevel, true)
+		lua_table.ObjectFunctions:SetActiveGameObject(true, showSecondLevel)
+		lua_table.InterfaceFunctions:SetUIElementInteractable("Button", showSecondLevel, true)
+		lua_table.loadLevel1 = false
+        lua_table.loadLevel2 = false
 	end
 
-	if lua_table.loadLevel2 == true
-	then	
-		--lua_table.SceneFunctions:LoadScene(lua_table.scene_2)
-	end
 end
 
 function lua_table:StartGame()
