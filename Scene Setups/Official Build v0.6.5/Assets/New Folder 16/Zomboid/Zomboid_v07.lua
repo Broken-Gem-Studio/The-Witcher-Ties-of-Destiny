@@ -351,7 +351,7 @@ local function Seek()
 
 		path_distance = math.sqrt(nextCorner[1] ^ 2 + nextCorner[3] ^ 2)
 		
-		if path_distance > 0.2 then 
+		if path_distance > 0.5 then 
 
 			vec[1] = nextCorner[1] / path_distance
 			vec[2] = 0
@@ -363,7 +363,7 @@ local function Seek()
 			
 			else
 				currCorner = currCorner + 1
-				lua_table.PhysicsSystem:Move(0, 0, lua_table.MyUID)
+				lua_table.Physics:Move(0, 0, lua_table.MyUID)
 		end
 			
 	end
@@ -552,6 +552,7 @@ local function Die()
 	if not start_death then 
 		
 		--lua_table.Particles:StopParticleEmitter(JumpStunEmitter_UID)
+		lua_table.Physics:SetActiveController(false, lua_table.MyUID)
 		lua_table.Particles:StopParticleEmitter(BloodEmitter1_UID)
 		lua_table.Particles:StopParticleEmitter(BloodEmitter2_UID)
 		lua_table.Particles:StopParticleEmitter(BloodEmitter3_UID)
