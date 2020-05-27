@@ -63,7 +63,8 @@ local animation_library = {
 
 	one_handed_slam = "guitar_slam_one_handed",
 	two_handed_slam = "guitar_slam_two_handed",
-	concert = "guitar_play_2"
+	concert = "guitar_play_2",
+	moonwalk = "moonwalk"
 }
 local current_animation = animation_library.none
 
@@ -602,7 +603,7 @@ lua_table.note_stack = { 'N', 'N', 'N', 'N' }	-- Last 4 attacks performed (0=non
 	lua_table.song_3_effect_end = 2000
 	lua_table.song_3_effect_active = false
 	lua_table.song_3_duration = 3700
-	lua_table.song_3_animation_name = audio_library.moonwalk
+	lua_table.song_3_animation_name = animation_library.moonwalk
 	lua_table.song_3_animation_speed = 30.0
 	lua_table.song_3_damage = 0.0
 	lua_table.song_3_status_effect = attack_effects_ID.taunt
