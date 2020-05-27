@@ -9,14 +9,15 @@ lua_table.CameraFunctions = Scripting.Camera()
 lua_table.ObjectFunctions = Scripting.GameObject()
 lua_table.TransformFuctions = Scripting.Transform()
 lua_table.AudioFunctions = Scripting.Audio()
+lua_table.InputFunctions = Scripting.Inputs()
 
 -----------------------------------------------------------------------------
 -- VARIABLES
 -----------------------------------------------------------------------------
 
 -- Lua table variabes
-lua_table.scene_1 = 0
-lua_table.scene_2 = 0
+
+
 lua_table.loadLevel1 = false
 lua_table.loadLevel2 = false
 lua_table.cameraSpeed = 25
@@ -132,16 +133,18 @@ function lua_table:Update()
 		end
 	end
 	
-	-- Scene loading
-	if lua_table.loadLevel1 == true
-	then	
-		--lua_table.SceneFunctions:LoadScene(lua_table.scene_1)
+	
+
+	if lua_table.InputFunctions:IsGamepadButton(1, "BUTTON_B", "DOWN") and (lua_table.loadLevel1 == true or lua_table.loadLevel2 == true)
+	then
+		lua_table.ObjectFunctions:SetActiveGameObject(true, showFirstLevel)
+		lua_table.InterfaceFunctions:SetUIElementInteractable("Button", showFirstLevel, true)
+		lua_table.ObjectFunctions:SetActiveGameObject(true, showSecondLevel)
+		lua_table.InterfaceFunctions:SetUIElementInteractable("Button", showSecondLevel, true)
+		lua_table.loadLevel1 = false
+        lua_table.loadLevel2 = false
 	end
 
-	if lua_table.loadLevel2 == true
-	then	
-		--lua_table.SceneFunctions:LoadScene(lua_table.scene_2)
-	end
 end
 
 function lua_table:StartGame()
