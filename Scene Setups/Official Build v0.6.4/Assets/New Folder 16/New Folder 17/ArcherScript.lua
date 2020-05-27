@@ -21,6 +21,7 @@ local Attack_Collider_UID = 0
 -- Archer Values -------------------------
 lua_table.health = 80
 lua_table.speed = 0.75
+lua_table.Aggro_Range = 37
 
 -- 
 lua_table.DistanceToTarget = 0
@@ -550,7 +551,7 @@ function lua_table:Update()
     then
         if lua_table.start_stun == false
         then
-            if lua_table.DistanceToTarget <= 37 and lua_table.DistanceToTarget > 14 then
+            if lua_table.DistanceToTarget <= lua_table.Aggro_Range and lua_table.DistanceToTarget > 14 then
                 lua_table.currentState = State.SEEK
             elseif lua_table.DistanceToTarget <= 14 and lua_table.DistanceToTarget > 4 then
                 lua_table.currentState = State.RANGE_ATTACK

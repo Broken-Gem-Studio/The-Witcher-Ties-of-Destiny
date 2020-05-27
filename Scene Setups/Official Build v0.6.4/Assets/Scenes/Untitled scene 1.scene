@@ -412,8 +412,8 @@
                 "rotationy": "0.034930",
                 "rotationz": "0.119432",
                 "scalex": "1.000000",
-                "scaley": "0.999851",
-                "scalez": "0.999851"
+                "scaley": "0.999849",
+                "scalez": "0.999849"
             },
             "13": {
                 "Active": true,
@@ -446,8 +446,8 @@
                 "rotationy": "0.000122",
                 "rotationz": "-0.000114",
                 "scalex": "39.370075",
-                "scaley": "39.372681",
-                "scalez": "39.372482"
+                "scaley": "39.372730",
+                "scalez": "39.372528"
             },
             "13": {
                 "Active": false,
@@ -910,8 +910,8 @@
                 "rotationx": "0.534082",
                 "rotationy": "-0.436153",
                 "rotationz": "0.618214",
-                "scalex": "0.999849",
-                "scaley": "0.999849",
+                "scalex": "0.999847",
+                "scaley": "0.999847",
                 "scalez": "0.999999"
             },
             "13": {
@@ -1795,8 +1795,8 @@
                 "rotationy": "-0.062678",
                 "rotationz": "-0.016921",
                 "scalex": "1.000000",
-                "scaley": "0.999997",
-                "scalez": "0.999975"
+                "scaley": "0.999998",
+                "scalez": "0.999976"
             },
             "13": {
                 "Active": true,
@@ -2237,7 +2237,7 @@
                 "rotationy": "0.386966",
                 "rotationz": "-0.430406",
                 "scalex": "1.000000",
-                "scaley": "0.999849",
+                "scaley": "0.999847",
                 "scalez": "1.000000"
             },
             "13": {
@@ -2270,8 +2270,8 @@
                 "rotationx": "-0.050385",
                 "rotationy": "0.320698",
                 "rotationz": "0.945665",
-                "scalex": "0.999849",
-                "scaley": "0.999849",
+                "scalex": "0.999847",
+                "scaley": "0.999847",
                 "scalez": "1.000000"
             },
             "13": {
@@ -3060,8 +3060,8 @@
                 "rotationx": "-0.015471",
                 "rotationy": "0.174883",
                 "rotationz": "0.984234",
-                "scalex": "0.999895",
-                "scaley": "0.999895",
+                "scalex": "0.999893",
+                "scaley": "0.999893",
                 "scalez": "1.000000"
             },
             "13": {
@@ -3172,7 +3172,7 @@
                 "index": 0,
                 "layer": "0",
                 "positionx": "364.538635",
-                "positiony": "33.169125",
+                "positiony": "33.353596",
                 "positionz": "-327.462799",
                 "rotationw": "0.785440",
                 "rotationx": "0.000000",
@@ -3188,15 +3188,29 @@
                     "ResourceScript": "Assets/Cinematic/JaskierCutscene.lua"
                 },
                 "Script variables": {
-                    "Count": 2,
+                    "Count": 4,
                     "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "collider_damage",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "collider_effect",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
                         "DisplayObjectName": false,
                         "Name": "current_state",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
                     },
-                    "Variable 1": {
+                    "Variable 3": {
                         "DisplayObjectName": false,
                         "Name": "speed",
                         "ObjectName": "",
@@ -3319,7 +3333,7 @@
                 "colliderType": "1",
                 "draggedUID": "0",
                 "draw": "0",
-                "firstCreation": "0",
+                "firstCreation": "1",
                 "globalMatrixw": "1.000000",
                 "globalMatrixx": "544.534973",
                 "globalMatrixy": "27.369398",
@@ -3327,12 +3341,12 @@
                 "globalPositionx": "1.000000",
                 "globalPositiony": "1.000000",
                 "globalPositionz": "1.000000",
-                "hasBeenDeactivated": "0",
+                "hasBeenDeactivated": "1",
                 "height": "1.000000",
                 "index": 1,
                 "isConvex": "0",
                 "isTrigger": "1",
-                "lastIndex": "0",
+                "lastIndex": "1",
                 "localMatrixw": "1.000000",
                 "localMatrixx": "0.000000",
                 "localMatrixy": "1.500000",
@@ -5447,9 +5461,9 @@
                 "rotationx": "-0.577789",
                 "rotationy": "-0.412076",
                 "rotationz": "0.582328",
-                "scalex": "1.000151",
-                "scaley": "1.000151",
-                "scalez": "1.000151"
+                "scalex": "1.000153",
+                "scaley": "1.000153",
+                "scalez": "1.000153"
             },
             "13": {
                 "Active": true,
@@ -5668,8 +5682,8 @@
                 "rotationy": "-0.048441",
                 "rotationz": "0.074520",
                 "scalex": "1.000000",
-                "scaley": "0.999849",
-                "scalez": "0.999849"
+                "scaley": "0.999847",
+                "scalez": "0.999847"
             },
             "13": {
                 "Active": true,
@@ -5947,11 +5961,11 @@
             },
             "3": {
                 "ACTIVECAM": true,
-                "ASPECTRATIO": 2.0539724826812744,
+                "ASPECTRATIO": 2.070673942565918,
                 "Active": true,
                 "CULLINGCAM": true,
                 "FARPLANE": 1000.0,
-                "FOV": 29.788681030273438,
+                "FOV": 29.55897331237793,
                 "NEARPLANE": 0.10000000149011612,
                 "UID": 564046162,
                 "index": 1
@@ -6047,7 +6061,7 @@
                 "rotationy": "-0.431125",
                 "rotationz": "0.540621",
                 "scalex": "0.999999",
-                "scaley": "0.999894",
+                "scaley": "0.999892",
                 "scalez": "0.999999"
             },
             "13": {
@@ -6368,8 +6382,8 @@
                 "rotationx": "0.072736",
                 "rotationy": "0.384123",
                 "rotationz": "0.916252",
-                "scalex": "0.999698",
-                "scaley": "0.999717",
+                "scalex": "0.999694",
+                "scaley": "0.999713",
                 "scalez": "1.000000"
             },
             "13": {
@@ -6708,8 +6722,8 @@
                 "rotationx": "0.060465",
                 "rotationy": "0.189634",
                 "rotationz": "0.979214",
-                "scalex": "0.999849",
-                "scaley": "0.999849",
+                "scalex": "0.999847",
+                "scaley": "0.999847",
                 "scalez": "1.000000"
             },
             "13": {
@@ -7250,8 +7264,8 @@
                 "rotationx": "0.015069",
                 "rotationy": "0.169828",
                 "rotationz": "0.985115",
-                "scalex": "0.999895",
-                "scaley": "0.999895",
+                "scalex": "0.999893",
+                "scaley": "0.999893",
                 "scalez": "1.000000"
             },
             "13": {
@@ -9016,7 +9030,7 @@
                 "rotationz": "-0.072094",
                 "scalex": "1.000000",
                 "scaley": "1.000019",
-                "scalez": "1.000149"
+                "scalez": "1.000151"
             },
             "13": {
                 "Active": true,
@@ -9178,7 +9192,7 @@
                 "index": 0,
                 "layer": "0",
                 "positionx": "365.842773",
-                "positiony": "33.385853",
+                "positiony": "33.562023",
                 "positionz": "-331.847412",
                 "rotationw": "0.795872",
                 "rotationx": "0.000000",
@@ -9194,15 +9208,29 @@
                     "ResourceScript": "Assets/Cinematic/GeraltCutscene.lua"
                 },
                 "Script variables": {
-                    "Count": 2,
+                    "Count": 4,
                     "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "collider_damage",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "collider_effect",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
                         "DisplayObjectName": false,
                         "Name": "current_state",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
                     },
-                    "Variable 1": {
+                    "Variable 3": {
                         "DisplayObjectName": false,
                         "Name": "speed",
                         "ObjectName": "",
@@ -10009,9 +10037,9 @@
                 "rotationx": "-0.349618",
                 "rotationy": "0.929542",
                 "rotationz": "0.105091",
-                "scalex": "0.999849",
+                "scalex": "0.999847",
                 "scaley": "1.000000",
-                "scalez": "0.999849"
+                "scalez": "0.999847"
             },
             "1": {
                 "Active": true,
