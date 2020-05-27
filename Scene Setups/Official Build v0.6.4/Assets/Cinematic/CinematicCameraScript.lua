@@ -33,6 +33,9 @@ local forest_speech_time = 0
 local CurrentCameraPos = {}
 local Pos_Minions = {508.406, 57.469, -204.635}
 local Pos_Kiki = {889.392, 97.577, -365.724}
+local Pos_Jaskier = {356.836, 44.228, -329.858}
+local ZoomPos1 = {403.086, 38.228, -319.858}
+local ZoomPos2 = {433.336, 31.978, -311.858}
 
 -- Cinematic conditions 
 local follow_jaskier = false
@@ -44,6 +47,13 @@ local FadeIn2_Time = 0
 local FadeOut2 = false
 local FadeIn3 = false
 local FadeIn3_Time = 0
+local MoveToJaskier = false
+local MoveToJaskier_Time = 0
+local ZoomToTown = false
+local ZoomToTown_Time = 0
+local FadeOut3 = false
+local FadeOut3_Time = 0
+
 
 local conversation_finished = false
 local start_motion = false
@@ -131,8 +141,6 @@ function lua_table:Update()
         local alpha = Lerp(1, 0, value)
         lua_table.UI:ChangeUIComponentColor("Image",0,0,0, alpha, Fade)
 
-
-
         if time > 15
         then
             camera_panning = false
@@ -194,54 +202,54 @@ function lua_table:Update()
         lua_table.UI:ChangeUIComponentColor("Image",0,0,0, alpha, Fade)
 
         if time > 55 then
-
+            MoveToJaskier_Time = time
+            MoveToJaskier = true
             FadeIn3 = false
         end
     end
 
+    if MoveToJaskier == true and time >= MoveToJaskier_Time + 10 
+    then
+        GoTo(Pos_Jaskier, 0.1)
 
-    
-    -- if not camera_panning -- Follow Cube
-    -- then 
-    --     local new_pos = {}
-    --     local cube_pos = lua_table.Transform:GetPosition(Cube_ID)
+        if time >= MoveToJaskier_Time + 23
+        then
+            MoveToJaskier = false
+            ZoomToTown_Time = time
+            ZoomToTown = true
+        end
+    end
 
-    --     new_pos[1] = cube_pos[1] + offset[1]
-    --     new_pos[2] = cube_pos[2] + offset[2]
-    --     new_pos[3] = cube_pos[3] + offset[3]
-      
-    --     lua_table.Transform:SetPosition(new_pos[1], new_pos[2], new_pos[3], lua_table.GameObjectFunctions:GetMyUID())
-    -- end
+    if ZoomToTown == true and time >= ZoomToTown_Time + 1
+    then
+        GoTo(ZoomPos2, 0.1)
 
-    -- if time > 1.76 and not music_played -- Accurate time when sound starts playing
-    -- then
+        if time >= ZoomToTown_Time + 1.5 and FadeOut3 == false
+        then
+            FadeOut3 = true
+            FadeOut3_Time = time
+        end
 
-    --     lua_table.Audio:PlayAudioEvent("Play_lvl1_Intro_conversation_Cutscene")
-    --     music_played = true
-    -- end
+        if time >= ZoomToTown_Time + 4
+        then
+            ZoomToTown = false
+        end
+    end
 
-    -- if time > 31 and not start_motion
-    -- then
-    --     start_motion_time = time
-    --     position_z = lua_table.Transform:GetPosition(lua_table.GameObjectFunctions:GetMyUID())
-    --     start_motion = true 
-    -- end
 
-    -- if start_motion -- Zoom
-    -- then
-    --     local motion_time = time - start_motion_time
-    --     local value_ = motion_time / 5
-        
-    --     local z = Lerp(position_z[3], -4000, value_)
+    if FadeOut3 == true 
+    then
+        local fade_time = time - FadeOut3_Time
+        local value = fade_time / 3
+        local alpha = Lerp(0, 1, value)
+        lua_table.UI:ChangeUIComponentColor("Image",0,0,0, alpha, Fade)
 
-    --     lua_table.Transform:SetPosition(position_z[1], position_z[2], z, lua_table.GameObjectFunctions:GetMyUID())
-    -- end
+        if value >= 1 
+        then
+            FadeOut3 = false
+        end
+    end
 
-	--  if time > 38 and next_scene == true
-    -- then
-    --     lua_table.Scene:LoadScene(lua_table.scene_uid)
-	-- 	next_scene = false
-    -- end
    
 end
 
