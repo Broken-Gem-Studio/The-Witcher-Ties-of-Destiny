@@ -330,6 +330,7 @@ end
 	
 local function Seek()
 	
+	AttackColliderShutdown()
 	-- Now we get the direction vector and then we normalize it and aply a velocity in every component
 
 		if lua_table.currentTargetDir < lua_table.AggroRange and lua_table.currentTargetDir > lua_table.minDistance then
