@@ -77,6 +77,7 @@ local particles_library = {
 
 	--Particle Tables
 	run_particles_GO_UID_children = {},
+	blood_particles_GO_UID_children = {},
 	revive_particles_GO_UID_children = {},
 	ultimate_particles_GO_UID_children = {},
 
@@ -1954,6 +1955,10 @@ local function ProcessIncomingHit(collider_GO)
 	lua_table.AudioFunctions:PlayAudioEventGO(audio_library.hurt, geralt_GO_UID)	--TODO-AUDIO:
 	--current_audio = audio_library.hurt
 
+	for i = 1, #particles_library.blood_particles_GO_UID_children do
+		lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.blood_particles_GO_UID_children[i])	--TODO-Particles:
+	end
+
 	if enemy_script.collider_effect ~= attack_effects_ID.none and lua_table.current_state >= state.idle	--IF effect and ready to take one
 	then
 		lua_table.AnimationFunctions:SetBlendTime(0.1, geralt_GO_UID)
@@ -2110,6 +2115,7 @@ function lua_table:Awake()
 	--sword_particles_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt_Sword")
 
 	particles_library.run_particles_GO_UID_children = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindGameObject("Geralt_Run"))
+	particles_library.blood_particles_GO_UID_children = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindGameObject("Geralt_Blood"))
 	particles_library.revive_particles_GO_UID_children = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindGameObject("Geralt_Revive"))
 
 	particles_library.ultimate_particles_GO_UID_children = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindGameObject("Geralt_Ultimate"))
@@ -2123,6 +2129,9 @@ function lua_table:Awake()
 	--Stop Particle Emitters
 	for i = 1, #particles_library.run_particles_GO_UID_children do
 		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.run_particles_GO_UID_children[i])	--TODO-Particles: Deactivate Dust Particles
+	end
+	for i = 1, #particles_library.blood_particles_GO_UID_children do
+		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.blood_particles_GO_UID_children[i])	--TODO-Particles:
 	end
 	for i = 1, #particles_library.revive_particles_GO_UID_children do
 		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.revive_particles_GO_UID_children[i])	--TODO-Particles:

@@ -12,13 +12,13 @@ function GetTableWinLose()
     lua_table.level2_uid = 0
     lua_table.mm_uid = 0
 
-    lua_table.geralt_pos0
-    lua_table.geralt_pos1
-    lua_table.geralt_pos2
+    lua_table.geralt_pos0 = 0
+    lua_table.geralt_pos1 = 0
+    lua_table.geralt_pos2 = 0
         
-    lua_table.jaskier_pos0
-    lua_table.jaskier_pos1
-    lua_table.jaskier_pos2
+    lua_table.jaskier_pos0 = 0
+    lua_table.jaskier_pos1 = 0
+    lua_table.jaskier_pos2 = 0
 
     local pos0 = 0
 
