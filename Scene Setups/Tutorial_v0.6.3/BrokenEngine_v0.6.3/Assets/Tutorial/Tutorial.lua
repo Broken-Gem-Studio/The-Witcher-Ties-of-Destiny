@@ -330,6 +330,9 @@ local function Step6()
         then
             lua_table.SystemFunctions:ResumeGame()
             move = true
+            TABLE_CARTAS.continue_meter1_full = false
+            TABLE_CARTAS.continue_meter2_full = false
+            lua_table.PauseStep6 = false
         end
     
         if lua_table.InputFunctions:IsGamepadButton(lua_table.GeraltNumber, "BUTTON_A", KeyState.DOWN) == true
@@ -465,10 +468,13 @@ local function Step9()
         jaskierStart9 = true
     end
 
-    if geraltStart9 == true and jaskierStart9 == true
+    if TABLE_CARTAS.continue_meter1_full == true and TABLE_CARTAS.continue_meter2_full == true
     then
         lua_table.SystemFunctions:ResumeGame()
         moveStep9 = true
+        TABLE_CARTAS.continue_meter1_full = false
+        TABLE_CARTAS.continue_meter2_full = false
+        lua_table.PauseStep9 = false
     end
 
     if lumberjackDead == false 
@@ -509,10 +515,13 @@ local function Step10()
         jaskierStart10 = true
     end
 
-    if geraltStart10 == true and jaskierStart10 == true
+    if TABLE_CARTAS.continue_meter1_full == true and TABLE_CARTAS.continue_meter2_full == true
     then
         lua_table.SystemFunctions:ResumeGame()
         moveStep10 = true
+        TABLE_CARTAS.continue_meter1_full = false
+        TABLE_CARTAS.continue_meter2_full = false
+        lua_table.PauseStep10 = false
     end
 
     if enemy10dead.enemy10_1_dead == 0 
@@ -616,10 +625,14 @@ local function Step11()
         jaskierStart11 = true
     end
 
-    if geraltStart11 == true and jaskierStart11 == true
+    if TABLE_CARTAS.continue_meter1_full == true and TABLE_CARTAS.continue_meter2_full == true
     then
         lua_table.SystemFunctions:ResumeGame()
         moveStep11 = true
+        TABLE_CARTAS.continue_meter1_full = false
+        TABLE_CARTAS.continue_meter2_full = false
+        lua_table.PauseStep11 = false
+      
     end
 
     if lua_table.InputFunctions:IsGamepadButton(lua_table.GeraltNumber, "BUTTON_X", "DOWN")
@@ -733,10 +746,13 @@ local function Step12()
         jaskierStart12 = true
     end
 
-    if geraltStart12 == true and jaskierStart12 == true
+    if TABLE_CARTAS.continue_meter1_full == true and TABLE_CARTAS.continue_meter2_full == true
     then
         lua_table.SystemFunctions:ResumeGame()
         moveStep12 = true
+        TABLE_CARTAS.continue_meter1_full = false
+        TABLE_CARTAS.continue_meter2_full = false
+        lua_table.PauseStep12 = false
     end
 
     if enemy12_1_dead == false 
@@ -1175,6 +1191,7 @@ function lua_table:Update()
     elseif lua_table.currentStep == Step.STEP_6
     then
         Step6()
+        
 
     elseif lua_table.currentStep == Step.STEP_7
     then

@@ -10,13 +10,15 @@ local managerTable
 local geraltUID
 local jaskierUID
 local MyUUID
+local justonce = false
 
 function lua_table:OnTriggerEnter()
     local colliderGO = lua_table.PhysicsFunctions:OnTriggerEnter(MyUUID)
 
-    if colliderGO == geraltUID or colliderGO == jaskierUID
+    if justonce == false and colliderGO == geraltUID or colliderGO == jaskierUID
     then    
         managerTable.SaveGame13 = true
+        justonce = true
     end
 end
 
