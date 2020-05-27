@@ -491,12 +491,18 @@ function lua_table:Awake()
     Blood3 = lua_table.GameObjectFunctions:FindChildGameObject("Blood3")
     Blood4 = lua_table.GameObjectFunctions:FindChildGameObject("Blood4")
 
+    lua_table.Particles:ActivateParticlesEmission(Blood1)
+    lua_table.Particles:ActivateParticlesEmission(Blood2)
+    lua_table.Particles:ActivateParticlesEmission(Blood3)
+    lua_table.Particles:ActivateParticlesEmission(Blood4)
+
     lua_table.Particles:StopParticleEmitter(Blood1)
     lua_table.Particles:StopParticleEmitter(Blood2)
     lua_table.Particles:StopParticleEmitter(Blood3)
     lua_table.Particles:StopParticleEmitter(Blood4)
 
     Taunt_UID = lua_table.GameObjectFunctions:FindChildGameObject("Aggro")
+    lua_table.Particles:ActivateParticlesEmission(Taunt_UID)
     lua_table.Particles:StopParticleEmitter(Taunt_UID)
 end
 
