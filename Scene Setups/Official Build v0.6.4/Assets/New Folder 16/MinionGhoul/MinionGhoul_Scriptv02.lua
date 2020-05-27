@@ -246,7 +246,7 @@ local function Seek()
 
 		path_distance = math.sqrt(nextCorner[1] ^ 2 + nextCorner[3] ^ 2)
 		
-		if path_distance > 0.2 then 
+		if path_distance > 0.5 then 
 
 			vec[1] = nextCorner[1] / path_distance
 			vec[2] = 0
@@ -610,7 +610,7 @@ function lua_table:Update()
 		Die()
 	end
 
-	-- ResetState values when currentState ~= State.X
+	--ResetState values when currentState ~= State.X
 	if lua_table.currentState ~= State.SEEK then
 		ResetNavigation()
 	end

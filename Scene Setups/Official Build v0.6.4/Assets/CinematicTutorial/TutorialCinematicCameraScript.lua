@@ -124,7 +124,7 @@ function GetTableTutorialCinematicCameraScript()
 
         if time > 10 and time < 12
         then
-            fade_speed = fade_speed + 0.01
+            fade_speed = fade_speed + 0.015
             lua_table.UI:ChangeUIComponentAlpha("Image", fade_speed, FadeScreen)
         end
 
@@ -136,7 +136,7 @@ function GetTableTutorialCinematicCameraScript()
 
         if time > 14 and time < 15
         then
-            fade_speed = fade_speed - 0.01
+            fade_speed = fade_speed - 0.015
             lua_table.UI:ChangeUIComponentAlpha("Image", fade_speed, FadeScreen)
         end
         
@@ -147,7 +147,7 @@ function GetTableTutorialCinematicCameraScript()
 
         if time > 30 and time < 31
         then
-            fade_speed = fade_speed + 0.01
+            fade_speed = fade_speed + 0.015
             lua_table.UI:ChangeUIComponentAlpha("Image", fade_speed, FadeScreen)
         end
 
@@ -164,13 +164,13 @@ function GetTableTutorialCinematicCameraScript()
 
         if time > 34 and time < 35
         then
-            fade_speed = fade_speed - 0.01
+            fade_speed = fade_speed - 0.015
             lua_table.UI:ChangeUIComponentAlpha("Image", fade_speed, FadeScreen)
         end
 
         if time > 44 and time < 45
         then
-            fade_speed = fade_speed + 0.01
+            fade_speed = fade_speed + 0.015
             lua_table.UI:ChangeUIComponentAlpha("Image", fade_speed, FadeScreen)
         end
         

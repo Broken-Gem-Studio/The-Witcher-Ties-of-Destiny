@@ -15,6 +15,13 @@ lua_table.scene_uid = 0
 lua_table.skip_threshold = 0
 local Fade = 0
 
+local minion = 0
+local minion1 = 0
+local minion2 = 0
+local minion3 = 0
+local minion4 = 0
+local minion5 = 0
+
 -- Camera position
 local offset = {}
 local position_z = {}
@@ -123,6 +130,13 @@ function lua_table:Start()
     BarID = lua_table.GameObjectFunctions:FindGameObject("SkipBarForest")
     Fade = lua_table.GameObjectFunctions:FindGameObject("Fade")
 
+    minion = lua_table.GameObjectFunctions:FindGameObject("Minion_Ghoul")
+    minion1 = lua_table.GameObjectFunctions:FindGameObject("Minion_Ghoul1")
+    minion2 = lua_table.GameObjectFunctions:FindGameObject("Minion_Ghoul2")
+    minion3 = lua_table.GameObjectFunctions:FindGameObject("Minion_Ghoul3")
+    minion4 = lua_table.GameObjectFunctions:FindGameObject("Minion_Ghoul4")
+    minion5 = lua_table.GameObjectFunctions:FindGameObject("Minion_Ghoul5")
+
     started_time = lua_table.System:GameTime()
 end
 
@@ -147,9 +161,9 @@ function lua_table:Update()
         end
     end
 
-    if time >= 21 and FadeOut1 == true
+    if time >= 17 and FadeOut1 == true
     then
-        local fade_time = time - 21
+        local fade_time = time - 17
         local value = fade_time / 4
         local alpha = Lerp(0, 1, value)
         lua_table.UI:ChangeUIComponentColor("Image",0,0,0, alpha, Fade)
@@ -160,6 +174,13 @@ function lua_table:Update()
             FadeIn2_Time = time
             lua_table.Transform:SetPosition(889.392, 23.327, -365.724, lua_table.GameObjectFunctions:GetMyUID())
             lua_table.Transform:SetObjectRotation(159.255, 0, 180.000, lua_table.GameObjectFunctions:GetMyUID())
+
+            lua_table.GameObjectFunctions:SetActiveGameObject(false, minion)
+            lua_table.GameObjectFunctions:SetActiveGameObject(false, minion1)
+            lua_table.GameObjectFunctions:SetActiveGameObject(false, minion2)
+            lua_table.GameObjectFunctions:SetActiveGameObject(false, minion3)
+            lua_table.GameObjectFunctions:SetActiveGameObject(false, minion4)
+            lua_table.GameObjectFunctions:SetActiveGameObject(false, minion5)
         end
     end
 
@@ -171,16 +192,16 @@ function lua_table:Update()
 
         GoTo(Pos_Kiki, 0.1)
 
-        if time > 40 then
+        if time > 36 then
 
             FadeIn2 = false
             FadeOut2 = true
         end
     end
 
-    if FadeOut2 == true and time >= 40 + forest_speech_time
+    if FadeOut2 == true and time >= 36 + forest_speech_time
     then
-        local fade_time = time - 40 + forest_speech_time
+        local fade_time = time - 36 + forest_speech_time
         local value = fade_time / 4
         local alpha = Lerp(0, 1, value)
         lua_table.UI:ChangeUIComponentColor("Image",0,0,0, alpha, Fade)
@@ -201,7 +222,7 @@ function lua_table:Update()
         local alpha = Lerp(1, 0, value)
         lua_table.UI:ChangeUIComponentColor("Image",0,0,0, alpha, Fade)
 
-        if time > 55 then
+        if time > 51 then
             MoveToJaskier_Time = time
             MoveToJaskier = true
             FadeIn3 = false

@@ -9,6 +9,7 @@ lua_table.speed = 30.0
 local Geralt_UID = 0
 local started_time = 0
 local play_animation = true
+
 lua_table.current_state = 0
 lua_table.collider_damage = 0
 lua_table.collider_effect = 0
@@ -26,7 +27,9 @@ end
 function lua_table:Update()
     time = lua_table.System:GameTime() - started_time
 
-    if time >= 46 and play_animation == true 
+    lua_table.current_state = 0
+
+    if time >= 42 and play_animation == true 
     then
         lua_table.AnimationFunctions:PlayAnimation("Cutscene", lua_table.speed, Geralt_UID)
         play_animation = false
