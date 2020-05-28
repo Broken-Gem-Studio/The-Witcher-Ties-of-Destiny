@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="11" SoundbankVersion="134">
 	<RootPaths>
-		<ProjectRoot>E:\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\</ProjectRoot>
-		<SourceFilesRoot>E:\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>E:\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseSoundBanks\</SoundBanksRoot>
+		<ProjectRoot>F:\github\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\</ProjectRoot>
+		<SourceFilesRoot>F:\github\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>C:\Users\Jacobo_G\Desktop\Soundbanks\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>E:\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>F:\github\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<SoundBanks>
 		<SoundBank Id="47710518" Language="SFX">
@@ -25,8 +25,23 @@
 				<Event Id="3955362993" Name="Play_Geralt_Ultimate" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_Ultimate"/>
 				<Event Id="4167477001" Name="Play_Geralt_walk_run_concrete" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_walk_run_concrete"/>
 				<Event Id="2190072003" Name="Play_Geralt_walk_run_dirt" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_walk_run_dirt"/>
+				<Event Id="3747619760" Name="Play_Gerlat_combo_1" ObjectPath="\Events\Default Work Unit\Geralt\Play_Gerlat_combo_1"/>
+				<Event Id="3747619763" Name="Play_Gerlat_combo_2" ObjectPath="\Events\Default Work Unit\Geralt\Play_Gerlat_combo_2"/>
+				<Event Id="3747619762" Name="Play_Gerlat_combo_3" ObjectPath="\Events\Default Work Unit\Geralt\Play_Gerlat_combo_3"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
+				<File Id="20663703" Language="SFX">
+					<ShortName>Geralt_Walk_run_dirt_1.wav</ShortName>
+					<Path>SFX\Geralt_Walk_run_dirt_1_10C4C929.wem</Path>
+				</File>
+				<File Id="31365157" Language="SFX">
+					<ShortName>Potion_fx.wav</ShortName>
+					<Path>SFX\Potion_fx_10C4C929.wem</Path>
+				</File>
+				<File Id="32092246" Language="SFX">
+					<ShortName>Geralt_aard_2.wav</ShortName>
+					<Path>SFX\Geralt_aard_2_10C4C929.wem</Path>
+				</File>
 				<File Id="73997410" Language="SFX">
 					<ShortName>Geralt_sword_metal_1.wav</ShortName>
 					<Path>SFX\Geralt_sword_metal_1_10C4C929.wem</Path>
@@ -39,17 +54,9 @@
 					<ShortName>Geralt_sword_swing_2.wav</ShortName>
 					<Path>SFX\Geralt_sword_swing_2_10C4C929.wem</Path>
 				</File>
-				<File Id="128637521" Language="SFX">
-					<ShortName>Geralt_aard_2.wav</ShortName>
-					<Path>SFX\Geralt_aard_2_10C4C929.wem</Path>
-				</File>
-				<File Id="133725744" Language="SFX">
-					<ShortName>Geralt_walk_run_dirt_1.wav</ShortName>
-					<Path>SFX\Geralt_walk_run_dirt_1_10C4C929.wem</Path>
-				</File>
-				<File Id="151722805" Language="SFX">
-					<ShortName>Geralt_aard_3.wav</ShortName>
-					<Path>SFX\Geralt_aard_3_10C4C929.wem</Path>
+				<File Id="122688136" Language="SFX">
+					<ShortName>Geralt_Ultimate_Updated.wav</ShortName>
+					<Path>SFX\Geralt_Ultimate_Updated_10C4C929.wem</Path>
 				</File>
 				<File Id="171157079" Language="SFX">
 					<ShortName>Geralt_sword_swing_3.wav</ShortName>
@@ -67,19 +74,27 @@
 					<ShortName>Geralt_hit_sound_1.wav</ShortName>
 					<Path>SFX\Geralt_hit_sound_1_10C4C929.wem</Path>
 				</File>
+				<File Id="190373715" Language="SFX">
+					<ShortName>Geralt_Walk_run_dirt_5.wav</ShortName>
+					<Path>SFX\Geralt_Walk_run_dirt_5_10C4C929.wem</Path>
+				</File>
 				<File Id="219678610" Language="SFX">
 					<ShortName>Geralt_sword_swing_6.wav</ShortName>
 					<Path>SFX\Geralt_sword_swing_6_10C4C929.wem</Path>
-				</File>
-				<File Id="251122567" Language="SFX">
-					<ShortName>GeraltUltimate sound.wav</ShortName>
-					<Path>SFX\GeraltUltimate sound_10C4C929.wem</Path>
 				</File>
 				<File Id="299164818" Language="SFX">
 					<ShortName>Geralt_walk_run_concrete_3.wav</ShortName>
 					<Path>SFX\Geralt_walk_run_concrete_3_10C4C929.wem</Path>
 				</File>
-				<File Id="359010293" Language="SFX">
+				<File Id="420091269" Language="SFX">
+					<ShortName>Geralt_aard_1.wav</ShortName>
+					<Path>SFX\Geralt_aard_1_10C4C929.wem</Path>
+				</File>
+				<File Id="436779642" Language="SFX">
+					<ShortName>Geralt_aard_6.wav</ShortName>
+					<Path>SFX\Geralt_aard_6_10C4C929.wem</Path>
+				</File>
+				<File Id="437480955" Language="SFX">
 					<ShortName>Geralt_aard_5.wav</ShortName>
 					<Path>SFX\Geralt_aard_5_10C4C929.wem</Path>
 				</File>
@@ -87,33 +102,29 @@
 					<ShortName>Geralt_naked_roll.wav</ShortName>
 					<Path>SFX\Geralt_naked_roll_10C4C929.wem</Path>
 				</File>
-				<File Id="555205089" Language="SFX">
+				<File Id="521054026" Language="SFX">
+					<ShortName>Geralt_Walk_run_dirt_4.wav</ShortName>
+					<Path>SFX\Geralt_Walk_run_dirt_4_10C4C929.wem</Path>
+				</File>
+				<File Id="552227738" Language="SFX">
 					<ShortName>Geralt_aard_4.wav</ShortName>
 					<Path>SFX\Geralt_aard_4_10C4C929.wem</Path>
-				</File>
-				<File Id="572502002" Language="SFX">
-					<ShortName>Geralt_aard_1.wav</ShortName>
-					<Path>SFX\Geralt_aard_1_10C4C929.wem</Path>
 				</File>
 				<File Id="610791877" Language="SFX">
 					<ShortName>Geralt_hit_sound_2.wav</ShortName>
 					<Path>SFX\Geralt_hit_sound_2_10C4C929.wem</Path>
 				</File>
-				<File Id="682688629" Language="SFX">
-					<ShortName>Geralt_walk_run_dirt_3.wav</ShortName>
-					<Path>SFX\Geralt_walk_run_dirt_3_10C4C929.wem</Path>
-				</File>
-				<File Id="707240897" Language="SFX">
-					<ShortName>Geralt_walk_run_dirt_2.wav</ShortName>
-					<Path>SFX\Geralt_walk_run_dirt_2_10C4C929.wem</Path>
-				</File>
-				<File Id="711324990" Language="SFX">
-					<ShortName>Geralt_potion_life_fx_2.wav</ShortName>
-					<Path>SFX\Geralt_potion_life_fx_2_10C4C929.wem</Path>
+				<File Id="697976836" Language="SFX">
+					<ShortName>Geralt_combo_sound.wav</ShortName>
+					<Path>SFX\Geralt_combo_sound_10C4C929.wem</Path>
 				</File>
 				<File Id="721273645" Language="SFX">
 					<ShortName>Geralt_sword_swing_1.wav</ShortName>
 					<Path>SFX\Geralt_sword_swing_1_10C4C929.wem</Path>
+				</File>
+				<File Id="734420758" Language="SFX">
+					<ShortName>Geralt_Walk_run_dirt_2.wav</ShortName>
+					<Path>SFX\Geralt_Walk_run_dirt_2_10C4C929.wem</Path>
 				</File>
 				<File Id="778762832" Language="SFX">
 					<ShortName>Geralt_light_roll.wav</ShortName>
@@ -135,9 +146,9 @@
 					<ShortName>Geralt_sword_swing_7.wav</ShortName>
 					<Path>SFX\Geralt_sword_swing_7_10C4C929.wem</Path>
 				</File>
-				<File Id="851998395" Language="SFX">
-					<ShortName>Geralt_aard_6.wav</ShortName>
-					<Path>SFX\Geralt_aard_6_10C4C929.wem</Path>
+				<File Id="844289040" Language="SFX">
+					<ShortName>Geralt_aard_3.wav</ShortName>
+					<Path>SFX\Geralt_aard_3_10C4C929.wem</Path>
 				</File>
 				<File Id="887117839" Language="SFX">
 					<ShortName>Geralt_walk_run_concrete_2.wav</ShortName>
@@ -146,10 +157,6 @@
 				<File Id="912795110" Language="SFX">
 					<ShortName>Geralt_sword_swing_4.wav</ShortName>
 					<Path>SFX\Geralt_sword_swing_4_10C4C929.wem</Path>
-				</File>
-				<File Id="928024526" Language="SFX">
-					<ShortName>Geralt_walk_run_dirt_4.wav</ShortName>
-					<Path>SFX\Geralt_walk_run_dirt_4_10C4C929.wem</Path>
 				</File>
 				<File Id="937650596" Language="SFX">
 					<ShortName>Geralt_sword_metal_2.wav</ShortName>
@@ -162,10 +169,6 @@
 				<File Id="989150009" Language="SFX">
 					<ShortName>Geralt_revive.wav</ShortName>
 					<Path>SFX\Geralt_revive_10C4C929.wem</Path>
-				</File>
-				<File Id="1061166551" Language="SFX">
-					<ShortName>Geralt_walk_run_dirt_5.wav</ShortName>
-					<Path>SFX\Geralt_walk_run_dirt_5_10C4C929.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>

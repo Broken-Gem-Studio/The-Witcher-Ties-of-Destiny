@@ -80,6 +80,7 @@ local particles_library = {
 	--Particle Tables
 	run_particles_GO_UID_children = {},
 	blood_particles_GO_UID_children = {},
+	stun_particles_GO_UID_children = {},
 	revive_particles_GO_UID_children = {},
 
 	potion_health_particles_GO_UID_children = {},
@@ -1029,7 +1030,7 @@ end
 
 --Character Particles BEGIN	----------------------------------------------------------------------------
 
-local function ParticlesShutdown()
+local function ParticlesShutdown(full)
 	lua_table.AnimationFunctions:PlayAnimation(animation_library.evade, lua_table.evade_animation_speed, particles_library.slash_GO_UID)
 	lua_table.GameObjectFunctions:SetActiveGameObject(false, particles_library.slash_mesh_GO_UID)
 
@@ -1045,6 +1046,12 @@ local function ParticlesShutdown()
 	end
 	for i = 1, #particles_library.concert_GO_UID_children do
 		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.concert_GO_UID_children[i])	--TODO-Particles:
+	end
+
+	if full then
+		for i = 1, #particles_library.stun_particles_GO_UID_children do
+			lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.stun_particles_GO_UID_children[i])	--TODO-Particles:
+		end
 	end
 end
 
@@ -2129,24 +2136,26 @@ local function ProcessIncomingHit(collider_GO)
 		lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.blood_particles_GO_UID_children[i])	--TODO-Particles:
 	end
 
-	if enemy_script.collider_effect ~= attack_effects_ID.none and lua_table.current_state >= state.idle	--IF effect and ready to take one
+	if lua_table.current_health > 0 and enemy_script.collider_effect ~= attack_effects_ID.none and lua_table.current_state >= state.idle	--IF survived, and effect, and ready to take one
 	then
 		lua_table.AnimationFunctions:SetBlendTime(0.1, jaskier_GO_UID)
 
 		AttackColliderShutdown()
-		ParticlesShutdown()
+		ParticlesShutdown(false)
 		AudioShutdown()
+		ReviveShutdown()
 
 		if enemy_script.collider_effect == attack_effects_ID.stun
 		then
 			lua_table.AnimationFunctions:PlayAnimation(animation_library.stun, 45.0, jaskier_GO_UID)
 			current_animation = animation_library.stun
 
-			if lua_table.current_health > 0
-			then
-				lua_table.AudioFunctions:PlayAudioEventGO(audio_library.stun, jaskier_GO_UID)
-				current_audio = audio_library.stun
-			end	--TODO-Audio:
+			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.stun, jaskier_GO_UID)	--TODO-AUDIO:
+			current_audio = audio_library.stun
+
+			for i = 1, #particles_library.stun_particles_GO_UID_children do
+				lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.stun_particles_GO_UID_children[i])	--TODO-Particles:
+			end
 
 			lua_table.previous_state = lua_table.current_state
 			lua_table.current_state = state.stunned
@@ -2156,7 +2165,7 @@ local function ProcessIncomingHit(collider_GO)
 			local jaskier_pos = lua_table.TransformFunctions:GetPosition(jaskier_GO_UID)	--Look at and set direction from knockback
 			local knockback_pos = lua_table.TransformFunctions:GetPosition(collider_GO)
 			lua_table.TransformFunctions:LookAt(knockback_pos[1], jaskier_pos[2], knockback_pos[3], jaskier_GO_UID)
-
+			
 			rec_direction.x = jaskier_pos[1] - knockback_pos[1]
 			rec_direction.z = jaskier_pos[3] - knockback_pos[3]
 			local magnitude = math.sqrt(rec_direction.x ^ 2 + rec_direction.z ^ 2)
@@ -2168,11 +2177,8 @@ local function ProcessIncomingHit(collider_GO)
 			lua_table.AnimationFunctions:PlayAnimation(animation_library.knockback, 60.0, jaskier_GO_UID)
 			current_animation = animation_library.knockback
 
-			if lua_table.current_health > 0
-			then
-				lua_table.AudioFunctions:PlayAudioEventGO(audio_library.knockback, jaskier_GO_UID) 
-				current_audio = audio_library.knockback
-			end	--TODO-Audio:
+			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.knockback, jaskier_GO_UID)	--TODO-AUDIO:
+			current_audio = audio_library.knockback
 
 			lua_table.previous_state = lua_table.current_state
 			lua_table.current_state = state.knocked
@@ -2279,7 +2285,8 @@ function lua_table:Awake()
 
 	particles_library.run_particles_GO_UID_children = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindGameObject("Jaskier_Run"))
 	particles_library.blood_particles_GO_UID_children = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindGameObject("Jaskier_Blood"))
-	particles_library.revive_particles_GO_UID_children = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindGameObject("Jaskier_Revive"))
+	particles_library.stun_particles_GO_UID_children = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindGameObject("Jaskier_Stun"))
+	particles_library.revive_particles_GO_UID_children = lua_table.GameObjectFunctions:GetGOChilds(jaskier_revive_GO_UID)
 
 	particles_library.potion_health_particles_GO_UID_children = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindGameObject("Jaskier_Health_Potion"))
 	particles_library.potion_stamina_particles_GO_UID_children = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindGameObject("Jaskier_Stamina_Potion"))
@@ -2317,6 +2324,9 @@ function lua_table:Start()
 	end
 	for i = 1, #particles_library.blood_particles_GO_UID_children do
 		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.blood_particles_GO_UID_children[i])	--TODO-Particles:
+	end
+	for i = 1, #particles_library.stun_particles_GO_UID_children do
+		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.stun_particles_GO_UID_children[i])	--TODO-Particles:
 	end
 	for i = 1, #particles_library.revive_particles_GO_UID_children do
 		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.revive_particles_GO_UID_children[i])	--TODO-Particles:
@@ -2397,7 +2407,7 @@ function lua_table:Update()
 		if lua_table.current_health <= 0	--IF has to die
 		then
 			AttackColliderShutdown()
-			ParticlesShutdown()
+			ParticlesShutdown(true)
 			AudioShutdown()
 			ReviveShutdown()
 
@@ -2412,6 +2422,8 @@ function lua_table:Update()
 			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.death, jaskier_GO_UID)
 			current_audio = audio_library.death
 
+			lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.medium.intensity, controller_shake.medium.duration)
+
 			lua_table.previous_state = lua_table.current_state
 			lua_table.current_state = state.down
 
@@ -2423,7 +2435,7 @@ function lua_table:Update()
 				lua_table.AudioFunctions:StopAudioEventGO(audio_library.concert, jaskier_GO_UID)
 				current_audio = audio_library.none
 				ultimate_effect_active = false
-			end 
+			end
 		else								--IF still lives
 			--Health Regeneration
 			if health_reg_real > 0	--IF health regen online
@@ -2762,6 +2774,10 @@ function lua_table:Update()
 				else	--IF action ongoing
 					if lua_table.current_state == state.stunned and time_since_action > current_action_duration	--IF currently stunned and time passed
 					then
+						for i = 1, #particles_library.stun_particles_GO_UID_children do
+							lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.stun_particles_GO_UID_children[i])	--TODO-Particles:
+						end
+
 						GoDefaultState(true)
 		
 					elseif lua_table.current_state == state.knocked and not lua_table.standing_up_bool and DirectionInBounds(false)	--IF currently knocked

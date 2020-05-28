@@ -5,11 +5,11 @@
   "SchemaVersion": "11",
   "SoundbankVersion": "134",
   "RootPaths": {
-   "ProjectRoot": "E:\\GitHub\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\",
-   "SourceFilesRoot": "E:\\GitHub\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\.cache\\Windows\\",
-   "SoundBanksRoot": "E:\\GitHub\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseSoundBanks\\",
+   "ProjectRoot": "F:\\github\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\",
+   "SourceFilesRoot": "F:\\github\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\.cache\\Windows\\",
+   "SoundBanksRoot": "C:\\Users\\Jacobo_G\\Desktop\\Soundbanks\\",
    "ExternalSourcesInputFile": "",
-   "ExternalSourcesOutputRoot": "E:\\GitHub\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\GeneratedSoundBanks\\Windows"
+   "ExternalSourcesOutputRoot": "F:\\github\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\GeneratedSoundBanks\\Windows"
   },
   "SoundBanks": [
    {
@@ -45,6 +45,11 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_jump"
      },
      {
+      "Id": "1967797464",
+      "Name": "Play_Jaskier_moonwalk",
+      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_moonwalk"
+     },
+     {
       "Id": "2721777174",
       "Name": "Play_Jaskier_potion_fx",
       "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_potion_fx"
@@ -53,6 +58,21 @@
       "Id": "4116481551",
       "Name": "Play_Jaskier_revive",
       "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_revive"
+     },
+     {
+      "Id": "2858442791",
+      "Name": "Play_Jaskier_song_1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_song_1"
+     },
+     {
+      "Id": "2858442788",
+      "Name": "Play_Jaskier_song_2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_song_2"
+     },
+     {
+      "Id": "2858442789",
+      "Name": "Play_Jaskier_song_3",
+      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_song_3"
      },
      {
       "Id": "793067793",
@@ -78,10 +98,10 @@
       "Path": "SFX\\Jaskier_guitar_swing_7_10C4C929.wem"
      },
      {
-      "Id": "93263325",
+      "Id": "31365157",
       "Language": "SFX",
-      "ShortName": "Jaskier_acoustic_gitar_smash.wav",
-      "Path": "SFX\\Jaskier_acoustic_gitar_smash_10C4C929.wem"
+      "ShortName": "Potion_fx.wav",
+      "Path": "SFX\\Potion_fx_10C4C929.wem"
      },
      {
       "Id": "99508910",
@@ -108,16 +128,16 @@
       "Path": "SFX\\Jaskier_guitar_swing_8_10C4C929.wem"
      },
      {
-      "Id": "288422242",
-      "Language": "SFX",
-      "ShortName": "Jaskier_potion_life_fx_2.wav",
-      "Path": "SFX\\Jaskier_potion_life_fx_2_10C4C929.wem"
-     },
-     {
       "Id": "417883437",
       "Language": "SFX",
       "ShortName": "Jaskier_walk_run_concrete_4.wav",
       "Path": "SFX\\Jaskier_walk_run_concrete_4_10C4C929.wem"
+     },
+     {
+      "Id": "420840914",
+      "Language": "SFX",
+      "ShortName": "jaskier song 1.wav",
+      "Path": "SFX\\jaskier song 1_10C4C929.wem"
      },
      {
       "Id": "437857490",
@@ -130,18 +150,6 @@
       "Language": "SFX",
       "ShortName": "Jaskier_guitar_swing_6.wav",
       "Path": "SFX\\Jaskier_guitar_swing_6_10C4C929.wem"
-     },
-     {
-      "Id": "520180337",
-      "Language": "SFX",
-      "ShortName": "Jaskier_Ultimate.wav",
-      "Path": "SFX\\Jaskier_Ultimate_10C4C929.wem"
-     },
-     {
-      "Id": "554817720",
-      "Language": "SFX",
-      "ShortName": "Jaskier_walk_run_dirt_3.wav",
-      "Path": "SFX\\Jaskier_walk_run_dirt_3_10C4C929.wem"
      },
      {
       "Id": "586003345",
@@ -160,6 +168,12 @@
       "Language": "SFX",
       "ShortName": "Jaskier_walk_run_concrete_2.wav",
       "Path": "SFX\\Jaskier_walk_run_concrete_2_10C4C929.wem"
+     },
+     {
+      "Id": "696598848",
+      "Language": "SFX",
+      "ShortName": "jaskier song 2-3.wav",
+      "Path": "SFX\\jaskier song 2-3_10C4C929.wem"
      },
      {
       "Id": "768107901",
@@ -198,6 +212,18 @@
       "Path": "SFX\\Jaskier_hit_sound_1_10C4C929.wem"
      },
      {
+      "Id": "853122775",
+      "Language": "SFX",
+      "ShortName": "Jaskier_moonwalk.wav",
+      "Path": "SFX\\Jaskier_moonwalk_10C4C929.wem"
+     },
+     {
+      "Id": "858627309",
+      "Language": "SFX",
+      "ShortName": "Jaskier_Ultimate.wav",
+      "Path": "SFX\\Jaskier_Ultimate_10C4C929.wem"
+     },
+     {
       "Id": "871442106",
       "Language": "SFX",
       "ShortName": "Jaskier_guitar_swing_3.wav",
@@ -214,6 +240,12 @@
       "Language": "SFX",
       "ShortName": "Jaskier_walk_run_dirt_4.wav",
       "Path": "SFX\\Jaskier_walk_run_dirt_4_10C4C929.wem"
+     },
+     {
+      "Id": "950570503",
+      "Language": "SFX",
+      "ShortName": "Jaskier_guitar_smash.wav",
+      "Path": "SFX\\Jaskier_guitar_smash_10C4C929.wem"
      },
      {
       "Id": "995710726",
