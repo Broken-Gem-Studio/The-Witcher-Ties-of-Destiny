@@ -78,6 +78,7 @@ local particles_library = {
 	--Particle Tables
 	run_particles_GO_UID_children = {},
 	blood_particles_GO_UID_children = {},
+	stun_particles_GO_UID_children = {},
 	revive_particles_GO_UID_children = {},
 
 	potion_health_particles_GO_UID_children = {},
@@ -1033,6 +1034,10 @@ local function ParticlesShutdown(full)	--Full marks wether the particle shutdown
 	--lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.aard_hand_particles_GO_UID)
 
 	if full then
+		for i = 1, #particles_library.stun_particles_GO_UID_children do
+			lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.stun_particles_GO_UID_children[i])	--TODO-Particles:
+		end
+
 		for i = 1, #particles_library.ultimate_particles_GO_UID_children do
 			lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.ultimate_particles_GO_UID_children[i])	--TODO-Particles:
 		end
@@ -1969,7 +1974,7 @@ local function ProcessIncomingHit(collider_GO)
 		lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.blood_particles_GO_UID_children[i])	--TODO-Particles:
 	end
 
-	if enemy_script.collider_effect ~= attack_effects_ID.none and lua_table.current_state >= state.idle	--IF effect and ready to take one
+	if lua_table.current_health > 0 and enemy_script.collider_effect ~= attack_effects_ID.none and lua_table.current_state >= state.idle	--IF survived, and effect, and ready to take one
 	then
 		lua_table.AnimationFunctions:SetBlendTime(0.1, geralt_GO_UID)
 
@@ -1983,11 +1988,12 @@ local function ProcessIncomingHit(collider_GO)
 			lua_table.AnimationFunctions:PlayAnimation(animation_library.stun, 45.0, geralt_GO_UID)
 			current_animation = animation_library.stun
 
-			if lua_table.current_health > 0
-			then
-				lua_table.AudioFunctions:PlayAudioEventGO(audio_library.stun, geralt_GO_UID)	--TODO-AUDIO:
-				current_audio = audio_library.stun
-			end	--TODO-Audio:
+			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.stun, geralt_GO_UID)	--TODO-AUDIO:
+			current_audio = audio_library.stun
+
+			for i = 1, #particles_library.stun_particles_GO_UID_children do
+				lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.stun_particles_GO_UID_children[i])	--TODO-Particles:
+			end
 
 			lua_table.previous_state = lua_table.current_state
 			lua_table.current_state = state.stunned
@@ -2009,11 +2015,8 @@ local function ProcessIncomingHit(collider_GO)
 			lua_table.AnimationFunctions:PlayAnimation(animation_library.knockback, 60.0, geralt_GO_UID)
 			current_animation = animation_library.knockback
 
-			if lua_table.current_health > 0
-			then
-				lua_table.AudioFunctions:PlayAudioEventGO(audio_library.knockback, geralt_GO_UID)	--TODO-AUDIO:
-				current_audio = audio_library.knockback
-			end	--TODO-Audio:
+			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.knockback, geralt_GO_UID)	--TODO-AUDIO:
+			current_audio = audio_library.knockback
 
 			lua_table.previous_state = lua_table.current_state
 			lua_table.current_state = state.knocked
@@ -2126,7 +2129,8 @@ function lua_table:Awake()
 
 	particles_library.run_particles_GO_UID_children = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindGameObject("Geralt_Run"))
 	particles_library.blood_particles_GO_UID_children = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindGameObject("Geralt_Blood"))
-	particles_library.revive_particles_GO_UID_children = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindGameObject("Geralt_Revive"))
+	particles_library.stun_particles_GO_UID_children = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindGameObject("Geralt_Stun"))
+	particles_library.revive_particles_GO_UID_children = lua_table.GameObjectFunctions:GetGOChilds(geralt_revive_GO_UID)
 
 	particles_library.potion_health_particles_GO_UID_children = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindGameObject("Geralt_Health_Potion"))
 	particles_library.potion_stamina_particles_GO_UID_children = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindGameObject("Geralt_Stamina_Potion"))
@@ -2166,6 +2170,9 @@ function lua_table:Start()
 	end
 	for i = 1, #particles_library.blood_particles_GO_UID_children do
 		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.blood_particles_GO_UID_children[i])	--TODO-Particles:
+	end
+	for i = 1, #particles_library.stun_particles_GO_UID_children do
+		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.stun_particles_GO_UID_children[i])	--TODO-Particles:
 	end
 	for i = 1, #particles_library.revive_particles_GO_UID_children do
 		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.revive_particles_GO_UID_children[i])	--TODO-Particles:
@@ -2261,6 +2268,8 @@ function lua_table:Update()
 			
 			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.death, geralt_GO_UID)	--TODO-AUDIO:
 			current_audio = audio_library.death
+
+			lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.medium.intensity, controller_shake.medium.duration)
 
 			lua_table.previous_state = lua_table.current_state
 			lua_table.current_state = state.down
@@ -2595,6 +2604,10 @@ function lua_table:Update()
 				else	--IF action ongoing
 					if lua_table.current_state == state.stunned and time_since_action > current_action_duration	--IF currently stunned and time passed
 					then
+						for i = 1, #particles_library.stun_particles_GO_UID_children do
+							lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.stun_particles_GO_UID_children[i])	--TODO-Particles:
+						end
+
 						GoDefaultState(true)
 		
 					elseif lua_table.current_state == state.knocked and not lua_table.standing_up_bool and DirectionInBounds(false)	--IF currently knocked
