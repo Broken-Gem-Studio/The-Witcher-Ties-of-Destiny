@@ -365,8 +365,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.540000",
-                "scaley": "2.540718",
-                "scalez": "2.540718"
+                "scaley": "2.540720",
+                "scalez": "2.540720"
             },
             "1": {
                 "Active": true,
@@ -450,8 +450,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000581",
-                "scalez": "1.000581"
+                "scaley": "1.000582",
+                "scalez": "1.000582"
             }
         },
         "Index": 0,
@@ -806,8 +806,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000581",
-                "scalez": "1.000581"
+                "scaley": "1.000582",
+                "scalez": "1.000582"
             }
         },
         "Index": 0,
@@ -1089,7 +1089,7 @@
                     "ResourceScript": "Assets/Characters/Jaskier/JaskierScript_v14.lua"
                 },
                 "Script variables": {
-                    "Count": 226,
+                    "Count": 221,
                     "Variable 0": {
                         "DisplayObjectName": false,
                         "Name": "ability_cooldown",
@@ -1904,56 +1904,56 @@
                     },
                     "Variable 202": {
                         "DisplayObjectName": false,
-                        "Name": "song_4_animation_speed",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 30.0
-                    },
-                    "Variable 203": {
-                        "DisplayObjectName": false,
-                        "Name": "song_4_damage",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 2.5
-                    },
-                    "Variable 204": {
-                        "DisplayObjectName": false,
-                        "Name": "song_4_duration",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 1400.0
-                    },
-                    "Variable 205": {
-                        "DisplayObjectName": false,
-                        "Name": "song_4_effect_start",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 206": {
-                        "DisplayObjectName": false,
-                        "Name": "song_4_size",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 4.0
-                    },
-                    "Variable 207": {
-                        "DisplayObjectName": false,
                         "Name": "stand_up_animation_speed",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 90.0
                     },
-                    "Variable 208": {
+                    "Variable 203": {
                         "DisplayObjectName": false,
                         "Name": "standing_up_bool",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": false
                     },
-                    "Variable 209": {
+                    "Variable 204": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_active",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 205": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 30.0
+                    },
+                    "Variable 206": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_concert_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 3000.0
+                    },
+                    "Variable 207": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_damage",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 5.0
+                    },
+                    "Variable 208": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 4700.0
+                    },
+                    "Variable 209": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_effect_active",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": false
@@ -1967,73 +1967,73 @@
                     },
                     "Variable 210": {
                         "DisplayObjectName": false,
-                        "Name": "ultimate_animation_speed",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 30.0
-                    },
-                    "Variable 211": {
-                        "DisplayObjectName": false,
-                        "Name": "ultimate_concert_end",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 3000.0
-                    },
-                    "Variable 212": {
-                        "DisplayObjectName": false,
-                        "Name": "ultimate_damage",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 5.0
-                    },
-                    "Variable 213": {
-                        "DisplayObjectName": false,
-                        "Name": "ultimate_duration",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 4700.0
-                    },
-                    "Variable 214": {
-                        "DisplayObjectName": false,
-                        "Name": "ultimate_effect_active",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    },
-                    "Variable 215": {
-                        "DisplayObjectName": false,
                         "Name": "ultimate_finish_start",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 3850.0
                     },
-                    "Variable 216": {
+                    "Variable 211": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_range",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 15.0
                     },
-                    "Variable 217": {
+                    "Variable 212": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_reg_mod",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 1.0
                     },
-                    "Variable 218": {
+                    "Variable 213": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_reg_orig",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 1.5
                     },
-                    "Variable 219": {
+                    "Variable 214": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_secondary_animation_speed",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 50.0
+                    },
+                    "Variable 215": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_secondary_damage",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2.5
+                    },
+                    "Variable 216": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_secondary_effect_active",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 217": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_secondary_effect_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 3850.0
+                    },
+                    "Variable 218": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_secondary_status_effect",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2.0
+                    },
+                    "Variable 219": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_status_effect",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
                     },
                     "Variable 22": {
                         "DisplayObjectName": false,
@@ -2043,41 +2043,6 @@
                         "Value": 1.0
                     },
                     "Variable 220": {
-                        "DisplayObjectName": false,
-                        "Name": "ultimate_secondary_damage",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 2.5
-                    },
-                    "Variable 221": {
-                        "DisplayObjectName": false,
-                        "Name": "ultimate_secondary_effect_active",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    },
-                    "Variable 222": {
-                        "DisplayObjectName": false,
-                        "Name": "ultimate_secondary_effect_start",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 3850.0
-                    },
-                    "Variable 223": {
-                        "DisplayObjectName": false,
-                        "Name": "ultimate_secondary_status_effect",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 2.0
-                    },
-                    "Variable 224": {
-                        "DisplayObjectName": false,
-                        "Name": "ultimate_status_effect",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 225": {
                         "DisplayObjectName": false,
                         "Name": "walk_animation_speed",
                         "ObjectName": "",
@@ -2673,7 +2638,7 @@
                         "Value": 300.0
                     }
                 },
-                "UID": 398259958,
+                "UID": 626119160,
                 "index": 4
             },
             "14": {
@@ -3133,8 +3098,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.540000",
-                "scaley": "2.540717",
-                "scalez": "2.540717"
+                "scaley": "2.540718",
+                "scalez": "2.540718"
             },
             "1": {
                 "Active": true,
@@ -3217,9 +3182,9 @@
                 "rotationx": "-0.550319",
                 "rotationy": "-0.440850",
                 "rotationz": "0.555183",
-                "scalex": "1.000581",
-                "scaley": "1.000581",
-                "scalez": "1.000581"
+                "scalex": "1.000582",
+                "scaley": "1.000582",
+                "scalez": "1.000582"
             },
             "13": {
                 "Active": true,
@@ -3367,7 +3332,7 @@
                 "positionx": "0.000000",
                 "positiony": "34.904800",
                 "positionz": "0.000000",
-                "rotationw": "0.882768",
+                "rotationw": "0.882767",
                 "rotationx": "0.468685",
                 "rotationy": "-0.003518",
                 "rotationz": "0.032303",
@@ -3512,7 +3477,7 @@
                 "positionx": "-1.165900",
                 "positiony": "9.181004",
                 "positionz": "-0.111496",
-                "rotationw": "0.997934",
+                "rotationw": "0.997933",
                 "rotationx": "-0.006888",
                 "rotationy": "0.011560",
                 "rotationz": "-0.062831",
@@ -5060,7 +5025,7 @@
                         "Value": 2000.0
                     }
                 },
-                "UID": 898962406,
+                "UID": 1694559619,
                 "index": 4
             },
             "14": {
@@ -5118,8 +5083,8 @@
                 "rotationx": "0.000598",
                 "rotationy": "0.002538",
                 "rotationz": "0.999918",
-                "scalex": "0.999419",
-                "scaley": "0.999419",
+                "scalex": "0.999418",
+                "scaley": "0.999418",
                 "scalez": "1.000000"
             },
             "13": {
@@ -5281,8 +5246,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000581",
-                "scalez": "1.000581"
+                "scaley": "1.000582",
+                "scalez": "1.000582"
             }
         },
         "Index": 0,
@@ -5478,8 +5443,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000581",
-                "scalez": "1.000581"
+                "scaley": "1.000582",
+                "scalez": "1.000582"
             }
         },
         "Index": 0,
@@ -6004,8 +5969,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000581",
-                "scalez": "1.000581"
+                "scaley": "1.000582",
+                "scalez": "1.000582"
             }
         },
         "Index": 0,
@@ -6158,8 +6123,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000581",
-                "scalez": "1.000581"
+                "scaley": "1.000582",
+                "scalez": "1.000582"
             }
         },
         "Index": 0,
@@ -6184,8 +6149,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000581",
-                "scalez": "1.000581"
+                "scaley": "1.000582",
+                "scalez": "1.000582"
             }
         },
         "Index": 0,
@@ -7174,8 +7139,8 @@
                 "rotationx": "0.388476",
                 "rotationy": "0.030072",
                 "rotationz": "0.916844",
-                "scalex": "1.001158",
-                "scaley": "1.001158",
+                "scalex": "1.001160",
+                "scaley": "1.001160",
                 "scalez": "1.000000"
             },
             "13": {
@@ -7544,8 +7509,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000581",
-                "scalez": "1.000581"
+                "scaley": "1.000582",
+                "scalez": "1.000582"
             }
         },
         "Index": 0,
@@ -7776,8 +7741,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.070461",
-                "scaley": "15.158751",
-                "scalez": "1.368231"
+                "scaley": "15.158759",
+                "scalez": "1.368232"
             },
             "1": {
                 "Active": true,
@@ -8054,8 +8019,8 @@
                 "rotationy": "-0.000000",
                 "rotationz": "-0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000581",
-                "scalez": "1.000581"
+                "scaley": "1.000582",
+                "scalez": "1.000582"
             }
         },
         "Index": 0,
@@ -8260,8 +8225,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000581",
-                "scalez": "1.000581"
+                "scaley": "1.000582",
+                "scalez": "1.000582"
             }
         },
         "Index": 0,
@@ -8388,8 +8353,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000581",
-                "scalez": "1.000581"
+                "scaley": "1.000582",
+                "scalez": "1.000582"
             }
         },
         "Index": 0,
@@ -9219,8 +9184,8 @@
                 "rotationy": "0.000028",
                 "rotationz": "-0.000027",
                 "scalex": "2.540000",
-                "scaley": "2.540721",
-                "scalez": "2.540721"
+                "scaley": "2.540722",
+                "scalez": "2.540722"
             },
             "13": {
                 "Active": true,
@@ -9380,9 +9345,9 @@
                 "rotationx": "0.536806",
                 "rotationy": "-0.449375",
                 "rotationz": "0.566528",
-                "scalex": "0.999419",
-                "scaley": "0.999419",
-                "scalez": "0.999419"
+                "scalex": "0.999418",
+                "scaley": "0.999418",
+                "scalez": "0.999418"
             },
             "13": {
                 "Active": true,
@@ -9414,8 +9379,8 @@
                 "rotationx": "0.388476",
                 "rotationy": "0.030072",
                 "rotationz": "0.916844",
-                "scalex": "1.001156",
-                "scaley": "1.001156",
+                "scalex": "1.001158",
+                "scaley": "1.001158",
                 "scalez": "1.000000"
             },
             "13": {
@@ -9730,8 +9695,8 @@
                 "rotationx": "0.000205",
                 "rotationy": "-0.005509",
                 "rotationz": "0.999924",
-                "scalex": "1.000654",
-                "scaley": "1.000887",
+                "scalex": "1.000656",
+                "scaley": "1.000889",
                 "scalez": "1.000000"
             },
             "13": {
@@ -10695,8 +10660,8 @@
                 "rotationx": "-0.000169",
                 "rotationy": "-0.004364",
                 "rotationz": "0.999931",
-                "scalex": "1.001162",
-                "scaley": "1.001153",
+                "scalex": "1.001164",
+                "scaley": "1.001155",
                 "scalez": "1.000000"
             },
             "13": {
@@ -11046,8 +11011,8 @@
                 "rotationx": "-0.000534",
                 "rotationy": "-0.000084",
                 "rotationz": "0.999921",
-                "scalex": "1.001157",
-                "scaley": "1.001159",
+                "scalex": "1.001159",
+                "scaley": "1.001161",
                 "scalez": "1.000000"
             },
             "13": {
@@ -11201,8 +11166,8 @@
                 "rotationy": "0.000040",
                 "rotationz": "-0.000037",
                 "scalex": "1.000000",
-                "scaley": "1.000581",
-                "scalez": "1.000581"
+                "scaley": "1.000582",
+                "scalez": "1.000582"
             },
             "13": {
                 "Active": true,
@@ -11490,8 +11455,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000581",
-                "scalez": "1.000581"
+                "scaley": "1.000582",
+                "scalez": "1.000582"
             }
         },
         "Index": 0,
@@ -11516,8 +11481,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000581",
-                "scalez": "1.000581"
+                "scaley": "1.000582",
+                "scalez": "1.000582"
             }
         },
         "Index": 0,

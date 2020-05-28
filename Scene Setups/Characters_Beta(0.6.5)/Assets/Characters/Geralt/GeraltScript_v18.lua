@@ -1024,7 +1024,7 @@ local function ParticlesShutdown()
 			lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.run_particles_GO_UID_children[i])	--TODO-Particles: Stop movement dust particles
 		end
 
-	if lua_table.current_state <= state.combo_3 and lua_table.current_state >= state.light_1	--IF attack
+	elseif lua_table.current_state <= state.combo_3 and lua_table.current_state >= state.light_1	--IF attack
 	then
 		lua_table.AnimationFunctions:PlayAnimation(animation_library.evade, lua_table.evade_animation_speed, particles_library.slash_GO_UID)
 		lua_table.GameObjectFunctions:SetActiveGameObject(false, particles_library.slash_mesh_GO_UID)
