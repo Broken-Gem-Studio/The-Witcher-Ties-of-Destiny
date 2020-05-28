@@ -290,7 +290,6 @@ local function NormalizeDirVector()
 end
 local function NormalizeDirVector_AuxTarget()
 	
-	
 	Nvec3x = vec3x / DistanceMagnitudeAux_Target 
 	Nvec3z = vec3z / DistanceMagnitudeAux_Target -- Normalized values for jumpattack
 	VectorNormalized = true
