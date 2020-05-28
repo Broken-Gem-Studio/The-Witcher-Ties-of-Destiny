@@ -11,9 +11,23 @@ lua_table.SoundSystem = Scripting.Audio()
 lua_table.ParticleSystem = Scripting.Particles()
 lua_table.NavSystem = Scripting.Navigation()
 
+--------------------General programming Notes-----------------
+-- @ If want to do an action, call function: DoAction"X"() that activates a bool to later do that action in the HandleState()
+-- @ Every HandleState() Has a ChooseBehaviour() function thta chooses what to do
+-- @ If want to change to an state that has been executed before, call function ResetDetection()/ResetPreDetection...etc. it will make a reset of all variables to execute that handle"x"() as if it was the first time
+-- @ States won't ever be changed inside ChooseBehaviour() function, states will be changed inside functions such as Handle"X"() functions
+
+
+--###Code for late uses###
+--if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK x") end
+
+--------------------General programming Notes-----------------
+
+
+
 
 local PrintLogs = true
---if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK x") end
+
 
 --########################################### STATES ######################################################
 
@@ -21,11 +35,9 @@ local PrintLogs = true
 local State = {
 	NONE = 0,
 	PRE_DETECTION = 1,
-	SEEK = 2
+	DETECTION = 2
 }
 	
-
-
 
 --########################################### UTILITY VARIABLES ###########################################
 
@@ -60,9 +72,35 @@ local particles = {
 		venom = 4
 	}
 
---ChooseBehaviour() VARIABLES
-local PreDetectionBehaviourChosen = false
 
+--Anim PlayTime
+local AlertDuretion = 2550
+
+
+--ChooseBehaviour() VARIABLES
+
+local PreDetectionBehaviourChosen = false --HandlePreDetection()
+local ChangeDetectionBehaviour = true --HandleDetection()
+
+--Scream()
+
+local ScreamAnimController = true
+local ScreamDone = false
+local DoScream = false
+
+--SeekTarget()
+
+local DoSeek = false
+local CurrentTargetPosition = {}
+
+--Navigation
+
+local Navigation_UID = 0
+local Corners = {}
+local ActualCorner = 2
+local CalculatePath = true
+local DistanceToCorner = -1
+local CalculatePathTimer = 0
 
 --################################################ VARIABLES ############################################
 
@@ -77,30 +115,147 @@ local JaskierPos = {}
 local CurrentState = State.NONE
 
 local MyPosition = {}
+local dt = 0
 
 local GeraltDistance = 0 --updated when call PlayersArround()
 local JaskierDistance = 0
 
-local CurrentTarget = 0 -- UID
+local CurrentTarget_UID = 0 
+
+local CurrentTime = 0
+
+lua_table.CurrentVelocity = 0
+lua_table.Nvec3x = 1
+lua_table.Nvec3z = 1
+
+
+
+
+
+
+
 --#################################################### Utility ###########################################
+
+
+
+local function PerfGameTime()
+	return lua_table.SystemFunctions:GameTime() * 1000
+end
+
+
+
 local function CalculateDistanceTo(Position)
 	
 	A = Position[1] - MyPosition[1]	
 	B = Position[3] - MyPosition[3]
 	Distance = math.sqrt(A^2+B^2)
 	return Distance
+
 end
+
+
+
+--################################################### DO_SOMETHING #####################################
+
+
+
+local function DoScreamNow(bool)
+	DoScream = bool
+end
+
+
+
+local function DoSeekNow(bool)
+	DoSeek = bool
+end
+
+
+
 --#################################################### MAIN FUNCTIONS ####################################
+
+
 
 local function SetDefaultValues()
 
 	CurrentState = State.PRE_DETECTION
 end
 
+
+
 local function VariablesUpdate()
 
 	MyPosition = lua_table.TransformFunctions:GetPosition(MyUID)
+	dt = lua_table.SystemFunctions:DT()
+
+	if CurrentTarget_UID ~= 0
+	then
+		CurrentTargetPosition = lua_table.TransformFunctions:GetPosition(CurrentTarget_UID)
+	end
+
+	if CalculatePath == false
+	then
+		if CurrentTime - CalculatePathTimer > 200
+		then
+			CalculatePath = true
+		end
+	end
+
+	CurrentTime = PerfGameTime()
 end
+
+
+
+local function ResetPreDetection()
+	
+	PreDetectionBehaviourChosen = false
+	CurrentTarget_UID = 0
+end
+
+
+
+local function ResetDetection()
+	
+	ChangeDetectionBehaviour = true 
+
+	ScreamAnimController = true
+	ScreamDone = false
+	DoScream = false
+end
+
+
+
+local function CalculateNewPath(Target)
+	Corners = lua_table.NavSystem:CalculatePath(MyPosition[1],MyPosition[2],MyPosition[3],Target[1],Target[2],Target[3],1 << Navigation_UID)
+	ActualCorner = 2
+	CalculatePath = false
+	CalculatePathTimer = PerfGameTime()
+	if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK Created a new path") end
+end
+
+
+
+local function FollowPath() --basically update the next corner in the curr path
+	if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK following the path") end
+
+	DistanceMagnitude = CalculateDistanceTo(CurrentTargetPosition)
+
+	local NextCorner = {}
+    NextCorner[1] = Corners[ActualCorner][1] - MyPosition[1]
+    NextCorner[2] = Corners[ActualCorner][2] - MyPosition[2]
+    NextCorner[3] = Corners[ActualCorner][3] - MyPosition[3]
+
+	DistanceToCorner = CalculateDistanceTo(Corners[ActualCorner])
+
+	if DistanceToCorner > 0.20
+	then
+		lua_table.Nvec3x = NextCorner[1] / DistanceToCorner
+        lua_table.Nvec3z = NextCorner[3] / DistanceToCorner
+	else
+		ActualCorner = ActualCorner +1
+	end
+
+end
+
 
 
 local function PlayersArround() --Returns a boolean if players are or not arround
@@ -129,6 +284,8 @@ local function PlayersArround() --Returns a boolean if players are or not arroun
 	return ret
 end
 
+
+
 local function CalculateAggro() --Called only after players() return true
 
 	ret = false
@@ -138,37 +295,37 @@ local function CalculateAggro() --Called only after players() return true
 
 	--if PrintLogs == true then lua_table.SystemFunctions:LOG ("JaskierScript  "..JaskierScript) end
 
-	if CurrentTarget == 0
+	if CurrentTarget_UID == 0
 	then	
 		if JaskierDistance < GeraltDistance
 		then
 			if JaskierScript.current_state == -3 or JaskierScript.current_state == -4
 			then
-				CurrentTarget = Geralt_UID
+				CurrentTarget_UID = Geralt_UID
 				ret = true
 				if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK CurrentTarget = Geralt_UID") end
 			else
-				CurrentTarget = Jaskier_UID
+				CurrentTarget_UID = Jaskier_UID
 				ret = true
 				if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK CurrentTarget = Jaskier_UID") end
 			end	
-			CurrentTarget = Jaskier_UID
+			CurrentTarget_UID = Jaskier_UID
 		elseif GeraltDistance < JaskierDistance
 		then
 			if GeraltScript.current_state == -3 or GeraltScript.current_state == -4
 			then
-				CurrentTarget = Jaskier_UID
+				CurrentTarget_UID = Jaskier_UID
 				ret = true
 				if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK CurrentTarget = Jaskier_UID") end
 			else
-				CurrentTarget = Geralt_UID
+				CurrentTarget_UID = Geralt_UID
 				ret = true
 				if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK CurrentTarget = Geralt_UID") end
 			end	
 		end		
-	elseif CurrentTarget ~= 0
+	elseif CurrentTarget_UID ~= 0
 	then 
-		if CurrentTarget == Jaskier_UID
+		if CurrentTarget_UID == Jaskier_UID
 		then
 			if JaskierScript.current_state == -3 or JaskierScript.current_state == -4
 			then
@@ -176,12 +333,12 @@ local function CalculateAggro() --Called only after players() return true
 				then
 					ret = false--both on the ground
 				else
-					CurrentTarget = Geralt_UID
+					CurrentTarget_UID = Geralt_UID
 					ret = true
 					if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK change CurrentTarget = Geralt_UID") end
 				end	
 			end
-		elseif CurrentTarget == Geralt_UID
+		elseif CurrentTarget_UID == Geralt_UID
 		then
 			if GeraltScript.current_state == -3 or GeraltScript.current_state == -4
 			then
@@ -189,7 +346,7 @@ local function CalculateAggro() --Called only after players() return true
 				then
 					ret = false--both on the ground
 				else
-					CurrentTarget = Jaskier_UID
+					CurrentTarget_UID = Jaskier_UID
 					ret = true
 					if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK change CurrentTarget = Jaskier_UID") end
 				end	
@@ -200,12 +357,63 @@ local function CalculateAggro() --Called only after players() return true
 	return ret
 end
 
+
+
+local function ApplyVelocity()
+
+	if CurrentState == State.PRE_DETECTION
+	then
+		lua_table.Nvec3x = lua_table.Nvec3x * 0
+		lua_table.Nvec3z = lua_table.Nvec3z * 0
+	end
+	if CurrentState == State.DETECTION
+	then
+		lua_table.Nvec3x = lua_table.Nvec3x * lua_table.CurrentVelocity
+		lua_table.Nvec3z = lua_table.Nvec3z * lua_table.CurrentVelocity
+	end
+end
+
+local function Scream()
+	
+	if ScreamAnimController == true
+	then
+		lua_table.AnimationSystem:PlayAnimation("ALERT", 30.0,MyUID)
+		ScreamAnimController = false
+		ScreamTimeController = PerfGameTime()
+	end
+	if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK Scream()") end
+
+	if CurrentTime - ScreamTimeController > AlertDuretion
+	then
+		ScreamDone = true
+		ChangeDetectionBehaviour = true
+		if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK ScreamDone = true") end
+	end
+end
+
+
+
+local function SeekTarget()
+	
+	if CalculatePath == true
+	then
+		CalculateNewPath(CurrentTargetPosition)
+	end
+	
+	lua_table.CurrentVelocity = 3
+	FollowPath()
+
+end
+
+
+
 local function ChooseBehaviour() --Called only inside State machine's functions
 
 	if CurrentState == State.PRE_DETECTION
 	then
 		if PreDetectionBehaviourChosen == false
 		then
+			if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK Changing Behaviour of State.PRE_DETECTION") end
 			Dice = lua_table.SystemFunctions:RandomNumberInRange(0,10)
 			if Dice >= 7
 			then
@@ -222,10 +430,35 @@ local function ChooseBehaviour() --Called only inside State machine's functions
 			end
 		end
 	end
+	-------------------------------------------------------------------------------------------------------------------------------------------------------------
+	if CurrentState == State.DETECTION
+	then
+		if  ChangeDetectionBehaviour == true --every time a behaviour function is done, this changes to false, if want to change behaviour change to true
+		then
+			if ScreamDone == false
+			then
+				DoScreamNow(true)
+			end
+			if ScreamDone == true 
+			then
+				if DoScream == true
+				then
+					DoScreamNow(false)
+				end		
+				if DoSeek == false
+				then
+					DoSeekNow(true)
+				end
+			end
+		end
+	end
 end
 
 
+
 --#################################################### STATE MACHINE FUNCTIONS ###########################
+
+
 
 local function HandlePreDetection()
 	
@@ -235,10 +468,28 @@ local function HandlePreDetection()
 	then
 		if CalculateAggro() == true
 		then
-			CurrentState = State.SEEK
+			CurrentState = State.DETECTION
 		else 
 			if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK NO POSSIBLE TARGET AVAIABLE") end
 		end
+	end
+end
+
+
+
+local  function HandleDetection()
+	
+	ChooseBehaviour()
+
+	if DoScream == true
+	then
+		Scream()
+	end
+
+	if DoSeek == true
+	then
+		if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK seek") end
+		SeekTarget()
 	end
 
 end
@@ -246,6 +497,8 @@ end
 
 
 --#################################################### MAIN CODE #########################################
+
+
 
 function lua_table:Awake()
 	
@@ -277,11 +530,15 @@ function lua_table:Awake()
 	attack_colliders.front2.GO_UID = lua_table.GameObjectFunctions:FindChildGameObject(attack_colliders.front1.GO_name)
 end
 
+
+
 function lua_table:Start()
 	
 	SetDefaultValues()
 
 end
+
+
 
 function lua_table:Update()
 
@@ -294,10 +551,14 @@ function lua_table:Update()
 	then
 		--if PrintLogs == true then lua_table.SystemFunctions:LOG("LUMBERJACK CurrentState = State.PRE_DETECTION") end
 		HandlePreDetection()
-	elseif CurrentState == State.SEEK
+	elseif CurrentState == State.DETECTION
 	then
-		--HandleSeek()
+		HandleDetection()
 	end
+
+	--MOVE
+	ApplyVelocity()
+	lua_table.PhysicsSystem:Move(lua_table.Nvec3x* dt,lua_table.Nvec3z* dt,MyUID)
 
 end
 
