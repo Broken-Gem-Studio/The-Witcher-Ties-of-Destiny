@@ -10,7 +10,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -87,7 +87,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -164,7 +164,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -241,7 +241,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -318,7 +318,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -395,7 +395,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -455,7 +455,14 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<Sound Name="Geralt_aard_1" ID="{0CC687D6-2327-43C1-895C-00AE41BA3CE8}" ShortID="881246856">
+								<Sound Name="Geralt_aard_3" ID="{17DF416C-8D1A-4A36-9C73-79CCFE8C583D}" ShortID="594597412">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -465,54 +472,23 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="Geralt_aard_1" ID="{8CA953A8-1682-476F-B0D5-CCEDB5CEEB70}" ShortID="572502002">
-											<Language>SFX</Language>
-											<AudioFile>Geralt_aard_1.wav</AudioFile>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Geralt_aard_1" ID="{8CA953A8-1682-476F-B0D5-CCEDB5CEEB70}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="Geralt_aard_2" ID="{D6815351-9378-44C5-AAC5-A2270269C539}" ShortID="472254634">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Geralt_aard_2" ID="{C8076891-D739-44EF-93A7-D1D7E67D3209}" ShortID="128637521">
-											<Language>SFX</Language>
-											<AudioFile>Geralt_aard_2.wav</AudioFile>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Geralt_aard_2" ID="{C8076891-D739-44EF-93A7-D1D7E67D3209}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="Geralt_aard_3" ID="{F1D8C01C-DD49-4AB5-8C5E-AF5B86AFA3BB}" ShortID="186980942">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Geralt_aard_3" ID="{79C43DE2-5BC6-4177-8229-3ABF7804CF46}" ShortID="151722805">
+										<AudioFileSource Name="Geralt_aard_3" ID="{C0EFF754-DB1D-486C-9B16-E93C515A4A6F}" ShortID="844289040">
 											<Language>SFX</Language>
 											<AudioFile>Geralt_aard_3.wav</AudioFile>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="Geralt_aard_3" ID="{79C43DE2-5BC6-4177-8229-3ABF7804CF46}" Platform="Linked"/>
+										<ActiveSource Name="Geralt_aard_3" ID="{C0EFF754-DB1D-486C-9B16-E93C515A4A6F}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="Geralt_aard_4" ID="{4E2DDEBE-3CF0-404B-9AB7-98C63AF08AC2}" ShortID="868507372">
+								<Sound Name="Geralt_aard_4" ID="{63E040EC-0B51-447E-AD03-747554FC76F8}" ShortID="26132249">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -522,16 +498,23 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="Geralt_aard_4" ID="{40CA3249-FB90-4FB5-B7FE-D37198496186}" ShortID="555205089">
+										<AudioFileSource Name="Geralt_aard_4" ID="{59991439-7C83-43EF-9EFB-B11FD2B03A34}" ShortID="552227738">
 											<Language>SFX</Language>
 											<AudioFile>Geralt_aard_4.wav</AudioFile>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="Geralt_aard_4" ID="{40CA3249-FB90-4FB5-B7FE-D37198496186}" Platform="Linked"/>
+										<ActiveSource Name="Geralt_aard_4" ID="{59991439-7C83-43EF-9EFB-B11FD2B03A34}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="Geralt_aard_5" ID="{482D4D5C-611E-48E7-BFE0-9D3820C0DE4A}" ShortID="118397631">
+								<Sound Name="Geralt_aard_1" ID="{D0004FBF-993A-4BE7-B0BB-CFDF9F8496F1}" ShortID="1032328071">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -541,16 +524,23 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="Geralt_aard_5" ID="{FB7432D1-4F6E-43E9-A455-E562C4737999}" ShortID="359010293">
+										<AudioFileSource Name="Geralt_aard_1" ID="{5DBA12E9-5167-4FC5-BBC2-74D4D894C2E0}" ShortID="420091269">
 											<Language>SFX</Language>
-											<AudioFile>Geralt_aard_5.wav</AudioFile>
+											<AudioFile>Geralt_aard_1.wav</AudioFile>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="Geralt_aard_5" ID="{FB7432D1-4F6E-43E9-A455-E562C4737999}" Platform="Linked"/>
+										<ActiveSource Name="Geralt_aard_1" ID="{5DBA12E9-5167-4FC5-BBC2-74D4D894C2E0}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="Geralt_aard_6" ID="{CE2A2132-90C8-437B-A895-8E8A7E310D54}" ShortID="267649547">
+								<Sound Name="Geralt_aard_6" ID="{693EC724-B238-4CE3-8CA8-988290361D4A}" ShortID="425975244">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -560,13 +550,65 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="Geralt_aard_6" ID="{D55863F5-6007-4664-B0CB-712DF9CEC879}" ShortID="851998395">
+										<AudioFileSource Name="Geralt_aard_6" ID="{FDA68BB6-6879-4D09-834B-AC8AF1D9D0AF}" ShortID="436779642">
 											<Language>SFX</Language>
 											<AudioFile>Geralt_aard_6.wav</AudioFile>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="Geralt_aard_6" ID="{D55863F5-6007-4664-B0CB-712DF9CEC879}" Platform="Linked"/>
+										<ActiveSource Name="Geralt_aard_6" ID="{FDA68BB6-6879-4D09-834B-AC8AF1D9D0AF}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Geralt_aard_5" ID="{AA924444-32E0-49E5-A4D6-DA221C166561}" ShortID="449189578">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Geralt_aard_5" ID="{755EAD25-31B9-4095-88F9-AA6F19231555}" ShortID="437480955">
+											<Language>SFX</Language>
+											<AudioFile>Geralt_aard_5.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Geralt_aard_5" ID="{755EAD25-31B9-4095-88F9-AA6F19231555}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Geralt_aard_2" ID="{40874F2D-489B-4E4B-B83D-E86A8B22C206}" ShortID="91113308">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Geralt_aard_2" ID="{0CC7A783-1965-4E3D-AF0E-B8AE22B333B8}" ShortID="32092246">
+											<Language>SFX</Language>
+											<AudioFile>Geralt_aard_2.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Geralt_aard_2" ID="{0CC7A783-1965-4E3D-AF0E-B8AE22B333B8}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
@@ -579,7 +621,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -640,6 +682,13 @@
 							</ReferenceList>
 							<ChildrenList>
 								<Sound Name="Geralt_hit_sound_1" ID="{BBD8AF85-7304-4B2A-9E9A-0A1CE5AF026B}" ShortID="40017974">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -659,6 +708,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Geralt_hit_sound_2" ID="{85500133-E92D-4EAD-BCC4-71CE8FE2E107}" ShortID="326463926">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -687,7 +743,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -748,6 +804,13 @@
 							</ReferenceList>
 							<ChildrenList>
 								<Sound Name="Geralt_sword_metal_1" ID="{6B8B63A6-1E72-4736-9725-FF9404673EBC}" ShortID="156217341">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -767,6 +830,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Geralt_sword_metal_2" ID="{8964E794-86E6-4849-B106-593AD7887586}" ShortID="287014801">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -795,7 +865,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -856,6 +926,13 @@
 							</ReferenceList>
 							<ChildrenList>
 								<Sound Name="Geralt_sword_swing_1" ID="{30FAE5EA-F466-462E-82AA-15DB333A08B8}" ShortID="149680623">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -875,6 +952,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Geralt_sword_swing_2" ID="{B9383866-E25F-41BA-AD79-8E1D0C4DEF45}" ShortID="343585744">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -894,6 +978,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Geralt_sword_swing_3" ID="{970B1026-5F98-4F9A-BC8B-CC4F138F400D}" ShortID="54530975">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -913,6 +1004,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Geralt_sword_swing_4" ID="{6CF974A9-AFA3-4A04-8EFA-B5BD6C5F589A}" ShortID="92338191">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -932,6 +1030,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Geralt_sword_swing_5" ID="{5A683378-3AAF-4F71-9F3A-01D365AE092B}" ShortID="583462312">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -951,6 +1056,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Geralt_sword_swing_6" ID="{06EFE461-FCD6-4AF7-92F7-3E0036839CB5}" ShortID="648037611">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -970,6 +1082,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Geralt_sword_swing_7" ID="{720430FD-27FF-4F89-8A1A-BCB4D26B9AA5}" ShortID="299919356">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -989,6 +1108,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Geralt_sword_swing_8" ID="{7DCD4AA0-D9BE-430D-AF2B-9B24C64CBC5B}" ShortID="580304218">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -1008,6 +1134,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Geralt_sword_swing_9" ID="{DDFBC171-674B-48E2-A3C6-FAC5229E716A}" ShortID="718797158">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -1027,6 +1160,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Geralt_sword_swing_10" ID="{27653CAF-3E87-4AA0-9B25-F443909B54B6}" ShortID="435675021">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -1055,7 +1195,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -1116,6 +1256,13 @@
 							</ReferenceList>
 							<ChildrenList>
 								<Sound Name="Geralt_walk_run_concrete_1" ID="{FC95A2E6-5C85-450F-B6B1-5F8EF3E53FB5}" ShortID="275381823">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -1135,6 +1282,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Geralt_walk_run_concrete_2" ID="{106C3FFB-A8ED-4323-B657-28CA7E977E4F}" ShortID="1045938481">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -1154,6 +1308,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Geralt_walk_run_concrete_3" ID="{4E9A09CC-9BB7-4F98-A8AC-E61FF9E16F11}" ShortID="1037185196">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -1173,6 +1334,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Geralt_walk-_run_concrete_4" ID="{1475FE1B-AFC7-4183-A369-0026461770BA}" ShortID="51696384">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -1199,9 +1367,11 @@
 						<RandomSequenceContainer Name="Geralt_walk_run_dirt" ID="{477F5E15-5EDC-44DE-8F09-CD927B6CA9D0}" ShortID="251806033">
 							<PropertyList>
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
+								<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+								<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -1261,7 +1431,14 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<Sound Name="Geralt_walk_run_dirt_1" ID="{E46BB9D8-FB51-4822-BC0C-6C820268CA76}" ShortID="639252182">
+								<Sound Name="Geralt_Walk_run_dirt_5" ID="{289C1096-9346-49EB-B21D-B05B3E3CA5AC}" ShortID="949218858">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -1271,16 +1448,23 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="Geralt_walk_run_dirt_1" ID="{EFA681F0-7A73-40C2-A8FB-B7399185ECF4}" ShortID="133725744">
+										<AudioFileSource Name="Geralt_Walk_run_dirt_5" ID="{E991F7EB-B5EB-4179-9A5A-E8045F706A43}" ShortID="190373715">
 											<Language>SFX</Language>
-											<AudioFile>Geralt_walk_run_dirt_1.wav</AudioFile>
+											<AudioFile>Geralt_Walk_run_dirt_5.wav</AudioFile>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="Geralt_walk_run_dirt_1" ID="{EFA681F0-7A73-40C2-A8FB-B7399185ECF4}" Platform="Linked"/>
+										<ActiveSource Name="Geralt_Walk_run_dirt_5" ID="{E991F7EB-B5EB-4179-9A5A-E8045F706A43}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="Geralt_walk_run_dirt_2" ID="{6459AFD2-4C28-4A3A-8AFB-96B40ABFC1A5}" ShortID="368310399">
+								<Sound Name="Geralt_Walk_run_dirt_2" ID="{F5397440-A138-4211-9D2D-01718BF7C044}" ShortID="208209398">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -1290,16 +1474,23 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="Geralt_walk_run_dirt_2" ID="{78B4ACE9-ACF9-4523-AE71-BB7A11DA7CBF}" ShortID="707240897">
+										<AudioFileSource Name="Geralt_Walk_run_dirt_2" ID="{D7262BF4-AD1D-4D16-9388-2C0F4124A960}" ShortID="734420758">
 											<Language>SFX</Language>
-											<AudioFile>Geralt_walk_run_dirt_2.wav</AudioFile>
+											<AudioFile>Geralt_Walk_run_dirt_2.wav</AudioFile>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="Geralt_walk_run_dirt_2" ID="{78B4ACE9-ACF9-4523-AE71-BB7A11DA7CBF}" Platform="Linked"/>
+										<ActiveSource Name="Geralt_Walk_run_dirt_2" ID="{D7262BF4-AD1D-4D16-9388-2C0F4124A960}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="Geralt_walk_run_dirt_3" ID="{0F5313EA-08F3-4F55-A1C4-18B188BD2B55}" ShortID="965042154">
+								<Sound Name="Geralt_Walk_run_dirt_4" ID="{D5A976B0-6785-44DF-94E5-2A55B337E48F}" ShortID="691051686">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -1309,16 +1500,23 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="Geralt_walk_run_dirt_3" ID="{5757504A-5089-4592-9BEE-304719E5A853}" ShortID="682688629">
+										<AudioFileSource Name="Geralt_Walk_run_dirt_4" ID="{0A307E99-3525-4B24-842F-F2A97EE96F02}" ShortID="521054026">
 											<Language>SFX</Language>
-											<AudioFile>Geralt_walk_run_dirt_3.wav</AudioFile>
+											<AudioFile>Geralt_Walk_run_dirt_4.wav</AudioFile>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="Geralt_walk_run_dirt_3" ID="{5757504A-5089-4592-9BEE-304719E5A853}" Platform="Linked"/>
+										<ActiveSource Name="Geralt_Walk_run_dirt_4" ID="{0A307E99-3525-4B24-842F-F2A97EE96F02}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="Geralt_walk_run_dirt_4" ID="{6A24125A-9F37-4CCE-A5AE-C16F0337E5DF}" ShortID="694012406">
+								<Sound Name="Geralt_Walk_run_dirt_1" ID="{874984F7-327E-4E53-9213-1FDE7FEA25F6}" ShortID="158084073">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -1328,32 +1526,13 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="Geralt_walk_run_dirt_4" ID="{8D344982-C268-41D9-9268-9F43860FEC8F}" ShortID="928024526">
+										<AudioFileSource Name="Geralt_Walk_run_dirt_1" ID="{811BA0A5-30F6-47FE-AF91-DEE6C57ACB17}" ShortID="20663703">
 											<Language>SFX</Language>
-											<AudioFile>Geralt_walk_run_dirt_4.wav</AudioFile>
+											<AudioFile>Geralt_Walk_run_dirt_1.wav</AudioFile>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="Geralt_walk_run_dirt_4" ID="{8D344982-C268-41D9-9268-9F43860FEC8F}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="Geralt_walk_run_dirt_5" ID="{364CEB96-7F86-4CC5-8B4B-18BD9F7B623D}" ShortID="655054478">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Geralt_walk_run_dirt_5" ID="{BDF2300B-A7F2-46D9-89D3-0DC43330BCDB}" ShortID="1061166551">
-											<Language>SFX</Language>
-											<AudioFile>Geralt_walk_run_dirt_5.wav</AudioFile>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Geralt_walk_run_dirt_5" ID="{BDF2300B-A7F2-46D9-89D3-0DC43330BCDB}" Platform="Linked"/>
+										<ActiveSource Name="Geralt_Walk_run_dirt_1" ID="{811BA0A5-30F6-47FE-AF91-DEE6C57ACB17}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
@@ -1366,7 +1545,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -1443,7 +1622,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -1515,6 +1694,32 @@
 								<ActiveSource Name="Geralt_combo_sound" ID="{2E2C3B07-0814-4C38-BD10-276CEA8D3A5B}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
+						<Sound Name="Geralt_Ultimate_Updated" ID="{2959061A-79B9-4045-85DD-810DA208E118}" ShortID="994395226">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Geralt_Ultimate_Updated" ID="{824E5FD4-DB7C-48B7-B3FE-D1D9F683B241}" ShortID="122688136">
+									<Language>SFX</Language>
+									<AudioFile>Geralt_Ultimate_Updated.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Geralt_Ultimate_Updated" ID="{824E5FD4-DB7C-48B7-B3FE-D1D9F683B241}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Jaskier" ID="{7F0333D8-EF2D-41C6-970A-4F827204363D}" ShortID="300713006">
@@ -1524,7 +1729,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -1601,7 +1806,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -1678,7 +1883,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -1755,7 +1960,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -1832,7 +2037,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -1893,6 +2098,13 @@
 							</ReferenceList>
 							<ChildrenList>
 								<Sound Name="Jaskier_guitar_swing_1" ID="{80382B4D-F796-4194-9A89-208672440B9E}" ShortID="119333941">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -1912,6 +2124,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Jaskier_guitar_swing_2" ID="{759C5E0F-8FA1-4DB5-BC65-2A5415C3CBD1}" ShortID="527719125">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -1931,6 +2150,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Jaskier_guitar_swing_3" ID="{38768EE0-7FAD-45B1-8C61-8660FC22F750}" ShortID="449106249">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -1950,6 +2176,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Jaskier_guitar_swing_4" ID="{E10EE998-4676-454C-8BF0-DEB622281583}" ShortID="108048264">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -1969,6 +2202,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Jaskier_guitar_swing_5" ID="{FE90F749-7C17-43AB-8DE6-36732CAA3021}" ShortID="177602472">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -1988,6 +2228,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Jaskier_guitar_swing_6" ID="{CACBB134-E715-4B65-BB9F-07F5BFADCE4D}" ShortID="898808878">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -2007,6 +2254,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Jaskier_guitar_swing_7" ID="{8EA6299C-B05F-40D3-AF62-1D0FD1AA7B20}" ShortID="8130978">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -2026,6 +2280,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Jaskier_guitar_swing_8" ID="{DE28D62A-0A5D-45F5-AFE9-92CBF7693218}" ShortID="553155083">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -2045,6 +2306,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Jaskier_guitar_swing_9" ID="{DCAAB83F-6C94-4F81-A982-CA72A361FA94}" ShortID="896371910">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -2064,6 +2332,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Jaskier_guitar_swing_10" ID="{60940C7F-7FE0-4B34-81A0-CCD592D5FE18}" ShortID="703653343">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -2092,7 +2367,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -2153,6 +2428,13 @@
 							</ReferenceList>
 							<ChildrenList>
 								<Sound Name="Jaskier_hit_sound_1" ID="{F279FF4D-386D-496F-91C9-DEDE02D730E6}" ShortID="899800136">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -2172,6 +2454,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Jaskier_hit_sound_2" ID="{85B9283F-75C8-474A-ABBA-585658C2838A}" ShortID="249934108">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -2200,7 +2489,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -2261,6 +2550,13 @@
 							</ReferenceList>
 							<ChildrenList>
 								<Sound Name="Jaskier_walk_run_concrete_1" ID="{578D0238-3C6F-4B79-BCC8-5C0A086EECB9}" ShortID="686866349">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -2280,6 +2576,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Jaskier_walk_run_concrete_2" ID="{7EA0D33F-36CE-4EA7-A02C-B24ABCCB92DC}" ShortID="317649748">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -2299,6 +2602,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Jaskier_walk_run_concrete_3" ID="{32DD6E16-5DF7-4306-BB93-B93C82AAE37F}" ShortID="592158010">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -2318,6 +2628,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Jaskier_walk_run_concrete_4" ID="{146F63D4-DC53-4591-9A09-942860551E1D}" ShortID="231632997">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -2344,9 +2661,11 @@
 						<RandomSequenceContainer Name="Jaskier_walk_run_dirt" ID="{7FC9860F-3BA8-4D6F-A4C1-A80797D71059}" ShortID="979780729">
 							<PropertyList>
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
+								<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+								<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -2407,6 +2726,13 @@
 							</ReferenceList>
 							<ChildrenList>
 								<Sound Name="Jaskier_walk_run_dirt_1" ID="{5AFD7D5F-9376-4B95-8278-A47F91240614}" ShortID="559422322">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -2426,6 +2752,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Jaskier_walk_run_dirt_2" ID="{5CB2477B-8D52-47B6-83AF-292DB7F28097}" ShortID="413655339">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -2444,26 +2777,14 @@
 										<ActiveSource Name="Jaskier_walk_run_dirt_2" ID="{33EC17B4-990E-4476-B62B-CEDBC7C976BF}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="Jaskier_walk_run_dirt_3" ID="{A5FB8836-6D01-49FC-84F8-FEDF3A11647F}" ShortID="630433288">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Jaskier_walk_run_dirt_3" ID="{4AC3E851-C15F-4CA8-BD90-B9ED2FBE4036}" ShortID="554817720">
-											<Language>SFX</Language>
-											<AudioFile>Jaskier_walk_run_dirt_3.wav</AudioFile>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Jaskier_walk_run_dirt_3" ID="{4AC3E851-C15F-4CA8-BD90-B9ED2FBE4036}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
 								<Sound Name="Jaskier_walk_run_dirt_4" ID="{C0B7E700-318B-4295-8F2C-D59B6538AC88}" ShortID="265590832">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -2483,6 +2804,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Jaskier_walk_run_dirt_5" ID="{C1CEAAC2-7DAB-434A-AC00-6599B6391F02}" ShortID="415955529">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -2511,7 +2839,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -2588,7 +2916,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -2665,7 +2993,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -2742,7 +3070,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -2819,7 +3147,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -2896,7 +3224,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -2979,7 +3307,7 @@
 										<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-3</Value>
+												<Value>-6</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -3053,7 +3381,7 @@
 										<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-3</Value>
+												<Value>-6</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -3127,7 +3455,7 @@
 										<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-3</Value>
+												<Value>-6</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -3201,7 +3529,7 @@
 										<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-3</Value>
+												<Value>-6</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -3275,7 +3603,7 @@
 										<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-3</Value>
+												<Value>-6</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -3349,7 +3677,7 @@
 										<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-3</Value>
+												<Value>-6</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -3423,7 +3751,7 @@
 										<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-3</Value>
+												<Value>-6</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -3497,7 +3825,7 @@
 										<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-3</Value>
+												<Value>-6</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -3558,6 +3886,13 @@
 									</ReferenceList>
 									<ChildrenList>
 										<Sound Name="Kikimora_damaged_1" ID="{102EF251-104E-446D-84D0-8B1EC7011491}" ShortID="423986500">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -3577,6 +3912,13 @@
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="Kikimora_damaged_2" ID="{E0BFF2BE-DB6B-43F7-9FFD-50A12CFBB827}" ShortID="367053022">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -3596,6 +3938,13 @@
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="Kikimora_damaged_3" ID="{84C7DA11-E029-4EF6-9C71-E73C5937DA8D}" ShortID="287577641">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -3621,7 +3970,7 @@
 										<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-3</Value>
+												<Value>-6</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -3682,6 +4031,13 @@
 									</ReferenceList>
 									<ChildrenList>
 										<Sound Name="Kikimora_scream_2" ID="{F445165A-DA17-4293-8609-41544D6696D4}" ShortID="631117601">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -3701,6 +4057,13 @@
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="Kikimora_scream_3" ID="{9FF1DF37-CB78-44A2-869F-A22CE119D738}" ShortID="180454925">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -3730,7 +4093,7 @@
 										<Property Name="3DSpatialization" Type="int16" Value="1"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-3</Value>
+												<Value>-6</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -3791,6 +4154,13 @@
 									</ReferenceList>
 									<ChildrenList>
 										<Sound Name="Screamer_ghoul_damaged_1" ID="{1806009D-A88C-45A8-95A0-B2DED271386E}" ShortID="372254941">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -3810,6 +4180,13 @@
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="Screamer_ghoul_damaged_2" ID="{C5363E2D-1F8D-4EBD-AFDC-18110CC92854}" ShortID="714008018">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -3835,7 +4212,7 @@
 										<Property Name="3DSpatialization" Type="int16" Value="1"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-3</Value>
+												<Value>-6</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -3896,6 +4273,13 @@
 									</ReferenceList>
 									<ChildrenList>
 										<Sound Name="Screamer_ghoul_death_1" ID="{604F6499-296F-4199-B5DE-66E9547D1A09}" ShortID="856787903">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -3915,6 +4299,13 @@
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="Screamer_ghoul_death_2" ID="{2565D73C-E8BF-4551-8087-CE13D9DFE7DC}" ShortID="1021974435">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -3934,6 +4325,13 @@
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="Screamer_ghoul_death_3" ID="{2EB93E14-74E6-4771-ACC7-F97495F5B42B}" ShortID="827495475">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -3959,7 +4357,7 @@
 										<Property Name="3DSpatialization" Type="int16" Value="1"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-3</Value>
+												<Value>-6</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -4020,6 +4418,13 @@
 									</ReferenceList>
 									<ChildrenList>
 										<Sound Name="Screamer_ghoul_killed_1" ID="{B40BF757-1424-444C-B04E-C8A3B649175F}" ShortID="279572501">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -4039,6 +4444,13 @@
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="Screamer_ghoul_killed_2" ID="{6F98E74C-CA38-4781-AE34-44EC8D1E1638}" ShortID="465803504">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -4064,7 +4476,7 @@
 										<Property Name="3DSpatialization" Type="int16" Value="1"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-3</Value>
+												<Value>-6</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -4125,6 +4537,13 @@
 									</ReferenceList>
 									<ChildrenList>
 										<Sound Name="Screamer_ghoul_scream_1" ID="{1C9275FD-D40D-44B3-BC64-3500955FB3EC}" ShortID="228668360">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -4144,6 +4563,13 @@
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="Screamer_ghoul_scream_2" ID="{1D0CAFB4-7EDE-4541-9D8A-242B4F43BF07}" ShortID="131149141">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -4169,7 +4595,7 @@
 										<Property Name="3DSpatialization" Type="int16" Value="1"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-3</Value>
+												<Value>-6</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -4230,6 +4656,13 @@
 									</ReferenceList>
 									<ChildrenList>
 										<Sound Name="Screamer_ghoul_scream_variation_1" ID="{A540F315-67CD-4D1F-837E-F5CACAEAE489}" ShortID="690249705">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -4249,6 +4682,13 @@
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="Screamer_ghoul_scream_variation_2" ID="{D1AA1242-BB1A-43EF-8775-31199F158F02}" ShortID="1022219043">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -4268,6 +4708,13 @@
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="Screamer_ghoul_scream_variation_3" ID="{5AFFEAE3-0555-44AC-8C8C-9FCB5549EF7A}" ShortID="211328459">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -4297,7 +4744,7 @@
 										<Property Name="3DSpatialization" Type="int16" Value="1"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-3</Value>
+												<Value>-6</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -4358,6 +4805,13 @@
 									</ReferenceList>
 									<ChildrenList>
 										<Sound Name="Titan_ghoull_death_1" ID="{E623DD29-4071-4248-928C-4DAFFFAA1654}" ShortID="361689871">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -4377,6 +4831,13 @@
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="Titan_ghoul_death_2" ID="{75E5BF98-00BA-44D9-9F81-A4B8D2D26F54}" ShortID="841748994">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -4402,7 +4863,7 @@
 										<Property Name="3DSpatialization" Type="int16" Value="1"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-3</Value>
+												<Value>-6</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -4463,6 +4924,13 @@
 									</ReferenceList>
 									<ChildrenList>
 										<Sound Name="Titan_ghoul_fall_back_1" ID="{0DD9FB5D-F437-4F6D-9022-D6405CE6F3C9}" ShortID="897076046">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -4482,6 +4950,13 @@
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="Titan_ghoul_fall_back_2" ID="{8EAF6838-14CC-4BA2-A194-51CA507C8735}" ShortID="130558377">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -4507,7 +4982,7 @@
 										<Property Name="3DSpatialization" Type="int16" Value="1"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-3</Value>
+												<Value>-6</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -4568,6 +5043,13 @@
 									</ReferenceList>
 									<ChildrenList>
 										<Sound Name="Titan_ghoul_minion_spawn_1" ID="{3463DC31-61AD-4786-8695-B36046C96115}" ShortID="350367017">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -4587,6 +5069,13 @@
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="Titan_ghoul_minion_spawn_2" ID="{076EA2F7-EEB2-4A0B-906C-323A489558BB}" ShortID="1035232899">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -4612,7 +5101,7 @@
 										<Property Name="3DSpatialization" Type="int16" Value="1"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-3</Value>
+												<Value>-6</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -4673,6 +5162,13 @@
 									</ReferenceList>
 									<ChildrenList>
 										<Sound Name="Titan_ghoul_take_damage_1" ID="{812741F1-94BE-4C85-8C27-5D647D87D55D}" ShortID="925469400">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -4692,6 +5188,13 @@
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="Titan_ghoul_take_damage_2" ID="{7B051D91-7D71-4A95-B62C-CBED3C685A4E}" ShortID="610485526">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -4711,6 +5214,13 @@
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="Titan_ghoul_take_damage_3" ID="{654E07A3-CF09-4F37-A57B-BF18319A359C}" ShortID="276008963">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -4730,6 +5240,13 @@
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="Titan_ghoul_take_damage_4" ID="{0F41D663-664A-476A-BDB0-01AE30B0BE25}" ShortID="858474144">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -4755,7 +5272,7 @@
 										<Property Name="3DSpatialization" Type="int16" Value="1"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-3</Value>
+												<Value>-6</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -4816,6 +5333,13 @@
 									</ReferenceList>
 									<ChildrenList>
 										<Sound Name="Titan_ghoul_scream_attack_1" ID="{39C83A0D-CBE1-4BA1-893B-A1CFC1BBFBBC}" ShortID="585624472">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -4835,6 +5359,13 @@
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="Titan_ghoul_scream_attack_2" ID="{578EE6AE-B027-444E-835D-C669908572D6}" ShortID="793759285">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -4854,6 +5385,13 @@
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="Titan_ghoul_scream_attack_3" ID="{6492B559-F3CE-47BC-994A-8176319D8652}" ShortID="441623103">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -4873,6 +5411,13 @@
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="Titan_ghoul_scream_attack_4" ID="{58D5D61B-4F0E-4C59-B24B-F8E1C51A5431}" ShortID="787569231">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -4902,7 +5447,7 @@
 										<Property Name="3DSpatialization" Type="int16" Value="1"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-3</Value>
+												<Value>-6</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -4976,7 +5521,7 @@
 										<Property Name="3DSpatialization" Type="int16" Value="1"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-3</Value>
+												<Value>-6</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -5050,7 +5595,7 @@
 										<Property Name="3DSpatialization" Type="int16" Value="1"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-3</Value>
+												<Value>-6</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -5111,6 +5656,13 @@
 									</ReferenceList>
 									<ChildrenList>
 										<Sound Name="Minion_take_damage_scream_1" ID="{31D8FBB6-728D-49CE-831B-B7B413B18F39}" ShortID="1044056784">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -5130,6 +5682,13 @@
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="Minion_take_damage_scream_2" ID="{0157BFF7-3527-4CE7-97EA-28623FEE9212}" ShortID="1000557878">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -5155,7 +5714,7 @@
 										<Property Name="3DSpatialization" Type="int16" Value="1"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-3</Value>
+												<Value>-6</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -5216,6 +5775,13 @@
 									</ReferenceList>
 									<ChildrenList>
 										<Sound Name="Minion_take_damage_1" ID="{537B1911-44BF-4F4E-8C2D-7D7913083836}" ShortID="917203500">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -5235,6 +5801,13 @@
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="Minion_take_damage_2" ID="{E0181A69-3701-4918-A2CB-8FC78D27AAD0}" ShortID="434587741">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -5260,7 +5833,7 @@
 										<Property Name="3DSpatialization" Type="int16" Value="1"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-3</Value>
+												<Value>-6</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -5321,6 +5894,13 @@
 									</ReferenceList>
 									<ChildrenList>
 										<Sound Name="Minion_death_1" ID="{5527D5D3-4BFA-4F9F-8559-B409480B28CA}" ShortID="118219174">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -5340,6 +5920,13 @@
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="Minion_death_2" ID="{391A49CF-590D-43AF-8092-71554BA0E72A}" ShortID="525673684">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -5359,6 +5946,13 @@
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="Minion_death_3" ID="{FEE6EAE1-F4EA-474E-B8E1-0DA4B2795338}" ShortID="563263403">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -5390,7 +5984,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -5464,7 +6058,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -5538,7 +6132,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -5612,7 +6206,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -5686,7 +6280,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -5760,7 +6354,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -5834,7 +6428,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -5908,7 +6502,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -5982,7 +6576,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -6056,7 +6650,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -6130,7 +6724,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -6204,7 +6798,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -6278,7 +6872,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -6352,7 +6946,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -6426,7 +7020,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -6500,7 +7094,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -6574,7 +7168,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -6648,7 +7242,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -6722,7 +7316,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -6796,7 +7390,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -6870,7 +7464,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -6944,7 +7538,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -7018,7 +7612,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -7092,7 +7686,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -7166,7 +7760,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -7227,6 +7821,13 @@
 							</ReferenceList>
 							<ChildrenList>
 								<Sound Name="Archer_Melee_Attack_01" ID="{A79F2F61-D825-4447-8173-8E0AE111E73A}" ShortID="976155247">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -7246,6 +7847,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Archer_Melee_Attack_02" ID="{0DF0C042-A0A7-4391-8486-17CB7C549A66}" ShortID="188579160">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -7265,6 +7873,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Archer_Melee_Attack_03" ID="{AF0863D5-C9A9-4FDE-969B-EA338C5AB5BF}" ShortID="287773830">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -7284,6 +7899,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Archer_Melee_Attack_04" ID="{54DE0459-6EC4-4D80-B713-D5D12FD5D64F}" ShortID="216272843">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -7309,7 +7931,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -7370,6 +7992,13 @@
 							</ReferenceList>
 							<ChildrenList>
 								<Sound Name="Archer_Ranged_Attack_01" ID="{B7521B0D-0936-4C44-A266-648532967DF2}" ShortID="977984580">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -7389,6 +8018,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Archer_Ranged_Attack_02" ID="{7800C13C-C754-4418-9139-DADE6C25F9DB}" ShortID="113602211">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -7408,6 +8044,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Archer_Ranged_Attack_03" ID="{CA9EFB4B-B4E2-4D2C-B4B1-C638120D80B7}" ShortID="422750926">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -7427,6 +8070,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Archer_Ranged_Attack_04" ID="{109A5DAA-B8A6-4025-AA1B-ECE50CC01EC9}" ShortID="1063885844">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -7446,6 +8096,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Archer_Ranged_Attack_05" ID="{689EBEFF-0B9A-4159-A8B8-29451C88DBB8}" ShortID="104246959">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -7465,6 +8122,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Archer_Ranged_Attack_06" ID="{6751C699-5199-471D-B343-5794AC19E39C}" ShortID="248661370">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -7490,7 +8154,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -7551,6 +8215,13 @@
 							</ReferenceList>
 							<ChildrenList>
 								<Sound Name="Enemy_Humanoid_Discover_Players_01" ID="{6B2E18C7-4FB5-44C1-AB9A-BACE02519304}" ShortID="116911492">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -7570,6 +8241,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Enemy_Humanoid_Discover_Players_02" ID="{EFBB665B-ED73-41B4-99BD-9484C8FB1CBB}" ShortID="752837839">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -7589,6 +8267,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Enemy_Humanoid_Discover_Players_03" ID="{B27E8177-4BAB-489D-84B8-8E35D7401341}" ShortID="625150478">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -7608,6 +8293,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Enemy_Humanoid_Discover_Players_04" ID="{F7AB107F-FCE6-4E17-B3D2-13BF064FF36D}" ShortID="259874149">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -7627,6 +8319,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Enemy_Humanoid_Discover_Players_05" ID="{7080C5EB-A612-4B8B-B7B5-0DC2A1ADA141}" ShortID="625685612">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -7646,6 +8345,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Enemy_Humanoid_Discover_Players_06" ID="{2C7B17AF-665C-4728-9F13-026938C67CB2}" ShortID="38753347">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -7665,6 +8371,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Enemy_Humanoid_Discover_Players_07" ID="{FDA078AC-FDBE-4683-ABDD-528F1474526E}" ShortID="519915392">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -7684,6 +8397,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Enemy_Humanoid_Discover_Players_08" ID="{704E4A9F-0128-4D5D-AFB3-C7998F6189AE}" ShortID="230788668">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -7703,6 +8423,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Enemy_Humanoid_Discover_Players_09" ID="{73B8EA47-BB5A-43C4-980B-67C8F8A1246E}" ShortID="942674688">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -7728,7 +8455,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -7789,6 +8516,13 @@
 							</ReferenceList>
 							<ChildrenList>
 								<Sound Name="Enemy_Humanoid_Hit_01" ID="{8A6A181D-BA1A-4890-8A9C-A5A3C21CF745}" ShortID="904799966">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -7808,6 +8542,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Enemy_Humanoid_Hit_02" ID="{8419900F-20A5-4645-9E84-6F712A3AAD33}" ShortID="855895151">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -7827,6 +8568,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Enemy_Humanoid_Hit_03" ID="{CB03D267-C9A8-4681-8AB7-B0E3C834D4EA}" ShortID="348794479">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -7846,6 +8594,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Enemy_Humanoid_Hit_04" ID="{AF9C7034-B3CC-420A-BD1B-C4FE6A8EB0F0}" ShortID="130315515">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -7865,6 +8620,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Enemy_Humanoid_Hit_05" ID="{B188EC8E-10BB-4157-A0AC-DAFF25BB771B}" ShortID="138456275">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -7884,6 +8646,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Enemy_Humanoid_Hit_06" ID="{50023FB3-65E8-4354-8108-6B982F528A80}" ShortID="418670609">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -7903,6 +8672,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Enemy_Humanoid_Hit_07" ID="{EBBD3DDF-2E99-4BCF-BD27-485F66609E3F}" ShortID="79288461">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -7922,6 +8698,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Enemy_Humanoid_Hit_08" ID="{3AF451B6-8DDA-424A-8AA2-2C0B2D01EA99}" ShortID="123373448">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -7941,6 +8724,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Enemy_Humanoid_Hit_09" ID="{D1C00D63-9460-442D-8FB3-028E802782E5}" ShortID="945319342">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -7960,6 +8750,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Enemy_Humanoid_Hit_10" ID="{8688C453-E1CD-4ACC-8AF1-85D14537D380}" ShortID="372636800">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -7985,7 +8782,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -8046,6 +8843,13 @@
 							</ReferenceList>
 							<ChildrenList>
 								<Sound Name="Lumberjack_Axe_Swing_Attack_01" ID="{96030D54-E275-455E-B696-2B6CA2C66940}" ShortID="34028301">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -8065,6 +8869,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Lumberjack_Axe_Swing_Attack_02" ID="{F54DF6AD-545F-4236-B382-A037256D0B70}" ShortID="985432570">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -8092,6 +8903,11 @@
 						<Sound Name="Button_main_menu" ID="{92420AE4-4BA8-4E2B-AD84-ECABC80BD940}" ShortID="968045066">
 							<PropertyList>
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -8114,6 +8930,11 @@
 						<Sound Name="Button_resume" ID="{AA869D9A-68F7-454F-9C2D-08C691C218EB}" ShortID="698205619">
 							<PropertyList>
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -8136,6 +8957,11 @@
 						<Sound Name="Mouse_over" ID="{ABD615B7-EE9E-49E9-8DD9-AD5E4FC7C1A1}" ShortID="1061810638">
 							<PropertyList>
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -8158,6 +8984,11 @@
 						<Sound Name="Pause" ID="{BD0AB7EB-4203-4039-9B59-42EA04040640}" ShortID="833364946">
 							<PropertyList>
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -8184,6 +9015,11 @@
 						<Sound Name="Main_Menu_mouse_over" ID="{35538C1F-726D-4078-804A-884FF925DBC2}" ShortID="234977611">
 							<PropertyList>
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -8206,6 +9042,11 @@
 						<Sound Name="Main_Menu_play_1" ID="{968E17BD-AF7E-4CF8-B805-4392B1E396AF}" ShortID="107986707">
 							<PropertyList>
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -8228,6 +9069,11 @@
 						<Sound Name="Main_Menu_play_2" ID="{88FDE045-E7C3-4BE6-899A-3ECB60BE08EA}" ShortID="444261153">
 							<PropertyList>
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -8250,6 +9096,11 @@
 						<Sound Name="Main_Menu_play_3" ID="{45E3E91F-0833-45A8-A0BF-0EC9BBE9D0F8}" ShortID="847127988">
 							<PropertyList>
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -8272,6 +9123,11 @@
 						<Sound Name="Main_Menu_quit" ID="{1BCD5AF6-54CB-48E0-85AC-E2614822FBC8}" ShortID="802827017">
 							<PropertyList>
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -8294,6 +9150,11 @@
 						<Sound Name="Main_Menu_select" ID="{C3AD4E37-C807-4518-8BE8-EDF908DF4735}" ShortID="321432898">
 							<PropertyList>
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -8316,6 +9177,11 @@
 						<Sound Name="Main_Menu_sign_moving" ID="{741FD937-8E4D-40FD-BCA1-F07E2E5977FF}" ShortID="938869891">
 							<PropertyList>
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -8344,7 +9210,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -8418,7 +9284,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -8492,7 +9358,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -8566,7 +9432,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -8593,7 +9459,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -8620,7 +9486,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -8647,7 +9513,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -8676,7 +9542,7 @@
 										<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-3</Value>
+												<Value>-6</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -8703,7 +9569,7 @@
 										<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-3</Value>
+												<Value>-6</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -8730,7 +9596,7 @@
 										<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-3</Value>
+												<Value>-6</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -8757,7 +9623,7 @@
 										<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-3</Value>
+												<Value>-6</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -8790,7 +9656,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -8851,6 +9717,13 @@
 							</ReferenceList>
 							<ChildrenList>
 								<Sound Name="Prop_hit_wood_1" ID="{14C5088E-0EC2-4CF1-8F82-5C4D3858282C}" ShortID="63642040">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -8870,6 +9743,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Prop_hit_wood_2" ID="{6ACDA346-08D8-432D-B57A-37E982296A66}" ShortID="649683155">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -8889,6 +9769,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Prop_hit_wood_3" ID="{A5E93214-7FAA-4891-BE9E-6CBDEA0C0A95}" ShortID="217577137">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -8908,6 +9795,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Prop_hit_wood_4" ID="{146DA1EB-FEF1-4994-A921-C2B7EAFD45BE}" ShortID="179876018">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -8933,7 +9827,7 @@
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -8994,6 +9888,13 @@
 							</ReferenceList>
 							<ChildrenList>
 								<Sound Name="Prop_wood_break_1" ID="{78A622F1-B2C5-4BAD-98FE-B6A3AFCC25F8}" ShortID="308771293">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -9013,6 +9914,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Prop_wood_break_2" ID="{DE3290B1-A217-4139-A5BA-7CD64D2EEBD9}" ShortID="1051103195">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
