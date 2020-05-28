@@ -115,7 +115,9 @@ local CalculatePathTimer = 0
 local MinDistanceToJump = 10
 local OptimalDistanceJumpAttack = false
 local DoJump = false
-
+local JumpAttackPathCreated = false
+local JumpAttack_fps = 30.0
+local JumpAttackTimer = 0
 --################################################ VARIABLES ############################################
 
 lua_table.player_1 = "Geralt"
@@ -389,12 +391,64 @@ local function ApplyVelocity()
 		lua_table.Nvec3x = lua_table.Nvec3x * 0
 		lua_table.Nvec3z = lua_table.Nvec3z * 0
 	end
-	if CurrentState == State.DETECTION
+	if CurrentState == State.DETECTION 
 	then
 		lua_table.Nvec3x = lua_table.Nvec3x * lua_table.CurrentVelocity
 		lua_table.Nvec3z = lua_table.Nvec3z * lua_table.CurrentVelocity
 	end
 end
+
+
+local function CalculateJumpAttackVelocity()
+	-- @ JumpAttack Animation frames
+	--se para para saltar en el frame: 357-337 = 20 frames voy a 30 frames por segundo
+	--357 al 363 = 6 frames se prepara cogiendo fuerza para saltar
+	--363 al 385 = 22 frames esta en el aire
+	--445 acaba la animació
+
+	--TOTAL TIME IN 30FPS = 3.550 SEC	
+	MilisecondsPerframe = 1000/JumpAttack_fps -- if fps = 30, = 33.3333
+	JA_TimeFirstPart = MilisecondsPerframe * 20
+	JA_TimeSecondPart = MilisecondsPerframe * 6
+	JA_TimeThirdPart = MilisecondsPerframe * 22
+	JA_TotalTime = MilisecondsPerframe * 108
+	JA_TimeForthPart = MilisecondsPerframe * 108 - 48 
+
+	if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK JA_TimeFirstPart"..JA_TimeFirstPart) end
+	if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK JA_TimeSecondPart"..JA_TimeSecondPart) end
+	if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK JA_TimeThirdPart"..JA_TimeThirdPart) end
+	if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK JA_TimeForthPart"..JA_TimeForthPart) end
+
+	if CurrentTime - JumpAttackTimer < JA_TimeFirstPart
+	then
+		if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK           CurrentVelocity = 3") end
+		lua_table.CurrentVelocity = 3
+
+	elseif CurrentTime - JumpAttackTimer < JA_TimeSecondPart and CurrentTime - JumpAttackTimer > JA_TimeFirstPart  
+	then
+		if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK            CurrentVelocity = 0") end
+		lua_table.CurrentVelocity = 0
+
+	elseif CurrentTime - JumpAttackTimer < JA_TimeThirdPart and CurrentTime - JumpAttackTimer > JA_TimeSecondPart  
+	then
+		if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK            CurrentVelocity = 6") end
+		lua_table.CurrentVelocity = 6
+
+	elseif CurrentTime - JumpAttackTimer < JA_TimeForthPart and CurrentTime - JumpAttackTimer > JA_TimeThirdPart  
+	then
+		if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK             CurrentVelocity = 0") end
+		lua_table.CurrentVelocity = 0
+
+	elseif CurrentTime - JumpAttackTimer > JA_TimeForthPart
+	then
+		if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK JUMP ATTACK TIME JUST EXPIRED ") end
+	end
+	DebugTime = CurrentTime - JumpAttackTimer
+	if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK JA_TIME:                                  DebugTime = "..DebugTime) end
+
+end
+
+
 
 local function Scream()
 	
@@ -445,7 +499,25 @@ local function SeekTarget()
 
 end
 
+
+
 local function JumpAttack()
+
+	if JumpAttackPathCreated == false --Create a path the first time this function is created
+	then
+		CalculateNewPath(CurrentTargetPosition)
+		JumpAttackTimer = PerfGameTime()
+		JumpAttackPathCreated = true
+		lua_table.AnimationSystem:PlayAnimation("JUMP_ATTACK",JumpAttack_fps,MyUID)
+	end
+
+	if JumpAttackPathCreated == true
+	then
+		if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK CalculateJumpAttackVelocity()") end
+		CalculateJumpAttackVelocity()
+		FollowPath()
+	end
+
 
 	
 	--when jump attack ends, reset all seek bools if distance to target is enought to be in attack mode
@@ -486,6 +558,7 @@ local function ChooseBehaviour() --Called only inside State machine's functions
 			end
 			if ScreamDone == true
 			then 
+				DoScreamNow(false)
 				if DoSeek == false and DoJump == false
 				then
 					DoSeekNow(true)
