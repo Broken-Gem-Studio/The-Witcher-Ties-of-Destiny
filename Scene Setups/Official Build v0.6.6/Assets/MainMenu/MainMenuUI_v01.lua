@@ -37,6 +37,7 @@ local step = 1
 local startingGame = false
 local playingGame = false
 
+local SELECTION = 0
 -----------------------------------------------------------------------------
 -- FUNCTIONS
 -----------------------------------------------------------------------------
@@ -54,6 +55,8 @@ function lua_table:Awake()
 	secondLevelImage = lua_table.ObjectFunctions:FindGameObject("SecondLevelImage")
 
 	lastTimeFallen = lua_table.SystemFunctions:GameTime()
+
+	SELECTION = lua_table.ObjectFunctions:FindGameObject("SELECTION")
 end
 
 function lua_table:Start()
@@ -136,15 +139,15 @@ function lua_table:Update()
 	-- Scene loading
 	if lua_table.loadLevel1 == true
 	then
-		lua_table.SceneFunctions:LoadScene(lua_table.scene1)
+		--lua_table.SceneFunctions:LoadScene(lua_table.scene1)
 	end
 
 	if lua_table.loadLevel2 == true
 	then
-		lua_table.SceneFunctions:LoadScene(lua_table.scene2)
+		--lua_table.SceneFunctions:LoadScene(lua_table.scene2)
 	end
 
-	if lua_table.InputFunctions:IsGamepadButton(1, "BUTTON_B", "DOWN") and (lua_table.loadLevel1 == true or lua_table.loadLevel2 == true)
+	if lua_table.InputFunctions:IsGamepadButton(1, "BUTTON_Y", "DOWN") and (lua_table.loadLevel1 == true or lua_table.loadLevel2 == true)
 	then
 		lua_table.ObjectFunctions:SetActiveGameObject(true, showFirstLevel)
 		lua_table.InterfaceFunctions:SetUIElementInteractable("Button", showFirstLevel, true)
@@ -216,6 +219,7 @@ function lua_table:PlayFirstLevel()
 	lua_table.InterfaceFunctions:SetUIElementInteractable("Button", firstLevelPlay, false)
 	lua_table.InterfaceFunctions:MakeElementInvisible("Image", firstLevelImage)
 
+	lua_table.ObjectFunctions:SetActiveGameObject(true, SELECTION)
 	lua_table.loadLevel1 = true
 end
 
@@ -232,6 +236,7 @@ function lua_table:PlaySecondLevel()
 	lua_table.InterfaceFunctions:SetUIElementInteractable("Button", secondLevelPlay, false)
 	lua_table.InterfaceFunctions:MakeElementInvisible("Image", secondLevelImage)
 
+	lua_table.ObjectFunctions:SetActiveGameObject(true, SELECTION)
 	lua_table.loadLevel2 = true
 end
 

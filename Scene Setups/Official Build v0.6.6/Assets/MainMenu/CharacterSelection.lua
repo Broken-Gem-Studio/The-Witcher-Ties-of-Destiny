@@ -58,6 +58,8 @@ function GetTableCharacterSelection()
     local animgeralt2 = false
     local animjaskier2 = false
 
+    --
+    local SELECTION = 0
 
     local function Hide()
 
@@ -225,6 +227,8 @@ function GetTableCharacterSelection()
         YENN = lua_table["GameObject"]:FindGameObject("YENN")
         CIRI = lua_table["GameObject"]:FindGameObject("CIRILA")
 
+        SELECTION = lua_table["GameObject"]:FindGameObject("SELECTION")
+
     end
     
     function lua_table:Start()
@@ -233,8 +237,8 @@ function GetTableCharacterSelection()
         next = false
 
         Hide()
-        player1_focus = selection.geralt
-        player2_focus = selection.geralt
+        player1_focus = 0
+        player2_focus = 0
         player1_locked = false
         player2_locked = false
 
@@ -258,7 +262,12 @@ function GetTableCharacterSelection()
     
     function lua_table:Update()
 
-
+        if lua_table.main_menu.loadLevel1 == true or lua_table.main_menu.loadLevel2 == true
+        then
+            lua_table["GameObject"]:SetActiveGameObject(true, SELECTION)
+        else
+            lua_table["GameObject"]:SetActiveGameObject(false, SELECTION)
+        end
 
         if lua_table.main_menu.loadLevel1 == false and lua_table.main_menu.loadLevel2 == false --esconder si aun no han clickado level 1 o 2
         then
@@ -280,13 +289,18 @@ function GetTableCharacterSelection()
             lua_table["Transform"]:SetPosition(437.000, -20.750, -34.250, CAMERA)
             lua_table["Transform"]:SetObjectRotation(180,77.989, 180, CAMERA)
         end
+
+        if lua_table.main_menu.loadLevel1 == false and lua_table.main_menu.loadLevel2 == false
+        then
+            lua_table["System"]:LOG("NONE SELECTED")
+        end
         --
 
         if next == false and lua_table["Inputs"]:IsGamepadButton(1, "BUTTON_Y", "DOWN")--tirar para atras
         then
             --PONER COORDENADAS CAMARA DANI
-            lua_table["Transform"]:SetPosition(104.716, -44.599, -78.720, CAMERA)
-            lua_table["Transform"]:SetObjectRotation(-180, 4.896, 180, CAMERA)
+            lua_table["Transform"]:SetPosition(97.333, -41.926, -76.645, CAMERA)
+            lua_table["Transform"]:SetObjectRotation(-180, 3.167, 180, CAMERA)
             --player1_focus = 4
             --player2_focus = 4
             player1_locked = false
