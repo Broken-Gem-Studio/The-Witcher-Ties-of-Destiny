@@ -1,12 +1,173 @@
 {
-    "BridgeArchers": {
+    "Axe": {
         "Active": true,
         "Components": {
             "0": {
-                "layer": "1",
-                "positionx": "645.953369",
-                "positiony": "47.872265",
-                "positionz": "-330.616425",
+                "layer": "0",
+                "positionx": "-13.450806",
+                "positiony": "3.536388",
+                "positionz": "5.412292",
+                "rotationw": "0.507715",
+                "rotationx": "0.449685",
+                "rotationy": "0.591409",
+                "rotationz": "0.436170",
+                "scalex": "1.430003",
+                "scaley": "1.430003",
+                "scalez": "1.430003"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/815574350.mesh"
+                    }
+                }
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/New Folder 16/Lumberjack/New material 17.mat"
+                    }
+                }
+            }
+        },
+        "Parent": "1959117010",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "408997652"
+    },
+    "Bandit_Pivot": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            }
+        },
+        "Parent": "1744145119",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1811993931"
+    },
+    "Bandit_ToUvs": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/516578679.mesh"
+                    }
+                }
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/New Folder 16/Lumberjack/New material 16.mat"
+                    }
+                }
+            }
+        },
+        "Parent": "1744145119",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1345632856"
+    },
+    "Lumber_Dead": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "551.876099",
+                "positiony": "23.855143",
+                "positionz": "-235.579468",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/CinematicTutorial/Lumber_Dead.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "play_dead",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": true
+                    }
+                }
+            },
+            "14": {
+                "Active": true,
+                "Animations": {
+                    "BlendTime": "0.300000",
+                    "UseDefault": false
+                },
+                "Resources": {
+                    "ResourceAnimation": "Library/Animations/583502010.anim",
+                    "ResourceAnimator": "1458000787"
+                }
+            }
+        },
+        "Parent": "20190521",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1744145119"
+    },
+    "OutSideMinions2": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "549.754211",
+                "positiony": "28.138449",
+                "positionz": "-181.816376",
                 "rotationw": "1.000000",
                 "rotationx": "0.000000",
                 "rotationy": "0.000000",
@@ -39,9 +200,9 @@
                     "Variable 2": {
                         "DisplayObjectName": true,
                         "Name": "Enemy_Prefab",
-                        "ObjectName": "Archer (1).prefab",
+                        "ObjectName": "Minion_Ghoul (1).prefab",
                         "Type": "Double",
-                        "Value": 781663352.0
+                        "Value": 1559778361.0
                     },
                     "Variable 3": {
                         "DisplayObjectName": false,
@@ -62,7 +223,7 @@
                         "Name": "SpawnRate",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 1.0
+                        "Value": 0.5
                     },
                     "Variable 6": {
                         "DisplayObjectName": false,
@@ -81,20 +242,20 @@
                 }
             }
         },
-        "Parent": "158474862",
+        "Parent": "20190521",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1554872663"
+        "UID": "1531786428"
     },
-    "BridgeLumberjacks": {
+    "OutVIllageMinions2": {
         "Active": true,
         "Components": {
             "0": {
-                "layer": "1",
-                "positionx": "640.033997",
-                "positiony": "45.204666",
-                "positionz": "-307.469574",
+                "layer": "0",
+                "positionx": "541.611877",
+                "positiony": "26.434834",
+                "positionz": "-203.395279",
                 "rotationw": "1.000000",
                 "rotationx": "0.000000",
                 "rotationy": "0.000000",
@@ -115,7 +276,7 @@
                         "Name": "ActiveDistance",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 60.0
+                        "Value": 10.0
                     },
                     "Variable 1": {
                         "DisplayObjectName": false,
@@ -127,97 +288,9 @@
                     "Variable 2": {
                         "DisplayObjectName": true,
                         "Name": "Enemy_Prefab",
-                        "ObjectName": "LumberjackvPrefab0_6_5 (1).prefab",
+                        "ObjectName": "Minion_Ghoul (1).prefab",
                         "Type": "Double",
-                        "Value": 245212562.0
-                    },
-                    "Variable 3": {
-                        "DisplayObjectName": false,
-                        "Name": "NumberofEnemies",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 2.0
-                    },
-                    "Variable 4": {
-                        "DisplayObjectName": false,
-                        "Name": "SpawnRadius",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 5.0
-                    },
-                    "Variable 5": {
-                        "DisplayObjectName": false,
-                        "Name": "SpawnRate",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 1.0
-                    },
-                    "Variable 6": {
-                        "DisplayObjectName": false,
-                        "Name": "camera_name",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "Camera"
-                    },
-                    "Variable 7": {
-                        "DisplayObjectName": false,
-                        "Name": "time",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    }
-                }
-            }
-        },
-        "Parent": "158474862",
-        "PrefabChild": true,
-        "PrefabInstance": false,
-        "Static": false,
-        "UID": "1433992747"
-    },
-    "CampedArchers": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "layer": "1",
-                "positionx": "695.221802",
-                "positiony": "24.261738",
-                "positionz": "-152.074585",
-                "rotationw": "1.000000",
-                "rotationx": "0.000000",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "0.400017",
-                "scaley": "0.400000",
-                "scalez": "0.400017"
-            },
-            "12": {
-                "Active": true,
-                "Resources": {
-                    "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
-                },
-                "Script variables": {
-                    "Count": 8,
-                    "Variable 0": {
-                        "DisplayObjectName": false,
-                        "Name": "ActiveDistance",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 60.0
-                    },
-                    "Variable 1": {
-                        "DisplayObjectName": false,
-                        "Name": "DistanceToCamera",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 2": {
-                        "DisplayObjectName": true,
-                        "Name": "Enemy_Prefab",
-                        "ObjectName": "Archer (1).prefab",
-                        "Type": "Double",
-                        "Value": 781663352.0
+                        "Value": 1559778361.0
                     },
                     "Variable 3": {
                         "DisplayObjectName": false,
@@ -238,7 +311,7 @@
                         "Name": "SpawnRate",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 1.0
+                        "Value": 0.5
                     },
                     "Variable 6": {
                         "DisplayObjectName": false,
@@ -257,20 +330,20 @@
                 }
             }
         },
-        "Parent": "158474862",
+        "Parent": "20190521",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1641773504"
+        "UID": "1255180712"
     },
-    "CampedMinions": {
+    "OutVillageMinions1": {
         "Active": true,
         "Components": {
             "0": {
-                "layer": "1",
-                "positionx": "641.305298",
-                "positiony": "30.993446",
-                "positionz": "-182.585403",
+                "layer": "0",
+                "positionx": "558.320496",
+                "positiony": "26.434834",
+                "positionz": "-206.265472",
                 "rotationw": "1.000000",
                 "rotationx": "0.000000",
                 "rotationy": "0.000000",
@@ -291,7 +364,7 @@
                         "Name": "ActiveDistance",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 60.0
+                        "Value": 10.0
                     },
                     "Variable 1": {
                         "DisplayObjectName": false,
@@ -312,14 +385,14 @@
                         "Name": "NumberofEnemies",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 10.0
+                        "Value": 4.0
                     },
                     "Variable 4": {
                         "DisplayObjectName": false,
                         "Name": "SpawnRadius",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 5.0
+                        "Value": 3.0
                     },
                     "Variable 5": {
                         "DisplayObjectName": false,
@@ -345,636 +418,20 @@
                 }
             }
         },
-        "Parent": "158474862",
+        "Parent": "20190521",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "2096010409"
+        "UID": "1915452158"
     },
-    "CampedZomboid": {
+    "OutsideMinions1": {
         "Active": true,
         "Components": {
             "0": {
                 "layer": "1",
-                "positionx": "628.862610",
-                "positiony": "31.999214",
-                "positionz": "-185.195389",
-                "rotationw": "1.000000",
-                "rotationx": "0.000000",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "0.400017",
-                "scaley": "0.400000",
-                "scalez": "0.400017"
-            },
-            "12": {
-                "Active": true,
-                "Resources": {
-                    "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
-                },
-                "Script variables": {
-                    "Count": 8,
-                    "Variable 0": {
-                        "DisplayObjectName": false,
-                        "Name": "ActiveDistance",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 60.0
-                    },
-                    "Variable 1": {
-                        "DisplayObjectName": false,
-                        "Name": "DistanceToCamera",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 2": {
-                        "DisplayObjectName": true,
-                        "Name": "Enemy_Prefab",
-                        "ObjectName": "Zomboid_Ghoul (1).prefab",
-                        "Type": "Double",
-                        "Value": 76446244.0
-                    },
-                    "Variable 3": {
-                        "DisplayObjectName": false,
-                        "Name": "NumberofEnemies",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 1.0
-                    },
-                    "Variable 4": {
-                        "DisplayObjectName": false,
-                        "Name": "SpawnRadius",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 1.0
-                    },
-                    "Variable 5": {
-                        "DisplayObjectName": false,
-                        "Name": "SpawnRate",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 1.0
-                    },
-                    "Variable 6": {
-                        "DisplayObjectName": false,
-                        "Name": "camera_name",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "Camera"
-                    },
-                    "Variable 7": {
-                        "DisplayObjectName": false,
-                        "Name": "time",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    }
-                }
-            }
-        },
-        "Parent": "158474862",
-        "PrefabChild": true,
-        "PrefabInstance": false,
-        "Static": false,
-        "UID": "531904045"
-    },
-    "CrossroadMinions": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "layer": "1",
-                "positionx": "858.288696",
-                "positiony": "17.985792",
-                "positionz": "-526.780884",
-                "rotationw": "1.000000",
-                "rotationx": "0.000000",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "0.400017",
-                "scaley": "0.400000",
-                "scalez": "0.400017"
-            },
-            "12": {
-                "Active": true,
-                "Resources": {
-                    "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
-                },
-                "Script variables": {
-                    "Count": 8,
-                    "Variable 0": {
-                        "DisplayObjectName": false,
-                        "Name": "ActiveDistance",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 60.0
-                    },
-                    "Variable 1": {
-                        "DisplayObjectName": false,
-                        "Name": "DistanceToCamera",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 2": {
-                        "DisplayObjectName": true,
-                        "Name": "Enemy_Prefab",
-                        "ObjectName": "Minion_Ghoul (1).prefab",
-                        "Type": "Double",
-                        "Value": 1559778361.0
-                    },
-                    "Variable 3": {
-                        "DisplayObjectName": false,
-                        "Name": "NumberofEnemies",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 10.0
-                    },
-                    "Variable 4": {
-                        "DisplayObjectName": false,
-                        "Name": "SpawnRadius",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 5.0
-                    },
-                    "Variable 5": {
-                        "DisplayObjectName": false,
-                        "Name": "SpawnRate",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.5
-                    },
-                    "Variable 6": {
-                        "DisplayObjectName": false,
-                        "Name": "camera_name",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "Camera"
-                    },
-                    "Variable 7": {
-                        "DisplayObjectName": false,
-                        "Name": "time",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    }
-                }
-            }
-        },
-        "Parent": "158474862",
-        "PrefabChild": true,
-        "PrefabInstance": false,
-        "Static": false,
-        "UID": "483508077"
-    },
-    "CrossroadWalker": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "layer": "1",
-                "positionx": "864.784546",
-                "positiony": "23.451054",
-                "positionz": "-542.820313",
-                "rotationw": "1.000000",
-                "rotationx": "0.000000",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "0.400017",
-                "scaley": "0.400000",
-                "scalez": "0.400017"
-            },
-            "12": {
-                "Active": true,
-                "Resources": {
-                    "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
-                },
-                "Script variables": {
-                    "Count": 8,
-                    "Variable 0": {
-                        "DisplayObjectName": false,
-                        "Name": "ActiveDistance",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 60.0
-                    },
-                    "Variable 1": {
-                        "DisplayObjectName": false,
-                        "Name": "DistanceToCamera",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 2": {
-                        "DisplayObjectName": true,
-                        "Name": "Enemy_Prefab",
-                        "ObjectName": "Screamer (0).prefab",
-                        "Type": "Double",
-                        "Value": 2102286492.0
-                    },
-                    "Variable 3": {
-                        "DisplayObjectName": false,
-                        "Name": "NumberofEnemies",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 1.0
-                    },
-                    "Variable 4": {
-                        "DisplayObjectName": false,
-                        "Name": "SpawnRadius",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 1.0
-                    },
-                    "Variable 5": {
-                        "DisplayObjectName": false,
-                        "Name": "SpawnRate",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 1.0
-                    },
-                    "Variable 6": {
-                        "DisplayObjectName": false,
-                        "Name": "camera_name",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "Camera"
-                    },
-                    "Variable 7": {
-                        "DisplayObjectName": false,
-                        "Name": "time",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    }
-                }
-            }
-        },
-        "Parent": "158474862",
-        "PrefabChild": true,
-        "PrefabInstance": false,
-        "Static": false,
-        "UID": "509662092"
-    },
-    "CrossroadZomboids": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "layer": "1",
-                "positionx": "882.899719",
-                "positiony": "18.738520",
-                "positionz": "-522.982910",
-                "rotationw": "1.000000",
-                "rotationx": "0.000000",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "0.400017",
-                "scaley": "0.400000",
-                "scalez": "0.400017"
-            },
-            "12": {
-                "Active": true,
-                "Resources": {
-                    "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
-                },
-                "Script variables": {
-                    "Count": 8,
-                    "Variable 0": {
-                        "DisplayObjectName": false,
-                        "Name": "ActiveDistance",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 60.0
-                    },
-                    "Variable 1": {
-                        "DisplayObjectName": false,
-                        "Name": "DistanceToCamera",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 2": {
-                        "DisplayObjectName": true,
-                        "Name": "Enemy_Prefab",
-                        "ObjectName": "Zomboid_Ghoul (1).prefab",
-                        "Type": "Double",
-                        "Value": 76446244.0
-                    },
-                    "Variable 3": {
-                        "DisplayObjectName": false,
-                        "Name": "NumberofEnemies",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 1.0
-                    },
-                    "Variable 4": {
-                        "DisplayObjectName": false,
-                        "Name": "SpawnRadius",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 1.0
-                    },
-                    "Variable 5": {
-                        "DisplayObjectName": false,
-                        "Name": "SpawnRate",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 1.0
-                    },
-                    "Variable 6": {
-                        "DisplayObjectName": false,
-                        "Name": "camera_name",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "Camera"
-                    },
-                    "Variable 7": {
-                        "DisplayObjectName": false,
-                        "Name": "time",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    }
-                }
-            }
-        },
-        "Parent": "158474862",
-        "PrefabChild": true,
-        "PrefabInstance": false,
-        "Static": false,
-        "UID": "312207751"
-    },
-    "LonelyMinions": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "layer": "1",
-                "positionx": "894.563965",
-                "positiony": "14.941420",
-                "positionz": "-432.312164",
-                "rotationw": "1.000000",
-                "rotationx": "0.000000",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "0.400017",
-                "scaley": "0.400000",
-                "scalez": "0.400017"
-            },
-            "12": {
-                "Active": true,
-                "Resources": {
-                    "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
-                },
-                "Script variables": {
-                    "Count": 8,
-                    "Variable 0": {
-                        "DisplayObjectName": false,
-                        "Name": "ActiveDistance",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 60.0
-                    },
-                    "Variable 1": {
-                        "DisplayObjectName": false,
-                        "Name": "DistanceToCamera",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 2": {
-                        "DisplayObjectName": true,
-                        "Name": "Enemy_Prefab",
-                        "ObjectName": "Minion_Ghoul (1).prefab",
-                        "Type": "Double",
-                        "Value": 1559778361.0
-                    },
-                    "Variable 3": {
-                        "DisplayObjectName": false,
-                        "Name": "NumberofEnemies",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 10.0
-                    },
-                    "Variable 4": {
-                        "DisplayObjectName": false,
-                        "Name": "SpawnRadius",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 5.0
-                    },
-                    "Variable 5": {
-                        "DisplayObjectName": false,
-                        "Name": "SpawnRate",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.5
-                    },
-                    "Variable 6": {
-                        "DisplayObjectName": false,
-                        "Name": "camera_name",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "Camera"
-                    },
-                    "Variable 7": {
-                        "DisplayObjectName": false,
-                        "Name": "time",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    }
-                }
-            }
-        },
-        "Parent": "158474862",
-        "PrefabChild": true,
-        "PrefabInstance": false,
-        "Static": false,
-        "UID": "1533841084"
-    },
-    "MinionsAfterBridge": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "layer": "1",
-                "positionx": "714.609680",
-                "positiony": "49.065346",
-                "positionz": "-454.975189",
-                "rotationw": "1.000000",
-                "rotationx": "0.000000",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "0.400017",
-                "scaley": "0.400000",
-                "scalez": "0.400017"
-            },
-            "12": {
-                "Active": true,
-                "Resources": {
-                    "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
-                },
-                "Script variables": {
-                    "Count": 8,
-                    "Variable 0": {
-                        "DisplayObjectName": false,
-                        "Name": "ActiveDistance",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 60.0
-                    },
-                    "Variable 1": {
-                        "DisplayObjectName": false,
-                        "Name": "DistanceToCamera",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 2": {
-                        "DisplayObjectName": true,
-                        "Name": "Enemy_Prefab",
-                        "ObjectName": "Minion_Ghoul (1).prefab",
-                        "Type": "Double",
-                        "Value": 1559778361.0
-                    },
-                    "Variable 3": {
-                        "DisplayObjectName": false,
-                        "Name": "NumberofEnemies",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 10.0
-                    },
-                    "Variable 4": {
-                        "DisplayObjectName": false,
-                        "Name": "SpawnRadius",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 5.0
-                    },
-                    "Variable 5": {
-                        "DisplayObjectName": false,
-                        "Name": "SpawnRate",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.5
-                    },
-                    "Variable 6": {
-                        "DisplayObjectName": false,
-                        "Name": "camera_name",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "Camera"
-                    },
-                    "Variable 7": {
-                        "DisplayObjectName": false,
-                        "Name": "time",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    }
-                }
-            }
-        },
-        "Parent": "158474862",
-        "PrefabChild": true,
-        "PrefabInstance": false,
-        "Static": false,
-        "UID": "1778278442"
-    },
-    "MinionsPutos": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "layer": "1",
-                "positionx": "739.579468",
-                "positiony": "44.960262",
-                "positionz": "-499.341034",
-                "rotationw": "1.000000",
-                "rotationx": "0.000000",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "0.400017",
-                "scaley": "0.400000",
-                "scalez": "0.400017"
-            },
-            "12": {
-                "Active": true,
-                "Resources": {
-                    "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
-                },
-                "Script variables": {
-                    "Count": 8,
-                    "Variable 0": {
-                        "DisplayObjectName": false,
-                        "Name": "ActiveDistance",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 60.0
-                    },
-                    "Variable 1": {
-                        "DisplayObjectName": false,
-                        "Name": "DistanceToCamera",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 2": {
-                        "DisplayObjectName": true,
-                        "Name": "Enemy_Prefab",
-                        "ObjectName": "Minion_Ghoul (1).prefab",
-                        "Type": "Double",
-                        "Value": 1559778361.0
-                    },
-                    "Variable 3": {
-                        "DisplayObjectName": false,
-                        "Name": "NumberofEnemies",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 10.0
-                    },
-                    "Variable 4": {
-                        "DisplayObjectName": false,
-                        "Name": "SpawnRadius",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 5.0
-                    },
-                    "Variable 5": {
-                        "DisplayObjectName": false,
-                        "Name": "SpawnRate",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.5
-                    },
-                    "Variable 6": {
-                        "DisplayObjectName": false,
-                        "Name": "camera_name",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "Camera"
-                    },
-                    "Variable 7": {
-                        "DisplayObjectName": false,
-                        "Name": "time",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    }
-                }
-            }
-        },
-        "Parent": "158474862",
-        "PrefabChild": true,
-        "PrefabInstance": false,
-        "Static": false,
-        "UID": "943677285"
-    },
-    "OutsideMinions": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "layer": "1",
-                "positionx": "538.444641",
+                "positionx": "533.875305",
                 "positiony": "25.292856",
-                "positionz": "-182.185059",
+                "positionz": "-183.696381",
                 "rotationw": "1.000000",
                 "rotationx": "0.000000",
                 "rotationy": "0.000000",
@@ -1016,7 +473,7 @@
                         "Name": "NumberofEnemies",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 10.0
+                        "Value": 5.0
                     },
                     "Variable 4": {
                         "DisplayObjectName": false,
@@ -1049,101 +506,13 @@
                 }
             }
         },
-        "Parent": "158474862",
+        "Parent": "20190521",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1789046314"
+        "UID": "1229957403"
     },
-    "PreKikimoraMinions": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "layer": "1",
-                "positionx": "899.461853",
-                "positiony": "16.454470",
-                "positionz": "-591.603577",
-                "rotationw": "1.000000",
-                "rotationx": "0.000000",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "0.400017",
-                "scaley": "0.400000",
-                "scalez": "0.400017"
-            },
-            "12": {
-                "Active": true,
-                "Resources": {
-                    "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
-                },
-                "Script variables": {
-                    "Count": 8,
-                    "Variable 0": {
-                        "DisplayObjectName": false,
-                        "Name": "ActiveDistance",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 60.0
-                    },
-                    "Variable 1": {
-                        "DisplayObjectName": false,
-                        "Name": "DistanceToCamera",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 2": {
-                        "DisplayObjectName": true,
-                        "Name": "Enemy_Prefab",
-                        "ObjectName": "Minion_Ghoul (1).prefab",
-                        "Type": "Double",
-                        "Value": 1559778361.0
-                    },
-                    "Variable 3": {
-                        "DisplayObjectName": false,
-                        "Name": "NumberofEnemies",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 10.0
-                    },
-                    "Variable 4": {
-                        "DisplayObjectName": false,
-                        "Name": "SpawnRadius",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 5.0
-                    },
-                    "Variable 5": {
-                        "DisplayObjectName": false,
-                        "Name": "SpawnRate",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.5
-                    },
-                    "Variable 6": {
-                        "DisplayObjectName": false,
-                        "Name": "camera_name",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "Camera"
-                    },
-                    "Variable 7": {
-                        "DisplayObjectName": false,
-                        "Name": "time",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    }
-                }
-            }
-        },
-        "Parent": "158474862",
-        "PrefabChild": true,
-        "PrefabInstance": false,
-        "Static": false,
-        "UID": "1141900994"
-    },
-    "PreviewTexture": "Library/Textures/1439122614.dds",
+    "PreviewTexture": "Library/Textures/904293220.dds",
     "Spwanersv2": {
         "Active": true,
         "Components": {
@@ -1161,11 +530,11 @@
                 "scalez": "1.000000"
             }
         },
-        "Parent": "1024228402",
+        "Parent": "59531379",
         "PrefabChild": true,
         "PrefabInstance": true,
         "Static": false,
-        "UID": "158474862"
+        "UID": "20190521"
     },
     "VillageArcher": {
         "Active": true,
@@ -1249,11 +618,11 @@
                 }
             }
         },
-        "Parent": "158474862",
+        "Parent": "20190521",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "444491334"
+        "UID": "2101413785"
     },
     "VillageArcher2": {
         "Active": true,
@@ -1283,7 +652,7 @@
                         "Name": "ActiveDistance",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 60.0
+                        "Value": 10.0
                     },
                     "Variable 1": {
                         "DisplayObjectName": false,
@@ -1337,11 +706,11 @@
                 }
             }
         },
-        "Parent": "158474862",
+        "Parent": "20190521",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1124331521"
+        "UID": "910706316"
     },
     "VillageArcher3": {
         "Active": true,
@@ -1371,7 +740,7 @@
                         "Name": "ActiveDistance",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 60.0
+                        "Value": 10.0
                     },
                     "Variable 1": {
                         "DisplayObjectName": false,
@@ -1425,11 +794,99 @@
                 }
             }
         },
-        "Parent": "158474862",
+        "Parent": "20190521",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1305890391"
+        "UID": "1977232208"
+    },
+    "VillageArchersLumber": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "544.618042",
+                "positiony": "27.028667",
+                "positionz": "-264.410431",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.400017",
+                "scaley": "0.400000",
+                "scalez": "0.400017"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
+                },
+                "Script variables": {
+                    "Count": 8,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "ActiveDistance",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 30.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "DistanceToCamera",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": true,
+                        "Name": "Enemy_Prefab",
+                        "ObjectName": "Archer (1).prefab",
+                        "Type": "Double",
+                        "Value": 781663352.0
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "NumberofEnemies",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRadius",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRate",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.5
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_name",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Camera"
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": false,
+                        "Name": "time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    }
+                }
+            }
+        },
+        "Parent": "20190521",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "330967201"
     },
     "VillageLumberjack": {
         "Active": true,
@@ -1438,7 +895,7 @@
                 "layer": "1",
                 "positionx": "551.998840",
                 "positiony": "27.028667",
-                "positionz": "-264.629028",
+                "positionz": "-269.763031",
                 "rotationw": "1.000000",
                 "rotationx": "0.000000",
                 "rotationy": "0.000000",
@@ -1513,11 +970,11 @@
                 }
             }
         },
-        "Parent": "158474862",
+        "Parent": "20190521",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "691811144"
+        "UID": "1034296821"
     },
     "VillageMinions": {
         "Active": true,
@@ -1601,11 +1058,11 @@
                 }
             }
         },
-        "Parent": "158474862",
+        "Parent": "20190521",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "820421508"
+        "UID": "1504807284"
     },
     "VillageRecruitLeft": {
         "Active": true,
@@ -1689,11 +1146,11 @@
                 }
             }
         },
-        "Parent": "158474862",
+        "Parent": "20190521",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "566552570"
+        "UID": "1198200469"
     },
     "VillageRecruitSix": {
         "Active": true,
@@ -1723,7 +1180,7 @@
                         "Name": "ActiveDistance",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 60.0
+                        "Value": 30.0
                     },
                     "Variable 1": {
                         "DisplayObjectName": false,
@@ -1777,274 +1234,1817 @@
                 }
             }
         },
-        "Parent": "158474862",
+        "Parent": "20190521",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1527232419"
+        "UID": "912584534"
     },
-    "WalkerGhoul": {
+    "mixamorig:Head": {
         "Active": true,
         "Components": {
             "0": {
-                "layer": "1",
-                "positionx": "632.277466",
-                "positiony": "32.734112",
-                "positionz": "-243.970169",
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "4.180702",
+                "positionz": "1.907000",
                 "rotationw": "1.000000",
                 "rotationx": "0.000000",
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
-                "scalex": "0.400017",
-                "scaley": "0.400000",
-                "scalez": "0.400017"
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
             },
-            "12": {
+            "13": {
                 "Active": true,
                 "Resources": {
-                    "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
-                },
-                "Script variables": {
-                    "Count": 8,
-                    "Variable 0": {
-                        "DisplayObjectName": false,
-                        "Name": "ActiveDistance",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 60.0
-                    },
-                    "Variable 1": {
-                        "DisplayObjectName": false,
-                        "Name": "DistanceToCamera",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 2": {
-                        "DisplayObjectName": true,
-                        "Name": "Enemy_Prefab",
-                        "ObjectName": "Screamer (0).prefab",
-                        "Type": "Double",
-                        "Value": 2102286492.0
-                    },
-                    "Variable 3": {
-                        "DisplayObjectName": false,
-                        "Name": "NumberofEnemies",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 3.0
-                    },
-                    "Variable 4": {
-                        "DisplayObjectName": false,
-                        "Name": "SpawnRadius",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 4.0
-                    },
-                    "Variable 5": {
-                        "DisplayObjectName": false,
-                        "Name": "SpawnRate",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 1.0
-                    },
-                    "Variable 6": {
-                        "DisplayObjectName": false,
-                        "Name": "camera_name",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "Camera"
-                    },
-                    "Variable 7": {
-                        "DisplayObjectName": false,
-                        "Name": "time",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    }
+                    "ResourceBone": "Library/Bones/1953849372.bone"
                 }
             }
         },
-        "Parent": "158474862",
+        "Parent": "347092332",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1943249209"
+        "UID": "1429250128"
     },
-    "WalkersPutos": {
+    "mixamorig:HeadTop_End": {
         "Active": true,
         "Components": {
             "0": {
-                "layer": "1",
-                "positionx": "745.263489",
-                "positiony": "42.443314",
-                "positionz": "-510.777222",
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "15.223595",
+                "positionz": "6.944201",
                 "rotationw": "1.000000",
                 "rotationx": "0.000000",
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
-                "scalex": "0.400017",
-                "scaley": "0.400000",
-                "scalez": "0.400017"
-            },
-            "12": {
-                "Active": true,
-                "Resources": {
-                    "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
-                },
-                "Script variables": {
-                    "Count": 8,
-                    "Variable 0": {
-                        "DisplayObjectName": false,
-                        "Name": "ActiveDistance",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 60.0
-                    },
-                    "Variable 1": {
-                        "DisplayObjectName": false,
-                        "Name": "DistanceToCamera",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 2": {
-                        "DisplayObjectName": true,
-                        "Name": "Enemy_Prefab",
-                        "ObjectName": "Screamer (0).prefab",
-                        "Type": "Double",
-                        "Value": 2102286492.0
-                    },
-                    "Variable 3": {
-                        "DisplayObjectName": false,
-                        "Name": "NumberofEnemies",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 2.0
-                    },
-                    "Variable 4": {
-                        "DisplayObjectName": false,
-                        "Name": "SpawnRadius",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 4.0
-                    },
-                    "Variable 5": {
-                        "DisplayObjectName": false,
-                        "Name": "SpawnRate",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 1.0
-                    },
-                    "Variable 6": {
-                        "DisplayObjectName": false,
-                        "Name": "camera_name",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "Camera"
-                    },
-                    "Variable 7": {
-                        "DisplayObjectName": false,
-                        "Name": "time",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    }
-                }
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
             }
         },
-        "Parent": "158474862",
+        "Parent": "1429250128",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1630902436"
+        "UID": "20894096"
     },
-    "ZomboidsAfterBridge": {
+    "mixamorig:Hips": {
         "Active": true,
         "Components": {
             "0": {
-                "layer": "1",
-                "positionx": "706.661621",
-                "positiony": "49.065346",
-                "positionz": "-449.679596",
+                "layer": "0",
+                "positionx": "0.001487",
+                "positiony": "0.502452",
+                "positionz": "77.366592",
+                "rotationw": "0.707111",
+                "rotationx": "0.707103",
+                "rotationy": "0.000117",
+                "rotationz": "-0.000109",
+                "scalex": "1.000000",
+                "scaley": "1.000054",
+                "scalez": "1.000054"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/625398066.bone"
+                }
+            }
+        },
+        "Parent": "1811993931",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1050110783"
+    },
+    "mixamorig:LeftArm": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "10.583395",
+                "positionz": "0.000000",
+                "rotationw": "0.994232",
+                "rotationx": "-0.101332",
+                "rotationy": "0.033744",
+                "rotationz": "0.009788",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1496110909.bone"
+                }
+            }
+        },
+        "Parent": "764125138",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1691329214"
+    },
+    "mixamorig:LeftFoot": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000002",
+                "positiony": "32.032005",
+                "positionz": "0.000000",
+                "rotationw": "0.869199",
+                "rotationx": "0.494147",
+                "rotationy": "0.006802",
+                "rotationz": "0.016317",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/621824649.bone"
+                }
+            }
+        },
+        "Parent": "1459061504",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1049499590"
+    },
+    "mixamorig:LeftForeArm": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "22.525303",
+                "positionz": "0.000015",
+                "rotationw": "0.999838",
+                "rotationx": "0.013478",
+                "rotationy": "0.006491",
+                "rotationz": "0.010021",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1338265048.bone"
+                }
+            }
+        },
+        "Parent": "1691329214",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1207875590"
+    },
+    "mixamorig:LeftHand": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000001",
+                "positiony": "16.716103",
+                "positionz": "0.000000",
+                "rotationw": "0.998282",
+                "rotationx": "-0.005617",
+                "rotationy": "0.032454",
+                "rotationz": "-0.048467",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/890476091.bone"
+                }
+            }
+        },
+        "Parent": "1207875590",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "194318517"
+    },
+    "mixamorig:LeftHandIndex1": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-3.710601",
+                "positiony": "11.515499",
+                "positionz": "-0.176010",
+                "rotationw": "0.999231",
+                "rotationx": "-0.002616",
+                "rotationy": "-0.001621",
+                "rotationz": "0.039096",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/552947596.bone"
+                }
+            }
+        },
+        "Parent": "194318517",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1649979604"
+    },
+    "mixamorig:LeftHandIndex2": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000200",
+                "positiony": "3.040688",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "-0.000004",
+                "rotationz": "0.000453",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/2052647799.bone"
+                }
+            }
+        },
+        "Parent": "1649979604",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "34764760"
+    },
+    "mixamorig:LeftHandIndex3": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.002700",
+                "positiony": "2.880615",
+                "positionz": "0.000000",
+                "rotationw": "0.999999",
+                "rotationx": "0.000001",
+                "rotationy": "-0.000002",
+                "rotationz": "-0.001173",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1060116378.bone"
+                }
+            }
+        },
+        "Parent": "34764760",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "143285791"
+    },
+    "mixamorig:LeftHandIndex4": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-0.003000",
+                "positiony": "2.184700",
+                "positionz": "0.000008",
                 "rotationw": "1.000000",
                 "rotationx": "0.000000",
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
-                "scalex": "0.400017",
-                "scaley": "0.400000",
-                "scalez": "0.400017"
-            },
-            "12": {
-                "Active": true,
-                "Resources": {
-                    "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
-                },
-                "Script variables": {
-                    "Count": 8,
-                    "Variable 0": {
-                        "DisplayObjectName": false,
-                        "Name": "ActiveDistance",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 60.0
-                    },
-                    "Variable 1": {
-                        "DisplayObjectName": false,
-                        "Name": "DistanceToCamera",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 2": {
-                        "DisplayObjectName": true,
-                        "Name": "Enemy_Prefab",
-                        "ObjectName": "Zomboid_Ghoul (1).prefab",
-                        "Type": "Double",
-                        "Value": 76446244.0
-                    },
-                    "Variable 3": {
-                        "DisplayObjectName": false,
-                        "Name": "NumberofEnemies",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 1.0
-                    },
-                    "Variable 4": {
-                        "DisplayObjectName": false,
-                        "Name": "SpawnRadius",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 1.0
-                    },
-                    "Variable 5": {
-                        "DisplayObjectName": false,
-                        "Name": "SpawnRate",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 1.0
-                    },
-                    "Variable 6": {
-                        "DisplayObjectName": false,
-                        "Name": "camera_name",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "Camera"
-                    },
-                    "Variable 7": {
-                        "DisplayObjectName": false,
-                        "Name": "time",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    }
-                }
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
             }
         },
-        "Parent": "158474862",
+        "Parent": "143285791",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1155628925"
+        "UID": "638514896"
+    },
+    "mixamorig:LeftHandMiddle1": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-1.037400",
+                "positiony": "11.986401",
+                "positionz": "-0.041306",
+                "rotationw": "0.999232",
+                "rotationx": "-0.002659",
+                "rotationy": "-0.001080",
+                "rotationz": "0.039077",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1157742496.bone"
+                }
+            }
+        },
+        "Parent": "194318517",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1134081516"
+    },
+    "mixamorig:LeftHandMiddle2": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-0.000300",
+                "positiony": "3.368500",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000003",
+                "rotationz": "0.000130",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1644372642.bone"
+                }
+            }
+        },
+        "Parent": "1134081516",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1505459834"
+    },
+    "mixamorig:LeftHandMiddle3": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000700",
+                "positiony": "3.040985",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "-0.000002",
+                "rotationz": "-0.000253",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/514487112.bone"
+                }
+            }
+        },
+        "Parent": "1505459834",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1532227432"
+    },
+    "mixamorig:LeftHandMiddle4": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-0.000400",
+                "positiony": "2.174400",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Parent": "1532227432",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1103362194"
+    },
+    "mixamorig:LeftHandPinky1": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "3.497301",
+                "positiony": "8.840694",
+                "positionz": "-0.105019",
+                "rotationw": "0.999186",
+                "rotationx": "-0.002321",
+                "rotationy": "-0.009197",
+                "rotationz": "0.039207",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/972724994.bone"
+                }
+            }
+        },
+        "Parent": "194318517",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1689255284"
+    },
+    "mixamorig:LeftHandPinky2": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000499",
+                "positiony": "3.525002",
+                "positionz": "0.000015",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000032",
+                "rotationz": "0.000575",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1158986701.bone"
+                }
+            }
+        },
+        "Parent": "1689255284",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "700199409"
+    },
+    "mixamorig:LeftHandPinky3": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.003900",
+                "positiony": "3.017509",
+                "positionz": "0.000015",
+                "rotationw": "0.999999",
+                "rotationx": "-0.000000",
+                "rotationy": "0.000014",
+                "rotationz": "-0.001569",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/262557943.bone"
+                }
+            }
+        },
+        "Parent": "700199409",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "704267089"
+    },
+    "mixamorig:LeftHandPinky4": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-0.004299",
+                "positiony": "2.328911",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Parent": "704267089",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "432374965"
+    },
+    "mixamorig:LeftHandRing1": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "1.250801",
+                "positiony": "9.899799",
+                "positionz": "-0.048317",
+                "rotationw": "0.999246",
+                "rotationx": "-0.002807",
+                "rotationy": "0.002621",
+                "rotationz": "0.038643",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1189999129.bone"
+                }
+            }
+        },
+        "Parent": "194318517",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1099158266"
+    },
+    "mixamorig:LeftHandRing2": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-0.003300",
+                "positiony": "3.480194",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "-0.000001",
+                "rotationy": "-0.000009",
+                "rotationz": "0.000803",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/945640917.bone"
+                }
+            }
+        },
+        "Parent": "1099158266",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1065359988"
+    },
+    "mixamorig:LeftHandRing3": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.002399",
+                "positiony": "3.354698",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "-0.000009",
+                "rotationz": "-0.000173",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1227476239.bone"
+                }
+            }
+        },
+        "Parent": "1065359988",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1637524462"
+    },
+    "mixamorig:LeftHandRing4": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000900",
+                "positiony": "2.644302",
+                "positionz": "-0.000008",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Parent": "1637524462",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "478716966"
+    },
+    "mixamorig:LeftHandThumb1": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-2.718500",
+                "positiony": "2.882797",
+                "positionz": "1.534698",
+                "rotationw": "0.962994",
+                "rotationx": "0.205271",
+                "rotationy": "0.076298",
+                "rotationz": "0.157114",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/130526268.bone"
+                }
+            }
+        },
+        "Parent": "194318517",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1955172093"
+    },
+    "mixamorig:LeftHandThumb2": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-0.827097",
+                "positiony": "3.297207",
+                "positionz": "0.000000",
+                "rotationw": "0.980754",
+                "rotationx": "0.005898",
+                "rotationy": "-0.008650",
+                "rotationz": "0.194966",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1365993971.bone"
+                }
+            }
+        },
+        "Parent": "1955172093",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "637838011"
+    },
+    "mixamorig:LeftHandThumb3": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.509003",
+                "positiony": "4.026596",
+                "positionz": "0.000008",
+                "rotationw": "0.999866",
+                "rotationx": "0.001193",
+                "rotationy": "-0.008706",
+                "rotationz": "-0.013824",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1686591165.bone"
+                }
+            }
+        },
+        "Parent": "637838011",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1253311165"
+    },
+    "mixamorig:LeftHandThumb4": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.318100",
+                "positiony": "3.367001",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Parent": "1253311165",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "221073561"
+    },
+    "mixamorig:LeftLeg": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000002",
+                "positiony": "31.820007",
+                "positionz": "0.000000",
+                "rotationw": "0.998151",
+                "rotationx": "-0.060142",
+                "rotationy": "0.000184",
+                "rotationz": "-0.008861",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1521578872.bone"
+                }
+            }
+        },
+        "Parent": "829544775",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1459061504"
+    },
+    "mixamorig:LeftShoulder": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "4.959700",
+                "positiony": "7.932907",
+                "positionz": "-0.267900",
+                "rotationw": "-0.448534",
+                "rotationx": "-0.535361",
+                "rotationy": "-0.454394",
+                "rotationz": "0.552930",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1450433166.bone"
+                }
+            }
+        },
+        "Parent": "1516645661",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "764125138"
+    },
+    "mixamorig:LeftToeBase": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "17.926600",
+                "positionz": "-0.000002",
+                "rotationw": "0.951242",
+                "rotationx": "0.302198",
+                "rotationy": "-0.058866",
+                "rotationz": "0.018701",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/977935764.bone"
+                }
+            }
+        },
+        "Parent": "1049499590",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1227349862"
+    },
+    "mixamorig:LeftToe_End": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "7.029100",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Parent": "1227349862",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "950428172"
+    },
+    "mixamorig:LeftUpLeg": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "8.143597",
+                "positiony": "-3.698204",
+                "positionz": "0.227100",
+                "rotationw": "-0.004395",
+                "rotationx": "-0.000278",
+                "rotationy": "0.017731",
+                "rotationz": "0.999833",
+                "scalex": "1.000000",
+                "scaley": "0.999955",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/607810061.bone"
+                }
+            }
+        },
+        "Parent": "1050110783",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "829544775"
+    },
+    "mixamorig:Neck": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "10.082512",
+                "positionz": "0.000000",
+                "rotationw": "0.997944",
+                "rotationx": "0.064096",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1631400852.bone"
+                }
+            }
+        },
+        "Parent": "1516645661",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "347092332"
+    },
+    "mixamorig:RightArm": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-0.000001",
+                "positiony": "10.583399",
+                "positionz": "0.000015",
+                "rotationw": "0.994376",
+                "rotationx": "-0.101216",
+                "rotationy": "-0.029348",
+                "rotationz": "-0.010471",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/996232188.bone"
+                }
+            }
+        },
+        "Parent": "821428597",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1190832127"
+    },
+    "mixamorig:RightFoot": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "32.038300",
+                "positionz": "0.000000",
+                "rotationw": "0.863330",
+                "rotationx": "0.504331",
+                "rotationy": "-0.006563",
+                "rotationz": "-0.016372",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/857267828.bone"
+                }
+            }
+        },
+        "Parent": "514402527",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1781034895"
+    },
+    "mixamorig:RightForeArm": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "22.530603",
+                "positionz": "-0.000015",
+                "rotationw": "0.999791",
+                "rotationx": "0.014157",
+                "rotationy": "-0.006597",
+                "rotationz": "-0.013216",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1401813589.bone"
+                }
+            }
+        },
+        "Parent": "1190832127",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1169837785"
+    },
+    "mixamorig:RightHand": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "16.706402",
+                "positionz": "0.000000",
+                "rotationw": "0.998001",
+                "rotationx": "-0.008195",
+                "rotationy": "-0.032904",
+                "rotationz": "0.053336",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1122058207.bone"
+                }
+            }
+        },
+        "Parent": "1169837785",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1959117010"
+    },
+    "mixamorig:RightHandIndex1": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "3.768500",
+                "positiony": "10.953190",
+                "positionz": "-0.126015",
+                "rotationw": "0.999134",
+                "rotationx": "-0.000462",
+                "rotationy": "0.003800",
+                "rotationz": "-0.041443",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1030679610.bone"
+                }
+            }
+        },
+        "Parent": "1959117010",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1339854319"
+    },
+    "mixamorig:RightHandIndex2": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.001500",
+                "positiony": "3.378784",
+                "positionz": "-0.000015",
+                "rotationw": "1.000000",
+                "rotationx": "-0.000121",
+                "rotationy": "0.000003",
+                "rotationz": "-0.000365",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/2062976650.bone"
+                }
+            }
+        },
+        "Parent": "1339854319",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1750368360"
+    },
+    "mixamorig:RightHandIndex3": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-0.000500",
+                "positiony": "3.034286",
+                "positionz": "0.000015",
+                "rotationw": "1.000000",
+                "rotationx": "-0.000090",
+                "rotationy": "0.000008",
+                "rotationz": "-0.000166",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1435231438.bone"
+                }
+            }
+        },
+        "Parent": "1750368360",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1288558898"
+    },
+    "mixamorig:RightHandIndex4": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-0.001000",
+                "positiony": "2.266304",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Parent": "1288558898",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1777167880"
+    },
+    "mixamorig:RightHandMiddle1": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "1.006500",
+                "positiony": "11.419903",
+                "positionz": "-0.159813",
+                "rotationw": "0.998646",
+                "rotationx": "0.030654",
+                "rotationy": "0.004618",
+                "rotationz": "-0.041784",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/926546952.bone"
+                }
+            }
+        },
+        "Parent": "1959117010",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "934651575"
+    },
+    "mixamorig:RightHandMiddle2": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000600",
+                "positiony": "3.542511",
+                "positionz": "0.000000",
+                "rotationw": "0.999442",
+                "rotationx": "-0.033398",
+                "rotationy": "-0.000001",
+                "rotationz": "-0.000278",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1981333735.bone"
+                }
+            }
+        },
+        "Parent": "934651575",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "475315328"
+    },
+    "mixamorig:RightHandMiddle3": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000300",
+                "positiony": "3.242409",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000778",
+                "rotationy": "-0.000024",
+                "rotationz": "-0.000307",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/971383037.bone"
+                }
+            }
+        },
+        "Parent": "475315328",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1352934065"
+    },
+    "mixamorig:RightHandMiddle4": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-0.000900",
+                "positiony": "2.399498",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Parent": "1352934065",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1842298298"
+    },
+    "mixamorig:RightHandPinky1": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-3.451900",
+                "positiony": "8.723507",
+                "positionz": "-0.141914",
+                "rotationw": "0.999062",
+                "rotationx": "-0.000682",
+                "rotationy": "0.011411",
+                "rotationz": "-0.041771",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1003746608.bone"
+                }
+            }
+        },
+        "Parent": "1959117010",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "2041504336"
+    },
+    "mixamorig:RightHandPinky2": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000098",
+                "positiony": "3.660999",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "-0.000015",
+                "rotationy": "-0.000006",
+                "rotationz": "-0.000385",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/979024769.bone"
+                }
+            }
+        },
+        "Parent": "2041504336",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "368199961"
+    },
+    "mixamorig:RightHandPinky3": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-0.002198",
+                "positiony": "2.985176",
+                "positionz": "-0.000015",
+                "rotationw": "1.000000",
+                "rotationx": "0.000139",
+                "rotationy": "-0.000002",
+                "rotationz": "0.000875",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1699970416.bone"
+                }
+            }
+        },
+        "Parent": "368199961",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "2084674189"
+    },
+    "mixamorig:RightHandPinky4": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.002099",
+                "positiony": "2.349403",
+                "positionz": "-0.000008",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Parent": "2084674189",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1566913521"
+    },
+    "mixamorig:RightHandRing1": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-1.323101",
+                "positiony": "10.166805",
+                "positionz": "-0.041603",
+                "rotationw": "0.999140",
+                "rotationx": "-0.001118",
+                "rotationy": "0.000047",
+                "rotationz": "-0.041449",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/577238541.bone"
+                }
+            }
+        },
+        "Parent": "1959117010",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "64461588"
+    },
+    "mixamorig:RightHandRing2": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.002599",
+                "positiony": "3.241386",
+                "positionz": "-0.000015",
+                "rotationw": "1.000000",
+                "rotationx": "0.000100",
+                "rotationy": "0.000011",
+                "rotationz": "0.000004",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1966472942.bone"
+                }
+            }
+        },
+        "Parent": "64461588",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1786879565"
+    },
+    "mixamorig:RightHandRing3": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.002400",
+                "positiony": "3.358284",
+                "positionz": "0.000000",
+                "rotationw": "0.999999",
+                "rotationx": "0.000488",
+                "rotationy": "-0.000103",
+                "rotationz": "-0.001163",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/103407653.bone"
+                }
+            }
+        },
+        "Parent": "1786879565",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "614524155"
+    },
+    "mixamorig:RightHandRing4": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-0.005000",
+                "positiony": "2.411896",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Parent": "614524155",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1616979721"
+    },
+    "mixamorig:RightHandThumb1": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "2.649300",
+                "positiony": "3.073898",
+                "positionz": "1.695282",
+                "rotationw": "0.963474",
+                "rotationx": "0.214680",
+                "rotationy": "-0.064770",
+                "rotationz": "-0.146408",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1949286275.bone"
+                }
+            }
+        },
+        "Parent": "1959117010",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "357412707"
+    },
+    "mixamorig:RightHandThumb2": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.924400",
+                "positiony": "3.394699",
+                "positionz": "0.000000",
+                "rotationw": "0.985168",
+                "rotationx": "0.008284",
+                "rotationy": "0.011289",
+                "rotationz": "-0.171023",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1011556606.bone"
+                }
+            }
+        },
+        "Parent": "357412707",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "537056258"
+    },
+    "mixamorig:RightHandThumb3": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-0.236298",
+                "positiony": "3.855000",
+                "positionz": "0.000000",
+                "rotationw": "0.996759",
+                "rotationx": "-0.002406",
+                "rotationy": "0.015799",
+                "rotationz": "-0.078842",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/643554643.bone"
+                }
+            }
+        },
+        "Parent": "537056258",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "555960301"
+    },
+    "mixamorig:RightHandThumb4": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-0.688099",
+                "positiony": "3.123398",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Parent": "555960301",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "266862393"
+    },
+    "mixamorig:RightLeg": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000002",
+                "positiony": "31.830505",
+                "positionz": "0.000000",
+                "rotationw": "0.997843",
+                "rotationx": "-0.065042",
+                "rotationy": "-0.000124",
+                "rotationz": "0.008903",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/931048156.bone"
+                }
+            }
+        },
+        "Parent": "1493631448",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "514402527"
+    },
+    "mixamorig:RightShoulder": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-4.959700",
+                "positiony": "7.935303",
+                "positionz": "-0.286302",
+                "rotationw": "0.447833",
+                "rotationx": "0.534209",
+                "rotationy": "-0.455339",
+                "rotationz": "0.553834",
+                "scalex": "0.999945",
+                "scaley": "0.999946",
+                "scalez": "0.999946"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/165746339.bone"
+                }
+            }
+        },
+        "Parent": "1516645661",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "821428597"
+    },
+    "mixamorig:RightToeBase": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000002",
+                "positiony": "18.213400",
+                "positionz": "0.000000",
+                "rotationw": "0.952892",
+                "rotationx": "0.296901",
+                "rotationy": "0.059209",
+                "rotationz": "-0.018448",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1044280956.bone"
+                }
+            }
+        },
+        "Parent": "1781034895",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1724647015"
+    },
+    "mixamorig:RightToe_End": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000001",
+                "positiony": "7.114501",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Parent": "1724647015",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1544160251"
+    },
+    "mixamorig:RightUpLeg": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-8.143599",
+                "positiony": "-3.698212",
+                "positionz": "0.671600",
+                "rotationw": "0.004109",
+                "rotationx": "0.000791",
+                "rotationy": "0.016521",
+                "rotationz": "0.999855",
+                "scalex": "1.000056",
+                "scaley": "1.000056",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/178992746.bone"
+                }
+            }
+        },
+        "Parent": "1050110783",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1493631448"
+    },
+    "mixamorig:Spine": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "6.666496",
+                "positionz": "-0.859900",
+                "rotationw": "0.997944",
+                "rotationx": "-0.064091",
+                "rotationy": "-0.000016",
+                "rotationz": "0.000159",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/410140518.bone"
+                }
+            }
+        },
+        "Parent": "1050110783",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "801982404"
+    },
+    "mixamorig:Spine1": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "7.842003",
+                "positionz": "-0.000001",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1299618476.bone"
+                }
+            }
+        },
+        "Parent": "801982404",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "242126884"
+    },
+    "mixamorig:Spine2": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "8.962296",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/809418545.bone"
+                }
+            }
+        },
+        "Parent": "242126884",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false,
+        "UID": "1516645661"
     }
 }
