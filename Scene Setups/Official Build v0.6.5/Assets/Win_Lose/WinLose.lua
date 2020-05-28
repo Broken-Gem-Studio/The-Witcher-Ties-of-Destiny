@@ -68,7 +68,7 @@ function GetTableWinLose()
         lua_table.System:PauseGame()
         
         --victory sound
-        lua_table.Audio:PlayAudioEventGO("Play_Win_Menu_Music", winlose)
+        --lua_table.Audio:PlayAudioEventGO("Play_Win_Menu_Music", winlose)
     
         --win animation
         lua_table.GO:SetActiveGameObject(true, win)
@@ -121,7 +121,7 @@ function GetTableWinLose()
         lua_table.System:PauseGame()
     
         --defeat sound
-        lua_table.Audio:PlayAudioEventGO("Play_Lost_Menu_Music", winlose)
+        --lua_table.Audio:PlayAudioEventGO("Play_Lost_Menu_Music", winlose)
 
         --lose animation
         lua_table.GO:SetActiveGameObject(true, lose)

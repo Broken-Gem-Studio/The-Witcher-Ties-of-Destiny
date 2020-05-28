@@ -45,13 +45,20 @@ namespace AK
         static const AkUniqueID PLAY_GERALT_ULTIMATE = 3955362993U;
         static const AkUniqueID PLAY_GERALT_WALK_RUN_CONCRETE = 4167477001U;
         static const AkUniqueID PLAY_GERALT_WALK_RUN_DIRT = 2190072003U;
+        static const AkUniqueID PLAY_GERLAT_COMBO_1 = 3747619760U;
+        static const AkUniqueID PLAY_GERLAT_COMBO_2 = 3747619763U;
+        static const AkUniqueID PLAY_GERLAT_COMBO_3 = 3747619762U;
         static const AkUniqueID PLAY_JASKIER_FALL_DOWN_GET_UP = 2312986841U;
         static const AkUniqueID PLAY_JASKIER_GUITAR_SMASH = 1916833811U;
         static const AkUniqueID PLAY_JASKIER_GUITAR_SWING = 4022547377U;
         static const AkUniqueID PLAY_JASKIER_HIT_SOUND = 4169710139U;
         static const AkUniqueID PLAY_JASKIER_JUMP = 1018718152U;
+        static const AkUniqueID PLAY_JASKIER_MOONWALK = 1967797464U;
         static const AkUniqueID PLAY_JASKIER_POTION_FX = 2721777174U;
         static const AkUniqueID PLAY_JASKIER_REVIVE = 4116481551U;
+        static const AkUniqueID PLAY_JASKIER_SONG_1 = 2858442791U;
+        static const AkUniqueID PLAY_JASKIER_SONG_2 = 2858442788U;
+        static const AkUniqueID PLAY_JASKIER_SONG_3 = 2858442789U;
         static const AkUniqueID PLAY_JASKIER_ULTIMATE = 793067793U;
         static const AkUniqueID PLAY_JASKIER_WALK_RUN_CONCRETE = 2646163561U;
         static const AkUniqueID PLAY_JASKIER_WALK_RUN_DIRT = 4243245347U;
@@ -66,6 +73,7 @@ namespace AK
         static const AkUniqueID PLAY_KIKIMORA_SWEEP = 287198644U;
         static const AkUniqueID PLAY_LEVEL_1_MUSIC = 814842324U;
         static const AkUniqueID PLAY_LEVEL_2_MUSIC = 2048014091U;
+        static const AkUniqueID PLAY_LOST_MENU_MUSIC = 3007158762U;
         static const AkUniqueID PLAY_LUMBERJACK_AXE_SWING_ATTACK = 1511621515U;
         static const AkUniqueID PLAY_LUMBERJACK_HEAVY_AXE_ATTACK_HIT_EDIT = 1628159071U;
         static const AkUniqueID PLAY_LUMBERJACK_HEAVY_AXE_ATTACK_WARNING = 1677382623U;
@@ -105,6 +113,7 @@ namespace AK
         static const AkUniqueID PLAY_TITAN_GHOUL_SCREAM_ATTACK = 1110615769U;
         static const AkUniqueID PLAY_TITAN_GHOUL_TAKE_DAMAGE = 1347311224U;
         static const AkUniqueID PLAY_TITAN_GHOULL_DEATH = 547580181U;
+        static const AkUniqueID PLAY_WIN_MENU_MUSIC = 2973513758U;
     } // namespace EVENTS
 
     namespace SWITCHES
@@ -167,9 +176,11 @@ namespace AK
         static const AkUniqueID LEVEL_2 = 1290008370U;
         static const AkUniqueID MAIN_MENU = 2005704188U;
         static const AkUniqueID MONSTER_ENEMIES = 1016515008U;
-        static const AkUniqueID MUSIC_LEVELS = 2209143460U;
+        static const AkUniqueID MUSIC_LEVEL_1_1 = 2244718989U;
+        static const AkUniqueID MUSIC_LEVEL_2_1 = 2244866146U;
         static const AkUniqueID MUSIC_MENUS = 1614123467U;
         static const AkUniqueID PAUSE_MENU = 3422541661U;
+        static const AkUniqueID PAUSE_MUSIC = 2735935537U;
         static const AkUniqueID PROPS = 968010305U;
     } // namespace BANKS
 
