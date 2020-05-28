@@ -7,7 +7,7 @@
 					<ChildrenList>
 						<Sound Name="Geralt_fall_down_get_up" ID="{C8F47D34-98CC-4C66-832B-39DCDF0166C8}" ShortID="614659028">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -75,13 +75,16 @@
 									<AudioFile>Geralt_fall_down_get_up.wav</AudioFile>
 								</AudioFileSource>
 							</ChildrenList>
+							<PositioningInfo>
+								<Position Name="" ID="{3958F465-9307-4B94-B8D6-781FD9119831}"/>
+							</PositioningInfo>
 							<ActiveSourceList>
 								<ActiveSource Name="Geralt_fall_down_get_up" ID="{28EE7304-97C5-4467-891C-4A9709DB0A48}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Geralt_revive" ID="{10D1168C-2644-4C85-911B-EA3458D1DD86}" ShortID="754496581">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -149,13 +152,16 @@
 									<AudioFile>Geralt_revive.wav</AudioFile>
 								</AudioFileSource>
 							</ChildrenList>
+							<PositioningInfo>
+								<Position Name="" ID="{4998D85B-0E28-4F90-A652-4CFC4A14B15E}"/>
+							</PositioningInfo>
 							<ActiveSourceList>
 								<ActiveSource Name="Geralt_revive" ID="{4A3D626D-FFE9-45A2-972E-A04B826B2DEB}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Geralt_light_roll" ID="{AEDA7277-6C49-4F54-92B4-9803F7ED71A4}" ShortID="39519762">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -223,13 +229,16 @@
 									<AudioFile>Geralt_light_roll.wav</AudioFile>
 								</AudioFileSource>
 							</ChildrenList>
+							<PositioningInfo>
+								<Position Name="" ID="{DE582B13-CEE5-4AAB-9C0D-158338679362}"/>
+							</PositioningInfo>
 							<ActiveSourceList>
 								<ActiveSource Name="Geralt_light_roll" ID="{EF1E2578-C4EA-4534-8254-BA4D9F535E86}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Geralt_naked_roll" ID="{668C3FEF-39A5-497F-835A-6559482A4882}" ShortID="148588933">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -297,13 +306,16 @@
 									<AudioFile>Geralt_naked_roll.wav</AudioFile>
 								</AudioFileSource>
 							</ChildrenList>
+							<PositioningInfo>
+								<Position Name="" ID="{4898D0FB-707B-4E6A-99CB-5D4B9EBC5142}"/>
+							</PositioningInfo>
 							<ActiveSourceList>
 								<ActiveSource Name="Geralt_naked_roll" ID="{D9469DBA-D051-432A-8F4B-1650E7278FC9}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Geralt_potion_fx" ID="{6B6719A9-94FC-44E4-9516-1FFF24F85079}" ShortID="1044339601">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -371,13 +383,16 @@
 									<AudioFile>Geralt_potion_life_fx_2.wav</AudioFile>
 								</AudioFileSource>
 							</ChildrenList>
+							<PositioningInfo>
+								<Position Name="" ID="{38C663B9-F327-436B-84B8-5C4411F56B89}"/>
+							</PositioningInfo>
 							<ActiveSourceList>
 								<ActiveSource Name="Geralt_potion_life_fx_2" ID="{A4F9B9CE-6B85-4C38-9741-D20026EA9C6D}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<RandomSequenceContainer Name="Geralt_aard" ID="{9AD552B7-E39A-42A0-AFE8-F07E03C33F6B}" ShortID="44646464">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -555,10 +570,13 @@
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
+							<PositioningInfo>
+								<Position Name="" ID="{2A9A4E33-AB06-4ADD-B53D-8594C8689193}"/>
+							</PositioningInfo>
 						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="Geralt_hit_sound" ID="{0995105E-825A-483D-A92A-4E4A89671B61}" ShortID="736958364">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -660,10 +678,13 @@
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
+							<PositioningInfo>
+								<Position Name="" ID="{6C935AFE-90AA-4370-A5F7-E364A5D9F977}"/>
+							</PositioningInfo>
 						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="Geralt_sword_metal" ID="{4654E313-6C7A-4939-9CCA-F2D80BA6C76C}" ShortID="423711782">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -765,10 +786,13 @@
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
+							<PositioningInfo>
+								<Position Name="" ID="{0D21E4A3-DFC9-429E-A1D1-CCB75B1B1D92}"/>
+							</PositioningInfo>
 						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="Geralt_sword_swing" ID="{BD7CA9D7-2268-4B1A-AAAB-9EBE61DC645D}" ShortID="579165337">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -1022,10 +1046,13 @@
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
+							<PositioningInfo>
+								<Position Name="" ID="{FF8B6C68-AF7B-4CEB-8A01-D21DC133055F}"/>
+							</PositioningInfo>
 						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="Geralt_walk_run_concrete" ID="{94DEEF79-D141-4039-813A-EAC5CA7F39BD}" ShortID="767901394">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -1165,10 +1192,13 @@
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
+							<PositioningInfo>
+								<Position Name="" ID="{B216057A-858E-424C-9F14-FB64E6011B89}"/>
+							</PositioningInfo>
 						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="Geralt_walk_run_dirt" ID="{477F5E15-5EDC-44DE-8F09-CD927B6CA9D0}" ShortID="251806033">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -1327,10 +1357,13 @@
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
+							<PositioningInfo>
+								<Position Name="" ID="{1CACDC2F-227C-4354-98E1-C047B453324E}"/>
+							</PositioningInfo>
 						</RandomSequenceContainer>
 						<Sound Name="Geralt_Ultimate" ID="{C9178704-FE81-41E2-952C-78EC1D3DE9CA}" ShortID="927624911">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -1398,13 +1431,16 @@
 									<AudioFile>GeraltUltimate sound.wav</AudioFile>
 								</AudioFileSource>
 							</ChildrenList>
+							<PositioningInfo>
+								<Position Name="" ID="{4A6C4698-42B0-4D38-AD25-D803055DD76C}"/>
+							</PositioningInfo>
 							<ActiveSourceList>
 								<ActiveSource Name="GeraltUltimate sound" ID="{3A23DAAD-E30D-4AD3-8B82-5EAD02EAFF02}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Geralt_combo_sound" ID="{562B41F8-4F6B-49FA-977E-D1A13B27D185}" ShortID="306828841">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -1472,6 +1508,9 @@
 									<AudioFile>Geralt_combo_sound.wav</AudioFile>
 								</AudioFileSource>
 							</ChildrenList>
+							<PositioningInfo>
+								<Position Name="" ID="{73908830-EEAA-4A9C-B43C-CD432B813270}"/>
+							</PositioningInfo>
 							<ActiveSourceList>
 								<ActiveSource Name="Geralt_combo_sound" ID="{2E2C3B07-0814-4C38-BD10-276CEA8D3A5B}" Platform="Linked"/>
 							</ActiveSourceList>
@@ -1482,7 +1521,7 @@
 					<ChildrenList>
 						<Sound Name="Jaskier_fall_down_get_up" ID="{8E7589BF-DD2F-49B1-923B-7D5CE20609DF}" ShortID="178904935">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -1550,13 +1589,16 @@
 									<AudioFile>Jaskier_fall_down_get_up.wav</AudioFile>
 								</AudioFileSource>
 							</ChildrenList>
+							<PositioningInfo>
+								<Position Name="" ID="{C0132378-3214-4FFB-8830-D9A542D44B49}"/>
+							</PositioningInfo>
 							<ActiveSourceList>
 								<ActiveSource Name="Jaskier_fall_down_get_up" ID="{005D7993-9BA4-4615-9B17-FF6359CA68EA}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Jaskier_jump" ID="{A159443F-D823-431C-881A-4D05E2E17569}" ShortID="446354154">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -1624,13 +1666,16 @@
 									<AudioFile>Jaskier_jump.wav</AudioFile>
 								</AudioFileSource>
 							</ChildrenList>
+							<PositioningInfo>
+								<Position Name="" ID="{F9D7B353-4371-4E80-B897-F4783F2DD1F6}"/>
+							</PositioningInfo>
 							<ActiveSourceList>
 								<ActiveSource Name="Jaskier_jump" ID="{1CD692BC-536B-4B54-8266-F4477D6DAC70}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Jaskier_revive" ID="{A3DEA579-4E4C-4873-97DE-CB98447E327C}" ShortID="411336859">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -1698,13 +1743,16 @@
 									<AudioFile>Jaskier_revive.wav</AudioFile>
 								</AudioFileSource>
 							</ChildrenList>
+							<PositioningInfo>
+								<Position Name="" ID="{F625C587-BB15-4E4E-A635-05F2DC6633A4}"/>
+							</PositioningInfo>
 							<ActiveSourceList>
 								<ActiveSource Name="Jaskier_revive" ID="{BB2540CD-EEEF-4B46-AAF3-07D6AE8BBC24}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Jaskier_potion_fx" ID="{770A94C0-9566-479E-BD71-4FF376239517}" ShortID="543387439">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -1772,13 +1820,16 @@
 									<AudioFile>Jaskier_potion_life_fx_2.wav</AudioFile>
 								</AudioFileSource>
 							</ChildrenList>
+							<PositioningInfo>
+								<Position Name="" ID="{E997EBD4-517D-4C29-8574-1BCD5612E083}"/>
+							</PositioningInfo>
 							<ActiveSourceList>
 								<ActiveSource Name="Jaskier_potion_life_fx_2" ID="{DA00DA2C-8133-4485-80CB-F6C5C27498AC}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<RandomSequenceContainer Name="Jaskier_guitar_swing" ID="{63D99D17-6BD3-4BA8-A88E-C81CB59FCDD7}" ShortID="425749674">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -2032,10 +2083,13 @@
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
+							<PositioningInfo>
+								<Position Name="" ID="{C67BFD6A-E804-45F9-9228-B8350F8553D2}"/>
+							</PositioningInfo>
 						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="Jaskier_hit_sound" ID="{13C90313-2A1E-498F-B0B9-FDE5A826C366}" ShortID="285252147">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -2137,10 +2191,13 @@
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
+							<PositioningInfo>
+								<Position Name="" ID="{B852F276-E332-456F-B9C0-E356F06441C1}"/>
+							</PositioningInfo>
 						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="Jaskier_walk_run_concrete" ID="{8BB4F6A5-2B41-4B37-B965-733214935F79}" ShortID="692039756">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -2280,10 +2337,13 @@
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
+							<PositioningInfo>
+								<Position Name="" ID="{96FC0045-FC24-476B-BACE-9685B290AB8C}"/>
+							</PositioningInfo>
 						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="Jaskier_walk_run_dirt" ID="{7FC9860F-3BA8-4D6F-A4C1-A80797D71059}" ShortID="979780729">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -2442,10 +2502,13 @@
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
+							<PositioningInfo>
+								<Position Name="" ID="{F52AAEC0-9923-47AE-9080-0D265C9B6617}"/>
+							</PositioningInfo>
 						</RandomSequenceContainer>
 						<Sound Name="jaskier song 1" ID="{0816E686-9C4C-4055-8EA0-A269152A8811}" ShortID="476048609">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -2513,13 +2576,16 @@
 									<AudioFile>jaskier song 1.wav</AudioFile>
 								</AudioFileSource>
 							</ChildrenList>
+							<PositioningInfo>
+								<Position Name="" ID="{7E5C86C1-10E2-4DC1-A737-C8A56DFD22D7}"/>
+							</PositioningInfo>
 							<ActiveSourceList>
 								<ActiveSource Name="jaskier song 1" ID="{5AF5E6E2-90B3-48F8-87C6-D52CA5851938}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="jaskier song 2-3" ID="{9F04CB7D-89A1-42BE-AFCC-B6705B70D49C}" ShortID="366969281">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -2587,13 +2653,16 @@
 									<AudioFile>jaskier song 2-3.wav</AudioFile>
 								</AudioFileSource>
 							</ChildrenList>
+							<PositioningInfo>
+								<Position Name="" ID="{70F4C72D-5842-46A7-AEBA-6DA8D6D5798A}"/>
+							</PositioningInfo>
 							<ActiveSourceList>
 								<ActiveSource Name="jaskier song 2-3" ID="{331D240C-A5A1-4FC7-88D5-A2E75702F984}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Jaskier_guitar_smash" ID="{38D3E2DC-39B4-49D3-A5E5-C04C0DE9AB83}" ShortID="916263479">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -2661,13 +2730,16 @@
 									<AudioFile>Jaskier_guitar_smash.wav</AudioFile>
 								</AudioFileSource>
 							</ChildrenList>
+							<PositioningInfo>
+								<Position Name="" ID="{635F952C-C27D-429A-BE68-6AFA1FB0913E}"/>
+							</PositioningInfo>
 							<ActiveSourceList>
 								<ActiveSource Name="Jaskier_guitar_smash" ID="{0ABDE2BA-6790-412D-9BD6-E89995662C98}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Jaskier_Ultimate" ID="{A6E62677-A283-4299-B538-39D74317811C}" ShortID="111953914">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -2735,13 +2807,16 @@
 									<AudioFile>Jaskier_Ultimate.wav</AudioFile>
 								</AudioFileSource>
 							</ChildrenList>
+							<PositioningInfo>
+								<Position Name="" ID="{5D66E0DB-D717-4A1C-8ABE-0B9C9B8ADBCC}"/>
+							</PositioningInfo>
 							<ActiveSourceList>
 								<ActiveSource Name="Jaskier_Ultimate" ID="{70E62624-E6CE-47F5-B57F-54E10C297035}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Jaskier_moonwalk" ID="{5BC27BF3-AB44-4CE4-AB84-BD8C3CB462DA}" ShortID="242890711">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -2809,13 +2884,16 @@
 									<AudioFile>Jaskier_moonwalk.wav</AudioFile>
 								</AudioFileSource>
 							</ChildrenList>
+							<PositioningInfo>
+								<Position Name="" ID="{9DA22692-E60C-4A69-9824-91F71581EB2E}"/>
+							</PositioningInfo>
 							<ActiveSourceList>
 								<ActiveSource Name="Jaskier_moonwalk" ID="{6AE23417-0A28-448D-869A-157F67090BED}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Potion_fx" ID="{EBF3F20C-96E3-4E77-A108-D5D02A03E1BA}" ShortID="434834378">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -2883,6 +2961,9 @@
 									<AudioFile>Potion_fx.wav</AudioFile>
 								</AudioFileSource>
 							</ChildrenList>
+							<PositioningInfo>
+								<Position Name="" ID="{6123DD4B-2143-472F-BEBC-82F0484EE555}"/>
+							</PositioningInfo>
 							<ActiveSourceList>
 								<ActiveSource Name="Potion_fx" ID="{DED7D7FC-0266-4820-A0C1-803CCF461A34}" Platform="Linked"/>
 							</ActiveSourceList>
@@ -2895,7 +2976,7 @@
 							<ChildrenList>
 								<Sound Name="Kikimora_death" ID="{026FDE39-2550-4A1A-A044-759D452032D7}" ShortID="822307547">
 									<PropertyList>
-										<Property Name="3DSpatialization" Type="int16" Value="1"/>
+										<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-3</Value>
@@ -2969,7 +3050,7 @@
 								</Sound>
 								<Sound Name="Kikimora_fall" ID="{B7F4BF93-57A0-471C-8FC4-F2F1E0A5CE16}" ShortID="403580649">
 									<PropertyList>
-										<Property Name="3DSpatialization" Type="int16" Value="1"/>
+										<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-3</Value>
@@ -3043,7 +3124,7 @@
 								</Sound>
 								<Sound Name="Kikimora_lash" ID="{3C6B446F-BBA8-4E0B-94AB-487F6E558CBC}" ShortID="11379155">
 									<PropertyList>
-										<Property Name="3DSpatialization" Type="int16" Value="1"/>
+										<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-3</Value>
@@ -3117,7 +3198,7 @@
 								</Sound>
 								<Sound Name="Kikimora_punch" ID="{92DB71F3-91DA-46E7-A6A8-6A07459751CB}" ShortID="966147081">
 									<PropertyList>
-										<Property Name="3DSpatialization" Type="int16" Value="1"/>
+										<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-3</Value>
@@ -3191,7 +3272,7 @@
 								</Sound>
 								<Sound Name="Kikimora_scream_1" ID="{DAC870CE-68B3-411B-A392-CD73034E82D2}" ShortID="555897811">
 									<PropertyList>
-										<Property Name="3DSpatialization" Type="int16" Value="1"/>
+										<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-3</Value>
@@ -3265,7 +3346,7 @@
 								</Sound>
 								<Sound Name="Kikimora_scream_4" ID="{38CC8634-FC5B-427A-B07B-631823C3D531}" ShortID="765681237">
 									<PropertyList>
-										<Property Name="3DSpatialization" Type="int16" Value="1"/>
+										<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-3</Value>
@@ -3339,7 +3420,7 @@
 								</Sound>
 								<Sound Name="Kikimora_sweep" ID="{DF37CA47-1CC3-4C1D-B543-6CB2569A49E5}" ShortID="880121078">
 									<PropertyList>
-										<Property Name="3DSpatialization" Type="int16" Value="1"/>
+										<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-3</Value>
@@ -3413,7 +3494,7 @@
 								</Sound>
 								<RandomSequenceContainer Name="Kikimora_damaged" ID="{C1ED2D67-EAF3-4BFF-82F6-7AAC006D3538}" ShortID="753664682">
 									<PropertyList>
-										<Property Name="3DSpatialization" Type="int16" Value="1"/>
+										<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-3</Value>
@@ -3537,7 +3618,7 @@
 								</RandomSequenceContainer>
 								<RandomSequenceContainer Name="Kikimora_scream" ID="{44BAC1E2-F5C7-43CE-83CB-C5D85F41C426}" ShortID="968343389">
 									<PropertyList>
-										<Property Name="3DSpatialization" Type="int16" Value="1"/>
+										<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-3</Value>
@@ -5306,7 +5387,7 @@
 					<ChildrenList>
 						<Sound Name="Enemy_Conversation_01_Pt1" ID="{D6006723-30F8-4E2E-8BC5-EC38050837A3}" ShortID="1026478453">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -5380,7 +5461,7 @@
 						</Sound>
 						<Sound Name="Enemy_Conversation_01_Pt2" ID="{18AF1EE2-1257-475D-8A5C-C617A3FEFDAA}" ShortID="801004436">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -5454,7 +5535,7 @@
 						</Sound>
 						<Sound Name="Enemy_Conversation_02_Pt1" ID="{40FE7221-F7DA-4560-A86E-6CE60A75DEB5}" ShortID="432548712">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -5528,7 +5609,7 @@
 						</Sound>
 						<Sound Name="Enemy_Conversation_02_Pt2" ID="{E0554694-C0FB-42A6-BCE9-5D697423BD15}" ShortID="364339852">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -5602,7 +5683,7 @@
 						</Sound>
 						<Sound Name="Enemy_Conversation_03_Pt1" ID="{A845A74A-480D-4C41-BCA6-ACBFA20B5D14}" ShortID="409806120">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -5676,7 +5757,7 @@
 						</Sound>
 						<Sound Name="Enemy_Conversation_03_Pt2" ID="{4AE61121-C7EA-432C-B506-CE5E7DFDA334}" ShortID="260690413">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -5750,7 +5831,7 @@
 						</Sound>
 						<Sound Name="Enemy_Conversation_04_Pt1" ID="{3781D4E3-52C7-40C4-A16E-0D7533C4F1E9}" ShortID="103433252">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -5824,7 +5905,7 @@
 						</Sound>
 						<Sound Name="Enemy_Conversation_04_Pt2" ID="{F598C916-991F-4C99-AB3F-874EB9A973DE}" ShortID="385402245">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -5898,7 +5979,7 @@
 						</Sound>
 						<Sound Name="Enemy_Conversation_05_Pt1" ID="{49F72941-8AAE-4D45-8EC5-166778B0C0B4}" ShortID="797089894">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -5972,7 +6053,7 @@
 						</Sound>
 						<Sound Name="Enemy_Conversation_05_Pt2" ID="{771DB638-E110-4300-B678-D6CFDF91B690}" ShortID="811667486">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -6046,7 +6127,7 @@
 						</Sound>
 						<Sound Name="Enemy_Conversation_06_Pt1" ID="{6A6CD466-B726-4B03-86D2-FBA774AC3A39}" ShortID="282307143">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -6120,7 +6201,7 @@
 						</Sound>
 						<Sound Name="Enemy_Conversation_06_Pt2" ID="{AC83ABD1-BB21-4402-B916-0889E2DC2A29}" ShortID="825066112">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -6194,7 +6275,7 @@
 						</Sound>
 						<Sound Name="Enemy_Conversation_07_Pt1" ID="{F2E29A72-2424-455D-87CF-4F71BCC113A3}" ShortID="273762126">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -6268,7 +6349,7 @@
 						</Sound>
 						<Sound Name="Enemy_Conversation_07_Pt2" ID="{7FD4569A-682A-4C63-94ED-04F6834D5B99}" ShortID="550545126">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -6342,7 +6423,7 @@
 						</Sound>
 						<Sound Name="Archer_Ranged_Attack_07" ID="{ED711990-BA19-4539-9F80-8AA2AF41AA63}" ShortID="421239457">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -6416,7 +6497,7 @@
 						</Sound>
 						<Sound Name="Archer_Ranged_Attack_08" ID="{A4B190C7-0CAF-47D5-A0D3-20B611C2ACF3}" ShortID="900228175">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -6490,7 +6571,7 @@
 						</Sound>
 						<Sound Name="Archer_Ranged_Attack_09" ID="{34FC923B-213C-4757-B2AF-80296BE9B303}" ShortID="87136833">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -6564,7 +6645,7 @@
 						</Sound>
 						<Sound Name="Archer_Ranged_Attack_10" ID="{7B0B4F38-2416-4786-9E0A-C40EA70DC7F6}" ShortID="833179346">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -6638,7 +6719,7 @@
 						</Sound>
 						<Sound Name="Archer_Ranged_Attack_11" ID="{13EB81DA-7952-4F01-93CF-B7B3856CE2DC}" ShortID="508637070">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -6712,7 +6793,7 @@
 						</Sound>
 						<Sound Name="Archer_Ranged_Attack_12" ID="{A843157E-E254-4E5C-B33F-112AA71F25BE}" ShortID="1034451007">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -6786,7 +6867,7 @@
 						</Sound>
 						<Sound Name="Archer_Ranged_Attack_13" ID="{E00C41C1-F686-4A23-8C84-F419F16C71C6}" ShortID="597407741">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -6860,7 +6941,7 @@
 						</Sound>
 						<Sound Name="Archer_Ranged_Attack_14" ID="{F50639D6-BC53-4091-9D76-05B9159A7B93}" ShortID="761042188">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -6934,7 +7015,7 @@
 						</Sound>
 						<Sound Name="Lumberjack_Heavy_Axe_Attack_Hit_edit" ID="{57A4CBD2-DAC5-4329-BC8D-0CE8DA8D0316}" ShortID="835280857">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -7008,7 +7089,7 @@
 						</Sound>
 						<Sound Name="Lumberjack_Heavy_Axe_Attack_Warning" ID="{85181802-E82A-480E-905F-F94269A6B3AC}" ShortID="267515757">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -7082,7 +7163,7 @@
 						</Sound>
 						<RandomSequenceContainer Name="Archer_Melee_Attack" ID="{6B744223-D518-4B06-B08F-43E18C7DDCF2}" ShortID="783628760">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -7225,7 +7306,7 @@
 						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="Archer_Ranged_Attack" ID="{F3DBCBE4-0CD6-41FB-88DC-D13A1606BA4C}" ShortID="1035239803">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -7406,7 +7487,7 @@
 						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="Enemy_Humanoid_Discover_Players" ID="{F9E4158E-C73F-4931-BF43-A6EEF3755E01}" ShortID="561988665">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -7644,7 +7725,7 @@
 						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="Enemy_Humanoid_Hit" ID="{513C78C9-3D14-4E49-9278-797ED0D03C18}" ShortID="663294361">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -7901,7 +7982,7 @@
 						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="Lumberjack_Axe_Swing_Attack" ID="{7E56E31A-9A8B-4F03-B23B-D0E39BE2CF19}" ShortID="1016358666">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -8009,6 +8090,9 @@
 				<Folder Name="Pause_menu" ID="{3971A255-B2D9-4383-9FE7-EF54538392BF}" ShortID="1023481228">
 					<ChildrenList>
 						<Sound Name="Button_main_menu" ID="{92420AE4-4BA8-4E2B-AD84-ECABC80BD940}" ShortID="968045066">
+							<PropertyList>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -8028,6 +8112,9 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Button_resume" ID="{AA869D9A-68F7-454F-9C2D-08C691C218EB}" ShortID="698205619">
+							<PropertyList>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -8047,6 +8134,9 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Mouse_over" ID="{ABD615B7-EE9E-49E9-8DD9-AD5E4FC7C1A1}" ShortID="1061810638">
+							<PropertyList>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -8066,6 +8156,9 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Pause" ID="{BD0AB7EB-4203-4039-9B59-42EA04040640}" ShortID="833364946">
+							<PropertyList>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -8089,6 +8182,9 @@
 				<Folder Name="Main_menu" ID="{AAA05950-6245-41ED-A71E-748DF9BFE7F6}" ShortID="507637505">
 					<ChildrenList>
 						<Sound Name="Main_Menu_mouse_over" ID="{35538C1F-726D-4078-804A-884FF925DBC2}" ShortID="234977611">
+							<PropertyList>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -8108,6 +8204,9 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Main_Menu_play_1" ID="{968E17BD-AF7E-4CF8-B805-4392B1E396AF}" ShortID="107986707">
+							<PropertyList>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -8127,6 +8226,9 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Main_Menu_play_2" ID="{88FDE045-E7C3-4BE6-899A-3ECB60BE08EA}" ShortID="444261153">
+							<PropertyList>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -8146,6 +8248,9 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Main_Menu_play_3" ID="{45E3E91F-0833-45A8-A0BF-0EC9BBE9D0F8}" ShortID="847127988">
+							<PropertyList>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -8165,6 +8270,9 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Main_Menu_quit" ID="{1BCD5AF6-54CB-48E0-85AC-E2614822FBC8}" ShortID="802827017">
+							<PropertyList>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -8184,6 +8292,9 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Main_Menu_select" ID="{C3AD4E37-C807-4518-8BE8-EDF908DF4735}" ShortID="321432898">
+							<PropertyList>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -8203,6 +8314,9 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Main_Menu_sign_moving" ID="{741FD937-8E4D-40FD-BCA1-F07E2E5977FF}" ShortID="938869891">
+							<PropertyList>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -8227,7 +8341,7 @@
 					<ChildrenList>
 						<Sound Name="Lvl2_fire ambience_2" ID="{8C10359B-FD08-42E8-A7E3-60415C1DF3F7}" ShortID="513105445">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -8301,7 +8415,7 @@
 						</Sound>
 						<Sound Name="Lvl2_fire_ambience_1" ID="{5C082F0A-EB4A-41AA-A8D4-7BD641764F71}" ShortID="687455682">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -8375,7 +8489,7 @@
 						</Sound>
 						<Sound Name="Lvl2_fire_ambience_3" ID="{29D0DCF5-42E2-4D19-B1E8-9E30C9244D9D}" ShortID="837890951">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -8449,6 +8563,7 @@
 						</Sound>
 						<Sound Name="Lvl2_wind_1" ID="{A19E78D8-5058-4FAE-9BAC-59381D228451}" ShortID="70786190">
 							<PropertyList>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -8475,6 +8590,7 @@
 						</Sound>
 						<Sound Name="Lvl2_wind_2" ID="{4103D4DC-3839-48D3-B702-C25041A6C323}" ShortID="287650647">
 							<PropertyList>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -8501,6 +8617,7 @@
 						</Sound>
 						<Sound Name="Lvl2_wind_3" ID="{642CA5BC-B07F-43E4-A50B-2FAE3E33420D}" ShortID="341179718">
 							<PropertyList>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -8527,6 +8644,7 @@
 						</Sound>
 						<Sound Name="Lvl2_wind_4" ID="{DE6E4771-99A8-41B2-9BBC-CFF92C3F8F75}" ShortID="865514522">
 							<PropertyList>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -8555,6 +8673,7 @@
 							<ChildrenList>
 								<Sound Name="Lvl2_Ambience_Crickets_Loop" ID="{2A68FB03-0E8D-48B7-8602-4EDCE26C5ADB}" ShortID="918221756">
 									<PropertyList>
+										<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-3</Value>
@@ -8581,6 +8700,7 @@
 								</Sound>
 								<Sound Name="Lvl2_Ambience_Wind_Loop" ID="{1026A256-D788-485E-97D7-708EFDD8873C}" ShortID="423837842">
 									<PropertyList>
+										<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-3</Value>
@@ -8607,6 +8727,7 @@
 								</Sound>
 								<Sound Name="Lvl2_Button_Skip_Cinematic_Pressed" ID="{8D8BA0E0-8DAE-4DC5-B8FB-CA393F3D2449}" ShortID="9757841">
 									<PropertyList>
+										<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-3</Value>
@@ -8633,6 +8754,7 @@
 								</Sound>
 								<Sound Name="Lvl2_Cinematic_Skipped" ID="{5118541A-5DEB-418A-AF24-B53F394FC8B0}" ShortID="128635803">
 									<PropertyList>
+										<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-3</Value>
@@ -8665,7 +8787,7 @@
 					<ChildrenList>
 						<RandomSequenceContainer Name="Prop_hit_wood" ID="{1D02B640-8A90-4D35-A5E8-926E2999FB48}" ShortID="795047985">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -8808,7 +8930,7 @@
 						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="Prop_wood_break" ID="{7A042CCE-0BD1-4EB0-8C6E-362498CF0D93}" ShortID="716640201">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
