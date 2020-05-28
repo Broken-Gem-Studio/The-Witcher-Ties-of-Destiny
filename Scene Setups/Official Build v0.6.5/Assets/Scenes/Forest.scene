@@ -43,7 +43,7 @@
                 "positionx": "349.002838",
                 "positiony": "38.612278",
                 "positionz": "-313.026642",
-                "rotationw": "0.579228",
+                "rotationw": "0.579227",
                 "rotationx": "-0.579228",
                 "rotationy": "0.405580",
                 "rotationz": "0.405580",
@@ -691,6 +691,57 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1937564903",
+        "Static": false
+    },
+    "1026272723": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1242357168,
+                "index": 0,
+                "layer": "1",
+                "positionx": "-2.092346",
+                "positiony": "-4.329357",
+                "positionz": "-12.621399",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2.mesh"
+                    }
+                },
+                "UID": 2097026756,
+                "index": 1
+            },
+            "2": {
+                "Active": false,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "DefaultMaterial"
+                    }
+                },
+                "UID": 424038181,
+                "index": 2
+            }
+        },
+        "Index": 0,
+        "Name": "GeraltPos2",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1124173278",
         "Static": false
     },
     "102856502": {
@@ -1622,8 +1673,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000561",
-                "scalez": "1.000561"
+                "scaley": "1.000572",
+                "scalez": "1.000572"
             }
         },
         "Index": 0,
@@ -1766,13 +1817,13 @@
                 "positionx": "113.124023",
                 "positiony": "-14.273438",
                 "positionz": "6.142578",
-                "rotationw": "0.786455",
+                "rotationw": "0.786454",
                 "rotationx": "-0.197860",
                 "rotationy": "0.414638",
                 "rotationz": "0.412815",
-                "scalex": "19.685211",
-                "scaley": "19.684805",
-                "scalez": "19.685091"
+                "scalex": "19.685247",
+                "scaley": "19.684826",
+                "scalez": "19.685097"
             }
         },
         "Index": 0,
@@ -2236,7 +2287,7 @@
                 "ParticlesBill": true,
                 "ParticlesFaceCulling": true,
                 "Resources": {
-                    "ResourceTexture": "Library/Textures/1345655961.dds"
+                    "ResourceTexture": "Library/Textures/401953463.dds"
                 },
                 "UID": 232843470,
                 "VerticalBill": "0",
@@ -2711,8 +2762,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000561",
-                "scalez": "1.000561"
+                "scaley": "1.000572",
+                "scalez": "1.000572"
             }
         },
         "Index": 0,
@@ -3827,6 +3878,91 @@
         "Parent": "317261651",
         "Static": false
     },
+    "1124173278": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 465290718,
+                "index": 0,
+                "layer": "1",
+                "positionx": "896.537781",
+                "positiony": "16.946251",
+                "positionz": "-584.260803",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/Win_Lose/Checkpoint.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "checkpoint",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    }
+                },
+                "UID": 1361746530,
+                "index": 1
+            },
+            "16": {
+                "Active": true,
+                "UID": 1194601021,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "1",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "896.537781",
+                "globalMatrixy": "16.946251",
+                "globalMatrixz": "-584.260803",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "index": 2,
+                "isConvex": "0",
+                "isTrigger": "1",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "15.000000",
+                "scalex": "20.000000",
+                "scaley": "10.000000",
+                "scalez": "10.000000",
+                "tmpScalex": "10.000000",
+                "tmpScaley": "10.000000",
+                "tmpScalez": "10.000000"
+            }
+        },
+        "Index": 14,
+        "Name": "Checkpoint2",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "-1",
+        "Static": false
+    },
     "1126889886": {
         "Active": true,
         "Components": {
@@ -4520,6 +4656,57 @@
         "Parent": "1201759555",
         "Static": false
     },
+    "1163972100": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 370321392,
+                "index": 0,
+                "layer": "1",
+                "positionx": "-4.392456",
+                "positiony": "-3.960709",
+                "positionz": "0.329224",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2.mesh"
+                    }
+                },
+                "UID": 1604450197,
+                "index": 1
+            },
+            "2": {
+                "Active": false,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "DefaultMaterial"
+                    }
+                },
+                "UID": 2065266632,
+                "index": 2
+            }
+        },
+        "Index": 0,
+        "Name": "GeraltPos1",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "2027943815",
+        "Static": false
+    },
     "1170467851": {
         "Active": true,
         "Components": {
@@ -5067,6 +5254,62 @@
         "Parent": "599201099",
         "Static": false
     },
+    "1200108378": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 938067454,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/Pause/PauseMenu.lua"
+                },
+                "Script variables": {
+                    "Count": 2,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "gamePaused",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": true,
+                        "Name": "mainMenu_UUID",
+                        "ObjectName": "Untitled scene 2.scene",
+                        "Type": "Double",
+                        "Value": 1901820971.0
+                    }
+                },
+                "UID": 2069026017,
+                "index": 1
+            },
+            "19": {
+                "Active": true,
+                "UID": 899739738,
+                "index": 2
+            }
+        },
+        "Index": 1,
+        "Name": "GameManager",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1708918369",
+        "Static": false
+    },
     "1200330226": {
         "Active": true,
         "Components": {
@@ -5203,7 +5446,7 @@
                 "positionx": "0.000000",
                 "positiony": "34.904800",
                 "positionz": "0.000000",
-                "rotationw": "0.882768",
+                "rotationw": "0.882767",
                 "rotationx": "0.468685",
                 "rotationy": "-0.003518",
                 "rotationz": "0.032303",
@@ -5225,6 +5468,57 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1708699552",
+        "Static": false
+    },
+    "1204828646": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 504504092,
+                "index": 0,
+                "layer": "1",
+                "positionx": "2.623474",
+                "positiony": "-3.287285",
+                "positionz": "-18.884399",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2.mesh"
+                    }
+                },
+                "UID": 1984342447,
+                "index": 1
+            },
+            "2": {
+                "Active": false,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "DefaultMaterial"
+                    }
+                },
+                "UID": 2135007430,
+                "index": 2
+            }
+        },
+        "Index": 1,
+        "Name": "JaskierPos2",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1124173278",
         "Static": false
     },
     "120489013": {
@@ -5280,6 +5574,76 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1706628155",
+        "Static": false
+    },
+    "1212644364": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 593694530,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/Win_Lose/WinLose.lua"
+                },
+                "Script variables": {
+                    "Count": 3,
+                    "Variable 0": {
+                        "DisplayObjectName": true,
+                        "Name": "level1_uid",
+                        "ObjectName": "Untitled scene 4.scene",
+                        "Type": "Double",
+                        "Value": 56090532.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": true,
+                        "Name": "level2_uid",
+                        "ObjectName": "Forest.scene",
+                        "Type": "Double",
+                        "Value": 1249170604.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": true,
+                        "Name": "mm_uid",
+                        "ObjectName": "Untitled scene 2.scene",
+                        "Type": "Double",
+                        "Value": 1901820971.0
+                    }
+                },
+                "UID": 989119321,
+                "index": 1
+            },
+            "19": {
+                "Active": true,
+                "UID": 925954525,
+                "index": 3
+            },
+            "4": {
+                "Active": true,
+                "UID": 118138992,
+                "index": 2,
+                "priority": "10",
+                "visible": "1"
+            }
+        },
+        "Index": 11,
+        "Name": "WinLose",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "-1",
         "Static": false
     },
     "1214130498": {
@@ -6299,11 +6663,11 @@
                         "Value": 5000.0
                     },
                     "Variable 191": {
-                        "DisplayObjectName": true,
+                        "DisplayObjectName": false,
                         "Name": "potion_health_prefab",
-                        "ObjectName": "Drop_Particle_Red (0).prefab",
+                        "ObjectName": "",
                         "Type": "Double",
-                        "Value": 2009469253.0
+                        "Value": 0.0
                     },
                     "Variable 192": {
                         "DisplayObjectName": false,
@@ -6313,18 +6677,18 @@
                         "Value": 0.0
                     },
                     "Variable 193": {
-                        "DisplayObjectName": true,
+                        "DisplayObjectName": false,
                         "Name": "potion_power_prefab",
-                        "ObjectName": "Drop_Particle_Purple (0).prefab",
+                        "ObjectName": "",
                         "Type": "Double",
-                        "Value": 1013338032.0
+                        "Value": 0.0
                     },
                     "Variable 194": {
-                        "DisplayObjectName": true,
+                        "DisplayObjectName": false,
                         "Name": "potion_stamina_prefab",
-                        "ObjectName": "Drop_Particle_Yellow (0).prefab",
+                        "ObjectName": "",
                         "Type": "Double",
-                        "Value": 775736879.0
+                        "Value": 0.0
                     },
                     "Variable 195": {
                         "DisplayObjectName": false,
@@ -7113,7 +7477,7 @@
                 "index": 4
             }
         },
-        "Index": 8,
+        "Index": 9,
         "Name": "Geralt",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -8032,8 +8396,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.540000",
-                "scaley": "2.540694",
-                "scalez": "2.540694"
+                "scaley": "2.540707",
+                "scalez": "2.540707"
             },
             "1": {
                 "Active": true,
@@ -9235,6 +9599,96 @@
         "Parent": "549855112",
         "Static": false
     },
+    "1320871272": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "UID": 1512022186,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "4": {
+                "Active": false,
+                "UID": 995719213,
+                "index": 1,
+                "priority": "4",
+                "visible": "1"
+            },
+            "5": {
+                "Active": false,
+                "ColorA": "1.000000",
+                "ColorB": "1.000000",
+                "ColorG": "1.000000",
+                "ColorR": "1.000000",
+                "IsProgressBar": "0",
+                "MantainAspect": "1",
+                "NumberFrames": "0",
+                "Resources": {
+                    "ResourceTexture": null
+                },
+                "UID": 47719466,
+                "fullscreen": false,
+                "index": 2,
+                "position2Dx": "0.000000",
+                "position2Dy": "0.000000",
+                "priority": "3",
+                "size2Dx": "220.000000",
+                "size2Dy": "50.000000",
+                "visible": "1"
+            },
+            "7": {
+                "Active": false,
+                "UID": 2067715210,
+                "colliderh": "50",
+                "colliderw": "220",
+                "colliderx": "572",
+                "collidery": "355",
+                "draggable": "0",
+                "function": "GoToMainMenu",
+                "hovered_color.a": "1.000000",
+                "hovered_color.b": "0.500000",
+                "hovered_color.g": "0.500000",
+                "hovered_color.r": "0.500000",
+                "idle_color.a": "1.000000",
+                "idle_color.b": "1.000000",
+                "idle_color.g": "1.000000",
+                "idle_color.r": "1.000000",
+                "index": 3,
+                "interactable": "1",
+                "locked_color.a": "1.000000",
+                "locked_color.b": "1.000000",
+                "locked_color.g": "1.000000",
+                "locked_color.r": "1.000000",
+                "position2Dx": "0.000000",
+                "position2Dy": "0.000000",
+                "priority": "3",
+                "script": "1212644364",
+                "selected_color.a": "1.000000",
+                "selected_color.b": "1.000000",
+                "selected_color.g": "0.250000",
+                "selected_color.r": "0.250000",
+                "size2Dx": "220.000000",
+                "size2Dy": "50.000000",
+                "visible": "1"
+            }
+        },
+        "Index": 3,
+        "Name": "OnlyMainMenu",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1212644364",
+        "Static": false
+    },
     "1323452423": {
         "Active": true,
         "Components": {
@@ -9528,8 +9982,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000561",
-                "scalez": "1.000561"
+                "scaley": "1.000572",
+                "scalez": "1.000572"
             }
         },
         "Index": 0,
@@ -10263,9 +10717,9 @@
                 "rotationx": "0.612624",
                 "rotationy": "0.523173",
                 "rotationz": "-0.456502",
-                "scalex": "0.999869",
-                "scaley": "0.999868",
-                "scalez": "0.999866"
+                "scalex": "0.999858",
+                "scaley": "0.999857",
+                "scalez": "0.999855"
             },
             "13": {
                 "Active": true,
@@ -10850,8 +11304,8 @@
                 "rotationx": "-0.000534",
                 "rotationy": "-0.000084",
                 "rotationz": "0.999921",
-                "scalex": "1.001117",
-                "scaley": "1.001119",
+                "scalex": "1.001139",
+                "scaley": "1.001141",
                 "scalez": "1.000000"
             },
             "13": {
@@ -11545,8 +11999,8 @@
                 "rotationx": "-0.046474",
                 "rotationy": "-0.155068",
                 "rotationz": "0.844688",
-                "scalex": "1.000132",
-                "scaley": "1.000132",
+                "scalex": "1.000143",
+                "scaley": "1.000143",
                 "scalez": "1.000000"
             },
             "13": {
@@ -12827,6 +13281,54 @@
         "Parent": "1902974787",
         "Static": false
     },
+    "1518139808": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 311722651,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "5": {
+                "Active": true,
+                "ColorA": "1.000000",
+                "ColorB": "1.000000",
+                "ColorG": "1.000000",
+                "ColorR": "1.000000",
+                "IsProgressBar": "0",
+                "MantainAspect": "1",
+                "NumberFrames": "0",
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/740672218.dds"
+                },
+                "UID": 2120432336,
+                "fullscreen": false,
+                "index": 1,
+                "position2Dx": "0.000000",
+                "position2Dy": "-13.000000",
+                "priority": "0",
+                "size2Dx": "833.999756",
+                "size2Dy": "555.164978",
+                "visible": "0"
+            }
+        },
+        "Index": 1,
+        "Name": "PauseImage",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1731181286",
+        "Static": false
+    },
     "1518637967": {
         "Active": true,
         "Components": {
@@ -14015,11 +14517,11 @@
                         "Value": 5000.0
                     },
                     "Variable 155": {
-                        "DisplayObjectName": true,
+                        "DisplayObjectName": false,
                         "Name": "potion_health_prefab",
-                        "ObjectName": "Drop_Particle_Red (0).prefab",
+                        "ObjectName": "",
                         "Type": "Double",
-                        "Value": 2009469253.0
+                        "Value": 0.0
                     },
                     "Variable 156": {
                         "DisplayObjectName": false,
@@ -14029,18 +14531,18 @@
                         "Value": 0.0
                     },
                     "Variable 157": {
-                        "DisplayObjectName": true,
+                        "DisplayObjectName": false,
                         "Name": "potion_power_prefab",
-                        "ObjectName": "Drop_Particle_Purple (0).prefab",
+                        "ObjectName": "",
                         "Type": "Double",
-                        "Value": 1013338032.0
+                        "Value": 0.0
                     },
                     "Variable 158": {
-                        "DisplayObjectName": true,
+                        "DisplayObjectName": false,
                         "Name": "potion_stamina_prefab",
-                        "ObjectName": "Drop_Particle_Yellow (0).prefab",
+                        "ObjectName": "",
                         "Type": "Double",
-                        "Value": 775736879.0
+                        "Value": 0.0
                     },
                     "Variable 159": {
                         "DisplayObjectName": false,
@@ -15228,7 +15730,7 @@
                 "index": 4
             }
         },
-        "Index": 9,
+        "Index": 10,
         "Name": "Jaskier",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -16118,6 +16620,57 @@
         "Parent": "569549544",
         "Static": false
     },
+    "1606154555": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1160601587,
+                "index": 0,
+                "layer": "1",
+                "positionx": "-12.693237",
+                "positiony": "-3.549648",
+                "positionz": "3.232483",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2.mesh"
+                    }
+                },
+                "UID": 1023386505,
+                "index": 1
+            },
+            "2": {
+                "Active": false,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "DefaultMaterial"
+                    }
+                },
+                "UID": 2126908086,
+                "index": 2
+            }
+        },
+        "Index": 1,
+        "Name": "JaskierPos1",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "2027943815",
+        "Static": false
+    },
     "1606718097": {
         "Active": true,
         "Components": {
@@ -16434,8 +16987,8 @@
                 "rotationx": "-0.000169",
                 "rotationy": "-0.004364",
                 "rotationz": "0.999931",
-                "scalex": "1.001122",
-                "scaley": "1.001113",
+                "scalex": "1.001144",
+                "scaley": "1.001135",
                 "scalez": "1.000000"
             },
             "13": {
@@ -16654,8 +17207,8 @@
                 "rotationx": "0.388476",
                 "rotationy": "0.030072",
                 "rotationz": "0.916844",
-                "scalex": "1.001116",
-                "scaley": "1.001116",
+                "scalex": "1.001138",
+                "scaley": "1.001138",
                 "scalez": "1.000000"
             },
             "13": {
@@ -16778,8 +17331,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000561",
-                "scalez": "1.000561"
+                "scaley": "1.000572",
+                "scalez": "1.000572"
             }
         },
         "Index": 0,
@@ -17178,8 +17731,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.540000",
-                "scaley": "2.540692",
-                "scalez": "2.540692"
+                "scaley": "2.540706",
+                "scalez": "2.540706"
             },
             "1": {
                 "Active": true,
@@ -18069,6 +18622,80 @@
         "Parent": "964520586",
         "Static": false
     },
+    "1708918369": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 728613620,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Index": 16,
+        "Name": "PausePrefab",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "-1",
+        "Static": false
+    },
+    "1716757055": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1097612233,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "5": {
+                "Active": true,
+                "ColorA": "1.000000",
+                "ColorB": "1.000000",
+                "ColorG": "1.000000",
+                "ColorR": "1.000000",
+                "IsProgressBar": "0",
+                "MantainAspect": "1",
+                "NumberFrames": "0",
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1162111972.dds"
+                },
+                "UID": 803178845,
+                "fullscreen": false,
+                "index": 1,
+                "position2Dx": "0.000000",
+                "position2Dy": "115.000000",
+                "priority": "2",
+                "size2Dx": "508.000000",
+                "size2Dy": "137.067078",
+                "visible": "0"
+            }
+        },
+        "Index": 2,
+        "Name": "PauseText",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1731181286",
+        "Static": false
+    },
     "1721165875": {
         "Active": true,
         "Components": {
@@ -18162,8 +18789,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.070461",
-                "scaley": "15.158579",
-                "scalez": "1.368211"
+                "scaley": "15.158673",
+                "scalez": "1.368222"
             },
             "1": {
                 "Active": true,
@@ -18256,6 +18883,39 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "706654227",
+        "Static": false
+    },
+    "1731181286": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1244833217,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "4": {
+                "Active": true,
+                "UID": 535858778,
+                "index": 1,
+                "priority": "5",
+                "visible": "1"
+            }
+        },
+        "Index": 0,
+        "Name": "Canvas",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1708918369",
         "Static": false
     },
     "1739091535": {
@@ -18417,8 +19077,8 @@
                 "rotationy": "-0.000000",
                 "rotationz": "-0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000561",
-                "scalez": "1.000561"
+                "scaley": "1.000572",
+                "scalez": "1.000572"
             }
         },
         "Index": 0,
@@ -18476,8 +19136,8 @@
                 "rotationx": "0.212514",
                 "rotationy": "0.197291",
                 "rotationz": "0.757052",
-                "scalex": "1.000133",
-                "scaley": "1.000130",
+                "scalex": "1.000144",
+                "scaley": "1.000141",
                 "scalez": "0.999999"
             },
             "13": {
@@ -18595,7 +19255,7 @@
                 "rotationx": "0.063757",
                 "rotationy": "-0.427262",
                 "rotationz": "-0.725667",
-                "scalex": "0.999871",
+                "scalex": "0.999860",
                 "scaley": "0.999997",
                 "scalez": "1.000001"
             },
@@ -18651,13 +19311,13 @@
                 "positionx": "525.467041",
                 "positiony": "35.107220",
                 "positionz": "-187.502701",
-                "rotationw": "0.744256",
+                "rotationw": "0.744255",
                 "rotationx": "0.000000",
                 "rotationy": "0.667895",
                 "rotationz": "0.000000",
-                "scalex": "1.000000",
+                "scalex": "1.000001",
                 "scaley": "1.000000",
-                "scalez": "1.000000"
+                "scalez": "1.000001"
             },
             "18": {
                 "Active": false,
@@ -20228,7 +20888,7 @@
                 "positionx": "-1.165900",
                 "positiony": "9.181004",
                 "positionz": "-0.111496",
-                "rotationw": "0.997934",
+                "rotationw": "0.997933",
                 "rotationx": "-0.006888",
                 "rotationy": "0.011560",
                 "rotationz": "-0.062831",
@@ -20630,6 +21290,50 @@
         "Parent": "1394651594",
         "Static": false
     },
+    "1911183739": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "UID": 898304329,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "6": {
+                "Active": false,
+                "UID": 1826921375,
+                "colorA": "1.000000",
+                "colorB": "0.000001",
+                "colorG": "0.000001",
+                "colorR": "0.000001",
+                "font": "7",
+                "index": 1,
+                "position2Dx": "-53.000000",
+                "position2Dy": "-7.000000",
+                "priority": "0",
+                "rotation2D": "0.000000",
+                "scale2Dx": "0.600000",
+                "scale2Dy": "0.600000",
+                "text": "Main Menu",
+                "visible": "1"
+            }
+        },
+        "Index": 0,
+        "Name": "Text(558)",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1320871272",
+        "Static": false
+    },
     "1912427622": {
         "Active": true,
         "Components": {
@@ -20838,8 +21542,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000561",
-                "scalez": "1.000561"
+                "scaley": "1.000572",
+                "scalez": "1.000572"
             }
         },
         "Index": 0,
@@ -21555,6 +22259,57 @@
         "Parent": "1969208435",
         "Static": false
     },
+    "1976292732": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 2000313169,
+                "index": 0,
+                "layer": "1",
+                "positionx": "1.918365",
+                "positiony": "-4.329357",
+                "positionz": "-0.220398",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2.mesh"
+                    }
+                },
+                "UID": 1636114646,
+                "index": 1
+            },
+            "2": {
+                "Active": false,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "DefaultMaterial"
+                    }
+                },
+                "UID": 1110164992,
+                "index": 2
+            }
+        },
+        "Index": 0,
+        "Name": "GeraltPos0",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "542474594",
+        "Static": false
+    },
     "1979658691": {
         "Active": true,
         "Components": {
@@ -21570,8 +22325,8 @@
                 "rotationy": "0.000040",
                 "rotationz": "-0.000037",
                 "scalex": "1.000000",
-                "scaley": "1.000561",
-                "scalez": "1.000561"
+                "scaley": "1.000572",
+                "scalez": "1.000572"
             },
             "13": {
                 "Active": true,
@@ -21764,6 +22519,89 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1706628155",
+        "Static": false
+    },
+    "1993068723": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "UID": 1591214900,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "5": {
+                "Active": false,
+                "ColorA": "1.000000",
+                "ColorB": "1.000000",
+                "ColorG": "1.000000",
+                "ColorR": "1.000000",
+                "IsProgressBar": "0",
+                "MantainAspect": "1",
+                "NumberFrames": "0",
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/611417309.dds"
+                },
+                "UID": 1881138758,
+                "fullscreen": false,
+                "index": 1,
+                "position2Dx": "198.000000",
+                "position2Dy": "-124.000000",
+                "priority": "1",
+                "size2Dx": "308.000000",
+                "size2Dy": "155.469772",
+                "visible": "1"
+            },
+            "7": {
+                "Active": false,
+                "UID": 1535320984,
+                "colliderh": "155",
+                "colliderw": "308",
+                "colliderx": "928",
+                "collidery": "470",
+                "draggable": "0",
+                "function": "ResumeGame",
+                "hovered_color.a": "1.000000",
+                "hovered_color.b": "0.500000",
+                "hovered_color.g": "0.500000",
+                "hovered_color.r": "0.500000",
+                "idle_color.a": "1.000000",
+                "idle_color.b": "1.000000",
+                "idle_color.g": "1.000000",
+                "idle_color.r": "1.000000",
+                "index": 2,
+                "interactable": "0",
+                "locked_color.a": "1.000000",
+                "locked_color.b": "1.000000",
+                "locked_color.g": "1.000000",
+                "locked_color.r": "1.000000",
+                "position2Dx": "198.000000",
+                "position2Dy": "-124.000000",
+                "priority": "0",
+                "script": "1200108378",
+                "selected_color.a": "1.000000",
+                "selected_color.b": "0.220994",
+                "selected_color.g": "0.840756",
+                "selected_color.r": "1.000000",
+                "size2Dx": "308.000000",
+                "size2Dy": "155.469772",
+                "visible": "1"
+            }
+        },
+        "Index": 3,
+        "Name": "ResumeButton",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1731181286",
         "Static": false
     },
     "1995780788": {
@@ -22022,8 +22860,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000561",
-                "scalez": "1.000561"
+                "scaley": "1.000572",
+                "scalez": "1.000572"
             }
         },
         "Index": 0,
@@ -22031,6 +22869,96 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "728935117",
+        "Static": false
+    },
+    "2007495606": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "UID": 909695279,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-1.184296",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "4": {
+                "Active": false,
+                "UID": 307301935,
+                "index": 1,
+                "priority": "3",
+                "visible": "1"
+            },
+            "5": {
+                "Active": false,
+                "ColorA": "1.000000",
+                "ColorB": "1.000000",
+                "ColorG": "1.000000",
+                "ColorR": "1.000000",
+                "IsProgressBar": "0",
+                "MantainAspect": "1",
+                "NumberFrames": "0",
+                "Resources": {
+                    "ResourceTexture": null
+                },
+                "UID": 1435925221,
+                "fullscreen": false,
+                "index": 2,
+                "position2Dx": "160.000000",
+                "position2Dy": "0.000000",
+                "priority": "2",
+                "size2Dx": "198.000000",
+                "size2Dy": "50.000000",
+                "visible": "1"
+            },
+            "7": {
+                "Active": false,
+                "UID": 1101354701,
+                "colliderh": "50",
+                "colliderw": "198",
+                "colliderx": "741",
+                "collidery": "355",
+                "draggable": "0",
+                "function": "GoToNextLevel",
+                "hovered_color.a": "1.000000",
+                "hovered_color.b": "0.500000",
+                "hovered_color.g": "0.500000",
+                "hovered_color.r": "0.500000",
+                "idle_color.a": "1.000000",
+                "idle_color.b": "1.000000",
+                "idle_color.g": "1.000000",
+                "idle_color.r": "1.000000",
+                "index": 3,
+                "interactable": "1",
+                "locked_color.a": "1.000000",
+                "locked_color.b": "1.000000",
+                "locked_color.g": "1.000000",
+                "locked_color.r": "1.000000",
+                "position2Dx": "160.000000",
+                "position2Dy": "0.000000",
+                "priority": "2",
+                "script": "1212644364",
+                "selected_color.a": "1.000000",
+                "selected_color.b": "1.000000",
+                "selected_color.g": "0.250000",
+                "selected_color.r": "0.250000",
+                "size2Dx": "198.000000",
+                "size2Dy": "50.000000",
+                "visible": "1"
+            }
+        },
+        "Index": 5,
+        "Name": "NextLevel",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1212644364",
         "Static": false
     },
     "2010862548": {
@@ -22164,6 +23092,91 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1216170232",
+        "Static": false
+    },
+    "2027943815": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 352722198,
+                "index": 0,
+                "layer": "1",
+                "positionx": "642.396057",
+                "positiony": "49.337322",
+                "positionz": "-322.347107",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.999999",
+                "scaley": "1.000000",
+                "scalez": "0.999999"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/Win_Lose/Checkpoint.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "checkpoint",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    }
+                },
+                "UID": 396643513,
+                "index": 1
+            },
+            "16": {
+                "Active": true,
+                "UID": 225801800,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "1",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "642.396057",
+                "globalMatrixy": "49.337322",
+                "globalMatrixz": "-322.347107",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "index": 2,
+                "isConvex": "0",
+                "isTrigger": "1",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "15.000000",
+                "scalex": "20.000000",
+                "scaley": "10.000000",
+                "scalez": "10.000000",
+                "tmpScalex": "10.000000",
+                "tmpScaley": "10.000000",
+                "tmpScalez": "15.000000"
+            }
+        },
+        "Index": 13,
+        "Name": "Checkpoint1",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "-1",
         "Static": false
     },
     "2029001778": {
@@ -22986,6 +23999,96 @@
         "Parent": "1643778279",
         "Static": false
     },
+    "2089955071": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "UID": 1625857911,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "4": {
+                "Active": false,
+                "UID": 2138072008,
+                "index": 1,
+                "priority": "3",
+                "visible": "1"
+            },
+            "5": {
+                "Active": false,
+                "ColorA": "1.000000",
+                "ColorB": "1.000000",
+                "ColorG": "1.000000",
+                "ColorR": "1.000000",
+                "IsProgressBar": "0",
+                "MantainAspect": "1",
+                "NumberFrames": "0",
+                "Resources": {
+                    "ResourceTexture": null
+                },
+                "UID": 1882277163,
+                "fullscreen": false,
+                "index": 2,
+                "position2Dx": "-172.000000",
+                "position2Dy": "0.000000",
+                "priority": "2",
+                "size2Dx": "198.000000",
+                "size2Dy": "50.000000",
+                "visible": "1"
+            },
+            "7": {
+                "Active": false,
+                "UID": 1589072618,
+                "colliderh": "50",
+                "colliderw": "198",
+                "colliderx": "412",
+                "collidery": "355",
+                "draggable": "0",
+                "function": "GoToMainMenu",
+                "hovered_color.a": "1.000000",
+                "hovered_color.b": "0.500000",
+                "hovered_color.g": "0.500000",
+                "hovered_color.r": "0.500000",
+                "idle_color.a": "1.000000",
+                "idle_color.b": "1.000000",
+                "idle_color.g": "1.000000",
+                "idle_color.r": "1.000000",
+                "index": 3,
+                "interactable": "1",
+                "locked_color.a": "1.000000",
+                "locked_color.b": "1.000000",
+                "locked_color.g": "1.000000",
+                "locked_color.r": "1.000000",
+                "position2Dx": "-172.000000",
+                "position2Dy": "0.000000",
+                "priority": "2",
+                "script": "1212644364",
+                "selected_color.a": "1.000000",
+                "selected_color.b": "1.000000",
+                "selected_color.g": "0.250000",
+                "selected_color.r": "0.250000",
+                "size2Dx": "198.000000",
+                "size2Dy": "50.000000",
+                "visible": "1"
+            }
+        },
+        "Index": 4,
+        "Name": "MainMenu",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1212644364",
+        "Static": false
+    },
     "209031065": {
         "Active": true,
         "Components": {
@@ -23429,8 +24532,8 @@
                 "rotationy": "0.000028",
                 "rotationz": "-0.000027",
                 "scalex": "2.540000",
-                "scaley": "2.540696",
-                "scalez": "2.540696"
+                "scaley": "2.540710",
+                "scalez": "2.540710"
             },
             "13": {
                 "Active": true,
@@ -24136,8 +25239,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000561",
-                "scalez": "1.000561"
+                "scaley": "1.000572",
+                "scalez": "1.000572"
             }
         },
         "Index": 0,
@@ -25259,11 +26362,11 @@
             },
             "3": {
                 "ACTIVECAM": true,
-                "ASPECTRATIO": 2.395963430404663,
+                "ASPECTRATIO": 2.0358498096466064,
                 "Active": true,
                 "CULLINGCAM": true,
                 "FARPLANE": 1000.0,
-                "FOV": 42.16814041137695,
+                "FOV": 48.81203079223633,
                 "NEARPLANE": 0.10000000149011612,
                 "UID": 671506755,
                 "index": 4
@@ -25346,8 +26449,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000561",
-                "scalez": "1.000561"
+                "scaley": "1.000572",
+                "scalez": "1.000572"
             }
         },
         "Index": 0,
@@ -27458,8 +28561,8 @@
                 "rotationx": "0.388476",
                 "rotationy": "0.030072",
                 "rotationz": "0.916844",
-                "scalex": "1.001118",
-                "scaley": "1.001118",
+                "scalex": "1.001140",
+                "scaley": "1.001140",
                 "scalez": "1.000000"
             },
             "13": {
@@ -27689,8 +28792,8 @@
                 "rotationx": "0.000598",
                 "rotationy": "0.002538",
                 "rotationz": "0.999918",
-                "scalex": "0.999439",
-                "scaley": "0.999439",
+                "scalex": "0.999428",
+                "scaley": "0.999428",
                 "scalez": "1.000000"
             },
             "13": {
@@ -28013,6 +29116,62 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "989160954",
+        "Static": false
+    },
+    "436324799": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "UID": 931604359,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "5": {
+                "Active": false,
+                "AnimationTime": "3.000000",
+                "ColorA": "1.000000",
+                "ColorB": "1.000000",
+                "ColorG": "1.000000",
+                "ColorR": "1.000000",
+                "EndFrame": "35",
+                "IsProgressBar": "0",
+                "Loop": "0",
+                "MantainAspect": "0",
+                "NumberFrames": "35",
+                "PlayInEditor": "1",
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1127872389.dds"
+                },
+                "ScriptControl": "0",
+                "StartFrame": "1",
+                "TileDivisionX": "5",
+                "TileDivisionY": "7",
+                "UID": 925971245,
+                "fullscreen": false,
+                "index": 1,
+                "position2Dx": "63.000000",
+                "position2Dy": "20.000000",
+                "priority": "0",
+                "size2Dx": "804.143005",
+                "size2Dy": "190.160995",
+                "visible": "1"
+            }
+        },
+        "Index": 2,
+        "Name": "Victory",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1212644364",
         "Static": false
     },
     "438034200": {
@@ -28921,9 +30080,9 @@
                 "rotationx": "-0.547404",
                 "rotationy": "0.835716",
                 "rotationz": "-0.040962",
-                "scalex": "19.686972",
-                "scaley": "19.687078",
-                "scalez": "19.687214"
+                "scalex": "19.687037",
+                "scaley": "19.687119",
+                "scalez": "19.687309"
             }
         },
         "Index": 0,
@@ -29094,6 +30253,50 @@
         "Parent": "1706628155",
         "Static": false
     },
+    "497747911": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "UID": 1079095912,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "6": {
+                "Active": false,
+                "UID": 168582704,
+                "colorA": "1.000000",
+                "colorB": "0.000001",
+                "colorG": "0.000001",
+                "colorR": "0.000001",
+                "font": "7",
+                "index": 1,
+                "position2Dx": "-161.000000",
+                "position2Dy": "-7.000000",
+                "priority": "0",
+                "rotation2D": "0.000000",
+                "scale2Dx": "0.600000",
+                "scale2Dy": "0.600000",
+                "text": "Main Menu",
+                "visible": "1"
+            }
+        },
+        "Index": 0,
+        "Name": "Text(50)",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "2089955071",
+        "Static": false
+    },
     "50293522": {
         "Active": true,
         "Components": {
@@ -29246,6 +30449,57 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1706628155",
+        "Static": false
+    },
+    "51547635": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 712968855,
+                "index": 0,
+                "layer": "1",
+                "positionx": "-1.770874",
+                "positiony": "-3.287285",
+                "positionz": "2.188751",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2.mesh"
+                    }
+                },
+                "UID": 667637197,
+                "index": 1
+            },
+            "2": {
+                "Active": false,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "DefaultMaterial"
+                    }
+                },
+                "UID": 1433236669,
+                "index": 2
+            }
+        },
+        "Index": 1,
+        "Name": "JaskierPos0",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "542474594",
         "Static": false
     },
     "518297838": {
@@ -29881,6 +31135,91 @@
         "Parent": "1204094876",
         "Static": false
     },
+    "542474594": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1488651533,
+                "index": 0,
+                "layer": "1",
+                "positionx": "390.652954",
+                "positiony": "39.672020",
+                "positionz": "-323.045502",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/Win_Lose/Checkpoint.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "checkpoint",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    }
+                },
+                "UID": 1700091126,
+                "index": 1
+            },
+            "16": {
+                "Active": true,
+                "UID": 1335595194,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "1",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "390.652954",
+                "globalMatrixy": "39.672020",
+                "globalMatrixz": "-323.045502",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "index": 2,
+                "isConvex": "0",
+                "isTrigger": "1",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "15.000000",
+                "scalex": "10.000000",
+                "scaley": "10.000000",
+                "scalez": "10.000000",
+                "tmpScalex": "10.000000",
+                "tmpScaley": "10.000000",
+                "tmpScalez": "10.000000"
+            }
+        },
+        "Index": 12,
+        "Name": "Checkpoint0",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "-1",
+        "Static": false
+    },
     "543137929": {
         "Active": true,
         "Components": {
@@ -29950,9 +31289,9 @@
                 "rotationx": "-0.512172",
                 "rotationy": "0.806715",
                 "rotationz": "0.189061",
-                "scalex": "19.687372",
-                "scaley": "19.687134",
-                "scalez": "19.686287"
+                "scalex": "19.687597",
+                "scaley": "19.687235",
+                "scalez": "19.686560"
             }
         },
         "Index": 0,
@@ -30699,6 +32038,89 @@
         "Parent": "1688544348",
         "Static": false
     },
+    "599130909": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "UID": 829799955,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "5": {
+                "Active": false,
+                "ColorA": "1.000000",
+                "ColorB": "1.000000",
+                "ColorG": "1.000000",
+                "ColorR": "1.000000",
+                "IsProgressBar": "0",
+                "MantainAspect": "1",
+                "NumberFrames": "0",
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/860809778.dds"
+                },
+                "UID": 2045079108,
+                "fullscreen": false,
+                "index": 1,
+                "position2Dx": "-168.000000",
+                "position2Dy": "-124.000000",
+                "priority": "1",
+                "size2Dx": "308.000000",
+                "size2Dy": "155.469772",
+                "visible": "1"
+            },
+            "7": {
+                "Active": false,
+                "UID": 52256489,
+                "colliderh": "155",
+                "colliderw": "308",
+                "colliderx": "565",
+                "collidery": "470",
+                "draggable": "0",
+                "function": "GoToMainMenu",
+                "hovered_color.a": "1.000000",
+                "hovered_color.b": "0.500000",
+                "hovered_color.g": "0.500000",
+                "hovered_color.r": "0.500000",
+                "idle_color.a": "1.000000",
+                "idle_color.b": "1.000000",
+                "idle_color.g": "1.000000",
+                "idle_color.r": "1.000000",
+                "index": 2,
+                "interactable": "0",
+                "locked_color.a": "1.000000",
+                "locked_color.b": "1.000000",
+                "locked_color.g": "1.000000",
+                "locked_color.r": "1.000000",
+                "position2Dx": "-168.000000",
+                "position2Dy": "-124.000000",
+                "priority": "0",
+                "script": "1200108378",
+                "selected_color.a": "1.000000",
+                "selected_color.b": "0.220994",
+                "selected_color.g": "0.840756",
+                "selected_color.r": "1.000000",
+                "size2Dx": "308.000000",
+                "size2Dy": "155.469772",
+                "visible": "1"
+            }
+        },
+        "Index": 0,
+        "Name": "MenuButton",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1731181286",
+        "Static": false
+    },
     "599201099": {
         "Active": true,
         "Components": {
@@ -31138,8 +32560,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000561",
-                "scalez": "1.000561"
+                "scaley": "1.000572",
+                "scalez": "1.000572"
             }
         },
         "Index": 0,
@@ -31882,7 +33304,7 @@
                 "scalez": "0.450000"
             }
         },
-        "Index": 10,
+        "Index": 8,
         "Name": "ForestLevel v4",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -32639,8 +34061,8 @@
                 "rotationx": "-0.187734",
                 "rotationy": "-0.215086",
                 "rotationz": "0.811608",
-                "scalex": "0.999873",
-                "scaley": "0.999874",
+                "scalex": "0.999862",
+                "scaley": "0.999863",
                 "scalez": "1.000002"
             },
             "13": {
@@ -32814,8 +34236,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000561",
-                "scalez": "1.000561"
+                "scaley": "1.000572",
+                "scalez": "1.000572"
             }
         },
         "Index": 0,
@@ -33134,6 +34556,62 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1087432772",
+        "Static": false
+    },
+    "775716818": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1261831222,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/Audio_Scripts/Music_Manager_v2.lua"
+                },
+                "Script variables": {
+                    "Count": 2,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "Enemies_Nearby",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "Level",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "2"
+                    }
+                },
+                "UID": 165410611,
+                "index": 2
+            },
+            "19": {
+                "Active": true,
+                "UID": 690475386,
+                "index": 1
+            }
+        },
+        "Index": 15,
+        "Name": "Music_Manager",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "-1",
         "Static": false
     },
     "783032966": {
@@ -33549,8 +35027,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000561",
-                "scalez": "1.000561"
+                "scaley": "1.000572",
+                "scalez": "1.000572"
             }
         },
         "Index": 0,
@@ -34000,6 +35478,50 @@
         "Parent": "2137021193",
         "Static": false
     },
+    "834096078": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "UID": 1981842412,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "6": {
+                "Active": false,
+                "UID": 2026246102,
+                "colorA": "1.000000",
+                "colorB": "0.000001",
+                "colorG": "0.000001",
+                "colorR": "0.000001",
+                "font": "7",
+                "index": 1,
+                "position2Dx": "48.500000",
+                "position2Dy": "-7.000000",
+                "priority": "0",
+                "rotation2D": "0.000000",
+                "scale2Dx": "0.600000",
+                "scale2Dy": "0.600000",
+                "text": "Next Level",
+                "visible": "1"
+            }
+        },
+        "Index": 0,
+        "Name": "Text(49)",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "2007495606",
+        "Static": false
+    },
     "83948169": {
         "Active": true,
         "Components": {
@@ -34407,6 +35929,54 @@
         "Parent": "-1",
         "Static": false
     },
+    "850682897": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "UID": 1139297685,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "5": {
+                "Active": false,
+                "ColorA": "0.000000",
+                "ColorB": "0.000000",
+                "ColorG": "0.000000",
+                "ColorR": "0.000000",
+                "IsProgressBar": "0",
+                "MantainAspect": "0",
+                "NumberFrames": "0",
+                "Resources": {
+                    "ResourceTexture": null
+                },
+                "UID": 1735625440,
+                "fullscreen": true,
+                "index": 1,
+                "position2Dx": "0.000000",
+                "position2Dy": "0.000000",
+                "priority": "1",
+                "size2Dx": "950.219971",
+                "size2Dy": "472.799988",
+                "visible": "1"
+            }
+        },
+        "Index": 1,
+        "Name": "Fade",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1212644364",
+        "Static": false
+    },
     "851301074": {
         "Active": true,
         "Components": {
@@ -34811,8 +36381,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000561",
-                "scalez": "1.000561"
+                "scaley": "1.000572",
+                "scalez": "1.000572"
             }
         },
         "Index": 0,
@@ -35224,9 +36794,9 @@
                 "rotationx": "0.536806",
                 "rotationy": "-0.449375",
                 "rotationz": "0.566528",
-                "scalex": "0.999439",
-                "scaley": "0.999439",
-                "scalez": "0.999439"
+                "scalex": "0.999428",
+                "scaley": "0.999428",
+                "scalez": "0.999428"
             },
             "13": {
                 "Active": true,
@@ -35389,13 +36959,13 @@
                 "positionx": "145.943115",
                 "positiony": "-3.292969",
                 "positionz": "23.541016",
-                "rotationw": "0.622222",
+                "rotationw": "0.622221",
                 "rotationx": "-0.419583",
                 "rotationy": "0.561080",
                 "rotationz": "0.349256",
-                "scalex": "19.683924",
-                "scaley": "19.684706",
-                "scalez": "19.684696"
+                "scalex": "19.683933",
+                "scaley": "19.684713",
+                "scalez": "19.684708"
             }
         },
         "Index": 0,
@@ -35419,9 +36989,9 @@
                 "rotationx": "-0.550319",
                 "rotationy": "-0.440850",
                 "rotationz": "0.555183",
-                "scalex": "1.000561",
-                "scaley": "1.000561",
-                "scalez": "1.000561"
+                "scalex": "1.000572",
+                "scaley": "1.000572",
+                "scalez": "1.000572"
             },
             "13": {
                 "Active": true,
@@ -35594,6 +37164,62 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1186016669",
+        "Static": false
+    },
+    "92394022": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "UID": 1968256633,
+                "index": 0,
+                "layer": "0",
+                "positionx": "1.612474",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "5": {
+                "Active": false,
+                "AnimationTime": "3.000000",
+                "ColorA": "1.000000",
+                "ColorB": "1.000000",
+                "ColorG": "1.000000",
+                "ColorR": "1.000000",
+                "EndFrame": "35",
+                "IsProgressBar": "0",
+                "Loop": "0",
+                "MantainAspect": "0",
+                "NumberFrames": "35",
+                "PlayInEditor": "1",
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/864042014.dds"
+                },
+                "ScriptControl": "0",
+                "StartFrame": "1",
+                "TileDivisionX": "5",
+                "TileDivisionY": "7",
+                "UID": 1063531023,
+                "fullscreen": false,
+                "index": 1,
+                "position2Dx": "65.000000",
+                "position2Dy": "20.000000",
+                "priority": "0",
+                "size2Dx": "804.143005",
+                "size2Dy": "190.160995",
+                "visible": "1"
+            }
+        },
+        "Index": 0,
+        "Name": "Defeat",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1212644364",
         "Static": false
     },
     "926412652": {
@@ -35777,8 +37403,8 @@
                 "rotationx": "0.046474",
                 "rotationy": "0.155068",
                 "rotationz": "0.844688",
-                "scalex": "1.000132",
-                "scaley": "1.000132",
+                "scalex": "1.000143",
+                "scaley": "1.000143",
                 "scalez": "1.000000"
             },
             "13": {
@@ -36083,7 +37709,7 @@
                 "positionx": "120.682297",
                 "positiony": "0.000229",
                 "positionz": "-0.000031",
-                "rotationw": "0.912570",
+                "rotationw": "0.912569",
                 "rotationx": "0.192342",
                 "rotationy": "0.174447",
                 "rotationz": "-0.315895",
@@ -36184,8 +37810,8 @@
                 "rotationx": "0.000205",
                 "rotationy": "-0.005509",
                 "rotationz": "0.999924",
-                "scalex": "1.000617",
-                "scaley": "1.000851",
+                "scalex": "1.000638",
+                "scaley": "1.000871",
                 "scalez": "1.000000"
             },
             "13": {
@@ -36844,7 +38470,7 @@
                 "positionx": "349.002838",
                 "positiony": "38.612278",
                 "positionz": "-313.026642",
-                "rotationw": "0.579228",
+                "rotationw": "0.579227",
                 "rotationx": "-0.579228",
                 "rotationy": "0.405580",
                 "rotationz": "0.405580",

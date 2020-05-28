@@ -82,9 +82,9 @@ local particles_library = {
 	blood_particles_GO_UID_children = {},
 	revive_particles_GO_UID_children = {},
 
-	potion_health_particles_GO_UID_children = 0,
-	potion_stamina_particles_GO_UID_children = 0,
-	potion_power_particles_GO_UID_children = 0,
+	potion_health_particles_GO_UID_children = {},
+	potion_stamina_particles_GO_UID_children = {},
+	potion_power_particles_GO_UID_children = {},
 
 	song_circle_GO_UID_children = {},
 	song_cone_GO_UID_children = {},
@@ -1035,16 +1035,6 @@ local function ParticlesShutdown()
 
 	for i = 1, #particles_library.run_particles_GO_UID_children do
 		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.run_particles_GO_UID_children[i])	--TODO-Particles:
-	end
-
-	for i = 1, #particles_library.potion_health_particles_GO_UID_children do
-		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.potion_health_particles_GO_UID_children[i])	--TODO-Particles:
-	end
-	for i = 1, #particles_library.potion_stamina_particles_GO_UID_children do
-		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.potion_stamina_particles_GO_UID_children[i])	--TODO-Particles:
-	end
-	for i = 1, #particles_library.potion_power_particles_GO_UID_children do
-		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.potion_power_particles_GO_UID_children[i])	--TODO-Particles:
 	end
 
 	for i = 1, #particles_library.song_circle_GO_UID_children do
@@ -2299,6 +2289,28 @@ function lua_table:Awake()
 	particles_library.song_cone_GO_UID_children = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindGameObject("Jaskier_Song_Cone"))
 	particles_library.concert_GO_UID_children = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindGameObject("Jaskier_Song_Concert"))
 
+	--Get attack_colliders GO_UIDs by name
+	attack_colliders.front_1.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.front_1.GO_name)
+	attack_colliders.front_2.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.front_2.GO_name)
+
+	attack_colliders.line_1_1.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.line_1_1.GO_name)
+	attack_colliders.line_2_2.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.line_2_2.GO_name)
+	attack_colliders.line_3_3.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.line_3_3.GO_name)
+	attack_colliders.line_4_4.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.line_4_4.GO_name)
+
+	--Camera (Warning: If there's a camera GO, but no script the Engine WILL crash)
+	local camera_GO = lua_table.GameObjectFunctions:FindGameObject("Camera")
+	if camera_GO ~= nil and camera_GO ~= 0 then camera_bounds_ratio = lua_table.GameObjectFunctions:GetScript(camera_GO).Layer_3_FOV_ratio_1	end
+
+	lua_table.max_health_real = lua_table.max_health_orig	--Necessary for the first CalculateStats()
+	CalculateStats()	--Calculate stats based on orig values + modifier
+
+	CalculateTrapezoid(song_2_trapezoid)
+end
+
+function lua_table:Start()
+	lua_table.SystemFunctions:LOG("JaskierScript START")
+	
 	--Stop Particle Emitters
 	for i = 1, #particles_library.run_particles_GO_UID_children do
 		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.run_particles_GO_UID_children[i])	--TODO-Particles:
@@ -2335,28 +2347,6 @@ function lua_table:Awake()
 
 	--Set Particle GO Animations to for smooth blending to required animations
 	lua_table.AnimationFunctions:PlayAnimation(animation_library.evade, lua_table.evade_animation_speed, particles_library.slash_GO_UID)
-
-	--Get attack_colliders GO_UIDs by name
-	attack_colliders.front_1.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.front_1.GO_name)
-	attack_colliders.front_2.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.front_2.GO_name)
-
-	attack_colliders.line_1_1.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.line_1_1.GO_name)
-	attack_colliders.line_2_2.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.line_2_2.GO_name)
-	attack_colliders.line_3_3.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.line_3_3.GO_name)
-	attack_colliders.line_4_4.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.line_4_4.GO_name)
-
-	--Camera (Warning: If there's a camera GO, but no script the Engine WILL crash)
-	local camera_GO = lua_table.GameObjectFunctions:FindGameObject("Camera")
-	if camera_GO ~= nil and camera_GO ~= 0 then camera_bounds_ratio = lua_table.GameObjectFunctions:GetScript(camera_GO).Layer_3_FOV_ratio_1	end
-
-	lua_table.max_health_real = lua_table.max_health_orig	--Necessary for the first CalculateStats()
-	CalculateStats()	--Calculate stats based on orig values + modifier
-
-	CalculateTrapezoid(song_2_trapezoid)
-end
-
-function lua_table:Start()
-	lua_table.SystemFunctions:LOG("JaskierScript START")
 	
 	-- Set initial values
 	lua_table.previous_state = state.idle

@@ -25,8 +25,15 @@
 				<Event Id="3955362993" Name="Play_Geralt_Ultimate" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_Ultimate"/>
 				<Event Id="4167477001" Name="Play_Geralt_walk_run_concrete" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_walk_run_concrete"/>
 				<Event Id="2190072003" Name="Play_Geralt_walk_run_dirt" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_walk_run_dirt"/>
+				<Event Id="3747619760" Name="Play_Gerlat_combo_1" ObjectPath="\Events\Default Work Unit\Geralt\Play_Gerlat_combo_1"/>
+				<Event Id="3747619763" Name="Play_Gerlat_combo_2" ObjectPath="\Events\Default Work Unit\Geralt\Play_Gerlat_combo_2"/>
+				<Event Id="3747619762" Name="Play_Gerlat_combo_3" ObjectPath="\Events\Default Work Unit\Geralt\Play_Gerlat_combo_3"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
+				<File Id="31365157" Language="SFX">
+					<ShortName>Potion_fx.wav</ShortName>
+					<Path>SFX\Potion_fx_10C4C929.wem</Path>
+				</File>
 				<File Id="73997410" Language="SFX">
 					<ShortName>Geralt_sword_metal_1.wav</ShortName>
 					<Path>SFX\Geralt_sword_metal_1_10C4C929.wem</Path>
@@ -103,13 +110,13 @@
 					<ShortName>Geralt_walk_run_dirt_3.wav</ShortName>
 					<Path>SFX\Geralt_walk_run_dirt_3_10C4C929.wem</Path>
 				</File>
+				<File Id="697976836" Language="SFX">
+					<ShortName>Geralt_combo_sound.wav</ShortName>
+					<Path>SFX\Geralt_combo_sound_10C4C929.wem</Path>
+				</File>
 				<File Id="707240897" Language="SFX">
 					<ShortName>Geralt_walk_run_dirt_2.wav</ShortName>
 					<Path>SFX\Geralt_walk_run_dirt_2_10C4C929.wem</Path>
-				</File>
-				<File Id="711324990" Language="SFX">
-					<ShortName>Geralt_potion_life_fx_2.wav</ShortName>
-					<Path>SFX\Geralt_potion_life_fx_2_10C4C929.wem</Path>
 				</File>
 				<File Id="721273645" Language="SFX">
 					<ShortName>Geralt_sword_swing_1.wav</ShortName>

@@ -10,7 +10,7 @@ local winlose_script = 0
 lua_table.checkpoint = 0
 
 function lua_table:OnTriggerEnter()
-    if last_checkpoint == nil or last_checkpoint <= lua_table.checkpoint
+    if last_checkpoint == nil or last_checkpoint < lua_table.checkpoint
     then
         last_checkpoint = lua_table.checkpoint
         winlose_script:Checkpoint()

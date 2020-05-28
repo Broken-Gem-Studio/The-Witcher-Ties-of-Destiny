@@ -1029,18 +1029,8 @@ local function ParticlesShutdown(full)	--Full marks wether the particle shutdown
 		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.run_particles_GO_UID_children[i])	--TODO-Particles: Stop movement dust particles
 	end
 
-	for i = 1, #particles_library.potion_health_particles_GO_UID_children do
-		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.potion_health_particles_GO_UID_children[i])	--TODO-Particles: Stop movement dust particles
-	end
-	for i = 1, #particles_library.potion_stamina_particles_GO_UID_children do
-		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.potion_stamina_particles_GO_UID_children[i])	--TODO-Particles: Stop movement dust particles
-	end
-	for i = 1, #particles_library.potion_power_particles_GO_UID_children do
-		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.potion_power_particles_GO_UID_children[i])	--TODO-Particles: Stop movement dust particles
-	end
-
 	--lua_table.ParticlesFunctions:StopParticleEmitter(sword_particles_GO_UID)
-	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.aard_hand_particles_GO_UID)
+	--lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.aard_hand_particles_GO_UID)
 
 	if full then
 		for i = 1, #particles_library.ultimate_particles_GO_UID_children do
@@ -2144,7 +2134,31 @@ function lua_table:Awake()
 
 	particles_library.ultimate_particles_GO_UID_children = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindGameObject("Geralt_Ultimate"))
 
-	particles_library.aard_hand_particles_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt_Ability")
+	--particles_library.aard_hand_particles_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt_Ability")
+
+	--Get attack_colliders GO_UIDs by name
+	attack_colliders.front_1.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.front_1.GO_name)
+	attack_colliders.front_2.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.front_2.GO_name)
+	attack_colliders.front_3.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.front_3.GO_name)
+
+	attack_colliders.back_1.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.back_1.GO_name)
+	attack_colliders.left_1.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.left_1.GO_name)
+	attack_colliders.right_1.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.right_1.GO_name)
+
+	attack_colliders.aard_circle_1.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.aard_circle_1.GO_name)
+
+	--Camera (Warning: If there's a camera GO, but no script the Engine WILL crash)
+	local camera_GO = lua_table.GameObjectFunctions:FindGameObject("Camera")
+	if camera_GO ~= nil and camera_GO ~= 0 then camera_bounds_ratio = lua_table.GameObjectFunctions:GetScript(camera_GO).Layer_3_FOV_ratio_1	end
+
+	lua_table.max_health_real = lua_table.max_health_orig	--Necessary for the first CalculateStats()
+	CalculateStats()	--Calculate stats based on orig values + modifier
+
+	CalculateAbilityTrapezoid()
+end
+
+function lua_table:Start()
+	lua_table.SystemFunctions:LOG("GeraltScript START")
 
 	--Stop Particle Emitters
 	for i = 1, #particles_library.run_particles_GO_UID_children do
@@ -2172,7 +2186,7 @@ function lua_table:Awake()
 	end
 
 	--lua_table.ParticlesFunctions:StopParticleEmitter(sword_particles_GO_UID)			--TODO-Particles: Uncomment when ready
-	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.aard_hand_particles_GO_UID)	--TODO-Particles: Uncomment when ready
+	--lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.aard_hand_particles_GO_UID)	--TODO-Particles: Uncomment when ready
 
 	--Hide GO Particles
 	lua_table.GameObjectFunctions:SetActiveGameObject(false, particles_library.slash_mesh_GO_UID)
@@ -2183,31 +2197,7 @@ function lua_table:Awake()
 	lua_table.AnimationFunctions:PlayAnimation(animation_library.evade, lua_table.evade_animation_speed, particles_library.slash_GO_UID)
 	lua_table.AnimationFunctions:PlayAnimation(animation_library.evade, lua_table.evade_animation_speed, particles_library.aard_cone_GO_UID)
 	lua_table.AnimationFunctions:PlayAnimation(animation_library.evade, lua_table.evade_animation_speed, particles_library.aard_circle_GO_UID)
-
-	--Get attack_colliders GO_UIDs by name
-	attack_colliders.front_1.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.front_1.GO_name)
-	attack_colliders.front_2.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.front_2.GO_name)
-	attack_colliders.front_3.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.front_3.GO_name)
-
-	attack_colliders.back_1.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.back_1.GO_name)
-	attack_colliders.left_1.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.left_1.GO_name)
-	attack_colliders.right_1.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.right_1.GO_name)
-
-	attack_colliders.aard_circle_1.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.aard_circle_1.GO_name)
-
-	--Camera (Warning: If there's a camera GO, but no script the Engine WILL crash)
-	local camera_GO = lua_table.GameObjectFunctions:FindGameObject("Camera")
-	if camera_GO ~= nil and camera_GO ~= 0 then camera_bounds_ratio = lua_table.GameObjectFunctions:GetScript(camera_GO).Layer_3_FOV_ratio_1	end
-
-	lua_table.max_health_real = lua_table.max_health_orig	--Necessary for the first CalculateStats()
-	CalculateStats()	--Calculate stats based on orig values + modifier
-
-	CalculateAbilityTrapezoid()
-end
-
-function lua_table:Start()
-	lua_table.SystemFunctions:LOG("GeraltScript START")
-
+	
 	-- Set initial values
 	lua_table.previous_state = state.idle
 	lua_table.current_state = state.idle
@@ -2358,7 +2348,7 @@ function lua_table:Update()
 							lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.aard_circle_1.GO_UID)
 							attack_colliders.aard_circle_1.active = false
 
-							lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.aard_hand_particles_GO_UID)	--TODO-Particles: Deactivate Aard particles on hand
+							--lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.aard_hand_particles_GO_UID)	--TODO-Particles: Deactivate Aard particles on hand
 						elseif lua_table.current_state == state.ultimate
 						then
 							-- for i = 1, #particles_library.ultimate_particles_GO_UID_children do
