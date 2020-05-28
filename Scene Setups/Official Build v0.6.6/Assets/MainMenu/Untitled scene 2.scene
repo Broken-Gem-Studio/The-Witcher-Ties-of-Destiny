@@ -614,6 +614,71 @@
         "Parent": "1213193959",
         "Static": false
     },
+    "1098181697": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1795126343,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/MainMenu/CharacterSelection.lua"
+                },
+                "Script variables": {
+                    "Count": 3,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "next",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "scene1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "scene2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    }
+                },
+                "UID": 2126959729,
+                "index": 2
+            },
+            "4": {
+                "Active": true,
+                "UID": 1385321544,
+                "index": 1,
+                "priority": "0",
+                "visible": "1"
+            }
+        },
+        "Index": 12,
+        "Name": "SELECTION",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "-1",
+        "Static": false
+    },
     "1114498036": {
         "Active": true,
         "Components": {
@@ -1315,6 +1380,54 @@
         "Parent": "1263813819",
         "Static": false
     },
+    "1291903368": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 546796227,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "5": {
+                "Active": true,
+                "ColorA": "1.000000",
+                "ColorB": "1.000000",
+                "ColorG": "1.000000",
+                "ColorR": "1.000000",
+                "IsProgressBar": "0",
+                "MantainAspect": "1",
+                "NumberFrames": "0",
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1554395138.dds"
+                },
+                "UID": 57509598,
+                "fullscreen": false,
+                "index": 1,
+                "position2Dx": "-340.000000",
+                "position2Dy": "0.000000",
+                "priority": "0",
+                "size2Dx": "124.000000",
+                "size2Dy": "124.000000",
+                "visible": "1"
+            }
+        },
+        "Index": 1,
+        "Name": "P2GERALT",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1098181697",
+        "Static": false
+    },
     "1295439954": {
         "Active": true,
         "Components": {
@@ -1415,6 +1528,54 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "214671742",
+        "Static": false
+    },
+    "1334516300": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1626818492,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "5": {
+                "Active": true,
+                "ColorA": "1.000000",
+                "ColorB": "1.000000",
+                "ColorG": "1.000000",
+                "ColorR": "1.000000",
+                "IsProgressBar": "0",
+                "MantainAspect": "1",
+                "NumberFrames": "0",
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1554395138.dds"
+                },
+                "UID": 295205105,
+                "fullscreen": false,
+                "index": 1,
+                "position2Dx": "439.000000",
+                "position2Dy": "0.000000",
+                "priority": "0",
+                "size2Dx": "124.000000",
+                "size2Dy": "124.000000",
+                "visible": "1"
+            }
+        },
+        "Index": 7,
+        "Name": "P2CIRI",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1098181697",
         "Static": false
     },
     "1335539491": {
@@ -1540,9 +1701,9 @@
                 "rotationx": "0.557283",
                 "rotationy": "-0.424742",
                 "rotationz": "0.580694",
-                "scalex": "1.000021",
-                "scaley": "1.000021",
-                "scalez": "1.000021"
+                "scalex": "1.000023",
+                "scaley": "1.000023",
+                "scalez": "1.000023"
             },
             "13": {
                 "Active": true,
@@ -1722,6 +1883,54 @@
         "Parent": "1322650309",
         "Static": false
     },
+    "1395626075": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1985359060,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "5": {
+                "Active": true,
+                "ColorA": "1.000000",
+                "ColorB": "1.000000",
+                "ColorG": "1.000000",
+                "ColorR": "1.000000",
+                "IsProgressBar": "0",
+                "MantainAspect": "1",
+                "NumberFrames": "0",
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1554395138.dds"
+                },
+                "UID": 2045660752,
+                "fullscreen": false,
+                "index": 1,
+                "position2Dx": "-92.000000",
+                "position2Dy": "0.000000",
+                "priority": "0",
+                "size2Dx": "124.000000",
+                "size2Dy": "124.000000",
+                "visible": "1"
+            }
+        },
+        "Index": 3,
+        "Name": "P2JASKIER",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1098181697",
+        "Static": false
+    },
     "1408428838": {
         "Active": true,
         "Components": {
@@ -1882,6 +2091,54 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "369825308",
+        "Static": false
+    },
+    "1443286654": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 152811357,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "5": {
+                "Active": true,
+                "ColorA": "1.000000",
+                "ColorB": "1.000000",
+                "ColorG": "1.000000",
+                "ColorR": "1.000000",
+                "IsProgressBar": "0",
+                "MantainAspect": "1",
+                "NumberFrames": "0",
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/905795833.dds"
+                },
+                "UID": 245498459,
+                "fullscreen": false,
+                "index": 1,
+                "position2Dx": "312.000000",
+                "position2Dy": "0.000000",
+                "priority": "0",
+                "size2Dx": "124.000000",
+                "size2Dy": "124.000000",
+                "visible": "1"
+            }
+        },
+        "Index": 6,
+        "Name": "P1CIRI",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1098181697",
         "Static": false
     },
     "1444006447": {
@@ -2529,8 +2786,8 @@
                 "rotationy": "0.000040",
                 "rotationz": "-0.000037",
                 "scalex": "1.000000",
-                "scaley": "1.000021",
-                "scalez": "1.000021"
+                "scaley": "1.000023",
+                "scalez": "1.000023"
             },
             "13": {
                 "Active": true,
@@ -2682,9 +2939,9 @@
                 "rotationx": "-0.002922",
                 "rotationy": "-0.707101",
                 "rotationz": "0.707101",
-                "scalex": "1.000287",
-                "scaley": "1.000287",
-                "scalez": "1.000287"
+                "scalex": "1.000289",
+                "scaley": "1.000289",
+                "scalez": "1.000289"
             },
             "13": {
                 "Active": true,
@@ -2750,9 +3007,9 @@
                 "rotationx": "-0.000001",
                 "rotationy": "0.999618",
                 "rotationz": "0.000001",
-                "scalex": "1.000025",
+                "scalex": "1.000023",
                 "scaley": "0.999999",
-                "scalez": "1.000025"
+                "scalez": "1.000023"
             },
             "2": {
                 "Active": true,
@@ -3221,6 +3478,54 @@
         "Parent": "1365857893",
         "Static": false
     },
+    "1833144407": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 393618537,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "5": {
+                "Active": true,
+                "ColorA": "1.000000",
+                "ColorB": "1.000000",
+                "ColorG": "1.000000",
+                "ColorR": "1.000000",
+                "IsProgressBar": "0",
+                "MantainAspect": "1",
+                "NumberFrames": "0",
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/905795833.dds"
+                },
+                "UID": 77345110,
+                "fullscreen": false,
+                "index": 1,
+                "position2Dx": "-453.000000",
+                "position2Dy": "0.000000",
+                "priority": "0",
+                "size2Dx": "124.000000",
+                "size2Dy": "124.000000",
+                "visible": "1"
+            }
+        },
+        "Index": 0,
+        "Name": "P1GERALT",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1098181697",
+        "Static": false
+    },
     "183664595": {
         "Active": true,
         "Components": {
@@ -3448,8 +3753,8 @@
                 "rotationx": "0.000389",
                 "rotationy": "0.017847",
                 "rotationz": "0.999831",
-                "scalex": "1.000021",
-                "scaley": "1.000021",
+                "scalex": "1.000023",
+                "scaley": "1.000023",
                 "scalez": "1.000000"
             },
             "13": {
@@ -3610,9 +3915,9 @@
                 "rotationx": "0.000000",
                 "rotationy": "0.914064",
                 "rotationz": "0.000000",
-                "scalex": "2.121569",
+                "scalex": "2.121563",
                 "scaley": "2.121600",
-                "scalez": "2.121569"
+                "scalez": "2.121563"
             },
             "14": {
                 "Active": true,
@@ -3624,8 +3929,15 @@
                         "Name": "Idle",
                         "Start": "2"
                     },
+                    "1": {
+                        "Default": false,
+                        "End": "72",
+                        "Loop": false,
+                        "Name": "Selected",
+                        "Start": "5"
+                    },
                     "BlendTime": "0.300000",
-                    "Size": "1",
+                    "Size": "2",
                     "UseDefault": false
                 },
                 "Resources": {
@@ -4963,8 +5275,8 @@
                 "rotationx": "-0.000498",
                 "rotationy": "0.001196",
                 "rotationz": "0.999934",
-                "scalex": "1.000022",
-                "scaley": "1.000022",
+                "scalex": "1.000024",
+                "scaley": "1.000024",
                 "scalez": "1.000000"
             },
             "13": {
@@ -5214,6 +5526,54 @@
         "Parent": "-1",
         "Static": false
     },
+    "335292722": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 267355472,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "5": {
+                "Active": true,
+                "ColorA": "1.000000",
+                "ColorB": "1.000000",
+                "ColorG": "1.000000",
+                "ColorR": "1.000000",
+                "IsProgressBar": "0",
+                "MantainAspect": "1",
+                "NumberFrames": "0",
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/905795833.dds"
+                },
+                "UID": 1314547563,
+                "fullscreen": false,
+                "index": 1,
+                "position2Dx": "-210.000000",
+                "position2Dy": "0.000000",
+                "priority": "0",
+                "size2Dx": "124.000000",
+                "size2Dy": "124.000000",
+                "visible": "1"
+            }
+        },
+        "Index": 2,
+        "Name": "P1JASKIER",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1098181697",
+        "Static": false
+    },
     "336071013": {
         "Active": true,
         "Components": {
@@ -5263,8 +5623,8 @@
                 "rotationy": "0.000028",
                 "rotationz": "-0.000027",
                 "scalex": "1.000000",
-                "scaley": "1.000022",
-                "scalez": "1.000022"
+                "scaley": "1.000024",
+                "scalez": "1.000024"
             },
             "13": {
                 "Active": true,
@@ -5519,7 +5879,7 @@
                 "rotationy": "0.348911",
                 "rotationz": "-0.524611",
                 "scalex": "1.000008",
-                "scaley": "0.999997",
+                "scaley": "0.999996",
                 "scalez": "1.000000"
             },
             "13": {
@@ -5706,8 +6066,8 @@
                 "rotationx": "-0.000413",
                 "rotationy": "0.019338",
                 "rotationz": "0.999803",
-                "scalex": "1.000042",
-                "scaley": "1.000042",
+                "scalex": "1.000046",
+                "scaley": "1.000046",
                 "scalez": "1.000000"
             },
             "13": {
@@ -6039,9 +6399,9 @@
                 "rotationx": "0.000000",
                 "rotationy": "-0.505155",
                 "rotationz": "0.000000",
-                "scalex": "2.000018",
+                "scalex": "2.000020",
                 "scaley": "2.000000",
-                "scalez": "2.000018"
+                "scalez": "2.000020"
             },
             "14": {
                 "Active": true,
@@ -6333,6 +6693,54 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1065522269",
+        "Static": false
+    },
+    "508218577": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 744981345,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "5": {
+                "Active": true,
+                "ColorA": "1.000000",
+                "ColorB": "1.000000",
+                "ColorG": "1.000000",
+                "ColorR": "1.000000",
+                "IsProgressBar": "0",
+                "MantainAspect": "1",
+                "NumberFrames": "0",
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/905795833.dds"
+                },
+                "UID": 321177901,
+                "fullscreen": false,
+                "index": 1,
+                "position2Dx": "50.000000",
+                "position2Dy": "0.000000",
+                "priority": "0",
+                "size2Dx": "124.000000",
+                "size2Dy": "124.000000",
+                "visible": "1"
+            }
+        },
+        "Index": 4,
+        "Name": "P1YENN",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1098181697",
         "Static": false
     },
     "509548067": {
@@ -6861,6 +7269,54 @@
         "Parent": "838791081",
         "Static": false
     },
+    "639419799": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1857307516,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "5": {
+                "Active": true,
+                "ColorA": "1.000000",
+                "ColorB": "1.000000",
+                "ColorG": "1.000000",
+                "ColorR": "1.000000",
+                "IsProgressBar": "0",
+                "MantainAspect": "1",
+                "NumberFrames": "0",
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1554395138.dds"
+                },
+                "UID": 1173734625,
+                "fullscreen": false,
+                "index": 1,
+                "position2Dx": "165.000000",
+                "position2Dy": "0.000000",
+                "priority": "0",
+                "size2Dx": "124.000000",
+                "size2Dy": "124.000000",
+                "visible": "1"
+            }
+        },
+        "Index": 5,
+        "Name": "P2YENN",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1098181697",
+        "Static": false
+    },
     "668608002": {
         "Active": true,
         "Components": {
@@ -7153,8 +7609,8 @@
                 "rotationx": "0.000580",
                 "rotationy": "0.001942",
                 "rotationz": "0.999933",
-                "scalex": "0.999956",
-                "scaley": "0.999956",
+                "scalex": "0.999952",
+                "scaley": "0.999952",
                 "scalez": "1.000000"
             },
             "13": {
@@ -7451,7 +7907,7 @@
                 "Active": true,
                 "CULLINGCAM": true,
                 "FARPLANE": 1000.0,
-                "FOV": 46.36500549316406,
+                "FOV": 46.3650016784668,
                 "NEARPLANE": 0.10000000149011612,
                 "UID": 198984427,
                 "index": 1
