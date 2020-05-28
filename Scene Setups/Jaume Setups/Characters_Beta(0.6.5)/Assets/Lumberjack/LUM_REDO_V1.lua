@@ -17,6 +17,12 @@ lua_table.NavSystem = Scripting.Navigation()
 -- @ If want to change to an state that has been executed before, call function ResetDetection()/ResetPreDetection...etc. it will make a reset of all variables to execute that handle"x"() as if it was the first time
 -- @ States won't ever be changed inside ChooseBehaviour() function, states will be changed inside functions such as Handle"X"() functions
 
+-- @ JumpAttack Animation frames
+--se para para saltar en el frame: 357-337 voy a 30 frames por segundo
+--357 al 363 se prepara cogiendo fuerza para saltar
+--363 al 385 esta en el aire
+--445 acaba la animació
+
 
 --###Code for late uses###
 --if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK x") end
@@ -92,6 +98,8 @@ local DoScream = false
 
 local DoSeek = false
 local CurrentTargetPosition = {}
+local RunAnimationController = true
+local DistanceMagnitude = 0
 
 --Navigation
 
@@ -101,6 +109,12 @@ local ActualCorner = 2
 local CalculatePath = true
 local DistanceToCorner = -1
 local CalculatePathTimer = 0
+
+--jump_attack()
+
+local MinDistanceToJump = 10
+local OptimalDistanceJumpAttack = false
+local DoJump = false
 
 --################################################ VARIABLES ############################################
 
@@ -169,6 +183,9 @@ local function DoSeekNow(bool)
 	DoSeek = bool
 end
 
+local function DoJumpNow(bool)
+	DoJump = bool
+end
 
 
 --#################################################### MAIN FUNCTIONS ####################################
@@ -213,13 +230,17 @@ end
 
 
 
-local function ResetDetection()
+local function ResetDetection(ResetScream)
 	
 	ChangeDetectionBehaviour = true 
-
-	ScreamAnimController = true
-	ScreamDone = false
-	DoScream = false
+	if ResetScream == true
+	then
+		ScreamAnimController = true
+		ScreamDone = false
+		DoScream = false
+	end
+	
+	RunAnimationController = true
 end
 
 
@@ -252,8 +273,10 @@ local function FollowPath() --basically update the next corner in the curr path
         lua_table.Nvec3z = NextCorner[3] / DistanceToCorner
 	else
 		ActualCorner = ActualCorner +1
+		NextCorner = ActualCorner + 1
 	end
-
+	--lua_table.TransformFunctions:LookAt(MyPosition[1] + NextCorner[1] ,MyPosition[2],MyPosition[3] + NextCorner[3],MyUID)
+	
 end
 
 
@@ -379,6 +402,7 @@ local function Scream()
 	then
 		lua_table.AnimationSystem:PlayAnimation("ALERT", 30.0,MyUID)
 		ScreamAnimController = false
+		ChangeDetectionBehaviour = false
 		ScreamTimeController = PerfGameTime()
 	end
 	if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK Scream()") end
@@ -400,12 +424,33 @@ local function SeekTarget()
 		CalculateNewPath(CurrentTargetPosition)
 	end
 	
-	lua_table.CurrentVelocity = 3
+	lua_table.CurrentVelocity = 5
 	FollowPath()
+
+	if RunAnimationController == true
+	then
+		lua_table.AnimationSystem:PlayAnimation("RUN",30.0,MyUID)
+		ChangeDetectionBehaviour = false
+		RunAnimationController = false
+	end
+
+	lua_table.TransformFunctions:LookAt(MyPosition[1] + (CurrentTargetPosition[1] - MyPosition[1]),MyPosition[2],MyPosition[3] + (CurrentTargetPosition[3] - MyPosition[3]),MyUID)
+
+	DistanceMagnitude = CalculateDistanceTo(CurrentTargetPosition)
+	if DistanceMagnitude < (MinDistanceToJump + 1) and DistanceMagnitude > MinDistanceToJump
+	then
+		ChangeDetectionBehaviour = true
+		OptimalDistanceJumpAttack = true
+	end 
 
 end
 
+local function JumpAttack()
 
+	
+	--when jump attack ends, reset all seek bools if distance to target is enought to be in attack mode
+
+end
 
 local function ChooseBehaviour() --Called only inside State machine's functions
 
@@ -439,17 +484,21 @@ local function ChooseBehaviour() --Called only inside State machine's functions
 			then
 				DoScreamNow(true)
 			end
-			if ScreamDone == true 
-			then
-				if DoScream == true
-				then
-					DoScreamNow(false)
-				end		
-				if DoSeek == false
+			if ScreamDone == true
+			then 
+				if DoSeek == false and DoJump == false
 				then
 					DoSeekNow(true)
 				end
-			end
+				if DoSeek == true and OptimalDistanceJumpAttack == true
+				then
+					if DoJump == false
+					then
+						DoSeekNow(false)
+						DoJumpNow(true)
+					end
+				end
+			end		
 		end
 	end
 end
@@ -489,9 +538,14 @@ local  function HandleDetection()
 	if DoSeek == true
 	then
 		if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK seek") end
-		SeekTarget()
-	end
+		SeekTarget()	
+	end	
 
+	if DoJump == true
+	then
+		if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK JUMP_ATTACK()") end
+		JumpAttack()
+	end
 end
 
 
@@ -535,7 +589,6 @@ end
 function lua_table:Start()
 	
 	SetDefaultValues()
-
 end
 
 
@@ -555,6 +608,7 @@ function lua_table:Update()
 	then
 		HandleDetection()
 	end
+	
 
 	--MOVE
 	ApplyVelocity()
