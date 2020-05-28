@@ -365,8 +365,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.540000",
-                "scaley": "2.540696",
-                "scalez": "2.540696"
+                "scaley": "2.540709",
+                "scalez": "2.540709"
             },
             "1": {
                 "Active": true,
@@ -450,8 +450,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000563",
-                "scalez": "1.000563"
+                "scaley": "1.000573",
+                "scalez": "1.000573"
             }
         },
         "Index": 0,
@@ -806,8 +806,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000563",
-                "scalez": "1.000563"
+                "scaley": "1.000573",
+                "scalez": "1.000573"
             }
         },
         "Index": 0,
@@ -1089,7 +1089,7 @@
                     "ResourceScript": "Assets/Characters/Jaskier/JaskierScript_v14.lua"
                 },
                 "Script variables": {
-                    "Count": 231,
+                    "Count": 226,
                     "Variable 0": {
                         "DisplayObjectName": false,
                         "Name": "ability_cooldown",
@@ -1624,24 +1624,24 @@
                     },
                     "Variable 167": {
                         "DisplayObjectName": false,
-                        "Name": "song_1_collider_line_1_end",
+                        "Name": "song_1_collider_line_end",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 900.0
+                        "Value": 1200.0
                     },
                     "Variable 168": {
                         "DisplayObjectName": false,
-                        "Name": "song_1_collider_line_1_start",
+                        "Name": "song_1_collider_line_start",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 800.0
                     },
                     "Variable 169": {
                         "DisplayObjectName": false,
-                        "Name": "song_1_collider_line_2_end",
+                        "Name": "song_1_collider_speed",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 1000.0
+                        "Value": 35.0
                     },
                     "Variable 17": {
                         "DisplayObjectName": false,
@@ -1652,73 +1652,73 @@
                     },
                     "Variable 170": {
                         "DisplayObjectName": false,
-                        "Name": "song_1_collider_line_2_start",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 900.0
-                    },
-                    "Variable 171": {
-                        "DisplayObjectName": false,
-                        "Name": "song_1_collider_line_3_end",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 1100.0
-                    },
-                    "Variable 172": {
-                        "DisplayObjectName": false,
-                        "Name": "song_1_collider_line_3_start",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 1000.0
-                    },
-                    "Variable 173": {
-                        "DisplayObjectName": false,
-                        "Name": "song_1_collider_line_4_end",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 1200.0
-                    },
-                    "Variable 174": {
-                        "DisplayObjectName": false,
-                        "Name": "song_1_collider_line_4_start",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 1100.0
-                    },
-                    "Variable 175": {
-                        "DisplayObjectName": false,
                         "Name": "song_1_damage",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 4.0
                     },
-                    "Variable 176": {
+                    "Variable 171": {
                         "DisplayObjectName": false,
                         "Name": "song_1_duration",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 1440.0
                     },
-                    "Variable 177": {
+                    "Variable 172": {
                         "DisplayObjectName": false,
                         "Name": "song_1_effect_active",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": false
                     },
-                    "Variable 178": {
+                    "Variable 173": {
                         "DisplayObjectName": false,
                         "Name": "song_1_effect_start",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 750.0
                     },
-                    "Variable 179": {
+                    "Variable 174": {
                         "DisplayObjectName": false,
                         "Name": "song_1_size",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 4.0
+                    },
+                    "Variable 175": {
+                        "DisplayObjectName": false,
+                        "Name": "song_1_status_effect",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 176": {
+                        "DisplayObjectName": false,
+                        "Name": "song_2_animation_name",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "guitar_slam_two_handed"
+                    },
+                    "Variable 177": {
+                        "DisplayObjectName": false,
+                        "Name": "song_2_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 50.0
+                    },
+                    "Variable 178": {
+                        "DisplayObjectName": false,
+                        "Name": "song_2_damage",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 3.0
+                    },
+                    "Variable 179": {
+                        "DisplayObjectName": false,
+                        "Name": "song_2_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1700.0
                     },
                     "Variable 18": {
                         "DisplayObjectName": false,
@@ -1729,73 +1729,73 @@
                     },
                     "Variable 180": {
                         "DisplayObjectName": false,
-                        "Name": "song_1_status_effect",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 181": {
-                        "DisplayObjectName": false,
-                        "Name": "song_2_animation_name",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "guitar_slam_two_handed"
-                    },
-                    "Variable 182": {
-                        "DisplayObjectName": false,
-                        "Name": "song_2_animation_speed",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 50.0
-                    },
-                    "Variable 183": {
-                        "DisplayObjectName": false,
-                        "Name": "song_2_damage",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 3.0
-                    },
-                    "Variable 184": {
-                        "DisplayObjectName": false,
-                        "Name": "song_2_duration",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 1700.0
-                    },
-                    "Variable 185": {
-                        "DisplayObjectName": false,
                         "Name": "song_2_effect_active",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": false
                     },
-                    "Variable 186": {
+                    "Variable 181": {
                         "DisplayObjectName": false,
                         "Name": "song_2_effect_start",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 850.0
                     },
-                    "Variable 187": {
+                    "Variable 182": {
                         "DisplayObjectName": false,
                         "Name": "song_2_size",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 4.0
                     },
-                    "Variable 188": {
+                    "Variable 183": {
                         "DisplayObjectName": false,
                         "Name": "song_2_status_effect",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 1.0
                     },
-                    "Variable 189": {
+                    "Variable 184": {
                         "DisplayObjectName": false,
                         "Name": "song_3_animation_name",
                         "ObjectName": "",
                         "Type": "String",
                         "Value": "moonwalk"
+                    },
+                    "Variable 185": {
+                        "DisplayObjectName": false,
+                        "Name": "song_3_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 30.0
+                    },
+                    "Variable 186": {
+                        "DisplayObjectName": false,
+                        "Name": "song_3_damage",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 187": {
+                        "DisplayObjectName": false,
+                        "Name": "song_3_duration",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 3700.0
+                    },
+                    "Variable 188": {
+                        "DisplayObjectName": false,
+                        "Name": "song_3_effect_active",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 189": {
+                        "DisplayObjectName": false,
+                        "Name": "song_3_effect_end",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2000.0
                     },
                     "Variable 19": {
                         "DisplayObjectName": false,
@@ -1806,73 +1806,73 @@
                     },
                     "Variable 190": {
                         "DisplayObjectName": false,
-                        "Name": "song_3_animation_speed",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 30.0
-                    },
-                    "Variable 191": {
-                        "DisplayObjectName": false,
-                        "Name": "song_3_damage",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 192": {
-                        "DisplayObjectName": false,
-                        "Name": "song_3_duration",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 3700.0
-                    },
-                    "Variable 193": {
-                        "DisplayObjectName": false,
-                        "Name": "song_3_effect_active",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    },
-                    "Variable 194": {
-                        "DisplayObjectName": false,
-                        "Name": "song_3_effect_end",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 2000.0
-                    },
-                    "Variable 195": {
-                        "DisplayObjectName": false,
                         "Name": "song_3_effect_start",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
                     },
-                    "Variable 196": {
+                    "Variable 191": {
                         "DisplayObjectName": false,
                         "Name": "song_3_moonwalk_velocity_mod",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.6
                     },
-                    "Variable 197": {
+                    "Variable 192": {
                         "DisplayObjectName": false,
                         "Name": "song_3_range",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 10.0
                     },
-                    "Variable 198": {
+                    "Variable 193": {
                         "DisplayObjectName": false,
                         "Name": "song_3_secondary_animation_name",
                         "ObjectName": "",
                         "Type": "String",
                         "Value": "guitar_slam_two_handed"
                     },
-                    "Variable 199": {
+                    "Variable 194": {
                         "DisplayObjectName": false,
                         "Name": "song_3_secondary_animation_speed",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 50.0
+                    },
+                    "Variable 195": {
+                        "DisplayObjectName": false,
+                        "Name": "song_3_secondary_damage",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 5.0
+                    },
+                    "Variable 196": {
+                        "DisplayObjectName": false,
+                        "Name": "song_3_secondary_effect_active",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 197": {
+                        "DisplayObjectName": false,
+                        "Name": "song_3_secondary_effect_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2850.0
+                    },
+                    "Variable 198": {
+                        "DisplayObjectName": false,
+                        "Name": "song_3_secondary_range",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 15.0
+                    },
+                    "Variable 199": {
+                        "DisplayObjectName": false,
+                        "Name": "song_3_secondary_status_effect",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2.0
                     },
                     "Variable 2": {
                         "DisplayObjectName": false,
@@ -1890,73 +1890,73 @@
                     },
                     "Variable 200": {
                         "DisplayObjectName": false,
-                        "Name": "song_3_secondary_damage",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 5.0
-                    },
-                    "Variable 201": {
-                        "DisplayObjectName": false,
-                        "Name": "song_3_secondary_effect_active",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    },
-                    "Variable 202": {
-                        "DisplayObjectName": false,
-                        "Name": "song_3_secondary_effect_start",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 2850.0
-                    },
-                    "Variable 203": {
-                        "DisplayObjectName": false,
-                        "Name": "song_3_secondary_range",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 15.0
-                    },
-                    "Variable 204": {
-                        "DisplayObjectName": false,
-                        "Name": "song_3_secondary_status_effect",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 2.0
-                    },
-                    "Variable 205": {
-                        "DisplayObjectName": false,
                         "Name": "song_3_size",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 4.0
                     },
-                    "Variable 206": {
+                    "Variable 201": {
                         "DisplayObjectName": false,
                         "Name": "song_3_status_effect",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 3.0
                     },
-                    "Variable 207": {
+                    "Variable 202": {
                         "DisplayObjectName": false,
                         "Name": "song_4_animation_speed",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 30.0
                     },
-                    "Variable 208": {
+                    "Variable 203": {
                         "DisplayObjectName": false,
                         "Name": "song_4_damage",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 2.5
                     },
-                    "Variable 209": {
+                    "Variable 204": {
                         "DisplayObjectName": false,
                         "Name": "song_4_duration",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 1400.0
+                    },
+                    "Variable 205": {
+                        "DisplayObjectName": false,
+                        "Name": "song_4_effect_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 206": {
+                        "DisplayObjectName": false,
+                        "Name": "song_4_size",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 4.0
+                    },
+                    "Variable 207": {
+                        "DisplayObjectName": false,
+                        "Name": "stand_up_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 90.0
+                    },
+                    "Variable 208": {
+                        "DisplayObjectName": false,
+                        "Name": "standing_up_bool",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 209": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_active",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
                     },
                     "Variable 21": {
                         "DisplayObjectName": false,
@@ -1967,73 +1967,73 @@
                     },
                     "Variable 210": {
                         "DisplayObjectName": false,
-                        "Name": "song_4_effect_start",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 211": {
-                        "DisplayObjectName": false,
-                        "Name": "song_4_size",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 4.0
-                    },
-                    "Variable 212": {
-                        "DisplayObjectName": false,
-                        "Name": "stand_up_animation_speed",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 90.0
-                    },
-                    "Variable 213": {
-                        "DisplayObjectName": false,
-                        "Name": "standing_up_bool",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    },
-                    "Variable 214": {
-                        "DisplayObjectName": false,
-                        "Name": "ultimate_active",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    },
-                    "Variable 215": {
-                        "DisplayObjectName": false,
                         "Name": "ultimate_animation_speed",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 30.0
                     },
-                    "Variable 216": {
+                    "Variable 211": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_concert_end",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 3000.0
                     },
-                    "Variable 217": {
+                    "Variable 212": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_damage",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 5.0
                     },
-                    "Variable 218": {
+                    "Variable 213": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_duration",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 4700.0
                     },
-                    "Variable 219": {
+                    "Variable 214": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_effect_active",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": false
+                    },
+                    "Variable 215": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_finish_start",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 3850.0
+                    },
+                    "Variable 216": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_range",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 15.0
+                    },
+                    "Variable 217": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_reg_mod",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 218": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_reg_orig",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.5
+                    },
+                    "Variable 219": {
+                        "DisplayObjectName": false,
+                        "Name": "ultimate_secondary_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 50.0
                     },
                     "Variable 22": {
                         "DisplayObjectName": false,
@@ -2044,73 +2044,45 @@
                     },
                     "Variable 220": {
                         "DisplayObjectName": false,
-                        "Name": "ultimate_finish_start",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 3850.0
-                    },
-                    "Variable 221": {
-                        "DisplayObjectName": false,
-                        "Name": "ultimate_range",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 15.0
-                    },
-                    "Variable 222": {
-                        "DisplayObjectName": false,
-                        "Name": "ultimate_reg_mod",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 1.0
-                    },
-                    "Variable 223": {
-                        "DisplayObjectName": false,
-                        "Name": "ultimate_reg_orig",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 1.5
-                    },
-                    "Variable 224": {
-                        "DisplayObjectName": false,
-                        "Name": "ultimate_secondary_animation_speed",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 50.0
-                    },
-                    "Variable 225": {
-                        "DisplayObjectName": false,
                         "Name": "ultimate_secondary_damage",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 2.5
                     },
-                    "Variable 226": {
+                    "Variable 221": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_secondary_effect_active",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": false
                     },
-                    "Variable 227": {
+                    "Variable 222": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_secondary_effect_start",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 3850.0
                     },
-                    "Variable 228": {
+                    "Variable 223": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_secondary_status_effect",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 2.0
                     },
-                    "Variable 229": {
+                    "Variable 224": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_status_effect",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
+                    },
+                    "Variable 225": {
+                        "DisplayObjectName": false,
+                        "Name": "walk_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 40.0
                     },
                     "Variable 23": {
                         "DisplayObjectName": false,
@@ -2118,13 +2090,6 @@
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 7.0
-                    },
-                    "Variable 230": {
-                        "DisplayObjectName": false,
-                        "Name": "walk_animation_speed",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 40.0
                     },
                     "Variable 24": {
                         "DisplayObjectName": false,
@@ -2708,8 +2673,8 @@
                         "Value": 300.0
                     }
                 },
-                "UID": 130915775,
-                "index": 1
+                "UID": 398259958,
+                "index": 4
             },
             "14": {
                 "Active": true,
@@ -2722,7 +2687,7 @@
                     "ResourceAnimator": "303960025"
                 },
                 "UID": 566573407,
-                "index": 2
+                "index": 1
             },
             "17": {
                 "UID": 427540651,
@@ -2730,7 +2695,7 @@
                 "draw": "0",
                 "gravity": "1",
                 "height": "2.500000",
-                "index": 3,
+                "index": 2,
                 "nonWalkableMode": "0",
                 "positionX": "-5.000000",
                 "positionY": "0.000000",
@@ -2742,7 +2707,7 @@
             "19": {
                 "Active": true,
                 "UID": 409318036,
-                "index": 4
+                "index": 3
             }
         },
         "Index": 4,
@@ -2828,73 +2793,6 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1383847728",
-        "Static": false
-    },
-    "1178733187": {
-        "Active": false,
-        "Components": {
-            "0": {
-                "UID": 1736028369,
-                "index": 0,
-                "layer": "2",
-                "positionx": "0.000000",
-                "positiony": "2.000000",
-                "positionz": "12.000000",
-                "rotationw": "1.000000",
-                "rotationx": "0.000000",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "1.000000",
-                "scaley": "1.000000",
-                "scalez": "1.000000"
-            },
-            "16": {
-                "Active": false,
-                "UID": 1503941342,
-                "colliderType": "1",
-                "draggedUID": "0",
-                "draw": "1",
-                "firstCreation": "0",
-                "globalMatrixw": "1.000000",
-                "globalMatrixx": "-5.000000",
-                "globalMatrixy": "2.000000",
-                "globalMatrixz": "21.999784",
-                "globalPositionx": "1.000000",
-                "globalPositiony": "1.000000",
-                "globalPositionz": "1.000000",
-                "hasBeenDeactivated": "0",
-                "height": "1.000000",
-                "index": 1,
-                "isConvex": "0",
-                "isTrigger": "1",
-                "lastIndex": "0",
-                "localMatrixw": "1.000000",
-                "localMatrixx": "0.000000",
-                "localMatrixy": "0.000000",
-                "localMatrixz": "0.000000",
-                "localPositionx": "0.000000",
-                "localPositiony": "0.000000",
-                "localPositionz": "0.000000",
-                "offsetx": "0.000000",
-                "offsety": "0.000000",
-                "offsetz": "0.000000",
-                "originalScalex": "1.000000",
-                "originalScaley": "1.000000",
-                "originalScalez": "1.000000",
-                "radius": "1.000000",
-                "scalex": "4.000000",
-                "scaley": "4.000000",
-                "scalez": "4.000000",
-                "tmpScalex": "4.000000",
-                "tmpScaley": "3.000000",
-                "tmpScalez": "4.000000"
-            }
-        },
-        "Index": 5,
-        "Name": "Jaskier_Line_3",
-        "Navigation Area": 0,
-        "Navigation Static": false,
-        "Parent": "1171850284",
         "Static": false
     },
     "1181570099": {
@@ -3235,8 +3133,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.540000",
-                "scaley": "2.540695",
-                "scalez": "2.540695"
+                "scaley": "2.540707",
+                "scalez": "2.540707"
             },
             "1": {
                 "Active": true,
@@ -3319,9 +3217,9 @@
                 "rotationx": "-0.550319",
                 "rotationy": "-0.440850",
                 "rotationz": "0.555183",
-                "scalex": "1.000563",
-                "scaley": "1.000563",
-                "scalez": "1.000563"
+                "scalex": "1.000573",
+                "scaley": "1.000573",
+                "scalez": "1.000573"
             },
             "13": {
                 "Active": true,
@@ -5162,8 +5060,8 @@
                         "Value": 2000.0
                     }
                 },
-                "UID": 575504964,
-                "index": 1
+                "UID": 898962406,
+                "index": 4
             },
             "14": {
                 "Active": true,
@@ -5176,7 +5074,7 @@
                     "ResourceAnimator": "640878064"
                 },
                 "UID": 1628696565,
-                "index": 2
+                "index": 1
             },
             "17": {
                 "UID": 52022971,
@@ -5184,7 +5082,7 @@
                 "draw": "0",
                 "gravity": "1",
                 "height": "2.500000",
-                "index": 3,
+                "index": 2,
                 "nonWalkableMode": "0",
                 "positionX": "5.000000",
                 "positionY": "0.000000",
@@ -5196,7 +5094,7 @@
             "19": {
                 "Active": true,
                 "UID": 1491028529,
-                "index": 4
+                "index": 3
             }
         },
         "Index": 3,
@@ -5220,8 +5118,8 @@
                 "rotationx": "0.000598",
                 "rotationy": "0.002538",
                 "rotationz": "0.999918",
-                "scalex": "0.999437",
-                "scaley": "0.999437",
+                "scalex": "0.999427",
+                "scaley": "0.999427",
                 "scalez": "1.000000"
             },
             "13": {
@@ -5383,8 +5281,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000563",
-                "scalez": "1.000563"
+                "scaley": "1.000573",
+                "scalez": "1.000573"
             }
         },
         "Index": 0,
@@ -5580,8 +5478,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000563",
-                "scalez": "1.000563"
+                "scaley": "1.000573",
+                "scalez": "1.000573"
             }
         },
         "Index": 0,
@@ -5746,7 +5644,7 @@
             }
         },
         "Index": 3,
-        "Name": "Jaskier_Line_1",
+        "Name": "Jaskier_Line",
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1171850284",
@@ -6106,8 +6004,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000563",
-                "scalez": "1.000563"
+                "scaley": "1.000573",
+                "scalez": "1.000573"
             }
         },
         "Index": 0,
@@ -6260,8 +6158,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000563",
-                "scalez": "1.000563"
+                "scaley": "1.000573",
+                "scalez": "1.000573"
             }
         },
         "Index": 0,
@@ -6286,8 +6184,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000563",
-                "scalez": "1.000563"
+                "scaley": "1.000573",
+                "scalez": "1.000573"
             }
         },
         "Index": 0,
@@ -6697,7 +6595,7 @@
                 "scalez": "1.000000"
             }
         },
-        "Index": 8,
+        "Index": 5,
         "Name": "Jaskier_Particles",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -7276,8 +7174,8 @@
                 "rotationx": "0.388476",
                 "rotationy": "0.030072",
                 "rotationz": "0.916844",
-                "scalex": "1.001122",
-                "scaley": "1.001122",
+                "scalex": "1.001142",
+                "scaley": "1.001142",
                 "scalez": "1.000000"
             },
             "13": {
@@ -7470,7 +7368,7 @@
                 "index": 2
             }
         },
-        "Index": 7,
+        "Index": 4,
         "Name": "Jaskier_Mesh",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -7646,8 +7544,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000563",
-                "scalez": "1.000563"
+                "scaley": "1.000573",
+                "scalez": "1.000573"
             }
         },
         "Index": 0,
@@ -7878,8 +7776,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.070461",
-                "scaley": "15.158596",
-                "scalez": "1.368213"
+                "scaley": "15.158682",
+                "scalez": "1.368223"
             },
             "1": {
                 "Active": true,
@@ -8156,8 +8054,8 @@
                 "rotationy": "-0.000000",
                 "rotationz": "-0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000563",
-                "scalez": "1.000563"
+                "scaley": "1.000573",
+                "scalez": "1.000573"
             }
         },
         "Index": 0,
@@ -8362,8 +8260,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000563",
-                "scalez": "1.000563"
+                "scaley": "1.000573",
+                "scalez": "1.000573"
             }
         },
         "Index": 0,
@@ -8490,8 +8388,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000563",
-                "scalez": "1.000563"
+                "scaley": "1.000573",
+                "scalez": "1.000573"
             }
         },
         "Index": 0,
@@ -8830,73 +8728,6 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "68708350",
-        "Static": false
-    },
-    "230585872": {
-        "Active": false,
-        "Components": {
-            "0": {
-                "UID": 2081328033,
-                "index": 0,
-                "layer": "2",
-                "positionx": "0.000000",
-                "positiony": "2.000000",
-                "positionz": "8.000000",
-                "rotationw": "1.000000",
-                "rotationx": "0.000000",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "1.000000",
-                "scaley": "1.000000",
-                "scalez": "1.000000"
-            },
-            "16": {
-                "Active": false,
-                "UID": 532420521,
-                "colliderType": "1",
-                "draggedUID": "0",
-                "draw": "1",
-                "firstCreation": "0",
-                "globalMatrixw": "1.000000",
-                "globalMatrixx": "-5.000000",
-                "globalMatrixy": "2.000000",
-                "globalMatrixz": "17.999855",
-                "globalPositionx": "1.000000",
-                "globalPositiony": "1.000000",
-                "globalPositionz": "1.000000",
-                "hasBeenDeactivated": "0",
-                "height": "1.000000",
-                "index": 1,
-                "isConvex": "0",
-                "isTrigger": "1",
-                "lastIndex": "0",
-                "localMatrixw": "1.000000",
-                "localMatrixx": "0.000000",
-                "localMatrixy": "0.000000",
-                "localMatrixz": "0.000000",
-                "localPositionx": "0.000000",
-                "localPositiony": "0.000000",
-                "localPositionz": "0.000000",
-                "offsetx": "0.000000",
-                "offsety": "0.000000",
-                "offsetz": "0.000000",
-                "originalScalex": "1.000000",
-                "originalScaley": "1.000000",
-                "originalScalez": "1.000000",
-                "radius": "1.000000",
-                "scalex": "4.000000",
-                "scaley": "4.000000",
-                "scalez": "4.000000",
-                "tmpScalex": "4.000000",
-                "tmpScaley": "3.000000",
-                "tmpScalez": "4.000000"
-            }
-        },
-        "Index": 4,
-        "Name": "Jaskier_Line_2",
-        "Navigation Area": 0,
-        "Navigation Static": false,
-        "Parent": "1171850284",
         "Static": false
     },
     "237253222": {
@@ -9399,8 +9230,8 @@
                 "rotationy": "0.000028",
                 "rotationz": "-0.000027",
                 "scalex": "2.540000",
-                "scaley": "2.540699",
-                "scalez": "2.540699"
+                "scaley": "2.540711",
+                "scalez": "2.540711"
             },
             "13": {
                 "Active": true,
@@ -9560,9 +9391,9 @@
                 "rotationx": "0.536806",
                 "rotationy": "-0.449375",
                 "rotationz": "0.566528",
-                "scalex": "0.999437",
-                "scaley": "0.999437",
-                "scalez": "0.999437"
+                "scalex": "0.999427",
+                "scaley": "0.999427",
+                "scalez": "0.999427"
             },
             "13": {
                 "Active": true,
@@ -9594,8 +9425,8 @@
                 "rotationx": "0.388476",
                 "rotationy": "0.030072",
                 "rotationz": "0.916844",
-                "scalex": "1.001120",
-                "scaley": "1.001120",
+                "scalex": "1.001140",
+                "scaley": "1.001140",
                 "scalez": "1.000000"
             },
             "13": {
@@ -9910,8 +9741,8 @@
                 "rotationx": "0.000205",
                 "rotationy": "-0.005509",
                 "rotationz": "0.999924",
-                "scalex": "1.000621",
-                "scaley": "1.000854",
+                "scalex": "1.000640",
+                "scaley": "1.000872",
                 "scalez": "1.000000"
             },
             "13": {
@@ -10366,7 +10197,7 @@
                 "scalez": "0.025400"
             }
         },
-        "Index": 9,
+        "Index": 6,
         "Name": "Jaskier_Pivot",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -10543,73 +10374,6 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1280245164",
-        "Static": false
-    },
-    "643125669": {
-        "Active": false,
-        "Components": {
-            "0": {
-                "UID": 905613211,
-                "index": 0,
-                "layer": "2",
-                "positionx": "0.000000",
-                "positiony": "2.000000",
-                "positionz": "16.000000",
-                "rotationw": "1.000000",
-                "rotationx": "0.000000",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "1.000000",
-                "scaley": "1.000000",
-                "scalez": "1.000000"
-            },
-            "16": {
-                "Active": false,
-                "UID": 1724970758,
-                "colliderType": "1",
-                "draggedUID": "0",
-                "draw": "1",
-                "firstCreation": "0",
-                "globalMatrixw": "1.000000",
-                "globalMatrixx": "-5.000000",
-                "globalMatrixy": "2.000000",
-                "globalMatrixz": "25.999712",
-                "globalPositionx": "1.000000",
-                "globalPositiony": "1.000000",
-                "globalPositionz": "1.000000",
-                "hasBeenDeactivated": "0",
-                "height": "1.000000",
-                "index": 1,
-                "isConvex": "0",
-                "isTrigger": "1",
-                "lastIndex": "0",
-                "localMatrixw": "1.000000",
-                "localMatrixx": "0.000000",
-                "localMatrixy": "0.000000",
-                "localMatrixz": "0.000000",
-                "localPositionx": "0.000000",
-                "localPositiony": "0.000000",
-                "localPositionz": "0.000000",
-                "offsetx": "0.000000",
-                "offsety": "0.000000",
-                "offsetz": "0.000000",
-                "originalScalex": "1.000000",
-                "originalScaley": "1.000000",
-                "originalScalez": "1.000000",
-                "radius": "1.000000",
-                "scalex": "4.000000",
-                "scaley": "4.000000",
-                "scalez": "4.000000",
-                "tmpScalex": "4.000000",
-                "tmpScaley": "3.000000",
-                "tmpScalez": "4.000000"
-            }
-        },
-        "Index": 6,
-        "Name": "Jaskier_Line_4",
-        "Navigation Area": 0,
-        "Navigation Static": false,
-        "Parent": "1171850284",
         "Static": false
     },
     "649561894": {
@@ -10942,8 +10706,8 @@
                 "rotationx": "-0.000169",
                 "rotationy": "-0.004364",
                 "rotationz": "0.999931",
-                "scalex": "1.001126",
-                "scaley": "1.001117",
+                "scalex": "1.001146",
+                "scaley": "1.001137",
                 "scalez": "1.000000"
             },
             "13": {
@@ -11293,8 +11057,8 @@
                 "rotationx": "-0.000534",
                 "rotationy": "-0.000084",
                 "rotationz": "0.999921",
-                "scalex": "1.001121",
-                "scaley": "1.001123",
+                "scalex": "1.001141",
+                "scaley": "1.001143",
                 "scalez": "1.000000"
             },
             "13": {
@@ -11448,8 +11212,8 @@
                 "rotationy": "0.000040",
                 "rotationz": "-0.000037",
                 "scalex": "1.000000",
-                "scaley": "1.000563",
-                "scalez": "1.000563"
+                "scaley": "1.000573",
+                "scalez": "1.000573"
             },
             "13": {
                 "Active": true,
@@ -11737,8 +11501,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000563",
-                "scalez": "1.000563"
+                "scaley": "1.000573",
+                "scalez": "1.000573"
             }
         },
         "Index": 0,
@@ -11763,8 +11527,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000563",
-                "scalez": "1.000563"
+                "scaley": "1.000573",
+                "scalez": "1.000573"
             }
         },
         "Index": 0,

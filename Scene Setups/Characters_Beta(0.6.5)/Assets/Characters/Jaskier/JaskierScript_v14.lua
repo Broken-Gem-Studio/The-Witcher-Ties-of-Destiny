@@ -374,10 +374,7 @@ lua_table.energy_reg_orig = 7
 		front_1 = { GO_name = "Jaskier_Front_1", GO_UID = 0, active = false },	--0,2,3 / 4,3,3
 		front_2 = { GO_name = "Jaskier_Front_2", GO_UID = 0, active = false },	--
 
-		line_1_1 = { GO_name = "Jaskier_Line_1", GO_UID = 0, active = false },	--0,2,4 / 4,3,4
-		line_2_2 = { GO_name = "Jaskier_Line_2", GO_UID = 0, active = false },	--0,2,8 / 4,3,4
-		line_3_3 = { GO_name = "Jaskier_Line_3", GO_UID = 0, active = false },	--0,2,12 / 4,3,4
-		line_4_4 = { GO_name = "Jaskier_Line_4", GO_UID = 0, active = false }	--0,2,16 / 4,3,4
+		line_1 = { GO_name = "Jaskier_Line", GO_UID = 0, active = false },	--0,2,4 / 4,3,4
 	}
 	--Character Controller: 1.0/2.5/0.05/0.3/45.0
 
@@ -547,7 +544,7 @@ lua_table.evade_animation_speed = 55.0	--40
 lua_table.ability_cooldown = 1000.0
 
 local ability_started_at = 0.0
-lua_table.ability_performed = false	--Marks the ability as used, = true while in cooldown (pretty much only used for UI)
+lua_table.ability_performed = false	--Marks song available with current notes (name is incoherent, kept like this to avoid changing UI code)
 
 --Songs
 lua_table.chained_attacks_num = 0				-- Number of attacks done one after the other, chained
@@ -565,17 +562,9 @@ lua_table.note_stack = { 'N', 'N', 'N', 'N' }	-- Last 4 attacks performed (0=non
 	lua_table.song_1_damage = 4.0
 	lua_table.song_1_status_effect = attack_effects_ID.none
 
-	lua_table.song_1_collider_line_1_start = 800
-	lua_table.song_1_collider_line_1_end = 900
-
-	lua_table.song_1_collider_line_2_start = 900
-	lua_table.song_1_collider_line_2_end = 1000
-
-	lua_table.song_1_collider_line_3_start = 1000
-	lua_table.song_1_collider_line_3_end = 1100
-
-	lua_table.song_1_collider_line_4_start = 1100
-	lua_table.song_1_collider_line_4_end = 1200
+	lua_table.song_1_collider_line_start = 800
+	lua_table.song_1_collider_line_end = 1200
+	lua_table.song_1_collider_speed = 35.0
 
 	--Song 2
 	lua_table.song_2 = { 'H', 'L', 'M', 'M' }	--Large Stun Cone (AoE applied once, gives animation_library.stun effect)
@@ -1008,21 +997,9 @@ local function AttackColliderShutdown()
 		attack_colliders.front_2.active = false
 	end
 
-	if attack_colliders.line_1_1.active then
-		lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.line_1_1.GO_UID)	--TODO-Colliders: Check
-		attack_colliders.line_1_1.active = false
-	end
-	if attack_colliders.line_2_2.active then
-		lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.line_2_2.GO_UID)	--TODO-Colliders: Check
-		attack_colliders.line_2_2.active = false
-	end
-	if attack_colliders.line_3_3.active then
-		lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.line_3_3.GO_UID)	--TODO-Colliders: Check
-		attack_colliders.line_3_3.active = false
-	end
-	if attack_colliders.line_4_4.active then
-		lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.line_4_4.GO_UID)	--TODO-Colliders: Check
-		attack_colliders.line_4_4.active = false
+	if attack_colliders.line_1.active then
+		lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.line_1.GO_UID)	--TODO-Colliders: Check
+		attack_colliders.line_1.active = false
 	end
 end
 
@@ -1475,14 +1452,18 @@ local function PerformSong(song_type)
 		lua_table.AnimationFunctions:PlayAnimation(lua_table[song_type .. "_animation_name"], lua_table[song_type .. "_animation_speed"], particles_library.slash_GO_UID)
 		current_animation = song_type .. "_animation_name"
 
-		--TODO-AUDIO: Play sound of song_type
 		if song_type == "song_1"
 		then
-			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.one_handed_slam, jaskier_GO_UID)
+			lua_table.TransformFunctions:SetLocalPosition(0.0, 2.0, 4.0, attack_colliders.line_1.GO_UID)
+			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.one_handed_slam, jaskier_GO_UID)	--TODO-AUDIO: Play sound of song_type
 			current_audio = audio_library.one_handed_slam
+
 		elseif song_type == "song_2" then
-			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.two_handed_slam, jaskier_GO_UID)
+			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.two_handed_slam, jaskier_GO_UID)	--TODO-AUDIO: Play sound of song_type
 			current_audio = audio_library.two_handed_slam
+
+		elseif song_type == "song_3" then
+			lua_table.song_3_secondary_effect_active = false
 		end
 
 		lua_table.collider_damage = base_damage_real * lua_table[song_type .. "_damage"]
@@ -1499,18 +1480,21 @@ local function PerformSong(song_type)
 	return string_match
 end
 
-local function CheckSongs()
-	local song_succesful = false
+local function CheckSongs(perform)
+	local song_matching = false
 
-	if PerformSong("song_1") or PerformSong("song_2") or PerformSong("song_3") then
-		song_succesful = true
-	end
+	if perform then
+		if PerformSong("song_1") or PerformSong("song_2") or PerformSong("song_3") then
+			song_matching = true
+		end
+	elseif lua_table.note_num == lua_table.song_1_size and CompareTables(lua_table.note_stack, lua_table.song_1)
+	or lua_table.note_num == lua_table.song_2_size and CompareTables(lua_table.note_stack, lua_table.song_2)
+	or lua_table.note_num == lua_table.song_3_size and CompareTables(lua_table.note_stack, lua_table.song_3)
+	then
+		song_matching = true
+	end	
 
-	if lua_table.current_state == state.song_3 then
-		lua_table.song_3_secondary_effect_active = false
-	end
-
-	return song_succesful
+	return song_matching
 end
 
 local function PerformCombo(combo_type)
@@ -1640,6 +1624,7 @@ local function ActionInputs()	--Process Action Inputs
 				if not combo_achieved then
 					RegularAttack("heavy")
 				end
+				lua_table.ability_performed = CheckSongs(false)
 
 				SaveDirection()
 
@@ -1658,6 +1643,7 @@ local function ActionInputs()	--Process Action Inputs
 				if not combo_achieved then
 					RegularAttack("light")
 				end
+				lua_table.ability_performed = CheckSongs(false)
 				
 				SaveDirection()
 
@@ -1670,12 +1656,13 @@ local function ActionInputs()	--Process Action Inputs
 			then
 				action_started_at = game_time		--Set timer start mark
 				PushBack(lua_table.note_stack, 'M')			--Add new input to stack
-		
+
 				combo_achieved = CheckCombos()
 
 				if not combo_achieved then
 					RegularAttack("medium")
 				end
+				lua_table.ability_performed = CheckSongs(false)
 
 				SaveDirection()
 		
@@ -1721,11 +1708,11 @@ local function ActionInputs()	--Process Action Inputs
 			
 		elseif game_time - ability_started_at >= lua_table.ability_cooldown and lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_ability, key_state.key_down)	--IF cooldown over and Ability Input
 		then
-			if CheckSongs() then
+			if CheckSongs(true) then
 				action_started_at = game_time								--Set timer start mark
 				ability_started_at = action_started_at
 
-				lua_table.ability_performed = true	--This marks for the UI that the ability is on cooldown
+				lua_table.ability_performed = false
 			end
 			
 			lua_table.note_num = 0
@@ -2300,10 +2287,7 @@ function lua_table:Awake()
 	attack_colliders.front_1.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.front_1.GO_name)
 	attack_colliders.front_2.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.front_2.GO_name)
 
-	attack_colliders.line_1_1.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.line_1_1.GO_name)
-	attack_colliders.line_2_2.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.line_2_2.GO_name)
-	attack_colliders.line_3_3.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.line_3_3.GO_name)
-	attack_colliders.line_4_4.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.line_4_4.GO_name)
+	attack_colliders.line_1.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.line_1.GO_name)
 
 	--Camera (Warning: If there's a camera GO, but no script the Engine WILL crash)
 	local camera_GO = lua_table.GameObjectFunctions:FindGameObject("Camera")
@@ -2392,11 +2376,6 @@ function lua_table:Update()
 			--Ultimate Regeneration
 			if lua_table.current_ultimate < lua_table.max_ultimate then lua_table.current_ultimate = lua_table.current_ultimate + ultimate_reg_real * dt end	--IF can increase, increase ultimate
 			if lua_table.current_ultimate > lua_table.max_ultimate then lua_table.current_ultimate = lua_table.max_ultimate end									--IF above max, set to max
-		end
-
-		if lua_table.ability_performed and game_time - ability_started_at >= lua_table.ability_cooldown	--IF ability cooldown finished, mark for UI
-		then
-			lua_table.ability_performed = false
 		end
 
 		if lua_table.potion_active and game_time - potion_taken_at > lua_table.potion_duration then EndPotion(lua_table.potion_in_effect) end
@@ -2689,10 +2668,11 @@ function lua_table:Update()
 							end
 
 							--Collider Evaluation
-							AttackColliderCheck("song_1", "line_1", 1)
-							AttackColliderCheck("song_1", "line_2", 2)
-							AttackColliderCheck("song_1", "line_3", 3)
-							AttackColliderCheck("song_1", "line_4", 4)
+							AttackColliderCheck("song_1", "line", 1)
+
+							if attack_colliders.line_1.active then
+								lua_table.TransformFunctions:Translate(0.0, 0.0, lua_table.song_1_collider_speed * dt, attack_colliders.line_1.GO_UID)
+							end
 
 						elseif lua_table.current_state == state.song_2 and time_since_action > lua_table.song_2_effect_start
 						then
@@ -2884,6 +2864,7 @@ function lua_table:Update()
 	--lua_table.SystemFunctions:LOG("Note num: " .. lua_table.note_num)
 	--lua_table.SystemFunctions:LOG("Song string: " .. lua_table.note_stack[1] .. ", " .. lua_table.note_stack[2] .. ", " .. lua_table.note_stack[3] .. ", " .. lua_table.note_stack[4])
 
+	--if lua_table.ability_performed then lua_table.SystemFunctions:LOG("SONG AVAILABLE-----------------------") end
 	--if lua_table.being_revived then lua_table.SystemFunctions:LOG("REVIVE TIME: " .. (game_time - lua_table.revive_started_at)) end
 
 	--Animation
