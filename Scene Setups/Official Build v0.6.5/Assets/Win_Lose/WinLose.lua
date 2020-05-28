@@ -7,12 +7,14 @@ function GetTableWinLose()
     lua_table.Input = Scripting.Inputs()
     lua_table.Scene = Scripting.Scenes()
     lua_table.Physics = Scripting.Physics()
+    lua_table.Audio = Scripting.Audio()
     
     lua_table.level1_uid = 0
     lua_table.level2_uid = 0
     lua_table.mm_uid = 0
 
     local pos = 0
+    local winlose = 0
 
     local geralt_pos0 = 0
     local geralt_pos1 = 0
@@ -65,8 +67,10 @@ function GetTableWinLose()
     local function Victory()
         lua_table.System:PauseGame()
         
-        --victory sound**
+        --victory sound
+        lua_table.Audio:PlayAudioEventGO("Play_Win_Menu_Music", winlose)
     
+        --win animation
         lua_table.GO:SetActiveGameObject(true, win)
         if win_flag == false
         then
@@ -83,6 +87,7 @@ function GetTableWinLose()
             end
         end
 
+        --fade
         if win_flag == true
         then
             lua_table.GO:SetActiveGameObject(true, fade)
@@ -98,24 +103,27 @@ function GetTableWinLose()
             end
         end
     
+        --buttons
         if fade_flag == true
         then
-            --if current_level == 1
-            --then
+            if current_level == 1
+            then
                 lua_table.GO:SetActiveGameObject(true, mainmenu)
                 lua_table.GO:SetActiveGameObject(true, nextlevel)
-            --elseif current_level == 2
-            --then
-            --    lua_table.GO:SetActiveGameObject(true, only_mainmenu)
-            --end
+            elseif current_level == 2
+            then
+                lua_table.GO:SetActiveGameObject(true, only_mainmenu)
+            end
         end
     end
     
     local function Defeat()
         lua_table.System:PauseGame()
     
-        --defeat sound**
-    
+        --defeat sound
+        lua_table.Audio:PlayAudioEventGO("Play_Lost_Menu_Music", winlose)
+
+        --lose animation
         lua_table.GO:SetActiveGameObject(true, lose)
         if lose_flag == false
         then
@@ -132,6 +140,7 @@ function GetTableWinLose()
             end
         end
 
+        --fade
         if lose_flag == true
         then
             lua_table.GO:SetActiveGameObject(true, fade)
@@ -147,6 +156,7 @@ function GetTableWinLose()
             end
         end
     
+        --reset level
         if fade_flag == true
         then
             --reset variables
@@ -162,13 +172,13 @@ function GetTableWinLose()
             lua_table.System:ResumeGame()
         
             --load current level
-            --if current_level == 1
-            --then
+            if current_level == 1
+            then
                 load_level1 = true
-            --elseif current_level == 2
-            --then
-            --    load_level2 = true
-            --end
+            elseif current_level == 2
+            then
+                load_level2 = true
+            end
         end
     end
     
@@ -190,6 +200,7 @@ function GetTableWinLose()
         lua_table.System:ResumeGame()
     
         --load main menu
+        last_checkpoint = 0
         load_mainmenu = true
     end
     
@@ -211,6 +222,7 @@ function GetTableWinLose()
         lua_table.System:ResumeGame()
     
         --load next level (level 2)
+        last_checkpoint = 0
         current_level = 2
         load_level2 = true
     end
@@ -285,6 +297,8 @@ function GetTableWinLose()
     
     -------------------------------------------------
     function lua_table:Awake()
+        winlose = lua_table.GO:GetMyUID()
+
         --UI
         win = lua_table.GO:FindGameObject("Victory")
         lose = lua_table.GO:FindGameObject("Defeat")
