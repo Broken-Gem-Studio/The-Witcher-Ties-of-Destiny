@@ -800,7 +800,6 @@ local function GoDefaultState(change_blend_time)
 			lua_table.AnimationFunctions:SetBlendTime(0.2, jaskier_GO_UID)
 		end
 
-		lua_table.AnimationFunctions:SetBlendTime(0.1, particles_library.slash_GO_UID)
 		lua_table.AnimationFunctions:PlayAnimation(animation_library.idle, lua_table.idle_animation_speed, jaskier_GO_UID)
 		current_animation = animation_library.idle
 
@@ -1838,7 +1837,6 @@ local function ActionInputs()	--Process Action Inputs
 		if lua_table.current_state >= state.light_1 and lua_table.current_state <= state.heavy_3 or lua_table.current_state == state.song_1	--IF attack or song_1
 		then
 			input_slow_active = false
-			lua_table.AnimationFunctions:SetBlendTime(0.1, particles_library.slash_GO_UID)
 			lua_table.GameObjectFunctions:SetActiveGameObject(true, particles_library.slash_mesh_GO_UID)
 			enemy_hit_curr_stage = enemy_hit_stages.awaiting_attack
 		else
@@ -2336,12 +2334,13 @@ function lua_table:Start()
 		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.concert_GO_UID_children[i])		--TODO-Particles:
 	end
 
+	--Set Particle GO Animations to for smooth blending to required animations
+	lua_table.AnimationFunctions:SetBlendTime(0.1, particles_library.slash_GO_UID)
+	lua_table.AnimationFunctions:PlayAnimation(animation_library.evade, lua_table.evade_animation_speed, particles_library.slash_GO_UID)
+	
 	--Hide GO Particles
 	lua_table.GameObjectFunctions:SetActiveGameObject(false, particles_library.slash_mesh_GO_UID)
 
-	--Set Particle GO Animations to for smooth blending to required animations
-	lua_table.AnimationFunctions:PlayAnimation(animation_library.evade, lua_table.evade_animation_speed, particles_library.slash_GO_UID)
-	
 	-- Set initial values
 	lua_table.previous_state = state.idle
 	lua_table.current_state = state.idle

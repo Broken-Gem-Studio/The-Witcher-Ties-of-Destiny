@@ -538,7 +538,7 @@ lua_table.ability_cooldown = 5000.0
 
 local ability_started_at = 0.0
 lua_table.ability_performed = false
-lua_table.ability_start = 300.0
+lua_table.ability_start = 400.0
 lua_table.ability_duration = 800.0
 
 lua_table.ability_animation_speed = 70.0
@@ -793,7 +793,6 @@ local function GoDefaultState(change_blend_time)
 			lua_table.AnimationFunctions:SetBlendTime(0.2, geralt_GO_UID)
 		end
 
-		lua_table.AnimationFunctions:SetBlendTime(0.1, particles_library.slash_GO_UID)
 		lua_table.AnimationFunctions:PlayAnimation(animation_library.idle, lua_table.idle_animation_speed, geralt_GO_UID)
 		current_animation = animation_library.idle
 
@@ -1021,9 +1020,9 @@ end
 local function ParticlesShutdown(full)	--Full marks wether the particle shutdown is total, or just parcial (ultimate particles appear even when stunned/knocked back)
 	lua_table.AnimationFunctions:PlayAnimation(animation_library.evade, lua_table.evade_animation_speed, particles_library.slash_GO_UID)
 	lua_table.GameObjectFunctions:SetActiveGameObject(false, particles_library.slash_mesh_GO_UID)
-	lua_table.AnimationFunctions:PlayAnimation(animation_library.evade, lua_table.evade_animation_speed, particles_library.aard_cone_mesh_GO_UID)
+	lua_table.AnimationFunctions:PlayAnimation(animation_library.evade, lua_table.evade_animation_speed, particles_library.aard_cone_GO_UID)
 	lua_table.GameObjectFunctions:SetActiveGameObject(false, particles_library.aard_cone_mesh_GO_UID)
-	lua_table.AnimationFunctions:PlayAnimation(animation_library.evade, lua_table.evade_animation_speed, particles_library.aard_circle_mesh_GO_UID)
+	lua_table.AnimationFunctions:PlayAnimation(animation_library.evade, lua_table.evade_animation_speed, particles_library.aard_circle_GO_UID)
 	lua_table.GameObjectFunctions:SetActiveGameObject(false, particles_library.aard_circle_mesh_GO_UID)
 
 	for i = 1, #particles_library.run_particles_GO_UID_children do
@@ -1547,9 +1546,6 @@ local function ActionInputs()	--Process Action Inputs
 			lua_table.AnimationFunctions:PlayAnimation(animation_library.ability, lua_table.ability_animation_speed, particles_library.aard_cone_GO_UID)
 			lua_table.AnimationFunctions:PlayAnimation(animation_library.ability, lua_table.ability_animation_speed, particles_library.aard_circle_GO_UID)
 			current_animation = animation_library.ability
-
-			lua_table.AnimationFunctions:SetBlendTime(0.1, particles_library.aard_cone_GO_UID)
-			lua_table.AnimationFunctions:SetBlendTime(0.1, particles_library.aard_circle_GO_UID)
 			
 			lua_table.GameObjectFunctions:SetActiveGameObject(true, particles_library.aard_cone_mesh_GO_UID)
 			lua_table.GameObjectFunctions:SetActiveGameObject(true, particles_library.aard_circle_mesh_GO_UID)
@@ -1667,7 +1663,6 @@ local function ActionInputs()	--Process Action Inputs
 
 		if lua_table.current_state <= state.combo_3 and lua_table.current_state >= state.light_1	--IF attack
 		then
-			lua_table.AnimationFunctions:SetBlendTime(0.1, particles_library.slash_GO_UID)
 			lua_table.GameObjectFunctions:SetActiveGameObject(true, particles_library.slash_mesh_GO_UID)
 			enemy_hit_curr_stage = enemy_hit_stages.awaiting_attack
 		else
@@ -2195,16 +2190,20 @@ function lua_table:Start()
 	--lua_table.ParticlesFunctions:StopParticleEmitter(sword_particles_GO_UID)			--TODO-Particles: Uncomment when ready
 	--lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.aard_hand_particles_GO_UID)	--TODO-Particles: Uncomment when ready
 
+	--Set Particle GO Animations to for smooth blending to required animations
+	lua_table.AnimationFunctions:SetBlendTime(0.1, particles_library.slash_GO_UID)
+	lua_table.AnimationFunctions:SetBlendTime(0.1, particles_library.aard_cone_GO_UID)
+	lua_table.AnimationFunctions:SetBlendTime(0.1, particles_library.aard_circle_GO_UID)
+
+	lua_table.AnimationFunctions:PlayAnimation(animation_library.evade, lua_table.evade_animation_speed, particles_library.slash_GO_UID)
+	lua_table.AnimationFunctions:PlayAnimation(animation_library.evade, lua_table.evade_animation_speed, particles_library.aard_cone_GO_UID)
+	lua_table.AnimationFunctions:PlayAnimation(animation_library.evade, lua_table.evade_animation_speed, particles_library.aard_circle_GO_UID)
+	
 	--Hide GO Particles
 	lua_table.GameObjectFunctions:SetActiveGameObject(false, particles_library.slash_mesh_GO_UID)
 	lua_table.GameObjectFunctions:SetActiveGameObject(false, particles_library.aard_cone_mesh_GO_UID)
 	lua_table.GameObjectFunctions:SetActiveGameObject(false, particles_library.aard_circle_mesh_GO_UID)
 
-	--Set Particle GO Animations to for smooth blending to required animations
-	lua_table.AnimationFunctions:PlayAnimation(animation_library.evade, lua_table.evade_animation_speed, particles_library.slash_GO_UID)
-	lua_table.AnimationFunctions:PlayAnimation(animation_library.evade, lua_table.evade_animation_speed, particles_library.aard_cone_GO_UID)
-	lua_table.AnimationFunctions:PlayAnimation(animation_library.evade, lua_table.evade_animation_speed, particles_library.aard_circle_GO_UID)
-	
 	-- Set initial values
 	lua_table.previous_state = state.idle
 	lua_table.current_state = state.idle
@@ -2351,7 +2350,9 @@ function lua_table:Update()
 							end
 						elseif lua_table.current_state == state.ability
 						then
+							lua_table.AnimationFunctions:PlayAnimation(animation_library.evade, lua_table.evade_animation_speed, particles_library.aard_cone_GO_UID)
 							lua_table.GameObjectFunctions:SetActiveGameObject(false, particles_library.aard_cone_mesh_GO_UID)
+							lua_table.AnimationFunctions:PlayAnimation(animation_library.evade, lua_table.evade_animation_speed, particles_library.aard_circle_GO_UID)
 							lua_table.GameObjectFunctions:SetActiveGameObject(false, particles_library.aard_circle_mesh_GO_UID)
 
 							lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.aard_circle_1.GO_UID)
@@ -2441,7 +2442,6 @@ function lua_table:Update()
 						elseif lua_table.current_state == state.ability and not lua_table.ability_performed and time_since_action > lua_table.ability_start
 						then
 							AardPush()
-							SaveDirection()
 							lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.big.intensity, controller_shake.big.duration)
 
 							--Activate Aard Sphere Collider
