@@ -11,8 +11,10 @@ lua_table.UI = Scripting.Interface()
 -- Camera target GO names
 lua_table.cube = "Cube"
 lua_table.value_ = 0
-lua_table.scene_uid = 0
 lua_table.skip_threshold = 0
+
+lua_table.NextScene = 0
+
 local Fade = 0
 
 local minion = 0
@@ -109,7 +111,7 @@ local function SkipButton()
    end
 
    if lua_table.skip_threshold >= 100 and next_scene == true then
-       lua_table.Scene:LoadScene(lua_table.scene_uid)
+       lua_table.Scene:LoadScene(lua_table.NextScene)
        next_scene = false
    end
 
@@ -269,6 +271,7 @@ function lua_table:Update()
         if value >= 1 
         then
             FadeOut3 = false
+            lua_table.Scene:LoadScene(lua_table.NextScene)
         end
     end
 
