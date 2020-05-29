@@ -17,7 +17,7 @@ local text
 function lua_table:OnTriggerEnter()
     local colliderGO = lua_table.PhysicsFunctions:OnTriggerEnter(MyUUID)
 
-    if justonce == false and colliderGO == geraltUID or colliderGO == jaskierUID
+    if justonce == false and colliderGO == geraltUID or colliderGO == jaskierUID and manager.currentStep == 11
     then    
         managerTable.PauseStep11 = true
         justonce = true

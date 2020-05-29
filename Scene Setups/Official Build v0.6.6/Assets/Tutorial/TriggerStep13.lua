@@ -14,7 +14,7 @@ local MyUUID
 function lua_table:OnTriggerEnter()
     local colliderGO = lua_table.PhysicsFunctions:OnTriggerEnter(MyUUID)
 
-    if colliderGO == geraltUID or colliderGO == jaskierUID
+    if colliderGO == geraltUID or colliderGO == jaskierUID and manager.currentStep == 13
     then    
         managerTable.SaveGame13 = true
     end

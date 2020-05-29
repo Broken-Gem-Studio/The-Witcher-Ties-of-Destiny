@@ -122,21 +122,21 @@ function GetTableCardsTuto()
     end
     
     function lua_table:Awake()
-        EVADE = lua_table["GameObject"]:FindGameObject("EVADE")
-        SPECIAL = lua_table["GameObject"]:FindGameObject("SPECIAL")
-        SPECIAL2 = lua_table["GameObject"]:FindGameObject("SPECIAL2")
-        ULTIMATE = lua_table["GameObject"]:FindGameObject("ULTI")
-        ULTIMATE2 = lua_table["GameObject"]:FindGameObject("ULTI2")
-        COMBOS = lua_table["GameObject"]:FindGameObject("COMBO")
-        COMBOS2 = lua_table["GameObject"]:FindGameObject("COMBO2")
-        POTIS = lua_table["GameObject"]:FindGameObject("POTIS")
-        POTIS2 = lua_table["GameObject"]:FindGameObject("POTIS2")
-        ENEMY = lua_table["GameObject"]:FindGameObject("ENEMY")
-        BONFIRE = lua_table["GameObject"]:FindGameObject("BONFIRE")
+        EVADE = lua_table["GameObject"]:FindGameObject("C_EVADE")
+        SPECIAL = lua_table["GameObject"]:FindGameObject("C_SPECIALCARD")
+        SPECIAL2 = lua_table["GameObject"]:FindGameObject("C_SPECIALCARD2")
+        ULTIMATE = lua_table["GameObject"]:FindGameObject("C_ULTI")
+        ULTIMATE2 = lua_table["GameObject"]:FindGameObject("C_ULTI2")
+        COMBOS = lua_table["GameObject"]:FindGameObject("C_COMBO")
+        COMBOS2 = lua_table["GameObject"]:FindGameObject("C_COMBO2")
+        POTIS = lua_table["GameObject"]:FindGameObject("C_POTIS")
+        POTIS2 = lua_table["GameObject"]:FindGameObject("C_POTIS2")
+        ENEMY = lua_table["GameObject"]:FindGameObject("C_ENEMY")
+        BONFIRE = lua_table["GameObject"]:FindGameObject("C_BONFIRE")
         
 
-        P1_METER = lua_table["GameObject"]:FindGameObject("P1METER")
-        P2_METER = lua_table["GameObject"]:FindGameObject("P2METER")
+        P1_METER = lua_table["GameObject"]:FindGameObject("C_P1METER")
+        P2_METER = lua_table["GameObject"]:FindGameObject("C_P2METER")
         
         TUTOMANAGER = lua_table["GameObject"]:FindGameObject("TutorialManager")
         lua_table.tuto = lua_table["GameObject"]:GetScript(TUTOMANAGER)
@@ -213,6 +213,8 @@ function GetTableCardsTuto()
             if lua_table.continue_meter1_full == false and lua_table.continue_meter2_full == false
             then
                 lua_table["UI"]:MakeElementVisible("Image", ULTIMATE)
+                lua_table["System"]:LOG("STEP 12 visible ultimate1")
+
                 --lua_table["UI"]:MakeElementVisible("CircularBar", P1_METER)
                 --lua_table["UI"]:MakeElementVisible("CircularBar", P2_METER)
 
@@ -238,6 +240,7 @@ function GetTableCardsTuto()
                 lua_table["UI"]:MakeElementVisible("CircularBar", P1_METER)
                 lua_table["UI"]:MakeElementVisible("CircularBar", P2_METER)
             end
+
             if continue_meter1 >= 100 and step25 == true --and lua_table.continue_meter1_full == false
             then
                 lua_table.continue_meter1_full = true
@@ -351,6 +354,7 @@ function GetTableCardsTuto()
             if lua_table.continue_meter1_full == false and lua_table.continue_meter2_full == false
             then
                 lua_table["UI"]:MakeElementVisible("Image", COMBOS)
+                lua_table["System"]:LOG("STEP 10 visible combo1")
                 --lua_table["UI"]:MakeElementVisible("CircularBar", P1_METER)
                 --lua_table["UI"]:MakeElementVisible("CircularBar", P2_METER)
 
