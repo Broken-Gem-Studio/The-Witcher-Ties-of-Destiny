@@ -17,6 +17,7 @@
             },
             "18": {
                 "Active": true,
+                "CollisionsActivated": true,
                 "Duration": "1000",
                 "GradientColor": true,
                 "HorizontalBill": "0",
@@ -24,8 +25,16 @@
                 "PartAutoBlending": true,
                 "PartBlendEquation": 0,
                 "PartBlendFunc": 0,
+                "PartCastShadows": true,
+                "PartLightAffected": true,
                 "PartMBlFuncDst": 7,
                 "PartMBlFuncSrc": 6,
+                "PartOnlyShadows": false,
+                "PartReceiveShadows": true,
+                "PartSceneColorAffected": true,
+                "ParticlesBill": true,
+                "ParticlesFaceCulling": true,
+                "PlayOnAwake": true,
                 "Resources": {
                     "ResourceTexture": "Library/Textures/749068084.dds"
                 },
@@ -154,6 +163,16 @@
                         "z": "0.000000"
                     }
                 ],
+                "maxInitialRotation": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "minInitialRotation": [
+                    "0",
+                    "0",
+                    "0"
+                ],
                 "num_colors": "6",
                 "num_curves": "2",
                 "num_gradients": "5",
@@ -170,6 +189,8 @@
                 "positionX": "0.000000",
                 "positionY": "0.000000",
                 "positionZ": "0.000000",
+                "randomInitialRotation": false,
+                "randomStartFrame": true,
                 "rotationOvertime1": [
                     "0",
                     "0",
@@ -201,11 +222,11 @@
                 "velocityconstants": "0"
             }
         },
-        "Parent": "1018814070",
+        "Parent": "1105909238",
         "PrefabChild": true,
         "PrefabInstance": true,
         "Static": false,
-        "UID": "1540816205"
+        "UID": "1892087508"
     },
-    "PreviewTexture": "Library/Textures/247771929.dds"
+    "PreviewTexture": "Library/Textures/914745833.dds"
 }

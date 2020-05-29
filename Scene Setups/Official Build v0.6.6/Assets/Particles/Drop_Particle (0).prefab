@@ -17,6 +17,7 @@
             },
             "18": {
                 "Active": true,
+                "CollisionsActivated": true,
                 "Duration": "1000",
                 "GradientColor": true,
                 "HorizontalBill": "1",
@@ -24,8 +25,16 @@
                 "PartAutoBlending": true,
                 "PartBlendEquation": 0,
                 "PartBlendFunc": 2,
+                "PartCastShadows": true,
+                "PartLightAffected": true,
                 "PartMBlFuncDst": 7,
                 "PartMBlFuncSrc": 6,
+                "PartOnlyShadows": false,
+                "PartReceiveShadows": true,
+                "PartSceneColorAffected": true,
+                "ParticlesBill": true,
+                "ParticlesFaceCulling": true,
+                "PlayOnAwake": true,
                 "Resources": {
                     "ResourceTexture": "Library/Textures/596003088.dds"
                 },
@@ -118,6 +127,16 @@
                         "z": "-0.001263"
                     }
                 ],
+                "maxInitialRotation": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "minInitialRotation": [
+                    "0",
+                    "0",
+                    "0"
+                ],
                 "num_colors": "3",
                 "num_curves": "2",
                 "num_gradients": "2",
@@ -134,6 +153,8 @@
                 "positionX": "0.000000",
                 "positionY": "0.000000",
                 "positionZ": "0.000000",
+                "randomInitialRotation": false,
+                "randomStartFrame": true,
                 "rotationOvertime1": [
                     "0",
                     "0",
@@ -165,11 +186,11 @@
                 "velocityconstants": "0"
             }
         },
-        "Parent": "656698960",
+        "Parent": "121657720",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "111449530"
+        "UID": "256620352"
     },
     "Cone": {
         "Active": true,
@@ -189,6 +210,7 @@
             },
             "18": {
                 "Active": true,
+                "CollisionsActivated": true,
                 "Duration": "1000",
                 "GradientColor": true,
                 "HorizontalBill": "0",
@@ -196,8 +218,16 @@
                 "PartAutoBlending": true,
                 "PartBlendEquation": 0,
                 "PartBlendFunc": 2,
+                "PartCastShadows": true,
+                "PartLightAffected": true,
                 "PartMBlFuncDst": 7,
                 "PartMBlFuncSrc": 6,
+                "PartOnlyShadows": false,
+                "PartReceiveShadows": true,
+                "PartSceneColorAffected": true,
+                "ParticlesBill": true,
+                "ParticlesFaceCulling": true,
+                "PlayOnAwake": true,
                 "Resources": {
                     "ResourceTexture": "Library/Textures/651962314.dds"
                 },
@@ -290,6 +320,16 @@
                         "z": "-0.000743"
                     }
                 ],
+                "maxInitialRotation": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "minInitialRotation": [
+                    "0",
+                    "0",
+                    "0"
+                ],
                 "num_colors": "3",
                 "num_curves": "2",
                 "num_gradients": "2",
@@ -306,6 +346,8 @@
                 "positionX": "0.000000",
                 "positionY": "2.400000",
                 "positionZ": "0.000000",
+                "randomInitialRotation": false,
+                "randomStartFrame": true,
                 "rotationOvertime1": [
                     "0",
                     "0",
@@ -337,11 +379,11 @@
                 "velocityconstants": "0"
             }
         },
-        "Parent": "656698960",
+        "Parent": "121657720",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "369311519"
+        "UID": "1249067199"
     },
     "Drop_Particle": {
         "Active": true,
@@ -360,13 +402,13 @@
                 "scalez": "1.000000"
             }
         },
-        "Parent": "295684830",
+        "Parent": "1105909238",
         "PrefabChild": true,
         "PrefabInstance": true,
         "Static": false,
-        "UID": "656698960"
+        "UID": "121657720"
     },
-    "PreviewTexture": "Library/Textures/2041971160.dds",
+    "PreviewTexture": "Library/Textures/914319414.dds",
     "Star": {
         "Active": true,
         "Components": {
@@ -385,6 +427,7 @@
             },
             "18": {
                 "Active": true,
+                "CollisionsActivated": true,
                 "Duration": "1000",
                 "GradientColor": true,
                 "HorizontalBill": "0",
@@ -392,8 +435,16 @@
                 "PartAutoBlending": true,
                 "PartBlendEquation": 0,
                 "PartBlendFunc": 2,
+                "PartCastShadows": true,
+                "PartLightAffected": true,
                 "PartMBlFuncDst": 7,
                 "PartMBlFuncSrc": 6,
+                "PartOnlyShadows": false,
+                "PartReceiveShadows": true,
+                "PartSceneColorAffected": true,
+                "ParticlesBill": true,
+                "ParticlesFaceCulling": true,
+                "PlayOnAwake": true,
                 "Resources": {
                     "ResourceTexture": "Library/Textures/1053900002.dds"
                 },
@@ -486,6 +537,16 @@
                         "z": "-0.000632"
                     }
                 ],
+                "maxInitialRotation": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "minInitialRotation": [
+                    "0",
+                    "0",
+                    "0"
+                ],
                 "num_colors": "3",
                 "num_curves": "2",
                 "num_gradients": "2",
@@ -502,6 +563,8 @@
                 "positionX": "0.000000",
                 "positionY": "0.000000",
                 "positionZ": "0.000000",
+                "randomInitialRotation": false,
+                "randomStartFrame": true,
                 "rotationOvertime1": [
                     "0",
                     "0",
@@ -533,10 +596,10 @@
                 "velocityconstants": "0"
             }
         },
-        "Parent": "656698960",
+        "Parent": "121657720",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "15558768"
+        "UID": "1104659961"
     }
 }
