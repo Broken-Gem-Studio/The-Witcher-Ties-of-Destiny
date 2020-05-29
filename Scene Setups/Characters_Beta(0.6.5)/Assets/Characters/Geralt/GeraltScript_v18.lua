@@ -1148,6 +1148,12 @@ local function CheckCameraBounds()	--Check if we're currently outside the camera
 	--4. If character off bounds, calculate the return angle and flag the off bounds status
 	if bounds_vector.x ~= 0 or bounds_vector.z ~= 0 then
 		bounds_angle = math.rad(bounds_angle)
+
+		local camera_Y_rot = math.rad(camera_script.current_camera_orientation)
+		local orig_vector = { x = bounds_vector.x, z = bounds_vector.z }
+		bounds_vector.x = orig_vector.z * math.sin(camera_Y_rot) + orig_vector.x * math.cos(camera_Y_rot)
+		bounds_vector.z = orig_vector.z * math.cos(camera_Y_rot) - orig_vector.x * math.sin(camera_Y_rot)
+
 		off_bounds = true
 
 		if lua_table.current_state > state.idle then
@@ -2017,7 +2023,14 @@ local function ProcessIncomingHit(collider_GO)
 		elseif enemy_script.collider_effect == attack_effects_ID.knockback
 		then
 			local geralt_pos = lua_table.TransformFunctions:GetPosition(geralt_GO_UID)	--Look at and set direction from knockback
-			local knockback_pos = lua_table.TransformFunctions:GetPosition(collider_GO)
+			local knockback_pos
+
+			if collider_parent ~= 0 then
+				knockback_pos = lua_table.TransformFunctions:GetPosition(collider_parent)
+			else
+				knockback_pos = lua_table.TransformFunctions:GetPosition(collider_GO)
+			end
+			
 			lua_table.TransformFunctions:LookAt(knockback_pos[1], geralt_pos[2], knockback_pos[3], geralt_GO_UID)
 			
 			rec_direction.x = geralt_pos[1] - knockback_pos[1]
