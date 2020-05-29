@@ -41,7 +41,8 @@ local PrintLogs = true
 local State = {
 	NONE = 0,
 	PRE_DETECTION = 1,
-	DETECTION = 2
+	DETECTION = 2,
+	COMBAT = 3
 }
 	
 
@@ -118,6 +119,8 @@ local DoJump = false
 local JumpAttackPathCreated = false
 local JumpAttack_fps = 30.0
 local JumpAttackTimer = 0
+local JumpStage = 0
+local JumpAttackDone = false
 --################################################ VARIABLES ############################################
 
 lua_table.player_1 = "Geralt"
@@ -137,6 +140,7 @@ local GeraltDistance = 0 --updated when call PlayersArround()
 local JaskierDistance = 0
 
 local CurrentTarget_UID = 0 
+local MinDistanceFromPlayer = 2
 
 local CurrentTime = 0
 
@@ -242,6 +246,8 @@ local function ResetDetection(ResetScream)
 		DoScream = false
 	end
 	
+	JumpStage = 0
+	JumpAttackDone = false
 	RunAnimationController = true
 end
 
@@ -277,8 +283,7 @@ local function FollowPath() --basically update the next corner in the curr path
 		ActualCorner = ActualCorner +1
 		NextCorner = ActualCorner + 1
 	end
-	--lua_table.TransformFunctions:LookAt(MyPosition[1] + NextCorner[1] ,MyPosition[2],MyPosition[3] + NextCorner[3],MyUID)
-	
+	--lua_table.TransformFunctions:LookAt(MyPosition[1] + NextCorner[1] ,MyPosition[2],MyPosition[3] + NextCorner[3],MyUID)	
 end
 
 
@@ -405,44 +410,52 @@ local function CalculateJumpAttackVelocity()
 	--357 al 363 = 6 frames se prepara cogiendo fuerza para saltar
 	--363 al 385 = 22 frames esta en el aire
 	--445 acaba la animació
-
 	--TOTAL TIME IN 30FPS = 3.550 SEC	
 	MilisecondsPerframe = 1000/JumpAttack_fps -- if fps = 30, = 33.3333
 	JA_TimeFirstPart = MilisecondsPerframe * 20
 	JA_TimeSecondPart = MilisecondsPerframe * 6
 	JA_TimeThirdPart = MilisecondsPerframe * 22
+	JA_TimeForthPart = MilisecondsPerframe * 60 
 	JA_TotalTime = MilisecondsPerframe * 108
-	JA_TimeForthPart = MilisecondsPerframe * 108 - 48 
 
-	if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK JA_TimeFirstPart"..JA_TimeFirstPart) end
-	if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK JA_TimeSecondPart"..JA_TimeSecondPart) end
-	if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK JA_TimeThirdPart"..JA_TimeThirdPart) end
-	if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK JA_TimeForthPart"..JA_TimeForthPart) end
+	--if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK JA_TimeFirstPart"..JA_TimeFirstPart) end
+	--if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK JA_TimeSecondPart"..JA_TimeSecondPart) end
+	--if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK JA_TimeThirdPart"..JA_TimeThirdPart) end
+	--if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK JA_TimeForthPart"..JA_TimeForthPart) end
 
-	if CurrentTime - JumpAttackTimer < JA_TimeFirstPart
+	Timer = CurrentTime - JumpAttackTimer
+
+	if JumpStage == 0 -- Simplement Chuska'l 
 	then
-		if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK           CurrentVelocity = 3") end
-		lua_table.CurrentVelocity = 3
-
-	elseif CurrentTime - JumpAttackTimer < JA_TimeSecondPart and CurrentTime - JumpAttackTimer > JA_TimeFirstPart  
+		if Timer > JA_TimeFirstPart 
+		then
+			JumpStage = 1
+			CurrentVelocity = 4
+			--if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK NEXT PART"..JA_TimeForthPart) end
+		end
+	elseif  JumpStage == 1
 	then
-		if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK            CurrentVelocity = 0") end
-		lua_table.CurrentVelocity = 0
-
-	elseif CurrentTime - JumpAttackTimer < JA_TimeThirdPart and CurrentTime - JumpAttackTimer > JA_TimeSecondPart  
+		if Timer > JA_TimeSecondPart 
+		then
+			JumpStage = 2
+			CurrentVelocity = 0
+		end
+	elseif  JumpStage == 2
 	then
-		if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK            CurrentVelocity = 6") end
-		lua_table.CurrentVelocity = 6
-
-	elseif CurrentTime - JumpAttackTimer < JA_TimeForthPart and CurrentTime - JumpAttackTimer > JA_TimeThirdPart  
+		if Timer > JA_TimeThirdPart 
+		then
+			JumpStage = 3
+			CurrentVelocity = 7
+		end
+	elseif  JumpStage == 3
 	then
-		if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK             CurrentVelocity = 0") end
-		lua_table.CurrentVelocity = 0
-
-	elseif CurrentTime - JumpAttackTimer > JA_TimeForthPart
-	then
-		if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK JUMP ATTACK TIME JUST EXPIRED ") end
+		if Timer > JA_TimeForthPart 
+		then
+			JumpStage = 4
+			CurrentVelocity = 0
+		end
 	end
+	
 	DebugTime = CurrentTime - JumpAttackTimer
 	if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK JA_TIME:                                  DebugTime = "..DebugTime) end
 
@@ -515,11 +528,16 @@ local function JumpAttack()
 	then
 		if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK CalculateJumpAttackVelocity()") end
 		CalculateJumpAttackVelocity()
+
+		--if DistanceMagnitude < MinDistanceFromPlayer
+		--then
 		FollowPath()
+		--elseif DistanceMagnitude < MinDistanceFromPlayer
+		--then
+		--	JumpAttackDone = true
+		--	if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK JumpAttackDone = true") end
+		--end
 	end
-
-
-	
 	--when jump attack ends, reset all seek bools if distance to target is enought to be in attack mode
 
 end
@@ -614,10 +632,18 @@ local  function HandleDetection()
 		SeekTarget()	
 	end	
 
-	if DoJump == true
+	if DoJump == true and JumpAttackDone == false
 	then
 		if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK JUMP_ATTACK()") end
 		JumpAttack()
+	elseif JumpAttackDone == true
+	then
+		if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK WOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO") end
+		--if ChangeStateToCombat() == true
+		--then
+		--	if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK CurrentState = State.COMBAT") end
+		--	CurrentState = State.COMBAT
+		--end
 	end
 end
 
