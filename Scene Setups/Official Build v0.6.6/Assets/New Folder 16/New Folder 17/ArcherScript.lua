@@ -19,9 +19,9 @@ lua_table.Attack_Collider = "ArcherAttack"
 local Attack_Collider_UID = 0
 
 -- Archer Values -------------------------
-lua_table.health = 80
-lua_table.speed = 0.75
-lua_table.Aggro_Range = 37
+lua_table.health = 150
+lua_table.speed = 0.70
+lua_table.Aggro_Range = 30
 
 -- 
 lua_table.DistanceToTarget = 0
@@ -97,12 +97,10 @@ local start_taunt = false
 local taunt_time = 0
 ---------------------------------------------
 ----- PARTICLES------------------------------
-local ParticleStun_UID = 0
-local Blood1 = 0
-local Blood2 = 0
-local Blood3 = 0
-local Blood4 = 0
-local Taunt_UID = 0
+local Particles_GO = 0
+local BloodParticle = 0
+local TauntParticle = 0
+local StunParticle = 0
 
 lua_table.random = 0
 
@@ -170,7 +168,11 @@ function lua_table:OnTriggerEnter()
                 lua_table.start_stun = true
                 lua_table.AnimationSystem:PlayAnimation("Hit",30.0, MyUID)
                 stun_time = PerfGameTime()
-                lua_table.GameObjectFunctions:SetActiveGameObject(true, ParticleArcher_Stunned)
+                local particles = {}
+                particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("StunParticles", Particles_GO))
+                for i=1, #particles do 
+                    lua_table.Particles:PlayParticleEmitter(particles[i])
+                end
 
             elseif script.collider_effect == Effects.KNOCKBACK then
                 --Calculate direction
@@ -193,7 +195,12 @@ function lua_table:OnTriggerEnter()
                 start_taunt = true
                 taunt_time = PerfGameTime()
                 Taunt_GO_UID = parent
-                lua_table.Particles:PlayParticleEmitter(Taunt_UID)
+
+                local particles = {}
+                particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("AggroParticles", Particles_GO))
+                for i=1, #particles do 
+                    lua_table.Particles:PlayParticleEmitter(particles[i])
+                end
             end
         else -- animatio hit
             lua_table.AnimationSystem:PlayAnimation("Hit",30.0, MyUID)
@@ -201,10 +208,11 @@ function lua_table:OnTriggerEnter()
             lua_table.start_hit = true
             lua_table.Audio:PlayAudioEvent("Play_Enemy_Humanoid_Hit")
 
-            lua_table.Particles:PlayParticleEmitter(Blood1)
-            lua_table.Particles:PlayParticleEmitter(Blood2)
-            lua_table.Particles:PlayParticleEmitter(Blood3)
-            lua_table.Particles:PlayParticleEmitter(Blood4)
+            local particles = {}
+            particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("BloodParticles", Particles_GO))
+            for i=1, #particles do 
+                lua_table.Particles:PlayParticleEmitter(particles[i])
+            end
             
         end
     end
@@ -225,7 +233,11 @@ function lua_table:RequestedTrigger(collider_GO)
                 lua_table.start_stun = true
                 lua_table.AnimationSystem:PlayAnimation("Hit",30.0, MyUID)
                 stun_time = PerfGameTime()
-                lua_table.GameObjectFunctions:SetActiveGameObject(true, ParticleStun_UID)
+                local particles = {}
+                particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("StunParticles", Particles_GO))
+                for i=1, #particles do 
+                    lua_table.Particles:PlayParticleEmitter(particles[i])
+                end
 
             elseif player_script.collider_effect == Effects.KNOCKBACK then
                 
@@ -249,7 +261,11 @@ function lua_table:RequestedTrigger(collider_GO)
                 start_taunt = true
                 taunt_time = PerfGameTime()
                 Taunt_GO_UID = collider_GO
-                lua_table.Particles:PlayParticleEmitter(Taunt_UID)
+                local particles = {}
+                particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("AggroParticles", Particles_GO))
+                for i=1, #particles do 
+                    lua_table.Particles:PlayParticleEmitter(particles[i])
+                end
 
             end
         else -- animatio hit
@@ -259,10 +275,11 @@ function lua_table:RequestedTrigger(collider_GO)
 
             lua_table.Audio:PlayAudioEvent("Play_Enemy_Humanoid_Hit")
 
-            lua_table.Particles:PlayParticleEmitter(Blood1)
-            lua_table.Particles:PlayParticleEmitter(Blood2)
-            lua_table.Particles:PlayParticleEmitter(Blood3)
-            lua_table.Particles:PlayParticleEmitter(Blood4)
+            local particles = {}
+            particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("BloodParticles", Particles_GO))
+            for i=1, #particles do 
+                lua_table.Particles:PlayParticleEmitter(particles[i])
+            end
         end
   end
 end
@@ -486,31 +503,15 @@ end
 
 function lua_table:Awake()
     lua_table.System:LOG ("This Log was called from ArcherScript on AWAKE")
-    Blood1 = lua_table.GameObjectFunctions:FindChildGameObject("Blood1")
-    Blood2 = lua_table.GameObjectFunctions:FindChildGameObject("Blood2")
-    Blood3 = lua_table.GameObjectFunctions:FindChildGameObject("Blood3")
-    Blood4 = lua_table.GameObjectFunctions:FindChildGameObject("Blood4")
+    Particles_GO = lua_table.GameObjectFunctions:FindChildGameObject("ArcherParticles")
 
-    lua_table.Particles:ActivateParticlesEmission(Blood1)
-    lua_table.Particles:ActivateParticlesEmission(Blood2)
-    lua_table.Particles:ActivateParticlesEmission(Blood3)
-    lua_table.Particles:ActivateParticlesEmission(Blood4)
-
-    lua_table.Particles:StopParticleEmitter(Blood1)
-    lua_table.Particles:StopParticleEmitter(Blood2)
-    lua_table.Particles:StopParticleEmitter(Blood3)
-    lua_table.Particles:StopParticleEmitter(Blood4)
-
-    Taunt_UID = lua_table.GameObjectFunctions:FindChildGameObject("Aggro")
-    lua_table.Particles:ActivateParticlesEmission(Taunt_UID)
-    lua_table.Particles:StopParticleEmitter(Taunt_UID)
 end
 
 function lua_table:Start()
     Geralt_ID = lua_table.GameObjectFunctions:FindGameObject(lua_table.geralt)
     Jaskier_ID = lua_table.GameObjectFunctions:FindGameObject(lua_table.jaskier)
     Attack_Collider_UID = lua_table.GameObjectFunctions:FindChildGameObject(lua_table.Attack_Collider)
-    ParticleStun_UID = lua_table.GameObjectFunctions:FindChildGameObject("ParticleArcher_Stunned")
+    
     
 
     MyUID = lua_table.GameObjectFunctions:GetMyUID()
@@ -522,13 +523,30 @@ end
 
 function lua_table:Update()
 
-    --if lua_table.InputFunctions:KeyDown("K") then 
-       -- start_taunt = true
-       --taunt_time = PerfGameTime()
-        --Taunt_GO_UID = Jaskier_ID
-        --lua_table.Particles:PlayParticleEmitter(Taunt_UID)
+    -- if lua_table.InputFunctions:KeyDown("K") then 
+    --    start_taunt = true
+    --    taunt_time = PerfGameTime()
+    --     Taunt_GO_UID = Jaskier_ID
+    --     local particles = {}
+    --     particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("AggroParticles", Particles_GO))
+    --     for i=1, #particles do 
+    --         lua_table.Particles:PlayParticleEmitter(particles[i])
+    --     end
         
-   -- end
+    -- end
+
+    -- if lua_table.InputFunctions:KeyDown("M") then 
+    --     lua_table.start_stun = true
+    --     lua_table.AnimationSystem:PlayAnimation("Hit",30.0, MyUID)
+    --     stun_time = PerfGameTime()
+    --     local particles = {}
+    --     particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("StunParticles", Particles_GO))
+    --     for i=1, #particles do 
+    --         lua_table.Particles:PlayParticleEmitter(particles[i])
+    --     end
+    -- end
+
+    
 
     GetClosestPlayer()
     lua_table.speed = 8 * lua_table.System:DT()
@@ -604,7 +622,12 @@ function lua_table:Update()
 
         if start_taunt and taunt_time + 5000 <= PerfGameTime() then
             start_taunt = false
-            lua_table.Particles:StopParticleEmitter(Taunt_UID)
+            local particles = {}
+            particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("AggroParticles", Particles_GO))
+            for i=1, #particles do 
+                lua_table.Particles:StopParticleEmitter(particles[i])
+            end
+            
         end
 
 
@@ -622,7 +645,11 @@ function lua_table:Update()
             if lua_table.start_stun == true and stun_time + stun_duration <= PerfGameTime() then
                 lua_table.start_stun = false
                 stun_duration = 3000
-                lua_table.GameObjectFunctions:SetActiveGameObject(false, ParticleStun_UID)
+                local particles = {}
+                particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("StunParticles", Particles_GO))
+                for i=1, #particles do 
+                    lua_table.Particles:StopParticleEmitter(particles[i])
+                end
             end
         end
 
@@ -671,7 +698,11 @@ function lua_table:Update()
                 stun_duration = 1000
                 lua_table.start_stun = true
                 stun_time = PerfGameTime()
-                lua_table.GameObjectFunctions:SetActiveGameObject(true, ParticleStun_UID)
+                local particles = {}
+                particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("StunParticles", Particles_GO))
+                for i=1, #particles do 
+                    lua_table.Particles:PlayParticleEmitter(particles[i])
+                end
 
             else
                 lua_table.PhysicsSystem:Move(knock_direction[1]*lua_table.knockback_force, knock_direction[3]*lua_table.knockback_force, MyUID)
