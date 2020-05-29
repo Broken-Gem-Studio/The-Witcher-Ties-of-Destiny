@@ -628,7 +628,7 @@ lua_table.ultimate_effect_end = 3000
 lua_table.ultimate_effect_active = false
 lua_table.ultimate_duration = 4700
 lua_table.ultimate_animation_speed = 30.0
-lua_table.ultimate_damage = 5.0
+lua_table.ultimate_damage = 4.0
 lua_table.ultimate_status_effect = attack_effects_ID.none
 
 lua_table.ultimate_secondary_effect_start = 3850
