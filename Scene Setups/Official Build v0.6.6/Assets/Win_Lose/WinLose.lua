@@ -13,6 +13,8 @@ function GetTableWinLose()
     lua_table.level2_uid = 0
     lua_table.mm_uid = 0
 
+    lua_table.current_level = 0
+
     local pos = 0
     local winlose = 0
 
@@ -106,11 +108,11 @@ function GetTableWinLose()
         --buttons
         if fade_flag == true
         then
-            if current_level == 1
+            if lua_table.current_level == 1
             then
                 lua_table.GO:SetActiveGameObject(true, mainmenu)
                 lua_table.GO:SetActiveGameObject(true, nextlevel)
-            elseif current_level == 2
+            elseif lua_table.current_level == 2
             then
                 lua_table.GO:SetActiveGameObject(true, only_mainmenu)
             end
@@ -172,10 +174,10 @@ function GetTableWinLose()
             lua_table.System:ResumeGame()
         
             --load current level
-            if current_level == 1
+            if lua_table.current_level == 1
             then
                 load_level1 = true
-            elseif current_level == 2
+            elseif lua_table.current_level == 2
             then
                 load_level2 = true
             end
@@ -223,7 +225,6 @@ function GetTableWinLose()
     
         --load next level (level 2)
         last_checkpoint = 0
-        current_level = 2
         load_level2 = true
     end
     
@@ -322,14 +323,14 @@ function GetTableWinLose()
         end
         
         --Win Condition
-        if current_level == 1
+        if lua_table.current_level == 1
         then
             FinalEnemy = lua_table.GO:FindGameObject("FinalEnemy")
             if FinalEnemy > 0
             then
                 finalenemy_script = lua_table.GO:GetScript(FinalEnemy)
             end
-        elseif current_level == 2
+        elseif lua_table.current_level == 2
         then
             Kikimora = lua_table.GO:FindGameObject("Kikimora")
             if Kikimora > 0
@@ -346,6 +347,14 @@ function GetTableWinLose()
         jaskier_pos0 = lua_table.GO:FindGameObject("JaskierPos0")
         jaskier_pos1 = lua_table.GO:FindGameObject("JaskierPos1")
         jaskier_pos2 = lua_table.GO:FindGameObject("JaskierPos2")
+
+        --Set elements inactive
+        lua_table.GO:SetActiveGameObject(false, lose)
+        lua_table.GO:SetActiveGameObject(false, win)
+        lua_table.GO:SetActiveGameObject(false, fade)
+        lua_table.GO:SetActiveGameObject(false, mainmenu)
+        lua_table.GO:SetActiveGameObject(false, nextlevel)
+        lua_table.GO:SetActiveGameObject(false, only_mainmenu)
     end
     
     function lua_table:Start()
@@ -376,10 +385,10 @@ function GetTableWinLose()
         end
         
         --win condition
-        if current_level == 1 and FinalEnemy > 0 and finalenemy_script.current_state == 5 and is_win == false
+        if lua_table.current_level == 1 and FinalEnemy > 0 and finalenemy_script.current_state == 5 and is_win == false
         then
             is_win = true
-        elseif current_level == 2 and Kikimora > 0 and kikimora_script.dead == true and is_win == false
+        elseif lua_table.current_level == 2 and Kikimora > 0 and kikimora_script.dead == true and is_win == false
         then
             is_win = true
         end
