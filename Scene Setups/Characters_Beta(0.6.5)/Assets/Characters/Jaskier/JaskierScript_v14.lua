@@ -622,17 +622,17 @@ lua_table.ultimate_reg_orig = 1.5	--1 minute between ultimates
 
 lua_table.ultimate_active = false
 
-lua_table.ultimate_range = 15
-
-lua_table.ultimate_concert_end = 3000
-lua_table.ultimate_finish_start = 3850
+local interval_started_at = 0
+lua_table.ultimate_damage_interval = 1000
+lua_table.ultimate_effect_end = 3000
 lua_table.ultimate_effect_active = false
 lua_table.ultimate_duration = 4700
 lua_table.ultimate_animation_speed = 30.0
-lua_table.ultimate_damage = 5.0
+lua_table.ultimate_damage = 4.0
 lua_table.ultimate_status_effect = attack_effects_ID.none
 
 lua_table.ultimate_secondary_effect_start = 3850
+lua_table.ultimate_secondary_effect_end = 3950
 lua_table.ultimate_secondary_effect_active = false
 lua_table.ultimate_secondary_animation_speed = 50.0
 lua_table.ultimate_secondary_damage = 2.5
@@ -1354,53 +1354,6 @@ local function Song_Cone_Effect(trapezoid_table)	--Uses trapezoid because it can
 			local prop_script = lua_table.GameObjectFunctions:GetScript(prop_list[i])
 			prop_script:RequestedTrigger(jaskier_GO_UID)	--TODO-Ability:
 		end
-	end
-end
-
-local function UltimateConcert()
-	if time_since_action > lua_table.ultimate_concert_end	--IF stage_2 has to start
-	then
-		if lua_table.ultimate_effect_active
-		then
-			for i = 1, #particles_library.concert_GO_UID_children do
-				lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.concert_GO_UID_children[i])	--TODO-Particles:
-			end
-			lua_table.ultimate_effect_active = false
-
-			--Setup for stage_2
-			lua_table.AnimationFunctions:PlayAnimation(animation_library.two_handed_slam, lua_table.ultimate_secondary_animation_speed, jaskier_GO_UID)
-			lua_table.AnimationFunctions:PlayAnimation(animation_library.two_handed_slam, lua_table.ultimate_secondary_animation_speed, particles_library.slash_GO_UID)
-			current_animation = animation_library.two_handed_slam
-
-			lua_table.AudioFunctions:StopAudioEventGO(audio_library.concert, jaskier_GO_UID)
-			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.two_handed_slam, jaskier_GO_UID)
-			current_audio = audio_library.two_handed_slam
-
-			lua_table.collider_damage = base_damage_real * lua_table.ultimate_secondary_damage
-			lua_table.collider_effect = lua_table.ultimate_secondary_status_effect
-		end
-	else	--IF > start time and < end time
-		if not lua_table.ultimate_effect_active	--IF effect unactive, activate
-		then
-			for i = 1, #particles_library.concert_GO_UID_children do
-				lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.concert_GO_UID_children[i])	--TODO-Particles:
-			end
-			lua_table.ultimate_effect_active = true
-		end
-
-		Song_Circle_Effect(lua_table.ultimate_range)
-	end
-end
-
-local function UltimateFinish()
-	if not lua_table.ultimate_secondary_effect_active	--IF effect unactive, activate
-	then
-		lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.big.intensity, controller_shake.big.duration)
-		for i = 1, #particles_library.song_circle_GO_UID_children do
-			lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.song_circle_GO_UID_children[i])	--TODO-Particles:
-		end
-		Song_Circle_Effect(lua_table.ultimate_range)
-		lua_table.ultimate_secondary_effect_active = true
 	end
 end
 
@@ -2679,7 +2632,7 @@ function lua_table:Update()
 									lua_table.song_3_secondary_effect_active = true
 								end
 
-								if time_since_action > lua_table.song_3_secondary_effect_end and attack_colliders.circle_2.active
+								if attack_colliders.circle_2.active and time_since_action > lua_table.song_3_secondary_effect_end
 								then
 									lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.circle_2.GO_UID)	--TODO-Colliders: Check
 									attack_colliders.circle_2.active = false
@@ -2733,11 +2686,82 @@ function lua_table:Update()
 
 						elseif lua_table.current_state == state.ultimate
 						then
-							if time_since_action > lua_table.ultimate_finish_start and not lua_table.ultimate_effect_active 	--IF > secondary_effect_start and stage_1 effect ended
+							if time_since_action > lua_table.ultimate_secondary_effect_start	--STEP 3
 							then
-								UltimateFinish()
-							else
-								UltimateConcert()
+								if not lua_table.ultimate_secondary_effect_active	--IF effect unactive, activate
+								then
+									for i = 1, #particles_library.song_circle_GO_UID_children do
+										lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.song_circle_GO_UID_children[i])	--TODO-Particles:
+									end
+
+									lua_table.GameObjectFunctions:SetActiveGameObject(true, attack_colliders.concert.GO_UID)	--TODO-Colliders: Check
+									attack_colliders.concert.active = true
+
+									lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.big.intensity, controller_shake.big.duration)
+
+									lua_table.ultimate_secondary_effect_active = true
+								end
+
+								if attack_colliders.concert.active and time_since_action > lua_table.ultimate_secondary_effect_end
+								then
+									lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.concert.GO_UID)	--TODO-Colliders: Check
+									attack_colliders.concert.active = false
+								end
+
+							elseif time_since_action > lua_table.ultimate_effect_end	--STEP 2
+							then
+								if lua_table.ultimate_effect_active
+								then
+									for i = 1, #particles_library.concert_GO_UID_children do
+										lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.concert_GO_UID_children[i])	--TODO-Particles:
+									end
+
+									if attack_colliders.concert.active then
+										lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.concert.GO_UID)	--TODO-Colliders: Check
+										attack_colliders.concert.active = false
+									end
+
+									--Setup for stage_2
+									lua_table.AnimationFunctions:PlayAnimation(animation_library.two_handed_slam, lua_table.ultimate_secondary_animation_speed, jaskier_GO_UID)
+									lua_table.AnimationFunctions:PlayAnimation(animation_library.two_handed_slam, lua_table.ultimate_secondary_animation_speed, particles_library.slash_GO_UID)
+									current_animation = animation_library.two_handed_slam
+
+									lua_table.AudioFunctions:StopAudioEventGO(audio_library.concert, jaskier_GO_UID)
+									lua_table.AudioFunctions:PlayAudioEventGO(audio_library.two_handed_slam, jaskier_GO_UID)
+									current_audio = audio_library.two_handed_slam
+
+									lua_table.collider_damage = base_damage_real * lua_table.ultimate_secondary_damage
+									lua_table.collider_effect = lua_table.ultimate_secondary_status_effect
+
+									lua_table.ultimate_effect_active = false
+								end
+
+							else	--STEP 1
+								if not lua_table.ultimate_effect_active	--IF effect unactive, activate
+								then
+									for i = 1, #particles_library.concert_GO_UID_children do
+										lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.concert_GO_UID_children[i])	--TODO-Particles:
+									end
+
+									lua_table.GameObjectFunctions:SetActiveGameObject(true, attack_colliders.concert.GO_UID)	--TODO-Colliders: Check
+									attack_colliders.concert.active = true
+
+									interval_started_at = game_time
+
+									lua_table.ultimate_effect_active = true
+								end
+
+								local time_since_last_damage = game_time - interval_started_at
+								if not attack_colliders.concert.active and time_since_last_damage > lua_table.ultimate_damage_interval then
+									lua_table.GameObjectFunctions:SetActiveGameObject(true, attack_colliders.concert.GO_UID)	--TODO-Colliders: Check
+									attack_colliders.concert.active = true
+
+									interval_started_at = game_time
+
+								elseif attack_colliders.concert.active and time_since_last_damage > lua_table.ultimate_damage_interval / 2 then
+									lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.concert.GO_UID)	--TODO-Colliders: Check
+									attack_colliders.concert.active = false
+								end
 							end
 						end
 					end
