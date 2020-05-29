@@ -307,6 +307,8 @@ local key_joystick_threshold = 0.25		--As reference, my very fucked up Xbox cont
 lua_table.input_walk_threshold = 0.95
 
 --Camera Limitations (IF angle between forward character vector and plane normal > 90º (45º on corners) then all velocities = 0)
+local camera_GO
+local camera_script
 local camera_bounds_ratio = 0.85
 local off_bounds = false
 local bounds_vector = { x = 0, z = 0 }
@@ -742,15 +744,16 @@ local function BidimensionalAngleBetweenVectors(vec_x1, vec_y1, vec_x2, vec_y2)
 	return math.acos((vec_x1 * vec_x2 + vec_y1 * vec_y2) / (math.sqrt(vec_x1 ^ 2 + vec_y1 ^ 2) + math.sqrt(vec_x2 ^ 2 * vec_y2 ^ 2)))
 end
 
-local function GimbalLockWorkaroundY(param_rot_y)	--TODO: Remove when bug is fixed
-	if math.abs(lua_table.TransformFunctions:GetRotation(geralt_GO_UID)[1]) == 180.0
+local function GimbalLockWorkaroundY(target_GO)	--TODO: Remove when bug is fixed
+	local target_rot = lua_table.TransformFunctions:GetRotation(target_GO)
+	if math.abs(target_rot[1]) == 180.0 or math.abs(target_rot[3]) == 180.0
 	then
-		if param_rot_y >= 0 then param_rot_y = 180 - param_rot_y
-		elseif param_rot_y < 0 then param_rot_y = -180 - param_rot_y
+		if target_rot[2] >= 0 then target_rot[2] = 180 - target_rot[2]
+		elseif target_rot[2] < 0 then target_rot[2] = -180 - target_rot[2]
 		end
 	end
 
-	return param_rot_y
+	return target_rot[2]
 end
 
 --Geometry END	----------------------------------------------------------------------------
@@ -1061,13 +1064,22 @@ end
 --Character Movement BEGIN	----------------------------------------------------------------------------
 
 local function SaveDirection()
-	rot_y = math.rad(GimbalLockWorkaroundY(lua_table.TransformFunctions:GetRotation(geralt_GO_UID)[2]))	--TODO: Remove GimbalLock stage when Euler bug is fixed
+	rot_y = math.rad(GimbalLockWorkaroundY(geralt_GO_UID))	--TODO: Remove GimbalLock stage when Euler bug is fixed
 
 	if mov_input.used_input.x ~= 0 or mov_input.used_input.z ~= 0	--IF input given, use as direction
 	then
 		local magnitude = math.sqrt(mov_input.used_input.x ^ 2 + mov_input.used_input.z ^ 2)
-		rec_direction.x, rec_direction.z = mov_input.used_input.x / magnitude, mov_input.used_input.z / magnitude
-	else															--IF no input, use Y angle to move FORWARD
+
+		local orig_inputs = {	--Transform inputs into unit vector values
+			x = mov_input.used_input.x / magnitude,
+			z = mov_input.used_input.z / magnitude
+		}
+
+		local camera_Y_rot = math.rad(camera_script.current_camera_orientation)
+		rec_direction.x = orig_inputs.z * math.sin(camera_Y_rot) + orig_inputs.x * math.cos(camera_Y_rot)
+		rec_direction.z = orig_inputs.z * math.cos(camera_Y_rot) - orig_inputs.x * math.sin(camera_Y_rot)
+
+	else	--IF no input, use character Y angle to move FORWARD
 		rec_direction.x, rec_direction.z = math.sin(rot_y), math.cos(rot_y)
 	end
 end
@@ -1084,7 +1096,7 @@ local function DirectionInBounds(use_Y_angle)	--Every time we try to set a veloc
 	if off_bounds then
 		if use_Y_angle
 		then
-			rot_y = math.rad(GimbalLockWorkaroundY(lua_table.TransformFunctions:GetRotation(geralt_GO_UID)[2]))	--TODO: Remove GimbalLock stage when Euler bug is fixed
+			rot_y = math.rad(GimbalLockWorkaroundY(geralt_GO_UID))	--TODO: Remove GimbalLock stage when Euler bug is fixed
 			vec_x, vec_z = math.sin(rot_y), math.cos(rot_y)
 		else
 			vec_x, vec_z = rec_direction.x, rec_direction.z
@@ -1180,16 +1192,21 @@ local function MoveCharacter()
 	local magnitude = math.sqrt(mov_input.used_input.x ^ 2 + mov_input.used_input.z ^ 2)
 
 	--Move character
-	local mov_velocity = {	--Magnitude into vectorial values through input values
+	local orig_mov_velocity = {	--Magnitude into vectorial values through input values
 		x = lua_table.current_velocity * mov_input.used_input.x / magnitude,
 		z = lua_table.current_velocity * mov_input.used_input.z / magnitude
+	}
+
+	local camera_Y_rot = math.rad(camera_script.current_camera_orientation)
+	local mov_velocity = {	--Magnitude into vectorial values through input values
+		x = orig_mov_velocity.z * math.sin(camera_Y_rot) + orig_mov_velocity.x * math.cos(camera_Y_rot),
+		z = orig_mov_velocity.z * math.cos(camera_Y_rot) - orig_mov_velocity.x * math.sin(camera_Y_rot)
 	}
 
 	local position = lua_table.TransformFunctions:GetPosition(geralt_GO_UID)	--Rotate to velocity direction
 	lua_table.TransformFunctions:LookAt(position[1] + mov_velocity.x, position[2], position[3] + mov_velocity.z, geralt_GO_UID)
 
-	if DirectionInBounds(true)	--Only allow movement if camera bounds allows it
-	then
+	if DirectionInBounds(true) then	--Only allow movement if camera bounds allows it
 		lua_table.PhysicsFunctions:Move(mov_velocity.x * dt, mov_velocity.z * dt, geralt_GO_UID)
 	end		
 end
@@ -2028,7 +2045,7 @@ local function ProcessIncomingHit(collider_GO)
 end
 
 function lua_table:OnTriggerEnter()
-	lua_table.SystemFunctions:LOG("On Trigger Enter")
+	--lua_table.SystemFunctions:LOG("On Trigger Enter")
 	
 	local collider_GO = 0
 
@@ -2044,7 +2061,7 @@ function lua_table:OnTriggerEnter()
 end
 
 function lua_table:OnCollisionEnter()
-	lua_table.SystemFunctions:LOG("On Collision Enter")
+	--lua_table.SystemFunctions:LOG("On Collision Enter")
 
 	local collider_GO = 0
 
@@ -2151,8 +2168,12 @@ function lua_table:Awake()
 	attack_colliders.aard_circle_1.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.aard_circle_1.GO_name)
 
 	--Camera (Warning: If there's a camera GO, but no script the Engine WILL crash)
-	local camera_GO = lua_table.GameObjectFunctions:FindGameObject("Camera")
-	if camera_GO ~= nil and camera_GO ~= 0 then camera_bounds_ratio = lua_table.GameObjectFunctions:GetScript(camera_GO).Layer_3_FOV_ratio_1	end
+	camera_GO = lua_table.GameObjectFunctions:FindGameObject("Camera")
+	if camera_GO ~= nil and camera_GO ~= 0
+	then
+		camera_script = lua_table.GameObjectFunctions:GetScript(camera_GO)
+		camera_bounds_ratio = camera_script.Layer_3_FOV_ratio_1
+	end
 
 	lua_table.max_health_real = lua_table.max_health_orig	--Necessary for the first CalculateStats()
 	CalculateStats()	--Calculate stats based on orig values + modifier
@@ -2711,7 +2732,7 @@ function lua_table:Update()
 	--lua_table.SystemFunctions:LOG("Delta Time: " .. dt)
 	--lua_table.SystemFunctions:LOG("State: " .. lua_table.current_state)
 	--lua_table.SystemFunctions:LOG("Time passed: " .. time_since_action)
-	--rot_y = math.rad(GimbalLockWorkaroundY(lua_table.TransformFunctions:GetRotation()[2]))	--TODO: Remove GimbalLock stage when Euler bug is fixed
+	--rot_y = math.rad(GimbalLockWorkaroundY(geralt_GO_UID))	--TODO: Remove GimbalLock stage when Euler bug is fixed
 	--lua_table.SystemFunctions:LOG("Angle Y: " .. rot_y)
 	--lua_table.SystemFunctions:LOG("Ultimate: " .. lua_table.current_ultimate)
 	--lua_table.SystemFunctions:LOG("Combo num: " .. lua_table.combo_num)
