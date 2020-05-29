@@ -19,11 +19,11 @@ local function Reset()
 	lua_table.gamePaused = false
 	lua_table.InterfaceFunctions:MakeElementInvisible("Image", lua_table.parchmentImage_UUID)
 
-	lua_table.ObjectFunctions:SetActiveGameObject(false, lua_table.menuButton_UUID)
+	lua_table.InterfaceFunctions:MakeElementInvisible("Image", lua_table.menuButton_UUID)
 	lua_table.InterfaceFunctions:SetUIElementInteractable("Button", lua_table.menuButton_UUID, false)
-	lua_table.ObjectFunctions:SetActiveGameObject(false, lua_table.resumeButton_UUID)
+	lua_table.InterfaceFunctions:MakeElementInvisible("Image", lua_table.resumeButton_UUID)
 	lua_table.InterfaceFunctions:SetUIElementInteractable("Button", lua_table.resumeButton_UUID, false)
-	lua_table.ObjectFunctions:SetActiveGameObject(false, lua_table.combosButton_UUID)
+	lua_table.InterfaceFunctions:MakeElementInvisible("Image", lua_table.combosButton_UUID)
 	lua_table.InterfaceFunctions:SetUIElementInteractable("Button", lua_table.combosButton_UUID, false)
 end
 
@@ -47,15 +47,16 @@ function lua_table:Update()
 		lua_table.AudioFunctions:PlayAudioEvent("Play_Pause")
 		if lua_table.gamePaused == false
 		then
-			lua_table.InterfaceFunctions:MakeElementVisible("Image", lua_table.parchmentImage_UUID)
-			lua_table.ObjectFunctions:SetActiveGameObject(true, lua_table.menuButton_UUID)
-			lua_table.InterfaceFunctions:SetUIElementInteractable("Button", lua_table.menuButton_UUID, true)
-			lua_table.ObjectFunctions:SetActiveGameObject(true, lua_table.resumeButton_UUID)
-			lua_table.InterfaceFunctions:SetUIElementInteractable("Button", lua_table.resumeButton_UUID, true)
-			lua_table.ObjectFunctions:SetActiveGameObject(true, lua_table.combosButton_UUID)
-			lua_table.InterfaceFunctions:SetUIElementInteractable("Button", lua_table.combosButton_UUID, true)
 			lua_table.SystemFunctions:PauseGame()
 			lua_table.gamePaused = true
+			lua_table.InterfaceFunctions:MakeElementVisible("Image", lua_table.parchmentImage_UUID)
+
+			lua_table.InterfaceFunctions:MakeElementVisible("Image", lua_table.menuButton_UUID)
+			lua_table.InterfaceFunctions:SetUIElementInteractable("Button", lua_table.menuButton_UUID, true)
+			lua_table.InterfaceFunctions:MakeElementVisible("Image", lua_table.resumeButton_UUID)
+			lua_table.InterfaceFunctions:SetUIElementInteractable("Button", lua_table.resumeButton_UUID, true)
+			lua_table.InterfaceFunctions:MakeElementVisible("Image", lua_table.combosButton_UUID)
+			lua_table.InterfaceFunctions:SetUIElementInteractable("Button", lua_table.combosButton_UUID, true)
 		else
 			Reset()
 		end
@@ -67,6 +68,7 @@ function lua_table:Update()
 	end
 end
 
+-- Button functions
 function lua_table:GoToMainMenu()
 	goMenu = true
 	lua_table.AudioFunctions:PlayAudioEvent("Play_Button_main_menu")
