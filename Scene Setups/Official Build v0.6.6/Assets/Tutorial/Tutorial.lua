@@ -215,6 +215,8 @@ local function Step1()
     if geraltHasMoved == true and jaskierHasMoved == true and lua_table.StartStep2 == true
     then
         lua_table.InterfaceFunctions:MakeElementInvisible("Text", lua_table.textUID)
+        lua_table.InterfaceFunctions:SetText(" ", lua_table.textUID)
+
         lua_table.currentStep = Step.STEP_2
     end
 end
@@ -246,6 +248,8 @@ local function Step2()
     if geraltAttackY == true and geraltAttackB == true and jaskierAttackY == true and jaskierAttackB == true
     then
         lua_table.InterfaceFunctions:MakeElementInvisible("Text", lua_table.textUID)
+        lua_table.InterfaceFunctions:SetText(" ", lua_table.textUID)
+
         lua_table.currentStep = Step.STEP_3
     end
 end
@@ -256,7 +260,6 @@ end
 
 local function Step4()
     lua_table.InterfaceFunctions:MakeElementVisible("Text", lua_table.textUID)
-    lua_table.InterfaceFunctions:SetText("Kill all the enemies", lua_table.textUID)
 
     if enemy4Dead.enemyDead1 == 0 
     then
@@ -294,6 +297,8 @@ local function Step4()
     then
         lua_table.ObjectFunctions:SetActiveGameObject(true, step6)
         lua_table.currentStep = Step.STEP_6
+        lua_table.InterfaceFunctions:MakeElementInvisible("Text", lua_table.textUID)
+        lua_table.InterfaceFunctions:SetText(" ", lua_table.textUID)
     end
 end
 
@@ -304,6 +309,8 @@ local function Step5()
     if tableChestProp5.health == 0
     then
         lua_table.currentStep = Step.STEP_7
+        lua_table.InterfaceFunctions:MakeElementInvisible("Text", lua_table.textUID)
+        lua_table.InterfaceFunctions:SetText(" ", lua_table.textUID)
     end
 end
 
@@ -312,7 +319,7 @@ local function Step6()
 
     if lua_table.PauseStep6 == true and move == false
         then
-            lua_table.InterfaceFunctions:SetText("Press A to move great distances and dodge attacks. Consumes 1 energy bar (yellow)", lua_table.textUID)   
+            lua_table.InterfaceFunctions:SetText("Press A to move great distances and dodge attacks. Consumes 1 energy bar (yellow). Kill all the enemies!", lua_table.textUID)   
             lua_table.SystemFunctions:PauseGame()     
         end
     
@@ -373,13 +380,14 @@ local function Step6()
             lua_table.currentStep = Step.STEP_5
             lua_table.ObjectFunctions:SetActiveGameObject(true, step5)
             lua_table.ObjectFunctions:SetActiveGameObject(true, step7)
+            lua_table.InterfaceFunctions:MakeElementInvisible("Text", lua_table.textUID)
+            lua_table.InterfaceFunctions:SetText(" ", lua_table.textUID)
         end
 end
 
 
 local function Step7()
     lua_table.InterfaceFunctions:MakeElementVisible("Text", lua_table.textUID)
-    lua_table.InterfaceFunctions:SetText("Kill the enemeis - STEP 7", lua_table.textUID)
 
     if enemy7dead.enemy7_1_dead == 0 
     then
@@ -429,29 +437,27 @@ local function Step7()
     then
         lua_table.ObjectFunctions:SetActiveGameObject(true, step8)
         lua_table.currentStep = Step.STEP_8
+        lua_table.InterfaceFunctions:MakeElementInvisible("Text", lua_table.textUID)
+        lua_table.InterfaceFunctions:SetText(" ", lua_table.textUID)
     end
 
 end
 
 local function Step8()
-    lua_table.InterfaceFunctions:MakeElementVisible("Text", lua_table.textUID)
-    lua_table.InterfaceFunctions:SetText("STEP 8", lua_table.textUID)
-
     lua_table.ObjectFunctions:SetActiveGameObject(true, step9)
     lua_table.currentStep = Step.STEP_9
+    lua_table.InterfaceFunctions:MakeElementInvisible("Text", lua_table.textUID)
+    lua_table.InterfaceFunctions:SetText(" ", lua_table.textUID)
 end
 
 local function Step9()
     lua_table.InterfaceFunctions:MakeElementVisible("Text", lua_table.textUID)
-    lua_table.InterfaceFunctions:SetText("STEP 9", lua_table.textUID)
 
     if lua_table.PauseStep9 == true and moveStep9 == false
     then
         lua_table.SystemFunctions:PauseGame()     
         lua_table.SystemFunctions:LOG("PASUE GAME STEP 9")   
     end
-
-
 
     if TABLE_CARTAS.continue_meter1_full == true and TABLE_CARTAS.continue_meter2_full == true
     then
@@ -464,7 +470,7 @@ local function Step9()
 
     if lumberjackDead == false 
     then
-        if tableLumberjack.CurrentState == 4
+        if tableLumberjack.CurrentState == 4 or tableLumberjack.CurrentHealth <= 0
         then
             lua_table.SystemFunctions:LOG("LUMBERJACK DEAD")
             lumberjackDead = true
@@ -476,13 +482,14 @@ local function Step9()
         activateEnemiesStep10 = true
         lua_table.ObjectFunctions:SetActiveGameObject(true, step10)
         lua_table.currentStep = Step.STEP_10
+        lua_table.InterfaceFunctions:MakeElementInvisible("Text", lua_table.textUID)
+        lua_table.InterfaceFunctions:SetText(" ", lua_table.textUID)
     end
 end
 
 
 local function Step10()
     lua_table.InterfaceFunctions:MakeElementVisible("Text", lua_table.textUID)
-    lua_table.InterfaceFunctions:SetText("STEP 10", lua_table.textUID)
 
     if lua_table.PauseStep10 == true and moveStep10 == false
     then
@@ -565,7 +572,7 @@ local function Step10()
 
     if enemy10dead.enemy10_9_dead == 0 
     then
-        if tableEnemy10_9.CurrentState == 4
+        if tableEnemy10_9.CurrentState == 4 or tableEnemy10_9.CurrentHealth <= 0
         then
             enemy10dead.enemy10_9_dead = 1
         end
@@ -577,20 +584,19 @@ local function Step10()
         lua_table.ObjectFunctions:SetActiveGameObject(true, archers)
         lua_table.ObjectFunctions:SetActiveGameObject(true, step11)
         lua_table.currentStep = Step.STEP_11
+        lua_table.InterfaceFunctions:MakeElementInvisible("Text", lua_table.textUID)
+        lua_table.InterfaceFunctions:SetText(" ", lua_table.textUID)
     end
 end
 
 
 local function Step11()
     lua_table.InterfaceFunctions:MakeElementVisible("Text", lua_table.textUID)
-    lua_table.InterfaceFunctions:SetText("STEP 11", lua_table.textUID)
 
     if lua_table.PauseStep11 == true and moveStep11 == false
     then
         lua_table.SystemFunctions:PauseGame()     
-    end
-
-    
+    end   
 
     if  TABLE_CARTAS.continue_meter1_full == true and TABLE_CARTAS.continue_meter2_full == true
     then
@@ -601,7 +607,6 @@ local function Step11()
         lua_table.PauseStep11 = false
     end
     
-
     if tableGeralt.current_state == 4
     then
         geraltSpell = true
@@ -614,18 +619,16 @@ local function Step11()
 
     if enemy11_1_dead == false 
     then
-        if tableEnemy11_1.CurrentState == 4
+        if tableEnemy11_1.CurrentState == 4 or tableEnemy11_1.CurrentHealth <= 0
         then
-            lua_table.SystemFunctions:LOG("hola lumberjack 1 dead")
             enemy11_1_dead = true
         end
     end
 
     if enemy11_2_dead == false 
     then
-        if tableEnemy11_2.CurrentState == 4
+        if tableEnemy11_2.CurrentState == 4 or tableEnemy11_2.CurrentHealth <= 0
         then
-            lua_table.SystemFunctions:LOG("hola lumberjack 2 dead")
             enemy11_2_dead = true
         end
     end
@@ -634,8 +637,6 @@ local function Step11()
     then
         if tableEnemy11_3.currentState == 5
         then
-            lua_table.SystemFunctions:LOG("hola enemy 3 dead")
-
             enemy11_3_dead = true
         end
     end
@@ -644,7 +645,6 @@ local function Step11()
     then
         if tableEnemy11_4.currentState == 5
         then
-            lua_table.SystemFunctions:LOG("hola enemy 4 dead")
             enemy11_4_dead = true
         end
     end
@@ -653,7 +653,6 @@ local function Step11()
     then
         if tableEnemy11_5.currentState == 5
         then
-            lua_table.SystemFunctions:LOG("hola enemy 5 dead")
             enemy11_5_dead = true
         end
     end
@@ -662,7 +661,6 @@ local function Step11()
     then
         if tableEnemy11_6.currentState == 5
         then
-            lua_table.SystemFunctions:LOG("hola enemy 6 dead")
             enemy11_6_dead = true
         end
     end
@@ -671,7 +669,6 @@ local function Step11()
     then
         if tableEnemy11_7.currentState == 5
         then
-            lua_table.SystemFunctions:LOG("hola enemy 7 dead")
             enemy11_7_dead = true
         end
     end
@@ -680,7 +677,6 @@ local function Step11()
     then
         if tableEnemy11_8.currentState == 5
         then
-            lua_table.SystemFunctions:LOG("hola enemy 8 dead")
             enemy11_8_dead = true
         end
     end
@@ -689,7 +685,6 @@ local function Step11()
     then
         if tableEnemy11_9.currentState == 5
         then
-            lua_table.SystemFunctions:LOG("hola enemy 9 dead")
             enemy11_9_dead = true
         end
     end
@@ -699,20 +694,19 @@ local function Step11()
     then
         lua_table.ObjectFunctions:SetActiveGameObject(true, step12)
         lua_table.currentStep = Step.STEP_12
+        lua_table.InterfaceFunctions:MakeElementInvisible("Text", lua_table.textUID)
+        lua_table.InterfaceFunctions:SetText(" ", lua_table.textUID)
     end
 end
 
 
 local function Step12()
     lua_table.InterfaceFunctions:MakeElementVisible("Text", lua_table.textUID)
-    lua_table.InterfaceFunctions:SetText("STEP 12", lua_table.textUID)
 
     if lua_table.PauseStep12 == true and moveStep12 == false
     then
         lua_table.SystemFunctions:PauseGame()     
     end
-
-    
 
     if TABLE_CARTAS.continue_meter1_full == true and TABLE_CARTAS.continue_meter2_full == true
     then
@@ -868,13 +862,15 @@ local function Step12()
     geraltUlt == true and jaskierUlt == true 
     then
         lua_table.currentStep = Step.STEP_13
+        lua_table.InterfaceFunctions:MakeElementInvisible("Text", lua_table.textUID)
+        lua_table.InterfaceFunctions:SetText(" ", lua_table.textUID)
     end
 end
 
 
 local function Step13()
     lua_table.InterfaceFunctions:MakeElementVisible("Text", lua_table.textUID)
-    lua_table.InterfaceFunctions:SetText("STEP 13", lua_table.textUID)
+    lua_table.InterfaceFunctions:SetText("Go to the bonfire to save the game", lua_table.textUID)
 
     if lua_table.SaveGame13 == true and hasSaved== false
     then
@@ -901,6 +897,8 @@ local function Step13()
     if hasSaved == true
     then
         lua_table.currentStep = Step.NONE
+        lua_table.InterfaceFunctions:MakeElementInvisible("Text", lua_table.textUID)
+        lua_table.InterfaceFunctions:SetText(" ", lua_table.textUID)
     end
     
     

@@ -376,7 +376,7 @@ function GetTableWinLose()
         end
         
         --win condition
-        if current_level == 1 and FinalEnemy > 0 and finalenemy_script.current_state == 5 and is_win == false
+        if current_level == 1 and FinalEnemy > 0 and finalenemy_script.CurrentState == 5 or finalenemy_script.CurrentHealth <= 0 and is_win == false
         then
             is_win = true
         elseif current_level == 2 and Kikimora > 0 and kikimora_script.dead == true and is_win == false
