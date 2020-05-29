@@ -1017,28 +1017,32 @@ end
 
 --Character Particles BEGIN	----------------------------------------------------------------------------
 
-local function ParticlesShutdown(full)	--Full marks wether the particle shutdown is total, or just parcial (ultimate particles appear even when stunned/knocked back)
-	lua_table.AnimationFunctions:PlayAnimation(animation_library.evade, lua_table.evade_animation_speed, particles_library.slash_GO_UID)
-	lua_table.GameObjectFunctions:SetActiveGameObject(false, particles_library.slash_mesh_GO_UID)
-	lua_table.AnimationFunctions:PlayAnimation(animation_library.evade, lua_table.evade_animation_speed, particles_library.aard_cone_GO_UID)
-	lua_table.GameObjectFunctions:SetActiveGameObject(false, particles_library.aard_cone_mesh_GO_UID)
-	lua_table.AnimationFunctions:PlayAnimation(animation_library.evade, lua_table.evade_animation_speed, particles_library.aard_circle_GO_UID)
-	lua_table.GameObjectFunctions:SetActiveGameObject(false, particles_library.aard_circle_mesh_GO_UID)
-
-	for i = 1, #particles_library.run_particles_GO_UID_children do
-		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.run_particles_GO_UID_children[i])	--TODO-Particles: Stop movement dust particles
-	end
-
-	--lua_table.ParticlesFunctions:StopParticleEmitter(sword_particles_GO_UID)
-	--lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.aard_hand_particles_GO_UID)
-
-	if full then
-		for i = 1, #particles_library.stun_particles_GO_UID_children do
-			lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.stun_particles_GO_UID_children[i])	--TODO-Particles:
+local function ParticlesShutdown()
+	if lua_table.current_state == state.run or lua_table.current_state == state.evade
+	then
+		for i = 1, #particles_library.run_particles_GO_UID_children do
+			lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.run_particles_GO_UID_children[i])	--TODO-Particles: Stop movement dust particles
 		end
 
-		for i = 1, #particles_library.ultimate_particles_GO_UID_children do
-			lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.ultimate_particles_GO_UID_children[i])	--TODO-Particles:
+	elseif lua_table.current_state <= state.combo_3 and lua_table.current_state >= state.light_1	--IF attack
+	then
+		lua_table.AnimationFunctions:PlayAnimation(animation_library.evade, lua_table.evade_animation_speed, particles_library.slash_GO_UID)
+		lua_table.GameObjectFunctions:SetActiveGameObject(false, particles_library.slash_mesh_GO_UID)
+
+		--lua_table.ParticlesFunctions:StopParticleEmitter(sword_particles_GO_UID)
+
+	elseif lua_table.current_state == state.ability
+	then
+		lua_table.AnimationFunctions:PlayAnimation(animation_library.evade, lua_table.evade_animation_speed, particles_library.aard_cone_GO_UID)
+		lua_table.GameObjectFunctions:SetActiveGameObject(false, particles_library.aard_cone_mesh_GO_UID)
+		lua_table.AnimationFunctions:PlayAnimation(animation_library.evade, lua_table.evade_animation_speed, particles_library.aard_circle_GO_UID)
+		lua_table.GameObjectFunctions:SetActiveGameObject(false, particles_library.aard_circle_mesh_GO_UID)
+
+		--lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.aard_hand_particles_GO_UID)
+	elseif lua_table.current_state == state.stunned
+	then
+		for i = 1, #particles_library.stun_particles_GO_UID_children do
+			lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.stun_particles_GO_UID_children[i])	--TODO-Particles:
 		end
 	end
 end
@@ -1138,7 +1142,7 @@ local function CheckCameraBounds()	--Check if we're currently outside the camera
 			lua_table.AnimationFunctions:SetBlendTime(0.1, geralt_GO_UID)
 
 			AttackColliderShutdown()
-			ParticlesShutdown(false)
+			ParticlesShutdown()
 			AudioShutdown()
 
 			local geralt_pos = lua_table.TransformFunctions:GetPosition(geralt_GO_UID)	--Look at and set direction from knockback
@@ -1974,7 +1978,7 @@ local function ProcessIncomingHit(collider_GO)
 		lua_table.AnimationFunctions:SetBlendTime(0.1, geralt_GO_UID)
 
 		AttackColliderShutdown()
-		ParticlesShutdown(false)
+		ParticlesShutdown()
 		AudioShutdown()
 		ReviveShutdown()
 
@@ -2253,7 +2257,7 @@ function lua_table:Update()
 		if lua_table.current_health <= 0	--IF has to die
 		then
 			AttackColliderShutdown()							--IF any attack colliders on, turn off
-			ParticlesShutdown(true)
+			ParticlesShutdown()
 			AudioShutdown()
 			ReviveShutdown()
 

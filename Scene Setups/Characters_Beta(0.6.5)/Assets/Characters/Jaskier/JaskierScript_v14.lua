@@ -168,8 +168,7 @@ local state = {	--The order of the states is relevant to the code, CAREFUL CHANG
 
 	song_1 = 17,
 	song_2 = 18,
-	song_3 = 19,
-	song_4 = 20
+	song_3 = 19
 }
 lua_table.previous_state = state.idle	-- Previous State
 lua_table.current_state = state.idle	-- Current State
@@ -611,14 +610,6 @@ lua_table.note_stack = { 'N', 'N', 'N', 'N' }	-- Last 4 attacks performed (0=non
 	lua_table.song_3_secondary_damage = 5.0
 	lua_table.song_3_secondary_status_effect = attack_effects_ID.knockback
 
-	--Song 4 (Unused)
-	lua_table.song_4 = { 'L', 'L', 'L', 'H' }	--NOT IMPLEMENTED
-	lua_table.song_4_size = 4
-	lua_table.song_4_effect_start = 0
-	lua_table.song_4_duration = 1400
-	lua_table.song_4_animation_speed = 30.0
-	lua_table.song_4_damage = 2.5
-
 --Ultimate
 lua_table.current_ultimate = 0.0
 lua_table.max_ultimate = 100.0
@@ -1006,25 +997,40 @@ end
 
 --Character Particles BEGIN	----------------------------------------------------------------------------
 
-local function ParticlesShutdown(full)
-	lua_table.AnimationFunctions:PlayAnimation(animation_library.evade, lua_table.evade_animation_speed, particles_library.slash_GO_UID)
-	lua_table.GameObjectFunctions:SetActiveGameObject(false, particles_library.slash_mesh_GO_UID)
+local function ParticlesShutdown()
+	if lua_table.current_state == state.run
+	then
+		for i = 1, #particles_library.run_particles_GO_UID_children do
+			lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.run_particles_GO_UID_children[i])	--TODO-Particles: Stop movement dust particles
+		end
 
-	for i = 1, #particles_library.run_particles_GO_UID_children do
-		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.run_particles_GO_UID_children[i])	--TODO-Particles:
-	end
+	elseif lua_table.current_state <= state.song_1 and lua_table.current_state >= state.light_1	--IF attack
+	then
+		lua_table.AnimationFunctions:PlayAnimation(animation_library.evade, lua_table.evade_animation_speed, particles_library.slash_GO_UID)
+		lua_table.GameObjectFunctions:SetActiveGameObject(false, particles_library.slash_mesh_GO_UID)
 
-	for i = 1, #particles_library.song_circle_GO_UID_children do
-		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.song_circle_GO_UID_children[i])	--TODO-Particles:
-	end
-	for i = 1, #particles_library.song_cone_GO_UID_children do
-		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.song_cone_GO_UID_children[i])	--TODO-Particles:
-	end
-	for i = 1, #particles_library.concert_GO_UID_children do
-		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.concert_GO_UID_children[i])	--TODO-Particles:
-	end
+		--lua_table.ParticlesFunctions:StopParticleEmitter(guitar_particles_GO_UID)
 
-	if full then
+	elseif lua_table.current_state == state.song_2
+	then
+		for i = 1, #particles_library.song_cone_GO_UID_children do
+			lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.song_cone_GO_UID_children[i])	--TODO-Particles:
+		end
+
+	elseif lua_table.current_state == state.song_3
+	then
+		for i = 1, #particles_library.song_circle_GO_UID_children do
+			lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.song_circle_GO_UID_children[i])	--TODO-Particles:
+		end
+
+	elseif lua_table_current_state == state.ultimate
+	then
+		for i = 1, #particles_library.concert_GO_UID_children do
+			lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.concert_GO_UID_children[i])	--TODO-Particles:
+		end
+
+	elseif lua_table.current_state == state.stunned
+	then
 		for i = 1, #particles_library.stun_particles_GO_UID_children do
 			lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.stun_particles_GO_UID_children[i])	--TODO-Particles:
 		end
@@ -1126,7 +1132,7 @@ local function CheckCameraBounds()	--Check if we're currently outside the camera
 			lua_table.AnimationFunctions:SetBlendTime(0.1, jaskier_GO_UID)
 
 			AttackColliderShutdown()
-			ParticlesShutdown(false)
+			ParticlesShutdown()
 			AudioShutdown()
 
 			local jaskier_pos = lua_table.TransformFunctions:GetPosition(jaskier_GO_UID)	--Look at and set direction from knockback
@@ -2126,7 +2132,7 @@ local function ProcessIncomingHit(collider_GO)
 		lua_table.AnimationFunctions:SetBlendTime(0.1, jaskier_GO_UID)
 
 		AttackColliderShutdown()
-		ParticlesShutdown(false)
+		ParticlesShutdown()
 		AudioShutdown()
 		ReviveShutdown()
 
@@ -2385,7 +2391,7 @@ function lua_table:Update()
 		if lua_table.current_health <= 0	--IF has to die
 		then
 			AttackColliderShutdown()
-			ParticlesShutdown(true)
+			ParticlesShutdown()
 			AudioShutdown()
 			ReviveShutdown()
 
