@@ -229,7 +229,7 @@ function lua_table:PlaySecondLevel()
 
 	lua_table.InterfaceFunctions:MakeElementInvisible("Image", showFirstLevel)
 	lua_table.InterfaceFunctions:SetUIElementInteractable("Button", showFirstLevel, false)
-	llua_table.InterfaceFunctions:MakeElementInvisible("Image", showSecondLevel)
+	lua_table.InterfaceFunctions:MakeElementInvisible("Image", showSecondLevel)
 	lua_table.InterfaceFunctions:SetUIElementInteractable("Button", showSecondLevel, false)
 
 	lua_table.InterfaceFunctions:MakeElementInvisible("Image", secondLevelPlay)
