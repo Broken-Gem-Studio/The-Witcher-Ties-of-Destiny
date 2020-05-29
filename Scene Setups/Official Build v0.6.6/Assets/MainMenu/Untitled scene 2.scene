@@ -393,7 +393,7 @@
                 "positionx": "-2.472900",
                 "positiony": "2.060703",
                 "positionz": "1.754112",
-                "rotationw": "0.958935",
+                "rotationw": "0.958936",
                 "rotationx": "0.220358",
                 "rotationy": "0.068954",
                 "rotationz": "0.164713",
@@ -638,22 +638,36 @@
                     "ResourceScript": "Assets/MainMenu/CharacterSelection.lua"
                 },
                 "Script variables": {
-                    "Count": 3,
+                    "Count": 5,
                     "Variable 0": {
                         "DisplayObjectName": false,
-                        "Name": "next",
+                        "Name": "fading",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": false
                     },
                     "Variable 1": {
                         "DisplayObjectName": false,
+                        "Name": "fading2",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "next",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
                         "Name": "scene1",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
                     },
-                    "Variable 2": {
+                    "Variable 4": {
                         "DisplayObjectName": false,
                         "Name": "scene2",
                         "ObjectName": "",
@@ -1267,7 +1281,7 @@
                 "positionx": "1.485633",
                 "positiony": "1.104254",
                 "positionz": "1.252686",
-                "rotationw": "0.950265",
+                "rotationw": "0.950266",
                 "rotationx": "0.248183",
                 "rotationy": "0.180698",
                 "rotationz": "-0.052431",
@@ -1628,8 +1642,8 @@
                 "UID": 1576744915,
                 "colliderh": "220",
                 "colliderw": "336",
-                "colliderx": "504",
-                "collidery": "182",
+                "colliderx": "471",
+                "collidery": "179",
                 "draggable": "0",
                 "function": "ShowFirstLevel",
                 "hovered_color.a": "1.000000",
@@ -1706,9 +1720,9 @@
                 "rotationx": "0.557283",
                 "rotationy": "-0.424742",
                 "rotationz": "0.580694",
-                "scalex": "1.000037",
-                "scaley": "1.000037",
-                "scalez": "1.000037"
+                "scalex": "1.000038",
+                "scaley": "1.000038",
+                "scalez": "1.000038"
             },
             "13": {
                 "Active": true,
@@ -2531,8 +2545,8 @@
                 "UID": 1527111821,
                 "colliderh": "77",
                 "colliderw": "170",
-                "colliderx": "1061",
-                "collidery": "598",
+                "colliderx": "1028",
+                "collidery": "595",
                 "draggable": "0",
                 "function": "PlaySecondLevel",
                 "hovered_color.a": "1.000000",
@@ -2791,8 +2805,8 @@
                 "rotationy": "0.000040",
                 "rotationz": "-0.000037",
                 "scalex": "1.000000",
-                "scaley": "1.000037",
-                "scalez": "1.000037"
+                "scaley": "1.000038",
+                "scalez": "1.000038"
             },
             "13": {
                 "Active": true,
@@ -2944,9 +2958,9 @@
                 "rotationx": "-0.002922",
                 "rotationy": "-0.707101",
                 "rotationz": "0.707101",
-                "scalex": "1.000303",
-                "scaley": "1.000303",
-                "scalez": "1.000303"
+                "scalex": "1.000304",
+                "scaley": "1.000304",
+                "scalez": "1.000304"
             },
             "13": {
                 "Active": true,
@@ -3012,9 +3026,9 @@
                 "rotationx": "-0.000001",
                 "rotationy": "0.999618",
                 "rotationz": "0.000001",
-                "scalex": "1.000009",
+                "scalex": "1.000008",
                 "scaley": "0.999999",
-                "scalez": "1.000009"
+                "scalez": "1.000008"
             },
             "2": {
                 "Active": true,
@@ -3758,8 +3772,8 @@
                 "rotationx": "0.000389",
                 "rotationy": "0.017847",
                 "rotationz": "0.999831",
-                "scalex": "1.000037",
-                "scaley": "1.000037",
+                "scalex": "1.000038",
+                "scaley": "1.000038",
                 "scalez": "1.000000"
             },
             "13": {
@@ -3920,9 +3934,9 @@
                 "rotationx": "0.000000",
                 "rotationy": "0.914064",
                 "rotationz": "0.000000",
-                "scalex": "2.121521",
+                "scalex": "2.121518",
                 "scaley": "2.121600",
-                "scalez": "2.121521"
+                "scalez": "2.121518"
             },
             "14": {
                 "Active": true,
@@ -4038,8 +4052,8 @@
                 "UID": 319114402,
                 "colliderh": "434",
                 "colliderw": "791",
-                "colliderx": "530",
-                "collidery": "276",
+                "colliderx": "497",
+                "collidery": "274",
                 "draggable": "0",
                 "function": "StartGame",
                 "hovered_color.a": "0.000000",
@@ -4257,8 +4271,8 @@
                 "UID": 553298557,
                 "colliderh": "268",
                 "colliderw": "346",
-                "colliderx": "460",
-                "collidery": "454",
+                "colliderx": "428",
+                "collidery": "452",
                 "draggable": "0",
                 "function": "ShowSecondLevel",
                 "hovered_color.a": "1.000000",
@@ -4946,8 +4960,8 @@
                 "UID": 718101885,
                 "colliderh": "41",
                 "colliderw": "122",
-                "colliderx": "837",
-                "collidery": "660",
+                "colliderx": "805",
+                "collidery": "657",
                 "draggable": "0",
                 "function": "QuitGame",
                 "hovered_color.a": "1.000000",
@@ -5280,8 +5294,8 @@
                 "rotationx": "-0.000498",
                 "rotationy": "0.001196",
                 "rotationz": "0.999934",
-                "scalex": "1.000038",
-                "scaley": "1.000038",
+                "scalex": "1.000039",
+                "scaley": "1.000039",
                 "scalez": "1.000000"
             },
             "13": {
@@ -5628,8 +5642,8 @@
                 "rotationy": "0.000028",
                 "rotationz": "-0.000027",
                 "scalex": "1.000000",
-                "scaley": "1.000038",
-                "scalez": "1.000038"
+                "scaley": "1.000039",
+                "scalez": "1.000039"
             },
             "13": {
                 "Active": true,
@@ -6071,8 +6085,8 @@
                 "rotationx": "-0.000413",
                 "rotationy": "0.019338",
                 "rotationz": "0.999803",
-                "scalex": "1.000074",
-                "scaley": "1.000074",
+                "scalex": "1.000076",
+                "scaley": "1.000076",
                 "scalez": "1.000000"
             },
             "13": {
@@ -7074,8 +7088,8 @@
                 "UID": 707707475,
                 "colliderh": "45",
                 "colliderw": "122",
-                "colliderx": "837",
-                "collidery": "519",
+                "colliderx": "805",
+                "collidery": "516",
                 "draggable": "0",
                 "function": "PlayGame",
                 "hovered_color.a": "1.000000",
@@ -7614,8 +7628,8 @@
                 "rotationx": "0.000580",
                 "rotationy": "0.001942",
                 "rotationz": "0.999933",
-                "scalex": "0.999924",
-                "scaley": "0.999924",
+                "scalex": "0.999922",
+                "scaley": "0.999922",
                 "scalez": "1.000000"
             },
             "13": {
@@ -7632,6 +7646,54 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "338687158",
+        "Static": false
+    },
+    "754755737": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 71807234,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "5": {
+                "Active": true,
+                "ColorA": "1.000000",
+                "ColorB": "0.000001",
+                "ColorG": "0.000001",
+                "ColorR": "0.000001",
+                "IsProgressBar": "0",
+                "MantainAspect": "1",
+                "NumberFrames": "0",
+                "Resources": {
+                    "ResourceTexture": null
+                },
+                "UID": 2096991745,
+                "fullscreen": true,
+                "index": 1,
+                "position2Dx": "0.000000",
+                "position2Dy": "0.000000",
+                "priority": "1",
+                "size2Dx": "1336.339966",
+                "size2Dy": "641.099976",
+                "visible": "0"
+            }
+        },
+        "Index": 8,
+        "Name": "FADE",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1098181697",
         "Static": false
     },
     "755078682": {
@@ -7908,11 +7970,11 @@
             },
             "3": {
                 "ACTIVECAM": true,
-                "ASPECTRATIO": 2.1571125984191895,
+                "ASPECTRATIO": 2.137686252593994,
                 "Active": true,
                 "CULLINGCAM": true,
                 "FARPLANE": 1000.0,
-                "FOV": 46.3650016784668,
+                "FOV": 46.74131393432617,
                 "NEARPLANE": 0.10000000149011612,
                 "UID": 198984427,
                 "index": 1
@@ -8030,8 +8092,8 @@
                 "UID": 1779969061,
                 "colliderh": "77",
                 "colliderw": "170",
-                "colliderx": "1061",
-                "collidery": "598",
+                "colliderx": "1028",
+                "collidery": "595",
                 "draggable": "0",
                 "function": "PlayFirstLevel",
                 "hovered_color.a": "1.000000",
@@ -8513,7 +8575,7 @@
                 "positionx": "0.000000",
                 "positiony": "33.181786",
                 "positionz": "-0.000002",
-                "rotationw": "0.857184",
+                "rotationw": "0.857183",
                 "rotationx": "0.513286",
                 "rotationy": "0.041734",
                 "rotationz": "0.005680",
