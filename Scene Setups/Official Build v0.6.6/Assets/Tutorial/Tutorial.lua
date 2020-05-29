@@ -192,7 +192,7 @@ local archer_1, archer_2, archer_3, archer_4, archer_5, archer_6, archer_7, arch
 local tableArcher_1, tableArcher_2, tableArcher_3, tableArcher_4, tableArcher_5, tableArcher_6, tableArcher_7, tableArcher_8, tableArcher_9
 
 -- Vasriables STEP
-local step5, step6, step7, step8, step9, step10, step11, step12, archers 
+local step6, step7, step8, step9, step10, step11, step12, archers 
 
 ------------------------------------------------------------------------------
 -- STEPS
@@ -378,7 +378,6 @@ local function Step6()
         if geraltRoll == true and jaskierRoll == true and ghoul_1_dead == true and ghoul_2_dead == true and ghoul_3_dead == true and ghoul_4_dead == true
         then
             lua_table.currentStep = Step.STEP_5
-            lua_table.ObjectFunctions:SetActiveGameObject(true, step5)
             lua_table.ObjectFunctions:SetActiveGameObject(true, step7)
             lua_table.InterfaceFunctions:MakeElementInvisible("Text", lua_table.textUID)
             lua_table.InterfaceFunctions:SetText(" ", lua_table.textUID)
@@ -583,9 +582,9 @@ local function Step10()
     then
         lua_table.ObjectFunctions:SetActiveGameObject(true, archers)
         lua_table.ObjectFunctions:SetActiveGameObject(true, step11)
-        lua_table.currentStep = Step.STEP_11
         lua_table.InterfaceFunctions:MakeElementInvisible("Text", lua_table.textUID)
         lua_table.InterfaceFunctions:SetText(" ", lua_table.textUID)
+        lua_table.currentStep = Step.STEP_11
     end
 end
 
@@ -996,7 +995,6 @@ function lua_table:Awake()
     CARTAS = lua_table.ObjectFunctions:FindGameObject("CARTAS")
     TABLE_CARTAS = lua_table.ObjectFunctions:GetScript(CARTAS)
 
-    step5 = lua_table.ObjectFunctions:FindGameObject("STEP 5")
     step6 = lua_table.ObjectFunctions:FindGameObject("STEP 6")
     step7 = lua_table.ObjectFunctions:FindGameObject("STEP 7")
     step8 = lua_table.ObjectFunctions:FindGameObject("STEP 8")
@@ -1154,7 +1152,6 @@ function lua_table:Awake()
 end
 
 function lua_table:Start()
-    lua_table.ObjectFunctions:SetActiveGameObject(false, step5)
     lua_table.ObjectFunctions:SetActiveGameObject(false, step6)
     lua_table.ObjectFunctions:SetActiveGameObject(false, step7)
     lua_table.ObjectFunctions:SetActiveGameObject(false, step8)
