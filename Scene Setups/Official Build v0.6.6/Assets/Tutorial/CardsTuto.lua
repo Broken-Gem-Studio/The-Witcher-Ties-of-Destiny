@@ -8,6 +8,13 @@ function GetTableCardsTuto()
     lua_table["Audio"] = Scripting.Audio()
 
 
+    local showedCard6 = false
+    local showedCard9 = false
+    local showedCard10 = false
+    local showedCard11 = false
+    local showedCard12 = false
+    local showedCard13 = false
+
     --test for potions image to test double images movement
     local potions = false
 
@@ -72,7 +79,7 @@ function GetTableCardsTuto()
             continue_meter1 = continue_meter1 - 0.6
         end
 
-        if lua_table["Inputs"]:IsGamepadButton(1, "BUTTON_A", "REPEAT") and lua_table.continue_meter2_full == false
+        if lua_table["Inputs"]:IsGamepadButton(2, "BUTTON_A", "REPEAT") and lua_table.continue_meter2_full == false
         then
             continue_meter2 = continue_meter2 + 1
         else 
@@ -115,21 +122,21 @@ function GetTableCardsTuto()
     end
     
     function lua_table:Awake()
-        EVADE = lua_table["GameObject"]:FindGameObject("EVADE")
-        SPECIAL = lua_table["GameObject"]:FindGameObject("SPECIAL")
-        SPECIAL2 = lua_table["GameObject"]:FindGameObject("SPECIAL2")
-        ULTIMATE = lua_table["GameObject"]:FindGameObject("ULTI")
-        ULTIMATE2 = lua_table["GameObject"]:FindGameObject("ULTI2")
-        COMBOS = lua_table["GameObject"]:FindGameObject("COMBO")
-        COMBOS2 = lua_table["GameObject"]:FindGameObject("COMBO2")
-        POTIS = lua_table["GameObject"]:FindGameObject("POTIS")
-        POTIS2 = lua_table["GameObject"]:FindGameObject("POTIS2")
-        ENEMY = lua_table["GameObject"]:FindGameObject("ENEMY")
-        BONFIRE = lua_table["GameObject"]:FindGameObject("BONFIRE")
+        EVADE = lua_table["GameObject"]:FindGameObject("C_EVADE")
+        SPECIAL = lua_table["GameObject"]:FindGameObject("C_SPECIALCARD")
+        SPECIAL2 = lua_table["GameObject"]:FindGameObject("C_SPECIALCARD2")
+        ULTIMATE = lua_table["GameObject"]:FindGameObject("C_ULTI")
+        ULTIMATE2 = lua_table["GameObject"]:FindGameObject("C_ULTI2")
+        COMBOS = lua_table["GameObject"]:FindGameObject("C_COMBO")
+        COMBOS2 = lua_table["GameObject"]:FindGameObject("C_COMBO2")
+        POTIS = lua_table["GameObject"]:FindGameObject("C_POTIS")
+        POTIS2 = lua_table["GameObject"]:FindGameObject("C_POTIS2")
+        ENEMY = lua_table["GameObject"]:FindGameObject("C_ENEMY")
+        BONFIRE = lua_table["GameObject"]:FindGameObject("C_BONFIRE")
         
 
-        P1_METER = lua_table["GameObject"]:FindGameObject("P1METER")
-        P2_METER = lua_table["GameObject"]:FindGameObject("P2METER")
+        P1_METER = lua_table["GameObject"]:FindGameObject("C_P1METER")
+        P2_METER = lua_table["GameObject"]:FindGameObject("C_P2METER")
         
         TUTOMANAGER = lua_table["GameObject"]:FindGameObject("TutorialManager")
         lua_table.tuto = lua_table["GameObject"]:GetScript(TUTOMANAGER)
@@ -164,7 +171,7 @@ function GetTableCardsTuto()
 
 
         --TESTING LOGIC
-        if lua_table.tuto.currentStep == 6 and lua_table.tuto.PauseStep6 == true--evade 6
+        if lua_table.tuto.currentStep == 6 and lua_table.tuto.PauseStep6 == true and showedCard6 == false--evade 6
         then
             Meter()
             
@@ -173,8 +180,10 @@ function GetTableCardsTuto()
                 lua_table["UI"]:MakeElementVisible("Image", EVADE)
                 lua_table["UI"]:MakeElementVisible("CircularBar", P1_METER)
                 lua_table["UI"]:MakeElementVisible("CircularBar", P2_METER)
-            
+                
             end
+            lua_table["System"]:LOG("HOLA continue Meter 1"..continue_meter1)
+            lua_table["System"]:LOG("HOLA continue Meter 2"..continue_meter2)
 
             if  continue_meter1 >= 100
             then
@@ -192,17 +201,20 @@ function GetTableCardsTuto()
                 HideCard()
                 continue_meter1 = 0
                 continue_meter2 = 0
+                showedCard6 = true
 
             end
                     
         end
         
-        if lua_table.tuto.currentStep == 12 and lua_table.tuto.PauseStep12 == true--ultimate 12
+        if lua_table.tuto.currentStep == 12 and lua_table.tuto.PauseStep12 == true and showedCard12 == false--ultimate 12
         then
 
             if lua_table.continue_meter1_full == false and lua_table.continue_meter2_full == false
             then
                 lua_table["UI"]:MakeElementVisible("Image", ULTIMATE)
+                lua_table["System"]:LOG("STEP 12 visible ultimate1")
+
                 --lua_table["UI"]:MakeElementVisible("CircularBar", P1_METER)
                 --lua_table["UI"]:MakeElementVisible("CircularBar", P2_METER)
 
@@ -217,15 +229,16 @@ function GetTableCardsTuto()
                 end
                 --]]
 
-                if step25 == true
-                then
-                    Meter()
-                    lua_table["UI"]:MakeElementInvisible("Image", ULTIMATE)
-                    lua_table["UI"]:MakeElementVisible("Image", ULTIMATE2)
-                    lua_table["UI"]:MakeElementVisible("CircularBar", P1_METER)
-                    lua_table["UI"]:MakeElementVisible("CircularBar", P2_METER)
-                end
+
           
+            end
+            if step25 == true
+            then
+                Meter()
+                lua_table["UI"]:MakeElementInvisible("Image", ULTIMATE)
+                lua_table["UI"]:MakeElementVisible("Image", ULTIMATE2)
+                lua_table["UI"]:MakeElementVisible("CircularBar", P1_METER)
+                lua_table["UI"]:MakeElementVisible("CircularBar", P2_METER)
             end
 
             if continue_meter1 >= 100 and step25 == true --and lua_table.continue_meter1_full == false
@@ -243,12 +256,13 @@ function GetTableCardsTuto()
                 HideCard()
                 continue_meter1 = 0
                 continue_meter2 = 0
+                showedCard12 = true
             end
             
        
         end
 
-        if lua_table.tuto.currentStep == 11 and lua_table.tuto.PauseStep11 == true--special 11
+        if lua_table.tuto.currentStep == 11 and lua_table.tuto.PauseStep11 == true and showedCard11 == false--special 11
         then
 
             if lua_table.continue_meter1_full == false and lua_table.continue_meter2_full == false
@@ -268,17 +282,17 @@ function GetTableCardsTuto()
                 end
                 --]]
 
-                if step35 == true
-                then
-                    Meter()
-                    lua_table["UI"]:MakeElementInvisible("Image", SPECIAL)
-                    lua_table["UI"]:MakeElementVisible("Image", SPECIAL2)
-                    lua_table["UI"]:MakeElementVisible("CircularBar", P1_METER)
-                    lua_table["UI"]:MakeElementVisible("CircularBar", P2_METER)
-                end
+
             
             end
-
+            if step35 == true
+            then
+                Meter()
+                lua_table["UI"]:MakeElementInvisible("Image", SPECIAL)
+                lua_table["UI"]:MakeElementVisible("Image", SPECIAL2)
+                lua_table["UI"]:MakeElementVisible("CircularBar", P1_METER)
+                lua_table["UI"]:MakeElementVisible("CircularBar", P2_METER)
+            end
             if continue_meter1 >= 100 and step35 == true--and lua_table.continue_meter1_full == false
             then
                 lua_table.continue_meter1_full = true
@@ -294,13 +308,14 @@ function GetTableCardsTuto()
                 HideCard()
                 continue_meter1 = 0
                 continue_meter2 = 0
+                showedCard11 = true
             end
            
            
         end
         
 
-        if lua_table.tuto.currentStep == 9 and lua_table.tuto.PauseStep9 == true--enemies 9
+        if lua_table.tuto.currentStep == 9 and lua_table.tuto.PauseStep9 == true and showedCard9 == false--enemies 9
         then      
 
             Meter()
@@ -327,23 +342,27 @@ function GetTableCardsTuto()
                 HideCard()
                 continue_meter1 = 0
                 continue_meter2 = 0
+                showedCard9 = true
             end
     
            
         end
         
-        if lua_table.tuto.currentStep == 10 and lua_table.tuto.PauseStep10 == true --combos 10
+        if lua_table.tuto.currentStep == 10 and lua_table.tuto.PauseStep10 == true and showedCard10 == false--combos 10
         then
 
             if lua_table.continue_meter1_full == false and lua_table.continue_meter2_full == false
             then
                 lua_table["UI"]:MakeElementVisible("Image", COMBOS)
+                lua_table["System"]:LOG("STEP 10 visible combo1")
                 --lua_table["UI"]:MakeElementVisible("CircularBar", P1_METER)
                 --lua_table["UI"]:MakeElementVisible("CircularBar", P2_METER)
 
-                if lua_table["Inputs"]:IsGamepadButton(1, "BUTTON_A", "DOWN")
+                if lua_table["Inputs"]:IsGamepadButton(1, "BUTTON_A", "DOWN") and step55 == false
                 then
                     step55 = true
+                    continue_meter1 = 0
+                    continue_meter2 = 0
                 end
                 --[[
 
@@ -352,37 +371,44 @@ function GetTableCardsTuto()
                     step55 = false
                 end
                 --]]
-
-                if step55 == true
-                then
-                    Meter()
-                    lua_table["UI"]:MakeElementInvisible("Image", COMBOS)
-                    lua_table["UI"]:MakeElementVisible("Image", COMBOS2)
-                    lua_table["UI"]:MakeElementVisible("CircularBar", P1_METER)
-                    lua_table["UI"]:MakeElementVisible("CircularBar", P2_METER)
-                end
             
+            end
+
+            
+            if step55 == true
+            then
+
+                Meter()
+                lua_table["UI"]:MakeElementInvisible("Image", COMBOS)
+                lua_table["UI"]:MakeElementVisible("Image", COMBOS2)
+                lua_table["UI"]:MakeElementVisible("CircularBar", P1_METER)
+                lua_table["UI"]:MakeElementVisible("CircularBar", P2_METER)      
             end
 
             if continue_meter1 >= 100 and step55 == true --and lua_table.continue_meter1_full == false
             then
                 lua_table.continue_meter1_full = true
+                lua_table["System"]:LOG("STEP 10 continue meter1 full = true")
             end
 
             if continue_meter2 >= 100 and step55 == true --and lua_table.continue_meter2_full == false
             then
                 lua_table.continue_meter2_full = true
+                lua_table["System"]:LOG("STEP 10 continue meter2 full = true")
             end
+            lua_table["System"]:LOG("HOLA continue Meter 1"..continue_meter1)
+            lua_table["System"]:LOG("HOLA continue Meter 2"..continue_meter2)
 
             if lua_table.continue_meter1_full == true and  lua_table.continue_meter2_full == true
             then
                 HideCard()
                 continue_meter1 = 0
                 continue_meter2 = 0
+                lua_table["System"]:LOG("HOLA showedcard10")
+                showedCard10 = true
             end
-          
-
         end
+
         --tetsing  potions double image
 
         if lua_table["Inputs"]:KeyDown("G")
@@ -456,7 +482,7 @@ function GetTableCardsTuto()
             
         end
 
-        if lua_table.tuto.currentStep == 13 and lua_table.tuto.SaveGame13 == true--bonfire
+        if lua_table.tuto.currentStep == 13 and lua_table.tuto.SaveGame13 == true and showedCard13== false--bonfire
         then
             Meter()
 
@@ -483,14 +509,10 @@ function GetTableCardsTuto()
                 HideCard()
                 continue_meter1 = 0
                 continue_meter2 = 0
+                showedCard13 = true
             end
           
         end
-
-        
-   
-
-        
 
     end
     

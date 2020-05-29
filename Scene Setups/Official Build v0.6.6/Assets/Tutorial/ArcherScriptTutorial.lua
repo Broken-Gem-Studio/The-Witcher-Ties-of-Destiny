@@ -565,6 +565,8 @@ function lua_table:Update()
                 time_death = PerfGameTime()
                 start_death = true
 
+                lua_table.PhysicsSystem:SetActiveController(false, MyUID)
+
                 local tuto_manager = lua_table.GameObjectFunctions:FindGameObject("TutorialManager")
                 if tuto_manager ~= 0
                 then 
