@@ -2063,7 +2063,14 @@ local function ProcessIncomingHit(collider_GO)
 		elseif enemy_script.collider_effect == attack_effects_ID.knockback
 		then
 			local jaskier_pos = lua_table.TransformFunctions:GetPosition(jaskier_GO_UID)	--Look at and set direction from knockback
-			local knockback_pos = lua_table.TransformFunctions:GetPosition(collider_GO)
+			local knockback_pos
+			
+			if collider_parent ~= 0 then
+				knockback_pos = lua_table.TransformFunctions:GetPosition(collider_parent)
+			else
+				knockback_pos = lua_table.TransformFunctions:GetPosition(collider_GO)
+			end
+
 			lua_table.TransformFunctions:LookAt(knockback_pos[1], jaskier_pos[2], knockback_pos[3], jaskier_GO_UID)
 			
 			rec_direction.x = jaskier_pos[1] - knockback_pos[1]
