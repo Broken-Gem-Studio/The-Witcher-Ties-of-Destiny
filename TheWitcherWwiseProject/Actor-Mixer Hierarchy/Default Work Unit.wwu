@@ -4094,7 +4094,7 @@
 							<ChildrenList>
 								<RandomSequenceContainer Name="Screamer_ghoul_damaged" ID="{CAAB3F1D-7A6B-4323-ABE7-4DED7A2AE2FA}" ShortID="963831451">
 									<PropertyList>
-										<Property Name="3DSpatialization" Type="int16" Value="1"/>
+										<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-6</Value>
@@ -4213,7 +4213,7 @@
 								</RandomSequenceContainer>
 								<RandomSequenceContainer Name="Screamer_ghoul_death" ID="{C10FB734-3A86-425E-9E00-BED1C909689D}" ShortID="973327410">
 									<PropertyList>
-										<Property Name="3DSpatialization" Type="int16" Value="1"/>
+										<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-6</Value>
@@ -4358,7 +4358,7 @@
 								</RandomSequenceContainer>
 								<RandomSequenceContainer Name="Screamer_ghoul_killed" ID="{4EB40AA7-84C6-4B4A-86E7-590ED73C4B38}" ShortID="795925888">
 									<PropertyList>
-										<Property Name="3DSpatialization" Type="int16" Value="1"/>
+										<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-6</Value>
@@ -4477,7 +4477,7 @@
 								</RandomSequenceContainer>
 								<RandomSequenceContainer Name="Screamer_ghoul_scream" ID="{9C390EEE-AEFE-4806-8F3F-C81B6204DA20}" ShortID="100561486">
 									<PropertyList>
-										<Property Name="3DSpatialization" Type="int16" Value="1"/>
+										<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-6</Value>
@@ -4596,7 +4596,7 @@
 								</RandomSequenceContainer>
 								<RandomSequenceContainer Name="Screamer_ghoul_scream_variation" ID="{D8C1163C-A90F-4D81-A78C-CBEF917754A2}" ShortID="798179693">
 									<PropertyList>
-										<Property Name="3DSpatialization" Type="int16" Value="1"/>
+										<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-6</Value>
@@ -4745,7 +4745,7 @@
 							<ChildrenList>
 								<RandomSequenceContainer Name="Titan_ghoull_death" ID="{0B0258B2-28BD-4CEA-9230-62FE8952FF3D}" ShortID="430195354">
 									<PropertyList>
-										<Property Name="3DSpatialization" Type="int16" Value="1"/>
+										<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-6</Value>
@@ -4864,7 +4864,7 @@
 								</RandomSequenceContainer>
 								<RandomSequenceContainer Name="Titan_ghoul_fall_back" ID="{AC09B63D-FC5A-4A2F-A799-DC72CD695C45}" ShortID="217901588">
 									<PropertyList>
-										<Property Name="3DSpatialization" Type="int16" Value="1"/>
+										<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-6</Value>
@@ -4983,7 +4983,7 @@
 								</RandomSequenceContainer>
 								<RandomSequenceContainer Name="Titan_ghoul_minion_spawn" ID="{172F4CBB-0F62-4FD4-A49A-5564F8F9C399}" ShortID="258021770">
 									<PropertyList>
-										<Property Name="3DSpatialization" Type="int16" Value="1"/>
+										<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-6</Value>
@@ -5102,7 +5102,7 @@
 								</RandomSequenceContainer>
 								<RandomSequenceContainer Name="Titan_ghoul_take_damage" ID="{F30ED6A4-EE1F-45BF-BD3B-DBFF62A79E50}" ShortID="217586477">
 									<PropertyList>
-										<Property Name="3DSpatialization" Type="int16" Value="1"/>
+										<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-6</Value>
@@ -5273,7 +5273,7 @@
 								</RandomSequenceContainer>
 								<RandomSequenceContainer Name="Titan_ghoul_scream_attack" ID="{85DFC8E2-552C-4EF6-89F9-080C8FE3907B}" ShortID="394705704">
 									<PropertyList>
-										<Property Name="3DSpatialization" Type="int16" Value="1"/>
+										<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-6</Value>
@@ -5448,7 +5448,7 @@
 							<ChildrenList>
 								<Sound Name="Minion_both_arms_attack" ID="{2EE2E7ED-1EDE-4383-8942-06AB431F7837}" ShortID="843467275">
 									<PropertyList>
-										<Property Name="3DSpatialization" Type="int16" Value="1"/>
+										<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-6</Value>
@@ -5522,7 +5522,7 @@
 								</Sound>
 								<Sound Name="Minion_right_punch" ID="{51D63A0D-C4F6-4395-B129-593DF194153F}" ShortID="47536074">
 									<PropertyList>
-										<Property Name="3DSpatialization" Type="int16" Value="1"/>
+										<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-6</Value>
@@ -5596,7 +5596,7 @@
 								</Sound>
 								<RandomSequenceContainer Name="Minion_take_damage_scream" ID="{ABBB178C-52C2-4ED3-AA12-3A77C38A3B74}" ShortID="958074926">
 									<PropertyList>
-										<Property Name="3DSpatialization" Type="int16" Value="1"/>
+										<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-6</Value>
@@ -5715,7 +5715,7 @@
 								</RandomSequenceContainer>
 								<RandomSequenceContainer Name="Minion_take_damage" ID="{D1A80E83-94F6-45D4-910F-D7D32AE8E504}" ShortID="371738183">
 									<PropertyList>
-										<Property Name="3DSpatialization" Type="int16" Value="1"/>
+										<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-6</Value>
@@ -5834,7 +5834,7 @@
 								</RandomSequenceContainer>
 								<RandomSequenceContainer Name="Minion_death" ID="{384310FA-1329-428D-A3AB-B13025F2C6C7}" ShortID="794012326">
 									<PropertyList>
-										<Property Name="3DSpatialization" Type="int16" Value="1"/>
+										<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-6</Value>
