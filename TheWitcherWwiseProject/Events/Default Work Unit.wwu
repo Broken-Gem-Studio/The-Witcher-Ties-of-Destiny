@@ -1188,6 +1188,43 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Folder Name="Selection Menu" ID="{366C125B-8520-4A28-851C-9C0F3084663D}" ShortID="968368918">
+					<ChildrenList>
+						<Event Name="Play_Character_Hover" ID="{5F861BB9-E44C-490D-9DF6-10BA39C3E799}">
+							<ChildrenList>
+								<Action Name="" ID="{8872C0A8-1881-4B80-BD1F-0CDD0D85E371}" ShortID="179206929">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Character_Hover" ID="{BB51891C-7C7E-495C-A195-4FF25BDC015F}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Character_Selected" ID="{8F567D8C-36E7-4EB8-811E-3B6A0106E5A7}">
+							<ChildrenList>
+								<Action Name="" ID="{694EF3AA-E95C-491E-84B6-1E5CA51B06D5}" ShortID="192756617">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Character_Selected" ID="{716DBD2C-CF49-4840-80C4-E63B3940B36E}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Character_Unselected" ID="{512DB14B-E8DE-4540-805A-33AB046B47CD}">
+							<ChildrenList>
+								<Action Name="" ID="{8BA3AB63-181B-4327-AA69-4A32089E5D10}" ShortID="765272283">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Character_Unselected" ID="{E6575997-48F2-461A-B42E-0829337B9D51}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

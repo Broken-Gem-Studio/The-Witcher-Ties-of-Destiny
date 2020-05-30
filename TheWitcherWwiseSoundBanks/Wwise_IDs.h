@@ -17,6 +17,9 @@ namespace AK
         static const AkUniqueID PLAY_ARCHER_RANGED_ATTACK = 2370528178U;
         static const AkUniqueID PLAY_BUTTON_MAIN_MENU = 3182384320U;
         static const AkUniqueID PLAY_BUTTON_RESUME = 3725905392U;
+        static const AkUniqueID PLAY_CHARACTER_HOVER = 2315361796U;
+        static const AkUniqueID PLAY_CHARACTER_SELECTED = 4128046305U;
+        static const AkUniqueID PLAY_CHARACTER_UNSELECTED = 993611128U;
         static const AkUniqueID PLAY_ENEMY_CONVERSATION_01_PT1 = 3274957762U;
         static const AkUniqueID PLAY_ENEMY_CONVERSATION_01_PT2 = 3274957761U;
         static const AkUniqueID PLAY_ENEMY_CONVERSATION_02_PT1 = 4138452717U;
