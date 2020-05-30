@@ -124,9 +124,9 @@ local audio_library = {
 	attack_miss = "Play_Geralt_sword_swing",
 	attack_hit = "Play_Geralt_sword_metal",
 
-	combo_1 = "Play_Geralt_combo_1",	--Slide
-	combo_2 = "Play_Geralt_combo_2",	--Spin
-	combo_3 = "Play_Geralt_combo_3",	--Jump
+	combo_1 = "G_Combo_1",	--Slide
+	combo_2 = "G_Combo_2",	--Spin
+	combo_3 = "G_Combo_3",	--Jump
 
 	item_potion = "Play_Geralt_potion_fx"
 }
@@ -1748,8 +1748,6 @@ end
 local function ReviveShutdown()	--IF I was reviving, not anymore
 	if revive_target ~= nil
 	then
-		lua_table.AudioFunctions:StopAudioEventGO(audio_library.revive, geralt_GO_UID)	--TODO-AUDIO: Ultimate Sound
-		current_audio = audio_library.none
 		revive_target.being_revived = false
 		revive_target = nil
 	end
@@ -2389,8 +2387,6 @@ function lua_table:Update()
 
 						if lua_table.current_state == state.revive
 						then
-							lua_table.AudioFunctions:StopAudioEventGO(audio_library.revive, geralt_GO_UID)
-							current_audio = audio_library.none
 							revive_target = nil
 						elseif lua_table.current_state == state.evade
 						then

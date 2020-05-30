@@ -1,0 +1,44 @@
++ That's gotta hurt! -> (x damage dealed)
+	> A player deals damage to an enemy
+
++ Get some! -> (x succesful hits)
+	> A player hits an enemy with an attack
+
++ And stay down! -> (x minions killed)
+	> A player kills a minion enemy
+
++ The bigger they are... -> (x special enemies killed)
+	> A player kills a special enemy
+
++ Crowd controller. -> (x enemies incapacitated)
+	> A player stuns, knocks back, or taunts an enemy
+
++ Collateral damage! -> (x objects destroyed) (props vamos)
+	> A player destroys a prop
+
++ You're too slow! -> (x attacks evaded)
+	> Enemy hits a collider that the player leaves behind when rolling
+
++ Sharing is caring. -> (items shared x times with ally)
+	> Player destroys prop but let's ally take potion instead
+	> A player takes a potion the other dropped (only once per potion)
+
++ I got your back! -> (protected ally x times)
+	> Player hits enemy that recently hit ally
+
++ No one left behind! -> (healed ally x times)
+	> Player revives the other
+
++ Glad to have you back! -> (resurrected ally x times)
+	> Player resurrects the other using a bonfire
+
+-----------------------------------------------------
+
+- Too little too late... (failed to revive ally x times)
+	> Ally dies
+
+- Ouch! -> (x damage received)
+	> Player recieves damage
+
+- Knockout! -> (fallen in battle x times)
+	> Player is downed
