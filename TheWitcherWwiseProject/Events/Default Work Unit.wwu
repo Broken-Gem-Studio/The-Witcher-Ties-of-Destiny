@@ -1236,6 +1236,43 @@
 						</Event>
 					</ChildrenList>
 				</Folder>
+				<Folder Name="HUD" ID="{3AB8C1FD-87B7-431A-9DD9-0642A7A1B827}" ShortID="410450220">
+					<ChildrenList>
+						<Event Name="Play_HUD_No_Stamina" ID="{CF75391A-A586-45A4-A99A-63FC01360152}">
+							<ChildrenList>
+								<Action Name="" ID="{27B14F7D-99B9-40F9-B6A8-572ED4EA5C61}" ShortID="576871977">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="HUD_No_Stamina" ID="{D3A5EFE7-B197-4406-941A-00AD88E5F1F8}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_HUD_Special_Up" ID="{66C3B5DA-68CA-472A-8155-230C18AC04B1}">
+							<ChildrenList>
+								<Action Name="" ID="{21037DB2-D9AB-4330-9A79-CB879FCBDD58}" ShortID="42751335">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="HUD_Special_Up" ID="{DE0CBE2C-85EA-4374-98EF-F55D4276485D}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_HUD_Switch_Potion" ID="{222914E9-7AFA-47AA-A165-F49D8EB38463}">
+							<ChildrenList>
+								<Action Name="" ID="{D3858543-7591-4B2D-A85B-49D39233C371}" ShortID="911726440">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="HUD_Switch_Potion" ID="{7BD04934-72EA-4FBC-BB93-B2BF2172F828}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
