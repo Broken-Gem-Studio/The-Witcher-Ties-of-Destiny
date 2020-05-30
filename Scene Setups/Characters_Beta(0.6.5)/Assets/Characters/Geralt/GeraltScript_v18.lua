@@ -1075,9 +1075,14 @@ local function SaveDirection()
 			z = mov_input.used_input.z / magnitude
 		}
 
-		local camera_Y_rot = math.rad(camera_script.current_camera_orientation)
-		rec_direction.x = orig_inputs.z * math.sin(camera_Y_rot) + orig_inputs.x * math.cos(camera_Y_rot)
-		rec_direction.z = orig_inputs.z * math.cos(camera_Y_rot) - orig_inputs.x * math.sin(camera_Y_rot)
+		if camera_script.current_camera_orientation ~= nil then
+			local camera_Y_rot = math.rad(camera_script.current_camera_orientation)
+			rec_direction.x = orig_inputs.z * math.sin(camera_Y_rot) + orig_inputs.x * math.cos(camera_Y_rot)
+			rec_direction.z = orig_inputs.z * math.cos(camera_Y_rot) - orig_inputs.x * math.sin(camera_Y_rot)
+		else
+			rec_direction.x = orig_inputs.x
+			rec_direction.z = orig_inputs.z
+		end
 
 	else	--IF no input, use character Y angle to move FORWARD
 		rec_direction.x, rec_direction.z = math.sin(rot_y), math.cos(rot_y)
@@ -1149,10 +1154,12 @@ local function CheckCameraBounds()	--Check if we're currently outside the camera
 	if bounds_vector.x ~= 0 or bounds_vector.z ~= 0 then
 		bounds_angle = math.rad(bounds_angle)
 
-		local camera_Y_rot = math.rad(camera_script.current_camera_orientation)
-		local orig_vector = { x = bounds_vector.x, z = bounds_vector.z }
-		bounds_vector.x = orig_vector.z * math.sin(camera_Y_rot) + orig_vector.x * math.cos(camera_Y_rot)
-		bounds_vector.z = orig_vector.z * math.cos(camera_Y_rot) - orig_vector.x * math.sin(camera_Y_rot)
+		if camera_script.current_camera_orientation ~= nil then
+			local camera_Y_rot = math.rad(camera_script.current_camera_orientation)
+			local orig_vector = { x = bounds_vector.x, z = bounds_vector.z }
+			bounds_vector.x = orig_vector.z * math.sin(camera_Y_rot) + orig_vector.x * math.cos(camera_Y_rot)
+			bounds_vector.z = orig_vector.z * math.cos(camera_Y_rot) - orig_vector.x * math.sin(camera_Y_rot)
+		end
 
 		off_bounds = true
 
@@ -1202,12 +1209,16 @@ local function MoveCharacter()
 		x = lua_table.current_velocity * mov_input.used_input.x / magnitude,
 		z = lua_table.current_velocity * mov_input.used_input.z / magnitude
 	}
-
-	local camera_Y_rot = math.rad(camera_script.current_camera_orientation)
-	local mov_velocity = {	--Magnitude into vectorial values through input values
-		x = orig_mov_velocity.z * math.sin(camera_Y_rot) + orig_mov_velocity.x * math.cos(camera_Y_rot),
-		z = orig_mov_velocity.z * math.cos(camera_Y_rot) - orig_mov_velocity.x * math.sin(camera_Y_rot)
-	}
+	
+	local mov_velocity = {}
+	if camera_script.current_camera_orientation ~= nil then
+		local camera_Y_rot = math.rad(camera_script.current_camera_orientation)
+		mov_velocity.x = orig_mov_velocity.z * math.sin(camera_Y_rot) + orig_mov_velocity.x * math.cos(camera_Y_rot)	--Magnitude into vectorial values through input values
+		mov_velocity.z = orig_mov_velocity.z * math.cos(camera_Y_rot) - orig_mov_velocity.x * math.sin(camera_Y_rot)
+	else
+		mov_velocity.x = orig_mov_velocity.x
+		mov_velocity.z = orig_mov_velocity.z
+	end
 
 	local position = lua_table.TransformFunctions:GetPosition(geralt_GO_UID)	--Rotate to velocity direction
 	lua_table.TransformFunctions:LookAt(position[1] + mov_velocity.x, position[2], position[3] + mov_velocity.z, geralt_GO_UID)
