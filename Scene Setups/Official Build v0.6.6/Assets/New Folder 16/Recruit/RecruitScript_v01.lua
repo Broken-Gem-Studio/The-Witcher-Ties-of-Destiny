@@ -52,7 +52,7 @@ local attack_effects = {
 ------------   All the values below are placeholders, will change them when testing
 -- Ghoul values 
 lua_table.MyUID = 0 --Entity UID
-lua_table.max_hp = 80
+lua_table.max_hp = 120
 lua_table.health = 0
 lua_table.speed = 7
 lua_table.knock_speed = 35
@@ -67,7 +67,7 @@ lua_table.AggroRange = 25
 lua_table.minDistance = 2.5 -- If entity is inside this distance, then attack
 lua_table.maxDistance = 5
 --
-lua_table.stun_duration = 4000
+lua_table.stun_duration = 2000
 
 local knock_force = {0, 0, 0}
 
@@ -115,10 +115,7 @@ local Front_Collider = 0
 lua_table.collider_damage = 0
 lua_table.collider_effect = 0
 
-local HitEmitter1_UID = 0
-local HitEmitter2_UID = 0
-local HitEmitter3_UID = 0
-local HitEmitter4_UID = 0
+local Recruit_General_Emitter = 0
 
 local random_attack = 0
 local random_death_anim = 0
@@ -207,11 +204,9 @@ end
 
 local function AttackColliderShutdown()
 	if is_front_active then
-		lua_table.GameObjectFunctions:SetActiveGameObject(false, Front_Att_Coll)	--TODO-Colliders: Check
+		lua_table.GameObject:SetActiveGameObject(false, Front_Collider)	--TODO-Colliders: Check
 		is_front_active = false
 	end
-
-	lua_table.Particles:StopParticleEmitter(HitEmitter1_UID)
 end
 	
 local function Idle() 
@@ -376,10 +371,12 @@ local function Die()
 			lua_table.Animations:PlayAnimation("Death_2", random_death_time, lua_table.MyUID)
 		end
 		
-		lua_table.Particles:PlayParticleEmitter(HitEmitter1_UID)
-		lua_table.Particles:PlayParticleEmitter(HitEmitter2_UID)
-		lua_table.Particles:PlayParticleEmitter(HitEmitter3_UID)
-		lua_table.Particles:PlayParticleEmitter(HitEmitter4_UID)
+		local particles = {}
+		particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Recruit_Blood_Emitter", Recruit_General_Emitter))
+		for i = 1, #particles do 
+		    lua_table.Particles:PlayParticleEmitter(particles[i])
+		end
+
 		start_death = true
 	end
 
@@ -409,10 +406,11 @@ function lua_table:OnTriggerEnter()
 					AttackColliderShutdown()
 					lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
 
-					lua_table.Particles:PlayParticleEmitter(HitEmitter1_UID)
-					lua_table.Particles:PlayParticleEmitter(HitEmitter2_UID)
-					lua_table.Particles:PlayParticleEmitter(HitEmitter3_UID)
-					lua_table.Particles:PlayParticleEmitter(HitEmitter4_UID)
+					local particles = {}
+					particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Recruit_Blood_Emitter", Recruit_General_Emitter))
+					for i = 1, #particles do 
+					    lua_table.Particles:PlayParticleEmitter(particles[i])
+					end
 
 					start_stun = true
 					lua_table.currentState = State.STUNNED
@@ -459,10 +457,13 @@ function lua_table:OnTriggerEnter()
 			else
 				AttackColliderShutdown()
 				lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
-				lua_table.Particles:PlayParticleEmitter(HitEmitter1_UID)
-				lua_table.Particles:PlayParticleEmitter(HitEmitter2_UID)
-				lua_table.Particles:PlayParticleEmitter(HitEmitter3_UID)
-				lua_table.Particles:PlayParticleEmitter(HitEmitter4_UID)
+				
+				local particles = {}
+				particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Recruit_Blood_Emitter", Recruit_General_Emitter))
+				for i = 1, #particles do 
+				    lua_table.Particles:PlayParticleEmitter(particles[i])
+				end
+
 				lua_table.System:LOG("Hit registered")
 			end
 		end
@@ -489,10 +490,11 @@ function lua_table:RequestedTrigger(collider_GO)
 				AttackColliderShutdown()
 				lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
 
-				lua_table.Particles:PlayParticleEmitter(HitEmitter1_UID)
-				lua_table.Particles:PlayParticleEmitter(HitEmitter2_UID)
-				lua_table.Particles:PlayParticleEmitter(HitEmitter3_UID)
-				lua_table.Particles:PlayParticleEmitter(HitEmitter4_UID)
+				local particles = {}
+				particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Recruit_Blood_Emitter", Recruit_General_Emitter))
+				for i = 1, #particles do 
+				    lua_table.Particles:PlayParticleEmitter(particles[i])
+				end
 
 				start_stun = true
 				lua_table.currentState = State.STUNNED
@@ -537,10 +539,13 @@ function lua_table:RequestedTrigger(collider_GO)
 		else
 			AttackColliderShutdown()
 			lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
-			lua_table.Particles:PlayParticleEmitter(HitEmitter1_UID)
-			lua_table.Particles:PlayParticleEmitter(HitEmitter2_UID)
-			lua_table.Particles:PlayParticleEmitter(HitEmitter3_UID)
-			lua_table.Particles:PlayParticleEmitter(HitEmitter4_UID)
+			
+			local particles = {}
+			particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Recruit_Blood_Emitter", Recruit_General_Emitter))
+			for i = 1, #particles do 
+			    lua_table.Particles:PlayParticleEmitter(particles[i])
+			end
+
 			lua_table.System:LOG("Hit registered")
 		end
 	end
@@ -550,26 +555,12 @@ end
 function lua_table:Awake()
 	lua_table.System:LOG("Recruit AWAKE")
 
-	HitEmitter1_UID = lua_table.GameObject:FindChildGameObject("RecruitHit1_Emitter")
-	HitEmitter2_UID = lua_table.GameObject:FindChildGameObject("RecruitHit2_Emitter")
-	HitEmitter3_UID = lua_table.GameObject:FindChildGameObject("RecruitHit3_Emitter")
-	HitEmitter4_UID = lua_table.GameObject:FindChildGameObject("RecruitHit4_Emitter")
+	Recruit_General_Emitter = lua_table.GameObject:FindChildGameObject("Recruit_General_Particles")
 
 end
 
 function lua_table:Start()
 	lua_table.System:LOG("Recruit START")
-	
-	lua_table.Particles:ActivateParticlesEmission(HitEmitter1_UID)
-	lua_table.Particles:ActivateParticlesEmission(HitEmitter2_UID)
-	lua_table.Particles:ActivateParticlesEmission(HitEmitter3_UID)
-	lua_table.Particles:ActivateParticlesEmission(HitEmitter4_UID)
-
-	lua_table.Particles:StopParticleEmitter(HitEmitter1_UID)
-	lua_table.Particles:StopParticleEmitter(HitEmitter2_UID)
-	lua_table.Particles:StopParticleEmitter(HitEmitter3_UID)
-	lua_table.Particles:StopParticleEmitter(HitEmitter4_UID)
-
 
 	-- Getting Entity and Player UIDs
 	lua_table.MyUID = lua_table.GameObject:GetMyUID()

@@ -204,7 +204,7 @@ end
 
 local function AttackColliderShutdown()
 	if is_front_active then
-		lua_table.GameObjectFunctions:SetActiveGameObject(false, Front_Att_Coll)	--TODO-Colliders: Check
+		lua_table.GameObject:SetActiveGameObject(false, Front_Collider)	--TODO-Colliders: Check
 		is_front_active = false
 	end
 end
