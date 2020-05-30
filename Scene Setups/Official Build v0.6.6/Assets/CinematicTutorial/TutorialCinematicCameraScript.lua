@@ -144,10 +144,11 @@ function GetTableTutorialCinematicCameraScript()
         if fade_speed >= 1 then fade_speed = 1 end
         if fade_speed <= 0 then fade_speed = 0 end
 
-        if time > 0 and time < 4
+        if time > 0 and time < 5
         then
             local value = time / 4
             local alpha = Lerp(1, 0, value)
+            alpha = (alpha + 0.45 * dt)
             lua_table.UI:ChangeUIComponentColor("Image", 0, 0, 0, alpha, FadeScreen)
         end
 
@@ -158,7 +159,7 @@ function GetTableTutorialCinematicCameraScript()
 
         if time > 10 and time < 12
         then
-            fade_speed = fade_speed + 0.015
+            fade_speed = (fade_speed + 1  * dt)
             lua_table.UI:ChangeUIComponentAlpha("Image", fade_speed, FadeScreen)
         end
 
@@ -173,11 +174,11 @@ function GetTableTutorialCinematicCameraScript()
 
         if time > 13 and time < 15
         then
-            fade_speed = fade_speed - 0.015
+            fade_speed = (fade_speed - 1  * dt)
             lua_table.UI:ChangeUIComponentAlpha("Image", fade_speed, FadeScreen)
         end
         
-        if time > 14 and time < 32
+        if time > 13 and time < 32
         then
             GoTo(2, 3.33 * dt)
         end
@@ -199,7 +200,7 @@ function GetTableTutorialCinematicCameraScript()
 
         if time > 30 and time < 32
         then
-            fade_speed = fade_speed + 0.015
+            fade_speed = (fade_speed + 1  * dt)
             lua_table.UI:ChangeUIComponentAlpha("Image", fade_speed, FadeScreen)
         end
 
@@ -211,18 +212,18 @@ function GetTableTutorialCinematicCameraScript()
 
         if time > 33 and time < 35
         then
-            fade_speed = fade_speed - 0.015
+            fade_speed = (fade_speed - 1  * dt)
             lua_table.UI:ChangeUIComponentAlpha("Image", fade_speed, FadeScreen)
         end
 
-        if time > 34
+        if time > 33
         then
             GoTo(3, 4 * dt)
         end
 
         if time > 48 and time < 50
         then
-            fade_speed = fade_speed + 0.015
+            fade_speed = (fade_speed + 1  * dt)
             lua_table.UI:ChangeUIComponentAlpha("Image", fade_speed, FadeScreen)
         end
         
