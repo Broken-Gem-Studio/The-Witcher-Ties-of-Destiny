@@ -56,6 +56,9 @@ namespace AK
         static const AkUniqueID PLAY_GERALT_ULTIMATE = 3955362993U;
         static const AkUniqueID PLAY_GERALT_WALK_RUN_CONCRETE = 4167477001U;
         static const AkUniqueID PLAY_GERALT_WALK_RUN_DIRT = 2190072003U;
+        static const AkUniqueID PLAY_HUD_NO_STAMINA = 1291293387U;
+        static const AkUniqueID PLAY_HUD_SPECIAL_UP = 446899183U;
+        static const AkUniqueID PLAY_HUD_SWITCH_POTION = 2197850542U;
         static const AkUniqueID PLAY_JASKIER_FALL_DOWN_GET_UP = 2312986841U;
         static const AkUniqueID PLAY_JASKIER_GUITAR_SMASH = 1916833811U;
         static const AkUniqueID PLAY_JASKIER_GUITAR_SWING = 4022547377U;
@@ -175,6 +178,7 @@ namespace AK
         static const AkUniqueID INIT = 1355168291U;
         static const AkUniqueID CINEMATIC_LEVEL_2 = 3354210172U;
         static const AkUniqueID GERALT = 47710518U;
+        static const AkUniqueID HUD = 646625284U;
         static const AkUniqueID HUMAN_ENEMIES = 2380338445U;
         static const AkUniqueID JASKIER = 1735538792U;
         static const AkUniqueID LEVEL_2 = 1290008370U;
