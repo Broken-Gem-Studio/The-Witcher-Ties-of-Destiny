@@ -5,11 +5,11 @@
   "SchemaVersion": "11",
   "SoundbankVersion": "134",
   "RootPaths": {
-   "ProjectRoot": "E:\\GitHub\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\",
-   "SourceFilesRoot": "E:\\GitHub\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\.cache\\Windows\\",
-   "SoundBanksRoot": "E:\\GitHub\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseSoundBanks\\",
+   "ProjectRoot": "F:\\Github2\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\",
+   "SourceFilesRoot": "F:\\Github2\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\.cache\\Windows\\",
+   "SoundBanksRoot": "F:\\Github2\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseSoundBanks\\",
    "ExternalSourcesInputFile": "",
-   "ExternalSourcesOutputRoot": "E:\\GitHub\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\GeneratedSoundBanks\\Windows"
+   "ExternalSourcesOutputRoot": "F:\\Github2\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\GeneratedSoundBanks\\Windows"
   },
   "DialogueEvents": [],
   "StreamedFiles": [],
@@ -22,6 +22,21 @@
     "ShortName": "Geralt",
     "Path": "Geralt.bnk",
     "IncludedEvents": [
+     {
+      "Id": "593383835",
+      "Name": "G_Combo_1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\G_Combo_1"
+     },
+     {
+      "Id": "593383832",
+      "Name": "G_Combo_2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\G_Combo_2"
+     },
+     {
+      "Id": "593383833",
+      "Name": "G_Combo_3",
+      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\G_Combo_3"
+     },
      {
       "Id": "3449812404",
       "Name": "Play_Geralt_aard",
@@ -81,21 +96,6 @@
       "Id": "2190072003",
       "Name": "Play_Geralt_walk_run_dirt",
       "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_walk_run_dirt"
-     },
-     {
-      "Id": "3747619760",
-      "Name": "Play_Gerlat_combo_1",
-      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Gerlat_combo_1"
-     },
-     {
-      "Id": "3747619763",
-      "Name": "Play_Gerlat_combo_2",
-      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Gerlat_combo_2"
-     },
-     {
-      "Id": "3747619762",
-      "Name": "Play_Gerlat_combo_3",
-      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Gerlat_combo_3"
      }
     ],
     "IncludedMemoryFiles": [
@@ -906,6 +906,31 @@
     "Path": "Jaskier.bnk",
     "IncludedEvents": [
      {
+      "Id": "1788677754",
+      "Name": "J_Combo_1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\J_Combo_1"
+     },
+     {
+      "Id": "1788677753",
+      "Name": "J_Combo_2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\J_Combo_2"
+     },
+     {
+      "Id": "1788677752",
+      "Name": "J_Combo_3",
+      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\J_Combo_3"
+     },
+     {
+      "Id": "3196706884",
+      "Name": "J_moonwalk",
+      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\J_moonwalk"
+     },
+     {
+      "Id": "2870416861",
+      "Name": "J_Ult",
+      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\J_Ult"
+     },
+     {
       "Id": "2312986841",
       "Name": "Play_Jaskier_fall_down_get_up",
       "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_fall_down_get_up"
@@ -931,11 +956,6 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_jump"
      },
      {
-      "Id": "1967797464",
-      "Name": "Play_Jaskier_moonwalk",
-      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_moonwalk"
-     },
-     {
       "Id": "2721777174",
       "Name": "Play_Jaskier_potion_fx",
       "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_potion_fx"
@@ -944,26 +964,6 @@
       "Id": "4116481551",
       "Name": "Play_Jaskier_revive",
       "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_revive"
-     },
-     {
-      "Id": "2858442791",
-      "Name": "Play_Jaskier_song_1",
-      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_song_1"
-     },
-     {
-      "Id": "2858442788",
-      "Name": "Play_Jaskier_song_2",
-      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_song_2"
-     },
-     {
-      "Id": "2858442789",
-      "Name": "Play_Jaskier_song_3",
-      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_song_3"
-     },
-     {
-      "Id": "793067793",
-      "Name": "Play_Jaskier_Ultimate",
-      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_Ultimate"
      },
      {
       "Id": "2646163561",
@@ -1764,6 +1764,11 @@
       "Id": "3901497125",
       "Name": "Play_Lvl2_Cinematic_Skipped",
       "ObjectPath": "\\Events\\Default Work Unit\\Cinematic_Level_2\\Play_Lvl2_Cinematic_Skipped"
+     },
+     {
+      "Id": "1359365268",
+      "Name": "Play_lvl2_Intro_conversation_Cutscene",
+      "ObjectPath": "\\Events\\Default Work Unit\\Cinematic_Level_2\\Play_lvl2_Intro_conversation_Cutscene"
      }
     ],
     "IncludedMemoryFiles": [
@@ -1790,6 +1795,12 @@
       "Language": "SFX",
       "ShortName": "Lvl2_Ambience_Crickets_Loop.wav",
       "Path": "SFX\\Lvl2_Ambience_Crickets_Loop_10C4C929.wem"
+     },
+     {
+      "Id": "828304743",
+      "Language": "SFX",
+      "ShortName": "lvl2_Intro_conversation_Cutscene.wav",
+      "Path": "SFX\\lvl2_Intro_conversation_Cutscene_D79FB2B7.wem"
      }
     ]
    },
