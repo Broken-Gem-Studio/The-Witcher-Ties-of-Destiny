@@ -1,24 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="11" SoundbankVersion="134">
 	<RootPaths>
-		<ProjectRoot>F:\github\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\</ProjectRoot>
-		<SourceFilesRoot>F:\github\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>C:\Users\Jacobo_G\Desktop\Soundbanks\</SoundBanksRoot>
+		<ProjectRoot>C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\</ProjectRoot>
+		<SourceFilesRoot>C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\Assets\Sounds\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>F:\github\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>C:\Users\Raul_App\Documents\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<SoundBanks>
-		<SoundBank Id="3422541661" Language="SFX">
+		<SoundBank Id="3422541661" GUID="{BA628090-1843-4BAF-8FB6-23698673180C}" Language="SFX">
 			<ObjectPath>\SoundBanks\Default Work Unit\Pause_menu</ObjectPath>
 			<ShortName>Pause_menu</ShortName>
 			<Path>Pause_menu.bnk</Path>
 			<IncludedEvents>
-				<Event Id="3182384320" Name="Play_Button_main_menu" ObjectPath="\Events\Default Work Unit\Pause_menu\Play_Button_main_menu"/>
-				<Event Id="3725905392" Name="Play_Button_resume" ObjectPath="\Events\Default Work Unit\Pause_menu\Play_Button_resume"/>
-				<Event Id="2149137476" Name="Play_Mouse_over" ObjectPath="\Events\Default Work Unit\Pause_menu\Play_Mouse_over"/>
-				<Event Id="4233560256" Name="Play_Pause" ObjectPath="\Events\Default Work Unit\Pause_menu\Play_Pause"/>
+				<Event Id="3182384320" Name="Play_Button_main_menu" ObjectPath="\Events\Default Work Unit\Pause_menu\Play_Button_main_menu" GUID="{ADF7F694-47EA-4F50-975D-D83DC74563C6}"/>
+				<Event Id="3725905392" Name="Play_Button_resume" ObjectPath="\Events\Default Work Unit\Pause_menu\Play_Button_resume" GUID="{6FA62A0A-EEFF-4662-95CF-D284F016A63F}"/>
+				<Event Id="2315361796" Name="Play_Character_Hover" ObjectPath="\Events\Default Work Unit\Selection Menu\Play_Character_Hover" GUID="{5F861BB9-E44C-490D-9DF6-10BA39C3E799}"/>
+				<Event Id="4128046305" Name="Play_Character_Selected" ObjectPath="\Events\Default Work Unit\Selection Menu\Play_Character_Selected" GUID="{8F567D8C-36E7-4EB8-811E-3B6A0106E5A7}"/>
+				<Event Id="993611128" Name="Play_Character_Unselected" ObjectPath="\Events\Default Work Unit\Selection Menu\Play_Character_Unselected" GUID="{512DB14B-E8DE-4540-805A-33AB046B47CD}"/>
+				<Event Id="2149137476" Name="Play_Mouse_over" ObjectPath="\Events\Default Work Unit\Pause_menu\Play_Mouse_over" GUID="{1B5060E3-A9A3-43FE-94C7-8B50E34CC286}"/>
+				<Event Id="4233560256" Name="Play_Pause" ObjectPath="\Events\Default Work Unit\Pause_menu\Play_Pause" GUID="{BE619E91-4DB9-428F-8623-DD4BBEFCE593}"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
+				<File Id="411333380" Language="SFX">
+					<ShortName>Character_Hover.wav</ShortName>
+					<Path>SFX\Character_Hover_10C4C929.wem</Path>
+				</File>
 				<File Id="557831847" Language="SFX">
 					<ShortName>Pause.wav</ShortName>
 					<Path>SFX\Pause_10C4C929.wem</Path>
@@ -27,9 +34,17 @@
 					<ShortName>Mouse_over.wav</ShortName>
 					<Path>SFX\Mouse_over_10C4C929.wem</Path>
 				</File>
+				<File Id="709964966" Language="SFX">
+					<ShortName>Character_Selected.wav</ShortName>
+					<Path>SFX\Character_Selected_10C4C929.wem</Path>
+				</File>
 				<File Id="900834264" Language="SFX">
 					<ShortName>Button_resume.wav</ShortName>
 					<Path>SFX\Button_resume_10C4C929.wem</Path>
+				</File>
+				<File Id="1032839246" Language="SFX">
+					<ShortName>Character_Unselected.wav</ShortName>
+					<Path>SFX\Character_Unselected_10C4C929.wem</Path>
 				</File>
 				<File Id="1046985453" Language="SFX">
 					<ShortName>Button_main_menu.wav</ShortName>
