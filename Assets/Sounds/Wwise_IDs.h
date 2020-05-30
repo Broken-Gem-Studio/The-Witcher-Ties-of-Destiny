@@ -17,6 +17,9 @@ namespace AK
         static const AkUniqueID PLAY_ARCHER_RANGED_ATTACK = 2370528178U;
         static const AkUniqueID PLAY_BUTTON_MAIN_MENU = 3182384320U;
         static const AkUniqueID PLAY_BUTTON_RESUME = 3725905392U;
+        static const AkUniqueID PLAY_CHARACTER_HOVER = 2315361796U;
+        static const AkUniqueID PLAY_CHARACTER_SELECTED = 4128046305U;
+        static const AkUniqueID PLAY_CHARACTER_UNSELECTED = 993611128U;
         static const AkUniqueID PLAY_ENEMY_CONVERSATION_01_PT1 = 3274957762U;
         static const AkUniqueID PLAY_ENEMY_CONVERSATION_01_PT2 = 3274957761U;
         static const AkUniqueID PLAY_ENEMY_CONVERSATION_02_PT1 = 4138452717U;
@@ -73,6 +76,7 @@ namespace AK
         static const AkUniqueID PLAY_KIKIMORA_SWEEP = 287198644U;
         static const AkUniqueID PLAY_LEVEL_1_MUSIC = 814842324U;
         static const AkUniqueID PLAY_LEVEL_2_MUSIC = 2048014091U;
+        static const AkUniqueID PLAY_LOST_MENU_MUSIC = 3007158762U;
         static const AkUniqueID PLAY_LUMBERJACK_AXE_SWING_ATTACK = 1511621515U;
         static const AkUniqueID PLAY_LUMBERJACK_HEAVY_AXE_ATTACK_HIT_EDIT = 1628159071U;
         static const AkUniqueID PLAY_LUMBERJACK_HEAVY_AXE_ATTACK_WARNING = 1677382623U;
@@ -83,6 +87,7 @@ namespace AK
         static const AkUniqueID PLAY_LVL2_FIRE_AMBIENCE_1 = 4115872312U;
         static const AkUniqueID PLAY_LVL2_FIRE_AMBIENCE_2 = 4115872315U;
         static const AkUniqueID PLAY_LVL2_FIRE_AMBIENCE_3 = 4115872314U;
+        static const AkUniqueID PLAY_LVL2_INTRO_CONVERSATION_CUTSCENE = 1359365268U;
         static const AkUniqueID PLAY_LVL2_WIND_1 = 2013879219U;
         static const AkUniqueID PLAY_LVL2_WIND_2 = 2013879216U;
         static const AkUniqueID PLAY_MAIN_MENU_MOUSE_OVER = 1807448786U;
@@ -112,6 +117,7 @@ namespace AK
         static const AkUniqueID PLAY_TITAN_GHOUL_SCREAM_ATTACK = 1110615769U;
         static const AkUniqueID PLAY_TITAN_GHOUL_TAKE_DAMAGE = 1347311224U;
         static const AkUniqueID PLAY_TITAN_GHOULL_DEATH = 547580181U;
+        static const AkUniqueID PLAY_WIN_MENU_MUSIC = 2973513758U;
     } // namespace EVENTS
 
     namespace SWITCHES
@@ -174,9 +180,11 @@ namespace AK
         static const AkUniqueID LEVEL_2 = 1290008370U;
         static const AkUniqueID MAIN_MENU = 2005704188U;
         static const AkUniqueID MONSTER_ENEMIES = 1016515008U;
-        static const AkUniqueID MUSIC_LEVELS = 2209143460U;
+        static const AkUniqueID MUSIC_LEVEL_1_1 = 2244718989U;
+        static const AkUniqueID MUSIC_LEVEL_2_1 = 2244866146U;
         static const AkUniqueID MUSIC_MENUS = 1614123467U;
         static const AkUniqueID PAUSE_MENU = 3422541661U;
+        static const AkUniqueID PAUSE_MUSIC = 2735935537U;
         static const AkUniqueID PROPS = 968010305U;
     } // namespace BANKS
 
