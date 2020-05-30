@@ -71,7 +71,7 @@ lua_table.AggroRange = 30
 lua_table.minDistance = 4 -- If entity is inside this distance, then attack
 lua_table.jumpDistance = 8
 --
-lua_table.stun_duration = 4000
+lua_table.stun_duration = 2000
 
 --------------------------------- Damage values || TOTAL DMG = 100
 local Stun_DMG = 10
@@ -158,14 +158,7 @@ lua_table.collider_damage = 0
 lua_table.collider_effect = 0
 
 --------------------------------- Entity particles
-local JumpStunEmitter_UID = 0
-local JumpStunDustEmitter_UID = 0
-local BloodEmitter1_UID = 0
-local BloodEmitter2_UID = 0
-local BloodEmitter3_UID = 0
-local BloodEmitter4_UID = 0
-local TauntedEmitter_UID = 0
-local StunMarkEmitter_UID = 0
+local General_Emitter_UID = 0
 
 local dt = 0
 
@@ -386,7 +379,13 @@ local function JumpStun() -- Smash the ground with a jump, then stun
 	-- Mark the affected area
 	if not start_jump and lua_table.can_jump == true then 
 		jump_timer = lua_table.System:GameTime() * 1000
-		lua_table.Particles:PlayParticleEmitter(StunMarkEmitter_UID)
+
+		local particles = {}
+		particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Zomboid_Circle_Emitter", General_Emitter_UID))
+		for i = 1, #particles do 
+		    lua_table.Particles:PlayParticleEmitter(particles[i])
+		end
+
 		lua_table.Audio:PlayAudioEvent("Play_Titan_ghoul_scream_attack")
 		lua_table.can_jump = false
 		start_jump = true
@@ -411,8 +410,11 @@ local function JumpStun() -- Smash the ground with a jump, then stun
 	-- Leave crack in the ground
 	if jump_timer + 1250 <= lua_table.System:GameTime() * 1000 and play_particles == true then
 	
-		lua_table.Particles:PlayParticleEmitter(JumpStunEmitter_UID)
-		lua_table.Particles:PlayParticleEmitter(JumpStunDustEmitter_UID)
+		local particles = {}
+		particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Zomboid_Jump_Emitter", General_Emitter_UID))
+		for i = 1, #particles do 
+		    lua_table.Particles:PlayParticleEmitter(particles[i])
+		end
 		
 		play_particles = false
 	end
@@ -516,6 +518,13 @@ end
 local function Stun()
 	if start_stun then 
 		stun_timer = lua_table.System:GameTime() * 1000
+
+		local particles = {}
+		particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Zomboid_Stun_Emitter", General_Emitter_UID))
+		for i = 1, #particles do 
+		    lua_table.Particles:PlayParticleEmitter(particles[i])
+		end
+
 		start_stun = false
 	end
 
@@ -551,24 +560,19 @@ local function Die()
 	rand_death_time = math.random(45, 60)
 
 	if not start_death then 
-		
-		--lua_table.Particles:StopParticleEmitter(JumpStunEmitter_UID)
+
 		lua_table.Physics:SetActiveController(false, lua_table.MyUID)
-		lua_table.Particles:StopParticleEmitter(BloodEmitter1_UID)
-		lua_table.Particles:StopParticleEmitter(BloodEmitter2_UID)
-		lua_table.Particles:StopParticleEmitter(BloodEmitter3_UID)
-		lua_table.Particles:StopParticleEmitter(BloodEmitter4_UID)
-		lua_table.Particles:StopParticleEmitter(TauntedEmitter_UID)
 
 		death_timer = lua_table.System:GameTime() * 1000
 
 		lua_table.Audio:PlayAudioEvent("Play_Titan_ghoul_death")
 
 		-- This ensures hit particle plays when Players deal the last hit
-		lua_table.Particles:PlayParticleEmitter(BloodEmitter1_UID)
-		lua_table.Particles:PlayParticleEmitter(BloodEmitter2_UID)
-		lua_table.Particles:PlayParticleEmitter(BloodEmitter3_UID)
-		lua_table.Particles:PlayParticleEmitter(BloodEmitter4_UID)
+		local particles = {}
+		particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Zomboid_Blood_Emitter", General_Emitter_UID))
+		for i = 1, #particles do 
+		    lua_table.Particles:PlayParticleEmitter(particles[i])
+		end
 
 		lua_table.Animations:PlayAnimation("Death", rand_death_time, lua_table.MyUID)
 		start_death = true
@@ -600,10 +604,11 @@ function lua_table:OnTriggerEnter()
 					AttackColliderShutdown()
 					lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
 
-					lua_table.Particles:PlayParticleEmitter(BloodEmitter1_UID)
-					lua_table.Particles:PlayParticleEmitter(BloodEmitter2_UID)
-					lua_table.Particles:PlayParticleEmitter(BloodEmitter3_UID)
-					lua_table.Particles:PlayParticleEmitter(BloodEmitter4_UID)
+					local particles = {}
+					particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Zomboid_Blood_Emitter", General_Emitter_UID))
+					for i = 1, #particles do 
+					    lua_table.Particles:PlayParticleEmitter(particles[i])
+					end
 
 					start_stun = true
 					lua_table.currentState = State.STUNNED
@@ -640,6 +645,13 @@ function lua_table:OnTriggerEnter()
 
 					if start_taunt then 
 						taunt_timer = lua_table.System:GameTime() * 1000
+
+						local particles = {}
+						particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Zomboid_Taunt_Emitter", General_Emitter_UID))
+						for i = 1, #particles do 
+						    lua_table.Particles:PlayParticleEmitter(particles[i])
+						end
+
 						lua_table.is_taunt = true
 						lua_table.System:LOG("Getting taunted by Jaskier") 
 						start_taunt = false
@@ -656,18 +668,23 @@ function lua_table:OnTriggerEnter()
 					
 					lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
 					lua_table.Audio:PlayAudioEvent("Play_Titan_ghoul_take_damage")
-					lua_table.Particles:PlayParticleEmitter(BloodEmitter1_UID)
-					lua_table.Particles:PlayParticleEmitter(BloodEmitter2_UID)
-					lua_table.Particles:PlayParticleEmitter(BloodEmitter3_UID)
-					lua_table.Particles:PlayParticleEmitter(BloodEmitter4_UID)
+					
+					local particles = {}
+					particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Zomboid_Blood_Emitter", General_Emitter_UID))
+					for i = 1, #particles do 
+					    lua_table.Particles:PlayParticleEmitter(particles[i])
+					end
 
 					lua_table.System:LOG("Heavy hit registered")
 					
 				else --if player_state <= 13 then 
-					lua_table.Particles:PlayParticleEmitter(BloodEmitter1_UID)
-					lua_table.Particles:PlayParticleEmitter(BloodEmitter2_UID)
-					lua_table.Particles:PlayParticleEmitter(BloodEmitter3_UID)
-					lua_table.Particles:PlayParticleEmitter(BloodEmitter4_UID)
+					
+					local particles = {}
+					particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Zomboid_Blood_Emitter", General_Emitter_UID))
+					for i = 1, #particles do 
+					    lua_table.Particles:PlayParticleEmitter(particles[i])
+					end
+
 					lua_table.System:LOG("Light/Medium registered")
 				end
 			end
@@ -695,11 +712,12 @@ function lua_table:RequestedTrigger(collider_GO)
 				AttackColliderShutdown()
 				lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
 
-				lua_table.Particles:PlayParticleEmitter(BloodEmitter1_UID)
-				lua_table.Particles:PlayParticleEmitter(BloodEmitter2_UID)
-				lua_table.Particles:PlayParticleEmitter(BloodEmitter3_UID)
-				lua_table.Particles:PlayParticleEmitter(BloodEmitter4_UID)
-
+				local particles = {}
+				particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Zomboid_Blood_Emitter", General_Emitter_UID))
+				for i = 1, #particles do 
+				    lua_table.Particles:PlayParticleEmitter(particles[i])
+				end
+				
 				start_stun = true
 				lua_table.currentState = State.STUNNED
 				
@@ -733,6 +751,13 @@ function lua_table:RequestedTrigger(collider_GO)
 
 				if start_taunt then 
 					taunt_timer = lua_table.System:GameTime() * 1000
+
+					local particles = {}
+					particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Zomboid_Taunt_Emitter", General_Emitter_UID))
+					for i = 1, #particles do 
+					    lua_table.Particles:PlayParticleEmitter(particles[i])
+					end
+					
 					lua_table.is_taunt = true
 					lua_table.System:LOG("Getting taunted by Jaskier") 
 					start_taunt = false
@@ -751,16 +776,22 @@ function lua_table:RequestedTrigger(collider_GO)
 				end
 				lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
 				lua_table.Audio:PlayAudioEvent("Play_Titan_ghoul_take_damage")
-				lua_table.Particles:PlayParticleEmitter(BloodEmitter1_UID)
-				lua_table.Particles:PlayParticleEmitter(BloodEmitter2_UID)
-				lua_table.Particles:PlayParticleEmitter(BloodEmitter3_UID)
-				lua_table.Particles:PlayParticleEmitter(BloodEmitter4_UID)
+				
+				local particles = {}
+				particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Zomboid_Blood_Emitter", General_Emitter_UID))
+				for i = 1, #particles do 
+				    lua_table.Particles:PlayParticleEmitter(particles[i])
+				end
+
 				lua_table.System:LOG("Hit registered")
 			else --if player_state <= 13 then 
-				lua_table.Particles:PlayParticleEmitter(BloodEmitter1_UID)
-				lua_table.Particles:PlayParticleEmitter(BloodEmitter2_UID)
-				lua_table.Particles:PlayParticleEmitter(BloodEmitter3_UID)
-				lua_table.Particles:PlayParticleEmitter(BloodEmitter4_UID)
+
+				local particles = {}
+				particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Zomboid_Blood_Emitter", General_Emitter_UID))
+				for i = 1, #particles do 
+				    lua_table.Particles:PlayParticleEmitter(particles[i])
+				end
+
 				lua_table.System:LOG("Hit registered")
 			end
 		end
@@ -770,42 +801,13 @@ end
 -- ______________________MAIN CODE______________________
 function lua_table:Awake()
 	lua_table.System:LOG("TankGhoul AWAKE")
-	-- Get Emitters
-	JumpStunEmitter_UID = lua_table.GameObject:FindChildGameObject("ZomboidJS_Emitter")
-	JumpStunDustEmitter_UID = lua_table.GameObject:FindChildGameObject("ZomboidJSDust_Emitter")
-	BloodEmitter1_UID = lua_table.GameObject:FindChildGameObject("ZomboidBlood1_Emitter")
-	BloodEmitter2_UID = lua_table.GameObject:FindChildGameObject("ZomboidBlood2_Emitter")
-	BloodEmitter3_UID = lua_table.GameObject:FindChildGameObject("ZomboidBlood3_Emitter")
-	BloodEmitter4_UID = lua_table.GameObject:FindChildGameObject("ZomboidBlood4_Emitter")
-	TauntedEmitter_UID = lua_table.GameObject:FindChildGameObject("ZomboidTaunted_Emitter")
-	StunMarkEmitter_UID = lua_table.GameObject:FindChildGameObject("Zomboid_StunMark_Emitter")
 
-	-- Stop Emitters
-
-
-
+	General_Emitter_UID = lua_table.GameObject:FindChildGameObject("Zomboid_General_Emitter")
+	
 end
 
 function lua_table:Start()
 	lua_table.System:LOG("TankGhoul START")
-
-	lua_table.Particles:ActivateParticlesEmission(JumpStunEmitter_UID)
-	lua_table.Particles:ActivateParticlesEmission(JumpStunDustEmitter_UID)
-	lua_table.Particles:ActivateParticlesEmission(BloodEmitter1_UID)
-	lua_table.Particles:ActivateParticlesEmission(BloodEmitter2_UID)
-	lua_table.Particles:ActivateParticlesEmission(BloodEmitter3_UID)
-	lua_table.Particles:ActivateParticlesEmission(BloodEmitter4_UID)
-	lua_table.Particles:ActivateParticlesEmission(TauntedEmitter_UID)
-	lua_table.Particles:ActivateParticlesEmission(StunMarkEmitter_UID)
-
-	lua_table.Particles:StopParticleEmitter(JumpStunEmitter_UID)
-	lua_table.Particles:StopParticleEmitter(JumpStunDustEmitter_UID)
-	lua_table.Particles:StopParticleEmitter(BloodEmitter1_UID)
-	lua_table.Particles:StopParticleEmitter(BloodEmitter2_UID)
-	lua_table.Particles:StopParticleEmitter(BloodEmitter3_UID)
-	lua_table.Particles:StopParticleEmitter(BloodEmitter4_UID)
-	lua_table.Particles:StopParticleEmitter(TauntedEmitter_UID)
-	lua_table.Particles:StopParticleEmitter(StunMarkEmitter_UID)
 
 	-- Getting Entity and Player UIDs
 	lua_table.MyUID = lua_table.GameObject:GetMyUID()
