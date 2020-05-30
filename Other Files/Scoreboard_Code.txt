@@ -1,0 +1,36 @@
+--Scoreboard	-- These are latter multiplied by their correspondent value_per_instance ratio
+scoreboard_data = {
+	damage_dealt = { value = 1, title_start = "", title_end = " damage dealed" },
+	succesful_hits = { value = 100, title_start = "", title_end = " succesful hits" },
+	minion_kills = { value = 100, title_start = "", title_end = " minions killed" },
+	special_kills = { value = 100, title_start = "", title_end = " special enemies killed" },
+	incapacitations = { value = 100, title_start = "", title_end = " enemies incapacitated" },
+	objects_destroyed = { value = 100, title_start = "", title_end = " objects destroyed" },
+	attacks_evaded = { value = 100, title_start = "", title_end = " attacks evaded" },
+	items_shared = { value = 100, title_start = "items shared ", title_end = " times with ally" },
+	ally_protected = { value = 100, title_start = "protected ally ", title_end = " times" },
+	ally_revived = { value = 100, title_start = "healed ally ", title_end = " times" },
+	ally_respawned = { value = 100, title_start = "resurrected ally ", title_end = " times" },
+
+	failed_revival = { value = -100, title_start = "failed to revive ally ", title_end = " times" },
+	damage_recieved = { value = -100, title_start = "", title_end = " damage received" },
+	times_downed = { value = -100, title_start = "fallen in battle ", title_end = " times" }
+}
+
+geralt_score = {
+	damage_dealt = 0,	--Exception, this numbers value_per_instance ratio is 1, since this will collect the real value already
+	succesful_hits = 0,
+	minion_kills = 0,
+	special_kills = 0,
+	incapacitations = 0,
+	objects_destroyed = 0,
+	attacks_evaded = 0,
+	items_shared = 0,
+	ally_protected = 0,
+	ally_revived = 0,
+	ally_respawned = 0,
+
+	failed_revival = 0,
+	damage_recieved = 0,
+	times_downed = 0
+}
