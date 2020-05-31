@@ -1052,6 +1052,10 @@ local function ParticlesShutdown()
 			lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.concert_GO_UID_children[i])	--TODO-Particles:
 		end
 
+		for i = 1, #particles_library.song_circle_GO_UID_children do
+			lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.song_circle_GO_UID_children[i])	--TODO-Particles:
+		end
+
 	elseif lua_table.current_state == state.stunned
 	then
 		for i = 1, #particles_library.stun_particles_GO_UID_children do
@@ -2252,38 +2256,38 @@ function lua_table:Start()
 	lua_table.SystemFunctions:LOG("JaskierScript START")
 	
 	--Stop Particle Emitters
-	for i = 1, #particles_library.run_particles_GO_UID_children do
-		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.run_particles_GO_UID_children[i])	--TODO-Particles:
-	end
-	for i = 1, #particles_library.blood_particles_GO_UID_children do
-		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.blood_particles_GO_UID_children[i])	--TODO-Particles:
-	end
-	for i = 1, #particles_library.stun_particles_GO_UID_children do
-		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.stun_particles_GO_UID_children[i])	--TODO-Particles:
-	end
-	for i = 1, #particles_library.revive_particles_GO_UID_children do
-		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.revive_particles_GO_UID_children[i])	--TODO-Particles:
-	end
+	-- for i = 1, #particles_library.run_particles_GO_UID_children do
+	-- 	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.run_particles_GO_UID_children[i])	--TODO-Particles:
+	-- end
+	-- for i = 1, #particles_library.blood_particles_GO_UID_children do
+	-- 	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.blood_particles_GO_UID_children[i])	--TODO-Particles:
+	-- end
+	-- for i = 1, #particles_library.stun_particles_GO_UID_children do
+	-- 	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.stun_particles_GO_UID_children[i])	--TODO-Particles:
+	-- end
+	-- for i = 1, #particles_library.revive_particles_GO_UID_children do
+	-- 	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.revive_particles_GO_UID_children[i])	--TODO-Particles:
+	-- end
 
-	for i = 1, #particles_library.potion_health_particles_GO_UID_children do
-		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.potion_health_particles_GO_UID_children[i])	--TODO-Particles:
-	end
-	for i = 1, #particles_library.potion_stamina_particles_GO_UID_children do
-		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.potion_stamina_particles_GO_UID_children[i])	--TODO-Particles:
-	end
-	for i = 1, #particles_library.potion_power_particles_GO_UID_children do
-		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.potion_power_particles_GO_UID_children[i])	--TODO-Particles:
-	end
+	-- for i = 1, #particles_library.potion_health_particles_GO_UID_children do
+	-- 	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.potion_health_particles_GO_UID_children[i])	--TODO-Particles:
+	-- end
+	-- for i = 1, #particles_library.potion_stamina_particles_GO_UID_children do
+	-- 	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.potion_stamina_particles_GO_UID_children[i])	--TODO-Particles:
+	-- end
+	-- for i = 1, #particles_library.potion_power_particles_GO_UID_children do
+	-- 	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.potion_power_particles_GO_UID_children[i])	--TODO-Particles:
+	-- end
 
-	for i = 1, #particles_library.song_circle_GO_UID_children do
-		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.song_circle_GO_UID_children[i])	--TODO-Particles:
-	end
-	for i = 1, #particles_library.song_cone_GO_UID_children do
-		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.song_cone_GO_UID_children[i])	--TODO-Particles:
-	end
-	for i = 1, #particles_library.concert_GO_UID_children do
-		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.concert_GO_UID_children[i])		--TODO-Particles:
-	end
+	-- for i = 1, #particles_library.song_circle_GO_UID_children do
+	-- 	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.song_circle_GO_UID_children[i])	--TODO-Particles:
+	-- end
+	-- for i = 1, #particles_library.song_cone_GO_UID_children do
+	-- 	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.song_cone_GO_UID_children[i])	--TODO-Particles:
+	-- end
+	-- for i = 1, #particles_library.concert_GO_UID_children do
+	-- 	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.concert_GO_UID_children[i])		--TODO-Particles:
+	-- end
 
 	--Set Particle GO Animations to for smooth blending to required animations
 	lua_table.AnimationFunctions:SetBlendTime(0.1, particles_library.slash_GO_UID)
@@ -2927,6 +2931,10 @@ function lua_table:Update()
 			end
 		elseif game_time - blending_started_at > lua_table.blend_time_duration and lua_table.AnimationFunctions:CurrentAnimationEnded(jaskier_GO_UID) == 1
 		then
+			for i = 1, #particles_library.revive_particles_GO_UID_children do
+				lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.revive_particles_GO_UID_children[i])	--TODO-Particles:
+			end
+
 			lua_table.standing_up_bool, lua_table.being_revived = false, false
 			GoDefaultState(true)
 		end
