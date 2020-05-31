@@ -50,6 +50,54 @@
         "Parent": "-1",
         "Static": false
     },
+    "1297929801": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1353776955,
+                "index": 0,
+                "layer": "0",
+                "positionx": "4.542510",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "5": {
+                "Active": true,
+                "ColorA": "0.000000",
+                "ColorB": "1.000000",
+                "ColorG": "1.000000",
+                "ColorR": "1.000000",
+                "IsProgressBar": "0",
+                "MantainAspect": "1",
+                "NumberFrames": "0",
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/962985622.dds"
+                },
+                "UID": 395600872,
+                "fullscreen": false,
+                "index": 1,
+                "position2Dx": "0.000000",
+                "position2Dy": "0.000000",
+                "priority": "4",
+                "size2Dx": "540.000000",
+                "size2Dy": "540.000000",
+                "visible": "1"
+            }
+        },
+        "Index": 6,
+        "Name": "Wolf",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "208757713",
+        "Static": false
+    },
     "1326598617": {
         "Active": true,
         "Components": {
@@ -86,8 +134,8 @@
                 "position2Dx": "0.000000",
                 "position2Dy": "0.000000",
                 "priority": "3",
-                "size2Dx": "905.140015",
-                "size2Dy": "482.700012",
+                "size2Dx": "1401.020020",
+                "size2Dy": "569.099976",
                 "visible": "1"
             }
         },
@@ -134,8 +182,8 @@
                 "position2Dx": "0.000000",
                 "position2Dy": "0.000000",
                 "priority": "-1",
-                "size2Dx": "905.140015",
-                "size2Dy": "482.700012",
+                "size2Dx": "1401.020020",
+                "size2Dy": "569.099976",
                 "visible": "1"
             }
         },
@@ -260,11 +308,11 @@
                 "UID": 348012035,
                 "fullscreen": false,
                 "index": 1,
-                "position2Dx": "612.000000",
+                "position2Dx": "546.000000",
                 "position2Dy": "-334.000000",
                 "priority": "4",
-                "size2Dx": "337.000000",
-                "size2Dy": "72.214287",
+                "size2Dx": "333.000000",
+                "size2Dy": "71.357147",
                 "visible": "1"
             }
         },
@@ -347,7 +395,7 @@
                     "ResourceScript": "Assets/Intro/LogoIntro_Behaviour.lua"
                 },
                 "Script variables": {
-                    "Count": 21,
+                    "Count": 23,
                     "Variable 0": {
                         "DisplayObjectName": false,
                         "Name": "BlackBacgroundandLoadingAlpha",
@@ -445,6 +493,20 @@
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 1.0
+                    },
+                    "Variable 21": {
+                        "DisplayObjectName": false,
+                        "Name": "WolfAlpha",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 22": {
+                        "DisplayObjectName": false,
+                        "Name": "WolfUID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
                     },
                     "Variable 3": {
                         "DisplayObjectName": false,
