@@ -31,7 +31,10 @@ function GetTableWinLose()
     local lose = 0
     local mainmenu = 0
     local nextlevel = 0
+    local retry = 0
     local only_mainmenu = 0
+    local only_retry = 0
+    local background = 0
 
     local Geralt = 0
     local geralt_script = 0
@@ -108,6 +111,7 @@ function GetTableWinLose()
         --buttons
         if fade_flag == true
         then
+            lua_table.GO:SetActiveGameObject(true, background)
             if lua_table.current_level == 1
             then
                 lua_table.GO:SetActiveGameObject(true, mainmenu)
@@ -196,7 +200,10 @@ function GetTableWinLose()
         lua_table.GO:SetActiveGameObject(false, fade)
         lua_table.GO:SetActiveGameObject(false, mainmenu)
         lua_table.GO:SetActiveGameObject(false, nextlevel)
+        lua_table.GO:SetActiveGameObject(false, retry)
         lua_table.GO:SetActiveGameObject(false, only_mainmenu)
+        lua_table.GO:SetActiveGameObject(false, only_retry)
+        lua_table.GO:SetActiveGameObject(false, background)
 
         --unpause game
         lua_table.System:ResumeGame()
@@ -218,7 +225,10 @@ function GetTableWinLose()
         lua_table.GO:SetActiveGameObject(false, fade)
         lua_table.GO:SetActiveGameObject(false, mainmenu)
         lua_table.GO:SetActiveGameObject(false, nextlevel)
+        lua_table.GO:SetActiveGameObject(false, retry)
         lua_table.GO:SetActiveGameObject(false, only_mainmenu)
+        lua_table.GO:SetActiveGameObject(false, only_retry)
+        lua_table.GO:SetActiveGameObject(false, background)
 
         --unpause game
         lua_table.System:ResumeGame()
@@ -226,6 +236,37 @@ function GetTableWinLose()
         --load next level (level 2)
         last_checkpoint = 0
         load_level2 = true
+    end
+
+    function lua_table:Retry()
+        --reset variables
+        is_win = false
+        win_flag = false
+        fade_flag = false
+        fade_alpha = 0
+
+        --set ui inactive
+        lua_table.GO:SetActiveGameObject(false, win)
+        lua_table.GO:SetActiveGameObject(false, fade)
+        lua_table.GO:SetActiveGameObject(false, mainmenu)
+        lua_table.GO:SetActiveGameObject(false, nextlevel)
+        lua_table.GO:SetActiveGameObject(false, retry)
+        lua_table.GO:SetActiveGameObject(false, only_mainmenu)
+        lua_table.GO:SetActiveGameObject(false, only_retry)
+        lua_table.GO:SetActiveGameObject(false, background)
+
+        --unpause game
+        lua_table.System:ResumeGame()
+
+        --reload level
+        last_checkpoint = 0
+        if current_level == 1
+        then
+            load_level1 = true
+        elseif current_level == 2
+        then
+            load_level2 = true
+        end
     end
 
     local function GetCheckpointPos()
@@ -306,7 +347,10 @@ function GetTableWinLose()
         fade = lua_table.GO:FindGameObject("Fade")
         mainmenu = lua_table.GO:FindGameObject("MainMenu")
         nextlevel = lua_table.GO:FindGameObject("NextLevel")
+        retry = lua_table.GO:FindGameObject("Retry")
         only_mainmenu = lua_table.GO:FindGameObject("OnlyMainMenu")
+        only_retry = lua_table.GO:FindGameObject("OnlyRetry")
+        background = lua_table.GO:FindGameObject("WL_Background")
 
         --Geralt
         Geralt = lua_table.GO:FindGameObject("Geralt")
@@ -350,7 +394,10 @@ function GetTableWinLose()
         lua_table.GO:SetActiveGameObject(false, fade)
         lua_table.GO:SetActiveGameObject(false, mainmenu)
         lua_table.GO:SetActiveGameObject(false, nextlevel)
+        lua_table.GO:SetActiveGameObject(false, retry)
         lua_table.GO:SetActiveGameObject(false, only_mainmenu)
+        lua_table.GO:SetActiveGameObject(false, only_retry)
+        lua_table.GO:SetActiveGameObject(false, background)
     end
 
     function lua_table:Start()
