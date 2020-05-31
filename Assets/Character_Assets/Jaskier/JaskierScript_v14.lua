@@ -2771,26 +2771,23 @@ function lua_table:Update()
 							else	--STEP 1
 								if not lua_table.ultimate_effect_active	--IF effect unactive, activate
 								then
-									for i = 1, #particles_library.concert_GO_UID_children do
-										lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.concert_GO_UID_children[i])	--TODO-Particles:
-									end
-
-									lua_table.GameObjectFunctions:SetActiveGameObject(true, attack_colliders.concert.GO_UID)	--TODO-Colliders: Check
-									attack_colliders.concert.active = true
-
-									interval_started_at = game_time
-
 									lua_table.ultimate_effect_active = true
 								end
 
 								local time_since_last_damage = game_time - interval_started_at
-								if not attack_colliders.concert.active and time_since_last_damage > lua_table.ultimate_damage_interval then
+								if not attack_colliders.concert.active and time_since_last_damage > lua_table.ultimate_damage_interval
+								then
 									lua_table.GameObjectFunctions:SetActiveGameObject(true, attack_colliders.concert.GO_UID)	--TODO-Colliders: Check
 									attack_colliders.concert.active = true
 
+									for i = 1, #particles_library.concert_GO_UID_children do
+										lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.concert_GO_UID_children[i])	--TODO-Particles:
+									end
+									
 									interval_started_at = game_time
 
-								elseif attack_colliders.concert.active and time_since_last_damage > lua_table.ultimate_damage_interval / 2 then
+								elseif attack_colliders.concert.active and time_since_last_damage > lua_table.ultimate_damage_interval / 2
+								then
 									lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.concert.GO_UID)	--TODO-Colliders: Check
 									attack_colliders.concert.active = false
 								end
