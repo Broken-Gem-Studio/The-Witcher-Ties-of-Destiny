@@ -5,11 +5,11 @@
   "SchemaVersion": "11",
   "SoundbankVersion": "134",
   "RootPaths": {
-   "ProjectRoot": "F:\\github\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\",
-   "SourceFilesRoot": "F:\\github\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\.cache\\Windows\\",
-   "SoundBanksRoot": "C:\\Users\\Jacobo_G\\Desktop\\Soundbanks\\",
+   "ProjectRoot": "E:\\GitHub\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\",
+   "SourceFilesRoot": "E:\\GitHub\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\.cache\\Windows\\",
+   "SoundBanksRoot": "E:\\GitHub\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseSoundBanks\\",
    "ExternalSourcesInputFile": "",
-   "ExternalSourcesOutputRoot": "F:\\github\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\GeneratedSoundBanks\\Windows"
+   "ExternalSourcesOutputRoot": "E:\\GitHub\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\GeneratedSoundBanks\\Windows"
   },
   "SoundBanks": [
    {
@@ -19,6 +19,21 @@
     "ShortName": "Geralt",
     "Path": "Geralt.bnk",
     "IncludedEvents": [
+     {
+      "Id": "593383835",
+      "Name": "G_Combo_1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\G_Combo_1"
+     },
+     {
+      "Id": "593383832",
+      "Name": "G_Combo_2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\G_Combo_2"
+     },
+     {
+      "Id": "593383833",
+      "Name": "G_Combo_3",
+      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\G_Combo_3"
+     },
      {
       "Id": "3449812404",
       "Name": "Play_Geralt_aard",
@@ -78,21 +93,6 @@
       "Id": "2190072003",
       "Name": "Play_Geralt_walk_run_dirt",
       "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_walk_run_dirt"
-     },
-     {
-      "Id": "3747619760",
-      "Name": "Play_Gerlat_combo_1",
-      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Gerlat_combo_1"
-     },
-     {
-      "Id": "3747619763",
-      "Name": "Play_Gerlat_combo_2",
-      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Gerlat_combo_2"
-     },
-     {
-      "Id": "3747619762",
-      "Name": "Play_Gerlat_combo_3",
-      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Gerlat_combo_3"
      }
     ],
     "IncludedMemoryFiles": [

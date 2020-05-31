@@ -139,6 +139,10 @@ function lua_table:Start()
     minion4 = lua_table.GameObjectFunctions:FindGameObject("Minion_Ghoul4")
     minion5 = lua_table.GameObjectFunctions:FindGameObject("Minion_Ghoul5")
 
+    lua_table.Audio:PlayAudioEvent("Play_lvl2_Intro_conversation_Cutscene")
+    lua_table.Audio:PlayAudioEvent("Play_Lvl2_Ambience_Wind_Loop")
+    lua_table.Audio:PlayAudioEvent("Play_Lvl2_Ambience_Crickets_Loop")
+
     started_time = lua_table.System:GameTime()
 end
 

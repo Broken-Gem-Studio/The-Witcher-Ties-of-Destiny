@@ -323,20 +323,16 @@ function GetTableWinLose()
         end
 
         --Win Condition
-        if lua_table.current_level == 1
+        FinalEnemy = lua_table.GO:FindGameObject("FinalEnemy")
+        if FinalEnemy > 0
         then
-            FinalEnemy = lua_table.GO:FindGameObject("FinalEnemy")
-            if FinalEnemy > 0
-            then
-                finalenemy_script = lua_table.GO:GetScript(FinalEnemy)
-            end
-        elseif lua_table.current_level == 2
+            finalenemy_script = lua_table.GO:GetScript(FinalEnemy)
+        end
+        
+        Kikimora = lua_table.GO:FindGameObject("Kikimora")
+        if Kikimora > 0
         then
-            Kikimora = lua_table.GO:FindGameObject("Kikimora")
-            if Kikimora > 0
-            then
-                kikimora_script = lua_table.GO:GetScript(Kikimora)
-            end
+            kikimora_script = lua_table.GO:GetScript(Kikimora)
         end
 
         --Respawn Pos

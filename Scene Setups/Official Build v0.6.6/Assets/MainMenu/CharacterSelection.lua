@@ -31,7 +31,11 @@ function GetTableCharacterSelection()
     local not_selected = false--to make invisible arrow until we enter character slection
 
     local alpha = 0
+    local alpha2 = 1
+    lua_table.fading = false
+    lua_table.fading2 = false
     local SCREEN = 0
+   
 
     --camera
     local CAMERA = 0
@@ -57,9 +61,15 @@ function GetTableCharacterSelection()
     local animjaskier = false
     local animgeralt2 = false
     local animjaskier2 = false
+    local geraltfinished = false
+    local jaskierfinished = false
+
+    local geralttime = 0
+    local jaskiertime = 0
 
     --
     local SELECTION = 0
+
 
     local function Hide()
 
@@ -155,9 +165,11 @@ function GetTableCharacterSelection()
             --lua_table["Audio"]:PlayAudioEvent()
             if player1_focus == 0
             then
+                geraltfinished = false
                 lua_table["Animation"]:PlayAnimation("Idle", 30, GERALT)
             elseif player1_focus == 1
             then
+                jaskierfinished = false
                 lua_table["Animation"]:PlayAnimation("Idle", 30, JASKIER)
             end
             
@@ -191,9 +203,11 @@ function GetTableCharacterSelection()
             --lua_table["Audio"]:PlayAudioEvent()
             if player2_focus == 0
             then
+                geraltfinished = false
                 lua_table["Animation"]:PlayAnimation("Idle", 30, GERALT)
             elseif player2_focus == 1
             then
+                jaskierfinished = false
                 lua_table["Animation"]:PlayAnimation("Idle", 30, JASKIER)
             end
             animgeralt2 = false
@@ -242,21 +256,10 @@ function GetTableCharacterSelection()
         player1_locked = false
         player2_locked = false
 
-        --alpha test
-        --[[
-        lua_table["UI"]:ChangeUIComponentColor("Image", 125, 25, 25, 0, P1_ON_GERALT)
-        lua_table["UI"]:ChangeUIComponentColor("Image", 125, 25, 25, 0, P1_ON_JASKIER)
-        lua_table["UI"]:ChangeUIComponentColor("Image", 125, 25, 25, 0, P1_ON_YENN)
-        lua_table["UI"]:ChangeUIComponentColor("Image", 125, 25, 25, 0, P1_ON_CIRI)
-        lua_table["UI"]:ChangeUIComponentColor("Image", 132, 68, 180, 0, P2_ON_GERALT)
-        lua_table["UI"]:ChangeUIComponentColor("Image", 132, 68, 180, 0, P2_ON_JASKIER)
-        lua_table["UI"]:ChangeUIComponentColor("Image", 132, 68, 180, 0, P2_ON_YENN)
-        lua_table["UI"]:ChangeUIComponentColor("Image", 132, 68, 180, 0, P2_ON_CIRI)
-        --]]
-
         lua_table["Animation"]:PlayAnimation("Idle", 30, GERALT)
         lua_table["Animation"]:PlayAnimation("Idle", 30, JASKIER)
         lua_table["Animation"]:PlayAnimation("Idle", 30, CIRI)
+       
 
     end
     
@@ -265,6 +268,33 @@ function GetTableCharacterSelection()
         if lua_table.main_menu.loadLevel1 == true or lua_table.main_menu.loadLevel2 == true
         then
             lua_table["GameObject"]:SetActiveGameObject(true, SELECTION)
+            lua_table["System"]:LOG("Enter")
+            --fade
+            --[[if lua_table.fading == false
+            then
+                alpha = alpha + 0.05
+                lua_table["UI"]:ChangeUIComponentAlpha("Image", alpha, SCREEN)
+                
+            end
+
+            if alpha >= 1.0
+            then
+                lua_table["UI"]:MakeElementInvisible("Image", SCREEN)
+                lua_table.fading = true
+        
+                
+            end
+            
+            if lua_table.fading == true
+            then
+                lua_table["UI"]:MakeElementVisible("Image", SCREEN)
+                alpha2 = alpha2 - 0.05
+                lua_table["UI"]:ChangeUIComponentAlpha("Image", alpha2, SCREEN)
+                lua_table.fading2 = true
+            end--]]
+
+                
+
         else
             lua_table["GameObject"]:SetActiveGameObject(false, SELECTION)
         end
@@ -274,20 +304,77 @@ function GetTableCharacterSelection()
             not_selected = true
         end
       
-        if lua_table.main_menu.loadLevel1 == true
+        if lua_table.main_menu.loadLevel1 == true 
         then
-            lua_table["System"]:LOG("LEVEL1 SELECTED")
-            not_selected = false
-            lua_table["Transform"]:SetPosition(437.000, -20.750, -34.250, CAMERA)
-            lua_table["Transform"]:SetObjectRotation(180,77.989, 180, CAMERA)
+            lua_table["System"]:LOG("LEVEL1 SELECTED")  
+
+            if lua_table.fading == false
+            then
+                alpha = alpha + 0.05
+                lua_table["UI"]:ChangeUIComponentAlpha("Image", alpha, SCREEN)
+                
+            end
+
+            if alpha >= 1.0
+            then
+                lua_table["UI"]:MakeElementInvisible("Image", SCREEN)
+                lua_table.fading = true
+        
+                
+            end
+            
+            if lua_table.fading == true
+            then
+                lua_table["UI"]:MakeElementVisible("Image", SCREEN)
+                alpha2 = alpha2 - 0.05
+                lua_table["UI"]:ChangeUIComponentAlpha("Image", alpha2, SCREEN)
+                lua_table.fading2 = true
+            end
+
+            if lua_table.fading2 == true
+            then
+                not_selected = false
+                lua_table["Transform"]:SetPosition(437.000, -20.750, -34.250, CAMERA)
+                lua_table["Transform"]:SetObjectRotation(180,77.989, 180, CAMERA)     
+            end    
+           
+        
+
         end
 
-        if lua_table.main_menu.loadLevel2 == true
+        if lua_table.main_menu.loadLevel2 == true 
         then
             lua_table["System"]:LOG("LEVEL2 SELECTED")
-            not_selected = false
-            lua_table["Transform"]:SetPosition(437.000, -20.750, -34.250, CAMERA)
-            lua_table["Transform"]:SetObjectRotation(180,77.989, 180, CAMERA)
+
+            if lua_table.fading == false
+            then
+                alpha = alpha + 0.05
+                lua_table["UI"]:ChangeUIComponentAlpha("Image", alpha, SCREEN)
+                
+            end
+
+            if alpha >= 1.0
+            then
+                lua_table["UI"]:MakeElementInvisible("Image", SCREEN)
+                lua_table.fading = true
+        
+                
+            end
+            
+            if lua_table.fading == true
+            then
+                lua_table["UI"]:MakeElementVisible("Image", SCREEN)
+                alpha2 = alpha2 - 0.05
+                lua_table["UI"]:ChangeUIComponentAlpha("Image", alpha2, SCREEN)
+                lua_table.fading2 = true
+            end
+
+            if lua_table.fading2 == true
+            then
+                not_selected = false
+                lua_table["Transform"]:SetPosition(437.000, -20.750, -34.250, CAMERA)
+                lua_table["Transform"]:SetObjectRotation(180,77.989, 180, CAMERA)
+            end
         end
 
         if lua_table.main_menu.loadLevel1 == false and lua_table.main_menu.loadLevel2 == false
@@ -297,15 +384,36 @@ function GetTableCharacterSelection()
         --
 
         if next == false and lua_table["Inputs"]:IsGamepadButton(1, "BUTTON_Y", "DOWN")--tirar para atras
-        then
-            --PONER COORDENADAS CAMARA DANI
-            lua_table["Transform"]:SetPosition(97.333, -41.926, -76.645, CAMERA)
-            lua_table["Transform"]:SetObjectRotation(-180, 3.167, 180, CAMERA)
+        then        
+
+             
             --player1_focus = 4
             --player2_focus = 4
             player1_locked = false
             player2_locked = false
+            geraltfinished = false
+            jaskierfinished = false
+            animgeralt = false
+            animjaskier = false
+            animgeralt2 = false
+            animjaskier2 = false
             Hide()
+            alpha = 0
+            alpha2 = 1
+            lua_table.fading = false
+            lua_table.fading2 = false
+            
+            
+            
+            
+            --PONER COORDENADAS CAMARA DANI
+            
+                lua_table["Transform"]:SetPosition(97.333, -41.926, -76.645, CAMERA)
+                lua_table["Transform"]:SetObjectRotation(-180, 3.167, 180, CAMERA)
+            
+            
+            --lua_table.main_menu.loadLevel1 = false
+            --lua_table.main_menu.loadLevel2 = false
         end
 
         
@@ -313,13 +421,13 @@ function GetTableCharacterSelection()
         then
             lua_table["System"]:LOG("NEXT SCENE")--cambiar de escena
 
-            if lua_table.main_menu.loadLevel1 == true
+            if lua_table.main_menu.loadLevel1 == true and geraltfinished == true and jaskierfinished == true
             then
                 lua_table["System"]:LOG("LOADING SCENE1")
                 lua_table["Scenes"]:LoadScene(lua_table.scene1)
             end
 
-            if lua_table.main_menu.loadLevel2 == true
+            if lua_table.main_menu.loadLevel2 == true and geraltfinished == true and jaskierfinished == true
             then
                 lua_table["System"]:LOG("LOADING SCENE2")
                 lua_table["Scenes"]:LoadScene(lua_table.scene2)
@@ -486,6 +594,7 @@ function GetTableCharacterSelection()
             then
                 lua_table["System"]:LOG("GERARDINHO")
                 lua_table["Animation"]:PlayAnimation("Selected", 30, GERALT)
+                geralttime = lua_table["System"]:GameTime()
                 animgeralt = true
             end
 
@@ -494,6 +603,7 @@ function GetTableCharacterSelection()
 
                 lua_table["System"]:LOG("JASKIERINHO")
                 lua_table["Animation"]:PlayAnimation("Selected", 30, JASKIER)
+                jaskiertime = lua_table["System"]:GameTime()
                 animjaskier = true
             end
             
@@ -512,6 +622,7 @@ function GetTableCharacterSelection()
             then
                 lua_table["System"]:LOG("GERARDINHO2")
                 lua_table["Animation"]:PlayAnimation("Selected", 30, GERALT)
+                geralttime = lua_table["System"]:GameTime()
                 animgeralt2 = true
             end
 
@@ -519,6 +630,7 @@ function GetTableCharacterSelection()
             then
                 lua_table["System"]:LOG("JASKIERINHO2")
                 lua_table["Animation"]:PlayAnimation("Selected", 30, JASKIER)
+                jaskiertime = lua_table["System"]:GameTime()
                 animjaskier2 = true
             end
 
@@ -531,9 +643,31 @@ function GetTableCharacterSelection()
         end
         
 
+        --WAIT FOR THE ANIM TO END WORKAROUND
 
+        if animgeralt == true or animgeralt2 == true
+        then
+           
+           
+                if lua_table["System"]:GameTime() >= geralttime + 2.76
+                then
+                    geraltfinished = true
+                end
+            
+        end
 
+        if animjaskier == true or animjaskier2 == true
+        then
+           
+                if lua_table["System"]:GameTime() >= jaskiertime + 2.23
+                then
+                    jaskierfinished = true
+                end
+            
+        end
 
+    
+        lua_table["System"]:LOG("ALPHA: " .. alpha)
         lua_table["System"]:LOG("P1 FOCUS: " .. player1_focus)
         lua_table["System"]:LOG("P2 FOCUS: " .. player2_focus)
 

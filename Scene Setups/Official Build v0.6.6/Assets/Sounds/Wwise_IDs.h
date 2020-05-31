@@ -13,10 +13,21 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID G_COMBO_1 = 593383835U;
+        static const AkUniqueID G_COMBO_2 = 593383832U;
+        static const AkUniqueID G_COMBO_3 = 593383833U;
+        static const AkUniqueID J_COMBO_1 = 1788677754U;
+        static const AkUniqueID J_COMBO_2 = 1788677753U;
+        static const AkUniqueID J_COMBO_3 = 1788677752U;
+        static const AkUniqueID J_MOONWALK = 3196706884U;
+        static const AkUniqueID J_ULT = 2870416861U;
         static const AkUniqueID PLAY_ARCHER_MELEE_ATTACK = 176324301U;
         static const AkUniqueID PLAY_ARCHER_RANGED_ATTACK = 2370528178U;
         static const AkUniqueID PLAY_BUTTON_MAIN_MENU = 3182384320U;
         static const AkUniqueID PLAY_BUTTON_RESUME = 3725905392U;
+        static const AkUniqueID PLAY_CHARACTER_HOVER = 2315361796U;
+        static const AkUniqueID PLAY_CHARACTER_SELECTED = 4128046305U;
+        static const AkUniqueID PLAY_CHARACTER_UNSELECTED = 993611128U;
         static const AkUniqueID PLAY_ENEMY_CONVERSATION_01_PT1 = 3274957762U;
         static const AkUniqueID PLAY_ENEMY_CONVERSATION_01_PT2 = 3274957761U;
         static const AkUniqueID PLAY_ENEMY_CONVERSATION_02_PT1 = 4138452717U;
@@ -45,21 +56,16 @@ namespace AK
         static const AkUniqueID PLAY_GERALT_ULTIMATE = 3955362993U;
         static const AkUniqueID PLAY_GERALT_WALK_RUN_CONCRETE = 4167477001U;
         static const AkUniqueID PLAY_GERALT_WALK_RUN_DIRT = 2190072003U;
-        static const AkUniqueID PLAY_GERLAT_COMBO_1 = 3747619760U;
-        static const AkUniqueID PLAY_GERLAT_COMBO_2 = 3747619763U;
-        static const AkUniqueID PLAY_GERLAT_COMBO_3 = 3747619762U;
+        static const AkUniqueID PLAY_HUD_NO_STAMINA = 1291293387U;
+        static const AkUniqueID PLAY_HUD_SPECIAL_UP = 446899183U;
+        static const AkUniqueID PLAY_HUD_SWITCH_POTION = 2197850542U;
         static const AkUniqueID PLAY_JASKIER_FALL_DOWN_GET_UP = 2312986841U;
         static const AkUniqueID PLAY_JASKIER_GUITAR_SMASH = 1916833811U;
         static const AkUniqueID PLAY_JASKIER_GUITAR_SWING = 4022547377U;
         static const AkUniqueID PLAY_JASKIER_HIT_SOUND = 4169710139U;
         static const AkUniqueID PLAY_JASKIER_JUMP = 1018718152U;
-        static const AkUniqueID PLAY_JASKIER_MOONWALK = 1967797464U;
         static const AkUniqueID PLAY_JASKIER_POTION_FX = 2721777174U;
         static const AkUniqueID PLAY_JASKIER_REVIVE = 4116481551U;
-        static const AkUniqueID PLAY_JASKIER_SONG_1 = 2858442791U;
-        static const AkUniqueID PLAY_JASKIER_SONG_2 = 2858442788U;
-        static const AkUniqueID PLAY_JASKIER_SONG_3 = 2858442789U;
-        static const AkUniqueID PLAY_JASKIER_ULTIMATE = 793067793U;
         static const AkUniqueID PLAY_JASKIER_WALK_RUN_CONCRETE = 2646163561U;
         static const AkUniqueID PLAY_JASKIER_WALK_RUN_DIRT = 4243245347U;
         static const AkUniqueID PLAY_KIKIMORA_DAMAGED = 2779782817U;
@@ -84,6 +90,7 @@ namespace AK
         static const AkUniqueID PLAY_LVL2_FIRE_AMBIENCE_1 = 4115872312U;
         static const AkUniqueID PLAY_LVL2_FIRE_AMBIENCE_2 = 4115872315U;
         static const AkUniqueID PLAY_LVL2_FIRE_AMBIENCE_3 = 4115872314U;
+        static const AkUniqueID PLAY_LVL2_INTRO_CONVERSATION_CUTSCENE = 1359365268U;
         static const AkUniqueID PLAY_LVL2_WIND_1 = 2013879219U;
         static const AkUniqueID PLAY_LVL2_WIND_2 = 2013879216U;
         static const AkUniqueID PLAY_MAIN_MENU_MOUSE_OVER = 1807448786U;
@@ -171,6 +178,7 @@ namespace AK
         static const AkUniqueID INIT = 1355168291U;
         static const AkUniqueID CINEMATIC_LEVEL_2 = 3354210172U;
         static const AkUniqueID GERALT = 47710518U;
+        static const AkUniqueID HUD = 646625284U;
         static const AkUniqueID HUMAN_ENEMIES = 2380338445U;
         static const AkUniqueID JASKIER = 1735538792U;
         static const AkUniqueID LEVEL_2 = 1290008370U;

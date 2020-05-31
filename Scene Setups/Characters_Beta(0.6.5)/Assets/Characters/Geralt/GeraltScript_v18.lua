@@ -124,9 +124,9 @@ local audio_library = {
 	attack_miss = "Play_Geralt_sword_swing",
 	attack_hit = "Play_Geralt_sword_metal",
 
-	combo_1 = "Play_Geralt_combo_1",	--Slide
-	combo_2 = "Play_Geralt_combo_2",	--Spin
-	combo_3 = "Play_Geralt_combo_3",	--Jump
+	combo_1 = "G_Combo_1",	--Slide
+	combo_2 = "G_Combo_2",	--Spin
+	combo_3 = "G_Combo_3",	--Jump
 
 	item_potion = "Play_Geralt_potion_fx"
 }
@@ -410,7 +410,13 @@ lua_table.energy_reg_orig = 7
 	}
 	local enemy_hit_curr_stage = enemy_hit_stages.awaiting_attack
 	local enemy_hit_started_at = 0
-	local enemy_hit_duration = 200
+
+	local hit_durations = {
+		small = 100,
+		medium = 200,
+		big = 200
+	}
+	local enemy_hit_duration = hit_durations.small
 
 	local controller_shake = {
 		small = { intensity = 1.0, duration = 100 },
@@ -1075,9 +1081,14 @@ local function SaveDirection()
 			z = mov_input.used_input.z / magnitude
 		}
 
-		local camera_Y_rot = math.rad(camera_script.current_camera_orientation)
-		rec_direction.x = orig_inputs.z * math.sin(camera_Y_rot) + orig_inputs.x * math.cos(camera_Y_rot)
-		rec_direction.z = orig_inputs.z * math.cos(camera_Y_rot) - orig_inputs.x * math.sin(camera_Y_rot)
+		if camera_script.current_camera_orientation ~= nil then
+			local camera_Y_rot = math.rad(camera_script.current_camera_orientation)
+			rec_direction.x = orig_inputs.z * math.sin(camera_Y_rot) + orig_inputs.x * math.cos(camera_Y_rot)
+			rec_direction.z = orig_inputs.z * math.cos(camera_Y_rot) - orig_inputs.x * math.sin(camera_Y_rot)
+		else
+			rec_direction.x = orig_inputs.x
+			rec_direction.z = orig_inputs.z
+		end
 
 	else	--IF no input, use character Y angle to move FORWARD
 		rec_direction.x, rec_direction.z = math.sin(rot_y), math.cos(rot_y)
@@ -1148,6 +1159,14 @@ local function CheckCameraBounds()	--Check if we're currently outside the camera
 	--4. If character off bounds, calculate the return angle and flag the off bounds status
 	if bounds_vector.x ~= 0 or bounds_vector.z ~= 0 then
 		bounds_angle = math.rad(bounds_angle)
+
+		if camera_script.current_camera_orientation ~= nil then
+			local camera_Y_rot = math.rad(camera_script.current_camera_orientation)
+			local orig_vector = { x = bounds_vector.x, z = bounds_vector.z }
+			bounds_vector.x = orig_vector.z * math.sin(camera_Y_rot) + orig_vector.x * math.cos(camera_Y_rot)
+			bounds_vector.z = orig_vector.z * math.cos(camera_Y_rot) - orig_vector.x * math.sin(camera_Y_rot)
+		end
+
 		off_bounds = true
 
 		if lua_table.current_state > state.idle then
@@ -1196,12 +1215,16 @@ local function MoveCharacter()
 		x = lua_table.current_velocity * mov_input.used_input.x / magnitude,
 		z = lua_table.current_velocity * mov_input.used_input.z / magnitude
 	}
-
-	local camera_Y_rot = math.rad(camera_script.current_camera_orientation)
-	local mov_velocity = {	--Magnitude into vectorial values through input values
-		x = orig_mov_velocity.z * math.sin(camera_Y_rot) + orig_mov_velocity.x * math.cos(camera_Y_rot),
-		z = orig_mov_velocity.z * math.cos(camera_Y_rot) - orig_mov_velocity.x * math.sin(camera_Y_rot)
-	}
+	
+	local mov_velocity = {}
+	if camera_script.current_camera_orientation ~= nil then
+		local camera_Y_rot = math.rad(camera_script.current_camera_orientation)
+		mov_velocity.x = orig_mov_velocity.z * math.sin(camera_Y_rot) + orig_mov_velocity.x * math.cos(camera_Y_rot)	--Magnitude into vectorial values through input values
+		mov_velocity.z = orig_mov_velocity.z * math.cos(camera_Y_rot) - orig_mov_velocity.x * math.sin(camera_Y_rot)
+	else
+		mov_velocity.x = orig_mov_velocity.x
+		mov_velocity.z = orig_mov_velocity.z
+	end
 
 	local position = lua_table.TransformFunctions:GetPosition(geralt_GO_UID)	--Rotate to velocity direction
 	lua_table.TransformFunctions:LookAt(position[1] + mov_velocity.x, position[2], position[3] + mov_velocity.z, geralt_GO_UID)
@@ -1731,8 +1754,6 @@ end
 local function ReviveShutdown()	--IF I was reviving, not anymore
 	if revive_target ~= nil
 	then
-		lua_table.AudioFunctions:StopAudioEventGO(audio_library.revive, geralt_GO_UID)	--TODO-AUDIO: Ultimate Sound
-		current_audio = audio_library.none
 		revive_target.being_revived = false
 		revive_target = nil
 	end
@@ -1743,23 +1764,45 @@ function lua_table:EnemyHit()
 		lua_table.AnimationFunctions:SetAnimationPause(true, geralt_GO_UID)
 		lua_table.AnimationFunctions:SetAnimationPause(true, particles_library.slash_GO_UID)
 
+		if enemy_hit_curr_stage == enemy_hit_stages.attack_miss then
+			lua_table.AudioFunctions:StopAudioEventGO(audio_library.attack_miss, geralt_GO_UID)
+		end
+		
+		if lua_table.current_state == state.combo_1 then
+			enemy_hit_duration = hit_durations.big
+			current_paused_audio = audio_library.combo_1
+
+		elseif lua_table.current_state == state.combo_2 then
+			enemy_hit_duration = hit_durations.big
+			current_paused_audio = audio_library.combo_2
+
+		elseif lua_table.current_state == state.combo_3 then
+			enemy_hit_duration = hit_durations.big
+			current_paused_audio = audio_library.combo_3
+
+		elseif lua_table.current_state == state.light_3 then
+			enemy_hit_duration = hit_durations.medium
+			--current_paused_audio = audio_library.light_3
+
+		elseif lua_table.current_state == state.medium_3 then
+			enemy_hit_duration = hit_durations.medium
+			--current_paused_audio = audio_library.medium_3
+
+		elseif lua_table.current_state == state.heavy_3 then
+			enemy_hit_duration = hit_durations.medium
+			--current_paused_audio = audio_library.heavy_3
+		else
+			enemy_hit_duration = hit_durations.small
+		end
+
 		-- current_action_block_time = current_action_block_time + enemy_hit_duration
 		-- current_action_duration = current_action_duration + enemy_hit_duration
 		action_started_at = action_started_at + enemy_hit_duration
 		enemy_hit_started_at = game_time
 
-		if enemy_hit_curr_stage == enemy_hit_stages.attack_miss then
-			lua_table.AudioFunctions:StopAudioEventGO(audio_library.attack_miss, geralt_GO_UID)
+		if current_paused_audio ~= audio_library.none then
+			lua_table.AudioFunctions:PauseAudioEventGO(current_paused_audio, geralt_GO_UID)
 		end
-		
-		if lua_table.current_state == state.combo_1 then current_paused_audio = audio_library.combo_1
-		elseif lua_table.current_state == state.combo_2 then current_paused_audio = audio_library.combo_2
-		elseif lua_table.current_state == state.combo_3 then current_paused_audio = audio_library.combo_3 end
-		-- elseif lua_table.current_state == state.light_3 then current_paused_audio = audio_library.light_3
-		-- elseif lua_table.current_state == state.medium_3 then current_paused_audio = audio_library.medium_3
-		-- elseif lua_table.current_state == state.heavy_3 then current_paused_audio = audio_library.heavy_3 end
-
-		lua_table.AudioFunctions:PauseAudioEventGO(current_paused_audio, geralt_GO_UID)
 
 		enemy_hit_curr_stage = enemy_hit_stages.attack_hit
 	end
@@ -2017,7 +2060,14 @@ local function ProcessIncomingHit(collider_GO)
 		elseif enemy_script.collider_effect == attack_effects_ID.knockback
 		then
 			local geralt_pos = lua_table.TransformFunctions:GetPosition(geralt_GO_UID)	--Look at and set direction from knockback
-			local knockback_pos = lua_table.TransformFunctions:GetPosition(collider_GO)
+			local knockback_pos
+
+			if collider_parent ~= 0 then
+				knockback_pos = lua_table.TransformFunctions:GetPosition(collider_parent)
+			else
+				knockback_pos = lua_table.TransformFunctions:GetPosition(collider_GO)
+			end
+			
 			lua_table.TransformFunctions:LookAt(knockback_pos[1], geralt_pos[2], knockback_pos[3], geralt_GO_UID)
 			
 			rec_direction.x = geralt_pos[1] - knockback_pos[1]
@@ -2365,8 +2415,6 @@ function lua_table:Update()
 
 						if lua_table.current_state == state.revive
 						then
-							lua_table.AudioFunctions:StopAudioEventGO(audio_library.revive, geralt_GO_UID)
-							current_audio = audio_library.none
 							revive_target = nil
 						elseif lua_table.current_state == state.evade
 						then
@@ -2467,8 +2515,10 @@ function lua_table:Update()
 								lua_table.AnimationFunctions:SetAnimationPause(false, geralt_GO_UID)
 								lua_table.AnimationFunctions:SetAnimationPause(false, particles_library.slash_GO_UID)
 
-								lua_table.AudioFunctions:ResumeAudioEventGO(current_paused_audio, geralt_GO_UID)
-								current_paused_audio = audio_library.none
+								if current_paused_audio ~= audio_library.none then
+									lua_table.AudioFunctions:ResumeAudioEventGO(current_paused_audio, geralt_GO_UID)
+									current_paused_audio = audio_library.none
+								end
 
 								lua_table.AudioFunctions:PlayAudioEventGO(audio_library.attack_hit, geralt_GO_UID)
 								--current_audio = audio_library.attack_hit

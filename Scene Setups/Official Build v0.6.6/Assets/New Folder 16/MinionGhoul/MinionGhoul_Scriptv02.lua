@@ -53,7 +53,7 @@ local attack_effects = {
 ------------   All the values below are placeholders, will change them when testing
 -- Ghoul values 
 lua_table.MyUID = 0 --Entity UID
-lua_table.max_hp = 80
+lua_table.max_hp = 100
 lua_table.health = 0
 lua_table.speed = 7
 lua_table.knock_speed = 35
@@ -68,7 +68,7 @@ lua_table.AggroRange = 25
 lua_table.minDistance = 2.5 -- If entity is inside this distance, then attack
 lua_table.maxDistance = 5
 --
-lua_table.stun_duration = 4000
+lua_table.stun_duration = 2000
 
 local knock_force = {0, 0, 0}
 
@@ -116,10 +116,7 @@ local Front_Collider = 0
 lua_table.collider_damage = 0
 lua_table.collider_effect = 0
 
-local HitEmitter1_UID = 0
-local HitEmitter2_UID = 0
-local HitEmitter3_UID = 0
-local HitEmitter4_UID = 0
+local Minion_General_Emitter = 0
 
 local random_attack = 0
 local random_death_time = 0
@@ -207,7 +204,7 @@ end
 
 local function AttackColliderShutdown()
 	if is_front_active then
-		lua_table.GameObjectFunctions:SetActiveGameObject(false, Front_Att_Coll)	--TODO-Colliders: Check
+		lua_table.GameObject:SetActiveGameObject(false, Front_Collider)	--TODO-Colliders: Check
 		is_front_active = false
 	end
 end
@@ -334,6 +331,13 @@ local function Stun()
 	if start_stun then
 
 		stun_timer = lua_table.System:GameTime() * 1000
+
+		local particles = {}
+		particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Minion_Stun_Emitter", Minion_General_Emitter))
+		for i = 1, #particles do 
+		    lua_table.Particles:PlayParticleEmitter(particles[i])
+		end
+		
 		start_stun = false
 	end
 
@@ -378,10 +382,11 @@ local function Die()
 
 		lua_table.Audio:PlayAudioEvent("Play_Minion_death")
 
-		lua_table.Particles:PlayParticleEmitter(HitEmitter1_UID)
-		lua_table.Particles:PlayParticleEmitter(HitEmitter2_UID)
-		lua_table.Particles:PlayParticleEmitter(HitEmitter3_UID)
-		lua_table.Particles:PlayParticleEmitter(HitEmitter4_UID)
+		local particles = {}
+		particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Minion_Blood_Emitter", Minion_General_Emitter))
+		for i = 1, #particles do 
+		    lua_table.Particles:PlayParticleEmitter(particles[i])
+		end
 
 		start_death = true
 	end
@@ -412,10 +417,11 @@ function lua_table:OnTriggerEnter()
 					AttackColliderShutdown()
 					lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
 
-					lua_table.Particles:PlayParticleEmitter(HitEmitter1_UID)
-					lua_table.Particles:PlayParticleEmitter(HitEmitter2_UID)
-					lua_table.Particles:PlayParticleEmitter(HitEmitter3_UID)
-					lua_table.Particles:PlayParticleEmitter(HitEmitter4_UID)
+					local particles = {}
+					particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Minion_Blood_Emitter", Minion_General_Emitter))
+					for i = 1, #particles do 
+					    lua_table.Particles:PlayParticleEmitter(particles[i])
+					end
 
 					start_stun = true
 					lua_table.currentState = State.STUNNED
@@ -452,6 +458,13 @@ function lua_table:OnTriggerEnter()
 
 					if start_taunt then 
 						taunt_timer = lua_table.System:GameTime() * 1000
+
+						local particles = {}
+						particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Minion_Aggro_Emitter", Minion_General_Emitter))
+						for i = 1, #particles do 
+						    lua_table.Particles:PlayParticleEmitter(particles[i])
+						end
+
 						lua_table.is_taunt = true
 						lua_table.System:LOG("Getting taunted by Jaskier") 
 						start_taunt = false
@@ -465,10 +478,11 @@ function lua_table:OnTriggerEnter()
 				
 				lua_table.Audio:PlayAudioEvent("Play_Minion_take_damage")
 
-				lua_table.Particles:PlayParticleEmitter(HitEmitter1_UID)
-				lua_table.Particles:PlayParticleEmitter(HitEmitter2_UID)
-				lua_table.Particles:PlayParticleEmitter(HitEmitter3_UID)
-				lua_table.Particles:PlayParticleEmitter(HitEmitter4_UID)
+				local particles = {}
+				particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Minion_Blood_Emitter", Minion_General_Emitter))
+				for i = 1, #particles do 
+				    lua_table.Particles:PlayParticleEmitter(particles[i])
+				end
 				lua_table.System:LOG("Hit registered")
 			end
 		end
@@ -495,10 +509,11 @@ function lua_table:RequestedTrigger(collider_GO)
 				AttackColliderShutdown()
 				lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
 
-				lua_table.Particles:PlayParticleEmitter(HitEmitter1_UID)
-				lua_table.Particles:PlayParticleEmitter(HitEmitter2_UID)
-				lua_table.Particles:PlayParticleEmitter(HitEmitter3_UID)
-				lua_table.Particles:PlayParticleEmitter(HitEmitter4_UID)
+				local particles = {}
+				particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Minion_Blood_Emitter", Minion_General_Emitter))
+				for i = 1, #particles do 
+				    lua_table.Particles:PlayParticleEmitter(particles[i])
+				end
 
 				start_stun = true
 				lua_table.currentState = State.STUNNED
@@ -533,6 +548,13 @@ function lua_table:RequestedTrigger(collider_GO)
 
 				if start_taunt then 
 					taunt_timer = lua_table.System:GameTime() * 1000
+
+					local particles = {}
+					particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Minion_Aggro_Emitter", Minion_General_Emitter))
+					for i = 1, #particles do 
+					    lua_table.Particles:PlayParticleEmitter(particles[i])
+					end
+					
 					lua_table.is_taunt = true
 					lua_table.System:LOG("Getting taunted by Jaskier") 
 					start_taunt = false
@@ -544,10 +566,11 @@ function lua_table:RequestedTrigger(collider_GO)
 			AttackColliderShutdown()
 			lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
 
-			lua_table.Particles:PlayParticleEmitter(HitEmitter1_UID)
-			lua_table.Particles:PlayParticleEmitter(HitEmitter2_UID)
-			lua_table.Particles:PlayParticleEmitter(HitEmitter3_UID)
-			lua_table.Particles:PlayParticleEmitter(HitEmitter4_UID)
+			local particles = {}
+			particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Minion_Blood_Emitter", Minion_General_Emitter))
+			for i = 1, #particles do 
+			    lua_table.Particles:PlayParticleEmitter(particles[i])
+			end
 
 			lua_table.System:LOG("Hit registered")
 		end
@@ -558,24 +581,11 @@ end
 function lua_table:Awake()
 	lua_table.System:LOG("Minion AWAKE")
 
-	HitEmitter1_UID = lua_table.GameObject:FindChildGameObject("MinionHit1_Emitter")
-	HitEmitter2_UID = lua_table.GameObject:FindChildGameObject("MinionHit2_Emitter")
-	HitEmitter3_UID = lua_table.GameObject:FindChildGameObject("MinionHit3_Emitter")
-	HitEmitter4_UID = lua_table.GameObject:FindChildGameObject("MinionHit4_Emitter")
+	Minion_General_Emitter = lua_table.GameObject:FindChildGameObject("Minion_General_Particles")
 end
 
 function lua_table:Start()
 	lua_table.System:LOG("Minion START")
-
-	lua_table.Particles:ActivateParticlesEmission(HitEmitter1_UID)
-	lua_table.Particles:ActivateParticlesEmission(HitEmitter2_UID)
-	lua_table.Particles:ActivateParticlesEmission(HitEmitter3_UID)
-	lua_table.Particles:ActivateParticlesEmission(HitEmitter4_UID)
-
-	lua_table.Particles:StopParticleEmitter(HitEmitter1_UID)
-	lua_table.Particles:StopParticleEmitter(HitEmitter2_UID)
-	lua_table.Particles:StopParticleEmitter(HitEmitter3_UID)
-	lua_table.Particles:StopParticleEmitter(HitEmitter4_UID)
 
 	-- Getting Entity and Player UIDs
 	lua_table.MyUID = lua_table.GameObject:GetMyUID()
@@ -652,9 +662,8 @@ function lua_table:Update()
 	end
 
 	-- Manual reset of taunt
-	if taunt_timer + 5000 <= lua_table.System:GameTime() * 1000 then
+	if taunt_timer + 3000 <= lua_table.System:GameTime() * 1000 then
 
-		
 		lua_table.is_taunt = false
 		taunt_timer = 0
 	

@@ -17,6 +17,7 @@
             },
             "18": {
                 "Active": true,
+                "CollisionsActivated": true,
                 "Duration": "1000",
                 "GradientColor": true,
                 "HorizontalBill": "0",
@@ -24,9 +25,16 @@
                 "PartAutoBlending": true,
                 "PartBlendEquation": 0,
                 "PartBlendFunc": 2,
+                "PartCastShadows": true,
+                "PartLightAffected": true,
                 "PartMBlFuncDst": 7,
                 "PartMBlFuncSrc": 6,
-                "ParticlesBillboarding": true,
+                "PartOnlyShadows": false,
+                "PartReceiveShadows": true,
+                "PartSceneColorAffected": true,
+                "ParticlesBill": true,
+                "ParticlesFaceCulling": true,
+                "PlayOnAwake": true,
                 "Resources": {
                     "ResourceTexture": "Library/Textures/596003088.dds"
                 },
@@ -178,11 +186,11 @@
                 "velocityconstants": "0"
             }
         },
-        "Parent": "1050328880",
+        "Parent": "752892280",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "981290483"
+        "UID": "1332569904"
     },
     "Cone": {
         "Active": true,
@@ -202,6 +210,7 @@
             },
             "18": {
                 "Active": true,
+                "CollisionsActivated": true,
                 "Duration": "1000",
                 "GradientColor": true,
                 "HorizontalBill": "0",
@@ -209,9 +218,16 @@
                 "PartAutoBlending": true,
                 "PartBlendEquation": 0,
                 "PartBlendFunc": 2,
+                "PartCastShadows": true,
+                "PartLightAffected": true,
                 "PartMBlFuncDst": 7,
                 "PartMBlFuncSrc": 6,
-                "ParticlesBillboarding": true,
+                "PartOnlyShadows": false,
+                "PartReceiveShadows": true,
+                "PartSceneColorAffected": true,
+                "ParticlesBill": true,
+                "ParticlesFaceCulling": true,
+                "PlayOnAwake": true,
                 "Resources": {
                     "ResourceTexture": "Library/Textures/651962314.dds"
                 },
@@ -363,11 +379,11 @@
                 "velocityconstants": "0"
             }
         },
-        "Parent": "1050328880",
+        "Parent": "752892280",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "527454932"
+        "UID": "1408252337"
     },
     "Drop_Particle_Red": {
         "Active": true,
@@ -469,13 +485,13 @@
                 "tmpScalez": "1.000000"
             }
         },
-        "Parent": "1206087667",
+        "Parent": "1105909238",
         "PrefabChild": true,
         "PrefabInstance": true,
         "Static": false,
-        "UID": "1050328880"
+        "UID": "752892280"
     },
-    "PreviewTexture": "Library/Textures/1514953278.dds",
+    "PreviewTexture": "Library/Textures/677251172.dds",
     "Star": {
         "Active": true,
         "Components": {
@@ -494,6 +510,7 @@
             },
             "18": {
                 "Active": true,
+                "CollisionsActivated": true,
                 "Duration": "1000",
                 "GradientColor": true,
                 "HorizontalBill": "0",
@@ -501,9 +518,16 @@
                 "PartAutoBlending": true,
                 "PartBlendEquation": 0,
                 "PartBlendFunc": 2,
+                "PartCastShadows": true,
+                "PartLightAffected": true,
                 "PartMBlFuncDst": 7,
                 "PartMBlFuncSrc": 6,
-                "ParticlesBillboarding": true,
+                "PartOnlyShadows": false,
+                "PartReceiveShadows": true,
+                "PartSceneColorAffected": true,
+                "ParticlesBill": true,
+                "ParticlesFaceCulling": true,
+                "PlayOnAwake": true,
                 "Resources": {
                     "ResourceTexture": "Library/Textures/1053900002.dds"
                 },
@@ -655,11 +679,11 @@
                 "velocityconstants": "0"
             }
         },
-        "Parent": "1050328880",
+        "Parent": "752892280",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "2116940719"
+        "UID": "570050492"
     },
     "bottle_low_uvs2:pSphere1": {
         "Active": true,
@@ -689,6 +713,7 @@
             "2": {
                 "Active": true,
                 "CastsShadows": true,
+                "LightAffected": true,
                 "OnlyShadows": false,
                 "ReceivesShadows": true,
                 "Resources": {
@@ -698,10 +723,10 @@
                 }
             }
         },
-        "Parent": "1050328880",
+        "Parent": "752892280",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1727103889"
+        "UID": "1987506972"
     }
 }

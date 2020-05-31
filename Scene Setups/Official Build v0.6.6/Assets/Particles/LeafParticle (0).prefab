@@ -17,10 +17,24 @@
             },
             "18": {
                 "Active": true,
+                "CollisionsActivated": true,
                 "Duration": "1000",
                 "GradientColor": true,
                 "HorizontalBill": "0",
                 "Loop": true,
+                "PartAutoBlending": true,
+                "PartBlendEquation": 0,
+                "PartBlendFunc": 0,
+                "PartCastShadows": true,
+                "PartLightAffected": true,
+                "PartMBlFuncDst": 7,
+                "PartMBlFuncSrc": 6,
+                "PartOnlyShadows": false,
+                "PartReceiveShadows": true,
+                "PartSceneColorAffected": true,
+                "ParticlesBill": true,
+                "ParticlesFaceCulling": true,
+                "PlayOnAwake": true,
                 "Resources": {
                     "ResourceTexture": "Library/Textures/708299600.dds"
                 },
@@ -97,6 +111,7 @@
                 "externalAccelerationX": "0.000000",
                 "externalAccelerationY": "9.000000",
                 "externalAccelerationZ": "0.000000",
+                "followEmitter": true,
                 "grad_duration": "2000",
                 "gradients": [
                     {
@@ -111,6 +126,16 @@
                         "y": "0.000000",
                         "z": "0.000000"
                     }
+                ],
+                "maxInitialRotation": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "minInitialRotation": [
+                    "0",
+                    "0",
+                    "0"
                 ],
                 "num_colors": "3",
                 "num_curves": "2",
@@ -128,6 +153,8 @@
                 "positionX": "0.000000",
                 "positionY": "0.000000",
                 "positionZ": "0.000000",
+                "randomInitialRotation": false,
+                "randomStartFrame": true,
                 "rotationOvertime1": [
                     "0",
                     "0",
@@ -159,11 +186,11 @@
                 "velocityconstants": "0"
             }
         },
-        "Parent": "341020957",
+        "Parent": "1105909238",
         "PrefabChild": true,
         "PrefabInstance": true,
         "Static": false,
-        "UID": "831811333"
+        "UID": "1318646807"
     },
-    "PreviewTexture": "Library/Textures/1231728197.dds"
+    "PreviewTexture": "Library/Textures/396474138.dds"
 }

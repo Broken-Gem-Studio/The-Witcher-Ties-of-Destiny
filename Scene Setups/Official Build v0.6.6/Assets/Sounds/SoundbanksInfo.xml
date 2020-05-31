@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="11" SoundbankVersion="134">
 	<RootPaths>
-		<ProjectRoot>F:\github\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\</ProjectRoot>
-		<SourceFilesRoot>F:\github\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>C:\Users\Jacobo_G\Desktop\Soundbanks\</SoundBanksRoot>
+		<ProjectRoot>E:\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\</ProjectRoot>
+		<SourceFilesRoot>E:\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>E:\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseSoundBanks\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>F:\github\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>E:\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
@@ -16,6 +16,9 @@
 			<ShortName>Geralt</ShortName>
 			<Path>Geralt.bnk</Path>
 			<IncludedEvents>
+				<Event Id="593383835" Name="G_Combo_1" ObjectPath="\Events\Default Work Unit\Geralt\G_Combo_1"/>
+				<Event Id="593383832" Name="G_Combo_2" ObjectPath="\Events\Default Work Unit\Geralt\G_Combo_2"/>
+				<Event Id="593383833" Name="G_Combo_3" ObjectPath="\Events\Default Work Unit\Geralt\G_Combo_3"/>
 				<Event Id="3449812404" Name="Play_Geralt_aard" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_aard"/>
 				<Event Id="850689337" Name="Play_Geralt_fall_down_get_up" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_fall_down_get_up"/>
 				<Event Id="2664027291" Name="Play_Geralt_hit_sound" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_hit_sound"/>
@@ -28,9 +31,6 @@
 				<Event Id="3955362993" Name="Play_Geralt_Ultimate" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_Ultimate"/>
 				<Event Id="4167477001" Name="Play_Geralt_walk_run_concrete" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_walk_run_concrete"/>
 				<Event Id="2190072003" Name="Play_Geralt_walk_run_dirt" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_walk_run_dirt"/>
-				<Event Id="3747619760" Name="Play_Gerlat_combo_1" ObjectPath="\Events\Default Work Unit\Geralt\Play_Gerlat_combo_1"/>
-				<Event Id="3747619763" Name="Play_Gerlat_combo_2" ObjectPath="\Events\Default Work Unit\Geralt\Play_Gerlat_combo_2"/>
-				<Event Id="3747619762" Name="Play_Gerlat_combo_3" ObjectPath="\Events\Default Work Unit\Geralt\Play_Gerlat_combo_3"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
 				<File Id="20663703" Language="SFX">
@@ -175,6 +175,30 @@
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>
+		<SoundBank Id="646625284" Language="SFX">
+			<ObjectPath>\SoundBanks\Default Work Unit\HUD</ObjectPath>
+			<ShortName>HUD</ShortName>
+			<Path>HUD.bnk</Path>
+			<IncludedEvents>
+				<Event Id="1291293387" Name="Play_HUD_No_Stamina" ObjectPath="\Events\Default Work Unit\HUD\Play_HUD_No_Stamina"/>
+				<Event Id="446899183" Name="Play_HUD_Special_Up" ObjectPath="\Events\Default Work Unit\HUD\Play_HUD_Special_Up"/>
+				<Event Id="2197850542" Name="Play_HUD_Switch_Potion" ObjectPath="\Events\Default Work Unit\HUD\Play_HUD_Switch_Potion"/>
+			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="649498232" Language="SFX">
+					<ShortName>HUD_No_Stamina.wav</ShortName>
+					<Path>SFX\HUD_No_Stamina_10C4C929.wem</Path>
+				</File>
+				<File Id="656657404" Language="SFX">
+					<ShortName>HUD_Switch_Potion.wav</ShortName>
+					<Path>SFX\HUD_Switch_Potion_10C4C929.wem</Path>
+				</File>
+				<File Id="805925722" Language="SFX">
+					<ShortName>HUD_Special_Up.wav</ShortName>
+					<Path>SFX\HUD_Special_Up_10C4C929.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
+		</SoundBank>
 		<SoundBank Id="968010305" Language="SFX">
 			<ObjectPath>\SoundBanks\Default Work Unit\Props</ObjectPath>
 			<ShortName>Props</ShortName>
@@ -273,10 +297,6 @@
 					<ShortName>Walker_Ghoul_minion_spawn_2.wav</ShortName>
 					<Path>SFX\Walker_Ghoul_minion_spawn_2_10C4C929.wem</Path>
 				</File>
-				<File Id="117845744" Language="SFX">
-					<ShortName>Kikimora_sweep.wav</ShortName>
-					<Path>SFX\Kikimora_sweep_10C4C929.wem</Path>
-				</File>
 				<File Id="207123423" Language="SFX">
 					<ShortName>Minion_right_punch.wav</ShortName>
 					<Path>SFX\Minion_right_punch_10C4C929.wem</Path>
@@ -296,6 +316,10 @@
 				<File Id="300951795" Language="SFX">
 					<ShortName>Minion_take_damage_2.wav</ShortName>
 					<Path>SFX\Minion_take_damage_2_10C4C929.wem</Path>
+				</File>
+				<File Id="340309384" Language="SFX">
+					<ShortName>Sweep_fix_1.wav</ShortName>
+					<Path>SFX\Sweep_fix_1_10C4C929.wem</Path>
 				</File>
 				<File Id="365134146" Language="SFX">
 					<ShortName>Red_Ghoul_scream_variation_3.wav</ShortName>
@@ -499,18 +523,18 @@
 			<ShortName>Jaskier</ShortName>
 			<Path>Jaskier.bnk</Path>
 			<IncludedEvents>
+				<Event Id="1788677754" Name="J_Combo_1" ObjectPath="\Events\Default Work Unit\Jaskier\J_Combo_1"/>
+				<Event Id="1788677753" Name="J_Combo_2" ObjectPath="\Events\Default Work Unit\Jaskier\J_Combo_2"/>
+				<Event Id="1788677752" Name="J_Combo_3" ObjectPath="\Events\Default Work Unit\Jaskier\J_Combo_3"/>
+				<Event Id="3196706884" Name="J_moonwalk" ObjectPath="\Events\Default Work Unit\Jaskier\J_moonwalk"/>
+				<Event Id="2870416861" Name="J_Ult" ObjectPath="\Events\Default Work Unit\Jaskier\J_Ult"/>
 				<Event Id="2312986841" Name="Play_Jaskier_fall_down_get_up" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_fall_down_get_up"/>
 				<Event Id="1916833811" Name="Play_Jaskier_guitar_smash" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_guitar_smash"/>
 				<Event Id="4022547377" Name="Play_Jaskier_guitar_swing" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_guitar_swing"/>
 				<Event Id="4169710139" Name="Play_Jaskier_hit_sound" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_hit_sound"/>
 				<Event Id="1018718152" Name="Play_Jaskier_jump" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_jump"/>
-				<Event Id="1967797464" Name="Play_Jaskier_moonwalk" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_moonwalk"/>
 				<Event Id="2721777174" Name="Play_Jaskier_potion_fx" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_potion_fx"/>
 				<Event Id="4116481551" Name="Play_Jaskier_revive" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_revive"/>
-				<Event Id="2858442791" Name="Play_Jaskier_song_1" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_song_1"/>
-				<Event Id="2858442788" Name="Play_Jaskier_song_2" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_song_2"/>
-				<Event Id="2858442789" Name="Play_Jaskier_song_3" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_song_3"/>
-				<Event Id="793067793" Name="Play_Jaskier_Ultimate" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_Ultimate"/>
 				<Event Id="2646163561" Name="Play_Jaskier_walk_run_concrete" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_walk_run_concrete"/>
 				<Event Id="4243245347" Name="Play_Jaskier_walk_run_dirt" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_walk_run_dirt"/>
 			</IncludedEvents>
@@ -971,6 +995,7 @@
 				<Event Id="4201290927" Name="Play_Lvl2_Ambience_Wind_Loop" ObjectPath="\Events\Default Work Unit\Cinematic_Level_2\Play_Lvl2_Ambience_Wind_Loop"/>
 				<Event Id="3372924164" Name="Play_Lvl2_Button_Skip_Cinematic_Pressed" ObjectPath="\Events\Default Work Unit\Cinematic_Level_2\Play_Lvl2_Button_Skip_Cinematic_Pressed"/>
 				<Event Id="3901497125" Name="Play_Lvl2_Cinematic_Skipped" ObjectPath="\Events\Default Work Unit\Cinematic_Level_2\Play_Lvl2_Cinematic_Skipped"/>
+				<Event Id="1359365268" Name="Play_lvl2_Intro_conversation_Cutscene" ObjectPath="\Events\Default Work Unit\Cinematic_Level_2\Play_lvl2_Intro_conversation_Cutscene"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
 				<File Id="171106237" Language="SFX">
@@ -989,6 +1014,10 @@
 					<ShortName>Lvl2_Ambience_Crickets_Loop.wav</ShortName>
 					<Path>SFX\Lvl2_Ambience_Crickets_Loop_10C4C929.wem</Path>
 				</File>
+				<File Id="828304743" Language="SFX">
+					<ShortName>lvl2_Intro_conversation_Cutscene.wav</ShortName>
+					<Path>SFX\lvl2_Intro_conversation_Cutscene_D79FB2B7.wem</Path>
+				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>
 		<SoundBank Id="3422541661" Language="SFX">
@@ -998,10 +1027,17 @@
 			<IncludedEvents>
 				<Event Id="3182384320" Name="Play_Button_main_menu" ObjectPath="\Events\Default Work Unit\Pause_menu\Play_Button_main_menu"/>
 				<Event Id="3725905392" Name="Play_Button_resume" ObjectPath="\Events\Default Work Unit\Pause_menu\Play_Button_resume"/>
+				<Event Id="2315361796" Name="Play_Character_Hover" ObjectPath="\Events\Default Work Unit\Selection Menu\Play_Character_Hover"/>
+				<Event Id="4128046305" Name="Play_Character_Selected" ObjectPath="\Events\Default Work Unit\Selection Menu\Play_Character_Selected"/>
+				<Event Id="993611128" Name="Play_Character_Unselected" ObjectPath="\Events\Default Work Unit\Selection Menu\Play_Character_Unselected"/>
 				<Event Id="2149137476" Name="Play_Mouse_over" ObjectPath="\Events\Default Work Unit\Pause_menu\Play_Mouse_over"/>
 				<Event Id="4233560256" Name="Play_Pause" ObjectPath="\Events\Default Work Unit\Pause_menu\Play_Pause"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
+				<File Id="411333380" Language="SFX">
+					<ShortName>Character_Hover.wav</ShortName>
+					<Path>SFX\Character_Hover_10C4C929.wem</Path>
+				</File>
 				<File Id="557831847" Language="SFX">
 					<ShortName>Pause.wav</ShortName>
 					<Path>SFX\Pause_10C4C929.wem</Path>
@@ -1010,9 +1046,17 @@
 					<ShortName>Mouse_over.wav</ShortName>
 					<Path>SFX\Mouse_over_10C4C929.wem</Path>
 				</File>
+				<File Id="709964966" Language="SFX">
+					<ShortName>Character_Selected.wav</ShortName>
+					<Path>SFX\Character_Selected_10C4C929.wem</Path>
+				</File>
 				<File Id="900834264" Language="SFX">
 					<ShortName>Button_resume.wav</ShortName>
 					<Path>SFX\Button_resume_10C4C929.wem</Path>
+				</File>
+				<File Id="1032839246" Language="SFX">
+					<ShortName>Character_Unselected.wav</ShortName>
+					<Path>SFX\Character_Unselected_10C4C929.wem</Path>
 				</File>
 				<File Id="1046985453" Language="SFX">
 					<ShortName>Button_main_menu.wav</ShortName>

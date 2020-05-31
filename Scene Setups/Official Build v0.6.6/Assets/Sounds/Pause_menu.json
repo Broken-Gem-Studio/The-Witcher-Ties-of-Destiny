@@ -5,11 +5,11 @@
   "SchemaVersion": "11",
   "SoundbankVersion": "134",
   "RootPaths": {
-   "ProjectRoot": "F:\\github\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\",
-   "SourceFilesRoot": "F:\\github\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\.cache\\Windows\\",
-   "SoundBanksRoot": "C:\\Users\\Jacobo_G\\Desktop\\Soundbanks\\",
+   "ProjectRoot": "E:\\GitHub\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\",
+   "SourceFilesRoot": "E:\\GitHub\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\.cache\\Windows\\",
+   "SoundBanksRoot": "E:\\GitHub\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseSoundBanks\\",
    "ExternalSourcesInputFile": "",
-   "ExternalSourcesOutputRoot": "F:\\github\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\GeneratedSoundBanks\\Windows"
+   "ExternalSourcesOutputRoot": "E:\\GitHub\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\GeneratedSoundBanks\\Windows"
   },
   "SoundBanks": [
    {
@@ -30,6 +30,21 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Pause_menu\\Play_Button_resume"
      },
      {
+      "Id": "2315361796",
+      "Name": "Play_Character_Hover",
+      "ObjectPath": "\\Events\\Default Work Unit\\Selection Menu\\Play_Character_Hover"
+     },
+     {
+      "Id": "4128046305",
+      "Name": "Play_Character_Selected",
+      "ObjectPath": "\\Events\\Default Work Unit\\Selection Menu\\Play_Character_Selected"
+     },
+     {
+      "Id": "993611128",
+      "Name": "Play_Character_Unselected",
+      "ObjectPath": "\\Events\\Default Work Unit\\Selection Menu\\Play_Character_Unselected"
+     },
+     {
       "Id": "2149137476",
       "Name": "Play_Mouse_over",
       "ObjectPath": "\\Events\\Default Work Unit\\Pause_menu\\Play_Mouse_over"
@@ -41,6 +56,12 @@
      }
     ],
     "IncludedMemoryFiles": [
+     {
+      "Id": "411333380",
+      "Language": "SFX",
+      "ShortName": "Character_Hover.wav",
+      "Path": "SFX\\Character_Hover_10C4C929.wem"
+     },
      {
       "Id": "557831847",
       "Language": "SFX",
@@ -54,10 +75,22 @@
       "Path": "SFX\\Mouse_over_10C4C929.wem"
      },
      {
+      "Id": "709964966",
+      "Language": "SFX",
+      "ShortName": "Character_Selected.wav",
+      "Path": "SFX\\Character_Selected_10C4C929.wem"
+     },
+     {
       "Id": "900834264",
       "Language": "SFX",
       "ShortName": "Button_resume.wav",
       "Path": "SFX\\Button_resume_10C4C929.wem"
+     },
+     {
+      "Id": "1032839246",
+      "Language": "SFX",
+      "ShortName": "Character_Unselected.wav",
+      "Path": "SFX\\Character_Unselected_10C4C929.wem"
      },
      {
       "Id": "1046985453",

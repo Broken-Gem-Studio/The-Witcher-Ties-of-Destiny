@@ -48,6 +48,8 @@ function GetTableTutorialCinematicCameraScript()
     values.y = 0
     values.z = 0
 
+    local dt = 0
+
     -- Scene variables
     lua_table.scene_uid = 0
     local next_scene = true
@@ -61,7 +63,7 @@ function GetTableTutorialCinematicCameraScript()
     end
 
     local function GoTo(id, speed)
-        speed = 1000 / speed
+        speed = (1000 / speed)
         values.x = time / speed
         values.y = time / speed
         values.z = time / speed
@@ -115,6 +117,8 @@ function GetTableTutorialCinematicCameraScript()
     function lua_table:Update()
         time = lua_table.System:GameTime() - started_time
 
+        dt = lua_table.System:DT()
+
         if lua_table.skip_threshold <= 0.00 then
             lua_table.skip_threshold = 0.00
         end
@@ -140,25 +144,26 @@ function GetTableTutorialCinematicCameraScript()
         if fade_speed >= 1 then fade_speed = 1 end
         if fade_speed <= 0 then fade_speed = 0 end
 
+        if time > 0 and time < 5
+        then
+            local value = time / 4
+            local alpha = Lerp(1, 0, value)
+            alpha = (alpha + 0.45 * dt)
+            lua_table.UI:ChangeUIComponentColor("Image", 0, 0, 0, alpha, FadeScreen)
+        end
+
         if time > 0 and time < 12 
         then
-            GoTo(1, 0.8)
+            GoTo(1, 50 * dt)
         end
 
-        if time > 0 and time < 4
-            then
-                local value = time / 4
-                local alpha = Lerp(1, 0, value)
-                lua_table.UI:ChangeUIComponentColor("Image", 0, 0, 0, alpha, FadeScreen)
-        end
-
-        if time > 10 and time < 14
+        if time > 10 and time < 12
         then
-            fade_speed = fade_speed + 0.015
+            fade_speed = (fade_speed + 1  * dt)
             lua_table.UI:ChangeUIComponentAlpha("Image", fade_speed, FadeScreen)
         end
 
-        if time > 12.5 and time < 13.5
+        if time > 12.5 and time < 13
         then
             lua_table.Transform:SetPosition(-67, 7, 101, lua_table.MyUID)
             lua_table.Transform:SetObjectRotation(179, 18, 179, lua_table.MyUID)
@@ -167,24 +172,18 @@ function GetTableTutorialCinematicCameraScript()
             lua_table.GameObjectFunctions:SetActiveGameObject(true, minion2)
         end
 
-        if time > 14 and time < 18
+        if time > 13 and time < 15
         then
-            fade_speed = fade_speed - 0.015
+            fade_speed = (fade_speed - 1  * dt)
             lua_table.UI:ChangeUIComponentAlpha("Image", fade_speed, FadeScreen)
         end
         
-        if time > 14 and time < 32
+        if time > 13 and time < 32
         then
-            GoTo(2, 0.04)
+            GoTo(2, 3.33 * dt)
         end
 
-        if time > 30 and time < 34
-        then
-            fade_speed = fade_speed + 0.015
-            lua_table.UI:ChangeUIComponentAlpha("Image", fade_speed, FadeScreen)
-        end
-
-        if time > 30 and disable_enemies == true
+        if time > 31 and disable_enemies == true
         then
         
             lua_table.GameObjectFunctions:SetActiveGameObject(false, lumber1)
@@ -199,30 +198,36 @@ function GetTableTutorialCinematicCameraScript()
 
         end
 
-        if time > 31.5 and time < 35.5
+        if time > 30 and time < 32
+        then
+            fade_speed = (fade_speed + 1  * dt)
+            lua_table.UI:ChangeUIComponentAlpha("Image", fade_speed, FadeScreen)
+        end
+
+        if time > 32.5 and time < 33
         then
             lua_table.Transform:SetPosition(-255, 16, 169, lua_table.MyUID)
             lua_table.Transform:SetObjectRotation(-179, 60, 179, lua_table.MyUID)
         end
 
-        if time > 34
+        if time > 33 and time < 35
         then
-            GoTo(3, 0.07)
-        end
-
-        if time > 34 and time < 38
-        then
-            fade_speed = fade_speed - 0.015
+            fade_speed = (fade_speed - 1  * dt)
             lua_table.UI:ChangeUIComponentAlpha("Image", fade_speed, FadeScreen)
         end
 
-        if time > 50 and time < 54
+        if time > 33
         then
-            fade_speed = fade_speed + 0.015
+            GoTo(3, 4 * dt)
+        end
+
+        if time > 48 and time < 50
+        then
+            fade_speed = (fade_speed + 1  * dt)
             lua_table.UI:ChangeUIComponentAlpha("Image", fade_speed, FadeScreen)
         end
         
-        if time > 56 and next_scene == true
+        if time > 55 and next_scene == true
         then
             lua_table.Scene:LoadScene(lua_table.scene_uid)
             next_scene = false

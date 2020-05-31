@@ -55,6 +55,7 @@
 					</PropertyList>
 					<ObjectInclusionList>
 						<ObjectRef Name="Pause_menu" ID="{3B6D860D-56D0-4733-9F49-0DAC5AAA41E7}" WorkUnitID="{704E5E75-56AA-4381-96D8-951456C36A40}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Selection Menu" ID="{366C125B-8520-4A28-851C-9C0F3084663D}" WorkUnitID="{704E5E75-56AA-4381-96D8-951456C36A40}" Filter="7" Origin="Manual"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
@@ -193,6 +194,20 @@
 					<ObjectInclusionList>
 						<ObjectRef Name="Pause_Music" ID="{D0907844-E468-49B5-BD0F-1935FA75AB99}" WorkUnitID="{900849B3-5BE8-4F7B-8EC5-9E5DD796D73F}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="Pause_2" ID="{38CEB53B-F80E-4A81-AAE1-AB20D5ED9ED7}" WorkUnitID="{900849B3-5BE8-4F7B-8EC5-9E5DD796D73F}" Filter="7" Origin="Manual"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="HUD" ID="{3FC150C6-1319-4225-A122-45A4D3770ED6}">
+					<PropertyList>
+						<Property Name="Maximum" Type="int32">
+							<ValueList>
+								<Value>99000000</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ObjectInclusionList>
+						<ObjectRef Name="HUD" ID="{3AB8C1FD-87B7-431A-9DD9-0642A7A1B827}" WorkUnitID="{704E5E75-56AA-4381-96D8-951456C36A40}" Filter="7" Origin="Manual"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>

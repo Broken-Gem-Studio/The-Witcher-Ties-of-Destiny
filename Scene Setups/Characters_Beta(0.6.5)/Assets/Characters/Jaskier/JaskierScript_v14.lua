@@ -114,16 +114,16 @@ local audio_library = {
 	run = "Play_Jaskier_walk_run_dirt",
 
 	evade = "Play_Jaskier_jump",
-	concert = "Play_Jaskier_Ultimate",
+	concert = "J_Ult",
 	revive = "Play_Jaskier_revive",
 
 	attack_miss = "Play_Jaskier_guitar_swing",
 	attack_hit = "Play_Jaskier_guitar_smash",
 
-	song_1 = "Play_Jaskier_song_1",	--One hand line spin
-	song_2 = "Play_Jaskier_song_2",	--Two hand cone
-	song_3 = "Play_Jaskier_song_3",	--Two hand circle (after moonwalk)
-	moonwalk = "Play_Jaskier_moonwalk",
+	song_1 = "J_Combo_1",	--One hand line spin
+	song_2 = "J_Combo_2",	--Two hand cone
+	song_3 = "J_moonwalk",	--Song 3 Start
+	song_3_secondary = "J_Combo_3",
 
 	item_potion = "Play_Jaskier_potion_fx"
 }
@@ -375,7 +375,10 @@ lua_table.energy_reg_orig = 7
 		front_1 = { GO_name = "Jaskier_Front_1", GO_UID = 0, active = false },	--0,2,3 / 4,3,3
 		front_2 = { GO_name = "Jaskier_Front_2", GO_UID = 0, active = false },	--
 
-		line_1 = { GO_name = "Jaskier_Line", GO_UID = 0, active = false },	--0,2,4 / 4,3,4
+		line_1 = { GO_name = "Jaskier_Line", GO_UID = 0, active = false },		--0,2,4 / 4,3,4
+		circle_1 = { GO_name = "Jaskier_Circle_1", GO_UID = 0, active = false },	--0,2,4 / 4,3,4
+		circle_2 = { GO_name = "Jaskier_Circle_2", GO_UID = 0, active = false },	--0,2,4 / 4,3,4
+		concert = { GO_name = "Jaskier_Concert", GO_UID = 0, active = false }		--0,2,4 / 4,3,4
 	}
 	--Character Controller: 1.0/2.5/0.05/0.3/45.0
 
@@ -395,7 +398,13 @@ lua_table.energy_reg_orig = 7
 	}
 	local enemy_hit_curr_stage = enemy_hit_stages.awaiting_attack
 	local enemy_hit_started_at = 0
-	local enemy_hit_duration = 200
+	
+	local hit_durations = {
+		small = 100,
+		medium = 200,
+		big = 200
+	}
+	local enemy_hit_duration = hit_durations.small
 	
 	local controller_shake = {
 		small = { intensity = 1.0, duration = 100 },
@@ -545,7 +554,7 @@ lua_table.evade_animation_speed = 55.0	--40
 lua_table.ability_cooldown = 1000.0
 
 local ability_started_at = 0.0
-lua_table.ability_performed = false	--Marks song available with current notes (name is incoherent, kept like this to avoid changing UI code)
+lua_table.ability_performed = true	--Marks song available with current notes (name is incoherent, kept like this to avoid changing UI code)
 
 --Songs
 lua_table.chained_attacks_num = 0				-- Number of attacks done one after the other, chained
@@ -592,20 +601,17 @@ lua_table.note_stack = { 'N', 'N', 'N', 'N' }	-- Last 4 attacks performed (0=non
 	--Song 3
 	lua_table.song_3 = { 'L', 'M', 'H', 'H' }	--Taunt Moonwalk + Circle Knockback (Both use a circle AoE, first "taunt" scond animation_library.knockback)
 	lua_table.song_3_size = 4
-	lua_table.song_3_effect_start = 0
 	lua_table.song_3_effect_end = 2000
 	lua_table.song_3_effect_active = false
 	lua_table.song_3_duration = 3700
 	lua_table.song_3_animation_name = animation_library.moonwalk
+	lua_table.song_3_moonwalk_velocity_mod = 0.6
 	lua_table.song_3_animation_speed = 30.0
 	lua_table.song_3_damage = 0.0
 	lua_table.song_3_status_effect = attack_effects_ID.taunt
 
-	lua_table.song_3_range = 10
-	lua_table.song_3_moonwalk_velocity_mod = 0.6
-
-	lua_table.song_3_secondary_range = 15
 	lua_table.song_3_secondary_effect_start = 2850
+	lua_table.song_3_secondary_effect_end = 2950
 	lua_table.song_3_secondary_effect_active = false
 	lua_table.song_3_secondary_animation_name = animation_library.two_handed_slam
 	lua_table.song_3_secondary_animation_speed = 50.0
@@ -622,17 +628,17 @@ lua_table.ultimate_reg_orig = 1.5	--1 minute between ultimates
 
 lua_table.ultimate_active = false
 
-lua_table.ultimate_range = 15
-
-lua_table.ultimate_concert_end = 3000
-lua_table.ultimate_finish_start = 3850
+local interval_started_at = 0
+lua_table.ultimate_damage_interval = 1000
+lua_table.ultimate_effect_end = 3000
 lua_table.ultimate_effect_active = false
 lua_table.ultimate_duration = 4700
 lua_table.ultimate_animation_speed = 30.0
-lua_table.ultimate_damage = 5.0
+lua_table.ultimate_damage = 4.0
 lua_table.ultimate_status_effect = attack_effects_ID.none
 
 lua_table.ultimate_secondary_effect_start = 3850
+lua_table.ultimate_secondary_effect_end = 3950
 lua_table.ultimate_secondary_effect_active = false
 lua_table.ultimate_secondary_animation_speed = 50.0
 lua_table.ultimate_secondary_damage = 2.5
@@ -994,6 +1000,20 @@ local function AttackColliderShutdown()
 		lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.line_1.GO_UID)	--TODO-Colliders: Check
 		attack_colliders.line_1.active = false
 	end
+
+	if attack_colliders.circle_1.active then
+		lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.circle_1.GO_UID)	--TODO-Colliders: Check
+		attack_colliders.circle_1.active = false
+	end
+	if attack_colliders.circle_2.active then
+		lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.circle_2.GO_UID)	--TODO-Colliders: Check
+		attack_colliders.circle_2.active = false
+	end
+
+	if attack_colliders.concert.active then
+		lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.concert.GO_UID)	--TODO-Colliders: Check
+		attack_colliders.concert.active = false
+	end
 end
 
 --Character Colliders END	----------------------------------------------------------------------------
@@ -1065,9 +1085,14 @@ local function SaveDirection()
 			z = mov_input.used_input.z / magnitude
 		}
 
-		local camera_Y_rot = math.rad(camera_script.current_camera_orientation)
-		rec_direction.x = orig_inputs.z * math.sin(camera_Y_rot) + orig_inputs.x * math.cos(camera_Y_rot)
-		rec_direction.z = orig_inputs.z * math.cos(camera_Y_rot) - orig_inputs.x * math.sin(camera_Y_rot)
+		if camera_script.current_camera_orientation ~= nil then
+			local camera_Y_rot = math.rad(camera_script.current_camera_orientation)
+			rec_direction.x = orig_inputs.z * math.sin(camera_Y_rot) + orig_inputs.x * math.cos(camera_Y_rot)
+			rec_direction.z = orig_inputs.z * math.cos(camera_Y_rot) - orig_inputs.x * math.sin(camera_Y_rot)
+		else
+			rec_direction.x = orig_inputs.x
+			rec_direction.z = orig_inputs.z
+		end
 
 	else	--IF no input, use character Y angle to move FORWARD
 		rec_direction.x, rec_direction.z = math.sin(rot_y), math.cos(rot_y)
@@ -1138,6 +1163,14 @@ local function CheckCameraBounds()	--Check if we're currently outside the camera
 	--4. If character off bounds, calculate the return angle and flag the off bounds status
 	if bounds_vector.x ~= 0 or bounds_vector.z ~= 0 then
 		bounds_angle = math.rad(bounds_angle)
+
+		if camera_script.current_camera_orientation ~= nil then
+			local camera_Y_rot = math.rad(camera_script.current_camera_orientation)
+			local orig_vector = { x = bounds_vector.x, z = bounds_vector.z }
+			bounds_vector.x = orig_vector.z * math.sin(camera_Y_rot) + orig_vector.x * math.cos(camera_Y_rot)
+			bounds_vector.z = orig_vector.z * math.cos(camera_Y_rot) - orig_vector.x * math.sin(camera_Y_rot)
+		end
+
 		off_bounds = true
 
 		if lua_table.current_state > state.idle then
@@ -1187,11 +1220,15 @@ local function MoveCharacter(reversed_rotation)	--Bool param used to mark moonwa
 		z = lua_table.current_velocity * mov_input.used_input.z / magnitude
 	}
 
-	local camera_Y_rot = math.rad(camera_script.current_camera_orientation)
-	local mov_velocity = {	--Magnitude into vectorial values through input values
-		x = orig_mov_velocity.z * math.sin(camera_Y_rot) + orig_mov_velocity.x * math.cos(camera_Y_rot),
-		z = orig_mov_velocity.z * math.cos(camera_Y_rot) - orig_mov_velocity.x * math.sin(camera_Y_rot)
-	}
+	local mov_velocity = {}
+	if camera_script.current_camera_orientation ~= nil then
+		local camera_Y_rot = math.rad(camera_script.current_camera_orientation)
+		mov_velocity.x = orig_mov_velocity.z * math.sin(camera_Y_rot) + orig_mov_velocity.x * math.cos(camera_Y_rot)	--Magnitude into vectorial values through input values
+		mov_velocity.z = orig_mov_velocity.z * math.cos(camera_Y_rot) - orig_mov_velocity.x * math.sin(camera_Y_rot)
+	else
+		mov_velocity.x = orig_mov_velocity.x
+		mov_velocity.z = orig_mov_velocity.z
+	end
 
 	local position = lua_table.TransformFunctions:GetPosition(jaskier_GO_UID)	--Rotate to velocity direction
 	if not reversed_rotation then
@@ -1302,22 +1339,6 @@ end
 
 --Character Actions BEGIN	----------------------------------------------------------------------------
 
-local function Song_Circle_Effect(area_range)
-	local jaskier_pos = lua_table.TransformFunctions:GetPosition(jaskier_GO_UID)
-
-	local enemy_list = lua_table.PhysicsFunctions:OverlapSphere(jaskier_pos[1], jaskier_pos[2], jaskier_pos[3], area_range, layers.enemy)
-	for i = 1, #enemy_list do
-		local enemy_script = lua_table.GameObjectFunctions:GetScript(enemy_list[i])
-		enemy_script:RequestedTrigger(jaskier_GO_UID)	--TODO-Ability:
-	end
-
-	local prop_list = lua_table.PhysicsFunctions:OverlapSphere(jaskier_pos[1], jaskier_pos[2], jaskier_pos[3], area_range, layers.prop)
-	for i = 1, #prop_list do
-		local prop_script = lua_table.GameObjectFunctions:GetScript(prop_list[i])
-		prop_script:RequestedTrigger(jaskier_GO_UID)	--TODO-Ability:
-	end
-end
-
 local function Song_Cone_Effect(trapezoid_table)	--Uses trapezoid because it can adpot varied shapes, including a basic cone
 	local jaskier_pos = lua_table.TransformFunctions:GetPosition(jaskier_GO_UID)
 
@@ -1359,108 +1380,6 @@ local function Song_Cone_Effect(trapezoid_table)	--Uses trapezoid because it can
 	end
 end
 
-local function UltimateConcert()
-	if time_since_action > lua_table.ultimate_concert_end	--IF stage_2 has to start
-	then
-		if lua_table.ultimate_effect_active
-		then
-			for i = 1, #particles_library.concert_GO_UID_children do
-				lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.concert_GO_UID_children[i])	--TODO-Particles:
-			end
-			lua_table.ultimate_effect_active = false
-
-			--Setup for stage_2
-			lua_table.AnimationFunctions:PlayAnimation(animation_library.two_handed_slam, lua_table.ultimate_secondary_animation_speed, jaskier_GO_UID)
-			lua_table.AnimationFunctions:PlayAnimation(animation_library.two_handed_slam, lua_table.ultimate_secondary_animation_speed, particles_library.slash_GO_UID)
-			current_animation = animation_library.two_handed_slam
-
-			lua_table.AudioFunctions:StopAudioEventGO(audio_library.concert, jaskier_GO_UID)
-			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.two_handed_slam, jaskier_GO_UID)
-			current_audio = audio_library.two_handed_slam
-
-			lua_table.collider_damage = base_damage_real * lua_table.ultimate_secondary_damage
-			lua_table.collider_effect = lua_table.ultimate_secondary_status_effect
-		end
-	else	--IF > start time and < end time
-		if not lua_table.ultimate_effect_active	--IF effect unactive, activate
-		then
-			for i = 1, #particles_library.concert_GO_UID_children do
-				lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.concert_GO_UID_children[i])	--TODO-Particles:
-			end
-			lua_table.ultimate_effect_active = true
-		end
-
-		Song_Circle_Effect(lua_table.ultimate_range)
-	end
-end
-
-local function UltimateFinish()
-	if not lua_table.ultimate_secondary_effect_active	--IF effect unactive, activate
-	then
-		lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.big.intensity, controller_shake.big.duration)
-		for i = 1, #particles_library.song_circle_GO_UID_children do
-			lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.song_circle_GO_UID_children[i])	--TODO-Particles:
-		end
-		Song_Circle_Effect(lua_table.ultimate_range)
-		lua_table.ultimate_secondary_effect_active = true
-	end
-end
-
-local function Song_3_Taunt()
-	if time_since_action > lua_table.song_3_effect_end	--IF stage_2 has to start
-	then
-		if lua_table.song_3_effect_active
-		then
-			lua_table.song_3_effect_active = false
-			--lua_table.ParticlesFunctions:StopParticleEmitter(jaskier_song_3_GO_UID)	--TODO-Particles:
-
-			--Setup for stage_2
-			lua_table.AnimationFunctions:PlayAnimation(lua_table.song_3_secondary_animation_name, lua_table.song_3_secondary_animation_speed, jaskier_GO_UID)
-			lua_table.AnimationFunctions:PlayAnimation(lua_table.song_3_secondary_animation_name, lua_table.song_3_secondary_animation_speed, particles_library.slash_GO_UID)
-			current_animation = lua_table.song_3_secondary_animation_name
-
-			--Manually mark animation swap
-			blending_started_at = game_time
-
-			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.two_handed_slam, jaskier_GO_UID)
-			current_audio = audio_library.two_handed_slam
-
-			lua_table.collider_damage = base_damage_real * lua_table.song_3_secondary_damage
-			lua_table.collider_effect = lua_table.song_3_secondary_status_effect
-
-			lua_table.TransformFunctions:RotateObject(0, 180, 0, jaskier_GO_UID)	--Do 180 to return to orig rotation
-		end
-	else	--IF > start time and < end time
-		if not lua_table.song_3_effect_active	--IF effect unactive, activate
-		then
-			--lua_table.ParticlesFunctions:PlayParticleEmitter(jaskier_song_3_GO_UID)	--TODO-Particles:
-			lua_table.AudioFunctions:StopAudioEventGO(audio_library.run, jaskier_GO_UID)	--TODO-AUDIO: Stop run sound
-			lua_table.AudioFunctions:StopAudioEventGO(audio_library.walk, jaskier_GO_UID)	--TODO-AUDIO: Stop walk sound
-
-			lua_table.song_3_effect_active = true
-			lua_table.current_velocity = lua_table.mov_velocity_max_orig * lua_table.song_3_moonwalk_velocity_mod	--To mark speed of moonwalk
-		end
-
-		if mov_input.used_input.x ~= 0.0 or mov_input.used_input.z ~= 0.0 then
-			MoveCharacter(true)
-		end
-
-		Song_Circle_Effect(lua_table.song_3_range)
-	end
-end
-
-local function Song_3_Knockback()
-	if not lua_table.song_3_secondary_effect_active	--IF effect unactive, activate
-	then
-		lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.big.intensity, controller_shake.big.duration)
-		for i = 1, #particles_library.song_circle_GO_UID_children do
-			lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.song_circle_GO_UID_children[i])	--TODO-Particles:
-		end
-		Song_Circle_Effect(lua_table.song_3_secondary_range)
-		lua_table.song_3_secondary_effect_active = true
-	end
-end
-
 local function PerformSong(song_type)
 	local string_match = false
 
@@ -1476,16 +1395,10 @@ local function PerformSong(song_type)
 		if song_type == "song_1"
 		then
 			lua_table.TransformFunctions:SetLocalPosition(0.0, 2.0, 4.0, attack_colliders.line_1.GO_UID)
-			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.one_handed_slam, jaskier_GO_UID)	--TODO-AUDIO: Play sound of song_type
-			current_audio = audio_library.one_handed_slam
-
-		elseif song_type == "song_2" then
-			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.two_handed_slam, jaskier_GO_UID)	--TODO-AUDIO: Play sound of song_type
-			current_audio = audio_library.two_handed_slam
-
-		elseif song_type == "song_3" then
-			lua_table.song_3_secondary_effect_active = false
 		end
+
+		lua_table.AudioFunctions:PlayAudioEventGO(audio_library[song_type], jaskier_GO_UID)	--TODO-AUDIO: Play sound of song_type
+		current_audio = audio_library[song_type]
 
 		lua_table.collider_damage = base_damage_real * lua_table[song_type .. "_damage"]
 		lua_table.collider_effect = lua_table[song_type .. "_status_effect"]
@@ -1645,7 +1558,7 @@ local function ActionInputs()	--Process Action Inputs
 				if not combo_achieved then
 					RegularAttack("heavy")
 				end
-				lua_table.ability_performed = CheckSongs(false)
+				lua_table.ability_performed = not CheckSongs(false)
 
 				SaveDirection()
 
@@ -1664,7 +1577,7 @@ local function ActionInputs()	--Process Action Inputs
 				if not combo_achieved then
 					RegularAttack("light")
 				end
-				lua_table.ability_performed = CheckSongs(false)
+				lua_table.ability_performed = not CheckSongs(false)
 				
 				SaveDirection()
 
@@ -1683,7 +1596,7 @@ local function ActionInputs()	--Process Action Inputs
 				if not combo_achieved then
 					RegularAttack("medium")
 				end
-				lua_table.ability_performed = CheckSongs(false)
+				lua_table.ability_performed = not CheckSongs(false)
 
 				SaveDirection()
 		
@@ -1733,7 +1646,7 @@ local function ActionInputs()	--Process Action Inputs
 				action_started_at = game_time								--Set timer start mark
 				ability_started_at = action_started_at
 
-				lua_table.ability_performed = false
+				lua_table.ability_performed = true
 			end
 			
 			lua_table.note_num = 0
@@ -1802,9 +1715,6 @@ local function ActionInputs()	--Process Action Inputs
 						lua_table.AnimationFunctions:PlayAnimation(animation_library.revive, lua_table.revive_animation_speed, jaskier_GO_UID)
 						current_animation = animation_library.revive
 
-						lua_table.AudioFunctions:PlayAudioEventGO(audio_library.revive, jaskier_GO_UID)
-						current_audio = audio_library.revive
-
 						lua_table.previous_state = lua_table.current_state
 						lua_table.current_state = state.revive
 						action_made = true
@@ -1833,9 +1743,6 @@ local function ActionInputs()	--Process Action Inputs
 	
 							lua_table.AnimationFunctions:PlayAnimation(animation_library.revive, lua_table.revive_animation_speed, jaskier_GO_UID)
 							current_animation = animation_library.revive
-
-							lua_table.AudioFunctions:PlayAudioEventGO(audio_library.revive, jaskier_GO_UID)
-							current_audio = audio_library.revive
 
 							lua_table.previous_state = lua_table.current_state
 							lua_table.current_state = state.revive
@@ -1884,8 +1791,6 @@ end
 local function ReviveShutdown()	--IF I was reviving, not anymore
 	if revive_target ~= nil
 	then
-		lua_table.AudioFunctions:StopAudioEventGO(audio_library.revive, jaskier_GO_UID)
-		current_audio = audio_library.none
 		revive_target.being_revived = false
 		revive_target = nil
 	end
@@ -1896,23 +1801,33 @@ function lua_table:EnemyHit()
 		lua_table.AnimationFunctions:SetAnimationPause(true, jaskier_GO_UID)
 		lua_table.AnimationFunctions:SetAnimationPause(true, particles_library.slash_GO_UID)
 
+		if enemy_hit_curr_stage == enemy_hit_stages.attack_miss then
+			lua_table.AudioFunctions:StopAudioEventGO(audio_library.attack_miss, jaskier_GO_UID)
+		end
+		
+		if lua_table.current_state == state.light_3 then
+			enemy_hit_duration = hit_durations.medium
+			--current_paused_audio = audio_library.light_3
+
+		elseif lua_table.current_state == state.medium_3 then
+			enemy_hit_duration = hit_durations.medium
+			--current_paused_audio = audio_library.medium_3
+
+		elseif lua_table.current_state == state.heavy_3 then
+			enemy_hit_duration = hit_durations.medium
+			--current_paused_audio = audio_library.heavy_3
+		else
+			enemy_hit_duration = hit_durations.small
+		end
+
 		-- current_action_block_time = current_action_block_time + enemy_hit_duration
 		-- current_action_duration = current_action_duration + enemy_hit_duration
 		action_started_at = action_started_at + enemy_hit_duration
 		enemy_hit_started_at = game_time
-		
-		if enemy_hit_curr_stage == enemy_hit_stages.attack_miss then
-			lua_table.AudioFunctions:StopAudioEventGO(audio_library.attack_miss, jaskier_GO_UID)
+
+		if current_paused_audio ~= audio_library.none then
+			lua_table.AudioFunctions:PauseAudioEventGO(current_paused_audio, jaskier_GO_UID)
 		end
-
-		if lua_table.current_state == state.combo_1 then current_paused_audio = audio_library.combo_1
-		elseif lua_table.current_state == state.combo_2 then current_paused_audio = audio_library.combo_2
-		elseif lua_table.current_state == state.combo_3 then current_paused_audio = audio_library.combo_3 end
-		-- elseif lua_table.current_state == state.light_3 then current_paused_audio = audio_library.light_3
-		-- elseif lua_table.current_state == state.medium_3 then current_paused_audio = audio_library.medium_3
-		-- elseif lua_table.current_state == state.heavy_3 then current_paused_audio = audio_library.heavy_3 end
-
-		lua_table.AudioFunctions:PauseAudioEventGO(current_paused_audio, jaskier_GO_UID)
 
 		enemy_hit_curr_stage = enemy_hit_stages.attack_hit
 	end
@@ -2170,7 +2085,14 @@ local function ProcessIncomingHit(collider_GO)
 		elseif enemy_script.collider_effect == attack_effects_ID.knockback
 		then
 			local jaskier_pos = lua_table.TransformFunctions:GetPosition(jaskier_GO_UID)	--Look at and set direction from knockback
-			local knockback_pos = lua_table.TransformFunctions:GetPosition(collider_GO)
+			local knockback_pos
+
+			if collider_parent ~= 0 then
+				knockback_pos = lua_table.TransformFunctions:GetPosition(collider_parent)
+			else
+				knockback_pos = lua_table.TransformFunctions:GetPosition(collider_GO)
+			end
+
 			lua_table.TransformFunctions:LookAt(knockback_pos[1], jaskier_pos[2], knockback_pos[3], jaskier_GO_UID)
 			
 			rec_direction.x = jaskier_pos[1] - knockback_pos[1]
@@ -2308,6 +2230,9 @@ function lua_table:Awake()
 	attack_colliders.front_2.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.front_2.GO_name)
 
 	attack_colliders.line_1.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.line_1.GO_name)
+	attack_colliders.circle_1.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.circle_1.GO_name)
+	attack_colliders.circle_2.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.circle_2.GO_name)
+	attack_colliders.concert.GO_UID = lua_table.GameObjectFunctions:FindGameObject(attack_colliders.concert.GO_name)
 
 	--Camera (Warning: If there's a camera GO, but no script the Engine WILL crash)
 	camera_GO = lua_table.GameObjectFunctions:FindGameObject("Camera")
@@ -2436,8 +2361,8 @@ function lua_table:Update()
 			--TODO-Audio:
 			if ultimate_effect_active
 			then
-				lua_table.AudioFunctions:StopAudioEventGO(audio_library.concert, jaskier_GO_UID)
-				current_audio = audio_library.none
+				-- lua_table.AudioFunctions:StopAudioEventGO(audio_library.concert, jaskier_GO_UID)
+				-- current_audio = audio_library.none
 				ultimate_effect_active = false
 			end
 		else								--IF still lives
@@ -2487,8 +2412,6 @@ function lua_table:Update()
 
 						if lua_table.current_state == state.revive
 						then
-							lua_table.AudioFunctions:StopAudioEventGO(audio_library.revive, jaskier_GO_UID)
-							current_audio = audio_library.none
 							revive_target = nil
 						elseif lua_table.current_state == state.song_1
 						then
@@ -2505,9 +2428,13 @@ function lua_table:Update()
 							for i = 1, #particles_library.song_circle_GO_UID_children do
 								lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.song_circle_GO_UID_children[i])	--TODO-Particles:
 							end
+
 							lua_table.song_3_secondary_effect_active = false
 						elseif lua_table.current_state == state.ultimate
 						then
+							lua_table.AudioFunctions:StopAudioEventGO(audio_library.concert, jaskier_GO_UID)
+							current_audio = audio_library.none
+
 							for i = 1, #particles_library.song_circle_GO_UID_children do
 								lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.song_circle_GO_UID_children[i])	--TODO-Particles:
 							end
@@ -2569,8 +2496,10 @@ function lua_table:Update()
 								lua_table.AnimationFunctions:SetAnimationPause(false, jaskier_GO_UID)
 								lua_table.AnimationFunctions:SetAnimationPause(false, particles_library.slash_GO_UID)
 
-								lua_table.AudioFunctions:ResumeAudioEventGO(current_paused_audio, jaskier_GO_UID)
-								current_paused_audio = audio_library.none
+								if current_paused_audio ~= audio_library.none then
+									lua_table.AudioFunctions:ResumeAudioEventGO(current_paused_audio, jaskier_GO_UID)
+									current_paused_audio = audio_library.none
+								end
 
 								lua_table.AudioFunctions:PlayAudioEventGO(audio_library.attack_hit, jaskier_GO_UID)
 								--current_audio = audio_library.attack_hit
@@ -2720,23 +2649,147 @@ function lua_table:Update()
 
 						elseif lua_table.current_state == state.song_3
 						then
-							if time_since_action > lua_table.song_3_effect_start	--IF > effect_start
+							if time_since_action > lua_table.song_3_secondary_effect_start	--IF > effect_start
 							then
-								if time_since_action > lua_table.song_3_secondary_effect_start and not lua_table.song_3_effect_active 	--IF > secondary_effect_start and stage_1 effect ended
+								if not lua_table.song_3_secondary_effect_active	--IF effect unactive, activate
 								then
-									Song_3_Knockback()
-								else
-									Song_3_Taunt()
+									lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.big.intensity, controller_shake.big.duration)
+									for i = 1, #particles_library.song_circle_GO_UID_children do
+										lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.song_circle_GO_UID_children[i])	--TODO-Particles:
+									end
+
+									lua_table.GameObjectFunctions:SetActiveGameObject(true, attack_colliders.circle_2.GO_UID)	--TODO-Colliders: Check
+									attack_colliders.circle_2.active = true
+
+									lua_table.song_3_secondary_effect_active = true
+								end
+
+								if attack_colliders.circle_2.active and time_since_action > lua_table.song_3_secondary_effect_end
+								then
+									lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.circle_2.GO_UID)	--TODO-Colliders: Check
+									attack_colliders.circle_2.active = false
+								end
+
+							elseif time_since_action > lua_table.song_3_effect_end
+							then
+								if lua_table.song_3_effect_active
+								then
+									--Setup for stage_2
+									lua_table.AnimationFunctions:PlayAnimation(lua_table.song_3_secondary_animation_name, lua_table.song_3_secondary_animation_speed, jaskier_GO_UID)
+									lua_table.AnimationFunctions:PlayAnimation(lua_table.song_3_secondary_animation_name, lua_table.song_3_secondary_animation_speed, particles_library.slash_GO_UID)
+									current_animation = lua_table.song_3_secondary_animation_name
+
+									--Manually mark animation swap
+									blending_started_at = game_time
+
+									lua_table.AudioFunctions:PlayAudioEventGO(audio_library.song_3_secondary, jaskier_GO_UID)
+									current_audio = audio_library.song_3_secondary
+
+									lua_table.collider_damage = base_damage_real * lua_table.song_3_secondary_damage
+									lua_table.collider_effect = lua_table.song_3_secondary_status_effect
+
+									lua_table.TransformFunctions:RotateObject(0, 180, 0, jaskier_GO_UID)	--Do 180 to return to orig rotation
+
+									lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.circle_1.GO_UID)	--TODO-Colliders: Check
+									attack_colliders.circle_1.active = false
+
+									lua_table.song_3_effect_active = false
+								end
+
+							else
+								if not lua_table.song_3_effect_active
+								then
+									--lua_table.ParticlesFunctions:PlayParticleEmitter(jaskier_song_3_GO_UID)	--TODO-Particles:
+									lua_table.AudioFunctions:StopAudioEventGO(audio_library.run, jaskier_GO_UID)	--TODO-AUDIO: Stop run sound
+									lua_table.AudioFunctions:StopAudioEventGO(audio_library.walk, jaskier_GO_UID)	--TODO-AUDIO: Stop walk sound
+									lua_table.current_velocity = lua_table.mov_velocity_max_orig * lua_table.song_3_moonwalk_velocity_mod	--To mark speed of moonwalk
+
+									lua_table.GameObjectFunctions:SetActiveGameObject(true, attack_colliders.circle_1.GO_UID)	--TODO-Colliders: Check
+									attack_colliders.circle_1.active = true
+
+									lua_table.song_3_effect_active = true
+									lua_table.song_3_secondary_effect_active = false
+								end
+
+								if mov_input.used_input.x ~= 0.0 or mov_input.used_input.z ~= 0.0 then
+									MoveCharacter(true)
 								end
 							end
 
 						elseif lua_table.current_state == state.ultimate
 						then
-							if time_since_action > lua_table.ultimate_finish_start and not lua_table.ultimate_effect_active 	--IF > secondary_effect_start and stage_1 effect ended
+							if time_since_action > lua_table.ultimate_secondary_effect_start	--STEP 3
 							then
-								UltimateFinish()
-							else
-								UltimateConcert()
+								if not lua_table.ultimate_secondary_effect_active	--IF effect unactive, activate
+								then
+									for i = 1, #particles_library.song_circle_GO_UID_children do
+										lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.song_circle_GO_UID_children[i])	--TODO-Particles:
+									end
+
+									lua_table.GameObjectFunctions:SetActiveGameObject(true, attack_colliders.concert.GO_UID)	--TODO-Colliders: Check
+									attack_colliders.concert.active = true
+
+									lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.big.intensity, controller_shake.big.duration)
+
+									lua_table.ultimate_secondary_effect_active = true
+								end
+
+								if attack_colliders.concert.active and time_since_action > lua_table.ultimate_secondary_effect_end
+								then
+									lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.concert.GO_UID)	--TODO-Colliders: Check
+									attack_colliders.concert.active = false
+								end
+
+							elseif time_since_action > lua_table.ultimate_effect_end	--STEP 2
+							then
+								if lua_table.ultimate_effect_active
+								then
+									for i = 1, #particles_library.concert_GO_UID_children do
+										lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.concert_GO_UID_children[i])	--TODO-Particles:
+									end
+
+									if attack_colliders.concert.active then
+										lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.concert.GO_UID)	--TODO-Colliders: Check
+										attack_colliders.concert.active = false
+									end
+
+									--Setup for stage_2
+									lua_table.AnimationFunctions:PlayAnimation(animation_library.two_handed_slam, lua_table.ultimate_secondary_animation_speed, jaskier_GO_UID)
+									lua_table.AnimationFunctions:PlayAnimation(animation_library.two_handed_slam, lua_table.ultimate_secondary_animation_speed, particles_library.slash_GO_UID)
+									current_animation = animation_library.two_handed_slam
+
+									lua_table.collider_damage = base_damage_real * lua_table.ultimate_secondary_damage
+									lua_table.collider_effect = lua_table.ultimate_secondary_status_effect
+
+									lua_table.ultimate_effect_active = false
+								end
+
+							else	--STEP 1
+								if not lua_table.ultimate_effect_active	--IF effect unactive, activate
+								then
+									for i = 1, #particles_library.concert_GO_UID_children do
+										lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.concert_GO_UID_children[i])	--TODO-Particles:
+									end
+
+									lua_table.GameObjectFunctions:SetActiveGameObject(true, attack_colliders.concert.GO_UID)	--TODO-Colliders: Check
+									attack_colliders.concert.active = true
+
+									interval_started_at = game_time
+
+									lua_table.ultimate_effect_active = true
+								end
+
+								local time_since_last_damage = game_time - interval_started_at
+								if not attack_colliders.concert.active and time_since_last_damage > lua_table.ultimate_damage_interval then
+									lua_table.GameObjectFunctions:SetActiveGameObject(true, attack_colliders.concert.GO_UID)	--TODO-Colliders: Check
+									attack_colliders.concert.active = true
+
+									interval_started_at = game_time
+
+								elseif attack_colliders.concert.active and time_since_last_damage > lua_table.ultimate_damage_interval / 2 then
+									lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.concert.GO_UID)	--TODO-Colliders: Check
+									attack_colliders.concert.active = false
+								end
 							end
 						end
 					end
@@ -2890,7 +2943,7 @@ function lua_table:Update()
 	--lua_table.SystemFunctions:LOG("Note num: " .. lua_table.note_num)
 	--lua_table.SystemFunctions:LOG("Song string: " .. lua_table.note_stack[1] .. ", " .. lua_table.note_stack[2] .. ", " .. lua_table.note_stack[3] .. ", " .. lua_table.note_stack[4])
 
-	--if lua_table.ability_performed then lua_table.SystemFunctions:LOG("SONG AVAILABLE-----------------------") end
+	--if not lua_table.ability_performed then lua_table.SystemFunctions:LOG("SONG AVAILABLE-----------------------") end
 	--if lua_table.being_revived then lua_table.SystemFunctions:LOG("REVIVE TIME: " .. (game_time - lua_table.revive_started_at)) end
 
 	--Animation
