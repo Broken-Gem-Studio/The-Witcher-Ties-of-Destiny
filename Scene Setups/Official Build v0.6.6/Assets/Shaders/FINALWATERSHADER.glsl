@@ -17,7 +17,7 @@ uniform mat4 u_View;
 uniform mat4 u_Proj;
 uniform vec3 u_CameraPosition;
 
-// Specific Uniforms
+// Specific UniformsA
 uniform float time = 0.0;
 //uniform float Amplitude = 5.0;
 //uniform float WaveLength = 1.0;

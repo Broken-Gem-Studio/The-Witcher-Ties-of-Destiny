@@ -88,7 +88,7 @@ local particles_library = {
 	ultimate_particles_GO_UID_children = {},
 
 	--Standalone Particles
-	aard_hand_particles_GO_UID = 0,
+	--aard_hand_particles_GO_UID = 0,
 
 	--FBX Particles
 	slash_GO_UID = 0,
@@ -1739,10 +1739,20 @@ local function UltimateState(active)
 	lua_table.energy_reg_mod = lua_table.energy_reg_mod + lua_table.ultimate_energy_reg_increase * ultimate_stat_mod
 	lua_table.base_damage_mod = lua_table.base_damage_mod + lua_table.ultimate_damage_mod_increase * ultimate_stat_mod
 
-	if not active then
+	if active then
+		for i = 1, #particles_library.ultimate_particles_GO_UID_children do
+			lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.ultimate_particles_GO_UID_children[i])	--TODO-Particles:
+		end
+
+		lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.big.intensity, controller_shake.big.duration)
+
+		lua_table.current_ultimate = 0.0
+		ultimate_effect_started_at = game_time
+	else
 		for i = 1, #particles_library.ultimate_particles_GO_UID_children do
 			lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.ultimate_particles_GO_UID_children[i])	--TODO-Particles:
 		end
+
 		lua_table.AudioFunctions:StopAudioEventGO(audio_library.ultimate, geralt_GO_UID)	--TODO-AUDIO: Ultimate Sound
 		current_audio = audio_library.none
 	end
@@ -2235,32 +2245,32 @@ function lua_table:Start()
 	lua_table.SystemFunctions:LOG("GeraltScript START")
 
 	--Stop Particle Emitters
-	for i = 1, #particles_library.run_particles_GO_UID_children do
-		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.run_particles_GO_UID_children[i])	--TODO-Particles: Deactivate Dust Particles
-	end
-	for i = 1, #particles_library.blood_particles_GO_UID_children do
-		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.blood_particles_GO_UID_children[i])	--TODO-Particles:
-	end
-	for i = 1, #particles_library.stun_particles_GO_UID_children do
-		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.stun_particles_GO_UID_children[i])	--TODO-Particles:
-	end
-	for i = 1, #particles_library.revive_particles_GO_UID_children do
-		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.revive_particles_GO_UID_children[i])	--TODO-Particles:
-	end
+	-- for i = 1, #particles_library.run_particles_GO_UID_children do
+	-- 	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.run_particles_GO_UID_children[i])	--TODO-Particles: Deactivate Dust Particles
+	-- end
+	-- for i = 1, #particles_library.blood_particles_GO_UID_children do
+	-- 	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.blood_particles_GO_UID_children[i])	--TODO-Particles:
+	-- end
+	-- for i = 1, #particles_library.stun_particles_GO_UID_children do
+	-- 	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.stun_particles_GO_UID_children[i])	--TODO-Particles:
+	-- end
+	-- for i = 1, #particles_library.revive_particles_GO_UID_children do
+	-- 	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.revive_particles_GO_UID_children[i])	--TODO-Particles:
+	-- end
 
-	for i = 1, #particles_library.potion_health_particles_GO_UID_children do
-		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.potion_health_particles_GO_UID_children[i])	--TODO-Particles:
-	end
-	for i = 1, #particles_library.potion_stamina_particles_GO_UID_children do
-		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.potion_stamina_particles_GO_UID_children[i])	--TODO-Particles:
-	end
-	for i = 1, #particles_library.potion_power_particles_GO_UID_children do
-		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.potion_power_particles_GO_UID_children[i])	--TODO-Particles:
-	end
+	-- for i = 1, #particles_library.potion_health_particles_GO_UID_children do
+	-- 	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.potion_health_particles_GO_UID_children[i])	--TODO-Particles:
+	-- end
+	-- for i = 1, #particles_library.potion_stamina_particles_GO_UID_children do
+	-- 	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.potion_stamina_particles_GO_UID_children[i])	--TODO-Particles:
+	-- end
+	-- for i = 1, #particles_library.potion_power_particles_GO_UID_children do
+	-- 	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.potion_power_particles_GO_UID_children[i])	--TODO-Particles:
+	-- end
 
-	for i = 1, #particles_library.ultimate_particles_GO_UID_children do
-		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.ultimate_particles_GO_UID_children[i])	--TODO-Particles:
-	end
+	-- for i = 1, #particles_library.ultimate_particles_GO_UID_children do
+	-- 	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.ultimate_particles_GO_UID_children[i])	--TODO-Particles:
+	-- end
 
 	--lua_table.ParticlesFunctions:StopParticleEmitter(sword_particles_GO_UID)			--TODO-Particles: Uncomment when ready
 	--lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.aard_hand_particles_GO_UID)	--TODO-Particles: Uncomment when ready
@@ -2396,14 +2406,7 @@ function lua_table:Update()
 				else	--ELSE (action being performed)
 					if lua_table.current_state == state.ultimate and not lua_table.ultimate_active and time_since_action > lua_table.ultimate_scream_start	--IF ultimate state, ultimate unactive, and scream started
 					then
-						for i = 1, #particles_library.ultimate_particles_GO_UID_children do
-							lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.ultimate_particles_GO_UID_children[i])	--TODO-Particles:
-						end
 						UltimateState(true)	--Ultimate turn on (boost stats)
-						lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.big.intensity, controller_shake.big.duration)
-
-						lua_table.current_ultimate = 0.0
-						ultimate_effect_started_at = game_time
 					end
 
 					--IF action ended	--LEGACY: time_since_action > current_action_duration
@@ -2773,6 +2776,10 @@ function lua_table:Update()
 			end
 		elseif game_time - blending_started_at > lua_table.blend_time_duration and lua_table.AnimationFunctions:CurrentAnimationEnded(geralt_GO_UID) == 1
 		then
+			for i = 1, #particles_library.revive_particles_GO_UID_children do
+				lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.revive_particles_GO_UID_children[i])	--TODO-Particles:
+			end
+			
 			lua_table.standing_up_bool, lua_table.being_revived = false, false
 			GoDefaultState(true)
 		end
