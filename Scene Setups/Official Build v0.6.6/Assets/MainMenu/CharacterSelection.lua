@@ -51,6 +51,7 @@ function GetTableCharacterSelection()
     local P1_ON_CIRI = 0
     local P2_ON_CIRI = 0
 
+    local PRESS = 0
     --animation
     local GERALT = 0
     local JASKIER = 0
@@ -81,6 +82,8 @@ function GetTableCharacterSelection()
         lua_table["UI"]:MakeElementInvisible("Image", P2_ON_YENN)
         lua_table["UI"]:MakeElementInvisible("Image", P1_ON_CIRI)
         lua_table["UI"]:MakeElementInvisible("Image", P2_ON_CIRI)
+
+        lua_table["UI"]:MakeElementInvisible("Image", PRESS)
 
     end
 
@@ -120,7 +123,7 @@ function GetTableCharacterSelection()
      
         if current_selection2 < 3
         then
-            if lua_table["Inputs"]:KeyDown("D")
+            if lua_table["Inputs"]:IsGamepadButton(2, "BUTTON_DPAD_RIGHT", "DOWN")
             then
                 --lua_table["Audio"]:PlayAudioEvent()
                 current_selection2 = player2_focus + 1
@@ -129,7 +132,7 @@ function GetTableCharacterSelection()
 
         if current_selection2 > 0
         then
-            if lua_table["Inputs"]:KeyDown("A")
+            if lua_table["Inputs"]:IsGamepadButton(2, "BUTTON_DPAD_LEFT", "DOWN")
             then
                 --lua_table["Audio"]:PlayAudioEvent()
                 current_selection2 = player2_focus - 1
@@ -180,7 +183,7 @@ function GetTableCharacterSelection()
 
         -----------
 
-        if lua_table["Inputs"]:KeyDown("F") and player2_focus < 2
+        if lua_table["Inputs"]:IsGamepadButton(2, "BUTTON_A", "DOWN") and player2_focus < 2
         then
             if player2_focus == player1_focus
             then
@@ -198,7 +201,7 @@ function GetTableCharacterSelection()
             end
         end
 
-        if lua_table["Inputs"]:KeyDown("G")
+        if lua_table["Inputs"]:IsGamepadButton(2, "BUTTON_B", "DOWN")
         then
             --lua_table["Audio"]:PlayAudioEvent()
             if player2_focus == 0
@@ -242,7 +245,7 @@ function GetTableCharacterSelection()
         CIRI = lua_table["GameObject"]:FindGameObject("CIRILA")
 
         SELECTION = lua_table["GameObject"]:FindGameObject("SELECTION")
-
+        PRESS = lua_table["GameObject"]:FindGameObject("PRESS")
     end
     
     function lua_table:Start()
@@ -335,7 +338,8 @@ function GetTableCharacterSelection()
             then
                 not_selected = false
                 lua_table["Transform"]:SetPosition(437.000, -20.750, -34.250, CAMERA)
-                lua_table["Transform"]:SetObjectRotation(180,77.989, 180, CAMERA)     
+                lua_table["Transform"]:SetObjectRotation(180,77.989, 180, CAMERA) 
+                lua_table["UI"]:MakeElementVisible("Image", PRESS)    
             end    
            
         
@@ -374,6 +378,7 @@ function GetTableCharacterSelection()
                 not_selected = false
                 lua_table["Transform"]:SetPosition(437.000, -20.750, -34.250, CAMERA)
                 lua_table["Transform"]:SetObjectRotation(180,77.989, 180, CAMERA)
+                lua_table["UI"]:MakeElementVisible("Image", PRESS) 
             end
         end
 
@@ -514,7 +519,7 @@ function GetTableCharacterSelection()
             lua_table["UI"]:MakeElementInvisible("Image", P2_ON_CIRI)
         end
 
-
+        
         --ALPHA MANAGEMENT
         if player1_locked == true
         then
@@ -583,6 +588,8 @@ function GetTableCharacterSelection()
                 lua_table["UI"]:ChangeUIComponentAlpha("Image", 0.6, P2_ON_CIRI)
             end
         end
+
+
 
         --ANIMATIONS
         
