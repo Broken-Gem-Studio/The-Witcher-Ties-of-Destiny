@@ -34,6 +34,9 @@ lua_table.LogoIntroAlpha = 1
 lua_table.LogoCounter = 0
 lua_table.StartAnimationLogoIntro = 1
 
+lua_table.WolfUID = 0
+lua_table.WolfAlpha = 0
+
 lua_table.PoweredByUID = 0
 lua_table.PoweredbyAlpha = 0
 lua_table.CounterPoweredAppearing = 0
@@ -63,6 +66,7 @@ function lua_table:Awake()
     lua_table.PoweredByUID = lua_table.ObjectFunctions:FindGameObject("PoweredBy")
     lua_table.LoadingTextureUID = lua_table.ObjectFunctions:FindGameObject("Loading")
     lua_table.BlackBackgroundUID = lua_table.ObjectFunctions:FindGameObject("BlackBackground")
+    lua_table.WolfUID = lua_table.ObjectFunctions:FindGameObject("Wolf")
 
 end
 
@@ -153,8 +157,10 @@ function lua_table:Update()
     then
         CounterAppearingLoadingPage = CounterAppearingLoadingPage + dt
         lua_table.BlackBacgroundandLoadingAlpha = CounterAppearingLoadingPage/lua_table.LoadingPageAppearingTime
+        lua_table.WolfAlpha = lua_table.BlackBacgroundandLoadingAlpha*0.25;
         ChangeAlpha(lua_table.BlackBackgroundUID,lua_table.BlackBacgroundandLoadingAlpha)
         ChangeAlpha(lua_table.LoadingTextureUID,lua_table.BlackBacgroundandLoadingAlpha)
+        ChangeAlpha(lua_table.WolfUID,lua_table.WolfAlpha)
         if lua_table.BlackBacgroundandLoadingAlpha >= 1
         then
             lua_table.SystemFunctions:LOG("LOADING MainMenu")

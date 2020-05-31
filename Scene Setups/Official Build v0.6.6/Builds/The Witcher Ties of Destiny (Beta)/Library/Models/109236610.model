@@ -1,0 +1,122 @@
+{
+    "Arrow_Pivot": {
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            }
+        },
+        "Parent": "922430783",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "UID": "1686607804"
+    },
+    "Arrow_Wind_Controller": {
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "0.000577",
+                "rotationx": "-0.000000",
+                "rotationy": "-0.000000",
+                "rotationz": "1.000000",
+                "scalex": "0.000100",
+                "scaley": "0.420000",
+                "scalez": "0.420000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1808123820.bone"
+                }
+            }
+        },
+        "Parent": "1686607804",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "UID": "2040142476"
+    },
+    "Arrow_Wind_Mesh": {
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-1.357561",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/1446040773.mesh"
+                    }
+                }
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/17 - Default.mat"
+                    }
+                }
+            }
+        },
+        "Parent": "1686607804",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "UID": "674496784"
+    },
+    "GameObject(1)": {
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "14": {
+                "Active": true,
+                "Animations": {
+                    "BlendTime": "0.300000",
+                    "Size": "0",
+                    "UseDefault": false
+                },
+                "Resources": {
+                    "ResourceAnimation": "Library/Animations/1998730345.anim"
+                }
+            }
+        },
+        "Model": "Assets/New Folder 16/New Folder 17/Arrow_With_Anim_v3 (3).FBX",
+        "Parent": "1540757638",
+        "PrefabChild": false,
+        "PrefabInstance": true,
+        "UID": "922430783"
+    },
+    "PreviewTexture": "Library/Textures/1952956199.dds"
+}
