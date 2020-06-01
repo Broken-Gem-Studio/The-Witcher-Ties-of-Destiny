@@ -1,0 +1,482 @@
+{
+    "1135388833": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "391.491852",
+                "positiony": "44.149227",
+                "positionz": "-340.363586",
+                "rotationw": "0.952396",
+                "rotationx": "0.304864",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.999999",
+                "scaley": "0.999999",
+                "scalez": "0.999999"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/Camera/CameraScript_v10.lua"
+                },
+                "Script variables": {
+                    "Count": 36,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "Layer_1_FOV_ratio_1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.8
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "Layer_1_FOV_ratio_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.8
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Actual_Camera"
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_angle_layer_1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 50.0
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_angle_layer_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 60.0
+                    },
+                    "Variable 14": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_angle_layer_3",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 70.0
+                    },
+                    "Variable 15": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_distance_layer_1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 25.0
+                    },
+                    "Variable 16": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_distance_layer_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 35.0
+                    },
+                    "Variable 17": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_distance_layer_3",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 45.0
+                    },
+                    "Variable 18": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_orientation",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 19": {
+                        "DisplayObjectName": false,
+                        "Name": "ciri_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Ciri"
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "Layer_2_FOV_ratio_1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.8
+                    },
+                    "Variable 20": {
+                        "DisplayObjectName": false,
+                        "Name": "current_camera_orientation",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 21": {
+                        "DisplayObjectName": false,
+                        "Name": "current_gameplay",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 22": {
+                        "DisplayObjectName": false,
+                        "Name": "current_state",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 23": {
+                        "DisplayObjectName": false,
+                        "Name": "current_zoom_layer",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 24": {
+                        "DisplayObjectName": false,
+                        "Name": "geralt_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Geralt"
+                    },
+                    "Variable 25": {
+                        "DisplayObjectName": false,
+                        "Name": "jaskier_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Jaskier"
+                    },
+                    "Variable 26": {
+                        "DisplayObjectName": false,
+                        "Name": "kikimora_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Kikimora"
+                    },
+                    "Variable 27": {
+                        "DisplayObjectName": false,
+                        "Name": "movement_smooth_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.2
+                    },
+                    "Variable 28": {
+                        "DisplayObjectName": false,
+                        "Name": "my_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 29": {
+                        "DisplayObjectName": false,
+                        "Name": "orientation_smooth_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.1
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "Layer_2_FOV_ratio_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.55
+                    },
+                    "Variable 30": {
+                        "DisplayObjectName": false,
+                        "Name": "target_position_x",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 31": {
+                        "DisplayObjectName": false,
+                        "Name": "target_position_y",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 32": {
+                        "DisplayObjectName": false,
+                        "Name": "target_position_z",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 33": {
+                        "DisplayObjectName": false,
+                        "Name": "yennefer_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Yennefer"
+                    },
+                    "Variable 34": {
+                        "DisplayObjectName": false,
+                        "Name": "zoom_angle_smooth_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.1
+                    },
+                    "Variable 35": {
+                        "DisplayObjectName": false,
+                        "Name": "zoom_distance_smooth_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.1
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": false,
+                        "Name": "Layer_3_FOV_ratio_1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.85
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": false,
+                        "Name": "Layer_3_FOV_ratio_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.55
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": false,
+                        "Name": "asymptotic_average_snapping_threshold",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.01
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": false,
+                        "Name": "bossfight",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": false,
+                        "Name": "bossfight_angle",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 50.0
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "bossfight_distance",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 40.0
+                    }
+                }
+            }
+        },
+        "Name": "Camera",
+        "Parent": "1817485627",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "180379870": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000015",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "-0.000000",
+                "rotationy": "-0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "DefaultMaterial"
+                    }
+                }
+            },
+            "20": {
+                "Active": false
+            },
+            "3": {
+                "ACTIVECAM": false,
+                "ASPECTRATIO": 1.9427958726882935,
+                "Active": true,
+                "CULLINGCAM": false,
+                "FARPLANE": 1000.0,
+                "FOV": 50.86028289794922,
+                "NEARPLANE": 0.10000000149011612
+            }
+        },
+        "Name": "Actual_Camera",
+        "Parent": "1135388833",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "1817485627": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Name": "CameraSetup",
+        "Parent": "1494586862",
+        "PrefabChild": true,
+        "PrefabInstance": true,
+        "Static": false
+    },
+    "1890045261": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "389.342468",
+                "positiony": "94.176857",
+                "positionz": "-344.322357",
+                "rotationw": "0.901499",
+                "rotationx": "0.409917",
+                "rotationy": "-0.124355",
+                "rotationz": "0.061676",
+                "scalex": "0.999996",
+                "scaley": "1.000002",
+                "scalez": "1.000002"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/Camera/DirectionalLightScript_v1.lua"
+                },
+                "Script variables": {
+                    "Count": 9,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Camera"
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "my_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "offset_x",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 15.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": false,
+                        "Name": "offset_y",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 15.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": false,
+                        "Name": "offset_z",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": -35.0
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": false,
+                        "Name": "rotation_x",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": false,
+                        "Name": "rotation_y",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": false,
+                        "Name": "rotation_z",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    }
+                }
+            },
+            "21": {
+                "Active": true,
+                "AttenuationK": "1.000000",
+                "AttenuationL": "0.090000",
+                "AttenuationQ": "0.032000",
+                "ClampShadows": false,
+                "ColorB": "1.000000",
+                "ColorG": "1.000000",
+                "ColorR": "1.000000",
+                "DebugDraw": true,
+                "DirectionX": "0.173648",
+                "DirectionY": "0.754419",
+                "DirectionZ": "-0.633008",
+                "DistanceMultiplier": "1.000000",
+                "DrawMesh": true,
+                "FrustumSizeX": 100.0,
+                "FrustumSizeY": 100.0,
+                "InnerCutoff": "12.500000",
+                "Intensity": "0.218000",
+                "LightType": "0",
+                "OuterCutoff": "45.000000",
+                "ShadowBias": 0.0010000000474974513,
+                "ShadowIntensity": 0.42800000309944153,
+                "ShadowOffsetBlur": 0.20000000298023224,
+                "ShadowPCFDivisor": 8.619999885559082,
+                "ShadowPoissonBlur": 700.0,
+                "ShadowSmootherAlg": 0,
+                "ShadowsSmoothMulti": 1.0,
+                "ShadowsSource": true
+            }
+        },
+        "Name": "MainLight",
+        "Parent": "1817485627",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "PreviewTexture": "Library/Textures/1915491080.dds"
+}
