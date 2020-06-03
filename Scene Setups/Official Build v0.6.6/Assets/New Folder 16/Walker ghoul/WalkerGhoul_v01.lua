@@ -295,9 +295,7 @@ local function Idle()
                 lua_table.AnimationFunctions:PlayAnimation("Run", 30, MyUUID)                             
                 lua_table.SystemFunctions:LOG("Ghoul state is SEEK") 
             end
-        end
-    --else
-       -- lua_table.SystemFunctions:LOG("Ghoul under an altered state")        
+        end  
     end
 end
 
