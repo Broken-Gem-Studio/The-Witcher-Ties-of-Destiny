@@ -1271,6 +1271,1098 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Play_HUD_No_Potion" ID="{2E4BB336-5E9E-4E3A-8E55-DC90F9AE226D}">
+							<ChildrenList>
+								<Action Name="" ID="{70D22EAF-37F4-407B-91D3-2511494A24FD}" ShortID="684198473">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="HUD_No_Potion" ID="{747F510F-CB24-4B54-B0C0-2DDF30170437}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Voicelines" ID="{F8DC13E4-BDCC-40EB-9817-0A3EB2254E04}" ShortID="592572275">
+					<ChildrenList>
+						<Folder Name="Geralt" ID="{8C40B253-D717-4F52-ACA5-0CF856DD954C}" ShortID="515380749">
+							<ChildrenList>
+								<Event Name="Play_If_it_was_your_job_to_exterminate_them___yeah__I_did" ID="{E95E80EF-3D62-4572-A534-811379F2B390}">
+									<ChildrenList>
+										<Action Name="" ID="{2A76A5CC-C38B-47FA-8C02-569772240E0C}" ShortID="649213029">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="If it was your job to exterminate them - yeah, I did" ID="{4A59E198-80F9-4D43-8CB1-57C2B7DA9976}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Exactly" ID="{22941C50-4887-4E1F-A402-FDD9535F403D}">
+									<ChildrenList>
+										<Action Name="" ID="{FF50817D-8BA9-4313-A89C-CAFF9E656B59}" ShortID="706829223">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Exactly" ID="{1A47DDDC-67FD-49FC-915D-30F6C8F8BF3B}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_All_taken_care_of__Went_inside_and_cleaned_up" ID="{441229B2-DA98-418F-87A8-EB2470B3EBF6}">
+									<ChildrenList>
+										<Action Name="" ID="{F9892301-B55B-4324-A7B3-065CF816294D}" ShortID="1025251974">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="All taken care of_ Went inside and cleaned up" ID="{A41D8C6E-6093-4A7A-A2F0-7F4629EFDF9E}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_I_get_it" ID="{7DBB75FB-5F4C-4A4D-B992-95061EEEB818}">
+									<ChildrenList>
+										<Action Name="" ID="{7470834B-CDD2-4AB5-A43A-95876D9AF6CF}" ShortID="720575118">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="I get it" ID="{6E5F723B-76B1-4AE9-B53E-A5E636E18448}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_If_you_say_so" ID="{B7F1A4A1-5C80-4B56-AA19-DC6E7C14BC91}">
+									<ChildrenList>
+										<Action Name="" ID="{7906164D-7060-4B3A-8976-4E448276D8B1}" ShortID="489280990">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="If you say so" ID="{7E5927E9-5CF4-4AB7-8B31-0CBCB9A731CA}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Impressive" ID="{2C463D38-2DFA-49F5-BC11-B80AB684E130}">
+									<ChildrenList>
+										<Action Name="" ID="{23681F6E-A9D0-4477-BCB4-0EF104CADD2F}" ShortID="167996636">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Impressive" ID="{EEAE6A49-4E8C-468C-B1FC-F6E9D96D08E8}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Doesn_t_look_cursed_to_me__Just_really__really_angry" ID="{73990E5A-9D3E-439C-B6A9-71DCACCAD879}">
+									<ChildrenList>
+										<Action Name="" ID="{DF4888D2-D969-4E43-AF7B-AB2EA015D052}" ShortID="757571010">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Doesn_t look cursed to me_ Just really, really angry" ID="{BFBB1134-124E-42FF-93C7-7E1EFCDE5FC0}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_I_m_Geralt__Geralt_of_Rivia" ID="{064914DF-2A28-46E9-9717-33056917E553}">
+									<ChildrenList>
+										<Action Name="" ID="{75420653-FB48-4105-84CA-CBC7781A9A85}" ShortID="944068382">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="I_m Geralt, Geralt of Rivia" ID="{75FC2B48-C700-46DC-A91A-1B0BDF62B3AB}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Calm_down__it_s_over" ID="{C6E5A316-2EA6-468B-B93B-542A541C417D}">
+									<ChildrenList>
+										<Action Name="" ID="{5B9A1F27-D7C9-49F3-A0DF-9C13DC85F748}" ShortID="445563616">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Calm down, it_s over" ID="{EB077753-9BE2-49D0-8F4C-321F0594F66F}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Asked_a_serious_question" ID="{F5E48565-3FBF-45AC-986A-FF95BDBE323E}">
+									<ChildrenList>
+										<Action Name="" ID="{29432C12-70EE-401E-A39A-8B4998C6DFBF}" ShortID="531034763">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Asked a serious question" ID="{ECD00B32-E9F8-4A02-8AED-BB8BF5160481}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_A_rational_man" ID="{B5570140-79B0-471D-BAE1-9E7816C88D44}">
+									<ChildrenList>
+										<Action Name="" ID="{88377F97-4B6F-4336-99DE-01B1F8667D90}" ShortID="530704047">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="A rational man" ID="{827930E0-711C-414D-9638-2E3D2B890129}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Dammit" ID="{FF3283DF-1E81-4CEA-A1CF-66AD442961DF}">
+									<ChildrenList>
+										<Action Name="" ID="{B26BB34D-9B2B-41D5-97AD-3A08CEE8E3B2}" ShortID="626438066">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Dammit" ID="{41F5D766-4C2C-4FC5-912F-1D2B8436B7F8}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Exaggerated__Not_by_much__though" ID="{B979A184-D585-4AC3-9261-B389124B6B47}">
+									<ChildrenList>
+										<Action Name="" ID="{9633D77C-B921-4BD6-AEEB-CF95A32E6C87}" ShortID="1038826104">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Exaggerated_ Not by much, though" ID="{EDCA8D23-734D-41E9-A081-FB405B4EC31B}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Don_t_know_if_you_noticed__but_I_just_saved_your_ass" ID="{C5786A04-3D54-451E-9F78-1A76D9BDE71D}">
+									<ChildrenList>
+										<Action Name="" ID="{7EA48600-59C4-4F3C-A86E-4EC54D752D83}" ShortID="522209481">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Don_t know if you noticed, but I just saved your ass" ID="{90493295-03DC-4E70-983F-A34E75B5956A}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Geralt_NoOffence" ID="{C540021F-2D3E-4A30-8757-FACBB7916FD6}">
+									<ChildrenList>
+										<Action Name="" ID="{20D72E33-CE07-434A-9F36-8F9A9E2DF427}" ShortID="26446338">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Geralt_NoOffence" ID="{36EDB248-E054-4B90-AB36-E77E9E3D3BF0}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Geralt_Dandelion" ID="{1756E6A9-1853-4370-B9A4-226BD7C13AD7}">
+									<ChildrenList>
+										<Action Name="" ID="{153434ED-3D0C-4654-90FB-761A34D3E1D3}" ShortID="100613448">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Geralt_Dandelion" ID="{293D6214-7FEC-402A-8989-26FB16EFBF02}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Go_ahead__I_ll_stop_by_when_I_m_in_the_area" ID="{016777D0-2183-4F5C-8041-4FBA8B620A9E}">
+									<ChildrenList>
+										<Action Name="" ID="{85FCE562-A5FE-44D0-A83E-C1E81B97B581}" ShortID="677667020">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Go ahead_ I_ll stop by when I_m in the area" ID="{D085D99A-B6EB-44B7-B8D5-C9A5DC495594}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Hurry" ID="{FF3C0276-F01F-4940-B4AE-EC40120AD326}">
+									<ChildrenList>
+										<Action Name="" ID="{BD53F87E-321A-48F6-9803-9B4BBB0C7EBA}" ShortID="166862096">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Hurry" ID="{87ED6C6D-8F72-460B-BCF0-56D2340F9313}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Excuse_me" ID="{4F3F05B2-3CDF-41B6-9BE3-A89F2F214C4F}">
+									<ChildrenList>
+										<Action Name="" ID="{398FF624-AF9F-4ABF-B802-0E77F3C382BB}" ShortID="357507210">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Excuse me" ID="{31CF95F7-6F9F-48EF-B55B-1D7CB08453E0}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Don_t_know__I_kill_monsters__don_t_predict_the_future" ID="{EB1108E2-208F-4513-AA0F-2A947050502A}">
+									<ChildrenList>
+										<Action Name="" ID="{59ADDB46-22F4-4198-BFBF-A2C20F1D87C7}" ShortID="414632002">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Don_t know_ I kill monsters, don_t predict the future" ID="{D1186EB3-8C05-4E45-AFC4-6683FAA892FC}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_I_see__All_right__High_time_I_set_off" ID="{DA58B0ED-AED0-4DFA-9DA4-7DCF63EDEF0B}">
+									<ChildrenList>
+										<Action Name="" ID="{3F15D0E7-3C83-4659-833E-745311A039F6}" ShortID="252644809">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="I see_ All right… High time I set off" ID="{0804BF33-518C-4417-BF8F-D5206087847E}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Hell_yes" ID="{0A3999D2-7A24-4244-A171-3F56D7F84B16}">
+									<ChildrenList>
+										<Action Name="" ID="{028C9FA3-0C8B-4BB1-8F1E-8386B5F3BB01}" ShortID="16869054">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Hell yes" ID="{FA9C07D6-0A7A-4DA4-813D-515B05E36557}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Ballad_about_you" ID="{70177D5D-6A54-4172-9D50-EAECE5B630E9}">
+									<ChildrenList>
+										<Action Name="" ID="{36F60146-3D47-4D97-AF0F-3919EA969CC0}" ShortID="876149846">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Ballad about you" ID="{B6D934D3-7145-4D31-BB6A-4D1EFC6648C9}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Can_we_talk" ID="{9556DF6C-4137-4EBC-8B65-76922222C0D2}">
+									<ChildrenList>
+										<Action Name="" ID="{88700E74-3308-4376-AFE9-C2D84C468730}" ShortID="1020578676">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Can we talk" ID="{E13BAE45-1E8F-40B6-B921-B8560190F77A}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Damn__something_s_seriously_wrong_here" ID="{4A3D3C1E-9895-4202-A006-50ECA7F265CE}">
+									<ChildrenList>
+										<Action Name="" ID="{575F8A2A-ADD6-4D2B-9297-7A2FC83EFB47}" ShortID="236699834">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Damn, something_s seriously wrong here" ID="{6718284A-D6A6-4720-830A-E30D61C11971}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_All_right__let_s_go" ID="{2CA0CB07-27C7-4496-86EB-3C751445A6CC}">
+									<ChildrenList>
+										<Action Name="" ID="{B2E7D17C-A96C-4248-9F03-030350E7684F}" ShortID="412182465">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="All right, let_s go" ID="{AD83859D-87DB-4724-BD30-A01097DDB229}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Fine__lead_the_way" ID="{3ECB9E15-B980-4D60-882D-2A3C75F28B58}">
+									<ChildrenList>
+										<Action Name="" ID="{A95D13CA-EA57-45A4-BE03-429916A9DFA6}" ShortID="833202627">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Fine, lead the way" ID="{24C69E13-9B82-40FE-BA02-0BFE8B7D323E}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_I_ll_go_with_you" ID="{B6877E78-3B23-4AD9-A13C-DB5F45422590}">
+									<ChildrenList>
+										<Action Name="" ID="{765C8BD3-B446-47C9-90DC-DC3D15C8E487}" ShortID="1016475829">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="I_ll go with you" ID="{61E2E23B-0836-4544-ACC5-D59DE1B604CE}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Let_s_go__no_time_to_lose" ID="{3C82D406-7706-433D-89D2-746BF237BFDC}">
+									<ChildrenList>
+										<Action Name="" ID="{18A20EA3-529F-4B53-AE42-627E46DA62B9}" ShortID="529584832">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Let_s go, no time to lose" ID="{63294650-A1EE-4EBC-B266-F2291D4178F5}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Let_s_look_around__see_if_we_can_t_find_something_interesting" ID="{3D3B2F06-1878-486E-A859-385B373001F9}">
+									<ChildrenList>
+										<Action Name="" ID="{B52C12EF-9ECE-41B5-AE18-21EEE412A905}" ShortID="335999301">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Let_s look around, see if we can_t find something interesting" ID="{BE86B0C2-11F6-4427-9A8A-9114FA247E03}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Lead_the_way__right_behind_you" ID="{31CB6C48-0E14-4F24-B982-3EFFDC7710CB}">
+									<ChildrenList>
+										<Action Name="" ID="{712314E2-AAC8-46BA-8EA1-A2234C313719}" ShortID="473627429">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Lead the way, right behind you" ID="{44CE36EF-D89C-4BF0-BB37-96151A1010A9}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_So__talk_again_later" ID="{8D21504A-FE57-4F06-8945-FC085A3FF382}">
+									<ChildrenList>
+										<Action Name="" ID="{B665A629-4074-4935-B2FF-6357406AA67C}" ShortID="210925731">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="So… talk again later" ID="{5EC28BCF-A221-49D2-A783-27A819FE25AC}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Strange_coincidence" ID="{BCCF6926-B8CD-4C81-9EF9-38E30EA919AD}">
+									<ChildrenList>
+										<Action Name="" ID="{F7D5E785-C228-47F9-9C07-DDA26429821E}" ShortID="193878691">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Strange coincidence" ID="{2687A528-0F39-44D3-B8AF-A7389F97A511}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_ohh_yea_that_right" ID="{2F9F355E-21F3-4FFE-A8C5-4853C73E9B39}">
+									<ChildrenList>
+										<Action Name="" ID="{9E750B6E-C469-41D8-8382-C9269D02FD50}" ShortID="310843524">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="ohh yea that right" ID="{97AB8F09-FE29-491B-A425-F4699CFF06DF}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Wrong" ID="{6BEE5F31-72C5-47FD-A41F-3A5A384F6AB5}">
+									<ChildrenList>
+										<Action Name="" ID="{E868C6E5-3ADE-4751-A466-9E92DB067034}" ShortID="754972816">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Wrong" ID="{D4DAD3E5-337A-4369-B46E-76F9136A3C1C}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_This_ll_be_interesting" ID="{1ED55F5F-D15B-4069-A41E-5AF6C2A36C70}">
+									<ChildrenList>
+										<Action Name="" ID="{A68981F1-8D81-4D31-9860-8C9E715AEFAF}" ShortID="953495370">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="This_ll be interesting" ID="{2C03DB35-F239-4440-B51B-B54881E0F65A}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_What_s_the_surprise_Some_new_monster_I_need_to_kill" ID="{9F1EC200-DEF9-4B17-96F4-EBDE9BADFF28}">
+									<ChildrenList>
+										<Action Name="" ID="{F56774C4-7CEB-4EF5-AE92-F2965DC47F56}" ShortID="680978162">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="What_s the surprise Some new monster I need to kill" ID="{6DEB0B09-C9E0-48EB-94FF-B51D98A84E7B}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Yennefer_needs_me__I_can_t_abandon_her" ID="{2D96F5F0-5D2B-4D1B-9B59-B367F752A644}">
+									<ChildrenList>
+										<Action Name="" ID="{FEE47D16-2CF2-485B-B246-14A76CFE17EE}" ShortID="154156578">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Yennefer needs me_ I can_t abandon her" ID="{440DF26B-7CD3-4BED-BBB2-3E0CE5010404}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_More_work_for_me_I_guess" ID="{44271CAA-2203-4B5C-9EEA-1CDDA942C08F}">
+									<ChildrenList>
+										<Action Name="" ID="{ED50C61A-C168-4DE8-868F-CA292D26CC2C}" ShortID="828967450">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="More work for me I guess" ID="{C3A335AE-AD94-4CAB-9CC3-F098931DE07F}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_So_long" ID="{08A7439E-625D-452C-A6C8-B284A3D4F662}">
+									<ChildrenList>
+										<Action Name="" ID="{682EB1F2-E9FF-4CDF-B0EA-D5EDEF5F4660}" ShortID="850875847">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="So long" ID="{FF981587-1AE1-471C-BF7E-D251E66F0DBF}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_No" ID="{832C528D-834D-4018-97E4-452E4F779FBA}">
+									<ChildrenList>
+										<Action Name="" ID="{3A2BB20C-4020-4F83-A7F2-EEEB2EA6FDF5}" ShortID="796100072">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="No" ID="{2A207DAC-ED3E-4FD3-84AB-0FB67F4A3CC2}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_What_s_the_problem" ID="{3D3C97EC-0E9C-4460-A523-BDCFC45082C1}">
+									<ChildrenList>
+										<Action Name="" ID="{059D1A4E-9C90-4BC9-ABC4-F76CBF94B2AF}" ShortID="98689611">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="What_s the problem" ID="{10515C8A-37F7-4659-A457-D071C88E8C0F}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Right" ID="{8F2D6C07-19BF-4F06-A6AB-9BECE355D411}">
+									<ChildrenList>
+										<Action Name="" ID="{42532C9B-64C6-453C-90C9-5F68623526C2}" ShortID="714821451">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Right" ID="{53FBFD06-DBF2-4510-A4F1-60AA31781165}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Over" ID="{337E0165-5925-4B38-85F2-65A516C3677E}">
+									<ChildrenList>
+										<Action Name="" ID="{F49735FA-E518-41B7-94ED-3A086BB93727}" ShortID="1022739481">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Over" ID="{76B43FDA-CC9F-4198-91A3-3CEF7469E3C5}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Need_to_hurry" ID="{A8D23B00-2B2B-468B-8B33-742A7435289B}">
+									<ChildrenList>
+										<Action Name="" ID="{5EFF6718-280A-43DF-86A3-EB32156153A3}" ShortID="718857287">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Need to hurry" ID="{21B74828-4FC8-4CE2-93FA-8D25A7984E2C}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Same_thing_I_do_anywhere__Killing_monsters" ID="{EEF780DB-53F7-4EFA-9D67-01A7F4BAF5D8}">
+									<ChildrenList>
+										<Action Name="" ID="{185776A0-0DC9-47DD-BBCF-2E2C2F809997}" ShortID="895499110">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Same thing I do anywhere_ Killing monsters" ID="{9AF6AB3B-5AF0-4864-8AC1-ABFC7C1DA521}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Sorry" ID="{98A87D0A-59CC-4543-9B0A-983E8B1C93E1}">
+									<ChildrenList>
+										<Action Name="" ID="{70804267-14E6-4CF3-B26D-1F9211BC2C23}" ShortID="668422938">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Sorry" ID="{7A50DC23-A996-4327-9BDC-7884228B8986}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Maybe__depends" ID="{9092D4A2-C9B4-495C-BB92-B0087D75C346}">
+									<ChildrenList>
+										<Action Name="" ID="{4E5D7D90-67D7-4894-BC41-79F675C9EF31}" ShortID="268794656">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Maybe, depends" ID="{7F6A01C4-0BA1-4AC3-91FC-818EF6D1AB85}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Mhhh" ID="{533BCA31-9CFC-477F-8A4C-D5A807600989}">
+									<ChildrenList>
+										<Action Name="" ID="{834305C4-FF6B-4E36-A748-A52BC52CDABD}" ShortID="370409898">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Mhhh" ID="{09195010-AB93-46BC-9121-291AD6ADA6AE}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Ready" ID="{23916A58-31A7-4B24-BE44-78799DE87F8A}">
+									<ChildrenList>
+										<Action Name="" ID="{2CE594F9-003B-4B31-9F53-48AA6B4F6297}" ShortID="894226801">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Ready" ID="{F7D9E0C8-F87A-4AEB-B884-4E401D082CC5}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Managed_to_assemble_a_pretty_good_bunch_of_men" ID="{E018AA00-AECF-401D-8372-0636DD018B07}">
+									<ChildrenList>
+										<Action Name="" ID="{482B40AE-A64B-4FC8-96F3-5B31E554D881}" ShortID="740074646">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Managed to assemble a pretty good bunch of men" ID="{CD66B25C-948A-4997-82EB-2CA4303DE007}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_No_point_fighting_bandits__Kill_these__and_others_just_as_bad_or_possibly_worse_ll_come_in_to_fill_the_void" ID="{3AD7751A-B60B-4A65-8857-F21DE830D5B7}">
+									<ChildrenList>
+										<Action Name="" ID="{CDBA761C-D171-4F6F-B396-68F63F4854FE}" ShortID="207353113">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="No point fighting bandits_ Kill these, and others just as bad or possibly worse_ll come in to fill the void" ID="{99E6A2C2-42A9-415C-988E-95A9D9AD36DC}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_See_you_later" ID="{77307F7D-6F95-4742-BEF5-9DA92530B4F3}">
+									<ChildrenList>
+										<Action Name="" ID="{D732BA86-3ECA-4AA0-A283-7D162A504DB6}" ShortID="328750046">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="See you later" ID="{6607823F-D11D-42C7-A723-3F20193D17BF}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_No_hero__Just_a_witcher__Slaying_monsters_is_my_job" ID="{A252DB4E-0721-4D08-85F5-54CE65AB2FD4}">
+									<ChildrenList>
+										<Action Name="" ID="{7B7ACCAD-F740-42E5-84D9-3DAAACC7DADC}" ShortID="620923247">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="No hero_ Just a witcher_ Slaying monsters is my job" ID="{FF10C654-E414-47A2-8E4F-BCBB892BAFB0}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Something_s_not_right" ID="{0769B781-C211-4B9D-BF96-EF803FA0D319}">
+									<ChildrenList>
+										<Action Name="" ID="{8584F7D4-FF87-4464-8459-25B0A2D26B4B}" ShortID="475805445">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Something_s not right" ID="{68054E4B-C0FA-423D-85B5-2E91E27151B1}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Unexpected_as_ever" ID="{D1ABB001-07F0-44D1-99DD-345285FD1AFB}">
+									<ChildrenList>
+										<Action Name="" ID="{7E5B84BF-6B43-479A-8D5E-7AFCE1F30786}" ShortID="687858643">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Unexpected as ever" ID="{55DC0E57-383C-49EA-8750-C0E8F984725B}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Wound_doesn_t_look_good__Patch_that_up_quick_if_I_were_you__before_it_starts_festering" ID="{345E0977-2A21-4A11-BAAD-39EE82F0EB8C}">
+									<ChildrenList>
+										<Action Name="" ID="{DBF91E92-D9D0-46FD-A383-354347F468FF}" ShortID="516105538">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Wound doesn_t look good_ Patch that up quick if I were you, before it starts festering" ID="{50906A3A-8B8E-4BBA-B16F-1B655C55300A}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_not_this_time" ID="{460FD1D3-D993-434D-A945-22539F85DB23}">
+									<ChildrenList>
+										<Action Name="" ID="{615C8F60-A0A7-4D59-A72A-C14FE07D8F21}" ShortID="121837809">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="not this time" ID="{0ABD1994-B06A-4943-B075-78AB6093C63F}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Notice_anything_interesting" ID="{CF24BB26-06A5-4AE9-95F5-66110EC93A55}">
+									<ChildrenList>
+										<Action Name="" ID="{BC5077F3-0D4E-4200-B994-DD6936B9EDC1}" ShortID="413358423">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Notice anything interesting" ID="{077ACA91-A04F-4D84-8120-EAFC31C1B66D}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_What" ID="{0A9021F8-1CDD-4270-895C-A2944BE566E8}">
+									<ChildrenList>
+										<Action Name="" ID="{23A07EB3-64F1-4B3D-B77B-FA0AF180A93C}" ShortID="419226881">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="What" ID="{A895EDD9-983D-494B-ACF5-C52E045211B1}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_So__plan_to_go_out_and_meet_the_bandits_when_they_arrive_Fight_them" ID="{97472FB0-E4DC-4FAC-9FF6-DD9742554B9E}">
+									<ChildrenList>
+										<Action Name="" ID="{F023A45F-F5C5-48B8-9795-79D012C5DB14}" ShortID="505807909">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="So, plan to go out and meet the bandits when they arrive Fight them" ID="{482C7220-C7F6-4166-BDD3-3D98783076D6}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Wouldn_t_get_a_straight_answer_anyway" ID="{CC184BAB-C5AD-45E4-A734-7E9F516E431E}">
+									<ChildrenList>
+										<Action Name="" ID="{32C9ACE1-EED8-4127-8B6E-0D4E406DEC71}" ShortID="980610008">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Wouldn_t get a straight answer anyway" ID="{FD6CDC41-A4A0-48E2-8F08-D21C0B41C973}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
+						<Folder Name="Jaskier" ID="{7FD92B03-589D-48E6-9C7B-3B5AA81A5228}" ShortID="44257085">
+							<ChildrenList>
+								<Event Name="Play_Ah__finally_made_it" ID="{0385C18F-2CE9-4EBD-999B-9007052DB587}">
+									<ChildrenList>
+										<Action Name="" ID="{57FE957A-B338-469F-B2B6-77D7D11EDCF8}" ShortID="219264410">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Ah, finally made it" ID="{F1E58E6B-0246-47C8-A0C0-91CB0BEEE184}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Famous_last_words_right_there" ID="{ADB14594-6BA8-4908-B4FB-48F0B3B766F5}">
+									<ChildrenList>
+										<Action Name="" ID="{B7DCFBF3-3668-4CE7-826C-D95CFBEEB268}" ShortID="864610875">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Famous last words right there" ID="{6C63128C-8132-4FCD-AB8D-85A87CE3C0D1}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Heeeeelp" ID="{45B96019-1D6B-4297-8FA4-06BBD1139302}">
+									<ChildrenList>
+										<Action Name="" ID="{B11EE9F1-DEEA-4428-A428-F8FE7343DCBD}" ShortID="782363687">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Heeeeelp" ID="{2B172505-B0A1-4BD6-9489-7B38BD12D3E8}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Bad_feeling" ID="{E5F6C198-2A35-4589-A6F0-37F89125DA2B}">
+									<ChildrenList>
+										<Action Name="" ID="{6539DDC3-CE12-487A-A8B8-26BA3966A2C3}" ShortID="870342927">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Bad feeling" ID="{5AF3AD99-43D3-43AC-988E-2B382E2CBD05}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Hah__That__my_friend__is_not_your_concern" ID="{2E665E57-83C7-44F8-9BE8-FCE35C345BA7}">
+									<ChildrenList>
+										<Action Name="" ID="{07E09F51-0235-4D69-B90C-FAECBB4DD369}" ShortID="100353192">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Hah_ That, my friend, is not your concern" ID="{E3001687-F3CD-417B-971E-B37C06C01A27}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_I_ll_go_with_you__Not_like_I_really_have_a_choice_now__do_I" ID="{5FCE7373-7C89-4A3B-8EFF-EE60F8F36CB6}">
+									<ChildrenList>
+										<Action Name="" ID="{D36CB2B0-7D18-48B9-9ABF-4C1EB9404FCB}" ShortID="31321590">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="I_ll go with you_ Not like I really have a choice now, do I" ID="{3DCA8E98-2239-40C7-A947-117795FB7BE6}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Hey__what_s_this" ID="{47F64086-B387-4280-8D5A-20E167625A78}">
+									<ChildrenList>
+										<Action Name="" ID="{E6FCD9A8-1887-4A1E-A970-5E47D0226104}" ShortID="120979144">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Hey, what_s this" ID="{6613E74E-C40F-46F9-9935-1EC5A8E6FF8F}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_I_m_just_saying" ID="{2327F9FD-82C4-428A-A0BB-418C7F2E0249}">
+									<ChildrenList>
+										<Action Name="" ID="{8CAC60B6-54A6-40EC-8FB4-42C1370EF8C0}" ShortID="197345021">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="I_m just saying" ID="{52F72D60-871E-4D93-9A14-E5C79B1E05CC}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_In_negotiation__as_in_combat__the_key_is_to_find_your_opponent_s_weak_spot_and_exploit_it_to_the_hilt" ID="{48860DE7-B7DC-49BD-9E80-35E3DEEDC1C7}">
+									<ChildrenList>
+										<Action Name="" ID="{DF0FF3D6-2237-425A-8FB6-C43F15649A1F}" ShortID="817178013">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="In negotiation, as in combat, the key is to find your opponent_s weak spot and exploit it to the hilt" ID="{41E84FDC-7569-43FA-99D0-62954EA63A1C}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Got_a_bad_feeling_about_this" ID="{220B0F9A-8F53-4868-BBCA-660E4D75D86E}">
+									<ChildrenList>
+										<Action Name="" ID="{47F884AE-2744-45A1-8845-18FD6ED08137}" ShortID="510504414">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Got a bad feeling about this" ID="{CB5EB0BA-7B75-4D78-B369-776D9B214CBC}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_En_garde" ID="{1858A4B7-847A-4766-BD70-A4B5A71D7715}">
+									<ChildrenList>
+										<Action Name="" ID="{F0B21C17-FDDA-48D7-A95D-0311979A3962}" ShortID="44438056">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="En garde" ID="{AD892308-6327-4C3C-BCA1-143CA8852AF5}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Ah_yes_now_I_remember" ID="{94BC2BF1-6ACA-499A-8078-0F79C58FCFD1}">
+									<ChildrenList>
+										<Action Name="" ID="{FB892986-E52D-418C-8D33-38607111604C}" ShortID="89076244">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Ah yes now I remember" ID="{14D32701-961B-413F-A9EB-F87E584C05AB}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_I_ve_been_hit__Oww" ID="{D7A4F165-27C4-404D-A2FC-A8D21856FBF0}">
+									<ChildrenList>
+										<Action Name="" ID="{9CB7A487-5960-435B-8398-563E776A71D9}" ShortID="909562803">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="I_ve been hit… Oww" ID="{1A8B3D46-E12A-4AF2-834C-330580370A6D}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Back_again" ID="{B78E783D-0D94-4BD9-A5D0-C207BB33FE77}">
+									<ChildrenList>
+										<Action Name="" ID="{8DA90F51-76EA-4BF9-A947-B26E6BD52D99}" ShortID="636309751">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Back again" ID="{8774A881-6DE1-4A4A-B434-32D6064888F3}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Gave_me_enough_material_for_a_volume_of_ballads__And_this_one_ll_sell_like_hotcakes" ID="{BDB5EF25-AF15-41B3-ACF5-23FC2E676011}">
+									<ChildrenList>
+										<Action Name="" ID="{CEBFE91C-A26A-4243-9A66-B2319839041D}" ShortID="813418888">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Gave me enough material for a volume of ballads! And this one_ll sell like hotcakes" ID="{29FBA3EC-D4B5-4213-9BDC-6275E6CC0513}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_I_don_t_remember" ID="{1E4576A1-EB62-4512-AF99-007871B469D9}">
+									<ChildrenList>
+										<Action Name="" ID="{8A6D1730-753C-4466-8294-937534567F7C}" ShortID="907827511">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="I don_t remember" ID="{1C294184-DEE7-4EB7-A6DB-A948ED1B8F74}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Consider_it_done" ID="{6B4C170A-208D-4FEA-85E9-F53549644A8B}">
+									<ChildrenList>
+										<Action Name="" ID="{19C6962C-FD44-4B4F-91F9-6208E6232E31}" ShortID="143467752">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Consider it done" ID="{69B59AA7-E926-4F9C-8F9E-2B2ED1465512}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_For_you_my_friend__always" ID="{3D2F9177-2B77-47D8-985D-3F3B2244A6D3}">
+									<ChildrenList>
+										<Action Name="" ID="{A12A2485-3DFE-42E4-9DF0-905446887A36}" ShortID="850970194">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="For you my friend, always" ID="{D5DB811A-7D5C-4BBC-A81E-4F13C55DFC27}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_But_just_so_you_know__it_wasn_t_easy__In_fact__it_was_pretty_damn_hard" ID="{6970898C-701B-4D5B-AA98-CA8261CE42EF}">
+									<ChildrenList>
+										<Action Name="" ID="{89ADE086-B2E8-40D9-9693-7270FF09E30A}" ShortID="160975720">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="But just so you know, it wasn_t easy_ In fact, it was pretty damn hard" ID="{DAED55E8-A106-4E78-9EFA-A1D89A249221}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Drop_your_sword__scoundrel__This_is_your_first_and_last_warning" ID="{77B016B0-5D35-4C47-9B5D-5E28B3443560}">
+									<ChildrenList>
+										<Action Name="" ID="{674C800E-62F6-4C51-82F7-6C1A34268985}" ShortID="774159599">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Drop your sword, scoundrel! This is your first and last warning" ID="{E251EBC2-3201-499D-88BE-9BDD6E310979}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_I_d_do_anything_for_a_friend" ID="{FBAA9968-B276-4405-BAD1-F6C8A265AEA2}">
+									<ChildrenList>
+										<Action Name="" ID="{C3CB7618-B32A-4DC4-AA2B-61B3C4F001FD}" ShortID="193015278">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="I_d do anything for a friend" ID="{76DB97D6-BB8E-49BA-B311-38C74DAC705C}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Not_had_enough" ID="{B0EE1B70-5615-47B1-9B40-B1E537A8C094}">
+									<ChildrenList>
+										<Action Name="" ID="{1BE3AE11-AE63-46DA-9A2E-6400FA05EBBF}" ShortID="920703486">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Not had enough" ID="{ED0E38DD-4792-4D99-A360-12C88EBC3B6D}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Run__run__If_you_value_your_life" ID="{A70B3D84-D610-4628-85F3-EC54DD282821}">
+									<ChildrenList>
+										<Action Name="" ID="{073C8964-A64F-4825-94A9-32F1E98F5C0D}" ShortID="152528594">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Run, run! If you value your life" ID="{574E2196-0EF5-4958-93CD-749A2177BAF0}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_The_Crimson_Avenger_triumphs_again" ID="{FA112D26-33D4-4EDD-924C-FA4AE2AE6C04}">
+									<ChildrenList>
+										<Action Name="" ID="{13D7CFA4-D42C-41EB-BCBD-FBE38D4BD07B}" ShortID="782765730">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="The Crimson Avenger triumphs again" ID="{8E88B8CB-ADCB-4885-B7DD-8A4A48E5DB8C}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_What_01" ID="{D63AC217-52E0-4A9E-A533-AD39DDBCF902}">
+									<ChildrenList>
+										<Action Name="" ID="{7FB0454E-DCB4-48D3-9A55-DD7887730824}" ShortID="711939341">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="What" ID="{EF5FB342-215D-4F18-BD1E-BF6EDFDF297C}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Thanks" ID="{6AF6C844-35A3-4D10-A570-9038CF031B35}">
+									<ChildrenList>
+										<Action Name="" ID="{6243C939-1651-4B32-A300-8C1276E0FE09}" ShortID="896760188">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Thanks" ID="{796E78D9-2AFA-4329-A581-69BA2A5A4E2A}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Thanks_for_everything" ID="{609ED8E2-63BD-4A91-8C01-2EA3D0581F50}">
+									<ChildrenList>
+										<Action Name="" ID="{CA1DDC91-CB2B-4A2E-829B-576BE242AE6B}" ShortID="63347327">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Thanks for everything" ID="{BEE343CE-628F-41E2-8B8D-0D5191609951}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_No_reason" ID="{C0D7555B-513E-45A8-BEAA-B9AF355F63A2}">
+									<ChildrenList>
+										<Action Name="" ID="{56F4F041-E769-4465-B6BE-95F630103F0F}" ShortID="568602451">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="No reason" ID="{172BD734-2754-4FF3-AD62-884163875CEF}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_My_plan_was_perfect__until_we_put_it_in_motion" ID="{9155B5D6-1C40-44E4-A6AB-0119212B2734}">
+									<ChildrenList>
+										<Action Name="" ID="{9EAB77DB-35E1-4456-A834-962E64B101D1}" ShortID="980591267">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="My plan was perfect… until we put it in motion" ID="{B7175F50-1B56-49A5-A548-5D767D9042C4}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Phew__never_expected_that_to_go_so_well" ID="{0424DFD4-9353-4EF8-A960-F4C0925B413E}">
+									<ChildrenList>
+										<Action Name="" ID="{8AE64E8C-34CD-4F95-9876-21156CF0F81D}" ShortID="165163164">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Phew, never expected that to go so well" ID="{90BC47EE-29F6-484C-8300-3B4EA19C97F1}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_my_boi" ID="{8F49A472-99EF-4234-8510-CD98EB67B27A}">
+									<ChildrenList>
+										<Action Name="" ID="{F7444DB5-22FB-4EF0-B90B-C64822EC6AFE}" ShortID="131220455">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="my boi" ID="{E88A50DB-D87C-47CA-B4BE-07F18C1ED1E1}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Ugh__You_re_better_than_I_thought" ID="{1494801D-936A-45B3-AC4C-AFA8E65AA121}">
+									<ChildrenList>
+										<Action Name="" ID="{454D480C-198C-4DF7-B404-D85471156F81}" ShortID="571229542">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Ugh… You_re better than I thought" ID="{E1796EFD-ABD2-4E08-AE1D-C6E5D848A607}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Mmmmmm" ID="{0F212811-76A4-41A7-8115-012537C00882}">
+									<ChildrenList>
+										<Action Name="" ID="{8BDD9855-CEDE-4A4D-B393-4A204F308361}" ShortID="539333786">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Mmmmmm" ID="{E787E80C-28EF-4578-97BF-C3F87149837F}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Not_so_fast" ID="{55EA2D8A-1710-4560-AB2C-9D5A9028204A}">
+									<ChildrenList>
+										<Action Name="" ID="{165C9E7B-5EEB-4311-A7BE-E8F3D0A77F3A}" ShortID="879281075">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Not so fast" ID="{AF0F79BA-C44E-4962-B9DB-02B7D0C300B6}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Stand_and_fight__you_scoundrel" ID="{8347F0EA-B2C1-495C-BEEF-5311C5376B5D}">
+									<ChildrenList>
+										<Action Name="" ID="{778776FC-A643-4567-AB2C-26216C61A927}" ShortID="509384506">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Stand and fight, you scoundrel" ID="{399C185B-FF83-4162-B42B-E8191DF5B214}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
+						<Folder Name="Geralt - Jaskier" ID="{6BE61B29-7515-4980-A589-175A73B04ED8}" ShortID="236601759"/>
+						<Folder Name="Yennefer" ID="{F1606815-67F6-48BB-99A6-4D953EE7ACC9}" ShortID="304171529"/>
 					</ChildrenList>
 				</Folder>
 			</ChildrenList>
