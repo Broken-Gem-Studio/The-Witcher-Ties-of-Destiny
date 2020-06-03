@@ -51,7 +51,10 @@ function GetTableCharacterSelection()
     local P1_ON_CIRI = 0
     local P2_ON_CIRI = 0
 
-    local PRESS = 0
+    local PRESS_Y = 0
+    local PRESS_A = 0
+    local PRESS_B = 0
+    local ARROWS = 0
     --animation
     local GERALT = 0
     local JASKIER = 0
@@ -83,7 +86,10 @@ function GetTableCharacterSelection()
         lua_table["UI"]:MakeElementInvisible("Image", P1_ON_CIRI)
         lua_table["UI"]:MakeElementInvisible("Image", P2_ON_CIRI)
 
-        lua_table["UI"]:MakeElementInvisible("Image", PRESS)
+        lua_table["UI"]:MakeElementInvisible("Image", PRESS_Y)
+        lua_table["UI"]:MakeElementInvisible("Image", PRESS_A)
+        lua_table["UI"]:MakeElementInvisible("Image", PRESS_B)
+        lua_table["UI"]:MakeElementInvisible("Image", ARROWS)
 
     end
 
@@ -245,7 +251,10 @@ function GetTableCharacterSelection()
         CIRI = lua_table["GameObject"]:FindGameObject("CIRILA")
 
         SELECTION = lua_table["GameObject"]:FindGameObject("SELECTION")
-        PRESS = lua_table["GameObject"]:FindGameObject("PRESS")
+        PRESS_Y = lua_table["GameObject"]:FindGameObject("PRESS_Y")
+        PRESS_A = lua_table["GameObject"]:FindGameObject("PRESS_A")
+        PRESS_B = lua_table["GameObject"]:FindGameObject("PRESS_B")
+        ARROWS = lua_table["GameObject"]:FindGameObject("ARROWS")
     end
     
     function lua_table:Start()
@@ -339,7 +348,10 @@ function GetTableCharacterSelection()
                 not_selected = false
                 lua_table["Transform"]:SetPosition(437.000, -20.750, -34.250, CAMERA)
                 lua_table["Transform"]:SetObjectRotation(180,77.989, 180, CAMERA) 
-                lua_table["UI"]:MakeElementVisible("Image", PRESS)    
+                lua_table["UI"]:MakeElementVisible("Image", PRESS_Y)    
+                lua_table["UI"]:MakeElementVisible("Image", PRESS_A) 
+                lua_table["UI"]:MakeElementVisible("Image", PRESS_B) 
+                lua_table["UI"]:MakeElementVisible("Image", ARROWS) 
             end    
            
         
@@ -378,7 +390,10 @@ function GetTableCharacterSelection()
                 not_selected = false
                 lua_table["Transform"]:SetPosition(437.000, -20.750, -34.250, CAMERA)
                 lua_table["Transform"]:SetObjectRotation(180,77.989, 180, CAMERA)
-                lua_table["UI"]:MakeElementVisible("Image", PRESS) 
+                lua_table["UI"]:MakeElementVisible("Image", PRESS_Y) 
+                lua_table["UI"]:MakeElementVisible("Image", PRESS_A) 
+                lua_table["UI"]:MakeElementVisible("Image", PRESS_B) 
+                lua_table["UI"]:MakeElementVisible("Image", ARROWS) 
             end
         end
 
