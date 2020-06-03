@@ -20,27 +20,28 @@
                 "Resources": {
                     "ResourceMesh": {
                         "PreviewTexture": "",
-                        "path": "Library/Meshes/815574350.mesh"
+                        "path": "Library/Meshes/659190300.mesh"
                     }
                 }
             },
             "2": {
                 "Active": true,
                 "CastsShadows": true,
+                "LightAffected": true,
                 "OnlyShadows": false,
                 "ReceivesShadows": true,
                 "Resources": {
                     "ResourceMaterial": {
-                        "path": "Assets/New Folder 16/Lumberjack/New material 17.mat"
+                        "path": "Assets/08 - Default.mat"
                     }
                 }
             }
         },
-        "Parent": "164468796",
+        "Parent": "1448090039",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "99240512"
+        "UID": "1709313157"
     },
     "Bandit_Pivot": {
         "Active": true,
@@ -59,11 +60,11 @@
                 "scalez": "0.025400"
             }
         },
-        "Parent": "441835423",
+        "Parent": "598197069",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "468225055"
+        "UID": "927774578"
     },
     "Bandit_ToUvs": {
         "Active": true,
@@ -86,160 +87,37 @@
                 "Resources": {
                     "ResourceMesh": {
                         "PreviewTexture": "",
-                        "path": "Library/Meshes/516578679.mesh"
+                        "path": "Library/Meshes/2091046137.mesh"
                     }
                 }
             },
             "2": {
                 "Active": true,
                 "CastsShadows": true,
+                "LightAffected": true,
                 "OnlyShadows": false,
                 "ReceivesShadows": true,
                 "Resources": {
                     "ResourceMaterial": {
-                        "path": "Assets/New Folder 16/Lumberjack/New material 16.mat"
+                        "path": "Assets/21 - Default.mat"
                     }
                 }
             }
         },
-        "Parent": "441835423",
+        "Parent": "598197069",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "218837394"
+        "UID": "632762993"
     },
-    "Lumberjack_Front": {
-        "Active": false,
-        "Components": {
-            "0": {
-                "layer": "4",
-                "positionx": "-0.100000",
-                "positiony": "1.800000",
-                "positionz": "2.000000",
-                "rotationw": "1.000000",
-                "rotationx": "0.000000",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "2.400000",
-                "scaley": "2.900000",
-                "scalez": "1.800000"
-            },
-            "16": {
-                "Active": false,
-                "colliderType": "1",
-                "draggedUID": "0",
-                "draw": "0",
-                "firstCreation": "0",
-                "globalMatrixw": "1.000000",
-                "globalMatrixx": "391.938385",
-                "globalMatrixy": "37.251732",
-                "globalMatrixz": "-324.820618",
-                "globalPositionx": "1.000000",
-                "globalPositiony": "1.000000",
-                "globalPositionz": "1.000000",
-                "hasBeenDeactivated": "0",
-                "height": "1.000000",
-                "isConvex": "0",
-                "isTrigger": "1",
-                "lastIndex": "0",
-                "localMatrixw": "1.000000",
-                "localMatrixx": "-0.000000",
-                "localMatrixy": "0.000000",
-                "localMatrixz": "0.000000",
-                "localPositionx": "0.000000",
-                "localPositiony": "0.000000",
-                "localPositionz": "0.000000",
-                "offsetx": "-0.000000",
-                "offsety": "0.000000",
-                "offsetz": "0.000000",
-                "originalScalex": "1.000000",
-                "originalScaley": "1.000000",
-                "originalScalez": "1.000000",
-                "radius": "1.000000",
-                "scalex": "1.000000",
-                "scaley": "1.000000",
-                "scalez": "1.000000",
-                "tmpScalex": "2.400000",
-                "tmpScaley": "2.900000",
-                "tmpScalez": "1.800000"
-            }
-        },
-        "Parent": "441835423",
-        "PrefabChild": true,
-        "PrefabInstance": false,
-        "Static": false,
-        "UID": "1429215856"
-    },
-    "Lumberjack_Jump_Attack": {
-        "Active": false,
-        "Components": {
-            "0": {
-                "layer": "4",
-                "positionx": "0.000000",
-                "positiony": "0.211000",
-                "positionz": "1.500000",
-                "rotationw": "1.000000",
-                "rotationx": "0.000000",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "2.600000",
-                "scaley": "1.000000",
-                "scalez": "4.100000"
-            },
-            "16": {
-                "Active": false,
-                "colliderType": "1",
-                "draggedUID": "0",
-                "draw": "0",
-                "firstCreation": "0",
-                "globalMatrixw": "-nan(ind)",
-                "globalMatrixx": "-nan(ind)",
-                "globalMatrixy": "-nan(ind)",
-                "globalMatrixz": "-nan(ind)",
-                "globalPositionx": "1.000000",
-                "globalPositiony": "1.000000",
-                "globalPositionz": "1.000000",
-                "hasBeenDeactivated": "0",
-                "height": "1.000000",
-                "isConvex": "0",
-                "isTrigger": "1",
-                "lastIndex": "0",
-                "localMatrixw": "1.000000",
-                "localMatrixx": "0.000000",
-                "localMatrixy": "0.000000",
-                "localMatrixz": "0.000000",
-                "localPositionx": "0.000000",
-                "localPositiony": "0.000000",
-                "localPositionz": "0.000000",
-                "offsetx": "0.000000",
-                "offsety": "0.000000",
-                "offsetz": "0.000000",
-                "originalScalex": "1.000000",
-                "originalScaley": "1.000000",
-                "originalScalez": "1.000000",
-                "radius": "1.000000",
-                "scalex": "1.000000",
-                "scaley": "1.000000",
-                "scalez": "1.000000",
-                "tmpScalex": "2.600000",
-                "tmpScaley": "1.000000",
-                "tmpScalez": "4.100000"
-            }
-        },
-        "Parent": "441835423",
-        "PrefabChild": true,
-        "PrefabInstance": false,
-        "Static": false,
-        "UID": "1929810478"
-    },
-    "Lumberjackv3": {
+    "Lumberjack_REDO_v2": {
         "Active": true,
         "Components": {
             "0": {
-                "layer": "1",
-                "positionx": "-8.353976",
-                "positiony": "0.200000",
-                "positionz": "-10.133949",
+                "layer": "3",
+                "positionx": "14.988119",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
                 "rotationw": "1.000000",
                 "rotationx": "0.000000",
                 "rotationy": "0.000000",
@@ -251,163 +129,72 @@
             "12": {
                 "Active": true,
                 "Resources": {
-                    "ResourceScript": "Assets/Lumberjack/LumberjackScript_v6.lua"
+                    "ResourceScript": "Assets/Lumberjack/LUM_REDO_V2.lua"
                 },
                 "Script variables": {
-                    "Count": 22,
+                    "Count": 9,
                     "Variable 0": {
-                        "DisplayObjectName": false,
-                        "Name": "AggroDistance",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 20.0
-                    },
-                    "Variable 1": {
-                        "DisplayObjectName": false,
-                        "Name": "CurrentAnim",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "NONE"
-                    },
-                    "Variable 10": {
-                        "DisplayObjectName": false,
-                        "Name": "LastCurrentTarget",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 11": {
-                        "DisplayObjectName": false,
-                        "Name": "MaxHealth",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 400.0
-                    },
-                    "Variable 12": {
-                        "DisplayObjectName": false,
-                        "Name": "MaxSpeed",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 5.0
-                    },
-                    "Variable 13": {
-                        "DisplayObjectName": false,
-                        "Name": "MinDistanceFromPlayer",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 3.0
-                    },
-                    "Variable 14": {
-                        "DisplayObjectName": false,
-                        "Name": "Pos",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 15": {
-                        "DisplayObjectName": false,
-                        "Name": "collider_damage",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 16": {
-                        "DisplayObjectName": false,
-                        "Name": "collider_effect",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 17": {
-                        "DisplayObjectName": false,
-                        "Name": "deathTimer",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 10000.0
-                    },
-                    "Variable 18": {
-                        "DisplayObjectName": false,
-                        "Name": "player_1",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "Geralt"
-                    },
-                    "Variable 19": {
-                        "DisplayObjectName": false,
-                        "Name": "player_1_Dead",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    },
-                    "Variable 2": {
                         "DisplayObjectName": false,
                         "Name": "CurrentHealth",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
                     },
-                    "Variable 20": {
+                    "Variable 1": {
                         "DisplayObjectName": false,
-                        "Name": "player_2",
+                        "Name": "CurrentVelocity",
                         "ObjectName": "",
-                        "Type": "String",
-                        "Value": "Jaskier"
+                        "Type": "Double",
+                        "Value": 0.0
                     },
-                    "Variable 21": {
+                    "Variable 2": {
                         "DisplayObjectName": false,
-                        "Name": "player_2_Dead",
+                        "Name": "Geralt_UID",
                         "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
+                        "Type": "Double",
+                        "Value": 0.0
                     },
                     "Variable 3": {
                         "DisplayObjectName": false,
-                        "Name": "CurrentSpecialEffect",
+                        "Name": "Jaskier_UID",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
                     },
                     "Variable 4": {
                         "DisplayObjectName": false,
-                        "Name": "CurrentState",
+                        "Name": "MaxHealth",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 0.0
+                        "Value": 350.0
                     },
                     "Variable 5": {
                         "DisplayObjectName": false,
-                        "Name": "CurrentSubState",
+                        "Name": "Nvec3x",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 0.0
+                        "Value": 1.0
                     },
                     "Variable 6": {
                         "DisplayObjectName": false,
-                        "Name": "CurrentTarget",
+                        "Name": "Nvec3z",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 0.0
+                        "Value": 1.0
                     },
                     "Variable 7": {
                         "DisplayObjectName": false,
-                        "Name": "Dead",
+                        "Name": "player_1",
                         "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
+                        "Type": "String",
+                        "Value": "Geralt"
                     },
                     "Variable 8": {
                         "DisplayObjectName": false,
-                        "Name": "JumpAttackDone",
+                        "Name": "player_2",
                         "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    },
-                    "Variable 9": {
-                        "DisplayObjectName": false,
-                        "Name": "JumpAttackSpeed",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 3.0
+                        "Type": "String",
+                        "Value": "Jaskier"
                     }
                 }
             },
@@ -418,7 +205,7 @@
                     "UseDefault": false
                 },
                 "Resources": {
-                    "ResourceAnimation": "Library/Animations/583502010.anim",
+                    "ResourceAnimation": "Library/Animations/1536186412.anim",
                     "ResourceAnimator": "575825188"
                 }
             },
@@ -427,22 +214,25 @@
                 "draw": "0",
                 "gravity": "1",
                 "height": "2.000000",
-                "nonWalkableMode": "1",
-                "positionX": "-8.353976",
-                "positionY": "0.200000",
-                "positionZ": "-10.133949",
+                "nonWalkableMode": "0",
+                "positionX": "14.988119",
+                "positionY": "0.000000",
+                "positionZ": "0.000000",
                 "radius": "0.500000",
                 "slopeLimit": "45.000000",
-                "stepOffset": "0.010000"
+                "stepOffset": "0.300000"
+            },
+            "19": {
+                "Active": true
             }
         },
-        "Parent": "1129530754",
+        "Parent": "1005410502",
         "PrefabChild": true,
         "PrefabInstance": true,
         "Static": false,
-        "UID": "441835423"
+        "UID": "598197069"
     },
-    "PreviewTexture": "Library/Textures/216417275.dds",
+    "PreviewTexture": "Library/Textures/484527245.dds",
     "mixamorig:Head": {
         "Active": true,
         "Components": {
@@ -451,10 +241,10 @@
                 "positionx": "0.000000",
                 "positiony": "4.180702",
                 "positionz": "1.907000",
-                "rotationw": "0.996664",
-                "rotationx": "-0.026429",
-                "rotationy": "-0.060213",
-                "rotationz": "0.048348",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
                 "scalex": "1.000000",
                 "scaley": "1.000000",
                 "scalez": "1.000000"
@@ -462,15 +252,15 @@
             "13": {
                 "Active": true,
                 "Resources": {
-                    "ResourceBone": "Library/Bones/1953849372.bone"
+                    "ResourceBone": "Library/Bones/1398730278.bone"
                 }
             }
         },
-        "Parent": "891242817",
+        "Parent": "1895552355",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1971149586"
+        "UID": "937948364"
     },
     "mixamorig:HeadTop_End": {
         "Active": true,
@@ -489,40 +279,40 @@
                 "scalez": "1.000000"
             }
         },
-        "Parent": "1971149586",
+        "Parent": "937948364",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "610349018"
+        "UID": "220312068"
     },
     "mixamorig:Hips": {
         "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
-                "positionx": "3.729339",
-                "positiony": "2.106852",
-                "positionz": "70.111374",
-                "rotationw": "0.685646",
-                "rotationx": "0.727583",
-                "rotationy": "0.001522",
-                "rotationz": "0.022596",
+                "positionx": "0.001487",
+                "positiony": "0.502452",
+                "positionz": "77.366592",
+                "rotationw": "0.707111",
+                "rotationx": "0.707103",
+                "rotationy": "0.000117",
+                "rotationz": "-0.000109",
                 "scalex": "1.000000",
-                "scaley": "1.000000",
-                "scalez": "1.000000"
+                "scaley": "1.000025",
+                "scalez": "1.000025"
             },
             "13": {
                 "Active": true,
                 "Resources": {
-                    "ResourceBone": "Library/Bones/625398066.bone"
+                    "ResourceBone": "Library/Bones/1308478225.bone"
                 }
             }
         },
-        "Parent": "468225055",
+        "Parent": "927774578",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1642276342"
+        "UID": "580760472"
     },
     "mixamorig:LeftArm": {
         "Active": true,
@@ -532,10 +322,10 @@
                 "positionx": "0.000000",
                 "positiony": "10.583395",
                 "positionz": "0.000000",
-                "rotationw": "0.923101",
-                "rotationx": "0.381854",
-                "rotationy": "-0.017243",
-                "rotationz": "0.042118",
+                "rotationw": "0.994232",
+                "rotationx": "-0.101332",
+                "rotationy": "0.033744",
+                "rotationz": "0.009788",
                 "scalex": "1.000000",
                 "scaley": "1.000000",
                 "scalez": "1.000000"
@@ -543,15 +333,15 @@
             "13": {
                 "Active": true,
                 "Resources": {
-                    "ResourceBone": "Library/Bones/1496110909.bone"
+                    "ResourceBone": "Library/Bones/40458396.bone"
                 }
             }
         },
-        "Parent": "1741025991",
+        "Parent": "1567802028",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1551031790"
+        "UID": "1793665319"
     },
     "mixamorig:LeftFoot": {
         "Active": true,
@@ -561,26 +351,26 @@
                 "positionx": "0.000002",
                 "positiony": "32.032005",
                 "positionz": "0.000000",
-                "rotationw": "0.691365",
-                "rotationx": "0.722079",
-                "rotationy": "0.000866",
-                "rotationz": "0.024804",
+                "rotationw": "0.869199",
+                "rotationx": "0.494147",
+                "rotationy": "0.006802",
+                "rotationz": "0.016317",
                 "scalex": "1.000000",
-                "scaley": "1.000001",
+                "scaley": "1.000000",
                 "scalez": "1.000000"
             },
             "13": {
                 "Active": true,
                 "Resources": {
-                    "ResourceBone": "Library/Bones/621824649.bone"
+                    "ResourceBone": "Library/Bones/1892541476.bone"
                 }
             }
         },
-        "Parent": "1073196318",
+        "Parent": "2091556905",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1749809054"
+        "UID": "1859630876"
     },
     "mixamorig:LeftForeArm": {
         "Active": true,
@@ -590,26 +380,26 @@
                 "positionx": "0.000000",
                 "positiony": "22.525303",
                 "positionz": "0.000015",
-                "rotationw": "0.834123",
-                "rotationx": "0.094002",
-                "rotationy": "-0.075021",
-                "rotationz": "0.538306",
-                "scalex": "0.999994",
-                "scaley": "0.999994",
+                "rotationw": "0.999838",
+                "rotationx": "0.013478",
+                "rotationy": "0.006491",
+                "rotationz": "0.010021",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
                 "scalez": "1.000000"
             },
             "13": {
                 "Active": true,
                 "Resources": {
-                    "ResourceBone": "Library/Bones/1338265048.bone"
+                    "ResourceBone": "Library/Bones/1402926699.bone"
                 }
             }
         },
-        "Parent": "1551031790",
+        "Parent": "1793665319",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "316545842"
+        "UID": "599101049"
     },
     "mixamorig:LeftHand": {
         "Active": true,
@@ -619,10 +409,10 @@
                 "positionx": "0.000001",
                 "positiony": "16.716103",
                 "positionz": "0.000000",
-                "rotationw": "0.992154",
-                "rotationx": "0.072376",
-                "rotationy": "0.058973",
-                "rotationz": "0.083149",
+                "rotationw": "0.998282",
+                "rotationx": "-0.005617",
+                "rotationy": "0.032454",
+                "rotationz": "-0.048467",
                 "scalex": "1.000000",
                 "scaley": "1.000000",
                 "scalez": "1.000000"
@@ -630,15 +420,15 @@
             "13": {
                 "Active": true,
                 "Resources": {
-                    "ResourceBone": "Library/Bones/890476091.bone"
+                    "ResourceBone": "Library/Bones/1207227776.bone"
                 }
             }
         },
-        "Parent": "316545842",
+        "Parent": "599101049",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "760880368"
+        "UID": "1586740395"
     },
     "mixamorig:LeftHandIndex1": {
         "Active": true,
@@ -648,10 +438,10 @@
                 "positionx": "-3.710601",
                 "positiony": "11.515499",
                 "positionz": "-0.176010",
-                "rotationw": "0.828181",
-                "rotationx": "0.536423",
-                "rotationy": "0.107520",
-                "rotationz": "0.121679",
+                "rotationw": "0.999231",
+                "rotationx": "-0.002616",
+                "rotationy": "-0.001621",
+                "rotationz": "0.039096",
                 "scalex": "1.000000",
                 "scaley": "1.000000",
                 "scalez": "1.000000"
@@ -659,15 +449,15 @@
             "13": {
                 "Active": true,
                 "Resources": {
-                    "ResourceBone": "Library/Bones/552947596.bone"
+                    "ResourceBone": "Library/Bones/277595030.bone"
                 }
             }
         },
-        "Parent": "760880368",
+        "Parent": "1586740395",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1272979979"
+        "UID": "1746754968"
     },
     "mixamorig:LeftHandIndex2": {
         "Active": true,
@@ -677,26 +467,26 @@
                 "positionx": "0.000200",
                 "positiony": "3.040688",
                 "positionz": "0.000000",
-                "rotationw": "0.573538",
-                "rotationx": "0.818561",
-                "rotationy": "0.000628",
-                "rotationz": "0.031815",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "-0.000004",
+                "rotationz": "0.000453",
                 "scalex": "1.000000",
-                "scaley": "1.000013",
-                "scalez": "1.000013"
+                "scaley": "1.000000",
+                "scalez": "1.000000"
             },
             "13": {
                 "Active": true,
                 "Resources": {
-                    "ResourceBone": "Library/Bones/2052647799.bone"
+                    "ResourceBone": "Library/Bones/432048152.bone"
                 }
             }
         },
-        "Parent": "1272979979",
+        "Parent": "1746754968",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1636489916"
+        "UID": "976181165"
     },
     "mixamorig:LeftHandIndex3": {
         "Active": true,
@@ -706,10 +496,10 @@
                 "positionx": "0.002700",
                 "positiony": "2.880615",
                 "positionz": "0.000000",
-                "rotationw": "0.846989",
-                "rotationx": "0.531217",
-                "rotationy": "0.000123",
-                "rotationz": "0.020449",
+                "rotationw": "0.999999",
+                "rotationx": "0.000001",
+                "rotationy": "-0.000002",
+                "rotationz": "-0.001173",
                 "scalex": "1.000000",
                 "scaley": "1.000000",
                 "scalez": "1.000000"
@@ -717,15 +507,15 @@
             "13": {
                 "Active": true,
                 "Resources": {
-                    "ResourceBone": "Library/Bones/1060116378.bone"
+                    "ResourceBone": "Library/Bones/284119758.bone"
                 }
             }
         },
-        "Parent": "1636489916",
+        "Parent": "976181165",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1467033898"
+        "UID": "1293911856"
     },
     "mixamorig:LeftHandIndex4": {
         "Active": true,
@@ -744,11 +534,11 @@
                 "scalez": "1.000000"
             }
         },
-        "Parent": "1467033898",
+        "Parent": "1293911856",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "2044761338"
+        "UID": "793302220"
     },
     "mixamorig:LeftHandMiddle1": {
         "Active": true,
@@ -758,26 +548,26 @@
                 "positionx": "-1.037400",
                 "positiony": "11.986401",
                 "positionz": "-0.041306",
-                "rotationw": "0.809784",
-                "rotationx": "0.586263",
-                "rotationy": "-0.020254",
-                "rotationz": "0.011600",
+                "rotationw": "0.999232",
+                "rotationx": "-0.002659",
+                "rotationy": "-0.001080",
+                "rotationz": "0.039077",
                 "scalex": "1.000000",
-                "scaley": "1.000001",
-                "scalez": "1.000001"
+                "scaley": "1.000000",
+                "scalez": "1.000000"
             },
             "13": {
                 "Active": true,
                 "Resources": {
-                    "ResourceBone": "Library/Bones/1157742496.bone"
+                    "ResourceBone": "Library/Bones/375003391.bone"
                 }
             }
         },
-        "Parent": "760880368",
+        "Parent": "1586740395",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1638153268"
+        "UID": "1509425074"
     },
     "mixamorig:LeftHandMiddle2": {
         "Active": true,
@@ -787,10 +577,10 @@
                 "positionx": "-0.000300",
                 "positiony": "3.368500",
                 "positionz": "0.000000",
-                "rotationw": "0.719339",
-                "rotationx": "0.694082",
-                "rotationy": "-0.000050",
-                "rotationz": "0.028319",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000003",
+                "rotationz": "0.000130",
                 "scalex": "1.000000",
                 "scaley": "1.000000",
                 "scalez": "1.000000"
@@ -798,15 +588,15 @@
             "13": {
                 "Active": true,
                 "Resources": {
-                    "ResourceBone": "Library/Bones/1644372642.bone"
+                    "ResourceBone": "Library/Bones/229799201.bone"
                 }
             }
         },
-        "Parent": "1638153268",
+        "Parent": "1509425074",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1307146552"
+        "UID": "570811009"
     },
     "mixamorig:LeftHandMiddle3": {
         "Active": true,
@@ -816,10 +606,10 @@
                 "positionx": "0.000700",
                 "positiony": "3.040985",
                 "positionz": "0.000000",
-                "rotationw": "0.836987",
-                "rotationx": "0.546781",
-                "rotationy": "0.000192",
-                "rotationz": "0.021969",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "-0.000002",
+                "rotationz": "-0.000253",
                 "scalex": "1.000000",
                 "scaley": "1.000000",
                 "scalez": "1.000000"
@@ -827,15 +617,15 @@
             "13": {
                 "Active": true,
                 "Resources": {
-                    "ResourceBone": "Library/Bones/514487112.bone"
+                    "ResourceBone": "Library/Bones/97002671.bone"
                 }
             }
         },
-        "Parent": "1307146552",
+        "Parent": "570811009",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "935587873"
+        "UID": "1248369854"
     },
     "mixamorig:LeftHandMiddle4": {
         "Active": true,
@@ -854,11 +644,11 @@
                 "scalez": "1.000000"
             }
         },
-        "Parent": "935587873",
+        "Parent": "1248369854",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1236808976"
+        "UID": "1946927597"
     },
     "mixamorig:LeftHandPinky1": {
         "Active": true,
@@ -868,26 +658,26 @@
                 "positionx": "3.497301",
                 "positiony": "8.840694",
                 "positionz": "-0.105019",
-                "rotationw": "0.753976",
-                "rotationx": "0.629672",
-                "rotationy": "-0.141182",
-                "rotationz": "-0.122884",
+                "rotationw": "0.999186",
+                "rotationx": "-0.002321",
+                "rotationy": "-0.009197",
+                "rotationz": "0.039207",
                 "scalex": "1.000000",
-                "scaley": "0.999997",
+                "scaley": "1.000000",
                 "scalez": "1.000000"
             },
             "13": {
                 "Active": true,
                 "Resources": {
-                    "ResourceBone": "Library/Bones/972724994.bone"
+                    "ResourceBone": "Library/Bones/1238244277.bone"
                 }
             }
         },
-        "Parent": "760880368",
+        "Parent": "1586740395",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "225924337"
+        "UID": "25915744"
     },
     "mixamorig:LeftHandPinky2": {
         "Active": true,
@@ -897,10 +687,10 @@
                 "positionx": "0.000499",
                 "positiony": "3.525002",
                 "positionz": "0.000015",
-                "rotationw": "0.737277",
-                "rotationx": "0.675419",
-                "rotationy": "0.000333",
-                "rotationz": "0.015217",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000032",
+                "rotationz": "0.000575",
                 "scalex": "1.000000",
                 "scaley": "1.000000",
                 "scalez": "1.000000"
@@ -908,15 +698,15 @@
             "13": {
                 "Active": true,
                 "Resources": {
-                    "ResourceBone": "Library/Bones/1158986701.bone"
+                    "ResourceBone": "Library/Bones/2116782914.bone"
                 }
             }
         },
-        "Parent": "225924337",
+        "Parent": "25915744",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "908035649"
+        "UID": "393749544"
     },
     "mixamorig:LeftHandPinky3": {
         "Active": true,
@@ -926,10 +716,10 @@
                 "positionx": "0.003900",
                 "positiony": "3.017509",
                 "positionz": "0.000015",
-                "rotationw": "0.848035",
-                "rotationx": "0.529853",
-                "rotationy": "-0.002138",
-                "rotationz": "0.009380",
+                "rotationw": "0.999999",
+                "rotationx": "-0.000000",
+                "rotationy": "0.000014",
+                "rotationz": "-0.001569",
                 "scalex": "1.000000",
                 "scaley": "1.000000",
                 "scalez": "1.000000"
@@ -937,15 +727,15 @@
             "13": {
                 "Active": true,
                 "Resources": {
-                    "ResourceBone": "Library/Bones/262557943.bone"
+                    "ResourceBone": "Library/Bones/1477980219.bone"
                 }
             }
         },
-        "Parent": "908035649",
+        "Parent": "393749544",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "726318643"
+        "UID": "608248869"
     },
     "mixamorig:LeftHandPinky4": {
         "Active": true,
@@ -964,11 +754,11 @@
                 "scalez": "1.000000"
             }
         },
-        "Parent": "726318643",
+        "Parent": "608248869",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "232808394"
+        "UID": "664473456"
     },
     "mixamorig:LeftHandRing1": {
         "Active": true,
@@ -978,10 +768,10 @@
                 "positionx": "1.250801",
                 "positiony": "9.899799",
                 "positionz": "-0.048317",
-                "rotationw": "0.743926",
-                "rotationx": "0.665299",
-                "rotationy": "-0.062610",
-                "rotationz": "-0.005596",
+                "rotationw": "0.999246",
+                "rotationx": "-0.002807",
+                "rotationy": "0.002621",
+                "rotationz": "0.038643",
                 "scalex": "1.000000",
                 "scaley": "1.000000",
                 "scalez": "1.000000"
@@ -989,15 +779,15 @@
             "13": {
                 "Active": true,
                 "Resources": {
-                    "ResourceBone": "Library/Bones/1189999129.bone"
+                    "ResourceBone": "Library/Bones/1368767496.bone"
                 }
             }
         },
-        "Parent": "760880368",
+        "Parent": "1586740395",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1294114765"
+        "UID": "213756502"
     },
     "mixamorig:LeftHandRing2": {
         "Active": true,
@@ -1007,10 +797,10 @@
                 "positionx": "-0.003300",
                 "positiony": "3.480194",
                 "positionz": "0.000000",
-                "rotationw": "0.798613",
-                "rotationx": "0.601110",
-                "rotationy": "0.000045",
-                "rotationz": "0.029740",
+                "rotationw": "1.000000",
+                "rotationx": "-0.000001",
+                "rotationy": "-0.000009",
+                "rotationz": "0.000803",
                 "scalex": "1.000000",
                 "scaley": "1.000000",
                 "scalez": "1.000000"
@@ -1018,15 +808,15 @@
             "13": {
                 "Active": true,
                 "Resources": {
-                    "ResourceBone": "Library/Bones/945640917.bone"
+                    "ResourceBone": "Library/Bones/1968430510.bone"
                 }
             }
         },
-        "Parent": "1294114765",
+        "Parent": "213756502",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "2035127827"
+        "UID": "2027235679"
     },
     "mixamorig:LeftHandRing3": {
         "Active": true,
@@ -1036,10 +826,10 @@
                 "positionx": "0.002399",
                 "positiony": "3.354698",
                 "positionz": "0.000000",
-                "rotationw": "0.772144",
-                "rotationx": "0.634721",
-                "rotationy": "0.000445",
-                "rotationz": "0.030380",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "-0.000009",
+                "rotationz": "-0.000173",
                 "scalex": "1.000000",
                 "scaley": "1.000000",
                 "scalez": "1.000000"
@@ -1047,15 +837,15 @@
             "13": {
                 "Active": true,
                 "Resources": {
-                    "ResourceBone": "Library/Bones/1227476239.bone"
+                    "ResourceBone": "Library/Bones/1734371523.bone"
                 }
             }
         },
-        "Parent": "2035127827",
+        "Parent": "2027235679",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "958381801"
+        "UID": "1254959525"
     },
     "mixamorig:LeftHandRing4": {
         "Active": true,
@@ -1074,11 +864,11 @@
                 "scalez": "1.000000"
             }
         },
-        "Parent": "958381801",
+        "Parent": "1254959525",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1182455131"
+        "UID": "1164911830"
     },
     "mixamorig:LeftHandThumb1": {
         "Active": true,
@@ -1088,10 +878,10 @@
                 "positionx": "-2.718500",
                 "positiony": "2.882797",
                 "positionz": "1.534698",
-                "rotationw": "0.924280",
-                "rotationx": "0.200290",
-                "rotationy": "0.232120",
-                "rotationz": "0.227402",
+                "rotationw": "0.962994",
+                "rotationx": "0.205271",
+                "rotationy": "0.076298",
+                "rotationz": "0.157114",
                 "scalex": "1.000000",
                 "scaley": "1.000000",
                 "scalez": "1.000000"
@@ -1099,15 +889,15 @@
             "13": {
                 "Active": true,
                 "Resources": {
-                    "ResourceBone": "Library/Bones/130526268.bone"
+                    "ResourceBone": "Library/Bones/190016610.bone"
                 }
             }
         },
-        "Parent": "760880368",
+        "Parent": "1586740395",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "2070551253"
+        "UID": "459103828"
     },
     "mixamorig:LeftHandThumb2": {
         "Active": true,
@@ -1117,10 +907,10 @@
                 "positionx": "-0.827097",
                 "positiony": "3.297207",
                 "positionz": "0.000000",
-                "rotationw": "0.951025",
-                "rotationx": "0.192591",
-                "rotationy": "-0.074056",
-                "rotationz": "-0.230165",
+                "rotationw": "0.980754",
+                "rotationx": "0.005898",
+                "rotationy": "-0.008650",
+                "rotationz": "0.194966",
                 "scalex": "1.000000",
                 "scaley": "1.000000",
                 "scalez": "1.000000"
@@ -1128,15 +918,15 @@
             "13": {
                 "Active": true,
                 "Resources": {
-                    "ResourceBone": "Library/Bones/1365993971.bone"
+                    "ResourceBone": "Library/Bones/647139290.bone"
                 }
             }
         },
-        "Parent": "2070551253",
+        "Parent": "459103828",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1861496591"
+        "UID": "121007240"
     },
     "mixamorig:LeftHandThumb3": {
         "Active": true,
@@ -1146,10 +936,10 @@
                 "positionx": "0.509003",
                 "positiony": "4.026596",
                 "positionz": "0.000008",
-                "rotationw": "0.907676",
-                "rotationx": "0.116315",
-                "rotationy": "-0.024641",
-                "rotationz": "-0.402478",
+                "rotationw": "0.999866",
+                "rotationx": "0.001193",
+                "rotationy": "-0.008706",
+                "rotationz": "-0.013824",
                 "scalex": "1.000000",
                 "scaley": "1.000000",
                 "scalez": "1.000000"
@@ -1157,15 +947,15 @@
             "13": {
                 "Active": true,
                 "Resources": {
-                    "ResourceBone": "Library/Bones/1686591165.bone"
+                    "ResourceBone": "Library/Bones/1152388232.bone"
                 }
             }
         },
-        "Parent": "1861496591",
+        "Parent": "121007240",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "763549208"
+        "UID": "66708859"
     },
     "mixamorig:LeftHandThumb4": {
         "Active": true,
@@ -1184,11 +974,11 @@
                 "scalez": "1.000000"
             }
         },
-        "Parent": "763549208",
+        "Parent": "66708859",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "249212330"
+        "UID": "1477827625"
     },
     "mixamorig:LeftLeg": {
         "Active": true,
@@ -1198,10 +988,10 @@
                 "positionx": "0.000002",
                 "positiony": "31.820007",
                 "positionz": "0.000000",
-                "rotationw": "0.875778",
-                "rotationx": "-0.480321",
-                "rotationy": "0.038547",
-                "rotationz": "-0.028605",
+                "rotationw": "0.998151",
+                "rotationx": "-0.060142",
+                "rotationy": "0.000184",
+                "rotationz": "-0.008861",
                 "scalex": "1.000000",
                 "scaley": "1.000000",
                 "scalez": "1.000000"
@@ -1209,15 +999,15 @@
             "13": {
                 "Active": true,
                 "Resources": {
-                    "ResourceBone": "Library/Bones/1521578872.bone"
+                    "ResourceBone": "Library/Bones/1897786931.bone"
                 }
             }
         },
-        "Parent": "596872808",
+        "Parent": "302715396",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1073196318"
+        "UID": "2091556905"
     },
     "mixamorig:LeftShoulder": {
         "Active": true,
@@ -1227,26 +1017,26 @@
                 "positionx": "4.959700",
                 "positiony": "7.932907",
                 "positionz": "-0.267900",
-                "rotationw": "0.440309",
-                "rotationx": "0.623220",
-                "rotationy": "0.375233",
-                "rotationz": "-0.526236",
-                "scalex": "0.999987",
-                "scaley": "0.999987",
-                "scalez": "0.999987"
+                "rotationw": "-0.448534",
+                "rotationx": "-0.535361",
+                "rotationy": "-0.454394",
+                "rotationz": "0.552930",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
             },
             "13": {
                 "Active": true,
                 "Resources": {
-                    "ResourceBone": "Library/Bones/1450433166.bone"
+                    "ResourceBone": "Library/Bones/1378410927.bone"
                 }
             }
         },
-        "Parent": "1093245665",
+        "Parent": "491018694",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1741025991"
+        "UID": "1567802028"
     },
     "mixamorig:LeftToeBase": {
         "Active": true,
@@ -1256,10 +1046,10 @@
                 "positionx": "0.000000",
                 "positiony": "17.926600",
                 "positionz": "-0.000002",
-                "rotationw": "0.976532",
-                "rotationx": "0.206516",
-                "rotationy": "-0.059390",
-                "rotationz": "-0.014494",
+                "rotationw": "0.951242",
+                "rotationx": "0.302198",
+                "rotationy": "-0.058866",
+                "rotationz": "0.018701",
                 "scalex": "1.000000",
                 "scaley": "1.000000",
                 "scalez": "1.000000"
@@ -1267,15 +1057,15 @@
             "13": {
                 "Active": true,
                 "Resources": {
-                    "ResourceBone": "Library/Bones/977935764.bone"
+                    "ResourceBone": "Library/Bones/469234646.bone"
                 }
             }
         },
-        "Parent": "1749809054",
+        "Parent": "1859630876",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1003821518"
+        "UID": "1867107660"
     },
     "mixamorig:LeftToe_End": {
         "Active": true,
@@ -1294,11 +1084,11 @@
                 "scalez": "1.000000"
             }
         },
-        "Parent": "1003821518",
+        "Parent": "1867107660",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1497580357"
+        "UID": "569760303"
     },
     "mixamorig:LeftUpLeg": {
         "Active": true,
@@ -1308,26 +1098,26 @@
                 "positionx": "8.143597",
                 "positiony": "-3.698204",
                 "positionz": "0.227100",
-                "rotationw": "-0.003956",
-                "rotationx": "0.021710",
-                "rotationy": "0.232761",
-                "rotationz": "0.972284",
-                "scalex": "1.000026",
-                "scaley": "1.000026",
+                "rotationw": "-0.004395",
+                "rotationx": "-0.000278",
+                "rotationy": "0.017731",
+                "rotationz": "0.999833",
+                "scalex": "1.000000",
+                "scaley": "0.999973",
                 "scalez": "1.000000"
             },
             "13": {
                 "Active": true,
                 "Resources": {
-                    "ResourceBone": "Library/Bones/607810061.bone"
+                    "ResourceBone": "Library/Bones/1306196985.bone"
                 }
             }
         },
-        "Parent": "1642276342",
+        "Parent": "580760472",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "596872808"
+        "UID": "302715396"
     },
     "mixamorig:Neck": {
         "Active": true,
@@ -1337,10 +1127,10 @@
                 "positionx": "0.000000",
                 "positiony": "10.082512",
                 "positionz": "0.000000",
-                "rotationw": "0.988731",
-                "rotationx": "-0.134463",
-                "rotationy": "-0.047902",
-                "rotationz": "-0.045116",
+                "rotationw": "0.997944",
+                "rotationx": "0.064096",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
                 "scalex": "1.000000",
                 "scaley": "1.000000",
                 "scalez": "1.000000"
@@ -1348,15 +1138,15 @@
             "13": {
                 "Active": true,
                 "Resources": {
-                    "ResourceBone": "Library/Bones/1631400852.bone"
+                    "ResourceBone": "Library/Bones/1745415178.bone"
                 }
             }
         },
-        "Parent": "1093245665",
+        "Parent": "491018694",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "891242817"
+        "UID": "1895552355"
     },
     "mixamorig:RightArm": {
         "Active": true,
@@ -1366,10 +1156,10 @@
                 "positionx": "-0.000001",
                 "positiony": "10.583399",
                 "positionz": "0.000015",
-                "rotationw": "0.953405",
-                "rotationx": "0.232867",
-                "rotationy": "-0.005524",
-                "rotationz": "-0.191732",
+                "rotationw": "0.994376",
+                "rotationx": "-0.101216",
+                "rotationy": "-0.029348",
+                "rotationz": "-0.010471",
                 "scalex": "1.000000",
                 "scaley": "1.000000",
                 "scalez": "1.000000"
@@ -1377,15 +1167,15 @@
             "13": {
                 "Active": true,
                 "Resources": {
-                    "ResourceBone": "Library/Bones/996232188.bone"
+                    "ResourceBone": "Library/Bones/501363378.bone"
                 }
             }
         },
-        "Parent": "850058989",
+        "Parent": "1018279354",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1602529143"
+        "UID": "896750070"
     },
     "mixamorig:RightFoot": {
         "Active": true,
@@ -1395,10 +1185,10 @@
                 "positionx": "0.000000",
                 "positiony": "32.038300",
                 "positionz": "0.000000",
-                "rotationw": "0.940915",
-                "rotationx": "0.336064",
-                "rotationy": "0.000668",
-                "rotationz": "-0.041718",
+                "rotationw": "0.863330",
+                "rotationx": "0.504331",
+                "rotationy": "-0.006563",
+                "rotationz": "-0.016372",
                 "scalex": "1.000000",
                 "scaley": "1.000000",
                 "scalez": "1.000000"
@@ -1406,15 +1196,15 @@
             "13": {
                 "Active": true,
                 "Resources": {
-                    "ResourceBone": "Library/Bones/857267828.bone"
+                    "ResourceBone": "Library/Bones/1059297520.bone"
                 }
             }
         },
-        "Parent": "450329804",
+        "Parent": "483418960",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1297521731"
+        "UID": "747698376"
     },
     "mixamorig:RightForeArm": {
         "Active": true,
@@ -1424,10 +1214,10 @@
                 "positionx": "0.000000",
                 "positiony": "22.530603",
                 "positionz": "-0.000015",
-                "rotationw": "0.775534",
-                "rotationx": "0.102049",
-                "rotationy": "0.082238",
-                "rotationz": "-0.617552",
+                "rotationw": "0.999791",
+                "rotationx": "0.014157",
+                "rotationy": "-0.006597",
+                "rotationz": "-0.013216",
                 "scalex": "1.000000",
                 "scaley": "1.000000",
                 "scalez": "1.000000"
@@ -1435,15 +1225,15 @@
             "13": {
                 "Active": true,
                 "Resources": {
-                    "ResourceBone": "Library/Bones/1401813589.bone"
+                    "ResourceBone": "Library/Bones/220541400.bone"
                 }
             }
         },
-        "Parent": "1602529143",
+        "Parent": "896750070",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1463552212"
+        "UID": "992037886"
     },
     "mixamorig:RightHand": {
         "Active": true,
@@ -1453,10 +1243,10 @@
                 "positionx": "0.000000",
                 "positiony": "16.706402",
                 "positionz": "0.000000",
-                "rotationw": "0.979547",
-                "rotationx": "-0.040658",
-                "rotationy": "-0.051552",
-                "rotationz": "-0.190202",
+                "rotationw": "0.998001",
+                "rotationx": "-0.008195",
+                "rotationy": "-0.032904",
+                "rotationz": "0.053336",
                 "scalex": "1.000000",
                 "scaley": "1.000000",
                 "scalez": "1.000000"
@@ -1464,15 +1254,15 @@
             "13": {
                 "Active": true,
                 "Resources": {
-                    "ResourceBone": "Library/Bones/1122058207.bone"
+                    "ResourceBone": "Library/Bones/1952216997.bone"
                 }
             }
         },
-        "Parent": "1463552212",
+        "Parent": "992037886",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "164468796"
+        "UID": "1448090039"
     },
     "mixamorig:RightHandIndex1": {
         "Active": true,
@@ -1482,10 +1272,10 @@
                 "positionx": "3.768500",
                 "positiony": "10.953190",
                 "positionz": "-0.126015",
-                "rotationw": "0.827214",
-                "rotationx": "0.538846",
-                "rotationy": "-0.107150",
-                "rotationz": "-0.117818",
+                "rotationw": "0.999134",
+                "rotationx": "-0.000462",
+                "rotationy": "0.003800",
+                "rotationz": "-0.041443",
                 "scalex": "1.000000",
                 "scaley": "1.000000",
                 "scalez": "1.000000"
@@ -1493,15 +1283,15 @@
             "13": {
                 "Active": true,
                 "Resources": {
-                    "ResourceBone": "Library/Bones/1030679610.bone"
+                    "ResourceBone": "Library/Bones/1588016044.bone"
                 }
             }
         },
-        "Parent": "164468796",
+        "Parent": "1448090039",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "768793553"
+        "UID": "1285004992"
     },
     "mixamorig:RightHandIndex2": {
         "Active": true,
@@ -1511,26 +1301,26 @@
                 "positionx": "0.001500",
                 "positiony": "3.378784",
                 "positionz": "-0.000015",
-                "rotationw": "0.573644",
-                "rotationx": "0.818836",
-                "rotationy": "-0.001193",
-                "rotationz": "-0.020938",
+                "rotationw": "1.000000",
+                "rotationx": "-0.000121",
+                "rotationy": "0.000003",
+                "rotationz": "-0.000365",
                 "scalex": "1.000000",
-                "scaley": "0.999987",
-                "scalez": "0.999987"
+                "scaley": "1.000000",
+                "scalez": "1.000000"
             },
             "13": {
                 "Active": true,
                 "Resources": {
-                    "ResourceBone": "Library/Bones/2062976650.bone"
+                    "ResourceBone": "Library/Bones/2004903920.bone"
                 }
             }
         },
-        "Parent": "768793553",
+        "Parent": "1285004992",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "293535585"
+        "UID": "1311297659"
     },
     "mixamorig:RightHandIndex3": {
         "Active": true,
@@ -1540,10 +1330,10 @@
                 "positionx": "-0.000500",
                 "positiony": "3.034286",
                 "positionz": "0.000015",
-                "rotationw": "0.847010",
-                "rotationx": "0.531377",
-                "rotationy": "0.000180",
-                "rotationz": "-0.014554",
+                "rotationw": "1.000000",
+                "rotationx": "-0.000090",
+                "rotationy": "0.000008",
+                "rotationz": "-0.000166",
                 "scalex": "1.000000",
                 "scaley": "1.000000",
                 "scalez": "1.000000"
@@ -1551,15 +1341,15 @@
             "13": {
                 "Active": true,
                 "Resources": {
-                    "ResourceBone": "Library/Bones/1435231438.bone"
+                    "ResourceBone": "Library/Bones/2042381770.bone"
                 }
             }
         },
-        "Parent": "293535585",
+        "Parent": "1311297659",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "786578433"
+        "UID": "29515975"
     },
     "mixamorig:RightHandIndex4": {
         "Active": true,
@@ -1578,11 +1368,11 @@
                 "scalez": "1.000000"
             }
         },
-        "Parent": "786578433",
+        "Parent": "29515975",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1544085393"
+        "UID": "1937328943"
     },
     "mixamorig:RightHandMiddle1": {
         "Active": true,
@@ -1592,10 +1382,10 @@
                 "positionx": "1.006500",
                 "positiony": "11.419903",
                 "positionz": "-0.159813",
-                "rotationw": "0.789851",
-                "rotationx": "0.612878",
-                "rotationy": "0.020403",
-                "rotationz": "-0.009963",
+                "rotationw": "0.998646",
+                "rotationx": "0.030654",
+                "rotationy": "0.004618",
+                "rotationz": "-0.041784",
                 "scalex": "1.000000",
                 "scaley": "1.000000",
                 "scalez": "1.000000"
@@ -1603,15 +1393,15 @@
             "13": {
                 "Active": true,
                 "Resources": {
-                    "ResourceBone": "Library/Bones/926546952.bone"
+                    "ResourceBone": "Library/Bones/364400823.bone"
                 }
             }
         },
-        "Parent": "164468796",
+        "Parent": "1448090039",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "2032744527"
+        "UID": "1772923474"
     },
     "mixamorig:RightHandMiddle2": {
         "Active": true,
@@ -1621,26 +1411,26 @@
                 "positionx": "0.000600",
                 "positiony": "3.542511",
                 "positionz": "0.000000",
-                "rotationw": "0.742122",
-                "rotationx": "0.669868",
-                "rotationy": "-0.000934",
-                "rotationz": "-0.023056",
+                "rotationw": "0.999442",
+                "rotationx": "-0.033398",
+                "rotationy": "-0.000001",
+                "rotationz": "-0.000278",
                 "scalex": "1.000000",
-                "scaley": "1.000013",
-                "scalez": "1.000001"
+                "scaley": "1.000000",
+                "scalez": "1.000000"
             },
             "13": {
                 "Active": true,
                 "Resources": {
-                    "ResourceBone": "Library/Bones/1981333735.bone"
+                    "ResourceBone": "Library/Bones/1326490359.bone"
                 }
             }
         },
-        "Parent": "2032744527",
+        "Parent": "1772923474",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "386893320"
+        "UID": "1787604735"
     },
     "mixamorig:RightHandMiddle3": {
         "Active": true,
@@ -1650,10 +1440,10 @@
                 "positionx": "0.000300",
                 "positiony": "3.242409",
                 "positionz": "0.000000",
-                "rotationw": "0.836550",
-                "rotationx": "0.547587",
-                "rotationy": "0.000013",
-                "rotationz": "-0.018231",
+                "rotationw": "1.000000",
+                "rotationx": "0.000778",
+                "rotationy": "-0.000024",
+                "rotationz": "-0.000307",
                 "scalex": "1.000000",
                 "scaley": "1.000000",
                 "scalez": "1.000000"
@@ -1661,15 +1451,15 @@
             "13": {
                 "Active": true,
                 "Resources": {
-                    "ResourceBone": "Library/Bones/971383037.bone"
+                    "ResourceBone": "Library/Bones/1198528351.bone"
                 }
             }
         },
-        "Parent": "386893320",
+        "Parent": "1787604735",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "12447399"
+        "UID": "1709460844"
     },
     "mixamorig:RightHandMiddle4": {
         "Active": true,
@@ -1688,11 +1478,11 @@
                 "scalez": "1.000000"
             }
         },
-        "Parent": "12447399",
+        "Parent": "1709460844",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1164456038"
+        "UID": "829703384"
     },
     "mixamorig:RightHandPinky1": {
         "Active": true,
@@ -1702,10 +1492,10 @@
                 "positionx": "-3.451900",
                 "positiony": "8.723507",
                 "positionz": "-0.141914",
-                "rotationw": "0.753252",
-                "rotationx": "0.629590",
-                "rotationy": "0.140963",
-                "rotationz": "0.127897",
+                "rotationw": "0.999062",
+                "rotationx": "-0.000682",
+                "rotationy": "0.011411",
+                "rotationz": "-0.041771",
                 "scalex": "1.000000",
                 "scaley": "1.000000",
                 "scalez": "1.000000"
@@ -1713,15 +1503,15 @@
             "13": {
                 "Active": true,
                 "Resources": {
-                    "ResourceBone": "Library/Bones/1003746608.bone"
+                    "ResourceBone": "Library/Bones/762230120.bone"
                 }
             }
         },
-        "Parent": "164468796",
+        "Parent": "1448090039",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "938663701"
+        "UID": "1764160458"
     },
     "mixamorig:RightHandPinky2": {
         "Active": true,
@@ -1731,10 +1521,10 @@
                 "positionx": "0.000098",
                 "positiony": "3.660999",
                 "positionz": "0.000000",
-                "rotationw": "0.737293",
-                "rotationx": "0.675543",
-                "rotationy": "-0.000538",
-                "rotationz": "-0.006326",
+                "rotationw": "1.000000",
+                "rotationx": "-0.000015",
+                "rotationy": "-0.000006",
+                "rotationz": "-0.000385",
                 "scalex": "1.000000",
                 "scaley": "1.000000",
                 "scalez": "1.000000"
@@ -1742,15 +1532,15 @@
             "13": {
                 "Active": true,
                 "Resources": {
-                    "ResourceBone": "Library/Bones/979024769.bone"
+                    "ResourceBone": "Library/Bones/32273720.bone"
                 }
             }
         },
-        "Parent": "938663701",
+        "Parent": "1764160458",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "630665464"
+        "UID": "1583023547"
     },
     "mixamorig:RightHandPinky3": {
         "Active": true,
@@ -1760,10 +1550,10 @@
                 "positionx": "-0.002198",
                 "positiony": "2.985176",
                 "positionz": "-0.000015",
-                "rotationw": "0.847949",
-                "rotationx": "0.530064",
-                "rotationy": "0.002240",
-                "rotationz": "-0.003084",
+                "rotationw": "1.000000",
+                "rotationx": "0.000139",
+                "rotationy": "-0.000002",
+                "rotationz": "0.000875",
                 "scalex": "1.000000",
                 "scaley": "1.000000",
                 "scalez": "1.000000"
@@ -1771,15 +1561,15 @@
             "13": {
                 "Active": true,
                 "Resources": {
-                    "ResourceBone": "Library/Bones/1699970416.bone"
+                    "ResourceBone": "Library/Bones/660765358.bone"
                 }
             }
         },
-        "Parent": "630665464",
+        "Parent": "1583023547",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "109622582"
+        "UID": "674118000"
     },
     "mixamorig:RightHandPinky4": {
         "Active": true,
@@ -1798,11 +1588,11 @@
                 "scalez": "1.000000"
             }
         },
-        "Parent": "109622582",
+        "Parent": "674118000",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "2024383631"
+        "UID": "1661656462"
     },
     "mixamorig:RightHandRing1": {
         "Active": true,
@@ -1812,26 +1602,26 @@
                 "positionx": "-1.323101",
                 "positiony": "10.166805",
                 "positionz": "-0.041603",
-                "rotationw": "0.742959",
-                "rotationx": "0.666282",
-                "rotationy": "0.062892",
-                "rotationz": "0.011156",
+                "rotationw": "0.999140",
+                "rotationx": "-0.001118",
+                "rotationy": "0.000047",
+                "rotationz": "-0.041449",
                 "scalex": "1.000000",
-                "scaley": "1.000001",
-                "scalez": "1.000001"
+                "scaley": "1.000000",
+                "scalez": "1.000000"
             },
             "13": {
                 "Active": true,
                 "Resources": {
-                    "ResourceBone": "Library/Bones/577238541.bone"
+                    "ResourceBone": "Library/Bones/754783503.bone"
                 }
             }
         },
-        "Parent": "164468796",
+        "Parent": "1448090039",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "261021241"
+        "UID": "1240477012"
     },
     "mixamorig:RightHandRing2": {
         "Active": true,
@@ -1841,26 +1631,26 @@
                 "positionx": "0.002599",
                 "positiony": "3.241386",
                 "positionz": "-0.000015",
-                "rotationw": "0.798577",
-                "rotationx": "0.601537",
-                "rotationy": "-0.000345",
-                "rotationz": "-0.020700",
+                "rotationw": "1.000000",
+                "rotationx": "0.000100",
+                "rotationy": "0.000011",
+                "rotationz": "0.000004",
                 "scalex": "1.000000",
-                "scaley": "0.999999",
-                "scalez": "0.999999"
+                "scaley": "1.000000",
+                "scalez": "1.000000"
             },
             "13": {
                 "Active": true,
                 "Resources": {
-                    "ResourceBone": "Library/Bones/1966472942.bone"
+                    "ResourceBone": "Library/Bones/2078357723.bone"
                 }
             }
         },
-        "Parent": "261021241",
+        "Parent": "1240477012",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "553198747"
+        "UID": "47704700"
     },
     "mixamorig:RightHandRing3": {
         "Active": true,
@@ -1870,10 +1660,10 @@
                 "positionx": "0.002400",
                 "positiony": "3.358284",
                 "positionz": "0.000000",
-                "rotationw": "0.771803",
-                "rotationx": "0.635459",
-                "rotationy": "-0.000505",
-                "rotationz": "-0.022616",
+                "rotationw": "0.999999",
+                "rotationx": "0.000488",
+                "rotationy": "-0.000103",
+                "rotationz": "-0.001163",
                 "scalex": "1.000000",
                 "scaley": "1.000000",
                 "scalez": "1.000000"
@@ -1881,15 +1671,15 @@
             "13": {
                 "Active": true,
                 "Resources": {
-                    "ResourceBone": "Library/Bones/103407653.bone"
+                    "ResourceBone": "Library/Bones/117737139.bone"
                 }
             }
         },
-        "Parent": "553198747",
+        "Parent": "47704700",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1278239589"
+        "UID": "1239200438"
     },
     "mixamorig:RightHandRing4": {
         "Active": true,
@@ -1908,11 +1698,11 @@
                 "scalez": "1.000000"
             }
         },
-        "Parent": "1278239589",
+        "Parent": "1239200438",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "596094089"
+        "UID": "1365659420"
     },
     "mixamorig:RightHandThumb1": {
         "Active": true,
@@ -1922,10 +1712,10 @@
                 "positionx": "2.649300",
                 "positiony": "3.073898",
                 "positionz": "1.695282",
-                "rotationw": "0.927553",
-                "rotationx": "0.209398",
-                "rotationy": "-0.221460",
-                "rotationz": "-0.216227",
+                "rotationw": "0.963474",
+                "rotationx": "0.214680",
+                "rotationy": "-0.064770",
+                "rotationz": "-0.146408",
                 "scalex": "1.000000",
                 "scaley": "1.000000",
                 "scalez": "1.000000"
@@ -1933,15 +1723,15 @@
             "13": {
                 "Active": true,
                 "Resources": {
-                    "ResourceBone": "Library/Bones/1949286275.bone"
+                    "ResourceBone": "Library/Bones/1059529507.bone"
                 }
             }
         },
-        "Parent": "164468796",
+        "Parent": "1448090039",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "545091994"
+        "UID": "883492542"
     },
     "mixamorig:RightHandThumb2": {
         "Active": true,
@@ -1951,10 +1741,10 @@
                 "positionx": "0.924400",
                 "positiony": "3.394699",
                 "positionz": "0.000000",
-                "rotationw": "0.946043",
-                "rotationx": "0.178714",
-                "rotationy": "0.069892",
-                "rotationz": "0.261112",
+                "rotationw": "0.985168",
+                "rotationx": "0.008284",
+                "rotationy": "0.011289",
+                "rotationz": "-0.171023",
                 "scalex": "1.000000",
                 "scaley": "1.000000",
                 "scalez": "1.000000"
@@ -1962,15 +1752,15 @@
             "13": {
                 "Active": true,
                 "Resources": {
-                    "ResourceBone": "Library/Bones/1011556606.bone"
+                    "ResourceBone": "Library/Bones/1725376072.bone"
                 }
             }
         },
-        "Parent": "545091994",
+        "Parent": "883492542",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1666188137"
+        "UID": "1407649208"
     },
     "mixamorig:RightHandThumb3": {
         "Active": true,
@@ -1980,10 +1770,10 @@
                 "positionx": "-0.236298",
                 "positiony": "3.855000",
                 "positionz": "0.000000",
-                "rotationw": "0.941656",
-                "rotationx": "0.091063",
-                "rotationy": "0.032116",
-                "rotationz": "0.322428",
+                "rotationw": "0.996759",
+                "rotationx": "-0.002406",
+                "rotationy": "0.015799",
+                "rotationz": "-0.078842",
                 "scalex": "1.000000",
                 "scaley": "1.000000",
                 "scalez": "1.000000"
@@ -1991,15 +1781,15 @@
             "13": {
                 "Active": true,
                 "Resources": {
-                    "ResourceBone": "Library/Bones/643554643.bone"
+                    "ResourceBone": "Library/Bones/1273726614.bone"
                 }
             }
         },
-        "Parent": "1666188137",
+        "Parent": "1407649208",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1060126078"
+        "UID": "1529279323"
     },
     "mixamorig:RightHandThumb4": {
         "Active": true,
@@ -2018,11 +1808,11 @@
                 "scalez": "1.000000"
             }
         },
-        "Parent": "1060126078",
+        "Parent": "1529279323",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "172212695"
+        "UID": "2011495617"
     },
     "mixamorig:RightLeg": {
         "Active": true,
@@ -2032,26 +1822,26 @@
                 "positionx": "0.000002",
                 "positiony": "31.830505",
                 "positionz": "0.000000",
-                "rotationw": "0.746097",
-                "rotationx": "-0.665414",
-                "rotationy": "-0.007113",
-                "rotationz": "-0.022662",
+                "rotationw": "0.997843",
+                "rotationx": "-0.065042",
+                "rotationy": "-0.000124",
+                "rotationz": "0.008903",
                 "scalex": "1.000000",
-                "scaley": "1.000011",
-                "scalez": "1.000011"
+                "scaley": "1.000000",
+                "scalez": "1.000000"
             },
             "13": {
                 "Active": true,
                 "Resources": {
-                    "ResourceBone": "Library/Bones/931048156.bone"
+                    "ResourceBone": "Library/Bones/1770938911.bone"
                 }
             }
         },
-        "Parent": "563489200",
+        "Parent": "1111611426",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "450329804"
+        "UID": "483418960"
     },
     "mixamorig:RightShoulder": {
         "Active": true,
@@ -2061,26 +1851,26 @@
                 "positionx": "-4.959700",
                 "positiony": "7.935303",
                 "positionz": "-0.286302",
-                "rotationw": "0.275357",
-                "rotationx": "0.573051",
-                "rotationy": "-0.475290",
-                "rotationz": "0.608186",
-                "scalex": "1.000000",
-                "scaley": "1.000000",
-                "scalez": "1.000000"
+                "rotationw": "0.447833",
+                "rotationx": "0.534209",
+                "rotationy": "-0.455339",
+                "rotationz": "0.553834",
+                "scalex": "0.999974",
+                "scaley": "0.999975",
+                "scalez": "0.999975"
             },
             "13": {
                 "Active": true,
                 "Resources": {
-                    "ResourceBone": "Library/Bones/165746339.bone"
+                    "ResourceBone": "Library/Bones/1781880994.bone"
                 }
             }
         },
-        "Parent": "1093245665",
+        "Parent": "491018694",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "850058989"
+        "UID": "1018279354"
     },
     "mixamorig:RightToeBase": {
         "Active": true,
@@ -2090,10 +1880,10 @@
                 "positionx": "0.000002",
                 "positiony": "18.213400",
                 "positionz": "0.000000",
-                "rotationw": "0.964167",
-                "rotationx": "0.240697",
-                "rotationy": "0.111384",
-                "rotationz": "-0.006363",
+                "rotationw": "0.952892",
+                "rotationx": "0.296901",
+                "rotationy": "0.059209",
+                "rotationz": "-0.018448",
                 "scalex": "1.000000",
                 "scaley": "1.000000",
                 "scalez": "1.000000"
@@ -2101,15 +1891,15 @@
             "13": {
                 "Active": true,
                 "Resources": {
-                    "ResourceBone": "Library/Bones/1044280956.bone"
+                    "ResourceBone": "Library/Bones/1064051002.bone"
                 }
             }
         },
-        "Parent": "1297521731",
+        "Parent": "747698376",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "860822896"
+        "UID": "505032216"
     },
     "mixamorig:RightToe_End": {
         "Active": true,
@@ -2128,11 +1918,11 @@
                 "scalez": "1.000000"
             }
         },
-        "Parent": "860822896",
+        "Parent": "505032216",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1524705587"
+        "UID": "98157805"
     },
     "mixamorig:RightUpLeg": {
         "Active": true,
@@ -2142,26 +1932,26 @@
                 "positionx": "-8.143599",
                 "positiony": "-3.698212",
                 "positionz": "0.671600",
-                "rotationw": "0.110697",
-                "rotationx": "-0.072434",
-                "rotationy": "0.104737",
-                "rotationz": "0.985662",
-                "scalex": "1.000000",
-                "scaley": "1.000000",
+                "rotationw": "0.004109",
+                "rotationx": "0.000791",
+                "rotationy": "0.016521",
+                "rotationz": "0.999855",
+                "scalex": "1.000027",
+                "scaley": "1.000027",
                 "scalez": "1.000000"
             },
             "13": {
                 "Active": true,
                 "Resources": {
-                    "ResourceBone": "Library/Bones/178992746.bone"
+                    "ResourceBone": "Library/Bones/1397776823.bone"
                 }
             }
         },
-        "Parent": "1642276342",
+        "Parent": "580760472",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "563489200"
+        "UID": "1111611426"
     },
     "mixamorig:Spine": {
         "Active": true,
@@ -2171,10 +1961,10 @@
                 "positionx": "0.000000",
                 "positiony": "6.666496",
                 "positionz": "-0.859900",
-                "rotationw": "0.998016",
-                "rotationx": "0.060128",
-                "rotationy": "0.017513",
-                "rotationz": "-0.006455",
+                "rotationw": "0.997944",
+                "rotationx": "-0.064091",
+                "rotationy": "-0.000016",
+                "rotationz": "0.000159",
                 "scalex": "1.000000",
                 "scaley": "1.000000",
                 "scalez": "1.000000"
@@ -2182,15 +1972,15 @@
             "13": {
                 "Active": true,
                 "Resources": {
-                    "ResourceBone": "Library/Bones/410140518.bone"
+                    "ResourceBone": "Library/Bones/1616716778.bone"
                 }
             }
         },
-        "Parent": "1642276342",
+        "Parent": "580760472",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1411001317"
+        "UID": "551577151"
     },
     "mixamorig:Spine1": {
         "Active": true,
@@ -2200,10 +1990,10 @@
                 "positionx": "0.000000",
                 "positiony": "7.842003",
                 "positionz": "-0.000001",
-                "rotationw": "0.993285",
-                "rotationx": "0.109087",
-                "rotationy": "0.035383",
-                "rotationz": "-0.015297",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
                 "scalex": "1.000000",
                 "scaley": "1.000000",
                 "scalez": "1.000000"
@@ -2211,15 +2001,15 @@
             "13": {
                 "Active": true,
                 "Resources": {
-                    "ResourceBone": "Library/Bones/1299618476.bone"
+                    "ResourceBone": "Library/Bones/335383104.bone"
                 }
             }
         },
-        "Parent": "1411001317",
+        "Parent": "551577151",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "830742489"
+        "UID": "50254117"
     },
     "mixamorig:Spine2": {
         "Active": true,
@@ -2229,10 +2019,10 @@
                 "positionx": "0.000000",
                 "positiony": "8.962296",
                 "positionz": "0.000000",
-                "rotationw": "0.999239",
-                "rotationx": "0.005991",
-                "rotationy": "0.036777",
-                "rotationz": "-0.011549",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
                 "scalex": "1.000000",
                 "scaley": "1.000000",
                 "scalez": "1.000000"
@@ -2240,14 +2030,14 @@
             "13": {
                 "Active": true,
                 "Resources": {
-                    "ResourceBone": "Library/Bones/809418545.bone"
+                    "ResourceBone": "Library/Bones/117389753.bone"
                 }
             }
         },
-        "Parent": "830742489",
+        "Parent": "50254117",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false,
-        "UID": "1093245665"
+        "UID": "491018694"
     }
 }
