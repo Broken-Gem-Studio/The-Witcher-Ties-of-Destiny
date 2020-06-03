@@ -140,7 +140,7 @@ local CurrentlyAttacking = false
 local CalculatedKnockback = false
 local KnockVector = {}
 local NKvec = {}--normalized KnockVector
-
+local KnockbackDone = false
 --################################################ VARIABLES ############################################
 
 lua_table.player_1 = "Geralt"
@@ -309,7 +309,7 @@ end
 
 
 
-local function CalculateNewPath(Target)
+local function CalculateNewPath(Target) -- target must contain a lua table position variables list
 	Corners = lua_table.NavSystem:CalculatePath(MyPosition[1],MyPosition[2],MyPosition[3],Target[1],Target[2],Target[3],1 << Navigation_UID)
 	ActualCorner = 2
 	CalculatePath = false
@@ -336,8 +336,7 @@ local function FollowPath() --basically update the next corner in the curr path
 		lua_table.Nvec3x = NextCorner[1] / DistanceToCorner
         lua_table.Nvec3z = NextCorner[3] / DistanceToCorner
 	else
-		ActualCorner = ActualCorner +1
-		
+		ActualCorner = ActualCorner +1	
 	end
 
 	--lua_table.TransformFunctions:LookAt(MyPosition[1] + NextCorner[1] ,MyPosition[2],MyPosition[3] + NextCorner[3],MyUID)	
@@ -349,8 +348,8 @@ local function PlayersArround() --Returns a boolean if players are or not arroun
 	
 	ret = false
 
-	Geralt_UID = lua_table.GameObjectFunctions:FindGameObject(lua_table.player_1)
-    Jaskier_UID = lua_table.GameObjectFunctions:FindGameObject(lua_table.player_2)
+	lua_table.Geralt_UID = lua_table.GameObjectFunctions:FindGameObject(lua_table.player_1)
+    lua_table.Jaskier_UID = lua_table.GameObjectFunctions:FindGameObject(lua_table.player_2)
 
 	if Geralt_UID ~= 0
 	then
@@ -468,10 +467,10 @@ local function ApplyVelocity()
 			lua_table.Nvec3x = lua_table.Nvec3x * lua_table.CurrentVelocity
 			lua_table.Nvec3z = lua_table.Nvec3z * lua_table.CurrentVelocity
 		end
-	elseif CurrentAttackEffect == AttackEffects.Knockback
+	elseif CurrentAttackEffect == AttackEffects.knockback and CalculatedKnockback == true -- no entra aqui
 	then
-		lua_table.Nvec3x = lua_table.Nvec3x * lua_table.CurrentVelocity
-		lua_table.Nvec3z = lua_table.Nvec3z * lua_table.CurrentVelocity
+		lua_table.Nvec3x = NKvec[1] * lua_table.CurrentVelocity
+		lua_table.Nvec3z = NKvec[3] * lua_table.CurrentVelocity
 	end
 end
 
@@ -490,8 +489,17 @@ local function CalculateJumpAttackVelocity()
 	JA_TimeForthPart = MilisecondsPerframe * 60 
 	JA_TotalTime = MilisecondsPerframe * 108
 
-
 	Timer = CurrentTime - JumpAttackTimer
+
+	if CalculatePath == true
+		then
+			CalculateNewPath(CurrentTargetPosition)
+			JumpAttackAuxTarget = CurrentTargetPosition
+			if JumpStage ~= 4
+			then
+				lua_table.TransformFunctions:LookAt(MyPosition[1] + (CurrentTargetPosition[1] - MyPosition[1]),MyPosition[2],MyPosition[3] + (CurrentTargetPosition[3] - MyPosition[3]),MyUID)
+			end
+		end
 
 	if JumpStage == 0 -- Simplement Chuska'l 
 	then
@@ -606,13 +614,13 @@ local function JumpAttack()
 	A = CurrentTime - JumpAttackTimer
 
 	if JumpAttackPathCreated == true
-	then
-		CalculateJumpAttackVelocity()
+	then		
+		CalculateJumpAttackVelocity() -- VELOCITY AND PATH TO MAKE IT MORE DIFFICULT
 		if DistanceAuxTarget > MinDistanceFromPlayer and CurrentTime - JumpAttackTimer < JumpAttackDuration
 		then
 			FollowPath()
 		elseif DistanceAuxTarget < MinDistanceFromPlayer or CurrentTime - JumpAttackTimer > JumpAttackDuration
-		then
+		then    
 			JumpAttackDone = true
 			lua_table.CurrentVelocity = 0
 			if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK JumpAttackDone = true ") end
@@ -634,10 +642,10 @@ local function Attack()
 			TimeBetweenAttacks = 1500 --time animation duration
 			TimeSinceLastAttack = PerfGameTime()
 			AttackIdleAnimationController = true
-		elseif Dice >= 5 
+		elseif Dice >= 5 and FirstAttack == false --first attack false to avoid hard attack on air if you run from him
 		then
-			lua_table.AnimationSystem:PlayAnimation("ATTACK_2",30.0, MyUID)
-			TimeBetweenAttacks = 2700 --time animation duration
+			lua_table.AnimationSystem:PlayAnimation("ATTACK_2",40.0, MyUID)
+			TimeBetweenAttacks = 2100 --time animation duration
 			TimeSinceLastAttack = PerfGameTime()
 			AttackIdleAnimationController = true
 		end
@@ -713,7 +721,7 @@ local function ChooseBehaviour() --Called only inside State machine's functions
 			if DoAttack == false
 			then
 				DoAttackNow(true)
-				ua_table.SystemFunctions:LOG("DEAD ")
+				lua_table.SystemFunctions:LOG("DEAD ")
 				TimeSinceLastAttack = PerfGameTime()
 			end
 		end
@@ -754,7 +762,8 @@ local  function HandleDetection()
 
 	if DoScream == true
 	then
-		--if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK Scream()") end
+		--While doing scream rotate towards the player
+		lua_table.TransformFunctions:LookAt(MyPosition[1] + (CurrentTargetPosition[1] - MyPosition[1]),MyPosition[2],MyPosition[3] + (CurrentTargetPosition[3] - MyPosition[3]),MyUID)
 		Scream()
 	end
 
@@ -773,7 +782,7 @@ local  function HandleDetection()
 	if JumpAttackDone == true
 	then	
 		CurrentlyJumping = false
-		if DistanceMagnitude < 2
+		if DistanceMagnitude < 2 
 		then
 			CurrentState = State.COMBAT
 			ResetDetection(false)--RESET DETECTION VARIABLES without Scream
@@ -782,7 +791,13 @@ local  function HandleDetection()
 		elseif DistanceMagnitude > 2
 		then
 			lua_table.SystemFunctions:LOG("TIME WHEN FAILS JUMP ATTACK = "..PerfGameTime())
-			ResetDetection(true)--RESET DETECTION VARIABLES with Scream
+			Dice = lua_table.SystemFunctions:RandomNumberInRange(1,10)
+			if Dice < 2 
+			then
+				ResetDetection(true)--RESET DETECTION VARIABLES with Scream
+			else
+				ResetDetection(false)--RESET DETECTION VARIABLES without Scream
+			end
 			lua_table.CurrentVelocity = 0
 		end
 	end
@@ -819,32 +834,30 @@ local function knockback()
 	then
 		CalculatedKnockback = true
 		lua_table.SystemFunctions:LOG("AttackEffects.knockback START")
-		KnockVector[1] = MyPosition[1] - GeraltPos[1]--x
-		KnockVector[3] = MyPosition[3] - GeraltPos[3]--z
-
-		NKvec[1] =  KnockVector[1] / CalculateDistanceTo(lua_table.GameObjectFunctions:FindGameObject(lua_table.Geralt_UID))
-		NKvec[3] =  KnockVector[3] / CalculateDistanceTo(lua_table.GameObjectFunctions:FindGameObject(lua_table.Geralt_UID))
+		KnockVector[1] = GeraltPos[1] - MyPosition[1]--x
+		KnockVector[3] = GeraltPos[3] - MyPosition[3]--z
+		
+		GPos = lua_table.TransformFunctions:GetPosition(lua_table.Geralt_UID)
+		NKvec[1] =  KnockVector[1] / CalculateDistanceTo(GPos)
+		NKvec[3] =  KnockVector[3] / CalculateDistanceTo(GPos)
 		NKvec[2] =  0
 		
 		TimeKnockBackStarted = PerfGameTime()
 	end
 
-	Nvec3x = NKvec[1]
-	Nvec3z = NKvec[3]
-
-	CurrentVelocity = 10
+	lua_table.CurrentVelocity = 10
 
 	lua_table.TransformFunctions:LookAt(MyPosition[1] + (CurrentTargetPosition[1] - MyPosition[1]),MyPosition[2],MyPosition[3] + (CurrentTargetPosition[3] - MyPosition[3]),MyUID)
 	
 	lua_table.SystemFunctions:LOG("AttackEffects.knockback CURRENTLY")
 
-	if CurrentTime - TimeKnockBackStarted > 2000
+	if CurrentTime - TimeKnockBackStarted > 500 or DistanceMagnitude > 15
 	then
 		lua_table.SystemFunctions:LOG("AttackEffects.knockback END")
 		--CalculatedKnockback = false
+		KnockbackDone = true
 		CurrentAttackEffect = AttackEffects.none
 	end
-
 end
 
 
@@ -857,6 +870,46 @@ end
 
 --#################################################### MAIN CODE #########################################
 
+
+
+function lua_table.RequestedTriggerEnter()
+
+	if CurrentState ~= State.DEAD and lua_table.GameObjectFunctions:GetLayerByID(collider_GO) == 2 --player attack
+	then
+		local collider_parent = lua_table.GameObjectFunctions:GetGameObjectParent(collider_GO)
+ 		local player_script = {}
+
+		if collider_parent ~= 0 
+		then
+			player_script = lua_table.GameObjectFunctions:GetScript(collider_parent)
+		else
+		 	player_script = lua_table.GameObjectFunctions:GetScript(collider_GO)
+		end
+		lua_table.CurrentHealth = lua_table.CurrentHealth - player_script.collider_damage
+		lua_table.SystemFunctions:LOG("PEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE")
+
+		if player_script.collider_effect ~= AttackEffects.none --and lua_table.CurrentSpecialEffect == SpecialEffect.NONE
+		then
+			if player_script.collider_effect ~= AttackEffects.NONE
+			then
+				if player_script.collider_effect == AttackEffects.taunt
+				then
+					CurrentTarget_UID = lua_table.Jaskier_UID
+				end
+				if player_script.collider_effect == AttackEffects.stun 
+				then
+					lua_table.SystemFunctions:LOG("player_script.collider_effect == AttackEffects.stun")
+					CurrentAttackEffect = AttackEffects.stun
+				end
+				if player_script.collider_effect == AttackEffects.knockback --and lua_table.CurrentSpecialEffect == SpecialEffect.NONE
+				then
+					lua_table.SystemFunctions:LOG("player_script.collider_effect == AttackEffects.knockback")
+					CurrentAttackEffect = AttackEffects.knockback
+				end
+			end
+		end
+	end
+end
 
 
 function lua_table:OnTriggerEnter()	
@@ -874,6 +927,7 @@ function lua_table:OnTriggerEnter()
 		 	player_script = lua_table.GameObjectFunctions:GetScript(collider_GO)
 		end
 		lua_table.CurrentHealth = lua_table.CurrentHealth - player_script.collider_damage
+		lua_table.SystemFunctions:LOG("PEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE")
 
 		if player_script.collider_effect ~= AttackEffects.none --and lua_table.CurrentSpecialEffect == SpecialEffect.NONE
 		then
@@ -888,12 +942,14 @@ function lua_table:OnTriggerEnter()
 				then
 					lua_table.SystemFunctions:LOG("player_script.collider_effect == AttackEffects.knockback")
 					CurrentAttackEffect = AttackEffects.knockback
+					if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK 12345"..lua_table.Nvec3x) end
 				end
 			end
 		end
 	end
 	--lua_table.SystemFunctions:LOG("OnTriggerEnter()".. collider_GO)
 end
+
 
 function lua_table:OnCollisionEnter()
 	local collider = lua_table.PhysicsSystem:OnCollisionEnter(MyUID)
@@ -928,9 +984,9 @@ function lua_table:Awake()
 	end
 
 	---SET COLLIDERS---
-	attack_colliders.jump_attack.GO_UID = lua_table.GameObjectFunctions:FindChildGameObject(attack_colliders.jump_attack.GO_name)
-	attack_colliders.front1.GO_UID = lua_table.GameObjectFunctions:FindChildGameObject(attack_colliders.front1.GO_name)
-	attack_colliders.front2.GO_UID = lua_table.GameObjectFunctions:FindChildGameObject(attack_colliders.front1.GO_name)
+	--attack_colliders.jump_attack.GO_UID = lua_table.GameObjectFunctions:FindChildGameObject(attack_colliders.jump_attack.GO_name)
+	--attack_colliders.front1.GO_UID = lua_table.GameObjectFunctions:FindChildGameObject(attack_colliders.front1.GO_name)
+	--attack_colliders.front2.GO_UID = lua_table.GameObjectFunctions:FindChildGameObject(attack_colliders.front1.GO_name)
 end
 
 
@@ -962,20 +1018,25 @@ function lua_table:Update()
 	elseif CurrentAttackEffect == AttackEffects.knockback
 	then
 		knockback()
+		if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK 43255"..lua_table.Nvec3x) end
+		if KnockbackDone == true
+		then
+			CalculateNewPath(CurrentTargetPosition) --When ending knockback need a new path to move
+			lua_table.CurrentVelocity = 0
+			KnockbackDone = false
+			CalculatedKnockback = false
+			if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK 132545"..lua_table.Nvec3x) end
+		end
 	elseif CurrentAttackEffect == AttackEffects.stun
 	then
 		Stunt()
 	end
 	
-	
-
 
 	--MOVE
 	ApplyVelocity()
-	if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK ###############lua_table.Nvec3x :::::::::::"..lua_table.Nvec3x) end
-	if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK ###############lua_table.Nvec3z :::::::::::"..lua_table.Nvec3z) end
 	lua_table.PhysicsSystem:Move(lua_table.Nvec3x* dt,lua_table.Nvec3z* dt,MyUID)
-
+	
 end
 
 return lua_table
