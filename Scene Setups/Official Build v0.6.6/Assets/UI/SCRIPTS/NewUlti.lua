@@ -23,6 +23,8 @@ function GetTableNewUlti()
     local ULTID2HUNDRED = 0
     local ULTID2USING = 0
     
+    local BUMPERS = 0
+    local BUMPERS2 = 0
 
 
     lua_table.ultimatelocal = 0
@@ -62,7 +64,8 @@ function GetTableNewUlti()
         ULTID2HUNDRED = lua_table["GameObject"]:FindGameObject("ULTIHUNDRED2")
         ULTID2USING = lua_table["GameObject"]:FindGameObject("ULTIUSING2")
         
-        
+        BUMPERS = lua_table["GameObject"]:FindGameObject("BUMPERS")
+        BUMPERS2 = lua_table["GameObject"]:FindGameObject("BUMPERS2")
 
         P1ID = lua_table["GameObject"]:FindGameObject("Geralt")
         lua_table.ultiP1 = lua_table["GameObject"]:GetScript(P1ID)
@@ -86,6 +89,9 @@ function GetTableNewUlti()
         lua_table["UI"]:MakeElementInvisible("Image", ULTIDEIGHTY)
         lua_table["UI"]:MakeElementInvisible("Image", ULTIDHUNDRED)
         lua_table["UI"]:MakeElementInvisible("Image", ULTIDUSING)
+
+        lua_table["UI"]:MakeElementInvisible("Image", BUMPERS)
+        lua_table["UI"]:MakeElementInvisible("Image", BUMPERS2)
      
         lua_table.ultimatelocal2 = lua_table.ultiP2.current_ultimate
         lua_table.ultimatelocal = lua_table.ultiP1.current_ultimate
@@ -145,6 +151,12 @@ function GetTableNewUlti()
         then
             lua_table["UI"]:MakeElementInvisible("Image", ULTIDEIGHTY)
             lua_table["UI"]:MakeElementVisible("Image", ULTIDHUNDRED)
+            lua_table["UI"]:MakeElementVisible("Image", BUMPERS)
+        end
+
+        if lua_table.ultiP1.current_state  <= -3 or lua_table.ultiP1.being_revived == true--LAST IMAGE ULTI IS READY
+        then
+            lua_table["UI"]:MakeElementInvisible("Image", BUMPERS)
         end
 
         --vibration
@@ -169,8 +181,8 @@ function GetTableNewUlti()
         then
             if lua_table.ultiP1.current_state  ~= -3 and lua_table.ultiP1.current_state  ~= -4 and lua_table.ultiP1.being_revived == false
             then
+                lua_table["UI"]:MakeElementInvisible("Image", BUMPERS)
                 lua_table["UI"]:MakeElementVisible("Image", ULTIDUSING)
-
             else
                 lua_table["UI"]:MakeElementInvisible("Image", ULTIDUSING)
             end
@@ -182,7 +194,9 @@ function GetTableNewUlti()
             lua_table["UI"]:MakeElementInvisible("Image", ULTIDUSING)
         end
 
+        --
 
+    
         --ULTI JASKIER
 
         if lua_table.ultiP2.current_state == -3 or lua_table.ultiP2.current_state == -4  or lua_table.ultiP2.being_revived == true
@@ -226,6 +240,12 @@ function GetTableNewUlti()
         then
             lua_table["UI"]:MakeElementInvisible("Image", ULTID2EIGHTY)
             lua_table["UI"]:MakeElementVisible("Image", ULTID2HUNDRED)
+            lua_table["UI"]:MakeElementVisible("Image", BUMPERS2)
+        end
+
+        if lua_table.ultiP2.current_state  <= -3 or lua_table.ultiP2.being_revived == true--LAST IMAGE ULTI IS READY
+        then
+            lua_table["UI"]:MakeElementInvisible("Image", BUMPERS2)
         end
 
          --vibration 2
@@ -250,6 +270,7 @@ function GetTableNewUlti()
          then
              if lua_table.ultiP2.current_state  ~= -3 and lua_table.ultiP2.current_state  ~= -4 and lua_table.ultiP2.being_revived == false
              then
+                lua_table["UI"]:MakeElementInvisible("Image", BUMPERS2)
                  lua_table["UI"]:MakeElementVisible("Image", ULTID2USING)
  
              else
@@ -262,6 +283,9 @@ function GetTableNewUlti()
          then
              lua_table["UI"]:MakeElementInvisible("Image", ULTID2USING)
          end
+
+         --
+       
 
     
     end
