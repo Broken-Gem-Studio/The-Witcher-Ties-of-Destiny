@@ -11,13 +11,24 @@ lua_table.AudioFunctions = Scripting.Audio()
 -- Variables
 lua_table.gamePaused = false
 lua_table.mainMenu_UUID = 0
+
+local Buttons = {
+	RESUME = 1,
+	COMBOS = 2,
+	MENU = 3
+}
+
+local currentButton = Buttons.RESUME
+
 local goMenu = false
+local activatePause = false
+local ControllerID = 1
 
 -- Core
 local function Reset()	
-	lua_table.SystemFunctions:ResumeGame()
 	lua_table.gamePaused = false
-	lua_table.InterfaceFunctions:MakeElementInvisible("Image", lua_table.parchmentImage_UUID)
+	lua_table.SystemFunctions:ResumeGame()
+	lua_table.InterfaceFunctions:MakeElementInvisible("Image", lua_table.parchmentImage_UUID)	
 
 	lua_table.InterfaceFunctions:MakeElementInvisible("Image", lua_table.menuButton_UUID)
 	lua_table.InterfaceFunctions:SetUIElementInteractable("Button", lua_table.menuButton_UUID, false)
@@ -25,6 +36,7 @@ local function Reset()
 	lua_table.InterfaceFunctions:SetUIElementInteractable("Button", lua_table.resumeButton_UUID, false)
 	lua_table.InterfaceFunctions:MakeElementInvisible("Image", lua_table.combosButton_UUID)
 	lua_table.InterfaceFunctions:SetUIElementInteractable("Button", lua_table.combosButton_UUID, false)
+
 end
 
 function lua_table:Awake()
@@ -41,14 +53,28 @@ function lua_table:Start()
 end
 
 function lua_table:Update()
-	if lua_table.InputFunctions:KeyDown("P")
-	or lua_table.InputFunctions:IsGamepadButton(1, "BUTTON_START", "DOWN") or lua_table.InputFunctions:IsGamepadButton(2, "BUTTON_START", "DOWN")
+
+	-- Pause menu activation
+	if lua_table.InputFunctions:IsGamepadButton(1, "BUTTON_START", "DOWN") 
 	then
+		ControllerID = 1
+		activatePause = true
+		
+	elseif lua_table.InputFunctions:IsGamepadButton(2, "BUTTON_START", "DOWN")
+	then
+		ControllerID = 2
+		activatePause = true
+	end
+
+	if lua_table.InputFunctions:KeyDown("P") or activatePause == true
+	then 
 		lua_table.AudioFunctions:PlayAudioEvent("Play_Pause")
 		if lua_table.gamePaused == false
 		then
-			lua_table.SystemFunctions:PauseGame()
+			currentButton = Buttons.RESUME
+			activatePause = false
 			lua_table.gamePaused = true
+			lua_table.SystemFunctions:PauseGame()
 			lua_table.InterfaceFunctions:MakeElementVisible("Image", lua_table.parchmentImage_UUID)
 
 			lua_table.InterfaceFunctions:MakeElementVisible("Image", lua_table.menuButton_UUID)
@@ -62,7 +88,45 @@ function lua_table:Update()
 		end
 	end
 
-	if goMenu
+	-- Controller management
+	if lua_table.gamePaused == true 
+	then
+		if lua_table.InputFunctions:IsGamepadButton(ControllerID, "BUTTON_A", "DOWN")
+		then
+			if currentButton == Buttons.RESUME
+			then
+				lua_table:ResumeGame()			
+			elseif currentButton == Buttons.COMBOS
+			then
+				lua_table:ShowCombos()			
+			elseif currentButton == Buttons.MENU
+			then
+				lua_table:GoToMainMenu()
+			end
+		end
+
+		if lua_table.InputFunctions:IsGamepadButton(1, "BUTTON_DPAD_DOWN", "DOWN")
+		then 
+			lua_table.AudioFunctions:PlayAudioEvent("Play_Mouse_over")
+			currentButton = currentButton + 1
+			if currentButton > Buttons.MENU
+			then
+				currentButton = Buttons.MENU
+			end
+		end
+
+		if lua_table.InputFunctions:IsGamepadButton(1, "BUTTON_DPAD_UP", "DOWN")
+		then 
+			lua_table.AudioFunctions:PlayAudioEvent("Play_Mouse_over")
+			currentButton = currentButton - 1
+			if currentButton < Buttons.RESUME
+			then
+				currentButton = Buttons.RESUME
+			end
+		end
+	end
+
+	if goMenu == true
 	then
 		lua_table.SceneFunctions:LoadScene(lua_table.mainMenu_UUID)
 	end
@@ -70,9 +134,9 @@ end
 
 -- Button functions
 function lua_table:GoToMainMenu()
-	goMenu = true
 	lua_table.AudioFunctions:PlayAudioEvent("Play_Button_main_menu")
-	lua_table.SystemFunctions:ResumeGame()
+	goMenu = true
+	Reset()
 end
 
 function lua_table:ResumeGame()

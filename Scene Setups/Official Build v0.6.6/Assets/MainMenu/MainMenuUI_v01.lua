@@ -19,8 +19,6 @@ lua_table.InputFunctions = Scripting.Inputs()
 lua_table.loadLevel1 = false
 lua_table.loadLevel2 = false
 lua_table.cameraSpeed = 25
-lua_table.scene1 = 0
-lua_table.scene2 = 0
 
 -- Local variables
 local startButton = 0
@@ -36,8 +34,24 @@ local step = 1
 
 local startingGame = false
 local playingGame = false
+local startMenu = false
+local boardMenu = false
+local showingLevel1 = false
+local showingLevel2 = false
 
+local Buttons = {
+	START = 1,
+	PLAY = 2,
+	QUIT = 3,
+	LEVEL1 = 4,
+	LEVEL2 = 5,
+	PLAY1 = 6,
+	PLAY2 = 7
+}
+
+local currentButton = Buttons.START
 local SELECTION = 0
+
 -----------------------------------------------------------------------------
 -- FUNCTIONS
 -----------------------------------------------------------------------------
@@ -66,6 +80,88 @@ function lua_table:Update()
 	dt = lua_table.SystemFunctions:DT()
 	lua_table.currentCameraPos = lua_table.TransformFuctions:GetPosition(camera_UUID)
 
+	-- Button management
+	if currentButton == Buttons.START and lua_table.InputFunctions:IsGamepadButton(1, "BUTTON_START", "DOWN")
+	then
+		lua_table:StartGame()
+	end
+
+	if startMenu == true
+	then
+		if lua_table.InputFunctions:IsGamepadButton(1, "BUTTON_A", "DOWN")
+		then
+			if currentButton == Buttons.PLAY
+			then
+				lua_table:PlayGame()
+			elseif currentButton == Buttons.QUIT
+			then
+				lua_table:QuitGame()
+			end
+		end
+
+		if lua_table.InputFunctions:IsGamepadButton(1, "BUTTON_DPAD_DOWN", "DOWN") and currentButton == Buttons.PLAY
+		then 
+			lua_table.AudioFunctions:PlayAudioEvent("Play_Main_Menu_mouse_over")
+			currentButton = Buttons.QUIT
+		end
+
+		if lua_table.InputFunctions:IsGamepadButton(1, "BUTTON_DPAD_UP", "DOWN") and currentButton == Buttons.QUIT
+		then
+			lua_table.AudioFunctions:PlayAudioEvent("Play_Main_Menu_mouse_over")
+			currentButton = Buttons.PLAY
+		end
+	end
+
+	if boardMenu == true
+	then
+		if lua_table.InputFunctions:IsGamepadButton(1, "BUTTON_A", "DOWN")
+		then
+			if currentButton == Buttons.LEVEL1
+			then
+				lua_table:ShowFirstLevel()
+			elseif currentButton == Buttons.LEVEL2
+			then
+				lua_table:ShowSecondLevel()
+			elseif currentButton == Buttons.PLAY1
+			then
+				lua_table:PlayFirstLevel()
+			elseif currentButton == Buttons.PLAY2
+			then
+				lua_table:PlaySecondLevel()
+			end
+		end
+
+		if lua_table.InputFunctions:IsGamepadButton(1, "BUTTON_DPAD_DOWN", "DOWN") and currentButton == Buttons.LEVEL1
+		then
+			lua_table.AudioFunctions:PlayAudioEvent("Play_Main_Menu_mouse_over")
+			currentButton = Buttons.LEVEL2
+		end
+
+		if lua_table.InputFunctions:IsGamepadButton(1, "BUTTON_DPAD_UP", "DOWN") and currentButton == Buttons.LEVEL2
+		then
+			lua_table.AudioFunctions:PlayAudioEvent("Play_Main_Menu_mouse_over")
+			currentButton = Buttons.LEVEL1
+		end
+		
+		if lua_table.InputFunctions:IsGamepadButton(1, "BUTTON_DPAD_RIGHT", "DOWN") and (currentButton == Buttons.LEVEL1 or currentButton == Buttons.LEVEL2)
+		then
+			lua_table.AudioFunctions:PlayAudioEvent("Play_Main_Menu_mouse_over")
+			if showingLevel1 == true
+			then
+				currentButton = Buttons.PLAY1
+			elseif showingLevel2 == true
+			then
+				currentButton = Buttons.PLAY2
+			end
+		end
+
+		if lua_table.InputFunctions:IsGamepadButton(1, "BUTTON_DPAD_LEFT", "DOWN") and (currentButton == Buttons.PLAY1 or currentButton == Buttons.PLAY2)
+		then
+			lua_table.AudioFunctions:PlayAudioEvent("Play_Main_Menu_mouse_over")
+			currentButton = Buttons.LEVEL1
+		end
+	end
+
 	-- Camera movement management	
 	if startingGame == true
 	then
@@ -74,6 +170,7 @@ function lua_table:Update()
 			lua_table.TransformFuctions:Translate(lua_table.cameraSpeed * dt, -lua_table.cameraSpeed/3 * dt, 0, camera_UUID)
 		else		
 			startingGame = false
+			startMenu = true
 			lua_table.InterfaceFunctions:MakeElementVisible("Image", playButton)
 			lua_table.InterfaceFunctions:SetUIElementInteractable("Button", playButton, true)
 			lua_table.InterfaceFunctions:MakeElementVisible("Image", quitButton)
@@ -129,6 +226,7 @@ function lua_table:Update()
 
 		else		
 			playingGame = false		
+			boardMenu = true
 			lua_table.InterfaceFunctions:MakeElementVisible("Image",  showFirstLevel)
 			lua_table.InterfaceFunctions:SetUIElementInteractable("Button", showFirstLevel, true)
 			lua_table.InterfaceFunctions:MakeElementVisible("Image", showSecondLevel)		
@@ -136,25 +234,17 @@ function lua_table:Update()
 		end
 	end	
 
-	-- Scene loading
-	if lua_table.loadLevel1 == true
-	then
-		--lua_table.SceneFunctions:LoadScene(lua_table.scene1)
-	end
-
-	if lua_table.loadLevel2 == true
-	then
-		--lua_table.SceneFunctions:LoadScene(lua_table.scene2)
-	end
-
 	if lua_table.InputFunctions:IsGamepadButton(1, "BUTTON_Y", "DOWN") and (lua_table.loadLevel1 == true or lua_table.loadLevel2 == true)
 	then
+		currentButton = Buttons.LEVEL1
+		boardMenu = true
+		lua_table.loadLevel1 = false
+        lua_table.loadLevel2 = false
+
 		lua_table.InterfaceFunctions:MakeElementVisible("Image", showFirstLevel)
 		lua_table.InterfaceFunctions:SetUIElementInteractable("Button", showFirstLevel, true)
 		lua_table.InterfaceFunctions:MakeElementVisible("Image", showSecondLevel)
 		lua_table.InterfaceFunctions:SetUIElementInteractable("Button", showSecondLevel, true)
-		lua_table.loadLevel1 = false
-        lua_table.loadLevel2 = false
 	end
 
 end
@@ -163,6 +253,7 @@ function lua_table:StartGame()
 	if lua_table.SystemFunctions:GameTime() > lastTimeFallen + 7.4
 	then
 		startingGame = true
+		currentButton = Buttons.PLAY;
 		lua_table.lastCameraPos = lua_table.TransformFuctions:GetPosition(camera_UUID)
 		lua_table.InterfaceFunctions:SetUIElementInteractable("Button", startButton, false)
 	end
@@ -170,6 +261,8 @@ end
 
 function lua_table:PlayGame()
 	playingGame = true
+	startMenu = false
+	currentButton = Buttons.LEVEL1;
 	lua_table.lastCameraPos = lua_table.TransformFuctions:GetPosition(camera_UUID)
 	lua_table.AudioFunctions:PlayAudioEvent("Play_Main_Menu_play_1")
 	
@@ -185,7 +278,10 @@ function lua_table:QuitGame()
 end
 
 function lua_table:ShowFirstLevel()
-    lua_table.AudioFunctions:PlayAudioEvent("Play_Main_Menu_select")
+	lua_table.AudioFunctions:PlayAudioEvent("Play_Main_Menu_select")
+	showingLevel1 = true
+	showingLevel2 = false
+
 	lua_table.InterfaceFunctions:MakeElementVisible("Image", firstLevelPlay)
 	lua_table.InterfaceFunctions:SetUIElementInteractable("Button", firstLevelPlay, true)
 	lua_table.InterfaceFunctions:MakeElementInvisible("Image", secondLevelPlay)
@@ -197,6 +293,9 @@ end
 
 function lua_table:ShowSecondLevel()
     lua_table.AudioFunctions:PlayAudioEvent("Play_Main_Menu_select")
+	showingLevel2 = true
+	showingLevel1 = false
+
 	lua_table.InterfaceFunctions:MakeElementVisible("Image", secondLevelPlay)
 	lua_table.InterfaceFunctions:SetUIElementInteractable("Button", secondLevelPlay, true)
 	lua_table.InterfaceFunctions:MakeElementInvisible("Image", firstLevelPlay)
@@ -208,7 +307,9 @@ end
 
 function lua_table:PlayFirstLevel()
 	lua_table.AudioFunctions:PlayAudioEvent("Play_Main_Menu_play_2")
-	current_level = 1
+	boardMenu = false
+	showingLevel2 = false
+	showingLevel1 = false
 	
 	lua_table.InterfaceFunctions:MakeElementInvisible("Image", showFirstLevel)
 	lua_table.InterfaceFunctions:SetUIElementInteractable("Button", showFirstLevel, false)
@@ -225,7 +326,9 @@ end
 
 function lua_table:PlaySecondLevel()
 	lua_table.AudioFunctions:PlayAudioEvent("Play_Main_Menu_play_2")
-	current_level = 2
+	boardMenu = false
+	showingLevel2 = false
+	showingLevel1 = false
 
 	lua_table.InterfaceFunctions:MakeElementInvisible("Image", showFirstLevel)
 	lua_table.InterfaceFunctions:SetUIElementInteractable("Button", showFirstLevel, false)

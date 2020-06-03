@@ -4,13 +4,14 @@ lua_table.System = Scripting.System()
 lua_table.GO = Scripting.GameObject()
 lua_table.Transform = Scripting.Transform()
 
+local uid = 0
 local winlose = 0
 local winlose_script = 0
 
 lua_table.checkpoint = 0
 
 function lua_table:OnTriggerEnter()
-    if last_checkpoint == nil or last_checkpoint < lua_table.checkpoint
+    if last_checkpoint == nil or last_checkpoint < lua_table.checkpoint and lua_table.GO:GetLayerByID(uid) == 1
     then
         last_checkpoint = lua_table.checkpoint
         winlose_script:Checkpoint()
@@ -18,6 +19,7 @@ function lua_table:OnTriggerEnter()
 end
 
 function lua_table:Awake()
+    uid = lua_table.ObjectFunctions:GetMyUID()
     winlose = lua_table.GO:FindGameObject("WinLose")
 
     if winlose > 0
