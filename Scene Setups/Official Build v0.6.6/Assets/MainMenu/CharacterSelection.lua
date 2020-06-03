@@ -129,7 +129,7 @@ function GetTableCharacterSelection()
      
         if current_selection2 < 3
         then
-            if lua_table["Inputs"]:IsGamepadButton(2, "BUTTON_DPAD_RIGHT", "DOWN")
+            if lua_table["Inputs"]:IsGamepadButton(2, "BUTTON_DPAD_RIGHT", "DOWN") or lua_table["Inputs"]:KeyDown("D")
             then
                 --lua_table["Audio"]:PlayAudioEvent()
                 current_selection2 = player2_focus + 1
@@ -138,7 +138,7 @@ function GetTableCharacterSelection()
 
         if current_selection2 > 0
         then
-            if lua_table["Inputs"]:IsGamepadButton(2, "BUTTON_DPAD_LEFT", "DOWN")
+            if lua_table["Inputs"]:IsGamepadButton(2, "BUTTON_DPAD_LEFT", "DOWN") or lua_table["Inputs"]:KeyDown("A")
             then
                 --lua_table["Audio"]:PlayAudioEvent()
                 current_selection2 = player2_focus - 1
@@ -189,7 +189,7 @@ function GetTableCharacterSelection()
 
         -----------
 
-        if lua_table["Inputs"]:IsGamepadButton(2, "BUTTON_A", "DOWN") and player2_focus < 2
+        if (lua_table["Inputs"]:IsGamepadButton(2, "BUTTON_A", "DOWN") or lua_table["Inputs"]:KeyDown("F")) and player2_focus < 2
         then
             if player2_focus == player1_focus
             then
@@ -207,7 +207,7 @@ function GetTableCharacterSelection()
             end
         end
 
-        if lua_table["Inputs"]:IsGamepadButton(2, "BUTTON_B", "DOWN")
+        if lua_table["Inputs"]:IsGamepadButton(2, "BUTTON_B", "DOWN") or lua_table["Inputs"]:KeyDown("G")
         then
             --lua_table["Audio"]:PlayAudioEvent()
             if player2_focus == 0

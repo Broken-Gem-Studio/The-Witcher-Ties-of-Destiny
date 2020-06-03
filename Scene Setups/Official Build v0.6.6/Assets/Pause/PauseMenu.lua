@@ -19,7 +19,7 @@ local Buttons = {
 }
 
 local currentButton = Buttons.RESUME
-
+local showingCombos = false
 local goMenu = false
 local activatePause = false
 local ControllerID = 1
@@ -29,6 +29,7 @@ local function Reset()
 	lua_table.gamePaused = false
 	lua_table.SystemFunctions:ResumeGame()
 	lua_table.InterfaceFunctions:MakeElementInvisible("Image", lua_table.parchmentImage_UUID)	
+	lua_table.InterfaceFunctions:MakeElementInvisible("Image", lua_table.background_UUID)	
 
 	lua_table.InterfaceFunctions:MakeElementInvisible("Image", lua_table.menuButton_UUID)
 	lua_table.InterfaceFunctions:SetUIElementInteractable("Button", lua_table.menuButton_UUID, false)
@@ -41,9 +42,8 @@ end
 
 function lua_table:Awake()
 	lua_table.parchmentImage_UUID = lua_table.ObjectFunctions:FindGameObject("PauseImage")
-	lua_table.leftCombosPanel_UUID = lua_table.ObjectFunctions:FindGameObject("LeftCombosPanel")
-	lua_table.rightCombosPanel_UUID = lua_table.ObjectFunctions:FindGameObject("RightCombosPanel")
-	lua_table.parchmentImage_UUID = lua_table.ObjectFunctions:FindGameObject("PauseImage")
+	lua_table.combosPanels_UUID = lua_table.ObjectFunctions:FindGameObject("CombosPanels")
+	lua_table.background_UUID = lua_table.ObjectFunctions:FindGameObject("Background")
 	lua_table.menuButton_UUID = lua_table.ObjectFunctions:FindGameObject("MenuButton")
 	lua_table.resumeButton_UUID = lua_table.ObjectFunctions:FindGameObject("ResumeButton")
 	lua_table.combosButton_UUID = lua_table.ObjectFunctions:FindGameObject("CombosButton")
@@ -76,6 +76,7 @@ function lua_table:Update()
 			lua_table.gamePaused = true
 			lua_table.SystemFunctions:PauseGame()
 			lua_table.InterfaceFunctions:MakeElementVisible("Image", lua_table.parchmentImage_UUID)
+			lua_table.InterfaceFunctions:MakeElementVisible("Image", lua_table.background_UUID)
 
 			lua_table.InterfaceFunctions:MakeElementVisible("Image", lua_table.menuButton_UUID)
 			lua_table.InterfaceFunctions:SetUIElementInteractable("Button", lua_table.menuButton_UUID, true)
@@ -91,38 +92,47 @@ function lua_table:Update()
 	-- Controller management
 	if lua_table.gamePaused == true 
 	then
-		if lua_table.InputFunctions:IsGamepadButton(ControllerID, "BUTTON_A", "DOWN")
+		if showingCombos == false
 		then
-			if currentButton == Buttons.RESUME
+			if lua_table.InputFunctions:IsGamepadButton(ControllerID, "BUTTON_A", "DOWN")
 			then
-				lua_table:ResumeGame()			
-			elseif currentButton == Buttons.COMBOS
-			then
-				lua_table:ShowCombos()			
-			elseif currentButton == Buttons.MENU
-			then
-				lua_table:GoToMainMenu()
+				if currentButton == Buttons.RESUME
+				then
+					lua_table:ResumeGame()			
+				elseif currentButton == Buttons.COMBOS
+				then
+					lua_table:ShowCombos()			
+				elseif currentButton == Buttons.MENU
+				then
+					lua_table:GoToMainMenu()
+				end
+			end
+
+			if lua_table.InputFunctions:IsGamepadButton(ControllerID, "BUTTON_DPAD_DOWN", "DOWN")
+			then 
+				lua_table.AudioFunctions:PlayAudioEvent("Play_Mouse_over")
+				currentButton = currentButton + 1
+				if currentButton > Buttons.MENU
+				then
+					currentButton = Buttons.MENU
+				end
+			end
+
+			if lua_table.InputFunctions:IsGamepadButton(ControllerID, "BUTTON_DPAD_UP", "DOWN")
+			then 
+				lua_table.AudioFunctions:PlayAudioEvent("Play_Mouse_over")
+				currentButton = currentButton - 1
+				if currentButton < Buttons.RESUME
+				then
+					currentButton = Buttons.RESUME
+				end
 			end
 		end
 
-		if lua_table.InputFunctions:IsGamepadButton(1, "BUTTON_DPAD_DOWN", "DOWN")
-		then 
-			lua_table.AudioFunctions:PlayAudioEvent("Play_Mouse_over")
-			currentButton = currentButton + 1
-			if currentButton > Buttons.MENU
-			then
-				currentButton = Buttons.MENU
-			end
-		end
-
-		if lua_table.InputFunctions:IsGamepadButton(1, "BUTTON_DPAD_UP", "DOWN")
-		then 
-			lua_table.AudioFunctions:PlayAudioEvent("Play_Mouse_over")
-			currentButton = currentButton - 1
-			if currentButton < Buttons.RESUME
-			then
-				currentButton = Buttons.RESUME
-			end
+		if lua_table.InputFunctions:IsGamepadButton(ControllerID, "BUTTON_B", "DOWN")
+		then
+			lua_table.InterfaceFunctions:MakeElementInvisible("Image", lua_table.combosPanels_UUID)
+			showingCombos = false
 		end
 	end
 
@@ -145,6 +155,8 @@ function lua_table:ResumeGame()
 end
 
 function lua_table:ShowCombos()
+	lua_table.InterfaceFunctions:MakeElementVisible("Image", lua_table.combosPanels_UUID)
+	showingCombos = true
 end
 
 return lua_table

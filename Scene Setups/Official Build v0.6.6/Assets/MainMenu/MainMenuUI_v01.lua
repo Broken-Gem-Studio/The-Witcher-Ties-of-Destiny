@@ -28,6 +28,10 @@ local firstLevelButton = 0
 local secondLevelButton = 0
 local firstLevelImage = 0
 local secondLevelImage = 0
+
+local quitMarker = 0
+local playMarker = 0
+
 local camera_UUID = 0
 local dt = 0
 local step = 1
@@ -69,11 +73,12 @@ function lua_table:Awake()
 	secondLevelImage = lua_table.ObjectFunctions:FindGameObject("SecondLevelImage")
 
 	lastTimeFallen = lua_table.SystemFunctions:GameTime()
-
 	SELECTION = lua_table.ObjectFunctions:FindGameObject("SELECTION")
 end
 
 function lua_table:Start()
+	quitMarker = lua_table.ObjectFunctions:FindGameObject("QuitMarker")
+	playMarker = lua_table.ObjectFunctions:FindGameObject("PlayMarker")
 end
 
 function lua_table:Update()
@@ -102,12 +107,16 @@ function lua_table:Update()
 		if lua_table.InputFunctions:IsGamepadButton(1, "BUTTON_DPAD_DOWN", "DOWN") and currentButton == Buttons.PLAY
 		then 
 			lua_table.AudioFunctions:PlayAudioEvent("Play_Main_Menu_mouse_over")
+			lua_table.InterfaceFunctions:MakeElementVisible("Image", quitMarker)
+			lua_table.InterfaceFunctions:MakeElementInvisible("Image", playMarker)
 			currentButton = Buttons.QUIT
 		end
 
 		if lua_table.InputFunctions:IsGamepadButton(1, "BUTTON_DPAD_UP", "DOWN") and currentButton == Buttons.QUIT
 		then
 			lua_table.AudioFunctions:PlayAudioEvent("Play_Main_Menu_mouse_over")
+			lua_table.InterfaceFunctions:MakeElementVisible("Image", playMarker)
+			lua_table.InterfaceFunctions:MakeElementInvisible("Image", quitMarker)
 			currentButton = Buttons.PLAY
 		end
 	end
@@ -171,6 +180,7 @@ function lua_table:Update()
 		else		
 			startingGame = false
 			startMenu = true
+			lua_table.InterfaceFunctions:MakeElementVisible("Image", playMarker)
 			lua_table.InterfaceFunctions:MakeElementVisible("Image", playButton)
 			lua_table.InterfaceFunctions:SetUIElementInteractable("Button", playButton, true)
 			lua_table.InterfaceFunctions:MakeElementVisible("Image", quitButton)
