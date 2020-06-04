@@ -41,7 +41,10 @@ local function Reset()
 	lua_table.InterfaceFunctions:SetUIElementInteractable("Button", lua_table.resumeButton_UUID, false)
 	lua_table.InterfaceFunctions:MakeElementInvisible("Image", lua_table.combosButton_UUID)
 	lua_table.InterfaceFunctions:SetUIElementInteractable("Button", lua_table.combosButton_UUID, false)
-
+	
+	lua_table.InterfaceFunctions:MakeElementInvisible("Image", resumeMarker)
+	lua_table.InterfaceFunctions:MakeElementInvisible("Image", combosMarker)
+	lua_table.InterfaceFunctions:MakeElementInvisible("Image", menuMarker)
 end
 
 function lua_table:Awake()
@@ -82,6 +85,7 @@ function lua_table:Update()
 			activatePause = false
 			lua_table.gamePaused = true
 			lua_table.SystemFunctions:PauseGame()
+			lua_table.InterfaceFunctions:MakeElementInvisible("Image", resumeMarker)
 			lua_table.InterfaceFunctions:MakeElementVisible("Image", lua_table.parchmentImage_UUID)
 			lua_table.InterfaceFunctions:MakeElementVisible("Image", lua_table.background_UUID)
 
@@ -134,7 +138,7 @@ function lua_table:Update()
 			then 
 				lua_table.AudioFunctions:PlayAudioEvent("Play_Mouse_over")
 				currentButton = currentButton - 1
-				if currentButton < Buttons.RESUME
+				if currentButton <= Buttons.RESUME
 				then
 					lua_table.InterfaceFunctions:MakeElementVisible("Image", resumeMarker)
 					lua_table.InterfaceFunctions:MakeElementInvisible("Image", combosMarker)
