@@ -33,6 +33,7 @@ lua_table.collider_effect = 0
 
 local mesh_gameobject_UID = 0
 local changed_material = false
+local material_time = 0
 local MyUID = 0
 
 -- Archer main states ---------------------
@@ -164,6 +165,10 @@ function lua_table:OnTriggerEnter()
         local script = lua_table.GameObjectFunctions:GetScript(parent)
 
         lua_table.health = lua_table.health - script.collider_damage
+
+        lua_table.Material:SetMaterialByName("HitMaterial.mat", mesh_gameobject_UID)
+        material_time = PerfGameTime()
+        changed_material = true
         
         if script.collider_effect ~= Effects.NONE then
             -- TODO: React depending on type of effect 
@@ -210,8 +215,6 @@ function lua_table:OnTriggerEnter()
             hit_time = PerfGameTime()
             lua_table.start_hit = true
             lua_table.Audio:PlayAudioEvent("Play_Enemy_Humanoid_Hit")
-            lua_table.Material:SetMaterialByName("ArcherMaterialHit.mat", mesh_gameobject_UID)
-            changed_material = true
 
             local particles = {}
             particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("BloodParticles", Particles_GO))
@@ -231,6 +234,9 @@ function lua_table:RequestedTrigger(collider_GO)
         
         -- Recieve damage
         lua_table.health = lua_table.health - player_script.collider_damage
+        lua_table.Material:SetMaterialByName("HitMaterial.mat", mesh_gameobject_UID)
+        material_time = PerfGameTime()
+        changed_material = true
 
         if player_script.collider_effect ~= Effects.NONE then
             -- TODO: React depending on type of effect 
@@ -279,8 +285,6 @@ function lua_table:RequestedTrigger(collider_GO)
             lua_table.start_hit = true
 
             lua_table.Audio:PlayAudioEvent("Play_Enemy_Humanoid_Hit")
-            lua_table.Material:SetMaterialByName("ArcherMaterialHit.mat", mesh_gameobject_UID)
-            changed_material = true
 
             local particles = {}
             particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("BloodParticles", Particles_GO))
@@ -587,6 +591,11 @@ function lua_table:Update()
         end
     end
 
+    if material_time + 100 <= PerfGameTime() and changed_material == true then
+        lua_table.Material:SetMaterialByName("ArcherMaterial.mat", mesh_gameobject_UID)
+        changed_material = false
+    end
+
     -- ----------------------Manage Archer States | value needs test ------------------------------------------------------
 
     if lua_table.health > 0.0 and lua_table.start_hit == false and lua_table.start_knockback == false
@@ -667,7 +676,6 @@ function lua_table:Update()
         end
 
     else
-
         if lua_table.health <= 0.0
         then
             lua_table.currentState = State.DEATH
@@ -696,13 +704,9 @@ function lua_table:Update()
                 lua_table.GameObjectFunctions:DestroyGameObject(MyUID)
             end
         elseif lua_table.start_hit == true then
+
             if hit_time + 1500 <= PerfGameTime() then
                 lua_table.start_hit = false
-            end
-
-            if hit_time + 100 <= PerfGameTime() and changed_material == true then
-                lua_table.Material:SetMaterialByName("ArcherMaterial.mat", mesh_gameobject_UID)
-                changed_material = false
             end
 
         elseif lua_table.start_knockback == true then
