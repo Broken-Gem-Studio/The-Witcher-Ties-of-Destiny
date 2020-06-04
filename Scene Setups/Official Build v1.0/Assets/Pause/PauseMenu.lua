@@ -30,6 +30,8 @@ local menuMarker = 0
 
 -- Core
 local function Reset()	
+	ControllerID = 0
+	activatePause = false
 	lua_table.gamePaused = false
 	lua_table.SystemFunctions:ResumeGame()
 	lua_table.InterfaceFunctions:MakeElementInvisible("Image", lua_table.parchmentImage_UUID)	
@@ -58,7 +60,7 @@ end
 
 function lua_table:Start()
 	resumeMarker = lua_table.ObjectFunctions:FindGameObject("ResumeMarker")
-	combosMarker = lua_table.ObjectFunctions:FindGameObject("Marker")
+	combosMarker = lua_table.ObjectFunctions:FindGameObject("CombosMarker")
 	menuMarker = lua_table.ObjectFunctions:FindGameObject("MenuMarker")
 end
 
