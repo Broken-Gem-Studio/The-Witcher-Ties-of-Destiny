@@ -48,6 +48,7 @@ and animation speeds, not scripting variables storing milisecond values.
 **GeraltScript_v17**: Character Polish + Reworked Some Core Functions (Knockback Fixes).
 **GeraltScript_v17_5**: GeraltScript_17 with some test code about camera rotation + controller inputs (DO NOT USE).
 **GeraltScript_v18**: Character Particles System Rework.
+**GeraltScript_v19**: Gold Version Character.
 
 **JaskierScript_v0**: Straight up copy of Geralt Code.
 **JaskierScript_v1**: Jaskier from the Vertical Slice 2. Movement, evade, basic attacks.
@@ -65,5 +66,6 @@ and animation speeds, not scripting variables storing milisecond values.
 **JaskierScript_v12**: Character Speeds Polish (Faster).
 **JaskierScript_v13**: Character Polish + Reworked Some Core Functions (Knockback Fixes).
 **JaskierScript_v14**: Character Particles System Rework.
+**JaskierScript_v15**: Gold Version Character.
 
 **DISCLAIMER**: The latest != always the better. It usually is, but read the README to make sure.
