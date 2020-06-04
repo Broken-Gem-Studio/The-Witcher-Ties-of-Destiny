@@ -678,6 +678,7 @@ local function Attack()
 				attack_colliders.front.active = true
 				CalledAttack1 = false
 				if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK COLLIDER ATTACK IN FALSE") end
+				lua_table.SoundSystem:PlayAudioEvent("Play_Lumberjack_Axe_Swing_Attack")
 			end
 		end
 	end
@@ -694,6 +695,7 @@ local function Attack()
 				attack_colliders.front.active = true
 				CalledAttack2 = false
 				if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK COLLIDER ATTACK IN FALSE") end
+				lua_table.SoundSystem:PlayAudioEvent("Play_Lumberjack_Heavy_Axe_Attack_Hit_edit")
 			end
 		end
 	end
