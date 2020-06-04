@@ -534,7 +534,7 @@ lua_table.heavy_3_damage = 2.25
 lua_table.heavy_3_effect = attack_effects_ID.stun
 
 --Evade		
-lua_table.evade_velocity = 26			--12
+lua_table.evade_velocity = 20			--12
 lua_table.evade_cost = 33				--33
 lua_table.evade_duration = 800			--1100
 
