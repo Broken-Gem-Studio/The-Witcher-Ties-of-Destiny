@@ -1,5 +1,75 @@
 {
-    "ArrowPrefab": {
+    "1388940467": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "0.000577",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "1.000000",
+                "scalex": "0.000100",
+                "scaley": "0.420000",
+                "scalez": "0.420000"
+            },
+            "13": {
+                "Active": false,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1808123820.bone"
+                }
+            }
+        },
+        "Name": "Arrow_Wind_Controller",
+        "Parent": "682743196",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "2016986806": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-49.359283",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "0.707107",
+                "rotationx": "0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "39.370079",
+                "scaley": "39.370609",
+                "scalez": "39.370609"
+            },
+            "14": {
+                "Active": false,
+                "Animations": {
+                    "0": {
+                        "Default": false,
+                        "End": "13",
+                        "Loop": false,
+                        "Name": "Wind",
+                        "Start": "4"
+                    },
+                    "BlendTime": "0.300000",
+                    "Size": "1",
+                    "UseDefault": false
+                },
+                "Resources": {
+                    "ResourceAnimation": "Library/Animations/1998730345.anim"
+                }
+            }
+        },
+        "Name": "Wind",
+        "Parent": "427607120",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "427607120": {
         "Active": true,
         "Components": {
             "0": {
@@ -12,8 +82,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "0.030000",
-                "scaley": "0.050000",
-                "scalez": "0.050000"
+                "scaley": "0.100000",
+                "scalez": "0.100000"
             },
             "1": {
                 "Active": true,
@@ -50,7 +120,7 @@
                         "Name": "force",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 1250.0
+                        "Value": 2000.0
                     }
                 }
             },
@@ -73,7 +143,7 @@
                 "linear_vely": "0.000000",
                 "linear_velz": "0.000000",
                 "mass": "0.005000",
-                "use_gravity": "1"
+                "use_gravity": "0"
             },
             "16": {
                 "Active": true,
@@ -83,8 +153,8 @@
                 "firstCreation": "1",
                 "globalMatrixw": "1.000000",
                 "globalMatrixx": "-0.750915",
-                "globalMatrixy": "-0.017623",
-                "globalMatrixz": "-0.017623",
+                "globalMatrixy": "-0.035245",
+                "globalMatrixz": "-0.035245",
                 "globalPositionx": "52.776100",
                 "globalPositiony": "8.288230",
                 "globalPositionz": "8.288230",
@@ -94,13 +164,13 @@
                 "isTrigger": "1",
                 "lastIndex": "1",
                 "localMatrixw": "1.000000",
-                "localMatrixx": "-25.030491",
+                "localMatrixx": "-25.030495",
                 "localMatrixy": "-0.352451",
                 "localMatrixz": "-0.352453",
                 "localPositionx": "0.000000",
                 "localPositiony": "0.000000",
                 "localPositionz": "0.000000",
-                "offsetx": "-25.030491",
+                "offsetx": "-25.030495",
                 "offsety": "-0.352451",
                 "offsetz": "-0.352453",
                 "originalScalex": "52.776100",
@@ -111,8 +181,8 @@
                 "scaley": "1.000000",
                 "scalez": "1.000000",
                 "tmpScalex": "1.583283",
-                "tmpScaley": "0.414412",
-                "tmpScalez": "0.414412"
+                "tmpScaley": "0.828823",
+                "tmpScalez": "0.828823"
             },
             "2": {
                 "Active": true,
@@ -127,14 +197,14 @@
                 }
             }
         },
-        "Parent": "1917036355",
+        "Name": "ArrowPrefab",
+        "Parent": "1164663399",
         "PrefabChild": true,
         "PrefabInstance": true,
-        "Static": false,
-        "UID": "72547858"
+        "Static": false
     },
-    "Arrow_Pivot": {
-        "Active": true,
+    "682743196": {
+        "Active": false,
         "Components": {
             "0": {
                 "layer": "0",
@@ -145,48 +215,19 @@
                 "rotationx": "-0.707107",
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
-                "scalex": "0.150000",
-                "scaley": "0.200000",
-                "scalez": "0.100000"
+                "scalex": "0.050000",
+                "scaley": "0.050000",
+                "scalez": "0.050000"
             }
         },
-        "Parent": "2120367721",
+        "Name": "Arrow_Pivot",
+        "Parent": "2016986806",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "Static": false,
-        "UID": "1947725314"
+        "Static": false
     },
-    "Arrow_Wind_Controller": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "layer": "0",
-                "positionx": "0.000000",
-                "positiony": "0.000000",
-                "positionz": "0.000000",
-                "rotationw": "0.000577",
-                "rotationx": "0.000000",
-                "rotationy": "0.000000",
-                "rotationz": "1.000000",
-                "scalex": "0.000100",
-                "scaley": "0.420000",
-                "scalez": "0.420000"
-            },
-            "13": {
-                "Active": true,
-                "Resources": {
-                    "ResourceBone": "Library/Bones/1808123820.bone"
-                }
-            }
-        },
-        "Parent": "1947725314",
-        "PrefabChild": true,
-        "PrefabInstance": false,
-        "Static": false,
-        "UID": "1876679826"
-    },
-    "Arrow_Wind_Mesh": {
-        "Active": true,
+    "861006018": {
+        "Active": false,
         "Components": {
             "0": {
                 "layer": "0",
@@ -202,7 +243,7 @@
                 "scalez": "1.000000"
             },
             "1": {
-                "Active": true,
+                "Active": false,
                 "Resources": {
                     "ResourceMesh": {
                         "PreviewTexture": "",
@@ -211,7 +252,7 @@
                 }
             },
             "2": {
-                "Active": true,
+                "Active": false,
                 "CastsShadows": true,
                 "LightAffected": true,
                 "OnlyShadows": false,
@@ -223,52 +264,11 @@
                 }
             }
         },
-        "Parent": "1947725314",
+        "Name": "Arrow_Wind_Mesh",
+        "Parent": "682743196",
         "PrefabChild": true,
         "PrefabInstance": false,
-        "Static": false,
-        "UID": "1273598819"
+        "Static": false
     },
-    "PreviewTexture": "Library/Textures/2052604413.dds",
-    "Wind": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "layer": "0",
-                "positionx": "-49.359283",
-                "positiony": "0.000000",
-                "positionz": "0.000000",
-                "rotationw": "0.707107",
-                "rotationx": "0.707107",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "39.370079",
-                "scaley": "39.370380",
-                "scalez": "39.370380"
-            },
-            "14": {
-                "Active": true,
-                "Animations": {
-                    "0": {
-                        "Default": false,
-                        "End": "13",
-                        "Loop": false,
-                        "Name": "Wind",
-                        "Start": "4"
-                    },
-                    "BlendTime": "0.300000",
-                    "Size": "1",
-                    "UseDefault": false
-                },
-                "Resources": {
-                    "ResourceAnimation": "Library/Animations/1998730345.anim"
-                }
-            }
-        },
-        "Parent": "72547858",
-        "PrefabChild": true,
-        "PrefabInstance": false,
-        "Static": false,
-        "UID": "2120367721"
-    }
+    "PreviewTexture": "Library/Textures/1775895938.dds"
 }

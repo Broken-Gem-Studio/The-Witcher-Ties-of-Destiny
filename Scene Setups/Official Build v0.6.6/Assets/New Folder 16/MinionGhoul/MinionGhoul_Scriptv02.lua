@@ -434,9 +434,9 @@ function lua_table:OnTriggerEnter()
 					local tmp = lua_table.Transform:GetPosition(collider)
 
 					local knock_vector = {0, 0, 0}
-					knock_vector[1] = lua_table.GhoulPos[1] - tmp[1]
-					knock_vector[2] = lua_table.GhoulPos[2] - tmp[2]
-					knock_vector[3] = lua_table.GhoulPos[3] - tmp[3]
+					knock_vector[1] = tmp[1] - lua_table.GhoulPos[1]  
+					knock_vector[2] = tmp[2] - lua_table.GhoulPos[2] 		
+					knock_vector[3] = tmp[3] - lua_table.GhoulPos[3] 
 
 					local module = math.sqrt(knock_vector[1] ^ 2 + knock_vector[3] ^ 2)
 

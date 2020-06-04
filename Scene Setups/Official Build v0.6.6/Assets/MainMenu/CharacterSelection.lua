@@ -55,6 +55,15 @@ function GetTableCharacterSelection()
     local PRESS_A = 0
     local PRESS_B = 0
     local ARROWS = 0
+
+    local GERALT_POSTER_P1 = 0
+    local JASKIER_POSTER_P1 = 0
+    local YENN_POSTER_P1 = 0
+    local CIRI_POSTER_P1 = 0
+    local GERALT_POSTER_P2 = 0
+    local JASKIER_POSTER_P2 = 0
+    local YENN_POSTER_P2 = 0
+    local CIRI_POSTER_P2 = 0
     --animation
     local GERALT = 0
     local JASKIER = 0
@@ -90,6 +99,17 @@ function GetTableCharacterSelection()
         lua_table["UI"]:MakeElementInvisible("Image", PRESS_A)
         lua_table["UI"]:MakeElementInvisible("Image", PRESS_B)
         lua_table["UI"]:MakeElementInvisible("Image", ARROWS)
+
+        lua_table["UI"]:MakeElementInvisible("Image", GERALT_POSTER_P1)
+        lua_table["UI"]:MakeElementInvisible("Image", JASKIER_POSTER_P1)
+        lua_table["UI"]:MakeElementInvisible("Image", YENN_POSTER_P1)
+        lua_table["UI"]:MakeElementInvisible("Image", CIRI_POSTER_P1)
+        lua_table["UI"]:MakeElementInvisible("Image", GERALT_POSTER_P2)
+        lua_table["UI"]:MakeElementInvisible("Image", JASKIER_POSTER_P2)
+        lua_table["UI"]:MakeElementInvisible("Image", YENN_POSTER_P2)
+        lua_table["UI"]:MakeElementInvisible("Image", CIRI_POSTER_P2)
+
+        
 
     end
 
@@ -251,10 +271,20 @@ function GetTableCharacterSelection()
         CIRI = lua_table["GameObject"]:FindGameObject("CIRILA")
 
         SELECTION = lua_table["GameObject"]:FindGameObject("SELECTION")
+
         PRESS_Y = lua_table["GameObject"]:FindGameObject("PRESS_Y")
         PRESS_A = lua_table["GameObject"]:FindGameObject("PRESS_A")
         PRESS_B = lua_table["GameObject"]:FindGameObject("PRESS_B")
         ARROWS = lua_table["GameObject"]:FindGameObject("ARROWS")
+
+        GERALT_POSTER_P1= lua_table["GameObject"]:FindGameObject("P1PAPER")
+        JASKIER_POSTER_P1 = lua_table["GameObject"]:FindGameObject("P1PAPER2")
+        YENN_POSTER_P1= lua_table["GameObject"]:FindGameObject("P1PAPER3")
+        CIRI_POSTER_P1 = lua_table["GameObject"]:FindGameObject("P1PAPER4")
+        GERALT_POSTER_P2 = lua_table["GameObject"]:FindGameObject("P2PAPER")
+        JASKIER_POSTER_P2 = lua_table["GameObject"]:FindGameObject("P2PAPER2")
+        YENN_POSTER_P2= lua_table["GameObject"]:FindGameObject("P2PAPER3")
+        CIRI_POSTER_P2= lua_table["GameObject"]:FindGameObject("P2PAPER4")
     end
     
     function lua_table:Start()
@@ -272,6 +302,9 @@ function GetTableCharacterSelection()
         lua_table["Animation"]:PlayAnimation("Idle", 30, JASKIER)
         lua_table["Animation"]:PlayAnimation("Idle", 30, CIRI)
        
+        --to avoid blinking at the start
+        --lua_table["UI"]:MakeElementInvisible("Image", GERALT_POSTER_P2)
+        --lua_table["UI"]:MakeElementInvisible("Image", JASKIER_POSTER_P2)
 
     end
     
@@ -481,57 +514,73 @@ function GetTableCharacterSelection()
         if player1_focus == 0 and not_selected == false
         then 
             lua_table["UI"]:MakeElementVisible("Image", P1_ON_GERALT)
+            lua_table["UI"]:MakeElementVisible("Image", GERALT_POSTER_P1)
         else 
             lua_table["UI"]:MakeElementInvisible("Image", P1_ON_GERALT)
+            lua_table["UI"]:MakeElementInvisible("Image", GERALT_POSTER_P1)
         end
 
         if player2_focus == 0 and not_selected == false
         then 
             lua_table["UI"]:MakeElementVisible("Image", P2_ON_GERALT)
+            lua_table["UI"]:MakeElementVisible("Image", GERALT_POSTER_P2)
         else 
             lua_table["UI"]:MakeElementInvisible("Image", P2_ON_GERALT)
+            lua_table["UI"]:MakeElementInvisible("Image", GERALT_POSTER_P2)
         end
 
         if player1_focus == 1 and not_selected == false
         then 
             lua_table["UI"]:MakeElementVisible("Image", P1_ON_JASKIER)
+            lua_table["UI"]:MakeElementVisible("Image", JASKIER_POSTER_P1)
         else 
             lua_table["UI"]:MakeElementInvisible("Image", P1_ON_JASKIER)
+            lua_table["UI"]:MakeElementInvisible("Image", JASKIER_POSTER_P1)
         end
 
         if player2_focus == 1 and not_selected == false
         then 
             lua_table["UI"]:MakeElementVisible("Image", P2_ON_JASKIER)
+            lua_table["UI"]:MakeElementVisible("Image", JASKIER_POSTER_P2)
         else 
             lua_table["UI"]:MakeElementInvisible("Image", P2_ON_JASKIER)
+            lua_table["UI"]:MakeElementInvisible("Image", JASKIER_POSTER_P2)
         end
 
         if player1_focus == 2 and not_selected == false
         then 
             lua_table["UI"]:MakeElementVisible("Image", P1_ON_YENN)
+            lua_table["UI"]:MakeElementVisible("Image", YENN_POSTER_P1)
         else 
             lua_table["UI"]:MakeElementInvisible("Image", P1_ON_YENN)
+            lua_table["UI"]:MakeElementInvisible("Image", YENN_POSTER_P1)
         end
 
         if player2_focus == 2 and not_selected == false
         then 
             lua_table["UI"]:MakeElementVisible("Image", P2_ON_YENN)
+            lua_table["UI"]:MakeElementVisible("Image", YENN_POSTER_P2)
         else 
             lua_table["UI"]:MakeElementInvisible("Image", P2_ON_YENN)
+            lua_table["UI"]:MakeElementInvisible("Image", YENN_POSTER_P2)
         end
 
         if player1_focus == 3 and not_selected == false
         then 
             lua_table["UI"]:MakeElementVisible("Image", P1_ON_CIRI)
+            lua_table["UI"]:MakeElementVisible("Image", CIRI_POSTER_P1)
         else 
             lua_table["UI"]:MakeElementInvisible("Image", P1_ON_CIRI)
+            lua_table["UI"]:MakeElementInvisible("Image", CIRI_POSTER_P1)
         end
 
         if player2_focus == 3 and not_selected == false
         then 
             lua_table["UI"]:MakeElementVisible("Image", P2_ON_CIRI)
+            lua_table["UI"]:MakeElementVisible("Image", CIRI_POSTER_P2)
         else 
             lua_table["UI"]:MakeElementInvisible("Image", P2_ON_CIRI)
+            lua_table["UI"]:MakeElementInvisible("Image", CIRI_POSTER_P2)
         end
 
         

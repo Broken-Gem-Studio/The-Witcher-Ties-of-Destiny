@@ -46,7 +46,6 @@ function lua_table:OnTriggerEnter()
 
     if layer ~= Layers.ENEMY and layer ~= Layers.ENEMY_ATTACK then
         DestroyPlayer = true
-        destroy_time = lua_table.System:GameTime()
     end
     
 end
@@ -54,10 +53,6 @@ end
 function lua_table:OnCollisionEnter()
     local collider_GO = lua_table.PhysicsSystem:OnCollisionEnter(MyUID)
     local layer = lua_table.GameObjectFunctions:GetLayerByID(collider_GO)
-
-    if layer ~= Layers.ENEMY then
-        DestroyPlayer = true
-    end
     
 end
 

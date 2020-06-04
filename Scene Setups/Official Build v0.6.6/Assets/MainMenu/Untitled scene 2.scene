@@ -119,6 +119,54 @@
         "Parent": "470591650",
         "Static": false
     },
+    "1037561953": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1193295674,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "5": {
+                "Active": true,
+                "ColorA": "1.000000",
+                "ColorB": "1.000000",
+                "ColorG": "1.000000",
+                "ColorR": "1.000000",
+                "IsProgressBar": "0",
+                "MantainAspect": "0",
+                "NumberFrames": "0",
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1492004005.dds"
+                },
+                "UID": 885751712,
+                "fullscreen": false,
+                "index": 1,
+                "position2Dx": "-447.000000",
+                "position2Dy": "97.000000",
+                "priority": "1",
+                "size2Dx": "400.000000",
+                "size2Dy": "500.000000",
+                "visible": "1"
+            }
+        },
+        "Index": 0,
+        "Name": "P1PAPER",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "27019384",
+        "Static": false
+    },
     "1046950008": {
         "Active": true,
         "Components": {
@@ -254,8 +302,8 @@
                 "visible": "0"
             }
         },
-        "Index": 9,
-        "Name": "PlayMarker",
+        "Index": 8,
+        "Name": "PlayGameMarker",
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "122102460",
@@ -441,7 +489,7 @@
                 "positionx": "-2.472900",
                 "positiony": "2.060703",
                 "positionz": "1.754112",
-                "rotationw": "0.958935",
+                "rotationw": "0.958936",
                 "rotationx": "0.220358",
                 "rotationy": "0.068954",
                 "rotationz": "0.164713",
@@ -506,7 +554,7 @@
                 "visible": "0"
             }
         },
-        "Index": 10,
+        "Index": 9,
         "Name": "QuitMarker",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -757,18 +805,18 @@
                         "Value": false
                     },
                     "Variable 3": {
-                        "DisplayObjectName": true,
+                        "DisplayObjectName": false,
                         "Name": "scene1",
-                        "ObjectName": "CityCinematic.scene",
+                        "ObjectName": "",
                         "Type": "Double",
-                        "Value": 503091380.0
+                        "Value": 0.0
                     },
                     "Variable 4": {
-                        "DisplayObjectName": true,
+                        "DisplayObjectName": false,
                         "Name": "scene2",
-                        "ObjectName": "Untitled scene 1.scene",
+                        "ObjectName": "",
                         "Type": "Double",
-                        "Value": 816570882.0
+                        "Value": 0.0
                     }
                 },
                 "UID": 2126959729,
@@ -957,6 +1005,54 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1052195249",
+        "Static": false
+    },
+    "1142760656": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 165477320,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "5": {
+                "Active": true,
+                "ColorA": "1.000000",
+                "ColorB": "1.000000",
+                "ColorG": "1.000000",
+                "ColorR": "1.000000",
+                "IsProgressBar": "0",
+                "MantainAspect": "0",
+                "NumberFrames": "0",
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1026826715.dds"
+                },
+                "UID": 1594213212,
+                "fullscreen": false,
+                "index": 1,
+                "position2Dx": "-447.000000",
+                "position2Dy": "97.000000",
+                "priority": "0",
+                "size2Dx": "400.000000",
+                "size2Dy": "500.000000",
+                "visible": "1"
+            }
+        },
+        "Index": 1,
+        "Name": "P1PAPER2",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "27019384",
         "Static": false
     },
     "1151315417": {
@@ -1411,7 +1507,7 @@
                 "positionx": "1.485633",
                 "positiony": "1.104254",
                 "positionz": "1.252686",
-                "rotationw": "0.950265",
+                "rotationw": "0.950266",
                 "rotationx": "0.248183",
                 "rotationy": "0.180698",
                 "rotationz": "-0.052431",
@@ -1772,8 +1868,8 @@
                 "UID": 1576744915,
                 "colliderh": "220",
                 "colliderw": "336",
-                "colliderx": "523",
-                "collidery": "172",
+                "colliderx": "494",
+                "collidery": "208",
                 "draggable": "0",
                 "function": "ShowFirstLevel",
                 "hovered_color.a": "1.000000",
@@ -1803,7 +1899,7 @@
                 "visible": "1"
             }
         },
-        "Index": 8,
+        "Index": 7,
         "Name": "ShowFirstLevelButton",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -1850,9 +1946,9 @@
                 "rotationx": "0.557283",
                 "rotationy": "-0.424742",
                 "rotationz": "0.580694",
-                "scalex": "1.000057",
-                "scaley": "1.000057",
-                "scalez": "1.000057"
+                "scalex": "1.000070",
+                "scaley": "1.000070",
+                "scalez": "1.000070"
             },
             "13": {
                 "Active": true,
@@ -2675,8 +2771,8 @@
                 "UID": 1527111821,
                 "colliderh": "77",
                 "colliderw": "170",
-                "colliderx": "1080",
-                "collidery": "588",
+                "colliderx": "1051",
+                "collidery": "624",
                 "draggable": "0",
                 "function": "PlaySecondLevel",
                 "hovered_color.a": "1.000000",
@@ -2706,7 +2802,7 @@
                 "visible": "1"
             }
         },
-        "Index": 7,
+        "Index": 6,
         "Name": "PlaySecondLevelButton",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -2935,8 +3031,8 @@
                 "rotationy": "0.000040",
                 "rotationz": "-0.000037",
                 "scalex": "1.000000",
-                "scaley": "1.000057",
-                "scalez": "1.000057"
+                "scaley": "1.000070",
+                "scalez": "1.000070"
             },
             "13": {
                 "Active": true,
@@ -3136,9 +3232,9 @@
                 "rotationx": "-0.002922",
                 "rotationy": "-0.707101",
                 "rotationz": "0.707101",
-                "scalex": "1.000323",
-                "scaley": "1.000323",
-                "scalez": "1.000323"
+                "scalex": "1.000336",
+                "scaley": "1.000336",
+                "scalez": "1.000336"
             },
             "13": {
                 "Active": true,
@@ -3204,9 +3300,9 @@
                 "rotationx": "-0.000001",
                 "rotationy": "0.999618",
                 "rotationz": "0.000001",
-                "scalex": "0.999989",
+                "scalex": "0.999976",
                 "scaley": "0.999999",
-                "scalez": "0.999989"
+                "scalez": "0.999976"
             },
             "2": {
                 "Active": true,
@@ -3229,11 +3325,11 @@
             },
             "3": {
                 "ACTIVECAM": false,
-                "ASPECTRATIO": 2.1571123600006104,
+                "ASPECTRATIO": 2.088367462158203,
                 "Active": true,
                 "CULLINGCAM": false,
                 "FARPLANE": 1000.0,
-                "FOV": 46.36502456665039,
+                "FOV": 47.72307205200195,
                 "NEARPLANE": 0.10000000149011612,
                 "UID": 1984947771,
                 "index": 1
@@ -3346,6 +3442,54 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1054102318",
+        "Static": false
+    },
+    "1705803679": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1764772912,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "5": {
+                "Active": true,
+                "ColorA": "1.000000",
+                "ColorB": "1.000000",
+                "ColorG": "1.000000",
+                "ColorR": "1.000000",
+                "IsProgressBar": "0",
+                "MantainAspect": "0",
+                "NumberFrames": "0",
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1119600032.dds"
+                },
+                "UID": 1273010541,
+                "fullscreen": false,
+                "index": 1,
+                "position2Dx": "-447.000000",
+                "position2Dy": "97.000000",
+                "priority": "0",
+                "size2Dx": "400.000000",
+                "size2Dy": "500.000000",
+                "visible": "1"
+            }
+        },
+        "Index": 2,
+        "Name": "P1PAPER3",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "27019384",
         "Static": false
     },
     "1720612413": {
@@ -3998,8 +4142,8 @@
                 "rotationx": "0.000389",
                 "rotationy": "0.017847",
                 "rotationz": "0.999831",
-                "scalex": "1.000057",
-                "scaley": "1.000057",
+                "scalex": "1.000070",
+                "scaley": "1.000070",
                 "scalez": "1.000000"
             },
             "13": {
@@ -4160,9 +4304,9 @@
                 "rotationx": "0.000000",
                 "rotationy": "0.914064",
                 "rotationz": "0.000000",
-                "scalex": "2.121461",
+                "scalex": "2.121422",
                 "scaley": "2.121600",
-                "scalez": "2.121461"
+                "scalez": "2.121422"
             },
             "14": {
                 "Active": true,
@@ -4255,8 +4399,8 @@
                 "Active": true,
                 "ColorA": "0.000000",
                 "ColorB": "1.000000",
-                "ColorG": "0.250000",
-                "ColorR": "0.250000",
+                "ColorG": "1.000000",
+                "ColorR": "1.000000",
                 "IsProgressBar": "0",
                 "MantainAspect": "1",
                 "NumberFrames": "0",
@@ -4278,8 +4422,8 @@
                 "UID": 319114402,
                 "colliderh": "434",
                 "colliderw": "791",
-                "colliderx": "548",
-                "collidery": "266",
+                "colliderx": "520",
+                "collidery": "302",
                 "draggable": "0",
                 "function": "StartGame",
                 "hovered_color.a": "0.000000",
@@ -4382,6 +4526,54 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "418964357",
+        "Static": false
+    },
+    "2018618002": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 431606621,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "5": {
+                "Active": true,
+                "ColorA": "1.000000",
+                "ColorB": "1.000000",
+                "ColorG": "1.000000",
+                "ColorR": "1.000000",
+                "IsProgressBar": "0",
+                "MantainAspect": "1",
+                "NumberFrames": "0",
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/905795833.dds"
+                },
+                "UID": 1293371817,
+                "fullscreen": false,
+                "index": 1,
+                "position2Dx": "122.000000",
+                "position2Dy": "-194.000000",
+                "priority": "0",
+                "size2Dx": "71.000000",
+                "size2Dy": "71.000000",
+                "visible": "0"
+            }
+        },
+        "Index": 13,
+        "Name": "PlayLevelMarker",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "122102460",
         "Static": false
     },
     "2028109781": {
@@ -4497,8 +4689,8 @@
                 "UID": 553298557,
                 "colliderh": "268",
                 "colliderw": "346",
-                "colliderx": "479",
-                "collidery": "444",
+                "colliderx": "450",
+                "collidery": "480",
                 "draggable": "0",
                 "function": "ShowSecondLevel",
                 "hovered_color.a": "1.000000",
@@ -4528,7 +4720,7 @@
                 "visible": "1"
             }
         },
-        "Index": 5,
+        "Index": 4,
         "Name": "ShowSecondLevelButton",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -5186,8 +5378,8 @@
                 "UID": 718101885,
                 "colliderh": "40",
                 "colliderw": "119",
-                "colliderx": "821",
-                "collidery": "703",
+                "colliderx": "792",
+                "collidery": "739",
                 "draggable": "0",
                 "function": "QuitGame",
                 "hovered_color.a": "1.000000",
@@ -5217,7 +5409,7 @@
                 "visible": "1"
             }
         },
-        "Index": 4,
+        "Index": 12,
         "Name": "QuitButton",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -5342,6 +5534,39 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "9966903",
+        "Static": false
+    },
+    "27019384": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 2068342339,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "4": {
+                "Active": true,
+                "UID": 1135537040,
+                "index": 1,
+                "priority": "0",
+                "visible": "1"
+            }
+        },
+        "Index": 13,
+        "Name": "PLAYER1PAPERS",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1098181697",
         "Static": false
     },
     "270705949": {
@@ -5520,8 +5745,8 @@
                 "rotationx": "-0.000498",
                 "rotationy": "0.001196",
                 "rotationz": "0.999934",
-                "scalex": "1.000058",
-                "scaley": "1.000058",
+                "scalex": "1.000071",
+                "scaley": "1.000071",
                 "scalez": "1.000000"
             },
             "13": {
@@ -5745,6 +5970,54 @@
         "Parent": "1085185109",
         "Static": false
     },
+    "320332786": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 271220011,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "5": {
+                "Active": true,
+                "ColorA": "1.000000",
+                "ColorB": "1.000000",
+                "ColorG": "1.000000",
+                "ColorR": "1.000000",
+                "IsProgressBar": "0",
+                "MantainAspect": "0",
+                "NumberFrames": "0",
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1863111012.dds"
+                },
+                "UID": 1932161407,
+                "fullscreen": false,
+                "index": 1,
+                "position2Dx": "-447.000000",
+                "position2Dy": "97.000000",
+                "priority": "0",
+                "size2Dx": "400.000000",
+                "size2Dy": "500.000000",
+                "visible": "1"
+            }
+        },
+        "Index": 3,
+        "Name": "P1PAPER4",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "27019384",
+        "Static": false
+    },
     "321725117": {
         "Active": true,
         "Components": {
@@ -5765,7 +6038,7 @@
             }
         },
         "Index": 6,
-        "Name": "GameObject(67)",
+        "Name": "Tavern",
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "-1",
@@ -5868,8 +6141,8 @@
                 "rotationy": "0.000028",
                 "rotationz": "-0.000027",
                 "scalex": "1.000000",
-                "scaley": "1.000058",
-                "scalez": "1.000058"
+                "scaley": "1.000071",
+                "scalez": "1.000071"
             },
             "13": {
                 "Active": true,
@@ -5885,6 +6158,54 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "468470983",
+        "Static": false
+    },
+    "350704454": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1653209191,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "5": {
+                "Active": true,
+                "ColorA": "1.000000",
+                "ColorB": "1.000000",
+                "ColorG": "1.000000",
+                "ColorR": "1.000000",
+                "IsProgressBar": "0",
+                "MantainAspect": "0",
+                "NumberFrames": "0",
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1863111012.dds"
+                },
+                "UID": 1543541999,
+                "fullscreen": false,
+                "index": 1,
+                "position2Dx": "474.000000",
+                "position2Dy": "97.000000",
+                "priority": "0",
+                "size2Dx": "400.000000",
+                "size2Dy": "500.000000",
+                "visible": "1"
+            }
+        },
+        "Index": 3,
+        "Name": "P2PAPER4",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "546033934",
         "Static": false
     },
     "352164414": {
@@ -6311,8 +6632,8 @@
                 "rotationx": "-0.000413",
                 "rotationy": "0.019338",
                 "rotationz": "0.999803",
-                "scalex": "1.000114",
-                "scaley": "1.000114",
+                "scalex": "1.000140",
+                "scaley": "1.000140",
                 "scalez": "1.000000"
             },
             "13": {
@@ -7116,6 +7437,39 @@
         "Parent": "871448926",
         "Static": false
     },
+    "546033934": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 672999820,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "4": {
+                "Active": true,
+                "UID": 1908764829,
+                "index": 1,
+                "priority": "0",
+                "visible": "1"
+            }
+        },
+        "Index": 14,
+        "Name": "PLAYER2PAPERS",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1098181697",
+        "Static": false
+    },
     "556117810": {
         "Active": true,
         "Components": {
@@ -7148,6 +7502,54 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1116828191",
+        "Static": false
+    },
+    "560169862": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1282932782,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "5": {
+                "Active": true,
+                "ColorA": "1.000000",
+                "ColorB": "1.000000",
+                "ColorG": "1.000000",
+                "ColorR": "1.000000",
+                "IsProgressBar": "0",
+                "MantainAspect": "0",
+                "NumberFrames": "0",
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1026826715.dds"
+                },
+                "UID": 923369598,
+                "fullscreen": false,
+                "index": 1,
+                "position2Dx": "474.000000",
+                "position2Dy": "97.000000",
+                "priority": "0",
+                "size2Dx": "400.000000",
+                "size2Dy": "500.000000",
+                "visible": "1"
+            }
+        },
+        "Index": 1,
+        "Name": "P2PAPER2",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "546033934",
         "Static": false
     },
     "561891115": {
@@ -7235,6 +7637,54 @@
         "Parent": "321725117",
         "Static": false
     },
+    "573956835": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1220589806,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "5": {
+                "Active": true,
+                "ColorA": "1.000000",
+                "ColorB": "1.000000",
+                "ColorG": "1.000000",
+                "ColorR": "1.000000",
+                "IsProgressBar": "0",
+                "MantainAspect": "0",
+                "NumberFrames": "0",
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1119600032.dds"
+                },
+                "UID": 607488089,
+                "fullscreen": false,
+                "index": 1,
+                "position2Dx": "474.000000",
+                "position2Dy": "97.000000",
+                "priority": "0",
+                "size2Dx": "400.000000",
+                "size2Dy": "500.000000",
+                "visible": "1"
+            }
+        },
+        "Index": 2,
+        "Name": "P2PAPER3",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "546033934",
+        "Static": false
+    },
     "577037709": {
         "Active": true,
         "Components": {
@@ -7314,8 +7764,8 @@
                 "UID": 707707475,
                 "colliderh": "45",
                 "colliderw": "122",
-                "colliderx": "821",
-                "collidery": "562",
+                "colliderx": "793",
+                "collidery": "598",
                 "draggable": "0",
                 "function": "PlayGame",
                 "hovered_color.a": "1.000000",
@@ -7347,6 +7797,54 @@
         },
         "Index": 3,
         "Name": "PlayButton",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "122102460",
+        "Static": false
+    },
+    "596730103": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1875349748,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "5": {
+                "Active": true,
+                "ColorA": "1.000000",
+                "ColorB": "1.000000",
+                "ColorG": "1.000000",
+                "ColorR": "1.000000",
+                "IsProgressBar": "0",
+                "MantainAspect": "1",
+                "NumberFrames": "0",
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/905795833.dds"
+                },
+                "UID": 1014035202,
+                "fullscreen": false,
+                "index": 1,
+                "position2Dx": "-439.000000",
+                "position2Dy": "157.000000",
+                "priority": "0",
+                "size2Dx": "71.000000",
+                "size2Dy": "71.000000",
+                "visible": "0"
+            }
+        },
+        "Index": 11,
+        "Name": "Level1Marker",
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "122102460",
@@ -7840,6 +8338,54 @@
         "Parent": "205003656",
         "Static": false
     },
+    "729814838": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 975748378,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "5": {
+                "Active": true,
+                "ColorA": "1.000000",
+                "ColorB": "1.000000",
+                "ColorG": "1.000000",
+                "ColorR": "1.000000",
+                "IsProgressBar": "0",
+                "MantainAspect": "1",
+                "NumberFrames": "0",
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/905795833.dds"
+                },
+                "UID": 1227619187,
+                "fullscreen": false,
+                "index": 1,
+                "position2Dx": "-486.000000",
+                "position2Dy": "-144.000000",
+                "priority": "0",
+                "size2Dx": "71.000000",
+                "size2Dy": "71.000000",
+                "visible": "0"
+            }
+        },
+        "Index": 10,
+        "Name": "Level2Marker",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "122102460",
+        "Static": false
+    },
     "735808069": {
         "Active": true,
         "Components": {
@@ -7854,8 +8400,8 @@
                 "rotationx": "0.000580",
                 "rotationy": "0.001942",
                 "rotationz": "0.999933",
-                "scalex": "0.999884",
-                "scaley": "0.999884",
+                "scalex": "0.999858",
+                "scaley": "0.999858",
                 "scalez": "1.000000"
             },
             "13": {
@@ -7958,8 +8504,8 @@
                 "position2Dx": "0.000000",
                 "position2Dy": "0.000000",
                 "priority": "1",
-                "size2Dx": "1237.359985",
-                "size2Dy": "644.700012",
+                "size2Dx": "1311.839966",
+                "size2Dy": "702.299988",
                 "visible": "0"
             }
         },
@@ -8244,11 +8790,11 @@
             },
             "3": {
                 "ACTIVECAM": true,
-                "ASPECTRATIO": 1.9641451835632324,
+                "ASPECTRATIO": 1.9066487550735474,
                 "Active": true,
                 "CULLINGCAM": true,
                 "FARPLANE": 1000.0,
-                "FOV": 50.376285552978516,
+                "FOV": 51.699832916259766,
                 "NEARPLANE": 0.10000000149011612,
                 "UID": 198984427,
                 "index": 1
@@ -8366,8 +8912,8 @@
                 "UID": 1779969061,
                 "colliderh": "77",
                 "colliderw": "170",
-                "colliderx": "1080",
-                "collidery": "588",
+                "colliderx": "1051",
+                "collidery": "624",
                 "draggable": "0",
                 "function": "PlayFirstLevel",
                 "hovered_color.a": "1.000000",
@@ -8397,7 +8943,7 @@
                 "visible": "1"
             }
         },
-        "Index": 6,
+        "Index": 5,
         "Name": "PlayFirstLevelButton",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -8753,6 +9299,54 @@
         "Parent": "864823662",
         "Static": false
     },
+    "889704886": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 125554138,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "5": {
+                "Active": true,
+                "ColorA": "1.000000",
+                "ColorB": "1.000000",
+                "ColorG": "1.000000",
+                "ColorR": "1.000000",
+                "IsProgressBar": "0",
+                "MantainAspect": "0",
+                "NumberFrames": "0",
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1492004005.dds"
+                },
+                "UID": 946198408,
+                "fullscreen": false,
+                "index": 1,
+                "position2Dx": "474.000000",
+                "position2Dy": "97.000000",
+                "priority": "1",
+                "size2Dx": "400.000000",
+                "size2Dy": "500.000000",
+                "visible": "1"
+            }
+        },
+        "Index": 0,
+        "Name": "P2PAPER",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "546033934",
+        "Static": false
+    },
     "889830768": {
         "Active": true,
         "Components": {
@@ -8849,7 +9443,7 @@
                 "positionx": "0.000000",
                 "positiony": "33.181786",
                 "positionz": "-0.000002",
-                "rotationw": "0.857184",
+                "rotationw": "0.857183",
                 "rotationx": "0.513286",
                 "rotationy": "0.041734",
                 "rotationz": "0.005680",

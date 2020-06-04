@@ -1,5 +1,33 @@
 {
-    "1543594360": {
+    "1067759149": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "4": {
+                "Active": true,
+                "priority": "1",
+                "visible": "1"
+            }
+        },
+        "Name": "BOSSHUD",
+        "Parent": "1519337370",
+        "PrefabChild": true,
+        "PrefabInstance": true,
+        "Static": false
+    },
+    "1165787977": {
         "Active": true,
         "Components": {
             "0": {
@@ -46,67 +74,24 @@
                 "MantainAspect": "0",
                 "NumberFrames": "0",
                 "Resources": {
-                    "ResourceTexture": "Library/Textures/812600262.dds"
+                    "ResourceTexture": "Library/Textures/1591607753.dds"
                 },
                 "fullscreen": false,
-                "position2Dx": "0.000000",
+                "position2Dx": "-2.000000",
                 "position2Dy": "0.000000",
                 "priority": "1",
-                "size2Dx": "500.000000",
-                "size2Dy": "88.665451",
+                "size2Dx": "786.000000",
+                "size2Dy": "212.664993",
                 "visible": "1"
             }
         },
         "Name": "BOSSCAPSULE",
-        "Parent": "83273753",
+        "Parent": "1067759149",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false
     },
-    "2113692384": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "layer": "0",
-                "positionx": "0.000000",
-                "positiony": "0.000000",
-                "positionz": "0.000000",
-                "rotationw": "1.000000",
-                "rotationx": "0.000000",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "1.000000",
-                "scaley": "1.000000",
-                "scalez": "1.000000"
-            },
-            "5": {
-                "Active": true,
-                "ColorA": "1.000000",
-                "ColorB": "0.000001",
-                "ColorG": "0.000001",
-                "ColorR": "0.000001",
-                "IsProgressBar": "0",
-                "MantainAspect": "1",
-                "NumberFrames": "0",
-                "Resources": {
-                    "ResourceTexture": null
-                },
-                "fullscreen": false,
-                "position2Dx": "-2.000000",
-                "position2Dy": "-12.000000",
-                "priority": "-1",
-                "size2Dx": "472.500000",
-                "size2Dy": "27.000000",
-                "visible": "1"
-            }
-        },
-        "Name": "BOSSBACKGROUND",
-        "Parent": "58790739",
-        "PrefabChild": true,
-        "PrefabInstance": false,
-        "Static": false
-    },
-    "58790739": {
+    "1327791999": {
         "Active": true,
         "Components": {
             "0": {
@@ -141,8 +126,8 @@
                 "position2Dx": "-2.000000",
                 "position2Dy": "-12.000000",
                 "priority": "1",
-                "size2Dx": "472.500000",
-                "size2Dy": "27.000000",
+                "size2Dx": "642.500000",
+                "size2Dy": "30.500000",
                 "visible": "1"
             },
             "4": {
@@ -157,14 +142,14 @@
                 "ColorB": "0.967003",
                 "ColorG": "0.972376",
                 "ColorR": "0.967227",
-                "EndFrame": "64",
+                "EndFrame": "47",
                 "IsProgressBar": "1",
                 "Loop": "1",
                 "MantainAspect": "0",
                 "NumberFrames": "66",
                 "PlayInEditor": "1",
                 "Resources": {
-                    "ResourceTexture": "Library/Textures/2067304230.dds"
+                    "ResourceTexture": "Library/Textures/259240343.dds"
                 },
                 "ScriptControl": "0",
                 "StartFrame": "1",
@@ -174,18 +159,18 @@
                 "position2Dx": "-2.000000",
                 "position2Dy": "-12.000000",
                 "priority": "0",
-                "size2Dx": "472.500000",
-                "size2Dy": "27.000000",
+                "size2Dx": "642.500000",
+                "size2Dy": "30.500000",
                 "visible": "1"
             }
         },
         "Name": "BOSSHP",
-        "Parent": "83273753",
+        "Parent": "1067759149",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false
     },
-    "83273753": {
+    "1625693617": {
         "Active": true,
         "Components": {
             "0": {
@@ -201,17 +186,32 @@
                 "scaley": "1.000000",
                 "scalez": "1.000000"
             },
-            "4": {
+            "5": {
                 "Active": true,
-                "priority": "1",
+                "ColorA": "1.000000",
+                "ColorB": "0.000001",
+                "ColorG": "0.000001",
+                "ColorR": "0.000001",
+                "IsProgressBar": "0",
+                "MantainAspect": "1",
+                "NumberFrames": "0",
+                "Resources": {
+                    "ResourceTexture": null
+                },
+                "fullscreen": false,
+                "position2Dx": "-2.000000",
+                "position2Dy": "-12.000000",
+                "priority": "-1",
+                "size2Dx": "642.500000",
+                "size2Dy": "30.500000",
                 "visible": "1"
             }
         },
-        "Name": "BOSSHUD",
-        "Parent": "717889948",
+        "Name": "BOSSBACKGROUND",
+        "Parent": "1327791999",
         "PrefabChild": true,
-        "PrefabInstance": true,
+        "PrefabInstance": false,
         "Static": false
     },
-    "PreviewTexture": "Library/Textures/628999437.dds"
+    "PreviewTexture": "Library/Textures/774325990.dds"
 }
