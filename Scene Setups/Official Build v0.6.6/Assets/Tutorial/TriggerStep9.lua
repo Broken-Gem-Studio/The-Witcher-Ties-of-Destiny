@@ -1,6 +1,5 @@
 function GetTableTriggerStep9()
 local lua_table = {}
-lua_table.System = Scripting.System()
 lua_table.SystemFunctions = Scripting.System()
 lua_table.ObjectFunctions = Scripting.GameObject()
 lua_table.PhysicsFunctions = Scripting.Physics()
@@ -17,11 +16,14 @@ local justonce = false
 function lua_table:OnTriggerEnter()
     local colliderGO = lua_table.PhysicsFunctions:OnTriggerEnter(MyUUID)
 
-    if justonce == false and colliderGO == geraltUID or colliderGO == jaskierUID
-    then    
-        managerTable.PauseStep9 = true
-        justonce = true
-        lua_table.InterfaceFunctions:SetText("Kill the lumberjack!", text)
+    if justonce == false and managerTable.currentStep == 9
+    then   
+        if colliderGO == geraltUID or colliderGO == jaskierUID 
+        then
+            managerTable.PauseStep9 = true
+            justonce = true
+            lua_table.InterfaceFunctions:SetText("Kill the lumberjack!", text)    
+        end
     end
 end
 

@@ -7,6 +7,7 @@ lua_table.ObjectFunctions = Scripting.GameObject()
 lua_table.TransformFunctions = Scripting.Transform()
 lua_table.InterfaceFunctions = Scripting.Interface()
 lua_table.SceneFunctions = Scripting.Scenes()
+lua_table.AnimationFunctions = Scripting.Animations()
 
 ------------------------------------------------------------------------------
 -- VARIABLES
@@ -195,6 +196,16 @@ local tableArcher_1, tableArcher_2, tableArcher_3, tableArcher_4, tableArcher_5,
 -- Vasriables STEP
 local step6, step7, step8, step9, step10, step11, step12, archers 
 
+-- Variables DOORS
+local doorsGO = {
+    door1,
+    door2,
+}
+
+local doorsColliders = {
+    door1,
+    door2,
+}
 ------------------------------------------------------------------------------
 -- STEPS
 ------------------------------------------------------------------------------
@@ -261,6 +272,9 @@ local function Step2()
         lua_table.InterfaceFunctions:MakeElementInvisible("Text", lua_table.textUID)
         lua_table.InterfaceFunctions:SetText(" ", lua_table.textUID)
 
+        lua_table.AnimationFunctions:PlayAnimation("open", 30, doorsGO.door1)
+        lua_table.ObjectFunctions:SetActiveGameObject(false, doorsColliders.door1)
+
         lua_table.currentStep = Step.STEP_3
     end
 end
@@ -307,9 +321,13 @@ local function Step4()
     if enemy4Dead.enemyDead1 == 1 and enemy4Dead.enemyDead2 == 1 and enemy4Dead.enemyDead3 == 1 and enemy4Dead.enemyDead4 == 1 
     then
         lua_table.ObjectFunctions:SetActiveGameObject(true, step6)
-        lua_table.currentStep = Step.STEP_6
+        lua_table.AnimationFunctions:PlayAnimation("open", 30, doorsGO.door2)
+        lua_table.ObjectFunctions:SetActiveGameObject(false, doorsColliders.door2)
+
         lua_table.InterfaceFunctions:MakeElementInvisible("Text", lua_table.textUID)
         lua_table.InterfaceFunctions:SetText(" ", lua_table.textUID)
+
+        lua_table.currentStep = Step.STEP_6
     end
 end
 
@@ -1159,6 +1177,11 @@ function lua_table:Awake()
     tableEnemy12_14 = lua_table.ObjectFunctions:GetScript(enemy12_14)
     tableEnemy12_15 = lua_table.ObjectFunctions:GetScript(enemy12_15)
     tableEnemy12_16 = lua_table.ObjectFunctions:GetScript(enemy12_16)
+
+    doorsGO.door1 = lua_table.ObjectFunctions:FindGameObject("Door_1")
+    doorsGO.door2 = lua_table.ObjectFunctions:FindGameObject("Door_2")
+    doorsColliders.door1 = lua_table.ObjectFunctions:FindGameObject("colliderDoor1")
+    doorsColliders.door2 = lua_table.ObjectFunctions:FindGameObject("colliderDoor2")
 
 end
 

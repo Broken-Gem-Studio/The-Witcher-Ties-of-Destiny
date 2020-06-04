@@ -1,6 +1,5 @@
 function GetTableTriggerStep13()
 local lua_table = {}
-lua_table.System = Scripting.System()
 lua_table.SystemFunctions = Scripting.System()
 lua_table.ObjectFunctions = Scripting.GameObject()
 lua_table.PhysicsFunctions = Scripting.Physics()
@@ -14,9 +13,12 @@ local MyUUID
 function lua_table:OnTriggerEnter()
     local colliderGO = lua_table.PhysicsFunctions:OnTriggerEnter(MyUUID)
 
-    if colliderGO == geraltUID or colliderGO == jaskierUID and manager.currentStep == 13
+    if managerTable.currentStep == 13
     then    
-        managerTable.SaveGame13 = true
+        if colliderGO == geraltUID or colliderGO == jaskierUID
+        then
+            managerTable.SaveGame13 = true
+        end
     end
 end
 

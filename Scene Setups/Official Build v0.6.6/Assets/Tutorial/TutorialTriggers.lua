@@ -1,6 +1,5 @@
 function GetTableTutorialTriggers()
 local lua_table = {}
-lua_table.System = Scripting.System()
 lua_table.SystemFunctions = Scripting.System()
 lua_table.ObjectFunctions = Scripting.GameObject()
 lua_table.PhysicsFunctions = Scripting.Physics()
@@ -16,10 +15,14 @@ local text
 function lua_table:OnTriggerEnter()
     local colliderGO = lua_table.PhysicsFunctions:OnTriggerEnter(MyUUID)
 
-    if colliderGO == geraltUID or colliderGO == jaskierUID and manager.currentStep == 4
+    lua_table.SystemFunctions:LOG("OSCAR TRIGGER STEP 4")
+    if managerTable.currentStep == 4
     then
-        managerTable.MoveEnemies = true
-        lua_table.InterfaceFunctions:SetText("Kill all the enemies", text)
+        if colliderGO == geraltUID or colliderGO == jaskierUID
+        then
+            managerTable.MoveEnemies = true
+            lua_table.InterfaceFunctions:SetText("Kill all the enemies", text)
+        end
     end
 end
 

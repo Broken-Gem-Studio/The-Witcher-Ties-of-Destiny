@@ -1,6 +1,5 @@
 function GetTableTriggerStep7()
 local lua_table = {}
-lua_table.System = Scripting.System()
 lua_table.SystemFunctions = Scripting.System()
 lua_table.ObjectFunctions = Scripting.GameObject()
 lua_table.PhysicsFunctions = Scripting.Physics()
@@ -16,10 +15,13 @@ local text
 function lua_table:OnTriggerEnter()
     local colliderGO = lua_table.PhysicsFunctions:OnTriggerEnter(MyUUID)
 
-    if colliderGO == geraltUID or colliderGO == jaskierUID
+    if  managerTable.currentStep == 7
     then    
-        managerTable.MoveEnemies7 = true
-        lua_table.InterfaceFunctions:SetText("Kill all the enemies", text)
+        if colliderGO == geraltUID or colliderGO == jaskierUID
+        then
+            managerTable.MoveEnemies7 = true
+            lua_table.InterfaceFunctions:SetText("Kill all the enemies", text)
+        end
     end
 end
 
