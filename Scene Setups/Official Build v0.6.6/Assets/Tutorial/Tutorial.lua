@@ -235,7 +235,7 @@ end
 
 local function Step2()
     lua_table.InterfaceFunctions:MakeElementVisible("Text", lua_table.textUID)
-    lua_table.InterfaceFunctions:SetText("Press Y to make a light attack. Press B to make a medium attack", lua_table.textUID)
+    lua_table.InterfaceFunctions:SetText("Press Y to make a light attack. Press B to make a medium attack, Press both to make a heavy attack!", lua_table.textUID)
 
     if lua_table.InputFunctions:IsGamepadButton(lua_table.GeraltNumber, "BUTTON_Y", KeyState.DOWN) == true
     then
@@ -348,7 +348,6 @@ local function Step6()
 
     if lua_table.PauseStep6 == true and move == false
         then
-            lua_table.InterfaceFunctions:SetText("Press A to move great distances and dodge attacks. Consumes 1 energy bar (yellow). Kill all the enemies!", lua_table.textUID)   
             lua_table.SystemFunctions:PauseGame()     
         end
     
@@ -359,6 +358,7 @@ local function Step6()
             move = true
             TABLE_CARTAS.continue_meter1_full = false
             TABLE_CARTAS.continue_meter2_full = false
+            lua_table.InterfaceFunctions:SetText("Press A to move great distances and dodge attacks. Consumes 1 energy bar (yellow). Kill all the enemies!", lua_table.textUID)   
             lua_table.PauseStep6 = false
         end
     
@@ -484,7 +484,6 @@ local function Step9()
     if lua_table.PauseStep9 == true and moveStep9 == false
     then
         lua_table.SystemFunctions:PauseGame()     
-        lua_table.SystemFunctions:LOG("PASUE GAME STEP 9")   
     end
 
     if TABLE_CARTAS.continue_meter1_full == true and TABLE_CARTAS.continue_meter2_full == true
@@ -500,7 +499,6 @@ local function Step9()
     then
         if tableLumberjack.CurrentState == 4 or tableLumberjack.CurrentHealth <= 0
         then
-            lua_table.SystemFunctions:LOG("LUMBERJACK DEAD")
             lumberjackDead = true
         end
     end
@@ -532,6 +530,7 @@ local function Step10()
         TABLE_CARTAS.continue_meter1_full = false
         TABLE_CARTAS.continue_meter2_full = false
         lua_table.PauseStep10 = false
+        lua_table.InterfaceFunctions:SetText("Kill the enemies! Try different combos!", lua_table.textUID)
     end
 
     if enemy10dead.enemy10_1_dead == 0 
@@ -633,6 +632,7 @@ local function Step11()
         TABLE_CARTAS.continue_meter1_full = false
         TABLE_CARTAS.continue_meter2_full = false
         lua_table.PauseStep11 = false
+        lua_table.InterfaceFunctions:SetText("Use your abilities (BUTTON_X) and kill all the enemies!", lua_table.textUID)
     end
     
     if tableGeralt.current_state == 4
@@ -743,6 +743,7 @@ local function Step12()
         TABLE_CARTAS.continue_meter1_full = false
         TABLE_CARTAS.continue_meter2_full = false
         lua_table.PauseStep12 = false
+        lua_table.InterfaceFunctions:SetText("Use your ultimates to defeat the enemies!", lua_table.textUID)
     end
 
     if enemy12dead.enemy12_1_dead == 0 
@@ -902,7 +903,9 @@ local function Step13()
 
     if lua_table.SaveGame13 == true and hasSaved== false
     then
-        lua_table.SystemFunctions:PauseGame()     
+        lua_table.SystemFunctions:PauseGame()    
+        lua_table.InterfaceFunctions:MakeElementInvisible("Text", lua_table.textUID)
+        lua_table.InterfaceFunctions:SetText(" ", lua_table.textUID) 
     end
 
     if TABLE_CARTAS.continue_meter1_full == true and TABLE_CARTAS.continue_meter2_full == true
@@ -925,8 +928,6 @@ local function Step13()
     if hasSaved == true
     then
         lua_table.currentStep = Step.NONE
-        lua_table.InterfaceFunctions:MakeElementInvisible("Text", lua_table.textUID)
-        lua_table.InterfaceFunctions:SetText(" ", lua_table.textUID)
     end
     
     
