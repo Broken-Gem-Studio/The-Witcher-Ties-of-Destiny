@@ -12,10 +12,11 @@ local geraltUID
 local jaskierUID
 local MyUUID
 local text
+
 function lua_table:OnTriggerEnter()
     local colliderGO = lua_table.PhysicsFunctions:OnTriggerEnter(MyUUID)
 
-    if colliderGO == geraltUID or colliderGO == jaskierUID
+    if colliderGO == geraltUID or colliderGO == jaskierUID and manager.currentStep == 4
     then
         managerTable.MoveEnemies = true
         lua_table.InterfaceFunctions:SetText("Kill all the enemies", text)

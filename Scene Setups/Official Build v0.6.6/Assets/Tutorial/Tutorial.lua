@@ -55,9 +55,10 @@ lua_table.StartStep2 = false
 -- Variables STEP 2
 local geraltAttackY = false
 local geraltAttackB = false
+local geraltAttackHeavy = false
 local jaskierAttackY = false
 local jaskierAttackB = false
-
+local jaskierAttackHeavy = false
 -- Variables STEP 4
 local enemy1, enemy2, enemy3, enemy4
 local enemyTable1, enemyTable2, enemyTable3, enemyTable4 
@@ -245,7 +246,17 @@ local function Step2()
         jaskierAttackB = true
     end
 
-    if geraltAttackY == true and geraltAttackB == true and jaskierAttackY == true and jaskierAttackB == true
+    if tableGeralt.current_state == 14 or tableGeralt.current_state == 15 or tableGeralt.current_state == 16 
+    then
+        geraltAttackHeavy = true
+    end
+
+    if tableJaskier.current_state == 14 or tableJaskier.current_state == 15 or tableJaskier.current_state == 16 
+    then
+        jaskierAttackHeavy = true
+    end
+
+    if geraltAttackY == true and geraltAttackB == true and jaskierAttackY == true and jaskierAttackB == true and geraltAttackHeavy == true and jaskierAttackHeavy == true
     then
         lua_table.InterfaceFunctions:MakeElementInvisible("Text", lua_table.textUID)
         lua_table.InterfaceFunctions:SetText(" ", lua_table.textUID)
@@ -377,7 +388,7 @@ local function Step6()
     
         if geraltRoll == true and jaskierRoll == true and ghoul_1_dead == true and ghoul_2_dead == true and ghoul_3_dead == true and ghoul_4_dead == true
         then
-            lua_table.currentStep = Step.STEP_5
+            lua_table.currentStep = Step.STEP_7
             lua_table.ObjectFunctions:SetActiveGameObject(true, step7)
             lua_table.InterfaceFunctions:MakeElementInvisible("Text", lua_table.textUID)
             lua_table.InterfaceFunctions:SetText(" ", lua_table.textUID)
