@@ -85,7 +85,7 @@ function lua_table:Update()
 			activatePause = false
 			lua_table.gamePaused = true
 			lua_table.SystemFunctions:PauseGame()
-			lua_table.InterfaceFunctions:MakeElementInvisible("Image", resumeMarker)
+			lua_table.InterfaceFunctions:MakeElementVisible("Image", resumeMarker)
 			lua_table.InterfaceFunctions:MakeElementVisible("Image", lua_table.parchmentImage_UUID)
 			lua_table.InterfaceFunctions:MakeElementVisible("Image", lua_table.background_UUID)
 
