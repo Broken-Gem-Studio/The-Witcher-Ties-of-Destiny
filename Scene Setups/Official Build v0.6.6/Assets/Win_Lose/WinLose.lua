@@ -334,27 +334,31 @@ function GetTableWinLose()
         --Geralt Dead
         if geralt_script.current_state <= -4
         then
+            --set Geralt's pos in last checkpoint
+            lua_table.Physics:SetCharacterPosition(geralt_x, geralt_y, geralt_z, Geralt)
+            
             --revive Geralt
             lua_table.GO:SetActiveGameObject(true, lua_table.GO:FindGameObject("Geralt_Mesh"))
             lua_table.GO:SetActiveGameObject(true, lua_table.GO:FindGameObject("Geralt_Pivot"))
             geralt_script:Start()
             lua_table.Physics:SetActiveController(true, Geralt)
-
-            --set Geralt's pos in last checkpoint
-            lua_table.Physics:SetCharacterPosition(geralt_x, geralt_y, geralt_z, Geralt)
+        else
+            geralt_script.current_health = 100
         end
 
         --Jaskier Dead
         if jaskier_script.current_state <= -4
         then
+            --set Jaskier's pos in last checkpoint
+            lua_table.Physics:SetCharacterPosition(jaskier_x, jaskier_y, jaskier_z, Jaskier)
+
             --revive Jaskier
             lua_table.GO:SetActiveGameObject(true, lua_table.GO:FindGameObject("Jaskier_Mesh"))
             lua_table.GO:SetActiveGameObject(true, lua_table.GO:FindGameObject("Jaskier_Pivot"))
             jaskier_script:Start()
             lua_table.Physics:SetActiveController(true, Jaskier)
-
-            --set Jaskier's pos in last checkpoint
-            lua_table.Physics:SetCharacterPosition(jaskier_x, jaskier_y, jaskier_z, Jaskier)
+        else
+            jaskier_script.current_health = 100
         end
     end
 
@@ -400,9 +404,6 @@ function GetTableWinLose()
             kikimora_script = lua_table.GO:GetScript(Kikimora)
         end
 
-        --1st Checkpoint (map start)
-        --last_checkpoint = 0
-
         --Respawn Pos
         geralt_pos0 = lua_table.GO:FindGameObject("GeraltPos0")
         geralt_pos1 = lua_table.GO:FindGameObject("GeraltPos1")
@@ -438,12 +439,36 @@ function GetTableWinLose()
 
     function lua_table:Update()
         -- DEBUG --
-        if lua_table.Input:KeyRepeat("F1")
+        if lua_table.Input:KeyRepeat("F1") --win
         then
             is_win = true
-        elseif lua_table.Input:KeyRepeat("F2")
+        elseif lua_table.Input:KeyRepeat("F2") --lose
         then
             is_lose = true
+        elseif lua_table.Input:KeyRepeat("F3") --level1
+        then
+            load_level1 = true
+        elseif lua_table.Input:KeyRepeat("F4") --level2
+        then
+            load_level2 = true
+        elseif lua_table.Input:KeyRepeat("F5") --checkpoint0
+        then
+            last_checkpoint = 0
+            GetCheckpointPos()
+            lua_table.Physics:SetCharacterPosition(geralt_x, geralt_y, geralt_z, Geralt)
+            lua_table.Physics:SetCharacterPosition(jaskier_x, jaskier_y, jaskier_z, Jaskier)
+        elseif lua_table.Input:KeyRepeat("F6") --checkpoint1
+        then
+            last_checkpoint = 1
+            GetCheckpointPos()
+            lua_table.Physics:SetCharacterPosition(geralt_x, geralt_y, geralt_z, Geralt)
+            lua_table.Physics:SetCharacterPosition(jaskier_x, jaskier_y, jaskier_z, Jaskier)
+        elseif lua_table.Input:KeyRepeat("F7") --checkpoint2
+        then
+            last_checkpoint = 2
+            GetCheckpointPos()
+            lua_table.Physics:SetCharacterPosition(geralt_x, geralt_y, geralt_z, Geralt)
+            lua_table.Physics:SetCharacterPosition(jaskier_x, jaskier_y, jaskier_z, Jaskier)
         end
         -----------
 
@@ -476,15 +501,18 @@ function GetTableWinLose()
         then
             load_level1 = false
             is_lose = false
+            --set loading screen**
             lua_table.Scene:LoadScene(lua_table.level1_uid)
         elseif load_level2 == true
         then
             load_level2 = false
             is_lose = false
+            --set loading screen**
             lua_table.Scene:LoadScene(lua_table.level2_uid)
         elseif load_mainmenu == true
         then
             load_mainmenu = false
+            --set loading screen**
             lua_table.Scene:LoadScene(lua_table.mm_uid)
         end
     end
