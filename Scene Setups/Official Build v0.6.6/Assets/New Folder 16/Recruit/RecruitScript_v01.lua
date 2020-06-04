@@ -7,6 +7,7 @@ lua_table.Physics =  Scripting.Physics()
 lua_table.Animations = Scripting.Animations()
 lua_table.Recast = Scripting.Navigation()
 lua_table.Particles = Scripting.Particles()
+lua_table.Audio = Scripting.Audio()
 -- DEBUG PURPOSES
 --lua_table.Input = Scripting.Inputs()
 
@@ -286,6 +287,8 @@ local function Attack()
 
 	if attack_timer <= lua_table.System:GameTime() * 1000 and not attacked then
 
+		lua_table.Audio:PlayAudioEvent("Play_Lumberjack_Axe_Swing_Attack")
+
 		random_attack = math.random(1, 2)
 
 		if random_attack == 1 then 
@@ -399,6 +402,8 @@ function lua_table:OnTriggerEnter()
 		if lua_table.currentState ~= State.DEATH then
 
 			lua_table.health = lua_table.health - script.collider_damage
+
+			lua_table.Audio:PlayAudioEvent("Play_Enemy_Humanoid_Hit")
 	
 			if script.collider_effect ~= attack_effects.none then
 				

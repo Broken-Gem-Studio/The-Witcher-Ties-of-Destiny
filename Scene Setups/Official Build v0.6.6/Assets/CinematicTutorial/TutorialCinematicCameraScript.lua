@@ -27,8 +27,7 @@ function GetTableTutorialCinematicCameraScript()
     local minion1 = 0
     local minion2 = 0
 
-    local move_recruits = true
-    local disable_enemies = true
+    local disable_fight = true
 
     -- Camera target IDs
     local cube_ID = {}
@@ -97,6 +96,7 @@ function GetTableTutorialCinematicCameraScript()
         archer1 = lua_table.GameObjectFunctions:FindGameObject("Archer1")
         archer2 = lua_table.GameObjectFunctions:FindGameObject("Archer2")
 
+        -- This are the moving enemies
         recruit1 = lua_table.GameObjectFunctions:FindGameObject("Recruit1")
         recruit2 = lua_table.GameObjectFunctions:FindGameObject("Recruit_Gank")
 
@@ -168,6 +168,12 @@ function GetTableTutorialCinematicCameraScript()
             lua_table.Transform:SetPosition(-67, 7, 101, lua_table.MyUID)
             lua_table.Transform:SetObjectRotation(179, 18, 179, lua_table.MyUID)
 
+            lua_table.GameObjectFunctions:SetActiveGameObject(false, lumber1)
+            lua_table.GameObjectFunctions:SetActiveGameObject(false, lumber2)
+            lua_table.GameObjectFunctions:SetActiveGameObject(false, lumber3)
+            lua_table.GameObjectFunctions:SetActiveGameObject(false, archer1)
+            lua_table.GameObjectFunctions:SetActiveGameObject(false, archer2)
+
             lua_table.GameObjectFunctions:SetActiveGameObject(true, recruit2)
             lua_table.GameObjectFunctions:SetActiveGameObject(true, minion2)
         end
@@ -183,18 +189,14 @@ function GetTableTutorialCinematicCameraScript()
             GoTo(2, 3.33 * dt)
         end
 
-        if time > 31 and disable_enemies == true
+        if time > 19 and disable_fight == true 
         then
-        
-            lua_table.GameObjectFunctions:SetActiveGameObject(false, lumber1)
-            lua_table.GameObjectFunctions:SetActiveGameObject(false, lumber2)
-            lua_table.GameObjectFunctions:SetActiveGameObject(false, lumber3)
-            lua_table.GameObjectFunctions:SetActiveGameObject(false, archer1)
-            lua_table.GameObjectFunctions:SetActiveGameObject(false, archer2)
             lua_table.GameObjectFunctions:SetActiveGameObject(false, recruit1)
             lua_table.GameObjectFunctions:SetActiveGameObject(false, recruit2)
+            
             lua_table.GameObjectFunctions:SetActiveGameObject(false, minion1)
             lua_table.GameObjectFunctions:SetActiveGameObject(false, minion2)
+           
 
         end
 
