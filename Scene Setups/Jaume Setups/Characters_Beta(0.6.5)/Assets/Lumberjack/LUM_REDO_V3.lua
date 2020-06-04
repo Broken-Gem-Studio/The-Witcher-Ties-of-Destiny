@@ -1,4 +1,4 @@
-function GetTableLUM_REDO_V2()
+function GetTableLUM_REDO_V3()
 local lua_table = {}
 lua_table.System = Scripting.System()
 
@@ -49,9 +49,8 @@ local State = {
 
 
 local attack_colliders = {
-	jump_attack = { GO_name = "Lumberjack_JA", GO_UID = 0 , active = false},
-	front1 = { GO_name = "Lumberjack_FA1", GO_UID = 0 , active = false},
-	front2 = { GO_name = "Lumberjack_FA2", GO_UID = 0 , active = false}
+	jump_attack = { GO_name = "ColliderJumpAttack", GO_UID = 0 , active = false},
+	front = { GO_name = "ColliderFront", GO_UID = 0 , active = false}
 }
 
 local particles = {
@@ -125,7 +124,7 @@ local JumpAttackDone = false
 local JumpAttackAuxTarget = {}
 local CurrentlyJumping = false
 local JumpAttackDuration = 1400 --this number depends on anim velocity and movement speed
-
+local JumpAttackColliderActivated = false
 --Attack()
 
 local DoAttack = false
@@ -134,7 +133,8 @@ local TimeBetweenAttacks = 0
 local AttackIdleAnimationController = true
 local FirstAttack = true
 local CurrentlyAttacking = false
-
+local CalledAttack1 = false
+local CalledAttack2 = false
 --Die()
 
 local DoDie = false
@@ -178,6 +178,8 @@ lua_table.Nvec3z = 1
 
 lua_table.CurrentHealth = 0
 lua_table.MaxHealth = 350
+lua_table.collider_damage = 0
+lua_table.collider_effect = 0
 
 local PlayersDead = false
 --#################################################### Utility ###########################################
@@ -300,6 +302,7 @@ local function ResetDetection(ResetScream)
 	
 	JumpStage = 0
 	JumpAttackDone = false
+	JumpAttackColliderActivated = false
 	RunAnimationController = true
 	MinDistanceToJump = 10
 	OptimalDistanceJumpAttack = false
@@ -647,6 +650,39 @@ end
 
 
 local function Attack()
+	
+	if CalledAttack1 == true
+	then
+		if CurrentTime - TimeSinceLastAttack > 700 
+		then
+			if attack_colliders.front.active == false
+			then
+				lua_table.collider_damage = 20
+				lua_table.collider_effect = 0 --none
+				lua_table.GameObjectFunctions:SetActiveGameObject(true, attack_colliders.front.GO_UID)
+				attack_colliders.front.active = true
+				CalledAttack1 = false
+				if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK COLLIDER ATTACK IN FALSE") end
+			end
+		end
+	end
+
+	if CalledAttack2 == true
+	then
+		if CurrentTime - TimeSinceLastAttack > 1500 
+		then
+			if attack_colliders.front.active == false
+			then
+				lua_table.collider_damage = 30
+				lua_table.collider_effect = 0 --none
+				lua_table.GameObjectFunctions:SetActiveGameObject(true, attack_colliders.front.GO_UID)
+				attack_colliders.front.active = true
+				CalledAttack2 = false
+				if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK COLLIDER ATTACK IN FALSE") end
+			end
+		end
+	end
+
 	if CurrentTime - TimeSinceLastAttack > (TimeBetweenAttacks + 1000) or FirstAttack == true --Choms found here the troyan horse
 	then
 		CurrentlyAttacking = true
@@ -654,12 +690,14 @@ local function Attack()
 		Dice = lua_table.SystemFunctions:RandomNumberInRange(0,10)
 		if Dice < 5 
 		then
+			CalledAttack1 = true
 			lua_table.AnimationSystem:PlayAnimation("ATTACK_1",30.0, MyUID)
 			TimeBetweenAttacks = 1500 --time animation duration
 			TimeSinceLastAttack = PerfGameTime()
 			AttackIdleAnimationController = true
 		elseif Dice >= 5  
 		then
+			CalledAttack2 = true
 			lua_table.AnimationSystem:PlayAnimation("ATTACK_2",40.0, MyUID)
 			TimeBetweenAttacks = 2100 --time animation duration
 			TimeSinceLastAttack = PerfGameTime()
@@ -682,6 +720,7 @@ local function Die()
 	
 	if DieAnimation_Controller == false
 	then	
+		CurrentVelocity = 0
 		lua_table.AnimationSystem:PlayAnimation("DEATH",30.0,MyUID)
 		DieAnimation_Controller = true
 	end
@@ -692,7 +731,34 @@ local function Die()
 	end
 end
 
+
+local function ControlColliders()
+
+	if attack_colliders.jump_attack.active == true
+	then	
+		lua_table.collider_damage = 0
+		lua_table.collider_effect = 0 --none
+		lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.jump_attack.GO_UID)
+		attack_colliders.jump_attack.active = false
+		if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK COLLIDER JUMP ATTACK IN FALSE") end
+	end
+
+	if attack_colliders.front.active == true
+	then
+		lua_table.collider_damage = 0
+		lua_table.collider_effect = 0 --none
+		lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.front.GO_UID)
+		attack_colliders.front.active = false
+		if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK COLLIDER ATTACK IN FALSE") end
+	end
+
+end
+
+
+
 local function ChooseBehaviour() --Called only inside State machine's functions
+
+	ControlColliders()
 
 	if CurrentState == State.PRE_DETECTION
 	then
@@ -814,8 +880,20 @@ local  function HandleDetection()
 
 	if DoJump == true and JumpAttackDone == false
 	then
-		if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK JUMP_ATTACK()") end
+		--if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK JUMP_ATTACK()") end
 		JumpAttack()
+		if JumpStage == 4 
+		then
+			if attack_colliders.jump_attack.active == false and JumpAttackColliderActivated == false 
+			then
+				JumpAttackColliderActivated = true
+				lua_table.collider_damage = 40
+				lua_table.collider_effect = 1 --stun
+				lua_table.GameObjectFunctions:SetActiveGameObject(true, attack_colliders.jump_attack.GO_UID)
+				if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK COLLIDER JUMP ATTACK IN TRUE") end
+				attack_colliders.jump_attack.active = true
+			end
+		end
 	end
 	if JumpAttackDone == true
 	then	
@@ -1049,9 +1127,9 @@ function lua_table:Awake()
 	end
 
 	---SET COLLIDERS---
-	--attack_colliders.jump_attack.GO_UID = lua_table.GameObjectFunctions:FindChildGameObject(attack_colliders.jump_attack.GO_name)
-	--attack_colliders.front1.GO_UID = lua_table.GameObjectFunctions:FindChildGameObject(attack_colliders.front1.GO_name)
-	--attack_colliders.front2.GO_UID = lua_table.GameObjectFunctions:FindChildGameObject(attack_colliders.front1.GO_name)
+	attack_colliders.jump_attack.GO_UID = lua_table.GameObjectFunctions:FindChildGameObject(attack_colliders.jump_attack.GO_name)
+	attack_colliders.front.GO_UID = lua_table.GameObjectFunctions:FindChildGameObject(attack_colliders.front.GO_name)
+	
 end
 
 
