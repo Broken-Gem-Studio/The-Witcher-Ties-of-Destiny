@@ -689,7 +689,7 @@ function lua_table:Update()
                 start_death = true
 
                 lua_table.PhysicsSystem:SetActiveController(false, MyUID)
-                lua_table.Material:SetMaterialByName("ArcherMaterial.mat", mesh_gameobject_UID)
+                
 
                 local tuto_manager = lua_table.GameObjectFunctions:FindGameObject("TutorialManager")
                 if tuto_manager ~= 0
