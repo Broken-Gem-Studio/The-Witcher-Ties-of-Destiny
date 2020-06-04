@@ -29,6 +29,7 @@ function GetTableTutorialCinematicCameraScript()
 
     local move_recruits = true
     local disable_enemies = true
+    local disable_fight = true
 
     -- Camera target IDs
     local cube_ID = {}
@@ -97,6 +98,7 @@ function GetTableTutorialCinematicCameraScript()
         archer1 = lua_table.GameObjectFunctions:FindGameObject("Archer1")
         archer2 = lua_table.GameObjectFunctions:FindGameObject("Archer2")
 
+        -- This are the moving enemies
         recruit1 = lua_table.GameObjectFunctions:FindGameObject("Recruit1")
         recruit2 = lua_table.GameObjectFunctions:FindGameObject("Recruit_Gank")
 
@@ -183,6 +185,17 @@ function GetTableTutorialCinematicCameraScript()
             GoTo(2, 3.33 * dt)
         end
 
+        if time > 19 and disable_fight == true 
+        then
+            lua_table.GameObjectFunctions:SetActiveGameObject(false, recruit1)
+            lua_table.GameObjectFunctions:SetActiveGameObject(false, recruit2)
+            
+            lua_table.GameObjectFunctions:SetActiveGameObject(false, minion1)
+            lua_table.GameObjectFunctions:SetActiveGameObject(false, minion2)
+           
+
+        end
+
         if time > 31 and disable_enemies == true
         then
         
@@ -191,10 +204,6 @@ function GetTableTutorialCinematicCameraScript()
             lua_table.GameObjectFunctions:SetActiveGameObject(false, lumber3)
             lua_table.GameObjectFunctions:SetActiveGameObject(false, archer1)
             lua_table.GameObjectFunctions:SetActiveGameObject(false, archer2)
-            lua_table.GameObjectFunctions:SetActiveGameObject(false, recruit1)
-            lua_table.GameObjectFunctions:SetActiveGameObject(false, recruit2)
-            lua_table.GameObjectFunctions:SetActiveGameObject(false, minion1)
-            lua_table.GameObjectFunctions:SetActiveGameObject(false, minion2)
 
         end
 
