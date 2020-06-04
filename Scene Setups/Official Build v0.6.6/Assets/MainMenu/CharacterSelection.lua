@@ -56,6 +56,7 @@ function GetTableCharacterSelection()
     local PRESS_B = 0
     local ARROWS = 0
 
+    --POSTERS
     local GERALT_POSTER_P1 = 0
     local JASKIER_POSTER_P1 = 0
     local YENN_POSTER_P1 = 0
@@ -64,6 +65,12 @@ function GetTableCharacterSelection()
     local JASKIER_POSTER_P2 = 0
     local YENN_POSTER_P2 = 0
     local CIRI_POSTER_P2 = 0
+
+    local PLAYER1_READY = 0
+    local PLAYER1_NOT_AVAILABLE = 0
+    local PLAYER2_READY = 0
+    local PLAYER2_NOT_AVAILABLE = 0
+
     --animation
     local GERALT = 0
     local JASKIER = 0
@@ -108,6 +115,10 @@ function GetTableCharacterSelection()
         lua_table["UI"]:MakeElementInvisible("Image", JASKIER_POSTER_P2)
         lua_table["UI"]:MakeElementInvisible("Image", YENN_POSTER_P2)
         lua_table["UI"]:MakeElementInvisible("Image", CIRI_POSTER_P2)
+        lua_table["UI"]:MakeElementInvisible("Image", PLAYER1_READY)
+        lua_table["UI"]:MakeElementInvisible("Image", PLAYER2_READY)
+        lua_table["UI"]:MakeElementInvisible("Image", PLAYER1_NOT_AVAILABLE)
+        lua_table["UI"]:MakeElementInvisible("Image", PLAYER2_NOT_AVAILABLE)
 
         
 
@@ -285,6 +296,10 @@ function GetTableCharacterSelection()
         JASKIER_POSTER_P2 = lua_table["GameObject"]:FindGameObject("P2PAPER2")
         YENN_POSTER_P2= lua_table["GameObject"]:FindGameObject("P2PAPER3")
         CIRI_POSTER_P2= lua_table["GameObject"]:FindGameObject("P2PAPER4")
+        PLAYER1_READY= lua_table["GameObject"]:FindGameObject("PLAYER1READY")
+        PLAYER1_NOT_AVAILABLE= lua_table["GameObject"]:FindGameObject("PLAYER1NOTAVAILABLE")
+        PLAYER2_READY= lua_table["GameObject"]:FindGameObject("PLAYER2READY")
+        PLAYER2_NOT_AVAILABLE= lua_table["GameObject"]:FindGameObject("PLAYER2NOTAVAILABLE")
     end
     
     function lua_table:Start()
@@ -600,6 +615,8 @@ function GetTableCharacterSelection()
             then
                 lua_table["UI"]:ChangeUIComponentAlpha("Image", 1.0, P1_ON_CIRI)
             end
+
+            lua_table["UI"]:MakeElementVisible("Image", PLAYER1_READY)
         end
 
         if player1_locked == false
@@ -617,6 +634,8 @@ function GetTableCharacterSelection()
             then
                 lua_table["UI"]:ChangeUIComponentAlpha("Image", 0.6, P1_ON_CIRI)
             end
+
+            lua_table["UI"]:MakeElementInvisible("Image", PLAYER1_READY)
         end
 
         if player2_locked == true
@@ -634,6 +653,8 @@ function GetTableCharacterSelection()
             then
                 lua_table["UI"]:ChangeUIComponentAlpha("Image", 1.0, P2_ON_CIRI)
             end
+
+            lua_table["UI"]:MakeElementVisible("Image", PLAYER2_READY)
         end
 
         if player2_locked == false
@@ -651,6 +672,30 @@ function GetTableCharacterSelection()
             then
                 lua_table["UI"]:ChangeUIComponentAlpha("Image", 0.6, P2_ON_CIRI)
             end
+
+            lua_table["UI"]:MakeElementInvisible("Image", PLAYER2_READY)
+        end
+
+
+        if player1_focus == player2_focus
+        then
+            if player1_locked == true
+            then
+                lua_table["UI"]:MakeElementVisible("Image", PLAYER2_NOT_AVAILABLE)
+            else
+                lua_table["UI"]:MakeElementInvisible("Image", PLAYER2_NOT_AVAILABLE)
+            end
+
+            if player2_locked == true
+            then
+                lua_table["UI"]:MakeElementVisible("Image", PLAYER1_NOT_AVAILABLE)
+            else
+                lua_table["UI"]:MakeElementInvisible("Image", PLAYER1_NOT_AVAILABLE)
+            end
+
+        else
+            lua_table["UI"]:MakeElementInvisible("Image", PLAYER1_NOT_AVAILABLE)
+            lua_table["UI"]:MakeElementInvisible("Image", PLAYER2_NOT_AVAILABLE)
         end
 
 
