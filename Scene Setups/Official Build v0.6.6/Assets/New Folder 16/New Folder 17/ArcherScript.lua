@@ -10,6 +10,7 @@ lua_table.Navigation = Scripting.Navigation()
 lua_table.Audio = Scripting.Audio()
 lua_table.Particles = Scripting.Particles()
 lua_table.InputFunctions = Scripting.Inputs()
+lua_table.Material = Scripting.Materials()
 
 -- Targets
 lua_table.geralt = "Geralt"
@@ -30,6 +31,9 @@ lua_table.ClosestPlayer_ID = 0
 lua_table.collider_damage = 8
 lua_table.collider_effect = 0
 
+local mesh_gameobject_UID = 0
+local changed_material = false
+local material_time = 0
 local MyUID = 0
 
 -- Archer main states ---------------------
@@ -161,6 +165,10 @@ function lua_table:OnTriggerEnter()
         local script = lua_table.GameObjectFunctions:GetScript(parent)
 
         lua_table.health = lua_table.health - script.collider_damage
+
+        lua_table.Material:SetMaterialByName("HitMaterial.mat", mesh_gameobject_UID)
+        material_time = PerfGameTime()
+        changed_material = true
         
         if script.collider_effect ~= Effects.NONE then
             -- TODO: React depending on type of effect 
@@ -226,6 +234,9 @@ function lua_table:RequestedTrigger(collider_GO)
         
         -- Recieve damage
         lua_table.health = lua_table.health - player_script.collider_damage
+        lua_table.Material:SetMaterialByName("HitMaterial.mat", mesh_gameobject_UID)
+        material_time = PerfGameTime()
+        changed_material = true
 
         if player_script.collider_effect ~= Effects.NONE then
             -- TODO: React depending on type of effect 
@@ -511,6 +522,7 @@ function lua_table:Start()
     Geralt_ID = lua_table.GameObjectFunctions:FindGameObject(lua_table.geralt)
     Jaskier_ID = lua_table.GameObjectFunctions:FindGameObject(lua_table.jaskier)
     Attack_Collider_UID = lua_table.GameObjectFunctions:FindChildGameObject(lua_table.Attack_Collider)
+    mesh_gameobject_UID = lua_table.GameObjectFunctions:FindChildGameObject("Archer_Mesh")
     
     
 
@@ -519,11 +531,15 @@ function lua_table:Start()
     navigation_ID = lua_table.Navigation:GetAreaFromName("Walkable")
 
     lua_table.AnimationSystem:SetBlendTime(0.10, MyUID)
+
+    
+
+
 end
 
 function lua_table:Update()
 
-    -- if lua_table.InputFunctions:KeyDown("K") then 
+    if lua_table.InputFunctions:KeyDown("K") then 
     --    start_taunt = true
     --    taunt_time = PerfGameTime()
     --     Taunt_GO_UID = Jaskier_ID
@@ -533,18 +549,19 @@ function lua_table:Update()
     --         lua_table.Particles:PlayParticleEmitter(particles[i])
     --     end
         
-    -- end
+    end
 
-    -- if lua_table.InputFunctions:KeyDown("M") then 
-    --     lua_table.start_stun = true
-    --     lua_table.AnimationSystem:PlayAnimation("Hit",30.0, MyUID)
-    --     stun_time = PerfGameTime()
-    --     local particles = {}
-    --     particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("StunParticles", Particles_GO))
-    --     for i=1, #particles do 
-    --         lua_table.Particles:PlayParticleEmitter(particles[i])
-    --     end
-    -- end
+    if lua_table.InputFunctions:KeyDown("M") then 
+        -- lua_table.start_stun = true
+        -- lua_table.AnimationSystem:PlayAnimation("Hit",30.0, MyUID)
+        -- stun_time = PerfGameTime()
+        -- local particles = {}
+        -- particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("StunParticles", Particles_GO))
+        -- for i=1, #particles do 
+        --     lua_table.Particles:PlayParticleEmitter(particles[i])
+        -- end
+        
+    end
 
     
 
@@ -572,6 +589,11 @@ function lua_table:Update()
             lua_table.DistanceToTarget = JaskierDistance
             TargetPos = Jpos
         end
+    end
+
+    if material_time + 100 <= PerfGameTime() and changed_material == true then
+        lua_table.Material:SetMaterialByName("ArcherMaterial.mat", mesh_gameobject_UID)
+        changed_material = false
     end
 
     -- ----------------------Manage Archer States | value needs test ------------------------------------------------------
@@ -654,7 +676,6 @@ function lua_table:Update()
         end
 
     else
-
         if lua_table.health <= 0.0
         then
             lua_table.currentState = State.DEATH
@@ -668,6 +689,7 @@ function lua_table:Update()
                 start_death = true
 
                 lua_table.PhysicsSystem:SetActiveController(false, MyUID)
+                lua_table.Material:SetMaterialByName("ArcherMaterial.mat", mesh_gameobject_UID)
 
                 local tuto_manager = lua_table.GameObjectFunctions:FindGameObject("TutorialManager")
                 if tuto_manager ~= 0
@@ -681,8 +703,11 @@ function lua_table:Update()
             then
                 lua_table.GameObjectFunctions:DestroyGameObject(MyUID)
             end
-        elseif lua_table.start_hit == true and hit_time + 1500 <= PerfGameTime() then
-            lua_table.start_hit = false
+        elseif lua_table.start_hit == true then
+
+            if hit_time + 1500 <= PerfGameTime() then
+                lua_table.start_hit = false
+            end
 
         elseif lua_table.start_knockback == true then
             if knockback_time + 200 <= PerfGameTime() then 
