@@ -530,8 +530,13 @@
 			<IncludedEvents>
 				<Event Id="2533588661" Name="Play_Prop_hit_wood" ObjectPath="\Events\Default Work Unit\Props\Play_Prop_hit_wood" GUID="{B258C721-CD45-4FFE-B057-49ED960DEAA7}"/>
 				<Event Id="2941887487" Name="Play_Prop_wood_break" ObjectPath="\Events\Default Work Unit\Props\Play_Prop_wood_break" GUID="{FF2D7346-6950-4EBC-843B-69F79C93C934}"/>
+				<Event Id="1072535284" Name="Play_Reach_firecamp_" ObjectPath="\Events\Default Work Unit\Props\Play_Reach_firecamp_" GUID="{361773E2-FE57-46C3-8E2D-AA8A8AC9A69E}"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
+				<File Id="120694735" Language="SFX">
+					<ShortName>Reach_firecamp_.wav</ShortName>
+					<Path>SFX\Reach_firecamp__10C4C929.wem</Path>
+				</File>
 				<File Id="268052903" Language="SFX">
 					<ShortName>Prop_wood_break_2.wav</ShortName>
 					<Path>SFX\Prop_wood_break_2_10C4C929.wem</Path>
@@ -793,23 +798,23 @@
 			<IncludedMemoryFiles>
 				<File Id="303593917" Language="SFX">
 					<ShortName>Lvl2_fire_ambience_3.wav</ShortName>
-					<Path>SFX\Lvl2_fire_ambience_3_10C4C929.wem</Path>
+					<Path>SFX\Lvl2_fire_ambience_3_D79FB2B7.wem</Path>
 				</File>
 				<File Id="380592605" Language="SFX">
 					<ShortName>Lvl2_fire_ambience_1.wav</ShortName>
-					<Path>SFX\Lvl2_fire_ambience_1_10C4C929.wem</Path>
+					<Path>SFX\Lvl2_fire_ambience_1_D79FB2B7.wem</Path>
 				</File>
 				<File Id="490493165" Language="SFX">
 					<ShortName>Lvl2_wind_2.wav</ShortName>
-					<Path>SFX\Lvl2_wind_2_10C4C929.wem</Path>
+					<Path>SFX\Lvl2_wind_2_D79FB2B7.wem</Path>
 				</File>
 				<File Id="526975984" Language="SFX">
 					<ShortName>Lvl2_wind_1.wav</ShortName>
-					<Path>SFX\Lvl2_wind_1_10C4C929.wem</Path>
+					<Path>SFX\Lvl2_wind_1_D79FB2B7.wem</Path>
 				</File>
 				<File Id="823104144" Language="SFX">
 					<ShortName>Lvl2_fire ambience_2.wav</ShortName>
-					<Path>SFX\Lvl2_fire ambience_2_10C4C929.wem</Path>
+					<Path>SFX\Lvl2_fire ambience_2_D79FB2B7.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>
@@ -825,9 +830,14 @@
 			<IncludedEvents>
 				<Event Id="3007158762" Name="Play_Lost_Menu_Music" ObjectPath="\Events\Default Work Unit\Play_Lost_Menu_Music" GUID="{CEB9E95B-8248-49FE-B2DD-BA1A76BCE546}"/>
 				<Event Id="2895168921" Name="Play_Main_Menu_Music" ObjectPath="\Events\Default Work Unit\Play_Main_Menu_Music" GUID="{0AE28D7A-BA48-4317-84A9-E9DDB2BC5B03}"/>
+				<Event Id="1913521131" Name="Play_Music_Menu_Comparison_Pirate_Dance" ObjectPath="\Events\Default Work Unit\Play_Music_Menu_Comparison_Pirate_Dance" GUID="{D8C2E418-7AE3-46EA-8E37-6727F19E5260}"/>
 				<Event Id="2973513758" Name="Play_Win_Menu_Music" ObjectPath="\Events\Default Work Unit\Play_Win_Menu_Music" GUID="{3A638A68-A0A5-4630-BA90-82ECDB08B5BB}"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
+				<File Id="237417088" Language="SFX">
+					<ShortName>Music_Menu_Comparison_Pirate_Dance.wav</ShortName>
+					<Path>SFX\Music_Menu_Comparison_Pirate_Dance_D79FB2B7.wem</Path>
+				</File>
 				<File Id="665589033" Language="SFX">
 					<ShortName>Music_Menu_Win.wav</ShortName>
 					<Path>SFX\Music_Menu_Win_D79FB2B7.wem</Path>
@@ -1209,62 +1219,6 @@
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>
-		<SoundBank Id="2244718989" GUID="{63225A51-D0D4-4EAB-8A48-03D3213FCA2D}" Language="SFX">
-			<ObjectPath>\SoundBanks\Default Work Unit\Music_Level_1_1</ObjectPath>
-			<ShortName>Music_Level_1_1</ShortName>
-			<Path>Music_Level_1_1.bnk</Path>
-			<IncludedEvents>
-				<Event Id="814842324" Name="Play_Level_1_Music" ObjectPath="\Events\Default Work Unit\Play_Level_1_Music" GUID="{8B5CD85E-0112-4C48-93BF-7901B8D477D0}"/>
-			</IncludedEvents>
-			<IncludedMemoryFiles>
-				<File Id="484032302" Language="SFX">
-					<ShortName>Music\Music_Combat_Viking_Ship.wav</ShortName>
-					<Path>SFX\Music\Music_Combat_Viking_Ship_D79FB2B7.wem</Path>
-				</File>
-				<File Id="967037437" Language="SFX">
-					<ShortName>Music\Music_Lvl_1_Broken_Village.wav</ShortName>
-					<Path>SFX\Music\Music_Lvl_1_Broken_Village_D79FB2B7.wem</Path>
-				</File>
-				<File Id="997267315" Language="SFX">
-					<ShortName>Music\Music_Combat_The_Dark_Castle.wav</ShortName>
-					<Path>SFX\Music\Music_Combat_The_Dark_Castle_D79FB2B7.wem</Path>
-				</File>
-			</IncludedMemoryFiles>
-			<ExcludedMemoryFiles>
-				<File Id="849114426" Language="SFX">
-					<ShortName>Music\Music_Menu_Pause_Relaxing_Green_Nature.wav</ShortName>
-					<Path>SFX\Music\Music_Menu_Pause_Relaxing_Green_Nature_D79FB2B7.wem</Path>
-				</File>
-			</ExcludedMemoryFiles>
-		</SoundBank>
-		<SoundBank Id="2244866146" GUID="{16ED2784-FE6B-4C34-BBAB-EE25CB5C8659}" Language="SFX">
-			<ObjectPath>\SoundBanks\Default Work Unit\Music_Level_2_1</ObjectPath>
-			<ShortName>Music_Level_2_1</ShortName>
-			<Path>Music_Level_2_1.bnk</Path>
-			<IncludedEvents>
-				<Event Id="2048014091" Name="Play_Level_2_Music" ObjectPath="\Events\Default Work Unit\Play_Level_2_Music" GUID="{EF000F6C-BC68-4301-9A1E-7DDED98AEF48}"/>
-			</IncludedEvents>
-			<IncludedMemoryFiles>
-				<File Id="484032302" Language="SFX">
-					<ShortName>Music\Music_Combat_Viking_Ship.wav</ShortName>
-					<Path>SFX\Music\Music_Combat_Viking_Ship_D79FB2B7.wem</Path>
-				</File>
-				<File Id="621261315" Language="SFX">
-					<ShortName>Music\Music_Lvl_2_Loop_The village.wav</ShortName>
-					<Path>SFX\Music\Music_Lvl_2_Loop_The village_D79FB2B7.wem</Path>
-				</File>
-				<File Id="997267315" Language="SFX">
-					<ShortName>Music\Music_Combat_The_Dark_Castle.wav</ShortName>
-					<Path>SFX\Music\Music_Combat_The_Dark_Castle_D79FB2B7.wem</Path>
-				</File>
-			</IncludedMemoryFiles>
-			<ExcludedMemoryFiles>
-				<File Id="849114426" Language="SFX">
-					<ShortName>Music\Music_Menu_Pause_Relaxing_Green_Nature.wav</ShortName>
-					<Path>SFX\Music\Music_Menu_Pause_Relaxing_Green_Nature_D79FB2B7.wem</Path>
-				</File>
-			</ExcludedMemoryFiles>
-		</SoundBank>
 		<SoundBank Id="2380338445" GUID="{7C0896AD-4B8C-4824-9E19-AB8704EC514B}" Language="SFX">
 			<ObjectPath>\SoundBanks\Default Work Unit\Human_enemies</ObjectPath>
 			<ShortName>Human_enemies</ShortName>
@@ -1497,11 +1451,16 @@
 				<Event Id="3372924164" Name="Play_Lvl2_Button_Skip_Cinematic_Pressed" ObjectPath="\Events\Default Work Unit\Cinematic_Level_2\Play_Lvl2_Button_Skip_Cinematic_Pressed" GUID="{BDF68FF4-CBF8-483A-A632-1A041CCC3BAA}"/>
 				<Event Id="3901497125" Name="Play_Lvl2_Cinematic_Skipped" ObjectPath="\Events\Default Work Unit\Cinematic_Level_2\Play_Lvl2_Cinematic_Skipped" GUID="{1BF27E77-BD0F-4D15-8C9E-D45C8B29F1ED}"/>
 				<Event Id="1359365268" Name="Play_lvl2_Intro_conversation_Cutscene" ObjectPath="\Events\Default Work Unit\Cinematic_Level_2\Play_lvl2_Intro_conversation_Cutscene" GUID="{F282CCBC-1D6B-4677-9722-05657EDFEB10}"/>
+				<Event Id="3271742197" Name="Play_Music_Cinematic_lvl2_Elven_Forest" ObjectPath="\Events\Default Work Unit\Cinematic_Level_2\Play_Music_Cinematic_lvl2_Elven_Forest" GUID="{9DAF667F-258B-4EF6-853D-3512A1094D56}"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
 				<File Id="171106237" Language="SFX">
 					<ShortName>Lvl2_Button_Skip_Cinematic_Pressed.wav</ShortName>
 					<Path>SFX\Lvl2_Button_Skip_Cinematic_Pressed_10C4C929.wem</Path>
+				</File>
+				<File Id="323414340" Language="SFX">
+					<ShortName>Music_Cinematic_lvl2_Elven_Forest.wav</ShortName>
+					<Path>SFX\Music_Cinematic_lvl2_Elven_Forest_D79FB2B7.wem</Path>
 				</File>
 				<File Id="451877459" Language="SFX">
 					<ShortName>Lvl2_Ambience_Wind_Loop.wav</ShortName>
@@ -1518,6 +1477,20 @@
 				<File Id="828304743" Language="SFX">
 					<ShortName>lvl2_Intro_conversation_Cutscene.wav</ShortName>
 					<Path>SFX\lvl2_Intro_conversation_Cutscene_D79FB2B7.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
+		</SoundBank>
+		<SoundBank Id="3354210175" GUID="{FF01A421-E621-4D6D-B9F5-D76B46E77A8A}" Language="SFX">
+			<ObjectPath>\SoundBanks\Default Work Unit\Cinematic_Level_1</ObjectPath>
+			<ShortName>Cinematic_Level_1</ShortName>
+			<Path>Cinematic_Level_1.bnk</Path>
+			<IncludedEvents>
+				<Event Id="4153214231" Name="Play_Music_Cinematic_lvl1_The_Ocean_Takes_It_All" ObjectPath="\Events\Default Work Unit\Cinematic_Level_1\Play_Music_Cinematic_lvl1_The_Ocean_Takes_It_All" GUID="{33219AC0-862C-4B64-88B5-262738085FCD}"/>
+			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="419561649" Language="SFX">
+					<ShortName>Music_Cinematic_lvl1_The_Ocean_Takes_It_All.wav</ShortName>
+					<Path>SFX\Music_Cinematic_lvl1_The_Ocean_Takes_It_All_D79FB2B7.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>
@@ -1621,6 +1594,62 @@
 				<File Id="1046985453" Language="SFX">
 					<ShortName>Button_main_menu.wav</ShortName>
 					<Path>SFX\Button_main_menu_10C4C929.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
+		</SoundBank>
+		<SoundBank Id="3508274217" GUID="{63225A51-D0D4-4EAB-8A48-03D3213FCA2D}" Language="SFX">
+			<ObjectPath>\SoundBanks\Default Work Unit\Music_Level_1</ObjectPath>
+			<ShortName>Music_Level_1</ShortName>
+			<Path>Music_Level_1.bnk</Path>
+			<IncludedEvents>
+				<Event Id="814842324" Name="Play_Level_1_Music" ObjectPath="\Events\Default Work Unit\Play_Level_1_Music" GUID="{8B5CD85E-0112-4C48-93BF-7901B8D477D0}"/>
+			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="484032302" Language="SFX">
+					<ShortName>Music\Music_Combat_Viking_Ship.wav</ShortName>
+					<Path>SFX\Music\Music_Combat_Viking_Ship_D79FB2B7.wem</Path>
+				</File>
+				<File Id="849114426" Language="SFX">
+					<ShortName>Music\Music_Menu_Pause_Relaxing_Green_Nature.wav</ShortName>
+					<Path>SFX\Music\Music_Menu_Pause_Relaxing_Green_Nature_D79FB2B7.wem</Path>
+				</File>
+				<File Id="967037437" Language="SFX">
+					<ShortName>Music\Music_Lvl_1_Broken_Village.wav</ShortName>
+					<Path>SFX\Music\Music_Lvl_1_Broken_Village_D79FB2B7.wem</Path>
+				</File>
+				<File Id="997267315" Language="SFX">
+					<ShortName>Music\Music_Combat_The_Dark_Castle.wav</ShortName>
+					<Path>SFX\Music\Music_Combat_The_Dark_Castle_D79FB2B7.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
+		</SoundBank>
+		<SoundBank Id="3508274218" GUID="{16ED2784-FE6B-4C34-BBAB-EE25CB5C8659}" Language="SFX">
+			<ObjectPath>\SoundBanks\Default Work Unit\Music_Level_2</ObjectPath>
+			<ShortName>Music_Level_2</ShortName>
+			<Path>Music_Level_2.bnk</Path>
+			<IncludedEvents>
+				<Event Id="2048014091" Name="Play_Level_2_Music" ObjectPath="\Events\Default Work Unit\Play_Level_2_Music" GUID="{EF000F6C-BC68-4301-9A1E-7DDED98AEF48}"/>
+			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="382083512" Language="SFX">
+					<ShortName>Music_Kikimora_Dungeon of shadows.wav</ShortName>
+					<Path>SFX\Music_Kikimora_Dungeon of shadows_D79FB2B7.wem</Path>
+				</File>
+				<File Id="484032302" Language="SFX">
+					<ShortName>Music\Music_Combat_Viking_Ship.wav</ShortName>
+					<Path>SFX\Music\Music_Combat_Viking_Ship_D79FB2B7.wem</Path>
+				</File>
+				<File Id="621261315" Language="SFX">
+					<ShortName>Music\Music_Lvl_2_Loop_The village.wav</ShortName>
+					<Path>SFX\Music\Music_Lvl_2_Loop_The village_D79FB2B7.wem</Path>
+				</File>
+				<File Id="849114426" Language="SFX">
+					<ShortName>Music\Music_Menu_Pause_Relaxing_Green_Nature.wav</ShortName>
+					<Path>SFX\Music\Music_Menu_Pause_Relaxing_Green_Nature_D79FB2B7.wem</Path>
+				</File>
+				<File Id="997267315" Language="SFX">
+					<ShortName>Music\Music_Combat_The_Dark_Castle.wav</ShortName>
+					<Path>SFX\Music\Music_Combat_The_Dark_Castle_D79FB2B7.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>

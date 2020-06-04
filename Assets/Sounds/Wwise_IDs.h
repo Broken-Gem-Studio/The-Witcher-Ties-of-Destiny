@@ -168,6 +168,9 @@ namespace AK
         static const AkUniqueID PLAY_MMMMMM = 3369588032U;
         static const AkUniqueID PLAY_MORE_WORK_FOR_ME_I_GUESS = 1686033526U;
         static const AkUniqueID PLAY_MOUSE_OVER = 2149137476U;
+        static const AkUniqueID PLAY_MUSIC_CINEMATIC_LVL1_THE_OCEAN_TAKES_IT_ALL = 4153214231U;
+        static const AkUniqueID PLAY_MUSIC_CINEMATIC_LVL2_ELVEN_FOREST = 3271742197U;
+        static const AkUniqueID PLAY_MUSIC_MENU_COMPARISON_PIRATE_DANCE = 1913521131U;
         static const AkUniqueID PLAY_MY_BOI = 3003923623U;
         static const AkUniqueID PLAY_MY_PLAN_WAS_PERFECT__UNTIL_WE_PUT_IT_IN_MOTION = 825808860U;
         static const AkUniqueID PLAY_NEED_TO_HURRY = 4148991673U;
@@ -185,6 +188,7 @@ namespace AK
         static const AkUniqueID PLAY_PHEW__NEVER_EXPECTED_THAT_TO_GO_SO_WELL = 473557862U;
         static const AkUniqueID PLAY_PROP_HIT_WOOD = 2533588661U;
         static const AkUniqueID PLAY_PROP_WOOD_BREAK = 2941887487U;
+        static const AkUniqueID PLAY_REACH_FIRECAMP_ = 1072535284U;
         static const AkUniqueID PLAY_READY = 750390071U;
         static const AkUniqueID PLAY_RIGHT = 1215465684U;
         static const AkUniqueID PLAY_RUN__RUN__IF_YOU_VALUE_YOUR_LIFE = 1530776136U;
@@ -244,6 +248,7 @@ namespace AK
 
             namespace SWITCH
             {
+                static const AkUniqueID BOSSFIGHT = 580146960U;
                 static const AkUniqueID COMBAT = 2764240573U;
                 static const AkUniqueID EXPLORATION = 2582085496U;
                 static const AkUniqueID PAUSE = 3092587493U;
@@ -277,6 +282,7 @@ namespace AK
     namespace BANKS
     {
         static const AkUniqueID INIT = 1355168291U;
+        static const AkUniqueID CINEMATIC_LEVEL_1 = 3354210175U;
         static const AkUniqueID CINEMATIC_LEVEL_2 = 3354210172U;
         static const AkUniqueID GERALT = 47710518U;
         static const AkUniqueID HUD = 646625284U;
@@ -285,8 +291,8 @@ namespace AK
         static const AkUniqueID LEVEL_2 = 1290008370U;
         static const AkUniqueID MAIN_MENU = 2005704188U;
         static const AkUniqueID MONSTER_ENEMIES = 1016515008U;
-        static const AkUniqueID MUSIC_LEVEL_1_1 = 2244718989U;
-        static const AkUniqueID MUSIC_LEVEL_2_1 = 2244866146U;
+        static const AkUniqueID MUSIC_LEVEL_1 = 3508274217U;
+        static const AkUniqueID MUSIC_LEVEL_2 = 3508274218U;
         static const AkUniqueID MUSIC_MENUS = 1614123467U;
         static const AkUniqueID PAUSE_MENU = 3422541661U;
         static const AkUniqueID PAUSE_MUSIC = 2735935537U;
