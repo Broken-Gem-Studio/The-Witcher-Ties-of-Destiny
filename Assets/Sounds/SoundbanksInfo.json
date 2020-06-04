@@ -13,14 +13,7 @@
   },
   "DialogueEvents": [],
   "StreamedFiles": [],
-  "MediaFilesNotInAnyBank": [
-   {
-    "Id": "382083512",
-    "Language": "SFX",
-    "ShortName": "Music_Kikimora_Dungeon of shadows.wav",
-    "Path": "SFX\\Music_Kikimora_Dungeon of shadows_D79FB2B7.wem"
-   }
-  ],
+  "MediaFilesNotInAnyBank": [],
   "SoundBanks": [
    {
     "Id": "47710518",
@@ -1761,6 +1754,12 @@
       "GUID": "{0AE28D7A-BA48-4317-84A9-E9DDB2BC5B03}"
      },
      {
+      "Id": "1913521131",
+      "Name": "Play_Music_Menu_Comparison_Pirate_Dance",
+      "ObjectPath": "\\Events\\Default Work Unit\\Play_Music_Menu_Comparison_Pirate_Dance",
+      "GUID": "{D8C2E418-7AE3-46EA-8E37-6727F19E5260}"
+     },
+     {
       "Id": "2973513758",
       "Name": "Play_Win_Menu_Music",
       "ObjectPath": "\\Events\\Default Work Unit\\Play_Win_Menu_Music",
@@ -1768,6 +1767,12 @@
      }
     ],
     "IncludedMemoryFiles": [
+     {
+      "Id": "237417088",
+      "Language": "SFX",
+      "ShortName": "Music_Menu_Comparison_Pirate_Dance.wav",
+      "Path": "SFX\\Music_Menu_Comparison_Pirate_Dance_D79FB2B7.wem"
+     },
      {
       "Id": "665589033",
       "Language": "SFX",
@@ -2587,100 +2592,6 @@
     ]
    },
    {
-    "Id": "2244718989",
-    "GUID": "{63225A51-D0D4-4EAB-8A48-03D3213FCA2D}",
-    "Language": "SFX",
-    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Music_Level_1_1",
-    "ShortName": "Music_Level_1_1",
-    "Path": "Music_Level_1_1.bnk",
-    "IncludedEvents": [
-     {
-      "Id": "814842324",
-      "Name": "Play_Level_1_Music",
-      "ObjectPath": "\\Events\\Default Work Unit\\Play_Level_1_Music",
-      "GUID": "{8B5CD85E-0112-4C48-93BF-7901B8D477D0}"
-     }
-    ],
-    "IncludedMemoryFiles": [
-     {
-      "Id": "484032302",
-      "Language": "SFX",
-      "ShortName": "Music\\Music_Combat_Viking_Ship.wav",
-      "Path": "SFX\\Music\\Music_Combat_Viking_Ship_D79FB2B7.wem"
-     },
-     {
-      "Id": "967037437",
-      "Language": "SFX",
-      "ShortName": "Music\\Music_Lvl_1_Broken_Village.wav",
-      "Path": "SFX\\Music\\Music_Lvl_1_Broken_Village_D79FB2B7.wem"
-     },
-     {
-      "Id": "997267315",
-      "Language": "SFX",
-      "ShortName": "Music\\Music_Combat_The_Dark_Castle.wav",
-      "Path": "SFX\\Music\\Music_Combat_The_Dark_Castle_D79FB2B7.wem"
-     }
-    ],
-    "ExcludedMemoryFiles": [
-     {
-      "Id": "849114426",
-      "Language": "SFX",
-      "ShortName": "Music\\Music_Menu_Pause_Relaxing_Green_Nature.wav",
-      "Path": "SFX\\Music\\Music_Menu_Pause_Relaxing_Green_Nature_D79FB2B7.wem"
-     }
-    ]
-   },
-   {
-    "Id": "2244866146",
-    "GUID": "{16ED2784-FE6B-4C34-BBAB-EE25CB5C8659}",
-    "Language": "SFX",
-    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Music_Level_2_1",
-    "ShortName": "Music_Level_2_1",
-    "Path": "Music_Level_2_1.bnk",
-    "IncludedEvents": [
-     {
-      "Id": "2048014091",
-      "Name": "Play_Level_2_Music",
-      "ObjectPath": "\\Events\\Default Work Unit\\Play_Level_2_Music",
-      "GUID": "{EF000F6C-BC68-4301-9A1E-7DDED98AEF48}"
-     }
-    ],
-    "IncludedMemoryFiles": [
-     {
-      "Id": "484032302",
-      "Language": "SFX",
-      "ShortName": "Music\\Music_Combat_Viking_Ship.wav",
-      "Path": "SFX\\Music\\Music_Combat_Viking_Ship_D79FB2B7.wem"
-     },
-     {
-      "Id": "621261315",
-      "Language": "SFX",
-      "ShortName": "Music\\Music_Lvl_2_Loop_The village.wav",
-      "Path": "SFX\\Music\\Music_Lvl_2_Loop_The village_D79FB2B7.wem"
-     },
-     {
-      "Id": "997267315",
-      "Language": "SFX",
-      "ShortName": "Music\\Music_Combat_The_Dark_Castle.wav",
-      "Path": "SFX\\Music\\Music_Combat_The_Dark_Castle_D79FB2B7.wem"
-     }
-    ],
-    "ExcludedMemoryFiles": [
-     {
-      "Id": "382083512",
-      "Language": "SFX",
-      "ShortName": "Music_Kikimora_Dungeon of shadows.wav",
-      "Path": "SFX\\Music_Kikimora_Dungeon of shadows_D79FB2B7.wem"
-     },
-     {
-      "Id": "849114426",
-      "Language": "SFX",
-      "ShortName": "Music\\Music_Menu_Pause_Relaxing_Green_Nature.wav",
-      "Path": "SFX\\Music\\Music_Menu_Pause_Relaxing_Green_Nature_D79FB2B7.wem"
-     }
-    ]
-   },
-   {
     "Id": "2380338445",
     "GUID": "{7C0896AD-4B8C-4824-9E19-AB8704EC514B}",
     "Language": "SFX",
@@ -3111,6 +3022,12 @@
       "Name": "Play_lvl2_Intro_conversation_Cutscene",
       "ObjectPath": "\\Events\\Default Work Unit\\Cinematic_Level_2\\Play_lvl2_Intro_conversation_Cutscene",
       "GUID": "{F282CCBC-1D6B-4677-9722-05657EDFEB10}"
+     },
+     {
+      "Id": "3271742197",
+      "Name": "Play_Music_Cinematic_lvl2_Elven_Forest",
+      "ObjectPath": "\\Events\\Default Work Unit\\Cinematic_Level_2\\Play_Music_Cinematic_lvl2_Elven_Forest",
+      "GUID": "{9DAF667F-258B-4EF6-853D-3512A1094D56}"
      }
     ],
     "IncludedMemoryFiles": [
@@ -3119,6 +3036,12 @@
       "Language": "SFX",
       "ShortName": "Lvl2_Button_Skip_Cinematic_Pressed.wav",
       "Path": "SFX\\Lvl2_Button_Skip_Cinematic_Pressed_10C4C929.wem"
+     },
+     {
+      "Id": "323414340",
+      "Language": "SFX",
+      "ShortName": "Music_Cinematic_lvl2_Elven_Forest.wav",
+      "Path": "SFX\\Music_Cinematic_lvl2_Elven_Forest_D79FB2B7.wem"
      },
      {
       "Id": "451877459",
@@ -3143,6 +3066,30 @@
       "Language": "SFX",
       "ShortName": "lvl2_Intro_conversation_Cutscene.wav",
       "Path": "SFX\\lvl2_Intro_conversation_Cutscene_D79FB2B7.wem"
+     }
+    ]
+   },
+   {
+    "Id": "3354210175",
+    "GUID": "{FF01A421-E621-4D6D-B9F5-D76B46E77A8A}",
+    "Language": "SFX",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Cinematic_Level_1",
+    "ShortName": "Cinematic_Level_1",
+    "Path": "Cinematic_Level_1.bnk",
+    "IncludedEvents": [
+     {
+      "Id": "4153214231",
+      "Name": "Play_Music_Cinematic_lvl1_The_Ocean_Takes_It_All",
+      "ObjectPath": "\\Events\\Default Work Unit\\Cinematic_Level_1\\Play_Music_Cinematic_lvl1_The_Ocean_Takes_It_All",
+      "GUID": "{33219AC0-862C-4B64-88B5-262738085FCD}"
+     }
+    ],
+    "IncludedMemoryFiles": [
+     {
+      "Id": "419561649",
+      "Language": "SFX",
+      "ShortName": "Music_Cinematic_lvl1_The_Ocean_Takes_It_All.wav",
+      "Path": "SFX\\Music_Cinematic_lvl1_The_Ocean_Takes_It_All_D79FB2B7.wem"
      }
     ]
    },
@@ -3371,6 +3318,96 @@
       "Language": "SFX",
       "ShortName": "Button_main_menu.wav",
       "Path": "SFX\\Button_main_menu_10C4C929.wem"
+     }
+    ]
+   },
+   {
+    "Id": "3508274217",
+    "GUID": "{63225A51-D0D4-4EAB-8A48-03D3213FCA2D}",
+    "Language": "SFX",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Music_Level_1",
+    "ShortName": "Music_Level_1",
+    "Path": "Music_Level_1.bnk",
+    "IncludedEvents": [
+     {
+      "Id": "814842324",
+      "Name": "Play_Level_1_Music",
+      "ObjectPath": "\\Events\\Default Work Unit\\Play_Level_1_Music",
+      "GUID": "{8B5CD85E-0112-4C48-93BF-7901B8D477D0}"
+     }
+    ],
+    "IncludedMemoryFiles": [
+     {
+      "Id": "484032302",
+      "Language": "SFX",
+      "ShortName": "Music\\Music_Combat_Viking_Ship.wav",
+      "Path": "SFX\\Music\\Music_Combat_Viking_Ship_D79FB2B7.wem"
+     },
+     {
+      "Id": "849114426",
+      "Language": "SFX",
+      "ShortName": "Music\\Music_Menu_Pause_Relaxing_Green_Nature.wav",
+      "Path": "SFX\\Music\\Music_Menu_Pause_Relaxing_Green_Nature_D79FB2B7.wem"
+     },
+     {
+      "Id": "967037437",
+      "Language": "SFX",
+      "ShortName": "Music\\Music_Lvl_1_Broken_Village.wav",
+      "Path": "SFX\\Music\\Music_Lvl_1_Broken_Village_D79FB2B7.wem"
+     },
+     {
+      "Id": "997267315",
+      "Language": "SFX",
+      "ShortName": "Music\\Music_Combat_The_Dark_Castle.wav",
+      "Path": "SFX\\Music\\Music_Combat_The_Dark_Castle_D79FB2B7.wem"
+     }
+    ]
+   },
+   {
+    "Id": "3508274218",
+    "GUID": "{16ED2784-FE6B-4C34-BBAB-EE25CB5C8659}",
+    "Language": "SFX",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Music_Level_2",
+    "ShortName": "Music_Level_2",
+    "Path": "Music_Level_2.bnk",
+    "IncludedEvents": [
+     {
+      "Id": "2048014091",
+      "Name": "Play_Level_2_Music",
+      "ObjectPath": "\\Events\\Default Work Unit\\Play_Level_2_Music",
+      "GUID": "{EF000F6C-BC68-4301-9A1E-7DDED98AEF48}"
+     }
+    ],
+    "IncludedMemoryFiles": [
+     {
+      "Id": "382083512",
+      "Language": "SFX",
+      "ShortName": "Music_Kikimora_Dungeon of shadows.wav",
+      "Path": "SFX\\Music_Kikimora_Dungeon of shadows_D79FB2B7.wem"
+     },
+     {
+      "Id": "484032302",
+      "Language": "SFX",
+      "ShortName": "Music\\Music_Combat_Viking_Ship.wav",
+      "Path": "SFX\\Music\\Music_Combat_Viking_Ship_D79FB2B7.wem"
+     },
+     {
+      "Id": "621261315",
+      "Language": "SFX",
+      "ShortName": "Music\\Music_Lvl_2_Loop_The village.wav",
+      "Path": "SFX\\Music\\Music_Lvl_2_Loop_The village_D79FB2B7.wem"
+     },
+     {
+      "Id": "849114426",
+      "Language": "SFX",
+      "ShortName": "Music\\Music_Menu_Pause_Relaxing_Green_Nature.wav",
+      "Path": "SFX\\Music\\Music_Menu_Pause_Relaxing_Green_Nature_D79FB2B7.wem"
+     },
+     {
+      "Id": "997267315",
+      "Language": "SFX",
+      "ShortName": "Music\\Music_Combat_The_Dark_Castle.wav",
+      "Path": "SFX\\Music\\Music_Combat_The_Dark_Castle_D79FB2B7.wem"
      }
     ]
    }
