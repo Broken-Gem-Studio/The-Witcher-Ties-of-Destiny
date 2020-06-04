@@ -1343,6 +1343,103 @@
 										</MusicPlaylistItem>
 									</Playlist>
 								</MusicPlaylistContainer>
+								<MusicPlaylistContainer Name="BossFight_2" ID="{3855029D-8855-453D-B123-301B6EFB5F7B}" ShortID="489287312">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<MusicSegment Name="Music_Kikimora_Dungeon of shadows" ID="{F35D49E7-A615-40D6-BA55-45537A57DD82}" ShortID="714450605">
+											<PropertyList>
+												<Property Name="EnableAttenuation" Type="bool" Value="False"/>
+												<Property Name="EndPosition" Type="Real64" Value="141322.448979592"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<MusicTrack Name="Music_Kikimora_Dungeon of shadows" ID="{F8AEBDBA-D12B-4E5B-8252-26E83785F7F4}" ShortID="850686107">
+													<ReferenceList>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Music_Kikimora_Dungeon of shadows" ID="{F75B6E92-A162-44E9-848A-C0E3CC70BB9D}" ShortID="382083512">
+															<Language>SFX</Language>
+															<AudioFile>Music_Kikimora_Dungeon of shadows.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<TransitionList>
+														<MusicTransition Name="Root" ID="{931217D2-8F8E-4F98-90D2-FF04DEC27052}">
+															<PropertyList>
+																<Property Name="IsFolder" Type="bool" Value="True"/>
+															</PropertyList>
+															<TransitionInfo/>
+														</MusicTransition>
+													</TransitionList>
+													<SequenceList>
+														<MusicTrackSequence Name="" ID="{DB1E8C83-D47B-4562-B9C5-D6C8B70CD74B}">
+															<ClipList>
+																<MusicClip Name="Music_Kikimora_Dungeon of shadows" ID="{E48AD7DF-D3F6-4749-BE4F-C12489A4F682}">
+																	<PropertyList>
+																		<Property Name="EndTrimOffset" Type="Real64" Value="141322.448979592"/>
+																		<Property Name="FadeInMode" Type="int16" Value="0"/>
+																		<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																	</PropertyList>
+																	<AudioSourceRef Name="Music_Kikimora_Dungeon of shadows" ID="{F75B6E92-A162-44E9-848A-C0E3CC70BB9D}"/>
+																</MusicClip>
+															</ClipList>
+														</MusicTrackSequence>
+													</SequenceList>
+												</MusicTrack>
+											</ChildrenList>
+											<CueList>
+												<MusicCue Name="Entry Cue" ID="{413B21E4-B4ED-40E6-AB0E-829E0EFAC1CE}"/>
+												<MusicCue Name="Exit Cue" ID="{FBB45197-EFB3-420F-8EEA-1D786EB555EB}">
+													<PropertyList>
+														<Property Name="CueType" Type="int16" Value="1"/>
+														<Property Name="TimeMs" Type="Real64" Value="141322.448979592"/>
+													</PropertyList>
+												</MusicCue>
+											</CueList>
+										</MusicSegment>
+									</ChildrenList>
+									<TransitionList>
+										<MusicTransition Name="Root" ID="{1B609B8D-F458-4F11-85EB-D21A7D74C56C}">
+											<PropertyList>
+												<Property Name="IsFolder" Type="bool" Value="True"/>
+											</PropertyList>
+											<ChildrenList>
+												<MusicTransition Name="Transition" ID="{F1DF9F86-1536-4688-848A-6C9F200E59AE}">
+													<TransitionInfo/>
+												</MusicTransition>
+											</ChildrenList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</TransitionList>
+									<Playlist>
+										<MusicPlaylistItem Name="" ID="{B3DBCB5D-5B9E-429C-9E2A-780634E6AC1D}" ShortID="1023152427">
+											<ChildrenList>
+												<MusicPlaylistItem Name="" ID="{F24D1ADA-F6CE-44CD-A6BE-469314444AF1}" ShortID="327081570">
+													<PropertyList>
+														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+													</PropertyList>
+													<SegmentRef Name="Music_Kikimora_Dungeon of shadows" ID="{F35D49E7-A615-40D6-BA55-45537A57DD82}"/>
+												</MusicPlaylistItem>
+											</ChildrenList>
+										</MusicPlaylistItem>
+									</Playlist>
+								</MusicPlaylistContainer>
 							</ChildrenList>
 							<TransitionList>
 								<MusicTransition Name="Root" ID="{BC4956A9-5D2B-498E-B847-E508933AE46F}">
@@ -1413,6 +1510,14 @@
 										<AudioNodeRef Name="Pause_2" ID="{38CEB53B-F80E-4A81-AAE1-AB20D5ED9ED7}" WorkUnitID="{900849B3-5BE8-4F7B-8EC5-9E5DD796D73F}" Platform="Linked"/>
 									</AudioNodeInfo>
 								</Entry>
+								<Entry>
+									<Path>
+										<PathElementRef Name="BossFight" ID="{AF35C169-2494-4916-B99B-53B2EECAF171}"/>
+									</Path>
+									<AudioNodeInfo>
+										<AudioNodeRef Name="BossFight_2" ID="{3855029D-8855-453D-B123-301B6EFB5F7B}" WorkUnitID="{900849B3-5BE8-4F7B-8EC5-9E5DD796D73F}" Platform="Linked"/>
+									</AudioNodeInfo>
+								</Entry>
 							</EntryList>
 						</MusicSwitchContainer>
 					</ChildrenList>
@@ -1473,6 +1578,193 @@
 							<PropertyList>
 								<Property Name="CueType" Type="int16" Value="1"/>
 								<Property Name="TimeMs" Type="Real64" Value="34596"/>
+							</PropertyList>
+						</MusicCue>
+					</CueList>
+				</MusicSegment>
+				<MusicSegment Name="Music_Cinematic_lvl1_The_Ocean_Takes_It_All" ID="{9D9EF240-1C9F-48BF-9510-5B9744519355}" ShortID="1058259447">
+					<PropertyList>
+						<Property Name="EndPosition" Type="Real64" Value="139755.102040816"/>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-12</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<MusicTrack Name="Music_Cinematic_lvl1_The_Ocean_Takes_It_All" ID="{BA585BE9-C4CD-41EA-87F9-9F05DAF43403}" ShortID="454754057">
+							<ReferenceList>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Music_Cinematic_lvl1_The_Ocean_Takes_It_All" ID="{668BA6DA-E977-4CB2-8A0A-8705D5C97F65}" ShortID="419561649">
+									<Language>SFX</Language>
+									<AudioFile>Music_Cinematic_lvl1_The_Ocean_Takes_It_All.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<TransitionList>
+								<MusicTransition Name="Root" ID="{3D95E87E-B52C-4484-821B-6ABE756F6E73}">
+									<PropertyList>
+										<Property Name="IsFolder" Type="bool" Value="True"/>
+									</PropertyList>
+									<TransitionInfo/>
+								</MusicTransition>
+							</TransitionList>
+							<SequenceList>
+								<MusicTrackSequence Name="" ID="{346C1CDD-6064-40AC-A4CA-5B08AD25C255}">
+									<ClipList>
+										<MusicClip Name="Music_Cinematic_lvl1_The_Ocean_Takes_It_All" ID="{24A353FB-55CE-48A5-85C9-1AD4DEDFBAEC}">
+											<PropertyList>
+												<Property Name="EndTrimOffset" Type="Real64" Value="139755.102040816"/>
+												<Property Name="FadeInMode" Type="int16" Value="0"/>
+												<Property Name="FadeOutMode" Type="int16" Value="0"/>
+											</PropertyList>
+											<AudioSourceRef Name="Music_Cinematic_lvl1_The_Ocean_Takes_It_All" ID="{668BA6DA-E977-4CB2-8A0A-8705D5C97F65}"/>
+										</MusicClip>
+									</ClipList>
+								</MusicTrackSequence>
+							</SequenceList>
+						</MusicTrack>
+					</ChildrenList>
+					<CueList>
+						<MusicCue Name="Entry Cue" ID="{72FD886D-4701-4E49-93F2-FB3DAC085E35}"/>
+						<MusicCue Name="Exit Cue" ID="{382DB2DF-ACD2-4A34-B2B7-8A3D6A403A9A}">
+							<PropertyList>
+								<Property Name="CueType" Type="int16" Value="1"/>
+								<Property Name="TimeMs" Type="Real64" Value="139755.102040816"/>
+							</PropertyList>
+						</MusicCue>
+					</CueList>
+				</MusicSegment>
+				<MusicSegment Name="Music_Cinematic_lvl2_Elven_Forest" ID="{0EC29EA1-6122-466F-AA2A-280ACA074B1A}" ShortID="741122317">
+					<PropertyList>
+						<Property Name="EndPosition" Type="Real64" Value="260114.693877551"/>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-12</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<MusicTrack Name="Music_Cinematic_lvl2_Elven_Forest" ID="{BBEA3A61-4ECC-402A-BA70-F640B23EA6F6}" ShortID="543094527">
+							<ReferenceList>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Music_Cinematic_lvl2_Elven_Forest" ID="{F59184EB-B6D4-4E5D-97AD-4B43ED6A81A8}" ShortID="323414340">
+									<Language>SFX</Language>
+									<AudioFile>Music_Cinematic_lvl2_Elven_Forest.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<TransitionList>
+								<MusicTransition Name="Root" ID="{284BFAB5-6920-43B4-9595-491F3AC7743E}">
+									<PropertyList>
+										<Property Name="IsFolder" Type="bool" Value="True"/>
+									</PropertyList>
+									<TransitionInfo/>
+								</MusicTransition>
+							</TransitionList>
+							<SequenceList>
+								<MusicTrackSequence Name="" ID="{2B5AF1A7-9DD7-4709-AD84-9F82A2CE16E6}">
+									<ClipList>
+										<MusicClip Name="Music_Cinematic_lvl2_Elven_Forest" ID="{384DBA02-89AD-436D-A4F1-EFAAFADD2294}">
+											<PropertyList>
+												<Property Name="EndTrimOffset" Type="Real64" Value="260114.693877551"/>
+												<Property Name="FadeInMode" Type="int16" Value="0"/>
+												<Property Name="FadeOutMode" Type="int16" Value="0"/>
+											</PropertyList>
+											<AudioSourceRef Name="Music_Cinematic_lvl2_Elven_Forest" ID="{F59184EB-B6D4-4E5D-97AD-4B43ED6A81A8}"/>
+										</MusicClip>
+									</ClipList>
+								</MusicTrackSequence>
+							</SequenceList>
+						</MusicTrack>
+					</ChildrenList>
+					<CueList>
+						<MusicCue Name="Entry Cue" ID="{37B37DF0-819F-4834-8819-3A9ED8A36FC3}"/>
+						<MusicCue Name="Exit Cue" ID="{33DC53FE-2ABC-42DD-8603-921E6028E248}">
+							<PropertyList>
+								<Property Name="CueType" Type="int16" Value="1"/>
+								<Property Name="TimeMs" Type="Real64" Value="260114.693877551"/>
+							</PropertyList>
+						</MusicCue>
+					</CueList>
+				</MusicSegment>
+				<MusicSegment Name="Music_Menu_Comparison_Pirate_Dance" ID="{DAB31115-792B-4900-B848-D52D07AE3ABE}" ShortID="873571307">
+					<PropertyList>
+						<Property Name="EndPosition" Type="Real64" Value="133165.986394558"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<MusicTrack Name="Music_Menu_Comparison_Pirate_Dance" ID="{C4DCE874-EDE8-405E-B280-5525E085D197}" ShortID="723329226">
+							<ReferenceList>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Music_Menu_Comparison_Pirate_Dance" ID="{E9EADD4E-5A9C-425F-B646-24435D6CDFEB}" ShortID="237417088">
+									<Language>SFX</Language>
+									<AudioFile>Music_Menu_Comparison_Pirate_Dance.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<TransitionList>
+								<MusicTransition Name="Root" ID="{37C16366-D1DA-4A3F-8219-685E534A8D31}">
+									<PropertyList>
+										<Property Name="IsFolder" Type="bool" Value="True"/>
+									</PropertyList>
+									<TransitionInfo/>
+								</MusicTransition>
+							</TransitionList>
+							<SequenceList>
+								<MusicTrackSequence Name="" ID="{CFC3AA6E-82D8-4285-9D48-D8BA5FF4EBDA}">
+									<ClipList>
+										<MusicClip Name="Music_Menu_Comparison_Pirate_Dance" ID="{B6E239E0-13E2-4861-9DD9-1FE4A102CE53}">
+											<PropertyList>
+												<Property Name="EndTrimOffset" Type="Real64" Value="133165.986394558"/>
+												<Property Name="FadeInMode" Type="int16" Value="0"/>
+												<Property Name="FadeOutMode" Type="int16" Value="0"/>
+											</PropertyList>
+											<AudioSourceRef Name="Music_Menu_Comparison_Pirate_Dance" ID="{E9EADD4E-5A9C-425F-B646-24435D6CDFEB}"/>
+										</MusicClip>
+									</ClipList>
+								</MusicTrackSequence>
+							</SequenceList>
+						</MusicTrack>
+					</ChildrenList>
+					<CueList>
+						<MusicCue Name="Entry Cue" ID="{0422D14C-8995-420C-B0A9-CC390A1F1807}"/>
+						<MusicCue Name="Exit Cue" ID="{4F90D7DB-D8BC-4D4F-AD14-5AC606A3A39B}">
+							<PropertyList>
+								<Property Name="CueType" Type="int16" Value="1"/>
+								<Property Name="TimeMs" Type="Real64" Value="133165.986394558"/>
 							</PropertyList>
 						</MusicCue>
 					</CueList>

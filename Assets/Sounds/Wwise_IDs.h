@@ -185,6 +185,7 @@ namespace AK
         static const AkUniqueID PLAY_PHEW__NEVER_EXPECTED_THAT_TO_GO_SO_WELL = 473557862U;
         static const AkUniqueID PLAY_PROP_HIT_WOOD = 2533588661U;
         static const AkUniqueID PLAY_PROP_WOOD_BREAK = 2941887487U;
+        static const AkUniqueID PLAY_REACH_FIRECAMP_ = 1072535284U;
         static const AkUniqueID PLAY_READY = 750390071U;
         static const AkUniqueID PLAY_RIGHT = 1215465684U;
         static const AkUniqueID PLAY_RUN__RUN__IF_YOU_VALUE_YOUR_LIFE = 1530776136U;
@@ -244,6 +245,7 @@ namespace AK
 
             namespace SWITCH
             {
+                static const AkUniqueID BOSSFIGHT = 580146960U;
                 static const AkUniqueID COMBAT = 2764240573U;
                 static const AkUniqueID EXPLORATION = 2582085496U;
                 static const AkUniqueID PAUSE = 3092587493U;

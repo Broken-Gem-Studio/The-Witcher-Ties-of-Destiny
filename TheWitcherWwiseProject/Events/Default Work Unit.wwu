@@ -925,6 +925,17 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Play_Reach_firecamp_" ID="{361773E2-FE57-46C3-8E2D-AA8A8AC9A69E}">
+							<ChildrenList>
+								<Action Name="" ID="{C403C102-EFE2-4F0F-B8D2-2FFC24B5E01E}" ShortID="9319172">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Reach_firecamp_" ID="{9DAE2744-DF46-4431-8766-78673CB72B0A}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Level_2" ID="{F1FB1A6C-A2D4-47C1-92F3-4F5788AAE2C8}" ShortID="90313207">
@@ -2401,6 +2412,39 @@
 						<Folder Name="Yennefer" ID="{F1606815-67F6-48BB-99A6-4D953EE7ACC9}" ShortID="304171529"/>
 					</ChildrenList>
 				</Folder>
+				<Event Name="Play_Music_Cinematic_lvl1_The_Ocean_Takes_It_All" ID="{33219AC0-862C-4B64-88B5-262738085FCD}">
+					<ChildrenList>
+						<Action Name="" ID="{599F051C-552D-4509-AA78-0DD6D082ADAD}" ShortID="598247316">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Music_Cinematic_lvl1_The_Ocean_Takes_It_All" ID="{9D9EF240-1C9F-48BF-9510-5B9744519355}" WorkUnitID="{900849B3-5BE8-4F7B-8EC5-9E5DD796D73F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Music_Cinematic_lvl2_Elven_Forest" ID="{9DAF667F-258B-4EF6-853D-3512A1094D56}">
+					<ChildrenList>
+						<Action Name="" ID="{63A6CF5D-D3F4-401A-A457-14EFD047D208}" ShortID="926492107">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Music_Cinematic_lvl2_Elven_Forest" ID="{0EC29EA1-6122-466F-AA2A-280ACA074B1A}" WorkUnitID="{900849B3-5BE8-4F7B-8EC5-9E5DD796D73F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Music_Menu_Comparison_Pirate_Dance" ID="{D8C2E418-7AE3-46EA-8E37-6727F19E5260}">
+					<ChildrenList>
+						<Action Name="" ID="{2621D4E5-F68A-4077-8053-17F034649017}" ShortID="790901236">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Music_Menu_Comparison_Pirate_Dance" ID="{DAB31115-792B-4900-B848-D52D07AE3ABE}" WorkUnitID="{900849B3-5BE8-4F7B-8EC5-9E5DD796D73F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
