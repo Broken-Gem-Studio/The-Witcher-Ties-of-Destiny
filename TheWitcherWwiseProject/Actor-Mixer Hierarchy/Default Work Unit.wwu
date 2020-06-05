@@ -1364,182 +1364,6 @@
 								<Position Name="" ID="{B216057A-858E-424C-9F14-FB64E6011B89}"/>
 							</PositioningInfo>
 						</RandomSequenceContainer>
-						<RandomSequenceContainer Name="Geralt_walk_run_dirt" ID="{477F5E15-5EDC-44DE-8F09-CD927B6CA9D0}" ShortID="251806033">
-							<PropertyList>
-								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
-								<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
-								<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>-15</Value>
-									</ValueList>
-								</Property>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Attenuation">
-									<Custom>
-										<Attenuation Name="Attenuation (Custom)" ID="{F18FCA6B-F02C-4C85-9AEC-BFC18DCCD1B3}" ShortID="715857880">
-											<CurveUsageInfoList>
-												<VolumeDryUsage>
-													<CurveUsageInfo Platform="Linked" CurveToUse="Custom">
-														<Curve Name="VolumeDry" ID="{C53D81A4-A759-46F5-B8E5-C32F00CAD72B}">
-															<PropertyList>
-																<Property Name="Flags" Type="int32" Value="3"/>
-															</PropertyList>
-															<PointList>
-																<Point>
-																	<XPos>0</XPos>
-																	<YPos>0</YPos>
-																	<Flags>5</Flags>
-																</Point>
-																<Point>
-																	<XPos>100</XPos>
-																	<YPos>-200</YPos>
-																	<Flags>37</Flags>
-																</Point>
-															</PointList>
-														</Curve>
-													</CurveUsageInfo>
-												</VolumeDryUsage>
-												<VolumeWetGameUsage>
-													<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
-												</VolumeWetGameUsage>
-												<VolumeWetUserUsage>
-													<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
-												</VolumeWetUserUsage>
-												<LowPassFilterUsage>
-													<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
-												</LowPassFilterUsage>
-												<HighPassFilterUsage>
-													<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
-												</HighPassFilterUsage>
-												<SpreadUsage>
-													<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
-												</SpreadUsage>
-												<FocusUsage>
-													<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
-												</FocusUsage>
-											</CurveUsageInfoList>
-										</Attenuation>
-									</Custom>
-								</Reference>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<Sound Name="Geralt_Walk_run_dirt_5" ID="{289C1096-9346-49EB-B21D-B05B3E3CA5AC}" ShortID="949218858">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-6</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Geralt_Walk_run_dirt_5" ID="{E991F7EB-B5EB-4179-9A5A-E8045F706A43}" ShortID="190373715">
-											<Language>SFX</Language>
-											<AudioFile>Geralt_Walk_run_dirt_5.wav</AudioFile>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Geralt_Walk_run_dirt_5" ID="{E991F7EB-B5EB-4179-9A5A-E8045F706A43}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="Geralt_Walk_run_dirt_2" ID="{F5397440-A138-4211-9D2D-01718BF7C044}" ShortID="208209398">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-6</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Geralt_Walk_run_dirt_2" ID="{D7262BF4-AD1D-4D16-9388-2C0F4124A960}" ShortID="734420758">
-											<Language>SFX</Language>
-											<AudioFile>Geralt_Walk_run_dirt_2.wav</AudioFile>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Geralt_Walk_run_dirt_2" ID="{D7262BF4-AD1D-4D16-9388-2C0F4124A960}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="Geralt_Walk_run_dirt_4" ID="{D5A976B0-6785-44DF-94E5-2A55B337E48F}" ShortID="691051686">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-6</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Geralt_Walk_run_dirt_4" ID="{0A307E99-3525-4B24-842F-F2A97EE96F02}" ShortID="521054026">
-											<Language>SFX</Language>
-											<AudioFile>Geralt_Walk_run_dirt_4.wav</AudioFile>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Geralt_Walk_run_dirt_4" ID="{0A307E99-3525-4B24-842F-F2A97EE96F02}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="Geralt_Walk_run_dirt_1" ID="{874984F7-327E-4E53-9213-1FDE7FEA25F6}" ShortID="158084073">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-6</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Geralt_Walk_run_dirt_1" ID="{811BA0A5-30F6-47FE-AF91-DEE6C57ACB17}" ShortID="20663703">
-											<Language>SFX</Language>
-											<AudioFile>Geralt_Walk_run_dirt_1.wav</AudioFile>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Geralt_Walk_run_dirt_1" ID="{811BA0A5-30F6-47FE-AF91-DEE6C57ACB17}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-							</ChildrenList>
-							<PositioningInfo>
-								<Position Name="" ID="{1CACDC2F-227C-4354-98E1-C047B453324E}"/>
-							</PositioningInfo>
-						</RandomSequenceContainer>
 						<Sound Name="Geralt_Ultimate" ID="{C9178704-FE81-41E2-952C-78EC1D3DE9CA}" ShortID="927624911">
 							<PropertyList>
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
@@ -1720,6 +1544,358 @@
 								<ActiveSource Name="Geralt_Ultimate_Updated" ID="{824E5FD4-DB7C-48B7-B3FE-D1D9F683B241}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
+						<Sound Name="Roll" ID="{1214A5FB-F5B3-467D-9EC5-40566CB2C1C8}" ShortID="230819999">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Roll" ID="{D9794108-0693-4A51-96CE-AE75C7E9CF10}" ShortID="646617881">
+									<Language>SFX</Language>
+									<AudioFile>Roll.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Roll" ID="{D9794108-0693-4A51-96CE-AE75C7E9CF10}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<SwitchContainer Name="Geralt_walk_run_dirt" ID="{6E44A74D-1B42-49CE-8517-E6155E932D53}" ShortID="1012016658">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+								</Reference>
+								<Reference Name="SwitchGroupOrStateGroup">
+									<ObjectRef Name="Geralt_walk_run_switch" ID="{3EE7D82F-AAEC-403C-A1D0-D2436FAB8E1E}" WorkUnitID="{C703F89A-9287-422E-BFFB-2875C2A6C1CC}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<RandomSequenceContainer Name="Geralt_walk_run_dirt" ID="{477F5E15-5EDC-44DE-8F09-CD927B6CA9D0}" ShortID="251806033">
+									<PropertyList>
+										<Property Name="EnableAttenuation" Type="bool" Value="False"/>
+										<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+										<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-15</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Attenuation">
+											<Custom>
+												<Attenuation Name="Attenuation (Custom)" ID="{F18FCA6B-F02C-4C85-9AEC-BFC18DCCD1B3}" ShortID="715857880">
+													<CurveUsageInfoList>
+														<VolumeDryUsage>
+															<CurveUsageInfo Platform="Linked" CurveToUse="Custom">
+																<Curve Name="VolumeDry" ID="{C53D81A4-A759-46F5-B8E5-C32F00CAD72B}">
+																	<PropertyList>
+																		<Property Name="Flags" Type="int32" Value="3"/>
+																	</PropertyList>
+																	<PointList>
+																		<Point>
+																			<XPos>0</XPos>
+																			<YPos>0</YPos>
+																			<Flags>5</Flags>
+																		</Point>
+																		<Point>
+																			<XPos>100</XPos>
+																			<YPos>-200</YPos>
+																			<Flags>37</Flags>
+																		</Point>
+																	</PointList>
+																</Curve>
+															</CurveUsageInfo>
+														</VolumeDryUsage>
+														<VolumeWetGameUsage>
+															<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
+														</VolumeWetGameUsage>
+														<VolumeWetUserUsage>
+															<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
+														</VolumeWetUserUsage>
+														<LowPassFilterUsage>
+															<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+														</LowPassFilterUsage>
+														<HighPassFilterUsage>
+															<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+														</HighPassFilterUsage>
+														<SpreadUsage>
+															<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+														</SpreadUsage>
+														<FocusUsage>
+															<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+														</FocusUsage>
+													</CurveUsageInfoList>
+												</Attenuation>
+											</Custom>
+										</Reference>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="Geralt_Walk_run_dirt_5" ID="{289C1096-9346-49EB-B21D-B05B3E3CA5AC}" ShortID="949218858">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Geralt_Walk_run_dirt_5" ID="{E991F7EB-B5EB-4179-9A5A-E8045F706A43}" ShortID="190373715">
+													<Language>SFX</Language>
+													<AudioFile>Geralt_Walk_run_dirt_5.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Geralt_Walk_run_dirt_5" ID="{E991F7EB-B5EB-4179-9A5A-E8045F706A43}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Geralt_Walk_run_dirt_2" ID="{F5397440-A138-4211-9D2D-01718BF7C044}" ShortID="208209398">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Geralt_Walk_run_dirt_2" ID="{D7262BF4-AD1D-4D16-9388-2C0F4124A960}" ShortID="734420758">
+													<Language>SFX</Language>
+													<AudioFile>Geralt_Walk_run_dirt_2.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Geralt_Walk_run_dirt_2" ID="{D7262BF4-AD1D-4D16-9388-2C0F4124A960}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Geralt_Walk_run_dirt_4" ID="{D5A976B0-6785-44DF-94E5-2A55B337E48F}" ShortID="691051686">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Geralt_Walk_run_dirt_4" ID="{0A307E99-3525-4B24-842F-F2A97EE96F02}" ShortID="521054026">
+													<Language>SFX</Language>
+													<AudioFile>Geralt_Walk_run_dirt_4.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Geralt_Walk_run_dirt_4" ID="{0A307E99-3525-4B24-842F-F2A97EE96F02}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Geralt_Walk_run_dirt_1" ID="{874984F7-327E-4E53-9213-1FDE7FEA25F6}" ShortID="158084073">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Geralt_Walk_run_dirt_1" ID="{811BA0A5-30F6-47FE-AF91-DEE6C57ACB17}" ShortID="20663703">
+													<Language>SFX</Language>
+													<AudioFile>Geralt_Walk_run_dirt_1.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Geralt_Walk_run_dirt_1" ID="{811BA0A5-30F6-47FE-AF91-DEE6C57ACB17}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+									<PositioningInfo>
+										<Position Name="" ID="{1CACDC2F-227C-4354-98E1-C047B453324E}"/>
+									</PositioningInfo>
+								</RandomSequenceContainer>
+								<RandomSequenceContainer Name="Geralt_walk_dirt" ID="{B9D310D7-1111-4207-B904-D3D7F0ED20BA}" ShortID="129746884">
+									<PropertyList>
+										<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+										<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="Geralt_Walk_dirt_1" ID="{A17BF765-5211-4B5C-A4D1-A98A0F1B707C}" ShortID="431287916">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Geralt_Walk_dirt_1" ID="{C83D0BE0-F823-49D6-AA5E-DE7CD80D2660}" ShortID="887235156">
+													<Language>SFX</Language>
+													<AudioFile>Geralt_Walk_dirt_1.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Geralt_Walk_dirt_1" ID="{C83D0BE0-F823-49D6-AA5E-DE7CD80D2660}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Geralt_Walk_dirt_2" ID="{D805BEA0-7C5D-4775-BCEF-0C7DF3BDA16D}" ShortID="491495337">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Geralt_Walk_dirt_2" ID="{CE2420B1-9138-44B4-A1C5-EA243C9E452B}" ShortID="1002873227">
+													<Language>SFX</Language>
+													<AudioFile>Geralt_Walk_dirt_2.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Geralt_Walk_dirt_2" ID="{CE2420B1-9138-44B4-A1C5-EA243C9E452B}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Geralt_Walk_dirt_3" ID="{F96FA063-1206-4E21-93DA-86CB8808DFB2}" ShortID="632193158">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Geralt_Walk_dirt_3" ID="{DEB8E5DB-D3E1-4A87-87C6-AE7E9265016C}" ShortID="81104822">
+													<Language>SFX</Language>
+													<AudioFile>Geralt_Walk_dirt_3.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Geralt_Walk_dirt_3" ID="{DEB8E5DB-D3E1-4A87-87C6-AE7E9265016C}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Geralt_Walk_dirt_4" ID="{2EECD5F3-0786-45FA-A5A1-E6B790BEB113}" ShortID="433699134">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Geralt_Walk_dirt_4" ID="{27B112D4-BA19-43C7-BC69-3BC59D847F05}" ShortID="140420438">
+													<Language>SFX</Language>
+													<AudioFile>Geralt_Walk_dirt_4.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Geralt_Walk_dirt_4" ID="{27B112D4-BA19-43C7-BC69-3BC59D847F05}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Geralt_Walk_dirt_5" ID="{B64949CB-6278-4BA3-9EA5-8290370DE715}" ShortID="479750007">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Geralt_Walk_dirt_5" ID="{A9591DE6-7217-4A0E-81A9-C1D4734F07FA}" ShortID="50241550">
+													<Language>SFX</Language>
+													<AudioFile>Geralt_Walk_dirt_5.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Geralt_Walk_dirt_5" ID="{A9591DE6-7217-4A0E-81A9-C1D4734F07FA}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</RandomSequenceContainer>
+							</ChildrenList>
+							<GroupingInfo>
+								<GroupingBehaviorList>
+									<GroupingBehavior>
+										<ItemRef Name="Geralt_walk_run_dirt" ID="{477F5E15-5EDC-44DE-8F09-CD927B6CA9D0}"/>
+									</GroupingBehavior>
+									<GroupingBehavior>
+										<ItemRef Name="Geralt_walk_dirt" ID="{B9D310D7-1111-4207-B904-D3D7F0ED20BA}"/>
+									</GroupingBehavior>
+								</GroupingBehaviorList>
+								<GroupingList>
+									<Grouping>
+										<SwitchRef Name="Walk" ID="{0268E999-46C2-411B-971B-F079368B7D36}"/>
+										<ItemList>
+											<ItemRef Name="Geralt_walk_dirt" ID="{B9D310D7-1111-4207-B904-D3D7F0ED20BA}"/>
+										</ItemList>
+									</Grouping>
+									<Grouping>
+										<SwitchRef Name="Run" ID="{B0646BC5-44DD-4D63-A8C5-C300F17EAFE0}"/>
+										<ItemList>
+											<ItemRef Name="Geralt_walk_run_dirt" ID="{477F5E15-5EDC-44DE-8F09-CD927B6CA9D0}"/>
+										</ItemList>
+									</Grouping>
+								</GroupingList>
+							</GroupingInfo>
+						</SwitchContainer>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Jaskier" ID="{7F0333D8-EF2D-41C6-970A-4F827204363D}" ShortID="300713006">
@@ -2658,182 +2834,6 @@
 								<Position Name="" ID="{96FC0045-FC24-476B-BACE-9685B290AB8C}"/>
 							</PositioningInfo>
 						</RandomSequenceContainer>
-						<RandomSequenceContainer Name="Jaskier_walk_run_dirt" ID="{7FC9860F-3BA8-4D6F-A4C1-A80797D71059}" ShortID="979780729">
-							<PropertyList>
-								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
-								<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
-								<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>-15</Value>
-									</ValueList>
-								</Property>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Attenuation">
-									<Custom>
-										<Attenuation Name="Attenuation (Custom)" ID="{EAF461EA-7E10-4590-B9A3-6BACD565DA43}" ShortID="1070750840">
-											<CurveUsageInfoList>
-												<VolumeDryUsage>
-													<CurveUsageInfo Platform="Linked" CurveToUse="Custom">
-														<Curve Name="VolumeDry" ID="{521D29FD-2A24-4CAE-AA1D-35D4AE16C365}">
-															<PropertyList>
-																<Property Name="Flags" Type="int32" Value="3"/>
-															</PropertyList>
-															<PointList>
-																<Point>
-																	<XPos>0</XPos>
-																	<YPos>0</YPos>
-																	<Flags>5</Flags>
-																</Point>
-																<Point>
-																	<XPos>100</XPos>
-																	<YPos>-200</YPos>
-																	<Flags>37</Flags>
-																</Point>
-															</PointList>
-														</Curve>
-													</CurveUsageInfo>
-												</VolumeDryUsage>
-												<VolumeWetGameUsage>
-													<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
-												</VolumeWetGameUsage>
-												<VolumeWetUserUsage>
-													<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
-												</VolumeWetUserUsage>
-												<LowPassFilterUsage>
-													<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
-												</LowPassFilterUsage>
-												<HighPassFilterUsage>
-													<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
-												</HighPassFilterUsage>
-												<SpreadUsage>
-													<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
-												</SpreadUsage>
-												<FocusUsage>
-													<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
-												</FocusUsage>
-											</CurveUsageInfoList>
-										</Attenuation>
-									</Custom>
-								</Reference>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<Sound Name="Jaskier_walk_run_dirt_1" ID="{5AFD7D5F-9376-4B95-8278-A47F91240614}" ShortID="559422322">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-6</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Jaskier_walk_run_dirt_1" ID="{244D95E9-17BE-4A39-82B0-DC072018837F}" ShortID="808607622">
-											<Language>SFX</Language>
-											<AudioFile>Jaskier_walk_run_dirt_1.wav</AudioFile>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Jaskier_walk_run_dirt_1" ID="{244D95E9-17BE-4A39-82B0-DC072018837F}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="Jaskier_walk_run_dirt_2" ID="{5CB2477B-8D52-47B6-83AF-292DB7F28097}" ShortID="413655339">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-6</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Jaskier_walk_run_dirt_2" ID="{33EC17B4-990E-4476-B62B-CEDBC7C976BF}" ShortID="1004558716">
-											<Language>SFX</Language>
-											<AudioFile>Jaskier_walk_run_dirt_2.wav</AudioFile>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Jaskier_walk_run_dirt_2" ID="{33EC17B4-990E-4476-B62B-CEDBC7C976BF}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="Jaskier_walk_run_dirt_4" ID="{C0B7E700-318B-4295-8F2C-D59B6538AC88}" ShortID="265590832">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-6</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Jaskier_walk_run_dirt_4" ID="{7C0BB020-BBF5-466B-8029-8F6922A9135D}" ShortID="901958049">
-											<Language>SFX</Language>
-											<AudioFile>Jaskier_walk_run_dirt_4.wav</AudioFile>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Jaskier_walk_run_dirt_4" ID="{7C0BB020-BBF5-466B-8029-8F6922A9135D}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="Jaskier_walk_run_dirt_5" ID="{C1CEAAC2-7DAB-434A-AC00-6599B6391F02}" ShortID="415955529">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-6</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Jaskier_walk_run_dirt_5" ID="{5CABEA6D-E40B-44A0-A0B7-E85E984681C6}" ShortID="778216361">
-											<Language>SFX</Language>
-											<AudioFile>Jaskier_walk_run_dirt_5.wav</AudioFile>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Jaskier_walk_run_dirt_5" ID="{5CABEA6D-E40B-44A0-A0B7-E85E984681C6}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-							</ChildrenList>
-							<PositioningInfo>
-								<Position Name="" ID="{F52AAEC0-9923-47AE-9080-0D265C9B6617}"/>
-							</PositioningInfo>
-						</RandomSequenceContainer>
 						<Sound Name="jaskier song 1" ID="{0816E686-9C4C-4055-8EA0-A269152A8811}" ShortID="476048609">
 							<PropertyList>
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
@@ -3296,6 +3296,337 @@
 								<ActiveSource Name="Potion_fx" ID="{DED7D7FC-0266-4820-A0C1-803CCF461A34}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
+						<SwitchContainer Name="Jaskier_walk_run_dirt" ID="{02EDDF6F-93D1-4019-BBCD-A99809EBA72C}" ShortID="357143147">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+								</Reference>
+								<Reference Name="SwitchGroupOrStateGroup">
+									<ObjectRef Name="Jaskier_walk_run_switch" ID="{A325F5A7-5E90-4CC9-9F1B-3FBDAAF7469D}" WorkUnitID="{C703F89A-9287-422E-BFFB-2875C2A6C1CC}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<RandomSequenceContainer Name="Jaskier_walk_run_dirt" ID="{7FC9860F-3BA8-4D6F-A4C1-A80797D71059}" ShortID="979780729">
+									<PropertyList>
+										<Property Name="EnableAttenuation" Type="bool" Value="False"/>
+										<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+										<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-15</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Attenuation">
+											<Custom>
+												<Attenuation Name="Attenuation (Custom)" ID="{EAF461EA-7E10-4590-B9A3-6BACD565DA43}" ShortID="1070750840">
+													<CurveUsageInfoList>
+														<VolumeDryUsage>
+															<CurveUsageInfo Platform="Linked" CurveToUse="Custom">
+																<Curve Name="VolumeDry" ID="{521D29FD-2A24-4CAE-AA1D-35D4AE16C365}">
+																	<PropertyList>
+																		<Property Name="Flags" Type="int32" Value="3"/>
+																	</PropertyList>
+																	<PointList>
+																		<Point>
+																			<XPos>0</XPos>
+																			<YPos>0</YPos>
+																			<Flags>5</Flags>
+																		</Point>
+																		<Point>
+																			<XPos>100</XPos>
+																			<YPos>-200</YPos>
+																			<Flags>37</Flags>
+																		</Point>
+																	</PointList>
+																</Curve>
+															</CurveUsageInfo>
+														</VolumeDryUsage>
+														<VolumeWetGameUsage>
+															<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
+														</VolumeWetGameUsage>
+														<VolumeWetUserUsage>
+															<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
+														</VolumeWetUserUsage>
+														<LowPassFilterUsage>
+															<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+														</LowPassFilterUsage>
+														<HighPassFilterUsage>
+															<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+														</HighPassFilterUsage>
+														<SpreadUsage>
+															<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+														</SpreadUsage>
+														<FocusUsage>
+															<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+														</FocusUsage>
+													</CurveUsageInfoList>
+												</Attenuation>
+											</Custom>
+										</Reference>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="Jaskier_walk_run_dirt_1" ID="{5AFD7D5F-9376-4B95-8278-A47F91240614}" ShortID="559422322">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Jaskier_walk_run_dirt_1" ID="{244D95E9-17BE-4A39-82B0-DC072018837F}" ShortID="808607622">
+													<Language>SFX</Language>
+													<AudioFile>Jaskier_walk_run_dirt_1.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Jaskier_walk_run_dirt_1" ID="{244D95E9-17BE-4A39-82B0-DC072018837F}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Jaskier_walk_run_dirt_2" ID="{5CB2477B-8D52-47B6-83AF-292DB7F28097}" ShortID="413655339">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Jaskier_walk_run_dirt_2" ID="{33EC17B4-990E-4476-B62B-CEDBC7C976BF}" ShortID="1004558716">
+													<Language>SFX</Language>
+													<AudioFile>Jaskier_walk_run_dirt_2.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Jaskier_walk_run_dirt_2" ID="{33EC17B4-990E-4476-B62B-CEDBC7C976BF}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Jaskier_walk_run_dirt_4" ID="{C0B7E700-318B-4295-8F2C-D59B6538AC88}" ShortID="265590832">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Jaskier_walk_run_dirt_4" ID="{7C0BB020-BBF5-466B-8029-8F6922A9135D}" ShortID="901958049">
+													<Language>SFX</Language>
+													<AudioFile>Jaskier_walk_run_dirt_4.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Jaskier_walk_run_dirt_4" ID="{7C0BB020-BBF5-466B-8029-8F6922A9135D}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Jaskier_walk_run_dirt_5" ID="{C1CEAAC2-7DAB-434A-AC00-6599B6391F02}" ShortID="415955529">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Jaskier_walk_run_dirt_5" ID="{5CABEA6D-E40B-44A0-A0B7-E85E984681C6}" ShortID="778216361">
+													<Language>SFX</Language>
+													<AudioFile>Jaskier_walk_run_dirt_5.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Jaskier_walk_run_dirt_5" ID="{5CABEA6D-E40B-44A0-A0B7-E85E984681C6}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+									<PositioningInfo>
+										<Position Name="" ID="{F52AAEC0-9923-47AE-9080-0D265C9B6617}"/>
+									</PositioningInfo>
+								</RandomSequenceContainer>
+								<RandomSequenceContainer Name="Jaskier_walk_dirt" ID="{98E187CB-ED8C-4226-9872-C0E9B43BEDC0}" ShortID="428525050">
+									<PropertyList>
+										<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+										<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-15</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="Jaskier_Walk_dirt_1" ID="{21A6E986-A915-4344-96BF-9B5497BBBDB2}" ShortID="60313720">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Jaskier_Walk_dirt_1" ID="{F9DBF9EB-AE7C-4FB4-A37C-13F59C612467}" ShortID="972374554">
+													<Language>SFX</Language>
+													<AudioFile>Jaskier_Walk_dirt_1.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Jaskier_Walk_dirt_1" ID="{F9DBF9EB-AE7C-4FB4-A37C-13F59C612467}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Jaskier_Walk_dirt_2" ID="{D782A56E-D8B3-45E0-917C-71A7CE486C58}" ShortID="502773312">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Jaskier_Walk_dirt_2" ID="{B194C790-D387-40FC-8A5B-A41ACED16887}" ShortID="809240755">
+													<Language>SFX</Language>
+													<AudioFile>Jaskier_Walk_dirt_2.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Jaskier_Walk_dirt_2" ID="{B194C790-D387-40FC-8A5B-A41ACED16887}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Jaskier_Walk_dirt_3" ID="{F57BA858-4004-42A9-A074-346365625CEB}" ShortID="247473611">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Jaskier_Walk_dirt_3" ID="{4A3F34CD-11B8-46F4-9154-EB54D8EB632A}" ShortID="345663131">
+													<Language>SFX</Language>
+													<AudioFile>Jaskier_Walk_dirt_3.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Jaskier_Walk_dirt_3" ID="{4A3F34CD-11B8-46F4-9154-EB54D8EB632A}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Jaskier_Walk_dirt_4" ID="{3EC2F056-ACB7-4621-86E7-8E53B61EBDF2}" ShortID="53831653">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Jaskier_Walk_dirt_4" ID="{6ECA5266-50FC-41C8-BBDD-2870372DBBF6}" ShortID="324687624">
+													<Language>SFX</Language>
+													<AudioFile>Jaskier_Walk_dirt_4.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Jaskier_Walk_dirt_4" ID="{6ECA5266-50FC-41C8-BBDD-2870372DBBF6}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Jaskier_Walk_dirt_5" ID="{7961D3F2-E60E-4314-9AA5-3B8C45A0FB4E}" ShortID="493264689">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Jaskier_Walk_dirt_5" ID="{2ED43C1F-6A10-460B-AC56-9807F7A7AD3A}" ShortID="586777340">
+													<Language>SFX</Language>
+													<AudioFile>Jaskier_Walk_dirt_5.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Jaskier_Walk_dirt_5" ID="{2ED43C1F-6A10-460B-AC56-9807F7A7AD3A}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</RandomSequenceContainer>
+							</ChildrenList>
+							<GroupingInfo>
+								<GroupingBehaviorList>
+									<GroupingBehavior>
+										<ItemRef Name="Jaskier_walk_run_dirt" ID="{7FC9860F-3BA8-4D6F-A4C1-A80797D71059}"/>
+									</GroupingBehavior>
+									<GroupingBehavior>
+										<ItemRef Name="Jaskier_walk_dirt" ID="{98E187CB-ED8C-4226-9872-C0E9B43BEDC0}"/>
+									</GroupingBehavior>
+								</GroupingBehaviorList>
+								<GroupingList>
+									<Grouping>
+										<SwitchRef Name="Walk" ID="{F2F91016-AE83-41E9-A28C-2E5C8708A347}"/>
+										<ItemList>
+											<ItemRef Name="Jaskier_walk_dirt" ID="{98E187CB-ED8C-4226-9872-C0E9B43BEDC0}"/>
+										</ItemList>
+									</Grouping>
+									<Grouping>
+										<SwitchRef Name="Run" ID="{4B7B7193-A65F-4794-B900-DFB58109532B}"/>
+										<ItemList>
+											<ItemRef Name="Jaskier_walk_run_dirt" ID="{7FC9860F-3BA8-4D6F-A4C1-A80797D71059}"/>
+										</ItemList>
+									</Grouping>
+								</GroupingList>
+							</GroupingInfo>
+						</SwitchContainer>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Monster_enemies" ID="{6BE1DBA3-2D1F-4599-B700-2769B0C31077}" ShortID="106042545">
@@ -4088,6 +4419,58 @@
 										</Sound>
 									</ChildrenList>
 								</RandomSequenceContainer>
+								<Sound Name="Kikimora_sweep_phase_2" ID="{E449097E-76A2-42D5-91CE-73AC0609F4B5}" ShortID="581964446">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Kikimora_sweep_phase_2" ID="{F1B3B976-F7B7-4C9B-9C61-C55D523D24A4}" ShortID="523745202">
+											<Language>SFX</Language>
+											<AudioFile>Kikimora_sweep_phase_2.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Kikimora_sweep_phase_2" ID="{F1B3B976-F7B7-4C9B-9C61-C55D523D24A4}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Kikimora_sweep_phase_3" ID="{48ACC2AA-CF89-45A6-85D8-75CBB9866B77}" ShortID="584542997">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Kikimora_sweep_phase_3" ID="{9BA94F1F-E055-44EB-AC6E-5D2DEAB32BC1}" ShortID="165102061">
+											<Language>SFX</Language>
+											<AudioFile>Kikimora_sweep_phase_3.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Kikimora_sweep_phase_3" ID="{9BA94F1F-E055-44EB-AC6E-5D2DEAB32BC1}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
 							</ChildrenList>
 						</Folder>
 						<Folder Name="Screamer_ghoul" ID="{3672790E-E9C0-40FB-B4B9-516B27DE57AC}" ShortID="618134431">
@@ -4540,14 +4923,7 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<Sound Name="Screamer_ghoul_scream_1" ID="{1C9275FD-D40D-44B3-BC64-3500955FB3EC}" ShortID="228668360">
-											<PropertyList>
-												<Property Name="Volume" Type="Real64">
-													<ValueList>
-														<Value>-6</Value>
-													</ValueList>
-												</Property>
-											</PropertyList>
+										<Sound Name="Screamer_ghoul_scream_attack_1" ID="{AA9522E8-56B4-43B8-ABBC-F5660D2BE6E1}" ShortID="119907086">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -4557,23 +4933,16 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="Red_Ghoul_scream_1" ID="{E21466DF-8723-41D2-9DB9-288F824764E2}" ShortID="613516105">
+												<AudioFileSource Name="Screamer_ghoul_scream_attack_1" ID="{BC76F61A-7809-4207-B0B8-73953794DB86}" ShortID="1008028608">
 													<Language>SFX</Language>
-													<AudioFile>Red_Ghoul_scream_1.wav</AudioFile>
+													<AudioFile>Screamer_ghoul_scream_attack_1.wav</AudioFile>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
-												<ActiveSource Name="Red_Ghoul_scream_1" ID="{E21466DF-8723-41D2-9DB9-288F824764E2}" Platform="Linked"/>
+												<ActiveSource Name="Screamer_ghoul_scream_attack_1" ID="{BC76F61A-7809-4207-B0B8-73953794DB86}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
-										<Sound Name="Screamer_ghoul_scream_2" ID="{1D0CAFB4-7EDE-4541-9D8A-242B4F43BF07}" ShortID="131149141">
-											<PropertyList>
-												<Property Name="Volume" Type="Real64">
-													<ValueList>
-														<Value>-6</Value>
-													</ValueList>
-												</Property>
-											</PropertyList>
+										<Sound Name="Screamer_ghoul_scream_attack_2" ID="{7DFE43F1-FAC7-485F-93EE-D5730BDA7398}" ShortID="426815281">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -4583,13 +4952,51 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="Red_Ghoul_scream_2" ID="{E54D56CB-89CE-4D1E-8602-5E1C88F67F52}" ShortID="840382938">
+												<AudioFileSource Name="Screamer_ghoul_scream_attack_2" ID="{A5170A07-1E37-419D-9820-31BDF8C1A25B}" ShortID="713683945">
 													<Language>SFX</Language>
-													<AudioFile>Red_Ghoul_scream_2.wav</AudioFile>
+													<AudioFile>Screamer_ghoul_scream_attack_2.wav</AudioFile>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
-												<ActiveSource Name="Red_Ghoul_scream_2" ID="{E54D56CB-89CE-4D1E-8602-5E1C88F67F52}" Platform="Linked"/>
+												<ActiveSource Name="Screamer_ghoul_scream_attack_2" ID="{A5170A07-1E37-419D-9820-31BDF8C1A25B}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Screamer_ghoul_scream_attack_3" ID="{8480BAC6-25BA-480B-9CF2-777264D277F6}" ShortID="950873768">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Screamer_ghoul_scream_attack_3" ID="{85396795-1E0D-4B69-82B8-78C09E0946F2}" ShortID="352211453">
+													<Language>SFX</Language>
+													<AudioFile>Screamer_ghoul_scream_attack_3.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Screamer_ghoul_scream_attack_3" ID="{85396795-1E0D-4B69-82B8-78C09E0946F2}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Screamer_ghoul_scream_attack_4" ID="{8E9D2C7A-CB7D-4136-BFBE-B603129C334C}" ShortID="848406226">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Screamer_ghoul_scream_attack_4" ID="{A5F4141C-1600-470E-8C2D-D8AEDB2E9A5B}" ShortID="720271836">
+													<Language>SFX</Language>
+													<AudioFile>Screamer_ghoul_scream_attack_4.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Screamer_ghoul_scream_attack_4" ID="{A5F4141C-1600-470E-8C2D-D8AEDB2E9A5B}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
 									</ChildrenList>
@@ -10093,6 +10500,13 @@
 							</ChildrenList>
 						</RandomSequenceContainer>
 						<Sound Name="Reach_firecamp_" ID="{9DAE2744-DF46-4431-8766-78673CB72B0A}" ShortID="141201460">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -10111,6 +10525,58 @@
 								<ActiveSource Name="Reach_firecamp_" ID="{E91CA031-0CCB-40F1-9CF7-7986306A8B06}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
+						<Sound Name="Potion pick up" ID="{AB1E6AA6-C874-4942-BC08-3E7ABEB8DE23}" ShortID="151933862">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Potion pick up" ID="{FE221B76-2505-425C-A179-ACD22C18AB50}" ShortID="604885141">
+									<Language>SFX</Language>
+									<AudioFile>Potion pick up.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Potion pick up" ID="{FE221B76-2505-425C-A179-ACD22C18AB50}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Potion_drop" ID="{055A1524-5198-4234-A243-46C08762E0AF}" ShortID="902527532">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Potion_drop" ID="{2560B295-0061-4539-8F8A-9B434ADDE1F4}" ShortID="304131898">
+									<Language>SFX</Language>
+									<AudioFile>Potion_drop.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Potion_drop" ID="{2560B295-0061-4539-8F8A-9B434ADDE1F4}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Selection Menu" ID="{345074CE-A689-45FE-B160-2329C88F5594}" ShortID="432763994">
@@ -10119,7 +10585,7 @@
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-12</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -10198,6 +10664,13 @@
 				<Folder Name="HUD" ID="{A46D3B86-5284-4860-AC5A-C7A99B3CAAD4}" ShortID="341397979">
 					<ChildrenList>
 						<Sound Name="HUD_No_Stamina" ID="{D3A5EFE7-B197-4406-941A-00AD88E5F1F8}" ShortID="600177159">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-9</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -10217,6 +10690,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="HUD_Special_Up" ID="{DE0CBE2C-85EA-4374-98EF-F55D4276485D}" ShortID="423047513">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -10236,6 +10716,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="HUD_Switch_Potion" ID="{7BD04934-72EA-4FBC-BB93-B2BF2172F828}" ShortID="68689938">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-9</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -10255,6 +10742,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="HUD_No_Potion" ID="{747F510F-CB24-4B54-B0C0-2DDF30170437}" ShortID="88426325">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-9</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>

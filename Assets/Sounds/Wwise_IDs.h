@@ -130,6 +130,8 @@ namespace AK
         static const AkUniqueID PLAY_KIKIMORA_SCREAM_1 = 3439824559U;
         static const AkUniqueID PLAY_KIKIMORA_SCREAM_4 = 3439824554U;
         static const AkUniqueID PLAY_KIKIMORA_SWEEP = 287198644U;
+        static const AkUniqueID PLAY_KIKIMORA_SWEEP_PHASE_2 = 2567188251U;
+        static const AkUniqueID PLAY_KIKIMORA_SWEEP_PHASE_3 = 2567188250U;
         static const AkUniqueID PLAY_LEAD_THE_WAY__RIGHT_BEHIND_YOU = 1466737999U;
         static const AkUniqueID PLAY_LET_S_GO__NO_TIME_TO_LOSE = 1858422841U;
         static const AkUniqueID PLAY_LET_S_LOOK_AROUND__SEE_IF_WE_CAN_T_FIND_SOMETHING_INTERESTING = 694589901U;
@@ -186,6 +188,8 @@ namespace AK
         static const AkUniqueID PLAY_OVER = 2348692292U;
         static const AkUniqueID PLAY_PAUSE = 4233560256U;
         static const AkUniqueID PLAY_PHEW__NEVER_EXPECTED_THAT_TO_GO_SO_WELL = 473557862U;
+        static const AkUniqueID PLAY_POTION_DROP = 2331601197U;
+        static const AkUniqueID PLAY_POTION_PICK_UP = 4277472243U;
         static const AkUniqueID PLAY_PROP_HIT_WOOD = 2533588661U;
         static const AkUniqueID PLAY_PROP_WOOD_BREAK = 2941887487U;
         static const AkUniqueID PLAY_REACH_FIRECAMP_ = 1072535284U;
@@ -230,6 +234,28 @@ namespace AK
 
     namespace SWITCHES
     {
+        namespace GERALT_WALK_RUN_SWITCH
+        {
+            static const AkUniqueID GROUP = 39286211U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID RUN = 712161704U;
+                static const AkUniqueID WALK = 2108779966U;
+            } // namespace SWITCH
+        } // namespace GERALT_WALK_RUN_SWITCH
+
+        namespace JASKIER_WALK_RUN_SWITCH
+        {
+            static const AkUniqueID GROUP = 2577655901U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID RUN = 712161704U;
+                static const AkUniqueID WALK = 2108779966U;
+            } // namespace SWITCH
+        } // namespace JASKIER_WALK_RUN_SWITCH
+
         namespace LVL_1_MUSIC_SWITCH
         {
             static const AkUniqueID GROUP = 1315527568U;
