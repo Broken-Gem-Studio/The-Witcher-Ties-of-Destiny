@@ -1713,15 +1713,6 @@ local function ActionInputs()	--Process Action Inputs
 				lua_table.AudioFunctions:PlayAudioEventGO(audio_library.not_possible, geralt_GO_UID)	--TODO-Audio: Not possible sound
 			end
 
-		-- elseif lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_use_item, key_state.key_down)	--Object Input
-		-- then
-		-- 	action_started_at = game_time							--Set timer start mark
-
-		-- 	--Do Use_Object
-		-- 	lua_table.previous_state = lua_table.current_state
-		-- 	lua_table.current_state = state.item
-		-- 	action_made = true
-
 		elseif lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_revive, key_state.key_down)	--Revive Input
 		then
 			local jaskier_pos = lua_table.TransformFunctions:GetPosition(jaskier_GO_UID)
