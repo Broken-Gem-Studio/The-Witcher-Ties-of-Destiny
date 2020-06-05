@@ -381,7 +381,8 @@ function GetTableWinLose()
     -------------------------------------------------
     function lua_table:Awake()
         winlose = lua_table.GO:GetMyUID()
-        music_manager_UID = lua_table.FindGameObject("Music_Manager")
+        music_manager_UID = lua_table.GO:FindGameObject("Music_Manager")
+
         --UI
         win = lua_table.GO:FindGameObject("Victory")
         lose = lua_table.GO:FindGameObject("Defeat")
@@ -408,16 +409,20 @@ function GetTableWinLose()
         end
 
         --Win Condition
-        FinalEnemy = lua_table.GO:FindGameObject("FinalEnemy")
-        if FinalEnemy > 0
+        if lua_table.current_level == 1
         then
-            finalenemy_script = lua_table.GO:GetScript(FinalEnemy)
-        end
-        
-        Kikimora = lua_table.GO:FindGameObject("Kikimora")
-        if Kikimora > 0
+            FinalEnemy = lua_table.GO:FindGameObject("FinalEnemy")
+            if FinalEnemy > 0
+            then
+                finalenemy_script = lua_table.GO:GetScript(FinalEnemy)
+            end
+        elseif lua_table.current_level == 2
         then
-            kikimora_script = lua_table.GO:GetScript(Kikimora)
+            Kikimora = lua_table.GO:FindGameObject("Kikimora")
+            if Kikimora > 0
+            then
+                kikimora_script = lua_table.GO:GetScript(Kikimora)
+            end
         end
 
         --Respawn Pos
