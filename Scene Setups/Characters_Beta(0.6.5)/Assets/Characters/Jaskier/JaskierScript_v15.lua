@@ -138,6 +138,9 @@ local current_audio = audio_library.none
 local current_paused_audio = audio_library.none
 
 --Areas
+local interval_calculation_started_at = 0
+local interval_calculation_time = 3000
+
 local enemy_detection_started_at = 0
 local enemy_detection_time = 1000
 lua_table.enemies_nearby = false
@@ -392,8 +395,8 @@ lua_table.energy_reg_orig = 7
 	--Attack Vars
 	lua_table.collider_damage = 0						--Collider/Attack Damage
 	lua_table.collider_effect = attack_effects_ID.none		--Effect
-	--lua_table.collider_effect_value = 0				--Effect relevant value (Velocity, venom damage, etc)
-	--lua_table.collider_effect_duration = 0			--Effect duration
+	lua_table.collider_stun_duration = 0
+	lua_table.collider_knockback_speed = 0
 
 	--Attack Feedback
 	local enemy_hit_stages = {
@@ -468,6 +471,7 @@ lua_table.light_3 = { 'N', 'L', 'L', 'L' }
 lua_table.light_3_size = 3
 lua_table.light_3_damage = 1.25
 lua_table.light_3_effect = attack_effects_ID.knockback
+lua_table.light_3_effect_value = 0
 
 --Medium Attack
 lua_table.medium_damage = 1.5					--Multiplier of Base Damage
@@ -508,6 +512,7 @@ lua_table.medium_3 = { 'N', 'M', 'M', 'M' }
 lua_table.medium_3_size = 3
 lua_table.medium_3_damage = 1.75
 lua_table.medium_3_effect = attack_effects_ID.stun
+lua_table.medium_3_effect_value = 500
 
 --Heavy Attack
 lua_table.heavy_damage = 2.0				--Multiplier of Base Damage
@@ -549,6 +554,7 @@ lua_table.heavy_3 = { 'N', 'H', 'H', 'H' }
 lua_table.heavy_3_size = 3
 lua_table.heavy_3_damage = 2.25
 lua_table.heavy_3_effect = attack_effects_ID.knockback
+lua_table.heavy_3_effect_value = 0
 
 --Evade		
 lua_table.evade_velocity = 25			--12
@@ -579,6 +585,7 @@ lua_table.note_stack = { 'N', 'N', 'N', 'N' }	-- Notes based on attacks performe
 	lua_table.song_1_animation_speed = 50.0
 	lua_table.song_1_damage = 4.0
 	lua_table.song_1_status_effect = attack_effects_ID.none
+	lua_table.song_1_effect_value = 0
 
 	lua_table.song_1_collider_line_start = 800
 	lua_table.song_1_collider_line_end = 1200
@@ -594,6 +601,7 @@ lua_table.note_stack = { 'N', 'N', 'N', 'N' }	-- Notes based on attacks performe
 	lua_table.song_2_animation_speed = 50.0
 	lua_table.song_2_damage = 3.0
 	lua_table.song_2_status_effect = attack_effects_ID.stun
+	lua_table.song_2_effect_value = 2000
 
 	local song_2_trapezoid = {
 		offset_x = 0.1,			--Near segment width (Must be > than 0)
@@ -617,6 +625,7 @@ lua_table.note_stack = { 'N', 'N', 'N', 'N' }	-- Notes based on attacks performe
 	lua_table.song_3_animation_speed = 30.0
 	lua_table.song_3_damage = 0.0
 	lua_table.song_3_status_effect = attack_effects_ID.taunt
+	lua_table.song_3_effect_value = 0
 
 	lua_table.song_3_secondary_effect_start = 2850
 	lua_table.song_3_secondary_effect_end = 2950
@@ -625,6 +634,7 @@ lua_table.note_stack = { 'N', 'N', 'N', 'N' }	-- Notes based on attacks performe
 	lua_table.song_3_secondary_animation_speed = 50.0
 	lua_table.song_3_secondary_damage = 5.0
 	lua_table.song_3_secondary_status_effect = attack_effects_ID.knockback
+	lua_table.song_3_secondary_effect_value = 0
 
 --Ultimate
 lua_table.current_ultimate = 0.0
@@ -651,6 +661,7 @@ lua_table.ultimate_secondary_effect_active = false
 lua_table.ultimate_secondary_animation_speed = 50.0
 lua_table.ultimate_secondary_damage = 2.5
 lua_table.ultimate_secondary_status_effect = attack_effects_ID.knockback
+lua_table.ultimate_secondary_effect_value = 0
 
 --Stand Up	(Standing up from knockbacks or being downed)
 lua_table.falling_down_bool = false
@@ -1086,6 +1097,16 @@ end
 
 --Character Movement BEGIN	----------------------------------------------------------------------------
 
+local function CheckMapBoundaries()
+	if game_time - interval_calculation_started_at > interval_calculation_time
+	then
+		local jaskier_pos = lua_table.TransformFunctions:GetPosition(jaskier_GO_UID)	--Look at and set direction from knockback
+		if jaskier_pos[2] < -300 then lua_table.PhysicsFunctions:SetCharacterPosition(jaskier_pos[1], 500.0, jaskier_pos[3], jaskier_GO_UID) end
+		
+		interval_calculation_started_at = game_time
+	end
+end
+
 local function SaveDirection()
 	rot_y = math.rad(GimbalLockWorkaroundY(jaskier_GO_UID))	--TODO: Remove GimbalLock stage when Euler bug is fixed
 
@@ -1414,6 +1435,10 @@ local function PerformSong(song_type)
 		lua_table.collider_damage = base_damage_real * lua_table[song_type .. "_damage"]
 		lua_table.collider_effect = lua_table[song_type .. "_status_effect"]
 
+		lua_table.collider_stun_duration, lua_table.collider_knockback_speed = 0, 0
+		if lua_table.collider_effect == attack_effects_ID.stun then lua_table.collider_stun_duration = lua_table[song_type .. "_effect_value"]
+		elseif lua_table.collider_effect == attack_effects_ID.knockback then lua_table.collider_knockback_speed = lua_table[song_type .. "_effect_value"] end
+
 		lua_table.previous_state = lua_table.current_state
 		lua_table.current_state = state[song_type]
 
@@ -1471,6 +1496,10 @@ local function PerformCombo(combo_type)
 		lua_table.collider_damage = base_damage_real * lua_table[combo_type .. "_damage"]
 		lua_table.collider_effect = lua_table[combo_type .. "_effect"]
 
+		lua_table.collider_stun_duration, lua_table.collider_knockback_speed = 0, 0
+		if lua_table.collider_effect == attack_effects_ID.stun then lua_table.collider_stun_duration = lua_table[combo_type .. "_effect_value"]
+		elseif lua_table.collider_effect == attack_effects_ID.knockback then lua_table.collider_knockback_speed = lua_table[combo_type .. "_effect_value"] end
+		
 		lua_table.previous_state = lua_table.current_state
 		lua_table.current_state = state[combo_type]
 
@@ -2352,6 +2381,8 @@ function lua_table:Update()
 	DebugInputs()
 	if must_update_stats then CalculateStats() end
 
+	CheckMapBoundaries()
+
 	if lua_table.current_state ~= state.dead	--IF not dead (stuff done while downed too)
 	then
 		DetectNearbyEnemies()
@@ -2395,6 +2426,8 @@ function lua_table:Update()
 
 			lua_table.falling_down_bool = true
 			lua_table.standing_up_bool = false
+
+			lua_table.enemies_nearby = false
 
 			lua_table.previous_state = lua_table.current_state
 			lua_table.current_state = state.down
@@ -2741,6 +2774,9 @@ function lua_table:Update()
 									lua_table.collider_damage = base_damage_real * lua_table.song_3_secondary_damage
 									lua_table.collider_effect = lua_table.song_3_secondary_status_effect
 
+									lua_table.collider_stun_duration, lua_table.collider_knockback_speed = 0, 0
+									lua_table.collider_knockback_speed = lua_table.song_3_secondary_effect_value
+
 									lua_table.TransformFunctions:RotateObject(0, 180, 0, jaskier_GO_UID)	--Do 180 to return to orig rotation
 
 									lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.circle_1.GO_UID)	--TODO-Colliders: Check
@@ -2817,6 +2853,9 @@ function lua_table:Update()
 
 									lua_table.collider_damage = base_damage_real * lua_table.ultimate_secondary_damage
 									lua_table.collider_effect = lua_table.ultimate_secondary_status_effect
+
+									lua_table.collider_stun_duration, lua_table.collider_knockback_speed = 0, 0
+									lua_table.collider_knockback_speed = lua_table.ultimate_secondary_effect_value
 
 									lua_table.ultimate_effect_active = false
 								end

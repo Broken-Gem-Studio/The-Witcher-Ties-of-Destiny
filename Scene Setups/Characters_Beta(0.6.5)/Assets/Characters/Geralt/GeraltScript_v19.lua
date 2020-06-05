@@ -141,6 +141,9 @@ local current_audio = audio_library.none
 local current_paused_audio = audio_library.none
 
 --Areas
+local interval_calculation_started_at = 0
+local interval_calculation_time = 3000
+
 local enemy_detection_started_at = 0
 local enemy_detection_time = 1000
 lua_table.enemies_nearby = false
@@ -404,8 +407,8 @@ lua_table.energy_reg_orig = 7
 	--Attack Vars
 	lua_table.collider_damage = 0						--Collider/Attack Damage
 	lua_table.collider_effect = attack_effects_ID.none		--Effect
-	--lua_table.collider_effect_value = 0				--Effect relevant value (Velocity, venom damage, etc)
-	--lua_table.collider_effect_duration = 0			--Effect duration
+	lua_table.collider_stun_duration = 0
+	lua_table.collider_knockback_speed = 0
 	
 	--Attack Feedback
 	local enemy_hit_stages = {
@@ -472,6 +475,7 @@ lua_table.light_3 = { 'N', 'L', 'L', 'L' }
 lua_table.light_3_size = 3
 lua_table.light_3_damage = 1.25
 lua_table.light_3_effect = attack_effects_ID.stun
+lua_table.light_3_effect_value = 500
 
 --Medium Attack
 lua_table.medium_damage = 1.5					--Multiplier of Base Damage
@@ -504,6 +508,7 @@ lua_table.medium_3 = { 'N', 'M', 'M', 'M' }
 lua_table.medium_3_size = 3
 lua_table.medium_3_damage = 1.75
 lua_table.medium_3_effect = attack_effects_ID.knockback
+lua_table.medium_3_effect_value = 0
 
 --Heavy Attack
 lua_table.heavy_damage = 2.0				--Multiplier of Base Damage
@@ -539,6 +544,7 @@ lua_table.heavy_3 = { 'N', 'H', 'H', 'H' }
 lua_table.heavy_3_size = 3
 lua_table.heavy_3_damage = 2.25
 lua_table.heavy_3_effect = attack_effects_ID.stun
+lua_table.heavy_3_effect_value = 1000
 
 --Evade		
 lua_table.evade_velocity = 20			--12
@@ -632,6 +638,7 @@ lua_table.combo_1 = { 'L', 'M', 'L', 'M' }	--Slide Attack
 lua_table.combo_1_size = 4
 lua_table.combo_1_damage = 2.0	--slide + 4 hits
 lua_table.combo_1_effect = attack_effects_ID.knockback
+lua_table.combo_1_effect_value = 0
 lua_table.combo_1_duration = 1500
 lua_table.combo_1_block_time = lua_table.combo_1_duration
 lua_table.combo_1_animation_speed = 45.0
@@ -653,6 +660,7 @@ lua_table.combo_2 = { 'M', 'L', 'L', 'M' }	--High Spin
 lua_table.combo_2_size = 4
 lua_table.combo_2_damage = 3.5	--3 hit
 lua_table.combo_2_effect = attack_effects_ID.stun
+lua_table.combo_2_effect_value = 1500
 lua_table.combo_2_duration = 1500
 lua_table.combo_2_block_time = lua_table.combo_2_duration
 lua_table.combo_2_animation_speed = 40.0
@@ -669,7 +677,8 @@ lua_table.combo_2_collider_front_end = 1100		--Collider deactivation time
 lua_table.combo_3 = { 'H', 'L', 'M', 'H' }	--Jump Attack
 lua_table.combo_3_size = 4
 lua_table.combo_3_damage = 4.0	--1 hit		--IMPROVE: + stun
-lua_table.combo_3_effect = attack_effects_ID.knockback
+lua_table.combo_3_effect = attack_effects_ID.stun
+lua_table.combo_3_effect_value = 3000
 lua_table.combo_3_duration = 2000
 lua_table.combo_3_block_time = lua_table.combo_3_duration
 lua_table.combo_3_animation_speed = 30.0
@@ -1077,6 +1086,16 @@ end
 
 --Character Movement BEGIN	----------------------------------------------------------------------------
 
+local function CheckMapBoundaries()
+	if game_time - interval_calculation_started_at > interval_calculation_time
+	then
+		local geralt_pos = lua_table.TransformFunctions:GetPosition(geralt_GO_UID)	--Look at and set direction from knockback
+		if geralt_pos[2] < -300 then lua_table.PhysicsFunctions:SetCharacterPosition(geralt_pos[1], 500.0, geralt_pos[3], geralt_GO_UID) end
+		
+		interval_calculation_started_at = game_time
+	end
+end
+
 local function SaveDirection()
 	rot_y = math.rad(GimbalLockWorkaroundY(geralt_GO_UID))	--TODO: Remove GimbalLock stage when Euler bug is fixed
 
@@ -1354,6 +1373,10 @@ local function PerformCombo(combo_type)
 		
 		lua_table.collider_damage = base_damage_real * lua_table[combo_type .. "_damage"]
 		lua_table.collider_effect = lua_table[combo_type .. "_effect"]
+		
+		lua_table.collider_stun_duration, lua_table.collider_knockback_speed = 0, 0
+		if lua_table.collider_effect == attack_effects_ID.stun then lua_table.collider_stun_duration = lua_table[combo_type .. "_effect_value"]
+		elseif lua_table.collider_effect == attack_effects_ID.knockback then lua_table.collider_knockback_speed = lua_table[combo_type .. "_effect_value"] end
 
 		lua_table.previous_state = lua_table.current_state
 		lua_table.current_state = state[combo_type]
@@ -2332,6 +2355,8 @@ function lua_table:Update()
 	DebugInputs()
 	if must_update_stats then CalculateStats() end
 
+	CheckMapBoundaries()
+	
 	if lua_table.current_state ~= state.dead	--IF not dead (stuff done while downed too)
 	then
 		DetectNearbyEnemies()
@@ -2384,6 +2409,8 @@ function lua_table:Update()
 			lua_table.falling_down_bool = true
 			lua_table.standing_up_bool = false
 
+			lua_table.enemies_nearby = false
+			
 			if lua_table.potion_active then EndPotion(lua_table.potion_in_effect) end				--IF potion in effect, turn off
 			if lua_table.ultimate_active then UltimateState(false) end	--IF ultimate on, go off
 		else								--IF still lives

@@ -22,6 +22,8 @@
 				<Event Id="3439824559" Name="Play_Kikimora_scream_1" ObjectPath="\Events\Default Work Unit\Monster_enemies\Kikimora\Play_Kikimora_scream_1" GUID="{FA35F0D1-A349-4EB7-8343-2A83357DFB8D}"/>
 				<Event Id="3439824554" Name="Play_Kikimora_scream_4" ObjectPath="\Events\Default Work Unit\Monster_enemies\Kikimora\Play_Kikimora_scream_4" GUID="{99F299FC-E7D2-4BF1-B84D-2B6C4F246305}"/>
 				<Event Id="287198644" Name="Play_Kikimora_sweep" ObjectPath="\Events\Default Work Unit\Monster_enemies\Kikimora\Play_Kikimora_sweep" GUID="{27A231E8-DA5D-470C-83C6-6C4E49719B16}"/>
+				<Event Id="2567188251" Name="Play_Kikimora_sweep_phase_2" ObjectPath="\Events\Default Work Unit\Monster_enemies\Kikimora\Play_Kikimora_sweep_phase_2" GUID="{73D64EBD-397F-44CB-A4D2-0F9EE8CC9A89}"/>
+				<Event Id="2567188250" Name="Play_Kikimora_sweep_phase_3" ObjectPath="\Events\Default Work Unit\Monster_enemies\Kikimora\Play_Kikimora_sweep_phase_3" GUID="{F6F747C6-59ED-4538-B924-608C132A6EE8}"/>
 				<Event Id="2771098367" Name="Play_Minion_both_arms_attack" ObjectPath="\Events\Default Work Unit\Monster_enemies\Minion\Play_Minion_both_arms_attack" GUID="{56C17EC2-C080-474C-B9F4-CD455579920C}"/>
 				<Event Id="1869957515" Name="Play_Minion_death" ObjectPath="\Events\Default Work Unit\Monster_enemies\Minion\Play_Minion_death" GUID="{2E0A7979-484A-4148-B886-FCF7150E5C50}"/>
 				<Event Id="637833570" Name="Play_Minion_right_punch" ObjectPath="\Events\Default Work Unit\Monster_enemies\Minion\Play_Minion_right_punch" GUID="{0FAC7F38-23E5-4EB9-82A9-7CF4A8A95CBF}"/>
@@ -71,6 +73,10 @@
 					<ShortName>Walker_Ghoul_minion_spawn_2.wav</ShortName>
 					<Path>SFX\Walker_Ghoul_minion_spawn_2_10C4C929.wem</Path>
 				</File>
+				<File Id="165102061" Language="SFX">
+					<ShortName>Kikimora_sweep_phase_3.wav</ShortName>
+					<Path>SFX\Kikimora_sweep_phase_3_10C4C929.wem</Path>
+				</File>
 				<File Id="207123423" Language="SFX">
 					<ShortName>Minion_right_punch.wav</ShortName>
 					<Path>SFX\Minion_right_punch_10C4C929.wem</Path>
@@ -94,6 +100,10 @@
 				<File Id="340309384" Language="SFX">
 					<ShortName>Sweep_fix_1.wav</ShortName>
 					<Path>SFX\Sweep_fix_1_10C4C929.wem</Path>
+				</File>
+				<File Id="352211453" Language="SFX">
+					<ShortName>Screamer_ghoul_scream_attack_3.wav</ShortName>
+					<Path>SFX\Screamer_ghoul_scream_attack_3_10C4C929.wem</Path>
 				</File>
 				<File Id="365134146" Language="SFX">
 					<ShortName>Red_Ghoul_scream_variation_3.wav</ShortName>
@@ -143,6 +153,10 @@
 					<ShortName>Kikimora_fall.wav</ShortName>
 					<Path>SFX\Kikimora_fall_10C4C929.wem</Path>
 				</File>
+				<File Id="523745202" Language="SFX">
+					<ShortName>Kikimora_sweep_phase_2.wav</ShortName>
+					<Path>SFX\Kikimora_sweep_phase_2_10C4C929.wem</Path>
+				</File>
 				<File Id="530346917" Language="SFX">
 					<ShortName>Walker_Ghoul_scream_attack_1.wav</ShortName>
 					<Path>SFX\Walker_Ghoul_scream_attack_1_10C4C929.wem</Path>
@@ -167,10 +181,6 @@
 					<ShortName>Red_Ghoul_scream_variation_1.wav</ShortName>
 					<Path>SFX\Red_Ghoul_scream_variation_1_10C4C929.wem</Path>
 				</File>
-				<File Id="613516105" Language="SFX">
-					<ShortName>Red_Ghoul_scream_1.wav</ShortName>
-					<Path>SFX\Red_Ghoul_scream_1_10C4C929.wem</Path>
-				</File>
 				<File Id="619914627" Language="SFX">
 					<ShortName>Kikimora_lash.wav</ShortName>
 					<Path>SFX\Kikimora_lash_10C4C929.wem</Path>
@@ -179,6 +189,14 @@
 					<ShortName>Walker_Ghoul_minion_spawn_1.wav</ShortName>
 					<Path>SFX\Walker_Ghoul_minion_spawn_1_10C4C929.wem</Path>
 				</File>
+				<File Id="713683945" Language="SFX">
+					<ShortName>Screamer_ghoul_scream_attack_2.wav</ShortName>
+					<Path>SFX\Screamer_ghoul_scream_attack_2_10C4C929.wem</Path>
+				</File>
+				<File Id="720271836" Language="SFX">
+					<ShortName>Screamer_ghoul_scream_attack_4.wav</ShortName>
+					<Path>SFX\Screamer_ghoul_scream_attack_4_10C4C929.wem</Path>
+				</File>
 				<File Id="728864066" Language="SFX">
 					<ShortName>Walker_Ghoul_scream_attack_4.wav</ShortName>
 					<Path>SFX\Walker_Ghoul_scream_attack_4_10C4C929.wem</Path>
@@ -186,10 +204,6 @@
 				<File Id="831253138" Language="SFX">
 					<ShortName>Kikimora_death.wav</ShortName>
 					<Path>SFX\Kikimora_death_10C4C929.wem</Path>
-				</File>
-				<File Id="840382938" Language="SFX">
-					<ShortName>Red_Ghoul_scream_2.wav</ShortName>
-					<Path>SFX\Red_Ghoul_scream_2_10C4C929.wem</Path>
 				</File>
 				<File Id="875630680" Language="SFX">
 					<ShortName>Walker_Ghoul_take_damage_2.wav</ShortName>
@@ -210,6 +224,10 @@
 				<File Id="968672774" Language="SFX">
 					<ShortName>Red_Ghoul_scream_variation_2.wav</ShortName>
 					<Path>SFX\Red_Ghoul_scream_variation_2_10C4C929.wem</Path>
+				</File>
+				<File Id="1008028608" Language="SFX">
+					<ShortName>Screamer_ghoul_scream_attack_1.wav</ShortName>
+					<Path>SFX\Screamer_ghoul_scream_attack_1_10C4C929.wem</Path>
 				</File>
 				<File Id="1009242023" Language="SFX">
 					<ShortName>Red_Ghoul_killed_2.wav</ShortName>

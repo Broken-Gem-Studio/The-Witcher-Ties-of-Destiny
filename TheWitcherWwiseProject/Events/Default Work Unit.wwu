@@ -16,17 +16,6 @@
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="Play_Jaskier_walk_run_dirt" ID="{977D160E-59A5-4D8C-AEA2-C472B5552E57}">
-							<ChildrenList>
-								<Action Name="" ID="{A76FB24F-5074-4BD7-B60C-7A04D421D99B}" ShortID="998446974">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Jaskier_walk_run_dirt" ID="{7FC9860F-3BA8-4D6F-A4C1-A80797D71059}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
 						<Event Name="Play_Jaskier_potion_fx" ID="{97D9103B-715E-4F39-A245-62CD1D1FD58A}">
 							<ChildrenList>
 								<Action Name="" ID="{80B3851D-028A-4542-85E7-053C3C3D1145}" ShortID="255015783">
@@ -159,6 +148,17 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Play_Jaskier_walk_run_dirt" ID="{60241958-49FA-4053-BFF1-E558632409A8}">
+							<ChildrenList>
+								<Action Name="" ID="{8EE5F199-DB04-4E44-8780-7B182C14578A}" ShortID="374785250">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Jaskier_walk_run_dirt" ID="{02EDDF6F-93D1-4019-BBCD-A99809EBA72C}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Geralt" ID="{E5CACF5E-D61C-4297-A0DC-A83B9BE30E76}" ShortID="721827375">
@@ -169,17 +169,6 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Geralt_revive" ID="{10D1168C-2644-4C85-911B-EA3458D1DD86}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Play_Geralt_light_roll" ID="{CC4FDEC0-F2AE-441C-A24C-D20C2ABC5600}">
-							<ChildrenList>
-								<Action Name="" ID="{150E1CA1-44F4-4D2F-A871-C86559CDAA05}" ShortID="813866977">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Geralt_light_roll" ID="{AEDA7277-6C49-4F54-92B4-9803F7ED71A4}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -251,17 +240,6 @@
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="Play_Geralt_walk_run_dirt" ID="{6EAF2744-B7A1-444A-9C25-CB6B84EAB7B6}">
-							<ChildrenList>
-								<Action Name="" ID="{0C91D87F-C412-47C3-9017-F8A8C0994DB7}" ShortID="941652476">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Geralt_walk_run_dirt" ID="{477F5E15-5EDC-44DE-8F09-CD927B6CA9D0}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
 						<Event Name="Play_Geralt_aard" ID="{86EE0A63-2B4F-45CF-A5F5-BEBABB0C76DA}">
 							<ChildrenList>
 								<Action Name="" ID="{DD31FC2E-BC68-4E44-8666-0148BE818A1F}" ShortID="407661906">
@@ -323,6 +301,28 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Geralt_combo_sound" ID="{562B41F8-4F6B-49FA-977E-D1A13B27D185}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Geralt_light_roll" ID="{F36ACDBC-2C7F-4CD6-BA12-0F71D335A582}">
+							<ChildrenList>
+								<Action Name="" ID="{58686335-2ED4-4C24-8D82-8D45F3B79C11}" ShortID="875016621">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Roll" ID="{1214A5FB-F5B3-467D-9EC5-40566CB2C1C8}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Geralt_walk_run_dirt" ID="{3B9809C1-9081-421A-BA9F-EDFEB48BA985}">
+							<ChildrenList>
+								<Action Name="" ID="{971636F5-1A4A-4AB3-A3A6-823C45D5CE08}" ShortID="147262599">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Geralt_walk_run_dirt" ID="{6E44A74D-1B42-49CE-8517-E6155E932D53}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -586,6 +586,28 @@
 											<ReferenceList>
 												<Reference Name="Target">
 													<ObjectRef Name="Kikimora_scream" ID="{44BAC1E2-F5C7-43CE-83CB-C5D85F41C426}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Kikimora_sweep_phase_2" ID="{73D64EBD-397F-44CB-A4D2-0F9EE8CC9A89}">
+									<ChildrenList>
+										<Action Name="" ID="{E921EAC0-087D-478B-ABF4-4B978C8925FD}" ShortID="101150156">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Kikimora_sweep_phase_2" ID="{E449097E-76A2-42D5-91CE-73AC0609F4B5}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Kikimora_sweep_phase_3" ID="{F6F747C6-59ED-4538-B924-608C132A6EE8}">
+									<ChildrenList>
+										<Action Name="" ID="{3590B651-CE29-4B36-B92D-AD1A8122D1CC}" ShortID="479055884">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Kikimora_sweep_phase_3" ID="{48ACC2AA-CF89-45A6-85D8-75CBB9866B77}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
 												</Reference>
 											</ReferenceList>
 										</Action>
@@ -931,6 +953,28 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Reach_firecamp_" ID="{9DAE2744-DF46-4431-8766-78673CB72B0A}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Potion_pick_up" ID="{4CB9FC1F-13CD-4F97-BEE8-8E359EDB92E2}">
+							<ChildrenList>
+								<Action Name="" ID="{EE9FEACA-5FE5-426A-99A7-AC9576E66666}" ShortID="498765695">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Potion pick up" ID="{AB1E6AA6-C874-4942-BC08-3E7ABEB8DE23}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Potion_drop" ID="{D613BF1A-1B9E-4929-BE38-59CC83B1FEC9}">
+							<ChildrenList>
+								<Action Name="" ID="{5CE47BE6-0CF5-4532-8DE4-FE39B7C3F005}" ShortID="349956856">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Potion_drop" ID="{055A1524-5198-4234-A243-46C08762E0AF}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
