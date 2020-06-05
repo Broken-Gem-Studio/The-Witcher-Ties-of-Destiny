@@ -141,6 +141,9 @@ local current_audio = audio_library.none
 local current_paused_audio = audio_library.none
 
 --Areas
+local interval_calculation_started_at = 0
+local interval_calculation_time = 3000
+
 local enemy_detection_started_at = 0
 local enemy_detection_time = 1000
 lua_table.enemies_nearby = false
@@ -1082,6 +1085,16 @@ end
 --Character Audio END	----------------------------------------------------------------------------
 
 --Character Movement BEGIN	----------------------------------------------------------------------------
+
+local function CheckMapBoundaries()
+	if game_time - interval_calculation_started_at > interval_calculation_time
+	then
+		local geralt_pos = lua_table.TransformFunctions:GetPosition(geralt_GO_UID)	--Look at and set direction from knockback
+		if geralt_pos[2] < -300 then lua_table.PhysicsFunctions:SetCharacterPosition(geralt_pos[1], 500.0, geralt_pos[3], geralt_GO_UID) end
+		
+		interval_calculation_started_at = game_time
+	end
+end
 
 local function SaveDirection()
 	rot_y = math.rad(GimbalLockWorkaroundY(geralt_GO_UID))	--TODO: Remove GimbalLock stage when Euler bug is fixed
@@ -2342,6 +2355,8 @@ function lua_table:Update()
 	DebugInputs()
 	if must_update_stats then CalculateStats() end
 
+	CheckMapBoundaries()
+	
 	if lua_table.current_state ~= state.dead	--IF not dead (stuff done while downed too)
 	then
 		DetectNearbyEnemies()
