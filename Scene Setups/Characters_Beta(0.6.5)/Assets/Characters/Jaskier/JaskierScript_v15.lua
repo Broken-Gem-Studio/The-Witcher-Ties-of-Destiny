@@ -2412,6 +2412,8 @@ function lua_table:Update()
 			lua_table.falling_down_bool = true
 			lua_table.standing_up_bool = false
 
+			lua_table.enemies_nearby = false
+
 			lua_table.previous_state = lua_table.current_state
 			lua_table.current_state = state.down
 

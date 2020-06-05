@@ -2394,6 +2394,8 @@ function lua_table:Update()
 			lua_table.falling_down_bool = true
 			lua_table.standing_up_bool = false
 
+			lua_table.enemies_nearby = false
+			
 			if lua_table.potion_active then EndPotion(lua_table.potion_in_effect) end				--IF potion in effect, turn off
 			if lua_table.ultimate_active then UltimateState(false) end	--IF ultimate on, go off
 		else								--IF still lives
