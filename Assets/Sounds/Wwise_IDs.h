@@ -190,6 +190,7 @@ namespace AK
         static const AkUniqueID PLAY_PHEW__NEVER_EXPECTED_THAT_TO_GO_SO_WELL = 473557862U;
         static const AkUniqueID PLAY_POTION_DROP = 2331601197U;
         static const AkUniqueID PLAY_POTION_PICK_UP = 4277472243U;
+        static const AkUniqueID PLAY_PRESSED_SKIP_BUTTON = 1949045457U;
         static const AkUniqueID PLAY_PROP_HIT_WOOD = 2533588661U;
         static const AkUniqueID PLAY_PROP_WOOD_BREAK = 2941887487U;
         static const AkUniqueID PLAY_REACH_FIRECAMP_ = 1072535284U;
@@ -205,6 +206,7 @@ namespace AK
         static const AkUniqueID PLAY_SCREAMER_GHOUL_SCREAM_ATTACK = 1192696521U;
         static const AkUniqueID PLAY_SCREAMER_GHOUL_SCREAM_VARIATION = 211157864U;
         static const AkUniqueID PLAY_SEE_YOU_LATER = 1168213312U;
+        static const AkUniqueID PLAY_SKIPPED_CINEMATIC = 2299046044U;
         static const AkUniqueID PLAY_SO__PLAN_TO_GO_OUT_AND_MEET_THE_BANDITS_WHEN_THEY_ARRIVE_FIGHT_THEM = 968994599U;
         static const AkUniqueID PLAY_SO__TALK_AGAIN_LATER = 4236460790U;
         static const AkUniqueID PLAY_SO_LONG = 2557789081U;
