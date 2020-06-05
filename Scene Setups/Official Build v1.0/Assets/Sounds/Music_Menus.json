@@ -5,15 +5,16 @@
   "SchemaVersion": "11",
   "SoundbankVersion": "134",
   "RootPaths": {
-   "ProjectRoot": "E:\\GitHub\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\",
-   "SourceFilesRoot": "E:\\GitHub\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\.cache\\Windows\\",
-   "SoundBanksRoot": "E:\\GitHub\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseSoundBanks\\",
+   "ProjectRoot": "C:\\Users\\Raul_App\\Documents\\GitHub\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\",
+   "SourceFilesRoot": "C:\\Users\\Raul_App\\Documents\\GitHub\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\.cache\\Windows\\",
+   "SoundBanksRoot": "C:\\Users\\Raul_App\\Documents\\GitHub\\The-Witcher-Ties-of-Destiny\\Assets\\Sounds\\",
    "ExternalSourcesInputFile": "",
-   "ExternalSourcesOutputRoot": "E:\\GitHub\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\GeneratedSoundBanks\\Windows"
+   "ExternalSourcesOutputRoot": "C:\\Users\\Raul_App\\Documents\\GitHub\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\GeneratedSoundBanks\\Windows"
   },
   "SoundBanks": [
    {
     "Id": "1614123467",
+    "GUID": "{DAB2BABB-64A4-497F-8337-6E304FFC60B6}",
     "Language": "SFX",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Music_Menus",
     "ShortName": "Music_Menus",
@@ -22,37 +23,52 @@
      {
       "Id": "3007158762",
       "Name": "Play_Lost_Menu_Music",
-      "ObjectPath": "\\Events\\Default Work Unit\\Play_Lost_Menu_Music"
+      "ObjectPath": "\\Events\\Default Work Unit\\Play_Lost_Menu_Music",
+      "GUID": "{CEB9E95B-8248-49FE-B2DD-BA1A76BCE546}"
      },
      {
       "Id": "2895168921",
       "Name": "Play_Main_Menu_Music",
-      "ObjectPath": "\\Events\\Default Work Unit\\Play_Main_Menu_Music"
+      "ObjectPath": "\\Events\\Default Work Unit\\Play_Main_Menu_Music",
+      "GUID": "{0AE28D7A-BA48-4317-84A9-E9DDB2BC5B03}"
+     },
+     {
+      "Id": "1913521131",
+      "Name": "Play_Music_Menu_Comparison_Pirate_Dance",
+      "ObjectPath": "\\Events\\Default Work Unit\\Play_Music_Menu_Comparison_Pirate_Dance",
+      "GUID": "{D8C2E418-7AE3-46EA-8E37-6727F19E5260}"
      },
      {
       "Id": "2973513758",
       "Name": "Play_Win_Menu_Music",
-      "ObjectPath": "\\Events\\Default Work Unit\\Play_Win_Menu_Music"
+      "ObjectPath": "\\Events\\Default Work Unit\\Play_Win_Menu_Music",
+      "GUID": "{3A638A68-A0A5-4630-BA90-82ECDB08B5BB}"
      }
     ],
     "IncludedMemoryFiles": [
      {
+      "Id": "237417088",
+      "Language": "SFX",
+      "ShortName": "Music_Menu_Comparison_Pirate_Dance.wav",
+      "Path": "SFX\\Music_Menu_Comparison_Pirate_Dance_C42B8C3C.wem"
+     },
+     {
       "Id": "665589033",
       "Language": "SFX",
       "ShortName": "Music_Menu_Win.wav",
-      "Path": "SFX\\Music_Menu_Win_D79FB2B7.wem"
+      "Path": "SFX\\Music_Menu_Win_C42B8C3C.wem"
      },
      {
       "Id": "689347614",
       "Language": "SFX",
       "ShortName": "Music_Menu_Lost.wav",
-      "Path": "SFX\\Music_Menu_Lost_D79FB2B7.wem"
+      "Path": "SFX\\Music_Menu_Lost_C42B8C3C.wem"
      },
      {
       "Id": "697497514",
       "Language": "SFX",
       "ShortName": "Music\\Music_Menu_Main_Captains_Tribute.wav",
-      "Path": "SFX\\Music\\Music_Menu_Main_Captains_Tribute_D79FB2B7.wem"
+      "Path": "SFX\\Music\\Music_Menu_Main_Captains_Tribute_C42B8C3C.wem"
      }
     ]
    }

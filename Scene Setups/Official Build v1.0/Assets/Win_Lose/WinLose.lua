@@ -14,9 +14,12 @@ function GetTableWinLose()
     lua_table.mm_uid = 0
 
     lua_table.current_level = 0
+    lua_table.played_music = false
+
 
     local pos = 0
     local winlose = 0
+    local music_manager_UID = 0 --We need this UID in order to stop the music!
 
     local geralt_pos0 = 0
     local geralt_pos1 = 0
@@ -73,7 +76,13 @@ function GetTableWinLose()
         lua_table.System:PauseGame()
 
         --victory sound
-        --lua_table.Audio:PlayAudioEventGO("Play_Win_Menu_Music", winlose)
+        if lua_table.played_music == false then
+            --lua_table.StopAudioEventGO("Play_Level_1_Music", winlose)
+            --lua_table.Audio:StopAudioEventGO("Stop_Level_1_Music", music_manager_UID)
+            lua_table.Audio:PlayAudioEventGO("Play_Win_Menu_Music", winlose)
+            lua_table.Audio:SetVolume(0.3, winlose)
+            lua_table.played_music = true
+        end
 
         --win animation
         lua_table.GO:SetActiveGameObject(true, win)
@@ -134,7 +143,13 @@ function GetTableWinLose()
         lua_table.System:PauseGame()
 
         --defeat sound
-        --lua_table.Audio:PlayAudioEventGO("Play_Lost_Menu_Music", winlose)
+        if lua_table.played_music == false then
+            --lua_table.StopAudioEventGO("Play_Level_1_Music", winlose)
+            --lua_table.StopAudioEventGO("Play_Level_2_Music", winlose)
+            lua_table.Audio:PlayAudioEventGO("Play_Lost_Menu_Music", winlose)
+            lua_table.Audio:SetVolume(0.3, winlose)
+            lua_table.played_music = true
+        end
 
         --lose animation
         lua_table.GO:SetActiveGameObject(true, lose)
@@ -367,7 +382,7 @@ function GetTableWinLose()
     -------------------------------------------------
     function lua_table:Awake()
         winlose = lua_table.GO:GetMyUID()
-
+        music_manager_UID = lua_table.FindGameObject("Music_Manager")
         --UI
         win = lua_table.GO:FindGameObject("Victory")
         lose = lua_table.GO:FindGameObject("Defeat")

@@ -5,15 +5,16 @@
   "SchemaVersion": "11",
   "SoundbankVersion": "134",
   "RootPaths": {
-   "ProjectRoot": "E:\\GitHub\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\",
-   "SourceFilesRoot": "E:\\GitHub\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\.cache\\Windows\\",
-   "SoundBanksRoot": "E:\\GitHub\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseSoundBanks\\",
+   "ProjectRoot": "C:\\Users\\Raul_App\\Documents\\GitHub\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\",
+   "SourceFilesRoot": "C:\\Users\\Raul_App\\Documents\\GitHub\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\.cache\\Windows\\",
+   "SoundBanksRoot": "C:\\Users\\Raul_App\\Documents\\GitHub\\The-Witcher-Ties-of-Destiny\\Assets\\Sounds\\",
    "ExternalSourcesInputFile": "",
-   "ExternalSourcesOutputRoot": "E:\\GitHub\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\GeneratedSoundBanks\\Windows"
+   "ExternalSourcesOutputRoot": "C:\\Users\\Raul_App\\Documents\\GitHub\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\GeneratedSoundBanks\\Windows"
   },
   "SoundBanks": [
    {
     "Id": "3354210172",
+    "GUID": "{072960AB-CBAC-463C-BD02-D96B3FEB600A}",
     "Language": "SFX",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Cinematic_Level_2",
     "ShortName": "Cinematic_Level_2",
@@ -22,27 +23,38 @@
      {
       "Id": "3251283761",
       "Name": "Play_Lvl2_Ambience_Crickets_Loop",
-      "ObjectPath": "\\Events\\Default Work Unit\\Cinematic_Level_2\\Play_Lvl2_Ambience_Crickets_Loop"
+      "ObjectPath": "\\Events\\Default Work Unit\\Cinematic_Level_2\\Play_Lvl2_Ambience_Crickets_Loop",
+      "GUID": "{71948083-95AB-44F2-8EB3-E4DB9F2C9323}"
      },
      {
       "Id": "4201290927",
       "Name": "Play_Lvl2_Ambience_Wind_Loop",
-      "ObjectPath": "\\Events\\Default Work Unit\\Cinematic_Level_2\\Play_Lvl2_Ambience_Wind_Loop"
+      "ObjectPath": "\\Events\\Default Work Unit\\Cinematic_Level_2\\Play_Lvl2_Ambience_Wind_Loop",
+      "GUID": "{B5A0B367-DB88-45AF-A1F6-179D94DB7212}"
      },
      {
       "Id": "3372924164",
       "Name": "Play_Lvl2_Button_Skip_Cinematic_Pressed",
-      "ObjectPath": "\\Events\\Default Work Unit\\Cinematic_Level_2\\Play_Lvl2_Button_Skip_Cinematic_Pressed"
+      "ObjectPath": "\\Events\\Default Work Unit\\Cinematic_Level_2\\Play_Lvl2_Button_Skip_Cinematic_Pressed",
+      "GUID": "{BDF68FF4-CBF8-483A-A632-1A041CCC3BAA}"
      },
      {
       "Id": "3901497125",
       "Name": "Play_Lvl2_Cinematic_Skipped",
-      "ObjectPath": "\\Events\\Default Work Unit\\Cinematic_Level_2\\Play_Lvl2_Cinematic_Skipped"
+      "ObjectPath": "\\Events\\Default Work Unit\\Cinematic_Level_2\\Play_Lvl2_Cinematic_Skipped",
+      "GUID": "{1BF27E77-BD0F-4D15-8C9E-D45C8B29F1ED}"
      },
      {
       "Id": "1359365268",
       "Name": "Play_lvl2_Intro_conversation_Cutscene",
-      "ObjectPath": "\\Events\\Default Work Unit\\Cinematic_Level_2\\Play_lvl2_Intro_conversation_Cutscene"
+      "ObjectPath": "\\Events\\Default Work Unit\\Cinematic_Level_2\\Play_lvl2_Intro_conversation_Cutscene",
+      "GUID": "{F282CCBC-1D6B-4677-9722-05657EDFEB10}"
+     },
+     {
+      "Id": "3271742197",
+      "Name": "Play_Music_Cinematic_lvl2_Elven_Forest",
+      "ObjectPath": "\\Events\\Default Work Unit\\Cinematic_Level_2\\Play_Music_Cinematic_lvl2_Elven_Forest",
+      "GUID": "{9DAF667F-258B-4EF6-853D-3512A1094D56}"
      }
     ],
     "IncludedMemoryFiles": [
@@ -51,6 +63,12 @@
       "Language": "SFX",
       "ShortName": "Lvl2_Button_Skip_Cinematic_Pressed.wav",
       "Path": "SFX\\Lvl2_Button_Skip_Cinematic_Pressed_10C4C929.wem"
+     },
+     {
+      "Id": "323414340",
+      "Language": "SFX",
+      "ShortName": "Music_Cinematic_lvl2_Elven_Forest.wav",
+      "Path": "SFX\\Music_Cinematic_lvl2_Elven_Forest_C42B8C3C.wem"
      },
      {
       "Id": "451877459",
@@ -74,7 +92,7 @@
       "Id": "828304743",
       "Language": "SFX",
       "ShortName": "lvl2_Intro_conversation_Cutscene.wav",
-      "Path": "SFX\\lvl2_Intro_conversation_Cutscene_D79FB2B7.wem"
+      "Path": "SFX\\lvl2_Intro_conversation_Cutscene_C42B8C3C.wem"
      }
     ]
    }

@@ -142,6 +142,7 @@ function lua_table:Start()
     lua_table.Audio:PlayAudioEvent("Play_lvl2_Intro_conversation_Cutscene")
     lua_table.Audio:PlayAudioEvent("Play_Lvl2_Ambience_Wind_Loop")
     lua_table.Audio:PlayAudioEvent("Play_Lvl2_Ambience_Crickets_Loop")
+    lua_table.Audio:PlayAudioEvent("Play_Music_Cinematic_lvl2_Elven_Forest")
 
     started_time = lua_table.System:GameTime()
 end

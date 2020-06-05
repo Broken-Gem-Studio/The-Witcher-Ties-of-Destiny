@@ -134,7 +134,7 @@ function GetTableCharacterSelection()
         then
             if lua_table["Inputs"]:IsGamepadButton(1, "BUTTON_DPAD_RIGHT", "DOWN")
             then
-                --lua_table["Audio"]:PlayAudioEvent()
+                lua_table["Audio"]:PlayAudioEventGO("Play_Character_Hover", SELECTION)
                 current_selection = player1_focus + 1
             end
         end
@@ -143,7 +143,7 @@ function GetTableCharacterSelection()
         then
             if lua_table["Inputs"]:IsGamepadButton(1, "BUTTON_DPAD_LEFT", "DOWN")
             then
-                --lua_table["Audio"]:PlayAudioEvent()
+                lua_table["Audio"]:PlayAudioEventGO("Play_Character_Hover", SELECTION)
                 current_selection = player1_focus - 1
             end
         end
@@ -162,7 +162,7 @@ function GetTableCharacterSelection()
         then
             if lua_table["Inputs"]:IsGamepadButton(2, "BUTTON_DPAD_RIGHT", "DOWN") or lua_table["Inputs"]:KeyDown("D")
             then
-                --lua_table["Audio"]:PlayAudioEvent()
+                lua_table["Audio"]:PlayAudioEventGO("Play_Character_Hover", SELECTION)
                 current_selection2 = player2_focus + 1
             end
         end
@@ -171,7 +171,7 @@ function GetTableCharacterSelection()
         then
             if lua_table["Inputs"]:IsGamepadButton(2, "BUTTON_DPAD_LEFT", "DOWN") or lua_table["Inputs"]:KeyDown("A")
             then
-                --lua_table["Audio"]:PlayAudioEvent()
+                lua_table["Audio"]:PlayAudioEventGO("Play_Character_Hover", SELECTION)
                 current_selection2 = player2_focus - 1
             end
         end
@@ -186,7 +186,7 @@ function GetTableCharacterSelection()
         then
             if player1_focus == player2_focus
             then
-                --lua_table["Audio"]:PlayAudioEvent()
+                lua_table["Audio"]:PlayAudioEventGO("Play_Character_Selected", SELECTION)
                 player1_locked = true--to avoid bug when p1 and p2 are in the same character and none has selected it
 
                 if player2_locked == true
@@ -195,14 +195,14 @@ function GetTableCharacterSelection()
                 end
                 
             else
-                --lua_table["Audio"]:PlayAudioEvent()
+                lua_table["Audio"]:PlayAudioEventGO("Play_Character_Selected", SELECTION)
                 player1_locked = true
             end
         end
 
         if lua_table["Inputs"]:IsGamepadButton(1, "BUTTON_B", "DOWN")
         then
-            --lua_table["Audio"]:PlayAudioEvent()
+            lua_table["Audio"]:PlayAudioEventGO("Play_Character_Unselected", SELECTION)
             if player1_focus == 0
             then
                 geraltfinished = false
@@ -224,7 +224,7 @@ function GetTableCharacterSelection()
         then
             if player2_focus == player1_focus
             then
-                --lua_table["Audio"]:PlayAudioEvent()
+                lua_table["Audio"]:PlayAudioEventGO("Play_Character_Selected", SELECTION)
                 player2_locked = true
 
                 if player1_locked == true
@@ -233,14 +233,14 @@ function GetTableCharacterSelection()
                 end
                 
             else
-                --lua_table["Audio"]:PlayAudioEvent()
+                lua_table["Audio"]:PlayAudioEventGO("Play_Character_Selected", SELECTION)
                 player2_locked = true
             end
         end
 
         if lua_table["Inputs"]:IsGamepadButton(2, "BUTTON_B", "DOWN") or lua_table["Inputs"]:KeyDown("G")
         then
-            --lua_table["Audio"]:PlayAudioEvent()
+            lua_table["Audio"]:PlayAudioEventGO("Play_Character_Unselected", SELECTION)
             if player2_focus == 0
             then
                 geraltfinished = false
