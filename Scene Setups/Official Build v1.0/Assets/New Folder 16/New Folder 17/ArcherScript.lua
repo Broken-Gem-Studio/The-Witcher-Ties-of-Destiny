@@ -169,6 +169,25 @@ function lua_table:OnTriggerEnter()
         lua_table.Material:SetMaterialByName("HitMaterial.mat", mesh_gameobject_UID)
         material_time = PerfGameTime()
         changed_material = true
+
+        if parent == Geralt_ID then
+            local particles = {}
+            particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("BloodParticles", Particles_GO))
+            for i=1, #particles do 
+                lua_table.Particles:PlayParticleEmitter(particles[i])
+                lua_table.System:LOG("GERALT HIT")
+            end
+        else 
+            local particles = {}
+            particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("HitParticles", Particles_GO))
+            for i=1, #particles do 
+                lua_table.Particles:PlayParticleEmitter(particles[i])
+                lua_table.System:LOG("JASKIER HIT")
+            end
+        end
+        
+        
+            
         
         if script.collider_effect ~= Effects.NONE then
             -- TODO: React depending on type of effect 
@@ -216,11 +235,6 @@ function lua_table:OnTriggerEnter()
             lua_table.start_hit = true
             lua_table.Audio:PlayAudioEvent("Play_Enemy_Humanoid_Hit")
 
-            local particles = {}
-            particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("BloodParticles", Particles_GO))
-            for i=1, #particles do 
-                lua_table.Particles:PlayParticleEmitter(particles[i])
-            end
             
         end
     end
@@ -244,6 +258,7 @@ function lua_table:RequestedTrigger(collider_GO)
                 lua_table.start_stun = true
                 lua_table.AnimationSystem:PlayAnimation("Hit",30.0, MyUID)
                 stun_time = PerfGameTime()
+
                 local particles = {}
                 particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("StunParticles", Particles_GO))
                 for i=1, #particles do 
@@ -689,6 +704,30 @@ function lua_table:Update()
                 start_death = true
 
                 lua_table.PhysicsSystem:SetActiveController(false, MyUID)
+
+                local particles = {}
+                particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("DeathParticles", Particles_GO))
+                for i=1, #particles do 
+                    lua_table.Particles:PlayParticleEmitter(particles[i])
+                end
+
+                local particles = {}
+                particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("AggroParticles", Particles_GO))
+                for i=1, #particles do 
+                    lua_table.Particles:StopParticleEmitter(particles[i])
+                end
+
+                local particles = {}
+                particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("StunParticles", Particles_GO))
+                for i=1, #particles do 
+                    lua_table.Particles:StopParticleEmitter(particles[i])
+                end
+
+                local particles = {}
+                particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("AggroParticles", Particles_GO))
+                for i=1, #particles do 
+                    lua_table.Particles:StopParticleEmitter(particles[i])
+                end
                 
 
                 local tuto_manager = lua_table.GameObjectFunctions:FindGameObject("TutorialManager")
