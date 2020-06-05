@@ -26,12 +26,12 @@ lua_table.GeraltDistance = 0
 lua_table.JaskierDistance = 0
 
 local State = {
-	IDLE = 0,
-	SEEK = 1,
-	ATTACK = 2,
-	KNOCKBACK = 3,
-	STUNNED = 4,
-	DEATH = 5
+	IDLE = 1,
+	SEEK = 2,
+	ATTACK = 3,
+	KNOCKBACK = 4,
+	STUNNED = 5,
+	DEATH = 6
 }
 
 local layers = {
@@ -57,7 +57,7 @@ lua_table.max_hp = 120
 lua_table.health = 0
 lua_table.speed = 7
 lua_table.knock_speed = 35
-lua_table.currentState = 0
+lua_table.currentState = State.IDLE
 lua_table.is_stunned = false
 lua_table.is_taunt = false
 lua_table.is_knockback = false

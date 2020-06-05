@@ -39,12 +39,11 @@ local MyUID = 0
 -- Archer main states ---------------------
 local State = {
     IDL = 1,
-    PATROL = 2,
-    SEEK = 3,
-    RANGE_ATTACK = 4,
-    MELEE_ATTACK = 5,
-    STUNNED = 6,
-	DEATH = 7
+    SEEK = 2,
+    RANGE_ATTACK = 3,
+    MELEE_ATTACK = 4,
+    STUNNED = 5,
+	DEATH = 6
 }
 lua_table.currentState = State.IDL
 
@@ -554,7 +553,7 @@ end
 
 function lua_table:Update()
 
-    if lua_table.InputFunctions:KeyDown("K") then 
+    -- if lua_table.InputFunctions:KeyDown("K") then 
     --    start_taunt = true
     --    taunt_time = PerfGameTime()
     --     Taunt_GO_UID = Jaskier_ID
@@ -564,21 +563,19 @@ function lua_table:Update()
     --         lua_table.Particles:PlayParticleEmitter(particles[i])
     --     end
         
-    end
+    -- end
 
-    if lua_table.InputFunctions:KeyDown("M") then 
-        -- lua_table.start_stun = true
-        -- lua_table.AnimationSystem:PlayAnimation("Hit",30.0, MyUID)
-        -- stun_time = PerfGameTime()
-        -- local particles = {}
-        -- particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("StunParticles", Particles_GO))
-        -- for i=1, #particles do 
-        --     lua_table.Particles:PlayParticleEmitter(particles[i])
-        -- end
+    -- if lua_table.InputFunctions:KeyDown("M") then 
+    --     lua_table.start_stun = true
+    --     lua_table.AnimationSystem:PlayAnimation("Hit",30.0, MyUID)
+    --     stun_time = PerfGameTime()
+    --     local particles = {}
+    --     particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("StunParticles", Particles_GO))
+    --     for i=1, #particles do 
+    --         lua_table.Particles:PlayParticleEmitter(particles[i])
+    --     end
         
-    end
-
-    
+    -- end
 
     GetClosestPlayer()
     lua_table.speed = 8 * lua_table.System:DT()
