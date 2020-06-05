@@ -8,6 +8,7 @@ lua_table.Animations = Scripting.Animations()
 lua_table.Recast = Scripting.Navigation()
 lua_table.Particles = Scripting.Particles()
 lua_table.Audio = Scripting.Audio()
+lua_table.Material = Scripting.Materials()
 -- DEBUG PURPOSES. COMMENT BELOW WHEN NOT USING
 --lua_table.Input = Scripting.Inputs()
 
@@ -114,6 +115,9 @@ local death_timer = 0
 local start_hit = false
 local hit_timer = 0
 
+local start_material = false
+local material_timer = 0
+
 -- Jump Cooldown
 lua_table.can_jump = true
 local jump_cd = 0
@@ -160,6 +164,7 @@ lua_table.collider_effect = 0
 
 --------------------------------- Entity particles
 local General_Emitter_UID = 0
+local MyMesh_UID = 0
 
 local dt = 0
 
@@ -721,6 +726,10 @@ function lua_table:OnTriggerEnter()
 			has_died = true
 		end
 
+		lua_table.Material:SetMaterialByName("HitMaterial.mat", MyMesh_UID)
+        material_timer = lua_table.System:GameTime() * 1000
+		start_material  = true
+
 		if lua_table.currentState ~= State.DEATH then
 
 			if script.collider_effect ~= attack_effects.none then
@@ -822,6 +831,9 @@ function lua_table:Start()
 	lua_table.MyUID = lua_table.GameObject:GetMyUID()
 	lua_table.geralt = lua_table.GameObject:FindGameObject("Geralt")
 	lua_table.jaskier = lua_table.GameObject:FindGameObject("Jaskier")
+
+	--Getting Mesh UID
+	MyMesh_UID = lua_table.GameObject:FindChildGameObject("Titan_LowPo")
 
 	-- Check if both players are in the scene
 	if lua_table.geralt == 0 then 
@@ -930,6 +942,12 @@ function lua_table:Update()
 	-- Manual reset for hit state
 	if hit_timer + 1500 <= lua_table.System:GameTime() * 1000 and start_hit == true then
 		start_hit = false
+	end
+
+	-- Manual reset for hit state
+	if material_timer + 50 <= lua_table.System:GameTime() * 1000 and start_material == true then
+		lua_table.Material:SetMaterialByName("TitanBase_Material.mat", MyMesh_UID)
+		start_material = false
 	end
 
 	-- Begin jump cooldown
