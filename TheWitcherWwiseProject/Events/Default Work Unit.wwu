@@ -1271,6 +1271,28 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Play_Skipped_Cinematic" ID="{05A3C727-2042-43CB-A3DC-F4400D6A299A}">
+							<ChildrenList>
+								<Action Name="" ID="{0B3A89F2-3075-4202-9383-DAFB6ADCEB74}" ShortID="429664268">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Skipped_Cinematic" ID="{7E6B1136-4BF1-46AF-96B8-29F3C761DE80}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Pressed_Skip_Button" ID="{72D56A85-B742-42FC-ABF8-487A373CB5DA}">
+							<ChildrenList>
+								<Action Name="" ID="{F2AC82DC-D908-4C6F-9B24-7CC25BECEF2A}" ShortID="34511700">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Pressed_Skip_Button" ID="{67E67641-3BD0-4C56-AC32-F14BC9FD404A}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Voicelines" ID="{F8DC13E4-BDCC-40EB-9817-0A3EB2254E04}" ShortID="592572275">

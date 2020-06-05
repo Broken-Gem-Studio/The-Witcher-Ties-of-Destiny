@@ -1487,7 +1487,7 @@ local function PerformCombo(combo_type)
 	then
 		current_action_block_time = lua_table[combo_type .. "_block_time"]
 		current_action_duration = lua_table[combo_type .. "_duration"]
-		attack_slow_start = 3000
+		attack_slow_start = 5000
 
 		lua_table.AnimationFunctions:PlayAnimation(combo_type, lua_table[combo_type .. "_animation_speed"], jaskier_GO_UID)
 		lua_table.AnimationFunctions:PlayAnimation(combo_type, lua_table[combo_type .. "_animation_speed"], particles_library.slash_GO_UID)
@@ -3057,9 +3057,9 @@ function lua_table:Update()
 	--rot_y = math.rad(GimbalLockWorkaroundY(jaskier_GO_UID))	--TODO: Remove GimbalLock stage when Euler bug is fixed
 	--lua_table.SystemFunctions:LOG("Angle Y: " .. rot_y)
 	--lua_table.SystemFunctions:LOG("Ultimate: " .. lua_table.current_ultimate)
-	lua_table.SystemFunctions:LOG("Chain num: " .. lua_table.chained_attacks_num)
-	lua_table.SystemFunctions:LOG("Note num: " .. lua_table.note_num)
-	lua_table.SystemFunctions:LOG("Song string: " .. lua_table.note_stack[1] .. ", " .. lua_table.note_stack[2] .. ", " .. lua_table.note_stack[3] .. ", " .. lua_table.note_stack[4])
+	--lua_table.SystemFunctions:LOG("Chain num: " .. lua_table.chained_attacks_num)
+	--lua_table.SystemFunctions:LOG("Note num: " .. lua_table.note_num)
+	--lua_table.SystemFunctions:LOG("Song string: " .. lua_table.note_stack[1] .. ", " .. lua_table.note_stack[2] .. ", " .. lua_table.note_stack[3] .. ", " .. lua_table.note_stack[4])
 
 	--if not lua_table.ability_performed then lua_table.SystemFunctions:LOG("SONG AVAILABLE-----------------------") end
 	--if lua_table.being_revived then lua_table.SystemFunctions:LOG("REVIVE TIME: " .. (game_time - lua_table.revive_started_at)) end
