@@ -396,6 +396,7 @@ function GetTableCardsTuto()
                 lua_table.continue_meter2_full = true
                 lua_table["System"]:LOG("STEP 10 continue meter2 full = true")
             end
+
             lua_table["System"]:LOG("HOLA continue Meter 1"..continue_meter1)
             lua_table["System"]:LOG("HOLA continue Meter 2"..continue_meter2)
 
@@ -411,57 +412,46 @@ function GetTableCardsTuto()
 
         --tetsing  potions double image
 
-        if lua_table["Inputs"]:KeyDown("G")
-        then
-            potions = true
-        end
+      --  if  lua_table.tuto.potionsCards == true and potions == false
+       --- then
+      --      potions = true
+        --end
 
-        if potions == true--potis interaction  evcent FALTA QUE LO HAGA FAURE 
+        if lua_table.tuto.potionsCards == true--potis interaction  evcent FALTA QUE LO HAGA FAURA 
         then
-            
-            
-            --if lua_table.continue_meter1_full == false and lua_table.continue_meter2_full == false
-            --then
+                
+            if lua_table.continue_meter1_full == false and lua_table.continue_meter2_full == false
+            then
+
+                if lua_table["Inputs"]:IsGamepadButton(1, "BUTTON_DPAD_RIGHT", "DOWN")
+                then
+                    step65 = true
+                end
+
+                if step65 == true and lua_table["Inputs"]:IsGamepadButton(1, "BUTTON_DPAD_LEFT", "DOWN")
+                then                 
+                    step65 = false
+                end     
+            end
+
+            if step65 == false
+            then
+                continue_meter1 = 0
+                continue_meter2 = 0
+                lua_table["UI"]:MakeElementInvisible("Image", POTIS2)
+                lua_table["UI"]:MakeElementVisible("Image", POTIS)
+                lua_table["UI"]:MakeElementInvisible("CircularBar", P1_METER)
+                lua_table["UI"]:MakeElementInvisible("CircularBar", P2_METER)
+            end
 
             if step65 == true
             then
-                lua_table["System"]:LOG("SECOND POTION IMAGE")
+                Meter()
+                lua_table["UI"]:MakeElementInvisible("Image", POTIS)
+                lua_table["UI"]:MakeElementVisible("Image", POTIS2)
+                lua_table["UI"]:MakeElementVisible("CircularBar", P1_METER)
+                lua_table["UI"]:MakeElementVisible("CircularBar", P2_METER)
             end
-            if step65 == false
-            then
-                lua_table["System"]:LOG("FIRST POTION IMAGE")
-            end
-
-            if lua_table["Inputs"]:IsGamepadButton(1, "BUTTON_DPAD_RIGHT", "DOWN")
-            then
-                
-                step65 = true
-            end
-
-            if step65 == true and lua_table["Inputs"]:IsGamepadButton(1, "BUTTON_DPAD_LEFT", "DOWN")
-            then
-                
-                step65 = false
-            end
-
-                if step65 == false
-                then
-                    lua_table["UI"]:MakeElementInvisible("Image", POTIS2)
-                    lua_table["UI"]:MakeElementVisible("Image", POTIS)
-                    lua_table["UI"]:MakeElementVisible("CircularBar", P1_METER)
-                    lua_table["UI"]:MakeElementVisible("CircularBar", P2_METER)
-                end
-
-                if step65 == true
-                then
-                    lua_table["UI"]:MakeElementInvisible("Image", POTIS)
-                    lua_table["UI"]:MakeElementVisible("Image", POTIS2)
-                    lua_table["UI"]:MakeElementVisible("CircularBar", P1_METER)
-                    lua_table["UI"]:MakeElementVisible("CircularBar", P2_METER)
-                end
-
-          
-            --end
 
             if continue_meter1 >= 100 and step65 == true --and lua_table.continue_meter1_full == false
             then
@@ -473,9 +463,10 @@ function GetTableCardsTuto()
                 lua_table.continue_meter2_full = true
             end
 
-            if lua_table.continue_meter1_full == true and  lua_table.continue_meter2_full == true
+            if lua_table.continue_meter1_full == true and lua_table.continue_meter2_full == true
             then
                 HideCard()
+                lua_table.tuto.potionsCards = false
                 continue_meter1 = 0
                 continue_meter2 = 0
             end

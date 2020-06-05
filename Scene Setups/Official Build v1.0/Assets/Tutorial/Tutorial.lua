@@ -105,7 +105,6 @@ local enemy7dead = {
     enemy7_6_dead = 0 
 }
 
-
 -- Variables STEP 9
 local lumberjack
 local tableLumberjack
@@ -139,15 +138,18 @@ local jaskierStart10 = false
 -- Variables STEP 11
 local enemy11_1, enemy11_2, enemy11_3, enemy11_4, enemy11_5, enemy11_6, enemy11_7, enemy11_8, enemy11_9
 local tableEnemy11_1, tableEnemy11_2, tableEnemy11_3, tableEnemy11_4, tableEnemy11_5, tableEnemy11_6, tableEnemy11_7, tableEnemy11_8, tableEnemy11_9
-local enemy11_1_dead = false
-local enemy11_2_dead = false
-local enemy11_3_dead = false
-local enemy11_4_dead = false
-local enemy11_5_dead = false
-local enemy11_6_dead = false
-local enemy11_7_dead = false
-local enemy11_8_dead = false
-local enemy11_9_dead = false
+local enem11dead = {
+    enemy11_1_dead = 0,
+    enemy11_2_dead = 0,
+    enemy11_3_dead = 0,
+    enemy11_4_dead = 0,
+    enemy11_5_dead = 0,
+    enemy11_6_dead = 0,
+    enemy11_7_dead = 0,
+    enemy11_8_dead = 0,
+    enemy11_9_dead = 0    
+}
+
 local moveStep11 = false
 local geraltStart11 = false
 local jaskierStart11 = false
@@ -206,6 +208,12 @@ local doorsColliders = {
     door1,
     door2,
 }
+
+-- Variables POTIONS
+lua_table.potionsCards = false
+local showedPotions = false
+local potionDropped = false
+
 ------------------------------------------------------------------------------
 -- STEPS
 ------------------------------------------------------------------------------
@@ -645,80 +653,80 @@ local function Step11()
         jaskierSpell = true
     end 
 
-    if enemy11_1_dead == false 
+    if enem11dead.enemy11_1_dead == 0 
     then
         if tableEnemy11_1.CurrentState == 4 or tableEnemy11_1.CurrentHealth <= 0
         then
-            enemy11_1_dead = true
+            enem11dead.enemy11_1_dead = 1
         end
     end
 
-    if enemy11_2_dead == false 
+    if enem11dead.enemy11_2_dead == 0 
     then
         if tableEnemy11_2.CurrentState == 4 or tableEnemy11_2.CurrentHealth <= 0
         then
-            enemy11_2_dead = true
+            enem11dead.enemy11_2_dead = 1
         end
     end
 
-    if enemy11_3_dead == false 
+    if enem11dead.enemy11_3_dead == 0 
     then
         if tableEnemy11_3.currentState == 5
         then
-            enemy11_3_dead = true
+            enem11dead.enemy11_3_dead = 1
         end
     end
 
-    if enemy11_4_dead == false 
+    if enem11dead.enemy11_4_dead == 0 
     then
         if tableEnemy11_4.currentState == 5
         then
-            enemy11_4_dead = true
+            enem11dead.enemy11_4_dead = 1
         end
     end
 
-    if enemy11_5_dead == false 
+    if enem11dead.enemy11_5_dead == 0 
     then
         if tableEnemy11_5.currentState == 5
         then
-            enemy11_5_dead = true
+            enem11dead.enemy11_5_dead = 1
         end
     end
 
-    if enemy11_6_dead == false 
+    if enem11dead.enemy11_6_dead == 0 
     then
         if tableEnemy11_6.currentState == 5
         then
-            enemy11_6_dead = true
+            enem11dead.enemy11_6_dead = 1
         end
     end
 
-    if enemy11_7_dead == false 
+    if enem11dead.enemy11_7_dead == 0 
     then
         if tableEnemy11_7.currentState == 5
         then
-            enemy11_7_dead = true
+            enem11dead.enemy11_7_dead = 1
         end
     end
 
-    if enemy11_8_dead == false 
+    if enem11dead.enemy11_8_dead == 0 
     then
         if tableEnemy11_8.currentState == 5
         then
-            enemy11_8_dead = true
+            enem11dead.enemy11_8_dead = 1
         end
     end
 
-    if enemy11_9_dead == false 
+    if enem11dead.enemy11_9_dead == 0 
     then
         if tableEnemy11_9.currentState == 5
         then
-            enemy11_9_dead = true
+            enem11dead.enemy11_9_dead = 1
         end
     end
 
-    if enemy11_1_dead == true and enemy11_2_dead == true and enemy11_3_dead == true and enemy11_4_dead == true and enemy11_5_dead == true and 
-    enemy11_6_dead == true and enemy11_7_dead == true and enemy11_8_dead == true and enemy11_9_dead == true and geraltSpell == true --and jaskierSpell == true 
+    if enem11dead.enemy11_1_dead == 1 and enem11dead.enemy11_2_dead == 1 and enem11dead.enemy11_3_dead == 1 and enem11dead.enemy11_4_dead == 1 and enem11dead.enemy11_5_dead == 1 and 
+    enem11dead.enemy11_6_dead == 1 and enem11dead.enemy11_7_dead == 1 and enem11dead.enemy11_8_dead == 1 and enem11dead.enemy11_9_dead == 1 and geraltSpell == true --and jaskierSpell == true 
     then
         lua_table.ObjectFunctions:SetActiveGameObject(true, step12)
         lua_table.currentStep = Step.STEP_12
@@ -1020,6 +1028,34 @@ local function EnemiesManager()
     end
 end
 
+local function PotionsCards()   
+    if showedPotions == false
+    then
+        lua_table.SystemFunctions:PauseGame()    
+    end
+
+    if TABLE_CARTAS.continue_meter1_full == true and TABLE_CARTAS.continue_meter2_full == true
+    then
+        showedPotions = true
+        lua_table.potionsCards = false
+        lua_table.SystemFunctions:ResumeGame()
+        TABLE_CARTAS.continue_meter1_full = false
+        TABLE_CARTAS.continue_meter2_full = false
+    end
+end
+
+local function FindPotions()
+
+    local redPotion = lua_table.ObjectFunctions:FindGameObject("Drop_Particle_Red")
+    local yellowPotion = lua_table.ObjectFunctions:FindGameObject("Drop_Particle_Yellow")
+    local purplePotion = lua_table.ObjectFunctions:FindGameObject("Drop_Particle_Purple")
+
+    if redPotion ~= 0 or yellowPotion ~= 0 or purplePotion ~= 0
+    then
+        potionDropped = true
+    end
+end
+
 function lua_table:Awake()
 
     CARTAS = lua_table.ObjectFunctions:FindGameObject("CARTAS")
@@ -1200,6 +1236,17 @@ end
 function lua_table:Update()
 
     EnemiesManager()
+
+    if showedPotions == false
+    then
+        FindPotions()
+        if tableGeralt.current_health <= 100 or tableJaskier.current_health <= 100 or potionDropped == true
+        then
+            lua_table.potionsCards = true
+            PotionsCards()
+        end
+    end
+
     if lua_table.currentStep == Step.STEP_1
     then
         Step1()
