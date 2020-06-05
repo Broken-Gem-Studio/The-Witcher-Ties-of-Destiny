@@ -384,6 +384,7 @@ local function JumpStun() -- Smash the ground with a jump, then stun
 	
 	-- Mark the affected area
 	if not start_jump and lua_table.can_jump == true then 
+
 		jump_timer = lua_table.System:GameTime() * 1000
 
 		local particles = {}
@@ -392,7 +393,7 @@ local function JumpStun() -- Smash the ground with a jump, then stun
 		    lua_table.Particles:PlayParticleEmitter(particles[i])
 		end
 
-		--lua_table.Audio:PlayAudioEvent("Play_Titan_ghoul_scream_attack")
+		lua_table.Audio:PlayAudioEvent("Play_Titan_ghoul_scream_attack")
 		lua_table.can_jump = false
 		start_jump = true
 		
@@ -460,6 +461,7 @@ local function Punch()
 	if punch_timer <= lua_table.System:GameTime() * 1000 and not punching then
 		lua_table.System:LOG("Punch to target")
 		lua_table.Animations:PlayAnimation("Punch", 40.0, lua_table.MyUID)
+		lua_table.Audio:PlayAudioEvent("Play_Titan_ghoul_scream_attack")
 		punching = true
 	end
 
@@ -489,6 +491,7 @@ local function Swipe()
 	if swipe_timer <= lua_table.System:GameTime() * 1000 and not swiping then
 		lua_table.System:LOG("Swipe to target")
 		lua_table.Animations:PlayAnimation("Swipe", 45.0, lua_table.MyUID)
+		lua_table.Audio:PlayAudioEvent("Play_Titan_ghoul_scream_attack")
 		swiping = true
 	end
 
@@ -519,6 +522,7 @@ local function Smash()
 	if smash_timer <= lua_table.System:GameTime() * 1000 and not smashing then
 		lua_table.System:LOG("Crush to target")
 		lua_table.Animations:PlayAnimation("Smash", 50.0, lua_table.MyUID)
+		lua_table.Audio:PlayAudioEvent("Play_Titan_ghoul_scream_attack")
 		smashing = true
 	end
 
@@ -591,8 +595,6 @@ local function Die()
 
 		death_timer = lua_table.System:GameTime() * 1000
 
-		--lua_table.Audio:PlayAudioEvent("Play_Titan_ghoul_death")
-
 		-- This ensures hit particle plays when Players deal the last hit
 		local particles = {}
 		particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Titan_Blood_Emitter", General_Emitter_UID))
@@ -611,6 +613,7 @@ local function Die()
 end
 
 local function ReactToStun()
+	
 	AttackColliderShutdown()
 	lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
 
@@ -619,6 +622,8 @@ local function ReactToStun()
 	for i = 1, #particles do 
 	    lua_table.Particles:PlayParticleEmitter(particles[i])
 	end
+
+	lua_table.Audio:PlayAudioEvent("Play_Titan_ghoul_take_damage")
 
 	start_stun = true
 	lua_table.currentState = State.STUNNED
@@ -632,6 +637,7 @@ local function ReactToKB(col_ID, forward)
 
 	local tmp = lua_table.Transform:GetPosition(col_ID)
 
+	lua_table.Audio:PlayAudioEvent("Play_Titan_ghoul_take_damage")
 	-- local knock_vector = {0, 0, 0}
 
 	-- if forward == true then
@@ -686,7 +692,7 @@ local function ReactToHeavyHit()
 	hit_timer = lua_table.System:GameTime() * 1000
 	
 	lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
-	--lua_table.Audio:PlayAudioEvent("Play_Titan_ghoul_take_damage")
+	lua_table.Audio:PlayAudioEvent("Play_Titan_ghoul_take_damage")
 	
 	local particles = {}
 	particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Titan_Blood_Emitter", General_Emitter_UID))
@@ -706,11 +712,17 @@ function lua_table:OnTriggerEnter()
 		local parent = lua_table.GameObject:GetGameObjectParent(collider)
 		local script = lua_table.GameObject:GetScript(parent)
 		local player_state = script.current_state
+
+		lua_table.health = lua_table.health - script.collider_damage
 		
+		if lua_table.health <= 0 and has_died == false then 
+			lua_table.currentState = State.DEATH
+			lua_table.System:LOG("Titan state: Death (6)")
+			has_died = true
+		end
+
 		if lua_table.currentState ~= State.DEATH then
 
-			lua_table.health = lua_table.health - script.collider_damage
-	
 			if script.collider_effect ~= attack_effects.none then
 				
 				if script.collider_effect == attack_effects.stun then ---------------- React to stun effect
@@ -752,11 +764,18 @@ function lua_table:RequestedTrigger(collider_GO)
 	lua_table.System:LOG("RequestedTrigger activated")
 
 	local script = lua_table.GameObject:GetScript(collider_GO)
+
+	lua_table.health = lua_table.health - script.collider_damage
+		
+	if lua_table.health <= 0 and has_died == false then 
+		lua_table.currentState = State.DEATH
+		lua_table.System:LOG("Titan state: Death (6)")
+		has_died = true
+	end
 	
 	if lua_table.currentState ~= State.DEATH and lua_table.currentState ~= State.JUMP then
 
-		lua_table.health = lua_table.health - script.collider_damage
-
+		
 		if script.collider_effect ~= attack_effects.none then
 			
 			if script.collider_effect == attack_effects.stun then ---------------- React to stun effect
@@ -839,11 +858,7 @@ function lua_table:Update()
 	SearchPlayers() -- Constantly calculate distances between entity and players
 
 	-- Check if our entity is dead
-	if lua_table.health <= 0 and has_died == false then 
-		lua_table.currentState = State.DEATH
-		lua_table.System:LOG("Titan state: Death (6)")
-		has_died = true
-	end
+
 
 	if lua_table.currentTarget == -1  and lua_table.currentTargetDir == -1 and lua_table.currentTargetPos == -1 then 
 		lua_table.currentState = State.IDLE
