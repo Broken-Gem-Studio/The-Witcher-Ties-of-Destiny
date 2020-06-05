@@ -111,6 +111,10 @@ function GetTableTutorialCinematicCameraScript()
         lua_table.GameObjectFunctions:SetActiveGameObject(false, recruit2)
         lua_table.GameObjectFunctions:SetActiveGameObject(false, minion2)
 
+        --Play music
+
+        lua_table.Audio:PlayAudioEvent("Play_Music_Cinematic_lvl1_The_Ocean_Takes_It_All")
+
         started_time = lua_table.System:GameTime()
     end
 
