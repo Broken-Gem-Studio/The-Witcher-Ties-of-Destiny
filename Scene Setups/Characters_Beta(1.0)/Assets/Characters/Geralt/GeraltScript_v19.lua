@@ -447,6 +447,7 @@ lua_table.energy_reg_orig = 7
 
 	local input_slow_active = false
 	local attack_slow_start = 0
+	lua_table.animation_slow_speed = 20.0
 
 --NOTE: The visual slow for both characters lasts ~430ms * 30/anim_speed
 --Light Attack
@@ -500,14 +501,14 @@ lua_table.medium_1_collider_front_start = 400	--Collider activation time
 lua_table.medium_1_collider_front_end = 550	--Collider deactivation time
 lua_table.medium_1_duration = 1100			--Attack end (return to idle)
 lua_table.medium_1_animation_speed = 60.0	--Slow time: 370ms
-lua_table.medium_1_slow_start = 5000
+lua_table.medium_1_slow_start = 600
 
 lua_table.medium_2_block_time = 300			--Input block duration	(block new attacks)
 lua_table.medium_2_collider_front_start = 300	--Collider activation time
 lua_table.medium_2_collider_front_end = 450	--Collider deactivation time
 lua_table.medium_2_duration = 900			--Attack end (return to idle)
 lua_table.medium_2_animation_speed = 50.0	--Slow time: 370ms
-lua_table.medium_2_slow_start = 5000
+lua_table.medium_2_slow_start = 600
 
 lua_table.medium_3_block_time = 2000			--Input block duration	(block new attacks)
 lua_table.medium_3_collider_front_start = 600	--Collider activation time
@@ -540,14 +541,14 @@ lua_table.heavy_1_collider_front_start = 450	--Collider activation time
 lua_table.heavy_1_collider_front_end = 700	--Collider deactivation time
 lua_table.heavy_1_duration = 1200			--Attack end (return to idle)
 lua_table.heavy_1_animation_speed = 30.0	--Slow time: 430ms
-lua_table.heavy_1_slow_start = 5000
+lua_table.heavy_1_slow_start = 1150
 
 lua_table.heavy_2_block_time = 350			--Input block duration	(block new attacks)
 lua_table.heavy_2_collider_front_start = 250	--Collider activation time
 lua_table.heavy_2_collider_front_end = 450	--Collider deactivation time
 lua_table.heavy_2_duration = 1000			--Attack end (return to idle)
 lua_table.heavy_2_animation_speed = 30.0	--Slow time: 430ms
-lua_table.heavy_2_slow_start = 5000
+lua_table.heavy_2_slow_start = 850
 
 lua_table.heavy_3_block_time = 2000			--Input block duration	(block new attacks)
 lua_table.heavy_3_collider_front_start = 600	--Collider activation time
@@ -2632,8 +2633,8 @@ function lua_table:Update()
 
 									--Slow Animation End
 									if time_since_action > attack_slow_start and not input_slow_active then 
-										lua_table.AnimationFunctions:SetCurrentAnimationSpeed(20.0, geralt_GO_UID)
-										lua_table.AnimationFunctions:SetCurrentAnimationSpeed(20.0, particles_library.slash_GO_UID)
+										lua_table.AnimationFunctions:SetCurrentAnimationSpeed(lua_table.animation_slow_speed, geralt_GO_UID)
+										lua_table.AnimationFunctions:SetCurrentAnimationSpeed(lua_table.animation_slow_speed, particles_library.slash_GO_UID)
 										blending_started_at = game_time
 										input_slow_active = true
 									end
@@ -2664,6 +2665,14 @@ function lua_table:Update()
 									elseif lua_table.current_state == state.medium_2 then AttackColliderCheck("medium_2", "front", 2)
 									elseif lua_table.current_state == state.medium_3 then AttackColliderCheck("medium_3", "front", 3)
 									end
+
+									--Slow Animation End
+									if time_since_action > attack_slow_start and not input_slow_active then 
+										lua_table.AnimationFunctions:SetCurrentAnimationSpeed(lua_table.animation_slow_speed, geralt_GO_UID)
+										lua_table.AnimationFunctions:SetCurrentAnimationSpeed(lua_table.animation_slow_speed, particles_library.slash_GO_UID)
+										blending_started_at = game_time
+										input_slow_active = true
+									end
 								end
 
 							elseif lua_table.current_state == state.heavy_1 or lua_table.current_state == state.heavy_2 or lua_table.current_state == state.heavy_3	--IF Heavy Attacking
@@ -2692,6 +2701,14 @@ function lua_table:Update()
 									if lua_table.current_state == state.heavy_1 then AttackColliderCheck("heavy_1", "front", 2)
 									elseif lua_table.current_state == state.heavy_2 then AttackColliderCheck("heavy_2", "front", 2)
 									elseif lua_table.current_state == state.heavy_3 then AttackColliderCheck("heavy_3", "front", 2)
+									end
+
+									--Slow Animation End
+									if time_since_action > attack_slow_start and not input_slow_active then 
+										lua_table.AnimationFunctions:SetCurrentAnimationSpeed(lua_table.animation_slow_speed, geralt_GO_UID)
+										lua_table.AnimationFunctions:SetCurrentAnimationSpeed(lua_table.animation_slow_speed, particles_library.slash_GO_UID)
+										blending_started_at = game_time
+										input_slow_active = true
 									end
 								end
 

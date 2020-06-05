@@ -435,6 +435,7 @@ lua_table.energy_reg_orig = 7
 
 	local input_slow_active = false
 	local attack_slow_start = 0
+	lua_table.animation_slow_speed = 10.0
 
 --Light Attack
 lua_table.light_damage = 1.0					--Multiplier of Base Damage
@@ -2605,8 +2606,7 @@ function lua_table:Update()
 											end
 										end
 									end
-
-								
+									
 									--Collider Evaluation
 									if lua_table.current_state == state.light_1 then AttackColliderCheck("light_1", "front", 2)
 									elseif lua_table.current_state == state.light_2 then AttackColliderCheck("light_2", "front", 2)
@@ -2614,8 +2614,8 @@ function lua_table:Update()
 								
 									--Slow Animation End
 									if time_since_action > attack_slow_start and not input_slow_active then 
-										lua_table.AnimationFunctions:SetCurrentAnimationSpeed(10.0, jaskier_GO_UID)
-										lua_table.AnimationFunctions:SetCurrentAnimationSpeed(10.0, particles_library.slash_GO_UID)
+										lua_table.AnimationFunctions:SetCurrentAnimationSpeed(lua_table.animation_slow_speed, jaskier_GO_UID)
+										lua_table.AnimationFunctions:SetCurrentAnimationSpeed(lua_table.animation_slow_speed, particles_library.slash_GO_UID)
 										blending_started_at = game_time
 										input_slow_active = true
 									end
@@ -2653,8 +2653,8 @@ function lua_table:Update()
 
 									--Slow Animation End
 									if time_since_action > attack_slow_start and not input_slow_active then 
-										lua_table.AnimationFunctions:SetCurrentAnimationSpeed(10.0, jaskier_GO_UID)
-										lua_table.AnimationFunctions:SetCurrentAnimationSpeed(10.0, particles_library.slash_GO_UID)
+										lua_table.AnimationFunctions:SetCurrentAnimationSpeed(lua_table.animation_slow_speed, jaskier_GO_UID)
+										lua_table.AnimationFunctions:SetCurrentAnimationSpeed(lua_table.animation_slow_speed, particles_library.slash_GO_UID)
 										blending_started_at = game_time
 										input_slow_active = true
 									end
@@ -2692,8 +2692,8 @@ function lua_table:Update()
 
 									--Slow Animation End
 									if time_since_action > attack_slow_start and not input_slow_active then 
-										lua_table.AnimationFunctions:SetCurrentAnimationSpeed(10.0, jaskier_GO_UID)
-										lua_table.AnimationFunctions:SetCurrentAnimationSpeed(10.0, particles_library.slash_GO_UID)
+										lua_table.AnimationFunctions:SetCurrentAnimationSpeed(lua_table.animation_slow_speed, jaskier_GO_UID)
+										lua_table.AnimationFunctions:SetCurrentAnimationSpeed(lua_table.animation_slow_speed, particles_library.slash_GO_UID)
 										blending_started_at = game_time
 										input_slow_active = true
 									end
