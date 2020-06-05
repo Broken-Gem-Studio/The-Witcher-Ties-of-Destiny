@@ -770,12 +770,12 @@ function GetTablePOTIS()
         --SOUND FX
         if lua_table["Inputs"]:IsGamepadButton(1,"BUTTON_DPAD_LEFT","DOWN") or lua_table["Inputs"]:IsGamepadButton(1,"BUTTON_DPAD_RIGHT","DOWN")
         then
-            lua_table["Audio"]:PlayAudioEvent("Play_Change_item")
+            lua_table["Audio"]:PlayAudioEventGO("Play_HUD_Switch_Potion", POTID)
         end
 
         if lua_table["Inputs"]:IsGamepadButton(2,"BUTTON_DPAD_LEFT","DOWN") or lua_table["Inputs"]:IsGamepadButton(2,"BUTTON_DPAD_RIGHT","DOWN")
         then
-            lua_table["Audio"]:PlayAudioEvent("Play_Change_item")
+            lua_table["Audio"]:PlayAudioEventGO("Play_HUD_Switch_Potion", POTID)
         end
 
         if on_hp == true and lua_table["Inputs"]:IsGamepadButton(1,"BUTTON_RIGHTSHOULDER","DOWN") and hp_potis == 0 or

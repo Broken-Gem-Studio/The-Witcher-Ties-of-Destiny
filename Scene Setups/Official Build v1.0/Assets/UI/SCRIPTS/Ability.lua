@@ -28,7 +28,7 @@ local counter2 = 0
 
 function PlayingSound()
 
-    lua_table["Audio"]:PlayAudioEvent("Play_Special_up")
+    lua_table["Audio"]:PlayAudioEventGO("Play_HUD_Special_Up", specialID)
 end
 
 function AbilityCD(id)
