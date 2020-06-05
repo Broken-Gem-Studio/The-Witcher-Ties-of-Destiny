@@ -16,7 +16,6 @@ function GetTableWinLose()
     lua_table.current_level = 0
     lua_table.played_music = false
 
-
     local pos = 0
     local winlose = 0
     local music_manager_UID = 0 --We need this UID in order to stop the music!
@@ -296,10 +295,10 @@ function GetTableWinLose()
 
         --reload level
         last_checkpoint = 0
-        if current_level == 1
+        if lua_table.current_level == 1
         then
             load_level1 = true
-        elseif current_level == 2
+        elseif lua_table.current_level == 2
         then
             load_level2 = true
         end
@@ -505,7 +504,7 @@ function GetTableWinLose()
         end
 
         --win condition
-        if current_level == 1 and FinalEnemy > 0 and finalenemy_script.CurrentState == 5 or finalenemy_script.CurrentHealth <= 0 and is_win == false
+        if lua_table.current_level == 1 and FinalEnemy > 0 and finalenemy_script.CurrentHealth <= 0 and is_win == false
         then
             is_win = true
         elseif lua_table.current_level == 2 and Kikimora > 0 and kikimora_script.dead == true and is_win == false
