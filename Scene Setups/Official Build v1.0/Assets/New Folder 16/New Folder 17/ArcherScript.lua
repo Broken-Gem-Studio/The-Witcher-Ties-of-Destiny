@@ -351,7 +351,7 @@ local function Seek()
 
     if start_agro == false 
     then 
-        lua_table.Audio:PlayAudioEvent("Play_Enemy_Humanoid_Discover_Players")
+        --lua_table.Audio:PlayAudioEvent("Play_Enemy_Humanoid_Discover_Players") This should be managed by spawners, audio is working on it
         lua_table.AnimationSystem:PlayAnimation("Hit",45.0, MyUID)
         agro_time = PerfGameTime()
         start_agro = true
