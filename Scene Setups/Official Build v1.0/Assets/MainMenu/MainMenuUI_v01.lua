@@ -292,7 +292,6 @@ function lua_table:PlayGame()
 	startMenu = false
 	currentButton = Buttons.LEVEL1;
 	lua_table.lastCameraPos = lua_table.TransformFuctions:GetPosition(camera_UUID)
-	lua_table.AudioFunctions:PlayAudioEvent("Play_Main_Menu_play_1")
 	
 	lua_table.InterfaceFunctions:MakeElementInvisible("Image", playGameMarker)
 	lua_table.InterfaceFunctions:MakeElementInvisible("Image", quitMarker)
