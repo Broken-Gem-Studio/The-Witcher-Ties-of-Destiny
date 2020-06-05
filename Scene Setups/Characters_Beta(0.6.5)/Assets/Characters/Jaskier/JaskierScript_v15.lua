@@ -81,7 +81,10 @@ local particles_library = {
 	run_particles_GO_UID_children = {},
 	blood_particles_GO_UID_children = {},
 	stun_particles_GO_UID_children = {},
+
 	revive_particles_GO_UID_children = {},
+	down_particles_GO_UID_children = {},
+	death_particles_GO_UID_children = {},
 
 	potion_health_particles_GO_UID_children = {},
 	potion_stamina_particles_GO_UID_children = {},
@@ -646,6 +649,7 @@ lua_table.ultimate_secondary_damage = 2.5
 lua_table.ultimate_secondary_status_effect = attack_effects_ID.knockback
 
 --Stand Up	(Standing up from knockbacks or being downed)
+lua_table.falling_down_bool = false
 lua_table.standing_up_bool = false
 lua_table.stand_up_animation_speed = 90.0
 
@@ -2213,8 +2217,8 @@ function lua_table:Awake()
 	particles_library.slash_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Slash")
 	particles_library.slash_mesh_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Slash_Mesh_Jaskier")
 
-	geralt_revive_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt_Revive")
-	jaskier_revive_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Revive")
+	geralt_revive_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt_Revive_Pos")
+	jaskier_revive_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Revive_Pos")
 
 	--Assign Prefabs
 	item_prefabs[1] = lua_table.potion_health_prefab
@@ -2227,7 +2231,10 @@ function lua_table:Awake()
 	particles_library.run_particles_GO_UID_children = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindGameObject("Jaskier_Run"))
 	particles_library.blood_particles_GO_UID_children = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindGameObject("Jaskier_Blood"))
 	particles_library.stun_particles_GO_UID_children = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindGameObject("Jaskier_Stun"))
-	particles_library.revive_particles_GO_UID_children = lua_table.GameObjectFunctions:GetGOChilds(jaskier_revive_GO_UID)
+
+	particles_library.revive_particles_GO_UID_children = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindGameObject("Jaskier_Revive"))
+	particles_library.down_particles_GO_UID_children = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindGameObject("Jaskier_Down"))
+	particles_library.death_particles_GO_UID_children = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindGameObject("Jaskier_Death"))
 
 	particles_library.potion_health_particles_GO_UID_children = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindGameObject("Jaskier_Health_Potion"))
 	particles_library.potion_stamina_particles_GO_UID_children = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindGameObject("Jaskier_Stamina_Potion"))
@@ -2273,8 +2280,15 @@ function lua_table:Start()
 	-- for i = 1, #particles_library.stun_particles_GO_UID_children do
 	-- 	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.stun_particles_GO_UID_children[i])	--TODO-Particles:
 	-- end
+
 	-- for i = 1, #particles_library.revive_particles_GO_UID_children do
 	-- 	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.revive_particles_GO_UID_children[i])	--TODO-Particles:
+	-- end
+	-- for i = 1, #particles_library.down_particles_GO_UID_children do
+	-- 	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.down_particles_GO_UID_children[i])	--TODO-Particles:
+	-- end
+	-- for i = 1, #particles_library.death_particles_GO_UID_children do
+	-- 	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.death_particles_GO_UID_children[i])	--TODO-Particles:
 	-- end
 
 	-- for i = 1, #particles_library.potion_health_particles_GO_UID_children do
@@ -2364,6 +2378,9 @@ function lua_table:Update()
 			current_audio = audio_library.death
 
 			lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.medium.intensity, controller_shake.medium.duration)
+
+			lua_table.falling_down_bool = true
+			lua_table.standing_up_bool = false
 
 			lua_table.previous_state = lua_table.current_state
 			lua_table.current_state = state.down
@@ -2869,7 +2886,20 @@ function lua_table:Update()
 		end
 	elseif lua_table.current_state == state.down	--IF currently down
 	then
-		if not lua_table.standing_up_bool
+		if lua_table.falling_down_bool
+		then
+			if game_time - blending_started_at > lua_table.blend_time_duration and lua_table.AnimationFunctions:CurrentAnimationEnded(jaskier_GO_UID) == 1
+			then
+				for i = 1, #particles_library.down_particles_GO_UID_children do
+					lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.down_particles_GO_UID_children[i])	--TODO-Particles:
+				end
+
+				lua_table.falling_down_bool = false
+			else
+				lua_table.death_started_at = game_time
+			end
+			
+		elseif not lua_table.standing_up_bool
 		then
 			if lua_table.being_revived		--IF flag marks that other player is reviving (controlled by another player)
 			then
@@ -2881,6 +2911,9 @@ function lua_table:Update()
 
 					for i = 1, #particles_library.revive_particles_GO_UID_children do
 						lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.revive_particles_GO_UID_children[i])	--TODO-Particles:
+					end
+					for i = 1, #particles_library.down_particles_GO_UID_children do
+						lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.down_particles_GO_UID_children[i])	--TODO-Particles:
 					end
 
 					lua_table.AudioFunctions:PlayAudioEventGO(audio_library.revive, jaskier_GO_UID)	--TODO-AUDIO:
@@ -2922,6 +2955,9 @@ function lua_table:Update()
 					for i = 1, #particles_library.revive_particles_GO_UID_children do
 						lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.revive_particles_GO_UID_children[i])	--TODO-Particles:
 					end
+					for i = 1, #particles_library.down_particles_GO_UID_children do
+						lua_table.ParticlesFunctions:StartParticleEmitter(particles_library.down_particles_GO_UID_children[i])	--TODO-Particles:
+					end
 
 					lua_table.AudioFunctions:StopAudioEventGO(audio_library.revive, jaskier_GO_UID)	--TODO-AUDIO:
 					current_audio = audio_library.revive
@@ -2930,8 +2966,13 @@ function lua_table:Update()
 
 				elseif game_time - lua_table.death_started_at > lua_table.down_time	--IF death timer finished
 				then
+					for i = 1, #particles_library.death_particles_GO_UID_children do
+						lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.death_particles_GO_UID_children[i])	--TODO-Particles:
+					end
+
 					lua_table.previous_state = lua_table.current_state
-					lua_table.current_state = state.dead					--Kill character
+					lua_table.current_state = state.dead
+
 					--lua_table.GameObjectFunctions:SetActiveGameObject(false, jaskier_GO_UID)
 					lua_table.GameObjectFunctions:SetActiveGameObject(false, lua_table.GameObjectFunctions:FindGameObject("Jaskier_Mesh"))
 					lua_table.GameObjectFunctions:SetActiveGameObject(false, lua_table.GameObjectFunctions:FindGameObject("Jaskier_Pivot"))
