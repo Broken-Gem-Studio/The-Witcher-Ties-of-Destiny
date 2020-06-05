@@ -1,5 +1,5 @@
 {
-    "1111943976": {
+    "1042231046": {
         "Active": true,
         "Components": {
             "0": {
@@ -17,7 +17,7 @@
             },
             "18": {
                 "Active": true,
-                "CollisionsActivated": true,
+                "CollisionsActivated": false,
                 "Duration": "1000",
                 "GradientColor": true,
                 "HorizontalBill": "0",
@@ -25,20 +25,20 @@
                 "PartAutoBlending": true,
                 "PartBlendEquation": 0,
                 "PartBlendFunc": 2,
-                "PartCastShadows": true,
-                "PartLightAffected": true,
+                "PartCastShadows": false,
+                "PartLightAffected": false,
                 "PartMBlFuncDst": 7,
                 "PartMBlFuncSrc": 6,
                 "PartOnlyShadows": false,
-                "PartReceiveShadows": true,
-                "PartSceneColorAffected": true,
+                "PartReceiveShadows": false,
+                "PartSceneColorAffected": false,
                 "ParticlesBill": true,
                 "ParticlesFaceCulling": true,
                 "PlayOnAwake": true,
                 "Resources": {
-                    "ResourceTexture": "Library/Textures/1053900002.dds"
+                    "ResourceTexture": "Library/Textures/651962314.dds"
                 },
-                "VerticalBill": "0",
+                "VerticalBill": "1",
                 "animation": "0",
                 "colors": [
                     {
@@ -107,24 +107,24 @@
                     }
                 ],
                 "cycles": "1.000000",
-                "emisionRate": "300.000000",
+                "emisionRate": "1000.000000",
                 "externalAccelerationX": "0.000000",
                 "externalAccelerationY": "10.000000",
                 "externalAccelerationZ": "0.000000",
                 "followEmitter": true,
-                "grad_duration": "850",
+                "grad_duration": "500",
                 "gradients": [
                     {
                         "a": "0.000000",
-                        "x": "-0.000148",
-                        "y": "0.000268",
-                        "z": "0.000268"
+                        "x": "-0.000251",
+                        "y": "0.000455",
+                        "z": "0.000455"
                     },
                     {
                         "a": "0.000000",
-                        "x": "0.000148",
-                        "y": "-0.000268",
-                        "z": "-0.000268"
+                        "x": "0.000251",
+                        "y": "-0.000455",
+                        "z": "-0.000455"
                     }
                 ],
                 "maxInitialRotation": [
@@ -143,15 +143,15 @@
                 "particleScaleOverTime": "0.000000",
                 "particleScaleRandomFactor1": "1.000000",
                 "particleScaleRandomFactor2": "1.000000",
-                "particlesLifeTime": "1700",
-                "particlesPerCreation": "5",
-                "particlesScaleX": "0.200000",
-                "particlesScaleY": "0.500000",
+                "particlesLifeTime": "1000",
+                "particlesPerCreation": "1",
+                "particlesScaleX": "0.700000",
+                "particlesScaleY": "5.000000",
                 "particlesVelocityX": "0.000000",
-                "particlesVelocityY": "1.000000",
+                "particlesVelocityY": "0.000000",
                 "particlesVelocityZ": "0.000000",
                 "positionX": "0.000000",
-                "positionY": "0.000000",
+                "positionY": "2.400000",
                 "positionZ": "0.000000",
                 "randomInitialRotation": false,
                 "randomStartFrame": true,
@@ -171,28 +171,28 @@
                 "rotationconstants": "0",
                 "scaleconstants": "0",
                 "separateAxis": "0",
-                "sizeX": "0.300000",
-                "sizeY": "0.010000",
-                "sizeZ": "0.300000",
+                "sizeX": "0.000000",
+                "sizeY": "0.000000",
+                "sizeZ": "0.000000",
                 "startFrame": "0",
                 "tiles_X": "1",
                 "tiles_Y": "1",
-                "velocityRandomFactor1X": "0.750000",
+                "velocityRandomFactor1X": "0.000000",
                 "velocityRandomFactor1Y": "0.000000",
-                "velocityRandomFactor1Z": "0.750000",
-                "velocityRandomFactor2X": "-0.750000",
+                "velocityRandomFactor1Z": "0.000000",
+                "velocityRandomFactor2X": "0.000000",
                 "velocityRandomFactor2Y": "0.000000",
-                "velocityRandomFactor2Z": "-0.750000",
+                "velocityRandomFactor2Z": "0.000000",
                 "velocityconstants": "0"
             }
         },
-        "Name": "Star",
-        "Parent": "2043463069",
+        "Name": "Cone",
+        "Parent": "1677378274",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false
     },
-    "13562393": {
+    "1677378274": {
         "Active": true,
         "Components": {
             "0": {
@@ -200,43 +200,105 @@
                 "positionx": "0.000000",
                 "positiony": "0.000000",
                 "positionz": "0.000000",
-                "rotationw": "0.862414",
+                "rotationw": "1.000000",
                 "rotationx": "0.000000",
-                "rotationy": "0.506204",
+                "rotationy": "0.000000",
                 "rotationz": "0.000000",
-                "scalex": "0.025000",
-                "scaley": "0.020000",
-                "scalez": "0.020000"
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
             },
-            "1": {
+            "12": {
                 "Active": true,
                 "Resources": {
-                    "ResourceMesh": {
-                        "PreviewTexture": "",
-                        "path": "Library/Meshes/776218225.mesh"
+                    "ResourceScript": "Assets/Particles/Drops/Potion_Script.lua"
+                },
+                "Script variables": {
+                    "Count": 2,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "item_id",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "my_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
                     }
                 }
             },
-            "2": {
+            "15": {
                 "Active": true,
-                "CastsShadows": true,
-                "LightAffected": true,
-                "OnlyShadows": false,
-                "ReceivesShadows": true,
-                "Resources": {
-                    "ResourceMaterial": {
-                        "path": "Assets/New Folder 16/Breakable Prop/BottleRed.mat"
-                    }
-                }
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "1.000000",
+                "freezePosition_X": "1",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "1",
+                "freezeRotation_X": "1",
+                "freezeRotation_Y": "1",
+                "freezeRotation_Z": "1",
+                "is_kinematic": "0",
+                "linear_damping": "0.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "0.000000",
+                "linear_velz": "0.000000",
+                "mass": "10.000000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": true,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "1",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "0.000000",
+                "globalMatrixy": "1.000000",
+                "globalMatrixz": "0.000000",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "0",
+                "isTrigger": "0",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "1.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "1.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.890000",
+                "scalez": "1.000000",
+                "tmpScalex": "1.000000",
+                "tmpScaley": "1.890000",
+                "tmpScalez": "1.000000"
             }
         },
-        "Name": "bottle_low_uvs2:pSphere1",
-        "Parent": "2043463069",
+        "Name": "Drop_Particle_Red",
+        "Parent": "67481539",
         "PrefabChild": true,
-        "PrefabInstance": false,
+        "PrefabInstance": true,
         "Static": false
     },
-    "1445680393": {
+    "533330956": {
         "Active": true,
         "Components": {
             "0": {
@@ -254,21 +316,21 @@
             },
             "18": {
                 "Active": true,
-                "CollisionsActivated": true,
+                "CollisionsActivated": false,
                 "Duration": "1000",
                 "GradientColor": true,
-                "HorizontalBill": "0",
+                "HorizontalBill": "1",
                 "Loop": true,
                 "PartAutoBlending": true,
                 "PartBlendEquation": 0,
                 "PartBlendFunc": 2,
-                "PartCastShadows": true,
-                "PartLightAffected": true,
+                "PartCastShadows": false,
+                "PartLightAffected": false,
                 "PartMBlFuncDst": 7,
                 "PartMBlFuncSrc": 6,
                 "PartOnlyShadows": false,
-                "PartReceiveShadows": true,
-                "PartSceneColorAffected": true,
+                "PartReceiveShadows": false,
+                "PartSceneColorAffected": false,
                 "ParticlesBill": true,
                 "ParticlesFaceCulling": true,
                 "PlayOnAwake": true,
@@ -424,12 +486,12 @@
             }
         },
         "Name": "Circle",
-        "Parent": "2043463069",
+        "Parent": "1677378274",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false
     },
-    "1451073457": {
+    "592090294": {
         "Active": true,
         "Components": {
             "0": {
@@ -447,7 +509,7 @@
             },
             "18": {
                 "Active": true,
-                "CollisionsActivated": true,
+                "CollisionsActivated": false,
                 "Duration": "1000",
                 "GradientColor": true,
                 "HorizontalBill": "0",
@@ -455,18 +517,18 @@
                 "PartAutoBlending": true,
                 "PartBlendEquation": 0,
                 "PartBlendFunc": 2,
-                "PartCastShadows": true,
-                "PartLightAffected": true,
+                "PartCastShadows": false,
+                "PartLightAffected": false,
                 "PartMBlFuncDst": 7,
                 "PartMBlFuncSrc": 6,
                 "PartOnlyShadows": false,
-                "PartReceiveShadows": true,
-                "PartSceneColorAffected": true,
+                "PartReceiveShadows": false,
+                "PartSceneColorAffected": false,
                 "ParticlesBill": true,
                 "ParticlesFaceCulling": true,
                 "PlayOnAwake": true,
                 "Resources": {
-                    "ResourceTexture": "Library/Textures/651962314.dds"
+                    "ResourceTexture": "Library/Textures/1053900002.dds"
                 },
                 "VerticalBill": "0",
                 "animation": "0",
@@ -537,24 +599,24 @@
                     }
                 ],
                 "cycles": "1.000000",
-                "emisionRate": "1000.000000",
+                "emisionRate": "300.000000",
                 "externalAccelerationX": "0.000000",
                 "externalAccelerationY": "10.000000",
                 "externalAccelerationZ": "0.000000",
                 "followEmitter": true,
-                "grad_duration": "500",
+                "grad_duration": "850",
                 "gradients": [
                     {
                         "a": "0.000000",
-                        "x": "-0.000251",
-                        "y": "0.000455",
-                        "z": "0.000455"
+                        "x": "-0.000148",
+                        "y": "0.000268",
+                        "z": "0.000268"
                     },
                     {
                         "a": "0.000000",
-                        "x": "0.000251",
-                        "y": "-0.000455",
-                        "z": "-0.000455"
+                        "x": "0.000148",
+                        "y": "-0.000268",
+                        "z": "-0.000268"
                     }
                 ],
                 "maxInitialRotation": [
@@ -573,15 +635,15 @@
                 "particleScaleOverTime": "0.000000",
                 "particleScaleRandomFactor1": "1.000000",
                 "particleScaleRandomFactor2": "1.000000",
-                "particlesLifeTime": "1000",
-                "particlesPerCreation": "1",
-                "particlesScaleX": "0.700000",
-                "particlesScaleY": "5.000000",
+                "particlesLifeTime": "1700",
+                "particlesPerCreation": "5",
+                "particlesScaleX": "0.200000",
+                "particlesScaleY": "0.500000",
                 "particlesVelocityX": "0.000000",
-                "particlesVelocityY": "0.000000",
+                "particlesVelocityY": "1.000000",
                 "particlesVelocityZ": "0.000000",
                 "positionX": "0.000000",
-                "positionY": "2.400000",
+                "positionY": "0.000000",
                 "positionZ": "0.000000",
                 "randomInitialRotation": false,
                 "randomStartFrame": true,
@@ -601,28 +663,28 @@
                 "rotationconstants": "0",
                 "scaleconstants": "0",
                 "separateAxis": "0",
-                "sizeX": "0.000000",
-                "sizeY": "0.000000",
-                "sizeZ": "0.000000",
+                "sizeX": "0.300000",
+                "sizeY": "0.010000",
+                "sizeZ": "0.300000",
                 "startFrame": "0",
                 "tiles_X": "1",
                 "tiles_Y": "1",
-                "velocityRandomFactor1X": "0.000000",
+                "velocityRandomFactor1X": "0.750000",
                 "velocityRandomFactor1Y": "0.000000",
-                "velocityRandomFactor1Z": "0.000000",
-                "velocityRandomFactor2X": "0.000000",
+                "velocityRandomFactor1Z": "0.750000",
+                "velocityRandomFactor2X": "-0.750000",
                 "velocityRandomFactor2Y": "0.000000",
-                "velocityRandomFactor2Z": "0.000000",
+                "velocityRandomFactor2Z": "-0.750000",
                 "velocityconstants": "0"
             }
         },
-        "Name": "Cone",
-        "Parent": "2043463069",
+        "Name": "Star",
+        "Parent": "1677378274",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false
     },
-    "2043463069": {
+    "969754409": {
         "Active": true,
         "Components": {
             "0": {
@@ -630,103 +692,41 @@
                 "positionx": "0.000000",
                 "positiony": "0.000000",
                 "positionz": "0.000000",
-                "rotationw": "1.000000",
+                "rotationw": "0.862414",
                 "rotationx": "0.000000",
-                "rotationy": "0.000000",
+                "rotationy": "0.506204",
                 "rotationz": "0.000000",
-                "scalex": "1.000000",
-                "scaley": "1.000000",
-                "scalez": "1.000000"
+                "scalex": "0.025000",
+                "scaley": "0.020000",
+                "scalez": "0.020000"
             },
-            "12": {
+            "1": {
                 "Active": true,
                 "Resources": {
-                    "ResourceScript": "Assets/Particles/Drops/Potion_Script.lua"
-                },
-                "Script variables": {
-                    "Count": 2,
-                    "Variable 0": {
-                        "DisplayObjectName": false,
-                        "Name": "item_id",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 1.0
-                    },
-                    "Variable 1": {
-                        "DisplayObjectName": false,
-                        "Name": "my_UID",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/776218225.mesh"
                     }
                 }
             },
-            "15": {
+            "2": {
                 "Active": true,
-                "angular_damping": "0.000000",
-                "angular_velx": "0.000000",
-                "angular_vely": "0.000000",
-                "angular_velz": "0.000000",
-                "density": "1.000000",
-                "freezePosition_X": "1",
-                "freezePosition_Y": "0",
-                "freezePosition_Z": "1",
-                "freezeRotation_X": "1",
-                "freezeRotation_Y": "1",
-                "freezeRotation_Z": "1",
-                "is_kinematic": "0",
-                "linear_damping": "0.000000",
-                "linear_velx": "0.000000",
-                "linear_vely": "0.000000",
-                "linear_velz": "0.000000",
-                "mass": "10.000000",
-                "use_gravity": "1"
-            },
-            "16": {
-                "Active": true,
-                "colliderType": "1",
-                "draggedUID": "0",
-                "draw": "1",
-                "firstCreation": "1",
-                "globalMatrixw": "1.000000",
-                "globalMatrixx": "0.000000",
-                "globalMatrixy": "1.000000",
-                "globalMatrixz": "0.000000",
-                "globalPositionx": "1.000000",
-                "globalPositiony": "1.000000",
-                "globalPositionz": "1.000000",
-                "hasBeenDeactivated": "0",
-                "height": "1.000000",
-                "isConvex": "0",
-                "isTrigger": "0",
-                "lastIndex": "1",
-                "localMatrixw": "1.000000",
-                "localMatrixx": "0.000000",
-                "localMatrixy": "1.000000",
-                "localMatrixz": "0.000000",
-                "localPositionx": "0.000000",
-                "localPositiony": "1.000000",
-                "localPositionz": "0.000000",
-                "offsetx": "0.000000",
-                "offsety": "0.000000",
-                "offsetz": "0.000000",
-                "originalScalex": "1.000000",
-                "originalScaley": "1.000000",
-                "originalScalez": "1.000000",
-                "radius": "1.000000",
-                "scalex": "1.000000",
-                "scaley": "1.890000",
-                "scalez": "1.000000",
-                "tmpScalex": "1.000000",
-                "tmpScaley": "1.890000",
-                "tmpScalez": "1.000000"
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/New Folder 16/Breakable Prop/BottleRed.mat"
+                    }
+                }
             }
         },
-        "Name": "Drop_Particle_Red",
-        "Parent": "848984648",
+        "Name": "bottle_low_uvs2:pSphere1",
+        "Parent": "1677378274",
         "PrefabChild": true,
-        "PrefabInstance": true,
+        "PrefabInstance": false,
         "Static": false
     },
-    "PreviewTexture": "Library/Textures/2027277850.dds"
+    "PreviewTexture": "Library/Textures/106132074.dds"
 }
