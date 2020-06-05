@@ -54,12 +54,14 @@ local jaskierHasMoved = false
 lua_table.StartStep2 = false
 
 -- Variables STEP 2
+local showedAttacks = false
 local geraltAttackY = false
 local geraltAttackB = false
 local geraltAttackHeavy = false
 local jaskierAttackY = false
 local jaskierAttackB = false
 local jaskierAttackHeavy = false
+
 -- Variables STEP 4
 local enemy1, enemy2, enemy3, enemy4
 local enemyTable1, enemyTable2, enemyTable3, enemyTable4 
@@ -243,24 +245,37 @@ end
 
 local function Step2()
     lua_table.InterfaceFunctions:MakeElementVisible("Text", lua_table.textUID)
-    lua_table.InterfaceFunctions:SetText("Press Y to make a light attack. Press B to make a medium attack, Press both to make a heavy attack!", lua_table.textUID)
 
-    if lua_table.InputFunctions:IsGamepadButton(lua_table.GeraltNumber, "BUTTON_Y", KeyState.DOWN) == true
+    if showedAttacks == false
+    then
+        lua_table.SystemFunctions:PauseGame()     
+    end
+
+    if TABLE_CARTAS.continue_meter1_full == true and TABLE_CARTAS.continue_meter2_full == true
+    then
+        showedAttacks = true
+        lua_table.SystemFunctions:ResumeGame()
+        TABLE_CARTAS.continue_meter1_full = false
+        TABLE_CARTAS.continue_meter2_full = false
+        lua_table.InterfaceFunctions:SetText("Press Y to make a light attack. Press B to make a medium attack, Press both to make a heavy attack!", lua_table.textUID)
+    end
+
+    if tableGeralt.current_state == 8 or tableGeralt.current_state == 9 or tableGeralt.current_state == 10 
     then
         geraltAttackY = true
     end
 
-    if lua_table.InputFunctions:IsGamepadButton(lua_table.GeraltNumber, "BUTTON_B", KeyState.DOWN) == true
+    if tableJaskier.current_state == 8 or tableJaskier.current_state == 9 or tableJaskier.current_state == 10 
     then
         geraltAttackB = true
     end
 
-    if lua_table.InputFunctions:IsGamepadButton(lua_table.JaskierNumber, "BUTTON_Y", KeyState.DOWN) == true
+    if tableGeralt.current_state == 11 or tableGeralt.current_state == 12 or tableGeralt.current_state == 13 
     then
         jaskierAttackY = true
     end
 
-    if lua_table.InputFunctions:IsGamepadButton(lua_table.JaskierNumber, "BUTTON_B", KeyState.DOWN) == true
+    if tableJaskier.current_state == 11 or tableJaskier.current_state == 12 or tableJaskier.current_state == 13 
     then
         jaskierAttackB = true
     end
@@ -355,70 +370,70 @@ local function Step6()
     lua_table.InterfaceFunctions:MakeElementVisible("Text", lua_table.textUID)
 
     if lua_table.PauseStep6 == true and move == false
-        then
-            lua_table.SystemFunctions:PauseGame()     
-        end
+    then
+        lua_table.SystemFunctions:PauseGame()     
+    end
+
     
-        
-        if TABLE_CARTAS.continue_meter1_full == true and TABLE_CARTAS.continue_meter2_full == true
+    if TABLE_CARTAS.continue_meter1_full == true and TABLE_CARTAS.continue_meter2_full == true
+    then
+        lua_table.SystemFunctions:ResumeGame()
+        move = true
+        TABLE_CARTAS.continue_meter1_full = false
+        TABLE_CARTAS.continue_meter2_full = false
+        lua_table.InterfaceFunctions:SetText("Press A to move great distances and dodge attacks. Consumes 1 energy bar (yellow). Kill all the enemies!", lua_table.textUID)   
+        lua_table.PauseStep6 = false
+    end
+
+    if lua_table.InputFunctions:IsGamepadButton(lua_table.GeraltNumber, "BUTTON_A", KeyState.DOWN) == true
+    then
+        geraltRoll = true
+    end
+
+    if lua_table.InputFunctions:IsGamepadButton(lua_table.JaskierNumber, "BUTTON_A", KeyState.DOWN) == true
+    then
+        jaskierRoll = true
+    end
+
+    if ghoul_1_dead == false 
+    then
+        if tableGhoul1.currentState == 5
         then
-            lua_table.SystemFunctions:ResumeGame()
-            move = true
-            TABLE_CARTAS.continue_meter1_full = false
-            TABLE_CARTAS.continue_meter2_full = false
-            lua_table.InterfaceFunctions:SetText("Press A to move great distances and dodge attacks. Consumes 1 energy bar (yellow). Kill all the enemies!", lua_table.textUID)   
-            lua_table.PauseStep6 = false
+            ghoul_1_dead = true
         end
-    
-        if lua_table.InputFunctions:IsGamepadButton(lua_table.GeraltNumber, "BUTTON_A", KeyState.DOWN) == true
+    end
+
+    if ghoul_2_dead == false 
+    then
+        if tableGhoul2.currentState == 5
         then
-            geraltRoll = true
+            ghoul_2_dead = true
         end
-    
-        if lua_table.InputFunctions:IsGamepadButton(lua_table.JaskierNumber, "BUTTON_A", KeyState.DOWN) == true
+    end
+
+    if ghoul_3_dead == false 
+    then
+        if tableGhoul3.currentState == 5
         then
-            jaskierRoll = true
+            ghoul_3_dead = true
         end
-    
-        if ghoul_1_dead == false 
+    end
+
+    if ghoul_4_dead == false 
+    then
+        if tableGhoul4.currentState == 5
         then
-            if tableGhoul1.currentState == 5
-            then
-                ghoul_1_dead = true
-            end
+            ghoul_4_dead = true
         end
-    
-        if ghoul_2_dead == false 
-        then
-            if tableGhoul2.currentState == 5
-            then
-                ghoul_2_dead = true
-            end
-        end
-    
-        if ghoul_3_dead == false 
-        then
-            if tableGhoul3.currentState == 5
-            then
-                ghoul_3_dead = true
-            end
-        end
-    
-        if ghoul_4_dead == false 
-        then
-            if tableGhoul4.currentState == 5
-            then
-                ghoul_4_dead = true
-            end
-        end
-    
-        if geraltRoll == true and jaskierRoll == true and ghoul_1_dead == true and ghoul_2_dead == true and ghoul_3_dead == true and ghoul_4_dead == true
-        then
-            lua_table.currentStep = Step.STEP_7
-            lua_table.ObjectFunctions:SetActiveGameObject(true, step7)
-            lua_table.InterfaceFunctions:MakeElementInvisible("Text", lua_table.textUID)
-            lua_table.InterfaceFunctions:SetText(" ", lua_table.textUID)
-        end
+    end
+
+    if geraltRoll == true and jaskierRoll == true and ghoul_1_dead == true and ghoul_2_dead == true and ghoul_3_dead == true and ghoul_4_dead == true
+    then
+        lua_table.currentStep = Step.STEP_7
+        lua_table.ObjectFunctions:SetActiveGameObject(true, step7)
+        lua_table.InterfaceFunctions:MakeElementInvisible("Text", lua_table.textUID)
+        lua_table.InterfaceFunctions:SetText(" ", lua_table.textUID)
+    end
 end
 
 
