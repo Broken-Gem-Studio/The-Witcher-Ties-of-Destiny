@@ -452,7 +452,7 @@ lua_table.light_1_collider_front_start = 350	--Collider activation time
 lua_table.light_1_collider_front_end = 450	--Collider deactivation time
 lua_table.light_1_duration = 500			--Attack end (return to idle)
 lua_table.light_1_animation_speed = 70.0
-lua_table.light_1_slow_start = 400
+lua_table.light_1_slow_start = 425
 
 lua_table.light_2_block_time = 250			--Input block duration	(block new attacks)
 lua_table.light_2_collider_front_start = 250	--Collider activation time
@@ -491,16 +491,16 @@ lua_table.medium_3_movement_2_end = 1100
 lua_table.medium_1_block_time = 300			--Input block duration	(block new attacks)
 lua_table.medium_1_collider_front_start = 300	--Collider activation time
 lua_table.medium_1_collider_front_end = 400	--Collider deactivation time
-lua_table.medium_1_duration = 450			--Attack end (return to idle)
+lua_table.medium_1_duration = 425			--Attack end (return to idle)
 lua_table.medium_1_animation_speed = 50.0
-lua_table.medium_1_slow_start = 350
+lua_table.medium_1_slow_start = 400
 
 lua_table.medium_2_block_time = 350			--Input block duration	(block new attacks)
 lua_table.medium_2_collider_front_start = 350	--Collider activation time
 lua_table.medium_2_collider_front_end = 450	--Collider deactivation time
 lua_table.medium_2_duration = 530			--Attack end (return to idle)
 lua_table.medium_2_animation_speed = 50.0
-lua_table.medium_2_slow_start = 400
+lua_table.medium_2_slow_start = 450
 
 lua_table.medium_3_block_time = 2000			--Input block duration	(block new attacks)
 lua_table.medium_3_collider_front_start = 400	--Collider activation time
@@ -2606,7 +2606,7 @@ function lua_table:Update()
 											end
 										end
 									end
-									
+
 									--Collider Evaluation
 									if lua_table.current_state == state.light_1 then AttackColliderCheck("light_1", "front", 2)
 									elseif lua_table.current_state == state.light_2 then AttackColliderCheck("light_2", "front", 2)
@@ -3053,7 +3053,7 @@ function lua_table:Update()
 	--DEBUG LOGS
 	--lua_table.SystemFunctions:LOG("Delta Time: " .. dt)
 	--lua_table.SystemFunctions:LOG("State: " .. lua_table.current_state)
-	--lua_table.SystemFunctions:LOG("Time passed: " .. time_since_action)
+	lua_table.SystemFunctions:LOG("Time passed: " .. time_since_action)
 	--rot_y = math.rad(GimbalLockWorkaroundY(jaskier_GO_UID))	--TODO: Remove GimbalLock stage when Euler bug is fixed
 	--lua_table.SystemFunctions:LOG("Angle Y: " .. rot_y)
 	--lua_table.SystemFunctions:LOG("Ultimate: " .. lua_table.current_ultimate)
