@@ -53,6 +53,10 @@ function GetTableTutorialCinematicCameraScript()
     lua_table.scene_uid = 0
     local next_scene = true
 
+    -- Skip
+    local skip_button_is_being_pressed = false
+    local changeScene_nextFrame = false
+
     local function Lerp(start, end_, value)
         if value > 1.0
         then
@@ -78,6 +82,31 @@ function GetTableTutorialCinematicCameraScript()
 
     function lua_table:Awake()
         lua_table.System:LOG ("This Log was called from CinematicCameraScript on AWAKE")
+    end
+
+    local function SkipButton()
+        if lua_table.skip_threshold <= 0.00 then
+            lua_table.skip_threshold = 0.00
+        end
+
+        if lua_table.Input:IsGamepadButton(1, "BUTTON_A", "REPEAT") and next_scene == true then
+            lua_table.skip_threshold = lua_table.skip_threshold + 0.4
+            if skip_button_is_being_pressed == false then
+                lua_table.Audio:PlayAudioEvent("Play_Pressed_Skip_Button")
+                skip_button_is_being_pressed = true
+           end
+        else 
+            lua_table.skip_threshold = lua_table.skip_threshold - 0.6
+            skip_button_is_being_pressed = false
+        end
+
+        if lua_table.skip_threshold >= 100 and next_scene == true then
+            lua_table.Audio:PlayAudioEvent("Play_Skipped_Cinematic")
+            lua_table.Audio:StopAudioEvent("Play_Music_Cinematic_lvl1_The_Ocean_Takes_It_All")
+            changeScene_nextFrame = true
+        end
+
+        lua_table.UI:SetUICircularBarPercentage(lua_table.skip_threshold, BarID)
     end
 
     function lua_table:Start()
@@ -123,25 +152,14 @@ function GetTableTutorialCinematicCameraScript()
 
         dt = lua_table.System:DT()
 
-        if lua_table.skip_threshold <= 0.00 then
-            lua_table.skip_threshold = 0.00
-        end
+        --Skip scene
 
-        -------------------- Skip scene
-        if lua_table.Input:IsGamepadButton(1, "BUTTON_A", "REPEAT") and next_scene == true then
-            lua_table.skip_threshold = lua_table.skip_threshold + 0.4
-        else 
-            lua_table.skip_threshold = lua_table.skip_threshold - 0.6
-        end
-
-        if lua_table.skip_threshold >= 100 and next_scene == true then
+        if changeScene_nextFrame == true then
             lua_table.Scene:LoadScene(lua_table.scene_uid)
             next_scene = false
         end
 
-        lua_table.UI:SetUICircularBarPercentage(lua_table.skip_threshold, BarID)
-
-        --------------------------------------------------------------------------------------------------------------------------------------------------
+        SkipButton()
 
         -- Camera movements, rotations, fade to blacks and fade from blacks
 
