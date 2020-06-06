@@ -83,9 +83,8 @@ function GetTableWinLose()
         lua_table.System:PauseGame()
 
         --victory sound
-        if lua_table.played_music == false then
-            --lua_table.StopAudioEventGO("Play_Level_1_Music", winlose)
-            --lua_table.Audio:StopAudioEventGO("Stop_Level_1_Music", music_manager_UID)
+        if lua_table.played_music == false and lua_table.music_manager_script ~= nil then
+            lua_table.music_manager_script:StopMusic()
             lua_table.Audio:PlayAudioEventGO("Play_Win_Menu_Music", winlose)
             lua_table.Audio:SetVolume(0.3, winlose)
             lua_table.played_music = true
@@ -151,9 +150,8 @@ function GetTableWinLose()
         lua_table.System:PauseGame()
 
         --defeat sound
-        if lua_table.played_music == false then
-            --lua_table.StopAudioEventGO("Play_Level_1_Music", winlose)
-            --lua_table.StopAudioEventGO("Play_Level_2_Music", winlose)
+        if lua_table.played_music == false and lua_table.music_manager_script ~= nil then
+            lua_table.music_manager_script:StopMusic()
             lua_table.Audio:PlayAudioEventGO("Play_Lost_Menu_Music", winlose)
             lua_table.Audio:SetVolume(0.3, winlose)
             lua_table.played_music = true
@@ -394,7 +392,9 @@ function GetTableWinLose()
     function lua_table:Awake()
         winlose = lua_table.GO:GetMyUID()
         music_manager_UID = lua_table.GO:FindGameObject("Music_Manager")
-
+        if music_manager_UID ~= 0 then
+            lua_table.music_manager_script = lua_table.GO:GetScript(music_manager_UID)
+        end
         --UI
         win = lua_table.GO:FindGameObject("Victory")
         lose = lua_table.GO:FindGameObject("Defeat")

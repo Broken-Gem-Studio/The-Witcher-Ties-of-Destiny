@@ -57,5 +57,10 @@ function lua_table:Update()
 	
 end
 
+function lua_table:StopMusic()
+	local audio_event = "Play_Level_" .. lua_table.Level .. "_Music"
+	lua_table.AudioFunctions:StopAudioEventGO(audio_event, my_UID)
+end
+
 return lua_table
 end
