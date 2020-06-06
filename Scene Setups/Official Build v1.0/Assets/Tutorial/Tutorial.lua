@@ -158,7 +158,9 @@ local jaskierStart11 = false
 lua_table.PauseStep11 = false
 
 -- Variables STEP 12
-local enemy12_1, enemy12_2, enemy12_3, enemy12_4, enemy12_5, enemy12_6, enemy12_7, enemy12_8, enemy12_9, enemy12_10, enemy12_11, enemy12_12, enemy12_13, enemy12_14, enemy12_15, enemy12_16 
+local enemies12 = {
+    enemy12_1, enemy12_2, enemy12_3, enemy12_4, enemy12_5, enemy12_6, enemy12_7, enemy12_8, enemy12_9, enemy12_10, enemy12_11, enemy12_12, enemy12_13, enemy12_14, enemy12_15, enemy12_16
+}
 local tableEnemy12_1, tableEnemy12_2, tableEnemy12_3, tableEnemy12_4, tableEnemy12_5, tableEnemy12_6, tableEnemy12_7, tableEnemy11_8
 local tableEnemy12_9, tableEnemy12_10, tableEnemy12_11, tableEnemy12_12, tableEnemy12_13, tableEnemy12_14, tableEnemy12_15, tableEnemy12_16
 local enemy12dead = {
@@ -219,6 +221,13 @@ local potionDropped = false
 -- Variables REVIVE
 lua_table.reviveCard = false
 local showedRevive = false
+
+-- Variables CHEST
+lua_table.chestCard = false
+local showedChest = false
+local lastTime = 0
+local chestTime = 4
+local startTimer = false
 
 -- Variables CARDS
 local littleCards = {
@@ -1078,6 +1087,23 @@ local function ReviveCard()
     end
 end
 
+local function ChestCard()   
+    if startTimer == false
+    then
+        lastTime = lua_table.SystemFunctions:GameTime()
+        lua_table.InterfaceFunctions:MakeElementVisible("Image", littleCards.chest)
+        startTimer = true
+    end
+
+    if lua_table.SystemFunctions:GameTime() > lastTime + chestTime
+    then
+        lua_table.SystemFunctions:LOG("OSCAR CHEST 4s")
+        lua_table.InterfaceFunctions:MakeElementInvisible("Image", littleCards.chest)
+        showedChest = true
+        lua_table.chestCard = false
+    end
+end
+
 local function PotionsCards()   
     if showedPotions == false
     then
@@ -1231,39 +1257,39 @@ function lua_table:Awake()
     tableEnemy11_8 = lua_table.ObjectFunctions:GetScript(enemy11_8)
     tableEnemy11_9 = lua_table.ObjectFunctions:GetScript(enemy11_9)
 
-    enemy12_1 = lua_table.ObjectFunctions:FindGameObject("enemy12_1")
-    enemy12_2 = lua_table.ObjectFunctions:FindGameObject("enemy12_2")
-    enemy12_3 = lua_table.ObjectFunctions:FindGameObject("enemy12_3")
-    enemy12_4 = lua_table.ObjectFunctions:FindGameObject("enemy12_4")
-    enemy12_5 = lua_table.ObjectFunctions:FindGameObject("enemy12_5")
-    enemy12_6 = lua_table.ObjectFunctions:FindGameObject("enemy12_6")
-    enemy12_7 = lua_table.ObjectFunctions:FindGameObject("enemy12_7")
-    enemy12_8 = lua_table.ObjectFunctions:FindGameObject("enemy12_8")
-    enemy12_9 = lua_table.ObjectFunctions:FindGameObject("enemy12_9")
-    enemy12_10 = lua_table.ObjectFunctions:FindGameObject("enemy12_10")
-    enemy12_11 = lua_table.ObjectFunctions:FindGameObject("enemy12_11")
-    enemy12_12 = lua_table.ObjectFunctions:FindGameObject("enemy12_12")
-    enemy12_13 = lua_table.ObjectFunctions:FindGameObject("enemy12_13")
-    enemy12_14 = lua_table.ObjectFunctions:FindGameObject("enemy12_14")
-    enemy12_15 = lua_table.ObjectFunctions:FindGameObject("enemy12_15")
-    enemy12_16 = lua_table.ObjectFunctions:FindGameObject("enemy12_16")
+    enemies12.enemy12_1 = lua_table.ObjectFunctions:FindGameObject("enemy12_1")
+    enemies12.enemy12_2 = lua_table.ObjectFunctions:FindGameObject("enemy12_2")
+    enemies12.enemy12_3 = lua_table.ObjectFunctions:FindGameObject("enemy12_3")
+    enemies12.enemy12_4 = lua_table.ObjectFunctions:FindGameObject("enemy12_4")
+    enemies12.enemy12_5 = lua_table.ObjectFunctions:FindGameObject("enemy12_5")
+    enemies12.enemy12_6 = lua_table.ObjectFunctions:FindGameObject("enemy12_6")
+    enemies12.enemy12_7 = lua_table.ObjectFunctions:FindGameObject("enemy12_7")
+    enemies12.enemy12_8 = lua_table.ObjectFunctions:FindGameObject("enemy12_8")
+    enemies12.enemy12_9 = lua_table.ObjectFunctions:FindGameObject("enemy12_9")
+    enemies12.enemy12_10 = lua_table.ObjectFunctions:FindGameObject("enemy12_10")
+    enemies12.enemy12_11 = lua_table.ObjectFunctions:FindGameObject("enemy12_11")
+    enemies12.enemy12_12 = lua_table.ObjectFunctions:FindGameObject("enemy12_12")
+    enemies12.enemy12_13 = lua_table.ObjectFunctions:FindGameObject("enemy12_13")
+    enemies12.enemy12_14 = lua_table.ObjectFunctions:FindGameObject("enemy12_14")
+    enemies12.enemy12_15 = lua_table.ObjectFunctions:FindGameObject("enemy12_15")
+    enemies12.enemy12_16 = lua_table.ObjectFunctions:FindGameObject("enemy12_16")
 
-    tableEnemy12_1 = lua_table.ObjectFunctions:GetScript(enemy12_1)
-    tableEnemy12_2 = lua_table.ObjectFunctions:GetScript(enemy12_2)
-    tableEnemy12_3 = lua_table.ObjectFunctions:GetScript(enemy12_3)
-    tableEnemy12_4 = lua_table.ObjectFunctions:GetScript(enemy12_4)
-    tableEnemy12_5 = lua_table.ObjectFunctions:GetScript(enemy12_5)
-    tableEnemy12_6 = lua_table.ObjectFunctions:GetScript(enemy12_6)
-    tableEnemy12_7 = lua_table.ObjectFunctions:GetScript(enemy12_7)
-    tableEnemy12_8 = lua_table.ObjectFunctions:GetScript(enemy12_8)
-    tableEnemy12_9 = lua_table.ObjectFunctions:GetScript(enemy12_9)
-    tableEnemy12_10 = lua_table.ObjectFunctions:GetScript(enemy12_10)
-    tableEnemy12_11 = lua_table.ObjectFunctions:GetScript(enemy12_11)
-    tableEnemy12_12 = lua_table.ObjectFunctions:GetScript(enemy12_12)
-    tableEnemy12_13 = lua_table.ObjectFunctions:GetScript(enemy12_13)
-    tableEnemy12_14 = lua_table.ObjectFunctions:GetScript(enemy12_14)
-    tableEnemy12_15 = lua_table.ObjectFunctions:GetScript(enemy12_15)
-    tableEnemy12_16 = lua_table.ObjectFunctions:GetScript(enemy12_16)
+    tableEnemy12_1 = lua_table.ObjectFunctions:GetScript(enemies12.enemy12_1)
+    tableEnemy12_2 = lua_table.ObjectFunctions:GetScript(enemies12.enemy12_2)
+    tableEnemy12_3 = lua_table.ObjectFunctions:GetScript(enemies12.enemy12_3)
+    tableEnemy12_4 = lua_table.ObjectFunctions:GetScript(enemies12.enemy12_4)
+    tableEnemy12_5 = lua_table.ObjectFunctions:GetScript(enemies12.enemy12_5)
+    tableEnemy12_6 = lua_table.ObjectFunctions:GetScript(enemies12.enemy12_6)
+    tableEnemy12_7 = lua_table.ObjectFunctions:GetScript(enemies12.enemy12_7)
+    tableEnemy12_8 = lua_table.ObjectFunctions:GetScript(enemies12.enemy12_8)
+    tableEnemy12_9 = lua_table.ObjectFunctions:GetScript(enemies12.enemy12_9)
+    tableEnemy12_10 = lua_table.ObjectFunctions:GetScript(enemies12.enemy12_10)
+    tableEnemy12_11 = lua_table.ObjectFunctions:GetScript(enemies12.enemy12_11)
+    tableEnemy12_12 = lua_table.ObjectFunctions:GetScript(enemies12.enemy12_12)
+    tableEnemy12_13 = lua_table.ObjectFunctions:GetScript(enemies12.enemy12_13)
+    tableEnemy12_14 = lua_table.ObjectFunctions:GetScript(enemies12.enemy12_14)
+    tableEnemy12_15 = lua_table.ObjectFunctions:GetScript(enemies12.enemy12_15)
+    tableEnemy12_16 = lua_table.ObjectFunctions:GetScript(enemies12.enemy12_16)
 
     doorsGO.door1 = lua_table.ObjectFunctions:FindGameObject("Door_1")
     doorsGO.door2 = lua_table.ObjectFunctions:FindGameObject("Door_2")
@@ -1274,7 +1300,6 @@ function lua_table:Awake()
     littleCards.dummy = lua_table.ObjectFunctions:FindGameObject("L_DUMMY")
     littleCards.enemy = lua_table.ObjectFunctions:FindGameObject("L_ENEMY")
     littleCards.move = lua_table.ObjectFunctions:FindGameObject("L_MOVE")
-
 end
 
 function lua_table:Start()
@@ -1315,6 +1340,11 @@ function lua_table:Update()
             lua_table.reviveCard = true
             ReviveCard()
         end
+    end
+
+    if showedChest == false and lua_table.chestCard == true
+    then
+        ChestCard()
     end
 
     if lua_table.currentStep == Step.STEP_1
