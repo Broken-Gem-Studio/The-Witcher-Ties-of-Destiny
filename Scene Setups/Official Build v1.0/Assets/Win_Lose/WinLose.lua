@@ -16,6 +16,14 @@ function GetTableWinLose()
     lua_table.current_level = 0
     lua_table.played_music = false
 
+    local Buttons = {
+        MAINMENU = 1,
+        NEXTLEVEL = 2,
+        RETRY = 3
+    }
+    local currentButton = Buttons.MAINMENU
+    local select_ui = false
+
     local pos = 0
     local winlose = 0
     local music_manager_UID = 0 --We need this UID in order to stop the music!
@@ -119,6 +127,7 @@ function GetTableWinLose()
         --buttons
         if fade_flag == true
         then
+            select_ui = true
             lua_table.GO:SetActiveGameObject(true, background)
             if lua_table.current_level == 1
             then
@@ -211,6 +220,7 @@ function GetTableWinLose()
 
     function lua_table:GoToMainMenu()
         --reset variables
+        select_ui = false
         is_win = false
         win_flag = false
         fade_flag = false
@@ -241,6 +251,7 @@ function GetTableWinLose()
 
     function lua_table:GoToNextLevel()
         --reset variables
+        select_ui = false
         is_win = false
         win_flag = false
         fade_flag = false
@@ -269,8 +280,9 @@ function GetTableWinLose()
         load_level2 = true
     end
 
-    function lua_table:Retry()
+    function lua_table:GoToRetry()
         --reset variables
+        select_ui = false
         is_win = false
         win_flag = false
         fade_flag = false
@@ -542,6 +554,42 @@ function GetTableWinLose()
             --set loading screen**
             lua_table.Scene:LoadScene(lua_table.mm_uid)
         end
+
+        -- controllers
+        if select_ui == true 
+        then
+            if lua_table.InputFunctions:IsGamepadButton(1, "BUTTON_A", "DOWN") or lua_table.InputFunctions:IsGamepadButton(2, "BUTTON_A", "DOWN")
+            then
+                if currentButton == Buttons.MAINMENU
+                then
+                    lua_table:GoToMainMenu()			
+                elseif currentButton == Buttons.NEXTLEVEL
+                then
+                    lua_table:GoToNextLevel()			
+                elseif currentButton == Buttons.RETRY
+                then
+                    lua_table:GoToRetry()
+                end
+            end
+			if lua_table.InputFunctions:IsGamepadButton(1, "BUTTON_DPAD_RIGHT", "DOWN") or lua_table.InputFunctions:IsGamepadButton(2, "BUTTON_DPAD_RIGHT", "DOWN")
+			then 
+				lua_table.AudioFunctions:PlayAudioEvent("Play_Mouse_over")
+				currentButton = currentButton + 1
+				if currentButton >= Buttons.RETRY
+				then
+					currentButton = Buttons.RETRY
+				end
+			end
+			if lua_table.InputFunctions:IsGamepadButton(1, "BUTTON_DPAD_LEFT", "DOWN") or lua_table.InputFunctions:IsGamepadButton(2, "BUTTON_DPAD_LEFT", "DOWN")
+			then 
+				lua_table.AudioFunctions:PlayAudioEvent("Play_Mouse_over")
+				currentButton = currentButton - 1
+				if currentButton <= Buttons.MAINMENU
+				then
+					currentButton = Buttons.MAINMENU
+				end
+			end
+		end
     end
 
     return lua_table

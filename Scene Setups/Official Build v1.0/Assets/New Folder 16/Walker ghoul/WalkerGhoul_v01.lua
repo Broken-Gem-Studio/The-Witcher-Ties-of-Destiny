@@ -109,7 +109,7 @@ local lastTimeHit = 0
 local hitTime = 0.5
 
 local lastTimeWhite = 0
-local whiteTime = 0.05
+local whiteTime = 0.1
 
 local lastTimeTaunted = 0
 local tauntTime = 5
