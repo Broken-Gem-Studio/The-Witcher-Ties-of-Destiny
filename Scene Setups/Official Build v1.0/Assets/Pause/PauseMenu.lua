@@ -25,7 +25,7 @@ local activatePause = false
 local step = 1
 local ControllerID = 1
 local increment = 1
-local positionSum = 615
+local positionSum = 665
 
 local resumeMarker = 0
 local combosMarker = 0
@@ -34,7 +34,7 @@ local menuMarker = 0
 -- Core
 local function Reset()	
 	ControllerID = 0
-	positionSum = 615
+	positionSum = 665
 	increment = 1
 	step = 1
 	activatePause = false
@@ -52,7 +52,7 @@ local function Reset()
 	lua_table.InterfaceFunctions:SetUIElementInteractable("Button", lua_table.combosButton_UUID, false)
 			
 	lua_table.InterfaceFunctions:MakeElementInvisible("Image", lua_table.combosPanels_UUID)
-	lua_table.InterfaceFunctions:SetUIElementPosition("Image", 4, 615, lua_table.combosPanels_UUID)
+	lua_table.InterfaceFunctions:SetUIElementPosition("Image", 4, 665, lua_table.combosPanels_UUID)
 	
 	lua_table.InterfaceFunctions:MakeElementInvisible("Image", resumeMarker)
 	lua_table.InterfaceFunctions:MakeElementInvisible("Image", combosMarker)
@@ -166,8 +166,8 @@ function lua_table:Update()
 		then
 			lua_table.InterfaceFunctions:MakeElementInvisible("Image", lua_table.combosPanels_UUID)
 			lua_table.InterfaceFunctions:MakeElementVisible("Image", combosMarker)
-			lua_table.InterfaceFunctions:SetUIElementPosition("Image", 4, 615, lua_table.combosPanels_UUID)
-			positionSum = 615
+			lua_table.InterfaceFunctions:SetUIElementPosition("Image", 4, 665, lua_table.combosPanels_UUID)
+			positionSum = 665
 			increment = 1
 			step = 1
 			showingCombos = false
@@ -185,22 +185,21 @@ function lua_table:Update()
 	then
 		if step == 1
 		then
-			if positionSum > 25
+			if positionSum > 550
 			then
-				increment = increment + 1.5
+				increment = increment + 1
 				positionSum = positionSum - increment
 				lua_table.InterfaceFunctions:SetUIElementPosition("Image", 4, positionSum, lua_table.combosPanels_UUID)
 			else
-				positionSum = 25.5
 				step = 2
 			end
 			
 		elseif step == 2
 		then
-			if increment > 0 
+			if positionSum > 350 
 			then
-				increment = increment - 5
-				positionSum = positionSum + increment
+				increment = increment + 3
+				positionSum = positionSum - increment
 				lua_table.InterfaceFunctions:SetUIElementPosition("Image", 4, positionSum, lua_table.combosPanels_UUID)
 			else
 				step = 3
@@ -208,53 +207,9 @@ function lua_table:Update()
 
 		elseif step == 3
 		then
-			if positionSum > 30
+			if positionSum > 50 
 			then
-				increment = increment + 4.2
-				positionSum = positionSum - increment
-				lua_table.InterfaceFunctions:SetUIElementPosition("Image", 4, positionSum, lua_table.combosPanels_UUID)
-			else 
-				step = 4
-			end
-
-		elseif step == 4
-		then
-			if increment > 0 
-			then
-				increment = increment - 7.5
-				positionSum = positionSum + increment
-				lua_table.InterfaceFunctions:SetUIElementPosition("Image", 4, positionSum, lua_table.combosPanels_UUID)
-			else
-				step = 5
-			end
-
-		elseif step == 5
-		then
-			if positionSum > 30
-			then
-				increment = increment + 6
-				positionSum = positionSum - increment
-				lua_table.InterfaceFunctions:SetUIElementPosition("Image", 4, positionSum, lua_table.combosPanels_UUID)
-			else
-				step = 6
-			end
-
-		elseif step == 6
-		then
-			if increment > 0 
-			then
-				increment = increment - 9
-				positionSum = positionSum + increment
-				lua_table.InterfaceFunctions:SetUIElementPosition("Image", 4, positionSum, lua_table.combosPanels_UUID)
-			else
-				step = 7
-			end
-			
-		elseif step == 7
-		then
-			if positionSum > 30
-			then
-				increment = increment + 7.5
+				increment = increment + 0.75
 				positionSum = positionSum - increment
 				lua_table.InterfaceFunctions:SetUIElementPosition("Image", 4, positionSum, lua_table.combosPanels_UUID)
 			end

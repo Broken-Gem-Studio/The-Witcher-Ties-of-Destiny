@@ -65,7 +65,7 @@ lua_table.is_knockback = false
 lua_table.is_dead = false
 	
 -- Aggro values 
-lua_table.AggroRange = 25
+lua_table.AggroRange = 35
 lua_table.minDistance = 2.5 -- If entity is inside this distance, then attack
 lua_table.maxDistance = 5
 --
@@ -337,17 +337,17 @@ local function Stun()
 
 		stun_timer = lua_table.System:GameTime() * 1000
 
-		local particles = {}
-		particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Minion_Stun_Emitter", Minion_General_Emitter))
-		for i = 1, #particles do 
-		    lua_table.Particles:PlayParticleEmitter(particles[i])
-		end
-		
 		start_stun = false
 	end
 
 	if stun_timer + lua_table.stun_duration <= lua_table.System:GameTime() * 1000 then
 		lua_table.Animations:PlayAnimation("Run", 45.0, lua_table.MyUID)
+
+		local particles = {}
+		particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Minion_Stun_Emitter", Minion_General_Emitter))
+		for i = 1, #particles do 
+		    lua_table.Particles:StopParticleEmitter(particles[i])
+		end
 	
 		lua_table.currentState = State.SEEK	
 		lua_table.System:LOG("Minion state: SEEK (1), from stun")
@@ -388,7 +388,7 @@ local function Die()
 		lua_table.Audio:PlayAudioEvent("Play_Minion_death")
 
 		local particles = {}
-		particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Minion_Blood_Emitter", Minion_General_Emitter))
+		particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Minion_Death_Emitter", Minion_General_Emitter))
 		for i = 1, #particles do 
 		    lua_table.Particles:PlayParticleEmitter(particles[i])
 		end
@@ -427,7 +427,7 @@ function lua_table:OnTriggerEnter()
 					lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
 
 					local particles = {}
-					particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Minion_Blood_Emitter", Minion_General_Emitter))
+					particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Minion_Stun_Emitter", Minion_General_Emitter))
 					for i = 1, #particles do 
 					    lua_table.Particles:PlayParticleEmitter(particles[i])
 					end
@@ -439,6 +439,20 @@ function lua_table:OnTriggerEnter()
 				
 				elseif script.collider_effect == attack_effects.knockback then ------------------------------------------------ React to kb effect
 					AttackColliderShutdown()
+
+					if parent == lua_table.geralt then 
+						local particles = {}
+						particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Minion_Blood_Emitter", Minion_General_Emitter))
+						for i = 1, #particles do 
+						    lua_table.Particles:PlayParticleEmitter(particles[i])
+						end
+					else 
+						local particles = {}
+						particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Minion_Hit_Emitter", Minion_General_Emitter))
+						for i = 1, #particles do 
+						    lua_table.Particles:PlayParticleEmitter(particles[i])
+						end
+					end
 
 					local tmp = lua_table.Transform:GetPosition(collider)
 
@@ -487,11 +501,20 @@ function lua_table:OnTriggerEnter()
 				
 				lua_table.Audio:PlayAudioEvent("Play_Minion_take_damage")
 
-				local particles = {}
-				particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Minion_Blood_Emitter", Minion_General_Emitter))
-				for i = 1, #particles do 
-				    lua_table.Particles:PlayParticleEmitter(particles[i])
+				if parent == lua_table.geralt then 
+					local particles = {}
+					particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Minion_Blood_Emitter", Minion_General_Emitter))
+					for i = 1, #particles do 
+						lua_table.Particles:PlayParticleEmitter(particles[i])
+					end
+				else 
+					local particles = {}
+					particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Minion_Hit_Emitter", Minion_General_Emitter))
+					for i = 1, #particles do 
+						lua_table.Particles:PlayParticleEmitter(particles[i])
+					end
 				end
+
 				lua_table.System:LOG("Hit registered")
 			end
 		end
@@ -523,7 +546,7 @@ function lua_table:RequestedTrigger(collider_GO)
 				lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
 
 				local particles = {}
-				particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Minion_Blood_Emitter", Minion_General_Emitter))
+				particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Minion_Stun_Emitter", Minion_General_Emitter))
 				for i = 1, #particles do 
 				    lua_table.Particles:PlayParticleEmitter(particles[i])
 				end
@@ -534,6 +557,20 @@ function lua_table:RequestedTrigger(collider_GO)
 				lua_table.System:LOG("Minion state: STUNNED (5)")  
 			elseif script.collider_effect == attack_effects.knockback then ------------------------------------------------ React to kb effect
 				AttackColliderShutdown()
+
+				if collider_GO == lua_table.geralt then 
+					local particles = {}
+					particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Minion_Blood_Emitter", Minion_General_Emitter))
+					for i = 1, #particles do 
+						lua_table.Particles:PlayParticleEmitter(particles[i])
+					end
+				else 
+					local particles = {}
+					particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Minion_Hit_Emitter", Minion_General_Emitter))
+					for i = 1, #particles do 
+						lua_table.Particles:PlayParticleEmitter(particles[i])
+					end
+				end
 
 				local coll_pos = lua_table.Transform:GetPosition(collider_GO)
 				local knock_vector = {0, 0, 0}
@@ -579,10 +616,18 @@ function lua_table:RequestedTrigger(collider_GO)
 			AttackColliderShutdown()
 			lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
 
-			local particles = {}
-			particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Minion_Blood_Emitter", Minion_General_Emitter))
-			for i = 1, #particles do 
-			    lua_table.Particles:PlayParticleEmitter(particles[i])
+			if collider_GO == lua_table.geralt then 
+				local particles = {}
+				particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Minion_Blood_Emitter", Minion_General_Emitter))
+				for i = 1, #particles do 
+					lua_table.Particles:PlayParticleEmitter(particles[i])
+				end
+			else 
+				local particles = {}
+				particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Minion_Hit_Emitter", Minion_General_Emitter))
+				for i = 1, #particles do 
+					lua_table.Particles:PlayParticleEmitter(particles[i])
+				end
 			end
 
 			lua_table.System:LOG("Hit registered")
@@ -641,6 +686,8 @@ function lua_table:Update()
 	
 	SearchPlayers() -- Constantly calculate distances between entity and players
 
+	if lua_table.GhoulPos[2] <= -100 then lua_table.Transform:SetPosition(lua_table.GhoulPos[1], 100, lua_table.GhoulPos[3], lua_table.MyUID) end 
+
 	-- Check if our entity is dead
 	if lua_table.health <= 0 then 
 		lua_table.currentState = State.DEATH
@@ -677,7 +724,13 @@ function lua_table:Update()
 	end
 
 	-- Manual reset of taunt
-	if taunt_timer + 3000 <= lua_table.System:GameTime() * 1000 then
+	if taunt_timer + 5000 <= lua_table.System:GameTime() * 1000 then
+
+		local particles = {}
+		particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Minion_Aggro_Emitter", Minion_General_Emitter))
+		for i = 1, #particles do 
+			lua_table.Particles:StopParticleEmitter(particles[i])
+		end
 
 		lua_table.is_taunt = false
 		taunt_timer = 0
@@ -685,7 +738,7 @@ function lua_table:Update()
 	end
 
 	-- Manual reset for hit state
-	if material_timer + 50 <= lua_table.System:GameTime() * 1000 and start_material == true then
+	if material_timer + 100 <= lua_table.System:GameTime() * 1000 and start_material == true then
 		lua_table.Material:SetMaterialByName("New material 78.mat", Material_UID)
 		start_material = false
 	end
