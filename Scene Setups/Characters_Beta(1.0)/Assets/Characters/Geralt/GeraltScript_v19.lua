@@ -123,7 +123,9 @@ local audio_library = {
 
 	evade = "Play_Geralt_light_roll",
 	aard = "Play_Geralt_aard",
+	ultimate_recharged = "Play_Geralt_Ultimate_Available",
 	ultimate = "Play_Geralt_Ultimate",
+	ultimate_scream = "Play_Geralt_Ultimate_active",
 	revive = "Play_Geralt_revive",
 
 	attack_miss = "Play_Geralt_sword_swing",
@@ -1803,6 +1805,7 @@ local function UltimateState(active)
 			lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.ultimate_particles_GO_UID_children[i])	--TODO-Particles:
 		end
 
+		lua_table.AudioFunctions:PlayAudioEventGO(audio_library.ultimate_scream, geralt_GO_UID)	--TODO-AUDIO: Play run sound
 		lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.big.intensity, controller_shake.big.duration)
 
 		lua_table.current_ultimate = 0.0
@@ -2393,8 +2396,14 @@ function lua_table:Update()
 		if not lua_table.ultimate_active	--IF ultimate offline
 		then
 			--Ultimate Regeneration
-			if lua_table.current_ultimate < lua_table.max_ultimate then lua_table.current_ultimate = lua_table.current_ultimate + ultimate_reg_real * dt end	--IF can increase, increase ultimate
-			if lua_table.current_ultimate > lua_table.max_ultimate then lua_table.current_ultimate = lua_table.max_ultimate end									--IF above max, set to max
+			if lua_table.current_ultimate < lua_table.max_ultimate then
+				lua_table.current_ultimate = lua_table.current_ultimate + ultimate_reg_real * dt
+
+				if lua_table.current_ultimate >= lua_table.max_ultimate then
+					lua_table.current_ultimate = lua_table.max_ultimate
+					lua_table.AudioFunctions:PlayAudioEventGO(audio_library.ultimate_recharged, geralt_GO_UID)	--TODO-AUDIO:
+				end
+			end
 		end
 		
 		if lua_table.ability_performed and game_time - ability_started_at >= lua_table.ability_cooldown	--IF ability cooldown finished, mark for UI
