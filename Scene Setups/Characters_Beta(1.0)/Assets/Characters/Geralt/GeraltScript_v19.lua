@@ -139,14 +139,14 @@ local audio_library = {
 	potion_pickup = "Play_Potion_pick_up",
 	potion_drop = "Play_Potion_drop",
 
+	voice_tutorial_start = "Play_Geralt_VL_start_lvl_1",	--Tutorial start
 	--voice_boss_fight = "Play_Geralt_VL_boss_fight",		--Boss fight start
 	voice_downed = "Play_Geralt_VL_death",					--Character death
 	voice_battle_start = "Play_Geralt_VL_start_battle",		--Battle Start
 	voice_battle_end = "Play_Geralt_VL_end_battle",			--Battle End
 	--voice_boss_defeated = "Play_Geralt_VL_killed_boss",	--Boss Death
 	voice_low_health = "Play_Geralt_VL_low_health",			--Low Health
-	voice_revive_ally = "Play_Geralt_VL_revive",			--Revive Ally
-	voice_tutorial_start = "Play_Geralt_VL_start_lvl_1"		--Tutorial start
+	voice_revive_ally = "Play_Geralt_VL_revive"			--Revive Ally
 }
 local current_audio = audio_library.none
 local current_paused_audio = audio_library.none
