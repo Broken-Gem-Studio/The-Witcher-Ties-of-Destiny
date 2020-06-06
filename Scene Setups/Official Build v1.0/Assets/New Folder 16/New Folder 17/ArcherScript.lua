@@ -577,7 +577,14 @@ function lua_table:Update()
         
     -- end
 
+   
+
     GetClosestPlayer()
+
+    if position[2] <= -100 then
+        lua_table.Transform:SetPosition(position[1], 100, position[3], MyUID)
+    end
+
     lua_table.speed = 8 * lua_table.System:DT()
 
     -- ------------------------------------Decide Target----------------------------------
@@ -603,7 +610,7 @@ function lua_table:Update()
         end
     end
 
-    if material_time + 100 <= PerfGameTime() and changed_material == true then
+    if material_time + 50 <= PerfGameTime() and changed_material == true then
         lua_table.Material:SetMaterialByName("ArcherMaterial.mat", mesh_gameobject_UID)
         changed_material = false
     end
