@@ -18,6 +18,8 @@ function lua_table:OnTriggerEnter()
     then
         if last_checkpoint == nil or last_checkpoint < lua_table.checkpoint
         then
+            --audio**
+            --particles on**
             last_checkpoint = lua_table.checkpoint
             winlose_script:Checkpoint()
         end
