@@ -1828,7 +1828,7 @@ local function ActionInputs()	--Process Action Inputs
 					end
 				end
 				if not action_made then lua_table.AudioFunctions:PlayAudioEventGO(audio_library.not_possible, jaskier_GO_UID) end	--TODO-Audio: Not possible sound
-				
+
 			end
 		end
 	end
@@ -3126,6 +3126,7 @@ function lua_table:Update()
 	--Revive
 	-- if lua_table.being_revived then lua_table.SystemFunctions:LOG("Jaskier Being Revived!")
 	-- else lua_table.SystemFunctions:LOG("Jaskier not being revived.") end
+	--if lua_table.current_state == state.down then lua_table.SystemFunctions:LOG((game_time - lua_table.death_started_at)) end
 
 	-- Enemies Nearby
 	--if lua_table.enemies_nearby then lua_table.SystemFunctions:LOG("Enemies Nearby!")
