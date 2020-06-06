@@ -442,78 +442,12 @@
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="Play_Enemy_Conversation_01" ID="{B9FBEE72-17B2-4F4F-9F45-058D252E4244}">
+						<Event Name="Play_Enemy_Conversation" ID="{CA75C482-1F84-4635-B3B9-9D2156DBCCB8}">
 							<ChildrenList>
-								<Action Name="" ID="{27473DA9-EAC6-4D35-94BD-176D6990452A}" ShortID="58294944">
+								<Action Name="" ID="{C9C07627-D76B-4243-AF9A-15A828BA3D4F}" ShortID="842396814">
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="Enemy_Conversation_01" ID="{BEDAD974-F684-4C96-ABA7-DF2A8503F630}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Play_Enemy_Conversation_02" ID="{177F9C2C-9BF0-4A82-9EE1-48E7FF08D4DA}">
-							<ChildrenList>
-								<Action Name="" ID="{748B09FA-DDA3-447C-A3E3-962595DFF673}" ShortID="672573759">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Enemy_Conversation_02" ID="{7FDB518C-871E-431C-94AB-AB6143B2A3E3}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Play_Enemy_Conversation_03" ID="{F0E56B64-A8BC-4C52-8B02-282C523C3A1F}">
-							<ChildrenList>
-								<Action Name="" ID="{7045E7F9-8449-4293-8F55-90D534190373}" ShortID="47510365">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Enemy_Conversation_03" ID="{DFABEBF3-CA68-42B4-B131-92EFC50BC417}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Play_Enemy_Conversation_04" ID="{189B4AEB-5422-4ABD-82E0-F6D74A54C35B}">
-							<ChildrenList>
-								<Action Name="" ID="{BA9AE18C-D31A-4FFA-B5FD-B34303033A1B}" ShortID="920418846">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Enemy_Conversation_04" ID="{864A986D-7CF1-46B8-8625-B7CBF3155BE5}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Play_Enemy_Conversation_05" ID="{8099E1CF-1C08-456E-8317-E92184E9C96C}">
-							<ChildrenList>
-								<Action Name="" ID="{9F5C0701-CD78-49C4-BF5B-86F6FCC6A136}" ShortID="135291440">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Enemy_Conversation_05" ID="{80FF4D6C-583D-41CF-AC6B-3CFC1CF43D27}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Play_Enemy_Conversation_06" ID="{A4990762-8A55-4818-B655-B275474714B2}">
-							<ChildrenList>
-								<Action Name="" ID="{FE0DD8D1-281D-47C6-9B8C-BB2D2A6A3CC9}" ShortID="1054750821">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Enemy_Conversation_06" ID="{6F107E6C-1689-4134-9F42-D842F4513CC1}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Play_Enemy_Conversation_07" ID="{7051EE36-6C6D-4CD3-BD3B-3DD6F2443443}">
-							<ChildrenList>
-								<Action Name="" ID="{34F8F32E-865F-4EDE-973A-F2FADBA5C283}" ShortID="449924104">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Enemy_Conversation_07" ID="{4D16CFDA-9C8C-4AEA-9A65-D9E171D5E06C}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+											<ObjectRef Name="Enemy_Conversation" ID="{85735C14-9A56-4418-94B7-AA78B8EF450D}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -980,7 +914,7 @@
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="Play_Reach_firecamp_" ID="{361773E2-FE57-46C3-8E2D-AA8A8AC9A69E}">
+						<Event Name="Play_Reach_firecamp" ID="{361773E2-FE57-46C3-8E2D-AA8A8AC9A69E}">
 							<ChildrenList>
 								<Action Name="" ID="{C403C102-EFE2-4F0F-B8D2-2FFC24B5E01E}" ShortID="9319172">
 									<ReferenceList>
@@ -1617,7 +1551,6 @@
 								</Event>
 							</ChildrenList>
 						</Folder>
-						<Folder Name="Yennefer" ID="{F1606815-67F6-48BB-99A6-4D953EE7ACC9}" ShortID="304171529"/>
 					</ChildrenList>
 				</Folder>
 				<Event Name="Play_Music_Menu_Comparison_Pirate_Dance" ID="{D8C2E418-7AE3-46EA-8E37-6727F19E5260}">

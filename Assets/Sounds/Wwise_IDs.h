@@ -29,13 +29,7 @@ namespace AK
         static const AkUniqueID PLAY_CHARACTER_SELECTED = 4128046305U;
         static const AkUniqueID PLAY_CHARACTER_UNSELECTED = 993611128U;
         static const AkUniqueID PLAY_DANDELION_MADE_SOME_INTERESTING_FRIENDS = 2311913118U;
-        static const AkUniqueID PLAY_ENEMY_CONVERSATION_01 = 1323778646U;
-        static const AkUniqueID PLAY_ENEMY_CONVERSATION_02 = 1323778645U;
-        static const AkUniqueID PLAY_ENEMY_CONVERSATION_03 = 1323778644U;
-        static const AkUniqueID PLAY_ENEMY_CONVERSATION_04 = 1323778643U;
-        static const AkUniqueID PLAY_ENEMY_CONVERSATION_05 = 1323778642U;
-        static const AkUniqueID PLAY_ENEMY_CONVERSATION_06 = 1323778641U;
-        static const AkUniqueID PLAY_ENEMY_CONVERSATION_07 = 1323778640U;
+        static const AkUniqueID PLAY_ENEMY_CONVERSATION = 2259159008U;
         static const AkUniqueID PLAY_ENEMY_HUMANOID_DISCOVER_PLAYERS = 2135203437U;
         static const AkUniqueID PLAY_ENEMY_HUMANOID_HIT = 282993986U;
         static const AkUniqueID PLAY_G_J_01_01 = 587868722U;
@@ -140,7 +134,7 @@ namespace AK
         static const AkUniqueID PLAY_PRESSED_SKIP_BUTTON = 1949045457U;
         static const AkUniqueID PLAY_PROP_HIT_WOOD = 2533588661U;
         static const AkUniqueID PLAY_PROP_WOOD_BREAK = 2941887487U;
-        static const AkUniqueID PLAY_REACH_FIRECAMP_ = 1072535284U;
+        static const AkUniqueID PLAY_REACH_FIRECAMP = 135505289U;
         static const AkUniqueID PLAY_SCREAMER_GHOUL_DAMAGED = 2307526086U;
         static const AkUniqueID PLAY_SCREAMER_GHOUL_DEATH = 3599177725U;
         static const AkUniqueID PLAY_SCREAMER_GHOUL_FALL_BACK = 4053344040U;
