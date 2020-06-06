@@ -132,7 +132,7 @@ local enemy10dead = {
     enemy10_9_dead = 0    
 }
 
-local moveStep10 = false
+lua_table.moveStep10 = false
 lua_table.PauseStep10 = false
 local geraltStart10 = false
 local jaskierStart10 = false
@@ -216,6 +216,17 @@ lua_table.potionsCards = false
 local showedPotions = false
 local potionDropped = false
 
+-- Variables REVIVE
+lua_table.reviveCard = false
+local showedRevive = false
+
+-- Variables CARDS
+local littleCards = {
+    chest,
+    dummy,
+    enemy,
+    move
+}
 ------------------------------------------------------------------------------
 -- STEPS
 ------------------------------------------------------------------------------
@@ -223,6 +234,7 @@ local potionDropped = false
 local function Step1()
     lua_table.InterfaceFunctions:MakeElementVisible("Text", lua_table.textUID)
     lua_table.InterfaceFunctions:SetText("Use the left joystick to move the player", lua_table.textUID)
+    lua_table.InterfaceFunctions:MakeElementVisible("Image", littleCards.move)
 
     if lua_table.InputFunctions:GetAxisValue(lua_table.GeraltNumber, "AXIS_LEFT" .. "X", 0.01) > 0 or lua_table.InputFunctions:GetAxisValue(lua_table.GeraltNumber, "AXIS_LEFT" .. "Y", 0.01) > 0
     then
@@ -238,6 +250,7 @@ local function Step1()
     then
         lua_table.InterfaceFunctions:MakeElementInvisible("Text", lua_table.textUID)
         lua_table.InterfaceFunctions:SetText(" ", lua_table.textUID)
+        lua_table.InterfaceFunctions:MakeElementInvisible("Image", littleCards.move)
 
         lua_table.currentStep = Step.STEP_2
     end
@@ -258,6 +271,7 @@ local function Step2()
         TABLE_CARTAS.continue_meter1_full = false
         TABLE_CARTAS.continue_meter2_full = false
         lua_table.InterfaceFunctions:SetText("Press Y to make a light attack. Press B to make a medium attack, Press both to make a heavy attack!", lua_table.textUID)
+        lua_table.InterfaceFunctions:MakeElementVisible("Image", littleCards.dummy)
     end
 
     if tableGeralt.current_state == 8 or tableGeralt.current_state == 9 or tableGeralt.current_state == 10 
@@ -297,6 +311,8 @@ local function Step2()
 
         lua_table.AnimationFunctions:PlayAnimation("open", 30, doorsGO.door1)
         lua_table.ObjectFunctions:SetActiveGameObject(false, doorsColliders.door1)
+
+        lua_table.InterfaceFunctions:MakeElementInvisible("Image", littleCards.dummy)
 
         lua_table.currentStep = Step.STEP_3
     end
@@ -349,6 +365,8 @@ local function Step4()
 
         lua_table.InterfaceFunctions:MakeElementInvisible("Text", lua_table.textUID)
         lua_table.InterfaceFunctions:SetText(" ", lua_table.textUID)
+
+        lua_table.InterfaceFunctions:MakeElementInvisible("Image", littleCards.enemy)
 
         lua_table.currentStep = Step.STEP_6
     end
@@ -486,6 +504,7 @@ local function Step7()
     if enemy7dead.enemy7_1_dead == 1 and enemy7dead.enemy7_2_dead == 1 and enemy7dead.enemy7_3_dead == 1 and 
     enemy7dead.enemy7_4_dead == 1 and enemy7dead.enemy7_5_dead == 1 and enemy7dead.enemy7_6_dead == 1
     then
+        lua_table.InterfaceFunctions:MakeElementInvisible("Image", littleCards.enemy)
         lua_table.ObjectFunctions:SetActiveGameObject(true, step8)
         lua_table.currentStep = Step.STEP_8
         lua_table.InterfaceFunctions:MakeElementInvisible("Text", lua_table.textUID)
@@ -540,7 +559,7 @@ end
 local function Step10()
     lua_table.InterfaceFunctions:MakeElementVisible("Text", lua_table.textUID)
 
-    if lua_table.PauseStep10 == true and moveStep10 == false
+    if lua_table.PauseStep10 == true and lua_table.moveStep10 == false
     then
         lua_table.SystemFunctions:PauseGame()     
     end
@@ -549,7 +568,7 @@ local function Step10()
     if TABLE_CARTAS.continue_meter1_full == true and TABLE_CARTAS.continue_meter2_full == true
     then
         lua_table.SystemFunctions:ResumeGame()
-        moveStep10 = true
+        lua_table.moveStep10 = true
         TABLE_CARTAS.continue_meter1_full = false
         TABLE_CARTAS.continue_meter2_full = false
         lua_table.PauseStep10 = false
@@ -999,7 +1018,7 @@ local function EnemiesManager()
         tableEnemy10_4.currentState = 0
     end
 
-    if moveStep10 == false
+    if lua_table.moveStep10 == false
     then
         tableEnemy10_5.currentState = 0
         tableEnemy10_6.currentState = 0
@@ -1040,6 +1059,22 @@ local function EnemiesManager()
         tableEnemy12_15.currentState = 1
         tableEnemy12_16.currentState = 1
 
+    end
+end
+
+local function ReviveCard()   
+    if showedRevive == false
+    then
+        lua_table.SystemFunctions:PauseGame()    
+    end
+
+    if TABLE_CARTAS.continue_meter1_full == true and TABLE_CARTAS.continue_meter2_full == true
+    then
+        showedRevive = true
+        lua_table.reviveCard = false
+        lua_table.SystemFunctions:ResumeGame()
+        TABLE_CARTAS.continue_meter1_full = false
+        TABLE_CARTAS.continue_meter2_full = false
     end
 end
 
@@ -1235,6 +1270,11 @@ function lua_table:Awake()
     doorsColliders.door1 = lua_table.ObjectFunctions:FindGameObject("colliderDoor1")
     doorsColliders.door2 = lua_table.ObjectFunctions:FindGameObject("colliderDoor2")
 
+    littleCards.chest = lua_table.ObjectFunctions:FindGameObject("L_CHEST")
+    littleCards.dummy = lua_table.ObjectFunctions:FindGameObject("L_DUMMY")
+    littleCards.enemy = lua_table.ObjectFunctions:FindGameObject("L_ENEMY")
+    littleCards.move = lua_table.ObjectFunctions:FindGameObject("L_MOVE")
+
 end
 
 function lua_table:Start()
@@ -1246,6 +1286,12 @@ function lua_table:Start()
     lua_table.ObjectFunctions:SetActiveGameObject(false, step11)
     lua_table.ObjectFunctions:SetActiveGameObject(false, step12)
     lua_table.ObjectFunctions:SetActiveGameObject(false, archers)
+
+    lua_table.InterfaceFunctions:MakeElementInvisible("Image", littleCards.chest)
+    lua_table.InterfaceFunctions:MakeElementInvisible("Image", littleCards.dummy)
+    lua_table.InterfaceFunctions:MakeElementInvisible("Image", littleCards.enemy)
+    lua_table.InterfaceFunctions:MakeElementInvisible("Image", littleCards.move)
+
 end
 
 function lua_table:Update()
@@ -1259,6 +1305,15 @@ function lua_table:Update()
         then
             lua_table.potionsCards = true
             PotionsCards()
+        end
+    end
+
+    if showedRevive == false
+    then
+        if tableGeralt.current_state == -3 or tableJaskier.current_state == -3
+        then
+            lua_table.reviveCard = true
+            ReviveCard()
         end
     end
 

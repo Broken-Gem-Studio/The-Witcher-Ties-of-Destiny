@@ -14,7 +14,7 @@ function GetTableCardsTuto()
     local showedCard11 = false
     local showedCard12 = false
     local showedCard13 = false
-
+    local showedRevive = false
     --test for potions image to test double images movement
     local potions = false
 
@@ -53,6 +53,7 @@ function GetTableCardsTuto()
     local ENEMY = 0
     local BONFIRE = 0
     local ATTACKS = 0
+    local REVIVE = 0
     --
     lua_table.tuto = {}--para pillar desde script Faure i pillar steps
     local TUTOMANAGER = 0
@@ -115,7 +116,7 @@ function GetTableCardsTuto()
         lua_table["UI"]:MakeElementInvisible("Image", ENEMY)
         lua_table["UI"]:MakeElementInvisible("Image", BONFIRE)
         lua_table["UI"]:MakeElementInvisible("Image", ATTACKS)
-
+        lua_table["UI"]:MakeElementInvisible("Image", REVIVE)
 
         lua_table["UI"]:MakeElementInvisible("CircularBar", P1_METER)
         lua_table["UI"]:MakeElementInvisible("CircularBar", P2_METER)
@@ -135,7 +136,7 @@ function GetTableCardsTuto()
         ENEMY = lua_table["GameObject"]:FindGameObject("C_ENEMY")
         BONFIRE = lua_table["GameObject"]:FindGameObject("C_BONFIRE")
         ATTACKS = lua_table["GameObject"]:FindGameObject("C_ATTACKS")
-
+        REVIVE = lua_table["GameObject"]:FindGameObject("C_REVIVE")
 
         P1_METER = lua_table["GameObject"]:FindGameObject("C_P1METER")
         P2_METER = lua_table["GameObject"]:FindGameObject("C_P2METER")
@@ -503,6 +504,36 @@ function GetTableCardsTuto()
                 continue_meter2 = 0
             end
             
+        end
+
+        if lua_table.tuto.reviveCard == true and showedRevive == false
+        then
+            Meter()
+            
+            if lua_table.continue_meter1_full == false and lua_table.continue_meter2_full == false
+            then
+                lua_table["UI"]:MakeElementVisible("Image", REVIVE)
+                lua_table["UI"]:MakeElementVisible("CircularBar", P1_METER)
+                lua_table["UI"]:MakeElementVisible("CircularBar", P2_METER)            
+            end
+
+            if  continue_meter1 >= 100
+            then
+                lua_table.continue_meter1_full = true
+            end
+
+            if  continue_meter2 >= 100
+            then
+                lua_table.continue_meter2_full = true
+            end
+
+            if lua_table.continue_meter1_full == true and  lua_table.continue_meter2_full == true
+            then
+                showedRevive = true
+                HideCard()
+                continue_meter1 = 0
+                continue_meter2 = 0
+            end
         end
 
         if lua_table.tuto.currentStep == 13 and lua_table.tuto.SaveGame13 == true and showedCard13== false--bonfire

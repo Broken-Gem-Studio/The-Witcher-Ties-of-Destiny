@@ -28,6 +28,9 @@ local resumeMarker = 0
 local combosMarker = 0
 local menuMarker = 0
 
+local tutorialGO = 0
+local tutoScript = 0
+
 -- Core
 local function Reset()	
 	ControllerID = 0
@@ -56,6 +59,8 @@ function lua_table:Awake()
 	lua_table.menuButton_UUID = lua_table.ObjectFunctions:FindGameObject("MenuButton")
 	lua_table.resumeButton_UUID = lua_table.ObjectFunctions:FindGameObject("ResumeButton")
 	lua_table.combosButton_UUID = lua_table.ObjectFunctions:FindGameObject("CombosButton")
+	tutorialGO = lua_table.ObjectFunctions:FindGameObject("TutorialManager")
+	tutoScript = lua_table.ObjectFunctions:GetScript(tutorialGO)
 end
 
 function lua_table:Start()
@@ -87,6 +92,7 @@ function lua_table:Update()
 			activatePause = false
 			lua_table.gamePaused = true
 			lua_table.SystemFunctions:PauseGame()
+
 			lua_table.InterfaceFunctions:MakeElementVisible("Image", resumeMarker)
 			lua_table.InterfaceFunctions:MakeElementVisible("Image", lua_table.parchmentImage_UUID)
 			lua_table.InterfaceFunctions:MakeElementVisible("Image", lua_table.background_UUID)
@@ -97,6 +103,15 @@ function lua_table:Update()
 			lua_table.InterfaceFunctions:SetUIElementInteractable("Button", lua_table.resumeButton_UUID, true)
 			lua_table.InterfaceFunctions:MakeElementVisible("Image", lua_table.combosButton_UUID)
 			lua_table.InterfaceFunctions:SetUIElementInteractable("Button", lua_table.combosButton_UUID, true)
+
+			if tutoScript.currentStep == 10 and tutoScript.moveStep10 == true
+			then
+				currentButton = Buttons.COMBOS
+				lua_table.InterfaceFunctions:MakeElementInvisible("Image", resumeMarker)
+				lua_table.InterfaceFunctions:MakeElementInvisible("Image", menuMarker)
+				lua_table:ShowCombos()	
+				lua_table.SystemFunctions:LOG("OSCAR COMBO STEP 10")		
+			end
 		else
 			Reset()
 		end
