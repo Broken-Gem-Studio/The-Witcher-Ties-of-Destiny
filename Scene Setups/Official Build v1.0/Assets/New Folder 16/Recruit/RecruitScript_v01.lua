@@ -478,15 +478,17 @@ function lua_table:OnTriggerEnter()
 				elseif script.collider_effect == attack_effects.taunt then ---------------------------------------------------- React to taunt effect
 					AttackColliderShutdown()
 
-					local particles = {}
-					particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Recruit_Taunt_Emitter", Recruit_General_Emitter))
-					for i = 1, #particles do 
-						lua_table.Particles:PlayParticleEmitter(particles[i])
-					end
-
 					start_taunt = true
 
 					if start_taunt then 
+
+						
+						local particles = {}
+						particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Recruit_Taunt_Emitter", Recruit_General_Emitter))
+						for i = 1, #particles do 
+							lua_table.Particles:PlayParticleEmitter(particles[i])
+						end
+
 						taunt_timer = lua_table.System:GameTime() * 1000
 						lua_table.is_taunt = true
 						lua_table.System:LOG("Getting taunted by Jaskier") 
@@ -594,17 +596,18 @@ function lua_table:RequestedTrigger(collider_GO)
 			elseif script.collider_effect == attack_effects.taunt then ---------------------------------------------------- React to taunt effect
 				AttackColliderShutdown()
 
-				local particles = {}
-				particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Recruit_Taunt_Emitter", Recruit_General_Emitter))
-				for i = 1, #particles do 
-					lua_table.Particles:PlayParticleEmitter(particles[i])
-				end
-
-
 				start_taunt = true
 
 				if start_taunt then 
+
 					taunt_timer = lua_table.System:GameTime() * 1000
+
+					local particles = {}
+					particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Recruit_Taunt_Emitter", Recruit_General_Emitter))
+					for i = 1, #particles do 
+						lua_table.Particles:PlayParticleEmitter(particles[i])
+					end
+
 					lua_table.is_taunt = true
 					lua_table.System:LOG("Getting taunted by Jaskier") 
 					start_taunt = false
