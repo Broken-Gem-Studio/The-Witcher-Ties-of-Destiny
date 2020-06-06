@@ -65,7 +65,7 @@ lua_table.is_knockback = false
 lua_table.is_dead = false
 	
 -- Aggro values 
-lua_table.AggroRange = 25
+lua_table.AggroRange = 35
 lua_table.minDistance = 2.5 -- If entity is inside this distance, then attack
 lua_table.maxDistance = 5
 --
@@ -592,23 +592,23 @@ function lua_table:RequestedTrigger(collider_GO)
 				lua_table.System:LOG("Minion state: KNOCKBACK (4)") 
 
 			elseif script.collider_effect == attack_effects.taunt then ---------------------------------------------------- React to taunt effect
-				--AttackColliderShutdown()
+				AttackColliderShutdown()
 
-				-- start_taunt = true
+				start_taunt = true
 
-				-- if start_taunt then 
-				-- 	taunt_timer = lua_table.System:GameTime() * 1000
+				if start_taunt then 
+					taunt_timer = lua_table.System:GameTime() * 1000
 
-				-- 	local particles = {}
-				-- 	particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Minion_Aggro_Emitter", Minion_General_Emitter))
-				-- 	for i = 1, #particles do 
-				-- 	    lua_table.Particles:PlayParticleEmitter(particles[i])
-				-- 	end
+					local particles = {}
+					particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Minion_Aggro_Emitter", Minion_General_Emitter))
+					for i = 1, #particles do 
+					    lua_table.Particles:PlayParticleEmitter(particles[i])
+					end
 					
-				-- 	lua_table.is_taunt = true
-				-- 	lua_table.System:LOG("Getting taunted by Jaskier") 
-				-- 	start_taunt = false
-				-- end
+					lua_table.is_taunt = true
+					lua_table.System:LOG("Getting taunted by Jaskier") 
+					start_taunt = false
+				end
 				
 			end
 

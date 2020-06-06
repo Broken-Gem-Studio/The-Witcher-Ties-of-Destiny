@@ -68,7 +68,7 @@ lua_table.is_knockback = false
 lua_table.is_dead = false
 	
 --------------------------------- Aggro values 
-lua_table.AggroRange = 30
+lua_table.AggroRange = 35
 lua_table.minDistance = 4 -- If entity is inside this distance, then attack
 lua_table.jumpDistance = 8
 --
