@@ -13,6 +13,8 @@
 			<ShortName>Props</ShortName>
 			<Path>Props.bnk</Path>
 			<IncludedEvents>
+				<Event Id="2331601197" Name="Play_Potion_drop" ObjectPath="\Events\Default Work Unit\Props\Play_Potion_drop" GUID="{D613BF1A-1B9E-4929-BE38-59CC83B1FEC9}"/>
+				<Event Id="4277472243" Name="Play_Potion_pick_up" ObjectPath="\Events\Default Work Unit\Props\Play_Potion_pick_up" GUID="{4CB9FC1F-13CD-4F97-BEE8-8E359EDB92E2}"/>
 				<Event Id="2533588661" Name="Play_Prop_hit_wood" ObjectPath="\Events\Default Work Unit\Props\Play_Prop_hit_wood" GUID="{B258C721-CD45-4FFE-B057-49ED960DEAA7}"/>
 				<Event Id="2941887487" Name="Play_Prop_wood_break" ObjectPath="\Events\Default Work Unit\Props\Play_Prop_wood_break" GUID="{FF2D7346-6950-4EBC-843B-69F79C93C934}"/>
 				<Event Id="1072535284" Name="Play_Reach_firecamp_" ObjectPath="\Events\Default Work Unit\Props\Play_Reach_firecamp_" GUID="{361773E2-FE57-46C3-8E2D-AA8A8AC9A69E}"/>
@@ -30,9 +32,17 @@
 					<ShortName>Prop_hit_wood_2.wav</ShortName>
 					<Path>SFX\Prop_hit_wood_2_10C4C929.wem</Path>
 				</File>
+				<File Id="304131898" Language="SFX">
+					<ShortName>Potion_drop.wav</ShortName>
+					<Path>SFX\Potion_drop_10C4C929.wem</Path>
+				</File>
 				<File Id="393501687" Language="SFX">
 					<ShortName>Prop_hit_wood_3.wav</ShortName>
 					<Path>SFX\Prop_hit_wood_3_10C4C929.wem</Path>
+				</File>
+				<File Id="604885141" Language="SFX">
+					<ShortName>Potion pick up.wav</ShortName>
+					<Path>SFX\Potion pick up_10C4C929.wem</Path>
 				</File>
 				<File Id="671956304" Language="SFX">
 					<ShortName>Prop_wood_break_1.wav</ShortName>

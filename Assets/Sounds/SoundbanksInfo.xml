@@ -29,6 +29,8 @@
 				<Event Id="2896484239" Name="Play_Geralt_sword_metal" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_sword_metal" GUID="{C8348F89-4321-41EA-B763-791530F0BEDD}"/>
 				<Event Id="780578552" Name="Play_Geralt_sword_swing" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_sword_swing" GUID="{D64C2643-7FE2-494F-AF9C-20923437E3CC}"/>
 				<Event Id="3955362993" Name="Play_Geralt_Ultimate" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_Ultimate" GUID="{8545500C-7A12-4FDE-9F9B-76E6DF6B57BE}"/>
+				<Event Id="754674066" Name="Play_Geralt_Ultimate_active" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_Ultimate_active" GUID="{CEC59BCE-7589-408D-8074-13B750ECAF08}"/>
+				<Event Id="1968004141" Name="Play_Geralt_Ultimate_Available" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_Ultimate_Available" GUID="{5F1BC895-70FE-4D91-A86C-59465D8D5C44}"/>
 				<Event Id="4167477001" Name="Play_Geralt_walk_run_concrete" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_walk_run_concrete" GUID="{28DB0522-5142-4910-AC7D-81A996B21BC0}"/>
 				<Event Id="2190072003" Name="Play_Geralt_walk_run_dirt" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_walk_run_dirt" GUID="{3B9809C1-9081-421A-BA9F-EDFEB48BA985}"/>
 			</IncludedEvents>
@@ -133,6 +135,10 @@
 					<ShortName>Roll.wav</ShortName>
 					<Path>SFX\Roll_10C4C929.wem</Path>
 				</File>
+				<File Id="657992204" Language="SFX">
+					<ShortName>Geralt_Ultimate_active.wav</ShortName>
+					<Path>SFX\Geralt_Ultimate_active_10C4C929.wem</Path>
+				</File>
 				<File Id="697976836" Language="SFX">
 					<ShortName>Geralt_combo_sound.wav</ShortName>
 					<Path>SFX\Geralt_combo_sound_10C4C929.wem</Path>
@@ -193,6 +199,10 @@
 					<ShortName>Geralt_Walk_dirt_2.wav</ShortName>
 					<Path>SFX\Geralt_Walk_dirt_2_10C4C929.wem</Path>
 				</File>
+				<File Id="1044808801" Language="SFX">
+					<ShortName>Geralt_Ultimate_Available.wav</ShortName>
+					<Path>SFX\Geralt_Ultimate_Available_10C4C929.wem</Path>
+				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>
 		<SoundBank Id="646625284" GUID="{3FC150C6-1319-4225-A122-45A4D3770ED6}" Language="SFX">
@@ -239,145 +249,27 @@
 			<ShortName>Voicelines_Geralt</ShortName>
 			<Path>Voicelines_Geralt.bnk</Path>
 			<IncludedEvents>
-				<Event Id="2230916577" Name="Play_A_rational_man" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_A_rational_man" GUID="{B5570140-79B0-471D-BAE1-9E7816C88D44}"/>
-				<Event Id="3977382036" Name="Play_All_right__let_s_go" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_All_right__let_s_go" GUID="{2CA0CB07-27C7-4496-86EB-3C751445A6CC}"/>
-				<Event Id="2500051659" Name="Play_All_taken_care_of__Went_inside_and_cleaned_up" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_All_taken_care_of__Went_inside_and_cleaned_up" GUID="{441229B2-DA98-418F-87A8-EB2470B3EBF6}"/>
-				<Event Id="3628441416" Name="Play_Asked_a_serious_question" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_Asked_a_serious_question" GUID="{F5E48565-3FBF-45AC-986A-FF95BDBE323E}"/>
-				<Event Id="1965815680" Name="Play_Ballad_about_you" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_Ballad_about_you" GUID="{70177D5D-6A54-4172-9D50-EAECE5B630E9}"/>
-				<Event Id="470024146" Name="Play_Calm_down__it_s_over" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_Calm_down__it_s_over" GUID="{C6E5A316-2EA6-468B-B93B-542A541C417D}"/>
-				<Event Id="1902089856" Name="Play_Can_we_talk" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_Can_we_talk" GUID="{9556DF6C-4137-4EBC-8B65-76922222C0D2}"/>
-				<Event Id="1286939126" Name="Play_Dammit" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_Dammit" GUID="{FF3283DF-1E81-4CEA-A1CF-66AD442961DF}"/>
-				<Event Id="1567485671" Name="Play_Damn__something_s_seriously_wrong_here" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_Damn__something_s_seriously_wrong_here" GUID="{4A3D3C1E-9895-4202-A006-50ECA7F265CE}"/>
-				<Event Id="2660064445" Name="Play_Doesn_t_look_cursed_to_me__Just_really__really_angry" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_Doesn_t_look_cursed_to_me__Just_really__really_angry" GUID="{73990E5A-9D3E-439C-B6A9-71DCACCAD879}"/>
-				<Event Id="4264491214" Name="Play_Don_t_know__I_kill_monsters__don_t_predict_the_future" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_Don_t_know__I_kill_monsters__don_t_predict_the_future" GUID="{EB1108E2-208F-4513-AA0F-2A947050502A}"/>
-				<Event Id="3196951223" Name="Play_Don_t_know_if_you_noticed__but_I_just_saved_your_ass" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_Don_t_know_if_you_noticed__but_I_just_saved_your_ass" GUID="{C5786A04-3D54-451E-9F78-1A76D9BDE71D}"/>
-				<Event Id="2709789566" Name="Play_Exactly" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_Exactly" GUID="{22941C50-4887-4E1F-A402-FDD9535F403D}"/>
-				<Event Id="969645809" Name="Play_Exaggerated__Not_by_much__though" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_Exaggerated__Not_by_much__though" GUID="{B979A184-D585-4AC3-9261-B389124B6B47}"/>
-				<Event Id="759494622" Name="Play_Excuse_me" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_Excuse_me" GUID="{4F3F05B2-3CDF-41B6-9BE3-A89F2F214C4F}"/>
-				<Event Id="3778614618" Name="Play_Fine__lead_the_way" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_Fine__lead_the_way" GUID="{3ECB9E15-B980-4D60-882D-2A3C75F28B58}"/>
-				<Event Id="2305803666" Name="Play_Geralt_Dandelion" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_Geralt_Dandelion" GUID="{1756E6A9-1853-4370-B9A4-226BD7C13AD7}"/>
-				<Event Id="2950343021" Name="Play_Geralt_NoOffence" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_Geralt_NoOffence" GUID="{C540021F-2D3E-4A30-8757-FACBB7916FD6}"/>
-				<Event Id="3939143402" Name="Play_Go_ahead__I_ll_stop_by_when_I_m_in_the_area" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_Go_ahead__I_ll_stop_by_when_I_m_in_the_area" GUID="{016777D0-2183-4F5C-8041-4FBA8B620A9E}"/>
-				<Event Id="3489969659" Name="Play_Hell_yes" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_Hell_yes" GUID="{0A3999D2-7A24-4244-A171-3F56D7F84B16}"/>
-				<Event Id="3662793572" Name="Play_Hurry" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_Hurry" GUID="{FF3C0276-F01F-4940-B4AE-EC40120AD326}"/>
-				<Event Id="4211851310" Name="Play_I_get_it" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_I_get_it" GUID="{7DBB75FB-5F4C-4A4D-B992-95061EEEB818}"/>
-				<Event Id="3112929086" Name="Play_I_ll_go_with_you" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_I_ll_go_with_you" GUID="{B6877E78-3B23-4AD9-A13C-DB5F45422590}"/>
-				<Event Id="3474827436" Name="Play_I_m_Geralt__Geralt_of_Rivia" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_I_m_Geralt__Geralt_of_Rivia" GUID="{064914DF-2A28-46E9-9717-33056917E553}"/>
-				<Event Id="3727061022" Name="Play_I_see__All_right__High_time_I_set_off" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_I_see__All_right__High_time_I_set_off" GUID="{DA58B0ED-AED0-4DFA-9DA4-7DCF63EDEF0B}"/>
-				<Event Id="927931920" Name="Play_If_it_was_your_job_to_exterminate_them___yeah__I_did" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_If_it_was_your_job_to_exterminate_them___yeah__I_did" GUID="{E95E80EF-3D62-4572-A534-811379F2B390}"/>
-				<Event Id="3711642196" Name="Play_If_you_say_so" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_If_you_say_so" GUID="{B7F1A4A1-5C80-4B56-AA19-DC6E7C14BC91}"/>
-				<Event Id="3337582913" Name="Play_Impressive" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_Impressive" GUID="{2C463D38-2DFA-49F5-BC11-B80AB684E130}"/>
-				<Event Id="1466737999" Name="Play_Lead_the_way__right_behind_you" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_Lead_the_way__right_behind_you" GUID="{31CB6C48-0E14-4F24-B982-3EFFDC7710CB}"/>
-				<Event Id="1858422841" Name="Play_Let_s_go__no_time_to_lose" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_Let_s_go__no_time_to_lose" GUID="{3C82D406-7706-433D-89D2-746BF237BFDC}"/>
-				<Event Id="694589901" Name="Play_Let_s_look_around__see_if_we_can_t_find_something_interesting" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_Let_s_look_around__see_if_we_can_t_find_something_interesting" GUID="{3D3B2F06-1878-486E-A859-385B373001F9}"/>
-				<Event Id="3929632793" Name="Play_Managed_to_assemble_a_pretty_good_bunch_of_men" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_Managed_to_assemble_a_pretty_good_bunch_of_men" GUID="{E018AA00-AECF-401D-8372-0636DD018B07}"/>
-				<Event Id="1913629173" Name="Play_Maybe__depends" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_Maybe__depends" GUID="{9092D4A2-C9B4-495C-BB92-B0087D75C346}"/>
-				<Event Id="1279217393" Name="Play_Mhhh" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_Mhhh" GUID="{533BCA31-9CFC-477F-8A4C-D5A807600989}"/>
-				<Event Id="1686033526" Name="Play_More_work_for_me_I_guess" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_More_work_for_me_I_guess" GUID="{44271CAA-2203-4B5C-9EEA-1CDDA942C08F}"/>
-				<Event Id="4148991673" Name="Play_Need_to_hurry" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_Need_to_hurry" GUID="{A8D23B00-2B2B-468B-8B33-742A7435289B}"/>
-				<Event Id="2397077415" Name="Play_No" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_No" GUID="{832C528D-834D-4018-97E4-452E4F779FBA}"/>
-				<Event Id="1984336472" Name="Play_No_hero__Just_a_witcher__Slaying_monsters_is_my_job" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_No_hero__Just_a_witcher__Slaying_monsters_is_my_job" GUID="{A252DB4E-0721-4D08-85F5-54CE65AB2FD4}"/>
-				<Event Id="1401335068" Name="Play_No_point_fighting_bandits__Kill_these__and_others_just_as_bad_or_possibly_worse_ll_come_in_to_fill_the_void" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_No_point_fighting_bandits__Kill_these__and_others_just_as_bad_or_possibly_worse_ll_come_in_to_fill_the_void" GUID="{3AD7751A-B60B-4A65-8857-F21DE830D5B7}"/>
-				<Event Id="2320653236" Name="Play_not_this_time" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_not_this_time" GUID="{460FD1D3-D993-434D-A945-22539F85DB23}"/>
-				<Event Id="4289329072" Name="Play_Notice_anything_interesting" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_Notice_anything_interesting" GUID="{CF24BB26-06A5-4AE9-95F5-66110EC93A55}"/>
-				<Event Id="2905364094" Name="Play_ohh_yea_that_right" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_ohh_yea_that_right" GUID="{2F9F355E-21F3-4FFE-A8C5-4853C73E9B39}"/>
-				<Event Id="2348692292" Name="Play_Over" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_Over" GUID="{337E0165-5925-4B38-85F2-65A516C3677E}"/>
-				<Event Id="750390071" Name="Play_Ready" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_Ready" GUID="{23916A58-31A7-4B24-BE44-78799DE87F8A}"/>
-				<Event Id="1215465684" Name="Play_Right" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_Right" GUID="{8F2D6C07-19BF-4F06-A6AB-9BECE355D411}"/>
-				<Event Id="1365156033" Name="Play_Same_thing_I_do_anywhere__Killing_monsters" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_Same_thing_I_do_anywhere__Killing_monsters" GUID="{EEF780DB-53F7-4EFA-9D67-01A7F4BAF5D8}"/>
-				<Event Id="1168213312" Name="Play_See_you_later" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_See_you_later" GUID="{77307F7D-6F95-4742-BEF5-9DA92530B4F3}"/>
-				<Event Id="968994599" Name="Play_So__plan_to_go_out_and_meet_the_bandits_when_they_arrive_Fight_them" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_So__plan_to_go_out_and_meet_the_bandits_when_they_arrive_Fight_them" GUID="{97472FB0-E4DC-4FAC-9FF6-DD9742554B9E}"/>
-				<Event Id="4236460790" Name="Play_So__talk_again_later" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_So__talk_again_later" GUID="{8D21504A-FE57-4F06-8945-FC085A3FF382}"/>
-				<Event Id="2557789081" Name="Play_So_long" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_So_long" GUID="{08A7439E-625D-452C-A6C8-B284A3D4F662}"/>
-				<Event Id="1272875993" Name="Play_Something_s_not_right" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_Something_s_not_right" GUID="{0769B781-C211-4B9D-BF96-EF803FA0D319}"/>
-				<Event Id="2918565797" Name="Play_Sorry" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_Sorry" GUID="{98A87D0A-59CC-4543-9B0A-983E8B1C93E1}"/>
-				<Event Id="209444803" Name="Play_Strange_coincidence" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_Strange_coincidence" GUID="{BCCF6926-B8CD-4C81-9EF9-38E30EA919AD}"/>
-				<Event Id="2919689908" Name="Play_This_ll_be_interesting" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_This_ll_be_interesting" GUID="{1ED55F5F-D15B-4069-A41E-5AF6C2A36C70}"/>
-				<Event Id="3756146185" Name="Play_Unexpected_as_ever" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_Unexpected_as_ever" GUID="{D1ABB001-07F0-44D1-99DD-345285FD1AFB}"/>
-				<Event Id="802261172" Name="Play_What" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_What" GUID="{0A9021F8-1CDD-4270-895C-A2944BE566E8}"/>
-				<Event Id="656696078" Name="Play_What_s_the_problem" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_What_s_the_problem" GUID="{3D3C97EC-0E9C-4460-A523-BDCFC45082C1}"/>
-				<Event Id="4286648281" Name="Play_What_s_the_surprise_Some_new_monster_I_need_to_kill" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_What_s_the_surprise_Some_new_monster_I_need_to_kill" GUID="{9F1EC200-DEF9-4B17-96F4-EBDE9BADFF28}"/>
-				<Event Id="126375045" Name="Play_Wouldn_t_get_a_straight_answer_anyway" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_Wouldn_t_get_a_straight_answer_anyway" GUID="{CC184BAB-C5AD-45E4-A734-7E9F516E431E}"/>
-				<Event Id="3405730763" Name="Play_Wound_doesn_t_look_good__Patch_that_up_quick_if_I_were_you__before_it_starts_festering" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_Wound_doesn_t_look_good__Patch_that_up_quick_if_I_were_you__before_it_starts_festering" GUID="{345E0977-2A21-4A11-BAAD-39EE82F0EB8C}"/>
-				<Event Id="92581801" Name="Play_Wrong" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_Wrong" GUID="{6BEE5F31-72C5-47FD-A41F-3A5A384F6AB5}"/>
-				<Event Id="4022514682" Name="Play_Yennefer_needs_me__I_can_t_abandon_her" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_Yennefer_needs_me__I_can_t_abandon_her" GUID="{2D96F5F0-5D2B-4D1B-9B59-B367F752A644}"/>
+				<Event Id="3262162197" Name="Play_Geralt_VL_boss_fight" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_Geralt_VL_boss_fight" GUID="{C333E2A5-0BC1-46F0-B820-25B325ED230D}"/>
+				<Event Id="487628917" Name="Play_Geralt_VL_death" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_Geralt_VL_death" GUID="{C9807DE8-A71A-470D-A031-0637CD852439}"/>
+				<Event Id="1587380029" Name="Play_Geralt_VL_end_battle" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_Geralt_VL_end_battle" GUID="{4961F77F-CC31-4789-8AB7-7876E9AD62A9}"/>
+				<Event Id="2546807650" Name="Play_Geralt_VL_killed_boss" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_Geralt_VL_killed_boss" GUID="{55CF6957-822E-4F9E-A1E9-D7B6E219F948}"/>
+				<Event Id="79346702" Name="Play_Geralt_VL_low_health" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_Geralt_VL_low_health" GUID="{D80E8CC0-C679-4584-B958-1A4A536FCFA0}"/>
+				<Event Id="3801663046" Name="Play_Geralt_VL_revive" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_Geralt_VL_revive" GUID="{F51E09F9-1E09-44DF-A54A-CADC3631F7B6}"/>
+				<Event Id="2725600168" Name="Play_Geralt_VL_start_battle" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_Geralt_VL_start_battle" GUID="{65896F12-C5BB-4796-B321-1B41A0601CB7}"/>
+				<Event Id="2692582580" Name="Play_Geralt_VL_start_lvl_1" ObjectPath="\Events\Default Work Unit\Voicelines\Geralt\Play_Geralt_VL_start_lvl_1" GUID="{21175ADC-8D1A-47E6-8690-C02BC4CBD73F}"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
-				<File Id="2546500" Language="SFX">
-					<ShortName>Wouldn_t get a straight answer anyway.wav</ShortName>
-					<Path>SFX\Wouldn_t get a straight answer anyway_10C4C929.wem</Path>
-				</File>
-				<File Id="16998668" Language="SFX">
-					<ShortName>Let_s look around, see if we can_t find something interesting.wav</ShortName>
-					<Path>SFX\Let_s look around, see if we can_t find something interesting_10C4C929.wem</Path>
-				</File>
 				<File Id="37678138" Language="SFX">
 					<ShortName>Damn, something_s seriously wrong here.wav</ShortName>
 					<Path>SFX\Damn, something_s seriously wrong here_10C4C929.wem</Path>
-				</File>
-				<File Id="44644492" Language="SFX">
-					<ShortName>ohh yea that right.wav</ShortName>
-					<Path>SFX\ohh yea that right_10C4C929.wem</Path>
-				</File>
-				<File Id="48243633" Language="SFX">
-					<ShortName>Geralt_Dandelion.wav</ShortName>
-					<Path>SFX\Geralt_Dandelion_10C4C929.wem</Path>
 				</File>
 				<File Id="48852474" Language="SFX">
 					<ShortName>Same thing I do anywhere. Killing monsters.wav</ShortName>
 					<Path>SFX\Same thing I do anywhere. Killing monsters_10C4C929.wem</Path>
 				</File>
-				<File Id="89861616" Language="SFX">
-					<ShortName>What_s the problem.wav</ShortName>
-					<Path>SFX\What_s the problem_10C4C929.wem</Path>
-				</File>
-				<File Id="96737526" Language="SFX">
-					<ShortName>Doesn_t look cursed to me. Just really, really angry.wav</ShortName>
-					<Path>SFX\Doesn_t look cursed to me. Just really, really angry_10C4C929.wem</Path>
-				</File>
-				<File Id="117603285" Language="SFX">
-					<ShortName>Geralt_NoOffence.wav</ShortName>
-					<Path>SFX\Geralt_NoOffence_10C4C929.wem</Path>
-				</File>
-				<File Id="119048559" Language="SFX">
-					<ShortName>Wound doesn_t look good. Patch that up quick if I were you, before it starts festering.wav</ShortName>
-					<Path>SFX\Wound doesn_t look good. Patch that up quick if I were you, before it starts festering_10C4C929.wem</Path>
-				</File>
 				<File Id="144398768" Language="SFX">
 					<ShortName>Hell yes.wav</ShortName>
 					<Path>SFX\Hell yes_10C4C929.wem</Path>
-				</File>
-				<File Id="145065470" Language="SFX">
-					<ShortName>A rational man.wav</ShortName>
-					<Path>SFX\A rational man_10C4C929.wem</Path>
-				</File>
-				<File Id="150297248" Language="SFX">
-					<ShortName>If it was your job to exterminate them - yeah, I did.wav</ShortName>
-					<Path>SFX\If it was your job to exterminate them - yeah, I did_10C4C929.wem</Path>
-				</File>
-				<File Id="152206688" Language="SFX">
-					<ShortName>Notice anything interesting.wav</ShortName>
-					<Path>SFX\Notice anything interesting_10C4C929.wem</Path>
-				</File>
-				<File Id="165203888" Language="SFX">
-					<ShortName>Strange coincidence.wav</ShortName>
-					<Path>SFX\Strange coincidence_10C4C929.wem</Path>
-				</File>
-				<File Id="185220455" Language="SFX">
-					<ShortName>I_ll go with you.wav</ShortName>
-					<Path>SFX\I_ll go with you_10C4C929.wem</Path>
-				</File>
-				<File Id="195851137" Language="SFX">
-					<ShortName>No hero. Just a witcher. Slaying monsters is my job.wav</ShortName>
-					<Path>SFX\No hero. Just a witcher. Slaying monsters is my job_10C4C929.wem</Path>
-				</File>
-				<File Id="205098875" Language="SFX">
-					<ShortName>What.wav</ShortName>
-					<Path>SFX\What_10C4C929.wem</Path>
-				</File>
-				<File Id="222411932" Language="SFX">
-					<ShortName>What_s the surprise Some new monster I need to kill.wav</ShortName>
-					<Path>SFX\What_s the surprise Some new monster I need to kill_10C4C929.wem</Path>
 				</File>
 				<File Id="263785901" Language="SFX">
 					<ShortName>Dammit.wav</ShortName>
@@ -387,137 +279,37 @@
 					<ShortName>Something_s not right.wav</ShortName>
 					<Path>SFX\Something_s not right_10C4C929.wem</Path>
 				</File>
-				<File Id="285523790" Language="SFX">
-					<ShortName>Let_s go, no time to lose.wav</ShortName>
-					<Path>SFX\Let_s go, no time to lose_10C4C929.wem</Path>
-				</File>
 				<File Id="304332282" Language="SFX">
 					<ShortName>Sorry.wav</ShortName>
 					<Path>SFX\Sorry_10C4C929.wem</Path>
-				</File>
-				<File Id="304829654" Language="SFX">
-					<ShortName>Yennefer needs me. I can_t abandon her.wav</ShortName>
-					<Path>SFX\Yennefer needs me. I can_t abandon her_10C4C929.wem</Path>
-				</File>
-				<File Id="317086659" Language="SFX">
-					<ShortName>Need to hurry.wav</ShortName>
-					<Path>SFX\Need to hurry_10C4C929.wem</Path>
 				</File>
 				<File Id="336928376" Language="SFX">
 					<ShortName>All right, let_s go.wav</ShortName>
 					<Path>SFX\All right, let_s go_10C4C929.wem</Path>
 				</File>
-				<File Id="367057637" Language="SFX">
-					<ShortName>Fine, lead the way.wav</ShortName>
-					<Path>SFX\Fine, lead the way_10C4C929.wem</Path>
-				</File>
-				<File Id="427386864" Language="SFX">
-					<ShortName>Maybe, depends.wav</ShortName>
-					<Path>SFX\Maybe, depends_10C4C929.wem</Path>
-				</File>
-				<File Id="434377259" Language="SFX">
-					<ShortName>Impressive.wav</ShortName>
-					<Path>SFX\Impressive_10C4C929.wem</Path>
-				</File>
-				<File Id="439879831" Language="SFX">
-					<ShortName>See you later.wav</ShortName>
-					<Path>SFX\See you later_10C4C929.wem</Path>
-				</File>
-				<File Id="484867696" Language="SFX">
-					<ShortName>Unexpected as ever.wav</ShortName>
-					<Path>SFX\Unexpected as ever_10C4C929.wem</Path>
-				</File>
-				<File Id="501769240" Language="SFX">
-					<ShortName>I see. All right… High time I set off.wav</ShortName>
-					<Path>SFX\I see. All right… High time I set off_10C4C929.wem</Path>
-				</File>
 				<File Id="536403994" Language="SFX">
 					<ShortName>Over.wav</ShortName>
 					<Path>SFX\Over_10C4C929.wem</Path>
-				</File>
-				<File Id="548233815" Language="SFX">
-					<ShortName>Wrong.wav</ShortName>
-					<Path>SFX\Wrong_10C4C929.wem</Path>
-				</File>
-				<File Id="562617417" Language="SFX">
-					<ShortName>Excuse me.wav</ShortName>
-					<Path>SFX\Excuse me_10C4C929.wem</Path>
-				</File>
-				<File Id="587298851" Language="SFX">
-					<ShortName>Exaggerated. Not by much, though.wav</ShortName>
-					<Path>SFX\Exaggerated. Not by much, though_10C4C929.wem</Path>
-				</File>
-				<File Id="587701397" Language="SFX">
-					<ShortName>Ballad about you.wav</ShortName>
-					<Path>SFX\Ballad about you_10C4C929.wem</Path>
-				</File>
-				<File Id="627554471" Language="SFX">
-					<ShortName>So long.wav</ShortName>
-					<Path>SFX\So long_10C4C929.wem</Path>
 				</File>
 				<File Id="635230288" Language="SFX">
 					<ShortName>This_ll be interesting.wav</ShortName>
 					<Path>SFX\This_ll be interesting_10C4C929.wem</Path>
 				</File>
-				<File Id="662429799" Language="SFX">
-					<ShortName>Right.wav</ShortName>
-					<Path>SFX\Right_10C4C929.wem</Path>
-				</File>
 				<File Id="668687653" Language="SFX">
 					<ShortName>Don_t know if you noticed, but I just saved your ass.wav</ShortName>
 					<Path>SFX\Don_t know if you noticed, but I just saved your ass_10C4C929.wem</Path>
-				</File>
-				<File Id="681817586" Language="SFX">
-					<ShortName>Asked a serious question.wav</ShortName>
-					<Path>SFX\Asked a serious question_10C4C929.wem</Path>
-				</File>
-				<File Id="707281171" Language="SFX">
-					<ShortName>I get it.wav</ShortName>
-					<Path>SFX\I get it_10C4C929.wem</Path>
-				</File>
-				<File Id="726652589" Language="SFX">
-					<ShortName>Can we talk.wav</ShortName>
-					<Path>SFX\Can we talk_10C4C929.wem</Path>
 				</File>
 				<File Id="733641785" Language="SFX">
 					<ShortName>Ready.wav</ShortName>
 					<Path>SFX\Ready_10C4C929.wem</Path>
 				</File>
-				<File Id="764917841" Language="SFX">
-					<ShortName>Exactly.wav</ShortName>
-					<Path>SFX\Exactly_10C4C929.wem</Path>
-				</File>
 				<File Id="799118415" Language="SFX">
 					<ShortName>So, plan to go out and meet the bandits when they arrive Fight them.wav</ShortName>
 					<Path>SFX\So, plan to go out and meet the bandits when they arrive Fight them_10C4C929.wem</Path>
 				</File>
-				<File Id="812074209" Language="SFX">
-					<ShortName>Managed to assemble a pretty good bunch of men.wav</ShortName>
-					<Path>SFX\Managed to assemble a pretty good bunch of men_10C4C929.wem</Path>
-				</File>
-				<File Id="816480152" Language="SFX">
-					<ShortName>Hurry.wav</ShortName>
-					<Path>SFX\Hurry_10C4C929.wem</Path>
-				</File>
 				<File Id="851882729" Language="SFX">
 					<ShortName>All taken care of. Went inside and cleaned up.wav</ShortName>
 					<Path>SFX\All taken care of. Went inside and cleaned up_10C4C929.wem</Path>
-				</File>
-				<File Id="866439961" Language="SFX">
-					<ShortName>If you say so.wav</ShortName>
-					<Path>SFX\If you say so_10C4C929.wem</Path>
-				</File>
-				<File Id="899008200" Language="SFX">
-					<ShortName>No.wav</ShortName>
-					<Path>SFX\No_10C4C929.wem</Path>
-				</File>
-				<File Id="905802813" Language="SFX">
-					<ShortName>No point fighting bandits. Kill these, and others just as bad or possibly worse_ll come in to fill the void.wav</ShortName>
-					<Path>SFX\No point fighting bandits. Kill these, and others just as bad or possibly worse_ll come in to fill the void_10C4C929.wem</Path>
-				</File>
-				<File Id="939843831" Language="SFX">
-					<ShortName>So… talk again later.wav</ShortName>
-					<Path>SFX\So… talk again later_10C4C929.wem</Path>
 				</File>
 				<File Id="945840053" Language="SFX">
 					<ShortName>Calm down, it_s over.wav</ShortName>
@@ -527,29 +319,9 @@
 					<ShortName>not this time.wav</ShortName>
 					<Path>SFX\not this time_10C4C929.wem</Path>
 				</File>
-				<File Id="961345970" Language="SFX">
-					<ShortName>Mhhh.wav</ShortName>
-					<Path>SFX\Mhhh_10C4C929.wem</Path>
-				</File>
-				<File Id="972370638" Language="SFX">
-					<ShortName>Lead the way, right behind you.wav</ShortName>
-					<Path>SFX\Lead the way, right behind you_10C4C929.wem</Path>
-				</File>
 				<File Id="975391223" Language="SFX">
 					<ShortName>More work for me I guess.wav</ShortName>
 					<Path>SFX\More work for me I guess_10C4C929.wem</Path>
-				</File>
-				<File Id="978759418" Language="SFX">
-					<ShortName>I_m Geralt, Geralt of Rivia.wav</ShortName>
-					<Path>SFX\I_m Geralt, Geralt of Rivia_10C4C929.wem</Path>
-				</File>
-				<File Id="1024998738" Language="SFX">
-					<ShortName>Don_t know. I kill monsters, don_t predict the future.wav</ShortName>
-					<Path>SFX\Don_t know. I kill monsters, don_t predict the future_10C4C929.wem</Path>
-				</File>
-				<File Id="1025702489" Language="SFX">
-					<ShortName>Go ahead. I_ll stop by when I_m in the area.wav</ShortName>
-					<Path>SFX\Go ahead. I_ll stop by when I_m in the area_10C4C929.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>
@@ -894,19 +666,19 @@
 			<IncludedMemoryFiles>
 				<File Id="237417088" Language="SFX">
 					<ShortName>Music_Menu_Comparison_Pirate_Dance.wav</ShortName>
-					<Path>SFX\Music_Menu_Comparison_Pirate_Dance_C42B8C3C.wem</Path>
+					<Path>SFX\Music_Menu_Comparison_Pirate_Dance_A1B43D34.wem</Path>
 				</File>
 				<File Id="665589033" Language="SFX">
 					<ShortName>Music_Menu_Win.wav</ShortName>
-					<Path>SFX\Music_Menu_Win_C42B8C3C.wem</Path>
+					<Path>SFX\Music_Menu_Win_A1B43D34.wem</Path>
 				</File>
 				<File Id="689347614" Language="SFX">
 					<ShortName>Music_Menu_Lost.wav</ShortName>
-					<Path>SFX\Music_Menu_Lost_C42B8C3C.wem</Path>
+					<Path>SFX\Music_Menu_Lost_A1B43D34.wem</Path>
 				</File>
 				<File Id="697497514" Language="SFX">
 					<ShortName>Music\Music_Menu_Main_Captains_Tribute.wav</ShortName>
-					<Path>SFX\Music\Music_Menu_Main_Captains_Tribute_C42B8C3C.wem</Path>
+					<Path>SFX\Music\Music_Menu_Main_Captains_Tribute_A1B43D34.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>
@@ -927,6 +699,7 @@
 				<Event Id="1018718152" Name="Play_Jaskier_jump" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_jump" GUID="{492D0522-4559-4CC7-A185-558AAD96576B}"/>
 				<Event Id="2721777174" Name="Play_Jaskier_potion_fx" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_potion_fx" GUID="{97D9103B-715E-4F39-A245-62CD1D1FD58A}"/>
 				<Event Id="4116481551" Name="Play_Jaskier_revive" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_revive" GUID="{BC351426-47DE-41DC-9148-DE1DB223E3AB}"/>
+				<Event Id="3175770957" Name="Play_Jaskier_Ultimate_Available" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_Ultimate_Available" GUID="{74605D4C-7965-4990-BD18-F7BBA0C7D9FE}"/>
 				<Event Id="2646163561" Name="Play_Jaskier_walk_run_concrete" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_walk_run_concrete" GUID="{CEF515A0-3A35-4D80-ABBE-80896FDC014D}"/>
 				<Event Id="4243245347" Name="Play_Jaskier_walk_run_dirt" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_walk_run_dirt" GUID="{60241958-49FA-4053-BFF1-E558632409A8}"/>
 			</IncludedEvents>
@@ -1039,6 +812,10 @@
 					<ShortName>Jaskier_guitar_swing_3.wav</ShortName>
 					<Path>SFX\Jaskier_guitar_swing_3_10C4C929.wem</Path>
 				</File>
+				<File Id="885822206" Language="SFX">
+					<ShortName>Jaskier_Ultimate_Available.wav</ShortName>
+					<Path>SFX\Jaskier_Ultimate_Available_10C4C929.wem</Path>
+				</File>
 				<File Id="890223427" Language="SFX">
 					<ShortName>Jaskier_revive.wav</ShortName>
 					<Path>SFX\Jaskier_revive_10C4C929.wem</Path>
@@ -1074,70 +851,22 @@
 			<ShortName>Voicelines_Jaskier</ShortName>
 			<Path>Voicelines_Jaskier.bnk</Path>
 			<IncludedEvents>
-				<Event Id="2827892816" Name="Play_Ah__finally_made_it" ObjectPath="\Events\Default Work Unit\Voicelines\Jaskier\Play_Ah__finally_made_it" GUID="{0385C18F-2CE9-4EBD-999B-9007052DB587}"/>
-				<Event Id="1663709470" Name="Play_Ah_yes_now_I_remember" ObjectPath="\Events\Default Work Unit\Voicelines\Jaskier\Play_Ah_yes_now_I_remember" GUID="{94BC2BF1-6ACA-499A-8078-0F79C58FCFD1}"/>
-				<Event Id="4108033330" Name="Play_Back_again" ObjectPath="\Events\Default Work Unit\Voicelines\Jaskier\Play_Back_again" GUID="{B78E783D-0D94-4BD9-A5D0-C207BB33FE77}"/>
-				<Event Id="3882678154" Name="Play_Bad_feeling" ObjectPath="\Events\Default Work Unit\Voicelines\Jaskier\Play_Bad_feeling" GUID="{E5F6C198-2A35-4589-A6F0-37F89125DA2B}"/>
-				<Event Id="3975922585" Name="Play_But_just_so_you_know__it_wasn_t_easy__In_fact__it_was_pretty_damn_hard" ObjectPath="\Events\Default Work Unit\Voicelines\Jaskier\Play_But_just_so_you_know__it_wasn_t_easy__In_fact__it_was_pretty_damn_hard" GUID="{6970898C-701B-4D5B-AA98-CA8261CE42EF}"/>
-				<Event Id="2425895368" Name="Play_Consider_it_done" ObjectPath="\Events\Default Work Unit\Voicelines\Jaskier\Play_Consider_it_done" GUID="{6B4C170A-208D-4FEA-85E9-F53549644A8B}"/>
-				<Event Id="3019347524" Name="Play_Drop_your_sword__scoundrel__This_is_your_first_and_last_warning" ObjectPath="\Events\Default Work Unit\Voicelines\Jaskier\Play_Drop_your_sword__scoundrel__This_is_your_first_and_last_warning" GUID="{77B016B0-5D35-4C47-9B5D-5E28B3443560}"/>
-				<Event Id="2271800357" Name="Play_En_garde" ObjectPath="\Events\Default Work Unit\Voicelines\Jaskier\Play_En_garde" GUID="{1858A4B7-847A-4766-BD70-A4B5A71D7715}"/>
-				<Event Id="3996620242" Name="Play_Famous_last_words_right_there" ObjectPath="\Events\Default Work Unit\Voicelines\Jaskier\Play_Famous_last_words_right_there" GUID="{ADB14594-6BA8-4908-B4FB-48F0B3B766F5}"/>
-				<Event Id="3763056762" Name="Play_For_you_my_friend__always" ObjectPath="\Events\Default Work Unit\Voicelines\Jaskier\Play_For_you_my_friend__always" GUID="{3D2F9177-2B77-47D8-985D-3F3B2244A6D3}"/>
-				<Event Id="4224120612" Name="Play_Gave_me_enough_material_for_a_volume_of_ballads__And_this_one_ll_sell_like_hotcakes" ObjectPath="\Events\Default Work Unit\Voicelines\Jaskier\Play_Gave_me_enough_material_for_a_volume_of_ballads__And_this_one_ll_sell_like_hotcakes" GUID="{BDB5EF25-AF15-41B3-ACF5-23FC2E676011}"/>
-				<Event Id="2699167770" Name="Play_Got_a_bad_feeling_about_this" ObjectPath="\Events\Default Work Unit\Voicelines\Jaskier\Play_Got_a_bad_feeling_about_this" GUID="{220B0F9A-8F53-4868-BBCA-660E4D75D86E}"/>
-				<Event Id="3393186958" Name="Play_Hah__That__my_friend__is_not_your_concern" ObjectPath="\Events\Default Work Unit\Voicelines\Jaskier\Play_Hah__That__my_friend__is_not_your_concern" GUID="{2E665E57-83C7-44F8-9BE8-FCE35C345BA7}"/>
-				<Event Id="1620667007" Name="Play_Heeeeelp" ObjectPath="\Events\Default Work Unit\Voicelines\Jaskier\Play_Heeeeelp" GUID="{45B96019-1D6B-4297-8FA4-06BBD1139302}"/>
-				<Event Id="3938549373" Name="Play_Hey__what_s_this" ObjectPath="\Events\Default Work Unit\Voicelines\Jaskier\Play_Hey__what_s_this" GUID="{47F64086-B387-4280-8D5A-20E167625A78}"/>
-				<Event Id="959185410" Name="Play_I_d_do_anything_for_a_friend" ObjectPath="\Events\Default Work Unit\Voicelines\Jaskier\Play_I_d_do_anything_for_a_friend" GUID="{FBAA9968-B276-4405-BAD1-F6C8A265AEA2}"/>
-				<Event Id="1902169962" Name="Play_I_don_t_remember" ObjectPath="\Events\Default Work Unit\Voicelines\Jaskier\Play_I_don_t_remember" GUID="{1E4576A1-EB62-4512-AF99-007871B469D9}"/>
-				<Event Id="2908861898" Name="Play_I_ll_go_with_you__Not_like_I_really_have_a_choice_now__do_I" ObjectPath="\Events\Default Work Unit\Voicelines\Jaskier\Play_I_ll_go_with_you__Not_like_I_really_have_a_choice_now__do_I" GUID="{5FCE7373-7C89-4A3B-8EFF-EE60F8F36CB6}"/>
-				<Event Id="767120400" Name="Play_I_m_just_saying" ObjectPath="\Events\Default Work Unit\Voicelines\Jaskier\Play_I_m_just_saying" GUID="{2327F9FD-82C4-428A-A0BB-418C7F2E0249}"/>
-				<Event Id="3622956527" Name="Play_I_ve_been_hit__Oww" ObjectPath="\Events\Default Work Unit\Voicelines\Jaskier\Play_I_ve_been_hit__Oww" GUID="{D7A4F165-27C4-404D-A2FC-A8D21856FBF0}"/>
-				<Event Id="2259919320" Name="Play_In_negotiation__as_in_combat__the_key_is_to_find_your_opponent_s_weak_spot_and_exploit_it_to_the_hilt" ObjectPath="\Events\Default Work Unit\Voicelines\Jaskier\Play_In_negotiation__as_in_combat__the_key_is_to_find_your_opponent_s_weak_spot_and_exploit_it_to_the_hilt" GUID="{48860DE7-B7DC-49BD-9E80-35E3DEEDC1C7}"/>
-				<Event Id="3369588032" Name="Play_Mmmmmm" ObjectPath="\Events\Default Work Unit\Voicelines\Jaskier\Play_Mmmmmm" GUID="{0F212811-76A4-41A7-8115-012537C00882}"/>
-				<Event Id="3003923623" Name="Play_my_boi" ObjectPath="\Events\Default Work Unit\Voicelines\Jaskier\Play_my_boi" GUID="{8F49A472-99EF-4234-8510-CD98EB67B27A}"/>
-				<Event Id="825808860" Name="Play_My_plan_was_perfect__until_we_put_it_in_motion" ObjectPath="\Events\Default Work Unit\Voicelines\Jaskier\Play_My_plan_was_perfect__until_we_put_it_in_motion" GUID="{9155B5D6-1C40-44E4-A6AB-0119212B2734}"/>
-				<Event Id="662054958" Name="Play_No_reason" ObjectPath="\Events\Default Work Unit\Voicelines\Jaskier\Play_No_reason" GUID="{C0D7555B-513E-45A8-BEAA-B9AF355F63A2}"/>
-				<Event Id="3656658126" Name="Play_Not_had_enough" ObjectPath="\Events\Default Work Unit\Voicelines\Jaskier\Play_Not_had_enough" GUID="{B0EE1B70-5615-47B1-9B40-B1E537A8C094}"/>
-				<Event Id="3876177903" Name="Play_Not_so_fast" ObjectPath="\Events\Default Work Unit\Voicelines\Jaskier\Play_Not_so_fast" GUID="{55EA2D8A-1710-4560-AB2C-9D5A9028204A}"/>
-				<Event Id="473557862" Name="Play_Phew__never_expected_that_to_go_so_well" ObjectPath="\Events\Default Work Unit\Voicelines\Jaskier\Play_Phew__never_expected_that_to_go_so_well" GUID="{0424DFD4-9353-4EF8-A960-F4C0925B413E}"/>
-				<Event Id="1530776136" Name="Play_Run__run__If_you_value_your_life" ObjectPath="\Events\Default Work Unit\Voicelines\Jaskier\Play_Run__run__If_you_value_your_life" GUID="{A70B3D84-D610-4628-85F3-EC54DD282821}"/>
-				<Event Id="4268811226" Name="Play_Stand_and_fight__you_scoundrel" ObjectPath="\Events\Default Work Unit\Voicelines\Jaskier\Play_Stand_and_fight__you_scoundrel" GUID="{8347F0EA-B2C1-495C-BEEF-5311C5376B5D}"/>
-				<Event Id="919026017" Name="Play_Thanks" ObjectPath="\Events\Default Work Unit\Voicelines\Jaskier\Play_Thanks" GUID="{6AF6C844-35A3-4D10-A570-9038CF031B35}"/>
-				<Event Id="790695087" Name="Play_Thanks_for_everything" ObjectPath="\Events\Default Work Unit\Voicelines\Jaskier\Play_Thanks_for_everything" GUID="{609ED8E2-63BD-4A91-8C01-2EA3D0581F50}"/>
-				<Event Id="2367906564" Name="Play_The_Crimson_Avenger_triumphs_again" ObjectPath="\Events\Default Work Unit\Voicelines\Jaskier\Play_The_Crimson_Avenger_triumphs_again" GUID="{FA112D26-33D4-4EDD-924C-FA4AE2AE6C04}"/>
-				<Event Id="424438724" Name="Play_Ugh__You_re_better_than_I_thought" ObjectPath="\Events\Default Work Unit\Voicelines\Jaskier\Play_Ugh__You_re_better_than_I_thought" GUID="{1494801D-936A-45B3-AC4C-AFA8E65AA121}"/>
-				<Event Id="2278821530" Name="Play_What_01" ObjectPath="\Events\Default Work Unit\Voicelines\Jaskier\Play_What_01" GUID="{D63AC217-52E0-4A9E-A533-AD39DDBCF902}"/>
+				<Event Id="256589910" Name="Play_Jaskie_VL_revive" ObjectPath="\Events\Default Work Unit\Voicelines\Jaskier\Play_Jaskie_VL_revive" GUID="{0FD8E417-8726-4B1B-8F31-C0BCA85B11DD}"/>
+				<Event Id="2934211061" Name="Play_Jaskier_VL_boss_fight" ObjectPath="\Events\Default Work Unit\Voicelines\Jaskier\Play_Jaskier_VL_boss_fight" GUID="{FD26013C-48B7-4B2E-BD3C-D202431D0161}"/>
+				<Event Id="1058780181" Name="Play_Jaskier_VL_death" ObjectPath="\Events\Default Work Unit\Voicelines\Jaskier\Play_Jaskier_VL_death" GUID="{4180F5EE-88EB-4C2B-BE5C-C530C758AA3F}"/>
+				<Event Id="4211481117" Name="Play_Jaskier_VL_end_battle" ObjectPath="\Events\Default Work Unit\Voicelines\Jaskier\Play_Jaskier_VL_end_battle" GUID="{18561E26-BCA9-40F0-B5D6-A9771452AA25}"/>
+				<Event Id="3193415746" Name="Play_Jaskier_VL_killed_boss" ObjectPath="\Events\Default Work Unit\Voicelines\Jaskier\Play_Jaskier_VL_killed_boss" GUID="{2BC00479-56F1-44AE-A7A9-ACD0AAF3258D}"/>
+				<Event Id="1214978798" Name="Play_Jaskier_VL_low_health" ObjectPath="\Events\Default Work Unit\Voicelines\Jaskier\Play_Jaskier_VL_low_health" GUID="{F0BA39F6-4B3E-444E-ACCD-657EA51F761C}"/>
+				<Event Id="2365110024" Name="Play_Jaskier_VL_start_battle" ObjectPath="\Events\Default Work Unit\Voicelines\Jaskier\Play_Jaskier_VL_start_battle" GUID="{50B1FA6E-F94A-464C-8034-04EE06D1B35A}"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
 				<File Id="30314703" Language="SFX">
 					<ShortName>my boi.wav</ShortName>
 					<Path>SFX\my boi_10C4C929.wem</Path>
 				</File>
-				<File Id="81609009" Language="SFX">
-					<ShortName>I_ll go with you. Not like I really have a choice now, do I.wav</ShortName>
-					<Path>SFX\I_ll go with you. Not like I really have a choice now, do I_10C4C929.wem</Path>
-				</File>
 				<File Id="131495510" Language="SFX">
 					<ShortName>Gave me enough material for a volume of ballads! And this one_ll sell like hotcakes.wav</ShortName>
 					<Path>SFX\Gave me enough material for a volume of ballads! And this one_ll sell like hotcakes_10C4C929.wem</Path>
-				</File>
-				<File Id="137901674" Language="SFX">
-					<ShortName>I_d do anything for a friend.wav</ShortName>
-					<Path>SFX\I_d do anything for a friend_10C4C929.wem</Path>
-				</File>
-				<File Id="160283030" Language="SFX">
-					<ShortName>Bad feeling.wav</ShortName>
-					<Path>SFX\Bad feeling_10C4C929.wem</Path>
-				</File>
-				<File Id="205098875" Language="SFX">
-					<ShortName>What.wav</ShortName>
-					<Path>SFX\What_10C4C929.wem</Path>
-				</File>
-				<File Id="232144013" Language="SFX">
-					<ShortName>Hey, what_s this.wav</ShortName>
-					<Path>SFX\Hey, what_s this_10C4C929.wem</Path>
 				</File>
 				<File Id="247550144" Language="SFX">
 					<ShortName>Drop your sword, scoundrel! This is your first and last warning.wav</ShortName>
@@ -1147,10 +876,6 @@
 					<ShortName>Heeeeelp.wav</ShortName>
 					<Path>SFX\Heeeeelp_10C4C929.wem</Path>
 				</File>
-				<File Id="251301113" Language="SFX">
-					<ShortName>Ugh… You_re better than I thought.wav</ShortName>
-					<Path>SFX\Ugh… You_re better than I thought_10C4C929.wem</Path>
-				</File>
 				<File Id="276273732" Language="SFX">
 					<ShortName>The Crimson Avenger triumphs again.wav</ShortName>
 					<Path>SFX\The Crimson Avenger triumphs again_10C4C929.wem</Path>
@@ -1158,10 +883,6 @@
 				<File Id="292758665" Language="SFX">
 					<ShortName>Thanks for everything.wav</ShortName>
 					<Path>SFX\Thanks for everything_10C4C929.wem</Path>
-				</File>
-				<File Id="437849193" Language="SFX">
-					<ShortName>I_m just saying.wav</ShortName>
-					<Path>SFX\I_m just saying_10C4C929.wem</Path>
 				</File>
 				<File Id="512367407" Language="SFX">
 					<ShortName>Consider it done.wav</ShortName>
@@ -1175,53 +896,17 @@
 					<ShortName>Stand and fight, you scoundrel.wav</ShortName>
 					<Path>SFX\Stand and fight, you scoundrel_10C4C929.wem</Path>
 				</File>
-				<File Id="680254282" Language="SFX">
-					<ShortName>But just so you know, it wasn_t easy. In fact, it was pretty damn hard.wav</ShortName>
-					<Path>SFX\But just so you know, it wasn_t easy. In fact, it was pretty damn hard_10C4C929.wem</Path>
-				</File>
 				<File Id="714687443" Language="SFX">
 					<ShortName>My plan was perfect… until we put it in motion.wav</ShortName>
 					<Path>SFX\My plan was perfect… until we put it in motion_10C4C929.wem</Path>
-				</File>
-				<File Id="735688057" Language="SFX">
-					<ShortName>Not had enough.wav</ShortName>
-					<Path>SFX\Not had enough_10C4C929.wem</Path>
-				</File>
-				<File Id="748590066" Language="SFX">
-					<ShortName>Famous last words right there.wav</ShortName>
-					<Path>SFX\Famous last words right there_10C4C929.wem</Path>
-				</File>
-				<File Id="784749418" Language="SFX">
-					<ShortName>Ah yes now I remember.wav</ShortName>
-					<Path>SFX\Ah yes now I remember_10C4C929.wem</Path>
 				</File>
 				<File Id="796192713" Language="SFX">
 					<ShortName>Ah, finally made it.wav</ShortName>
 					<Path>SFX\Ah, finally made it_10C4C929.wem</Path>
 				</File>
-				<File Id="829270890" Language="SFX">
-					<ShortName>Mmmmmm.wav</ShortName>
-					<Path>SFX\Mmmmmm_10C4C929.wem</Path>
-				</File>
-				<File Id="844505804" Language="SFX">
-					<ShortName>I don_t remember.wav</ShortName>
-					<Path>SFX\I don_t remember_10C4C929.wem</Path>
-				</File>
 				<File Id="897155434" Language="SFX">
 					<ShortName>Thanks.wav</ShortName>
 					<Path>SFX\Thanks_10C4C929.wem</Path>
-				</File>
-				<File Id="925294410" Language="SFX">
-					<ShortName>Hah. That, my friend, is not your concern.wav</ShortName>
-					<Path>SFX\Hah. That, my friend, is not your concern_10C4C929.wem</Path>
-				</File>
-				<File Id="955515209" Language="SFX">
-					<ShortName>For you my friend, always.wav</ShortName>
-					<Path>SFX\For you my friend, always_10C4C929.wem</Path>
-				</File>
-				<File Id="988719794" Language="SFX">
-					<ShortName>In negotiation, as in combat, the key is to find your opponent_s weak spot and exploit it to the hilt.wav</ShortName>
-					<Path>SFX\In negotiation, as in combat, the key is to find your opponent_s weak spot and exploit it to the hilt_10C4C929.wem</Path>
 				</File>
 				<File Id="999190589" Language="SFX">
 					<ShortName>Back again.wav</ShortName>
@@ -1230,10 +915,6 @@
 				<File Id="1015783973" Language="SFX">
 					<ShortName>Got a bad feeling about this.wav</ShortName>
 					<Path>SFX\Got a bad feeling about this_10C4C929.wem</Path>
-				</File>
-				<File Id="1029685670" Language="SFX">
-					<ShortName>No reason.wav</ShortName>
-					<Path>SFX\No reason_10C4C929.wem</Path>
 				</File>
 				<File Id="1033479315" Language="SFX">
 					<ShortName>Not so fast.wav</ShortName>
@@ -1273,7 +954,7 @@
 				</File>
 				<File Id="697497514" Language="SFX">
 					<ShortName>Music\Music_Menu_Main_Captains_Tribute.wav</ShortName>
-					<Path>SFX\Music\Music_Menu_Main_Captains_Tribute_C42B8C3C.wem</Path>
+					<Path>SFX\Music\Music_Menu_Main_Captains_Tribute_A1B43D34.wem</Path>
 				</File>
 				<File Id="739128251" Language="SFX">
 					<ShortName>Main_Menu_mouse_over.wav</ShortName>
@@ -1515,7 +1196,7 @@
 			<IncludedMemoryFiles>
 				<File Id="849114426" Language="SFX">
 					<ShortName>Music\Music_Menu_Pause_Relaxing_Green_Nature.wav</ShortName>
-					<Path>SFX\Music\Music_Menu_Pause_Relaxing_Green_Nature_C42B8C3C.wem</Path>
+					<Path>SFX\Music\Music_Menu_Pause_Relaxing_Green_Nature_A1B43D34.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>
@@ -1538,7 +1219,7 @@
 				</File>
 				<File Id="323414340" Language="SFX">
 					<ShortName>Music_Cinematic_lvl2_Elven_Forest.wav</ShortName>
-					<Path>SFX\Music_Cinematic_lvl2_Elven_Forest_C42B8C3C.wem</Path>
+					<Path>SFX\Music_Cinematic_lvl2_Elven_Forest_A1B43D34.wem</Path>
 				</File>
 				<File Id="451877459" Language="SFX">
 					<ShortName>Lvl2_Ambience_Wind_Loop.wav</ShortName>
@@ -1554,7 +1235,7 @@
 				</File>
 				<File Id="828304743" Language="SFX">
 					<ShortName>lvl2_Intro_conversation_Cutscene.wav</ShortName>
-					<Path>SFX\lvl2_Intro_conversation_Cutscene_C42B8C3C.wem</Path>
+					<Path>SFX\lvl2_Intro_conversation_Cutscene_A1B43D34.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>
@@ -1568,7 +1249,7 @@
 			<IncludedMemoryFiles>
 				<File Id="419561649" Language="SFX">
 					<ShortName>Music_Cinematic_lvl1_The_Ocean_Takes_It_All.wav</ShortName>
-					<Path>SFX\Music_Cinematic_lvl1_The_Ocean_Takes_It_All_C42B8C3C.wem</Path>
+					<Path>SFX\Music_Cinematic_lvl1_The_Ocean_Takes_It_All_A1B43D34.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>
@@ -1685,19 +1366,19 @@
 			<IncludedMemoryFiles>
 				<File Id="484032302" Language="SFX">
 					<ShortName>Music\Music_Combat_Viking_Ship.wav</ShortName>
-					<Path>SFX\Music\Music_Combat_Viking_Ship_C42B8C3C.wem</Path>
+					<Path>SFX\Music\Music_Combat_Viking_Ship_A1B43D34.wem</Path>
 				</File>
 				<File Id="849114426" Language="SFX">
 					<ShortName>Music\Music_Menu_Pause_Relaxing_Green_Nature.wav</ShortName>
-					<Path>SFX\Music\Music_Menu_Pause_Relaxing_Green_Nature_C42B8C3C.wem</Path>
+					<Path>SFX\Music\Music_Menu_Pause_Relaxing_Green_Nature_A1B43D34.wem</Path>
 				</File>
 				<File Id="967037437" Language="SFX">
 					<ShortName>Music\Music_Lvl_1_Broken_Village.wav</ShortName>
-					<Path>SFX\Music\Music_Lvl_1_Broken_Village_C42B8C3C.wem</Path>
+					<Path>SFX\Music\Music_Lvl_1_Broken_Village_A1B43D34.wem</Path>
 				</File>
 				<File Id="997267315" Language="SFX">
 					<ShortName>Music\Music_Combat_The_Dark_Castle.wav</ShortName>
-					<Path>SFX\Music\Music_Combat_The_Dark_Castle_C42B8C3C.wem</Path>
+					<Path>SFX\Music\Music_Combat_The_Dark_Castle_A1B43D34.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>
@@ -1711,23 +1392,23 @@
 			<IncludedMemoryFiles>
 				<File Id="382083512" Language="SFX">
 					<ShortName>Music_Kikimora_Dungeon of shadows.wav</ShortName>
-					<Path>SFX\Music_Kikimora_Dungeon of shadows_C42B8C3C.wem</Path>
+					<Path>SFX\Music_Kikimora_Dungeon of shadows_A1B43D34.wem</Path>
 				</File>
 				<File Id="484032302" Language="SFX">
 					<ShortName>Music\Music_Combat_Viking_Ship.wav</ShortName>
-					<Path>SFX\Music\Music_Combat_Viking_Ship_C42B8C3C.wem</Path>
+					<Path>SFX\Music\Music_Combat_Viking_Ship_A1B43D34.wem</Path>
 				</File>
 				<File Id="621261315" Language="SFX">
 					<ShortName>Music\Music_Lvl_2_Loop_The village.wav</ShortName>
-					<Path>SFX\Music\Music_Lvl_2_Loop_The village_C42B8C3C.wem</Path>
+					<Path>SFX\Music\Music_Lvl_2_Loop_The village_A1B43D34.wem</Path>
 				</File>
 				<File Id="849114426" Language="SFX">
 					<ShortName>Music\Music_Menu_Pause_Relaxing_Green_Nature.wav</ShortName>
-					<Path>SFX\Music\Music_Menu_Pause_Relaxing_Green_Nature_C42B8C3C.wem</Path>
+					<Path>SFX\Music\Music_Menu_Pause_Relaxing_Green_Nature_A1B43D34.wem</Path>
 				</File>
 				<File Id="997267315" Language="SFX">
 					<ShortName>Music\Music_Combat_The_Dark_Castle.wav</ShortName>
-					<Path>SFX\Music\Music_Combat_The_Dark_Castle_C42B8C3C.wem</Path>
+					<Path>SFX\Music\Music_Combat_The_Dark_Castle_A1B43D34.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>
