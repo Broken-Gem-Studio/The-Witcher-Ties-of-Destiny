@@ -677,7 +677,6 @@ lua_table.ultimate_secondary_status_effect = attack_effects_ID.knockback
 lua_table.ultimate_secondary_effect_value = 0
 
 --Stand Up	(Standing up from knockbacks or being downed)
-lua_table.falling_down_bool = false
 lua_table.standing_up_bool = false
 lua_table.stand_up_animation_speed = 90.0
 
@@ -693,6 +692,8 @@ lua_table.down_time = 10000		-- Time until death (restarted by revival attempt)
 local pulsation_started_at = 0
 local pulsation_interval_duration = 800
 
+lua_table.resurrecting = false
+lua_table.falling_down_bool = false
 local stopped_death = false		-- Death timer stop flag
 lua_table.death_started_at = 0		-- Death timer start
 local death_stopped_at = 0		-- Death timer stop
@@ -2070,7 +2071,25 @@ end
 
 --Collider Calls BEGIN
 
-local function CharacterDeath()
+function lua_table:Resurrect()
+	lua_table.previous_state = state.down
+	lua_table.current_state = state.down
+	lua_table.current_health = lua_table.max_health_real
+	lua_table.current_energy = lua_table.max_energy_real
+	lua_table.current_ultimate = 0.0
+
+	lua_table.AnimationFunctions:PlayAnimation(animation_library.stand_up, lua_table.stand_up_animation_speed, jaskier_GO_UID)	--TODO-Animations: Stand up
+	current_animation = animation_library.stand_up
+	blending_started_at = game_time
+
+	lua_table.AudioFunctions:PlayAudioEventGO(audio_library.stand_up, jaskier_GO_UID)
+	current_audio = audio_library.stand_up
+	
+	lua_table.standing_up_bool = true
+	lua_table.resurrecting = true
+end
+
+local function Die()
 
 	AttackColliderShutdown()
 	ParticlesShutdown()
@@ -2144,7 +2163,7 @@ local function ProcessIncomingHit(collider_GO)
 
 		if lua_table.current_health <= 0	--IF has to die
 		then
-			CharacterDeath()
+			Die()
 
 		else
 			if not near_death_playing and lua_table.current_health < near_death_health then
@@ -2269,7 +2288,7 @@ local function DebugInputs()
 			if lua_table.current_health > 0
 			then
 				lua_table.current_health = 0
-				CharacterDeath()
+				Die()
 			elseif lua_table.current_state == state.down and not lua_table.falling_down_bool
 			then
 				lua_table.being_revived = true
@@ -3109,11 +3128,16 @@ function lua_table:Update()
 				end
 			elseif game_time - blending_started_at > lua_table.blend_time_duration and lua_table.AnimationFunctions:CurrentAnimationEnded(jaskier_GO_UID) == 1
 			then
-				for i = 1, #particles_library.revive_particles_GO_UID_children do
-					lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.revive_particles_GO_UID_children[i])	--TODO-Particles:
+				if lua_table.resurrecting then
+					lua_table.resurrecting = false
+				else
+					for i = 1, #particles_library.revive_particles_GO_UID_children do
+						lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.revive_particles_GO_UID_children[i])	--TODO-Particles:
+					end
+					lua_table.being_revived = false
 				end
 
-				lua_table.standing_up_bool, lua_table.being_revived = false, false
+				lua_table.standing_up_bool = false
 				GoDefaultState(true)
 			end
 		end
