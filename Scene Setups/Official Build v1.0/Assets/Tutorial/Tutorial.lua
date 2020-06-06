@@ -159,10 +159,10 @@ lua_table.PauseStep11 = false
 
 -- Variables STEP 12
 local enemies12 = {
-    enemy12_1, enemy12_2, enemy12_3, enemy12_4, enemy12_5, enemy12_6, enemy12_7, enemy12_8, enemy12_9, enemy12_10, enemy12_11, enemy12_12, enemy12_13, enemy12_14, enemy12_15, enemy12_16
+    enemy12_1, enemy12_2, enemy12_3, enemy12_4, enemy12_5, enemy12_6, enemy12_7, enemy12_8, enemy12_9, enemy12_10, enemy12_11, enemy12_12
 }
 local tableEnemy12_1, tableEnemy12_2, tableEnemy12_3, tableEnemy12_4, tableEnemy12_5, tableEnemy12_6, tableEnemy12_7, tableEnemy11_8
-local tableEnemy12_9, tableEnemy12_10, tableEnemy12_11, tableEnemy12_12, tableEnemy12_13, tableEnemy12_14, tableEnemy12_15, tableEnemy12_16
+local tableEnemy12_9, tableEnemy12_10, tableEnemy12_11, tableEnemy12_12
 local enemy12dead = {
     enemy12_1_dead = 0,
     enemy12_2_dead = 0,
@@ -176,10 +176,6 @@ local enemy12dead = {
     enemy12_10_dead = 0,
     enemy12_11_dead = 0,
     enemy12_12_dead = 0,
-    enemy12_13_dead = 0,
-    enemy12_14_dead = 0,
-    enemy12_15_dead = 0,
-    enemy12_16_dead = 0
 }
 
 local moveStep12 = false
@@ -893,37 +889,6 @@ local function Step12()
         end
     end
 
-    if enemy12dead.enemy12_13_dead == 0 
-    then
-        if tableEnemy12_13.currentState == 7
-        then
-            enemy12dead.enemy12_13_dead = 1
-        end
-    end
-
-    if enemy12dead.enemy12_14_dead == 0 
-    then
-        if tableEnemy12_14.currentState == 7
-        then
-            enemy12dead.enemy12_14_dead = 1
-        end
-    end
-
-    if enemy12dead.enemy12_15_dead == 0 
-    then
-        if tableEnemy12_15.currentState == 7
-        then
-            enemy12dead.enemy12_15_dead = 1
-        end
-    end
-
-    if enemy12dead.enemy12_16_dead == 0 
-    then
-        if tableEnemy12_16.currentState == 7
-        then
-            enemy12dead.enemy12_16_dead = 1
-        end
-    end
 
     if tableGeralt.current_state == 5
     then
@@ -938,7 +903,6 @@ local function Step12()
     if enemy12dead.enemy12_1_dead == 1 and enemy12dead.enemy12_2_dead == 1 and enemy12dead.enemy12_3_dead == 1 and enemy12dead.enemy12_4_dead == 1 and 
     enemy12dead.enemy12_5_dead == 1 and enemy12dead.enemy12_6_dead == 1 and enemy12dead.enemy12_7_dead == 1 and enemy12dead.enemy12_8_dead == 1 and
     enemy12dead.enemy12_9_dead == 1 and enemy12dead.enemy12_10_dead == 1 and enemy12dead.enemy12_11_dead == 1 and enemy12dead.enemy12_12_dead == 1 and
-    enemy12dead.enemy12_13_dead == 1 and enemy12dead.enemy12_14_dead == 1 and enemy12dead.enemy12_15_dead == 1 and enemy12dead.enemy12_16_dead == 1 and
     geraltUlt == true and jaskierUlt == true 
     then
         lua_table.currentStep = Step.STEP_13
@@ -1269,10 +1233,6 @@ function lua_table:Awake()
     enemies12.enemy12_10 = lua_table.ObjectFunctions:FindGameObject("enemy12_10")
     enemies12.enemy12_11 = lua_table.ObjectFunctions:FindGameObject("enemy12_11")
     enemies12.enemy12_12 = lua_table.ObjectFunctions:FindGameObject("enemy12_12")
-    enemies12.enemy12_13 = lua_table.ObjectFunctions:FindGameObject("enemy12_13")
-    enemies12.enemy12_14 = lua_table.ObjectFunctions:FindGameObject("enemy12_14")
-    enemies12.enemy12_15 = lua_table.ObjectFunctions:FindGameObject("enemy12_15")
-    enemies12.enemy12_16 = lua_table.ObjectFunctions:FindGameObject("enemy12_16")
 
     tableEnemy12_1 = lua_table.ObjectFunctions:GetScript(enemies12.enemy12_1)
     tableEnemy12_2 = lua_table.ObjectFunctions:GetScript(enemies12.enemy12_2)
@@ -1286,10 +1246,6 @@ function lua_table:Awake()
     tableEnemy12_10 = lua_table.ObjectFunctions:GetScript(enemies12.enemy12_10)
     tableEnemy12_11 = lua_table.ObjectFunctions:GetScript(enemies12.enemy12_11)
     tableEnemy12_12 = lua_table.ObjectFunctions:GetScript(enemies12.enemy12_12)
-    tableEnemy12_13 = lua_table.ObjectFunctions:GetScript(enemies12.enemy12_13)
-    tableEnemy12_14 = lua_table.ObjectFunctions:GetScript(enemies12.enemy12_14)
-    tableEnemy12_15 = lua_table.ObjectFunctions:GetScript(enemies12.enemy12_15)
-    tableEnemy12_16 = lua_table.ObjectFunctions:GetScript(enemies12.enemy12_16)
 
     doorsGO.door1 = lua_table.ObjectFunctions:FindGameObject("Door_1")
     doorsGO.door2 = lua_table.ObjectFunctions:FindGameObject("Door_2")
