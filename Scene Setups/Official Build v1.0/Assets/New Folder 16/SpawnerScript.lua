@@ -3,6 +3,7 @@ local lua_table = {}
 lua_table.System = Scripting.System()
 lua_table.Transform = Scripting.Transform()
 lua_table.GameObjectFunctions = Scripting.GameObject()
+lua_table.Audio = Scripting.Audio()
 lua_table.Scene = Scripting.Scenes()
 lua_table.SpawnRadius = 5
 lua_table.SpawnRate = 3
@@ -14,6 +15,13 @@ lua_table.Enemy_Prefab = 0
 lua_table.time = 0
 
 lua_table.ActiveDistance = 60
+
+lua_table.humanoid_spawner = false
+lua_table.shouted_at_players = false
+lua_table.had_conversation = false
+lua_table.is_cinematic = false
+
+lua_table.enemies = 0
 
 local MyUID = 0
 local position = {}
@@ -27,7 +35,10 @@ local function Spawn()
 
     local pos_randX = math.random(-lua_table.SpawnRadius,lua_table.SpawnRadius)
     local pos_randZ = math.random(-lua_table.SpawnRadius,lua_table.SpawnRadius)
-    lua_table.Scene:Instantiate(lua_table.Enemy_Prefab, position[1]+pos_randX, position[2], position[3] + pos_randZ, 0, 0, 0)
+    lua_table.enemies = lua_table.Scene:Instantiate(lua_table.Enemy_Prefab, position[1]+pos_randX, position[2], position[3] + pos_randZ, 0, 0, 0)
+
+    
+
 
 end
 
@@ -58,6 +69,12 @@ function lua_table:Update()
     if lua_table.time >= lua_table.SpawnRate and lua_table.ActiveDistance >= lua_table.DistanceToCamera then
 
         if lua_table.NumberofEnemies > 0 then
+
+            if lua_table.had_conversation == false and lua_table.humanoid_spawner == true   then
+                lua_table.Audio:PlayAudioEventGO("Play_Enemy_Conversation_01", MyUID)
+                lua_table.had_conversation = true
+                lua_table.System:LOG ("Playing Conversation")
+            end
 
             Spawn()
 
