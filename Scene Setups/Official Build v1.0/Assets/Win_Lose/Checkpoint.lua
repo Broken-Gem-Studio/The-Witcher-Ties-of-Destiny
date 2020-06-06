@@ -4,12 +4,18 @@ lua_table.System = Scripting.System()
 lua_table.GO = Scripting.GameObject()
 lua_table.Transform = Scripting.Transform()
 lua_table.Physics = Scripting.Physics()
+lua_table.Audio = Scripting.Audio()
 
 local uid = 0
 local winlose = 0
 local winlose_script = 0
 
 lua_table.checkpoint = 0
+
+local bonfire_1 = 0
+local bonfire_2 = 0
+local bonfire1_particles = {}
+local bonfire2_particles = {}
 
 function lua_table:OnTriggerEnter()
     local collider = lua_table.Physics:OnTriggerEnter(uid)
@@ -18,8 +24,21 @@ function lua_table:OnTriggerEnter()
     then
         if last_checkpoint == nil or last_checkpoint < lua_table.checkpoint
         then
-            --audio**
-            --particles on**
+            --audio
+            lua_table.Audio:PlayAudioEventGO("Play_Reach_firecamp", uid)
+
+            --particles
+            if lua_table.checkpoint == 1
+            then
+                lua_table.GO:SetActiveGameObject(true, bonfire1_particles[2])
+                lua_table.GO:SetActiveGameObject(false, bonfire1_particles[1])
+            elseif lua_table.checkpoint == 2
+            then
+                lua_table.GO:SetActiveGameObject(true, bonfire2_particles[2])
+                lua_table.GO:SetActiveGameObject(false, bonfire2_particles[1])
+            end
+
+            --checkpoint
             last_checkpoint = lua_table.checkpoint
             winlose_script:Checkpoint()
         end
@@ -29,6 +48,12 @@ end
 function lua_table:Awake()
     uid = lua_table.GO:GetMyUID()
     winlose = lua_table.GO:FindGameObject("WinLose")
+    bonfire_1 = lua_table.GO:FindGameObject("Bonefire1")
+    bonfire_2 = lua_table.GO:FindGameObject("Bonefire2")
+    bonfire1_particles[1] = lua_table.GO:FindChildGameObjectFromGO("FireParticles1", bonfire_1)
+    bonfire1_particles[2] = lua_table.GO:FindChildGameObjectFromGO("FireParticles2", bonfire_1)
+    bonfire2_particles[1] = lua_table.GO:FindChildGameObjectFromGO("FireParticles1", bonfire_2)
+    bonfire2_particles[2] = lua_table.GO:FindChildGameObjectFromGO("FireParticles2", bonfire_2)
 
     if winlose > 0
     then
