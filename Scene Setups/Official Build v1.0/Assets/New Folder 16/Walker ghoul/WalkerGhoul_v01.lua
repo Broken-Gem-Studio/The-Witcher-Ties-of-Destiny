@@ -10,6 +10,8 @@ lua_table.AnimationFunctions = Scripting.Animations()
 lua_table.AudioFunctions = Scripting.Audio()
 lua_table.ParticleFunctions = Scripting.Particles()
 lua_table.NavigationFunctions = Scripting.Navigation()
+lua_table.MaterialFunctions = Scripting.Materials()
+lua_table.InputFunctions = Scripting.Inputs()
 
 -----------------------------------------------------------------------------
 -- VARIABLES
@@ -64,6 +66,7 @@ local Effect = {
 
 local currentState = State.IDLE
 local MyUUID = 0
+local meshUUID = 0
 local dt = 0
 local evades = 0
 local maxDistanceToCamera = 80
@@ -73,6 +76,7 @@ local first_time = true
 local canStartScreaming = true
 local canStartPunch = true
 local canStartEvanding = true
+local white = false
 
 -- Timers and cooldowns
 local lastTimeEvaded = 0
@@ -103,6 +107,9 @@ local stunTime = 2.5
 
 local lastTimeHit = 0
 local hitTime = 0.5
+
+local lastTimeWhite = 0
+local whiteTime = 0.05
 
 local lastTimeTaunted = 0
 local tauntTime = 5
@@ -217,6 +224,12 @@ local function HandleGhoulValues()
     then
         lua_table.hit = false
         StopParticles(lua_table.BodyEmitter_UUID)
+        StopParticles(lua_table.HitEmitter_UUID)
+    end
+    if white and lua_table.SystemFunctions:GameTime() > lastTimeWhite + whiteTime
+    then
+        white = false
+        lua_table.MaterialFunctions:SetMaterialByName("ScreamerMat.mat", meshUUID)
     end
 
     -- Handle evade budget reset
@@ -445,12 +458,14 @@ local function Die()
         StopParticles(lua_table.KnockbackEmitter_UUID)
         StopParticles(lua_table.StunEmitter_UUID)
         StopParticles(lua_table.TauntEmitter_UUID)
+        PlayParticles(lua_table.DeathEmitter_UUID)
 
         lua_table.dead = true
         lastTimeDead = lua_table.SystemFunctions:GameTime()
         lua_table.SystemFunctions:LOG("Ghoul state is DEATH")
     elseif lua_table.SystemFunctions:GameTime() > lastTimeDead + deathTime 
     then
+        StopParticles(lua_table.DeathEmitter_UUID)
         lua_table.ObjectFunctions:DestroyGameObject(MyUUID)
     end
 end		
@@ -467,6 +482,9 @@ function lua_table:OnTriggerEnter()
     then
         local player_table = {}        
         local parent = lua_table.ObjectFunctions:GetGameObjectParent(collider)
+        lua_table.MaterialFunctions:SetMaterialByName("HitMaterial.mat", meshUUID)
+        lastTimeWhite = lua_table.SystemFunctions:GameTime()
+        white = true
 
         local attackState = 0
         if parent ~= 0
@@ -528,7 +546,13 @@ function lua_table:OnTriggerEnter()
                 lua_table.SystemFunctions:LOG("Ghoul has been HIT") 
             end         
 
-            PlayParticles(lua_table.BodyEmitter_UUID)
+            if parent == lua_table.Geralt_UUID
+            then
+                PlayParticles(lua_table.BodyEmitter_UUID)
+            elseif parent == lua_table.Jaskier_UUID
+            then 
+                PlayParticles(lua_table.HitEmitter_UUID)
+            end
         end
     end
 end
@@ -540,6 +564,9 @@ function lua_table:RequestedTrigger(collider_object)
     lua_table.ObjectFunctions:SetActiveGameObject(false, lua_table.PunchCollider_UUID) 
     lua_table.collider_effect = 0
 
+    lua_table.MaterialFunctions:SetMaterialByName("HitMaterial.mat", meshUUID)
+    lastTimeWhite = lua_table.SystemFunctions:GameTime()
+    white = true
     StopParticles(lua_table.ScreamEmitter_UUID) 
 
 	if currentState ~= State.DEATH	
@@ -571,8 +598,15 @@ function lua_table:RequestedTrigger(collider_object)
         else
             lua_table.hit = true
             lastTimeHit = lua_table.SystemFunctions:GameTime()
-            currentState = State.IDLE                 
-            PlayParticles(lua_table.BodyEmitter_UUID)   
+            currentState = State.IDLE        
+                     
+            if collider_object == lua_table.Geralt_UUID
+            then
+                PlayParticles(lua_table.BodyEmitter_UUID)
+            elseif collider_object == lua_table.Jaskier_UUID
+            then 
+                PlayParticles(lua_table.HitEmitter_UUID)
+            end
         end
 	end
 end
@@ -592,6 +626,7 @@ function lua_table:Awake()
    lua_table.Jaskier_UUID = lua_table.ObjectFunctions:FindGameObject("Jaskier") 
    lua_table.Camera_UUID = lua_table.ObjectFunctions:FindGameObject("Camera") 
    MyUUID = lua_table.ObjectFunctions:GetMyUID()
+   meshUUID = lua_table.ObjectFunctions:FindChildGameObject("Screamer_Mesh")
 
    lua_table.ScreamCollider_UUID = lua_table.ObjectFunctions:FindChildGameObject("ScreamCollider")
    lua_table.PunchCollider_UUID = lua_table.ObjectFunctions:FindChildGameObject("PunchCollider")
@@ -602,6 +637,8 @@ function lua_table:Awake()
    lua_table.StunEmitter_UUID = lua_table.ObjectFunctions:FindChildGameObjectFromGO("Stun", particles)
    lua_table.TauntEmitter_UUID = lua_table.ObjectFunctions:FindChildGameObjectFromGO("Taunt", particles)
    lua_table.BodyEmitter_UUID = lua_table.ObjectFunctions:FindChildGameObjectFromGO("Blood", particles)
+   lua_table.HitEmitter_UUID = lua_table.ObjectFunctions:FindChildGameObjectFromGO("Hit", particles)
+   lua_table.DeathEmitter_UUID = lua_table.ObjectFunctions:FindChildGameObjectFromGO("Death", particles)
 
    -- Get navigation areas
    lua_table.WalkableID = lua_table.NavigationFunctions:GetAreaFromName("Walkable")
@@ -622,6 +659,13 @@ function lua_table:Update()
     HandleGhoulValues()
     CalculateDistances()
     dt = lua_table.SystemFunctions:DT()
+
+    if lua_table.InputFunctions:KeyDown("D")
+    then
+        lua_table.MaterialFunctions:SetMaterialByName("HitMaterial.mat", meshUUID)
+        lastTimeWhite = lua_table.SystemFunctions:GameTime()
+        white = true
+    end
 
     if lua_table.DistanceToCamera < maxDistanceToCamera
     then

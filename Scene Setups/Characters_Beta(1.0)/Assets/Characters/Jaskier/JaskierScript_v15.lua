@@ -119,6 +119,7 @@ local audio_library = {
 	run = "Play_Jaskier_walk_run_dirt",
 
 	evade = "Play_Jaskier_jump",
+	ultimate_recharged = "Play_Jaskier_Ultimate_Available",
 	concert = "J_Ult",
 	revive = "Play_Jaskier_revive",
 
@@ -2396,8 +2397,14 @@ function lua_table:Update()
 		if not lua_table.ultimate_active	--IF ultimate offline
 		then
 			--Ultimate Regeneration
-			if lua_table.current_ultimate < lua_table.max_ultimate then lua_table.current_ultimate = lua_table.current_ultimate + ultimate_reg_real * dt end	--IF can increase, increase ultimate
-			if lua_table.current_ultimate > lua_table.max_ultimate then lua_table.current_ultimate = lua_table.max_ultimate end									--IF above max, set to max
+			if lua_table.current_ultimate < lua_table.max_ultimate then
+				lua_table.current_ultimate = lua_table.current_ultimate + ultimate_reg_real * dt
+
+				if lua_table.current_ultimate >= lua_table.max_ultimate then
+					lua_table.current_ultimate = lua_table.max_ultimate
+					lua_table.AudioFunctions:PlayAudioEventGO(audio_library.ultimate_recharged, jaskier_GO_UID)	--TODO-AUDIO:
+				end
+			end
 		end
 
 		if lua_table.potion_active and game_time - potion_taken_at > lua_table.potion_duration then EndPotion(lua_table.potion_in_effect) end
