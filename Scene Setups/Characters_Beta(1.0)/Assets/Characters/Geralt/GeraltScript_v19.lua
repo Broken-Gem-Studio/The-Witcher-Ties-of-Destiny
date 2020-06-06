@@ -123,7 +123,9 @@ local audio_library = {
 
 	evade = "Play_Geralt_light_roll",
 	aard = "Play_Geralt_aard",
+	ultimate_recharged = "Play_Geralt_Ultimate_Available",
 	ultimate = "Play_Geralt_Ultimate",
+	ultimate_scream = "Play_Geralt_Ultimate_active",
 	revive = "Play_Geralt_revive",
 
 	attack_miss = "Play_Geralt_sword_swing",
@@ -530,32 +532,32 @@ lua_table.heavy_movement_start = 3.0
 lua_table.heavy_movement_end = 0.7
 lua_table.heavy_1_movement_velocity_1 = 2.0
 lua_table.heavy_1_movement_start_1 = 0
-lua_table.heavy_1_movement_end_1 = 400
+lua_table.heavy_1_movement_end_1 = 350
 lua_table.heavy_1_movement_velocity_2 = 2.5
-lua_table.heavy_1_movement_start_2 = 500
+lua_table.heavy_1_movement_start_2 = 450
 lua_table.heavy_2_movement_velocity = 2.5
-lua_table.heavy_2_movement_end = 700
-lua_table.heavy_3_movement_end = 1000
+lua_table.heavy_2_movement_end = 600
+lua_table.heavy_3_movement_end = 900
 
-lua_table.heavy_1_block_time = 650			--Input block duration	(block new attacks)
-lua_table.heavy_1_collider_front_start = 500	--Collider activation time
-lua_table.heavy_1_collider_front_end = 700	--Collider deactivation time
+lua_table.heavy_1_block_time = 600			--Input block duration	(block new attacks)
+lua_table.heavy_1_collider_front_start = 450	--Collider activation time
+lua_table.heavy_1_collider_front_end = 650	--Collider deactivation time
 lua_table.heavy_1_duration = 1200			--Attack end (return to idle)
-lua_table.heavy_1_animation_speed = 30.0	--Slow time: 430ms
-lua_table.heavy_1_slow_start = 1100
+lua_table.heavy_1_animation_speed = 35.0	--Slow time: 430ms
+lua_table.heavy_1_slow_start = 900
 
-lua_table.heavy_2_block_time = 550			--Input block duration	(block new attacks)
-lua_table.heavy_2_collider_front_start = 400	--Collider activation time
-lua_table.heavy_2_collider_front_end = 600	--Collider deactivation time
+lua_table.heavy_2_block_time = 500			--Input block duration	(block new attacks)
+lua_table.heavy_2_collider_front_start = 350	--Collider activation time
+lua_table.heavy_2_collider_front_end = 550	--Collider deactivation time
 lua_table.heavy_2_duration = 1000			--Attack end (return to idle)
-lua_table.heavy_2_animation_speed = 25.0	--Slow time: 430ms
+lua_table.heavy_2_animation_speed = 30.0	--Slow time: 430ms
 lua_table.heavy_2_slow_start = 5000
 
 lua_table.heavy_3_block_time = 3000			--Input block duration	(block new attacks)
-lua_table.heavy_3_collider_front_start = 650	--Collider activation time
-lua_table.heavy_3_collider_front_end = 850	--Collider deactivation time
+lua_table.heavy_3_collider_front_start = 600	--Collider activation time
+lua_table.heavy_3_collider_front_end = 800	--Collider deactivation time
 lua_table.heavy_3_duration = 1600			--Attack end (return to idle)
-lua_table.heavy_3_animation_speed = 30.0	--Slow time: 430ms
+lua_table.heavy_3_animation_speed = 35.0	--Slow time: 430ms
 --lua_table.heavy_3_slow_start = 5000
 
 lua_table.heavy_3 = { 'N', 'H', 'H', 'H' }
@@ -1803,6 +1805,7 @@ local function UltimateState(active)
 			lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.ultimate_particles_GO_UID_children[i])	--TODO-Particles:
 		end
 
+		lua_table.AudioFunctions:PlayAudioEventGO(audio_library.ultimate_scream, geralt_GO_UID)	--TODO-AUDIO: Play run sound
 		lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.big.intensity, controller_shake.big.duration)
 
 		lua_table.current_ultimate = 0.0
@@ -2393,8 +2396,14 @@ function lua_table:Update()
 		if not lua_table.ultimate_active	--IF ultimate offline
 		then
 			--Ultimate Regeneration
-			if lua_table.current_ultimate < lua_table.max_ultimate then lua_table.current_ultimate = lua_table.current_ultimate + ultimate_reg_real * dt end	--IF can increase, increase ultimate
-			if lua_table.current_ultimate > lua_table.max_ultimate then lua_table.current_ultimate = lua_table.max_ultimate end									--IF above max, set to max
+			if lua_table.current_ultimate < lua_table.max_ultimate then
+				lua_table.current_ultimate = lua_table.current_ultimate + ultimate_reg_real * dt
+
+				if lua_table.current_ultimate >= lua_table.max_ultimate then
+					lua_table.current_ultimate = lua_table.max_ultimate
+					lua_table.AudioFunctions:PlayAudioEventGO(audio_library.ultimate_recharged, geralt_GO_UID)	--TODO-AUDIO:
+				end
+			end
 		end
 		
 		if lua_table.ability_performed and game_time - ability_started_at >= lua_table.ability_cooldown	--IF ability cooldown finished, mark for UI

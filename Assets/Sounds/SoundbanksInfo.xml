@@ -334,7 +334,7 @@
 				<Event Id="4277472243" Name="Play_Potion_pick_up" ObjectPath="\Events\Default Work Unit\Props\Play_Potion_pick_up" GUID="{4CB9FC1F-13CD-4F97-BEE8-8E359EDB92E2}"/>
 				<Event Id="2533588661" Name="Play_Prop_hit_wood" ObjectPath="\Events\Default Work Unit\Props\Play_Prop_hit_wood" GUID="{B258C721-CD45-4FFE-B057-49ED960DEAA7}"/>
 				<Event Id="2941887487" Name="Play_Prop_wood_break" ObjectPath="\Events\Default Work Unit\Props\Play_Prop_wood_break" GUID="{FF2D7346-6950-4EBC-843B-69F79C93C934}"/>
-				<Event Id="1072535284" Name="Play_Reach_firecamp_" ObjectPath="\Events\Default Work Unit\Props\Play_Reach_firecamp_" GUID="{361773E2-FE57-46C3-8E2D-AA8A8AC9A69E}"/>
+				<Event Id="135505289" Name="Play_Reach_firecamp" ObjectPath="\Events\Default Work Unit\Props\Play_Reach_firecamp" GUID="{361773E2-FE57-46C3-8E2D-AA8A8AC9A69E}"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
 				<File Id="120694735" Language="SFX">
@@ -666,19 +666,19 @@
 			<IncludedMemoryFiles>
 				<File Id="237417088" Language="SFX">
 					<ShortName>Music_Menu_Comparison_Pirate_Dance.wav</ShortName>
-					<Path>SFX\Music_Menu_Comparison_Pirate_Dance_C42B8C3C.wem</Path>
+					<Path>SFX\Music_Menu_Comparison_Pirate_Dance_A1B43D34.wem</Path>
 				</File>
 				<File Id="665589033" Language="SFX">
 					<ShortName>Music_Menu_Win.wav</ShortName>
-					<Path>SFX\Music_Menu_Win_C42B8C3C.wem</Path>
+					<Path>SFX\Music_Menu_Win_A1B43D34.wem</Path>
 				</File>
 				<File Id="689347614" Language="SFX">
 					<ShortName>Music_Menu_Lost.wav</ShortName>
-					<Path>SFX\Music_Menu_Lost_C42B8C3C.wem</Path>
+					<Path>SFX\Music_Menu_Lost_A1B43D34.wem</Path>
 				</File>
 				<File Id="697497514" Language="SFX">
 					<ShortName>Music\Music_Menu_Main_Captains_Tribute.wav</ShortName>
-					<Path>SFX\Music\Music_Menu_Main_Captains_Tribute_C42B8C3C.wem</Path>
+					<Path>SFX\Music\Music_Menu_Main_Captains_Tribute_A1B43D34.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>
@@ -954,7 +954,7 @@
 				</File>
 				<File Id="697497514" Language="SFX">
 					<ShortName>Music\Music_Menu_Main_Captains_Tribute.wav</ShortName>
-					<Path>SFX\Music\Music_Menu_Main_Captains_Tribute_C42B8C3C.wem</Path>
+					<Path>SFX\Music\Music_Menu_Main_Captains_Tribute_A1B43D34.wem</Path>
 				</File>
 				<File Id="739128251" Language="SFX">
 					<ShortName>Main_Menu_mouse_over.wav</ShortName>
@@ -985,13 +985,7 @@
 			<IncludedEvents>
 				<Event Id="176324301" Name="Play_Archer_Melee_Attack" ObjectPath="\Events\Default Work Unit\Human_enemies\Play_Archer_Melee_Attack" GUID="{3CB42C2E-0A88-4E25-8F8B-A56E25052F8D}"/>
 				<Event Id="2370528178" Name="Play_Archer_Ranged_Attack" ObjectPath="\Events\Default Work Unit\Human_enemies\Play_Archer_Ranged_Attack" GUID="{95669F90-0E8F-47EC-894F-EB04E3BC4FA8}"/>
-				<Event Id="1323778646" Name="Play_Enemy_Conversation_01" ObjectPath="\Events\Default Work Unit\Human_enemies\Play_Enemy_Conversation_01" GUID="{B9FBEE72-17B2-4F4F-9F45-058D252E4244}"/>
-				<Event Id="1323778645" Name="Play_Enemy_Conversation_02" ObjectPath="\Events\Default Work Unit\Human_enemies\Play_Enemy_Conversation_02" GUID="{177F9C2C-9BF0-4A82-9EE1-48E7FF08D4DA}"/>
-				<Event Id="1323778644" Name="Play_Enemy_Conversation_03" ObjectPath="\Events\Default Work Unit\Human_enemies\Play_Enemy_Conversation_03" GUID="{F0E56B64-A8BC-4C52-8B02-282C523C3A1F}"/>
-				<Event Id="1323778643" Name="Play_Enemy_Conversation_04" ObjectPath="\Events\Default Work Unit\Human_enemies\Play_Enemy_Conversation_04" GUID="{189B4AEB-5422-4ABD-82E0-F6D74A54C35B}"/>
-				<Event Id="1323778642" Name="Play_Enemy_Conversation_05" ObjectPath="\Events\Default Work Unit\Human_enemies\Play_Enemy_Conversation_05" GUID="{8099E1CF-1C08-456E-8317-E92184E9C96C}"/>
-				<Event Id="1323778641" Name="Play_Enemy_Conversation_06" ObjectPath="\Events\Default Work Unit\Human_enemies\Play_Enemy_Conversation_06" GUID="{A4990762-8A55-4818-B655-B275474714B2}"/>
-				<Event Id="1323778640" Name="Play_Enemy_Conversation_07" ObjectPath="\Events\Default Work Unit\Human_enemies\Play_Enemy_Conversation_07" GUID="{7051EE36-6C6D-4CD3-BD3B-3DD6F2443443}"/>
+				<Event Id="2259159008" Name="Play_Enemy_Conversation" ObjectPath="\Events\Default Work Unit\Human_enemies\Play_Enemy_Conversation" GUID="{CA75C482-1F84-4635-B3B9-9D2156DBCCB8}"/>
 				<Event Id="2135203437" Name="Play_Enemy_Humanoid_Discover_Players" ObjectPath="\Events\Default Work Unit\Human_enemies\Play_Enemy_Humanoid_Discover_Players" GUID="{4ABD938B-EC2E-4645-97E3-F7B128967EF9}"/>
 				<Event Id="282993986" Name="Play_Enemy_Humanoid_Hit" ObjectPath="\Events\Default Work Unit\Human_enemies\Play_Enemy_Humanoid_Hit" GUID="{9735D2A1-492F-431A-95E3-EE1D03CDAC01}"/>
 				<Event Id="1511621515" Name="Play_Lumberjack_Axe_Swing_Attack" ObjectPath="\Events\Default Work Unit\Human_enemies\Play_Lumberjack_Axe_Swing_Attack" GUID="{B53BA402-126D-4E88-814D-2FC27C04FE64}"/>
@@ -1196,7 +1190,7 @@
 			<IncludedMemoryFiles>
 				<File Id="849114426" Language="SFX">
 					<ShortName>Music\Music_Menu_Pause_Relaxing_Green_Nature.wav</ShortName>
-					<Path>SFX\Music\Music_Menu_Pause_Relaxing_Green_Nature_C42B8C3C.wem</Path>
+					<Path>SFX\Music\Music_Menu_Pause_Relaxing_Green_Nature_A1B43D34.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>
@@ -1219,7 +1213,7 @@
 				</File>
 				<File Id="323414340" Language="SFX">
 					<ShortName>Music_Cinematic_lvl2_Elven_Forest.wav</ShortName>
-					<Path>SFX\Music_Cinematic_lvl2_Elven_Forest_C42B8C3C.wem</Path>
+					<Path>SFX\Music_Cinematic_lvl2_Elven_Forest_A1B43D34.wem</Path>
 				</File>
 				<File Id="451877459" Language="SFX">
 					<ShortName>Lvl2_Ambience_Wind_Loop.wav</ShortName>
@@ -1235,7 +1229,7 @@
 				</File>
 				<File Id="828304743" Language="SFX">
 					<ShortName>lvl2_Intro_conversation_Cutscene.wav</ShortName>
-					<Path>SFX\lvl2_Intro_conversation_Cutscene_C42B8C3C.wem</Path>
+					<Path>SFX\lvl2_Intro_conversation_Cutscene_A1B43D34.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>
@@ -1249,7 +1243,7 @@
 			<IncludedMemoryFiles>
 				<File Id="419561649" Language="SFX">
 					<ShortName>Music_Cinematic_lvl1_The_Ocean_Takes_It_All.wav</ShortName>
-					<Path>SFX\Music_Cinematic_lvl1_The_Ocean_Takes_It_All_C42B8C3C.wem</Path>
+					<Path>SFX\Music_Cinematic_lvl1_The_Ocean_Takes_It_All_A1B43D34.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>
@@ -1366,19 +1360,19 @@
 			<IncludedMemoryFiles>
 				<File Id="484032302" Language="SFX">
 					<ShortName>Music\Music_Combat_Viking_Ship.wav</ShortName>
-					<Path>SFX\Music\Music_Combat_Viking_Ship_C42B8C3C.wem</Path>
+					<Path>SFX\Music\Music_Combat_Viking_Ship_A1B43D34.wem</Path>
 				</File>
 				<File Id="849114426" Language="SFX">
 					<ShortName>Music\Music_Menu_Pause_Relaxing_Green_Nature.wav</ShortName>
-					<Path>SFX\Music\Music_Menu_Pause_Relaxing_Green_Nature_C42B8C3C.wem</Path>
+					<Path>SFX\Music\Music_Menu_Pause_Relaxing_Green_Nature_A1B43D34.wem</Path>
 				</File>
 				<File Id="967037437" Language="SFX">
 					<ShortName>Music\Music_Lvl_1_Broken_Village.wav</ShortName>
-					<Path>SFX\Music\Music_Lvl_1_Broken_Village_C42B8C3C.wem</Path>
+					<Path>SFX\Music\Music_Lvl_1_Broken_Village_A1B43D34.wem</Path>
 				</File>
 				<File Id="997267315" Language="SFX">
 					<ShortName>Music\Music_Combat_The_Dark_Castle.wav</ShortName>
-					<Path>SFX\Music\Music_Combat_The_Dark_Castle_C42B8C3C.wem</Path>
+					<Path>SFX\Music\Music_Combat_The_Dark_Castle_A1B43D34.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>
@@ -1392,23 +1386,23 @@
 			<IncludedMemoryFiles>
 				<File Id="382083512" Language="SFX">
 					<ShortName>Music_Kikimora_Dungeon of shadows.wav</ShortName>
-					<Path>SFX\Music_Kikimora_Dungeon of shadows_C42B8C3C.wem</Path>
+					<Path>SFX\Music_Kikimora_Dungeon of shadows_A1B43D34.wem</Path>
 				</File>
 				<File Id="484032302" Language="SFX">
 					<ShortName>Music\Music_Combat_Viking_Ship.wav</ShortName>
-					<Path>SFX\Music\Music_Combat_Viking_Ship_C42B8C3C.wem</Path>
+					<Path>SFX\Music\Music_Combat_Viking_Ship_A1B43D34.wem</Path>
 				</File>
 				<File Id="621261315" Language="SFX">
 					<ShortName>Music\Music_Lvl_2_Loop_The village.wav</ShortName>
-					<Path>SFX\Music\Music_Lvl_2_Loop_The village_C42B8C3C.wem</Path>
+					<Path>SFX\Music\Music_Lvl_2_Loop_The village_A1B43D34.wem</Path>
 				</File>
 				<File Id="849114426" Language="SFX">
 					<ShortName>Music\Music_Menu_Pause_Relaxing_Green_Nature.wav</ShortName>
-					<Path>SFX\Music\Music_Menu_Pause_Relaxing_Green_Nature_C42B8C3C.wem</Path>
+					<Path>SFX\Music\Music_Menu_Pause_Relaxing_Green_Nature_A1B43D34.wem</Path>
 				</File>
 				<File Id="997267315" Language="SFX">
 					<ShortName>Music\Music_Combat_The_Dark_Castle.wav</ShortName>
-					<Path>SFX\Music\Music_Combat_The_Dark_Castle_C42B8C3C.wem</Path>
+					<Path>SFX\Music\Music_Combat_The_Dark_Castle_A1B43D34.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>

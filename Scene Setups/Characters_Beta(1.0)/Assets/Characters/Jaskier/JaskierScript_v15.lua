@@ -119,6 +119,7 @@ local audio_library = {
 	run = "Play_Jaskier_walk_run_dirt",
 
 	evade = "Play_Jaskier_jump",
+	ultimate_recharged = "Play_Jaskier_Ultimate_Available",
 	concert = "J_Ult",
 	revive = "Play_Jaskier_revive",
 
@@ -521,8 +522,8 @@ lua_table.heavy_damage = 2.0				--Multiplier of Base Damage
 lua_table.heavy_1_movement_velocity = 3.0
 lua_table.heavy_1_movement_start = 250
 lua_table.heavy_1_movement_end = 700
-lua_table.heavy_2_movement_velocity = 2.0
-lua_table.heavy_2_movement_start = 400
+lua_table.heavy_2_movement_velocity = 3.0
+lua_table.heavy_2_movement_start = 350
 lua_table.heavy_3_movement_1_velocity = 3.0
 lua_table.heavy_3_movement_1_start = 260
 lua_table.heavy_3_movement_1_end = 500
@@ -530,19 +531,19 @@ lua_table.heavy_3_movement_2_velocity = -3.0
 lua_table.heavy_3_movement_2_start = 1000
 lua_table.heavy_3_movement_2_end = 1400
 
-lua_table.heavy_1_block_time = 450			--Input block duration	(block new attacks)
+lua_table.heavy_1_block_time = 550			--Input block duration	(block new attacks)
 lua_table.heavy_1_collider_front_start = 350	--Collider activation time
 lua_table.heavy_1_collider_front_end = 550	--Collider deactivation time
 lua_table.heavy_1_duration = 1200			--Attack end (return to idle)
 lua_table.heavy_1_animation_speed = 30.0
 lua_table.heavy_1_slow_start = 850
 
-lua_table.heavy_2_block_time = 450			--Input block duration	(block new attacks)
-lua_table.heavy_2_collider_front_start = 350	--Collider activation time
-lua_table.heavy_2_collider_front_end = 550	--Collider deactivation time
+lua_table.heavy_2_block_time = 500			--Input block duration	(block new attacks)
+lua_table.heavy_2_collider_front_start = 300	--Collider activation time
+lua_table.heavy_2_collider_front_end = 450	--Collider deactivation time
 lua_table.heavy_2_duration = 830			--Attack end (return to idle)
-lua_table.heavy_2_animation_speed = 30.0
-lua_table.heavy_2_slow_start = 950
+lua_table.heavy_2_animation_speed = 40.0
+lua_table.heavy_2_slow_start = 750
 
 lua_table.heavy_3_block_time = 3000			--Input block duration	(block new attacks)
 lua_table.heavy_3_collider_front_start = 650	--Collider activation time
@@ -2396,8 +2397,14 @@ function lua_table:Update()
 		if not lua_table.ultimate_active	--IF ultimate offline
 		then
 			--Ultimate Regeneration
-			if lua_table.current_ultimate < lua_table.max_ultimate then lua_table.current_ultimate = lua_table.current_ultimate + ultimate_reg_real * dt end	--IF can increase, increase ultimate
-			if lua_table.current_ultimate > lua_table.max_ultimate then lua_table.current_ultimate = lua_table.max_ultimate end									--IF above max, set to max
+			if lua_table.current_ultimate < lua_table.max_ultimate then
+				lua_table.current_ultimate = lua_table.current_ultimate + ultimate_reg_real * dt
+
+				if lua_table.current_ultimate >= lua_table.max_ultimate then
+					lua_table.current_ultimate = lua_table.max_ultimate
+					lua_table.AudioFunctions:PlayAudioEventGO(audio_library.ultimate_recharged, jaskier_GO_UID)	--TODO-AUDIO:
+				end
+			end
 		end
 
 		if lua_table.potion_active and game_time - potion_taken_at > lua_table.potion_duration then EndPotion(lua_table.potion_in_effect) end
