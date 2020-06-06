@@ -472,7 +472,7 @@ lua_table.light_2_duration = 750			--Attack end (return to idle)
 lua_table.light_2_animation_speed = 60.0	--Slow time: 320ms
 lua_table.light_2_slow_start = 500
 
-lua_table.light_3_block_time = 2000			--Input block duration	(block new attacks)
+lua_table.light_3_block_time = 3000			--Input block duration	(block new attacks)
 lua_table.light_3_collider_front_start = 250	--Collider activation time
 lua_table.light_3_collider_front_end = 350	--Collider deactivation time
 lua_table.light_3_duration = 850			--Attack end (return to idle)
@@ -496,21 +496,21 @@ lua_table.medium_3_movement_start_1 = 350
 lua_table.medium_3_movement_velocity_2 = 2.0
 lua_table.medium_3_movement_start_2 = 500
 
-lua_table.medium_1_block_time = 400			--Input block duration	(block new attacks)
+lua_table.medium_1_block_time = 450			--Input block duration	(block new attacks)
 lua_table.medium_1_collider_front_start = 400	--Collider activation time
 lua_table.medium_1_collider_front_end = 550	--Collider deactivation time
 lua_table.medium_1_duration = 1100			--Attack end (return to idle)
 lua_table.medium_1_animation_speed = 60.0	--Slow time: 370ms
 lua_table.medium_1_slow_start = 600
 
-lua_table.medium_2_block_time = 300			--Input block duration	(block new attacks)
+lua_table.medium_2_block_time = 350			--Input block duration	(block new attacks)
 lua_table.medium_2_collider_front_start = 300	--Collider activation time
 lua_table.medium_2_collider_front_end = 450	--Collider deactivation time
 lua_table.medium_2_duration = 900			--Attack end (return to idle)
 lua_table.medium_2_animation_speed = 50.0	--Slow time: 370ms
 lua_table.medium_2_slow_start = 600
 
-lua_table.medium_3_block_time = 2000			--Input block duration	(block new attacks)
+lua_table.medium_3_block_time = 3000			--Input block duration	(block new attacks)
 lua_table.medium_3_collider_front_start = 600	--Collider activation time
 lua_table.medium_3_collider_front_end = 750	--Collider deactivation time
 lua_table.medium_3_duration = 1300			--Attack end (return to idle)
@@ -533,26 +533,27 @@ lua_table.heavy_1_movement_start_1 = 0
 lua_table.heavy_1_movement_end_1 = 400
 lua_table.heavy_1_movement_velocity_2 = 2.5
 lua_table.heavy_1_movement_start_2 = 500
-lua_table.heavy_2_movement_end = 600
+lua_table.heavy_2_movement_velocity = 2.5
+lua_table.heavy_2_movement_end = 700
 lua_table.heavy_3_movement_end = 1000
 
 lua_table.heavy_1_block_time = 650			--Input block duration	(block new attacks)
-lua_table.heavy_1_collider_front_start = 450	--Collider activation time
+lua_table.heavy_1_collider_front_start = 500	--Collider activation time
 lua_table.heavy_1_collider_front_end = 700	--Collider deactivation time
 lua_table.heavy_1_duration = 1200			--Attack end (return to idle)
 lua_table.heavy_1_animation_speed = 30.0	--Slow time: 430ms
-lua_table.heavy_1_slow_start = 1150
+lua_table.heavy_1_slow_start = 1100
 
-lua_table.heavy_2_block_time = 350			--Input block duration	(block new attacks)
-lua_table.heavy_2_collider_front_start = 250	--Collider activation time
-lua_table.heavy_2_collider_front_end = 450	--Collider deactivation time
+lua_table.heavy_2_block_time = 550			--Input block duration	(block new attacks)
+lua_table.heavy_2_collider_front_start = 400	--Collider activation time
+lua_table.heavy_2_collider_front_end = 600	--Collider deactivation time
 lua_table.heavy_2_duration = 1000			--Attack end (return to idle)
-lua_table.heavy_2_animation_speed = 30.0	--Slow time: 430ms
-lua_table.heavy_2_slow_start = 850
+lua_table.heavy_2_animation_speed = 25.0	--Slow time: 430ms
+lua_table.heavy_2_slow_start = 5000
 
-lua_table.heavy_3_block_time = 2000			--Input block duration	(block new attacks)
-lua_table.heavy_3_collider_front_start = 600	--Collider activation time
-lua_table.heavy_3_collider_front_end = 800	--Collider deactivation time
+lua_table.heavy_3_block_time = 3000			--Input block duration	(block new attacks)
+lua_table.heavy_3_collider_front_start = 650	--Collider activation time
+lua_table.heavy_3_collider_front_end = 850	--Collider deactivation time
 lua_table.heavy_3_duration = 1600			--Attack end (return to idle)
 lua_table.heavy_3_animation_speed = 30.0	--Slow time: 430ms
 --lua_table.heavy_3_slow_start = 5000
@@ -2689,7 +2690,11 @@ function lua_table:Update()
 												lua_table.PhysicsFunctions:Move(lua_table.heavy_1_movement_velocity_1 * rec_direction.x * dt, lua_table.heavy_1_movement_velocity_1 * rec_direction.z * dt, geralt_GO_UID)
 											end
 											
-										elseif lua_table.current_state == state.heavy_2 and time_since_action < lua_table.heavy_2_movement_end or lua_table.current_state == state.heavy_3 and time_since_action < lua_table.heavy_3_movement_end
+										elseif lua_table.current_state == state.heavy_2 and time_since_action < lua_table.heavy_2_movement_end
+										then
+											lua_table.PhysicsFunctions:Move(lua_table.heavy_2_movement_velocity * rec_direction.x * dt, lua_table.heavy_2_movement_velocity * rec_direction.z * dt, geralt_GO_UID)
+
+										elseif lua_table.current_state == state.heavy_3 and time_since_action < lua_table.heavy_3_movement_end
 										then
 											lua_table.PhysicsFunctions:Move(lua_table.heavy_movement_start * rec_direction.x * dt, lua_table.heavy_movement_start * rec_direction.z * dt, geralt_GO_UID)
 										else
@@ -2934,7 +2939,7 @@ function lua_table:Update()
 	--DEBUG LOGS
 	--lua_table.SystemFunctions:LOG("Delta Time: " .. dt)
 	--lua_table.SystemFunctions:LOG("State: " .. lua_table.current_state)
-	--lua_table.SystemFunctions:LOG("Time passed: " .. time_since_action)
+	lua_table.SystemFunctions:LOG("Time passed: " .. time_since_action)
 	--rot_y = math.rad(GimbalLockWorkaroundY(geralt_GO_UID))	--TODO: Remove GimbalLock stage when Euler bug is fixed
 	--lua_table.SystemFunctions:LOG("Angle Y: " .. rot_y)
 	--lua_table.SystemFunctions:LOG("Ultimate: " .. lua_table.current_ultimate)
