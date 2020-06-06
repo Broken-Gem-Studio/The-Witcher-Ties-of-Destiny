@@ -20,12 +20,14 @@ lua_table.humanoid_spawner = false
 lua_table.shouted_at_players = false
 lua_table.had_conversation = false
 lua_table.is_cinematic = false
+lua_table.enemies_chat = false
 
 lua_table.enemies = 0
 
 local MyUID = 0
 local position = {}
 
+local leader_chosen = false
 lua_table.camera_name = "Camera"
 local camera_UID = 0
 local camera_pos = {}
@@ -35,10 +37,15 @@ local function Spawn()
 
     local pos_randX = math.random(-lua_table.SpawnRadius,lua_table.SpawnRadius)
     local pos_randZ = math.random(-lua_table.SpawnRadius,lua_table.SpawnRadius)
-    lua_table.enemies = lua_table.Scene:Instantiate(lua_table.Enemy_Prefab, position[1]+pos_randX, position[2], position[3] + pos_randZ, 0, 0, 0)
 
-    
+    local enemy =  lua_table.Scene:Instantiate(lua_table.Enemy_Prefab, position[1]+pos_randX, position[2], position[3] + pos_randZ, 0, 0, 0)
 
+
+    if lua_table.humanoid_spawner == true and leader_chosen == false then
+    lua_table.enemies = enemy
+    leader_chosen =true
+    lua_table.leader_script = lua_table.GameObjectFunctions:GetScript(lua_table.enemies)
+    end
 
 end
 
@@ -70,10 +77,12 @@ function lua_table:Update()
 
         if lua_table.NumberofEnemies > 0 then
 
-            if lua_table.had_conversation == false and lua_table.humanoid_spawner == true   then
-                lua_table.Audio:PlayAudioEventGO("Play_Enemy_Conversation_01", MyUID)
-                lua_table.had_conversation = true
-                lua_table.System:LOG ("Playing Conversation")
+            if lua_table.ActiveDistance >= lua_table.DistanceToCamera and lua_table.enemies_chat == true then
+                if lua_table.had_conversation == false and lua_table.humanoid_spawner == true   then
+                    lua_table.Audio:PlayAudioEventGO("Play_Enemy_Conversation_01", MyUID)
+                    lua_table.had_conversation = true
+                    lua_table.System:LOG ("Playing Conversation")
+                end
             end
 
             Spawn()
@@ -84,6 +93,13 @@ function lua_table:Update()
         lua_table.time = 0
     end
 
+    --Manage the enemies shouting at players when they discover them
+    if leader_chosen == true and lua_table.leader_script.currentState ~= nil then
+        if lua_table.humanoid_spawner == true  and lua_table.shouted_at_players == false and lua_table.leader_script.currentState == 2 then
+            lua_table.Audio:PlayAudioEventGO("Play_Enemy_Humanoid_Discover_Players",MyUID)
+            lua_table.shouted_at_players = true
+        end
+    end
 end
 
 return lua_table
