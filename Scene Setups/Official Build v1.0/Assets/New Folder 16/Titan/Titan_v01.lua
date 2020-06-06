@@ -617,15 +617,24 @@ local function Die()
 	
 end
 
-local function ReactToStun()
+local function ReactToStun(passed_player)
 	
 	AttackColliderShutdown()
 	lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
 
-	local particles = {}
-	particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Titan_Blood_Emitter", General_Emitter_UID))
-	for i = 1, #particles do 
-	    lua_table.Particles:PlayParticleEmitter(particles[i])
+	if passed_player == lua_table.geralt then
+		local particles = {}
+		particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Titan_Blood_Emitter", General_Emitter_UID))
+		for i = 1, #particles do 
+			lua_table.Particles:PlayParticleEmitter(particles[i])
+		end
+
+	else 
+		local particles = {}
+		particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Titan_Hit_Emitter", General_Emitter_UID))
+		for i = 1, #particles do 
+			lua_table.Particles:PlayParticleEmitter(particles[i])
+		end
 	end
 
 	lua_table.Audio:PlayAudioEvent("Play_Titan_ghoul_take_damage")
@@ -637,10 +646,10 @@ local function ReactToStun()
 
 end
 
-local function ReactToKB(col_ID, forward)
+local function ReactToKB() --col_ID, forward
 	AttackColliderShutdown()
 
-	local tmp = lua_table.Transform:GetPosition(col_ID)
+	--local tmp = lua_table.Transform:GetPosition(col_ID)
 
 	lua_table.Audio:PlayAudioEvent("Play_Titan_ghoul_take_damage")
 	-- local knock_vector = {0, 0, 0}
@@ -690,7 +699,7 @@ local function ReactToTaunt()
 	end
 end
 
-local function ReactToHeavyHit()
+local function ReactToHeavyHit(passed_player)
 	AttackColliderShutdown()
 				
 	start_hit = true
@@ -699,10 +708,19 @@ local function ReactToHeavyHit()
 	lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
 	lua_table.Audio:PlayAudioEvent("Play_Titan_ghoul_take_damage")
 	
-	local particles = {}
-	particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Titan_Blood_Emitter", General_Emitter_UID))
-	for i = 1, #particles do 
-		lua_table.Particles:PlayParticleEmitter(particles[i])
+	if passed_player == lua_table.geralt then
+		local particles = {}
+		particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Titan_Blood_Emitter", General_Emitter_UID))
+		for i = 1, #particles do 
+			lua_table.Particles:PlayParticleEmitter(particles[i])
+		end
+
+	else 
+		local particles = {}
+		particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Titan_Hit_Emitter", General_Emitter_UID))
+		for i = 1, #particles do 
+			lua_table.Particles:PlayParticleEmitter(particles[i])
+		end
 	end
 
 	lua_table.System:LOG("Heavy hit registered")
@@ -735,10 +753,10 @@ function lua_table:OnTriggerEnter()
 			if script.collider_effect ~= attack_effects.none then
 				
 				if script.collider_effect == attack_effects.stun then ---------------- React to stun effect
-					ReactToStun()
+					ReactToStun(parent)
 
 				elseif script.collider_effect == attack_effects.knockback then  ------ React to kb effect
-					ReactToKB(collider, false)
+					ReactToKB()
 
 				elseif script.collider_effect == attack_effects.taunt then ----------- React to taunt effect
 					ReactToTaunt()
@@ -747,14 +765,24 @@ function lua_table:OnTriggerEnter()
 	
 			else
 				if player_state >= 14 and lua_table.currentState ~= State.JUMP then -- State == heavy_1/heavy_2/heavy_3 and combos cancel animation
-					ReactToHeavyHit()
+					ReactToHeavyHit(parent)
 					
 				else --if player_state <= 13 then // Light/Medium attacks
 					
-					local particles = {}
-					particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Titan_Blood_Emitter", General_Emitter_UID))
-					for i = 1, #particles do 
-					    lua_table.Particles:PlayParticleEmitter(particles[i])
+
+					if parent == lua_table.geralt then
+						local particles = {}
+						particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Titan_Blood_Emitter", General_Emitter_UID))
+						for i = 1, #particles do 
+						    lua_table.Particles:PlayParticleEmitter(particles[i])
+						end
+
+					else 
+						local particles = {}
+						particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Titan_Hit_Emitter", General_Emitter_UID))
+						for i = 1, #particles do 
+						    lua_table.Particles:PlayParticleEmitter(particles[i])
+						end
 					end
 
 					lua_table.System:LOG("Light/Medium registered")
@@ -788,10 +816,10 @@ function lua_table:RequestedTrigger(collider_GO)
 		if script.collider_effect ~= attack_effects.none then
 			
 			if script.collider_effect == attack_effects.stun then ---------------- React to stun effect
-				ReactToStun()
+				ReactToStun(collider_GO)
 
 			elseif script.collider_effect == attack_effects.knockback then ------- React to kb effect
-				ReactToKB(collider_GO, true)
+				ReactToKB()
 
 			elseif script.collider_effect == attack_effects.taunt then ----------- React to taunt effect
 				ReactToTaunt()
@@ -800,14 +828,23 @@ function lua_table:RequestedTrigger(collider_GO)
 
 		else
 			if player_state >= 14 and lua_table.currentState ~= State.JUMP then -- State == heavy_1/heavy_2/heavy_3 and combos cancel animation
-				ReactToHeavyHit()
+				ReactToHeavyHit(collider_GO)
 
 			else --if player_state <= 13 then // Light/Medium attacks
 
-				local particles = {}
-				particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Titan_Blood_Emitter", General_Emitter_UID))
-				for i = 1, #particles do 
-				    lua_table.Particles:PlayParticleEmitter(particles[i])
+				if collider_GO == lua_table.geralt then
+					local particles = {}
+					particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Titan_Blood_Emitter", General_Emitter_UID))
+					for i = 1, #particles do 
+						lua_table.Particles:PlayParticleEmitter(particles[i])
+					end
+
+				else 
+					local particles = {}
+					particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Titan_Hit_Emitter", General_Emitter_UID))
+					for i = 1, #particles do 
+						lua_table.Particles:PlayParticleEmitter(particles[i])
+					end
 				end
 
 				lua_table.System:LOG("Hit registered")
