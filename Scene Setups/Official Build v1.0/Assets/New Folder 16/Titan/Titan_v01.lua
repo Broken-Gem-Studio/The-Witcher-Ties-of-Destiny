@@ -220,10 +220,10 @@ local function SearchPlayers() -- Check if targets are within range
 
 	lua_table.GeraltPos = lua_table.Transform:GetPosition(lua_table.geralt)
 	lua_table.JaskierPos = lua_table.Transform:GetPosition(lua_table.jaskier)
-	lua_table.GhoulPos = lua_table.Transform:GetPosition(lua_table.MyUID)
+	lua_table.TitanPos = lua_table.Transform:GetPosition(lua_table.MyUID)
 	
-	GC1 = lua_table.GeraltPos[1] - lua_table.GhoulPos[1]
-	GC2 = lua_table.GeraltPos[3] - lua_table.GhoulPos[3]
+	GC1 = lua_table.GeraltPos[1] - lua_table.TitanPos[1]
+	GC2 = lua_table.GeraltPos[3] - lua_table.TitanPos[3]
 
 	if GeraltState.current_state > -3 then
 		lua_table.GeraltDistance = math.sqrt(GC1 ^ 2 + GC2 ^ 2)
@@ -231,8 +231,8 @@ local function SearchPlayers() -- Check if targets are within range
 		lua_table.GeraltDistance = -1
 	end
 
-	JC1 = lua_table.JaskierPos[1] - lua_table.GhoulPos[1]
-	JC2 = lua_table.JaskierPos[3] - lua_table.GhoulPos[3]
+	JC1 = lua_table.JaskierPos[1] - lua_table.TitanPos[1]
+	JC2 = lua_table.JaskierPos[3] - lua_table.TitanPos[3]
 	
 	if JaskierState.current_state > -3 then
 		lua_table.JaskierDistance =  math.sqrt(JC1 ^ 2 + JC2 ^ 2)
@@ -343,16 +343,16 @@ local function Seek()
 			start_navigation = true
 		end
 		if start_navigation == true then
-			corners = lua_table.Recast:CalculatePath(lua_table.GhoulPos[1], lua_table.GhoulPos[2], lua_table.GhoulPos[3], lua_table.currentTargetPos[1], lua_table.currentTargetPos[2], lua_table.currentTargetPos[3], 1 << navID)
+			corners = lua_table.Recast:CalculatePath(lua_table.TitanPos[1], lua_table.TitanPos[2], lua_table.TitanPos[3], lua_table.currentTargetPos[1], lua_table.currentTargetPos[2], lua_table.currentTargetPos[3], 1 << navID)
 			navigation_timer = lua_table.System:GameTime() * 1000
 			start_navigation = false
 			currCorner = 2
 		end
 		
 		local nextCorner = {0, 0, 0}
-		nextCorner[1] = corners[currCorner][1] - lua_table.GhoulPos[1]
-		nextCorner[2] = corners[currCorner][2] - lua_table.GhoulPos[2]
-		nextCorner[3] = corners[currCorner][3] - lua_table.GhoulPos[3]
+		nextCorner[1] = corners[currCorner][1] - lua_table.TitanPos[1]
+		nextCorner[2] = corners[currCorner][2] - lua_table.TitanPos[2]
+		nextCorner[3] = corners[currCorner][3] - lua_table.TitanPos[3]
 
 		path_distance = math.sqrt(nextCorner[1] ^ 2 + nextCorner[3] ^ 2)
 		
@@ -363,7 +363,7 @@ local function Seek()
 			vec[3] = nextCorner[3] / path_distance
 				
 			-- Apply movement vector to move character
-			lua_table.Transform:LookAt(corners[currCorner][1], lua_table.GhoulPos[2], corners[currCorner][3], lua_table.MyUID)
+			lua_table.Transform:LookAt(corners[currCorner][1], lua_table.TitanPos[2], corners[currCorner][3], lua_table.MyUID)
 			lua_table.Physics:Move(vec[1] * lua_table.speed * dt, vec[3] * lua_table.speed * dt, lua_table.MyUID)
 			
 			else
@@ -461,7 +461,7 @@ local function Punch()
 		start_punch = true
 	end
 
-	lua_table.Transform:LookAt(lua_table.currentTargetPos[1], lua_table.GhoulPos[2], lua_table.currentTargetPos[3], lua_table.MyUID)
+	lua_table.Transform:LookAt(lua_table.currentTargetPos[1], lua_table.TitanPos[2], lua_table.currentTargetPos[3], lua_table.MyUID)
 
 	if punch_timer <= lua_table.System:GameTime() * 1000 and not punching then
 		lua_table.System:LOG("Punch to target")
@@ -491,7 +491,7 @@ local function Swipe()
 		start_swipe = true
 	end
 
-	lua_table.Transform:LookAt(lua_table.currentTargetPos[1], lua_table.GhoulPos[2], lua_table.currentTargetPos[3], lua_table.MyUID)
+	lua_table.Transform:LookAt(lua_table.currentTargetPos[1], lua_table.TitanPos[2], lua_table.currentTargetPos[3], lua_table.MyUID)
 
 	if swipe_timer <= lua_table.System:GameTime() * 1000 and not swiping then
 		lua_table.System:LOG("Swipe to target")
@@ -522,7 +522,7 @@ local function Smash()
 		start_smash = true
 	end
 
-	lua_table.Transform:LookAt(lua_table.currentTargetPos[1], lua_table.GhoulPos[2], lua_table.currentTargetPos[3], lua_table.MyUID)
+	lua_table.Transform:LookAt(lua_table.currentTargetPos[1], lua_table.TitanPos[2], lua_table.currentTargetPos[3], lua_table.MyUID)
 
 	if smash_timer <= lua_table.System:GameTime() * 1000 and not smashing then
 		lua_table.System:LOG("Crush to target")
@@ -600,9 +600,8 @@ local function Die()
 
 		death_timer = lua_table.System:GameTime() * 1000
 
-		-- This ensures hit particle plays when Players deal the last hit
 		local particles = {}
-		particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Titan_Blood_Emitter", General_Emitter_UID))
+		particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Titan_Death_Emitter", General_Emitter_UID))
 		for i = 1, #particles do 
 		    lua_table.Particles:PlayParticleEmitter(particles[i])
 		end
@@ -655,13 +654,13 @@ local function ReactToKB() --col_ID, forward
 	-- local knock_vector = {0, 0, 0}
 
 	-- if forward == true then
-	-- 	knock_vector[1] = lua_table.GhoulPos[1] - tmp[1]
-	-- 	knock_vector[2] = lua_table.GhoulPos[2] - tmp[2]
-	-- 	knock_vector[3] = lua_table.GhoulPos[3] - tmp[3]
+	-- 	knock_vector[1] = lua_table.TitanPos[1] - tmp[1]
+	-- 	knock_vector[2] = lua_table.TitanPos[2] - tmp[2]
+	-- 	knock_vector[3] = lua_table.TitanPos[3] - tmp[3]
 	-- else
-	-- 	knock_vector[1] = tmp[1] - lua_table.GhoulPos[1]
-	-- 	knock_vector[2] = tmp[2] - lua_table.GhoulPos[2]
-	-- 	knock_vector[3] = tmp[3] - lua_table.GhoulPos[3]
+	-- 	knock_vector[1] = tmp[1] - lua_table.TitanPos[1]
+	-- 	knock_vector[2] = tmp[2] - lua_table.TitanPos[2]
+	-- 	knock_vector[3] = tmp[3] - lua_table.TitanPos[3]
 	-- end
 
 	-- local module = math.sqrt(knock_vector[1] ^ 2 + knock_vector[3] ^ 2)
@@ -906,8 +905,7 @@ function lua_table:Update()
 
 	SearchPlayers() -- Constantly calculate distances between entity and players
 
-	-- Check if our entity is dead
-
+	
 
 	if lua_table.currentTarget == -1  and lua_table.currentTargetDir == -1 and lua_table.currentTargetPos == -1 then 
 		lua_table.currentState = State.IDLE
@@ -916,6 +914,8 @@ function lua_table:Update()
 		lua_table.currentTargetPos = 0
 	end
 
+	-- Falling enemy fail save
+	if lua_table.TitanPos[2] <= -100 then lua_table.Transform:SetPosition(lua_table.TitanPos[1], 100, lua_table.TitanPos[3], lua_table.MyUID) end
 
 	-- Check which state the entity is in and then handle them accordingly
 	if lua_table.currentState == State.IDLE then 
@@ -1016,9 +1016,9 @@ function lua_table:Update()
 	-- -- Apply knockback to target, stun it for a second, then return to SEEK
 	-- if lua_table.Input:KeyUp("d") then
 	-- 	local knock_vector = {0, 0, 0}
-	-- 	knock_vector[1] = lua_table.GhoulPos[1] - lua_table.currentTargetPos[1]
-	-- 	knock_vector[2] = lua_table.GhoulPos[2] - lua_table.currentTargetPos[2]
-	-- 	knock_vector[3] = lua_table.GhoulPos[3] - lua_table.currentTargetPos[3]
+	-- 	knock_vector[1] = lua_table.TitanPos[1] - lua_table.currentTargetPos[1]
+	-- 	knock_vector[2] = lua_table.TitanPos[2] - lua_table.currentTargetPos[2]
+	-- 	knock_vector[3] = lua_table.TitanPos[3] - lua_table.currentTargetPos[3]
 						
 	 -- 	local module = math.sqrt(knock_vector[1] ^ 2 + knock_vector[3] ^ 2)
 
