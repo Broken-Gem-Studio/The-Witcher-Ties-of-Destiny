@@ -3073,7 +3073,7 @@ function lua_table:Update()
 	--lua_table.SystemFunctions:LOG("Geralt Damage Potions Left: " .. lua_table.inventory[3])
 
 	--Stats LOGS
-	lua_table.SystemFunctions:LOG("Geralt Health: " .. lua_table.current_health)
+	--lua_table.SystemFunctions:LOG("Geralt Health: " .. lua_table.current_health)
 	--lua_table.SystemFunctions:LOG("Energy: " .. lua_table.current_energy)
 
 	--lua_table.SystemFunctions:LOG("Health Reg: " .. health_reg_real)
