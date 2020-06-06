@@ -610,7 +610,7 @@ function lua_table:Update()
         end
     end
 
-    if material_time + 50 <= PerfGameTime() and changed_material == true then
+    if material_time + 100 <= PerfGameTime() and changed_material == true then
         lua_table.Material:SetMaterialByName("ArcherMaterial.mat", mesh_gameobject_UID)
         changed_material = false
     end
