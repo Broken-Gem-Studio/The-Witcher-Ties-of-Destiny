@@ -8,6 +8,7 @@ lua_table.Animations = Scripting.Animations()
 lua_table.Recast = Scripting.Navigation()
 lua_table.Particles = Scripting.Particles()
 lua_table.Audio = Scripting.Audio()
+lua_table.Material = Scripting.Materials()
 -- DEBUG PURPOSES
 --lua_table.Input = Scripting.Inputs()
 
@@ -91,6 +92,9 @@ local death_timer = 0
 local start_navigation = true
 local navigation_timer = 0
 
+local start_material = false
+local material_timer = 0 
+
 -- Flow control conditionals
 local attacked = false
 
@@ -117,6 +121,7 @@ lua_table.collider_damage = 0
 lua_table.collider_effect = 0
 
 local Minion_General_Emitter = 0
+local Material_UID = 0
 
 local random_attack = 0
 local random_death_time = 0
@@ -410,6 +415,10 @@ function lua_table:OnTriggerEnter()
 		if lua_table.currentState ~= State.DEATH then
 
 			lua_table.health = lua_table.health - script.collider_damage
+
+			lua_table.Material:SetMaterialByName("HitMaterial.mat", Material_UID)
+      		material_timer = lua_table.System:GameTime() * 1000
+			start_material  = true
 	
 			if script.collider_effect ~= attack_effects.none then
 				
@@ -503,6 +512,10 @@ function lua_table:RequestedTrigger(collider_GO)
 
 		lua_table.health = lua_table.health - script.collider_damage
 
+		lua_table.Material:SetMaterialByName("HitMaterial.mat", Material_UID)
+        material_timer = lua_table.System:GameTime() * 1000
+		start_material  = true
+
 		if script.collider_effect ~= attack_effects.none then
 			
 			if script.collider_effect == attack_effects.stun then ----------------------------------------------------- React to stun effect
@@ -592,6 +605,8 @@ function lua_table:Start()
 	lua_table.geralt = lua_table.GameObject:FindGameObject("Geralt")
 	lua_table.jaskier = lua_table.GameObject:FindGameObject("Jaskier")
 
+	Material_UID = lua_table.GameObject:FindChildGameObject("Minion")
+
 	-- Check if both players are in the scene
 	if lua_table.geralt == 0 then 
 		lua_table.System:LOG ("Geralt not found in scene, add it")
@@ -667,6 +682,12 @@ function lua_table:Update()
 		lua_table.is_taunt = false
 		taunt_timer = 0
 	
+	end
+
+	-- Manual reset for hit state
+	if material_timer + 50 <= lua_table.System:GameTime() * 1000 and start_material == true then
+		lua_table.Material:SetMaterialByName("New material 78.mat", Material_UID)
+		start_material = false
 	end
 
 ------------------------------------------------
