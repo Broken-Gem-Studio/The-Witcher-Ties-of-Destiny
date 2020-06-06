@@ -40,7 +40,7 @@ local forest_speech_time = 0
 
 -- Camera Positions
 local CurrentCameraPos = {}
-local Pos_Minions = {508.406, 57.469, -204.635}
+local Pos_Minions = {523.236, 57.469, -202.149}
 local Pos_Kiki = {889.392, 97.577, -365.724}
 local Pos_Jaskier = {368.095, 37.109, -326.500}
 local ZoomPos1 = {403.086, 38.228, -319.858}
