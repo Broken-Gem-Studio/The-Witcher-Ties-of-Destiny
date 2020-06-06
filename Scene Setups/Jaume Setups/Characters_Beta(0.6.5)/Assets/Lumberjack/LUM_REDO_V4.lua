@@ -164,8 +164,8 @@ local CurrentState = State.NONE
 local MyPosition = {}
 local dt = 0
 
-local GeraltDistance = 0 --updated when call PlayersArround()
-local JaskierDistance = 0
+lua_table.GeraltDistance = 0 --updated when call PlayersArround()
+lua_table.JaskierDistance = 0
 
 local CurrentTarget_UID = 0 
 local MinDistanceFromPlayer = 1
@@ -184,6 +184,7 @@ lua_table.collider_effect = 0
 lua_table.General_Emitter_UID = 0
 
 local PlayersDead = false
+local GO_DESTROYED = false
 --#################################################### Utility ###########################################
 
 
@@ -260,7 +261,16 @@ local function VariablesUpdate()
 	MyPosition = lua_table.TransformFunctions:GetPosition(MyUID)
 	dt = lua_table.SystemFunctions:DT()
 
-	
+	--if lua_table.Jaskier_UID ~= 0 
+	--then
+	--	lua_table.JaskierDistance = CalculateDistanceTo(lua_table.GameObjectFunctions:GeraltPos(lua_table.Jaskier_UID))
+	--end
+
+	--if lua_table.Geralt_UID ~= 0 
+	--then
+	--	lua_table.JaskierDistance = CalculateDistanceTo(lua_table.GameObjectFunctions:GeraltPos(lua_table.Geralt_UID))
+	--end
+
 	if CurrentTarget_UID ~= 0
 	then
 		CurrentTargetPosition = lua_table.TransformFunctions:GetPosition(CurrentTarget_UID)
@@ -368,18 +378,18 @@ local function PlayersArround() --Returns a boolean if players are or not arroun
 	lua_table.Geralt_UID = lua_table.GameObjectFunctions:FindGameObject(lua_table.player_1)
     lua_table.Jaskier_UID = lua_table.GameObjectFunctions:FindGameObject(lua_table.player_2)
 
-	if Geralt_UID ~= 0
+	if lua_table.Geralt_UID ~= 0
 	then
-		GeraltPos = lua_table.TransformFunctions:GetPosition(Geralt_UID)
-		GeraltDistance = CalculateDistanceTo(GeraltPos)
+		GeraltPos = lua_table.TransformFunctions:GetPosition(lua_table.Geralt_UID)
+		lua_table.GeraltDistance = CalculateDistanceTo(GeraltPos)
 	end
-	if Jaskier_UID ~= 0
+	if lua_table.Jaskier_UID ~= 0
 	then
-		JaskierPos = lua_table.TransformFunctions:GetPosition(Jaskier_UID)
-		JaskierDistance = CalculateDistanceTo(JaskierPos)
+		JaskierPos = lua_table.TransformFunctions:GetPosition(lua_table.Jaskier_UID)
+		lua_table.JaskierDistance = CalculateDistanceTo(JaskierPos)
 	end
 
-	if JaskierDistance < 20 or GeraltDistance < 20
+	if lua_table.JaskierDistance < 20 or lua_table.GeraltDistance < 20
 	then
 		ret = true	
 	end
@@ -392,42 +402,42 @@ local function CalculateAggro() --Called only after players() return true
 
 	ret = false
 
-	JaskierScript = lua_table.GameObjectFunctions:GetScript(Jaskier_UID)
-	GeraltScript = lua_table.GameObjectFunctions:GetScript(Geralt_UID)
+	JaskierScript = lua_table.GameObjectFunctions:GetScript(lua_table.Jaskier_UID)
+	GeraltScript = lua_table.GameObjectFunctions:GetScript(lua_table.Geralt_UID)
 
 	--if PrintLogs == true then lua_table.SystemFunctions:LOG ("JaskierScript  "..JaskierScript) end
 
 	if CurrentTarget_UID == 0
 	then	
-		if JaskierDistance < GeraltDistance
+		if lua_table.JaskierDistance < lua_table.GeraltDistance
 		then
 			if JaskierScript.current_state == -3 or JaskierScript.current_state == -4
 			then
-				CurrentTarget_UID = Geralt_UID
+				CurrentTarget_UID = lua_table.Geralt_UID
 				ret = true
 				if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK CurrentTarget = Geralt_UID") end
 			else
-				CurrentTarget_UID = Jaskier_UID
+				CurrentTarget_UID = lua_table.Jaskier_UID
 				ret = true
 				if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK CurrentTarget = Jaskier_UID") end
 			end	
-			CurrentTarget_UID = Jaskier_UID
-		elseif GeraltDistance < JaskierDistance
+			CurrentTarget_UID = lua_table.Jaskier_UID
+		elseif lua_table.GeraltDistance < lua_table.JaskierDistance
 		then
 			if GeraltScript.current_state == -3 or GeraltScript.current_state == -4
 			then
-				CurrentTarget_UID = Jaskier_UID
+				CurrentTarget_UID = lua_table.Jaskier_UID
 				ret = true
 				if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK CurrentTarget = Jaskier_UID") end
 			else
-				CurrentTarget_UID = Geralt_UID
+				CurrentTarget_UID = lua_table.Geralt_UID
 				ret = true
 				if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK CurrentTarget = Geralt_UID") end
 			end	 
 		end		
 	elseif CurrentTarget_UID ~= 0
 	then 
-		if CurrentTarget_UID == Jaskier_UID
+		if CurrentTarget_UID == lua_table.Jaskier_UID
 		then
 			if JaskierScript.current_state == -3 or JaskierScript.current_state == -4
 			then
@@ -435,12 +445,16 @@ local function CalculateAggro() --Called only after players() return true
 				then
 					ret = false--both on the ground
 				else
-					CurrentTarget_UID = Geralt_UID
+					CurrentTarget_UID = lua_table.Geralt_UID
 					ret = true
 					if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK change CurrentTarget = Geralt_UID") end
 				end	
+			else
+				CurrentTarget_UID = lua_table.Jaskier_UID
+				ret = true
+				if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK change CurrentTarget = Jaskier_UID") end
 			end
-		elseif CurrentTarget_UID == Geralt_UID
+		elseif CurrentTarget_UID == lua_table.Geralt_UID
 		then
 			if GeraltScript.current_state == -3 or GeraltScript.current_state == -4
 			then
@@ -448,10 +462,14 @@ local function CalculateAggro() --Called only after players() return true
 				then
 					ret = false--both on the ground
 				else
-					CurrentTarget_UID = Jaskier_UID
+					CurrentTarget_UID = lua_table.Jaskier_UID
 					ret = true
 					if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK change CurrentTarget = Jaskier_UID") end
-				end	
+				end
+			else
+				CurrentTarget_UID = lua_table.Geralt_UID
+				ret = true
+				if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK change CurrentTarget = Geralt_UID") end
 			end
 		end
 		if (GeraltScript.current_state == -3 or GeraltScript.current_state == -4) and (JaskierScript.current_state == -3 or JaskierScript.current_state == -4)
@@ -744,7 +762,8 @@ local function Die()
 
 	if CurrentTime - DieStartTimer > 5000
 	then
-		lua_table.GameObjectFunctions:DestroyGameObject(MyUID)	
+		lua_table.GameObjectFunctions:DestroyGameObject(MyUID)
+		GO_DESTROYED = true
 	end
 end
 
@@ -849,6 +868,7 @@ local function ChooseBehaviour() --Called only inside State machine's functions
 			DieStartTimer = PerfGameTime()
 		end
 	end
+
 	if PlayersDead == false
 	then
 		CalculateAggro()
@@ -1143,14 +1163,14 @@ function lua_table:Awake()
 	lua_table.SystemFunctions:LOG("LUMBERJACK AWAKE")
 
     ---GET PLAYERS ID---
-	Geralt_UID = lua_table.GameObjectFunctions:FindGameObject(lua_table.player_1)
-    Jaskier_UID = lua_table.GameObjectFunctions:FindGameObject(lua_table.player_2) 
+	lua_table.Geralt_UID = lua_table.GameObjectFunctions:FindGameObject(lua_table.player_1)
+    lua_table.Jaskier_UID = lua_table.GameObjectFunctions:FindGameObject(lua_table.player_2) 
 
-	if Geralt_UID == 0 
+	if lua_table.Geralt_UID == 0 
 	then 
 		if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK A random Lumberjack Script: Null Geralt id, called from Lumberjack AWAKE") end
 	end
-    if Jaskier_UID == 0 
+    if lua_table.Jaskier_UID == 0 
 	then 
 		if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK A random Lumberjack Script: Null Jaskier id, called from Lumberjack AWAKE") end
     end
@@ -1179,7 +1199,7 @@ end
 
 
 function lua_table:Update()
-
+	
 	VariablesUpdate() -- postions for example
 	
 	if lua_table.CurrentHealth < 1
@@ -1187,7 +1207,7 @@ function lua_table:Update()
 		CurrentState = State.DEAD
 	end
 
-	if CurrentAttackEffect == AttackEffects.none
+	if CurrentAttackEffect == AttackEffects.none and GO_DESTROYED == false
 	then
 		if CurrentState == State.NONE
 		then
@@ -1205,27 +1225,28 @@ function lua_table:Update()
 		then
 			HandleDead()
 		end
-	elseif CurrentAttackEffect == AttackEffects.knockback
+	elseif CurrentAttackEffect == AttackEffects.knockback and GO_DESTROYED == false
 	then
 		knockback()
-		if KnockbackDone == true
+		if KnockbackDone == true 
 		then
 			CalculateNewPath(CurrentTargetPosition) --When ending knockback need a new path to move
 			lua_table.CurrentVelocity = 0
 			KnockbackDone = false
 			CalculatedKnockback = false
 		end
-	elseif CurrentAttackEffect == AttackEffects.stun
+	elseif CurrentAttackEffect == AttackEffects.stun and GO_DESTROYED == false
 	then
 		CurrentAttackEffect = AttackEffects.none
 		Stun()
 	end
 	
-
-	--MOVE
-	ApplyVelocity()
-	lua_table.PhysicsSystem:Move(lua_table.Nvec3x* dt,lua_table.Nvec3z* dt,MyUID)
-	
+	if GO_DESTROYED == false or DoDie == true
+	then
+		--MOVE
+		ApplyVelocity()
+		lua_table.PhysicsSystem:Move(lua_table.Nvec3x* dt,lua_table.Nvec3z* dt,MyUID)
+	end
 end
 
 return lua_table
