@@ -43,7 +43,7 @@
                 "positionx": "-1.134542",
                 "positiony": "10.435902",
                 "positionz": "-0.170929",
-                "rotationw": "0.990933",
+                "rotationw": "0.990934",
                 "rotationx": "0.133662",
                 "rotationy": "0.004547",
                 "rotationz": "-0.012835",
@@ -195,7 +195,7 @@
                 "tmpScalez": "1.000000"
             }
         },
-        "Index": 3,
+        "Index": 2,
         "Name": "Table_Collider",
         "Navigation Area": 0,
         "Navigation Static": false,
@@ -253,6 +253,38 @@
                 "scalex": "1.000000",
                 "scaley": "1.000000",
                 "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/Statistics_Screen/CoinSpawner.lua"
+                },
+                "Script variables": {
+                    "Count": 3,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "CoinToSpawn",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "EndGame",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "coins_finished",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    }
+                },
+                "UID": 2081440499,
+                "index": 1
             }
         },
         "Index": 1,
@@ -403,11 +435,144 @@
                 "index": 1
             }
         },
-        "Index": 6,
+        "Index": 4,
         "Name": "Jaskier_Score",
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "-1",
+        "Static": false
+    },
+    "1070016440": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1310408837,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/1069898787.mesh"
+                    }
+                },
+                "UID": 425865276,
+                "index": 1
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/Statistics_Screen/Coin_Behaviour.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "final_coin",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    }
+                },
+                "UID": 1007149914,
+                "index": 2
+            },
+            "15": {
+                "Active": true,
+                "UID": 1295604397,
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "1.000000",
+                "freezePosition_X": "1",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "1",
+                "freezeRotation_X": "1",
+                "freezeRotation_Y": "1",
+                "freezeRotation_Z": "1",
+                "index": 3,
+                "is_kinematic": "0",
+                "linear_damping": "0.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "-3.000000",
+                "linear_velz": "0.000000",
+                "mass": "1072.000000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": true,
+                "UID": 518098596,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "0",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "2.011648",
+                "globalMatrixy": "3.195595",
+                "globalMatrixz": "0.247897",
+                "globalPositionx": "8.251465",
+                "globalPositiony": "8.294922",
+                "globalPositionz": "1.942276",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "index": 4,
+                "isConvex": "0",
+                "isTrigger": "0",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.072511",
+                "localMatrixy": "0.017578",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.072511",
+                "offsety": "0.017578",
+                "offsetz": "0.000000",
+                "originalScalex": "8.251465",
+                "originalScaley": "8.294922",
+                "originalScalez": "1.942276",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "0.209587",
+                "tmpScaley": "0.210691",
+                "tmpScalez": "0.049334"
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/Statistics_Screen/Coin_Material.mat"
+                    }
+                },
+                "UID": 471239679,
+                "index": 5
+            }
+        },
+        "Index": 0,
+        "Name": "CoinMesh",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1683455476",
         "Static": false
     },
     "1116695282": {
@@ -546,6 +711,32 @@
         "Parent": "2054722989",
         "Static": false
     },
+    "1137984293": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 490274182,
+                "index": 0,
+                "layer": "0",
+                "positionx": "1.741265",
+                "positiony": "3.182878",
+                "positionz": "-1.034271",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Index": 8,
+        "Name": "jaskier_coins_objects_destroyed",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "-1",
+        "Static": false
+    },
     "1148337615": {
         "Active": true,
         "Components": {
@@ -561,8 +752,8 @@
                 "rotationy": "-0.000000",
                 "rotationz": "-0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000012",
-                "scalez": "1.000012"
+                "scaley": "1.000027",
+                "scalez": "1.000027"
             }
         },
         "Index": 0,
@@ -655,8 +846,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000012",
-                "scalez": "1.000012"
+                "scaley": "1.000027",
+                "scalez": "1.000027"
             }
         },
         "Index": 0,
@@ -782,9 +973,9 @@
                 "rotationx": "0.549597",
                 "rotationy": "-0.445919",
                 "rotationz": "0.605871",
-                "scalex": "1.000009",
-                "scaley": "1.000009",
-                "scalez": "1.000009"
+                "scalex": "1.000024",
+                "scaley": "1.000024",
+                "scalez": "1.000024"
             },
             "13": {
                 "Active": true,
@@ -802,6 +993,139 @@
         "Parent": "635570025",
         "Static": false
     },
+    "1207145069": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 187919371,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/1069898787.mesh"
+                    }
+                },
+                "UID": 664150867,
+                "index": 1
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/Statistics_Screen/Coin_Behaviour.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "final_coin",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    }
+                },
+                "UID": 1377107850,
+                "index": 2
+            },
+            "15": {
+                "Active": true,
+                "UID": 1218204535,
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "1.000000",
+                "freezePosition_X": "1",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "1",
+                "freezeRotation_X": "1",
+                "freezeRotation_Y": "1",
+                "freezeRotation_Z": "1",
+                "index": 3,
+                "is_kinematic": "0",
+                "linear_damping": "0.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "-3.000000",
+                "linear_velz": "0.000000",
+                "mass": "1072.000000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": true,
+                "UID": 2046260264,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "0",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "1.631927",
+                "globalMatrixy": "3.188725",
+                "globalMatrixz": "0.307711",
+                "globalPositionx": "8.251465",
+                "globalPositiony": "8.294922",
+                "globalPositionz": "1.942276",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "index": 4,
+                "isConvex": "0",
+                "isTrigger": "0",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.072511",
+                "localMatrixy": "0.017579",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.072511",
+                "offsety": "0.017579",
+                "offsetz": "0.000000",
+                "originalScalex": "8.251465",
+                "originalScaley": "8.294922",
+                "originalScalez": "1.942276",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "0.209587",
+                "tmpScaley": "0.210691",
+                "tmpScalez": "0.049334"
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/Statistics_Screen/Coin_Material.mat"
+                    }
+                },
+                "UID": 639194543,
+                "index": 5
+            }
+        },
+        "Index": 0,
+        "Name": "CoinMesh",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "749696935",
+        "Static": false
+    },
     "123282907": {
         "Active": true,
         "Components": {
@@ -817,8 +1141,8 @@
                 "rotationy": "-0.000000",
                 "rotationz": "-0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000009",
-                "scalez": "1.000009"
+                "scaley": "1.000024",
+                "scalez": "1.000024"
             }
         },
         "Index": 0,
@@ -860,6 +1184,32 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "2127876057",
+        "Static": false
+    },
+    "1251220274": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 680039246,
+                "index": 0,
+                "layer": "0",
+                "positionx": "1.888904",
+                "positiony": "3.195787",
+                "positionz": "-0.378434",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Index": 18,
+        "Name": "geralt_coins_ally_revived",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "-1",
         "Static": false
     },
     "1262982990": {
@@ -911,8 +1261,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000009",
-                "scalez": "1.000009"
+                "scaley": "1.000024",
+                "scalez": "1.000024"
             }
         },
         "Index": 0,
@@ -920,6 +1270,32 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "769917910",
+        "Static": false
+    },
+    "1273739604": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 835250866,
+                "index": 0,
+                "layer": "0",
+                "positionx": "1.347806",
+                "positiony": "3.183449",
+                "positionz": "-0.947420",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Index": 9,
+        "Name": "jaskier_coins_potions_shared",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "-1",
         "Static": false
     },
     "1283061655": {
@@ -1055,7 +1431,7 @@
                 "rotationx": "-0.010874",
                 "rotationy": "0.693726",
                 "rotationz": "0.714115",
-                "scalex": "0.999988",
+                "scalex": "0.999973",
                 "scaley": "1.000000",
                 "scalez": "1.000000"
             },
@@ -1114,8 +1490,34 @@
                 "index": 1
             }
         },
-        "Index": 5,
+        "Index": 3,
         "Name": "Geralt_Score",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "-1",
+        "Static": false
+    },
+    "1334172233": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1294850002,
+                "index": 0,
+                "layer": "0",
+                "positionx": "1.281271",
+                "positiony": "3.184173",
+                "positionz": "0.134068",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Index": 14,
+        "Name": "geralt_coins_special_kills",
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "-1",
@@ -1136,8 +1538,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000009",
-                "scalez": "1.000009"
+                "scaley": "1.000024",
+                "scalez": "1.000024"
             }
         },
         "Index": 0,
@@ -1264,8 +1666,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000012",
-                "scalez": "1.000012"
+                "scaley": "1.000027",
+                "scalez": "1.000027"
             }
         },
         "Index": 0,
@@ -1357,9 +1759,9 @@
                 "rotationx": "0.042258",
                 "rotationy": "0.680119",
                 "rotationz": "0.723646",
-                "scalex": "1.000018",
-                "scaley": "1.000009",
-                "scalez": "1.000009"
+                "scalex": "1.000048",
+                "scaley": "1.000024",
+                "scalez": "1.000024"
             },
             "13": {
                 "Active": true,
@@ -1443,6 +1845,32 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1366501000",
+        "Static": false
+    },
+    "1438348320": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 2085927110,
+                "index": 0,
+                "layer": "0",
+                "positionx": "1.066572",
+                "positiony": "3.178076",
+                "positionz": "-0.722057",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Index": 10,
+        "Name": "jaskier_coins_ally_revived",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "-1",
         "Static": false
     },
     "1443597254": {
@@ -1698,8 +2126,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000009",
-                "scalez": "1.000009"
+                "scaley": "1.000024",
+                "scalez": "1.000024"
             }
         },
         "Index": 0,
@@ -1723,7 +2151,7 @@
                 "rotationx": "-0.011483",
                 "rotationy": "0.689790",
                 "rotationz": "0.718039",
-                "scalex": "0.999991",
+                "scalex": "0.999976",
                 "scaley": "1.000000",
                 "scalez": "1.000000"
             },
@@ -1753,7 +2181,7 @@
                 "positionx": "2.589295",
                 "positiony": "2.758932",
                 "positionz": "1.836254",
-                "rotationw": "0.985082",
+                "rotationw": "0.985081",
                 "rotationx": "0.065603",
                 "rotationy": "0.008080",
                 "rotationz": "-0.158888",
@@ -1860,8 +2288,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000012",
-                "scalez": "1.000012"
+                "scaley": "1.000027",
+                "scalez": "1.000027"
             }
         },
         "Index": 0,
@@ -1903,6 +2331,32 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1572882590",
+        "Static": false
+    },
+    "1683455476": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 638692277,
+                "index": 0,
+                "layer": "0",
+                "positionx": "2.009806",
+                "positiony": "3.195595",
+                "positionz": "0.248344",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Index": 15,
+        "Name": "geralt_coins_incapacitations",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "-1",
         "Static": false
     },
     "1725573758": {
@@ -1988,8 +2442,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000009",
-                "scalez": "1.000009"
+                "scaley": "1.000024",
+                "scalez": "1.000024"
             }
         },
         "Index": 0,
@@ -1997,6 +2451,139 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1052465706",
+        "Static": false
+    },
+    "1757996212": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 989254965,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/1069898787.mesh"
+                    }
+                },
+                "UID": 971875328,
+                "index": 1
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/Statistics_Screen/Coin_Behaviour.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "final_coin",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    }
+                },
+                "UID": 17461012,
+                "index": 2
+            },
+            "15": {
+                "Active": true,
+                "UID": 177372250,
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "1.000000",
+                "freezePosition_X": "1",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "1",
+                "freezeRotation_X": "1",
+                "freezeRotation_Y": "1",
+                "freezeRotation_Z": "1",
+                "index": 3,
+                "is_kinematic": "0",
+                "linear_damping": "0.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "-3.000000",
+                "linear_velz": "0.000000",
+                "mass": "1072.000000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": true,
+                "UID": 802447000,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "0",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "1.068414",
+                "globalMatrixy": "3.178076",
+                "globalMatrixz": "-0.722503",
+                "globalPositionx": "8.251465",
+                "globalPositiony": "8.294922",
+                "globalPositionz": "1.942276",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "index": 4,
+                "isConvex": "0",
+                "isTrigger": "0",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.072511",
+                "localMatrixy": "0.017579",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.072511",
+                "offsety": "0.017579",
+                "offsetz": "0.000000",
+                "originalScalex": "8.251465",
+                "originalScaley": "8.294922",
+                "originalScalez": "1.942276",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "0.209587",
+                "tmpScaley": "0.210691",
+                "tmpScalez": "0.049334"
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/Statistics_Screen/Coin_Material.mat"
+                    }
+                },
+                "UID": 2083813264,
+                "index": 5
+            }
+        },
+        "Index": 0,
+        "Name": "CoinMesh",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1438348320",
         "Static": false
     },
     "1763115351": {
@@ -2014,8 +2601,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000012",
-                "scalez": "1.000012"
+                "scaley": "1.000027",
+                "scalez": "1.000027"
             }
         },
         "Index": 0,
@@ -2040,8 +2627,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000012",
-                "scalez": "1.000012"
+                "scaley": "1.000027",
+                "scalez": "1.000027"
             }
         },
         "Index": 0,
@@ -2119,32 +2706,6 @@
         "Parent": "1771784094",
         "Static": false
     },
-    "1808399025": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "UID": 2024746856,
-                "index": 0,
-                "layer": "0",
-                "positionx": "1.631299",
-                "positiony": "6.853346",
-                "positionz": "0.121200",
-                "rotationw": "1.000000",
-                "rotationx": "0.000000",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "1.000000",
-                "scaley": "1.000000",
-                "scalez": "1.000000"
-            }
-        },
-        "Index": 4,
-        "Name": "SpawnPosition_2",
-        "Navigation Area": 0,
-        "Navigation Static": false,
-        "Parent": "-1",
-        "Static": false
-    },
     "1809530848": {
         "Active": true,
         "Components": {
@@ -2211,6 +2772,32 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1009609433",
+        "Static": false
+    },
+    "1832640248": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1800786797,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.935130",
+                "positiony": "3.186311",
+                "positionz": "-1.053720",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Index": 6,
+        "Name": "jaskier_coins_special_kills",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "-1",
         "Static": false
     },
     "1834938042": {
@@ -2383,6 +2970,139 @@
         "Parent": "771248711",
         "Static": false
     },
+    "1859005973": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 979027357,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/1069898787.mesh"
+                    }
+                },
+                "UID": 1880149564,
+                "index": 1
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/Statistics_Screen/Coin_Behaviour.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "final_coin",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    }
+                },
+                "UID": 174576006,
+                "index": 2
+            },
+            "15": {
+                "Active": true,
+                "UID": 1546155353,
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "1.000000",
+                "freezePosition_X": "1",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "1",
+                "freezeRotation_X": "1",
+                "freezeRotation_Y": "1",
+                "freezeRotation_Z": "1",
+                "index": 3,
+                "is_kinematic": "0",
+                "linear_damping": "0.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "-3.000000",
+                "linear_velz": "0.000000",
+                "mass": "1072.000000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": true,
+                "UID": 116541691,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "0",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "1.283113",
+                "globalMatrixy": "3.184173",
+                "globalMatrixz": "0.133622",
+                "globalPositionx": "8.251465",
+                "globalPositiony": "8.294922",
+                "globalPositionz": "1.942276",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "index": 4,
+                "isConvex": "0",
+                "isTrigger": "0",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.072511",
+                "localMatrixy": "0.017578",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.072511",
+                "offsety": "0.017578",
+                "offsetz": "0.000000",
+                "originalScalex": "8.251465",
+                "originalScaley": "8.294922",
+                "originalScalez": "1.942276",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "0.209587",
+                "tmpScaley": "0.210691",
+                "tmpScalez": "0.049334"
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/Statistics_Screen/Coin_Material.mat"
+                    }
+                },
+                "UID": 1229398705,
+                "index": 5
+            }
+        },
+        "Index": 0,
+        "Name": "CoinMesh",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1334172233",
+        "Static": false
+    },
     "1859949171": {
         "Active": true,
         "Components": {
@@ -2424,9 +3144,9 @@
                 "UID": 1411844459,
                 "index": 0,
                 "layer": "0",
-                "positionx": "1.425463",
-                "positiony": "4.768226",
-                "positionz": "-1.206788",
+                "positionx": "1.047341",
+                "positiony": "3.187701",
+                "positionz": "-1.390013",
                 "rotationw": "1.000000",
                 "rotationx": "0.000000",
                 "rotationy": "0.000000",
@@ -2436,8 +3156,8 @@
                 "scalez": "1.000000"
             }
         },
-        "Index": 2,
-        "Name": "SpawnPosition_1",
+        "Index": 11,
+        "Name": "jaskier_coins_damage_dealt",
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "-1",
@@ -2526,8 +3246,8 @@
                 "rotationy": "-0.000000",
                 "rotationz": "-0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000012",
-                "scalez": "1.000012"
+                "scaley": "1.000027",
+                "scalez": "1.000027"
             }
         },
         "Index": 0,
@@ -2552,8 +3272,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000012",
-                "scalez": "1.000012"
+                "scaley": "1.000027",
+                "scalez": "1.000027"
             }
         },
         "Index": 0,
@@ -2725,6 +3445,195 @@
         "Parent": "213182635",
         "Static": false
     },
+    "1964560880": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 849740012,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/1069898787.mesh"
+                    }
+                },
+                "UID": 869867896,
+                "index": 1
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/Statistics_Screen/Coin_Behaviour.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "final_coin",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    }
+                },
+                "UID": 2033942016,
+                "index": 2
+            },
+            "15": {
+                "Active": true,
+                "UID": 5412756,
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "1.000000",
+                "freezePosition_X": "1",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "1",
+                "freezeRotation_X": "1",
+                "freezeRotation_Y": "1",
+                "freezeRotation_Z": "1",
+                "index": 3,
+                "is_kinematic": "0",
+                "linear_damping": "0.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "-3.000000",
+                "linear_velz": "0.000000",
+                "mass": "1072.000000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": true,
+                "UID": 1031847251,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "0",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "1.382148",
+                "globalMatrixy": "3.181610",
+                "globalMatrixz": "-1.233233",
+                "globalPositionx": "8.251465",
+                "globalPositiony": "8.294922",
+                "globalPositionz": "1.942276",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "index": 4,
+                "isConvex": "0",
+                "isTrigger": "0",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.072511",
+                "localMatrixy": "0.017576",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.072511",
+                "offsety": "0.017576",
+                "offsetz": "0.000000",
+                "originalScalex": "8.251465",
+                "originalScaley": "8.294922",
+                "originalScalez": "1.942276",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "0.209587",
+                "tmpScaley": "0.210691",
+                "tmpScalez": "0.049334"
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/Statistics_Screen/Coin_Material.mat"
+                    }
+                },
+                "UID": 104254633,
+                "index": 5
+            }
+        },
+        "Index": 0,
+        "Name": "CoinMesh",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "334798430",
+        "Static": false
+    },
+    "1976484034": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 485282295,
+                "index": 0,
+                "layer": "0",
+                "positionx": "3.209000",
+                "positiony": "3.800000",
+                "positionz": "-1.145000",
+                "rotationw": "0.792814",
+                "rotationx": "0.123010",
+                "rotationy": "-0.586158",
+                "rotationz": "0.112840",
+                "scalex": "1.000022",
+                "scaley": "0.999988",
+                "scalez": "1.000020"
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "DefaultMaterial"
+                    }
+                },
+                "UID": 407570347,
+                "index": 2
+            },
+            "20": {
+                "Active": true,
+                "UID": 753700676,
+                "index": 3
+            },
+            "3": {
+                "ACTIVECAM": true,
+                "ASPECTRATIO": 1.9505913257598877,
+                "Active": true,
+                "CULLINGCAM": true,
+                "FARPLANE": 50.0,
+                "FOV": 51.93714141845703,
+                "NEARPLANE": 0.009999999776482582,
+                "UID": 1625925591,
+                "index": 1
+            }
+        },
+        "Index": 19,
+        "Name": "PositionCamera",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "-1",
+        "Static": false
+    },
     "1987712632": {
         "Active": true,
         "Components": {
@@ -2776,6 +3685,272 @@
         "Parent": "-1",
         "Static": false
     },
+    "1993475547": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1918782181,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/1069898787.mesh"
+                    }
+                },
+                "UID": 1166478119,
+                "index": 1
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/Statistics_Screen/Coin_Behaviour.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "final_coin",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    }
+                },
+                "UID": 2131527947,
+                "index": 2
+            },
+            "15": {
+                "Active": true,
+                "UID": 1544739446,
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "1.000000",
+                "freezePosition_X": "1",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "1",
+                "freezeRotation_X": "1",
+                "freezeRotation_Y": "1",
+                "freezeRotation_Z": "1",
+                "index": 3,
+                "is_kinematic": "0",
+                "linear_damping": "0.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "-3.000000",
+                "linear_velz": "0.000000",
+                "mass": "1072.000000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": true,
+                "UID": 323928206,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "0",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "1.049183",
+                "globalMatrixy": "3.187701",
+                "globalMatrixz": "-1.390459",
+                "globalPositionx": "8.251465",
+                "globalPositiony": "8.294922",
+                "globalPositionz": "1.942276",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "index": 4,
+                "isConvex": "0",
+                "isTrigger": "0",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.072511",
+                "localMatrixy": "0.017576",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.072511",
+                "offsety": "0.017576",
+                "offsetz": "0.000000",
+                "originalScalex": "8.251465",
+                "originalScaley": "8.294922",
+                "originalScalez": "1.942276",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "0.209587",
+                "tmpScaley": "0.210691",
+                "tmpScalez": "0.049334"
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/Statistics_Screen/Coin_Material.mat"
+                    }
+                },
+                "UID": 1154878287,
+                "index": 5
+            }
+        },
+        "Index": 0,
+        "Name": "CoinMesh",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1874553483",
+        "Static": false
+    },
+    "2003633171": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 699033634,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/1069898787.mesh"
+                    }
+                },
+                "UID": 1146224400,
+                "index": 1
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/Statistics_Screen/Coin_Behaviour.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "final_coin",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    }
+                },
+                "UID": 796629880,
+                "index": 2
+            },
+            "15": {
+                "Active": true,
+                "UID": 1256208058,
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "1.000000",
+                "freezePosition_X": "1",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "1",
+                "freezeRotation_X": "1",
+                "freezeRotation_Y": "1",
+                "freezeRotation_Z": "1",
+                "index": 3,
+                "is_kinematic": "0",
+                "linear_damping": "0.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "-3.000000",
+                "linear_velz": "0.000000",
+                "mass": "1072.000000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": true,
+                "UID": 42198296,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "0",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "0.936972",
+                "globalMatrixy": "3.186311",
+                "globalMatrixz": "-1.054166",
+                "globalPositionx": "8.251465",
+                "globalPositiony": "8.294922",
+                "globalPositionz": "1.942276",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "index": 4,
+                "isConvex": "0",
+                "isTrigger": "0",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.072509",
+                "localMatrixy": "0.017576",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.072509",
+                "offsety": "0.017576",
+                "offsetz": "0.000000",
+                "originalScalex": "8.251465",
+                "originalScaley": "8.294922",
+                "originalScalez": "1.942276",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "0.209587",
+                "tmpScaley": "0.210691",
+                "tmpScalez": "0.049334"
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/Statistics_Screen/Coin_Material.mat"
+                    }
+                },
+                "UID": 1123261956,
+                "index": 5
+            }
+        },
+        "Index": 0,
+        "Name": "CoinMesh",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1832640248",
+        "Static": false
+    },
     "202326331": {
         "Active": true,
         "Components": {
@@ -2791,8 +3966,8 @@
                 "rotationy": "-0.000000",
                 "rotationz": "-0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000012",
-                "scalez": "1.000012"
+                "scaley": "1.000027",
+                "scalez": "1.000027"
             }
         },
         "Index": 0,
@@ -2870,6 +4045,272 @@
         "Parent": "2127876057",
         "Static": false
     },
+    "2062146156": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1636381190,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/1069898787.mesh"
+                    }
+                },
+                "UID": 339871993,
+                "index": 1
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/Statistics_Screen/Coin_Behaviour.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "final_coin",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    }
+                },
+                "UID": 1253202007,
+                "index": 2
+            },
+            "15": {
+                "Active": true,
+                "UID": 1211319031,
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "1.000000",
+                "freezePosition_X": "1",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "1",
+                "freezeRotation_X": "1",
+                "freezeRotation_Y": "1",
+                "freezeRotation_Z": "1",
+                "index": 3,
+                "is_kinematic": "0",
+                "linear_damping": "0.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "-3.000000",
+                "linear_velz": "0.000000",
+                "mass": "1072.000000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": true,
+                "UID": 1559439561,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "0",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "1.798577",
+                "globalMatrixy": "3.185161",
+                "globalMatrixz": "-0.057533",
+                "globalPositionx": "8.251465",
+                "globalPositiony": "8.294922",
+                "globalPositionz": "1.942276",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "index": 4,
+                "isConvex": "0",
+                "isTrigger": "0",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.072511",
+                "localMatrixy": "0.017578",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.072511",
+                "offsety": "0.017578",
+                "offsetz": "0.000000",
+                "originalScalex": "8.251465",
+                "originalScaley": "8.294922",
+                "originalScalez": "1.942276",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "0.209587",
+                "tmpScaley": "0.210691",
+                "tmpScalez": "0.049334"
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/Statistics_Screen/Coin_Material.mat"
+                    }
+                },
+                "UID": 1348464648,
+                "index": 5
+            }
+        },
+        "Index": 0,
+        "Name": "CoinMesh",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "242095504",
+        "Static": false
+    },
+    "2074881180": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1459549050,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/1069898787.mesh"
+                    }
+                },
+                "UID": 633201304,
+                "index": 1
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/Statistics_Screen/Coin_Behaviour.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "final_coin",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    }
+                },
+                "UID": 563680168,
+                "index": 2
+            },
+            "15": {
+                "Active": true,
+                "UID": 860811050,
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "1.000000",
+                "freezePosition_X": "1",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "1",
+                "freezeRotation_X": "1",
+                "freezeRotation_Y": "1",
+                "freezeRotation_Z": "1",
+                "index": 3,
+                "is_kinematic": "0",
+                "linear_damping": "0.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "-3.000000",
+                "linear_velz": "0.000000",
+                "mass": "1072.000000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": true,
+                "UID": 699975221,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "0",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "1.743107",
+                "globalMatrixy": "3.182878",
+                "globalMatrixz": "-1.034717",
+                "globalPositionx": "8.251465",
+                "globalPositiony": "8.294922",
+                "globalPositionz": "1.942276",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "index": 4,
+                "isConvex": "0",
+                "isTrigger": "0",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.072511",
+                "localMatrixy": "0.017576",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.072511",
+                "offsety": "0.017576",
+                "offsetz": "0.000000",
+                "originalScalex": "8.251465",
+                "originalScaley": "8.294922",
+                "originalScalez": "1.942276",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "0.209587",
+                "tmpScaley": "0.210691",
+                "tmpScalez": "0.049334"
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/Statistics_Screen/Coin_Material.mat"
+                    }
+                },
+                "UID": 1382703162,
+                "index": 5
+            }
+        },
+        "Index": 0,
+        "Name": "CoinMesh",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1137984293",
+        "Static": false
+    },
     "209885560": {
         "Active": true,
         "Components": {
@@ -2938,6 +4379,32 @@
         "Parent": "1857441556",
         "Static": false
     },
+    "2112614709": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1193672259,
+                "index": 0,
+                "layer": "0",
+                "positionx": "1.468898",
+                "positiony": "3.187920",
+                "positionz": "-0.221664",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Index": 13,
+        "Name": "geralt_coins_minion_kills",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "-1",
+        "Static": false
+    },
     "2117798207": {
         "Active": true,
         "Components": {
@@ -2953,8 +4420,8 @@
                 "rotationy": "-0.000000",
                 "rotationz": "-0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000012",
-                "scalez": "1.000012"
+                "scaley": "1.000027",
+                "scalez": "1.000027"
             }
         },
         "Index": 0,
@@ -3058,6 +4525,32 @@
         "Parent": "1066565427",
         "Static": false
     },
+    "242095504": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1479422328,
+                "index": 0,
+                "layer": "0",
+                "positionx": "1.796735",
+                "positiony": "3.185161",
+                "positionz": "-0.057087",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Index": 17,
+        "Name": "geralt_coins_potions_shared",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "-1",
+        "Static": false
+    },
     "245839157": {
         "Active": true,
         "Components": {
@@ -3140,9 +4633,9 @@
                 "rotationx": "0.657333",
                 "rotationy": "0.344857",
                 "rotationz": "-0.507625",
-                "scalex": "0.999988",
-                "scaley": "0.999988",
-                "scalez": "0.999988"
+                "scalex": "0.999973",
+                "scaley": "0.999973",
+                "scalez": "0.999973"
             },
             "13": {
                 "Active": true,
@@ -3175,8 +4668,8 @@
                 "rotationy": "-0.000000",
                 "rotationz": "-0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000009",
-                "scalez": "1.000009"
+                "scaley": "1.000024",
+                "scalez": "1.000024"
             }
         },
         "Index": 0,
@@ -3201,8 +4694,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000012",
-                "scalez": "1.000012"
+                "scaley": "1.000027",
+                "scalez": "1.000027"
             }
         },
         "Index": 0,
@@ -3228,7 +4721,7 @@
                 "rotationz": "0.020616",
                 "scalex": "1.000000",
                 "scaley": "0.999991",
-                "scalez": "0.999990"
+                "scalez": "0.999985"
             },
             "13": {
                 "Active": true,
@@ -3280,6 +4773,32 @@
         "Parent": "1262982990",
         "Static": false
     },
+    "298496227": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 406567948,
+                "index": 0,
+                "layer": "0",
+                "positionx": "1.647290",
+                "positiony": "3.179647",
+                "positionz": "-1.434290",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Index": 5,
+        "Name": "jaskier_coins_minion_kills",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "-1",
+        "Static": false
+    },
     "302257487": {
         "Active": true,
         "Components": {
@@ -3329,8 +4848,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000009",
-                "scalez": "1.000009"
+                "scaley": "1.000024",
+                "scalez": "1.000024"
             }
         },
         "Index": 0,
@@ -3338,6 +4857,32 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "752845309",
+        "Static": false
+    },
+    "334798430": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 213990492,
+                "index": 0,
+                "layer": "0",
+                "positionx": "1.380306",
+                "positiony": "3.181610",
+                "positionz": "-1.232787",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Index": 7,
+        "Name": "jaskier_coins_incapacitations",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "-1",
         "Static": false
     },
     "353370385": {
@@ -3406,6 +4951,139 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "865397507",
+        "Static": false
+    },
+    "367521317": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 805790338,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/1069898787.mesh"
+                    }
+                },
+                "UID": 1213811317,
+                "index": 1
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/Statistics_Screen/Coin_Behaviour.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "final_coin",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    }
+                },
+                "UID": 1128707760,
+                "index": 2
+            },
+            "15": {
+                "Active": true,
+                "UID": 1041347936,
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "1.000000",
+                "freezePosition_X": "1",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "1",
+                "freezeRotation_X": "1",
+                "freezeRotation_Y": "1",
+                "freezeRotation_Z": "1",
+                "index": 3,
+                "is_kinematic": "0",
+                "linear_damping": "0.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "-3.000000",
+                "linear_velz": "0.000000",
+                "mass": "1072.000000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": true,
+                "UID": 636729536,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "0",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "1.890746",
+                "globalMatrixy": "3.195787",
+                "globalMatrixz": "-0.378881",
+                "globalPositionx": "8.251465",
+                "globalPositiony": "8.294922",
+                "globalPositionz": "1.942276",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "index": 4,
+                "isConvex": "0",
+                "isTrigger": "0",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.072511",
+                "localMatrixy": "0.017579",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.072511",
+                "offsety": "0.017579",
+                "offsetz": "0.000000",
+                "originalScalex": "8.251465",
+                "originalScaley": "8.294922",
+                "originalScalez": "1.942276",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "0.209587",
+                "tmpScaley": "0.210691",
+                "tmpScalez": "0.049334"
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/Statistics_Screen/Coin_Material.mat"
+                    }
+                },
+                "UID": 122923972,
+                "index": 5
+            }
+        },
+        "Index": 0,
+        "Name": "CoinMesh",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1251220274",
         "Static": false
     },
     "376977179": {
@@ -3525,8 +5203,8 @@
                 "rotationy": "0.349669",
                 "rotationz": "-0.504977",
                 "scalex": "1.000000",
-                "scaley": "1.000009",
-                "scalez": "1.000009"
+                "scaley": "1.000024",
+                "scalez": "1.000024"
             },
             "13": {
                 "Active": true,
@@ -3748,6 +5426,405 @@
         "Parent": "1443597254",
         "Static": false
     },
+    "471340350": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1554338457,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/1069898787.mesh"
+                    }
+                },
+                "UID": 749258820,
+                "index": 1
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/Statistics_Screen/Coin_Behaviour.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "final_coin",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    }
+                },
+                "UID": 1770521590,
+                "index": 2
+            },
+            "15": {
+                "Active": true,
+                "UID": 2069763237,
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "1.000000",
+                "freezePosition_X": "1",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "1",
+                "freezeRotation_X": "1",
+                "freezeRotation_Y": "1",
+                "freezeRotation_Z": "1",
+                "index": 3,
+                "is_kinematic": "0",
+                "linear_damping": "0.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "-3.000000",
+                "linear_velz": "0.000000",
+                "mass": "1072.000000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": true,
+                "UID": 686125830,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "0",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "2.166455",
+                "globalMatrixy": "3.168084",
+                "globalMatrixz": "-0.060462",
+                "globalPositionx": "8.251465",
+                "globalPositiony": "8.294922",
+                "globalPositionz": "1.942276",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "index": 4,
+                "isConvex": "0",
+                "isTrigger": "0",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.072511",
+                "localMatrixy": "0.017578",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.072511",
+                "offsety": "0.017578",
+                "offsetz": "0.000000",
+                "originalScalex": "8.251465",
+                "originalScaley": "8.294922",
+                "originalScalez": "1.942276",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "0.209587",
+                "tmpScaley": "0.210691",
+                "tmpScalez": "0.049334"
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/Statistics_Screen/Coin_Material.mat"
+                    }
+                },
+                "UID": 370521034,
+                "index": 5
+            }
+        },
+        "Index": 0,
+        "Name": "CoinMesh",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "598622235",
+        "Static": false
+    },
+    "543385777": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 520150031,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/1069898787.mesh"
+                    }
+                },
+                "UID": 348568890,
+                "index": 1
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/Statistics_Screen/Coin_Behaviour.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "final_coin",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    }
+                },
+                "UID": 1149479590,
+                "index": 2
+            },
+            "15": {
+                "Active": true,
+                "UID": 1940429935,
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "1.000000",
+                "freezePosition_X": "1",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "1",
+                "freezeRotation_X": "1",
+                "freezeRotation_Y": "1",
+                "freezeRotation_Z": "1",
+                "index": 3,
+                "is_kinematic": "0",
+                "linear_damping": "0.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "-3.000000",
+                "linear_velz": "0.000000",
+                "mass": "1072.000000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": true,
+                "UID": 771239159,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "0",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "1.349648",
+                "globalMatrixy": "3.183449",
+                "globalMatrixz": "-0.947866",
+                "globalPositionx": "8.251465",
+                "globalPositiony": "8.294922",
+                "globalPositionz": "1.942276",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "index": 4,
+                "isConvex": "0",
+                "isTrigger": "0",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.072511",
+                "localMatrixy": "0.017576",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.072511",
+                "offsety": "0.017576",
+                "offsetz": "0.000000",
+                "originalScalex": "8.251465",
+                "originalScaley": "8.294922",
+                "originalScalez": "1.942276",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "0.209587",
+                "tmpScaley": "0.210691",
+                "tmpScalez": "0.049334"
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/Statistics_Screen/Coin_Material.mat"
+                    }
+                },
+                "UID": 1577161054,
+                "index": 5
+            }
+        },
+        "Index": 0,
+        "Name": "CoinMesh",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1273739604",
+        "Static": false
+    },
+    "565748504": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 874323504,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/1069898787.mesh"
+                    }
+                },
+                "UID": 852697769,
+                "index": 1
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/Statistics_Screen/Coin_Behaviour.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "final_coin",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    }
+                },
+                "UID": 633437881,
+                "index": 2
+            },
+            "15": {
+                "Active": true,
+                "UID": 2002021956,
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "1.000000",
+                "freezePosition_X": "1",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "1",
+                "freezeRotation_X": "1",
+                "freezeRotation_Y": "1",
+                "freezeRotation_Z": "1",
+                "index": 3,
+                "is_kinematic": "0",
+                "linear_damping": "0.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "-3.000000",
+                "linear_velz": "0.000000",
+                "mass": "1072.000000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": true,
+                "UID": 344490141,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "0",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "1.470740",
+                "globalMatrixy": "3.187920",
+                "globalMatrixz": "-0.222110",
+                "globalPositionx": "8.251465",
+                "globalPositiony": "8.294922",
+                "globalPositionz": "1.942276",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "index": 4,
+                "isConvex": "0",
+                "isTrigger": "0",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.072511",
+                "localMatrixy": "0.017578",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.072511",
+                "offsety": "0.017578",
+                "offsetz": "0.000000",
+                "originalScalex": "8.251465",
+                "originalScaley": "8.294922",
+                "originalScalez": "1.942276",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "0.209587",
+                "tmpScaley": "0.210691",
+                "tmpScalez": "0.049334"
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/Statistics_Screen/Coin_Material.mat"
+                    }
+                },
+                "UID": 1636261053,
+                "index": 5
+            }
+        },
+        "Index": 0,
+        "Name": "CoinMesh",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "2112614709",
+        "Static": false
+    },
     "570597770": {
         "Active": true,
         "Components": {
@@ -3782,6 +5859,165 @@
         "Parent": "1413143717",
         "Static": false
     },
+    "592579931": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1319736597,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/1069898787.mesh"
+                    }
+                },
+                "UID": 1293782842,
+                "index": 1
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/Statistics_Screen/Coin_Behaviour.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "final_coin",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    }
+                },
+                "UID": 401153114,
+                "index": 2
+            },
+            "15": {
+                "Active": true,
+                "UID": 656120559,
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "1.000000",
+                "freezePosition_X": "1",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "1",
+                "freezeRotation_X": "1",
+                "freezeRotation_Y": "1",
+                "freezeRotation_Z": "1",
+                "index": 3,
+                "is_kinematic": "0",
+                "linear_damping": "0.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "-3.000000",
+                "linear_velz": "0.000000",
+                "mass": "1072.000000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": true,
+                "UID": 644782802,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "0",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "1.649132",
+                "globalMatrixy": "3.179647",
+                "globalMatrixz": "-1.434736",
+                "globalPositionx": "8.251465",
+                "globalPositiony": "8.294922",
+                "globalPositionz": "1.942276",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "index": 4,
+                "isConvex": "0",
+                "isTrigger": "0",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.072511",
+                "localMatrixy": "0.017576",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.072511",
+                "offsety": "0.017576",
+                "offsetz": "0.000000",
+                "originalScalex": "8.251465",
+                "originalScaley": "8.294922",
+                "originalScalez": "1.942276",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "0.209587",
+                "tmpScaley": "0.210691",
+                "tmpScalez": "0.049334"
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/Statistics_Screen/Coin_Material.mat"
+                    }
+                },
+                "UID": 806953538,
+                "index": 5
+            }
+        },
+        "Index": 0,
+        "Name": "CoinMesh",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "298496227",
+        "Static": false
+    },
+    "598622235": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 463485606,
+                "index": 0,
+                "layer": "0",
+                "positionx": "2.164613",
+                "positiony": "3.168084",
+                "positionz": "-0.060016",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Index": 16,
+        "Name": "geralt_coins_objects_destroyed",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "-1",
+        "Static": false
+    },
     "622833356": {
         "Active": true,
         "Components": {
@@ -3797,8 +6033,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000009",
-                "scalez": "1.000009"
+                "scaley": "1.000024",
+                "scalez": "1.000024"
             }
         },
         "Index": 0,
@@ -3857,8 +6093,8 @@
                 "rotationy": "-0.000000",
                 "rotationz": "-0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000009",
-                "scalez": "1.000009"
+                "scaley": "1.000024",
+                "scalez": "1.000024"
             }
         },
         "Index": 0,
@@ -3950,9 +6186,9 @@
                 "rotationx": "0.042407",
                 "rotationy": "0.688440",
                 "rotationz": "0.715631",
-                "scalex": "0.999988",
-                "scaley": "0.999988",
-                "scalez": "0.999988"
+                "scalex": "0.999973",
+                "scaley": "0.999973",
+                "scalez": "0.999973"
             },
             "13": {
                 "Active": true,
@@ -3985,8 +6221,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000009",
-                "scalez": "1.000009"
+                "scaley": "1.000024",
+                "scalez": "1.000024"
             }
         },
         "Index": 0,
@@ -4045,8 +6281,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000012",
-                "scalez": "1.000012"
+                "scaley": "1.000027",
+                "scalez": "1.000027"
             }
         },
         "Index": 0,
@@ -4122,6 +6358,32 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "1006263505",
+        "Static": false
+    },
+    "749696935": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 60271300,
+                "index": 0,
+                "layer": "0",
+                "positionx": "1.630085",
+                "positiony": "3.188725",
+                "positionz": "0.308157",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Index": 12,
+        "Name": "geralt_coins_damage_dealt",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "-1",
         "Static": false
     },
     "752845309": {
@@ -4411,8 +6673,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000012",
-                "scalez": "1.000012"
+                "scaley": "1.000027",
+                "scalez": "1.000027"
             }
         },
         "Index": 0,
@@ -4437,8 +6699,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000009",
-                "scalez": "1.000009"
+                "scaley": "1.000024",
+                "scalez": "1.000024"
             }
         },
         "Index": 0,
@@ -4548,8 +6810,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000009",
-                "scalez": "1.000009"
+                "scaley": "1.000024",
+                "scalez": "1.000024"
             }
         },
         "Index": 0,
@@ -4574,8 +6836,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.000009",
-                "scalez": "1.000009"
+                "scaley": "1.000024",
+                "scalez": "1.000024"
             }
         },
         "Index": 0,
