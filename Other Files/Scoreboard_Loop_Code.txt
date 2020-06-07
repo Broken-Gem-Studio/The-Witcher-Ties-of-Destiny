@@ -1,0 +1,53 @@
+local cycle_stages = {
+	ready = { stage = 1, duration = 1000 },
+	showing_title = { stage = 2, duration = 1000 },
+	spawning_coins = { stage = 3, duration = 500 },	--duration = time_between coin spawns
+	showing_score = { stage = 4, duration = 1000 }
+}
+local current_stage = cycle_ready.stage
+local timestamp = 0
+
+lua_table.coins_finished = 0	--Needs to start at 2
+
+if EndGame == true
+then
+	if current_stage == cycle_stages.ready.stage and game_time - timestamp > cycle_stages.ready.duration
+	then
+		CalculatePhaseData()	--Both Characters, calculate data such as score of each and coins to throw
+		ShowPhaseTitle()
+		timestamp = game_time
+		current_stage = cycle_stages.showing_title.stage
+
+	elseif current_stage == cycle_stages.showing_title.stage and game_time - timestamp > cycle_stages.showing_title.duration
+	then
+		current_stage = cycle_stages.spawning_coins.stage
+
+	elseif current_stage == cycle_stages.spawning_coins.stage and game_time - timestamp > cycle_stages.spawning_coins.duration
+	then
+		-- HOW IT WORKS
+		-- SpawnCoins() spawns 1 coin for each character if its counter > 0, then does counter - 1
+		-- If after a spawning a coin the counter of that character == 0, mark the spawned coin's bool "coin_script.last_coin" as TRUE, which is FALSE by default
+		-- OnCollisionEnter of the coin will check if lua_table.last_coin == TRUE, and if it is it will do <scoreboard_script.coins_finished = scoreboard_script.coins_finished + 1>
+		
+		-- This process requires script interaction, so that the scoreboard marks the coin as "last_coin" and this coin saves that scoreboard script to later add 1 to "coins_finished"
+		-- This can be achieved using the GetScript() engine function
+
+		if SpawnCoins()	-- Function returns true if any of the two has the counter > 0 after spawning coin
+		then			
+			timestamp = game_time
+		elseif lua_table.coins_finished == 2 or game_time - timestamp > 3000	--3000 = time failsave
+		then
+			ShowCharacterScores()
+			lua_table.coins_finished = 0
+			timestamp = game_time
+			current_stage = cycle_stages.showing_score.stage
+		end
+		
+	elseif current_stage == cycle_stages.showing_score and game_time - timestamp > cycle_stages.showing_score.duration
+	then
+		HideCharacterScores()
+		HidePhaseTitle()
+		timestamp = game_time
+		current_stage = cycle_stages.ready.stage
+	end
+end
