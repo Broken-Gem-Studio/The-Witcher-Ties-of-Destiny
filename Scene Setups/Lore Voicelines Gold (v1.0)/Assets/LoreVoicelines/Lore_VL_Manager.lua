@@ -11,14 +11,13 @@ function lua_table:Awake()
 end
 
 function lua_table:Start()
-    PlayGuardLine()
 end
 
 function lua_table:Update()
 end
 
 function lua_table:PlayGuardLine()
-    lua_table.Audio:PlayAudioEventGO("Play_Dialogue_1", my_UID)
+    lua_table.Audio:PlayAudioEventGO("Play_Guard_Line", my_UID)
 end
 
 function lua_table:PlayD8LeadTheWay()
@@ -43,6 +42,14 @@ end
 
 function lua_table:PlayJaskierChest()
     lua_table.Audio:PlayAudioEventGO("Play_Jaskier_find_chest", my_UID)
+end
+
+function lua_table:PlayDoorLocked()
+    lua_table.Audio:PlayAudioEventGO("Play_Locked_And_No_Key_In_Sight", my_UID)
+end
+
+function lua_table:HordesStart()
+    lua_table.Audio:PlayAudioEventGO("Play_Wave_Incoming", my_UID)
 end
 
 return lua_table
