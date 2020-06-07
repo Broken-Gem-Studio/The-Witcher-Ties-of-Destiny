@@ -13301,7 +13301,11 @@
 						</Folder>
 						<Folder Name="Performance" ID="{95D3B66A-B1EE-42D1-B600-78B158C21496}" ShortID="194317545">
 							<ChildrenList>
-								<Sound Name="better than i thought" ID="{251A6C26-DD7B-48CC-9EEB-F2AA5BF7D7EE}" ShortID="227846209">
+								<RandomSequenceContainer Name="Performance_Geralt_win" ID="{846C5C70-F481-43B3-97CF-B50E0E840C1B}" ShortID="473785495">
+									<PropertyList>
+										<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+										<Property Name="RandomOrSequence" Type="int16" Value="0"/>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -13311,26 +13315,7 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="better than i thought" ID="{2F27FAF8-1024-435C-9403-ACC5DBE6E640}" ShortID="868308846">
-											<Language>SFX</Language>
-											<AudioFile>better than i thought.wav</AudioFile>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="better than i thought" ID="{2F27FAF8-1024-435C-9403-ACC5DBE6E640}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<RandomSequenceContainer Name="Performance_Jaskier_win" ID="{1B61307D-5888-4316-AF20-7C2B1CFAC69C}" ShortID="95800402">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<Sound Name="Ah, finally made it" ID="{3D304BDD-886B-4F10-AE4C-20CCB4A32D69}" ShortID="398323023">
+										<RandomSequenceContainer Name="Performance_Geralt_win" ID="{BB643014-7831-4C15-B35D-96A417AEF6D5}" ShortID="325567443">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -13340,19 +13325,47 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="Ah, finally made it" ID="{BB23A658-CBE8-427B-B2DC-E1CD5C2CBD70}" ShortID="482859090">
-													<Language>SFX</Language>
-													<AudioFile>Ah, finally made it.wav</AudioFile>
-													<ConvertedFileIDList>
-														<File ID="796192713"/>
-													</ConvertedFileIDList>
-												</AudioFileSource>
+												<Sound Name="Begone_Youve_Lost" ID="{450A625F-4AB3-4E4A-830D-2640A7188B32}" ShortID="592005333">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Begone_Youve_Lost" ID="{1B133511-E342-41E6-B459-5FB34141CEA3}" ShortID="351215324">
+															<Language>SFX</Language>
+															<AudioFile>Begone_Youve_Lost.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Begone_Youve_Lost" ID="{1B133511-E342-41E6-B459-5FB34141CEA3}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Easy" ID="{B8A2FD91-0C98-42FF-9A8C-4E8F977FDB7D}" ShortID="934331808">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Easy" ID="{4A016119-ECA7-4BDC-B329-F0A483B5077A}" ShortID="911714140">
+															<Language>SFX</Language>
+															<AudioFile>Easy.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Easy" ID="{4A016119-ECA7-4BDC-B329-F0A483B5077A}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
 											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Ah, finally made it" ID="{BB23A658-CBE8-427B-B2DC-E1CD5C2CBD70}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="But just so you know, it wasn_t easy_ In fact, it was pretty damn hard" ID="{DC415A28-1FA1-4593-BA4C-AE9AC2B0E474}" ShortID="952148239">
+										</RandomSequenceContainer>
+										<Sound Name="better than i thought" ID="{251A6C26-DD7B-48CC-9EEB-F2AA5BF7D7EE}" ShortID="227846209">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -13362,21 +13375,26 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="But just so you know, it wasn_t easy_ In fact, it was pretty damn hard" ID="{5D28806B-4B75-4463-9BCE-A694AD993AFF}" ShortID="892373973">
+												<AudioFileSource Name="better than i thought" ID="{2F27FAF8-1024-435C-9403-ACC5DBE6E640}" ShortID="868308846">
 													<Language>SFX</Language>
-													<AudioFile>But just so you know, it wasn_t easy. In fact, it was pretty damn hard.wav</AudioFile>
-													<ConvertedFileIDList>
-														<File ID="680254282"/>
-													</ConvertedFileIDList>
+													<AudioFile>better than i thought.wav</AudioFile>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
-												<ActiveSource Name="But just so you know, it wasn_t easy_ In fact, it was pretty damn hard" ID="{5D28806B-4B75-4463-9BCE-A694AD993AFF}" Platform="Linked"/>
+												<ActiveSource Name="better than i thought" ID="{2F27FAF8-1024-435C-9403-ACC5DBE6E640}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
 									</ChildrenList>
+									<Playlist>
+										<ItemRef Name="Performance_Geralt_win" ID="{BB643014-7831-4C15-B35D-96A417AEF6D5}"/>
+										<ItemRef Name="better than i thought" ID="{251A6C26-DD7B-48CC-9EEB-F2AA5BF7D7EE}"/>
+									</Playlist>
 								</RandomSequenceContainer>
-								<RandomSequenceContainer Name="Performance_Geralt_lose" ID="{1ABB6296-A4BA-49EC-A121-2BD35F4EBFD2}" ShortID="851079108">
+								<RandomSequenceContainer Name="Performance_Jaskier_win" ID="{5A4DF07B-D881-416A-87A9-F69729DEF292}" ShortID="190760169">
+									<PropertyList>
+										<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+										<Property Name="RandomOrSequence" Type="int16" Value="0"/>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -13386,7 +13404,7 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<Sound Name="Dammit" ID="{A52BD734-929E-42C4-87C7-EBEEF013A2CA}" ShortID="234605">
+										<RandomSequenceContainer Name="Performance_Geralt_lose" ID="{1ABB6296-A4BA-49EC-A121-2BD35F4EBFD2}" ShortID="851079108">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -13396,19 +13414,53 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="Dammit" ID="{4534ED91-5E19-4FE6-B0EA-908EB5D8220B}" ShortID="816222224">
-													<Language>SFX</Language>
-													<AudioFile>Dammit.wav</AudioFile>
-													<ConvertedFileIDList>
-														<File ID="263785901"/>
-													</ConvertedFileIDList>
-												</AudioFileSource>
+												<Sound Name="Dammit" ID="{A52BD734-929E-42C4-87C7-EBEEF013A2CA}" ShortID="234605">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Dammit" ID="{4534ED91-5E19-4FE6-B0EA-908EB5D8220B}" ShortID="816222224">
+															<Language>SFX</Language>
+															<AudioFile>Dammit.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="263785901"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Dammit" ID="{4534ED91-5E19-4FE6-B0EA-908EB5D8220B}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="not this time" ID="{B69289D0-406F-47F9-A731-5EB9C4E2B4A0}" ShortID="512546674">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="not this time" ID="{A90C3BE4-BE6E-4E6D-8842-4D41C4F4C973}" ShortID="110582133">
+															<Language>SFX</Language>
+															<AudioFile>not this time.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="955659762"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="not this time" ID="{A90C3BE4-BE6E-4E6D-8842-4D41C4F4C973}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
 											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Dammit" ID="{4534ED91-5E19-4FE6-B0EA-908EB5D8220B}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="not this time" ID="{B69289D0-406F-47F9-A731-5EB9C4E2B4A0}" ShortID="512546674">
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="Performance_Jaskier_win" ID="{1B61307D-5888-4316-AF20-7C2B1CFAC69C}" ShortID="95800402">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -13418,69 +13470,57 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="not this time" ID="{A90C3BE4-BE6E-4E6D-8842-4D41C4F4C973}" ShortID="110582133">
-													<Language>SFX</Language>
-													<AudioFile>not this time.wav</AudioFile>
-													<ConvertedFileIDList>
-														<File ID="955659762"/>
-													</ConvertedFileIDList>
-												</AudioFileSource>
+												<Sound Name="Ah, finally made it" ID="{3D304BDD-886B-4F10-AE4C-20CCB4A32D69}" ShortID="398323023">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Ah, finally made it" ID="{BB23A658-CBE8-427B-B2DC-E1CD5C2CBD70}" ShortID="482859090">
+															<Language>SFX</Language>
+															<AudioFile>Ah, finally made it.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="796192713"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Ah, finally made it" ID="{BB23A658-CBE8-427B-B2DC-E1CD5C2CBD70}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="But just so you know, it wasn_t easy_ In fact, it was pretty damn hard" ID="{DC415A28-1FA1-4593-BA4C-AE9AC2B0E474}" ShortID="952148239">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="But just so you know, it wasn_t easy_ In fact, it was pretty damn hard" ID="{5D28806B-4B75-4463-9BCE-A694AD993AFF}" ShortID="892373973">
+															<Language>SFX</Language>
+															<AudioFile>But just so you know, it wasn_t easy. In fact, it was pretty damn hard.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="680254282"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="But just so you know, it wasn_t easy_ In fact, it was pretty damn hard" ID="{5D28806B-4B75-4463-9BCE-A694AD993AFF}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
 											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="not this time" ID="{A90C3BE4-BE6E-4E6D-8842-4D41C4F4C973}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
+										</RandomSequenceContainer>
 									</ChildrenList>
-								</RandomSequenceContainer>
-								<RandomSequenceContainer Name="Performance_Geralt_win" ID="{BB643014-7831-4C15-B35D-96A417AEF6D5}" ShortID="325567443">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<Sound Name="Begone_Youve_Lost" ID="{450A625F-4AB3-4E4A-830D-2640A7188B32}" ShortID="592005333">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Begone_Youve_Lost" ID="{1B133511-E342-41E6-B459-5FB34141CEA3}" ShortID="351215324">
-													<Language>SFX</Language>
-													<AudioFile>Begone_Youve_Lost.wav</AudioFile>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Begone_Youve_Lost" ID="{1B133511-E342-41E6-B459-5FB34141CEA3}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="Easy" ID="{B8A2FD91-0C98-42FF-9A8C-4E8F977FDB7D}" ShortID="934331808">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Easy" ID="{4A016119-ECA7-4BDC-B329-F0A483B5077A}" ShortID="911714140">
-													<Language>SFX</Language>
-													<AudioFile>Easy.wav</AudioFile>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Easy" ID="{4A016119-ECA7-4BDC-B329-F0A483B5077A}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-									</ChildrenList>
+									<Playlist>
+										<ItemRef Name="Performance_Jaskier_win" ID="{1B61307D-5888-4316-AF20-7C2B1CFAC69C}"/>
+										<ItemRef Name="Performance_Geralt_lose" ID="{1ABB6296-A4BA-49EC-A121-2BD35F4EBFD2}"/>
+									</Playlist>
 								</RandomSequenceContainer>
 							</ChildrenList>
 						</Folder>

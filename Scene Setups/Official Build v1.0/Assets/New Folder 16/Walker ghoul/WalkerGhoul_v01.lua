@@ -660,13 +660,6 @@ function lua_table:Update()
     CalculateDistances()
     dt = lua_table.SystemFunctions:DT()
 
-    if lua_table.InputFunctions:KeyDown("D")
-    then
-        lua_table.MaterialFunctions:SetMaterialByName("HitMaterial.mat", meshUUID)
-        lastTimeWhite = lua_table.SystemFunctions:GameTime()
-        white = true
-    end
-
     if lua_table.DistanceToCamera < maxDistanceToCamera
     then
         -- Handle ghoul states
