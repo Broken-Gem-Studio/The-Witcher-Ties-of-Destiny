@@ -115,8 +115,10 @@ local audio_library = {
 	-- stun = "Play_Jaskier_stun",
 	hurt = "Play_Jaskier_hit_sound",
 
-	walk = "Play_Jaskier_walk_run_dirt",
-	run = "Play_Jaskier_walk_run_dirt",
+	move = "Play_Jaskier_walk_run_dirt",
+	move_switch = "Jaskier_walk_run_switch",
+	walk_state = "Walk",
+	run_state = "Run",
 
 	evade = "Play_Jaskier_jump",
 	ultimate_recharged = "Play_Jaskier_Ultimate_Available",
@@ -815,8 +817,9 @@ local function GoDefaultState(change_blend_time)
 			lua_table.AnimationFunctions:PlayAnimation(animation_library.run, lua_table.run_animation_speed, jaskier_GO_UID)
 			current_animation = animation_library.run
 
-			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.run, jaskier_GO_UID)	--TODO-AUDIO: Play run sound
-			current_audio = audio_library.run
+			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.move, jaskier_GO_UID)	--TODO-AUDIO: Play run sound
+			lua_table.AudioFunctions:SetAudioSwitch(audio_library.move_switch, audio_library.run_state, jaskier_GO_UID)
+			current_audio = audio_library.move
 
 			lua_table.current_velocity = run_velocity
 			lua_table.current_state = state.run
@@ -828,8 +831,9 @@ local function GoDefaultState(change_blend_time)
 			lua_table.AnimationFunctions:PlayAnimation(animation_library.walk, lua_table.walk_animation_speed, jaskier_GO_UID)
 			current_animation = animation_library.walk
 
-			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.walk, jaskier_GO_UID)	--TODO-AUDIO: Play walk sound
-			current_audio = audio_library.walk
+			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.move, jaskier_GO_UID)	--TODO-AUDIO: Play walk sound
+			lua_table.AudioFunctions:SetAudioSwitch(audio_library.move_switch, audio_library.walk_state, jaskier_GO_UID)
+			current_audio = audio_library.move
 
 			lua_table.current_velocity = walk_velocity
 			lua_table.current_state = state.walk
@@ -1266,8 +1270,9 @@ local function MovementInputs()	--Process Movement Inputs
 				lua_table.AnimationFunctions:PlayAnimation(animation_library.run, lua_table.run_animation_speed, jaskier_GO_UID)
 				current_animation = animation_library.run
 
-				lua_table.AudioFunctions:PlayAudioEventGO(audio_library.run, jaskier_GO_UID)	--TODO-AUDIO: Play run sound
-				current_audio = audio_library.run
+				lua_table.AudioFunctions:PlayAudioEventGO(audio_library.move, jaskier_GO_UID)	--TODO-AUDIO: Play run sound
+				lua_table.AudioFunctions:SetAudioSwitch(audio_library.move_switch, audio_library.run_state, jaskier_GO_UID)
+				current_audio = audio_library.move
 
 				for i = 1, #particles_library.run_particles_GO_UID_children do
 					lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.run_particles_GO_UID_children[i])	--TODO-Particles:
@@ -1279,8 +1284,9 @@ local function MovementInputs()	--Process Movement Inputs
 				lua_table.AnimationFunctions:PlayAnimation(animation_library.walk, lua_table.walk_animation_speed, jaskier_GO_UID)
 				current_animation = animation_library.walk
 
-				lua_table.AudioFunctions:PlayAudioEventGO(audio_library.walk, jaskier_GO_UID)	--TODO-AUDIO: Play walk sound
-				current_audio = audio_library.walk
+				lua_table.AudioFunctions:PlayAudioEventGO(audio_library.move, jaskier_GO_UID)	--TODO-AUDIO: Play walk sound
+				lua_table.AudioFunctions:SetAudioSwitch(audio_library.move_switch, audio_library.walk_state, jaskier_GO_UID)
+				current_audio = audio_library.move
 
 				lua_table.current_state = state.walk
 			end
@@ -1292,9 +1298,7 @@ local function MovementInputs()	--Process Movement Inputs
 			lua_table.AnimationFunctions:PlayAnimation(animation_library.run, lua_table.run_animation_speed, jaskier_GO_UID)
 			current_animation = animation_library.run
 
-			lua_table.AudioFunctions:StopAudioEventGO(audio_library.walk, jaskier_GO_UID)
-			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.run, jaskier_GO_UID)	--TODO-AUDIO: Play walk sound
-			current_audio = audio_library.run
+			lua_table.AudioFunctions:SetAudioSwitch(audio_library.move_switch, audio_library.run_state, jaskier_GO_UID)	--TODO-AUDIO: Switch to run
 
 			for i = 1, #particles_library.run_particles_GO_UID_children do
 				lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.run_particles_GO_UID_children[i])	--TODO-Particles:
@@ -1309,9 +1313,7 @@ local function MovementInputs()	--Process Movement Inputs
 			lua_table.AnimationFunctions:PlayAnimation(animation_library.walk, lua_table.walk_animation_speed, jaskier_GO_UID)
 			current_animation = animation_library.walk
 
-			lua_table.AudioFunctions:StopAudioEventGO(audio_library.run, jaskier_GO_UID)
-			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.walk, jaskier_GO_UID)	--TODO-AUDIO: Play walk sound
-			current_audio = audio_library.walk
+			lua_table.AudioFunctions:SetAudioSwitch(audio_library.move_switch, audio_library.walk_state, jaskier_GO_UID)	--TODO-AUDIO: Switch to walk
 
 			for i = 1, #particles_library.run_particles_GO_UID_children do
 				lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.run_particles_GO_UID_children[i])	--TODO-Particles:
@@ -1330,8 +1332,7 @@ local function MovementInputs()	--Process Movement Inputs
 		current_animation = animation_library.idle
 
 		--TODO-AUDIO: Stop current sound event
-		if lua_table.current_state == state.run then lua_table.AudioFunctions:StopAudioEventGO(audio_library.run, jaskier_GO_UID)	--TODO-AUDIO: Stop run sound
-		else lua_table.AudioFunctions:StopAudioEventGO(audio_library.walk, jaskier_GO_UID) end	--TODO-AUDIO: Stop run sound
+		lua_table.AudioFunctions:StopAudioEventGO(audio_library.move, jaskier_GO_UID)
 		current_audio = audio_library.none
 
 		for i = 1, #particles_library.run_particles_GO_UID_children do
@@ -1822,9 +1823,7 @@ local function ActionInputs()	--Process Action Inputs
 				lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.run_particles_GO_UID_children[i])	--TODO-Particles:
 			end
 
-			if lua_table.previous_state == state.walk then lua_table.AudioFunctions:StopAudioEventGO(audio_library.walk, jaskier_GO_UID)
-			elseif lua_table.previous_state == state.run then lua_table.AudioFunctions:StopAudioEventGO(audio_library.run, jaskier_GO_UID)
-			end
+			if lua_table.previous_state == state.walk or lua_table.previous_state == state.run then lua_table.AudioFunctions:StopAudioEventGO(audio_library.move, jaskier_GO_UID) end
 		end
 	end
 
@@ -2903,8 +2902,7 @@ function lua_table:Update()
 								if not lua_table.song_3_effect_active
 								then
 									--lua_table.ParticlesFunctions:PlayParticleEmitter(jaskier_song_3_GO_UID)	--TODO-Particles:
-									lua_table.AudioFunctions:StopAudioEventGO(audio_library.run, jaskier_GO_UID)	--TODO-AUDIO: Stop run sound
-									lua_table.AudioFunctions:StopAudioEventGO(audio_library.walk, jaskier_GO_UID)	--TODO-AUDIO: Stop walk sound
+									lua_table.AudioFunctions:StopAudioEventGO(audio_library.move, jaskier_GO_UID)	--TODO-AUDIO: Stop move sound
 									lua_table.current_velocity = lua_table.mov_velocity_max_orig * lua_table.song_3_moonwalk_velocity_mod	--To mark speed of moonwalk
 
 									lua_table.GameObjectFunctions:SetActiveGameObject(true, attack_colliders.circle_1.GO_UID)	--TODO-Colliders: Check
