@@ -2986,6 +2986,8 @@ function lua_table:Update()
 									for i = 1, #particles_library.concert_GO_UID_children do
 										lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.concert_GO_UID_children[i])	--TODO-Particles:
 									end
+
+									lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.medium.intensity, controller_shake.medium.duration)
 									
 									interval_started_at = game_time
 
