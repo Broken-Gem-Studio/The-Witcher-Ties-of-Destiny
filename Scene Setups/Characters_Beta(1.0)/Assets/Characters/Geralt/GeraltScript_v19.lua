@@ -1301,7 +1301,7 @@ local function MovementInputs()	--Process Movement Inputs
 			lua_table.current_velocity = run_velocity
 			lua_table.AnimationFunctions:PlayAnimation(animation_library.run, lua_table.run_animation_speed, geralt_GO_UID)
 			current_animation = animation_library.run
-			
+
 			lua_table.AudioFunctions:SetAudioSwitch(audio_library.move_switch, audio_library.run_state, geralt_GO_UID)	--TODO-AUDIO: Switch to run
 
 			lua_table.previous_state = lua_table.current_state
