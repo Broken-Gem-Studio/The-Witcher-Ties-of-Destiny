@@ -10,7 +10,7 @@ lua_table.AnimationSystem = Scripting.Animations()
 lua_table.SoundSystem = Scripting.Audio()
 lua_table.ParticleSystem = Scripting.Particles()
 lua_table.NavSystem = Scripting.Navigation()
-
+lua_table.Material = Scripting.Materials()
 --------------------General programming Notes-----------------
 -- @ If want to do an action, call function: DoAction"X"() that activates a bool to later do that action in the HandleState()
 -- @ Every HandleState() Has a ChooseBehaviour() function thta chooses what to do
@@ -637,7 +637,7 @@ local function SeekTarget()
 
 	if RunAnimationController == true
 	then
-		lua_table.AnimationSystem:PlayAnimation("RUN",40.0,MyUID)
+		lua_table.AnimationSystem:PlayAnimation("RUN",30.0,MyUID)
 		ChangeDetectionBehaviour = false
 		RunAnimationController = false
 	end
@@ -1081,14 +1081,32 @@ function lua_table:RequestedTrigger(collider_GO)
 		else
 		 	player_script = lua_table.GameObjectFunctions:GetScript(collider_GO)
 		end
+
 		lua_table.CurrentHealth = lua_table.CurrentHealth - player_script.collider_damage
-		
-		local particles = {}
-		particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("BloodHitParticles", lua_table.General_Emitter_UID))
-		for i = 1, #particles do 
-		    lua_table.ParticleSystem:PlayParticleEmitter(particles[i])
-			--lua_table.SystemFunctions:LOG ("LUMBERJACK PARTICLES HIT NOW") 
-		end
+
+		lua_table.Material:SetMaterialByName("HitMaterial.mat", mesh_gameobject_UID)
+        material_time = PerfGameTime()
+        changed_material = true
+
+		--if collider_GO == lua_table.Geralt_UID
+		--then
+		--	local particles = {}
+		--	particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("BloodHitParticles", lua_table.General_Emitter_UID))
+		--	for i = 1, #particles do 
+		--		lua_table.ParticleSystem:PlayParticleEmitter(particles[i])
+				--lua_table.SystemFunctions:LOG ("LUMBERJACK PARTICLES HIT NOW") 
+		--	end
+		--end
+
+		---if collider_GO == lua_table.Jaskier_UID
+		--then
+		--	local particles = {}
+		--	particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("HitParticles", lua_table.General_Emitter_UID))
+		--	for i = 1, #particles do 
+		--		lua_table.ParticleSystem:PlayParticleEmitter(particles[i])
+				--lua_table.SystemFunctions:LOG ("LUMBERJACK PARTICLES HIT NOW") 
+		--	end
+		--end
 
 		if player_script.collider_effect ~= AttackEffects.none --and lua_table.CurrentSpecialEffect == SpecialEffect.NONE
 		then
