@@ -7,7 +7,7 @@ local cycle_stages = {
 local current_stage = cycle_ready.stage
 local timestamp = 0
 
-lua_table.coins_finished = 0	--Needs to start at 2
+lua_table.coins_finished = 0
 
 if EndGame == true
 then
