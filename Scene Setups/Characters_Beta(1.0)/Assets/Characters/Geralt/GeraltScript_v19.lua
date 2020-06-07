@@ -2509,10 +2509,7 @@ function lua_table:Start()
 end
 
 function lua_table:Update()
-	if geralt_score ~= nil then
-		lua_table.SystemFunctions:LOG("WALOLO: " .. geralt_score[7] .. "--------------------------------------------------------------------------------------------")
-	end
-
+	
 	if gamePaused == nil or gamePaused == false
 	then
 		dt = lua_table.SystemFunctions:DT()
