@@ -115,8 +115,10 @@ local audio_library = {
 	-- stun = "Play_Jaskier_stun",
 	hurt = "Play_Jaskier_hit_sound",
 
-	walk = "Play_Jaskier_walk_run_dirt",
-	run = "Play_Jaskier_walk_run_dirt",
+	move = "Play_Jaskier_walk_run_dirt",
+	move_switch = "Jaskier_walk_run_switch",
+	walk_state = "Walk",
+	run_state = "Run",
 
 	evade = "Play_Jaskier_jump",
 	ultimate_recharged = "Play_Jaskier_Ultimate_Available",
@@ -135,11 +137,11 @@ local audio_library = {
 	potion_pickup = "Play_Potion_pick_up",
 	potion_drop = "Play_Potion_drop",
 
-	--voice_boss_fight = "PLay_Jaskier_VL_boss_fight",		--Boss fight start
-	voice_downed = "PLay_Jaskier_VL_death",					--Character death
-	voice_battle_start = "PLay_Jaskier_VL_start_battle",	--Battle Start
-	voice_battle_end = "PLay_Jaskier_VL_end_battle",		--Battle End
-	--voice_boss_defeated = "PLay_Jaskier_VL_killed_boss",	--Boss Death
+	--voice_boss_fight = "Play_Jaskier_VL_boss_fight",		--Boss fight start
+	voice_downed = "Play_Jaskier_VL_death",					--Character death
+	voice_battle_start = "Play_Jaskier_VL_start_battle",	--Battle Start
+	voice_battle_end = "Play_Jaskier_VL_end_battle",		--Battle End
+	--voice_boss_defeated = "Play_Jaskier_VL_killed_boss",	--Boss Death
 	voice_low_health = "Play_Jaskier_VL_low_health",		--Low Health
 	voice_revive_ally = "Play_Jaskie_VL_revive"				--Revive Ally
 }
@@ -224,15 +226,15 @@ local near_death_playing = false
 	--Damage Stat
 	local base_damage_real
 	lua_table.base_damage_mod = 1.0
-	lua_table.base_damage_orig = 30
+	lua_table.base_damage_orig = 1.0
 
-local critical_chance_real
-lua_table.critical_chance_add = 0
-lua_table.critical_chance_orig = 0
+-- local critical_chance_real
+-- lua_table.critical_chance_add = 0
+-- lua_table.critical_chance_orig = 0
 
-local critical_damage_real
-lua_table.critical_damage_add = 0
-lua_table.critical_damage_orig = 2.0
+-- local critical_damage_real
+-- lua_table.critical_damage_add = 0
+-- lua_table.critical_damage_orig = 2.0
 
 --Items
 lua_table.potion_health_prefab = 0
@@ -455,7 +457,7 @@ lua_table.energy_reg_orig = 7
 	lua_table.animation_slow_speed = 10.0
 
 --Light Attack
-lua_table.light_damage = 1.0					--Multiplier of Base Damage
+lua_table.light_damage = 25.0					--Multiplier of Base Damage
 
 lua_table.light_3_movement_1_velocity = 7.0
 lua_table.light_3_movement_1_start = 150
@@ -487,12 +489,12 @@ lua_table.light_3_animation_speed = 60.0
 
 lua_table.light_3 = { 'N', 'L', 'L', 'L' }
 lua_table.light_3_size = 3
-lua_table.light_3_damage = 1.25
+lua_table.light_3_damage = 34.0
 lua_table.light_3_effect = attack_effects_ID.knockback
 lua_table.light_3_effect_value = 0
 
 --Medium Attack
-lua_table.medium_damage = 1.5					--Multiplier of Base Damage
+lua_table.medium_damage = 50.0					--Multiplier of Base Damage
 
 lua_table.medium_1_movement_velocity = 5.0
 lua_table.medium_1_movement_start = 200
@@ -528,12 +530,12 @@ lua_table.medium_3_animation_speed = 40.0
 
 lua_table.medium_3 = { 'N', 'M', 'M', 'M' }
 lua_table.medium_3_size = 3
-lua_table.medium_3_damage = 1.75
+lua_table.medium_3_damage = 64.0
 lua_table.medium_3_effect = attack_effects_ID.stun
 lua_table.medium_3_effect_value = 500
 
 --Heavy Attack
-lua_table.heavy_damage = 2.0				--Multiplier of Base Damage
+lua_table.heavy_damage = 75.0				--Multiplier of Base Damage
 
 lua_table.heavy_1_movement_velocity = 3.0
 lua_table.heavy_1_movement_start = 250
@@ -570,7 +572,7 @@ lua_table.heavy_3_animation_speed = 40.0
 
 lua_table.heavy_3 = { 'N', 'H', 'H', 'H' }
 lua_table.heavy_3_size = 3
-lua_table.heavy_3_damage = 2.25
+lua_table.heavy_3_damage = 100.0
 lua_table.heavy_3_effect = attack_effects_ID.knockback
 lua_table.heavy_3_effect_value = 0
 
@@ -601,7 +603,7 @@ lua_table.note_stack = { 'N', 'N', 'N', 'N' }	-- Notes based on attacks performe
 	lua_table.song_1_duration = 1440
 	lua_table.song_1_animation_name = animation_library.one_handed_slam
 	lua_table.song_1_animation_speed = 50.0
-	lua_table.song_1_damage = 4.0
+	lua_table.song_1_damage = 150.0
 	lua_table.song_1_status_effect = attack_effects_ID.none
 	lua_table.song_1_effect_value = 0
 
@@ -617,7 +619,7 @@ lua_table.note_stack = { 'N', 'N', 'N', 'N' }	-- Notes based on attacks performe
 	lua_table.song_2_duration = 1700
 	lua_table.song_2_animation_name = animation_library.two_handed_slam
 	lua_table.song_2_animation_speed = 50.0
-	lua_table.song_2_damage = 3.0
+	lua_table.song_2_damage = 75.0
 	lua_table.song_2_status_effect = attack_effects_ID.stun
 	lua_table.song_2_effect_value = 2000
 
@@ -650,7 +652,7 @@ lua_table.note_stack = { 'N', 'N', 'N', 'N' }	-- Notes based on attacks performe
 	lua_table.song_3_secondary_effect_active = false
 	lua_table.song_3_secondary_animation_name = animation_library.two_handed_slam
 	lua_table.song_3_secondary_animation_speed = 50.0
-	lua_table.song_3_secondary_damage = 5.0
+	lua_table.song_3_secondary_damage = 125.0
 	lua_table.song_3_secondary_status_effect = attack_effects_ID.knockback
 	lua_table.song_3_secondary_effect_value = 0
 
@@ -665,19 +667,19 @@ lua_table.ultimate_reg_orig = 1.5	--1 minute between ultimates
 lua_table.ultimate_active = false
 
 local interval_started_at = 0
-lua_table.ultimate_damage_interval = 1000
-lua_table.ultimate_effect_end = 3000
+lua_table.ultimate_damage_interval = 1100
+lua_table.ultimate_effect_end = 3300
 lua_table.ultimate_effect_active = false
-lua_table.ultimate_duration = 4700
+lua_table.ultimate_duration = 5000
 lua_table.ultimate_animation_speed = 30.0
-lua_table.ultimate_damage = 4.0
+lua_table.ultimate_damage = 100.0
 lua_table.ultimate_status_effect = attack_effects_ID.none
 
-lua_table.ultimate_secondary_effect_start = 3850
-lua_table.ultimate_secondary_effect_end = 3950
+lua_table.ultimate_secondary_effect_start = 4150
+lua_table.ultimate_secondary_effect_end = 4250
 lua_table.ultimate_secondary_effect_active = false
 lua_table.ultimate_secondary_animation_speed = 50.0
-lua_table.ultimate_secondary_damage = 2.5
+lua_table.ultimate_secondary_damage = 200.0
 lua_table.ultimate_secondary_status_effect = attack_effects_ID.knockback
 lua_table.ultimate_secondary_effect_value = 0
 
@@ -815,8 +817,9 @@ local function GoDefaultState(change_blend_time)
 			lua_table.AnimationFunctions:PlayAnimation(animation_library.run, lua_table.run_animation_speed, jaskier_GO_UID)
 			current_animation = animation_library.run
 
-			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.run, jaskier_GO_UID)	--TODO-AUDIO: Play run sound
-			current_audio = audio_library.run
+			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.move, jaskier_GO_UID)	--TODO-AUDIO: Play run sound
+			lua_table.AudioFunctions:SetAudioSwitch(audio_library.move_switch, audio_library.run_state, jaskier_GO_UID)
+			current_audio = audio_library.move
 
 			lua_table.current_velocity = run_velocity
 			lua_table.current_state = state.run
@@ -828,8 +831,9 @@ local function GoDefaultState(change_blend_time)
 			lua_table.AnimationFunctions:PlayAnimation(animation_library.walk, lua_table.walk_animation_speed, jaskier_GO_UID)
 			current_animation = animation_library.walk
 
-			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.walk, jaskier_GO_UID)	--TODO-AUDIO: Play walk sound
-			current_audio = audio_library.walk
+			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.move, jaskier_GO_UID)	--TODO-AUDIO: Play walk sound
+			lua_table.AudioFunctions:SetAudioSwitch(audio_library.move_switch, audio_library.walk_state, jaskier_GO_UID)
+			current_audio = audio_library.move
 
 			lua_table.current_velocity = walk_velocity
 			lua_table.current_state = state.walk
@@ -865,8 +869,8 @@ local function CalculateStats()
 
 	--Damage
 	base_damage_real = lua_table.base_damage_orig * lua_table.base_damage_mod
-	critical_chance_real = lua_table.critical_chance_orig + lua_table.critical_chance_add
-	critical_damage_real = lua_table.critical_damage_orig + lua_table.critical_damage_add
+	-- critical_chance_real = lua_table.critical_chance_orig + lua_table.critical_chance_add
+	-- critical_damage_real = lua_table.critical_damage_orig + lua_table.critical_damage_add
 
 	--Speed
 	run_velocity = lua_table.mov_velocity_max_orig * lua_table.mov_velocity_max_mod
@@ -1266,8 +1270,9 @@ local function MovementInputs()	--Process Movement Inputs
 				lua_table.AnimationFunctions:PlayAnimation(animation_library.run, lua_table.run_animation_speed, jaskier_GO_UID)
 				current_animation = animation_library.run
 
-				lua_table.AudioFunctions:PlayAudioEventGO(audio_library.run, jaskier_GO_UID)	--TODO-AUDIO: Play run sound
-				current_audio = audio_library.run
+				lua_table.AudioFunctions:PlayAudioEventGO(audio_library.move, jaskier_GO_UID)	--TODO-AUDIO: Play run sound
+				lua_table.AudioFunctions:SetAudioSwitch(audio_library.move_switch, audio_library.run_state, jaskier_GO_UID)
+				current_audio = audio_library.move
 
 				for i = 1, #particles_library.run_particles_GO_UID_children do
 					lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.run_particles_GO_UID_children[i])	--TODO-Particles:
@@ -1279,8 +1284,9 @@ local function MovementInputs()	--Process Movement Inputs
 				lua_table.AnimationFunctions:PlayAnimation(animation_library.walk, lua_table.walk_animation_speed, jaskier_GO_UID)
 				current_animation = animation_library.walk
 
-				lua_table.AudioFunctions:PlayAudioEventGO(audio_library.walk, jaskier_GO_UID)	--TODO-AUDIO: Play walk sound
-				current_audio = audio_library.walk
+				lua_table.AudioFunctions:PlayAudioEventGO(audio_library.move, jaskier_GO_UID)	--TODO-AUDIO: Play walk sound
+				lua_table.AudioFunctions:SetAudioSwitch(audio_library.move_switch, audio_library.walk_state, jaskier_GO_UID)
+				current_audio = audio_library.move
 
 				lua_table.current_state = state.walk
 			end
@@ -1292,9 +1298,7 @@ local function MovementInputs()	--Process Movement Inputs
 			lua_table.AnimationFunctions:PlayAnimation(animation_library.run, lua_table.run_animation_speed, jaskier_GO_UID)
 			current_animation = animation_library.run
 
-			lua_table.AudioFunctions:StopAudioEventGO(audio_library.walk, jaskier_GO_UID)
-			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.run, jaskier_GO_UID)	--TODO-AUDIO: Play walk sound
-			current_audio = audio_library.run
+			lua_table.AudioFunctions:SetAudioSwitch(audio_library.move_switch, audio_library.run_state, jaskier_GO_UID)	--TODO-AUDIO: Switch to run
 
 			for i = 1, #particles_library.run_particles_GO_UID_children do
 				lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.run_particles_GO_UID_children[i])	--TODO-Particles:
@@ -1309,9 +1313,7 @@ local function MovementInputs()	--Process Movement Inputs
 			lua_table.AnimationFunctions:PlayAnimation(animation_library.walk, lua_table.walk_animation_speed, jaskier_GO_UID)
 			current_animation = animation_library.walk
 
-			lua_table.AudioFunctions:StopAudioEventGO(audio_library.run, jaskier_GO_UID)
-			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.walk, jaskier_GO_UID)	--TODO-AUDIO: Play walk sound
-			current_audio = audio_library.walk
+			lua_table.AudioFunctions:SetAudioSwitch(audio_library.move_switch, audio_library.walk_state, jaskier_GO_UID)	--TODO-AUDIO: Switch to walk
 
 			for i = 1, #particles_library.run_particles_GO_UID_children do
 				lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.run_particles_GO_UID_children[i])	--TODO-Particles:
@@ -1330,8 +1332,7 @@ local function MovementInputs()	--Process Movement Inputs
 		current_animation = animation_library.idle
 
 		--TODO-AUDIO: Stop current sound event
-		if lua_table.current_state == state.run then lua_table.AudioFunctions:StopAudioEventGO(audio_library.run, jaskier_GO_UID)	--TODO-AUDIO: Stop run sound
-		else lua_table.AudioFunctions:StopAudioEventGO(audio_library.walk, jaskier_GO_UID) end	--TODO-AUDIO: Stop run sound
+		lua_table.AudioFunctions:StopAudioEventGO(audio_library.move, jaskier_GO_UID)
 		current_audio = audio_library.none
 
 		for i = 1, #particles_library.run_particles_GO_UID_children do
@@ -1822,9 +1823,7 @@ local function ActionInputs()	--Process Action Inputs
 				lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.run_particles_GO_UID_children[i])	--TODO-Particles:
 			end
 
-			if lua_table.previous_state == state.walk then lua_table.AudioFunctions:StopAudioEventGO(audio_library.walk, jaskier_GO_UID)
-			elseif lua_table.previous_state == state.run then lua_table.AudioFunctions:StopAudioEventGO(audio_library.run, jaskier_GO_UID)
-			end
+			if lua_table.previous_state == state.walk or lua_table.previous_state == state.run then lua_table.AudioFunctions:StopAudioEventGO(audio_library.move, jaskier_GO_UID) end
 		end
 	end
 
@@ -2040,8 +2039,18 @@ end
 
 local function DropItem()
 	if lua_table.inventory[lua_table.item_selected] > 0 then	--IF potions of type left
-		local jaskier_pos = lua_table.TransformFunctions:GetPosition(jaskier_GO_UID)
-		lua_table.SceneFunctions:Instantiate(item_prefabs[lua_table.item_selected], jaskier_pos[1], jaskier_pos[2], jaskier_pos[3], 0.0, 0.0, 0.0)
+		local item_GO = 0
+
+		if item_prefabs[lua_table.item_selected] ~= nil and item_prefabs[lua_table.item_selected] ~= 0 then
+			local jaskier_pos = lua_table.TransformFunctions:GetPosition(jaskier_GO_UID)
+			item_GO = lua_table.SceneFunctions:Instantiate(item_prefabs[lua_table.item_selected], jaskier_pos[1], jaskier_pos[2], jaskier_pos[3], 0.0, 0.0, 0.0) --Instantiate a potion of said type on character Location	
+		end
+		
+		if item_GO ~= nil and item_GO ~= 0 then
+			local item_script = lua_table.GameObjectFunctions:GetScript(item_GO)
+			if item_script ~= nil and item_script.player_owner ~= nil then item_script.player_owner = jaskier_GO_UID end
+		end
+
 		lua_table.AudioFunctions:PlayAudioEventGO(audio_library.potion_drop, jaskier_GO_UID)	--TODO-Audio: Drop potion sound
 
 		if lua_table.shared_inventory[lua_table.item_selected] > 0 then lua_table.shared_inventory[lua_table.item_selected] = lua_table.shared_inventory[lua_table.item_selected] - 1 end	--TODO-Score
@@ -2903,8 +2912,7 @@ function lua_table:Update()
 								if not lua_table.song_3_effect_active
 								then
 									--lua_table.ParticlesFunctions:PlayParticleEmitter(jaskier_song_3_GO_UID)	--TODO-Particles:
-									lua_table.AudioFunctions:StopAudioEventGO(audio_library.run, jaskier_GO_UID)	--TODO-AUDIO: Stop run sound
-									lua_table.AudioFunctions:StopAudioEventGO(audio_library.walk, jaskier_GO_UID)	--TODO-AUDIO: Stop walk sound
+									lua_table.AudioFunctions:StopAudioEventGO(audio_library.move, jaskier_GO_UID)	--TODO-AUDIO: Stop move sound
 									lua_table.current_velocity = lua_table.mov_velocity_max_orig * lua_table.song_3_moonwalk_velocity_mod	--To mark speed of moonwalk
 
 									lua_table.GameObjectFunctions:SetActiveGameObject(true, attack_colliders.circle_1.GO_UID)	--TODO-Colliders: Check
@@ -2986,6 +2994,8 @@ function lua_table:Update()
 									for i = 1, #particles_library.concert_GO_UID_children do
 										lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.concert_GO_UID_children[i])	--TODO-Particles:
 									end
+
+									lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.medium.intensity, controller_shake.medium.duration)
 									
 									interval_started_at = game_time
 

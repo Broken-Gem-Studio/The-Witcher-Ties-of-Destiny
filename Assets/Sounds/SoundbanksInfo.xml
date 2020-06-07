@@ -20,7 +20,7 @@
 				<Event Id="593383832" Name="G_Combo_2" ObjectPath="\Events\Default Work Unit\Geralt\G_Combo_2" GUID="{A8DB60D6-424C-43DE-AB25-9C76A967462A}"/>
 				<Event Id="593383833" Name="G_Combo_3" ObjectPath="\Events\Default Work Unit\Geralt\G_Combo_3" GUID="{F30469BE-C9F9-4EE1-B15F-58F4D8E6A49E}"/>
 				<Event Id="3449812404" Name="Play_Geralt_aard" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_aard" GUID="{86EE0A63-2B4F-45CF-A5F5-BEBABB0C76DA}"/>
-				<Event Id="850689337" Name="Play_Geralt_fall_down_get_up" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_fall_down_get_up" GUID="{F951F82C-5772-43ED-AA1F-5D5778C8D481}"/>
+				<Event Id="850689337" Name="Play_Geralt_fall_down_get_up" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_fall_down_get_up" GUID="{035B6E28-B810-4C23-8E54-129576948DE0}"/>
 				<Event Id="2664027291" Name="Play_Geralt_hit_sound" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_hit_sound" GUID="{39C18EDB-E796-4C45-B8BE-4FADDBCFEC55}"/>
 				<Event Id="109907202" Name="Play_Geralt_light_roll" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_light_roll" GUID="{F36ACDBC-2C7F-4CD6-BA12-0F71D335A582}"/>
 				<Event Id="1207104021" Name="Play_Geralt_naked_roll" ObjectPath="\Events\Default Work Unit\Geralt\Play_Geralt_naked_roll" GUID="{A2940D39-8459-46C1-9880-E1F1A228B254}"/>
@@ -83,10 +83,6 @@
 					<ShortName>Geralt_sword_swing_5.wav</ShortName>
 					<Path>SFX\Geralt_sword_swing_5_10C4C929.wem</Path>
 				</File>
-				<File Id="180178723" Language="SFX">
-					<ShortName>Geralt_fall_down_get_up.wav</ShortName>
-					<Path>SFX\Geralt_fall_down_get_up_10C4C929.wem</Path>
-				</File>
 				<File Id="185787947" Language="SFX">
 					<ShortName>Geralt_hit_sound_1.wav</ShortName>
 					<Path>SFX\Geralt_hit_sound_1_10C4C929.wem</Path>
@@ -118,6 +114,10 @@
 				<File Id="460537679" Language="SFX">
 					<ShortName>Geralt_naked_roll.wav</ShortName>
 					<Path>SFX\Geralt_naked_roll_10C4C929.wem</Path>
+				</File>
+				<File Id="509597881" Language="SFX">
+					<ShortName>Character_fall_down_get_up.wav</ShortName>
+					<Path>SFX\Character_fall_down_get_up_10C4C929.wem</Path>
 				</File>
 				<File Id="521054026" Language="SFX">
 					<ShortName>Geralt_Walk_run_dirt_4.wav</ShortName>
@@ -330,6 +330,7 @@
 			<ShortName>Props</ShortName>
 			<Path>Props.bnk</Path>
 			<IncludedEvents>
+				<Event Id="27935653" Name="Play_Door_new_sound" ObjectPath="\Events\Default Work Unit\Props\Door\Play_Door_new_sound" GUID="{56883F08-02E1-4004-8017-695927D12122}"/>
 				<Event Id="2331601197" Name="Play_Potion_drop" ObjectPath="\Events\Default Work Unit\Props\Play_Potion_drop" GUID="{D613BF1A-1B9E-4929-BE38-59CC83B1FEC9}"/>
 				<Event Id="4277472243" Name="Play_Potion_pick_up" ObjectPath="\Events\Default Work Unit\Props\Play_Potion_pick_up" GUID="{4CB9FC1F-13CD-4F97-BEE8-8E359EDB92E2}"/>
 				<Event Id="2533588661" Name="Play_Prop_hit_wood" ObjectPath="\Events\Default Work Unit\Props\Play_Prop_hit_wood" GUID="{B258C721-CD45-4FFE-B057-49ED960DEAA7}"/>
@@ -379,6 +380,10 @@
 				<File Id="604885141" Language="SFX">
 					<ShortName>Potion pick up.wav</ShortName>
 					<Path>SFX\Potion pick up_10C4C929.wem</Path>
+				</File>
+				<File Id="616449000" Language="SFX">
+					<ShortName>Door_new_sound.wav</ShortName>
+					<Path>SFX\Door_new_sound_10C4C929.wem</Path>
 				</File>
 				<File Id="671728360" Language="SFX">
 					<ShortName>SFX_Loot_4.wav</ShortName>
@@ -701,19 +706,19 @@
 			<IncludedMemoryFiles>
 				<File Id="237417088" Language="SFX">
 					<ShortName>Music_Menu_Comparison_Pirate_Dance.wav</ShortName>
-					<Path>SFX\Music_Menu_Comparison_Pirate_Dance_A1B43D34.wem</Path>
+					<Path>SFX\Music_Menu_Comparison_Pirate_Dance_D79FB2B7.wem</Path>
 				</File>
 				<File Id="665589033" Language="SFX">
 					<ShortName>Music_Menu_Win.wav</ShortName>
-					<Path>SFX\Music_Menu_Win_A1B43D34.wem</Path>
+					<Path>SFX\Music_Menu_Win_D79FB2B7.wem</Path>
 				</File>
 				<File Id="689347614" Language="SFX">
 					<ShortName>Music_Menu_Lost.wav</ShortName>
-					<Path>SFX\Music_Menu_Lost_A1B43D34.wem</Path>
+					<Path>SFX\Music_Menu_Lost_D79FB2B7.wem</Path>
 				</File>
 				<File Id="697497514" Language="SFX">
 					<ShortName>Music\Music_Menu_Main_Captains_Tribute.wav</ShortName>
-					<Path>SFX\Music\Music_Menu_Main_Captains_Tribute_A1B43D34.wem</Path>
+					<Path>SFX\Music\Music_Menu_Main_Captains_Tribute_D79FB2B7.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>
@@ -727,7 +732,7 @@
 				<Event Id="1788677752" Name="J_Combo_3" ObjectPath="\Events\Default Work Unit\Jaskier\J_Combo_3" GUID="{0B98286D-C855-4C64-A98F-F29597F3D574}"/>
 				<Event Id="3196706884" Name="J_moonwalk" ObjectPath="\Events\Default Work Unit\Jaskier\J_moonwalk" GUID="{017160C3-1DFF-4524-9CC8-881075369274}"/>
 				<Event Id="2870416861" Name="J_Ult" ObjectPath="\Events\Default Work Unit\Jaskier\J_Ult" GUID="{19CE520F-E742-452C-98D7-4C4A055FF057}"/>
-				<Event Id="2312986841" Name="Play_Jaskier_fall_down_get_up" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_fall_down_get_up" GUID="{5D66DFE4-C72C-41E2-AE68-8D0DA53CFF01}"/>
+				<Event Id="2312986841" Name="Play_Jaskier_fall_down_get_up" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_fall_down_get_up" GUID="{FB468401-8E1A-4BB3-9902-6ECC11FD0F43}"/>
 				<Event Id="1916833811" Name="Play_Jaskier_guitar_smash" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_guitar_smash" GUID="{A9A2E30F-2DC4-40E0-B2C3-083BB9FE60FC}"/>
 				<Event Id="4022547377" Name="Play_Jaskier_guitar_swing" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_guitar_swing" GUID="{0FF3731B-214F-4576-B23B-85BBF1B89DB2}"/>
 				<Event Id="4169710139" Name="Play_Jaskier_hit_sound" ObjectPath="\Events\Default Work Unit\Jaskier\Play_Jaskier_hit_sound" GUID="{D87EF0B0-396A-4028-B773-BC382A852915}"/>
@@ -787,6 +792,10 @@
 					<ShortName>Jaskier_guitar_swing_6.wav</ShortName>
 					<Path>SFX\Jaskier_guitar_swing_6_10C4C929.wem</Path>
 				</File>
+				<File Id="509597881" Language="SFX">
+					<ShortName>Character_fall_down_get_up.wav</ShortName>
+					<Path>SFX\Character_fall_down_get_up_10C4C929.wem</Path>
+				</File>
 				<File Id="586003345" Language="SFX">
 					<ShortName>Jaskier_jump.wav</ShortName>
 					<Path>SFX\Jaskier_jump_10C4C929.wem</Path>
@@ -826,10 +835,6 @@
 				<File Id="809240755" Language="SFX">
 					<ShortName>Jaskier_Walk_dirt_2.wav</ShortName>
 					<Path>SFX\Jaskier_Walk_dirt_2_10C4C929.wem</Path>
-				</File>
-				<File Id="830769361" Language="SFX">
-					<ShortName>Jaskier_fall_down_get_up.wav</ShortName>
-					<Path>SFX\Jaskier_fall_down_get_up_10C4C929.wem</Path>
 				</File>
 				<File Id="847161361" Language="SFX">
 					<ShortName>Jaskier_hit_sound_1.wav</ShortName>
@@ -989,7 +994,7 @@
 				</File>
 				<File Id="697497514" Language="SFX">
 					<ShortName>Music\Music_Menu_Main_Captains_Tribute.wav</ShortName>
-					<Path>SFX\Music\Music_Menu_Main_Captains_Tribute_A1B43D34.wem</Path>
+					<Path>SFX\Music\Music_Menu_Main_Captains_Tribute_D79FB2B7.wem</Path>
 				</File>
 				<File Id="739128251" Language="SFX">
 					<ShortName>Main_Menu_mouse_over.wav</ShortName>
@@ -1223,9 +1228,9 @@
 			<ShortName>Pause_Music</ShortName>
 			<Path>Pause_Music.bnk</Path>
 			<IncludedMemoryFiles>
-				<File Id="849114426" Language="SFX">
+				<File Id="1022100902" Language="SFX">
 					<ShortName>Music\Music_Menu_Pause_Relaxing_Green_Nature.wav</ShortName>
-					<Path>SFX\Music\Music_Menu_Pause_Relaxing_Green_Nature_A1B43D34.wem</Path>
+					<Path>SFX\Music\Music_Menu_Pause_Relaxing_Green_Nature_D79FB2B7.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>
@@ -1250,10 +1255,8 @@
 				<Event Id="863110628" Name="Play_Locked_And_No_Key_In_Sight" ObjectPath="\Events\Default Work Unit\Voicelines_2\Door\Play_Locked_And_No_Key_In_Sight" GUID="{AEC33BE6-1B6F-472A-A9C7-E270C0AF7B12}"/>
 				<Event Id="683466454" Name="Play_Locked_Portal_Need_To_Find_Key" ObjectPath="\Events\Default Work Unit\Voicelines_2\Door\Play_Locked_Portal_Need_To_Find_Key" GUID="{AEF1214B-CB04-4322-9CEE-32155F0A763C}"/>
 				<Event Id="490906959" Name="Play_Must_Be_The_Key" ObjectPath="\Events\Default Work Unit\Voicelines_2\Door\Play_Must_Be_The_Key" GUID="{4F6ADDA9-D350-402C-9074-EEB24224A48C}"/>
-				<Event Id="375562296" Name="Play_Performance_Geralt_lose" ObjectPath="\Events\Default Work Unit\Voicelines_2\Performance\Play_Performance_Geralt_lose" GUID="{4806EC97-AF03-41C9-B1EF-E10A1399EAB5}"/>
-				<Event Id="2680376019" Name="Play_Performance_Geralt_win" ObjectPath="\Events\Default Work Unit\Voicelines_2\Performance\Play_Performance_Geralt_win" GUID="{5AE683CE-AA42-40DF-9578-4317CAE91BC2}"/>
-				<Event Id="1900915142" Name="Play_Performance_Jaskier_lose" ObjectPath="\Events\Default Work Unit\Voicelines_2\Performance\Play_Performance_Jaskier_lose" GUID="{55D30F96-71A4-485E-AEC8-DA8A00EB8652}"/>
-				<Event Id="865902909" Name="Play_Performance_Jaskier_win" ObjectPath="\Events\Default Work Unit\Voicelines_2\Performance\Play_Performance_Jaskier_win" GUID="{C8287628-45B9-4446-A5BD-D08CB37E7D32}"/>
+				<Event Id="2680376019" Name="Play_Performance_Geralt_win" ObjectPath="\Events\Default Work Unit\Voicelines_2\Performance\Play_Performance_Geralt_win" GUID="{DA6AD266-A025-4E20-ADC8-70CDE6A3F703}"/>
+				<Event Id="865902909" Name="Play_Performance_Jaskier_win" ObjectPath="\Events\Default Work Unit\Voicelines_2\Performance\Play_Performance_Jaskier_win" GUID="{07536014-9753-4AD6-8967-429CFD491A73}"/>
 				<Event Id="4017280242" Name="Play_Select_Geralt" ObjectPath="\Events\Default Work Unit\Voicelines_2\Selection\Play_Select_Geralt" GUID="{71D97004-0917-461D-8224-9869A16A3BB7}"/>
 				<Event Id="608491156" Name="Play_Select_Jaskier" ObjectPath="\Events\Default Work Unit\Voicelines_2\Selection\Play_Select_Jaskier" GUID="{0F93B131-CCE1-4205-8E57-3D84C7B999FB}"/>
 				<Event Id="2682362844" Name="Play_Wave_Incoming" ObjectPath="\Events\Default Work Unit\Voicelines_2\Play_Wave_Incoming" GUID="{5E07B041-7307-43D6-BF24-0BF71938B4C1}"/>
@@ -1464,7 +1467,7 @@
 				</File>
 				<File Id="323414340" Language="SFX">
 					<ShortName>Music_Cinematic_lvl2_Elven_Forest.wav</ShortName>
-					<Path>SFX\Music_Cinematic_lvl2_Elven_Forest_A1B43D34.wem</Path>
+					<Path>SFX\Music_Cinematic_lvl2_Elven_Forest_D79FB2B7.wem</Path>
 				</File>
 				<File Id="451877459" Language="SFX">
 					<ShortName>Lvl2_Ambience_Wind_Loop.wav</ShortName>
@@ -1480,7 +1483,7 @@
 				</File>
 				<File Id="828304743" Language="SFX">
 					<ShortName>lvl2_Intro_conversation_Cutscene.wav</ShortName>
-					<Path>SFX\lvl2_Intro_conversation_Cutscene_A1B43D34.wem</Path>
+					<Path>SFX\lvl2_Intro_conversation_Cutscene_D79FB2B7.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>
@@ -1494,7 +1497,7 @@
 			<IncludedMemoryFiles>
 				<File Id="419561649" Language="SFX">
 					<ShortName>Music_Cinematic_lvl1_The_Ocean_Takes_It_All.wav</ShortName>
-					<Path>SFX\Music_Cinematic_lvl1_The_Ocean_Takes_It_All_A1B43D34.wem</Path>
+					<Path>SFX\Music_Cinematic_lvl1_The_Ocean_Takes_It_All_D79FB2B7.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>
@@ -1609,21 +1612,21 @@
 				<Event Id="814842324" Name="Play_Level_1_Music" ObjectPath="\Events\Default Work Unit\Play_Level_1_Music" GUID="{8B5CD85E-0112-4C48-93BF-7901B8D477D0}"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
-				<File Id="484032302" Language="SFX">
-					<ShortName>Music\Music_Combat_Viking_Ship.wav</ShortName>
-					<Path>SFX\Music\Music_Combat_Viking_Ship_A1B43D34.wem</Path>
+				<File Id="394200934" Language="SFX">
+					<ShortName>Music\Music_Combat_The_Dark_Castle.wav</ShortName>
+					<Path>SFX\Music\Music_Combat_The_Dark_Castle_D79FB2B7.wem</Path>
 				</File>
-				<File Id="849114426" Language="SFX">
-					<ShortName>Music\Music_Menu_Pause_Relaxing_Green_Nature.wav</ShortName>
-					<Path>SFX\Music\Music_Menu_Pause_Relaxing_Green_Nature_A1B43D34.wem</Path>
+				<File Id="483066541" Language="SFX">
+					<ShortName>Music\Music_Combat_Viking_Ship.wav</ShortName>
+					<Path>SFX\Music\Music_Combat_Viking_Ship_D79FB2B7.wem</Path>
 				</File>
 				<File Id="967037437" Language="SFX">
 					<ShortName>Music\Music_Lvl_1_Broken_Village.wav</ShortName>
-					<Path>SFX\Music\Music_Lvl_1_Broken_Village_A1B43D34.wem</Path>
+					<Path>SFX\Music\Music_Lvl_1_Broken_Village_D79FB2B7.wem</Path>
 				</File>
-				<File Id="997267315" Language="SFX">
-					<ShortName>Music\Music_Combat_The_Dark_Castle.wav</ShortName>
-					<Path>SFX\Music\Music_Combat_The_Dark_Castle_A1B43D34.wem</Path>
+				<File Id="1022100902" Language="SFX">
+					<ShortName>Music\Music_Menu_Pause_Relaxing_Green_Nature.wav</ShortName>
+					<Path>SFX\Music\Music_Menu_Pause_Relaxing_Green_Nature_D79FB2B7.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>
@@ -1637,23 +1640,23 @@
 			<IncludedMemoryFiles>
 				<File Id="382083512" Language="SFX">
 					<ShortName>Music_Kikimora_Dungeon of shadows.wav</ShortName>
-					<Path>SFX\Music_Kikimora_Dungeon of shadows_A1B43D34.wem</Path>
+					<Path>SFX\Music_Kikimora_Dungeon of shadows_D79FB2B7.wem</Path>
 				</File>
-				<File Id="484032302" Language="SFX">
+				<File Id="394200934" Language="SFX">
+					<ShortName>Music\Music_Combat_The_Dark_Castle.wav</ShortName>
+					<Path>SFX\Music\Music_Combat_The_Dark_Castle_D79FB2B7.wem</Path>
+				</File>
+				<File Id="483066541" Language="SFX">
 					<ShortName>Music\Music_Combat_Viking_Ship.wav</ShortName>
-					<Path>SFX\Music\Music_Combat_Viking_Ship_A1B43D34.wem</Path>
+					<Path>SFX\Music\Music_Combat_Viking_Ship_D79FB2B7.wem</Path>
 				</File>
 				<File Id="621261315" Language="SFX">
 					<ShortName>Music\Music_Lvl_2_Loop_The village.wav</ShortName>
-					<Path>SFX\Music\Music_Lvl_2_Loop_The village_A1B43D34.wem</Path>
+					<Path>SFX\Music\Music_Lvl_2_Loop_The village_D79FB2B7.wem</Path>
 				</File>
-				<File Id="849114426" Language="SFX">
+				<File Id="1022100902" Language="SFX">
 					<ShortName>Music\Music_Menu_Pause_Relaxing_Green_Nature.wav</ShortName>
-					<Path>SFX\Music\Music_Menu_Pause_Relaxing_Green_Nature_A1B43D34.wem</Path>
-				</File>
-				<File Id="997267315" Language="SFX">
-					<ShortName>Music\Music_Combat_The_Dark_Castle.wav</ShortName>
-					<Path>SFX\Music\Music_Combat_The_Dark_Castle_A1B43D34.wem</Path>
+					<Path>SFX\Music\Music_Menu_Pause_Relaxing_Green_Nature_D79FB2B7.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>

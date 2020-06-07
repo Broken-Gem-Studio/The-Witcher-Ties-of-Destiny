@@ -2,7 +2,7 @@ function GetTableRound()
 local lua_table = {}
 lua_table.System = Scripting.System()
 lua_table.Transform = Scripting.Transform()
-lua_table.Physics = Scripting.Physics()
+lua_table.Scene = Scripting.Scenes()
 
 lua_table.enemy1 = 0
 lua_table.enemy2 = 0
@@ -39,6 +39,7 @@ local position_spawn = 0
 local pos = 0
 
 function lua_table:Spawn()
+    --finished
     if e1_counter == 0 and e2_counter == 0 and e3_counter == 0 and e4_counter == 0 and e5_counter == 0 and e6_counter == 0
     then 
         is_finished = true
@@ -46,6 +47,7 @@ function lua_table:Spawn()
 
     if is_finished == false
     then
+        --get spawn position
         position_spawn = lua_table.System:RandomNumberInRange(1,3)
         if position_spawn == 1
         then
@@ -58,7 +60,8 @@ function lua_table:Spawn()
             pos = lua_table.Transform:GetPosition(lua_table.spawn_pos3)
         end
 
-        if is_final == true
+        --spawn enemy
+        if is_final == true --final enemy
         then
             lua_table.Scene:Instantiate(lua_table.final_enemy, pos[1], pos[2], pos[3], 0, 0, 0)
             is_finished = true

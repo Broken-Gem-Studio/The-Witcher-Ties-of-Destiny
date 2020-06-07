@@ -27,17 +27,6 @@
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="Play_Jaskier_fall_down_get_up" ID="{5D66DFE4-C72C-41E2-AE68-8D0DA53CFF01}">
-							<ChildrenList>
-								<Action Name="" ID="{B777F07E-F928-412E-82FA-055526AF7E17}" ShortID="469005306">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Jaskier_fall_down_get_up" ID="{8E7589BF-DD2F-49B1-923B-7D5CE20609DF}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
 						<Event Name="Play_Jaskier_hit_sound" ID="{D87EF0B0-396A-4028-B773-BC382A852915}">
 							<ChildrenList>
 								<Action Name="" ID="{3C3EA8F5-AD6A-4C63-BACF-B2A9395BFC4C}" ShortID="110148242">
@@ -170,6 +159,17 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Play_Jaskier_fall_down_get_up" ID="{FB468401-8E1A-4BB3-9902-6ECC11FD0F43}">
+							<ChildrenList>
+								<Action Name="" ID="{9099D604-F471-412B-9994-74B609D28BE6}" ShortID="82560445">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Character_fall_down_get_up" ID="{C790ED16-85C0-4C9C-BFE7-70DFFC66A328}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Geralt" ID="{E5CACF5E-D61C-4297-A0DC-A83B9BE30E76}" ShortID="721827375">
@@ -191,17 +191,6 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Geralt_Ultimate_Updated" ID="{2959061A-79B9-4045-85DD-810DA208E118}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Play_Geralt_fall_down_get_up" ID="{F951F82C-5772-43ED-AA1F-5D5778C8D481}">
-							<ChildrenList>
-								<Action Name="" ID="{C532806C-F335-4D37-8C7A-767A7A78C695}" ShortID="465992439">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Geralt_fall_down_get_up" ID="{C8F47D34-98CC-4C66-832B-39DCDF0166C8}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -356,6 +345,17 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Geralt_Ultimate_active" ID="{166FE126-61D8-48FE-81AC-390357653BB1}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Geralt_fall_down_get_up" ID="{035B6E28-B810-4C23-8E54-129576948DE0}">
+							<ChildrenList>
+								<Action Name="" ID="{BC97A6A3-6E85-4209-B360-DFA2B3AAFB69}" ShortID="959628369">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Character_fall_down_get_up" ID="{C790ED16-85C0-4C9C-BFE7-70DFFC66A328}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -977,6 +977,17 @@
 											<ReferenceList>
 												<Reference Name="Target">
 													<ObjectRef Name="SFX_Door_2" ID="{FB55F264-037A-4690-8165-559CAC8D36E3}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Door_new_sound" ID="{56883F08-02E1-4004-8017-695927D12122}">
+									<ChildrenList>
+										<Action Name="" ID="{B658A54F-0502-4ED3-8168-ECC777A44625}" ShortID="655938499">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Door_new_sound" ID="{036B523A-DFE1-4DD2-AD91-96E7F97D16DA}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
 												</Reference>
 											</ReferenceList>
 										</Action>
