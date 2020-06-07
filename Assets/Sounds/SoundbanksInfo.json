@@ -51,7 +51,7 @@
       "Id": "850689337",
       "Name": "Play_Geralt_fall_down_get_up",
       "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_fall_down_get_up",
-      "GUID": "{F951F82C-5772-43ED-AA1F-5D5778C8D481}"
+      "GUID": "{035B6E28-B810-4C23-8E54-129576948DE0}"
      },
      {
       "Id": "2664027291",
@@ -200,12 +200,6 @@
       "Path": "SFX\\Geralt_sword_swing_5_10C4C929.wem"
      },
      {
-      "Id": "180178723",
-      "Language": "SFX",
-      "ShortName": "Geralt_fall_down_get_up.wav",
-      "Path": "SFX\\Geralt_fall_down_get_up_10C4C929.wem"
-     },
-     {
       "Id": "185787947",
       "Language": "SFX",
       "ShortName": "Geralt_hit_sound_1.wav",
@@ -252,6 +246,12 @@
       "Language": "SFX",
       "ShortName": "Geralt_naked_roll.wav",
       "Path": "SFX\\Geralt_naked_roll_10C4C929.wem"
+     },
+     {
+      "Id": "509597881",
+      "Language": "SFX",
+      "ShortName": "Character_fall_down_get_up.wav",
+      "Path": "SFX\\Character_fall_down_get_up_10C4C929.wem"
      },
      {
       "Id": "521054026",
@@ -630,6 +630,12 @@
     "Path": "Props.bnk",
     "IncludedEvents": [
      {
+      "Id": "27935653",
+      "Name": "Play_Door_new_sound",
+      "ObjectPath": "\\Events\\Default Work Unit\\Props\\Door\\Play_Door_new_sound",
+      "GUID": "{56883F08-02E1-4004-8017-695927D12122}"
+     },
+     {
       "Id": "2331601197",
       "Name": "Play_Potion_drop",
       "ObjectPath": "\\Events\\Default Work Unit\\Props\\Play_Potion_drop",
@@ -756,6 +762,12 @@
       "Language": "SFX",
       "ShortName": "Potion pick up.wav",
       "Path": "SFX\\Potion pick up_10C4C929.wem"
+     },
+     {
+      "Id": "616449000",
+      "Language": "SFX",
+      "ShortName": "Door_new_sound.wav",
+      "Path": "SFX\\Door_new_sound_10C4C929.wem"
      },
      {
       "Id": "671728360",
@@ -1393,25 +1405,25 @@
       "Id": "237417088",
       "Language": "SFX",
       "ShortName": "Music_Menu_Comparison_Pirate_Dance.wav",
-      "Path": "SFX\\Music_Menu_Comparison_Pirate_Dance_A1B43D34.wem"
+      "Path": "SFX\\Music_Menu_Comparison_Pirate_Dance_D79FB2B7.wem"
      },
      {
       "Id": "665589033",
       "Language": "SFX",
       "ShortName": "Music_Menu_Win.wav",
-      "Path": "SFX\\Music_Menu_Win_A1B43D34.wem"
+      "Path": "SFX\\Music_Menu_Win_D79FB2B7.wem"
      },
      {
       "Id": "689347614",
       "Language": "SFX",
       "ShortName": "Music_Menu_Lost.wav",
-      "Path": "SFX\\Music_Menu_Lost_A1B43D34.wem"
+      "Path": "SFX\\Music_Menu_Lost_D79FB2B7.wem"
      },
      {
       "Id": "697497514",
       "Language": "SFX",
       "ShortName": "Music\\Music_Menu_Main_Captains_Tribute.wav",
-      "Path": "SFX\\Music\\Music_Menu_Main_Captains_Tribute_A1B43D34.wem"
+      "Path": "SFX\\Music\\Music_Menu_Main_Captains_Tribute_D79FB2B7.wem"
      }
     ]
    },
@@ -1457,7 +1469,7 @@
       "Id": "2312986841",
       "Name": "Play_Jaskier_fall_down_get_up",
       "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_fall_down_get_up",
-      "GUID": "{5D66DFE4-C72C-41E2-AE68-8D0DA53CFF01}"
+      "GUID": "{FB468401-8E1A-4BB3-9902-6ECC11FD0F43}"
      },
      {
       "Id": "1916833811",
@@ -1588,6 +1600,12 @@
       "Path": "SFX\\Jaskier_guitar_swing_6_10C4C929.wem"
      },
      {
+      "Id": "509597881",
+      "Language": "SFX",
+      "ShortName": "Character_fall_down_get_up.wav",
+      "Path": "SFX\\Character_fall_down_get_up_10C4C929.wem"
+     },
+     {
       "Id": "586003345",
       "Language": "SFX",
       "ShortName": "Jaskier_jump.wav",
@@ -1646,12 +1664,6 @@
       "Language": "SFX",
       "ShortName": "Jaskier_Walk_dirt_2.wav",
       "Path": "SFX\\Jaskier_Walk_dirt_2_10C4C929.wem"
-     },
-     {
-      "Id": "830769361",
-      "Language": "SFX",
-      "ShortName": "Jaskier_fall_down_get_up.wav",
-      "Path": "SFX\\Jaskier_fall_down_get_up_10C4C929.wem"
      },
      {
       "Id": "847161361",
@@ -1951,7 +1963,7 @@
       "Id": "697497514",
       "Language": "SFX",
       "ShortName": "Music\\Music_Menu_Main_Captains_Tribute.wav",
-      "Path": "SFX\\Music\\Music_Menu_Main_Captains_Tribute_A1B43D34.wem"
+      "Path": "SFX\\Music\\Music_Menu_Main_Captains_Tribute_D79FB2B7.wem"
      },
      {
       "Id": "739128251",
@@ -2336,10 +2348,10 @@
     "Path": "Pause_Music.bnk",
     "IncludedMemoryFiles": [
      {
-      "Id": "849114426",
+      "Id": "1022100902",
       "Language": "SFX",
       "ShortName": "Music\\Music_Menu_Pause_Relaxing_Green_Nature.wav",
-      "Path": "SFX\\Music\\Music_Menu_Pause_Relaxing_Green_Nature_A1B43D34.wem"
+      "Path": "SFX\\Music\\Music_Menu_Pause_Relaxing_Green_Nature_D79FB2B7.wem"
      }
     ]
    },
@@ -2448,28 +2460,16 @@
       "GUID": "{4F6ADDA9-D350-402C-9074-EEB24224A48C}"
      },
      {
-      "Id": "375562296",
-      "Name": "Play_Performance_Geralt_lose",
-      "ObjectPath": "\\Events\\Default Work Unit\\Voicelines_2\\Performance\\Play_Performance_Geralt_lose",
-      "GUID": "{4806EC97-AF03-41C9-B1EF-E10A1399EAB5}"
-     },
-     {
       "Id": "2680376019",
       "Name": "Play_Performance_Geralt_win",
       "ObjectPath": "\\Events\\Default Work Unit\\Voicelines_2\\Performance\\Play_Performance_Geralt_win",
-      "GUID": "{5AE683CE-AA42-40DF-9578-4317CAE91BC2}"
-     },
-     {
-      "Id": "1900915142",
-      "Name": "Play_Performance_Jaskier_lose",
-      "ObjectPath": "\\Events\\Default Work Unit\\Voicelines_2\\Performance\\Play_Performance_Jaskier_lose",
-      "GUID": "{55D30F96-71A4-485E-AEC8-DA8A00EB8652}"
+      "GUID": "{DA6AD266-A025-4E20-ADC8-70CDE6A3F703}"
      },
      {
       "Id": "865902909",
       "Name": "Play_Performance_Jaskier_win",
       "ObjectPath": "\\Events\\Default Work Unit\\Voicelines_2\\Performance\\Play_Performance_Jaskier_win",
-      "GUID": "{C8287628-45B9-4446-A5BD-D08CB37E7D32}"
+      "GUID": "{07536014-9753-4AD6-8967-429CFD491A73}"
      },
      {
       "Id": "4017280242",
@@ -2825,7 +2825,7 @@
       "Id": "323414340",
       "Language": "SFX",
       "ShortName": "Music_Cinematic_lvl2_Elven_Forest.wav",
-      "Path": "SFX\\Music_Cinematic_lvl2_Elven_Forest_A1B43D34.wem"
+      "Path": "SFX\\Music_Cinematic_lvl2_Elven_Forest_D79FB2B7.wem"
      },
      {
       "Id": "451877459",
@@ -2849,7 +2849,7 @@
       "Id": "828304743",
       "Language": "SFX",
       "ShortName": "lvl2_Intro_conversation_Cutscene.wav",
-      "Path": "SFX\\lvl2_Intro_conversation_Cutscene_A1B43D34.wem"
+      "Path": "SFX\\lvl2_Intro_conversation_Cutscene_D79FB2B7.wem"
      }
     ]
    },
@@ -2873,7 +2873,7 @@
       "Id": "419561649",
       "Language": "SFX",
       "ShortName": "Music_Cinematic_lvl1_The_Ocean_Takes_It_All.wav",
-      "Path": "SFX\\Music_Cinematic_lvl1_The_Ocean_Takes_It_All_A1B43D34.wem"
+      "Path": "SFX\\Music_Cinematic_lvl1_The_Ocean_Takes_It_All_D79FB2B7.wem"
      }
     ]
    },
@@ -3122,28 +3122,28 @@
     ],
     "IncludedMemoryFiles": [
      {
-      "Id": "484032302",
+      "Id": "394200934",
       "Language": "SFX",
-      "ShortName": "Music\\Music_Combat_Viking_Ship.wav",
-      "Path": "SFX\\Music\\Music_Combat_Viking_Ship_A1B43D34.wem"
+      "ShortName": "Music\\Music_Combat_The_Dark_Castle.wav",
+      "Path": "SFX\\Music\\Music_Combat_The_Dark_Castle_D79FB2B7.wem"
      },
      {
-      "Id": "849114426",
+      "Id": "483066541",
       "Language": "SFX",
-      "ShortName": "Music\\Music_Menu_Pause_Relaxing_Green_Nature.wav",
-      "Path": "SFX\\Music\\Music_Menu_Pause_Relaxing_Green_Nature_A1B43D34.wem"
+      "ShortName": "Music\\Music_Combat_Viking_Ship.wav",
+      "Path": "SFX\\Music\\Music_Combat_Viking_Ship_D79FB2B7.wem"
      },
      {
       "Id": "967037437",
       "Language": "SFX",
       "ShortName": "Music\\Music_Lvl_1_Broken_Village.wav",
-      "Path": "SFX\\Music\\Music_Lvl_1_Broken_Village_A1B43D34.wem"
+      "Path": "SFX\\Music\\Music_Lvl_1_Broken_Village_D79FB2B7.wem"
      },
      {
-      "Id": "997267315",
+      "Id": "1022100902",
       "Language": "SFX",
-      "ShortName": "Music\\Music_Combat_The_Dark_Castle.wav",
-      "Path": "SFX\\Music\\Music_Combat_The_Dark_Castle_A1B43D34.wem"
+      "ShortName": "Music\\Music_Menu_Pause_Relaxing_Green_Nature.wav",
+      "Path": "SFX\\Music\\Music_Menu_Pause_Relaxing_Green_Nature_D79FB2B7.wem"
      }
     ]
    },
@@ -3167,31 +3167,31 @@
       "Id": "382083512",
       "Language": "SFX",
       "ShortName": "Music_Kikimora_Dungeon of shadows.wav",
-      "Path": "SFX\\Music_Kikimora_Dungeon of shadows_A1B43D34.wem"
+      "Path": "SFX\\Music_Kikimora_Dungeon of shadows_D79FB2B7.wem"
      },
      {
-      "Id": "484032302",
+      "Id": "394200934",
+      "Language": "SFX",
+      "ShortName": "Music\\Music_Combat_The_Dark_Castle.wav",
+      "Path": "SFX\\Music\\Music_Combat_The_Dark_Castle_D79FB2B7.wem"
+     },
+     {
+      "Id": "483066541",
       "Language": "SFX",
       "ShortName": "Music\\Music_Combat_Viking_Ship.wav",
-      "Path": "SFX\\Music\\Music_Combat_Viking_Ship_A1B43D34.wem"
+      "Path": "SFX\\Music\\Music_Combat_Viking_Ship_D79FB2B7.wem"
      },
      {
       "Id": "621261315",
       "Language": "SFX",
       "ShortName": "Music\\Music_Lvl_2_Loop_The village.wav",
-      "Path": "SFX\\Music\\Music_Lvl_2_Loop_The village_A1B43D34.wem"
+      "Path": "SFX\\Music\\Music_Lvl_2_Loop_The village_D79FB2B7.wem"
      },
      {
-      "Id": "849114426",
+      "Id": "1022100902",
       "Language": "SFX",
       "ShortName": "Music\\Music_Menu_Pause_Relaxing_Green_Nature.wav",
-      "Path": "SFX\\Music\\Music_Menu_Pause_Relaxing_Green_Nature_A1B43D34.wem"
-     },
-     {
-      "Id": "997267315",
-      "Language": "SFX",
-      "ShortName": "Music\\Music_Combat_The_Dark_Castle.wav",
-      "Path": "SFX\\Music\\Music_Combat_The_Dark_Castle_A1B43D34.wem"
+      "Path": "SFX\\Music\\Music_Menu_Pause_Relaxing_Green_Nature_D79FB2B7.wem"
      }
     ]
    }

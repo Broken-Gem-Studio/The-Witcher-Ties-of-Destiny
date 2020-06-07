@@ -118,8 +118,10 @@ local audio_library = {
 	-- stun = "Play_Geralt_stun",
 	hurt = "Play_Geralt_hit_sound",
 
-	walk = "Play_Geralt_walk_run_dirt",
-	run = "Play_Geralt_walk_run_dirt",
+	move = "Play_Geralt_walk_run_dirt",
+	move_switch = "Geralt_walk_run_switch",
+	walk_state = "Walk",
+	run_state = "Run",
 
 	evade = "Play_Geralt_light_roll",
 	aard = "Play_Geralt_aard",
@@ -833,8 +835,9 @@ local function GoDefaultState(change_blend_time)
 			lua_table.AnimationFunctions:PlayAnimation(animation_library.run, lua_table.run_animation_speed, geralt_GO_UID)
 			current_animation = animation_library.run
 
-			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.run, geralt_GO_UID)	--TODO-AUDIO: Play run sound
-			current_audio = audio_library.run
+			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.move, geralt_GO_UID)	--TODO-AUDIO: Play run sound
+			lua_table.AudioFunctions:SetAudioSwitch(audio_library.move_switch, audio_library.run_state, geralt_GO_UID)
+			current_audio = audio_library.move
 
 			lua_table.current_velocity = run_velocity
 			lua_table.current_state = state.run
@@ -846,8 +849,9 @@ local function GoDefaultState(change_blend_time)
 			lua_table.AnimationFunctions:PlayAnimation(animation_library.walk, lua_table.walk_animation_speed, geralt_GO_UID)
 			current_animation = animation_library.walk
 
-			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.walk, geralt_GO_UID)	--TODO-AUDIO: Play walk sound
-			current_audio = audio_library.walk
+			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.move, geralt_GO_UID)	--TODO-AUDIO: Play walk sound
+			lua_table.AudioFunctions:SetAudioSwitch(audio_library.move_switch, audio_library.walk_state, geralt_GO_UID)
+			current_audio = audio_library.move
 
 			lua_table.current_velocity = walk_velocity
 			lua_table.current_state = state.walk
@@ -1270,8 +1274,9 @@ local function MovementInputs()	--Process Movement Inputs
 				lua_table.AnimationFunctions:PlayAnimation(animation_library.run, lua_table.run_animation_speed, geralt_GO_UID)
 				current_animation = animation_library.run
 
-				lua_table.AudioFunctions:PlayAudioEventGO(audio_library.run, geralt_GO_UID)	--TODO-AUDIO: Play run sound
-				current_audio = audio_library.run
+				lua_table.AudioFunctions:PlayAudioEventGO(audio_library.move, geralt_GO_UID)	--TODO-AUDIO: Play run sound
+				lua_table.AudioFunctions:SetAudioSwitch(audio_library.move_switch, audio_library.run_state, geralt_GO_UID)
+				current_audio = audio_library.move
 
 				for i = 1, #particles_library.run_particles_GO_UID_children do
 					lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.run_particles_GO_UID_children[i])	--TODO-Particles: Activate movement dust particles
@@ -1283,8 +1288,9 @@ local function MovementInputs()	--Process Movement Inputs
 				lua_table.AnimationFunctions:PlayAnimation(animation_library.walk, lua_table.walk_animation_speed, geralt_GO_UID)
 				current_animation = animation_library.walk
 
-				lua_table.AudioFunctions:PlayAudioEventGO(audio_library.walk, geralt_GO_UID)	--TODO-AUDIO: Play walk sound
-				current_audio = audio_library.walk
+				lua_table.AudioFunctions:PlayAudioEventGO(audio_library.move, geralt_GO_UID)	--TODO-AUDIO: Play walk sound
+				lua_table.AudioFunctions:SetAudioSwitch(audio_library.move_switch, audio_library.walk_state, geralt_GO_UID)
+				current_audio = audio_library.move
 
 				lua_table.current_state = state.walk
 			end
@@ -1296,9 +1302,7 @@ local function MovementInputs()	--Process Movement Inputs
 			lua_table.AnimationFunctions:PlayAnimation(animation_library.run, lua_table.run_animation_speed, geralt_GO_UID)
 			current_animation = animation_library.run
 
-			lua_table.AudioFunctions:StopAudioEventGO(audio_library.walk, geralt_GO_UID)
-			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.run, geralt_GO_UID)	--TODO-AUDIO: Play run sound
-			current_audio = audio_library.run
+			lua_table.AudioFunctions:SetAudioSwitch(audio_library.move_switch, audio_library.run_state, geralt_GO_UID)	--TODO-AUDIO: Switch to run
 
 			lua_table.previous_state = lua_table.current_state
 			lua_table.current_state = state.run
@@ -1313,9 +1317,7 @@ local function MovementInputs()	--Process Movement Inputs
 			lua_table.AnimationFunctions:PlayAnimation(animation_library.walk, lua_table.walk_animation_speed, geralt_GO_UID)
 			current_animation = animation_library.walk
 
-			lua_table.AudioFunctions:StopAudioEventGO(audio_library.run, geralt_GO_UID)
-			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.walk, geralt_GO_UID)	--TODO-AUDIO: Play walk sound
-			current_audio = audio_library.walk
+			lua_table.AudioFunctions:SetAudioSwitch(audio_library.move_switch, audio_library.walk_state, geralt_GO_UID)	--TODO-AUDIO: Switch to walk
 
 			for i = 1, #particles_library.run_particles_GO_UID_children do
 				lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.run_particles_GO_UID_children[i])	--TODO-Particles: Activate movement dust particles
@@ -1334,8 +1336,7 @@ local function MovementInputs()	--Process Movement Inputs
 		current_animation = animation_library.idle
 
 		--TODO-AUDIO: Stop current sound event
-		if lua_table.current_state == state.run then lua_table.AudioFunctions:StopAudioEventGO(audio_library.run, geralt_GO_UID)
-		else lua_table.AudioFunctions:StopAudioEventGO(audio_library.walk, geralt_GO_UID) end
+		lua_table.AudioFunctions:StopAudioEventGO(audio_library.move, geralt_GO_UID)
 		current_audio = audio_library.none
 
 		for i = 1, #particles_library.run_particles_GO_UID_children do
@@ -1767,9 +1768,7 @@ local function ActionInputs()	--Process Action Inputs
 				end
 			end
 
-			if lua_table.previous_state == state.walk then lua_table.AudioFunctions:StopAudioEventGO(audio_library.walk, geralt_GO_UID)
-			elseif lua_table.previous_state == state.run then lua_table.AudioFunctions:StopAudioEventGO(audio_library.run, geralt_GO_UID)
-			end
+			if lua_table.previous_state == state.walk or lua_table.previous_state == state.run then lua_table.AudioFunctions:StopAudioEventGO(audio_library.move, geralt_GO_UID) end
 		end
 	end
 
@@ -2028,10 +2027,20 @@ end
 
 local function DropItem()
 	if lua_table.inventory[lua_table.item_selected] > 0 then	--IF potions of type left
-		local geralt_pos = lua_table.TransformFunctions:GetPosition(geralt_GO_UID)
-		lua_table.SceneFunctions:Instantiate(item_prefabs[lua_table.item_selected], geralt_pos[1], geralt_pos[2], geralt_pos[3], 0.0, 0.0, 0.0) --Instantiate a potion of said type on character Location
-		lua_table.AudioFunctions:PlayAudioEventGO(audio_library.potion_drop, geralt_GO_UID)	--TODO-Audio: Drop potion sound
+		local item_GO = 0
+
+		if item_prefabs[lua_table.item_selected] ~= nil and item_prefabs[lua_table.item_selected] ~= 0 then
+			local geralt_pos = lua_table.TransformFunctions:GetPosition(geralt_GO_UID)
+			item_GO = lua_table.SceneFunctions:Instantiate(item_prefabs[lua_table.item_selected], geralt_pos[1], geralt_pos[2], geralt_pos[3], 0.0, 0.0, 0.0) --Instantiate a potion of said type on character Location	
+		end
 		
+		if item_GO ~= nil and item_GO ~= 0 then
+			local item_script = lua_table.GameObjectFunctions:GetScript(item_GO)
+			if item_script ~= nil and item_script.player_owner ~= nil then item_script.player_owner = geralt_GO_UID end
+		end
+
+		lua_table.AudioFunctions:PlayAudioEventGO(audio_library.potion_drop, geralt_GO_UID)	--TODO-Audio: Drop potion sound
+
 		if lua_table.shared_inventory[lua_table.item_selected] > 0 then lua_table.shared_inventory[lua_table.item_selected] = lua_table.shared_inventory[lua_table.item_selected] - 1 end	--TODO-Score
 		lua_table.inventory[lua_table.item_selected] = lua_table.inventory[lua_table.item_selected] - 1	--Remove potion from inventory
 	else
