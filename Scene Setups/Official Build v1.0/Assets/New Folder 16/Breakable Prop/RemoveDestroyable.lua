@@ -22,12 +22,12 @@ function lua_table:Update()
 	if current_time - passed_time > 5
 	then
 		timer = lua_table.System:RealDT()
-		lua_table.scale = lua_table.scale - 0.0001 * 2
+		lua_table.scale = lua_table.scale - 0.0001 * lua_table.scale
 		lua_table.Transform:SetScale(lua_table.scale,lua_table.scale,lua_table.scale,lua_table.myUID)
 	end
 
 	
-	if current_time - passed_time > 7 or lua_table.scale <= 0
+	if lua_table.scale <= 0
 	then
 		lua_table.GameObject:SetActiveGameObject(false,lua_table.parent)
 	end
