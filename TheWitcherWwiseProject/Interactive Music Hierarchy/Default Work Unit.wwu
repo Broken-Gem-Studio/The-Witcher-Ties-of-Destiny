@@ -230,42 +230,7 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
-									<Custom CreatedFrom="{6D1B890C-9826-4384-BF07-C15223E9FB56}">
-										<Conversion Name="Default Conversion Settings (Custom)" ID="{328C3A87-948E-4C64-836C-56DAF4494B28}">
-											<PropertyList>
-												<Property Name="Channels" Type="int32">
-													<ValueList>
-														<Value Platform="Windows">4</Value>
-													</ValueList>
-												</Property>
-												<Property Name="LRMix" Type="Real64">
-													<ValueList>
-														<Value Platform="Windows">0</Value>
-													</ValueList>
-												</Property>
-												<Property Name="MaxSampleRate" Type="int32">
-													<ValueList>
-														<Value Platform="Windows">0</Value>
-													</ValueList>
-												</Property>
-												<Property Name="MinSampleRate" Type="int32">
-													<ValueList>
-														<Value Platform="Windows">0</Value>
-													</ValueList>
-												</Property>
-												<Property Name="SampleRate" Type="int32">
-													<ValueList>
-														<Value Platform="Windows">0</Value>
-													</ValueList>
-												</Property>
-											</PropertyList>
-											<ConversionPluginInfoList>
-												<ConversionPluginInfo Platform="Windows">
-													<ConversionPlugin Name="" ID="{A4EA4454-5E38-44ED-955B-39C86670EA2B}" PluginName="PCM" CompanyID="0" PluginID="1"/>
-												</ConversionPluginInfo>
-											</ConversionPluginInfoList>
-										</Conversion>
-									</Custom>
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
 								</Reference>
 								<Reference Name="OutputBus">
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
@@ -909,42 +874,7 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
-									<Custom CreatedFrom="{6D1B890C-9826-4384-BF07-C15223E9FB56}">
-										<Conversion Name="Default Conversion Settings (Custom)" ID="{28A3564C-F44D-4C9C-AAD2-EAFBFF8F656C}">
-											<PropertyList>
-												<Property Name="Channels" Type="int32">
-													<ValueList>
-														<Value Platform="Windows">4</Value>
-													</ValueList>
-												</Property>
-												<Property Name="LRMix" Type="Real64">
-													<ValueList>
-														<Value Platform="Windows">0</Value>
-													</ValueList>
-												</Property>
-												<Property Name="MaxSampleRate" Type="int32">
-													<ValueList>
-														<Value Platform="Windows">0</Value>
-													</ValueList>
-												</Property>
-												<Property Name="MinSampleRate" Type="int32">
-													<ValueList>
-														<Value Platform="Windows">0</Value>
-													</ValueList>
-												</Property>
-												<Property Name="SampleRate" Type="int32">
-													<ValueList>
-														<Value Platform="Windows">0</Value>
-													</ValueList>
-												</Property>
-											</PropertyList>
-											<ConversionPluginInfoList>
-												<ConversionPluginInfo Platform="Windows">
-													<ConversionPlugin Name="" ID="{30D5DEFB-7ACE-42A2-ACAF-C9C70B295DEE}" PluginName="PCM" CompanyID="0" PluginID="1"/>
-												</ConversionPluginInfo>
-											</ConversionPluginInfoList>
-										</Conversion>
-									</Custom>
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
 								</Reference>
 								<Reference Name="OutputBus">
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>

@@ -79,6 +79,11 @@ local AttackEffects = {
 
 local CurrentAttackEffect = AttackEffects.none
 
+local mesh_gameobject_UID = 0
+local material_time = 0
+local changed_material = false
+
+
 
 --Anim PlayTime
 local AlertDuretion = 2550
@@ -149,6 +154,11 @@ local KnockVector = {}
 local NKvec = {}--normalized KnockVector
 local KnockbackDone = false
 local StunStartTimer = 0
+
+
+-- Stun()
+local StunDuration = 0
+
 --################################################ VARIABLES ############################################
 
 lua_table.player_1 = "Geralt"
@@ -261,15 +271,14 @@ local function VariablesUpdate()
 	MyPosition = lua_table.TransformFunctions:GetPosition(MyUID)
 	dt = lua_table.SystemFunctions:DT()
 
-	--if lua_table.Jaskier_UID ~= 0 
-	--then
-	--	lua_table.JaskierDistance = CalculateDistanceTo(lua_table.GameObjectFunctions:GeraltPos(lua_table.Jaskier_UID))
-	--end
-
-	--if lua_table.Geralt_UID ~= 0 
-	--then
-	--	lua_table.JaskierDistance = CalculateDistanceTo(lua_table.GameObjectFunctions:GeraltPos(lua_table.Geralt_UID))
-	--end
+	if changed_material == true
+	then
+		if CurrentTime - material_time > 100
+		then
+			lua_table.Material:SetMaterialByName("New material 16.mat", mesh_gameobject_UID)
+			changed_material = false
+		end
+	end
 
 	if CurrentTarget_UID ~= 0
 	then
@@ -588,10 +597,6 @@ local function CalculateJumpAttackVelocity()
 			JumpAttackTimer = CurrentTime
 		end
 	end
-
-	--frame = lua_table.AnimationSystem:GetCurrentFrame(MyUID)
-	--if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK FRAMES:                                   CURRENTfRAME = "..frame) end
-	--if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK JA_TIME:                                  DebugTime = "..Timer) end
 
 end
 
@@ -1018,14 +1023,14 @@ local function knockback()
 		TimeKnockBackStarted = PerfGameTime()
 	end
 	--lua_table.SystemFunctions:LOG("LUMBERJACK AttackEffects.knockback VELOCITY"..lua_table.CurrentVelocity)
-	lua_table.CurrentVelocity = 10
+	lua_table.CurrentVelocity = 15
 
 	lua_table.TransformFunctions:LookAt(MyPosition[1] + (CurrentTargetPosition[1] - MyPosition[1]),MyPosition[2],MyPosition[3] + (CurrentTargetPosition[3] - MyPosition[3]),MyUID)
 	
 	--lua_table.SystemFunctions:LOG("LUMBERJACK AttackEffects.knockback CURRENTLY")
 	
 
-	if CurrentTime - TimeKnockBackStarted > 500 or DistanceMagnitude > 15
+	if CurrentTime - TimeKnockBackStarted > 400 or DistanceMagnitude > 15
 	then
 		--lua_table.SystemFunctions:LOG("LUMBERJACK AttackEffects.knockback END")
 		CalculatedKnockback = false
@@ -1052,10 +1057,16 @@ local function Stun()
 		end
 	end
 	
-	if CurrentTime - StunStartTimer > 1000 
+	if CurrentTime - StunStartTimer > StunDuration
 	then
 		CurrentAttackEffect = AttackEffects.none
 		StunAnimation_Controller = false
+		local particles = {}
+		particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("StunParticles", lua_table.General_Emitter_UID))
+		for i = 1, #particles do 
+		    lua_table.ParticleSystem:StopParticleEmitter(particles[i])
+			--lua_table.SystemFunctions:LOG ("LUMBERJACK PARTICLES STUN NOW") 
+		end
 	end
 	
 
@@ -1084,29 +1095,22 @@ function lua_table:RequestedTrigger(collider_GO)
 
 		lua_table.CurrentHealth = lua_table.CurrentHealth - player_script.collider_damage
 
-		lua_table.Material:SetMaterialByName("HitMaterial.mat", mesh_gameobject_UID)
-        material_time = PerfGameTime()
-        changed_material = true
-
-		--if collider_GO == lua_table.Geralt_UID
-		--then
-		--	local particles = {}
-		--	particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("BloodHitParticles", lua_table.General_Emitter_UID))
-		--	for i = 1, #particles do 
-		--		lua_table.ParticleSystem:PlayParticleEmitter(particles[i])
+		if collider_GO == lua_table.Geralt_UID
+		then
+			local particles = {}
+			particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("JumpAttackParticles", lua_table.General_Emitter_UID))
+			for i = 1, #particles do 
+				lua_table.ParticleSystem:PlayParticleEmitter(particles[i])
+				lua_table.SystemFunctions:LOG ("LUMBERJACK PARTICLES HIT NOW") 
+			end
+		else
+			local particles = {}
+			particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("HitParticles", lua_table.General_Emitter_UID))
+			for i = 1, #particles do 
+				lua_table.ParticleSystem:PlayParticleEmitter(particles[i])
 				--lua_table.SystemFunctions:LOG ("LUMBERJACK PARTICLES HIT NOW") 
-		--	end
-		--end
-
-		---if collider_GO == lua_table.Jaskier_UID
-		--then
-		--	local particles = {}
-		--	particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("HitParticles", lua_table.General_Emitter_UID))
-		--	for i = 1, #particles do 
-		--		lua_table.ParticleSystem:PlayParticleEmitter(particles[i])
-				--lua_table.SystemFunctions:LOG ("LUMBERJACK PARTICLES HIT NOW") 
-		--	end
-		--end
+			end
+		end
 
 		if player_script.collider_effect ~= AttackEffects.none --and lua_table.CurrentSpecialEffect == SpecialEffect.NONE
 		then
@@ -1116,7 +1120,7 @@ function lua_table:RequestedTrigger(collider_GO)
 				then
 					CurrentTarget_UID = lua_table.Jaskier_UID
 					local particles = {}
-					particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("BloodHitParticles", lua_table.General_Emitter_UID))
+					particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("AggroParticles", lua_table.General_Emitter_UID))
 					for i = 1, #particles do 
 						 lua_table.ParticleSystem:PlayParticleEmitter(particles[i])
 						 --lua_table.SystemFunctions:LOG ("LUMBERJACK PARTICLES TAUNT NOW") 
@@ -1125,6 +1129,7 @@ function lua_table:RequestedTrigger(collider_GO)
 				if player_script.collider_effect == AttackEffects.stun 
 				then
 					lua_table.SystemFunctions:LOG("player_script.collider_effect == AttackEffects.stun")
+					StunDuration = player_script.collider_stun_duration
 					CurrentAttackEffect = AttackEffects.stun
 				end
 				if player_script.collider_effect == AttackEffects.knockback --and lua_table.CurrentSpecialEffect == SpecialEffect.NONE
@@ -1158,13 +1163,47 @@ function lua_table:OnTriggerEnter()
 		if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK DAMAGE TAKEN = -  	") end
 		lua_table.SystemFunctions:LOG("DAMAGE TAKEN = -  "..player_script.collider_damage)
 
+
+		lua_table.Material:SetMaterialByName("HitMaterial.mat", mesh_gameobject_UID)
+        material_time = PerfGameTime()
+        changed_material = true
+
+		if collider_GO == lua_table.Geralt_UID
+		then
+			local particles = {}
+			particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("JumpAttackParticles", lua_table.General_Emitter_UID))
+			for i = 1, #particles do 
+				lua_table.ParticleSystem:PlayParticleEmitter(particles[i])
+				lua_table.SystemFunctions:LOG ("LUMBERJACK PARTICLES HIT NOW") 
+			end
+		else
+			local particles = {}
+			particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("HitParticles", lua_table.General_Emitter_UID))
+			for i = 1, #particles do 
+				lua_table.ParticleSystem:PlayParticleEmitter(particles[i])
+				--lua_table.SystemFunctions:LOG ("LUMBERJACK PARTICLES HIT NOW") 
+			end
+		end
+
+
 		if player_script.collider_effect ~= AttackEffects.none --and lua_table.CurrentSpecialEffect == SpecialEffect.NONE
 		then
 			if player_script.collider_effect ~= AttackEffects.NONE
 			then
+				if player_script.collider_effect == AttackEffects.taunt
+				then
+					CurrentTarget_UID = lua_table.Jaskier_UID
+					local particles = {}
+					particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("AggroParticles", lua_table.General_Emitter_UID))
+					for i = 1, #particles do 
+						 lua_table.ParticleSystem:PlayParticleEmitter(particles[i])
+						 --lua_table.SystemFunctions:LOG ("LUMBERJACK PARTICLES TAUNT NOW") 
+					end
+				end
 				if player_script.collider_effect == AttackEffects.stun 
 				then
-
+					lua_table.SystemFunctions:LOG("player_script.collider_effect == AttackEffects.stun")
+					StunDuration = player_script.collider_stun_duration
 					CurrentAttackEffect = AttackEffects.stun
 				end
 				if player_script.collider_effect == AttackEffects.knockback --and lua_table.CurrentSpecialEffect == SpecialEffect.NONE
@@ -1217,6 +1256,9 @@ function lua_table:Awake()
 	attack_colliders.front.GO_UID = lua_table.GameObjectFunctions:FindChildGameObject(attack_colliders.front.GO_name)
 	---SET PARTICLES---
 	lua_table.General_Emitter_UID = lua_table.GameObjectFunctions:FindChildGameObject("LumberJack_Particles")
+	---SET MAT UID---
+	mesh_gameobject_UID = lua_table.GameObjectFunctions:FindChildGameObject("Bandit_ToUvs")
+	
 end
 
 
