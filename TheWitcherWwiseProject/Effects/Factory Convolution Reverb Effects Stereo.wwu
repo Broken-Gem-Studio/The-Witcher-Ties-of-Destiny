@@ -10,12 +10,36 @@
 © 2010 Pinguin ing.büro.  All rights reserved.
 IR Pre-delay: 4ms </Comment>
 							<PropertyList>
-								<Property Name="CenterLevel" Type="Real32" Value="-12"/>
-								<Property Name="IRConvolutionSmooth" Type="Real32" Value="12"/>
-								<Property Name="IRConvolutionStop" Type="Real64" Value="1.01459237938597"/>
-								<Property Name="IRConvolutionThreshold" Type="Real32" Value="-79"/>
-								<Property Name="IRLevel" Type="Real32" Value="-21"/>
-								<Property Name="PreDelay" Type="Real32" Value="12"/>
+								<Property Name="CenterLevel" Type="Real32">
+									<ValueList>
+										<Value>-12</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionSmooth" Type="Real32">
+									<ValueList>
+										<Value>12</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionStop" Type="Real64">
+									<ValueList>
+										<Value>1.01459237938597</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionThreshold" Type="Real32">
+									<ValueList>
+										<Value>-79</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLevel" Type="Real32">
+									<ValueList>
+										<Value>-21</Value>
+									</ValueList>
+								</Property>
+								<Property Name="PreDelay" Type="Real32">
+									<ValueList>
+										<Value>12</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ChildrenList>
 								<PluginMediaSource Name="AK Hamburg Echo Chamber" ID="{1EC8D311-6031-4BD4-A538-EDD062C4AC92}" ShortID="538281099">
@@ -24,12 +48,11 @@ IR Pre-delay: 4ms </Comment>
 										<Property Name="DataFileName" Type="string" Value="AK_Factory_IR\Rooms\AK Hamburg Echo Chamber.wav"/>
 									</PropertyList>
 									<ConvertedFileIDList>
-										<File ID="667537848"/>
+										<File ID="185425062"/>
 									</ConvertedFileIDList>
 								</PluginMediaSource>
 							</ChildrenList>
-							<PluginData>
-	<ConvolutionData>
+							<PluginData><ConvolutionData>
 		<CurveList Version="1">
 			<CurveInfo Name="IRGraphicEQ">
 				<Curve Name="" ID="{AE2CDBD7-39B2-4516-AF7B-F03620693923}">
@@ -89,8 +112,7 @@ IR Pre-delay: 4ms </Comment>
 				</Curve>
 			</CurveInfo>
 		</CurveList>
-	</ConvolutionData>
-</PluginData>
+	</ConvolutionData></PluginData>
 						</Effect>
 						<Effect Name="Damped_Chamber_Stereo" ID="{9835E14A-EDDC-4F14-83E9-C44D7B983E1C}" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
 							<Comment>Impulse response created by Pinguin ing.büro
@@ -98,14 +120,46 @@ IR Pre-delay: 4ms </Comment>
 IR Pre-delay: 4ms
 </Comment>
 							<PropertyList>
-								<Property Name="CenterLevel" Type="Real32" Value="-12"/>
-								<Property Name="IRConvolutionSmooth" Type="Real32" Value="19"/>
-								<Property Name="IRConvolutionStop" Type="Real64" Value="0.311367598684207"/>
-								<Property Name="IRConvolutionThreshold" Type="Real32" Value="-58"/>
-								<Property Name="IRLPFAutomate" Type="bool" Value="True"/>
-								<Property Name="IRLevel" Type="Real32" Value="-20"/>
-								<Property Name="IRStretch" Type="Real32" Value="97"/>
-								<Property Name="PreDelay" Type="Real32" Value="13"/>
+								<Property Name="CenterLevel" Type="Real32">
+									<ValueList>
+										<Value>-12</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionSmooth" Type="Real32">
+									<ValueList>
+										<Value>19</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionStop" Type="Real64">
+									<ValueList>
+										<Value>0.311367598684207</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionThreshold" Type="Real32">
+									<ValueList>
+										<Value>-58</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLPFAutomate" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLevel" Type="Real32">
+									<ValueList>
+										<Value>-20</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRStretch" Type="Real32">
+									<ValueList>
+										<Value>97</Value>
+									</ValueList>
+								</Property>
+								<Property Name="PreDelay" Type="Real32">
+									<ValueList>
+										<Value>13</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ChildrenList>
 								<PluginMediaSource Name="AK Hamburg Echo Chamber" ID="{21702E7B-FF1F-4F93-85D5-A60DAA1F4682}" ShortID="185425062">
@@ -113,13 +167,9 @@ IR Pre-delay: 4ms
 									<PropertyList>
 										<Property Name="DataFileName" Type="string" Value="AK_Factory_IR\Rooms\AK Hamburg Echo Chamber.wav"/>
 									</PropertyList>
-									<ConvertedFileIDList>
-										<File ID="538281099"/>
-									</ConvertedFileIDList>
 								</PluginMediaSource>
 							</ChildrenList>
-							<PluginData>
-	<ConvolutionData>
+							<PluginData><ConvolutionData>
 		<CurveList Version="1">
 			<CurveInfo Name="IRGraphicEQ">
 				<Curve Name="" ID="{555FB4A6-C29B-49A7-AD73-45989A812F33}">
@@ -184,8 +234,7 @@ IR Pre-delay: 4ms
 				</Curve>
 			</CurveInfo>
 		</CurveList>
-	</ConvolutionData>
-</PluginData>
+	</ConvolutionData></PluginData>
 						</Effect>
 						<Effect Name="Blue_Reflective_Room_Stereo" ID="{3802F6E2-C426-42F5-8A0F-A118110A5EF8}" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
 							<Comment>Impulse response created by Pinguin ing.büro
@@ -193,10 +242,26 @@ IR Pre-delay: 4ms
 IR Pre-delay: 8ms 
 </Comment>
 							<PropertyList>
-								<Property Name="CenterLevel" Type="Real32" Value="-12"/>
-								<Property Name="IRConvolutionStop" Type="Real64" Value="0.656770250822369"/>
-								<Property Name="IRLevel" Type="Real32" Value="-26"/>
-								<Property Name="PreDelay" Type="Real32" Value="7"/>
+								<Property Name="CenterLevel" Type="Real32">
+									<ValueList>
+										<Value>-12</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionStop" Type="Real64">
+									<ValueList>
+										<Value>0.656770250822369</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLevel" Type="Real32">
+									<ValueList>
+										<Value>-26</Value>
+									</ValueList>
+								</Property>
+								<Property Name="PreDelay" Type="Real32">
+									<ValueList>
+										<Value>7</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ChildrenList>
 								<PluginMediaSource Name="AK Blue Noise_Room" ID="{220EFEE1-7F13-4EA4-80D2-7E6E197BA77E}" ShortID="358895006">
@@ -205,12 +270,11 @@ IR Pre-delay: 8ms
 										<Property Name="DataFileName" Type="string" Value="AK_Factory_IR\Rooms\AK Blue Noise Room 01.wav"/>
 									</PropertyList>
 									<ConvertedFileIDList>
-										<File ID="477192351"/>
+										<File ID="238341605"/>
 									</ConvertedFileIDList>
 								</PluginMediaSource>
 							</ChildrenList>
-							<PluginData>
-	<ConvolutionData>
+							<PluginData><ConvolutionData>
 		<CurveList Version="1">
 			<CurveInfo Name="IRGraphicEQ">
 				<Curve Name="" ID="{5B183C70-5A49-495E-8972-6D4F765342E1}">
@@ -275,8 +339,7 @@ IR Pre-delay: 8ms
 				</Curve>
 			</CurveInfo>
 		</CurveList>
-	</ConvolutionData>
-</PluginData>
+	</ConvolutionData></PluginData>
 						</Effect>
 						<Effect Name="Resonant_Room_Stereo" ID="{9C83D35E-C112-418E-A78B-0D5343C76236}" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
 							<Comment>Impulse response created by Pinguin ing.büro
@@ -285,13 +348,41 @@ IR Pre-delay: 8ms
 
 </Comment>
 							<PropertyList>
-								<Property Name="CenterLevel" Type="Real32" Value="-12"/>
-								<Property Name="IRConvolutionStop" Type="Real64" Value="0.586774328399123"/>
-								<Property Name="IRConvolutionThreshold" Type="Real32" Value="-48"/>
-								<Property Name="IRLevel" Type="Real32" Value="-27"/>
-								<Property Name="IRStretch" Type="Real32" Value="88"/>
-								<Property Name="PreDelay" Type="Real32" Value="7"/>
-								<Property Name="StereoWidth" Type="Real32" Value="140"/>
+								<Property Name="CenterLevel" Type="Real32">
+									<ValueList>
+										<Value>-12</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionStop" Type="Real64">
+									<ValueList>
+										<Value>0.586774328399123</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionThreshold" Type="Real32">
+									<ValueList>
+										<Value>-48</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLevel" Type="Real32">
+									<ValueList>
+										<Value>-27</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRStretch" Type="Real32">
+									<ValueList>
+										<Value>88</Value>
+									</ValueList>
+								</Property>
+								<Property Name="PreDelay" Type="Real32">
+									<ValueList>
+										<Value>7</Value>
+									</ValueList>
+								</Property>
+								<Property Name="StereoWidth" Type="Real32">
+									<ValueList>
+										<Value>140</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ChildrenList>
 								<PluginMediaSource Name="AK Blue Noise Room 01" ID="{E2405E23-5F0A-41D7-B854-DF78E534D101}" ShortID="477192351">
@@ -304,8 +395,7 @@ IR Pre-delay: 8ms
 									</ConvertedFileIDList>
 								</PluginMediaSource>
 							</ChildrenList>
-							<PluginData>
-	<ConvolutionData>
+							<PluginData><ConvolutionData>
 		<CurveList Version="1">
 			<CurveInfo Name="IRGraphicEQ">
 				<Curve Name="" ID="{CCDCA38B-EFEA-4429-9BAF-8B2B71A478BD}">
@@ -370,8 +460,7 @@ IR Pre-delay: 8ms
 				</Curve>
 			</CurveInfo>
 		</CurveList>
-	</ConvolutionData>
-</PluginData>
+	</ConvolutionData></PluginData>
 						</Effect>
 						<Effect Name="Bright_Room_Stereo" ID="{2E5F2D82-94F7-40F0-8F3F-84E1ED51D42B}" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
 							<Comment>Impulse response created by Pinguin ing.büro
@@ -380,13 +469,41 @@ IR Pre-delay: 6ms
 
 </Comment>
 							<PropertyList>
-								<Property Name="CenterLevel" Type="Real32" Value="-12"/>
-								<Property Name="IRConvolutionSmooth" Type="Real32" Value="26"/>
-								<Property Name="IRConvolutionStop" Type="Real64" Value="1.32175493421053"/>
-								<Property Name="IRConvolutionThreshold" Type="Real32" Value="-51"/>
-								<Property Name="IRLevel" Type="Real32" Value="-28"/>
-								<Property Name="PreDelay" Type="Real32" Value="19"/>
-								<Property Name="StereoWidth" Type="Real32" Value="140"/>
+								<Property Name="CenterLevel" Type="Real32">
+									<ValueList>
+										<Value>-12</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionSmooth" Type="Real32">
+									<ValueList>
+										<Value>26</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionStop" Type="Real64">
+									<ValueList>
+										<Value>1.32175493421053</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionThreshold" Type="Real32">
+									<ValueList>
+										<Value>-51</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLevel" Type="Real32">
+									<ValueList>
+										<Value>-28</Value>
+									</ValueList>
+								</Property>
+								<Property Name="PreDelay" Type="Real32">
+									<ValueList>
+										<Value>19</Value>
+									</ValueList>
+								</Property>
+								<Property Name="StereoWidth" Type="Real32">
+									<ValueList>
+										<Value>140</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ChildrenList>
 								<PluginMediaSource Name="AK Blue Noise Room 02" ID="{7113FA76-290B-46C7-934E-FC3104C13403}" ShortID="828807711">
@@ -396,8 +513,7 @@ IR Pre-delay: 6ms
 									</PropertyList>
 								</PluginMediaSource>
 							</ChildrenList>
-							<PluginData>
-	<ConvolutionData>
+							<PluginData><ConvolutionData>
 		<CurveList Version="1">
 			<CurveInfo Name="IRGraphicEQ">
 				<Curve Name="" ID="{5BA1F10B-E429-48A8-82F3-90E064B72224}">
@@ -462,8 +578,7 @@ IR Pre-delay: 6ms
 				</Curve>
 			</CurveInfo>
 		</CurveList>
-	</ConvolutionData>
-</PluginData>
+	</ConvolutionData></PluginData>
 						</Effect>
 						<Effect Name="Live_Room_Stereo" ID="{5C6D89FC-7BDE-4CDF-B0FD-A7D0B067A7ED}" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
 							<Comment>Impulse response created by Pinguin ing.büro
@@ -471,13 +586,41 @@ IR Pre-delay: 6ms
 IR Pre-delay: 8ms 
 </Comment>
 							<PropertyList>
-								<Property Name="CenterLevel" Type="Real32" Value="-12"/>
-								<Property Name="IRConvolutionSmooth" Type="Real32" Value="11"/>
-								<Property Name="IRConvolutionStop" Type="Real64" Value="1.49983182565789"/>
-								<Property Name="IRConvolutionThreshold" Type="Real32" Value="-77"/>
-								<Property Name="IRLevel" Type="Real32" Value="-23"/>
-								<Property Name="IRStretch" Type="Real32" Value="96"/>
-								<Property Name="PreDelay" Type="Real32" Value="11"/>
+								<Property Name="CenterLevel" Type="Real32">
+									<ValueList>
+										<Value>-12</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionSmooth" Type="Real32">
+									<ValueList>
+										<Value>11</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionStop" Type="Real64">
+									<ValueList>
+										<Value>1.49983182565789</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionThreshold" Type="Real32">
+									<ValueList>
+										<Value>-77</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLevel" Type="Real32">
+									<ValueList>
+										<Value>-23</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRStretch" Type="Real32">
+									<ValueList>
+										<Value>96</Value>
+									</ValueList>
+								</Property>
+								<Property Name="PreDelay" Type="Real32">
+									<ValueList>
+										<Value>11</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ChildrenList>
 								<PluginMediaSource Name="AK Luna Studio" ID="{F0214EF8-B9F1-4513-9BF0-2C17DB934FD5}" ShortID="749103418">
@@ -485,13 +628,9 @@ IR Pre-delay: 8ms
 									<PropertyList>
 										<Property Name="DataFileName" Type="string" Value="AK_Factory_IR\Rooms\AK Luna Studio.wav"/>
 									</PropertyList>
-									<ConvertedFileIDList>
-										<File ID="1012937349"/>
-									</ConvertedFileIDList>
 								</PluginMediaSource>
 							</ChildrenList>
-							<PluginData>
-	<ConvolutionData>
+							<PluginData><ConvolutionData>
 		<CurveList Version="1">
 			<CurveInfo Name="IRGraphicEQ">
 				<Curve Name="" ID="{E200636E-A301-4452-B80D-299B2850B388}">
@@ -551,8 +690,7 @@ IR Pre-delay: 8ms
 				</Curve>
 			</CurveInfo>
 		</CurveList>
-	</ConvolutionData>
-</PluginData>
+	</ConvolutionData></PluginData>
 						</Effect>
 						<Effect Name="Petite_Room_Stereo" ID="{B213362A-B021-4F48-AE45-8CD298A2BC29}" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
 							<Comment>Impulse response created by Pinguin ing.büro
@@ -560,12 +698,36 @@ IR Pre-delay: 8ms
 IR Pre-delay: 8ms 
 </Comment>
 							<PropertyList>
-								<Property Name="CenterLevel" Type="Real32" Value="-12"/>
-								<Property Name="IRConvolutionStop" Type="Real64" Value="1.15055592105263"/>
-								<Property Name="IRConvolutionThreshold" Type="Real32" Value="-78"/>
-								<Property Name="IRLevel" Type="Real32" Value="-25"/>
-								<Property Name="IRStretch" Type="Real32" Value="70"/>
-								<Property Name="PreDelay" Type="Real32" Value="5"/>
+								<Property Name="CenterLevel" Type="Real32">
+									<ValueList>
+										<Value>-12</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionStop" Type="Real64">
+									<ValueList>
+										<Value>1.15055592105263</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionThreshold" Type="Real32">
+									<ValueList>
+										<Value>-78</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLevel" Type="Real32">
+									<ValueList>
+										<Value>-25</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRStretch" Type="Real32">
+									<ValueList>
+										<Value>70</Value>
+									</ValueList>
+								</Property>
+								<Property Name="PreDelay" Type="Real32">
+									<ValueList>
+										<Value>5</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ChildrenList>
 								<PluginMediaSource Name="AK Luna Studio" ID="{64942F62-D719-4DCE-92FC-3C040065DEF5}" ShortID="1012937349">
@@ -578,8 +740,7 @@ IR Pre-delay: 8ms
 									</ConvertedFileIDList>
 								</PluginMediaSource>
 							</ChildrenList>
-							<PluginData>
-	<ConvolutionData>
+							<PluginData><ConvolutionData>
 		<CurveList Version="1">
 			<CurveInfo Name="IRGraphicEQ">
 				<Curve Name="" ID="{D5222EF3-CD4E-4A1D-83DD-59FFA5AD27CD}">
@@ -639,8 +800,7 @@ IR Pre-delay: 8ms
 				</Curve>
 			</CurveInfo>
 		</CurveList>
-	</ConvolutionData>
-</PluginData>
+	</ConvolutionData></PluginData>
 						</Effect>
 						<Effect Name="Intimate_Room_Stereo" ID="{5ADDCD2F-7A9C-42B8-8D0B-14083D32EF83}" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
 							<Comment>Impulse response created by Pinguin ing.büro
@@ -648,11 +808,31 @@ IR Pre-delay: 8ms
 IR Pre-delay: 5ms 
 </Comment>
 							<PropertyList>
-								<Property Name="CenterLevel" Type="Real32" Value="-12"/>
-								<Property Name="IRConvolutionStop" Type="Real64" Value="1.13456513843202"/>
-								<Property Name="IRLevel" Type="Real32" Value="-24"/>
-								<Property Name="IRStretch" Type="Real32" Value="50"/>
-								<Property Name="PreDelay" Type="Real32" Value="5"/>
+								<Property Name="CenterLevel" Type="Real32">
+									<ValueList>
+										<Value>-12</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionStop" Type="Real64">
+									<ValueList>
+										<Value>1.13456513843202</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLevel" Type="Real32">
+									<ValueList>
+										<Value>-24</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRStretch" Type="Real32">
+									<ValueList>
+										<Value>50</Value>
+									</ValueList>
+								</Property>
+								<Property Name="PreDelay" Type="Real32">
+									<ValueList>
+										<Value>5</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ChildrenList>
 								<PluginMediaSource Name="AK Hamburg Karl Schneider Halle" ID="{6676DD52-CE82-48D0-8C11-8910933FEEFA}" ShortID="634339356">
@@ -660,10 +840,12 @@ IR Pre-delay: 5ms
 									<PropertyList>
 										<Property Name="DataFileName" Type="string" Value="AK_Factory_IR\Rooms\AK Hamburg Karl Schneider Halle.wav"/>
 									</PropertyList>
+									<ConvertedFileIDList>
+										<File ID="237532661"/>
+									</ConvertedFileIDList>
 								</PluginMediaSource>
 							</ChildrenList>
-							<PluginData>
-	<ConvolutionData>
+							<PluginData><ConvolutionData>
 		<CurveList Version="1">
 			<CurveInfo Name="IRGraphicEQ">
 				<Curve Name="" ID="{60CD0E41-2761-4B63-818B-6A01233DC07F}">
@@ -723,8 +905,7 @@ IR Pre-delay: 5ms
 				</Curve>
 			</CurveInfo>
 		</CurveList>
-	</ConvolutionData>
-</PluginData>
+	</ConvolutionData></PluginData>
 						</Effect>
 						<Effect Name="Gated_Metallic_Reflections_Stereo" ID="{54CE8B32-9AA8-4EF3-A620-4530C27ABBF7}" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
 							<Comment>Impulse response created by Pinguin ing.büro
@@ -732,14 +913,46 @@ IR Pre-delay: 5ms
 IR Pre-delay: 7ms 
 </Comment>
 							<PropertyList>
-								<Property Name="CenterLevel" Type="Real32" Value="-12"/>
-								<Property Name="IRConvolutionSmooth" Type="Real32" Value="12"/>
-								<Property Name="IRConvolutionStop" Type="Real64" Value="3.24565285773026"/>
-								<Property Name="IRConvolutionThreshold" Type="Real32" Value="-68"/>
-								<Property Name="IRLPFAutomate" Type="bool" Value="True"/>
-								<Property Name="IRLevel" Type="Real32" Value="-25"/>
-								<Property Name="IRStretch" Type="Real32" Value="50"/>
-								<Property Name="PreDelay" Type="Real32" Value="24"/>
+								<Property Name="CenterLevel" Type="Real32">
+									<ValueList>
+										<Value>-12</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionSmooth" Type="Real32">
+									<ValueList>
+										<Value>12</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionStop" Type="Real64">
+									<ValueList>
+										<Value>3.24565285773026</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionThreshold" Type="Real32">
+									<ValueList>
+										<Value>-68</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLPFAutomate" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLevel" Type="Real32">
+									<ValueList>
+										<Value>-25</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRStretch" Type="Real32">
+									<ValueList>
+										<Value>50</Value>
+									</ValueList>
+								</Property>
+								<Property Name="PreDelay" Type="Real32">
+									<ValueList>
+										<Value>24</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ChildrenList>
 								<PluginMediaSource Name="AK Stair Way Hall" ID="{0A3DCE8C-790D-45FB-AA4A-D32C0AD8F146}" ShortID="46969464">
@@ -749,8 +962,7 @@ IR Pre-delay: 7ms
 									</PropertyList>
 								</PluginMediaSource>
 							</ChildrenList>
-							<PluginData>
-	<ConvolutionData>
+							<PluginData><ConvolutionData>
 		<CurveList Version="1">
 			<CurveInfo Name="IRGraphicEQ">
 				<Curve Name="" ID="{4DA1CCF3-7FE9-4ECD-B05C-C02BFC9D1108}">
@@ -810,8 +1022,7 @@ IR Pre-delay: 7ms
 				</Curve>
 			</CurveInfo>
 		</CurveList>
-	</ConvolutionData>
-</PluginData>
+	</ConvolutionData></PluginData>
 						</Effect>
 						<Effect Name="BlueNoise_Room_03_Org_Stereo" ID="{3E386021-45A2-45D7-BC77-F2550965DF14}" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
 							<Comment>Impulse response created by Pinguin ing.büro
@@ -819,10 +1030,26 @@ IR Pre-delay: 7ms
 IR Pre-delay: 3ms 
 </Comment>
 							<PropertyList>
-								<Property Name="IRConvolutionStop" Type="Real64" Value="0.573875"/>
-								<Property Name="IRLRMix" Type="Real32" Value="6"/>
-								<Property Name="IRLevel" Type="Real32" Value="-25"/>
-								<Property Name="PreDelay" Type="Real32" Value="3"/>
+								<Property Name="IRConvolutionStop" Type="Real64">
+									<ValueList>
+										<Value>0.573875</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLRMix" Type="Real32">
+									<ValueList>
+										<Value>6</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLevel" Type="Real32">
+									<ValueList>
+										<Value>-25</Value>
+									</ValueList>
+								</Property>
+								<Property Name="PreDelay" Type="Real32">
+									<ValueList>
+										<Value>3</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ChildrenList>
 								<PluginMediaSource Name="AK Blue Noise Room 03" ID="{507AD50D-8703-4CD8-880E-5C11D4E133E1}" ShortID="680452062">
@@ -832,8 +1059,7 @@ IR Pre-delay: 3ms
 									</PropertyList>
 								</PluginMediaSource>
 							</ChildrenList>
-							<PluginData>
-	<ConvolutionData>
+							<PluginData><ConvolutionData>
 		<CurveList Version="1">
 			<CurveInfo Name="IRGraphicEQ">
 				<Curve Name="" ID="{802140BA-87C0-4225-9C27-865462A5A6F2}">
@@ -893,8 +1119,7 @@ IR Pre-delay: 3ms
 				</Curve>
 			</CurveInfo>
 		</CurveList>
-	</ConvolutionData>
-</PluginData>
+	</ConvolutionData></PluginData>
 						</Effect>
 						<Effect Name="Luna_Studio_Org_Stereo" ID="{7343EC93-EA2A-4450-A559-39DA617A98E8}" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
 							<Comment>Impulse response created by Pinguin ing.büro
@@ -902,12 +1127,36 @@ IR Pre-delay: 3ms
 IR Pre-delay: 8ms 
 </Comment>
 							<PropertyList>
-								<Property Name="IRConvolutionSmooth" Type="Real32" Value="5"/>
-								<Property Name="IRConvolutionStop" Type="Real64" Value="1.18822293037281"/>
-								<Property Name="IRConvolutionThreshold" Type="Real32" Value="-76"/>
-								<Property Name="IRLRMix" Type="Real32" Value="8"/>
-								<Property Name="IRLevel" Type="Real32" Value="-28"/>
-								<Property Name="PreDelay" Type="Real32" Value="8"/>
+								<Property Name="IRConvolutionSmooth" Type="Real32">
+									<ValueList>
+										<Value>5</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionStop" Type="Real64">
+									<ValueList>
+										<Value>1.18822293037281</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionThreshold" Type="Real32">
+									<ValueList>
+										<Value>-76</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLRMix" Type="Real32">
+									<ValueList>
+										<Value>8</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLevel" Type="Real32">
+									<ValueList>
+										<Value>-28</Value>
+									</ValueList>
+								</Property>
+								<Property Name="PreDelay" Type="Real32">
+									<ValueList>
+										<Value>8</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ChildrenList>
 								<PluginMediaSource Name="AK Luna Studio" ID="{F77C031B-A37D-4B46-90E5-F65781FC5369}" ShortID="765420740">
@@ -915,10 +1164,12 @@ IR Pre-delay: 8ms
 									<PropertyList>
 										<Property Name="DataFileName" Type="string" Value="AK_Factory_IR\Rooms\AK Luna Studio.wav"/>
 									</PropertyList>
+									<ConvertedFileIDList>
+										<File ID="749103418"/>
+									</ConvertedFileIDList>
 								</PluginMediaSource>
 							</ChildrenList>
-							<PluginData>
-	<ConvolutionData>
+							<PluginData><ConvolutionData>
 		<CurveList Version="1">
 			<CurveInfo Name="IRGraphicEQ">
 				<Curve Name="" ID="{9B7F0089-4046-4F4D-819B-BA2B41FDEF01}">
@@ -978,8 +1229,7 @@ IR Pre-delay: 8ms
 				</Curve>
 			</CurveInfo>
 		</CurveList>
-	</ConvolutionData>
-</PluginData>
+	</ConvolutionData></PluginData>
 						</Effect>
 						<Effect Name="BlueNoise_Room_02_Org_Stereo" ID="{2B102451-B3FC-4FBD-88EB-B774F1D421FD}" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
 							<Comment>Impulse response created by Pinguin ing.büro
@@ -987,9 +1237,21 @@ IR Pre-delay: 8ms
 IR Pre-delay: 8ms 
 </Comment>
 							<PropertyList>
-								<Property Name="IRConvolutionStop" Type="Real64" Value="1.699"/>
-								<Property Name="IRLevel" Type="Real32" Value="-32"/>
-								<Property Name="PreDelay" Type="Real32" Value="8"/>
+								<Property Name="IRConvolutionStop" Type="Real64">
+									<ValueList>
+										<Value>1.699</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLevel" Type="Real32">
+									<ValueList>
+										<Value>-32</Value>
+									</ValueList>
+								</Property>
+								<Property Name="PreDelay" Type="Real32">
+									<ValueList>
+										<Value>8</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ChildrenList>
 								<PluginMediaSource Name="AK Blue Noise Room 02" ID="{4CDF023A-F100-4A7D-80A2-CB591F591EDC}" ShortID="830379118">
@@ -997,10 +1259,12 @@ IR Pre-delay: 8ms
 									<PropertyList>
 										<Property Name="DataFileName" Type="string" Value="AK_Factory_IR\Rooms\AK Blue Noise Room 02.wav"/>
 									</PropertyList>
+									<ConvertedFileIDList>
+										<File ID="828807711"/>
+									</ConvertedFileIDList>
 								</PluginMediaSource>
 							</ChildrenList>
-							<PluginData>
-	<ConvolutionData>
+							<PluginData><ConvolutionData>
 		<CurveList Version="1">
 			<CurveInfo Name="IRGraphicEQ">
 				<Curve Name="" ID="{A5F1BD80-1FFF-4D90-8B10-7F6D9A06B63A}">
@@ -1060,19 +1324,38 @@ IR Pre-delay: 8ms
 				</Curve>
 			</CurveInfo>
 		</CurveList>
-	</ConvolutionData>
-</PluginData>
+	</ConvolutionData></PluginData>
 						</Effect>
 						<Effect Name="BlueNoise_Room_01_Org_Stereo" ID="{56609EEE-FAE1-4314-A51C-508315783090}" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
 							<Comment>Impulse response created by Pinguin ing.büro
 © 2010 Pinguin ing.büro.  All rights reserved.
 IR Pre-delay: 6ms </Comment>
 							<PropertyList>
-								<Property Name="IRConvolutionStop" Type="Real64" Value="0.9055"/>
-								<Property Name="IRConvolutionThreshold" Type="Real32" Value="-75"/>
-								<Property Name="IRLRMix" Type="Real32" Value="5"/>
-								<Property Name="IRLevel" Type="Real32" Value="-27"/>
-								<Property Name="PreDelay" Type="Real32" Value="6"/>
+								<Property Name="IRConvolutionStop" Type="Real64">
+									<ValueList>
+										<Value>0.9055</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionThreshold" Type="Real32">
+									<ValueList>
+										<Value>-75</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLRMix" Type="Real32">
+									<ValueList>
+										<Value>5</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLevel" Type="Real32">
+									<ValueList>
+										<Value>-27</Value>
+									</ValueList>
+								</Property>
+								<Property Name="PreDelay" Type="Real32">
+									<ValueList>
+										<Value>6</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ChildrenList>
 								<PluginMediaSource Name="AK Blue Noise Room 01" ID="{35482B35-AD23-4C36-9863-2252DA794223}" ShortID="238341605">
@@ -1080,13 +1363,9 @@ IR Pre-delay: 6ms </Comment>
 									<PropertyList>
 										<Property Name="DataFileName" Type="string" Value="AK_Factory_IR\Rooms\AK Blue Noise Room 01.wav"/>
 									</PropertyList>
-									<ConvertedFileIDList>
-										<File ID="358895006"/>
-									</ConvertedFileIDList>
 								</PluginMediaSource>
 							</ChildrenList>
-							<PluginData>
-	<ConvolutionData>
+							<PluginData><ConvolutionData>
 		<CurveList Version="1">
 			<CurveInfo Name="IRGraphicEQ">
 				<Curve Name="" ID="{025D2CB9-7D87-40EC-AAF7-A9E3D4DA4497}">
@@ -1146,8 +1425,7 @@ IR Pre-delay: 6ms </Comment>
 				</Curve>
 			</CurveInfo>
 		</CurveList>
-	</ConvolutionData>
-</PluginData>
+	</ConvolutionData></PluginData>
 						</Effect>
 						<Effect Name="Hamburg_Pinguin_Buro_Org_Stereo" ID="{C04CE8D7-3F83-4026-9F72-FA22CD045D6B}" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
 							<Comment>Impulse response created by Pinguin ing.büro
@@ -1155,9 +1433,21 @@ IR Pre-delay: 6ms </Comment>
 IR Pre-delay: 0ms 
 </Comment>
 							<PropertyList>
-								<Property Name="IRConvolutionStop" Type="Real64" Value="0.331080523574561"/>
-								<Property Name="IRConvolutionThreshold" Type="Real32" Value="-47"/>
-								<Property Name="IRLevel" Type="Real32" Value="-12"/>
+								<Property Name="IRConvolutionStop" Type="Real64">
+									<ValueList>
+										<Value>0.331080523574561</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionThreshold" Type="Real32">
+									<ValueList>
+										<Value>-47</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLevel" Type="Real32">
+									<ValueList>
+										<Value>-12</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ChildrenList>
 								<PluginMediaSource Name="AK Hamburg Pinguin Buro" ID="{3BE96017-02D3-40B6-AF9E-E89764DC3631}" ShortID="879974926">
@@ -1167,8 +1457,7 @@ IR Pre-delay: 0ms
 									</PropertyList>
 								</PluginMediaSource>
 							</ChildrenList>
-							<PluginData>
-	<ConvolutionData>
+							<PluginData><ConvolutionData>
 		<CurveList Version="1">
 			<CurveInfo Name="IRGraphicEQ">
 				<Curve Name="" ID="{E3007CE6-61B7-4148-BA0F-92C71C419B38}">
@@ -1228,19 +1517,38 @@ IR Pre-delay: 0ms
 				</Curve>
 			</CurveInfo>
 		</CurveList>
-	</ConvolutionData>
-</PluginData>
+	</ConvolutionData></PluginData>
 						</Effect>
 						<Effect Name="Hamburg_Karl_Schneider_Halle_Org_Stereo" ID="{2F7FFF44-D67F-4804-95CD-9D99B00A397F}" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
 							<Comment>Impulse response created by Pinguin ing.büro
 © 2010 Pinguin ing.büro.  All rights reserved.
 IR Pre-delay: 5ms </Comment>
 							<PropertyList>
-								<Property Name="IRConvolutionSmooth" Type="Real32" Value="9"/>
-								<Property Name="IRConvolutionStop" Type="Real64" Value="1.32152508223684"/>
-								<Property Name="IRConvolutionThreshold" Type="Real32" Value="-83"/>
-								<Property Name="IRLevel" Type="Real32" Value="-28"/>
-								<Property Name="PreDelay" Type="Real32" Value="5"/>
+								<Property Name="IRConvolutionSmooth" Type="Real32">
+									<ValueList>
+										<Value>9</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionStop" Type="Real64">
+									<ValueList>
+										<Value>1.32152508223684</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionThreshold" Type="Real32">
+									<ValueList>
+										<Value>-83</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLevel" Type="Real32">
+									<ValueList>
+										<Value>-28</Value>
+									</ValueList>
+								</Property>
+								<Property Name="PreDelay" Type="Real32">
+									<ValueList>
+										<Value>5</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ChildrenList>
 								<PluginMediaSource Name="AK Hamburg Karl Schneider Halle" ID="{E8DE3F46-8E2D-46D4-95BC-1E8E5673CEF9}" ShortID="237532661">
@@ -1250,8 +1558,7 @@ IR Pre-delay: 5ms </Comment>
 									</PropertyList>
 								</PluginMediaSource>
 							</ChildrenList>
-							<PluginData>
-	<ConvolutionData>
+							<PluginData><ConvolutionData>
 		<CurveList Version="1">
 			<CurveInfo Name="IRGraphicEQ">
 				<Curve Name="" ID="{B9918665-802E-4556-8994-6BF58C88FE4C}">
@@ -1311,8 +1618,7 @@ IR Pre-delay: 5ms </Comment>
 				</Curve>
 			</CurveInfo>
 		</CurveList>
-	</ConvolutionData>
-</PluginData>
+	</ConvolutionData></PluginData>
 						</Effect>
 						<Effect Name="Hamburg_Echo_Chamber_Org_Stereo" ID="{B004D266-1CF1-4ADD-AA8D-BEDE4C30D620}" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
 							<Comment>Impulse response created by Pinguin ing.büro
@@ -1320,12 +1626,36 @@ IR Pre-delay: 5ms </Comment>
 IR Pre-delay: 4ms 
 </Comment>
 							<PropertyList>
-								<Property Name="IRConvolutionSmooth" Type="Real32" Value="8"/>
-								<Property Name="IRConvolutionStop" Type="Real64" Value="0.762532894736842"/>
-								<Property Name="IRConvolutionThreshold" Type="Real32" Value="-77"/>
-								<Property Name="IRLRMix" Type="Real32" Value="4"/>
-								<Property Name="IRLevel" Type="Real32" Value="-13"/>
-								<Property Name="PreDelay" Type="Real32" Value="4"/>
+								<Property Name="IRConvolutionSmooth" Type="Real32">
+									<ValueList>
+										<Value>8</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionStop" Type="Real64">
+									<ValueList>
+										<Value>0.762532894736842</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionThreshold" Type="Real32">
+									<ValueList>
+										<Value>-77</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLRMix" Type="Real32">
+									<ValueList>
+										<Value>4</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLevel" Type="Real32">
+									<ValueList>
+										<Value>-13</Value>
+									</ValueList>
+								</Property>
+								<Property Name="PreDelay" Type="Real32">
+									<ValueList>
+										<Value>4</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ChildrenList>
 								<PluginMediaSource Name="AK Hamburg Echo Chamber" ID="{EB7CAD97-6B2B-4742-97D5-9C7BFFFCB430}" ShortID="667537848">
@@ -1338,8 +1668,7 @@ IR Pre-delay: 4ms
 									</ConvertedFileIDList>
 								</PluginMediaSource>
 							</ChildrenList>
-							<PluginData>
-	<ConvolutionData>
+							<PluginData><ConvolutionData>
 		<CurveList Version="1">
 			<CurveInfo Name="IRGraphicEQ">
 				<Curve Name="" ID="{BD218E4A-8B64-42BB-B4BF-F2072DF8DBF7}">
@@ -1399,8 +1728,7 @@ IR Pre-delay: 4ms
 				</Curve>
 			</CurveInfo>
 		</CurveList>
-	</ConvolutionData>
-</PluginData>
+	</ConvolutionData></PluginData>
 						</Effect>
 					</ChildrenList>
 				</Folder>
@@ -1412,13 +1740,41 @@ IR Pre-delay: 4ms
 IR Pre-delay: 4ms 
 </Comment>
 							<PropertyList>
-								<Property Name="CenterLevel" Type="Real32" Value="-12"/>
-								<Property Name="IRConvolutionStop" Type="Real64" Value="3.92034854714912"/>
-								<Property Name="IRConvolutionThreshold" Type="Real32" Value="-76"/>
-								<Property Name="IRLPFAutomate" Type="bool" Value="True"/>
-								<Property Name="IRLevel" Type="Real32" Value="-20"/>
-								<Property Name="IRStretch" Type="Real32" Value="78"/>
-								<Property Name="PreDelay" Type="Real32" Value="15"/>
+								<Property Name="CenterLevel" Type="Real32">
+									<ValueList>
+										<Value>-12</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionStop" Type="Real64">
+									<ValueList>
+										<Value>3.92034854714912</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionThreshold" Type="Real32">
+									<ValueList>
+										<Value>-76</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLPFAutomate" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLevel" Type="Real32">
+									<ValueList>
+										<Value>-20</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRStretch" Type="Real32">
+									<ValueList>
+										<Value>78</Value>
+									</ValueList>
+								</Property>
+								<Property Name="PreDelay" Type="Real32">
+									<ValueList>
+										<Value>15</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ChildrenList>
 								<PluginMediaSource Name="AK Hamburg Parkhaus" ID="{F5643149-8089-46B4-81BE-A77E435F4A39}" ShortID="785966779">
@@ -1428,8 +1784,7 @@ IR Pre-delay: 4ms
 									</PropertyList>
 								</PluginMediaSource>
 							</ChildrenList>
-							<PluginData>
-	<ConvolutionData>
+							<PluginData><ConvolutionData>
 		<CurveList Version="1">
 			<CurveInfo Name="IRGraphicEQ">
 				<Curve Name="" ID="{0D5CF4BE-FA7A-4AD0-B682-89AD18ABEB66}">
@@ -1494,8 +1849,7 @@ IR Pre-delay: 4ms
 				</Curve>
 			</CurveInfo>
 		</CurveList>
-	</ConvolutionData>
-</PluginData>
+	</ConvolutionData></PluginData>
 						</Effect>
 						<Effect Name="Space_Ship_Stereo" ID="{9C98D629-945C-4B36-A590-1F9278DFA055}" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
 							<Comment>Impulse response created by Pinguin ing.büro
@@ -1503,13 +1857,41 @@ IR Pre-delay: 4ms
 IR Pre-delay: 7ms 
 </Comment>
 							<PropertyList>
-								<Property Name="CenterLevel" Type="Real32" Value="-12"/>
-								<Property Name="IRConvolutionStop" Type="Real64" Value="3.25343619791666"/>
-								<Property Name="IRConvolutionThreshold" Type="Real32" Value="-72"/>
-								<Property Name="IRLPFAutomate" Type="bool" Value="True"/>
-								<Property Name="IRLevel" Type="Real32" Value="-28"/>
-								<Property Name="IRStretch" Type="Real32" Value="56"/>
-								<Property Name="PreDelay" Type="Real32" Value="7"/>
+								<Property Name="CenterLevel" Type="Real32">
+									<ValueList>
+										<Value>-12</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionStop" Type="Real64">
+									<ValueList>
+										<Value>3.25343619791666</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionThreshold" Type="Real32">
+									<ValueList>
+										<Value>-72</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLPFAutomate" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLevel" Type="Real32">
+									<ValueList>
+										<Value>-28</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRStretch" Type="Real32">
+									<ValueList>
+										<Value>56</Value>
+									</ValueList>
+								</Property>
+								<Property Name="PreDelay" Type="Real32">
+									<ValueList>
+										<Value>7</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ChildrenList>
 								<PluginMediaSource Name="AK Stair Way Hall" ID="{8D8913CE-9343-49C7-B562-29C1A9944A27}" ShortID="304471121">
@@ -1517,10 +1899,12 @@ IR Pre-delay: 7ms
 									<PropertyList>
 										<Property Name="DataFileName" Type="string" Value="AK_Factory_IR\Large Spaces\AK Stair Way Hall.wav"/>
 									</PropertyList>
+									<ConvertedFileIDList>
+										<File ID="46969464"/>
+									</ConvertedFileIDList>
 								</PluginMediaSource>
 							</ChildrenList>
-							<PluginData>
-	<ConvolutionData>
+							<PluginData><ConvolutionData>
 		<CurveList Version="1">
 			<CurveInfo Name="IRGraphicEQ">
 				<Curve Name="" ID="{C84290C2-54E4-43E2-8D12-EED63A28B0B7}">
@@ -1580,8 +1964,7 @@ IR Pre-delay: 7ms
 				</Curve>
 			</CurveInfo>
 		</CurveList>
-	</ConvolutionData>
-</PluginData>
+	</ConvolutionData></PluginData>
 						</Effect>
 						<Effect Name="Bright_Metallic_Space_Stereo" ID="{9EBA7D87-78D0-4152-99FC-2E140C9A2BEC}" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
 							<Comment>Impulse response created by Pinguin ing.büro
@@ -1589,13 +1972,41 @@ IR Pre-delay: 7ms
 IR Pre-delay: 7ms 
 </Comment>
 							<PropertyList>
-								<Property Name="CenterLevel" Type="Real32" Value="-12"/>
-								<Property Name="IRConvolutionStop" Type="Real64" Value="2.99658597176535"/>
-								<Property Name="IRConvolutionThreshold" Type="Real32" Value="-65"/>
-								<Property Name="IRLPFAutomate" Type="bool" Value="True"/>
-								<Property Name="IRLevel" Type="Real32" Value="-32"/>
-								<Property Name="IRStretch" Type="Real32" Value="97"/>
-								<Property Name="PreDelay" Type="Real32" Value="13"/>
+								<Property Name="CenterLevel" Type="Real32">
+									<ValueList>
+										<Value>-12</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionStop" Type="Real64">
+									<ValueList>
+										<Value>2.99658597176535</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionThreshold" Type="Real32">
+									<ValueList>
+										<Value>-65</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLPFAutomate" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLevel" Type="Real32">
+									<ValueList>
+										<Value>-32</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRStretch" Type="Real32">
+									<ValueList>
+										<Value>97</Value>
+									</ValueList>
+								</Property>
+								<Property Name="PreDelay" Type="Real32">
+									<ValueList>
+										<Value>13</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ChildrenList>
 								<PluginMediaSource Name="AK Stair Way Hall" ID="{68868578-9A15-49D1-9D7E-0B3F2AEC3A63}" ShortID="811934406">
@@ -1603,10 +2014,12 @@ IR Pre-delay: 7ms
 									<PropertyList>
 										<Property Name="DataFileName" Type="string" Value="AK_Factory_IR\Large Spaces\AK Stair Way Hall.wav"/>
 									</PropertyList>
+									<ConvertedFileIDList>
+										<File ID="46969464"/>
+									</ConvertedFileIDList>
 								</PluginMediaSource>
 							</ChildrenList>
-							<PluginData>
-	<ConvolutionData>
+							<PluginData><ConvolutionData>
 		<CurveList Version="1">
 			<CurveInfo Name="IRGraphicEQ">
 				<Curve Name="" ID="{352A1E46-0588-449D-BE16-0F572FD86902}">
@@ -1666,8 +2079,7 @@ IR Pre-delay: 7ms
 				</Curve>
 			</CurveInfo>
 		</CurveList>
-	</ConvolutionData>
-</PluginData>
+	</ConvolutionData></PluginData>
 						</Effect>
 						<Effect Name="Large_Warehouse_Stereo" ID="{2E41C407-651F-486D-BC6E-3DC0332C154B}" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
 							<Comment>Impulse response created by Pinguin ing.büro
@@ -1675,13 +2087,41 @@ IR Pre-delay: 7ms
 IR Pre-delay: 0ms 
 </Comment>
 							<PropertyList>
-								<Property Name="CenterLevel" Type="Real32" Value="-12"/>
-								<Property Name="IRConvolutionStop" Type="Real64" Value="1.26684806743421"/>
-								<Property Name="IRConvolutionThreshold" Type="Real32" Value="-76"/>
-								<Property Name="IRLPFAutomate" Type="bool" Value="True"/>
-								<Property Name="IRLevel" Type="Real32" Value="-30"/>
-								<Property Name="IRStretch" Type="Real32" Value="153"/>
-								<Property Name="PreDelay" Type="Real32" Value="77"/>
+								<Property Name="CenterLevel" Type="Real32">
+									<ValueList>
+										<Value>-12</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionStop" Type="Real64">
+									<ValueList>
+										<Value>1.26684806743421</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionThreshold" Type="Real32">
+									<ValueList>
+										<Value>-76</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLPFAutomate" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLevel" Type="Real32">
+									<ValueList>
+										<Value>-30</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRStretch" Type="Real32">
+									<ValueList>
+										<Value>153</Value>
+									</ValueList>
+								</Property>
+								<Property Name="PreDelay" Type="Real32">
+									<ValueList>
+										<Value>77</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ChildrenList>
 								<PluginMediaSource Name="AK Hamburg Fabrik SCOUT" ID="{1EC9BCD4-19BA-4AE0-BB05-D1AD66F9F72B}" ShortID="765520478">
@@ -1689,13 +2129,9 @@ IR Pre-delay: 0ms
 									<PropertyList>
 										<Property Name="DataFileName" Type="string" Value="AK_Factory_IR\Large Spaces\AK Hamburg Fabrik SCOUT.wav"/>
 									</PropertyList>
-									<ConvertedFileIDList>
-										<File ID="825862339"/>
-									</ConvertedFileIDList>
 								</PluginMediaSource>
 							</ChildrenList>
-							<PluginData>
-	<ConvolutionData>
+							<PluginData><ConvolutionData>
 		<CurveList Version="1">
 			<CurveInfo Name="IRGraphicEQ">
 				<Curve Name="" ID="{626395AF-CC6B-43A2-BD54-9B0FE8A890CB}">
@@ -1760,8 +2196,7 @@ IR Pre-delay: 0ms
 				</Curve>
 			</CurveInfo>
 		</CurveList>
-	</ConvolutionData>
-</PluginData>
+	</ConvolutionData></PluginData>
 						</Effect>
 						<Effect Name="Hamburg_Parkhaus_Org_Stereo" ID="{9853150B-EA16-4230-B6D7-4C416521EA44}" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
 							<Comment>Impulse response created by Pinguin ing.büro
@@ -1769,11 +2204,31 @@ IR Pre-delay: 0ms
 IR Pre-delay: 4ms 
 </Comment>
 							<PropertyList>
-								<Property Name="IRConvolutionSmooth" Type="Real32" Value="6"/>
-								<Property Name="IRConvolutionStop" Type="Real64" Value="4.3722619243421"/>
-								<Property Name="IRConvolutionThreshold" Type="Real32" Value="-61"/>
-								<Property Name="IRLevel" Type="Real32" Value="-22"/>
-								<Property Name="PreDelay" Type="Real32" Value="4"/>
+								<Property Name="IRConvolutionSmooth" Type="Real32">
+									<ValueList>
+										<Value>6</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionStop" Type="Real64">
+									<ValueList>
+										<Value>4.3722619243421</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionThreshold" Type="Real32">
+									<ValueList>
+										<Value>-61</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLevel" Type="Real32">
+									<ValueList>
+										<Value>-22</Value>
+									</ValueList>
+								</Property>
+								<Property Name="PreDelay" Type="Real32">
+									<ValueList>
+										<Value>4</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ChildrenList>
 								<PluginMediaSource Name="AK Hamburg Parkhaus" ID="{72804A69-D338-40C4-A3DF-CB9121E56309}" ShortID="1010311289">
@@ -1781,10 +2236,12 @@ IR Pre-delay: 4ms
 									<PropertyList>
 										<Property Name="DataFileName" Type="string" Value="AK_Factory_IR\Large Spaces\AK Hamburg Parkhaus.wav"/>
 									</PropertyList>
+									<ConvertedFileIDList>
+										<File ID="785966779"/>
+									</ConvertedFileIDList>
 								</PluginMediaSource>
 							</ChildrenList>
-							<PluginData>
-	<ConvolutionData>
+							<PluginData><ConvolutionData>
 		<CurveList Version="1">
 			<CurveInfo Name="IRGraphicEQ">
 				<Curve Name="" ID="{B47580E9-E693-4C24-A567-4233150907DB}">
@@ -1844,19 +2301,38 @@ IR Pre-delay: 4ms
 				</Curve>
 			</CurveInfo>
 		</CurveList>
-	</ConvolutionData>
-</PluginData>
+	</ConvolutionData></PluginData>
 						</Effect>
 						<Effect Name="Hamburg_Fabrik_SCOUT_Org_Stereo" ID="{0E8734EA-2046-4052-9BFA-B26785748441}" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
 							<Comment>Impulse response created by Pinguin ing.büro
 © 2010 Pinguin ing.büro.  All rights reserved.
 IR Pre-delay: 0ms </Comment>
 							<PropertyList>
-								<Property Name="IRConvolutionSmooth" Type="Real32" Value="7"/>
-								<Property Name="IRConvolutionStop" Type="Real64" Value="1.02901069078947"/>
-								<Property Name="IRConvolutionThreshold" Type="Real32" Value="-74"/>
-								<Property Name="IRLRMix" Type="Real32" Value="7"/>
-								<Property Name="IRLevel" Type="Real32" Value="-40"/>
+								<Property Name="IRConvolutionSmooth" Type="Real32">
+									<ValueList>
+										<Value>7</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionStop" Type="Real64">
+									<ValueList>
+										<Value>1.02901069078947</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionThreshold" Type="Real32">
+									<ValueList>
+										<Value>-74</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLRMix" Type="Real32">
+									<ValueList>
+										<Value>7</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLevel" Type="Real32">
+									<ValueList>
+										<Value>-40</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ChildrenList>
 								<PluginMediaSource Name="AK Hamburg Fabrik SCOUT" ID="{8776D08B-A0B5-448E-A09A-E355E3646440}" ShortID="825862339">
@@ -1869,8 +2345,7 @@ IR Pre-delay: 0ms </Comment>
 									</ConvertedFileIDList>
 								</PluginMediaSource>
 							</ChildrenList>
-							<PluginData>
-	<ConvolutionData>
+							<PluginData><ConvolutionData>
 		<CurveList Version="1">
 			<CurveInfo Name="IRGraphicEQ">
 				<Curve Name="" ID="{36B1C860-2E0A-4E4C-AF6B-DA8B7BBEBB67}">
@@ -1930,8 +2405,7 @@ IR Pre-delay: 0ms </Comment>
 				</Curve>
 			</CurveInfo>
 		</CurveList>
-	</ConvolutionData>
-</PluginData>
+	</ConvolutionData></PluginData>
 						</Effect>
 						<Effect Name="Hamburg_Fabrik_Org_Stereo" ID="{F208312A-C650-4CD6-9D81-5CA7B1368F07}" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
 							<Comment>Impulse response created by Pinguin ing.büro
@@ -1939,10 +2413,26 @@ IR Pre-delay: 0ms </Comment>
 IR Pre-delay: 0ms 
 </Comment>
 							<PropertyList>
-								<Property Name="IRConvolutionStop" Type="Real64" Value="1.48404173519737"/>
-								<Property Name="IRConvolutionThreshold" Type="Real32" Value="-82"/>
-								<Property Name="IRLRMix" Type="Real32" Value="32"/>
-								<Property Name="IRLevel" Type="Real32" Value="-25"/>
+								<Property Name="IRConvolutionStop" Type="Real64">
+									<ValueList>
+										<Value>1.48404173519737</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionThreshold" Type="Real32">
+									<ValueList>
+										<Value>-82</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLRMix" Type="Real32">
+									<ValueList>
+										<Value>32</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLevel" Type="Real32">
+									<ValueList>
+										<Value>-25</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ChildrenList>
 								<PluginMediaSource Name="AK Hamburg Fabrik" ID="{4AEBCBEE-DCE1-4E5A-879B-843712E0648C}" ShortID="734720824">
@@ -1952,8 +2442,7 @@ IR Pre-delay: 0ms
 									</PropertyList>
 								</PluginMediaSource>
 							</ChildrenList>
-							<PluginData>
-	<ConvolutionData>
+							<PluginData><ConvolutionData>
 		<CurveList Version="1">
 			<CurveInfo Name="IRGraphicEQ">
 				<Curve Name="" ID="{CAFC89D3-7737-4BD0-99D2-9D08C6A96D4E}">
@@ -2013,8 +2502,7 @@ IR Pre-delay: 0ms
 				</Curve>
 			</CurveInfo>
 		</CurveList>
-	</ConvolutionData>
-</PluginData>
+	</ConvolutionData></PluginData>
 						</Effect>
 						<Effect Name="Stair_Way_Hall_Org_Stereo" ID="{EBCE524C-A59C-484A-8E88-DB89BB7F578F}" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
 							<Comment>Impulse response created by Pinguin ing.büro
@@ -2022,11 +2510,31 @@ IR Pre-delay: 0ms
 IR Pre-delay: 7ms 
 </Comment>
 							<PropertyList>
-								<Property Name="IRConvolutionSmooth" Type="Real32" Value="10"/>
-								<Property Name="IRConvolutionStop" Type="Real64" Value="3.06663603344298"/>
-								<Property Name="IRConvolutionThreshold" Type="Real32" Value="-60"/>
-								<Property Name="IRLevel" Type="Real32" Value="-30"/>
-								<Property Name="PreDelay" Type="Real32" Value="7"/>
+								<Property Name="IRConvolutionSmooth" Type="Real32">
+									<ValueList>
+										<Value>10</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionStop" Type="Real64">
+									<ValueList>
+										<Value>3.06663603344298</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionThreshold" Type="Real32">
+									<ValueList>
+										<Value>-60</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLevel" Type="Real32">
+									<ValueList>
+										<Value>-30</Value>
+									</ValueList>
+								</Property>
+								<Property Name="PreDelay" Type="Real32">
+									<ValueList>
+										<Value>7</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ChildrenList>
 								<PluginMediaSource Name="AK Stair Way Hall" ID="{4AB19057-35F9-4A73-A1F5-FED1EFF110D5}" ShortID="539027192">
@@ -2034,10 +2542,12 @@ IR Pre-delay: 7ms
 									<PropertyList>
 										<Property Name="DataFileName" Type="string" Value="AK_Factory_IR\Large Spaces\AK Stair Way Hall.wav"/>
 									</PropertyList>
+									<ConvertedFileIDList>
+										<File ID="46969464"/>
+									</ConvertedFileIDList>
 								</PluginMediaSource>
 							</ChildrenList>
-							<PluginData>
-	<ConvolutionData>
+							<PluginData><ConvolutionData>
 		<CurveList Version="1">
 			<CurveInfo Name="IRGraphicEQ">
 				<Curve Name="" ID="{C355542D-4EFC-4F03-9838-E3D3BC245967}">
@@ -2097,8 +2607,7 @@ IR Pre-delay: 7ms
 				</Curve>
 			</CurveInfo>
 		</CurveList>
-	</ConvolutionData>
-</PluginData>
+	</ConvolutionData></PluginData>
 						</Effect>
 					</ChildrenList>
 				</Folder>
@@ -2110,14 +2619,46 @@ IR Pre-delay: 7ms
 IR Pre-delay: 20ms 
 </Comment>
 							<PropertyList>
-								<Property Name="CenterLevel" Type="Real32" Value="-12"/>
-								<Property Name="IRConvolutionSmooth" Type="Real32" Value="5"/>
-								<Property Name="IRConvolutionStop" Type="Real64" Value="4.04647541966427"/>
-								<Property Name="IRConvolutionThreshold" Type="Real32" Value="-62"/>
-								<Property Name="IRLPFAutomate" Type="bool" Value="True"/>
-								<Property Name="IRLevel" Type="Real32" Value="-45"/>
-								<Property Name="IRStretch" Type="Real32" Value="119"/>
-								<Property Name="PreDelay" Type="Real32" Value="64"/>
+								<Property Name="CenterLevel" Type="Real32">
+									<ValueList>
+										<Value>-12</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionSmooth" Type="Real32">
+									<ValueList>
+										<Value>5</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionStop" Type="Real64">
+									<ValueList>
+										<Value>4.04647541966427</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionThreshold" Type="Real32">
+									<ValueList>
+										<Value>-62</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLPFAutomate" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLevel" Type="Real32">
+									<ValueList>
+										<Value>-45</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRStretch" Type="Real32">
+									<ValueList>
+										<Value>119</Value>
+									</ValueList>
+								</Property>
+								<Property Name="PreDelay" Type="Real32">
+									<ValueList>
+										<Value>64</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ChildrenList>
 								<PluginMediaSource Name="AK St-Katharinen" ID="{5314F988-340E-4631-B4BC-52FB22E4AD77}" ShortID="8071170">
@@ -2125,13 +2666,9 @@ IR Pre-delay: 20ms
 									<PropertyList>
 										<Property Name="DataFileName" Type="string" Value="AK_Factory_IR\Churches\AK St-Katharinen.wav"/>
 									</PropertyList>
-									<ConvertedFileIDList>
-										<File ID="535111107"/>
-									</ConvertedFileIDList>
 								</PluginMediaSource>
 							</ChildrenList>
-							<PluginData>
-	<ConvolutionData>
+							<PluginData><ConvolutionData>
 		<CurveList Version="1">
 			<CurveInfo Name="IRGraphicEQ">
 				<Curve Name="" ID="{C52A2C96-440C-43CE-8187-C98337CC7E5C}">
@@ -2191,21 +2728,48 @@ IR Pre-delay: 20ms
 				</Curve>
 			</CurveInfo>
 		</CurveList>
-	</ConvolutionData>
-</PluginData>
+	</ConvolutionData></PluginData>
 						</Effect>
 						<Effect Name="Colossal_Cathedral_Stereo" ID="{512A7648-07B6-486E-9D3E-8B7323C79E8C}" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
 							<Comment>Impulse response created by Pinguin ing.büro
 © 2010 Pinguin ing.büro.  All rights reserved.
 IR Pre-delay: 20ms </Comment>
 							<PropertyList>
-								<Property Name="CenterLevel" Type="Real32" Value="-12"/>
-								<Property Name="IRConvolutionSmooth" Type="Real32" Value="8"/>
-								<Property Name="IRConvolutionStop" Type="Real64" Value="4.04647541966427"/>
-								<Property Name="IRConvolutionThreshold" Type="Real32" Value="-67"/>
-								<Property Name="IRLPFAutomate" Type="bool" Value="True"/>
-								<Property Name="IRLevel" Type="Real32" Value="-45"/>
-								<Property Name="PreDelay" Type="Real32" Value="49"/>
+								<Property Name="CenterLevel" Type="Real32">
+									<ValueList>
+										<Value>-12</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionSmooth" Type="Real32">
+									<ValueList>
+										<Value>8</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionStop" Type="Real64">
+									<ValueList>
+										<Value>4.04647541966427</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionThreshold" Type="Real32">
+									<ValueList>
+										<Value>-67</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLPFAutomate" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLevel" Type="Real32">
+									<ValueList>
+										<Value>-45</Value>
+									</ValueList>
+								</Property>
+								<Property Name="PreDelay" Type="Real32">
+									<ValueList>
+										<Value>49</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ChildrenList>
 								<PluginMediaSource Name="AK St-Katharinen" ID="{C5313782-BD0A-4C94-9B74-E9F268B84A87}" ShortID="99990636">
@@ -2213,10 +2777,12 @@ IR Pre-delay: 20ms </Comment>
 									<PropertyList>
 										<Property Name="DataFileName" Type="string" Value="AK_Factory_IR\Churches\AK St-Katharinen.wav"/>
 									</PropertyList>
+									<ConvertedFileIDList>
+										<File ID="8071170"/>
+									</ConvertedFileIDList>
 								</PluginMediaSource>
 							</ChildrenList>
-							<PluginData>
-	<ConvolutionData>
+							<PluginData><ConvolutionData>
 		<CurveList Version="1">
 			<CurveInfo Name="IRGraphicEQ">
 				<Curve Name="" ID="{955573BF-8A23-463B-85A8-641E767D4494}">
@@ -2276,19 +2842,38 @@ IR Pre-delay: 20ms </Comment>
 				</Curve>
 			</CurveInfo>
 		</CurveList>
-	</ConvolutionData>
-</PluginData>
+	</ConvolutionData></PluginData>
 						</Effect>
 						<Effect Name="Lost_in_a_Cathedral_Stereo" ID="{16D1461A-6690-47BC-A4CE-17E72BF46592}" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
 							<Comment>Impulse response created by Pinguin ing.büro
 © 2010 Pinguin ing.büro.  All rights reserved.
 IR Pre-delay: 20ms </Comment>
 							<PropertyList>
-								<Property Name="IRConvolutionStop" Type="Real64" Value="4.04647541966427"/>
-								<Property Name="IRConvolutionThreshold" Type="Real32" Value="-63"/>
-								<Property Name="IRLPFAutomate" Type="bool" Value="True"/>
-								<Property Name="IRLevel" Type="Real32" Value="-45"/>
-								<Property Name="IRStretch" Type="Real32" Value="151"/>
+								<Property Name="IRConvolutionStop" Type="Real64">
+									<ValueList>
+										<Value>4.04647541966427</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionThreshold" Type="Real32">
+									<ValueList>
+										<Value>-63</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLPFAutomate" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLevel" Type="Real32">
+									<ValueList>
+										<Value>-45</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRStretch" Type="Real32">
+									<ValueList>
+										<Value>151</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ChildrenList>
 								<PluginMediaSource Name="AK St-Katharinen" ID="{E7B574A3-AD36-4D7A-BB0E-E25E3ED6C822}" ShortID="535111107">
@@ -2301,8 +2886,7 @@ IR Pre-delay: 20ms </Comment>
 									</ConvertedFileIDList>
 								</PluginMediaSource>
 							</ChildrenList>
-							<PluginData>
-	<ConvolutionData>
+							<PluginData><ConvolutionData>
 		<CurveList Version="1">
 			<CurveInfo Name="IRGraphicEQ">
 				<Curve Name="" ID="{1191723E-5285-4918-8ACA-BB143920E832}">
@@ -2362,22 +2946,53 @@ IR Pre-delay: 20ms </Comment>
 				</Curve>
 			</CurveInfo>
 		</CurveList>
-	</ConvolutionData>
-</PluginData>
+	</ConvolutionData></PluginData>
 						</Effect>
 						<Effect Name="Filtered_Cathedral_Stereo" ID="{ED869973-C49E-4162-A83D-CDB7C3F510E5}" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
 							<Comment>Impulse response created by Pinguin ing.büro
 © 2010 Pinguin ing.büro.  All rights reserved.
 IR Pre-delay: 20ms </Comment>
 							<PropertyList>
-								<Property Name="CenterLevel" Type="Real32" Value="-12"/>
-								<Property Name="IRConvolutionSmooth" Type="Real32" Value="5"/>
-								<Property Name="IRConvolutionStop" Type="Real64" Value="4.04647541966427"/>
-								<Property Name="IRConvolutionThreshold" Type="Real32" Value="-62"/>
-								<Property Name="IRLPFAutomate" Type="bool" Value="True"/>
-								<Property Name="IRLevel" Type="Real32" Value="-45"/>
-								<Property Name="IRStretch" Type="Real32" Value="107"/>
-								<Property Name="PreDelay" Type="Real32" Value="60"/>
+								<Property Name="CenterLevel" Type="Real32">
+									<ValueList>
+										<Value>-12</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionSmooth" Type="Real32">
+									<ValueList>
+										<Value>5</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionStop" Type="Real64">
+									<ValueList>
+										<Value>4.04647541966427</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionThreshold" Type="Real32">
+									<ValueList>
+										<Value>-62</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLPFAutomate" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLevel" Type="Real32">
+									<ValueList>
+										<Value>-45</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRStretch" Type="Real32">
+									<ValueList>
+										<Value>107</Value>
+									</ValueList>
+								</Property>
+								<Property Name="PreDelay" Type="Real32">
+									<ValueList>
+										<Value>60</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ChildrenList>
 								<PluginMediaSource Name="AK St-Katharinen" ID="{CAF740FD-0DE5-4D73-8C7F-FAAB52665D18}" ShortID="101091315">
@@ -2385,10 +3000,12 @@ IR Pre-delay: 20ms </Comment>
 									<PropertyList>
 										<Property Name="DataFileName" Type="string" Value="AK_Factory_IR\Churches\AK St-Katharinen.wav"/>
 									</PropertyList>
+									<ConvertedFileIDList>
+										<File ID="8071170"/>
+									</ConvertedFileIDList>
 								</PluginMediaSource>
 							</ChildrenList>
-							<PluginData>
-	<ConvolutionData>
+							<PluginData><ConvolutionData>
 		<CurveList Version="1">
 			<CurveInfo Name="IRGraphicEQ">
 				<Curve Name="" ID="{2EADBA05-2ECF-4BA3-8E25-D2AC3C9F23CE}">
@@ -2448,22 +3065,53 @@ IR Pre-delay: 20ms </Comment>
 				</Curve>
 			</CurveInfo>
 		</CurveList>
-	</ConvolutionData>
-</PluginData>
+	</ConvolutionData></PluginData>
 						</Effect>
 						<Effect Name="Medium_Church_Stereo" ID="{F474ED32-C27E-4816-9B50-AC5B99453438}" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
 							<Comment>Impulse response created by Pinguin ing.büro
 © 2010 Pinguin ing.büro.  All rights reserved.
 IR Pre-delay: 5ms </Comment>
 							<PropertyList>
-								<Property Name="CenterLevel" Type="Real32" Value="-12"/>
-								<Property Name="IRConvolutionSmooth" Type="Real32" Value="43"/>
-								<Property Name="IRConvolutionStop" Type="Real64" Value="3.46235964912281"/>
-								<Property Name="IRConvolutionThreshold" Type="Real32" Value="-66"/>
-								<Property Name="IRLPFAutomate" Type="bool" Value="True"/>
-								<Property Name="IRLevel" Type="Real32" Value="-32"/>
-								<Property Name="IRStretch" Type="Real32" Value="68"/>
-								<Property Name="PreDelay" Type="Real32" Value="22"/>
+								<Property Name="CenterLevel" Type="Real32">
+									<ValueList>
+										<Value>-12</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionSmooth" Type="Real32">
+									<ValueList>
+										<Value>43</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionStop" Type="Real64">
+									<ValueList>
+										<Value>3.46235964912281</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionThreshold" Type="Real32">
+									<ValueList>
+										<Value>-66</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLPFAutomate" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLevel" Type="Real32">
+									<ValueList>
+										<Value>-32</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRStretch" Type="Real32">
+									<ValueList>
+										<Value>68</Value>
+									</ValueList>
+								</Property>
+								<Property Name="PreDelay" Type="Real32">
+									<ValueList>
+										<Value>22</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ChildrenList>
 								<PluginMediaSource Name="AK Medium Church" ID="{947B2DEF-09DA-4546-9EDD-3BE75AB3C2B1}" ShortID="659069708">
@@ -2473,8 +3121,7 @@ IR Pre-delay: 5ms </Comment>
 									</PropertyList>
 								</PluginMediaSource>
 							</ChildrenList>
-							<PluginData>
-	<ConvolutionData>
+							<PluginData><ConvolutionData>
 		<CurveList Version="1">
 			<CurveInfo Name="IRGraphicEQ">
 				<Curve Name="" ID="{C39B5958-C2ED-4818-AF59-3BE8177D0B3D}">
@@ -2534,22 +3181,53 @@ IR Pre-delay: 5ms </Comment>
 				</Curve>
 			</CurveInfo>
 		</CurveList>
-	</ConvolutionData>
-</PluginData>
+	</ConvolutionData></PluginData>
 						</Effect>
 						<Effect Name="Famous_Church_Stereo" ID="{0CF97F8C-F5A2-4FCA-BAD2-508D7FE2731D}" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
 							<Comment>Impulse response created by Pinguin ing.büro
 © 2010 Pinguin ing.büro.  All rights reserved.
 IR Pre-delay: 5ms </Comment>
 							<PropertyList>
-								<Property Name="CenterLevel" Type="Real32" Value="-12"/>
-								<Property Name="IRConvolutionSmooth" Type="Real32" Value="47"/>
-								<Property Name="IRConvolutionStop" Type="Real64" Value="3.47008813048246"/>
-								<Property Name="IRConvolutionThreshold" Type="Real32" Value="-65"/>
-								<Property Name="IRLPFAutomate" Type="bool" Value="True"/>
-								<Property Name="IRLevel" Type="Real32" Value="-38"/>
-								<Property Name="IRStretch" Type="Real32" Value="123"/>
-								<Property Name="PreDelay" Type="Real32" Value="60"/>
+								<Property Name="CenterLevel" Type="Real32">
+									<ValueList>
+										<Value>-12</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionSmooth" Type="Real32">
+									<ValueList>
+										<Value>47</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionStop" Type="Real64">
+									<ValueList>
+										<Value>3.47008813048246</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionThreshold" Type="Real32">
+									<ValueList>
+										<Value>-65</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLPFAutomate" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLevel" Type="Real32">
+									<ValueList>
+										<Value>-38</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRStretch" Type="Real32">
+									<ValueList>
+										<Value>123</Value>
+									</ValueList>
+								</Property>
+								<Property Name="PreDelay" Type="Real32">
+									<ValueList>
+										<Value>60</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ChildrenList>
 								<PluginMediaSource Name="AK Medium Church" ID="{D89E8FFC-F6B7-46CD-B475-25DE33104B93}" ShortID="1035327887">
@@ -2557,10 +3235,12 @@ IR Pre-delay: 5ms </Comment>
 									<PropertyList>
 										<Property Name="DataFileName" Type="string" Value="AK_Factory_IR\Churches\AK Medium Church.wav"/>
 									</PropertyList>
+									<ConvertedFileIDList>
+										<File ID="659069708"/>
+									</ConvertedFileIDList>
 								</PluginMediaSource>
 							</ChildrenList>
-							<PluginData>
-	<ConvolutionData>
+							<PluginData><ConvolutionData>
 		<CurveList Version="1">
 			<CurveInfo Name="IRGraphicEQ">
 				<Curve Name="" ID="{A8DFAFAB-57FB-4084-A855-A655A7B75219}">
@@ -2620,20 +3300,43 @@ IR Pre-delay: 5ms </Comment>
 				</Curve>
 			</CurveInfo>
 		</CurveList>
-	</ConvolutionData>
-</PluginData>
+	</ConvolutionData></PluginData>
 						</Effect>
 						<Effect Name="StKatharinen_Org_Stereo" ID="{9C3A1E3A-5E83-45E6-BF99-418C5ACCE6FE}" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
 							<Comment>Impulse response created by Pinguin ing.büro
 © 2010 Pinguin ing.büro.  All rights reserved.
 IR Pre-delay: 20ms </Comment>
 							<PropertyList>
-								<Property Name="IRConvolutionSmooth" Type="Real32" Value="6"/>
-								<Property Name="IRConvolutionStop" Type="Real64" Value="4.04595979845626"/>
-								<Property Name="IRConvolutionThreshold" Type="Real32" Value="-71"/>
-								<Property Name="IRLRMix" Type="Real32" Value="5"/>
-								<Property Name="IRLevel" Type="Real32" Value="-42"/>
-								<Property Name="PreDelay" Type="Real32" Value="20"/>
+								<Property Name="IRConvolutionSmooth" Type="Real32">
+									<ValueList>
+										<Value>6</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionStop" Type="Real64">
+									<ValueList>
+										<Value>4.04595979845626</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionThreshold" Type="Real32">
+									<ValueList>
+										<Value>-71</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLRMix" Type="Real32">
+									<ValueList>
+										<Value>5</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLevel" Type="Real32">
+									<ValueList>
+										<Value>-42</Value>
+									</ValueList>
+								</Property>
+								<Property Name="PreDelay" Type="Real32">
+									<ValueList>
+										<Value>20</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ChildrenList>
 								<PluginMediaSource Name="AK St-Katharinen" ID="{D5A61DB3-EE33-431A-BD34-2FF9611F6282}" ShortID="1005069349">
@@ -2641,10 +3344,12 @@ IR Pre-delay: 20ms </Comment>
 									<PropertyList>
 										<Property Name="DataFileName" Type="string" Value="AK_Factory_IR\Churches\AK St-Katharinen.wav"/>
 									</PropertyList>
+									<ConvertedFileIDList>
+										<File ID="8071170"/>
+									</ConvertedFileIDList>
 								</PluginMediaSource>
 							</ChildrenList>
-							<PluginData>
-	<ConvolutionData>
+							<PluginData><ConvolutionData>
 		<CurveList Version="1">
 			<CurveInfo Name="IRGraphicEQ">
 				<Curve Name="" ID="{F7A11955-D5F1-4DF1-883F-9002200C843A}">
@@ -2704,19 +3409,38 @@ IR Pre-delay: 20ms </Comment>
 				</Curve>
 			</CurveInfo>
 		</CurveList>
-	</ConvolutionData>
-</PluginData>
+	</ConvolutionData></PluginData>
 						</Effect>
 						<Effect Name="MediumChurch_Org_Stereo" ID="{E2147EF3-E3FD-4AE7-B13C-266736AC7839}" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
 							<Comment>Impulse response created by Pinguin ing.büro
 © 2010 Pinguin ing.büro.  All rights reserved.
 IR Pre-delay: 5ms </Comment>
 							<PropertyList>
-								<Property Name="IRConvolutionSmooth" Type="Real32" Value="6"/>
-								<Property Name="IRConvolutionStop" Type="Real64" Value="1.88601457975987"/>
-								<Property Name="IRConvolutionThreshold" Type="Real32" Value="-70"/>
-								<Property Name="IRLevel" Type="Real32" Value="-38"/>
-								<Property Name="PreDelay" Type="Real32" Value="5"/>
+								<Property Name="IRConvolutionSmooth" Type="Real32">
+									<ValueList>
+										<Value>6</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionStop" Type="Real64">
+									<ValueList>
+										<Value>1.88601457975987</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionThreshold" Type="Real32">
+									<ValueList>
+										<Value>-70</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLevel" Type="Real32">
+									<ValueList>
+										<Value>-38</Value>
+									</ValueList>
+								</Property>
+								<Property Name="PreDelay" Type="Real32">
+									<ValueList>
+										<Value>5</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ChildrenList>
 								<PluginMediaSource Name="AK Medium Church" ID="{9C238E27-5F6F-49E3-A0B5-C2143DD1336B}" ShortID="1010865615">
@@ -2724,10 +3448,12 @@ IR Pre-delay: 5ms </Comment>
 									<PropertyList>
 										<Property Name="DataFileName" Type="string" Value="AK_Factory_IR\Churches\AK Medium Church.wav"/>
 									</PropertyList>
+									<ConvertedFileIDList>
+										<File ID="659069708"/>
+									</ConvertedFileIDList>
 								</PluginMediaSource>
 							</ChildrenList>
-							<PluginData>
-	<ConvolutionData>
+							<PluginData><ConvolutionData>
 		<CurveList Version="1">
 			<CurveInfo Name="IRGraphicEQ">
 				<Curve Name="" ID="{7E123DAE-AEA4-42BE-A628-5AE8935F714F}">
@@ -2787,8 +3513,7 @@ IR Pre-delay: 5ms </Comment>
 				</Curve>
 			</CurveInfo>
 		</CurveList>
-	</ConvolutionData>
-</PluginData>
+	</ConvolutionData></PluginData>
 						</Effect>
 					</ChildrenList>
 				</Folder>
@@ -2799,12 +3524,36 @@ IR Pre-delay: 5ms </Comment>
 © 2010 Pinguin ing.büro.  All rights reserved.
 IR Pre-delay: 6ms</Comment>
 							<PropertyList>
-								<Property Name="CenterLevel" Type="Real32" Value="-12"/>
-								<Property Name="IRConvolutionSmooth" Type="Real32" Value="27"/>
-								<Property Name="IRConvolutionStop" Type="Real64" Value="1.88021217105263"/>
-								<Property Name="IRConvolutionThreshold" Type="Real32" Value="-71"/>
-								<Property Name="IRLevel" Type="Real32" Value="-23"/>
-								<Property Name="PreDelay" Type="Real32" Value="24"/>
+								<Property Name="CenterLevel" Type="Real32">
+									<ValueList>
+										<Value>-12</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionSmooth" Type="Real32">
+									<ValueList>
+										<Value>27</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionStop" Type="Real64">
+									<ValueList>
+										<Value>1.88021217105263</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionThreshold" Type="Real32">
+									<ValueList>
+										<Value>-71</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLevel" Type="Real32">
+									<ValueList>
+										<Value>-23</Value>
+									</ValueList>
+								</Property>
+								<Property Name="PreDelay" Type="Real32">
+									<ValueList>
+										<Value>24</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ChildrenList>
 								<PluginMediaSource Name="AK Berlin Teldex" ID="{BE2B50C1-670E-4C34-BF9B-0F68780E6780}" ShortID="654850748">
@@ -2817,8 +3566,7 @@ IR Pre-delay: 6ms</Comment>
 									</ConvertedFileIDList>
 								</PluginMediaSource>
 							</ChildrenList>
-							<PluginData>
-	<ConvolutionData>
+							<PluginData><ConvolutionData>
 		<CurveList Version="1">
 			<CurveInfo Name="IRGraphicEQ">
 				<Curve Name="" ID="{46AE141C-356B-4584-AFD8-773C6C677E94}">
@@ -2878,21 +3626,48 @@ IR Pre-delay: 6ms</Comment>
 				</Curve>
 			</CurveInfo>
 		</CurveList>
-	</ConvolutionData>
-</PluginData>
+	</ConvolutionData></PluginData>
 						</Effect>
 						<Effect Name="Lecture_Hall_Stereo" ID="{59FC4298-964A-41B4-9CE3-8D4514B508D1}" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
 							<Comment>Impulse response created by Pinguin ing.büro
 © 2010 Pinguin ing.büro.  All rights reserved.
 IR Pre-delay: 6ms</Comment>
 							<PropertyList>
-								<Property Name="CenterLevel" Type="Real32" Value="-12"/>
-								<Property Name="IRConvolutionStop" Type="Real64" Value="1.90064925986842"/>
-								<Property Name="IRConvolutionThreshold" Type="Real32" Value="-81"/>
-								<Property Name="IRLPFAutomate" Type="bool" Value="True"/>
-								<Property Name="IRLevel" Type="Real32" Value="-25"/>
-								<Property Name="IRStretch" Type="Real32" Value="157"/>
-								<Property Name="PreDelay" Type="Real32" Value="24"/>
+								<Property Name="CenterLevel" Type="Real32">
+									<ValueList>
+										<Value>-12</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionStop" Type="Real64">
+									<ValueList>
+										<Value>1.90064925986842</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionThreshold" Type="Real32">
+									<ValueList>
+										<Value>-81</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLPFAutomate" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLevel" Type="Real32">
+									<ValueList>
+										<Value>-25</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRStretch" Type="Real32">
+									<ValueList>
+										<Value>157</Value>
+									</ValueList>
+								</Property>
+								<Property Name="PreDelay" Type="Real32">
+									<ValueList>
+										<Value>24</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ChildrenList>
 								<PluginMediaSource Name="AK Berlin Teldex" ID="{74A74A9F-7BBC-40A4-AE8F-AEFE26BF5747}" ShortID="1045271282">
@@ -2900,10 +3675,12 @@ IR Pre-delay: 6ms</Comment>
 									<PropertyList>
 										<Property Name="DataFileName" Type="string" Value="AK_Factory_IR\Halls\AK Berlin Teldex.wav"/>
 									</PropertyList>
+									<ConvertedFileIDList>
+										<File ID="162018684"/>
+									</ConvertedFileIDList>
 								</PluginMediaSource>
 							</ChildrenList>
-							<PluginData>
-	<ConvolutionData>
+							<PluginData><ConvolutionData>
 		<CurveList Version="1">
 			<CurveInfo Name="IRGraphicEQ">
 				<Curve Name="" ID="{DF12AF7D-2A81-48F4-B83D-80AC56C2650A}">
@@ -2963,22 +3740,53 @@ IR Pre-delay: 6ms</Comment>
 				</Curve>
 			</CurveInfo>
 		</CurveList>
-	</ConvolutionData>
-</PluginData>
+	</ConvolutionData></PluginData>
 						</Effect>
 						<Effect Name="Dark_Hall_Stereo" ID="{15C60F36-DA64-4C3D-9185-CA8DACB76330}" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
 							<Comment>Impulse response created by Pinguin ing.büro
 © 2010 Pinguin ing.büro.  All rights reserved.
 IR Pre-delay: 6ms</Comment>
 							<PropertyList>
-								<Property Name="CenterLevel" Type="Real32" Value="-12"/>
-								<Property Name="IRConvolutionSmooth" Type="Real32" Value="24"/>
-								<Property Name="IRConvolutionStop" Type="Real64" Value="1.53278166118421"/>
-								<Property Name="IRConvolutionThreshold" Type="Real32" Value="-81"/>
-								<Property Name="IRLPFAutomate" Type="bool" Value="True"/>
-								<Property Name="IRLevel" Type="Real32" Value="-25"/>
-								<Property Name="IRStretch" Type="Real32" Value="144"/>
-								<Property Name="PreDelay" Type="Real32" Value="24"/>
+								<Property Name="CenterLevel" Type="Real32">
+									<ValueList>
+										<Value>-12</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionSmooth" Type="Real32">
+									<ValueList>
+										<Value>24</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionStop" Type="Real64">
+									<ValueList>
+										<Value>1.53278166118421</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionThreshold" Type="Real32">
+									<ValueList>
+										<Value>-81</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLPFAutomate" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLevel" Type="Real32">
+									<ValueList>
+										<Value>-25</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRStretch" Type="Real32">
+									<ValueList>
+										<Value>144</Value>
+									</ValueList>
+								</Property>
+								<Property Name="PreDelay" Type="Real32">
+									<ValueList>
+										<Value>24</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ChildrenList>
 								<PluginMediaSource Name="AK Berlin Teldex" ID="{A8F0CB83-4005-44E4-9C2F-95052ED3CAA9}" ShortID="689379105">
@@ -2986,10 +3794,12 @@ IR Pre-delay: 6ms</Comment>
 									<PropertyList>
 										<Property Name="DataFileName" Type="string" Value="AK_Factory_IR\Halls\AK Berlin Teldex.wav"/>
 									</PropertyList>
+									<ConvertedFileIDList>
+										<File ID="162018684"/>
+									</ConvertedFileIDList>
 								</PluginMediaSource>
 							</ChildrenList>
-							<PluginData>
-	<ConvolutionData>
+							<PluginData><ConvolutionData>
 		<CurveList Version="1">
 			<CurveInfo Name="IRGraphicEQ">
 				<Curve Name="" ID="{491E7D70-0964-4D0A-8DC6-7CD5EFCE44AF}">
@@ -3059,22 +3869,53 @@ IR Pre-delay: 6ms</Comment>
 				</Curve>
 			</CurveInfo>
 		</CurveList>
-	</ConvolutionData>
-</PluginData>
+	</ConvolutionData></PluginData>
 						</Effect>
 						<Effect Name="Short_Hall_Stereo" ID="{7CCA1CF8-86A1-4EF8-B8B1-B236E286390D}" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
 							<Comment>Impulse response created by Pinguin ing.büro
 © 2010 Pinguin ing.büro.  All rights reserved.
 IR Pre-delay: 6ms</Comment>
 							<PropertyList>
-								<Property Name="CenterLevel" Type="Real32" Value="-12"/>
-								<Property Name="IRConvolutionSmooth" Type="Real32" Value="13"/>
-								<Property Name="IRConvolutionStop" Type="Real64" Value="2.08969233141447"/>
-								<Property Name="IRConvolutionThreshold" Type="Real32" Value="-72"/>
-								<Property Name="IRLPFAutomate" Type="bool" Value="True"/>
-								<Property Name="IRLevel" Type="Real32" Value="-26"/>
-								<Property Name="IRStretch" Type="Real32" Value="93"/>
-								<Property Name="PreDelay" Type="Real32" Value="17"/>
+								<Property Name="CenterLevel" Type="Real32">
+									<ValueList>
+										<Value>-12</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionSmooth" Type="Real32">
+									<ValueList>
+										<Value>13</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionStop" Type="Real64">
+									<ValueList>
+										<Value>2.08969233141447</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionThreshold" Type="Real32">
+									<ValueList>
+										<Value>-72</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLPFAutomate" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLevel" Type="Real32">
+									<ValueList>
+										<Value>-26</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRStretch" Type="Real32">
+									<ValueList>
+										<Value>93</Value>
+									</ValueList>
+								</Property>
+								<Property Name="PreDelay" Type="Real32">
+									<ValueList>
+										<Value>17</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ChildrenList>
 								<PluginMediaSource Name="AK Berlin Teldex" ID="{BEC683B7-F228-43CE-BFA0-8F641B9AA366}" ShortID="733994131">
@@ -3082,10 +3923,12 @@ IR Pre-delay: 6ms</Comment>
 									<PropertyList>
 										<Property Name="DataFileName" Type="string" Value="AK_Factory_IR\Halls\AK Berlin Teldex.wav"/>
 									</PropertyList>
+									<ConvertedFileIDList>
+										<File ID="162018684"/>
+									</ConvertedFileIDList>
 								</PluginMediaSource>
 							</ChildrenList>
-							<PluginData>
-	<ConvolutionData>
+							<PluginData><ConvolutionData>
 		<CurveList Version="1">
 			<CurveInfo Name="IRGraphicEQ">
 				<Curve Name="" ID="{C53FD750-F5E3-4F76-9E68-C82560AC6E9D}">
@@ -3161,21 +4004,48 @@ IR Pre-delay: 6ms</Comment>
 				</Curve>
 			</CurveInfo>
 		</CurveList>
-	</ConvolutionData>
-</PluginData>
+	</ConvolutionData></PluginData>
 						</Effect>
 						<Effect Name="Crowded_Hall_Stereo" ID="{78D73A9A-C8A9-446B-8DD5-302A4B7E34A0}" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
 							<Comment>Impulse response created by Pinguin ing.büro
 © 2010 Pinguin ing.büro.  All rights reserved.
 IR Pre-delay: 10ms </Comment>
 							<PropertyList>
-								<Property Name="CenterLevel" Type="Real32" Value="-12"/>
-								<Property Name="IRConvolutionStop" Type="Real64" Value="1.77250822368421"/>
-								<Property Name="IRConvolutionThreshold" Type="Real32" Value="-70"/>
-								<Property Name="IRLPFAutomate" Type="bool" Value="True"/>
-								<Property Name="IRLevel" Type="Real32" Value="-38"/>
-								<Property Name="IRStretch" Type="Real32" Value="150"/>
-								<Property Name="PreDelay" Type="Real32" Value="55"/>
+								<Property Name="CenterLevel" Type="Real32">
+									<ValueList>
+										<Value>-12</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionStop" Type="Real64">
+									<ValueList>
+										<Value>1.77250822368421</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionThreshold" Type="Real32">
+									<ValueList>
+										<Value>-70</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLPFAutomate" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLevel" Type="Real32">
+									<ValueList>
+										<Value>-38</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRStretch" Type="Real32">
+									<ValueList>
+										<Value>150</Value>
+									</ValueList>
+								</Property>
+								<Property Name="PreDelay" Type="Real32">
+									<ValueList>
+										<Value>55</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ChildrenList>
 								<PluginMediaSource Name="AK Brasilien Halle" ID="{DFA34AB6-25FF-4677-ADC1-8E4F112BA18E}" ShortID="417701481">
@@ -3185,8 +4055,7 @@ IR Pre-delay: 10ms </Comment>
 									</PropertyList>
 								</PluginMediaSource>
 							</ChildrenList>
-							<PluginData>
-	<ConvolutionData>
+							<PluginData><ConvolutionData>
 		<CurveList Version="1">
 			<CurveInfo Name="IRGraphicEQ">
 				<Curve Name="" ID="{DB5417FB-75E9-4644-B183-85B340E11C9C}">
@@ -3256,19 +4125,38 @@ IR Pre-delay: 10ms </Comment>
 				</Curve>
 			</CurveInfo>
 		</CurveList>
-	</ConvolutionData>
-</PluginData>
+	</ConvolutionData></PluginData>
 						</Effect>
 						<Effect Name="BerlinTeldex_Org_Stereo" ID="{86F343F3-FF4A-409A-BCB9-A67B20A11167}" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
 							<Comment>Impulse response created by Pinguin ing.büro
 © 2010 Pinguin ing.büro.  All rights reserved.
 IR Pre-delay: 6ms</Comment>
 							<PropertyList>
-								<Property Name="IRConvolutionSmooth" Type="Real32" Value="5"/>
-								<Property Name="IRConvolutionStop" Type="Real64" Value="2.00283470394737"/>
-								<Property Name="IRConvolutionThreshold" Type="Real32" Value="-77"/>
-								<Property Name="IRLevel" Type="Real32" Value="-24"/>
-								<Property Name="PreDelay" Type="Real32" Value="6"/>
+								<Property Name="IRConvolutionSmooth" Type="Real32">
+									<ValueList>
+										<Value>5</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionStop" Type="Real64">
+									<ValueList>
+										<Value>2.00283470394737</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionThreshold" Type="Real32">
+									<ValueList>
+										<Value>-77</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLevel" Type="Real32">
+									<ValueList>
+										<Value>-24</Value>
+									</ValueList>
+								</Property>
+								<Property Name="PreDelay" Type="Real32">
+									<ValueList>
+										<Value>6</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ChildrenList>
 								<PluginMediaSource Name="AK Berlin Teldex" ID="{F790A942-06D7-4B0D-98CA-00192F55631F}" ShortID="162018684">
@@ -3276,13 +4164,9 @@ IR Pre-delay: 6ms</Comment>
 									<PropertyList>
 										<Property Name="DataFileName" Type="string" Value="AK_Factory_IR\Halls\AK Berlin Teldex.wav"/>
 									</PropertyList>
-									<ConvertedFileIDList>
-										<File ID="654850748"/>
-									</ConvertedFileIDList>
 								</PluginMediaSource>
 							</ChildrenList>
-							<PluginData>
-	<ConvolutionData>
+							<PluginData><ConvolutionData>
 		<CurveList Version="1">
 			<CurveInfo Name="IRGraphicEQ">
 				<Curve Name="" ID="{AEE6C08C-1962-4C7A-BB13-C7B9B5151783}">
@@ -3342,8 +4226,7 @@ IR Pre-delay: 6ms</Comment>
 				</Curve>
 			</CurveInfo>
 		</CurveList>
-	</ConvolutionData>
-</PluginData>
+	</ConvolutionData></PluginData>
 						</Effect>
 						<Effect Name="Berlin_Stadtbad_Org_Stereo" ID="{0F20E8CA-32D7-44A5-AB2B-6912F5D44AA5}" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
 							<Comment>Impulse response created by Pinguin ing.büro
@@ -3351,12 +4234,36 @@ IR Pre-delay: 6ms</Comment>
 IR Pre-delay: 5ms 
 </Comment>
 							<PropertyList>
-								<Property Name="IRConvolutionSmooth" Type="Real32" Value="9"/>
-								<Property Name="IRConvolutionStop" Type="Real64" Value="4.20190210389254"/>
-								<Property Name="IRConvolutionThreshold" Type="Real32" Value="-60"/>
-								<Property Name="IRLRMix" Type="Real32" Value="-4"/>
-								<Property Name="IRLevel" Type="Real32" Value="-21"/>
-								<Property Name="PreDelay" Type="Real32" Value="5"/>
+								<Property Name="IRConvolutionSmooth" Type="Real32">
+									<ValueList>
+										<Value>9</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionStop" Type="Real64">
+									<ValueList>
+										<Value>4.20190210389254</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionThreshold" Type="Real32">
+									<ValueList>
+										<Value>-60</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLRMix" Type="Real32">
+									<ValueList>
+										<Value>-4</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLevel" Type="Real32">
+									<ValueList>
+										<Value>-21</Value>
+									</ValueList>
+								</Property>
+								<Property Name="PreDelay" Type="Real32">
+									<ValueList>
+										<Value>5</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ChildrenList>
 								<PluginMediaSource Name="AK Berlin Stadtbad" ID="{BE26ADD0-4A3E-4342-8A3F-4AF02920A1A1}" ShortID="88530504">
@@ -3366,8 +4273,7 @@ IR Pre-delay: 5ms
 									</PropertyList>
 								</PluginMediaSource>
 							</ChildrenList>
-							<PluginData>
-	<ConvolutionData>
+							<PluginData><ConvolutionData>
 		<CurveList Version="1">
 			<CurveInfo Name="IRGraphicEQ">
 				<Curve Name="" ID="{D669E7D3-E53F-4739-B7DE-4E9BCAE3F560}">
@@ -3427,8 +4333,7 @@ IR Pre-delay: 5ms
 				</Curve>
 			</CurveInfo>
 		</CurveList>
-	</ConvolutionData>
-</PluginData>
+	</ConvolutionData></PluginData>
 						</Effect>
 						<Effect Name="Brasilien_Halle_Org_Stereo" ID="{46F2CD79-D065-47F3-B694-3A8DAF559247}" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
 							<Comment>Impulse response created by Pinguin ing.büro
@@ -3436,11 +4341,31 @@ IR Pre-delay: 5ms
 IR Pre-delay: 10ms 
 </Comment>
 							<PropertyList>
-								<Property Name="IRConvolutionSmooth" Type="Real32" Value="5"/>
-								<Property Name="IRConvolutionStop" Type="Real64" Value="2.01568770559211"/>
-								<Property Name="IRConvolutionThreshold" Type="Real32" Value="-76"/>
-								<Property Name="IRLevel" Type="Real32" Value="-43"/>
-								<Property Name="PreDelay" Type="Real32" Value="10"/>
+								<Property Name="IRConvolutionSmooth" Type="Real32">
+									<ValueList>
+										<Value>5</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionStop" Type="Real64">
+									<ValueList>
+										<Value>2.01568770559211</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionThreshold" Type="Real32">
+									<ValueList>
+										<Value>-76</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLevel" Type="Real32">
+									<ValueList>
+										<Value>-43</Value>
+									</ValueList>
+								</Property>
+								<Property Name="PreDelay" Type="Real32">
+									<ValueList>
+										<Value>10</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ChildrenList>
 								<PluginMediaSource Name="AK Brasilien Halle" ID="{55A22F2C-DD1C-4B35-A865-6CA83DB573C6}" ShortID="609174261">
@@ -3448,10 +4373,12 @@ IR Pre-delay: 10ms
 									<PropertyList>
 										<Property Name="DataFileName" Type="string" Value="AK_Factory_IR\Halls\AK Brasilien Halle.wav"/>
 									</PropertyList>
+									<ConvertedFileIDList>
+										<File ID="417701481"/>
+									</ConvertedFileIDList>
 								</PluginMediaSource>
 							</ChildrenList>
-							<PluginData>
-	<ConvolutionData>
+							<PluginData><ConvolutionData>
 		<CurveList Version="1">
 			<CurveInfo Name="IRGraphicEQ">
 				<Curve Name="" ID="{2D28747F-22D9-4640-AE58-EE33FBEE2843}">
@@ -3511,8 +4438,7 @@ IR Pre-delay: 10ms
 				</Curve>
 			</CurveInfo>
 		</CurveList>
-	</ConvolutionData>
-</PluginData>
+	</ConvolutionData></PluginData>
 						</Effect>
 					</ChildrenList>
 				</Folder>
@@ -3523,14 +4449,46 @@ IR Pre-delay: 10ms
 © 2010 Pinguin ing.büro.  All rights reserved.
 IR Pre-delay: 2ms </Comment>
 							<PropertyList>
-								<Property Name="CenterLevel" Type="Real32" Value="-12"/>
-								<Property Name="IRConvolutionSmooth" Type="Real32" Value="2"/>
-								<Property Name="IRConvolutionStop" Type="Real64" Value="0.837511307565789"/>
-								<Property Name="IRConvolutionThreshold" Type="Real32" Value="-70"/>
-								<Property Name="IRLPFAutomate" Type="bool" Value="True"/>
-								<Property Name="IRLevel" Type="Real32" Value="-23"/>
-								<Property Name="PreDelay" Type="Real32" Value="6"/>
-								<Property Name="StereoWidth" Type="Real32" Value="46"/>
+								<Property Name="CenterLevel" Type="Real32">
+									<ValueList>
+										<Value>-12</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionSmooth" Type="Real32">
+									<ValueList>
+										<Value>2</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionStop" Type="Real64">
+									<ValueList>
+										<Value>0.837511307565789</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionThreshold" Type="Real32">
+									<ValueList>
+										<Value>-70</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLPFAutomate" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLevel" Type="Real32">
+									<ValueList>
+										<Value>-23</Value>
+									</ValueList>
+								</Property>
+								<Property Name="PreDelay" Type="Real32">
+									<ValueList>
+										<Value>6</Value>
+									</ValueList>
+								</Property>
+								<Property Name="StereoWidth" Type="Real32">
+									<ValueList>
+										<Value>46</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ChildrenList>
 								<PluginMediaSource Name="AK Hamburg Harburger See" ID="{3F6FB504-8D95-4B23-9015-F1F87AF22F50}" ShortID="930622549">
@@ -3543,8 +4501,7 @@ IR Pre-delay: 2ms </Comment>
 									</ConvertedFileIDList>
 								</PluginMediaSource>
 							</ChildrenList>
-							<PluginData>
-	<ConvolutionData>
+							<PluginData><ConvolutionData>
 		<CurveList Version="1">
 			<CurveInfo Name="IRGraphicEQ">
 				<Curve Name="" ID="{6C35EFFE-E089-49DA-B56B-35DD3D03CF36}">
@@ -3604,23 +4561,58 @@ IR Pre-delay: 2ms </Comment>
 				</Curve>
 			</CurveInfo>
 		</CurveList>
-	</ConvolutionData>
-</PluginData>
+	</ConvolutionData></PluginData>
 						</Effect>
 						<Effect Name="HamburgHarburgerSee_Slap_02_Stereo" ID="{04EFB765-E41F-4AB3-8FE3-7AED99DDD52A}" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
 							<Comment>Impulse response created by Pinguin ing.büro
 © 2010 Pinguin ing.büro.  All rights reserved.
 IR Pre-delay: 2ms </Comment>
 							<PropertyList>
-								<Property Name="CenterLevel" Type="Real32" Value="-12"/>
-								<Property Name="IRConvolutionSmooth" Type="Real32" Value="16"/>
-								<Property Name="IRConvolutionStop" Type="Real64" Value="0.765116262335526"/>
-								<Property Name="IRConvolutionThreshold" Type="Real32" Value="-82"/>
-								<Property Name="IRLPFAutomate" Type="bool" Value="True"/>
-								<Property Name="IRLevel" Type="Real32" Value="-30"/>
-								<Property Name="IRStretch" Type="Real32" Value="102"/>
-								<Property Name="PreDelay" Type="Real32" Value="11"/>
-								<Property Name="StereoWidth" Type="Real32" Value="41"/>
+								<Property Name="CenterLevel" Type="Real32">
+									<ValueList>
+										<Value>-12</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionSmooth" Type="Real32">
+									<ValueList>
+										<Value>16</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionStop" Type="Real64">
+									<ValueList>
+										<Value>0.765116262335526</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionThreshold" Type="Real32">
+									<ValueList>
+										<Value>-82</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLPFAutomate" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLevel" Type="Real32">
+									<ValueList>
+										<Value>-30</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRStretch" Type="Real32">
+									<ValueList>
+										<Value>102</Value>
+									</ValueList>
+								</Property>
+								<Property Name="PreDelay" Type="Real32">
+									<ValueList>
+										<Value>11</Value>
+									</ValueList>
+								</Property>
+								<Property Name="StereoWidth" Type="Real32">
+									<ValueList>
+										<Value>41</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ChildrenList>
 								<PluginMediaSource Name="AK Hamburg Harburger See" ID="{1523AA96-D5B1-462D-9619-F40F5BC1471B}" ShortID="926581161">
@@ -3628,10 +4620,12 @@ IR Pre-delay: 2ms </Comment>
 									<PropertyList>
 										<Property Name="DataFileName" Type="string" Value="AK_Factory_IR\Exteriors\AK Hamburg Harburger See.wav"/>
 									</PropertyList>
+									<ConvertedFileIDList>
+										<File ID="612082618"/>
+									</ConvertedFileIDList>
 								</PluginMediaSource>
 							</ChildrenList>
-							<PluginData>
-	<ConvolutionData>
+							<PluginData><ConvolutionData>
 		<CurveList Version="1">
 			<CurveInfo Name="IRGraphicEQ">
 				<Curve Name="" ID="{90227902-C1E7-4CF1-B98B-041FE1322FBC}">
@@ -3691,21 +4685,48 @@ IR Pre-delay: 2ms </Comment>
 				</Curve>
 			</CurveInfo>
 		</CurveList>
-	</ConvolutionData>
-</PluginData>
+	</ConvolutionData></PluginData>
 						</Effect>
 						<Effect Name="HamburgStadtpark_Dense_Reflections_Stereo" ID="{40F14767-4D6A-4AD7-8BE8-216A9B8B23B3}" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
 							<Comment>Impulse response created by Pinguin ing.büro
 © 2010 Pinguin ing.büro.  All rights reserved.
 IR Pre-delay: 8ms </Comment>
 							<PropertyList>
-								<Property Name="CenterLevel" Type="Real32" Value="-12"/>
-								<Property Name="IRConvolutionStop" Type="Real64" Value="0.830041666666667"/>
-								<Property Name="IRConvolutionThreshold" Type="Real32" Value="-65"/>
-								<Property Name="IRLPFAutomate" Type="bool" Value="True"/>
-								<Property Name="IRLevel" Type="Real32" Value="-32"/>
-								<Property Name="PreDelay" Type="Real32" Value="11"/>
-								<Property Name="StereoWidth" Type="Real32" Value="75"/>
+								<Property Name="CenterLevel" Type="Real32">
+									<ValueList>
+										<Value>-12</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionStop" Type="Real64">
+									<ValueList>
+										<Value>0.830041666666667</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionThreshold" Type="Real32">
+									<ValueList>
+										<Value>-65</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLPFAutomate" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLevel" Type="Real32">
+									<ValueList>
+										<Value>-32</Value>
+									</ValueList>
+								</Property>
+								<Property Name="PreDelay" Type="Real32">
+									<ValueList>
+										<Value>11</Value>
+									</ValueList>
+								</Property>
+								<Property Name="StereoWidth" Type="Real32">
+									<ValueList>
+										<Value>75</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ChildrenList>
 								<PluginMediaSource Name="AK Hamburg Stadtpark 01" ID="{822FA9DA-7687-4794-90DA-AA3A8C91580A}" ShortID="152920738">
@@ -3715,8 +4736,7 @@ IR Pre-delay: 8ms </Comment>
 									</PropertyList>
 								</PluginMediaSource>
 							</ChildrenList>
-							<PluginData>
-	<ConvolutionData>
+							<PluginData><ConvolutionData>
 		<CurveList Version="1">
 			<CurveInfo Name="IRGraphicEQ">
 				<Curve Name="" ID="{1ABCB2D3-7272-4DCC-A335-AE1D4816AF81}">
@@ -3776,8 +4796,7 @@ IR Pre-delay: 8ms </Comment>
 				</Curve>
 			</CurveInfo>
 		</CurveList>
-	</ConvolutionData>
-</PluginData>
+	</ConvolutionData></PluginData>
 						</Effect>
 						<Effect Name="HamburgVolksdorferWald_Diffusion_Stereo" ID="{73217A8E-9777-4DDE-AC50-101FACDD4F06}" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
 							<Comment>Impulse response created by Pinguin ing.büro
@@ -3785,13 +4804,41 @@ IR Pre-delay: 8ms </Comment>
 IR Pre-delay: 9ms 
 </Comment>
 							<PropertyList>
-								<Property Name="CenterLevel" Type="Real32" Value="-12"/>
-								<Property Name="IRConvolutionSmooth" Type="Real32" Value="18"/>
-								<Property Name="IRConvolutionStop" Type="Real64" Value="0.943644634046053"/>
-								<Property Name="IRConvolutionThreshold" Type="Real32" Value="-73"/>
-								<Property Name="IRLPFAutomate" Type="bool" Value="True"/>
-								<Property Name="IRLevel" Type="Real32" Value="-26"/>
-								<Property Name="PreDelay" Type="Real32" Value="8"/>
+								<Property Name="CenterLevel" Type="Real32">
+									<ValueList>
+										<Value>-12</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionSmooth" Type="Real32">
+									<ValueList>
+										<Value>18</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionStop" Type="Real64">
+									<ValueList>
+										<Value>0.943644634046053</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionThreshold" Type="Real32">
+									<ValueList>
+										<Value>-73</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLPFAutomate" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLevel" Type="Real32">
+									<ValueList>
+										<Value>-26</Value>
+									</ValueList>
+								</Property>
+								<Property Name="PreDelay" Type="Real32">
+									<ValueList>
+										<Value>8</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ChildrenList>
 								<PluginMediaSource Name="AK Hamburg Volksdorfer Wald" ID="{D598937B-2ABE-4263-862F-4BE4C4E4DA67}" ShortID="299482527">
@@ -3799,10 +4846,12 @@ IR Pre-delay: 9ms
 									<PropertyList>
 										<Property Name="DataFileName" Type="string" Value="AK_Factory_IR\Exteriors\AK Hamburg Volksdorfer Wald.wav"/>
 									</PropertyList>
+									<ConvertedFileIDList>
+										<File ID="13000250"/>
+									</ConvertedFileIDList>
 								</PluginMediaSource>
 							</ChildrenList>
-							<PluginData>
-	<ConvolutionData>
+							<PluginData><ConvolutionData>
 		<CurveList Version="1">
 			<CurveInfo Name="IRGraphicEQ">
 				<Curve Name="" ID="{F7B1303C-FABC-414C-A435-DA6E5D183EF5}">
@@ -3869,8 +4918,7 @@ IR Pre-delay: 9ms
 				</Curve>
 			</CurveInfo>
 		</CurveList>
-	</ConvolutionData>
-</PluginData>
+	</ConvolutionData></PluginData>
 						</Effect>
 						<Effect Name="HamburgStadtpark_ER_Stereo" ID="{4B9E6294-B9AB-44D5-880A-745E92E2AC34}" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
 							<Comment>Impulse response created by Pinguin ing.büro
@@ -3878,14 +4926,46 @@ IR Pre-delay: 9ms
 IR Pre-delay: 8ms 
 </Comment>
 							<PropertyList>
-								<Property Name="CenterLevel" Type="Real32" Value="-12"/>
-								<Property Name="IRConvolutionStop" Type="Real64" Value="0.199319216008772"/>
-								<Property Name="IRConvolutionThreshold" Type="Real32" Value="-49"/>
-								<Property Name="IRLPFAutomate" Type="bool" Value="True"/>
-								<Property Name="IRLevel" Type="Real32" Value="-31"/>
-								<Property Name="IRStretch" Type="Real32" Value="55"/>
-								<Property Name="PreDelay" Type="Real32" Value="13"/>
-								<Property Name="StereoWidth" Type="Real32" Value="96"/>
+								<Property Name="CenterLevel" Type="Real32">
+									<ValueList>
+										<Value>-12</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionStop" Type="Real64">
+									<ValueList>
+										<Value>0.199319216008772</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionThreshold" Type="Real32">
+									<ValueList>
+										<Value>-49</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLPFAutomate" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLevel" Type="Real32">
+									<ValueList>
+										<Value>-31</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRStretch" Type="Real32">
+									<ValueList>
+										<Value>55</Value>
+									</ValueList>
+								</Property>
+								<Property Name="PreDelay" Type="Real32">
+									<ValueList>
+										<Value>13</Value>
+									</ValueList>
+								</Property>
+								<Property Name="StereoWidth" Type="Real32">
+									<ValueList>
+										<Value>96</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ChildrenList>
 								<PluginMediaSource Name="AK Hamburg Stadtpark 01" ID="{55105436-A217-4AC5-8F9D-C4DAB8A97557}" ShortID="1051291759">
@@ -3893,10 +4973,12 @@ IR Pre-delay: 8ms
 									<PropertyList>
 										<Property Name="DataFileName" Type="string" Value="AK_Factory_IR\Exteriors\AK Hamburg Stadtpark 01.wav"/>
 									</PropertyList>
+									<ConvertedFileIDList>
+										<File ID="152920738"/>
+									</ConvertedFileIDList>
 								</PluginMediaSource>
 							</ChildrenList>
-							<PluginData>
-	<ConvolutionData>
+							<PluginData><ConvolutionData>
 		<CurveList Version="1">
 			<CurveInfo Name="IRGraphicEQ">
 				<Curve Name="" ID="{7394F299-069D-47CC-8BD7-502EDC476824}">
@@ -3963,22 +5045,53 @@ IR Pre-delay: 8ms
 				</Curve>
 			</CurveInfo>
 		</CurveList>
-	</ConvolutionData>
-</PluginData>
+	</ConvolutionData></PluginData>
 						</Effect>
 						<Effect Name="HamburgStadtpark_Stage_Reflections_Stereo" ID="{4A2A637B-4311-4632-9DFE-78E200E4C1B7}" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
 							<Comment>Impulse response created by Pinguin ing.büro
 © 2010 Pinguin ing.büro.  All rights reserved.
 IR Pre-delay: 3ms </Comment>
 							<PropertyList>
-								<Property Name="CenterLevel" Type="Real32" Value="-12"/>
-								<Property Name="IRConvolutionStop" Type="Real64" Value="0.965764391447369"/>
-								<Property Name="IRConvolutionThreshold" Type="Real32" Value="-76"/>
-								<Property Name="IRLPFAutomate" Type="bool" Value="True"/>
-								<Property Name="IRLevel" Type="Real32" Value="-23"/>
-								<Property Name="IRStretch" Type="Real32" Value="79"/>
-								<Property Name="PreDelay" Type="Real32" Value="11"/>
-								<Property Name="StereoWidth" Type="Real32" Value="77"/>
+								<Property Name="CenterLevel" Type="Real32">
+									<ValueList>
+										<Value>-12</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionStop" Type="Real64">
+									<ValueList>
+										<Value>0.965764391447369</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionThreshold" Type="Real32">
+									<ValueList>
+										<Value>-76</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLPFAutomate" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLevel" Type="Real32">
+									<ValueList>
+										<Value>-23</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRStretch" Type="Real32">
+									<ValueList>
+										<Value>79</Value>
+									</ValueList>
+								</Property>
+								<Property Name="PreDelay" Type="Real32">
+									<ValueList>
+										<Value>11</Value>
+									</ValueList>
+								</Property>
+								<Property Name="StereoWidth" Type="Real32">
+									<ValueList>
+										<Value>77</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ChildrenList>
 								<PluginMediaSource Name="AK Hamburg Stadtpark 02" ID="{ED2C8D5F-4C93-4527-9FB5-5AB0886DFE34}" ShortID="195840689">
@@ -3986,13 +5099,9 @@ IR Pre-delay: 3ms </Comment>
 									<PropertyList>
 										<Property Name="DataFileName" Type="string" Value="AK_Factory_IR\Exteriors\AK Hamburg Stadtpark 02.wav"/>
 									</PropertyList>
-									<ConvertedFileIDList>
-										<File ID="433739779"/>
-									</ConvertedFileIDList>
 								</PluginMediaSource>
 							</ChildrenList>
-							<PluginData>
-	<ConvolutionData>
+							<PluginData><ConvolutionData>
 		<CurveList Version="1">
 			<CurveInfo Name="IRGraphicEQ">
 				<Curve Name="" ID="{9D540172-9B82-4A96-A99A-CFD4B99E344D}">
@@ -4057,22 +5166,53 @@ IR Pre-delay: 3ms </Comment>
 				</Curve>
 			</CurveInfo>
 		</CurveList>
-	</ConvolutionData>
-</PluginData>
+	</ConvolutionData></PluginData>
 						</Effect>
 						<Effect Name="HamburgStadtpark_Stage_Reflections_Gated_Stereo" ID="{1595BB47-4657-468F-970D-35424031D6A9}" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
 							<Comment>Impulse response created by Pinguin ing.büro
 © 2010 Pinguin ing.büro.  All rights reserved.
 IR Pre-delay: 3ms </Comment>
 							<PropertyList>
-								<Property Name="CenterLevel" Type="Real32" Value="-12"/>
-								<Property Name="IRConvolutionStop" Type="Real64" Value="0.723398231907895"/>
-								<Property Name="IRConvolutionThreshold" Type="Real32" Value="-62"/>
-								<Property Name="IRLPFAutomate" Type="bool" Value="True"/>
-								<Property Name="IRLevel" Type="Real32" Value="-20"/>
-								<Property Name="IRStretch" Type="Real32" Value="59"/>
-								<Property Name="PreDelay" Type="Real32" Value="11"/>
-								<Property Name="StereoWidth" Type="Real32" Value="49"/>
+								<Property Name="CenterLevel" Type="Real32">
+									<ValueList>
+										<Value>-12</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionStop" Type="Real64">
+									<ValueList>
+										<Value>0.723398231907895</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionThreshold" Type="Real32">
+									<ValueList>
+										<Value>-62</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLPFAutomate" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLevel" Type="Real32">
+									<ValueList>
+										<Value>-20</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRStretch" Type="Real32">
+									<ValueList>
+										<Value>59</Value>
+									</ValueList>
+								</Property>
+								<Property Name="PreDelay" Type="Real32">
+									<ValueList>
+										<Value>11</Value>
+									</ValueList>
+								</Property>
+								<Property Name="StereoWidth" Type="Real32">
+									<ValueList>
+										<Value>49</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ChildrenList>
 								<PluginMediaSource Name="AK Hamburg Stadtpark 02" ID="{97E580AC-488A-4296-964B-5B8B91C87A80}" ShortID="433739779">
@@ -4085,8 +5225,7 @@ IR Pre-delay: 3ms </Comment>
 									</ConvertedFileIDList>
 								</PluginMediaSource>
 							</ChildrenList>
-							<PluginData>
-	<ConvolutionData>
+							<PluginData><ConvolutionData>
 		<CurveList Version="1">
 			<CurveInfo Name="IRGraphicEQ">
 				<Curve Name="" ID="{41568711-B392-4812-AA4B-7F3EA4E7CFF4}">
@@ -4146,19 +5285,38 @@ IR Pre-delay: 3ms </Comment>
 				</Curve>
 			</CurveInfo>
 		</CurveList>
-	</ConvolutionData>
-</PluginData>
+	</ConvolutionData></PluginData>
 						</Effect>
 						<Effect Name="Hamburg_Harburger_See_Org_Stereo" ID="{6DDA445C-80F8-44FD-B46D-0EA014F0B551}" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
 							<Comment>Impulse response created by Pinguin ing.büro
 © 2010 Pinguin ing.büro.  All rights reserved.
 IR Pre-delay: 2ms </Comment>
 							<PropertyList>
-								<Property Name="IRConvolutionSmooth" Type="Real32" Value="5"/>
-								<Property Name="IRConvolutionStop" Type="Real64" Value="0.80912109375"/>
-								<Property Name="IRConvolutionThreshold" Type="Real32" Value="-83"/>
-								<Property Name="IRLevel" Type="Real32" Value="-25"/>
-								<Property Name="PreDelay" Type="Real32" Value="2"/>
+								<Property Name="IRConvolutionSmooth" Type="Real32">
+									<ValueList>
+										<Value>5</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionStop" Type="Real64">
+									<ValueList>
+										<Value>0.80912109375</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionThreshold" Type="Real32">
+									<ValueList>
+										<Value>-83</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLevel" Type="Real32">
+									<ValueList>
+										<Value>-25</Value>
+									</ValueList>
+								</Property>
+								<Property Name="PreDelay" Type="Real32">
+									<ValueList>
+										<Value>2</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ChildrenList>
 								<PluginMediaSource Name="AK Hamburg Harburger See" ID="{E93B7651-0A28-4AAC-A86F-D3995CB3E07D}" ShortID="612082618">
@@ -4166,13 +5324,9 @@ IR Pre-delay: 2ms </Comment>
 									<PropertyList>
 										<Property Name="DataFileName" Type="string" Value="AK_Factory_IR\Exteriors\AK Hamburg Harburger See.wav"/>
 									</PropertyList>
-									<ConvertedFileIDList>
-										<File ID="930622549"/>
-									</ConvertedFileIDList>
 								</PluginMediaSource>
 							</ChildrenList>
-							<PluginData>
-	<ConvolutionData>
+							<PluginData><ConvolutionData>
 		<CurveList Version="1">
 			<CurveInfo Name="IRGraphicEQ">
 				<Curve Name="" ID="{5DEE8A12-1026-435F-82BF-80C7198C1245}">
@@ -4232,8 +5386,7 @@ IR Pre-delay: 2ms </Comment>
 				</Curve>
 			</CurveInfo>
 		</CurveList>
-	</ConvolutionData>
-</PluginData>
+	</ConvolutionData></PluginData>
 						</Effect>
 						<Effect Name="Hamburg_Stadtpark_01_Org_Stereo" ID="{78CD34E4-8E38-4EC8-959D-2515592CD807}" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
 							<Comment>Impulse response created by Pinguin ing.büro
@@ -4241,10 +5394,26 @@ IR Pre-delay: 2ms </Comment>
 IR Pre-delay: 8ms 
 </Comment>
 							<PropertyList>
-								<Property Name="IRConvolutionStop" Type="Real64" Value="0.830041666666667"/>
-								<Property Name="IRLRMix" Type="Real32" Value="9"/>
-								<Property Name="IRLevel" Type="Real32" Value="-27"/>
-								<Property Name="PreDelay" Type="Real32" Value="8"/>
+								<Property Name="IRConvolutionStop" Type="Real64">
+									<ValueList>
+										<Value>0.830041666666667</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLRMix" Type="Real32">
+									<ValueList>
+										<Value>9</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLevel" Type="Real32">
+									<ValueList>
+										<Value>-27</Value>
+									</ValueList>
+								</Property>
+								<Property Name="PreDelay" Type="Real32">
+									<ValueList>
+										<Value>8</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ChildrenList>
 								<PluginMediaSource Name="AK Hamburg Stadtpark 01" ID="{BF048F2A-BA09-46E4-A29F-E1150D014061}" ShortID="584321412">
@@ -4252,10 +5421,12 @@ IR Pre-delay: 8ms
 									<PropertyList>
 										<Property Name="DataFileName" Type="string" Value="AK_Factory_IR\Exteriors\AK Hamburg Stadtpark 01.wav"/>
 									</PropertyList>
+									<ConvertedFileIDList>
+										<File ID="152920738"/>
+									</ConvertedFileIDList>
 								</PluginMediaSource>
 							</ChildrenList>
-							<PluginData>
-	<ConvolutionData>
+							<PluginData><ConvolutionData>
 		<CurveList Version="1">
 			<CurveInfo Name="IRGraphicEQ">
 				<Curve Name="" ID="{5C24A690-65B6-43B5-A29F-78965B6B83E2}">
@@ -4315,8 +5486,7 @@ IR Pre-delay: 8ms
 				</Curve>
 			</CurveInfo>
 		</CurveList>
-	</ConvolutionData>
-</PluginData>
+	</ConvolutionData></PluginData>
 						</Effect>
 						<Effect Name="Hamburg_Stadtpark_02_Org_Stereo" ID="{9B1AD6AB-F223-41DE-AAF6-E0EBB8067F18}" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
 							<Comment>Impulse response created by Pinguin ing.büro
@@ -4324,11 +5494,31 @@ IR Pre-delay: 8ms
 IR Pre-delay: 3ms 
 </Comment>
 							<PropertyList>
-								<Property Name="IRConvolutionStop" Type="Real64" Value="1.02311821546053"/>
-								<Property Name="IRConvolutionThreshold" Type="Real32" Value="-82"/>
-								<Property Name="IRLRMix" Type="Real32" Value="-26"/>
-								<Property Name="IRLevel" Type="Real32" Value="-20"/>
-								<Property Name="PreDelay" Type="Real32" Value="3"/>
+								<Property Name="IRConvolutionStop" Type="Real64">
+									<ValueList>
+										<Value>1.02311821546053</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionThreshold" Type="Real32">
+									<ValueList>
+										<Value>-82</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLRMix" Type="Real32">
+									<ValueList>
+										<Value>-26</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLevel" Type="Real32">
+									<ValueList>
+										<Value>-20</Value>
+									</ValueList>
+								</Property>
+								<Property Name="PreDelay" Type="Real32">
+									<ValueList>
+										<Value>3</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ChildrenList>
 								<PluginMediaSource Name="AK Hamburg Stadtpark 02" ID="{20E26D41-8E0A-4B04-B5B3-340BB77A42C4}" ShortID="1002455079">
@@ -4336,10 +5526,12 @@ IR Pre-delay: 3ms
 									<PropertyList>
 										<Property Name="DataFileName" Type="string" Value="AK_Factory_IR\Exteriors\AK Hamburg Stadtpark 02.wav"/>
 									</PropertyList>
+									<ConvertedFileIDList>
+										<File ID="195840689"/>
+									</ConvertedFileIDList>
 								</PluginMediaSource>
 							</ChildrenList>
-							<PluginData>
-	<ConvolutionData>
+							<PluginData><ConvolutionData>
 		<CurveList Version="1">
 			<CurveInfo Name="IRGraphicEQ">
 				<Curve Name="" ID="{F8AA1642-5C79-4BA1-9777-2DCD78FE6E80}">
@@ -4399,8 +5591,7 @@ IR Pre-delay: 3ms
 				</Curve>
 			</CurveInfo>
 		</CurveList>
-	</ConvolutionData>
-</PluginData>
+	</ConvolutionData></PluginData>
 						</Effect>
 						<Effect Name="Hamburg_Volksdorfer_Wald_Org_Stereo" ID="{3089900C-A344-4941-9605-5C4232550802}" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
 							<Comment>Impulse response created by Pinguin ing.büro
@@ -4408,10 +5599,26 @@ IR Pre-delay: 3ms
 IR Pre-delay: 9ms 
 </Comment>
 							<PropertyList>
-								<Property Name="IRConvolutionStop" Type="Real64" Value="1.59218585526316"/>
-								<Property Name="IRConvolutionThreshold" Type="Real32" Value="-88"/>
-								<Property Name="IRLevel" Type="Real32" Value="-25"/>
-								<Property Name="PreDelay" Type="Real32" Value="9"/>
+								<Property Name="IRConvolutionStop" Type="Real64">
+									<ValueList>
+										<Value>1.59218585526316</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRConvolutionThreshold" Type="Real32">
+									<ValueList>
+										<Value>-88</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IRLevel" Type="Real32">
+									<ValueList>
+										<Value>-25</Value>
+									</ValueList>
+								</Property>
+								<Property Name="PreDelay" Type="Real32">
+									<ValueList>
+										<Value>9</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ChildrenList>
 								<PluginMediaSource Name="AK Hamburg Volksdorfer Wald" ID="{1AD06791-38BB-4CF8-B88E-E0F7A249317E}" ShortID="13000250">
@@ -4421,8 +5628,7 @@ IR Pre-delay: 9ms
 									</PropertyList>
 								</PluginMediaSource>
 							</ChildrenList>
-							<PluginData>
-	<ConvolutionData>
+							<PluginData><ConvolutionData>
 		<CurveList Version="1">
 			<CurveInfo Name="IRGraphicEQ">
 				<Curve Name="" ID="{7A5E9F8D-7DA2-456B-A7AE-45A7B574461D}">
@@ -4482,8 +5688,7 @@ IR Pre-delay: 9ms
 				</Curve>
 			</CurveInfo>
 		</CurveList>
-	</ConvolutionData>
-</PluginData>
+	</ConvolutionData></PluginData>
 						</Effect>
 					</ChildrenList>
 				</Folder>

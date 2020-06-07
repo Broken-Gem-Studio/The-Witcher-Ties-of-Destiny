@@ -16,7 +16,7 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
-									<ObjectRef Name="convert_to_OGG" ID="{1B9F26BD-F88B-48F8-9572-41879691A9CA}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
 								</Reference>
 								<Reference Name="OutputBus">
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
@@ -123,7 +123,7 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
-									<ObjectRef Name="convert_to_OGG" ID="{1B9F26BD-F88B-48F8-9572-41879691A9CA}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
 								</Reference>
 								<Reference Name="OutputBus">
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
@@ -230,7 +230,7 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
-									<ObjectRef Name="convert_to_OGG" ID="{1B9F26BD-F88B-48F8-9572-41879691A9CA}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
 								</Reference>
 								<Reference Name="OutputBus">
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
@@ -342,7 +342,7 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
-									<ObjectRef Name="convert_to_OGG" ID="{1B9F26BD-F88B-48F8-9572-41879691A9CA}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
 								</Reference>
 								<Reference Name="OutputBus">
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
@@ -516,6 +516,9 @@
 														<AudioFileSource Name="Music_Combat_Viking_Ship" ID="{60BBD19C-0036-4BEE-9690-D2C5B47D861F}" ShortID="484032302">
 															<Language>SFX</Language>
 															<AudioFile>Music\Music_Combat_Viking_Ship.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="483066541"/>
+															</ConvertedFileIDList>
 														</AudioFileSource>
 													</ChildrenList>
 													<TransitionList>
@@ -577,6 +580,9 @@
 														<AudioFileSource Name="Music_Combat_The_Dark_Castle" ID="{3371739B-0583-4489-BBAE-3A7D45DC2B6E}" ShortID="997267315">
 															<Language>SFX</Language>
 															<AudioFile>Music\Music_Combat_The_Dark_Castle.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="394200934"/>
+															</ConvertedFileIDList>
 														</AudioFileSource>
 													</ChildrenList>
 													<TransitionList>
@@ -716,6 +722,9 @@
 														<AudioFileSource Name="Music_Menu_Pause_Relaxing_Green_Nature" ID="{6AC85CA1-4B1D-43EB-B082-A59478310285}" ShortID="849114426">
 															<Language>SFX</Language>
 															<AudioFile>Music\Music_Menu_Pause_Relaxing_Green_Nature.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="1022100902"/>
+															</ConvertedFileIDList>
 														</AudioFileSource>
 													</ChildrenList>
 													<TransitionList>
@@ -865,42 +874,7 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
-									<Custom CreatedFrom="{1B9F26BD-F88B-48F8-9572-41879691A9CA}">
-										<Conversion Name="convert_to_OGG (Custom)" ID="{6A41D867-7177-4587-9A93-97295857DFC9}">
-											<PropertyList>
-												<Property Name="Channels" Type="int32">
-													<ValueList>
-														<Value Platform="Windows">4</Value>
-													</ValueList>
-												</Property>
-												<Property Name="LRMix" Type="Real64">
-													<ValueList>
-														<Value Platform="Windows">0</Value>
-													</ValueList>
-												</Property>
-												<Property Name="MaxSampleRate" Type="int32">
-													<ValueList>
-														<Value Platform="Windows">0</Value>
-													</ValueList>
-												</Property>
-												<Property Name="MinSampleRate" Type="int32">
-													<ValueList>
-														<Value Platform="Windows">0</Value>
-													</ValueList>
-												</Property>
-												<Property Name="SampleRate" Type="int32">
-													<ValueList>
-														<Value Platform="Windows">0</Value>
-													</ValueList>
-												</Property>
-											</PropertyList>
-											<ConversionPluginInfoList>
-												<ConversionPluginInfo Platform="Windows">
-													<ConversionPlugin Name="" ID="{0A4A95A1-9CFF-49AA-B795-6994EA6F7173}" PluginName="PCM" CompanyID="0" PluginID="1"/>
-												</ConversionPluginInfo>
-											</ConversionPluginInfoList>
-										</Conversion>
-									</Custom>
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
 								</Reference>
 								<Reference Name="OutputBus">
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
@@ -964,7 +938,7 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
-									<ObjectRef Name="convert_to_OGG" ID="{1B9F26BD-F88B-48F8-9572-41879691A9CA}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
 								</Reference>
 								<Reference Name="OutputBus">
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
@@ -1004,9 +978,6 @@
 														<AudioFileSource Name="Music_Combat_Viking_Ship" ID="{D59BE1B0-B053-4651-A56B-20CAF78F18FD}" ShortID="483066541">
 															<Language>SFX</Language>
 															<AudioFile>Music\Music_Combat_Viking_Ship.wav</AudioFile>
-															<ConvertedFileIDList>
-																<File ID="484032302"/>
-															</ConvertedFileIDList>
 														</AudioFileSource>
 													</ChildrenList>
 													<TransitionList>
@@ -1068,9 +1039,6 @@
 														<AudioFileSource Name="Music_Combat_The_Dark_Castle" ID="{4C897D8E-9915-4AF9-B0E4-674EB1A48C55}" ShortID="394200934">
 															<Language>SFX</Language>
 															<AudioFile>Music\Music_Combat_The_Dark_Castle.wav</AudioFile>
-															<ConvertedFileIDList>
-																<File ID="997267315"/>
-															</ConvertedFileIDList>
 														</AudioFileSource>
 													</ChildrenList>
 													<TransitionList>
@@ -1274,9 +1242,6 @@
 														<AudioFileSource Name="Music_Menu_Pause_Relaxing_Green_Nature" ID="{BC998BAF-3A18-4742-BB04-E516167EE312}" ShortID="1022100902">
 															<Language>SFX</Language>
 															<AudioFile>Music\Music_Menu_Pause_Relaxing_Green_Nature.wav</AudioFile>
-															<ConvertedFileIDList>
-																<File ID="849114426"/>
-															</ConvertedFileIDList>
 														</AudioFileSource>
 													</ChildrenList>
 													<TransitionList>
@@ -1528,7 +1493,7 @@
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
-							<ObjectRef Name="convert_to_OGG" ID="{1B9F26BD-F88B-48F8-9572-41879691A9CA}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
 						</Reference>
 						<Reference Name="OutputBus">
 							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
@@ -1588,7 +1553,7 @@
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
-							<ObjectRef Name="convert_to_OGG" ID="{1B9F26BD-F88B-48F8-9572-41879691A9CA}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
 						</Reference>
 						<Reference Name="OutputBus">
 							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
@@ -1654,7 +1619,7 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
-									<ObjectRef Name="convert_to_OGG" ID="{1B9F26BD-F88B-48F8-9572-41879691A9CA}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
 								</Reference>
 								<Reference Name="OutputBus">
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
@@ -1718,7 +1683,7 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
-									<ObjectRef Name="convert_to_OGG" ID="{1B9F26BD-F88B-48F8-9572-41879691A9CA}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
 								</Reference>
 								<Reference Name="OutputBus">
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
