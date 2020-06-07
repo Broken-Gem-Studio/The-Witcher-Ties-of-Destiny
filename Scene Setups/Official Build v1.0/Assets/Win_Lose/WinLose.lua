@@ -72,6 +72,7 @@ function GetTableWinLose()
     local fade_flag = false
     local fade_alpha = 0
 
+    local tp = false
     local load_level1 = false
     local load_level2 = false
     local load_mainmenu = false
@@ -134,14 +135,14 @@ function GetTableWinLose()
                 lua_table.UI:SetUIElementInteractable("Button", mainmenu, true)
                 lua_table.GO:SetActiveGameObject(true, nextlevel)
                 lua_table.UI:SetUIElementInteractable("Button", nextlevel, true)
-                --lua_table.GO:SetActiveGameObject(true, retry)
-                --lua_table.UI:SetUIElementInteractable("Button", retry, true)
+                lua_table.GO:SetActiveGameObject(true, retry)
+                lua_table.UI:SetUIElementInteractable("Button", retry, true)
             elseif lua_table.current_level == 2
             then
                 lua_table.GO:SetActiveGameObject(true, only_mainmenu)
                 lua_table.UI:SetUIElementInteractable("Button", only_mainmenu, true)
-                --lua_table.GO:SetActiveGameObject(true, only_retry)
-                --lua_table.UI:SetUIElementInteractable("Button", only_retry, true)
+                lua_table.GO:SetActiveGameObject(true, only_retry)
+                lua_table.UI:SetUIElementInteractable("Button", only_retry, true)
             end
         end
     end
@@ -232,12 +233,12 @@ function GetTableWinLose()
         lua_table.UI:SetUIElementInteractable("Button", mainmenu, false)
         lua_table.GO:SetActiveGameObject(false, nextlevel)
         lua_table.UI:SetUIElementInteractable("Button", nextlevel, false)
-        --lua_table.GO:SetActiveGameObject(false, retry)
-        --lua_table.UI:SetUIElementInteractable("Button", retry, false)
+        lua_table.GO:SetActiveGameObject(false, retry)
+        lua_table.UI:SetUIElementInteractable("Button", retry, false)
         lua_table.GO:SetActiveGameObject(false, only_mainmenu)
         lua_table.UI:SetUIElementInteractable("Button", only_mainmenu, false)
-        --lua_table.GO:SetActiveGameObject(false, only_retry)
-        --lua_table.UI:SetUIElementInteractable("Button", only_retry, false)
+        lua_table.GO:SetActiveGameObject(false, only_retry)
+        lua_table.UI:SetUIElementInteractable("Button", only_retry, false)
 
         --unpause game
         lua_table.System:ResumeGame()
@@ -263,12 +264,12 @@ function GetTableWinLose()
         lua_table.UI:SetUIElementInteractable("Button", mainmenu, false)
         lua_table.GO:SetActiveGameObject(false, nextlevel)
         lua_table.UI:SetUIElementInteractable("Button", nextlevel, false)
-        --lua_table.GO:SetActiveGameObject(false, retry)
-        --lua_table.UI:SetUIElementInteractable("Button", retry, false)
+        lua_table.GO:SetActiveGameObject(false, retry)
+        lua_table.UI:SetUIElementInteractable("Button", retry, false)
         lua_table.GO:SetActiveGameObject(false, only_mainmenu)
         lua_table.UI:SetUIElementInteractable("Button", only_mainmenu, false)
-        --lua_table.GO:SetActiveGameObject(false, only_retry)
-        --lua_table.UI:SetUIElementInteractable("Button", only_retry, false)
+        lua_table.GO:SetActiveGameObject(false, only_retry)
+        lua_table.UI:SetUIElementInteractable("Button", only_retry, false)
 
         --unpause game
         lua_table.System:ResumeGame()
@@ -293,12 +294,12 @@ function GetTableWinLose()
         lua_table.UI:SetUIElementInteractable("Button", mainmenu, false)
         lua_table.GO:SetActiveGameObject(false, nextlevel)
         lua_table.UI:SetUIElementInteractable("Button", nextlevel, false)
-        --lua_table.GO:SetActiveGameObject(false, retry)
-        --lua_table.UI:SetUIElementInteractable("Button", retry, false)
+        lua_table.GO:SetActiveGameObject(false, retry)
+        lua_table.UI:SetUIElementInteractable("Button", retry, false)
         lua_table.GO:SetActiveGameObject(false, only_mainmenu)
         lua_table.UI:SetUIElementInteractable("Button", only_mainmenu, false)
-        --lua_table.GO:SetActiveGameObject(false, only_retry)
-        --lua_table.UI:SetUIElementInteractable("Button", only_retry, false)
+        lua_table.GO:SetActiveGameObject(false, only_retry)
+        lua_table.UI:SetUIElementInteractable("Button", only_retry, false)
 
         --unpause game
         lua_table.System:ResumeGame()
@@ -359,32 +360,34 @@ function GetTableWinLose()
         if geralt_script.current_state <= -4
         then
             lua_table.Physics:SetActiveController(true, Geralt)
-
-            --set Geralt's pos in last checkpoint
             lua_table.Physics:SetCharacterPosition(geralt_x, geralt_y, geralt_z, Geralt)
-            
-            --revive Geralt
             lua_table.GO:SetActiveGameObject(true, lua_table.GO:FindGameObject("Geralt_Mesh"))
             lua_table.GO:SetActiveGameObject(true, lua_table.GO:FindGameObject("Geralt_Pivot"))
-            geralt_script:Start()
+            geralt_script:Resurrect()
         else
             geralt_script.current_health = 200
+            if tp == true
+            then
+                lua_table.Physics:SetCharacterPosition(geralt_x, geralt_y, geralt_z, Geralt)
+                tp = false
+            end
         end
 
         --Jaskier Dead
         if jaskier_script.current_state <= -4
         then
             lua_table.Physics:SetActiveController(true, Jaskier)
-
-            --set Jaskier's pos in last checkpoint
             lua_table.Physics:SetCharacterPosition(jaskier_x, jaskier_y, jaskier_z, Jaskier)
-
-            --revive Jaskier
             lua_table.GO:SetActiveGameObject(true, lua_table.GO:FindGameObject("Jaskier_Mesh"))
             lua_table.GO:SetActiveGameObject(true, lua_table.GO:FindGameObject("Jaskier_Pivot"))
-            jaskier_script:Start()
+            jaskier_script:Resurrect()
         else
             jaskier_script.current_health = 200
+            if tp == true
+            then
+                lua_table.Physics:SetCharacterPosition(jaskier_x, jaskier_y, jaskier_z, Jaskier)
+                tp = false
+            end
         end
     end
 
@@ -401,9 +404,9 @@ function GetTableWinLose()
         fade = lua_table.GO:FindGameObject("Fade")
         mainmenu = lua_table.GO:FindGameObject("MainMenu")
         nextlevel = lua_table.GO:FindGameObject("NextLevel")
-        --retry = lua_table.GO:FindGameObject("Retry")
+        retry = lua_table.GO:FindGameObject("Retry")
         only_mainmenu = lua_table.GO:FindGameObject("OnlyMainMenu")
-        --only_retry = lua_table.GO:FindGameObject("OnlyRetry")
+        only_retry = lua_table.GO:FindGameObject("OnlyRetry")
         background = lua_table.GO:FindGameObject("WL_Background")
 
         --Geralt
@@ -455,12 +458,12 @@ function GetTableWinLose()
         lua_table.UI:SetUIElementInteractable("Button", mainmenu, false)
         lua_table.GO:SetActiveGameObject(false, nextlevel)
         lua_table.UI:SetUIElementInteractable("Button", nextlevel, false)
-        --lua_table.GO:SetActiveGameObject(false, retry)
-        --lua_table.UI:SetUIElementInteractable("Button", retry, false)
+        lua_table.GO:SetActiveGameObject(false, retry)
+        lua_table.UI:SetUIElementInteractable("Button", retry, false)
         lua_table.GO:SetActiveGameObject(false, only_mainmenu)
         lua_table.UI:SetUIElementInteractable("Button", only_mainmenu, false)
-        --lua_table.GO:SetActiveGameObject(false, only_retry)
-        --lua_table.UI:SetUIElementInteractable("Button", only_retry, false)
+        lua_table.GO:SetActiveGameObject(false, only_retry)
+        lua_table.UI:SetUIElementInteractable("Button", only_retry, false)
     end
 
     function lua_table:Start()
@@ -487,27 +490,18 @@ function GetTableWinLose()
         elseif lua_table.Input:KeyRepeat("F5") --checkpoint0
         then
             last_checkpoint = 0
-            GetCheckpointPos()
-            lua_table.Physics:SetActiveController(true, Geralt)
-            lua_table.Physics:SetActiveController(true, Jaskier)
-            lua_table.Physics:SetCharacterPosition(geralt_x, geralt_y, geralt_z, Geralt)
-            lua_table.Physics:SetCharacterPosition(jaskier_x, jaskier_y, jaskier_z, Jaskier)
+            tp = true
+            Checkpoint()
         elseif lua_table.Input:KeyRepeat("F6") --checkpoint1
         then
             last_checkpoint = 1
-            GetCheckpointPos()
-            lua_table.Physics:SetActiveController(true, Geralt)
-            lua_table.Physics:SetActiveController(true, Jaskier)
-            lua_table.Physics:SetCharacterPosition(geralt_x, geralt_y, geralt_z, Geralt)
-            lua_table.Physics:SetCharacterPosition(jaskier_x, jaskier_y, jaskier_z, Jaskier)
+            tp = true
+            Checkpoint()
         elseif lua_table.Input:KeyRepeat("F7") --checkpoint2
         then
             last_checkpoint = 2
-            GetCheckpointPos()
-            lua_table.Physics:SetActiveController(true, Geralt)
-            lua_table.Physics:SetActiveController(true, Jaskier)
-            lua_table.Physics:SetCharacterPosition(geralt_x, geralt_y, geralt_z, Geralt)
-            lua_table.Physics:SetCharacterPosition(jaskier_x, jaskier_y, jaskier_z, Jaskier)
+            tp = true
+            Checkpoint()
         end
         -----------
 

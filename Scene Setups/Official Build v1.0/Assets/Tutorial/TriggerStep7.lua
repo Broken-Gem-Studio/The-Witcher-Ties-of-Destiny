@@ -11,6 +11,7 @@ local geraltUID
 local jaskierUID
 local MyUUID
 local text
+local enemyCard
 
 function lua_table:OnTriggerEnter()
     local colliderGO = lua_table.PhysicsFunctions:OnTriggerEnter(MyUUID)
@@ -21,6 +22,7 @@ function lua_table:OnTriggerEnter()
         then
             managerTable.MoveEnemies7 = true
             lua_table.InterfaceFunctions:SetText("Kill all the enemies", text)
+            lua_table.InterfaceFunctions:MakeElementVisible("Image", enemyCard)
         end
     end
 end
@@ -32,6 +34,7 @@ function lua_table:Awake()
     geraltUID = lua_table.ObjectFunctions:FindGameObject("Geralt")
     jaskierUID = lua_table.ObjectFunctions:FindGameObject("Jaskier")
     text = lua_table.ObjectFunctions:FindGameObject("Text")
+    enemyCard = lua_table.ObjectFunctions:FindGameObject("L_ENEMY")
 end
 
 function lua_table:Start()

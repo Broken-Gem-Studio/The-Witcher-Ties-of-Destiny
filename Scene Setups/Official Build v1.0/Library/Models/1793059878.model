@@ -1,0 +1,153 @@
+{
+    "106634899": {
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "495.247528",
+                "positiony": "-21.325195",
+                "positionz": "1.357849",
+                "rotationw": "0.501479",
+                "rotationx": "0.501482",
+                "rotationy": "-0.498514",
+                "rotationz": "0.498516",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1170227596.bone"
+                }
+            }
+        },
+        "Name": "BigDoor_Left",
+        "Parent": "1567294087",
+        "PrefabChild": true,
+        "PrefabInstance": false
+    },
+    "1397366128": {
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "14": {
+                "Active": true,
+                "Animations": {
+                    "BlendTime": "0.300000",
+                    "Size": "0",
+                    "UseDefault": false
+                },
+                "Resources": {
+                    "ResourceAnimation": "Library/Animations/697835369.anim"
+                }
+            }
+        },
+        "Model": "Assets/CityLevel_Final/Doors/Big Door/Big_Door_Animated.FBX",
+        "Name": "GameObject(0)",
+        "Parent": "1263591932",
+        "PrefabChild": false,
+        "PrefabInstance": true
+    },
+    "1567294087": {
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            }
+        },
+        "Name": "Big_DoorPivot",
+        "Parent": "1397366128",
+        "PrefabChild": true,
+        "PrefabInstance": false
+    },
+    "398320997": {
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-485.143433",
+                "positiony": "-21.325195",
+                "positionz": "1.357849",
+                "rotationw": "0.501479",
+                "rotationx": "0.501482",
+                "rotationy": "-0.498514",
+                "rotationz": "0.498516",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1180861230.bone"
+                }
+            }
+        },
+        "Name": "BigDoor_Right",
+        "Parent": "1567294087",
+        "PrefabChild": true,
+        "PrefabInstance": false
+    },
+    "557774548": {
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.093580",
+                "positiony": "0.058663",
+                "positionz": "0.917118",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/434899694.mesh"
+                    }
+                }
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/Material #2336.mat"
+                    }
+                }
+            }
+        },
+        "Name": "BigDoor",
+        "Parent": "1397366128",
+        "PrefabChild": true,
+        "PrefabInstance": false
+    },
+    "PreviewTexture": "Library/Textures/2042348399.dds"
+}
