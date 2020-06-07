@@ -1,0 +1,4749 @@
+{
+    "1151607057": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "411.960205",
+                "positiony": "36.259960",
+                "positionz": "-313.558624",
+                "rotationw": "0.981209",
+                "rotationx": "0.000000",
+                "rotationy": "-0.192950",
+                "rotationz": "0.000000",
+                "scalex": "0.999997",
+                "scaley": "5.000000",
+                "scalez": "10.000006"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/Camera_v2/MapAreaScript_v1.lua"
+                },
+                "Script variables": {
+                    "Count": 19,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "P1_triggered",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "P2_triggered",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "manager_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 50.0
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 60.0
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_3",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 70.0
+                    },
+                    "Variable 14": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 30.0
+                    },
+                    "Variable 15": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 35.0
+                    },
+                    "Variable 16": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_3",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 45.0
+                    },
+                    "Variable 17": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_orientation",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": -70.0
+                    },
+                    "Variable 18": {
+                        "DisplayObjectName": false,
+                        "Name": "my_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Camera"
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": false,
+                        "Name": "full_trigger_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": false,
+                        "Name": "geralt_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Geralt"
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": false,
+                        "Name": "half_trigger_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": false,
+                        "Name": "jaskier_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Jaskier"
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": false,
+                        "Name": "kikimora_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Kikimora"
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "manager_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Map_Areas"
+                    }
+                }
+            },
+            "16": {
+                "Active": true,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "1",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "411.960205",
+                "globalMatrixy": "36.259960",
+                "globalMatrixz": "-313.558624",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "0",
+                "isTrigger": "1",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "0.999998",
+                "tmpScaley": "5.000000",
+                "tmpScalez": "10.000004"
+            }
+        },
+        "Name": "Area_Trigger_Corridor_2",
+        "Parent": "268795369",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "1184561305": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "691.141724",
+                "positiony": "50.956062",
+                "positionz": "-432.082153",
+                "rotationw": "0.560550",
+                "rotationx": "0.060725",
+                "rotationy": "-0.824693",
+                "rotationz": "-0.044470",
+                "scalex": "1.000045",
+                "scaley": "4.999999",
+                "scalez": "10.000654"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/Camera_v2/MapAreaScript_v1.lua"
+                },
+                "Script variables": {
+                    "Count": 19,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "P1_triggered",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "P2_triggered",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "manager_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 50.0
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 60.0
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_3",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 70.0
+                    },
+                    "Variable 14": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 25.0
+                    },
+                    "Variable 15": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 35.0
+                    },
+                    "Variable 16": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_3",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 45.0
+                    },
+                    "Variable 17": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_orientation",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 18": {
+                        "DisplayObjectName": false,
+                        "Name": "my_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Camera"
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": false,
+                        "Name": "full_trigger_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": false,
+                        "Name": "geralt_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Geralt"
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": false,
+                        "Name": "half_trigger_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": false,
+                        "Name": "jaskier_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Jaskier"
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": false,
+                        "Name": "kikimora_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Kikimora"
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "manager_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Map_Areas"
+                    }
+                }
+            },
+            "16": {
+                "Active": true,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "1",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "691.141724",
+                "globalMatrixy": "50.956062",
+                "globalMatrixz": "-432.082153",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "0",
+                "isTrigger": "1",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "0.999998",
+                "tmpScaley": "5.000000",
+                "tmpScalez": "10.000004"
+            }
+        },
+        "Name": "Area_Trigger_Bridge_4",
+        "Parent": "268795369",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "1211894220": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "666.757996",
+                "positiony": "50.956062",
+                "positionz": "-370.487427",
+                "rotationw": "0.560550",
+                "rotationx": "0.060725",
+                "rotationy": "-0.824693",
+                "rotationz": "-0.044470",
+                "scalex": "1.000045",
+                "scaley": "4.999999",
+                "scalez": "10.000654"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/Camera_v2/MapAreaScript_v1.lua"
+                },
+                "Script variables": {
+                    "Count": 19,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "P1_triggered",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "P2_triggered",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "manager_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 50.0
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 60.0
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_3",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 70.0
+                    },
+                    "Variable 14": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 30.0
+                    },
+                    "Variable 15": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 35.0
+                    },
+                    "Variable 16": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_3",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 45.0
+                    },
+                    "Variable 17": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_orientation",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 60.0
+                    },
+                    "Variable 18": {
+                        "DisplayObjectName": false,
+                        "Name": "my_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Camera"
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": false,
+                        "Name": "full_trigger_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": false,
+                        "Name": "geralt_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Geralt"
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": false,
+                        "Name": "half_trigger_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": false,
+                        "Name": "jaskier_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Jaskier"
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": false,
+                        "Name": "kikimora_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Kikimora"
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "manager_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Map_Areas"
+                    }
+                }
+            },
+            "16": {
+                "Active": true,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "1",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "666.757996",
+                "globalMatrixy": "50.956062",
+                "globalMatrixz": "-370.487427",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "0",
+                "isTrigger": "1",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "0.999998",
+                "tmpScaley": "5.000000",
+                "tmpScalez": "10.000004"
+            }
+        },
+        "Name": "Area_Trigger_Bridge_2",
+        "Parent": "268795369",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "1249730923": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "723.651184",
+                "positiony": "25.798492",
+                "positionz": "-163.351074",
+                "rotationw": "-0.017336",
+                "rotationx": "-0.068690",
+                "rotationy": "0.997452",
+                "rotationz": "0.008373",
+                "scalex": "1.000009",
+                "scaley": "4.999999",
+                "scalez": "10.000328"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/Camera_v2/MapAreaScript_v1.lua"
+                },
+                "Script variables": {
+                    "Count": 19,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "P1_triggered",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "P2_triggered",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "manager_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 50.0
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 60.0
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_3",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 70.0
+                    },
+                    "Variable 14": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 25.0
+                    },
+                    "Variable 15": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 35.0
+                    },
+                    "Variable 16": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_3",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 45.0
+                    },
+                    "Variable 17": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_orientation",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 18": {
+                        "DisplayObjectName": false,
+                        "Name": "my_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Camera"
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": false,
+                        "Name": "full_trigger_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": false,
+                        "Name": "geralt_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Geralt"
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": false,
+                        "Name": "half_trigger_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": false,
+                        "Name": "jaskier_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Jaskier"
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": false,
+                        "Name": "kikimora_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Kikimora"
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "manager_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Map_Areas"
+                    }
+                }
+            },
+            "16": {
+                "Active": true,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "1",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "723.651184",
+                "globalMatrixy": "25.798492",
+                "globalMatrixz": "-163.351074",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "0",
+                "isTrigger": "1",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "0.999998",
+                "tmpScaley": "5.000000",
+                "tmpScalez": "10.000004"
+            }
+        },
+        "Name": "Area_Trigger_OutPost_2",
+        "Parent": "268795369",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "1620810871": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "549.226440",
+                "positiony": "24.845797",
+                "positionz": "-221.453079",
+                "rotationw": "0.706862",
+                "rotationx": "0.000000",
+                "rotationy": "-0.707351",
+                "rotationz": "0.000000",
+                "scalex": "0.999977",
+                "scaley": "5.000000",
+                "scalez": "9.999905"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/Camera_v2/MapAreaScript_v1.lua"
+                },
+                "Script variables": {
+                    "Count": 19,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "P1_triggered",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "P2_triggered",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "manager_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 50.0
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 60.0
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_3",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 70.0
+                    },
+                    "Variable 14": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 25.0
+                    },
+                    "Variable 15": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 35.0
+                    },
+                    "Variable 16": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_3",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 45.0
+                    },
+                    "Variable 17": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_orientation",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": -60.0
+                    },
+                    "Variable 18": {
+                        "DisplayObjectName": false,
+                        "Name": "my_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Camera"
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": false,
+                        "Name": "full_trigger_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": false,
+                        "Name": "geralt_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Geralt"
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": false,
+                        "Name": "half_trigger_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": false,
+                        "Name": "jaskier_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Jaskier"
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": false,
+                        "Name": "kikimora_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Kikimora"
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "manager_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Map_Areas"
+                    }
+                }
+            },
+            "16": {
+                "Active": true,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "1",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "549.226440",
+                "globalMatrixy": "24.845797",
+                "globalMatrixz": "-221.453079",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "0",
+                "isTrigger": "1",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "-0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "0.999998",
+                "tmpScaley": "5.000000",
+                "tmpScalez": "10.000004"
+            }
+        },
+        "Name": "Area_Trigger_Well_2",
+        "Parent": "268795369",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "1665099624": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "566.608887",
+                "positiony": "29.875740",
+                "positionz": "-178.890991",
+                "rotationw": "0.111809",
+                "rotationx": "0.000000",
+                "rotationy": "0.993730",
+                "rotationz": "0.000000",
+                "scalex": "1.000037",
+                "scaley": "5.000000",
+                "scalez": "10.000503"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/Camera_v2/MapAreaScript_v1.lua"
+                },
+                "Script variables": {
+                    "Count": 19,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "P1_triggered",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "P2_triggered",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "manager_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 50.0
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 60.0
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_3",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 70.0
+                    },
+                    "Variable 14": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 25.0
+                    },
+                    "Variable 15": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 35.0
+                    },
+                    "Variable 16": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_3",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 45.0
+                    },
+                    "Variable 17": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_orientation",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": -60.0
+                    },
+                    "Variable 18": {
+                        "DisplayObjectName": false,
+                        "Name": "my_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Camera"
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": false,
+                        "Name": "full_trigger_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": false,
+                        "Name": "geralt_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Geralt"
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": false,
+                        "Name": "half_trigger_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": false,
+                        "Name": "jaskier_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Jaskier"
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": false,
+                        "Name": "kikimora_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Kikimora"
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "manager_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Map_Areas"
+                    }
+                }
+            },
+            "16": {
+                "Active": true,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "1",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "566.608887",
+                "globalMatrixy": "29.875740",
+                "globalMatrixz": "-178.890991",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "0",
+                "isTrigger": "1",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "0.999998",
+                "tmpScaley": "5.000000",
+                "tmpScalez": "10.000004"
+            }
+        },
+        "Name": "Area_Trigger_Field_Ramp_1",
+        "Parent": "268795369",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "1880438299": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "690.029053",
+                "positiony": "50.956062",
+                "positionz": "-428.255829",
+                "rotationw": "0.560550",
+                "rotationx": "0.060725",
+                "rotationy": "-0.824693",
+                "rotationz": "-0.044470",
+                "scalex": "1.000045",
+                "scaley": "4.999999",
+                "scalez": "10.000654"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/Camera_v2/MapAreaScript_v1.lua"
+                },
+                "Script variables": {
+                    "Count": 19,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "P1_triggered",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "P2_triggered",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "manager_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 50.0
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 60.0
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_3",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 70.0
+                    },
+                    "Variable 14": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 30.0
+                    },
+                    "Variable 15": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 35.0
+                    },
+                    "Variable 16": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_3",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 45.0
+                    },
+                    "Variable 17": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_orientation",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 60.0
+                    },
+                    "Variable 18": {
+                        "DisplayObjectName": false,
+                        "Name": "my_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Camera"
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": false,
+                        "Name": "full_trigger_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": false,
+                        "Name": "geralt_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Geralt"
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": false,
+                        "Name": "half_trigger_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": false,
+                        "Name": "jaskier_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Jaskier"
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": false,
+                        "Name": "kikimora_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Kikimora"
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "manager_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Map_Areas"
+                    }
+                }
+            },
+            "16": {
+                "Active": true,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "1",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "690.029053",
+                "globalMatrixy": "50.956062",
+                "globalMatrixz": "-428.255829",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "0",
+                "isTrigger": "1",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "0.999998",
+                "tmpScaley": "5.000000",
+                "tmpScalez": "10.000004"
+            }
+        },
+        "Name": "Area_Trigger_Bridge_3",
+        "Parent": "268795369",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "1899825013": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "665.325073",
+                "positiony": "50.956062",
+                "positionz": "-366.995117",
+                "rotationw": "0.560550",
+                "rotationx": "0.060725",
+                "rotationy": "-0.824693",
+                "rotationz": "-0.044470",
+                "scalex": "1.000045",
+                "scaley": "4.999999",
+                "scalez": "10.000654"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/Camera_v2/MapAreaScript_v1.lua"
+                },
+                "Script variables": {
+                    "Count": 19,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "P1_triggered",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "P2_triggered",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "manager_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 50.0
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 60.0
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_3",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 70.0
+                    },
+                    "Variable 14": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 25.0
+                    },
+                    "Variable 15": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 35.0
+                    },
+                    "Variable 16": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_3",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 45.0
+                    },
+                    "Variable 17": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_orientation",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 18": {
+                        "DisplayObjectName": false,
+                        "Name": "my_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Camera"
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": false,
+                        "Name": "full_trigger_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": false,
+                        "Name": "geralt_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Geralt"
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": false,
+                        "Name": "half_trigger_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": false,
+                        "Name": "jaskier_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Jaskier"
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": false,
+                        "Name": "kikimora_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Kikimora"
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "manager_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Map_Areas"
+                    }
+                }
+            },
+            "16": {
+                "Active": true,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "1",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "665.325073",
+                "globalMatrixy": "50.956062",
+                "globalMatrixz": "-366.995117",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "0",
+                "isTrigger": "1",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "0.999998",
+                "tmpScaley": "5.000000",
+                "tmpScalez": "10.000004"
+            }
+        },
+        "Name": "Area_Trigger_Bridge_1",
+        "Parent": "268795369",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "203473835": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "405.767212",
+                "positiony": "36.259960",
+                "positionz": "-314.661987",
+                "rotationw": "0.981209",
+                "rotationx": "0.000000",
+                "rotationy": "-0.192950",
+                "rotationz": "0.000000",
+                "scalex": "0.999997",
+                "scaley": "5.000000",
+                "scalez": "10.000006"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/Camera_v2/MapAreaScript_v1.lua"
+                },
+                "Script variables": {
+                    "Count": 19,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "P1_triggered",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "P2_triggered",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "manager_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 50.0
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 60.0
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_3",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 70.0
+                    },
+                    "Variable 14": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 25.0
+                    },
+                    "Variable 15": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 35.0
+                    },
+                    "Variable 16": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_3",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 45.0
+                    },
+                    "Variable 17": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_orientation",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 18": {
+                        "DisplayObjectName": false,
+                        "Name": "my_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Camera"
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": false,
+                        "Name": "full_trigger_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": false,
+                        "Name": "geralt_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Geralt"
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": false,
+                        "Name": "half_trigger_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": false,
+                        "Name": "jaskier_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Jaskier"
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": false,
+                        "Name": "kikimora_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Kikimora"
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "manager_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Map_Areas"
+                    }
+                }
+            },
+            "16": {
+                "Active": true,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "1",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "405.767212",
+                "globalMatrixy": "36.259960",
+                "globalMatrixz": "-314.661987",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "0",
+                "isTrigger": "1",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "0.999998",
+                "tmpScaley": "5.000000",
+                "tmpScalez": "10.000004"
+            }
+        },
+        "Name": "Area_Trigger_Corridor_1",
+        "Parent": "268795369",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "2051927696": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "550.587097",
+                "positiony": "24.845797",
+                "positionz": "-225.196899",
+                "rotationw": "0.706862",
+                "rotationx": "0.000000",
+                "rotationy": "-0.707351",
+                "rotationz": "0.000000",
+                "scalex": "0.999977",
+                "scaley": "5.000000",
+                "scalez": "9.999905"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/Camera_v2/MapAreaScript_v1.lua"
+                },
+                "Script variables": {
+                    "Count": 19,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "P1_triggered",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "P2_triggered",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "manager_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 50.0
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 60.0
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_3",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 70.0
+                    },
+                    "Variable 14": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 25.0
+                    },
+                    "Variable 15": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 35.0
+                    },
+                    "Variable 16": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_3",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 45.0
+                    },
+                    "Variable 17": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_orientation",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 18": {
+                        "DisplayObjectName": false,
+                        "Name": "my_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Camera"
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": false,
+                        "Name": "full_trigger_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": false,
+                        "Name": "geralt_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Geralt"
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": false,
+                        "Name": "half_trigger_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": false,
+                        "Name": "jaskier_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Jaskier"
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": false,
+                        "Name": "kikimora_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Kikimora"
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "manager_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Map_Areas"
+                    }
+                }
+            },
+            "16": {
+                "Active": true,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "1",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "550.587097",
+                "globalMatrixy": "24.845797",
+                "globalMatrixz": "-225.196899",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "0",
+                "isTrigger": "1",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "-0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "0.999998",
+                "tmpScaley": "5.000000",
+                "tmpScalez": "10.000004"
+            }
+        },
+        "Name": "Area_Trigger_Well_1",
+        "Parent": "268795369",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "2097777968": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "887.924927",
+                "positiony": "15.468915",
+                "positionz": "-572.171753",
+                "rotationw": "0.891949",
+                "rotationx": "0.000000",
+                "rotationy": "0.452136",
+                "rotationz": "0.000000",
+                "scalex": "1.000052",
+                "scaley": "5.000005",
+                "scalez": "25.600000"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/Camera_v2/MapAreaScript_v1.lua"
+                },
+                "Script variables": {
+                    "Count": 19,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "P1_triggered",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "P2_triggered",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "manager_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 50.0
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 60.0
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_3",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 70.0
+                    },
+                    "Variable 14": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 25.0
+                    },
+                    "Variable 15": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 35.0
+                    },
+                    "Variable 16": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_3",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 45.0
+                    },
+                    "Variable 17": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_orientation",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 18": {
+                        "DisplayObjectName": false,
+                        "Name": "my_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Camera"
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": false,
+                        "Name": "full_trigger_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": false,
+                        "Name": "geralt_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Geralt"
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": false,
+                        "Name": "half_trigger_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": false,
+                        "Name": "jaskier_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Jaskier"
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": false,
+                        "Name": "kikimora_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Kikimora"
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "manager_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Map_Areas"
+                    }
+                }
+            },
+            "16": {
+                "Active": true,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "1",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "887.924927",
+                "globalMatrixy": "15.468915",
+                "globalMatrixz": "-572.171753",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "0",
+                "isTrigger": "1",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "1.000052",
+                "tmpScaley": "5.000005",
+                "tmpScalez": "25.600000"
+            }
+        },
+        "Name": "Area_Trigger_PreBoss_1",
+        "Parent": "268795369",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "268795369": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/Camera_v2/MapAreaManagerScript_v1.lua"
+                },
+                "Script variables": {
+                    "Count": 4,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Camera"
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "my_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "reset_all_map_areas",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    }
+                }
+            }
+        },
+        "Name": "Map_Area_ManagerV3",
+        "Parent": "911775354",
+        "PrefabChild": true,
+        "PrefabInstance": true,
+        "Static": false
+    },
+    "438690150": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "890.383423",
+                "positiony": "19.193472",
+                "positionz": "-508.387756",
+                "rotationw": "0.851425",
+                "rotationx": "0.064614",
+                "rotationy": "-0.518988",
+                "rotationz": "-0.039394",
+                "scalex": "1.000054",
+                "scaley": "5.000001",
+                "scalez": "39.801003"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/Camera_v2/MapAreaScript_v1.lua"
+                },
+                "Script variables": {
+                    "Count": 19,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "P1_triggered",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "P2_triggered",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "manager_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 50.0
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 60.0
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_3",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 70.0
+                    },
+                    "Variable 14": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 25.0
+                    },
+                    "Variable 15": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 35.0
+                    },
+                    "Variable 16": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_3",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 45.0
+                    },
+                    "Variable 17": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_orientation",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": -70.0
+                    },
+                    "Variable 18": {
+                        "DisplayObjectName": false,
+                        "Name": "my_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Camera"
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": false,
+                        "Name": "full_trigger_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": false,
+                        "Name": "geralt_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Geralt"
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": false,
+                        "Name": "half_trigger_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": false,
+                        "Name": "jaskier_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Jaskier"
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": false,
+                        "Name": "kikimora_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Kikimora"
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "manager_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Map_Areas"
+                    }
+                }
+            },
+            "16": {
+                "Active": true,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "1",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "890.383423",
+                "globalMatrixy": "19.193472",
+                "globalMatrixz": "-508.387756",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "0",
+                "isTrigger": "1",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "1.000054",
+                "tmpScaley": "5.000001",
+                "tmpScalez": "39.800999"
+            }
+        },
+        "Name": "Area_Trigger_Broken_Bridge_2",
+        "Parent": "268795369",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "528119664": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "474.203369",
+                "positiony": "24.845797",
+                "positionz": "-296.976410",
+                "rotationw": "0.981209",
+                "rotationx": "0.000000",
+                "rotationy": "-0.192950",
+                "rotationz": "0.000000",
+                "scalex": "0.999997",
+                "scaley": "5.000000",
+                "scalez": "10.000006"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/Camera_v2/MapAreaScript_v1.lua"
+                },
+                "Script variables": {
+                    "Count": 19,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "P1_triggered",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "P2_triggered",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "manager_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 50.0
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 60.0
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_3",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 70.0
+                    },
+                    "Variable 14": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 25.0
+                    },
+                    "Variable 15": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 35.0
+                    },
+                    "Variable 16": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_3",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 45.0
+                    },
+                    "Variable 17": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_orientation",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": -70.0
+                    },
+                    "Variable 18": {
+                        "DisplayObjectName": false,
+                        "Name": "my_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Camera"
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": false,
+                        "Name": "full_trigger_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": false,
+                        "Name": "geralt_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Geralt"
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": false,
+                        "Name": "half_trigger_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": false,
+                        "Name": "jaskier_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Jaskier"
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": false,
+                        "Name": "kikimora_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Kikimora"
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "manager_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Map_Areas"
+                    }
+                }
+            },
+            "16": {
+                "Active": true,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "1",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "474.203369",
+                "globalMatrixy": "24.845797",
+                "globalMatrixz": "-296.976410",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "0",
+                "isTrigger": "1",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "0.999998",
+                "tmpScaley": "5.000000",
+                "tmpScalez": "10.000004"
+            }
+        },
+        "Name": "Area_Trigger_Village_1",
+        "Parent": "268795369",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "534505516": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "889.579224",
+                "positiony": "15.468916",
+                "positionz": "-576.228271",
+                "rotationw": "0.891949",
+                "rotationx": "-0.000000",
+                "rotationy": "0.452136",
+                "rotationz": "-0.000000",
+                "scalex": "1.000052",
+                "scaley": "5.000005",
+                "scalez": "24.300003"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/Camera_v2/MapAreaScript_v1.lua"
+                },
+                "Script variables": {
+                    "Count": 19,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "P1_triggered",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "P2_triggered",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "manager_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 50.0
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 60.0
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_3",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 70.0
+                    },
+                    "Variable 14": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 25.0
+                    },
+                    "Variable 15": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 35.0
+                    },
+                    "Variable 16": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_3",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 45.0
+                    },
+                    "Variable 17": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_orientation",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": -35.0
+                    },
+                    "Variable 18": {
+                        "DisplayObjectName": false,
+                        "Name": "my_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Camera"
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": false,
+                        "Name": "full_trigger_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": false,
+                        "Name": "geralt_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Geralt"
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": false,
+                        "Name": "half_trigger_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": false,
+                        "Name": "jaskier_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Jaskier"
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": false,
+                        "Name": "kikimora_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Kikimora"
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "manager_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Map_Areas"
+                    }
+                }
+            },
+            "16": {
+                "Active": true,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "1",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "889.579224",
+                "globalMatrixy": "15.468916",
+                "globalMatrixz": "-576.228271",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "0",
+                "isTrigger": "1",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "1.000052",
+                "tmpScaley": "5.000005",
+                "tmpScalez": "24.300003"
+            }
+        },
+        "Name": "Area_Trigger_PreBoss_2",
+        "Parent": "268795369",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "558555000": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "676.391113",
+                "positiony": "23.891991",
+                "positionz": "-159.383270",
+                "rotationw": "0.948324",
+                "rotationx": "0.000000",
+                "rotationy": "-0.317305",
+                "rotationz": "0.000000",
+                "scalex": "0.999998",
+                "scaley": "5.000000",
+                "scalez": "10.000013"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/Camera_v2/MapAreaScript_v1.lua"
+                },
+                "Script variables": {
+                    "Count": 19,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "P1_triggered",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "P2_triggered",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "manager_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 50.0
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 60.0
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_3",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 70.0
+                    },
+                    "Variable 14": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 25.0
+                    },
+                    "Variable 15": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 35.0
+                    },
+                    "Variable 16": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_3",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 45.0
+                    },
+                    "Variable 17": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_orientation",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 18": {
+                        "DisplayObjectName": false,
+                        "Name": "my_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Camera"
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": false,
+                        "Name": "full_trigger_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": false,
+                        "Name": "geralt_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Geralt"
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": false,
+                        "Name": "half_trigger_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": false,
+                        "Name": "jaskier_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Jaskier"
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": false,
+                        "Name": "kikimora_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Kikimora"
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "manager_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Map_Areas"
+                    }
+                }
+            },
+            "16": {
+                "Active": true,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "1",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "676.391113",
+                "globalMatrixy": "23.891991",
+                "globalMatrixz": "-159.383270",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "0",
+                "isTrigger": "1",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "2.255000",
+                "tmpScalex": "0.999998",
+                "tmpScaley": "5.000000",
+                "tmpScalez": "25.400011"
+            }
+        },
+        "Name": "Area_Trigger_CornerPost1",
+        "Parent": "268795369",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "629885191": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "478.191193",
+                "positiony": "24.845797",
+                "positionz": "-295.754700",
+                "rotationw": "0.981209",
+                "rotationx": "0.000000",
+                "rotationy": "-0.192950",
+                "rotationz": "0.000000",
+                "scalex": "0.999997",
+                "scaley": "5.000000",
+                "scalez": "10.000006"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/Camera_v2/MapAreaScript_v1.lua"
+                },
+                "Script variables": {
+                    "Count": 19,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "P1_triggered",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "P2_triggered",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "manager_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 50.0
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 60.0
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_3",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 70.0
+                    },
+                    "Variable 14": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 25.0
+                    },
+                    "Variable 15": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 35.0
+                    },
+                    "Variable 16": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_3",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 45.0
+                    },
+                    "Variable 17": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_orientation",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 18": {
+                        "DisplayObjectName": false,
+                        "Name": "my_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Camera"
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": false,
+                        "Name": "full_trigger_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": false,
+                        "Name": "geralt_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Geralt"
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": false,
+                        "Name": "half_trigger_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": false,
+                        "Name": "jaskier_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Jaskier"
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": false,
+                        "Name": "kikimora_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Kikimora"
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "manager_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Map_Areas"
+                    }
+                }
+            },
+            "16": {
+                "Active": true,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "1",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "478.191193",
+                "globalMatrixy": "24.845797",
+                "globalMatrixz": "-295.754700",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "0",
+                "isTrigger": "1",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "0.999998",
+                "tmpScaley": "5.000000",
+                "tmpScalez": "10.000004"
+            }
+        },
+        "Name": "Area_Trigger_Village_2",
+        "Parent": "268795369",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "674463563": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "652.432007",
+                "positiony": "50.956062",
+                "positionz": "-488.191498",
+                "rotationw": "0.671374",
+                "rotationx": "0.055512",
+                "rotationy": "-0.737243",
+                "rotationz": "-0.051458",
+                "scalex": "1.000050",
+                "scaley": "5.000000",
+                "scalez": "26.500847"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/Camera_v2/MapAreaScript_v1.lua"
+                },
+                "Script variables": {
+                    "Count": 19,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "P1_triggered",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "P2_triggered",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "manager_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 50.0
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 60.0
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_3",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 70.0
+                    },
+                    "Variable 14": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 25.0
+                    },
+                    "Variable 15": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 35.0
+                    },
+                    "Variable 16": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_3",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 45.0
+                    },
+                    "Variable 17": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_orientation",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 60.0
+                    },
+                    "Variable 18": {
+                        "DisplayObjectName": false,
+                        "Name": "my_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Camera"
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": false,
+                        "Name": "full_trigger_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": false,
+                        "Name": "geralt_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Geralt"
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": false,
+                        "Name": "half_trigger_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": false,
+                        "Name": "jaskier_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Jaskier"
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": false,
+                        "Name": "kikimora_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Kikimora"
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "manager_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Map_Areas"
+                    }
+                }
+            },
+            "16": {
+                "Active": true,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "1",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "652.432007",
+                "globalMatrixy": "50.956062",
+                "globalMatrixz": "-488.191498",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "0",
+                "isTrigger": "1",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "1.000050",
+                "tmpScaley": "5.000000",
+                "tmpScalez": "26.501001"
+            }
+        },
+        "Name": "Area_Trigger_Fire_House_2",
+        "Parent": "268795369",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "69148331": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "570.659180",
+                "positiony": "29.875740",
+                "positionz": "-177.628342",
+                "rotationw": "0.111809",
+                "rotationx": "0.000000",
+                "rotationy": "0.993730",
+                "rotationz": "0.000000",
+                "scalex": "1.000038",
+                "scaley": "5.000000",
+                "scalez": "10.000514"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/Camera_v2/MapAreaScript_v1.lua"
+                },
+                "Script variables": {
+                    "Count": 19,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "P1_triggered",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "P2_triggered",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "manager_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 50.0
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 60.0
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_3",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 70.0
+                    },
+                    "Variable 14": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 25.0
+                    },
+                    "Variable 15": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 35.0
+                    },
+                    "Variable 16": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_3",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 45.0
+                    },
+                    "Variable 17": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_orientation",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 18": {
+                        "DisplayObjectName": false,
+                        "Name": "my_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Camera"
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": false,
+                        "Name": "full_trigger_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": false,
+                        "Name": "geralt_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Geralt"
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": false,
+                        "Name": "half_trigger_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": false,
+                        "Name": "jaskier_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Jaskier"
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": false,
+                        "Name": "kikimora_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Kikimora"
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "manager_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Map_Areas"
+                    }
+                }
+            },
+            "16": {
+                "Active": true,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "1",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "570.659180",
+                "globalMatrixy": "29.875740",
+                "globalMatrixz": "-177.628342",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "0",
+                "isTrigger": "1",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "0.999998",
+                "tmpScaley": "5.000000",
+                "tmpScalez": "10.000004"
+            }
+        },
+        "Name": "Area_Trigger_Field_Ramp_2",
+        "Parent": "268795369",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "778731225": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "882.230896",
+                "positiony": "19.193472",
+                "positionz": "-511.863525",
+                "rotationw": "0.851425",
+                "rotationx": "0.064614",
+                "rotationy": "-0.518988",
+                "rotationz": "-0.039394",
+                "scalex": "1.000054",
+                "scaley": "5.000001",
+                "scalez": "37.601006"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/Camera_v2/MapAreaScript_v1.lua"
+                },
+                "Script variables": {
+                    "Count": 19,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "P1_triggered",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "P2_triggered",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "manager_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 50.0
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 60.0
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_3",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 70.0
+                    },
+                    "Variable 14": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 25.0
+                    },
+                    "Variable 15": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 35.0
+                    },
+                    "Variable 16": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_3",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 45.0
+                    },
+                    "Variable 17": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_orientation",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 18": {
+                        "DisplayObjectName": false,
+                        "Name": "my_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Camera"
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": false,
+                        "Name": "full_trigger_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": false,
+                        "Name": "geralt_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Geralt"
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": false,
+                        "Name": "half_trigger_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": false,
+                        "Name": "jaskier_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Jaskier"
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": false,
+                        "Name": "kikimora_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Kikimora"
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "manager_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Map_Areas"
+                    }
+                }
+            },
+            "16": {
+                "Active": true,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "1",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "882.230896",
+                "globalMatrixy": "19.193472",
+                "globalMatrixz": "-511.863525",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "0",
+                "isTrigger": "1",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "1.000054",
+                "tmpScaley": "5.000001",
+                "tmpScalez": "37.601002"
+            }
+        },
+        "Name": "Area_Trigger_Broken_Bridge_1",
+        "Parent": "268795369",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "797934629": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "720.067627",
+                "positiony": "24.597931",
+                "positionz": "-162.780731",
+                "rotationw": "-0.017336",
+                "rotationx": "-0.068690",
+                "rotationy": "0.997452",
+                "rotationz": "0.008373",
+                "scalex": "1.000009",
+                "scaley": "4.999999",
+                "scalez": "10.000328"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/Camera_v2/MapAreaScript_v1.lua"
+                },
+                "Script variables": {
+                    "Count": 19,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "P1_triggered",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "P2_triggered",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "manager_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 50.0
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 60.0
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_3",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 70.0
+                    },
+                    "Variable 14": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 25.0
+                    },
+                    "Variable 15": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 35.0
+                    },
+                    "Variable 16": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_3",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 45.0
+                    },
+                    "Variable 17": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_orientation",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": -70.0
+                    },
+                    "Variable 18": {
+                        "DisplayObjectName": false,
+                        "Name": "my_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Camera"
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": false,
+                        "Name": "full_trigger_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": false,
+                        "Name": "geralt_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Geralt"
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": false,
+                        "Name": "half_trigger_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": false,
+                        "Name": "jaskier_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Jaskier"
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": false,
+                        "Name": "kikimora_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Kikimora"
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "manager_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Map_Areas"
+                    }
+                }
+            },
+            "16": {
+                "Active": true,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "1",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "720.067627",
+                "globalMatrixy": "24.597931",
+                "globalMatrixz": "-162.780731",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "0",
+                "isTrigger": "1",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "0.999998",
+                "tmpScaley": "5.000000",
+                "tmpScalez": "10.000004"
+            }
+        },
+        "Name": "Area_Trigger_OutPost_1",
+        "Parent": "268795369",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "802483637": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "652.432007",
+                "positiony": "50.956062",
+                "positionz": "-483.886414",
+                "rotationw": "0.671374",
+                "rotationx": "0.055512",
+                "rotationy": "-0.737243",
+                "rotationz": "-0.051458",
+                "scalex": "1.000048",
+                "scaley": "4.999998",
+                "scalez": "26.300831"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/Camera_v2/MapAreaScript_v1.lua"
+                },
+                "Script variables": {
+                    "Count": 19,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "P1_triggered",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "P2_triggered",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "manager_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 50.0
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 60.0
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_3",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 70.0
+                    },
+                    "Variable 14": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 25.0
+                    },
+                    "Variable 15": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 35.0
+                    },
+                    "Variable 16": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_3",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 45.0
+                    },
+                    "Variable 17": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_orientation",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 18": {
+                        "DisplayObjectName": false,
+                        "Name": "my_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Camera"
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": false,
+                        "Name": "full_trigger_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": false,
+                        "Name": "geralt_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Geralt"
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": false,
+                        "Name": "half_trigger_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": false,
+                        "Name": "jaskier_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Jaskier"
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": false,
+                        "Name": "kikimora_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Kikimora"
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "manager_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Map_Areas"
+                    }
+                }
+            },
+            "16": {
+                "Active": true,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "1",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "652.432007",
+                "globalMatrixy": "50.956062",
+                "globalMatrixz": "-483.886414",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "0",
+                "isTrigger": "1",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "1.000048",
+                "tmpScaley": "4.999998",
+                "tmpScalez": "26.400997"
+            }
+        },
+        "Name": "Area_Trigger_Fire_House_1",
+        "Parent": "268795369",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "949242618": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "682.581116",
+                "positiony": "23.054678",
+                "positionz": "-154.287949",
+                "rotationw": "0.946864",
+                "rotationx": "0.000000",
+                "rotationy": "-0.321633",
+                "rotationz": "0.000000",
+                "scalex": "0.999997",
+                "scaley": "5.000000",
+                "scalez": "10.000011"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/Camera_v2/MapAreaScript_v1.lua"
+                },
+                "Script variables": {
+                    "Count": 19,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "P1_triggered",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "P2_triggered",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "manager_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 50.0
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 60.0
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_angle_layer_3",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 70.0
+                    },
+                    "Variable 14": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 25.0
+                    },
+                    "Variable 15": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 35.0
+                    },
+                    "Variable 16": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_distance_layer_3",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 45.0
+                    },
+                    "Variable 17": {
+                        "DisplayObjectName": false,
+                        "Name": "map_area_camera_orientation",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": -70.0
+                    },
+                    "Variable 18": {
+                        "DisplayObjectName": false,
+                        "Name": "my_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Camera"
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": false,
+                        "Name": "full_trigger_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": false,
+                        "Name": "geralt_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Geralt"
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": false,
+                        "Name": "half_trigger_time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": false,
+                        "Name": "jaskier_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Jaskier"
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": false,
+                        "Name": "kikimora_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Kikimora"
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "manager_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Map_Areas"
+                    }
+                }
+            },
+            "16": {
+                "Active": true,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "1",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "682.581116",
+                "globalMatrixy": "23.054678",
+                "globalMatrixz": "-154.287949",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "0",
+                "isTrigger": "1",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "2.540000",
+                "tmpScalex": "0.999998",
+                "tmpScaley": "5.000000",
+                "tmpScalez": "10.000004"
+            }
+        },
+        "Name": "Area_Trigger_CornerPost2",
+        "Parent": "268795369",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "PreviewTexture": "Library/Textures/1178789501.dds"
+}

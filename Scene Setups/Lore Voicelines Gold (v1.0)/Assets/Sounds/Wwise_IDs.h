@@ -29,9 +29,19 @@ namespace AK
         static const AkUniqueID PLAY_CHARACTER_SELECTED = 4128046305U;
         static const AkUniqueID PLAY_CHARACTER_UNSELECTED = 993611128U;
         static const AkUniqueID PLAY_DANDELION_MADE_SOME_INTERESTING_FRIENDS = 2311913118U;
+        static const AkUniqueID PLAY_DIALOGUE_1 = 542320736U;
+        static const AkUniqueID PLAY_DIALOGUE_2 = 542320739U;
+        static const AkUniqueID PLAY_DIALOGUE_3 = 542320738U;
+        static const AkUniqueID PLAY_DIALOGUE_4 = 542320741U;
+        static const AkUniqueID PLAY_DIALOGUE_5 = 542320740U;
+        static const AkUniqueID PLAY_DIALOGUE_6 = 542320743U;
+        static const AkUniqueID PLAY_DIALOGUE_7 = 542320742U;
+        static const AkUniqueID PLAY_DIALOGUE_8 = 542320745U;
+        static const AkUniqueID PLAY_DIALOGUE_9 = 542320744U;
         static const AkUniqueID PLAY_ENEMY_CONVERSATION = 2259159008U;
         static const AkUniqueID PLAY_ENEMY_HUMANOID_DISCOVER_PLAYERS = 2135203437U;
         static const AkUniqueID PLAY_ENEMY_HUMANOID_HIT = 282993986U;
+        static const AkUniqueID PLAY_FIND_POTIONS = 3600373694U;
         static const AkUniqueID PLAY_G_J_01_01 = 587868722U;
         static const AkUniqueID PLAY_G_J_01_02 = 587868721U;
         static const AkUniqueID PLAY_G_J_01_03 = 587868720U;
@@ -43,6 +53,7 @@ namespace AK
         static const AkUniqueID PLAY_G_J_03_04 = 435645657U;
         static const AkUniqueID PLAY_GERALT_AARD = 3449812404U;
         static const AkUniqueID PLAY_GERALT_FALL_DOWN_GET_UP = 850689337U;
+        static const AkUniqueID PLAY_GERALT_FIND_CHEST = 2339629479U;
         static const AkUniqueID PLAY_GERALT_HIT_SOUND = 2664027291U;
         static const AkUniqueID PLAY_GERALT_LIGHT_ROLL = 109907202U;
         static const AkUniqueID PLAY_GERALT_NAKED_ROLL = 1207104021U;
@@ -63,12 +74,14 @@ namespace AK
         static const AkUniqueID PLAY_GERALT_VL_START_LVL_1 = 2692582580U;
         static const AkUniqueID PLAY_GERALT_WALK_RUN_CONCRETE = 4167477001U;
         static const AkUniqueID PLAY_GERALT_WALK_RUN_DIRT = 2190072003U;
+        static const AkUniqueID PLAY_GUARD_LINE = 2670411694U;
         static const AkUniqueID PLAY_HUD_NO_POTION = 137305017U;
         static const AkUniqueID PLAY_HUD_NO_STAMINA = 1291293387U;
         static const AkUniqueID PLAY_HUD_SPECIAL_UP = 446899183U;
         static const AkUniqueID PLAY_HUD_SWITCH_POTION = 2197850542U;
         static const AkUniqueID PLAY_JASKIE_VL_REVIVE = 256589910U;
         static const AkUniqueID PLAY_JASKIER_FALL_DOWN_GET_UP = 2312986841U;
+        static const AkUniqueID PLAY_JASKIER_FIND_CHEST = 3034499655U;
         static const AkUniqueID PLAY_JASKIER_GUITAR_SMASH = 1916833811U;
         static const AkUniqueID PLAY_JASKIER_GUITAR_SWING = 4022547377U;
         static const AkUniqueID PLAY_JASKIER_HIT_SOUND = 4169710139U;
@@ -97,6 +110,8 @@ namespace AK
         static const AkUniqueID PLAY_KIKIMORA_SWEEP_PHASE_3 = 2567188250U;
         static const AkUniqueID PLAY_LEVEL_1_MUSIC = 814842324U;
         static const AkUniqueID PLAY_LEVEL_2_MUSIC = 2048014091U;
+        static const AkUniqueID PLAY_LOCKED_AND_NO_KEY_IN_SIGHT = 863110628U;
+        static const AkUniqueID PLAY_LOCKED_PORTAL_NEED_TO_FIND_KEY = 683466454U;
         static const AkUniqueID PLAY_LOST_MENU_MUSIC = 3007158762U;
         static const AkUniqueID PLAY_LUMBERJACK_AXE_SWING_ATTACK = 1511621515U;
         static const AkUniqueID PLAY_LUMBERJACK_HEAVY_AXE_ATTACK_HIT_EDIT = 1628159071U;
@@ -128,7 +143,10 @@ namespace AK
         static const AkUniqueID PLAY_MUSIC_CINEMATIC_LVL1_THE_OCEAN_TAKES_IT_ALL = 4153214231U;
         static const AkUniqueID PLAY_MUSIC_CINEMATIC_LVL2_ELVEN_FOREST = 3271742197U;
         static const AkUniqueID PLAY_MUSIC_MENU_COMPARISON_PIRATE_DANCE = 1913521131U;
+        static const AkUniqueID PLAY_MUST_BE_THE_KEY = 490906959U;
         static const AkUniqueID PLAY_PAUSE = 4233560256U;
+        static const AkUniqueID PLAY_PERFORMANCE_GERALT_WIN = 2680376019U;
+        static const AkUniqueID PLAY_PERFORMANCE_JASKIER_WIN = 865902909U;
         static const AkUniqueID PLAY_POTION_DROP = 2331601197U;
         static const AkUniqueID PLAY_POTION_PICK_UP = 4277472243U;
         static const AkUniqueID PLAY_PRESSED_SKIP_BUTTON = 1949045457U;
@@ -142,10 +160,20 @@ namespace AK
         static const AkUniqueID PLAY_SCREAMER_GHOUL_MINION_SPAWN = 3298395927U;
         static const AkUniqueID PLAY_SCREAMER_GHOUL_SCREAM_ATTACK = 1192696521U;
         static const AkUniqueID PLAY_SCREAMER_GHOUL_SCREAM_VARIATION = 211157864U;
+        static const AkUniqueID PLAY_SELECT_GERALT = 4017280242U;
+        static const AkUniqueID PLAY_SELECT_JASKIER = 608491156U;
+        static const AkUniqueID PLAY_SFX_DOOR_1 = 384796690U;
+        static const AkUniqueID PLAY_SFX_DOOR_2 = 384796689U;
+        static const AkUniqueID PLAY_SFX_DOOR_3 = 384796688U;
+        static const AkUniqueID PLAY_SFX_LOOT_1 = 1374761096U;
+        static const AkUniqueID PLAY_SFX_LOOT_2 = 1374761099U;
+        static const AkUniqueID PLAY_SFX_LOOT_3 = 1374761098U;
+        static const AkUniqueID PLAY_SFX_LOOT_4 = 1374761101U;
         static const AkUniqueID PLAY_SKIPPED_CINEMATIC = 2299046044U;
         static const AkUniqueID PLAY_TITAN_GHOUL_SCREAM_ATTACK = 1110615769U;
         static const AkUniqueID PLAY_TITAN_GHOUL_TAKE_DAMAGE = 1347311224U;
         static const AkUniqueID PLAY_TITAN_GHOULL_DEATH = 547580181U;
+        static const AkUniqueID PLAY_WAVE_INCOMING = 2682362844U;
         static const AkUniqueID PLAY_WIN_MENU_MUSIC = 2973513758U;
     } // namespace EVENTS
 
@@ -240,6 +268,7 @@ namespace AK
         static const AkUniqueID PAUSE_MENU = 3422541661U;
         static const AkUniqueID PAUSE_MUSIC = 2735935537U;
         static const AkUniqueID PROPS = 968010305U;
+        static const AkUniqueID VOICELINES_2 = 3285923249U;
         static const AkUniqueID VOICELINES_GERALT = 921439666U;
         static const AkUniqueID VOICELINES_GERALT_JASKIER_CONVERSATIONS = 3420311289U;
         static const AkUniqueID VOICELINES_JASKIER = 1746480468U;

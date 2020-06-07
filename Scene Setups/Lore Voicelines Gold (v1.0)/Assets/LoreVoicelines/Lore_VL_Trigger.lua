@@ -8,6 +8,12 @@ lua_table.lore_manager = 0
 lua_table.my_UID = 0
 lua_table.entered = false
 
+lua_table.TriggersVoiceline = true
+lua_table.City_Guard_Line = false
+lua_table.Chest_Line = false
+lua_table.Forest_Lead_way = false
+lua_table.Forest_Kiki_Nest = false
+
 lua_table.lore_manager_script = {}
 -- Collider Layers
 local layers = 
@@ -45,12 +51,13 @@ function lua_table:OnTriggerEnter()
 
         if layer == layers.player  --Checks if its player collider layer
         then
-            if lua_table.lore_manager_script ~= nil then
-
+            if lua_table.lore_manager_script ~= nil and lua_table.TriggersVoiceline == true then
 
                 --Here we must evaluate the booleans and decide which function we call from the manager
-                lua_table.System:LOG("Triggered Voiceline")
-                lua_table.lore_manager_script:PlayLevel_1_Start()
+                if lua_table.City_Guard_Line == true then
+                lua_table.System:LOG("Triggered Voiceline: City Guard")
+                lua_table.lore_manager_script:PlayGuardLine()
+                end
             end
         end
 
