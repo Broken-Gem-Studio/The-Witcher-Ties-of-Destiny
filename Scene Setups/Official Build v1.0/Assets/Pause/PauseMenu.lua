@@ -117,12 +117,15 @@ function lua_table:Update()
 			lua_table.InterfaceFunctions:MakeElementVisible("Image", lua_table.combosButton_UUID)
 			lua_table.InterfaceFunctions:SetUIElementInteractable("Button", lua_table.combosButton_UUID, true)
 
-			if tutoScript.currentStep == 10 and tutoScript.moveStep10 == true
+			if tutorialGO ~= 0
 			then
-				currentButton = Buttons.COMBOS
-				lua_table.InterfaceFunctions:MakeElementInvisible("Image", resumeMarker)
-				lua_table.InterfaceFunctions:MakeElementInvisible("Image", menuMarker)
-				lua_table:ShowCombos()	
+				if tutoScript.currentStep == 10 and tutoScript.moveStep10 == true
+				then
+					currentButton = Buttons.COMBOS
+					lua_table.InterfaceFunctions:MakeElementInvisible("Image", resumeMarker)
+					lua_table.InterfaceFunctions:MakeElementInvisible("Image", menuMarker)
+					lua_table:ShowCombos()	
+				end
 			end
 		else
 			Reset()
