@@ -17,20 +17,16 @@ lua_table.camera_distance_layer_3 = 45
 
 lua_table.bossfight_distance = 40
 
--- Angle of the camera in degrees (0 Horizontal 90 Vertical)
--- lua_table.camera_angle = 70
 
 -- Angle for every layer
 lua_table.camera_angle_layer_1 = 50
 lua_table.camera_angle_layer_2 = 60
 lua_table.camera_angle_layer_3 = 70
 
-lua_table.bossfight_angle = 40
+lua_table.bossfight_angle = 50
 
 -- Orientation
 lua_table.camera_orientation = 0 -- basically = camera_rotation_y
-
-lua_table.bossfight_orientation = -25
 
 -- Smoothing Speed from (from 0 to 1 -- slow to fast)
 lua_table.movement_smooth_speed = 0.2
@@ -545,9 +541,7 @@ local function HandleSwitch()
 				lua_table.current_state = state.DYNAMIC -- Enables Position Checking again
 				-- lua_table.current_state = state.STATIC
 				lua_table.SystemFunctions:LOG ("Camera: Switching to Zoom Layer 3 COMPLETE")
-			end
-			
-			lua_table.camera_orientation = lua_table.bossfight_orientation
+            end
         end
 	end
 end
@@ -578,7 +572,7 @@ local function HandleTarget()
 		end
 	end
 
-	--Death checkers
+	--Death and resurection checkers (SOLO)
 	if lua_table.current_gameplay == gameplay.SOLO
     then
         if P2_id == 0 --Truly Solo gameplay
@@ -591,24 +585,40 @@ local function HandleTarget()
 
         else -- Solo gameplay because was duo but one player died
             if P1_dead == true
-            then
-                if lua_table.P1_script.current_state ~= -4 --NOT DEAD (revived)
-                then
-                    lua_table.current_gameplay = gameplay.DUO
-                end
+			then
+				if lua_table.P1_script.resurrecting == nil -- this is futureproofing
+				then
+					if lua_table.P1_script.current_state ~= -4 --NOT DEAD (revived)
+					then
+						lua_table.current_gameplay = gameplay.DUO
+					end
+				else
+					if lua_table.P1_script.current_state ~= -4 and lua_table.P1_script.resurrecting == false--NOT DEAD (revived)
+					then
+						lua_table.current_gameplay = gameplay.DUO
+					end
+				end
 
             elseif P2_dead == true
-            then
-                if lua_table.P2_script.current_state ~= -4 --NOT DEAD (revived)
-                then
-                    lua_table.current_gameplay = gameplay.DUO
-                end
+			then
+				if lua_table.P2_script.resurrecting == nil -- this is futureproofing
+				then
+					if lua_table.P2_script.current_state ~= -4--NOT DEAD (revived)
+					then
+						lua_table.current_gameplay = gameplay.DUO
+					end
+				else
+					if lua_table.P2_script.current_state ~= -4 and lua_table.P2_script.resurrecting == false--NOT DEAD (revived)
+					then
+						lua_table.current_gameplay = gameplay.DUO
+					end
+				end
             end
         end
     end
     
 
-	--Death checkers
+	--Death only checkers (DUO)
 	if lua_table.current_gameplay == gameplay.DUO
 	then
 		
@@ -726,7 +736,7 @@ local function HandleOffset()
 	camera_offset_a = GetAfromDistAndAng(current_camera_distance, current_camera_angle_for_offset)
 	camera_offset_b = GetBfromDistAndAng(current_camera_distance, current_camera_angle_for_offset)
 
-	-- Updating values every frame so it can be changed via Map Areas
+	-- Handleling orientation (maybe turn into a function later)
 	desired_orientation = lua_table.camera_orientation
 	lua_table.current_camera_orientation = Asymptotic_Average(lua_table.current_camera_orientation, desired_orientation, lua_table.orientation_smooth_speed) --Smoothens angle transition
 	

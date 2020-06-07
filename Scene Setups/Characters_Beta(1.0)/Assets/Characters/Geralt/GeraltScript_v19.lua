@@ -229,15 +229,15 @@ local near_death_playing = false
 	--Damage Stat
 	local base_damage_real
 	lua_table.base_damage_mod = 1.0
-	lua_table.base_damage_orig = 30
+	lua_table.base_damage_orig = 1.0
 
-local critical_chance_real
-lua_table.critical_chance_add = 0
-lua_table.critical_chance_orig = 0
+-- local critical_chance_real
+-- lua_table.critical_chance_add = 0
+-- lua_table.critical_chance_orig = 0
 
-local critical_damage_real
-lua_table.critical_damage_add = 0
-lua_table.critical_damage_orig = 2.0
+-- local critical_damage_real
+-- lua_table.critical_damage_add = 0
+-- lua_table.critical_damage_orig = 2.0
 
 --Items
 lua_table.potion_health_prefab = 0
@@ -470,7 +470,7 @@ lua_table.energy_reg_orig = 7
 
 --NOTE: The visual slow for both characters lasts ~430ms * 30/anim_speed
 --Light Attack
-lua_table.light_damage = 1.0					--Multiplier of Base Damage
+lua_table.light_damage = 25.0					--Multiplier of Base Damage
 
 lua_table.light_movement_velocity = 3.5
 lua_table.light_1_movement_velocity = 1.5
@@ -500,12 +500,12 @@ lua_table.light_3_animation_speed = 60.0	--Slow time: 320ms
 
 lua_table.light_3 = { 'N', 'L', 'L', 'L' }
 lua_table.light_3_size = 3
-lua_table.light_3_damage = 1.25
+lua_table.light_3_damage = 34.0
 lua_table.light_3_effect = attack_effects_ID.stun
 lua_table.light_3_effect_value = 500
 
 --Medium Attack
-lua_table.medium_damage = 1.5					--Multiplier of Base Damage
+lua_table.medium_damage = 50.0					--Multiplier of Base Damage
 
 lua_table.medium_movement_velocity = 1.0
 lua_table.medium_1_movement_start = 200
@@ -538,12 +538,12 @@ lua_table.medium_3_animation_speed = 50.0	--Slow time: 370ms
 
 lua_table.medium_3 = { 'N', 'M', 'M', 'M' }
 lua_table.medium_3_size = 3
-lua_table.medium_3_damage = 1.75
+lua_table.medium_3_damage = 64.0
 lua_table.medium_3_effect = attack_effects_ID.knockback
 lua_table.medium_3_effect_value = 0
 
 --Heavy Attack
-lua_table.heavy_damage = 2.0				--Multiplier of Base Damage
+lua_table.heavy_damage = 75.0				--Multiplier of Base Damage
 
 lua_table.heavy_movement_start = 3.0
 lua_table.heavy_movement_end = 0.7
@@ -579,7 +579,7 @@ lua_table.heavy_3_animation_speed = 35.0	--Slow time: 430ms
 
 lua_table.heavy_3 = { 'N', 'H', 'H', 'H' }
 lua_table.heavy_3_size = 3
-lua_table.heavy_3_damage = 2.25
+lua_table.heavy_3_damage = 100.0
 lua_table.heavy_3_effect = attack_effects_ID.stun
 lua_table.heavy_3_effect_value = 1000
 
@@ -627,7 +627,7 @@ lua_table.ultimate_scream_start = 2500
 lua_table.ultimate_animation_speed = 45.0
 
 local ultimate_effect_started_at = 0.0
-lua_table.ultimate_effect_duration = 10000
+lua_table.ultimate_effect_duration = 15000
 
 lua_table.ultimate_health_reg_increase = 0.2
 lua_table.ultimate_energy_reg_increase = 1.0	--These numbers + to their correspondant "_mod" values and stats are calculated again
@@ -674,7 +674,7 @@ lua_table.combo_stack = { 'N', 'N', 'N', 'N' }	-- Last 4 attacks performed. Uses
 
 lua_table.combo_1 = { 'L', 'M', 'L', 'M' }	--Slide Attack
 lua_table.combo_1_size = 4
-lua_table.combo_1_damage = 2.0	--slide + 4 hits
+lua_table.combo_1_damage = 75.0	--slide + 4 hits
 lua_table.combo_1_effect = attack_effects_ID.knockback
 lua_table.combo_1_effect_value = 0
 lua_table.combo_1_duration = 1500
@@ -696,7 +696,7 @@ lua_table.combo_1_collider_back_end = 1000		--Collider deactivation time
 
 lua_table.combo_2 = { 'M', 'L', 'L', 'M' }	--High Spin
 lua_table.combo_2_size = 4
-lua_table.combo_2_damage = 3.5	--3 hit
+lua_table.combo_2_damage = 100.0	--3 hit
 lua_table.combo_2_effect = attack_effects_ID.stun
 lua_table.combo_2_effect_value = 1500
 lua_table.combo_2_duration = 1500
@@ -714,7 +714,7 @@ lua_table.combo_2_collider_front_end = 1100		--Collider deactivation time
 
 lua_table.combo_3 = { 'H', 'L', 'M', 'H' }	--Jump Attack
 lua_table.combo_3_size = 4
-lua_table.combo_3_damage = 4.0	--1 hit		--IMPROVE: + stun
+lua_table.combo_3_damage = 150.0	--1 hit		--IMPROVE: + stun
 lua_table.combo_3_effect = attack_effects_ID.stun
 lua_table.combo_3_effect_value = 3000
 lua_table.combo_3_duration = 2000
@@ -884,8 +884,8 @@ local function CalculateStats()
 
 	--Damage
 	base_damage_real = lua_table.base_damage_orig * lua_table.base_damage_mod
-	critical_chance_real = lua_table.critical_chance_orig + lua_table.critical_chance_add
-	critical_damage_real = lua_table.critical_damage_orig + lua_table.critical_damage_add
+	--critical_chance_real = lua_table.critical_chance_orig + lua_table.critical_chance_add
+	--critical_damage_real = lua_table.critical_damage_orig + lua_table.critical_damage_add
 
 	--Speed
 	run_velocity = lua_table.mov_velocity_max_orig * lua_table.mov_velocity_max_mod
@@ -2509,9 +2509,6 @@ function lua_table:Start()
 end
 
 function lua_table:Update()
-	if geralt_score ~= nil then
-		lua_table.SystemFunctions:LOG("WALOLO: " .. geralt_score[7] .. "--------------------------------------------------------------------------------------------")
-	end
 
 	if gamePaused == nil or gamePaused == false
 	then
