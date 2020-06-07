@@ -1,0 +1,413 @@
+{
+    "1045034252": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1731181779,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.886207",
+                "positiony": "3.005027",
+                "positionz": "-0.318627",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "16": {
+                "Active": true,
+                "UID": 416350867,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "1",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "0.886207",
+                "globalMatrixy": "3.005027",
+                "globalMatrixz": "-0.318627",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "index": 1,
+                "isConvex": "0",
+                "isTrigger": "0",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "3.940000",
+                "scaley": "0.315000",
+                "scalez": "3.960000",
+                "tmpScalex": "1.000000",
+                "tmpScaley": "1.000000",
+                "tmpScalez": "1.000000"
+            }
+        },
+        "Index": 3,
+        "Name": "Table_Collider",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "-1",
+        "Static": false
+    },
+    "1051020806": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1909230295,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/Statistics_Screen/CoinSpawner.lua"
+                },
+                "Script variables": {
+                    "Count": 7,
+                    "Variable 0": {
+                        "DisplayObjectName": true,
+                        "Name": "CoinToSpawn",
+                        "ObjectName": "CoinMesh (0).prefab",
+                        "Type": "Double",
+                        "Value": 961030650.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "MaxTimeBetweenCoins",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.2
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "MinTimeBetweenCoins",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.1
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": true,
+                        "Name": "PlaceSpawner1uID",
+                        "ObjectName": "SpawnPosition_1",
+                        "Type": "Double",
+                        "Value": 1874553483.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": true,
+                        "Name": "PlaceSpawner2uID",
+                        "ObjectName": "SpawnPosition_2",
+                        "Type": "Double",
+                        "Value": 1808399025.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": false,
+                        "Name": "ThrowCoins",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": true
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": false,
+                        "Name": "currentTimeToSpawn",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    }
+                },
+                "UID": 1212142346,
+                "index": 1
+            }
+        },
+        "Index": 1,
+        "Name": "CoinSpawner",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "-1",
+        "Static": false
+    },
+    "1808399025": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 2024746856,
+                "index": 0,
+                "layer": "0",
+                "positionx": "1.631299",
+                "positiony": "6.853346",
+                "positionz": "0.121200",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Index": 4,
+        "Name": "SpawnPosition_2",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "-1",
+        "Static": false
+    },
+    "1874553483": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1411844459,
+                "index": 0,
+                "layer": "0",
+                "positionx": "1.425463",
+                "positiony": "4.768226",
+                "positionz": "-1.206788",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Index": 2,
+        "Name": "SpawnPosition_1",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "-1",
+        "Static": false
+    },
+    "1987712632": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1926205083,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-5.766870",
+                "positiony": "7.159884",
+                "positionz": "1.776854",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/1886614352.mesh"
+                    }
+                },
+                "UID": 412779334,
+                "index": 1
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/Statistics_Screen/Score_Material.mat"
+                    }
+                },
+                "UID": 483848260,
+                "index": 2
+            }
+        },
+        "Index": 0,
+        "Name": "Scenario",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "-1",
+        "Static": false
+    },
+    "Navigation Data": {
+        "Areas": [
+            {
+                "cost": 1.0,
+                "name": "Walkable"
+            },
+            {
+                "cost": 1.0,
+                "name": "Not Walkable"
+            },
+            {
+                "cost": 2.0,
+                "name": "Jump"
+            },
+            {
+                "cost": 1.0,
+                "name": ""
+            },
+            {
+                "cost": 1.0,
+                "name": ""
+            },
+            {
+                "cost": 1.0,
+                "name": ""
+            },
+            {
+                "cost": 1.0,
+                "name": ""
+            },
+            {
+                "cost": 1.0,
+                "name": ""
+            },
+            {
+                "cost": 1.0,
+                "name": ""
+            },
+            {
+                "cost": 1.0,
+                "name": ""
+            },
+            {
+                "cost": 1.0,
+                "name": ""
+            },
+            {
+                "cost": 1.0,
+                "name": ""
+            },
+            {
+                "cost": 1.0,
+                "name": ""
+            },
+            {
+                "cost": 1.0,
+                "name": ""
+            },
+            {
+                "cost": 1.0,
+                "name": ""
+            },
+            {
+                "cost": 1.0,
+                "name": ""
+            },
+            {
+                "cost": 1.0,
+                "name": ""
+            },
+            {
+                "cost": 1.0,
+                "name": ""
+            },
+            {
+                "cost": 1.0,
+                "name": ""
+            },
+            {
+                "cost": 1.0,
+                "name": ""
+            },
+            {
+                "cost": 1.0,
+                "name": ""
+            },
+            {
+                "cost": 1.0,
+                "name": ""
+            },
+            {
+                "cost": 1.0,
+                "name": ""
+            },
+            {
+                "cost": 1.0,
+                "name": ""
+            },
+            {
+                "cost": 1.0,
+                "name": ""
+            },
+            {
+                "cost": 1.0,
+                "name": ""
+            },
+            {
+                "cost": 1.0,
+                "name": ""
+            },
+            {
+                "cost": 1.0,
+                "name": ""
+            },
+            {
+                "cost": 1.0,
+                "name": ""
+            },
+            {
+                "cost": 1.0,
+                "name": ""
+            },
+            {
+                "cost": 1.0,
+                "name": ""
+            }
+        ],
+        "agentHeight": 2.0,
+        "agentRadius": 0.5,
+        "buildTiledMesh": true,
+        "detailSampleDist": 6.0,
+        "detailSampleMaxError": 1.0,
+        "edgeMaxError": 1.2999999523162842,
+        "edgeMaxLen": 12.0,
+        "maxSlope": 45.0,
+        "regionMergeSize": 20.0,
+        "regionMinSize": 8.0,
+        "stepHeight": 0.4000000059604645,
+        "vertsPerPoly": 6.0,
+        "voxelHeight": 0.20000000298023224,
+        "voxelSize": 0.15000000596046448
+    },
+    "SceneAmbientColor": {
+        "B": 1.0,
+        "G": 1.0,
+        "R": 1.0
+    },
+    "octreeBox": {
+        "maxX": 100.0,
+        "maxY": 100.0,
+        "maxZ": 100.0,
+        "minX": -100.0,
+        "minY": -100.0,
+        "minZ": -100.0
+    }
+}
