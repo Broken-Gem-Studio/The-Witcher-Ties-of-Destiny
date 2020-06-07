@@ -5,6 +5,7 @@ lua_table.GameObject = Scripting.GameObject()
 
 lua_table.item_id = 0
 lua_table.my_UID = 0
+lua_table.player_owner = 0
 
 function lua_table:Awake()
 	lua_table.myUID = lua_table.GameObject:GetMyUID()

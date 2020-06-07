@@ -22,7 +22,7 @@ lua_table.health = 2
 lua_table.myUID = 0
 local Destroyable = 0
 lua_table.parent = 0
-local Player = 0
+lua_table.Player = 0
 
 -- Prop position
 
@@ -66,13 +66,27 @@ local function playParticles()
 end
 
 function lua_table:Update ()
-	local position = lua_table.TransformFunctions:GetPosition(lua_table.myUID)
-	local rotation = lua_table.TransformFunctions:GetRotation(lua_table.myUID)
 	if lua_table.health <= 0 and current_state == state.NORMAL
 	then
 		lua_table.GameObjectFunctions:SetActiveGameObject(false,lua_table.myUID)
 		Destroyable = lua_table.GameObjectFunctions:FindChildGameObjectFromGO("Destructed",lua_table.parent)
+		local script = lua_table.GameObjectFunctions:GetScript(Destroyable)
+		script.player_owner = lua_table.Player
 		lua_table.GameObjectFunctions:SetActiveGameObject(true,Destroyable)
+
+		local script_player = lua_table.GameObjectFunctions:GetScript(lua_table.Player)
+		
+		local geralt = lua_table.GameObjectFunctions:FindGameObject("Geralt")
+		local jaskier = lua_table.GameObjectFunctions:FindGameObject("Jaskier")
+
+		if script_player ~= nil then
+			if jaskier == lua_table.Player and script_player.jaskier_score ~= nil then
+				script_player.jaskier_score[5] = script_player.jaskier_score[5] + 1
+			elseif geralt == lua_table.Player and script_player.geralt_score ~= nil then
+				script_player.geralt_score[5] = script_player.geralt_score[5] + 1
+			end
+		end
+
 		playParticles()
 		current_state = state.DESTROYED
 	end
@@ -108,9 +122,9 @@ function lua_table:OnTriggerEnter()
 			lua_table.AudioFunctions:PlayAudioEventGO("Play_Prop_hit_wood",lua_table.myUID)
 		elseif lua_table.health == 0
 		then
-			if layer == 2 and Player == 0
+			if layer == 2 and lua_table.Player == 0
 			then
-				Player = collider
+				lua_table.Player = lua_table.GameObjectFunctions:GetGameObjectParent(collider)
 			end
 			
 			lua_table.AudioFunctions:PlayAudioEventGO("Play_Prop_wood_break",lua_table.myUID)

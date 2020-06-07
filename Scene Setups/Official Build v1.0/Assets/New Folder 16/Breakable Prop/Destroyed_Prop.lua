@@ -10,6 +10,7 @@ lua_table.Transform = Scripting.Transform()
 lua_table.type = 0
 lua_table.Random = 1
 lua_table.myUID = 0
+lua_table.player_owner = 0
 
 lua_table.power_potion = 0
 lua_table.stamina_potion = 0
@@ -39,19 +40,23 @@ function lua_table:Start()
 	end
 	local position = {}
 	local rotation = {}
+	local potion = 0
 	position = lua_table.Transform:GetPosition(lua_table.myUID)
 	rotation = lua_table.Transform:GetRotation(lua_table.myUID)
 	if lua_table.type == 0
 	then
-		lua_table.Scenes:Instantiate(lua_table.health_potion, position[1], position[2], position[3], rotation[1], rotation[2], rotation[3])
+		potion = lua_table.Scenes:Instantiate(lua_table.health_potion, position[1], position[2], position[3], rotation[1], rotation[2], rotation[3])
 	elseif lua_table.type == 1
 	then
-		lua_table.Scenes:Instantiate(lua_table.stamina_potion, position[1], position[2], position[3], rotation[1], rotation[2], rotation[3])
+		potion = lua_table.Scenes:Instantiate(lua_table.stamina_potion, position[1], position[2], position[3], rotation[1], rotation[2], rotation[3])
 	elseif lua_table.type == 2
 	then
-		lua_table.Scenes:Instantiate(lua_table.power_potion, position[1], position[2], position[3], rotation[1], rotation[2], rotation[3])
+		potion = lua_table.Scenes:Instantiate(lua_table.power_potion, position[1], position[2], position[3], rotation[1], rotation[2], rotation[3])
 	end
-
+	if potion ~= 0 then
+		local script = lua_table.GameObjectFunctions:GetScript(potion)
+		script.player_owner = lua_table.player_owner
+	end
 end
 
 
