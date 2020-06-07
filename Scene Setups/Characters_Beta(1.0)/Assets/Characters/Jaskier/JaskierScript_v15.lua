@@ -665,16 +665,16 @@ lua_table.ultimate_reg_orig = 1.5	--1 minute between ultimates
 lua_table.ultimate_active = false
 
 local interval_started_at = 0
-lua_table.ultimate_damage_interval = 1200
-lua_table.ultimate_effect_end = 3000
+lua_table.ultimate_damage_interval = 1100
+lua_table.ultimate_effect_end = 3300
 lua_table.ultimate_effect_active = false
-lua_table.ultimate_duration = 4700
+lua_table.ultimate_duration = 5000
 lua_table.ultimate_animation_speed = 30.0
 lua_table.ultimate_damage = 100.0
 lua_table.ultimate_status_effect = attack_effects_ID.none
 
-lua_table.ultimate_secondary_effect_start = 3850
-lua_table.ultimate_secondary_effect_end = 3950
+lua_table.ultimate_secondary_effect_start = 4150
+lua_table.ultimate_secondary_effect_end = 4250
 lua_table.ultimate_secondary_effect_active = false
 lua_table.ultimate_secondary_animation_speed = 50.0
 lua_table.ultimate_secondary_damage = 200.0
