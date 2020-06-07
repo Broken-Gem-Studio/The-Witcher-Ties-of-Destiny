@@ -16,6 +16,7 @@ lua_table.skip_threshold = 0
 lua_table.NextScene = 0
 
 local Fade = 0
+local changeScene_nextFrame = false
 
 local minion = 0
 local minion1 = 0
@@ -62,6 +63,7 @@ local ZoomToTown = false
 local ZoomToTown_Time = 0
 local FadeOut3 = false
 local FadeOut3_Time = 0
+local skip_button_is_being_pressed = false
 
 
 local conversation_finished = false
@@ -106,13 +108,24 @@ local function SkipButton()
 
    if lua_table.Input:IsGamepadButton(1, "BUTTON_A", "REPEAT") and next_scene == true then
        lua_table.skip_threshold = lua_table.skip_threshold + 0.4
+       if skip_button_is_being_pressed == false then
+        lua_table.Audio:PlayAudioEvent("Play_Pressed_Skip_Button")
+        skip_button_is_being_pressed = true
+   end
    else 
        lua_table.skip_threshold = lua_table.skip_threshold - 0.6
+       skip_button_is_being_pressed = false
    end
 
    if lua_table.skip_threshold >= 100 and next_scene == true then
-       lua_table.Scene:LoadScene(lua_table.NextScene)
-       next_scene = false
+
+       lua_table.Audio:PlayAudioEvent("Play_Skipped_Cinematic")
+       lua_table.Audio:StopAudioEvent("Play_lvl2_Intro_conversation_Cutscene")
+       lua_table.Audio:StopAudioEvent("Play_Lvl2_Ambience_Wind_Loop")
+       lua_table.Audio:StopAudioEvent("Play_Lvl2_Ambience_Crickets_Loop")
+       lua_table.Audio:StopAudioEvent("Play_Music_Cinematic_lvl2_Elven_Forest")
+
+       changeScene_nextFrame = true
    end
 
    lua_table.UI:SetUICircularBarPercentage(lua_table.skip_threshold, BarID)
@@ -151,6 +164,11 @@ end
 function lua_table:Update()
     time = lua_table.System:GameTime() - started_time
     CurrentCameraPos = lua_table.Transform:GetPosition(lua_table.GameObjectFunctions:GetMyUID())
+
+    if changeScene_nextFrame == true then
+        lua_table.Scene:LoadScene(lua_table.NextScene)
+        next_scene = false
+    end
 
     SkipButton()
 
