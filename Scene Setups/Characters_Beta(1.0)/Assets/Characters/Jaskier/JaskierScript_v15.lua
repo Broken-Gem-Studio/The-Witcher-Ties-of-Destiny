@@ -135,11 +135,11 @@ local audio_library = {
 	potion_pickup = "Play_Potion_pick_up",
 	potion_drop = "Play_Potion_drop",
 
-	--voice_boss_fight = "PLay_Jaskier_VL_boss_fight",		--Boss fight start
-	voice_downed = "PLay_Jaskier_VL_death",					--Character death
-	voice_battle_start = "PLay_Jaskier_VL_start_battle",	--Battle Start
-	voice_battle_end = "PLay_Jaskier_VL_end_battle",		--Battle End
-	--voice_boss_defeated = "PLay_Jaskier_VL_killed_boss",	--Boss Death
+	--voice_boss_fight = "Play_Jaskier_VL_boss_fight",		--Boss fight start
+	voice_downed = "Play_Jaskier_VL_death",					--Character death
+	voice_battle_start = "Play_Jaskier_VL_start_battle",	--Battle Start
+	voice_battle_end = "Play_Jaskier_VL_end_battle",		--Battle End
+	--voice_boss_defeated = "Play_Jaskier_VL_killed_boss",	--Boss Death
 	voice_low_health = "Play_Jaskier_VL_low_health",		--Low Health
 	voice_revive_ally = "Play_Jaskie_VL_revive"				--Revive Ally
 }
@@ -665,7 +665,7 @@ lua_table.ultimate_reg_orig = 1.5	--1 minute between ultimates
 lua_table.ultimate_active = false
 
 local interval_started_at = 0
-lua_table.ultimate_damage_interval = 1000
+lua_table.ultimate_damage_interval = 1200
 lua_table.ultimate_effect_end = 3000
 lua_table.ultimate_effect_active = false
 lua_table.ultimate_duration = 4700
