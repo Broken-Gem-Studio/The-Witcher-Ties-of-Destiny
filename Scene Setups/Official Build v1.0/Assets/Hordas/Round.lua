@@ -63,7 +63,7 @@ function lua_table:Spawn()
             lua_table.Scene:Instantiate(lua_table.final_enemy, pos[1], pos[2], pos[3], 0, 0, 0)
             is_finished = true
         else
-            enemy_spawn = lua_table.System:RandomNumberInRange(1,6 )
+            enemy_spawn = lua_table.System:RandomNumberInRange(1,6)
             if enemy_spawn == 1 and e1_counter > 0 --enemy 1
             then
                 lua_table.Scene:Instantiate(lua_table.enemy1, pos[1], pos[2], pos[3], 0, 0, 0)
