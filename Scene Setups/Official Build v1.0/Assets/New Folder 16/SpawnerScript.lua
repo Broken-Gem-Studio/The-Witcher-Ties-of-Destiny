@@ -79,7 +79,7 @@ function lua_table:Update()
 
             if lua_table.ActiveDistance >= lua_table.DistanceToCamera and lua_table.enemies_chat == true then
                 if lua_table.had_conversation == false and lua_table.humanoid_spawner == true   then
-                    lua_table.Audio:PlayAudioEventGO("Play_Enemy_Conversation_01", MyUID)
+                    lua_table.Audio:PlayAudioEventGO("Play_Enemy_Conversation", MyUID)
                     lua_table.had_conversation = true
                     lua_table.System:LOG ("Playing Conversation")
                 end
