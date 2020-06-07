@@ -18,8 +18,19 @@
 				<Event Id="2533588661" Name="Play_Prop_hit_wood" ObjectPath="\Events\Default Work Unit\Props\Play_Prop_hit_wood" GUID="{B258C721-CD45-4FFE-B057-49ED960DEAA7}"/>
 				<Event Id="2941887487" Name="Play_Prop_wood_break" ObjectPath="\Events\Default Work Unit\Props\Play_Prop_wood_break" GUID="{FF2D7346-6950-4EBC-843B-69F79C93C934}"/>
 				<Event Id="135505289" Name="Play_Reach_firecamp" ObjectPath="\Events\Default Work Unit\Props\Play_Reach_firecamp" GUID="{361773E2-FE57-46C3-8E2D-AA8A8AC9A69E}"/>
+				<Event Id="384796690" Name="Play_SFX_Door_1" ObjectPath="\Events\Default Work Unit\Props\Door\Play_SFX_Door_1" GUID="{BFAD4408-C816-4A62-B1D9-85B449F92F1E}"/>
+				<Event Id="384796689" Name="Play_SFX_Door_2" ObjectPath="\Events\Default Work Unit\Props\Door\Play_SFX_Door_2" GUID="{855CCEC0-31C7-43C1-B88D-BBE0BE66DA70}"/>
+				<Event Id="384796688" Name="Play_SFX_Door_3" ObjectPath="\Events\Default Work Unit\Props\Door\Play_SFX_Door_3" GUID="{0A0226DD-4062-41BC-A06A-B92D1A257CD4}"/>
+				<Event Id="1374761096" Name="Play_SFX_Loot_1" ObjectPath="\Events\Default Work Unit\Props\Loot\Play_SFX_Loot_1" GUID="{D916E14F-E10E-467C-8B27-778386A25651}"/>
+				<Event Id="1374761099" Name="Play_SFX_Loot_2" ObjectPath="\Events\Default Work Unit\Props\Loot\Play_SFX_Loot_2" GUID="{14D455D8-D623-4CB5-AD53-2047BCA59204}"/>
+				<Event Id="1374761098" Name="Play_SFX_Loot_3" ObjectPath="\Events\Default Work Unit\Props\Loot\Play_SFX_Loot_3" GUID="{AAE96933-9F65-4A5C-95C4-D2F418C06268}"/>
+				<Event Id="1374761101" Name="Play_SFX_Loot_4" ObjectPath="\Events\Default Work Unit\Props\Loot\Play_SFX_Loot_4" GUID="{D3D743F8-DC50-4D1F-B1AE-9D721A37AD65}"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
+				<File Id="104120046" Language="SFX">
+					<ShortName>SFX_Door_3.wav</ShortName>
+					<Path>SFX\SFX_Door_3_10C4C929.wem</Path>
+				</File>
 				<File Id="120694735" Language="SFX">
 					<ShortName>Reach_firecamp_.wav</ShortName>
 					<Path>SFX\Reach_firecamp__10C4C929.wem</Path>
@@ -40,13 +51,37 @@
 					<ShortName>Prop_hit_wood_3.wav</ShortName>
 					<Path>SFX\Prop_hit_wood_3_10C4C929.wem</Path>
 				</File>
+				<File Id="466645691" Language="SFX">
+					<ShortName>SFX_Loot_1.wav</ShortName>
+					<Path>SFX\SFX_Loot_1_10C4C929.wem</Path>
+				</File>
+				<File Id="518464496" Language="SFX">
+					<ShortName>SFX_Door_1.wav</ShortName>
+					<Path>SFX\SFX_Door_1_10C4C929.wem</Path>
+				</File>
 				<File Id="604885141" Language="SFX">
 					<ShortName>Potion pick up.wav</ShortName>
 					<Path>SFX\Potion pick up_10C4C929.wem</Path>
 				</File>
+				<File Id="671728360" Language="SFX">
+					<ShortName>SFX_Loot_4.wav</ShortName>
+					<Path>SFX\SFX_Loot_4_10C4C929.wem</Path>
+				</File>
 				<File Id="671956304" Language="SFX">
 					<ShortName>Prop_wood_break_1.wav</ShortName>
 					<Path>SFX\Prop_wood_break_1_10C4C929.wem</Path>
+				</File>
+				<File Id="703546484" Language="SFX">
+					<ShortName>SFX_Loot_2.wav</ShortName>
+					<Path>SFX\SFX_Loot_2_10C4C929.wem</Path>
+				</File>
+				<File Id="864063706" Language="SFX">
+					<ShortName>SFX_Loot_3.wav</ShortName>
+					<Path>SFX\SFX_Loot_3_10C4C929.wem</Path>
+				</File>
+				<File Id="990404127" Language="SFX">
+					<ShortName>SFX_Door_2.wav</ShortName>
+					<Path>SFX\SFX_Door_2_10C4C929.wem</Path>
 				</File>
 				<File Id="994506821" Language="SFX">
 					<ShortName>Prop_hit_wood_4.wav</ShortName>
