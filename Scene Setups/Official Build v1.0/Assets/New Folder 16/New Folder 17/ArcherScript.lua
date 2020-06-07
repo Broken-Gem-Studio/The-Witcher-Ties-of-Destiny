@@ -87,7 +87,7 @@ local hit_time = 0
 --- EFFECTS --------------------------------
 lua_table.start_stun = false
 local stun_time = 0 -- timer
-local stun_duration = 3000 --milisecs
+lua_table.stun_duration = 3000 --milisecs
 
 lua_table.start_knockback = false
 lua_table.knockback_force = 1
@@ -117,6 +117,8 @@ local DistToCorner = -1
 -- Players UID
 local Geralt_ID = 0
 local Jaskier_ID = 0
+
+local last_player_hit = 0
 
 -- Archer Position
 local position = {}
@@ -174,15 +176,26 @@ function lua_table:OnTriggerEnter()
             particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("BloodParticles", Particles_GO))
             for i=1, #particles do 
                 lua_table.Particles:PlayParticleEmitter(particles[i])
-                lua_table.System:LOG("GERALT HIT")
             end
+
+            -- if script.geralt_score[1] ~= nil then
+            --     script.geralt_score[1] = script.geralt_score[1] + script.collider_damage
+            -- end
+
+            last_player_hit = Geralt_ID
+
         else 
             local particles = {}
             particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("HitParticles", Particles_GO))
             for i=1, #particles do 
                 lua_table.Particles:PlayParticleEmitter(particles[i])
-                lua_table.System:LOG("JASKIER HIT")
             end
+
+            -- if script.jaskier_score[1] ~= nil then
+            --     script.jaskier_score[1] = script.jaskier_score[1] + script.collider_damage
+            -- end
+
+            last_player_hit = Jaskier_ID
         end
         
         
@@ -194,11 +207,28 @@ function lua_table:OnTriggerEnter()
                 lua_table.start_stun = true
                 lua_table.AnimationSystem:PlayAnimation("Hit",30.0, MyUID)
                 stun_time = PerfGameTime()
+
+                if script.collider_stun_duration ~= nil then
+                    lua_table.stun_duration = script.collider_stun_duration
+                end
+
                 local particles = {}
                 particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("StunParticles", Particles_GO))
                 for i=1, #particles do 
                     lua_table.Particles:PlayParticleEmitter(particles[i])
                 end
+
+                -- if parent == Geralt_ID then
+
+                --     if script.geralt_score[4] ~= nil then
+                --         script.geralt_score[4] = script.geralt_score[4] + 1
+                --     end
+        
+                -- else 
+                --     if script.jaskier_score[4] ~= nil then
+                --         script.jaskier_score[4] = script.jaskier_score[4] + 1
+                --     end
+                -- end
 
             elseif script.collider_effect == Effects.KNOCKBACK then
                 --Calculate direction
@@ -251,6 +281,22 @@ function lua_table:RequestedTrigger(collider_GO)
         material_time = PerfGameTime()
         changed_material = true
 
+        if collider_GO == Geralt_ID then
+
+            -- if player_script.geralt_score[1] ~= nil then
+            --     player_script.geralt_score[1] = player_script.geralt_score[1] + player_script.collider_damage
+            -- end
+
+            last_player_hit = Geralt_ID
+
+        else 
+            -- if player_script.jaskier_score[1] ~= nil then
+            --     player_script.jaskier_score[1] = player_script.jaskier_score[1] + player_script.collider_damage
+            -- end
+
+            last_player_hit = Jaskier_ID
+        end
+
         if player_script.collider_effect ~= Effects.NONE then
             -- TODO: React depending on type of effect 
             if player_script.collider_effect == Effects.STUN then
@@ -262,6 +308,18 @@ function lua_table:RequestedTrigger(collider_GO)
                 particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("StunParticles", Particles_GO))
                 for i=1, #particles do 
                     lua_table.Particles:PlayParticleEmitter(particles[i])
+                end
+
+                if collider_GO == Geralt_ID then
+
+                    if player_script.geralt_score[4] ~= nil then
+                        player_script.geralt_score[4] = player_script.geralt_score[4] + 1
+                    end
+        
+                else 
+                    if player_script.jaskier_score[4] ~= nil then
+                        player_script.jaskier_score[4] = player_script.jaskier_score[4] + 1
+                    end
                 end
 
             elseif player_script.collider_effect == Effects.KNOCKBACK then
@@ -299,12 +357,6 @@ function lua_table:RequestedTrigger(collider_GO)
             lua_table.start_hit = true
 
             lua_table.Audio:PlayAudioEvent("Play_Enemy_Humanoid_Hit")
-
-            local particles = {}
-            particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("BloodParticles", Particles_GO))
-            for i=1, #particles do 
-                lua_table.Particles:PlayParticleEmitter(particles[i])
-            end
         end
   end
 end
@@ -683,9 +735,9 @@ function lua_table:Update()
         elseif lua_table.currentState == State.IDL then
             Idle()
         elseif lua_table.currentState == State.STUNNED then
-            if lua_table.start_stun == true and stun_time + stun_duration <= PerfGameTime() then
+            if lua_table.start_stun == true and stun_time + lua_table.stun_duration <= PerfGameTime() then
                 lua_table.start_stun = false
-                stun_duration = 3000
+                lua_table.stun_duration = 3000
                 local particles = {}
                 particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("StunParticles", Particles_GO))
                 for i=1, #particles do 
@@ -726,13 +778,20 @@ function lua_table:Update()
                 for i=1, #particles do 
                     lua_table.Particles:StopParticleEmitter(particles[i])
                 end
-
-                local particles = {}
-                particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("AggroParticles", Particles_GO))
-                for i=1, #particles do 
-                    lua_table.Particles:StopParticleEmitter(particles[i])
-                end
                 
+                local script = lua_table.GameObjectFunctions:GetScript(last_player_hit)
+
+                -- if script ~= nil then
+                --     if last_player_hit == Geralt_ID then
+                --         if script.geralt_score[3] ~= nil then 
+                --             script.geralt_score[3] = script.geralt_score[3] + 1 
+                --         end
+                --     else
+                --         if script.jaskier_score[3] ~= nil then script.jaskier_score[3] = script.jaskier_score[3] + 1 
+                --         end
+                --     end
+                -- end
+               
 
                 local tuto_manager = lua_table.GameObjectFunctions:FindGameObject("TutorialManager")
                 if tuto_manager ~= 0
@@ -763,7 +822,7 @@ function lua_table:Update()
                 calculate_path = true
                 start_idle = false 
 
-                stun_duration = 1000
+                lua_table.stun_duration = 1000
                 lua_table.start_stun = true
                 stun_time = PerfGameTime()
                 local particles = {}
