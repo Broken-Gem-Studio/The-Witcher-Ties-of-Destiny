@@ -1571,6 +1571,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<SwitchContainer Name="Geralt_walk_run_dirt" ID="{6E44A74D-1B42-49CE-8517-E6155E932D53}" ShortID="1012016658">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-15</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -1932,6 +1939,25 @@
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="Geralt_Ultimate_Available" ID="{56CC3B8A-A489-416F-9DA3-9A4D6765628E}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Character_fall_down_get_up" ID="{C790ED16-85C0-4C9C-BFE7-70DFFC66A328}" ShortID="293312894">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Character_fall_down_get_up" ID="{D4D0CA40-6177-491A-A40C-ED03207B3E32}" ShortID="509597881">
+									<Language>SFX</Language>
+									<AudioFile>Character_fall_down_get_up.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Character_fall_down_get_up" ID="{D4D0CA40-6177-491A-A40C-ED03207B3E32}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
@@ -3335,6 +3361,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<SwitchContainer Name="Jaskier_walk_run_dirt" ID="{02EDDF6F-93D1-4019-BBCD-A99809EBA72C}" ShortID="357143147">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-15</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -10703,6 +10736,25 @@
 									</ChildrenList>
 									<ActiveSourceList>
 										<ActiveSource Name="SFX_Door_3" ID="{4D5EA3BA-5AB2-4F7B-9A28-0F5BFFD81881}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Door_new_sound" ID="{036B523A-DFE1-4DD2-AD91-96E7F97D16DA}" ShortID="328870372">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Door_new_sound" ID="{C8624AAE-438F-4BC6-871A-8623FAB93BE0}" ShortID="616449000">
+											<Language>SFX</Language>
+											<AudioFile>Door_new_sound.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Door_new_sound" ID="{C8624AAE-438F-4BC6-871A-8623FAB93BE0}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>

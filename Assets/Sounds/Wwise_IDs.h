@@ -38,6 +38,7 @@ namespace AK
         static const AkUniqueID PLAY_DIALOGUE_7 = 542320742U;
         static const AkUniqueID PLAY_DIALOGUE_8 = 542320745U;
         static const AkUniqueID PLAY_DIALOGUE_9 = 542320744U;
+        static const AkUniqueID PLAY_DOOR_NEW_SOUND = 27935653U;
         static const AkUniqueID PLAY_ENEMY_CONVERSATION = 2259159008U;
         static const AkUniqueID PLAY_ENEMY_HUMANOID_DISCOVER_PLAYERS = 2135203437U;
         static const AkUniqueID PLAY_ENEMY_HUMANOID_HIT = 282993986U;
@@ -145,9 +146,7 @@ namespace AK
         static const AkUniqueID PLAY_MUSIC_MENU_COMPARISON_PIRATE_DANCE = 1913521131U;
         static const AkUniqueID PLAY_MUST_BE_THE_KEY = 490906959U;
         static const AkUniqueID PLAY_PAUSE = 4233560256U;
-        static const AkUniqueID PLAY_PERFORMANCE_GERALT_LOSE = 375562296U;
         static const AkUniqueID PLAY_PERFORMANCE_GERALT_WIN = 2680376019U;
-        static const AkUniqueID PLAY_PERFORMANCE_JASKIER_LOSE = 1900915142U;
         static const AkUniqueID PLAY_PERFORMANCE_JASKIER_WIN = 865902909U;
         static const AkUniqueID PLAY_POTION_DROP = 2331601197U;
         static const AkUniqueID PLAY_POTION_PICK_UP = 4277472243U;
