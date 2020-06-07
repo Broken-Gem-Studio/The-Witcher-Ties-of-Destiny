@@ -70,7 +70,11 @@ function lua_table:Awake()
 	lua_table.resumeButton_UUID = lua_table.ObjectFunctions:FindGameObject("ResumeButton")
 	lua_table.combosButton_UUID = lua_table.ObjectFunctions:FindGameObject("CombosButton")
 	tutorialGO = lua_table.ObjectFunctions:FindGameObject("TutorialManager")
-	tutoScript = lua_table.ObjectFunctions:GetScript(tutorialGO)
+	
+	if tutorialGO ~= 0
+    then
+        tutoScript = lua_table.ObjectFunctions:GetScript(tutorialGO)
+    end
 end
 
 function lua_table:Start()
