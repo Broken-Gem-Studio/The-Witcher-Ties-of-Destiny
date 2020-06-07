@@ -1986,7 +1986,7 @@ local function TakePotion()
 
 		if lua_table.shared_inventory[lua_table.item_selected] > 0 then
 			lua_table.shared_inventory[lua_table.item_selected] = lua_table.shared_inventory[lua_table.item_selected] - 1
-			--TODO-Score: Add shared potion score to ally
+			if jaskier_score ~= nil then jaskier_score[6] = jaskier_score[6] + 1 end	--TODO-Score:
 		end
 
 		lua_table.inventory[lua_table.item_selected] = lua_table.inventory[lua_table.item_selected] - 1	--Remove potion from inventory
@@ -2016,7 +2016,7 @@ local function PickupItem()
 			lua_table.GameObjectFunctions:DestroyGameObject(item_script.myUID)	--Alternative: item_script.GameObjectFunctions:GetMyUID()
 			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.potion_pickup, geralt_GO_UID)	--TODO-Audio: Drop potion sound
 
-			if item_script.player_owner ~= nil and item_script.player_owner == jaskier_GO_UID then lua_table.shared_inventory[lua_table.item_selected] = lua_table.shared_inventory[lua_table.item_selected] + 1 end	--TODO-Score
+			if item_script.player_owner ~= nil and item_script.player_owner ~= geralt_GO_UID then lua_table.shared_inventory[lua_table.item_selected] = lua_table.shared_inventory[lua_table.item_selected] + 1 end	--TODO-Score
 			lua_table.inventory[item_script.item_id] = lua_table.inventory[item_script.item_id] + 1	--Add potion to inventory
 		else
 			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.not_possible, geralt_GO_UID)	--TODO-Audio: Not possible sound
@@ -2086,7 +2086,7 @@ function lua_table:Resurrect()
 
 	lua_table.AudioFunctions:PlayAudioEventGO(audio_library.stand_up, geralt_GO_UID)
 	current_audio = audio_library.stand_up
-	
+
 	lua_table.standing_up_bool = true
 	lua_table.resurrecting = true
 end
@@ -2356,6 +2356,19 @@ end
 function lua_table:Awake()
 	lua_table.SystemFunctions:LOG("GeraltScript AWAKE")
 
+	--Scoreboard Setup (if not done yet)
+	if geralt_score == nil then
+		geralt_score = {
+			0,  --damage_dealt  --Exception, this numbers value_per_instance ratio is 1:1, since this will collect the real value already
+			0,  --minion_kills
+			0,  --special_kills
+			0,  --incapacitations
+			0,  --objects_destroyed
+			0,  --potions_shared
+			0   --ally_revived
+		}
+	end
+
 	--Assign Controller
 	if player1_focus ~= nil and player1_focus == character_ID.geralt then
 		lua_table.player_ID = 1
@@ -2496,6 +2509,9 @@ function lua_table:Start()
 end
 
 function lua_table:Update()
+	if geralt_score ~= nil then
+		lua_table.SystemFunctions:LOG("WALOLO: " .. geralt_score[7] .. "--------------------------------------------------------------------------------------------")
+	end
 
 	if gamePaused == nil or gamePaused == false
 	then
@@ -3043,6 +3059,8 @@ function lua_table:Update()
 					end
 					lua_table.being_revived = false
 				end
+
+				if jaskier_score ~= nil then jaskier_score[7] = jaskier_score[7] + 1 end	--TODO-Score:
 
 				lua_table.standing_up_bool = false
 				GoDefaultState(true)
