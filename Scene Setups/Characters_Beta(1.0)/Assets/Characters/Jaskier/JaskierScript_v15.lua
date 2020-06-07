@@ -3143,6 +3143,9 @@ function lua_table:Update()
 
 					elseif game_time - lua_table.death_started_at > lua_table.down_time	--IF death timer finished
 					then
+						for i = 1, #particles_library.down_particles_GO_UID_children do
+							lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.down_particles_GO_UID_children[i])	--TODO-Particles:
+						end
 						for i = 1, #particles_library.death_particles_GO_UID_children do
 							lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.death_particles_GO_UID_children[i])	--TODO-Particles:
 						end
