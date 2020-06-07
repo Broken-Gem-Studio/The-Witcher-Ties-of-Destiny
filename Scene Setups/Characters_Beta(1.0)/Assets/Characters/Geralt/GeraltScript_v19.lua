@@ -266,6 +266,11 @@ lua_table.inventory = {	--Character inventory (number of each item)
 	2,
 	1
 }
+lua_table.shared_inventory = {	--Items in inventory that were given by ally (number of each item)
+	0,
+	0,
+	0
+}
 lua_table.item_selected = lua_table.item_library.health_potion
 lua_table.item_type_max = 3
 lua_table.item_pickup_range = 2
@@ -1979,6 +1984,11 @@ local function TakePotion()
 		potion_taken_at = game_time		--Mark drink time
 		lua_table.potion_active = true	--Mark potion in effect
 
+		if lua_table.shared_inventory[lua_table.item_selected] > 0 then
+			lua_table.shared_inventory[lua_table.item_selected] = lua_table.shared_inventory[lua_table.item_selected] - 1
+			--TODO-Score: Add shared potion score to ally
+		end
+
 		lua_table.inventory[lua_table.item_selected] = lua_table.inventory[lua_table.item_selected] - 1	--Remove potion from inventory
 		must_update_stats = true	--Flag stats for update
 	else
@@ -2005,6 +2015,8 @@ local function PickupItem()
 		if lua_table.inventory[item_script.item_id] < lua_table.item_type_max then
 			lua_table.GameObjectFunctions:DestroyGameObject(item_script.myUID)	--Alternative: item_script.GameObjectFunctions:GetMyUID()
 			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.potion_pickup, geralt_GO_UID)	--TODO-Audio: Drop potion sound
+
+			if item_script.player_owner ~= nil and item_script.player_owner == jaskier_GO_UID then lua_table.shared_inventory[lua_table.item_selected] = lua_table.shared_inventory[lua_table.item_selected] + 1 end	--TODO-Score
 			lua_table.inventory[item_script.item_id] = lua_table.inventory[item_script.item_id] + 1	--Add potion to inventory
 		else
 			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.not_possible, geralt_GO_UID)	--TODO-Audio: Not possible sound
@@ -2019,6 +2031,8 @@ local function DropItem()
 		local geralt_pos = lua_table.TransformFunctions:GetPosition(geralt_GO_UID)
 		lua_table.SceneFunctions:Instantiate(item_prefabs[lua_table.item_selected], geralt_pos[1], geralt_pos[2], geralt_pos[3], 0.0, 0.0, 0.0) --Instantiate a potion of said type on character Location
 		lua_table.AudioFunctions:PlayAudioEventGO(audio_library.potion_drop, geralt_GO_UID)	--TODO-Audio: Drop potion sound
+		
+		if lua_table.shared_inventory[lua_table.item_selected] > 0 then lua_table.shared_inventory[lua_table.item_selected] = lua_table.shared_inventory[lua_table.item_selected] - 1 end	--TODO-Score
 		lua_table.inventory[lua_table.item_selected] = lua_table.inventory[lua_table.item_selected] - 1	--Remove potion from inventory
 	else
 		lua_table.AudioFunctions:PlayAudioEventGO(audio_library.not_possible, geralt_GO_UID)	--TODO-Audio: Not possible sound
