@@ -1,0 +1,19 @@
+geralt_score = {
+	0,  --damage_dealt  --Exception, this numbers value_per_instance ratio is 1, since this will collect the real value already
+	0,  --minion_kills
+	0,  --special_kills
+	0,  --incapacitations
+	0,  --objects_destroyed
+	0,  --potions_shared
+	0   --ally_revived
+}
+
+scoreboard_data = {
+	{ coin_ratio = 1, score_value = 1, title_start = "", title_end = " damage dealed" },                    --damage_dealt
+	{ coin_ratio = 1, score_value = 100, title_start = "", title_end = " minions killed" },                --minion_kills
+	{ coin_ratio = 1, score_value = 300, title_start = "", title_end = " special enemies killed" },         --special_kills
+	{ coin_ratio = 1, score_value = 50, title_start = "", title_end = " enemies incapacitated" },           --incapacitations
+	{ coin_ratio = 1, score_value = 20, title_start = "", title_end = " objects destroyed" },               --objects_destroyed
+	{ coin_ratio = 1, score_value = 200, title_start = "potions shared ", title_end = " times with ally" },   --items_shared
+	{ coin_ratio = 1, score_value = 300, title_start = "revived ally ", title_end = " times" }               --ally_revived
+}

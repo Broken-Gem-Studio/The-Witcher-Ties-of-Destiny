@@ -229,15 +229,15 @@ local near_death_playing = false
 	--Damage Stat
 	local base_damage_real
 	lua_table.base_damage_mod = 1.0
-	lua_table.base_damage_orig = 30
+	lua_table.base_damage_orig = 1.0
 
-local critical_chance_real
-lua_table.critical_chance_add = 0
-lua_table.critical_chance_orig = 0
+-- local critical_chance_real
+-- lua_table.critical_chance_add = 0
+-- lua_table.critical_chance_orig = 0
 
-local critical_damage_real
-lua_table.critical_damage_add = 0
-lua_table.critical_damage_orig = 2.0
+-- local critical_damage_real
+-- lua_table.critical_damage_add = 0
+-- lua_table.critical_damage_orig = 2.0
 
 --Items
 lua_table.potion_health_prefab = 0
@@ -265,6 +265,11 @@ lua_table.inventory = {	--Character inventory (number of each item)
 	3,
 	2,
 	1
+}
+lua_table.shared_inventory = {	--Items in inventory that were given by ally (number of each item)
+	0,
+	0,
+	0
 }
 lua_table.item_selected = lua_table.item_library.health_potion
 lua_table.item_type_max = 3
@@ -465,7 +470,7 @@ lua_table.energy_reg_orig = 7
 
 --NOTE: The visual slow for both characters lasts ~430ms * 30/anim_speed
 --Light Attack
-lua_table.light_damage = 1.0					--Multiplier of Base Damage
+lua_table.light_damage = 25.0					--Multiplier of Base Damage
 
 lua_table.light_movement_velocity = 3.5
 lua_table.light_1_movement_velocity = 1.5
@@ -495,12 +500,12 @@ lua_table.light_3_animation_speed = 60.0	--Slow time: 320ms
 
 lua_table.light_3 = { 'N', 'L', 'L', 'L' }
 lua_table.light_3_size = 3
-lua_table.light_3_damage = 1.25
+lua_table.light_3_damage = 34.0
 lua_table.light_3_effect = attack_effects_ID.stun
 lua_table.light_3_effect_value = 500
 
 --Medium Attack
-lua_table.medium_damage = 1.5					--Multiplier of Base Damage
+lua_table.medium_damage = 50.0					--Multiplier of Base Damage
 
 lua_table.medium_movement_velocity = 1.0
 lua_table.medium_1_movement_start = 200
@@ -533,12 +538,12 @@ lua_table.medium_3_animation_speed = 50.0	--Slow time: 370ms
 
 lua_table.medium_3 = { 'N', 'M', 'M', 'M' }
 lua_table.medium_3_size = 3
-lua_table.medium_3_damage = 1.75
+lua_table.medium_3_damage = 64.0
 lua_table.medium_3_effect = attack_effects_ID.knockback
 lua_table.medium_3_effect_value = 0
 
 --Heavy Attack
-lua_table.heavy_damage = 2.0				--Multiplier of Base Damage
+lua_table.heavy_damage = 75.0				--Multiplier of Base Damage
 
 lua_table.heavy_movement_start = 3.0
 lua_table.heavy_movement_end = 0.7
@@ -574,7 +579,7 @@ lua_table.heavy_3_animation_speed = 35.0	--Slow time: 430ms
 
 lua_table.heavy_3 = { 'N', 'H', 'H', 'H' }
 lua_table.heavy_3_size = 3
-lua_table.heavy_3_damage = 2.25
+lua_table.heavy_3_damage = 100.0
 lua_table.heavy_3_effect = attack_effects_ID.stun
 lua_table.heavy_3_effect_value = 1000
 
@@ -622,7 +627,7 @@ lua_table.ultimate_scream_start = 2500
 lua_table.ultimate_animation_speed = 45.0
 
 local ultimate_effect_started_at = 0.0
-lua_table.ultimate_effect_duration = 10000
+lua_table.ultimate_effect_duration = 15000
 
 lua_table.ultimate_health_reg_increase = 0.2
 lua_table.ultimate_energy_reg_increase = 1.0	--These numbers + to their correspondant "_mod" values and stats are calculated again
@@ -669,7 +674,7 @@ lua_table.combo_stack = { 'N', 'N', 'N', 'N' }	-- Last 4 attacks performed. Uses
 
 lua_table.combo_1 = { 'L', 'M', 'L', 'M' }	--Slide Attack
 lua_table.combo_1_size = 4
-lua_table.combo_1_damage = 2.0	--slide + 4 hits
+lua_table.combo_1_damage = 75.0	--slide + 4 hits
 lua_table.combo_1_effect = attack_effects_ID.knockback
 lua_table.combo_1_effect_value = 0
 lua_table.combo_1_duration = 1500
@@ -691,7 +696,7 @@ lua_table.combo_1_collider_back_end = 1000		--Collider deactivation time
 
 lua_table.combo_2 = { 'M', 'L', 'L', 'M' }	--High Spin
 lua_table.combo_2_size = 4
-lua_table.combo_2_damage = 3.5	--3 hit
+lua_table.combo_2_damage = 100.0	--3 hit
 lua_table.combo_2_effect = attack_effects_ID.stun
 lua_table.combo_2_effect_value = 1500
 lua_table.combo_2_duration = 1500
@@ -709,7 +714,7 @@ lua_table.combo_2_collider_front_end = 1100		--Collider deactivation time
 
 lua_table.combo_3 = { 'H', 'L', 'M', 'H' }	--Jump Attack
 lua_table.combo_3_size = 4
-lua_table.combo_3_damage = 4.0	--1 hit		--IMPROVE: + stun
+lua_table.combo_3_damage = 150.0	--1 hit		--IMPROVE: + stun
 lua_table.combo_3_effect = attack_effects_ID.stun
 lua_table.combo_3_effect_value = 3000
 lua_table.combo_3_duration = 2000
@@ -879,8 +884,8 @@ local function CalculateStats()
 
 	--Damage
 	base_damage_real = lua_table.base_damage_orig * lua_table.base_damage_mod
-	critical_chance_real = lua_table.critical_chance_orig + lua_table.critical_chance_add
-	critical_damage_real = lua_table.critical_damage_orig + lua_table.critical_damage_add
+	--critical_chance_real = lua_table.critical_chance_orig + lua_table.critical_chance_add
+	--critical_damage_real = lua_table.critical_damage_orig + lua_table.critical_damage_add
 
 	--Speed
 	run_velocity = lua_table.mov_velocity_max_orig * lua_table.mov_velocity_max_mod
@@ -1979,6 +1984,11 @@ local function TakePotion()
 		potion_taken_at = game_time		--Mark drink time
 		lua_table.potion_active = true	--Mark potion in effect
 
+		if lua_table.shared_inventory[lua_table.item_selected] > 0 then
+			lua_table.shared_inventory[lua_table.item_selected] = lua_table.shared_inventory[lua_table.item_selected] - 1
+			if jaskier_score ~= nil then jaskier_score[6] = jaskier_score[6] + 1 end	--TODO-Score:
+		end
+
 		lua_table.inventory[lua_table.item_selected] = lua_table.inventory[lua_table.item_selected] - 1	--Remove potion from inventory
 		must_update_stats = true	--Flag stats for update
 	else
@@ -2005,6 +2015,8 @@ local function PickupItem()
 		if lua_table.inventory[item_script.item_id] < lua_table.item_type_max then
 			lua_table.GameObjectFunctions:DestroyGameObject(item_script.myUID)	--Alternative: item_script.GameObjectFunctions:GetMyUID()
 			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.potion_pickup, geralt_GO_UID)	--TODO-Audio: Drop potion sound
+
+			if item_script.player_owner ~= nil and item_script.player_owner ~= geralt_GO_UID then lua_table.shared_inventory[lua_table.item_selected] = lua_table.shared_inventory[lua_table.item_selected] + 1 end	--TODO-Score
 			lua_table.inventory[item_script.item_id] = lua_table.inventory[item_script.item_id] + 1	--Add potion to inventory
 		else
 			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.not_possible, geralt_GO_UID)	--TODO-Audio: Not possible sound
@@ -2019,6 +2031,8 @@ local function DropItem()
 		local geralt_pos = lua_table.TransformFunctions:GetPosition(geralt_GO_UID)
 		lua_table.SceneFunctions:Instantiate(item_prefabs[lua_table.item_selected], geralt_pos[1], geralt_pos[2], geralt_pos[3], 0.0, 0.0, 0.0) --Instantiate a potion of said type on character Location
 		lua_table.AudioFunctions:PlayAudioEventGO(audio_library.potion_drop, geralt_GO_UID)	--TODO-Audio: Drop potion sound
+		
+		if lua_table.shared_inventory[lua_table.item_selected] > 0 then lua_table.shared_inventory[lua_table.item_selected] = lua_table.shared_inventory[lua_table.item_selected] - 1 end	--TODO-Score
 		lua_table.inventory[lua_table.item_selected] = lua_table.inventory[lua_table.item_selected] - 1	--Remove potion from inventory
 	else
 		lua_table.AudioFunctions:PlayAudioEventGO(audio_library.not_possible, geralt_GO_UID)	--TODO-Audio: Not possible sound
@@ -2072,7 +2086,7 @@ function lua_table:Resurrect()
 
 	lua_table.AudioFunctions:PlayAudioEventGO(audio_library.stand_up, geralt_GO_UID)
 	current_audio = audio_library.stand_up
-	
+
 	lua_table.standing_up_bool = true
 	lua_table.resurrecting = true
 end
@@ -2341,6 +2355,19 @@ end
 --Main Code
 function lua_table:Awake()
 	lua_table.SystemFunctions:LOG("GeraltScript AWAKE")
+
+	--Scoreboard Setup (if not done yet)
+	if geralt_score == nil then
+		geralt_score = {
+			0,  --damage_dealt  --Exception, this numbers value_per_instance ratio is 1:1, since this will collect the real value already
+			0,  --minion_kills
+			0,  --special_kills
+			0,  --incapacitations
+			0,  --objects_destroyed
+			0,  --potions_shared
+			0   --ally_revived
+		}
+	end
 
 	--Assign Controller
 	if player1_focus ~= nil and player1_focus == character_ID.geralt then
@@ -3029,6 +3056,8 @@ function lua_table:Update()
 					end
 					lua_table.being_revived = false
 				end
+
+				if jaskier_score ~= nil then jaskier_score[7] = jaskier_score[7] + 1 end	--TODO-Score:
 
 				lua_table.standing_up_bool = false
 				GoDefaultState(true)

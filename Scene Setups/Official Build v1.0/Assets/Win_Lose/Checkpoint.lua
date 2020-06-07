@@ -26,6 +26,7 @@ function lua_table:OnTriggerEnter()
         then
             --audio
             lua_table.Audio:PlayAudioEventGO("Play_Reach_firecamp", uid)
+            lua_table.System:LOG("Audio checkpoint")
 
             --particles
             if lua_table.checkpoint == 1

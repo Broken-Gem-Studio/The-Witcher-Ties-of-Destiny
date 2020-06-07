@@ -70,7 +70,11 @@ function lua_table:Awake()
 	lua_table.resumeButton_UUID = lua_table.ObjectFunctions:FindGameObject("ResumeButton")
 	lua_table.combosButton_UUID = lua_table.ObjectFunctions:FindGameObject("CombosButton")
 	tutorialGO = lua_table.ObjectFunctions:FindGameObject("TutorialManager")
-	tutoScript = lua_table.ObjectFunctions:GetScript(tutorialGO)
+	
+	if tutorialGO ~= 0
+    then
+        tutoScript = lua_table.ObjectFunctions:GetScript(tutorialGO)
+    end
 end
 
 function lua_table:Start()
@@ -113,12 +117,15 @@ function lua_table:Update()
 			lua_table.InterfaceFunctions:MakeElementVisible("Image", lua_table.combosButton_UUID)
 			lua_table.InterfaceFunctions:SetUIElementInteractable("Button", lua_table.combosButton_UUID, true)
 
-			if tutoScript.currentStep == 10 and tutoScript.moveStep10 == true
+			if tutorialGO ~= 0
 			then
-				currentButton = Buttons.COMBOS
-				lua_table.InterfaceFunctions:MakeElementInvisible("Image", resumeMarker)
-				lua_table.InterfaceFunctions:MakeElementInvisible("Image", menuMarker)
-				lua_table:ShowCombos()	
+				if tutoScript.currentStep == 10 and tutoScript.moveStep10 == true
+				then
+					currentButton = Buttons.COMBOS
+					lua_table.InterfaceFunctions:MakeElementInvisible("Image", resumeMarker)
+					lua_table.InterfaceFunctions:MakeElementInvisible("Image", menuMarker)
+					lua_table:ShowCombos()	
+				end
 			end
 		else
 			Reset()

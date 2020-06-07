@@ -402,83 +402,89 @@ local function CalculateAggro() --Called only after players() return true
 
 	ret = false
 
-	JaskierScript = lua_table.GameObjectFunctions:GetScript(lua_table.Jaskier_UID)
-	GeraltScript = lua_table.GameObjectFunctions:GetScript(lua_table.Geralt_UID)
 
-	--if PrintLogs == true then lua_table.SystemFunctions:LOG ("JaskierScript  "..JaskierScript) end
+	if PlayersArround() == true
+	then
+		JaskierScript = lua_table.GameObjectFunctions:GetScript(lua_table.Jaskier_UID)
+		GeraltScript = lua_table.GameObjectFunctions:GetScript(lua_table.Geralt_UID)
 
-	if CurrentTarget_UID == 0
-	then	
-		if lua_table.JaskierDistance < lua_table.GeraltDistance
-		then
-			if JaskierScript.current_state == -3 or JaskierScript.current_state == -4
-			then
-				CurrentTarget_UID = lua_table.Geralt_UID
-				ret = true
-				if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK CurrentTarget = Geralt_UID") end
-			else
-				CurrentTarget_UID = lua_table.Jaskier_UID
-				ret = true
-				if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK CurrentTarget = Jaskier_UID") end
-			end	
-			CurrentTarget_UID = lua_table.Jaskier_UID
-		elseif lua_table.GeraltDistance < lua_table.JaskierDistance
-		then
-			if GeraltScript.current_state == -3 or GeraltScript.current_state == -4
-			then
-				CurrentTarget_UID = lua_table.Jaskier_UID
-				ret = true
-				if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK CurrentTarget = Jaskier_UID") end
-			else
-				CurrentTarget_UID = lua_table.Geralt_UID
-				ret = true
-				if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK CurrentTarget = Geralt_UID") end
-			end	 
-		end		
-	elseif CurrentTarget_UID ~= 0
-	then 
-		if CurrentTarget_UID == lua_table.Jaskier_UID
-		then
-			if JaskierScript.current_state == -3 or JaskierScript.current_state == -4
-			then
-				if GeraltScript.current_state == -3 or GeraltScript.current_state == -4
-				then
-					ret = false--both on the ground
-				else
-					CurrentTarget_UID = lua_table.Geralt_UID
-					ret = true
-					if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK change CurrentTarget = Geralt_UID") end
-				end	
-			else
-				CurrentTarget_UID = lua_table.Jaskier_UID
-				ret = true
-				if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK change CurrentTarget = Jaskier_UID") end
-			end
-		elseif CurrentTarget_UID == lua_table.Geralt_UID
-		then
-			if GeraltScript.current_state == -3 or GeraltScript.current_state == -4
+		--if PrintLogs == true then lua_table.SystemFunctions:LOG ("JaskierScript  "..JaskierScript) end
+
+		if CurrentTarget_UID == 0
+		then	
+			if lua_table.JaskierDistance < lua_table.GeraltDistance
 			then
 				if JaskierScript.current_state == -3 or JaskierScript.current_state == -4
 				then
-					ret = false--both on the ground
+					CurrentTarget_UID = lua_table.Geralt_UID
+					ret = true
+					if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK CurrentTarget = Geralt_UID") end
+				else
+					CurrentTarget_UID = lua_table.Jaskier_UID
+					ret = true
+					if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK CurrentTarget = Jaskier_UID") end
+				end	
+				CurrentTarget_UID = lua_table.Jaskier_UID
+			elseif lua_table.GeraltDistance < lua_table.JaskierDistance
+			then
+				if GeraltScript.current_state == -3 or GeraltScript.current_state == -4
+				then
+					CurrentTarget_UID = lua_table.Jaskier_UID
+					ret = true
+					if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK CurrentTarget = Jaskier_UID") end
+				else
+					CurrentTarget_UID = lua_table.Geralt_UID
+					ret = true
+					if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK CurrentTarget = Geralt_UID") end
+				end	 
+			end		
+		elseif CurrentTarget_UID ~= 0
+		then 
+			if CurrentTarget_UID == lua_table.Jaskier_UID
+			then
+				if JaskierScript.current_state == -3 or JaskierScript.current_state == -4
+				then
+					if GeraltScript.current_state == -3 or GeraltScript.current_state == -4
+					then
+						ret = false--both on the ground
+					else
+						CurrentTarget_UID = lua_table.Geralt_UID
+						ret = true
+						if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK change CurrentTarget = Geralt_UID") end
+					end	
 				else
 					CurrentTarget_UID = lua_table.Jaskier_UID
 					ret = true
 					if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK change CurrentTarget = Jaskier_UID") end
 				end
-			else
-				CurrentTarget_UID = lua_table.Geralt_UID
-				ret = true
-				if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK change CurrentTarget = Geralt_UID") end
+			elseif CurrentTarget_UID == lua_table.Geralt_UID
+			then
+				if GeraltScript.current_state == -3 or GeraltScript.current_state == -4
+				then
+					if JaskierScript.current_state == -3 or JaskierScript.current_state == -4
+					then
+						ret = false--both on the ground
+					else
+						CurrentTarget_UID = lua_table.Jaskier_UID
+						ret = true
+						if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK change CurrentTarget = Jaskier_UID") end
+					end
+				else
+					CurrentTarget_UID = lua_table.Geralt_UID
+					ret = true
+					if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK change CurrentTarget = Geralt_UID") end
+				end
 			end
-		end
-		if (GeraltScript.current_state == -3 or GeraltScript.current_state == -4) and (JaskierScript.current_state == -3 or JaskierScript.current_state == -4)
-		then
-			PlayersDead = true
-			ResetPreDetection()
-			CurrentState = State.PRE_DETECTION
-		end
+			if (GeraltScript.current_state == -3 or GeraltScript.current_state == -4) and (JaskierScript.current_state == -3 or JaskierScript.current_state == -4)
+			then
+				PlayersDead = true
+				ResetPreDetection()
+				CurrentState = State.PRE_DETECTION
+			end
+		end	
 	end
+
+	
 
 	return ret
 end
@@ -571,10 +577,10 @@ local function CalculateJumpAttackVelocity()
 		if Timer > JA_TimeThirdPart 
 		then
 			local particles = {}
-			particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("BloodHitParticles", lua_table.General_Emitter_UID))
+			particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("JumpAttackParticles", lua_table.General_Emitter_UID))
 			for i = 1, #particles do 
 			    lua_table.ParticleSystem:PlayParticleEmitter(particles[i])
-				lua_table.SystemFunctions:LOG ("LUMBERJACK PARTICLES JUMP ATTACK NOW") 
+				--lua_table.SystemFunctions:LOG ("LUMBERJACK PARTICLES JUMP ATTACK NOW") 
 			end
 			JumpStage = 4
 			lua_table.CurrentVelocity = 0
@@ -602,10 +608,10 @@ local function Scream()
 		ScreamTimeController = PerfGameTime()
 
 		local particles = {}
-		particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("AggroParticles", lua_table.General_Emitter_UID))
+		particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("RageAttackParticles", lua_table.General_Emitter_UID))
 		for i = 1, #particles do 
 		    lua_table.ParticleSystem:PlayParticleEmitter(particles[i])
-			lua_table.SystemFunctions:LOG ("LUMBERJACK PARTICLES SCREAM NOW") 
+			--lua_table.SystemFunctions:LOG ("LUMBERJACK PARTICLES SCREAM NOW") 
 		end
 	end
 
@@ -883,17 +889,17 @@ end
 
 local function HandlePreDetection()
 	
+	
 	ChooseBehaviour()
 	
-	if PlayersArround() == true
-	then	
+		
 		if CalculateAggro() == true
 		then
 			CurrentState = State.DETECTION
 		else 
 			if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK NO POSSIBLE TARGET AVAIABLE") end
 		end
-	end
+	
 end
 
 
@@ -972,6 +978,12 @@ local function HandleCombat()
 	
 	if DoAttack == true
 	then
+		local particles = {}
+		particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("RageAttackParticles", lua_table.General_Emitter_UID))
+		for i = 1, #particles do 
+		    lua_table.ParticleSystem:StopParticleEmitter(particles[i])
+			--lua_table.SystemFunctions:LOG ("LUMBERJACK PARTICLES SCREAM NOW OFF") 
+		end
 		Attack()
 	end
 end
@@ -996,27 +1008,27 @@ local function knockback()
 	then
 		CalculatedKnockback = true
 		lua_table.SystemFunctions:LOG("AttackEffects.knockback START")
-		KnockVector[1] = GeraltPos[1] - MyPosition[1]--x
-		KnockVector[3] = GeraltPos[3] - MyPosition[3]--z
+		KnockVector[1] =  MyPosition[1]- GeraltPos[1] --x
+		KnockVector[3] = MyPosition[3]- GeraltPos[3]--z
 		
 		GPos = lua_table.TransformFunctions:GetPosition(lua_table.Geralt_UID)
 		NKvec[1] =  KnockVector[1] / CalculateDistanceTo(GPos)
 		NKvec[3] =  KnockVector[3] / CalculateDistanceTo(GPos)
 		NKvec[2] =  0
-		
 		TimeKnockBackStarted = PerfGameTime()
 	end
-
+	--lua_table.SystemFunctions:LOG("LUMBERJACK AttackEffects.knockback VELOCITY"..lua_table.CurrentVelocity)
 	lua_table.CurrentVelocity = 10
 
 	lua_table.TransformFunctions:LookAt(MyPosition[1] + (CurrentTargetPosition[1] - MyPosition[1]),MyPosition[2],MyPosition[3] + (CurrentTargetPosition[3] - MyPosition[3]),MyUID)
 	
-	lua_table.SystemFunctions:LOG("AttackEffects.knockback CURRENTLY")
+	--lua_table.SystemFunctions:LOG("LUMBERJACK AttackEffects.knockback CURRENTLY")
+	
 
 	if CurrentTime - TimeKnockBackStarted > 500 or DistanceMagnitude > 15
 	then
-		lua_table.SystemFunctions:LOG("AttackEffects.knockback END")
-		--CalculatedKnockback = false
+		--lua_table.SystemFunctions:LOG("LUMBERJACK AttackEffects.knockback END")
+		CalculatedKnockback = false
 		KnockbackDone = true
 		CurrentAttackEffect = AttackEffects.none
 	end
@@ -1036,7 +1048,7 @@ local function Stun()
 		particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("StunParticles", lua_table.General_Emitter_UID))
 		for i = 1, #particles do 
 		    lua_table.ParticleSystem:PlayParticleEmitter(particles[i])
-			lua_table.SystemFunctions:LOG ("LUMBERJACK PARTICLES STUN NOW") 
+			--lua_table.SystemFunctions:LOG ("LUMBERJACK PARTICLES STUN NOW") 
 		end
 	end
 	
@@ -1075,7 +1087,7 @@ function lua_table:RequestedTrigger(collider_GO)
 		particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("BloodHitParticles", lua_table.General_Emitter_UID))
 		for i = 1, #particles do 
 		    lua_table.ParticleSystem:PlayParticleEmitter(particles[i])
-			lua_table.SystemFunctions:LOG ("LUMBERJACK PARTICLES HIT NOW") 
+			--lua_table.SystemFunctions:LOG ("LUMBERJACK PARTICLES HIT NOW") 
 		end
 
 		if player_script.collider_effect ~= AttackEffects.none --and lua_table.CurrentSpecialEffect == SpecialEffect.NONE
@@ -1089,7 +1101,7 @@ function lua_table:RequestedTrigger(collider_GO)
 					particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("BloodHitParticles", lua_table.General_Emitter_UID))
 					for i = 1, #particles do 
 						 lua_table.ParticleSystem:PlayParticleEmitter(particles[i])
-						 lua_table.SystemFunctions:LOG ("LUMBERJACK PARTICLES TAUNT NOW") 
+						 --lua_table.SystemFunctions:LOG ("LUMBERJACK PARTICLES TAUNT NOW") 
 					end
 				end
 				if player_script.collider_effect == AttackEffects.stun 
@@ -1241,7 +1253,7 @@ function lua_table:Update()
 		Stun()
 	end
 	
-	if GO_DESTROYED == false or DoDie == true
+	if GO_DESTROYED == false or DoDie == false
 	then
 		--MOVE
 		ApplyVelocity()

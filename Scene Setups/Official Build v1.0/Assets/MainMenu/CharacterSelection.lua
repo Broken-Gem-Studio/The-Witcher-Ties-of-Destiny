@@ -710,6 +710,7 @@ function GetTableCharacterSelection()
             then
                 lua_table["System"]:LOG("GERARDINHO")
                 lua_table["Animation"]:PlayAnimation("Selected", 30, GERALT)
+                lua_table["Audio"]:PlayAudioEventGO("Play_Select_Geralt", SELECTION)
                 geralttime = lua_table["System"]:GameTime()
                 animgeralt = true
             end
@@ -719,6 +720,7 @@ function GetTableCharacterSelection()
 
                 lua_table["System"]:LOG("JASKIERINHO")
                 lua_table["Animation"]:PlayAnimation("Selected", 30, JASKIER)
+                lua_table["Audio"]:PlayAudioEventGO("Play_Select_Jaskier", SELECTION)
                 jaskiertime = lua_table["System"]:GameTime()
                 animjaskier = true
             end
@@ -738,6 +740,7 @@ function GetTableCharacterSelection()
             then
                 lua_table["System"]:LOG("GERARDINHO2")
                 lua_table["Animation"]:PlayAnimation("Selected", 30, GERALT)
+                lua_table["Audio"]:PlayAudioEventGO("Play_Select_Geralt", SELECTION)
                 geralttime = lua_table["System"]:GameTime()
                 animgeralt2 = true
             end
@@ -746,6 +749,7 @@ function GetTableCharacterSelection()
             then
                 lua_table["System"]:LOG("JASKIERINHO2")
                 lua_table["Animation"]:PlayAnimation("Selected", 30, JASKIER)
+                lua_table["Audio"]:PlayAudioEventGO("Play_Select_Jaskier", SELECTION)
                 jaskiertime = lua_table["System"]:GameTime()
                 animjaskier2 = true
             end
