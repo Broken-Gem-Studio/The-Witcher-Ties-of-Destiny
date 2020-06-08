@@ -174,13 +174,17 @@ function lua_table:OnTriggerEnter()
         if parent == Geralt_ID then
             local particles = {}
             particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("BloodParticles", Particles_GO))
+            
             for i=1, #particles do 
                 lua_table.Particles:PlayParticleEmitter(particles[i])
             end
 
-            -- if script.geralt_score[1] ~= nil then
-            --     script.geralt_score[1] = script.geralt_score[1] + script.collider_damage
-            -- end
+            if script.geralt_score ~= nil then
+                if script.geralt_score[1] ~= nil then
+                    script.geralt_score[1] = script.geralt_score[1] + script.collider_damage
+               end
+            end
+            
 
             last_player_hit = Geralt_ID
 
@@ -191,9 +195,13 @@ function lua_table:OnTriggerEnter()
                 lua_table.Particles:PlayParticleEmitter(particles[i])
             end
 
-            -- if script.jaskier_score[1] ~= nil then
-            --     script.jaskier_score[1] = script.jaskier_score[1] + script.collider_damage
-            -- end
+            if script.jaskier_score ~= nil then
+                if script.jaskier_score[1] ~= nil then
+                    script.jaskier_score[1] = script.jaskier_score[1] + script.collider_damage
+                end
+            end
+
+            
 
             last_player_hit = Jaskier_ID
         end
@@ -218,17 +226,24 @@ function lua_table:OnTriggerEnter()
                     lua_table.Particles:PlayParticleEmitter(particles[i])
                 end
 
-                -- if parent == Geralt_ID then
+                if parent == Geralt_ID then
 
-                --     if script.geralt_score[4] ~= nil then
-                --         script.geralt_score[4] = script.geralt_score[4] + 1
-                --     end
+                    if script.geralt_score ~= nil then
+                        if script.geralt_score[4] ~= nil then
+                            script.geralt_score[4] = script.geralt_score[4] + 1
+                        end
+                    end
+                    
+                    
         
-                -- else 
-                --     if script.jaskier_score[4] ~= nil then
-                --         script.jaskier_score[4] = script.jaskier_score[4] + 1
-                --     end
-                -- end
+                else 
+
+                    if script.jaskier_score ~= nil then
+                        if script.jaskier_score[4] ~= nil then
+                            script.jaskier_score[4] = script.jaskier_score[4] + 1
+                        end
+                    end
+                end
 
             elseif script.collider_effect == Effects.KNOCKBACK then
                 --Calculate direction
@@ -283,16 +298,22 @@ function lua_table:RequestedTrigger(collider_GO)
 
         if collider_GO == Geralt_ID then
 
-            -- if player_script.geralt_score[1] ~= nil then
-            --     player_script.geralt_score[1] = player_script.geralt_score[1] + player_script.collider_damage
-            -- end
+            if script.geralt_score ~= nil then
+                if player_script.geralt_score[1] ~= nil then
+                    player_script.geralt_score[1] = player_script.geralt_score[1] + player_script.collider_damage
+                end
+            end
+            
 
             last_player_hit = Geralt_ID
 
         else 
-            -- if player_script.jaskier_score[1] ~= nil then
-            --     player_script.jaskier_score[1] = player_script.jaskier_score[1] + player_script.collider_damage
-            -- end
+            if script.jaskier_score ~= nil then
+                if player_script.jaskier_score[1] ~= nil then
+                    player_script.jaskier_score[1] = player_script.jaskier_score[1] + player_script.collider_damage
+                end
+            end
+            
 
             last_player_hit = Jaskier_ID
         end
@@ -312,14 +333,20 @@ function lua_table:RequestedTrigger(collider_GO)
 
                 if collider_GO == Geralt_ID then
 
-                    if player_script.geralt_score[4] ~= nil then
-                        player_script.geralt_score[4] = player_script.geralt_score[4] + 1
+                    if script.geralt_score ~= nil then
+                        if player_script.geralt_score[4] ~= nil then
+                            player_script.geralt_score[4] = player_script.geralt_score[4] + 1
+                        end
                     end
+                    
         
                 else 
-                    if player_script.jaskier_score[4] ~= nil then
-                        player_script.jaskier_score[4] = player_script.jaskier_score[4] + 1
+                    if script.jaskier_score ~= nil then
+                        if player_script.jaskier_score[4] ~= nil then
+                            player_script.jaskier_score[4] = player_script.jaskier_score[4] + 1
+                        end
                     end
+                   
                 end
 
             elseif player_script.collider_effect == Effects.KNOCKBACK then
