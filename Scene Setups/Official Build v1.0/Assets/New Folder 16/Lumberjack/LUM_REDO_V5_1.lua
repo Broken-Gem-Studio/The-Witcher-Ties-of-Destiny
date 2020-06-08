@@ -253,6 +253,21 @@ end
 
 local function DoDieNow(bool)
 	DoDie = bool
+
+
+	tuto_manager = lua_table.GameObjectFunctions:FindGameObject("TutorialManager")
+    if tuto_manager ~= 0 
+    then
+        tuto_table = lua_table.GameObjectFunctions:GetScript(tuto_manager)
+
+        if tuto_table.currentStep == 9
+        then
+            tuto_table.enemiesToKill_Step9 = tuto_table.enemiesToKill_Step9 - 1
+        elseif tuto_table.currentStep == 10
+        then
+            tuto_table.enemiesToKill_Step10 = tuto_table.enemiesToKill_Step10 - 1
+        end
+    end
 end
 
 --#################################################### MAIN FUNCTIONS ####################################
@@ -1008,6 +1023,7 @@ local function HandleDead()
 	then
 		Die()
 	end
+
 end
 
 
