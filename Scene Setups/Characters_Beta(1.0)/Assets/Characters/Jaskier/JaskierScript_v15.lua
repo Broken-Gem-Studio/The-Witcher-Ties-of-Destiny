@@ -277,7 +277,7 @@ lua_table.shared_inventory = {	--Items in inventory that were given by ally (num
 }
 lua_table.item_selected = lua_table.item_library.health_potion
 lua_table.item_type_max = 3
-lua_table.item_pickup_range = 4
+lua_table.item_pickup_range = 2
 
 	--Potions
 	lua_table.potion_in_effect = 0
@@ -2049,19 +2049,25 @@ local function PickupItem()
 	local jaskier_pos = lua_table.TransformFunctions:GetPosition(jaskier_GO_UID)
 	local nearby_items = lua_table.PhysicsFunctions:OverlapSphere(jaskier_pos[1], jaskier_pos[2], jaskier_pos[3], lua_table.item_pickup_range, layers.item)	--TODO-Potions: Uncomment when layer exists
 
-	if nearby_items[1] ~= nil then
-		local item_script = lua_table.GameObjectFunctions:GetScript(nearby_items[1])
+	local item_picked_up = false
+	for i = 1, #nearby_items do
+		if nearby_items[i] ~= nil then
+			local item_script = lua_table.GameObjectFunctions:GetScript(nearby_items[i])
+	
+			if lua_table.inventory[item_script.item_id] < lua_table.item_type_max then
+				lua_table.GameObjectFunctions:DestroyGameObject(item_script.myUID)	--Alternative: item_script.GameObjectFunctions:GetMyUID()
+				lua_table.AudioFunctions:PlayAudioEventGO(audio_library.potion_pickup, jaskier_GO_UID)	--TODO-Audio: Drop potion sound
+	
+				if item_script.player_owner ~= nil and item_script.player_owner == geralt_GO_UID then lua_table.shared_inventory[item_script.item_id] = lua_table.shared_inventory[item_script.item_id] + 1 end	--TODO-Score
+				lua_table.inventory[item_script.item_id] = lua_table.inventory[item_script.item_id] + 1	--Add potion to inventory
 
-		if lua_table.inventory[item_script.item_id] < lua_table.item_type_max then
-			lua_table.GameObjectFunctions:DestroyGameObject(item_script.myUID)	--Alternative: item_script.GameObjectFunctions:GetMyUID()
-			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.potion_pickup, jaskier_GO_UID)	--TODO-Audio: Drop potion sound
-
-			if item_script.player_owner ~= nil and item_script.player_owner == geralt_GO_UID then lua_table.shared_inventory[item_script.item_id] = lua_table.shared_inventory[item_script.item_id] + 1 end	--TODO-Score
-			lua_table.inventory[item_script.item_id] = lua_table.inventory[item_script.item_id] + 1	--Add potion to inventory
-		else
-			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.not_possible, jaskier_GO_UID)	--TODO-Audio: Not possible sound
+				item_picked_up = true
+				break
+			end
 		end
-	else
+	end
+
+	if not item_picked_up then
 		lua_table.AudioFunctions:PlayAudioEventGO(audio_library.not_possible, jaskier_GO_UID)	--TODO-Audio: Not possible sound
 	end
 end
