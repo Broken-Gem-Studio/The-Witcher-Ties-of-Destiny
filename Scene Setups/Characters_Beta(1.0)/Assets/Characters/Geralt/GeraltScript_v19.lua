@@ -3117,10 +3117,10 @@ function lua_table:Update()
 	--else lua_table.SystemFunctions:LOG("Enemies not nearby.") end
 
 	--Item LOGS
-	lua_table.SystemFunctions:LOG("Geralt Item: " .. lua_table.item_selected)
-	lua_table.SystemFunctions:LOG("Geralt Health Potions Left: " .. lua_table.inventory[1])
-	lua_table.SystemFunctions:LOG("Geralt Energy Potions Left: " .. lua_table.inventory[2])
-	lua_table.SystemFunctions:LOG("Geralt Damage Potions Left: " .. lua_table.inventory[3])
+	--lua_table.SystemFunctions:LOG("Geralt Item: " .. lua_table.item_selected)
+	--lua_table.SystemFunctions:LOG("Geralt Health Potions Left: " .. lua_table.inventory[1])
+	--lua_table.SystemFunctions:LOG("Geralt Energy Potions Left: " .. lua_table.inventory[2])
+	--lua_table.SystemFunctions:LOG("Geralt Damage Potions Left: " .. lua_table.inventory[3])
 
 	--Stats LOGS
 	--lua_table.SystemFunctions:LOG("Geralt Health: " .. lua_table.current_health)
