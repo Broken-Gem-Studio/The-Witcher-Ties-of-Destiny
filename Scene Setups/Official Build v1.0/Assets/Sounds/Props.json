@@ -5,16 +5,15 @@
   "SchemaVersion": "11",
   "SoundbankVersion": "134",
   "RootPaths": {
-   "ProjectRoot": "C:\\Users\\Raul_App\\Documents\\GitHub\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\",
-   "SourceFilesRoot": "C:\\Users\\Raul_App\\Documents\\GitHub\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\.cache\\Windows\\",
-   "SoundBanksRoot": "C:\\Users\\Raul_App\\Documents\\GitHub\\The-Witcher-Ties-of-Destiny\\Assets\\Sounds\\",
+   "ProjectRoot": "F:\\Github2\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\",
+   "SourceFilesRoot": "F:\\Github2\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\.cache\\Windows\\",
+   "SoundBanksRoot": "F:\\Github2\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseSoundBanks\\",
    "ExternalSourcesInputFile": "",
-   "ExternalSourcesOutputRoot": "C:\\Users\\Raul_App\\Documents\\GitHub\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\GeneratedSoundBanks\\Windows"
+   "ExternalSourcesOutputRoot": "F:\\Github2\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\GeneratedSoundBanks\\Windows"
   },
   "SoundBanks": [
    {
     "Id": "968010305",
-    "GUID": "{56EB9197-3F88-4F69-8C0C-39DC94FE44E5}",
     "Language": "SFX",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Props",
     "ShortName": "Props",
@@ -23,35 +22,71 @@
      {
       "Id": "2331601197",
       "Name": "Play_Potion_drop",
-      "ObjectPath": "\\Events\\Default Work Unit\\Props\\Play_Potion_drop",
-      "GUID": "{D613BF1A-1B9E-4929-BE38-59CC83B1FEC9}"
+      "ObjectPath": "\\Events\\Default Work Unit\\Props\\Play_Potion_drop"
      },
      {
       "Id": "4277472243",
       "Name": "Play_Potion_pick_up",
-      "ObjectPath": "\\Events\\Default Work Unit\\Props\\Play_Potion_pick_up",
-      "GUID": "{4CB9FC1F-13CD-4F97-BEE8-8E359EDB92E2}"
+      "ObjectPath": "\\Events\\Default Work Unit\\Props\\Play_Potion_pick_up"
      },
      {
       "Id": "2533588661",
       "Name": "Play_Prop_hit_wood",
-      "ObjectPath": "\\Events\\Default Work Unit\\Props\\Play_Prop_hit_wood",
-      "GUID": "{B258C721-CD45-4FFE-B057-49ED960DEAA7}"
+      "ObjectPath": "\\Events\\Default Work Unit\\Props\\Play_Prop_hit_wood"
      },
      {
       "Id": "2941887487",
       "Name": "Play_Prop_wood_break",
-      "ObjectPath": "\\Events\\Default Work Unit\\Props\\Play_Prop_wood_break",
-      "GUID": "{FF2D7346-6950-4EBC-843B-69F79C93C934}"
+      "ObjectPath": "\\Events\\Default Work Unit\\Props\\Play_Prop_wood_break"
      },
      {
       "Id": "135505289",
       "Name": "Play_Reach_firecamp",
-      "ObjectPath": "\\Events\\Default Work Unit\\Props\\Play_Reach_firecamp",
-      "GUID": "{361773E2-FE57-46C3-8E2D-AA8A8AC9A69E}"
+      "ObjectPath": "\\Events\\Default Work Unit\\Props\\Play_Reach_firecamp"
+     },
+     {
+      "Id": "384796690",
+      "Name": "Play_SFX_Door_1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Props\\Door\\Play_SFX_Door_1"
+     },
+     {
+      "Id": "384796689",
+      "Name": "Play_SFX_Door_2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Props\\Door\\Play_SFX_Door_2"
+     },
+     {
+      "Id": "384796688",
+      "Name": "Play_SFX_Door_3",
+      "ObjectPath": "\\Events\\Default Work Unit\\Props\\Door\\Play_SFX_Door_3"
+     },
+     {
+      "Id": "1374761096",
+      "Name": "Play_SFX_Loot_1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Props\\Loot\\Play_SFX_Loot_1"
+     },
+     {
+      "Id": "1374761099",
+      "Name": "Play_SFX_Loot_2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Props\\Loot\\Play_SFX_Loot_2"
+     },
+     {
+      "Id": "1374761098",
+      "Name": "Play_SFX_Loot_3",
+      "ObjectPath": "\\Events\\Default Work Unit\\Props\\Loot\\Play_SFX_Loot_3"
+     },
+     {
+      "Id": "1374761101",
+      "Name": "Play_SFX_Loot_4",
+      "ObjectPath": "\\Events\\Default Work Unit\\Props\\Loot\\Play_SFX_Loot_4"
      }
     ],
     "IncludedMemoryFiles": [
+     {
+      "Id": "104120046",
+      "Language": "SFX",
+      "ShortName": "SFX_Door_3.wav",
+      "Path": "SFX\\SFX_Door_3_10C4C929.wem"
+     },
      {
       "Id": "120694735",
       "Language": "SFX",
@@ -83,16 +118,52 @@
       "Path": "SFX\\Prop_hit_wood_3_10C4C929.wem"
      },
      {
+      "Id": "466645691",
+      "Language": "SFX",
+      "ShortName": "SFX_Loot_1.wav",
+      "Path": "SFX\\SFX_Loot_1_10C4C929.wem"
+     },
+     {
+      "Id": "518464496",
+      "Language": "SFX",
+      "ShortName": "SFX_Door_1.wav",
+      "Path": "SFX\\SFX_Door_1_10C4C929.wem"
+     },
+     {
       "Id": "604885141",
       "Language": "SFX",
       "ShortName": "Potion pick up.wav",
       "Path": "SFX\\Potion pick up_10C4C929.wem"
      },
      {
+      "Id": "671728360",
+      "Language": "SFX",
+      "ShortName": "SFX_Loot_4.wav",
+      "Path": "SFX\\SFX_Loot_4_10C4C929.wem"
+     },
+     {
       "Id": "671956304",
       "Language": "SFX",
       "ShortName": "Prop_wood_break_1.wav",
       "Path": "SFX\\Prop_wood_break_1_10C4C929.wem"
+     },
+     {
+      "Id": "703546484",
+      "Language": "SFX",
+      "ShortName": "SFX_Loot_2.wav",
+      "Path": "SFX\\SFX_Loot_2_10C4C929.wem"
+     },
+     {
+      "Id": "864063706",
+      "Language": "SFX",
+      "ShortName": "SFX_Loot_3.wav",
+      "Path": "SFX\\SFX_Loot_3_10C4C929.wem"
+     },
+     {
+      "Id": "990404127",
+      "Language": "SFX",
+      "ShortName": "SFX_Door_2.wav",
+      "Path": "SFX\\SFX_Door_2_10C4C929.wem"
      },
      {
       "Id": "994506821",
