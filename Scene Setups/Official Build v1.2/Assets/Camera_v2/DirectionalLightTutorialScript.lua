@@ -4,6 +4,7 @@ function GetTableDirectionalLightTutorialScript()
     lua_table.TransformFunctions = Scripting.Transform ()
     lua_table.GameObjectFunctions = Scripting.GameObject ()
     lua_table.LightingFunctions = Scripting.Lighting()
+    lua_table.Audio = Scripting.Audio()
     -----------------------------------------------------------------------------------------
     -- Inspector Variables
     -----------------------------------------------------------------------------------------
@@ -44,8 +45,8 @@ function GetTableDirectionalLightTutorialScript()
     
     local time_to_lighting_appearing = 0.2
     local time_to_lighting_vanishing = 0.8
-    local time_to_next_lighting_max = 10
-    local time_to_next_lighting_min = 5
+    local time_to_next_lighting_max = 20
+    local time_to_next_lighting_min = 15
     local time_to_next_lighting = 0
     
     -- Light Controller
@@ -87,6 +88,8 @@ function GetTableDirectionalLightTutorialScript()
         -- Rotation of the Actual camera
         lua_table.TransformFunctions:SetObjectRotation(lua_table.rotation_x, lua_table.rotation_y, lua_table.rotation_z, lua_table.my_UID)
     
+        --Play the Rain
+        lua_table.Audio:PlayAudioEventGO("Rain_loop",lua_table.my_UID)
     end
     
     function lua_table:Update ()
@@ -123,6 +126,7 @@ function GetTableDirectionalLightTutorialScript()
                     current_intensity = initial_intensity
                     lua_table.LightingFunctions:SetLightIntensity(current_intensity,lua_table.my_UID)
                     time_to_next_lighting = lua_table.SystemFunctions:RandomNumberInRange(time_to_next_lighting_min,time_to_next_lighting_max)
+                    lua_table.Audio:PlayAudioEventGO("Thunder",lua_table.my_UID)
                 end
             end
         else
