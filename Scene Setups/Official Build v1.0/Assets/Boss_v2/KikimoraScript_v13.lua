@@ -349,6 +349,10 @@ lua_table.jaskier_GO = "Jaskier"
 lua_table.yennefer_GO = "Yennefer"
 lua_table.ciri_GO = "Ciri"
 
+lua_table.camera_GO = "Camera"
+local camera_UID = 0
+lua_table.camera_script = {}
+
 -- P1
 local P1_id = 0
 lua_table.P1_pos = {}
@@ -1914,6 +1918,9 @@ local function HandleJump()
                 -- Get my rotation
                 lua_table.TransformFunctions:SetObjectRotation(lua_table.jump_rot_2[x], lua_table.jump_rot_2[y], lua_table.jump_rot_2[z], lua_table.my_UID)
                 lua_table.my_rotation = lua_table.jump_rot_2
+
+                -- Set Camera Orientation
+                lua_table.camera_script.camera_orientation = lua_table.jump_rot_2[y]
                 
             elseif randy == 2 -- Jumping Right Side
             then
@@ -1926,6 +1933,9 @@ local function HandleJump()
                 -- Get my rotation
                 lua_table.TransformFunctions:SetObjectRotation(lua_table.jump_rot_3[x], lua_table.jump_rot_3[y], lua_table.jump_rot_3[z], lua_table.my_UID)
                 lua_table.my_rotation = lua_table.jump_rot_3
+
+                -- Set Camera Orientation
+                lua_table.camera_script.camera_orientation = lua_table.jump_rot_3[y]
             end
 
         elseif current_jumping_position == jumping_position.LEFT_SIDE
@@ -1943,6 +1953,9 @@ local function HandleJump()
                 -- Get my rotation
                 lua_table.TransformFunctions:SetObjectRotation(lua_table.jump_rot_1[x], lua_table.jump_rot_1[y], lua_table.jump_rot_1[z], lua_table.my_UID)
                 lua_table.my_rotation = lua_table.jump_rot_1
+
+                -- Set Camera Orientation
+                lua_table.camera_script.camera_orientation = lua_table.jump_rot_1[y]
                 
             elseif randy == 2 -- Jumping Right Side
             then
@@ -1955,6 +1968,9 @@ local function HandleJump()
                 -- Get my rotation
                 lua_table.TransformFunctions:SetObjectRotation(lua_table.jump_rot_3[x], lua_table.jump_rot_3[y], lua_table.jump_rot_3[z], lua_table.my_UID)
                 lua_table.my_rotation = lua_table.jump_rot_3
+
+                -- Set Camera Orientation
+                lua_table.camera_script.camera_orientation = lua_table.jump_rot_3[y]
             end
 
         elseif current_jumping_position == jumping_position.RIGHT_SIDE
@@ -1972,6 +1988,9 @@ local function HandleJump()
                 -- Get my rotation
                 lua_table.TransformFunctions:SetObjectRotation(lua_table.jump_rot_2[x], lua_table.jump_rot_2[y], lua_table.jump_rot_2[z], lua_table.my_UID)
                 lua_table.my_rotation = lua_table.jump_rot_2
+
+                -- Set Camera Orientation
+                lua_table.camera_script.camera_orientation = lua_table.jump_rot_2[y]
                 
             elseif randy == 2 -- Jumping Front Side
             then
@@ -1984,6 +2003,9 @@ local function HandleJump()
                 -- Get my rotation
                 lua_table.TransformFunctions:SetObjectRotation(lua_table.jump_rot_1[x], lua_table.jump_rot_1[y], lua_table.jump_rot_1[z], lua_table.my_UID)
                 lua_table.my_rotation = lua_table.jump_rot_1
+
+                -- Set Camera Orientation
+                lua_table.camera_script.camera_orientation = lua_table.jump_rot_1[y]
             end
         end
         current_jumping_state = jumping_state.LEVITATING
@@ -2434,9 +2456,18 @@ function lua_table:Awake ()
 
     -- Get my own mesh
     lua_table.my_mesh_UID = lua_table.GameObjectFunctions:FindGameObject(lua_table.mesh_GO)
+
     -- Setting mesh unactive
     lua_table.GameObjectFunctions:SetActiveGameObject(false, lua_table.my_mesh_UID)
 
+    -- Get camera UID
+    camera_UID = lua_table.GameObjectFunctions:FindGameObject(lua_table.camera_GO)
+    
+    -- Get camera script
+    if camera_UID ~= 0
+    then
+        lua_table.camera_script = lua_table.GameObjectFunctions:GetScript(camera_UID)
+    end
 
 	---------------------------------------------------------------------------
 	-- Player UIDs
