@@ -1895,14 +1895,22 @@ end
 
 --Health Potion
 local function TakeHealthPotion()
-	lua_table.current_health = lua_table.current_health + lua_table.max_health_real / item_effects[lua_table.item_library.health_potion].health_recovery
-	lua_table.health_reg_mod = lua_table.health_reg_mod + item_effects[lua_table.item_library.health_potion].health_regen
-	
-	for i = 1, #particles_library.potion_health_particles_GO_UID_children do
-		lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.potion_health_particles_GO_UID_children[i])	--TODO-Particles: Stop movement dust particles
+	local ret = true
+
+	if lua_table.current_health < lua_table.max_health_real then
+		lua_table.current_health = lua_table.current_health + lua_table.max_health_real / item_effects[lua_table.item_library.health_potion].health_recovery
+		lua_table.health_reg_mod = lua_table.health_reg_mod + item_effects[lua_table.item_library.health_potion].health_regen
+		
+		for i = 1, #particles_library.potion_health_particles_GO_UID_children do
+			lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.potion_health_particles_GO_UID_children[i])	--TODO-Particles: Stop movement dust particles
+		end
+
+		if lua_table.current_health > lua_table.max_health_real then lua_table.current_health = lua_table.max_health_real end	--IF above max, set to max
+	else
+		ret = false
 	end
 
-	if lua_table.current_health > lua_table.max_health_real then lua_table.current_health = lua_table.max_health_real end	--IF above max, set to max
+	return ret
 end
 
 local function EndHealthPotion()
@@ -1921,6 +1929,8 @@ local function TakeStaminaPotion()
 	for i = 1, #particles_library.potion_stamina_particles_GO_UID_children do
 		lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.potion_stamina_particles_GO_UID_children[i])	--TODO-Particles: Stop movement dust particles
 	end
+
+	return true
 end
 
 local function EndStaminaPotion()
@@ -1940,6 +1950,8 @@ local function TakePowerPotion()
 	for i = 1, #particles_library.potion_power_particles_GO_UID_children do
 		lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.potion_power_particles_GO_UID_children[i])	--TODO-Particles: Stop movement dust particles
 	end
+
+	return true
 end
 
 local function EndPowerPotion()
@@ -1993,26 +2005,32 @@ end
 --Potion Functions
 local function TakePotion()
 	if lua_table.inventory[lua_table.item_selected] > 0 then	--IF potions of type left
+		local potion_is_taken = true
 
-		if lua_table.item_selected == lua_table.item_library.health_potion then TakeHealthPotion()
-		elseif lua_table.item_selected == lua_table.item_library.stamina_potion then TakeStaminaPotion()
-		elseif lua_table.item_selected == lua_table.item_library.power_potion then TakePowerPotion() end
-
-		lua_table.potion_in_effect = lua_table.item_selected	-- Save Potion number id to later use
-
-		lua_table.AudioFunctions:PlayAudioEventGO(audio_library.item_potion, jaskier_GO_UID)	--TODO-AUDIO:
-		--current_audio = audio_library.item_potion
-
-		potion_taken_at = game_time		--Mark drink time
-		lua_table.potion_active = true	--Mark potion in effect
-
-		if lua_table.shared_inventory[lua_table.item_selected] > 0 then
-			lua_table.shared_inventory[lua_table.item_selected] = lua_table.shared_inventory[lua_table.item_selected] - 1
-			if geralt_score ~= nil then geralt_score[7] = geralt_score[7] + 1 end	--TODO-Score:
+		if lua_table.item_selected == lua_table.item_library.health_potion then potion_is_taken = TakeHealthPotion()
+		elseif lua_table.item_selected == lua_table.item_library.stamina_potion then potion_is_taken = TakeStaminaPotion()
+		elseif lua_table.item_selected == lua_table.item_library.power_potion then potion_is_taken = TakePowerPotion()
 		end
 
-		lua_table.inventory[lua_table.item_selected] = lua_table.inventory[lua_table.item_selected] - 1	--Remove potion from inventory
-		must_update_stats = true	--Flag stats for update
+		if potion_is_taken then
+			lua_table.potion_in_effect = lua_table.item_selected	-- Save Potion number id to later use
+
+			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.item_potion, jaskier_GO_UID)	--TODO-AUDIO:
+			--current_audio = audio_library.item_potion
+
+			potion_taken_at = game_time		--Mark drink time
+			lua_table.potion_active = true	--Mark potion in effect
+
+			if lua_table.shared_inventory[lua_table.item_selected] > 0 then
+				lua_table.shared_inventory[lua_table.item_selected] = lua_table.shared_inventory[lua_table.item_selected] - 1
+				if geralt_score ~= nil then geralt_score[7] = geralt_score[7] + 1 end	--TODO-Score:
+			end
+
+			lua_table.inventory[lua_table.item_selected] = lua_table.inventory[lua_table.item_selected] - 1	--Remove potion from inventory
+			must_update_stats = true	--Flag stats for update
+		else
+			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.not_possible, jaskier_GO_UID)	--TODO-Audio: Not possible sound
+		end
 	else
 		lua_table.AudioFunctions:PlayAudioEventGO(audio_library.not_possible, jaskier_GO_UID)	--TODO-Audio: Not possible sound
 	end
