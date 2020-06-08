@@ -15,7 +15,7 @@ lua_table.camera_distance_layer_1 = 25
 lua_table.camera_distance_layer_2 = 35
 lua_table.camera_distance_layer_3 = 45
 
-lua_table.bossfight_distance = 40
+lua_table.bossfight_distance = 45
 
 -- Angle of the camera in degrees (0 Horizontal 90 Vertical)
 -- lua_table.camera_angle = 70

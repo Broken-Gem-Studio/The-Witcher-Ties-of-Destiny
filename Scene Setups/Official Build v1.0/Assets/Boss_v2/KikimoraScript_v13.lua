@@ -48,7 +48,7 @@ lua_table.damage_received_orig = -1
 -----------------------------------------------------------------------------------------
 
 -- Distance of player/s to activate the boss
-lua_table.awakening_distance = 15
+lua_table.awakening_distance = 25
 local player_in_awakening_distance = false
 
 -----------------------------------------------------------------------------------------
