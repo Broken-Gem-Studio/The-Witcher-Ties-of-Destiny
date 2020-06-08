@@ -21,7 +21,7 @@ lua_table.Material = Scripting.Materials()
 --se para para saltar en el frame: 357-337 voy a 30 frames por segundo
 --357 al 363 se prepara cogiendo fuerza para saltar
 --363 al 385 esta en el aire
---445 acaba la animaciï¿½
+--445 acaba la animació
 
 
 
@@ -31,7 +31,7 @@ lua_table.Material = Scripting.Materials()
 --------------------General programming Notes-----------------
 
 
-local PrintLogs = false
+local PrintLogs = true
 
 
 --########################################### STATES ######################################################
@@ -197,6 +197,8 @@ lua_table.General_Emitter_UID = 0
 
 local PlayersDead = false
 local GO_DESTROYED = false
+
+local MyUID = 0
 --#################################################### Utility ###########################################
 
 
@@ -552,7 +554,7 @@ local function CalculateJumpAttackVelocity()
 	--se para para saltar en el frame: 357-337 = 20 frames voy a 30 frames por segundo
 	--357 al 363 = 6 frames se prepara cogiendo fuerza para saltar
 	--363 al 385 = 22 frames esta en el aire
-	--445 acaba la animaciï¿½
+	--445 acaba la animació
 	--TOTAL TIME IN 30FPS = 3.550 SEC	
 	MilisecondsPerframe = 1000/JumpAttack_fps -- if fps = 30, = 33.3333
 	JA_TimeFirstPart = MilisecondsPerframe * 20
@@ -929,7 +931,7 @@ end
 
 
 
-local function HandleDetection()
+local  function HandleDetection()
 	
 	ChooseBehaviour()
 
@@ -1287,12 +1289,14 @@ function lua_table:OnTriggerEnter()
 			particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("JumpAttackParticles", lua_table.General_Emitter_UID))
 			for i = 1, #particles do 
 				lua_table.ParticleSystem:PlayParticleEmitter(particles[i])
+				lua_table.SystemFunctions:LOG ("LUMBERJACK PARTICLES HIT NOW") 
 			end
 		else
 			local particles = {}
 			particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("HitParticles", lua_table.General_Emitter_UID))
 			for i = 1, #particles do 
 				lua_table.ParticleSystem:PlayParticleEmitter(particles[i])
+				--lua_table.SystemFunctions:LOG ("LUMBERJACK PARTICLES HIT NOW") 
 			end
 		end
 
