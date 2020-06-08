@@ -486,7 +486,7 @@ function GetTableTutorial()
         scriptSpawnerStep11_2.CheckEnemies()
     
         if scriptSpawnerStep11_1.auxCounter == 8 then checkStep11_1 = true end
-        if scriptSpawnerStep11_2.auxCounter == 2 then checkStep11_2 = true end
+        if scriptSpawnerStep11_2.auxCounter == 1 then checkStep11_2 = true end
     
         if scriptSpawnerStep11_1.auxCounter == 0 and checkStep11_1 == true and scriptSpawnerStep11_2.auxCounter == 0 and checkStep11_2 == true and geraltSpell == true --and jaskierSpell == true 
         then
