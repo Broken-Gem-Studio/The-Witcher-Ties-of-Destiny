@@ -37,6 +37,9 @@ local jaskier_lute_regular_GO_UID
 local jaskier_lute_concert_GO_UID
 local jaskier_lute_concert_mesh_GO_UID
 
+--Ally Script
+local geralt_script
+
 -- Revive GOs
 local geralt_revive_GO_UID
 local jaskier_revive_GO_UID
@@ -2379,6 +2382,18 @@ end
 
 --Debug END 	----------------------------------------------------------------------------
 
+function lua_table:BattleStart()
+	lua_table.AudioFunctions:PlayAudioEventGO(audio_library.voice_battle_start, jaskier_GO_UID)	--TODO-AUDIO:
+	lua_table.AudioFunctions:StopAudioEventGO(audio_library.voice_battle_end, jaskier_GO_UID)	--TODO-AUDIO:
+	lua_table.enemies_nearby = true
+end
+
+function lua_table:BattleEnd()
+	lua_table.AudioFunctions:PlayAudioEventGO(audio_library.voice_battle_end, jaskier_GO_UID)	--TODO-AUDIO:
+	lua_table.AudioFunctions:StopAudioEventGO(audio_library.voice_battle_start, jaskier_GO_UID)	--TODO-AUDIO:
+	lua_table.enemies_nearby = false
+end
+
 local function DetectNearbyEnemies()
 	if game_time - enemy_detection_started_at > enemy_detection_time
 	then
@@ -2386,18 +2401,17 @@ local function DetectNearbyEnemies()
 		local enemy_list = lua_table.PhysicsFunctions:OverlapSphere(jaskier_pos[1], jaskier_pos[2], jaskier_pos[3], lua_table.enemy_detection_range, layers.enemy)
 
 		if lua_table.enemies_nearby then
-			if enemy_list[1] == nil then
-				lua_table.AudioFunctions:PlayAudioEventGO(audio_library.voice_battle_end, jaskier_GO_UID)	--TODO-AUDIO:
-				lua_table.AudioFunctions:StopAudioEventGO(audio_library.voice_battle_start, jaskier_GO_UID)	--TODO-AUDIO:
-				lua_table.enemies_nearby = false
+			if enemy_list[1] == nil and geralt_script ~= nil and not geralt_script.enemies_nearby then
+				lua_table:BattleEnd()
+				geralt_script.BattleEnd()
 			end
 		else
 			if enemy_list[1] ~= nil then
-				lua_table.AudioFunctions:PlayAudioEventGO(audio_library.voice_battle_start, jaskier_GO_UID)	--TODO-AUDIO:
-				lua_table.AudioFunctions:StopAudioEventGO(audio_library.voice_battle_end, jaskier_GO_UID)	--TODO-AUDIO:
-				lua_table.enemies_nearby = true
+				lua_table.BattleStart()
+				if geralt_script ~= nil and not geralt_script.enemies_nearby then geralt_script.BattleStart() end
 			end
 		end
+
 		enemy_detection_started_at = game_time
 	end
 end
@@ -2444,6 +2458,8 @@ function lua_table:Awake()
 	--Get GO_UIDs
 	geralt_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt")
 	jaskier_GO_UID = lua_table.GameObjectFunctions:GetMyUID()
+
+	if geralt_GO_UID ~= 0 then geralt_script = lua_table.GameObjectFunctions:GetScript(geralt_GO_UID) end
 
 	jaskier_mesh_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Mesh")
 	jaskier_pivot_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Pivot")
