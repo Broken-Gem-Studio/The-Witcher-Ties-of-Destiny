@@ -5,11 +5,11 @@
   "SchemaVersion": "11",
   "SoundbankVersion": "134",
   "RootPaths": {
-   "ProjectRoot": "F:\\Github2\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\",
-   "SourceFilesRoot": "F:\\Github2\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\.cache\\Windows\\",
-   "SoundBanksRoot": "F:\\Github2\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseSoundBanks\\",
+   "ProjectRoot": "E:\\GitHub\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\",
+   "SourceFilesRoot": "E:\\GitHub\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\.cache\\Windows\\",
+   "SoundBanksRoot": "E:\\GitHub\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseSoundBanks\\",
    "ExternalSourcesInputFile": "",
-   "ExternalSourcesOutputRoot": "F:\\Github2\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\GeneratedSoundBanks\\Windows"
+   "ExternalSourcesOutputRoot": "E:\\GitHub\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\GeneratedSoundBanks\\Windows"
   },
   "DialogueEvents": [],
   "StreamedFiles": [],
@@ -182,12 +182,6 @@
       "Path": "SFX\\Geralt_sword_swing_5_10C4C929.wem"
      },
      {
-      "Id": "180178723",
-      "Language": "SFX",
-      "ShortName": "Geralt_fall_down_get_up.wav",
-      "Path": "SFX\\Geralt_fall_down_get_up_10C4C929.wem"
-     },
-     {
       "Id": "185787947",
       "Language": "SFX",
       "ShortName": "Geralt_hit_sound_1.wav",
@@ -234,6 +228,12 @@
       "Language": "SFX",
       "ShortName": "Geralt_naked_roll.wav",
       "Path": "SFX\\Geralt_naked_roll_10C4C929.wem"
+     },
+     {
+      "Id": "509597881",
+      "Language": "SFX",
+      "ShortName": "Character_fall_down_get_up.wav",
+      "Path": "SFX\\Character_fall_down_get_up_10C4C929.wem"
      },
      {
       "Id": "521054026",
@@ -595,6 +595,11 @@
     "Path": "Props.bnk",
     "IncludedEvents": [
      {
+      "Id": "27935653",
+      "Name": "Play_Door_new_sound",
+      "ObjectPath": "\\Events\\Default Work Unit\\Props\\Door\\Play_Door_new_sound"
+     },
+     {
       "Id": "2331601197",
       "Name": "Play_Potion_drop",
       "ObjectPath": "\\Events\\Default Work Unit\\Props\\Play_Potion_drop"
@@ -709,6 +714,12 @@
       "Language": "SFX",
       "ShortName": "Potion pick up.wav",
       "Path": "SFX\\Potion pick up_10C4C929.wem"
+     },
+     {
+      "Id": "616449000",
+      "Language": "SFX",
+      "ShortName": "Door_new_sound.wav",
+      "Path": "SFX\\Door_new_sound_10C4C929.wem"
      },
      {
       "Id": "671728360",
@@ -1202,6 +1213,45 @@
     ]
    },
    {
+    "Id": "1290008369",
+    "Language": "SFX",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Level_1",
+    "ShortName": "Level_1",
+    "Path": "Level_1.bnk",
+    "IncludedEvents": [
+     {
+      "Id": "1483511332",
+      "Name": "Rain_loop",
+      "ObjectPath": "\\Events\\Default Work Unit\\Level_1\\Rain_loop"
+     },
+     {
+      "Id": "186852181",
+      "Name": "Thunder",
+      "ObjectPath": "\\Events\\Default Work Unit\\Level_1\\Thunder"
+     }
+    ],
+    "IncludedMemoryFiles": [
+     {
+      "Id": "371197786",
+      "Language": "SFX",
+      "ShortName": "ThunderOne.wav",
+      "Path": "SFX\\ThunderOne_10C4C929.wem"
+     },
+     {
+      "Id": "895524995",
+      "Language": "SFX",
+      "ShortName": "StormLoop.wav",
+      "Path": "SFX\\StormLoop_D79FB2B7.wem"
+     },
+     {
+      "Id": "914906870",
+      "Language": "SFX",
+      "ShortName": "ThunderTwo.wav",
+      "Path": "SFX\\ThunderTwo_10C4C929.wem"
+     }
+    ]
+   },
+   {
     "Id": "1290008370",
     "Language": "SFX",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Level_2",
@@ -1486,6 +1536,12 @@
       "Path": "SFX\\Jaskier_guitar_swing_6_10C4C929.wem"
      },
      {
+      "Id": "509597881",
+      "Language": "SFX",
+      "ShortName": "Character_fall_down_get_up.wav",
+      "Path": "SFX\\Character_fall_down_get_up_10C4C929.wem"
+     },
+     {
       "Id": "586003345",
       "Language": "SFX",
       "ShortName": "Jaskier_jump.wav",
@@ -1544,12 +1600,6 @@
       "Language": "SFX",
       "ShortName": "Jaskier_Walk_dirt_2.wav",
       "Path": "SFX\\Jaskier_Walk_dirt_2_10C4C929.wem"
-     },
-     {
-      "Id": "830769361",
-      "Language": "SFX",
-      "ShortName": "Jaskier_fall_down_get_up.wav",
-      "Path": "SFX\\Jaskier_fall_down_get_up_10C4C929.wem"
      },
      {
       "Id": "847161361",
