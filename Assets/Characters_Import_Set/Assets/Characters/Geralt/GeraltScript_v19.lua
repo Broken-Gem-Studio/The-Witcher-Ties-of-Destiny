@@ -30,6 +30,9 @@ local godmode = false
 local geralt_GO_UID
 local jaskier_GO_UID
 
+local geralt_mesh_GO_UID
+local geralt_pivot_GO_UID
+
 -- Revive GOs
 local geralt_revive_GO_UID
 local jaskier_revive_GO_UID
@@ -261,7 +264,7 @@ local item_library_size = 3
 local item_effects = {		--Item library and required data to operate
 	{ health_recovery = 4, health_regen = 0.1 },
 	{ speed_increase = 0.5, energy_regen = 2 },
-	{ damage_increase = 1, critical_chance_increase = 10 },
+	{ damage_increase = 1, critical_chance_increase = 10 }
 }
 lua_table.inventory = {	--Character inventory (number of each item)
 	3,
@@ -504,7 +507,7 @@ lua_table.light_3 = { 'N', 'L', 'L', 'L' }
 lua_table.light_3_size = 3
 lua_table.light_3_damage = 34.0
 lua_table.light_3_effect = attack_effects_ID.stun
-lua_table.light_3_effect_value = 500
+lua_table.light_3_effect_value = 100
 
 --Medium Attack
 lua_table.medium_damage = 50.0					--Multiplier of Base Damage
@@ -1912,7 +1915,7 @@ end
 --Power Potion
 local function TakePowerPotion()
 	lua_table.base_damage_mod = lua_table.base_damage_mod + item_effects[lua_table.item_library.power_potion].damage_increase
-	lua_table.critical_chance_add = lua_table.critical_chance_add + item_effects[lua_table.item_library.power_potion].critical_chance_increase
+	--lua_table.critical_chance_add = lua_table.critical_chance_add + item_effects[lua_table.item_library.power_potion].critical_chance_increase
 
 	for i = 1, #particles_library.potion_power_particles_GO_UID_children do
 		lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.potion_power_particles_GO_UID_children[i])	--TODO-Particles: Stop movement dust particles
@@ -1921,7 +1924,7 @@ end
 
 local function EndPowerPotion()
 	lua_table.base_damage_mod = lua_table.base_damage_mod - item_effects[lua_table.item_library.power_potion].damage_increase
-	lua_table.critical_chance_add = lua_table.critical_chance_add - item_effects[lua_table.item_library.power_potion].critical_chance_increase
+	--lua_table.critical_chance_add = lua_table.critical_chance_add - item_effects[lua_table.item_library.power_potion].critical_chance_increase
 
 	for i = 1, #particles_library.potion_power_particles_GO_UID_children do
 		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.potion_power_particles_GO_UID_children[i])	--TODO-Particles: Stop movement dust particles
@@ -1985,7 +1988,7 @@ local function TakePotion()
 
 		if lua_table.shared_inventory[lua_table.item_selected] > 0 then
 			lua_table.shared_inventory[lua_table.item_selected] = lua_table.shared_inventory[lua_table.item_selected] - 1
-			if jaskier_score ~= nil then jaskier_score[6] = jaskier_score[6] + 1 end	--TODO-Score:
+			if jaskier_score ~= nil then jaskier_score[7] = jaskier_score[7] + 1 end	--TODO-Score:
 		end
 
 		lua_table.inventory[lua_table.item_selected] = lua_table.inventory[lua_table.item_selected] - 1	--Remove potion from inventory
@@ -2015,7 +2018,7 @@ local function PickupItem()
 			lua_table.GameObjectFunctions:DestroyGameObject(item_script.myUID)	--Alternative: item_script.GameObjectFunctions:GetMyUID()
 			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.potion_pickup, geralt_GO_UID)	--TODO-Audio: Drop potion sound
 
-			if item_script.player_owner ~= nil and item_script.player_owner ~= geralt_GO_UID then lua_table.shared_inventory[lua_table.item_selected] = lua_table.shared_inventory[lua_table.item_selected] + 1 end	--TODO-Score
+			if item_script.player_owner ~= nil and item_script.player_owner == jaskier_GO_UID then lua_table.shared_inventory[item_script.item_id] = lua_table.shared_inventory[item_script.item_id] + 1 end	--TODO-Score
 			lua_table.inventory[item_script.item_id] = lua_table.inventory[item_script.item_id] + 1	--Add potion to inventory
 		else
 			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.not_possible, geralt_GO_UID)	--TODO-Audio: Not possible sound
@@ -2319,15 +2322,17 @@ local function DebugInputs()
 		then
 			if lua_table.current_health > 0
 			then
-				lua_table.current_health = 0
-				Die()
+				lua_table.current_health = lua_table.current_health - 25
+				lua_table.AudioFunctions:PlayAudioEventGO(audio_library.hurt, geralt_GO_UID)	--TODO-AUDIO:
+				if lua_table.current_health <= 0 then Die() end
+
 			elseif lua_table.current_state == state.down and not lua_table.falling_down_bool
 			then
 				lua_table.being_revived = true 
 			elseif lua_table.current_state == state.dead
 			then
-				lua_table.GameObjectFunctions:SetActiveGameObject(true, lua_table.GameObjectFunctions:FindGameObject("Geralt_Mesh"))
-				lua_table.GameObjectFunctions:SetActiveGameObject(true, lua_table.GameObjectFunctions:FindGameObject("Geralt_Pivot"))
+				lua_table.GameObjectFunctions:SetActiveGameObject(true, geralt_mesh_GO_UID)
+				lua_table.GameObjectFunctions:SetActiveGameObject(true, geralt_pivot_GO_UID)
 				lua_table.PhysicsFunctions:SetActiveController(true, geralt_GO_UID)
 				lua_table:Start()
 
@@ -2373,6 +2378,7 @@ function lua_table:Awake()
 			0,  --special_kills
 			0,  --incapacitations
 			0,  --objects_destroyed
+			0,	--chests opened
 			0,  --potions_shared
 			0   --ally_revived
 		}
@@ -2388,6 +2394,9 @@ function lua_table:Awake()
 	--Get GO_UIDs
 	geralt_GO_UID = lua_table.GameObjectFunctions:GetMyUID()
 	jaskier_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier")
+
+	geralt_mesh_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt_Mesh")
+	geralt_pivot_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt_Pivot")
 
 	particles_library.slash_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt_Slash")
 	particles_library.slash_mesh_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Slash_Mesh_Geralt")
@@ -3025,7 +3034,7 @@ function lua_table:Update()
 							lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.revive_particles_GO_UID_children[i])	--TODO-Particles:
 						end
 						for i = 1, #particles_library.down_particles_GO_UID_children do
-							lua_table.ParticlesFunctions:StartParticleEmitter(particles_library.down_particles_GO_UID_children[i])	--TODO-Particles:
+							lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.down_particles_GO_UID_children[i])	--TODO-Particles:
 						end
 
 						lua_table.AudioFunctions:StopAudioEventGO(audio_library.revive, geralt_GO_UID)	--TODO-AUDIO:
@@ -3035,6 +3044,9 @@ function lua_table:Update()
 
 					elseif game_time - lua_table.death_started_at > lua_table.down_time	--IF death timer finished
 					then
+						for i = 1, #particles_library.down_particles_GO_UID_children do
+							lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.down_particles_GO_UID_children[i])	--TODO-Particles:
+						end
 						for i = 1, #particles_library.death_particles_GO_UID_children do
 							lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.death_particles_GO_UID_children[i])	--TODO-Particles:
 						end
@@ -3043,8 +3055,8 @@ function lua_table:Update()
 						lua_table.current_state = state.dead
 
 						--lua_table.GameObjectFunctions:SetActiveGameObject(false, geralt_GO_UID)	--Disable character
-						lua_table.GameObjectFunctions:SetActiveGameObject(false, lua_table.GameObjectFunctions:FindGameObject("Geralt_Mesh"))
-						lua_table.GameObjectFunctions:SetActiveGameObject(false, lua_table.GameObjectFunctions:FindGameObject("Geralt_Pivot"))
+						lua_table.GameObjectFunctions:SetActiveGameObject(false, geralt_mesh_GO_UID)
+						lua_table.GameObjectFunctions:SetActiveGameObject(false, geralt_pivot_GO_UID)
 
 						-- if jaskier_GO_UID ~= nil
 						-- and jaskier_GO_UID ~= 0
@@ -3066,7 +3078,7 @@ function lua_table:Update()
 					lua_table.being_revived = false
 				end
 
-				if jaskier_score ~= nil then jaskier_score[7] = jaskier_score[7] + 1 end	--TODO-Score:
+				if jaskier_score ~= nil then jaskier_score[8] = jaskier_score[8] + 1 end	--TODO-Score:
 
 				lua_table.standing_up_bool = false
 				GoDefaultState(true)
@@ -3105,10 +3117,10 @@ function lua_table:Update()
 	--else lua_table.SystemFunctions:LOG("Enemies not nearby.") end
 
 	--Item LOGS
-	--lua_table.SystemFunctions:LOG("Geralt Item: " .. lua_table.item_selected)
-	--lua_table.SystemFunctions:LOG("Geralt Health Potions Left: " .. lua_table.inventory[1])
-	--lua_table.SystemFunctions:LOG("Geralt Energy Potions Left: " .. lua_table.inventory[2])
-	--lua_table.SystemFunctions:LOG("Geralt Damage Potions Left: " .. lua_table.inventory[3])
+	lua_table.SystemFunctions:LOG("Geralt Item: " .. lua_table.item_selected)
+	lua_table.SystemFunctions:LOG("Geralt Health Potions Left: " .. lua_table.inventory[1])
+	lua_table.SystemFunctions:LOG("Geralt Energy Potions Left: " .. lua_table.inventory[2])
+	lua_table.SystemFunctions:LOG("Geralt Damage Potions Left: " .. lua_table.inventory[3])
 
 	--Stats LOGS
 	--lua_table.SystemFunctions:LOG("Geralt Health: " .. lua_table.current_health)
