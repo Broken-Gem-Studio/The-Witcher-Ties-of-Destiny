@@ -12,15 +12,18 @@ local doorGO = 0
 local doorCollider = 0
 local doorOpened = false
 local firstEnemy = false 
+local spawnerGO = 0
 
 function lua_table:Awake()
     tutorialGO = lua_table.ObjectFunctions:FindGameObject("TutorialManager")
     tutorialScript = lua_table.ObjectFunctions:GetScript(tutorialGO)
     doorGO = lua_table.ObjectFunctions:FindGameObject("Door_3")
     doorCollider = lua_table.ObjectFunctions:FindGameObject("colliderDoor3")
+    spawnerGO = lua_table.ObjectFunctions:FindGameObject("CityLevelSpawners2_audio")    
 end
 
 function lua_table:Start()
+    lua_table.ObjectFunctions:SetActiveGameObject(false, spawnerGO)
 end
 
 function lua_table:Update()
@@ -37,6 +40,7 @@ function lua_table:Update()
         then
             lua_table.AnimationFunctions:PlayAnimation("open", 30, doorGO)
             lua_table.ObjectFunctions:SetActiveGameObject(false, doorCollider)
+            lua_table.ObjectFunctions:SetActiveGameObject(true, spawnerGO)
             doorOpened = true
         end
 
