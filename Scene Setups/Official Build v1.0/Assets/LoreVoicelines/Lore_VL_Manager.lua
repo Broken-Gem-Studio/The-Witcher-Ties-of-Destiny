@@ -5,9 +5,17 @@ lua_table.GO = Scripting.GameObject()
 lua_table.Audio = Scripting.Audio()
 
 local my_UID = 0
+local locked_door_UID = 0
+local locked_door_Script = {}
+
 
 function lua_table:Awake()
     my_UID = lua_table.GO:GetMyUID()
+    locked_door_UID = lua_table.GO:FindGameObject("Door_3")
+
+    if locked_door_UID ~= 0 then
+        locked_door_Script = lua_table.GO:GetScript(locked_door_UID)
+    end
 end
 
 function lua_table:Start()
@@ -45,7 +53,9 @@ function lua_table:PlayJaskierChest()
 end
 
 function lua_table:PlayDoorLocked()
-    lua_table.Audio:PlayAudioEventGO("Play_Locked_And_No_Key_In_Sight", my_UID)
+    if locked_door_Script ~= nil and locked_door_Script.door_unlocked == false then
+        lua_table.Audio:PlayAudioEventGO("Play_Locked_And_No_Key_In_Sight", my_UID)
+    end
 end
 
 function lua_table:HordesStart()

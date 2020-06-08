@@ -38,6 +38,7 @@ namespace AK
         static const AkUniqueID PLAY_DIALOGUE_7 = 542320742U;
         static const AkUniqueID PLAY_DIALOGUE_8 = 542320745U;
         static const AkUniqueID PLAY_DIALOGUE_9 = 542320744U;
+        static const AkUniqueID PLAY_DOOR_NEW_SOUND = 27935653U;
         static const AkUniqueID PLAY_ENEMY_CONVERSATION = 2259159008U;
         static const AkUniqueID PLAY_ENEMY_HUMANOID_DISCOVER_PLAYERS = 2135203437U;
         static const AkUniqueID PLAY_ENEMY_HUMANOID_HIT = 282993986U;
@@ -175,6 +176,8 @@ namespace AK
         static const AkUniqueID PLAY_TITAN_GHOULL_DEATH = 547580181U;
         static const AkUniqueID PLAY_WAVE_INCOMING = 2682362844U;
         static const AkUniqueID PLAY_WIN_MENU_MUSIC = 2973513758U;
+        static const AkUniqueID RAIN_LOOP = 1483511332U;
+        static const AkUniqueID THUNDER = 186852181U;
     } // namespace EVENTS
 
     namespace SWITCHES
@@ -259,6 +262,7 @@ namespace AK
         static const AkUniqueID HUD = 646625284U;
         static const AkUniqueID HUMAN_ENEMIES = 2380338445U;
         static const AkUniqueID JASKIER = 1735538792U;
+        static const AkUniqueID LEVEL_1 = 1290008369U;
         static const AkUniqueID LEVEL_2 = 1290008370U;
         static const AkUniqueID MAIN_MENU = 2005704188U;
         static const AkUniqueID MONSTER_ENEMIES = 1016515008U;

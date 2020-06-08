@@ -52,10 +52,10 @@ function GetTableTutorial()
     -- SPAWNERS
     ------------------------------------------------------------------------------
     local spawnerStep4, spawnerStep6_1, spawnerStep6_2, spawnerStep7, spawnerStep9, spawnerStep10_1, spawnerStep10_2, spawnerStep10_3, spawnerArcher1, spawnerArcher2, spawnerArcher3
-    local spawnerStep11_1, spawnerStep11_2, spawnerStep12_1, spawnerStep12_2
+    local spawnerStep11_1, spawnerStep11_2, spawnerStep12_1, spawnerStep12_2, spawnerStep12_3
     
     local scriptSpawnerStep4, scriptSpawnerStep6_1, scriptSpawnerStep6_2, scriptSpawnerStep7, scriptSpawnerStep9, scriptSpawnerStep10_1, scriptSpawnerStep10_2, scriptSpawnerStep10_3
-    local scriptSpawnerArcher1, scriptSpawnerArcher2, scriptSpawnerArcher3, scriptSpawnerStep11_1, scriptSpawnerStep11_2, scriptSpawnerStep12_1, scriptSpawnerStep12_2 
+    local scriptSpawnerArcher1, scriptSpawnerArcher2, scriptSpawnerArcher3, scriptSpawnerStep11_1, scriptSpawnerStep11_2, scriptSpawnerStep12_1, scriptSpawnerStep12_2, scriptSpawnerStep12_3 
     
     local checkStep4 = false
     local checkStep6_1 = false
@@ -69,7 +69,8 @@ function GetTableTutorial()
     local checkStep11_2 = false
     local checkStep12_1 = false
     local checkStep12_2 = false
-    
+    local checkStep12_3 = false
+
     -- Variables STEP 1
     local geraltHasMoved = false
     local jaskierHasMoved = false
@@ -136,11 +137,13 @@ function GetTableTutorial()
     local doorsGO = {
         door1,
         door2,
+        door5
     }
     
     local doorsColliders = {
         door1,
         door2,
+        door5
     }
     
     -- Variables POTIONS
@@ -490,9 +493,13 @@ function GetTableTutorial()
     
         if scriptSpawnerStep11_1.auxCounter == 0 and checkStep11_1 == true and scriptSpawnerStep11_2.auxCounter == 0 and checkStep11_2 == true and geraltSpell == true --and jaskierSpell == true 
         then
+            lua_table.ObjectFunctions:SetActiveGameObject(false, doorsColliders.door5)
+            lua_table.AnimationFunctions:PlayAnimation("open", 30, doorsGO.door5)
+
             lua_table.ObjectFunctions:SetActiveGameObject(true, spawnerStep12_1)
             lua_table.ObjectFunctions:SetActiveGameObject(true, spawnerStep12_2)
-    
+            lua_table.ObjectFunctions:SetActiveGameObject(true, spawnerStep12_3)
+
             lua_table.currentStep = Step.STEP_12
             lua_table.InterfaceFunctions:MakeElementInvisible("Text", lua_table.textUID)
             lua_table.InterfaceFunctions:SetText(" ", lua_table.textUID)
@@ -531,11 +538,13 @@ function GetTableTutorial()
     
         scriptSpawnerStep12_1.CheckEnemies()
         scriptSpawnerStep12_2.CheckEnemies()
-    
+        scriptSpawnerStep12_3.CheckEnemies()
+
         if scriptSpawnerStep12_1.auxCounter == 8 then checkStep12_1 = true end
         if scriptSpawnerStep12_2.auxCounter == 4 then checkStep12_2 = true end
-    
-        if scriptSpawnerStep12_1.auxCounter == 0 and checkStep12_1 == true and scriptSpawnerStep12_2.auxCounter == 0 and checkStep12_2 == true
+        if scriptSpawnerStep12_3.auxCounter == 2 then checkStep12_3 = true end
+
+        if scriptSpawnerStep12_1.auxCounter == 0 and checkStep12_1 == true and scriptSpawnerStep12_2.auxCounter == 0 and checkStep12_2 == true  and scriptSpawnerStep12_3.auxCounter == 0 and checkStep12_3 == true
         and geraltUlt == true and jaskierUlt == true 
         then
             lua_table.currentStep = Step.STEP_13
@@ -660,7 +669,8 @@ function GetTableTutorial()
         spawnerArcher3 = lua_table.ObjectFunctions:FindGameObject("spawnerArcher3")
         spawnerStep12_1 = lua_table.ObjectFunctions:FindGameObject("spawnerStep12_1")
         spawnerStep12_2 = lua_table.ObjectFunctions:FindGameObject("spawnerStep12_2")
-    
+        spawnerStep12_3 = lua_table.ObjectFunctions:FindGameObject("spawnerStep12_3")
+
         scriptSpawnerStep4 = lua_table.ObjectFunctions:GetScript(spawnerStep4)
         scriptSpawnerStep6_1 = lua_table.ObjectFunctions:GetScript(spawnerStep6_1) 
         scriptSpawnerStep6_2 = lua_table.ObjectFunctions:GetScript(spawnerStep6_2)
@@ -676,7 +686,8 @@ function GetTableTutorial()
         scriptSpawnerArcher3 = lua_table.ObjectFunctions:GetScript(spawnerArcher3)
         scriptSpawnerStep12_1 = lua_table.ObjectFunctions:GetScript(spawnerStep12_1)
         scriptSpawnerStep12_2 = lua_table.ObjectFunctions:GetScript(spawnerStep12_2)
-    
+        scriptSpawnerStep12_3 = lua_table.ObjectFunctions:GetScript(spawnerStep12_3)
+
         CARTAS = lua_table.ObjectFunctions:FindGameObject("CARTAS")
         TABLE_CARTAS = lua_table.ObjectFunctions:GetScript(CARTAS)
     
@@ -694,9 +705,11 @@ function GetTableTutorial()
     
         doorsGO.door1 = lua_table.ObjectFunctions:FindGameObject("Door_1")
         doorsGO.door2 = lua_table.ObjectFunctions:FindGameObject("Door_2")
+        doorsGO.door5 = lua_table.ObjectFunctions:FindGameObject("Door_5")
         doorsColliders.door1 = lua_table.ObjectFunctions:FindGameObject("colliderDoor1")
         doorsColliders.door2 = lua_table.ObjectFunctions:FindGameObject("colliderDoor2")
-    
+        doorsColliders.door5 = lua_table.ObjectFunctions:FindGameObject("colliderDoor5")
+
         littleCards.chest = lua_table.ObjectFunctions:FindGameObject("L_CHEST")
         littleCards.dummy = lua_table.ObjectFunctions:FindGameObject("L_DUMMY")
         littleCards.enemy = lua_table.ObjectFunctions:FindGameObject("L_ENEMY")
@@ -721,7 +734,8 @@ function GetTableTutorial()
         lua_table.ObjectFunctions:SetActiveGameObject(false, spawnerArcher3)
         lua_table.ObjectFunctions:SetActiveGameObject(false, spawnerStep12_1)
         lua_table.ObjectFunctions:SetActiveGameObject(false, spawnerStep12_2)
-    
+        lua_table.ObjectFunctions:SetActiveGameObject(false, spawnerStep12_3)
+
         lua_table.InterfaceFunctions:MakeElementInvisible("Image", littleCards.chest)
         lua_table.InterfaceFunctions:MakeElementInvisible("Image", littleCards.dummy)
         lua_table.InterfaceFunctions:MakeElementInvisible("Image", littleCards.enemy)
