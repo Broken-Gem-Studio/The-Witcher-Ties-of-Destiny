@@ -278,7 +278,7 @@ lua_table.shared_inventory = {	--Items in inventory that were given by ally (num
 }
 lua_table.item_selected = lua_table.item_library.health_potion
 lua_table.item_type_max = 3
-lua_table.item_pickup_range = 2
+lua_table.item_pickup_range = 4
 
 	--Potions
 	lua_table.potion_in_effect = 0
