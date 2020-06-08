@@ -413,8 +413,11 @@ end
 local function DebugInputs()
 	if lua_table.InputFunctions:KeyRepeat("Left Ctrl") then
 		if lua_table.InputFunctions:KeyDown("k")	--Instakill Boss
-		then
-            current_state = state.DEAD
+        then
+            if lua_table.awakened == true
+            then
+                lua_table.current_health = 0
+            end
         end
 
         if lua_table.InputFunctions:KeyDown("l")
@@ -432,6 +435,14 @@ local function DebugInputs()
             current_state = state.JUMPING
             start_jumping = true
         end
+
+        -- if lua_table.InputFunctions:KeyDown("g")
+        -- then 
+        --     current_state = state.AWAKENING
+        --     lua_table.current_health = lua_table.health
+        --     lua_table.awakened = true
+        --     lua_table.dead = false
+        -- end
 	end
 end
 
@@ -467,6 +478,9 @@ local function HandlePhases()
 
             lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_collider.roar.coll_UID)
             attack_collider.roar.coll_active = false
+
+            lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_collider.jump.coll_UID)
+            attack_collider.jump.coll_active = false
 
             --Updating states
             current_state = state.SWAPPING_PHASE
@@ -645,7 +659,9 @@ local function HandlePhases()
             attack_collider.roar.coll_growth_velocity[x] = (attack_collider.roar.coll_init_scale[x] - attack_collider.roar.coll_final_scale[x]) / attack.roar.att_execution_duration 
             attack_collider.roar.coll_growth_velocity[y] = (attack_collider.roar.coll_init_scale[y] - attack_collider.roar.coll_final_scale[y]) / attack.roar.att_execution_duration 
             attack_collider.roar.coll_growth_velocity[z] = (attack_collider.roar.coll_init_scale[z] - attack_collider.roar.coll_final_scale[z]) / attack.roar.att_execution_duration
-
+            
+            -- Partciles PLAY
+            lua_table.ParticlesFunctions:PlayParticleEmitter(particles.rage_aura_1.part_UID)
         end
     -- Checking if inside phase 3 threshold
     elseif lua_table.current_health_percentage <= lua_table.health_percentage_phase_3
@@ -673,6 +689,9 @@ local function HandlePhases()
 
             lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_collider.roar.coll_UID)
             attack_collider.roar.coll_active = false
+
+            lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_collider.jump.coll_UID)
+            attack_collider.jump.coll_active = false
 
             --Updating states
             current_state = state.SWAPPING_PHASE
@@ -851,6 +870,11 @@ local function HandlePhases()
             attack_collider.roar.coll_growth_velocity[x] = (attack_collider.roar.coll_init_scale[x] - attack_collider.roar.coll_final_scale[x]) / attack.roar.att_execution_duration 
             attack_collider.roar.coll_growth_velocity[y] = (attack_collider.roar.coll_init_scale[y] - attack_collider.roar.coll_final_scale[y]) / attack.roar.att_execution_duration 
             attack_collider.roar.coll_growth_velocity[z] = (attack_collider.roar.coll_init_scale[z] - attack_collider.roar.coll_final_scale[z]) / attack.roar.att_execution_duration
+        
+            -- Partciles STOP
+            lua_table.ParticlesFunctions:StopParticleEmitter(particles.rage_aura_1.part_UID)
+            -- Partciles PLAY
+            lua_table.ParticlesFunctions:PlayParticleEmitter(particles.rage_aura_2.part_UID)
         end
     end
 end
@@ -1886,6 +1910,34 @@ local function HandleJump()
         current_attack_pattern = attack_pattern.TO_BE_DETERMINED
         current_attack_type = attack_type.TO_BE_DETERMINED
         current_attack_subdivision = attack_subdivision.TO_BE_DETERMINED
+
+        -- Setting colliders unactive
+        lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_collider.stomp.coll_UID)
+        attack_collider.stomp.coll_active = false
+
+        lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_collider.sweep.coll_UID)
+        attack_collider.sweep.coll_active = false
+
+        lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_collider.sweep_left.coll_UID)
+        attack_collider.sweep_left.coll_active = false
+
+        lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_collider.sweep_right.coll_UID)
+        attack_collider.sweep_right.coll_active = false
+
+        lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_collider.leash_left.coll_UID)
+        attack_collider.leash_left.coll_active = false
+
+        lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_collider.leash_right.coll_UID)
+        attack_collider.leash_right.coll_active = false
+
+        lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_collider.roar.coll_UID)
+        attack_collider.roar.coll_active = false
+
+        lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_collider.jump.coll_UID)
+        attack_collider.jump.coll_active = false
+
+        -- Particles STOP (ATTACKS ONLY)
+        lua_table.ParticlesFunctions:StopParticleEmitter(particles.scream.part_UID)
         
         start_jumping = false
 
@@ -2369,8 +2421,42 @@ local function HandleStates()
         current_attack_type = attack_type.TO_BE_DETERMINED
         current_attack_subdivision = attack_subdivision.TO_BE_DETERMINED
 
-         -- Play death animation
+        -- Setting colliders unactive
+        lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_collider.stomp.coll_UID)
+        attack_collider.stomp.coll_active = false
+
+        lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_collider.sweep.coll_UID)
+        attack_collider.sweep.coll_active = false
+
+        lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_collider.sweep_left.coll_UID)
+        attack_collider.sweep_left.coll_active = false
+
+        lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_collider.sweep_right.coll_UID)
+        attack_collider.sweep_right.coll_active = false
+
+        lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_collider.leash_left.coll_UID)
+        attack_collider.leash_left.coll_active = false
+
+        lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_collider.leash_right.coll_UID)
+        attack_collider.leash_right.coll_active = false
+
+        lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_collider.roar.coll_UID)
+        attack_collider.roar.coll_active = false
+
+        lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_collider.jump.coll_UID)
+        attack_collider.jump.coll_active = false
+
+        -- Partciles STOP
+        lua_table.ParticlesFunctions:StopParticleEmitter(particles.rage_aura_2.part_UID)
+        lua_table.ParticlesFunctions:StopParticleEmitter(particles.scream.part_UID)
+
+        -- Play death animation
         lua_table.AnimationFunctions:PlayAnimation(animation.death.anim_name, animation.death.anim_speed, lua_table.my_UID)
+
+        -- Particles PLAY
+        for i = 1, #particles.death_blood.part_childs do
+	        lua_table.ParticlesFunctions:PlayParticleEmitter(particles.death_blood.part_childs[i])
+	    end
 
         -- AUDIO PLAY
         lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_death", lua_table.my_UID)
@@ -2403,7 +2489,7 @@ local function HandleStates()
         if game_time >= state_timer
         then
             -- DESPAWN BOSS
-            lua_table.GameObjectFunctions:SetActiveGameObject(false, lua_table.my_mesh_UID)
+            --  lua_table.GameObjectFunctions:SetActiveGameObject(false, lua_table.my_mesh_UID)
         
             if lua_table.scene_UID ~= 0
             then
@@ -3027,6 +3113,8 @@ function lua_table:Update ()
     game_time = PerfGameTime()
 
     lua_table.my_position = lua_table.TransformFunctions:GetPosition(lua_table.my_UID)
+    -- Debug state
+    --current_state = state.IDLE
 
     HandlePlayerPosition()
     HandlePhases()
@@ -3038,11 +3126,13 @@ function lua_table:Update ()
     -- Debug Logs
     lua_table.SystemFunctions:LOG ("Kikimora Health: " .. lua_table.current_health)
     lua_table.SystemFunctions:LOG ("Kikimora Health Percentage : " .. lua_table.current_health_percentage)
-    lua_table.SystemFunctions:LOG ("Kikimora Phase: " .. current_phase)
-    lua_table.SystemFunctions:LOG ("Kikimora State: " .. current_state)
-    lua_table.SystemFunctions:LOG ("Kikimora Attack Pattern: " .. current_attack_pattern)
-    lua_table.SystemFunctions:LOG ("Kikimora Attack Type: " .. current_attack_type)
-    lua_table.SystemFunctions:LOG ("Kikimora Attack Subdivision: " .. current_attack_subdivision)
+    --lua_table.SystemFunctions:LOG ("Kikimora Phase: " .. current_phase)
+    --lua_table.SystemFunctions:LOG ("Kikimora State: " .. current_state)
+    --lua_table.SystemFunctions:LOG ("Kikimora Attack Pattern: " .. current_attack_pattern)
+    --lua_table.SystemFunctions:LOG ("Kikimora Attack Type: " .. current_attack_type)
+    --lua_table.SystemFunctions:LOG ("Kikimora Attack Subdivision: " .. current_attack_subdivision)
+
+    
 end
 
 function lua_table:OnTriggerEnter()
