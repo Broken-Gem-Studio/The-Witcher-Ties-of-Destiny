@@ -2321,8 +2321,10 @@ local function DebugInputs()
 		then
 			if lua_table.current_health > 0
 			then
-				lua_table.current_health = 0
-				Die()
+				lua_table.current_health = lua_table.current_health - 25
+				lua_table.AudioFunctions:PlayAudioEventGO(audio_library.hurt, jaskier_GO_UID)	--TODO-AUDIO:
+				if lua_table.current_health <= 0 then Die() end
+				
 			elseif lua_table.current_state == state.down and not lua_table.falling_down_bool
 			then
 				lua_table.being_revived = true
