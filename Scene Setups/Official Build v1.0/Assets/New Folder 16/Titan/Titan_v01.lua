@@ -57,7 +57,7 @@ local attack_effects = {
 ------------   All the values below are placeholders, will change them when testing
 -- Titan values 
 lua_table.MyUID = 0 --Entity UID
-lua_table.max_hp = 600
+lua_table.max_hp = 800
 lua_table.health = 0
 lua_table.speed = 5
 lua_table.knock_speed = 17
