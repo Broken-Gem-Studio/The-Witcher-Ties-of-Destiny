@@ -1935,7 +1935,7 @@ end
 --Power Potion
 local function TakePowerPotion()
 	lua_table.base_damage_mod = lua_table.base_damage_mod + item_effects[lua_table.item_library.power_potion].damage_increase
-	lua_table.critical_chance_add = lua_table.critical_chance_add + item_effects[lua_table.item_library.power_potion].critical_chance_increase
+	--lua_table.critical_chance_add = lua_table.critical_chance_add + item_effects[lua_table.item_library.power_potion].critical_chance_increase
 
 	for i = 1, #particles_library.potion_power_particles_GO_UID_children do
 		lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.potion_power_particles_GO_UID_children[i])	--TODO-Particles: Stop movement dust particles
@@ -1944,7 +1944,7 @@ end
 
 local function EndPowerPotion()
 	lua_table.base_damage_mod = lua_table.base_damage_mod - item_effects[lua_table.item_library.power_potion].damage_increase
-	lua_table.critical_chance_add = lua_table.critical_chance_add - item_effects[lua_table.item_library.power_potion].critical_chance_increase
+	--lua_table.critical_chance_add = lua_table.critical_chance_add - item_effects[lua_table.item_library.power_potion].critical_chance_increase
 
 	for i = 1, #particles_library.potion_power_particles_GO_UID_children do
 		lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.potion_power_particles_GO_UID_children[i])	--TODO-Particles: Stop movement dust particles
@@ -2324,7 +2324,7 @@ local function DebugInputs()
 				lua_table.current_health = lua_table.current_health - 25
 				lua_table.AudioFunctions:PlayAudioEventGO(audio_library.hurt, jaskier_GO_UID)	--TODO-AUDIO:
 				if lua_table.current_health <= 0 then Die() end
-				
+
 			elseif lua_table.current_state == state.down and not lua_table.falling_down_bool
 			then
 				lua_table.being_revived = true
