@@ -21,7 +21,7 @@ lua_table.Material = Scripting.Materials()
 --se para para saltar en el frame: 357-337 voy a 30 frames por segundo
 --357 al 363 se prepara cogiendo fuerza para saltar
 --363 al 385 esta en el aire
---445 acaba la animació
+--445 acaba la animaciï¿½
 
 
 
@@ -253,6 +253,21 @@ end
 
 local function DoDieNow(bool)
 	DoDie = bool
+
+
+	tuto_manager = lua_table.GameObjectFunctions:FindGameObject("TutorialManager")
+    if tuto_manager ~= 0 
+    then
+        tuto_table = lua_table.GameObjectFunctions:GetScript(tuto_manager)
+
+        if tuto_table.currentStep == 9
+        then
+            tuto_table.enemiesToKill_Step9 = tuto_table.enemiesToKill_Step9 - 1
+        elseif tuto_table.currentStep == 10
+        then
+            tuto_table.enemiesToKill_Step10 = tuto_table.enemiesToKill_Step10 - 1
+        end
+    end
 end
 
 --#################################################### MAIN FUNCTIONS ####################################
@@ -537,7 +552,7 @@ local function CalculateJumpAttackVelocity()
 	--se para para saltar en el frame: 357-337 = 20 frames voy a 30 frames por segundo
 	--357 al 363 = 6 frames se prepara cogiendo fuerza para saltar
 	--363 al 385 = 22 frames esta en el aire
-	--445 acaba la animació
+	--445 acaba la animaciï¿½
 	--TOTAL TIME IN 30FPS = 3.550 SEC	
 	MilisecondsPerframe = 1000/JumpAttack_fps -- if fps = 30, = 33.3333
 	JA_TimeFirstPart = MilisecondsPerframe * 20
@@ -914,7 +929,7 @@ end
 
 
 
-local  function HandleDetection()
+local function HandleDetection()
 	
 	ChooseBehaviour()
 
@@ -1008,6 +1023,7 @@ local function HandleDead()
 	then
 		Die()
 	end
+
 end
 
 
@@ -1265,22 +1281,20 @@ function lua_table:OnTriggerEnter()
 		end
 
 
-		--if collider_GO == lua_table.Geralt_UID
-		--then
-		--	local particles = {}
-		--	particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("JumpAttackParticles", lua_table.General_Emitter_UID))
-		--	for i = 1, #particles do 
-		--		lua_table.ParticleSystem:PlayParticleEmitter(particles[i])
-		--		lua_table.SystemFunctions:LOG ("LUMBERJACK PARTICLES HIT NOW") 
-		--	end
-		--else
-		--	local particles = {}
-		--	particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("HitParticles", lua_table.General_Emitter_UID))
-		--	for i = 1, #particles do 
-		--		lua_table.ParticleSystem:PlayParticleEmitter(particles[i])
-				--lua_table.SystemFunctions:LOG ("LUMBERJACK PARTICLES HIT NOW") 
-		--	end
-		--end
+		if collider_GO == lua_table.Geralt_UID
+		then
+			local particles = {}
+			particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("JumpAttackParticles", lua_table.General_Emitter_UID))
+			for i = 1, #particles do 
+				lua_table.ParticleSystem:PlayParticleEmitter(particles[i])
+			end
+		else
+			local particles = {}
+			particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("HitParticles", lua_table.General_Emitter_UID))
+			for i = 1, #particles do 
+				lua_table.ParticleSystem:PlayParticleEmitter(particles[i])
+			end
+		end
 
 
 		if player_script.collider_effect ~= AttackEffects.none --and lua_table.CurrentSpecialEffect == SpecialEffect.NONE
