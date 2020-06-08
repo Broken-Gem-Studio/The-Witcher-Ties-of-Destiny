@@ -9,6 +9,7 @@ lua_table.AudioFunctions = Scripting.Audio ()
 lua_table.AnimationFunctions = Scripting.Animations ()
 lua_table.InputFunctions = Scripting.Inputs()
 lua_table.SeceneFunctions = Scripting.Scenes()
+lua_table.MaterialsFunctions = Scripting.Materials()
 
 -----------------------------------------------------------------------------------------
 -- Health Variables
@@ -16,7 +17,7 @@ lua_table.SeceneFunctions = Scripting.Scenes()
 
 -- Health Value
 lua_table.current_health = 0
-lua_table.health = 30000
+lua_table.health = 15000
 
 local is_dead = false
 lua_table.despawn_time = 15
@@ -331,6 +332,9 @@ lua_table.my_position = {}
 lua_table.my_rotation = {}
 local my_mesh_UID = 0
 lua_table.mesh_GO = "Kikimora_Low"
+lua_table.my_material_GO = "Kikimora_mat.mat"
+lua_table.hit_material_GO = "HitMaterial.mat"
+
 
 lua_table.jump_pos_1 = {}
 lua_table.jump_rot_1 = {}
@@ -392,7 +396,12 @@ local jump_attack_timer = 0
 local state_timer = 0
 local animation_timer = 0
 local awakening_timer = 0.5 
+local attack_tired_timer = 0
+local hit_material_timer = 0
 
+lua_table.hit_time = 0.1
+lua_table.stomp_tired_time = 2
+lua_table.leash_tired_time = 3
 lua_table.under_time = 3 --seconds
 lua_table.jump_delay_up = 0.5 --seconds
 lua_table.jump_delay_down = 3
@@ -401,6 +410,7 @@ local randy = 0
 
 local awakening_audio_played = false
 local death_audio_played = false
+local got_hit = false
 
 -----------------------------------------------------------------------------------------
 -- Methods
@@ -1066,6 +1076,11 @@ local function HandleStompAttack()
 
             if game_time > attack_subdivision_timer --Check if execution is finished
             then
+                attack_tired_timer = game_time + lua_table.stomp_tired_time
+            end
+
+            if game_time > attack_tired_timer --Check if execution is finished
+            then
                 current_attack_subdivision = attack_subdivision.RECOVERY
 
                 -- START RECOVERY OF ATTACK ANIMATION
@@ -1602,6 +1617,11 @@ local function HandleLeashLeftAttack()
 
             if game_time > attack_subdivision_timer --Check if execution is finished
             then
+                attack_tired_timer = game_time + lua_table.leash_tired_time
+            end
+
+            if game_time > attack_tired_timer --Check if execution is finished
+            then
                 current_attack_subdivision = attack_subdivision.RECOVERY
                 
                 -- START RECOVERY OF ATTACK ANIMATION
@@ -1735,6 +1755,11 @@ local function HandleLeashRightAttack()
             end
 
             if game_time > attack_subdivision_timer --Check if execution is finished
+            then
+                attack_tired_timer = game_time + lua_table.leash_tired_time
+            end
+
+            if game_time > attack_tired_timer --Check if execution is finished
             then
                 current_attack_subdivision = attack_subdivision.RECOVERY
                 
@@ -2123,6 +2148,8 @@ end
 
 local function HandleHits()
     
+    got_hit = false
+
     -- Hit (Legs)
     if lua_table.hits_received > 0
     then
@@ -2132,6 +2159,8 @@ local function HandleHits()
         end
             -- AUDIO PLAY
         lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_damaged", my_UID)
+
+        got_hit = true
     end
     
     -- Critical hit (Head)
@@ -2148,7 +2177,20 @@ local function HandleHits()
         -- Partciles PLAY
         for i = 1, #particles.head_blood_hit.part_childs do
 	        lua_table.ParticlesFunctions:PlayParticleEmitter(particles.head_blood_hit.part_childs[i])
-	    end
+        end
+        got_hit = true
+    end
+
+    if got_hit == true
+    then
+        lua_table.MaterialsFunctions:SetMaterialByName(lua_table.hit_material_GO, my_mesh_UID)
+
+        hit_material_timer = game_time + lua_table.hit_time
+    end
+
+    if game_time >= hit_material_timer
+    then
+        lua_table.MaterialsFunctions:SetMaterialByName(lua_table.my_material_GO, my_mesh_UID)
     end
     
     -- Left Legs Particle Emmiters PLAY
@@ -2512,27 +2554,27 @@ function lua_table:Awake ()
     my_UID = lua_table.GameObjectFunctions:GetMyUID()
 
     lua_table.jump_pos_1[x] = 966
-    lua_table.jump_pos_1[y] = 13
+    lua_table.jump_pos_1[y] = 11
     lua_table.jump_pos_1[z] = -696
 
     lua_table.jump_rot_1[x] = 0
     lua_table.jump_rot_1[y] = -19
     lua_table.jump_rot_1[z] = 0
 
-    lua_table.jump_pos_2[x] = 932
-    lua_table.jump_pos_2[y] = 13
-    lua_table.jump_pos_2[z] = -674
+    lua_table.jump_pos_2[x] = 930
+    lua_table.jump_pos_2[y] = 10.5
+    lua_table.jump_pos_2[z] = -675.5
     
     lua_table.jump_rot_2[x] = 0
     lua_table.jump_rot_2[y] = 83
     lua_table.jump_rot_2[z] = 0
 
-    lua_table.jump_pos_3[x] = 983
-    lua_table.jump_pos_3[y] = 13
-    lua_table.jump_pos_3[z] = -678
+    lua_table.jump_pos_3[x] = 988
+    lua_table.jump_pos_3[y] = 11
+    lua_table.jump_pos_3[z] = -679.5
     
     lua_table.jump_rot_3[x] = 0
-    lua_table.jump_rot_3[y] = -89
+    lua_table.jump_rot_3[y] = -82
     lua_table.jump_rot_3[z] = 0
 
     -- Get my position

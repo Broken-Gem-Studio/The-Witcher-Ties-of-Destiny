@@ -30,7 +30,7 @@ lua_table.bossfight_angle = 40
 -- Orientation
 lua_table.camera_orientation = 0 -- basically = camera_rotation_y
 
-lua_table.bossfight_orientation = -25
+lua_table.bossfight_orientation = -19
 
 -- Smoothing Speed from (from 0 to 1 -- slow to fast)
 lua_table.movement_smooth_speed = 0.2
