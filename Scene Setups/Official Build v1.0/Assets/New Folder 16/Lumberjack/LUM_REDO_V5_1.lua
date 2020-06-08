@@ -31,7 +31,7 @@ lua_table.Material = Scripting.Materials()
 --------------------General programming Notes-----------------
 
 
-local PrintLogs = false
+local PrintLogs = true
 
 
 --########################################### STATES ######################################################
@@ -197,6 +197,8 @@ lua_table.General_Emitter_UID = 0
 
 local PlayersDead = false
 local GO_DESTROYED = false
+
+local MyUID = 0
 --#################################################### Utility ###########################################
 
 
@@ -1281,22 +1283,22 @@ function lua_table:OnTriggerEnter()
 		end
 
 
-		--if collider_GO == lua_table.Geralt_UID
-		--then
-		--	local particles = {}
-		--	particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("JumpAttackParticles", lua_table.General_Emitter_UID))
-		--	for i = 1, #particles do 
-		--		lua_table.ParticleSystem:PlayParticleEmitter(particles[i])
-		--		lua_table.SystemFunctions:LOG ("LUMBERJACK PARTICLES HIT NOW") 
-		--	end
-		--else
-		--	local particles = {}
-		--	particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("HitParticles", lua_table.General_Emitter_UID))
-		--	for i = 1, #particles do 
-		--		lua_table.ParticleSystem:PlayParticleEmitter(particles[i])
+		if collider_GO == lua_table.Geralt_UID
+		then
+			local particles = {}
+			particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("JumpAttackParticles", lua_table.General_Emitter_UID))
+			for i = 1, #particles do 
+				lua_table.ParticleSystem:PlayParticleEmitter(particles[i])
+				lua_table.SystemFunctions:LOG ("LUMBERJACK PARTICLES HIT NOW") 
+			end
+		else
+			local particles = {}
+			particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("HitParticles", lua_table.General_Emitter_UID))
+			for i = 1, #particles do 
+				lua_table.ParticleSystem:PlayParticleEmitter(particles[i])
 				--lua_table.SystemFunctions:LOG ("LUMBERJACK PARTICLES HIT NOW") 
-		--	end
-		--end
+			end
+		end
 
 
 		if player_script.collider_effect ~= AttackEffects.none --and lua_table.CurrentSpecialEffect == SpecialEffect.NONE
