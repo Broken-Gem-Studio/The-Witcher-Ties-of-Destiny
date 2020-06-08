@@ -1,0 +1,126 @@
+{
+    "1122433026": {
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            }
+        },
+        "Name": "Lute_concert_Pivot",
+        "Parent": "454365627",
+        "PrefabChild": true,
+        "PrefabInstance": false
+    },
+    "318619001": {
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-76.429993",
+                "positiony": "-29.445141",
+                "positionz": "91.816475",
+                "rotationw": "-0.114779",
+                "rotationx": "0.118797",
+                "rotationy": "0.815735",
+                "rotationz": "-0.554337",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/283089976.bone"
+                }
+            }
+        },
+        "Name": "Lute_Concert_Controller",
+        "Parent": "1122433026",
+        "PrefabChild": true,
+        "PrefabInstance": false
+    },
+    "454365627": {
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "14": {
+                "Active": true,
+                "Animations": {
+                    "BlendTime": "0.300000",
+                    "Size": "0",
+                    "UseDefault": false
+                },
+                "Resources": {
+                    "ResourceAnimation": "Library/Animations/821346024.anim"
+                }
+            }
+        },
+        "Model": "Assets/Characters/Jaskier/Jaskier_Lute_Concert.FBX",
+        "Name": "GameObject(0)",
+        "Parent": "2077095118",
+        "PrefabChild": false,
+        "PrefabInstance": true
+    },
+    "787342228": {
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-1.723977",
+                "positiony": "2.497006",
+                "positionz": "0.275455",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/648208748.mesh"
+                    }
+                }
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/04 - Default.mat"
+                    }
+                }
+            }
+        },
+        "Name": "Lute_Concert",
+        "Parent": "454365627",
+        "PrefabChild": true,
+        "PrefabInstance": false
+    },
+    "PreviewTexture": "Library/Textures/1948885096.dds"
+}

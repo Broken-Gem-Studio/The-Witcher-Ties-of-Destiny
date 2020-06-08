@@ -2018,7 +2018,7 @@ local function PickupItem()
 			lua_table.GameObjectFunctions:DestroyGameObject(item_script.myUID)	--Alternative: item_script.GameObjectFunctions:GetMyUID()
 			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.potion_pickup, geralt_GO_UID)	--TODO-Audio: Drop potion sound
 
-			if item_script.player_owner ~= nil and item_script.player_owner == jaskier_GO_UID then lua_table.shared_inventory[lua_table.item_selected] = lua_table.shared_inventory[lua_table.item_selected] + 1 end	--TODO-Score
+			if item_script.player_owner ~= nil and item_script.player_owner == jaskier_GO_UID then lua_table.shared_inventory[item_script.item_id] = lua_table.shared_inventory[item_script.item_id] + 1 end	--TODO-Score
 			lua_table.inventory[item_script.item_id] = lua_table.inventory[item_script.item_id] + 1	--Add potion to inventory
 		else
 			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.not_possible, geralt_GO_UID)	--TODO-Audio: Not possible sound
@@ -3117,10 +3117,10 @@ function lua_table:Update()
 	--else lua_table.SystemFunctions:LOG("Enemies not nearby.") end
 
 	--Item LOGS
-	lua_table.SystemFunctions:LOG("Geralt Item: " .. lua_table.item_selected)
-	lua_table.SystemFunctions:LOG("Geralt Health Potions Left: " .. lua_table.inventory[1])
-	lua_table.SystemFunctions:LOG("Geralt Energy Potions Left: " .. lua_table.inventory[2])
-	lua_table.SystemFunctions:LOG("Geralt Damage Potions Left: " .. lua_table.inventory[3])
+	--lua_table.SystemFunctions:LOG("Geralt Item: " .. lua_table.item_selected)
+	--lua_table.SystemFunctions:LOG("Geralt Health Potions Left: " .. lua_table.inventory[1])
+	--lua_table.SystemFunctions:LOG("Geralt Energy Potions Left: " .. lua_table.inventory[2])
+	--lua_table.SystemFunctions:LOG("Geralt Damage Potions Left: " .. lua_table.inventory[3])
 
 	--Stats LOGS
 	--lua_table.SystemFunctions:LOG("Geralt Health: " .. lua_table.current_health)
