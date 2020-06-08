@@ -1,5 +1,5 @@
 {
-    "1388940467": {
+    "1208618052": {
         "Active": false,
         "Components": {
             "0": {
@@ -7,69 +7,22 @@
                 "positionx": "0.000000",
                 "positiony": "0.000000",
                 "positionz": "0.000000",
-                "rotationw": "0.000577",
-                "rotationx": "0.000000",
-                "rotationy": "0.000000",
-                "rotationz": "1.000000",
-                "scalex": "0.000100",
-                "scaley": "0.420000",
-                "scalez": "0.420000"
-            },
-            "13": {
-                "Active": false,
-                "Resources": {
-                    "ResourceBone": "Library/Bones/1808123820.bone"
-                }
-            }
-        },
-        "Name": "Arrow_Wind_Controller",
-        "Parent": "682743196",
-        "PrefabChild": true,
-        "PrefabInstance": false,
-        "Static": false
-    },
-    "2016986806": {
-        "Active": false,
-        "Components": {
-            "0": {
-                "layer": "0",
-                "positionx": "-49.359283",
-                "positiony": "0.000000",
-                "positionz": "0.000000",
                 "rotationw": "0.707107",
-                "rotationx": "0.707107",
+                "rotationx": "-0.707107",
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
-                "scalex": "39.370079",
-                "scaley": "39.370609",
-                "scalez": "39.370609"
-            },
-            "14": {
-                "Active": false,
-                "Animations": {
-                    "0": {
-                        "Default": false,
-                        "End": "13",
-                        "Loop": false,
-                        "Name": "Wind",
-                        "Start": "4"
-                    },
-                    "BlendTime": "0.300000",
-                    "Size": "1",
-                    "UseDefault": false
-                },
-                "Resources": {
-                    "ResourceAnimation": "Library/Animations/1998730345.anim"
-                }
+                "scalex": "0.050000",
+                "scaley": "0.050000",
+                "scalez": "0.050000"
             }
         },
-        "Name": "Wind",
-        "Parent": "427607120",
+        "Name": "Arrow_Pivot",
+        "Parent": "716986520",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false
     },
-    "427607120": {
+    "1431388455": {
         "Active": true,
         "Components": {
             "0": {
@@ -164,13 +117,13 @@
                 "isTrigger": "1",
                 "lastIndex": "1",
                 "localMatrixw": "1.000000",
-                "localMatrixx": "-25.030495",
+                "localMatrixx": "-25.030491",
                 "localMatrixy": "-0.352451",
                 "localMatrixz": "-0.352453",
                 "localPositionx": "0.000000",
                 "localPositiony": "0.000000",
                 "localPositionz": "0.000000",
-                "offsetx": "-25.030495",
+                "offsetx": "-25.030491",
                 "offsety": "-0.352451",
                 "offsetz": "-0.352453",
                 "originalScalex": "52.776100",
@@ -186,10 +139,10 @@
             },
             "2": {
                 "Active": true,
-                "CastsShadows": true,
+                "CastsShadows": false,
                 "LightAffected": true,
                 "OnlyShadows": false,
-                "ReceivesShadows": true,
+                "ReceivesShadows": false,
                 "Resources": {
                     "ResourceMaterial": {
                         "path": "Assets/New Folder 16/New Folder 17/ArrowMaterial.mat"
@@ -198,12 +151,12 @@
             }
         },
         "Name": "ArrowPrefab",
-        "Parent": "1164663399",
+        "Parent": "1180265123",
         "PrefabChild": true,
         "PrefabInstance": true,
         "Static": false
     },
-    "682743196": {
+    "345657891": {
         "Active": false,
         "Components": {
             "0": {
@@ -211,22 +164,28 @@
                 "positionx": "0.000000",
                 "positiony": "0.000000",
                 "positionz": "0.000000",
-                "rotationw": "0.707107",
-                "rotationx": "-0.707107",
+                "rotationw": "0.000577",
+                "rotationx": "0.000000",
                 "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "0.050000",
-                "scaley": "0.050000",
-                "scalez": "0.050000"
+                "rotationz": "1.000000",
+                "scalex": "0.000100",
+                "scaley": "0.420000",
+                "scalez": "0.420000"
+            },
+            "13": {
+                "Active": false,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1808123820.bone"
+                }
             }
         },
-        "Name": "Arrow_Pivot",
-        "Parent": "2016986806",
+        "Name": "Arrow_Wind_Controller",
+        "Parent": "1208618052",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false
     },
-    "861006018": {
+    "346281029": {
         "Active": false,
         "Components": {
             "0": {
@@ -265,10 +224,51 @@
             }
         },
         "Name": "Arrow_Wind_Mesh",
-        "Parent": "682743196",
+        "Parent": "1208618052",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false
     },
-    "PreviewTexture": "Library/Textures/1775895938.dds"
+    "716986520": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-49.359283",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "0.707107",
+                "rotationx": "0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "39.370079",
+                "scaley": "39.370632",
+                "scalez": "39.370632"
+            },
+            "14": {
+                "Active": false,
+                "Animations": {
+                    "0": {
+                        "Default": false,
+                        "End": "13",
+                        "Loop": false,
+                        "Name": "Wind",
+                        "Start": "4"
+                    },
+                    "BlendTime": "0.300000",
+                    "Size": "1",
+                    "UseDefault": false
+                },
+                "Resources": {
+                    "ResourceAnimation": "Library/Animations/1998730345.anim"
+                }
+            }
+        },
+        "Name": "Wind",
+        "Parent": "1431388455",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "PreviewTexture": "Library/Textures/93574486.dds"
 }
