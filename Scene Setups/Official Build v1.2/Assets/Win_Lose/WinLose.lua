@@ -72,7 +72,9 @@ function GetTableWinLose()
     local fade_flag = false
     local fade_alpha = 0
 
-    local tp = false
+    local tp_geralt = false
+    local tp_jaskier = false
+
     local load_level1 = false
     local load_level2 = false
     local load_mainmenu = false
@@ -366,10 +368,10 @@ function GetTableWinLose()
             geralt_script:Resurrect()
         else
             geralt_script.current_health = 200
-            if tp == true
+            if tp_geralt == true
             then
                 lua_table.Physics:SetCharacterPosition(geralt_x, geralt_y, geralt_z, Geralt)
-                tp = false
+                tp_geralt = false
             end
         end
 
@@ -383,10 +385,10 @@ function GetTableWinLose()
             jaskier_script:Resurrect()
         else
             jaskier_script.current_health = 200
-            if tp == true
+            if tp_jaskier == true
             then
                 lua_table.Physics:SetCharacterPosition(jaskier_x, jaskier_y, jaskier_z, Jaskier)
-                tp = false
+                tp_jaskier = false
             end
         end
     end
@@ -490,18 +492,21 @@ function GetTableWinLose()
         elseif lua_table.Input:KeyRepeat("F5") --checkpoint0
         then
             last_checkpoint = 0
-            tp = true
-            Checkpoint()
+            tp_geralt = true
+            tp_jaskier = true
+            lua_table.Checkpoint()
         elseif lua_table.Input:KeyRepeat("F6") --checkpoint1
         then
             last_checkpoint = 1
-            tp = true
-            Checkpoint()
+            tp_geralt = true
+            tp_jaskier = true
+            lua_table.Checkpoint()
         elseif lua_table.Input:KeyRepeat("F7") --checkpoint2
         then
             last_checkpoint = 2
-            tp = true
-            Checkpoint()
+            tp_geralt = true
+            tp_jaskier = true
+            lua_table.Checkpoint()
         end
         -----------
 
