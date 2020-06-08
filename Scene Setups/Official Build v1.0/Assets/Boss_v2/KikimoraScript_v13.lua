@@ -48,7 +48,7 @@ lua_table.damage_received_orig = -1
 -----------------------------------------------------------------------------------------
 
 -- Distance of player/s to activate the boss
-lua_table.awakening_distance = 25
+lua_table.awakening_distance = 15
 local player_in_awakening_distance = false
 
 -----------------------------------------------------------------------------------------
@@ -1165,8 +1165,9 @@ local function HandleSweepAttack()
                 lua_table.TransformFunctions:SetObjectRotation(attack_collider.sweep.coll_current_rot[x], attack_collider.sweep.coll_current_rot[y], attack_collider.sweep.coll_current_rot[z], attack_collider.sweep.coll_UID)
                 
                 -- ACTIVATE PARTCLES 
-                lua_table.ParticlesFunctions:PlayParticleEmitter(particles.kiki_sweep_particle_left.part_UID)
-                lua_table.ParticlesFunctions:PlayParticleEmitter(particles.kiki_sweep_particle_right.part_UID)
+                for i = 1, #particles.kiki_sweep_particle_left.part_childs do
+                    lua_table.ParticlesFunctions:PlayParticleEmitter(particles.kiki_sweep_particle_left.part_childs[i])
+                end
 
                 -- AUDIO PLAY
                 if current_phase == phase.CHILL
@@ -1224,8 +1225,9 @@ local function HandleSweepAttack()
                 --attack.sweep_left.att_timer = game_time + attack.sweep_left.att_cooldown_time
 
                 -- DEACTIVATE PARTCLES 
-                lua_table.ParticlesFunctions:StopParticleEmitter(particles.kiki_sweep_particle_left.part_UID)
-                lua_table.ParticlesFunctions:StopParticleEmitter(particles.kiki_sweep_particle_right.part_UID)
+                for i = 1, #particles.kiki_sweep_particle_left.part_childs do
+                    lua_table.ParticlesFunctions:StopParticleEmitter(particles.kiki_sweep_particle_left.part_childs[i])
+                end
 
                 attack_finished = true
                 attack_counter = attack_counter + 1
@@ -2080,6 +2082,11 @@ local function HandleJump()
         animation_timer = game_time + awakening_timer
 
         jump_timer = game_time + awakening_duration
+
+        -- Partciles STOP
+        for i = 1, #particles.jump_area.part_childs do
+            lua_table.ParticlesFunctions:StopParticleEmitter(particles.jump_area.part_childs[i])
+        end
     end
 
     -- When Hits the ground
@@ -2111,11 +2118,6 @@ local function HandleJump()
         -- Collider unactive
         lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_collider.jump.coll_UID)
         attack_collider.jump.coll_active = false
-
-        -- Partciles STOP
-        for i = 1, #particles.jump_area.part_childs do
-            lua_table.ParticlesFunctions:StopParticleEmitter(particles.jump_area.part_childs[i])
-        end
     end
 end
 
@@ -2403,7 +2405,8 @@ local function HandleStates()
     
         if game_time >= animation_timer
         then 
-            current_state = state.IDLE
+            current_state = state.JUMPING
+            start_jumping = true
         end
     end
 
