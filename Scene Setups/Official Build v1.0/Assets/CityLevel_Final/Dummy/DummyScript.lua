@@ -4,6 +4,7 @@ lua_table.SystemFunctions = Scripting.System()
 lua_table.ObjectFunctions = Scripting.GameObject()
 lua_table.AnimationFunctions = Scripting.Animations()
 lua_table.PhysicsFunctions =  Scripting.Physics()
+lua_table.Audio = Scripting.Audio()
 
 local MyUID
 local randomNumber
@@ -22,6 +23,8 @@ function lua_table:OnTriggerEnter()
         else
             lua_table.AnimationFunctions:PlayAnimation("hit", 30, MyUID)
         end
+
+        lua_table.Audio:PlayAudioEventGO("Play_Prop_hit_wood",MyUID)
     end
 end
 
