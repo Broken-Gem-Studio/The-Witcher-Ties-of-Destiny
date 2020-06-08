@@ -2008,7 +2008,7 @@ local function TakePotion()
 
 		if lua_table.shared_inventory[lua_table.item_selected] > 0 then
 			lua_table.shared_inventory[lua_table.item_selected] = lua_table.shared_inventory[lua_table.item_selected] - 1
-			if geralt_score ~= nil then geralt_score[6] = geralt_score[6] + 1 end	--TODO-Score:
+			if geralt_score ~= nil then geralt_score[7] = geralt_score[7] + 1 end	--TODO-Score:
 		end
 
 		lua_table.inventory[lua_table.item_selected] = lua_table.inventory[lua_table.item_selected] - 1	--Remove potion from inventory
@@ -2398,6 +2398,7 @@ function lua_table:Awake()
 			0,  --special_kills
 			0,  --incapacitations
 			0,  --objects_destroyed
+			0,	--chests opened
 			0,  --potions_shared
 			0   --ally_revived
 		}
@@ -3203,7 +3204,7 @@ function lua_table:Update()
 					lua_table.being_revived = false
 				end
 
-				if geralt_score ~= nil then geralt_score[7] = geralt_score[7] + 1 end	--TODO-Score:
+				if geralt_score ~= nil then geralt_score[8] = geralt_score[8] + 1 end	--TODO-Score:
 
 				lua_table.standing_up_bool = false
 				GoDefaultState(true)
