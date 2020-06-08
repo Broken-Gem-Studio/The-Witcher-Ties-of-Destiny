@@ -17,6 +17,11 @@ local bonfire_2 = 0
 local bonfire1_particles = {}
 local bonfire2_particles = {}
 
+local spawner1 = 0
+local spawner2 = 0
+local spawner3 = 0
+local spawner4 = 0
+
 function lua_table:OnTriggerEnter()
     local collider = lua_table.Physics:OnTriggerEnter(uid)
 
@@ -33,10 +38,27 @@ function lua_table:OnTriggerEnter()
             then
                 lua_table.GO:SetActiveGameObject(true, bonfire1_particles[2])
                 lua_table.GO:SetActiveGameObject(false, bonfire1_particles[1])
+
+                --deactivate spawners on forest level
+                if winlose_script.current_level == 2
+                then
+                    lua_table.GO:SetActiveGameObject(true, spawner1)
+                    lua_table.GO:SetActiveGameObject(true, spawner2)
+                end
+
             elseif lua_table.checkpoint == 2
             then
                 lua_table.GO:SetActiveGameObject(true, bonfire2_particles[2])
                 lua_table.GO:SetActiveGameObject(false, bonfire2_particles[1])
+
+                --deactivate spawners on forest level
+                if winlose_script.current_level == 2
+                then
+                    lua_table.GO:SetActiveGameObject(true, spawner1)
+                    lua_table.GO:SetActiveGameObject(true, spawner2)
+                    lua_table.GO:SetActiveGameObject(true, spawner3)
+                    lua_table.GO:SetActiveGameObject(true, spawner4)
+                end
             end
 
             --checkpoint
@@ -55,6 +77,11 @@ function lua_table:Awake()
     bonfire1_particles[2] = lua_table.GO:FindChildGameObjectFromGO("FireParticles2", bonfire_1)
     bonfire2_particles[1] = lua_table.GO:FindChildGameObjectFromGO("FireParticles1", bonfire_2)
     bonfire2_particles[2] = lua_table.GO:FindChildGameObjectFromGO("FireParticles2", bonfire_2)
+
+    spawner1 = lua_table.GO:FindGameObject("Spawnersv2_audio")
+    spawner2 = lua_table.GO:FindGameObject("Spawners_2ndPart")
+    spawner3 = lua_table.GO:FindGameObject("Spawners_PreKiki")
+    spawner4 = lua_table.GO:FindGameObject("Spawners_AfterBridge")
 
     if winlose > 0
     then
