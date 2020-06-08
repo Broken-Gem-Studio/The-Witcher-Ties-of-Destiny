@@ -263,7 +263,7 @@ local item_library_size = 3
 local item_effects = {		--Item library and required data to operate
 	{ health_recovery = 4, health_regen = 0.1 },
 	{ speed_increase = 0.5, energy_regen = 2 },
-	{ damage_increase = 1, critical_chance_increase = 10 },
+	{ damage_increase = 1, critical_chance_increase = 10 }
 }
 lua_table.inventory = {	--Character inventory (number of each item)
 	3,
