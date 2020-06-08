@@ -30,6 +30,13 @@ local godmode = false
 local geralt_GO_UID
 local jaskier_GO_UID
 
+local jaskier_mesh_GO_UID
+local jaskier_pivot_GO_UID
+
+local jaskier_lute_regular_GO_UID
+local jaskier_lute_concert_GO_UID
+local jaskier_lute_concert_mesh_GO_UID
+
 -- Revive GOs
 local geralt_revive_GO_UID
 local jaskier_revive_GO_UID
@@ -1705,6 +1712,10 @@ local function ActionInputs()	--Process Action Inputs
 				--Do Ultimate
 				lua_table.AnimationFunctions:PlayAnimation(animation_library.concert, lua_table.ultimate_animation_speed, jaskier_GO_UID)
 				current_animation = animation_library.concert
+
+				lua_table.AnimationFunctions:PlayAnimation(animation_library.concert, lua_table.ultimate_animation_speed, jaskier_lute_concert_GO_UID)
+				lua_table.GameObjectFunctions:SetActiveGameObject(true, jaskier_lute_concert_mesh_GO_UID)
+				lua_table.GameObjectFunctions:SetActiveGameObject(false, jaskier_lute_regular_GO_UID)
 	
 				lua_table.AudioFunctions:PlayAudioEventGO(audio_library.concert, jaskier_GO_UID)
 				current_audio = audio_library.concert
@@ -2318,8 +2329,8 @@ local function DebugInputs()
 			elseif lua_table.current_state == state.dead
 			then
 				lua_table.PhysicsFunctions:SetActiveController(true, jaskier_GO_UID)
-				lua_table.GameObjectFunctions:SetActiveGameObject(true, lua_table.GameObjectFunctions:FindGameObject("Jaskier_Mesh"))
-				lua_table.GameObjectFunctions:SetActiveGameObject(true, lua_table.GameObjectFunctions:FindGameObject("Jaskier_Pivot"))
+				lua_table.GameObjectFunctions:SetActiveGameObject(true, jaskier_mesh_GO_UID)
+				lua_table.GameObjectFunctions:SetActiveGameObject(true, jaskier_pivot_GO_UID)
 				lua_table:Start()
 
 				if geralt_GO_UID ~= nil and geralt_GO_UID ~= 0
@@ -2402,6 +2413,13 @@ function lua_table:Awake()
 	--Get GO_UIDs
 	geralt_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt")
 	jaskier_GO_UID = lua_table.GameObjectFunctions:GetMyUID()
+
+	jaskier_mesh_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Mesh")
+	jaskier_pivot_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Pivot")
+
+	jaskier_lute_regular_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Lute_Regular")
+	jaskier_lute_concert_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Lute_Concert")
+	jaskier_lute_concert_mesh_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Lute_Concert_Mesh")
 
 	particles_library.slash_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Slash")
 	particles_library.slash_mesh_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Slash_Mesh_Jaskier")
@@ -2504,8 +2522,12 @@ function lua_table:Start()
 	lua_table.AnimationFunctions:SetBlendTime(0.1, particles_library.slash_GO_UID)
 	lua_table.AnimationFunctions:PlayAnimation(animation_library.evade, lua_table.evade_animation_speed, particles_library.slash_GO_UID)
 	
+	lua_table.AnimationFunctions:SetBlendTime(0.1, jaskier_lute_concert_GO_UID)
+	lua_table.AnimationFunctions:PlayAnimation(animation_library.evade, lua_table.evade_animation_speed, jaskier_lute_concert_GO_UID)
+
 	--Hide GO Particles
 	lua_table.GameObjectFunctions:SetActiveGameObject(false, particles_library.slash_mesh_GO_UID)
+	lua_table.GameObjectFunctions:SetActiveGameObject(false, jaskier_lute_concert_mesh_GO_UID)
 
 	-- Set initial values
 	lua_table.previous_state = state.idle
@@ -2973,6 +2995,10 @@ function lua_table:Update()
 									lua_table.AnimationFunctions:PlayAnimation(animation_library.two_handed_slam, lua_table.ultimate_secondary_animation_speed, particles_library.slash_GO_UID)
 									current_animation = animation_library.two_handed_slam
 
+									lua_table.AnimationFunctions:PlayAnimation(animation_library.evade, lua_table.evade_animation_speed, jaskier_lute_concert_GO_UID)
+									lua_table.GameObjectFunctions:SetActiveGameObject(false, jaskier_lute_concert_mesh_GO_UID)
+									lua_table.GameObjectFunctions:SetActiveGameObject(true, jaskier_lute_regular_GO_UID)
+
 									lua_table.collider_damage = base_damage_real * lua_table.ultimate_secondary_damage
 									lua_table.collider_effect = lua_table.ultimate_secondary_status_effect
 
@@ -3143,6 +3169,9 @@ function lua_table:Update()
 
 					elseif game_time - lua_table.death_started_at > lua_table.down_time	--IF death timer finished
 					then
+						for i = 1, #particles_library.down_particles_GO_UID_children do
+							lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.down_particles_GO_UID_children[i])	--TODO-Particles:
+						end
 						for i = 1, #particles_library.death_particles_GO_UID_children do
 							lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.death_particles_GO_UID_children[i])	--TODO-Particles:
 						end
@@ -3151,8 +3180,8 @@ function lua_table:Update()
 						lua_table.current_state = state.dead
 
 						--lua_table.GameObjectFunctions:SetActiveGameObject(false, jaskier_GO_UID)
-						lua_table.GameObjectFunctions:SetActiveGameObject(false, lua_table.GameObjectFunctions:FindGameObject("Jaskier_Mesh"))
-						lua_table.GameObjectFunctions:SetActiveGameObject(false, lua_table.GameObjectFunctions:FindGameObject("Jaskier_Pivot"))
+						lua_table.GameObjectFunctions:SetActiveGameObject(false, jaskier_mesh_GO_UID)
+						lua_table.GameObjectFunctions:SetActiveGameObject(false, jaskier_pivot_GO_UID)
 
 						-- if geralt_GO_UID ~= nil
 						-- and geralt_GO_UID ~= 0

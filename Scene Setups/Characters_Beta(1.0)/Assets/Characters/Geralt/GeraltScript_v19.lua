@@ -30,6 +30,9 @@ local godmode = false
 local geralt_GO_UID
 local jaskier_GO_UID
 
+local geralt_mesh_GO_UID
+local geralt_pivot_GO_UID
+
 -- Revive GOs
 local geralt_revive_GO_UID
 local jaskier_revive_GO_UID
@@ -2326,8 +2329,8 @@ local function DebugInputs()
 				lua_table.being_revived = true 
 			elseif lua_table.current_state == state.dead
 			then
-				lua_table.GameObjectFunctions:SetActiveGameObject(true, lua_table.GameObjectFunctions:FindGameObject("Geralt_Mesh"))
-				lua_table.GameObjectFunctions:SetActiveGameObject(true, lua_table.GameObjectFunctions:FindGameObject("Geralt_Pivot"))
+				lua_table.GameObjectFunctions:SetActiveGameObject(true, geralt_mesh_GO_UID)
+				lua_table.GameObjectFunctions:SetActiveGameObject(true, geralt_pivot_GO_UID)
 				lua_table.PhysicsFunctions:SetActiveController(true, geralt_GO_UID)
 				lua_table:Start()
 
@@ -2388,6 +2391,9 @@ function lua_table:Awake()
 	--Get GO_UIDs
 	geralt_GO_UID = lua_table.GameObjectFunctions:GetMyUID()
 	jaskier_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier")
+
+	geralt_mesh_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt_Mesh")
+	geralt_pivot_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt_Pivot")
 
 	particles_library.slash_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt_Slash")
 	particles_library.slash_mesh_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Slash_Mesh_Geralt")
@@ -3035,6 +3041,9 @@ function lua_table:Update()
 
 					elseif game_time - lua_table.death_started_at > lua_table.down_time	--IF death timer finished
 					then
+						for i = 1, #particles_library.down_particles_GO_UID_children do
+							lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.down_particles_GO_UID_children[i])	--TODO-Particles:
+						end
 						for i = 1, #particles_library.death_particles_GO_UID_children do
 							lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.death_particles_GO_UID_children[i])	--TODO-Particles:
 						end
@@ -3043,8 +3052,8 @@ function lua_table:Update()
 						lua_table.current_state = state.dead
 
 						--lua_table.GameObjectFunctions:SetActiveGameObject(false, geralt_GO_UID)	--Disable character
-						lua_table.GameObjectFunctions:SetActiveGameObject(false, lua_table.GameObjectFunctions:FindGameObject("Geralt_Mesh"))
-						lua_table.GameObjectFunctions:SetActiveGameObject(false, lua_table.GameObjectFunctions:FindGameObject("Geralt_Pivot"))
+						lua_table.GameObjectFunctions:SetActiveGameObject(false, geralt_mesh_GO_UID)
+						lua_table.GameObjectFunctions:SetActiveGameObject(false, geralt_pivot_GO_UID)
 
 						-- if jaskier_GO_UID ~= nil
 						-- and jaskier_GO_UID ~= 0
