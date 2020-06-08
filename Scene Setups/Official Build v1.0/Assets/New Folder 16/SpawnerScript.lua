@@ -5,6 +5,7 @@ lua_table.Transform = Scripting.Transform()
 lua_table.GameObjectFunctions = Scripting.GameObject()
 lua_table.Audio = Scripting.Audio()
 lua_table.Scene = Scripting.Scenes()
+lua_table.Physics = Scripting.Physics()
 lua_table.SpawnRadius = 5
 lua_table.SpawnRate = 3
 
@@ -32,6 +33,27 @@ lua_table.camera_name = "Camera"
 local camera_UID = 0
 local camera_pos = {}
 lua_table.DistanceToCamera = 0
+local counter = 0
+local spawnedEnemies = {}
+local spawnedEnemiesChild = {}
+lua_table.auxCounter = 0 
+local tutoGO = 0
+
+function lua_table:CheckEnemies()
+    lua_table.auxCounter = counter
+
+    for i = 1, #spawnedEnemies do
+        lua_table.System:LOG("OSCAR spawnedEnemies: "..spawnedEnemies[i])
+        local alive = lua_table.GameObjectFunctions:GetLayerByID(spawnedEnemies[i])
+        --lua_table.System:LOG("OSCAR alive variable: "..alive)
+        if alive == -1 
+        then
+            --lua_table.System:LOG("OSCAR ALIVE false")
+            lua_table.auxCounter = lua_table.auxCounter - 1
+        end
+    end   
+end
+
 
 local function Spawn()
 
@@ -39,12 +61,13 @@ local function Spawn()
     local pos_randZ = math.random(-lua_table.SpawnRadius,lua_table.SpawnRadius)
 
     local enemy =  lua_table.Scene:Instantiate(lua_table.Enemy_Prefab, position[1]+pos_randX, position[2], position[3] + pos_randZ, 0, 0, 0)
-
+    counter = counter + 1
+    spawnedEnemies[counter] = enemy
 
     if lua_table.humanoid_spawner == true and leader_chosen == false then
-    lua_table.enemies = enemy
-    leader_chosen =true
-    lua_table.leader_script = lua_table.GameObjectFunctions:GetScript(lua_table.enemies)
+        lua_table.enemies = enemy
+        leader_chosen = true
+        lua_table.leader_script = lua_table.GameObjectFunctions:GetScript(lua_table.enemies)
     end
 
 end
@@ -79,7 +102,7 @@ function lua_table:Update()
 
             if lua_table.ActiveDistance >= lua_table.DistanceToCamera and lua_table.enemies_chat == true then
                 if lua_table.had_conversation == false and lua_table.humanoid_spawner == true   then
-                    lua_table.Audio:PlayAudioEventGO("Play_Enemy_Conversation", MyUID)
+                    lua_table.Audio:PlayAudioEventGO("Play_Enemy_Conversation_01", MyUID)
                     lua_table.had_conversation = true
                     lua_table.System:LOG ("Playing Conversation")
                 end

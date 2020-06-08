@@ -394,7 +394,7 @@ local function Die()
 		start_death = true
 	end
 
-	if death_timer + 7000 <= lua_table.System:GameTime() * 1000 then
+	if death_timer + 3000 <= lua_table.System:GameTime() * 1000 then
 		lua_table.System:LOG("Im dead!!!!!!!!!")  
 		lua_table.GameObject:DestroyGameObject(lua_table.MyUID) -- Delete GO from scene
 	end
