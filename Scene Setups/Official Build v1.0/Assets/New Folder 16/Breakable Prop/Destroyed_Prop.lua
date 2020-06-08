@@ -2,6 +2,7 @@ function GetTableDestroyed_Prop()
 local lua_table = {}
 lua_table.System = Scripting.System()
 lua_table.Particles = Scripting.Particles()
+lua_table.Physics = Scripting.Physics()
 lua_table.GameObjectFunctions = Scripting.GameObject()
 lua_table.AudioFunctions = Scripting.Audio()
 lua_table.Scenes = Scripting.Scenes()
@@ -56,6 +57,7 @@ function lua_table:Start()
 	if potion ~= 0 then
 		local script = lua_table.GameObjectFunctions:GetScript(potion)
 		script.player_owner = lua_table.player_owner
+		--lua_table.Physics:AddForce(0,100,0,1,potion)
 	end
 end
 
