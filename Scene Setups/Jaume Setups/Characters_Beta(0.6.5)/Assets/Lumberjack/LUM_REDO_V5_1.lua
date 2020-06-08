@@ -1,4 +1,4 @@
-function GetTableLUM_REDO_V4()
+function GetTableLUM_REDO_V5_1()
 local lua_table = {}
 lua_table.System = Scripting.System()
 
@@ -22,6 +22,7 @@ lua_table.Material = Scripting.Materials()
 --357 al 363 se prepara cogiendo fuerza para saltar
 --363 al 385 esta en el aire
 --445 acaba la animació
+
 
 
 --###Code for late uses###
@@ -154,6 +155,7 @@ local KnockVector = {}
 local NKvec = {}--normalized KnockVector
 local KnockbackDone = false
 local StunStartTimer = 0
+local knockback_player_UID = 0
 
 
 -- Stun()
@@ -187,7 +189,7 @@ lua_table.Nvec3x = 1
 lua_table.Nvec3z = 1
 
 lua_table.CurrentHealth = 0
-lua_table.MaxHealth = 350
+lua_table.MaxHealth = 800
 lua_table.collider_damage = 0
 lua_table.collider_effect = 0
 
@@ -524,6 +526,8 @@ local function ApplyVelocity()
 	then
 		lua_table.Nvec3x = NKvec[1] * lua_table.CurrentVelocity
 		lua_table.Nvec3z = NKvec[3] * lua_table.CurrentVelocity
+		lua_table.SystemFunctions:LOG("LUMBERJACK VEL lua_table.Nvec3x"..lua_table.Nvec3x)
+		lua_table.SystemFunctions:LOG("LUMBERJACK VEL lua_table.Nvec3Z"..lua_table.Nvec3z)
 	end
 end
 
@@ -767,6 +771,7 @@ local function Die()
 	if DieAnimation_Controller == false
 	then	
 		CurrentVelocity = 0
+		lua_table.PhysicsSystem:SetActiveController(false, MyUID)
 		lua_table.AnimationSystem:PlayAnimation("DEATH",30.0,MyUID)
 		DieAnimation_Controller = true
 	end
@@ -1007,27 +1012,28 @@ end
 
 
 
-local function knockback()
+local function knockback(Player_UID)
 	
 	if CalculatedKnockback == false
 	then
 		CalculatedKnockback = true
-		lua_table.SystemFunctions:LOG("AttackEffects.knockback START")
-		KnockVector[1] =  MyPosition[1]- GeraltPos[1] --x
-		KnockVector[3] = MyPosition[3]- GeraltPos[3]--z
+		lua_table.SystemFunctions:LOG("LUMBERJACK AttackEffects.knockback START")
+		KnockVector[1] =  MyPosition[1]- lua_table.TransformFunctions:GetPosition(Player_UID)[1] --x
+		KnockVector[3] = MyPosition[3]- lua_table.TransformFunctions:GetPosition(Player_UID)[3]--z
 		
-		GPos = lua_table.TransformFunctions:GetPosition(lua_table.Geralt_UID)
+		GPos = lua_table.TransformFunctions:GetPosition(Player_UID)
 		NKvec[1] =  KnockVector[1] / CalculateDistanceTo(GPos)
 		NKvec[3] =  KnockVector[3] / CalculateDistanceTo(GPos)
 		NKvec[2] =  0
+
 		TimeKnockBackStarted = PerfGameTime()
 	end
 	--lua_table.SystemFunctions:LOG("LUMBERJACK AttackEffects.knockback VELOCITY"..lua_table.CurrentVelocity)
-	lua_table.CurrentVelocity = 15
+	lua_table.CurrentVelocity = 30
 
 	lua_table.TransformFunctions:LookAt(MyPosition[1] + (CurrentTargetPosition[1] - MyPosition[1]),MyPosition[2],MyPosition[3] + (CurrentTargetPosition[3] - MyPosition[3]),MyUID)
 	
-	--lua_table.SystemFunctions:LOG("LUMBERJACK AttackEffects.knockback CURRENTLY")
+	lua_table.SystemFunctions:LOG("LUMBERJACK AttackEffects.knockback  CURRENTLY")
 	
 
 	if CurrentTime - TimeKnockBackStarted > 400 or DistanceMagnitude > 15
@@ -1098,7 +1104,7 @@ function lua_table:RequestedTrigger(collider_GO)
 		if collider_GO == lua_table.Geralt_UID
 		then
 			local particles = {}
-			particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("JumpAttackParticles", lua_table.General_Emitter_UID))
+			particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("BloodHitParticles", lua_table.General_Emitter_UID))
 			for i = 1, #particles do 
 				lua_table.ParticleSystem:PlayParticleEmitter(particles[i])
 				lua_table.SystemFunctions:LOG ("LUMBERJACK PARTICLES HIT NOW") 
@@ -1109,6 +1115,35 @@ function lua_table:RequestedTrigger(collider_GO)
 			for i = 1, #particles do 
 				lua_table.ParticleSystem:PlayParticleEmitter(particles[i])
 				--lua_table.SystemFunctions:LOG ("LUMBERJACK PARTICLES HIT NOW") 
+			end
+		end
+
+		if collider_GO == lua_table.Geralt_UID
+		then
+			if player_script.geralt_score ~= nil
+			then
+				 player_script.geralt_score[1] = geralt_score[1] + player_script.collider_damage
+				 if lua_table.CurrentHealth < 0
+				 then
+					 player_script.geralt_score[3] = geralt_score[3] + 1
+				 end
+				 if player_script.collider_effect == AttackEffects.stun
+				 then
+					 player_script.geralt_score[4] = geralt_score[4] + 1
+				 end
+			end
+		else
+			if player_script.jaskier_score ~= nil
+			then
+				 player_script.jaskier_score[1] = jaskier_score[1] + player_script.collider_damage
+				 if lua_table.CurrentHealth < 0
+				 then
+					 player_script.jaskier_score[3] = jaskier_score[3] + 1
+				 end
+				 if player_script.collider_effect == AttackEffects.stun
+				 then
+					 player_script.jaskier_score[4] = jaskier_score[4] + 1
+				 end
 			end
 		end
 
@@ -1128,13 +1163,28 @@ function lua_table:RequestedTrigger(collider_GO)
 				end
 				if player_script.collider_effect == AttackEffects.stun 
 				then
+					if player_script.collider_stun_duration ~= nil
+					then
+						StunDuration = player_script.collider_stun_duration
+					else
+						StunDuration = 2000
+					end
 					lua_table.SystemFunctions:LOG("player_script.collider_effect == AttackEffects.stun")
-					StunDuration = player_script.collider_stun_duration
 					CurrentAttackEffect = AttackEffects.stun
 				end
 				if player_script.collider_effect == AttackEffects.knockback --and lua_table.CurrentSpecialEffect == SpecialEffect.NONE
 				then
-					lua_table.SystemFunctions:LOG("player_script.collider_effect == AttackEffects.knockback")
+					if collider_GO == lua_table.Jaskier_UID
+					then
+						knockback_player_UID = lua_table.Jaskier_UID
+						lua_table.SystemFunctions:LOG ("LUMBERJACK player_script.collider_effect == AttackEffects.knockback  ###############  ########	")
+					end
+					if collider_GO == lua_table.Geralt_UID
+					then
+						knockback_player_UID = lua_table.Geralt_UID
+						lua_table.SystemFunctions:LOG ("LUMBERJACK player_script.collider_effect == AttackEffects.knockback  ###################	")
+					end
+					if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK player_script.collider_effect == AttackEffects.knockback  	") end
 					CurrentAttackEffect = AttackEffects.knockback
 				end
 			end
@@ -1168,13 +1218,13 @@ function lua_table:OnTriggerEnter()
         material_time = PerfGameTime()
         changed_material = true
 
-		if collider_GO == lua_table.Geralt_UID
+		if collider_parent == lua_table.Geralt_UID
 		then
 			local particles = {}
-			particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("JumpAttackParticles", lua_table.General_Emitter_UID))
+			particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("BloodHitParticles", lua_table.General_Emitter_UID))
 			for i = 1, #particles do 
 				lua_table.ParticleSystem:PlayParticleEmitter(particles[i])
-				lua_table.SystemFunctions:LOG ("LUMBERJACK PARTICLES HIT NOW") 
+				lua_table.SystemFunctions:LOG ("LUMBERJACK PARTICLES HIT NOW ############################@@@@@@@@@@@@@@@@@@@@@@@@@") 
 			end
 		else
 			local particles = {}
@@ -1185,6 +1235,34 @@ function lua_table:OnTriggerEnter()
 			end
 		end
 
+		if collider_parent == lua_table.Geralt_UID
+		then
+			if player_script.geralt_score ~= nil
+			then
+				 player_script.geralt_score[1] = geralt_score[1] + player_script.collider_damage
+				 if lua_table.CurrentHealth < 0
+				 then
+					 player_script.geralt_score[3] = geralt_score[3] + 1
+				 end
+				 if player_script.collider_effect == AttackEffects.stun
+				 then
+					 player_script.geralt_score[4] = geralt_score[4] + 1
+				 end
+			end
+		else
+			if player_script.jaskier_score ~= nil
+			then
+				 player_script.jaskier_score[1] = jaskier_score[1] + player_script.collider_damage
+				 if lua_table.CurrentHealth < 0
+				 then
+					 player_script.jaskier_score[3] = jaskier_score[3] + 1
+				 end
+				 if player_script.collider_effect == AttackEffects.stun
+				 then
+					 player_script.jaskier_score[4] = jaskier_score[4] + 1
+				 end
+			end
+		end
 
 		if player_script.collider_effect ~= AttackEffects.none --and lua_table.CurrentSpecialEffect == SpecialEffect.NONE
 		then
@@ -1202,12 +1280,25 @@ function lua_table:OnTriggerEnter()
 				end
 				if player_script.collider_effect == AttackEffects.stun 
 				then
+					if player_script.collider_stun_duration ~= nil
+					then
+						StunDuration = player_script.collider_stun_duration
+					else
+						StunDuration = 2000
+					end
 					lua_table.SystemFunctions:LOG("player_script.collider_effect == AttackEffects.stun")
-					StunDuration = player_script.collider_stun_duration
 					CurrentAttackEffect = AttackEffects.stun
 				end
 				if player_script.collider_effect == AttackEffects.knockback --and lua_table.CurrentSpecialEffect == SpecialEffect.NONE
 				then
+					if collider_parent == lua_table.Jaskier_UID
+					then
+						knockback_player_UID = lua_table.Jaskier_UID
+					end
+					if collider_parent == lua_table.Geralt_UID
+					then
+						knockback_player_UID = lua_table.Geralt_UID
+					end
 					lua_table.SystemFunctions:LOG("player_script.collider_effect == AttackEffects.knockback")
 					if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK player_script.collider_effect == AttackEffects.knockback  	") end
 					CurrentAttackEffect = AttackEffects.knockback
@@ -1299,7 +1390,7 @@ function lua_table:Update()
 		end
 	elseif CurrentAttackEffect == AttackEffects.knockback and GO_DESTROYED == false
 	then
-		knockback()
+		knockback(knockback_player_UID)
 		if KnockbackDone == true 
 		then
 			CalculateNewPath(CurrentTargetPosition) --When ending knockback need a new path to move
@@ -1309,7 +1400,6 @@ function lua_table:Update()
 		end
 	elseif CurrentAttackEffect == AttackEffects.stun and GO_DESTROYED == false
 	then
-		CurrentAttackEffect = AttackEffects.none
 		Stun()
 	end
 	
