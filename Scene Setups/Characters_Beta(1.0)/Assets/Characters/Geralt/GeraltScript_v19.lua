@@ -1644,31 +1644,34 @@ local function ActionInputs()	--Process Action Inputs
 			else
 				lua_table.AudioFunctions:PlayAudioEventGO(audio_library.not_possible, geralt_GO_UID)	--TODO-Audio: Not possible sound
 			end
-
-		elseif lua_table.InputFunctions:IsTriggerState(lua_table.player_ID, lua_table.key_ultimate_1, key_state.key_down) and lua_table.InputFunctions:IsTriggerState(lua_table.player_ID, lua_table.key_ultimate_2, key_state.key_repeat)
-		or lua_table.InputFunctions:IsTriggerState(lua_table.player_ID, lua_table.key_ultimate_1, key_state.key_repeat) and lua_table.InputFunctions:IsTriggerState(lua_table.player_ID, lua_table.key_ultimate_2, key_state.key_down)		--Ultimate Input
+			
+		elseif lua_table.current_ultimate >= lua_table.max_ultimate	--Ultimate Success Input
+		and lua_table.InputFunctions:IsTriggerState(lua_table.player_ID, lua_table.key_ultimate_1, key_state.key_repeat)
+		and lua_table.InputFunctions:IsTriggerState(lua_table.player_ID, lua_table.key_ultimate_2, key_state.key_repeat)
 		then
-			if lua_table.current_ultimate >= lua_table.max_ultimate
-			then
-				action_started_at = game_time							--Set timer start mark
-				ultimate_started_at = action_started_at
-	
-				current_action_block_time = lua_table.ultimate_duration
-				current_action_duration = lua_table.ultimate_duration
-	
-				--Do Ultimate
-				lua_table.AnimationFunctions:PlayAnimation(animation_library.ultimate, lua_table.ultimate_animation_speed, geralt_GO_UID)
-				current_animation = animation_library.ultimate
-	
-				lua_table.AudioFunctions:PlayAudioEventGO(audio_library.ultimate, geralt_GO_UID)	--TODO-AUDIO: Ultimate Sound
-				current_audio = audio_library.ultimate
-	
-				lua_table.previous_state = lua_table.current_state
-				lua_table.current_state = state.ultimate
-				action_made = true
-			else
-				lua_table.AudioFunctions:PlayAudioEventGO(audio_library.not_possible, geralt_GO_UID)	--TODO-Audio: Not possible sound
-			end
+
+			action_started_at = game_time							--Set timer start mark
+			ultimate_started_at = action_started_at
+
+			current_action_block_time = lua_table.ultimate_duration
+			current_action_duration = lua_table.ultimate_duration
+
+			--Do Ultimate
+			lua_table.AnimationFunctions:PlayAnimation(animation_library.ultimate, lua_table.ultimate_animation_speed, geralt_GO_UID)
+			current_animation = animation_library.ultimate
+
+			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.ultimate, geralt_GO_UID)	--TODO-AUDIO: Ultimate Sound
+			current_audio = audio_library.ultimate
+
+			lua_table.previous_state = lua_table.current_state
+			lua_table.current_state = state.ultimate
+			action_made = true
+
+		elseif lua_table.current_ultimate < lua_table.max_ultimate	--Ultimate Failed Input
+		and lua_table.InputFunctions:IsTriggerState(lua_table.player_ID, lua_table.key_ultimate_1, key_state.key_repeat) and lua_table.InputFunctions:IsTriggerState(lua_table.player_ID, lua_table.key_ultimate_2, key_state.key_down)
+		and lua_table.InputFunctions:IsTriggerState(lua_table.player_ID, lua_table.key_ultimate_1, key_state.key_down) and lua_table.InputFunctions:IsTriggerState(lua_table.player_ID, lua_table.key_ultimate_2, key_state.key_repeat)
+		then
+			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.not_possible, geralt_GO_UID)	--TODO-Audio: Not possible sound
 
 		elseif lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_revive, key_state.key_down)	--Revive Input
 		then
