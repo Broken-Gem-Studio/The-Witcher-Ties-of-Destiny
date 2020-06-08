@@ -203,13 +203,7 @@ local function CalculateDistances()
 end
 
 local function HandleGhoulValues()
-    -- Handle health
-    if lua_table.health <= 0
-	then 
-		currentState = State.DEATH
-	end
-
-    -- Handle crowd control effects
+    -- Handle altered states
     if lua_table.stunned and lua_table.SystemFunctions:GameTime() > lastTimeStunned + stunTime
     then
         lua_table.stunned = false
@@ -246,7 +240,7 @@ local function Idle()
         if lua_table.taunted == true
         then
             currentState = State.SEEK                 
-            lua_table.ObjectivePosition = lua_table.TransformFunctions:GetPosition(lua_table.ObjectivePlayer_UUID)
+            lua_table.ObjectivePosition = lua_table.TransformFunctions:GetPosition(lua_table.AttackDealer_UUID)
             lua_table.PathCorners = lua_table.NavigationFunctions:CalculatePath(lua_table.MyPosition[1], lua_table.MyPosition[2], lua_table.MyPosition[3], lua_table.ObjectivePosition[1], lua_table.ObjectivePosition[2], lua_table.ObjectivePosition[3], 1 << lua_table.WalkableID)
             lua_table.AnimationFunctions:PlayAnimation("Run", 30, MyUUID)                             
             lua_table.SystemFunctions:LOG("Ghoul state is TAUNTED") 
@@ -475,24 +469,42 @@ end
 -- COLISIONS
 -----------------------------------------------------------------------------
 
-local function ReceiveEffect(player_table, attackState)
-    lua_table.health = lua_table.health - player_table.collider_damage
-    lua_table.ObjectivePlayer_UUID = collider
-
+local function ReceiveEffect(player_table, attackState)        
+    -- Access to players' score
+    local character_score = {}
+    local tableFound = false
+    if lua_table.AttackDealer_UUID == lua_table.Geralt_UUID
+    then
+        if geralt_score ~= nil 
+        then
+            character_score = geralt_score
+            tableFound = true
+        end
+    elseif lua_table.AttackDealer_UUID == lua_table.Jaskier_UUID
+    then
+        if jaskier_score ~= nil 
+        then
+            character_score = jaskier_score
+            tableFound = true
+        end
+    end
+    
+    -- Set mesh material to white for hit feedback
     lua_table.MaterialFunctions:SetMaterialByName("HitMaterial.mat", meshUUID)
     lastTimeWhite = lua_table.SystemFunctions:GameTime()
-    white = true
-        
+    white = true        
+
     -- Checks if the attack has beeen strong enough to interrupt canalizations
     if player_table.collider_effect ~= Effect.NONE or (attackState ~= 8 and attackState ~= 9 and attackState ~= 10) 
     then            
-        currentState = State.IDLE   
-        StopParticles(lua_table.ScreamEmitter_UUID)
-            
+        if (player_table.collider_effect == Effect.KNOCKBACK or player_table.collider_effect == Effect.STUN or player_table.collider_effect == Effect.TAUNT) and tableFound == true
+        then
+            character_score[4] = character_score[4] + 1
+        end 
+        StopParticles(lua_table.ScreamEmitter_UUID)           
         lua_table.ObjectFunctions:SetActiveGameObject(false, lua_table.ScreamCollider_UUID)  
         lua_table.ObjectFunctions:SetActiveGameObject(false, lua_table.PunchCollider_UUID) 
         lua_table.collider_effect = 0
-        lua_table.SystemFunctions:LOG("altered") 
     end
 
     -- Handle attack effect
@@ -501,77 +513,97 @@ local function ReceiveEffect(player_table, attackState)
         lua_table.stunned = true            
         currentState = State.IDLE
         lastTimeStunned = lua_table.SystemFunctions:GameTime()
-        --stunTime = player_table.collider_stun_duration
+        if player_table.collider_stun_duration ~= 0
+        then
+            stunTime = player_table.collider_stun_duration
+        end
         PlayParticles(lua_table.StunEmitter_UUID)
 
 	elseif player_table.collider_effect == Effect.KNOCKBACK
     then
         currentState = State.KNOCKBACK
         lastTimeKnockback = lua_table.SystemFunctions:GameTime()       
-        --if player_table.collider_knockback_speed ~= 0
-        --then
-           -- lua_table.knockbackSpeed = player_table.collider_knockback_speed
-        --end
-        
-        lua_table.SystemFunctions:LOG("altered") 
+        if player_table.collider_knockback_speed ~= 0
+        then
+           lua_table.knockbackSpeed = player_table.collider_knockback_speed
+        end
         PlayParticles(lua_table.KnockbackEmitter_UUID)
             
     elseif player_table.collider_effect == Effect.TAUNT
     then
         lua_table.taunted = true
-        lastTimeTaunted = lua_table.SystemFunctions:GameTime()
         currentState = State.IDLE
+        lastTimeTaunted = lua_table.SystemFunctions:GameTime()
         PlayParticles(lua_table.TauntEmitter_UUID)   
 
     else
         if attackState ~= 8 and attackState ~= 9 and attackState ~= 10
         then
             lua_table.hit = true
+            currentState = State.IDLE  
             lastTimeHit = lua_table.SystemFunctions:GameTime()
             lua_table.AnimationFunctions:PlayAnimation("Hit", 50, MyUUID)
             lua_table.AudioFunctions:PlayAudioEvent("Play_Screamer_ghoul_damaged")                          
         end         
         
         lua_table.SystemFunctions:LOG("Ghoul has been HIT") 
-        if parent == lua_table.Geralt_UUID
+        if lua_table.AttackDealer_UUID == lua_table.Geralt_UUID
         then
             PlayParticles(lua_table.BodyEmitter_UUID)
-        elseif parent == lua_table.Jaskier_UUID
+        elseif lua_table.AttackDealer_UUID == lua_table.Jaskier_UUID
         then 
             PlayParticles(lua_table.HitEmitter_UUID)
+        end
+    end    
+
+    -- Receive attack damage 
+    lua_table.health = lua_table.health - player_table.collider_damage   
+    if tableFound == true 
+    then 
+        character_score[1] = character_score[1] + player_table.collider_damage 
+    end
+    if lua_table.health <= 0
+	then 
+        currentState = State.DEATH
+        if tableFound == true 
+        then 
+            character_score[3] = character_score[3] + 1
         end
     end
 end 
 
 function lua_table:OnTriggerEnter()	
-	local collider = lua_table.PhysicsFunctions:OnTriggerEnter(MyUUID)
-    local layer = lua_table.ObjectFunctions:GetLayerByID(collider)
+	local trigger_collider = lua_table.PhysicsFunctions:OnTriggerEnter(MyUUID)
+    local layer = lua_table.ObjectFunctions:GetLayerByID(trigger_collider)
 
     if layer == Layer.PLAYER_ATTACK and currentState ~= State.DEATH	
     then
         local player_table = {}        
-        local parent = lua_table.ObjectFunctions:GetGameObjectParent(collider)
+        local parent = lua_table.ObjectFunctions:GetGameObjectParent(trigger_collider)
 
         local attackState = 0
         if parent ~= 0
         then
             player_table = lua_table.ObjectFunctions:GetScript(parent)
             attackState = player_table.current_state 
+            lua_table.AttackDealer_UUID = parent
         else 
-            player_table = lua_table.ObjectFunctions:GetScript(collider)
+            player_table = lua_table.ObjectFunctions:GetScript(trigger_collider)
+            lua_table.AttackDealer_UUID = trigger_collider
         end      	
 
         ReceiveEffect(player_table, attackState)	
     end
 end
 
-function lua_table:RequestedTrigger(collider_object)
-    lua_table.SystemFunctions:LOG("Walker Ghooul's OnRequestedTrigger has been called")    
-
-	if currentState ~= State.DEATH	
+function lua_table:RequestedTrigger(trigger_collider)
+    lua_table.SystemFunctions:LOG("Walker Ghooul's OnRequestedTrigger has been called")        
+    if currentState ~= State.DEATH	
 	then
-        local player_table = lua_table.ObjectFunctions:GetScript(collider_object)  
+        local player_table = lua_table.ObjectFunctions:GetScript(trigger_collider)  
         local attackState = player_table.current_state  
+        lua_table.AttackDealer_UUID = trigger_collider
+
         ReceiveEffect(player_table, attackState)
 	end
 end

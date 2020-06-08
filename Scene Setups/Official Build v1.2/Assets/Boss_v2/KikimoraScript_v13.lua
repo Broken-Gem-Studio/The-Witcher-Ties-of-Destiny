@@ -204,12 +204,12 @@ local animation =
     leash = { anim_name = "leash", anim_frames = 68, anim_speed = 30, anim_blendtime = 0 }, --unused
 
     leash_left_anticipation = { anim_name = "leash_left_anticipation", anim_frames = 118, anim_speed = 30, anim_blendtime = 0 },
-    leash_left_execution = { anim_name = "leash_left_execution", anim_frames = 3, anim_speed = 30, anim_blendtime = 0 },
-    leash_left_recovery = { anim_name = "leash_left_recovery", anim_frames = 61, anim_speed = 30, anim_blendtime = 0 },
+    leash_left_execution = { anim_name = "leash_left_execution", anim_frames = 7, anim_speed = 30, anim_blendtime = 0 },
+    leash_left_recovery = { anim_name = "leash_left_recovery", anim_frames = 57, anim_speed = 30, anim_blendtime = 0 },
     
     leash_right_anticipation = { anim_name = "leash_right_anticipation", anim_frames = 118, anim_speed = 30, anim_blendtime = 0 },
-    leash_right_execution = { anim_name = "leash_right_execution", anim_frames = 3, anim_speed = 30, anim_blendtime = 0 },
-    leash_right_recovery = { anim_name = "leash_right_recovery", anim_frames = 61, anim_speed = 30, anim_blendtime = 0 },
+    leash_right_execution = { anim_name = "leash_right_execution", anim_frames = 8, anim_speed = 30, anim_blendtime = 0 },
+    leash_right_recovery = { anim_name = "leash_right_recovery", anim_frames = 56, anim_speed = 30, anim_blendtime = 0 },
     
     sweep_anticipation = { anim_name = "sweep_anticipation", anim_frames = 57, anim_speed = 30, anim_blendtime = 0 },
     sweep_execution = { anim_name = "sweep_execution", anim_frames = 13, anim_speed = 30, anim_blendtime = 0 },
@@ -224,8 +224,8 @@ local animation =
     sweep_right_recovery = { anim_name = "sweep_right_recovery", anim_frames = 34, anim_speed = 30, anim_blendtime = 0 },
     
     stomp_anticipation = { anim_name = "stomp_anticipation", anim_frames = 34, anim_speed = 20, anim_blendtime = 0 }, -- custom speed
-    stomp_execution = { anim_name = "stomp_execution", anim_frames = 3, anim_speed = 30, anim_blendtime = 0 },
-    stomp_recovery = { anim_name = "stomp_recovery", anim_frames = 69, anim_speed = 30, anim_blendtime = 0 },
+    stomp_execution = { anim_name = "stomp_execution", anim_frames = 20, anim_speed = 30, anim_blendtime = 0 },
+    stomp_recovery = { anim_name = "stomp_recovery", anim_frames = 52, anim_speed = 30, anim_blendtime = 0 },
     
     roar_anticipation = { anim_name = "roar_anticipation", anim_frames = 28, anim_speed = 30, anim_blendtime = 0 },
     roar_execution = { anim_name = "roar_execution", anim_frames = 75, anim_speed = 30, anim_blendtime = 0 },
@@ -396,12 +396,12 @@ local jump_attack_timer = 0
 local state_timer = 0
 local animation_timer = 0
 local awakening_timer = 0.5 
-local attack_tired_timer = 0
+local attack_tired_timer = -1
 local hit_material_timer = 0
 
 lua_table.hit_time = 0.1
-lua_table.stomp_tired_time = 2
-lua_table.leash_tired_time = 3
+lua_table.stomp_tired_time = 3
+lua_table.leash_tired_time = 4
 lua_table.under_time = 3 --seconds
 lua_table.jump_delay_up = 0.5 --seconds
 lua_table.jump_delay_down = 3
@@ -1074,21 +1074,23 @@ local function HandleStompAttack()
                 lua_table.collider_effect = attack.stomp.att_effect -- attack_effect.knockback TODO: Figure out how to send knockback to players.
             end
 
-            if game_time > attack_subdivision_timer --Check if execution is finished
+            if game_time >= attack_subdivision_timer and attack_tired_timer == -1 --Check if execution is finished
             then
                 attack_tired_timer = game_time + lua_table.stomp_tired_time
-            end
-
-            if game_time > attack_tired_timer --Check if execution is finished
-            then
-                current_attack_subdivision = attack_subdivision.RECOVERY
-
-                -- START RECOVERY OF ATTACK ANIMATION
-                lua_table.AnimationFunctions:PlayAnimation(animation.stomp_recovery.anim_name, animation.stomp_recovery.anim_speed, my_UID)
 
                 -- ACTIVATE PARTICLES
                 lua_table.ParticlesFunctions:PlayParticleEmitter(particles.dustcloud_stomp_left.part_UID)
                 lua_table.ParticlesFunctions:PlayParticleEmitter(particles.dustcloud_stomp_right.part_UID)
+            end
+
+            if game_time >= attack_tired_timer and attack_tired_timer ~= -1--Check if execution is finished
+            then
+                attack_tired_timer = -1
+
+                current_attack_subdivision = attack_subdivision.RECOVERY
+
+                -- START RECOVERY OF ATTACK ANIMATION
+                lua_table.AnimationFunctions:PlayAnimation(animation.stomp_recovery.anim_name, animation.stomp_recovery.anim_speed, my_UID)
                 
                 -- Execution Timer
                 attack_subdivision_timer = game_time + attack.stomp.att_recovery_duration
@@ -1615,20 +1617,22 @@ local function HandleLeashLeftAttack()
                 lua_table.collider_effect = attack.leash_left.att_effect -- attack_effect.knockback TODO: Figure out how to send knockback to players.
             end
 
-            if game_time > attack_subdivision_timer --Check if execution is finished
+            if game_time >= attack_subdivision_timer and attack_tired_timer == -1 --Check if execution is finished
             then
                 attack_tired_timer = game_time + lua_table.leash_tired_time
-            end
-
-            if game_time > attack_tired_timer --Check if execution is finished
-            then
-                current_attack_subdivision = attack_subdivision.RECOVERY
                 
-                -- START RECOVERY OF ATTACK ANIMATION
-                lua_table.AnimationFunctions:PlayAnimation(animation.leash_left_recovery.anim_name, animation.leash_left_recovery.anim_speed, my_UID)
-
                 -- ACTIVATE PARTICLES
                 lua_table.ParticlesFunctions:PlayParticleEmitter(particles.dustcloud_leash_left.part_UID)
+
+            end
+
+            if game_time >= attack_tired_timer and attack_tired_timer ~= -1--Check if execution is finished
+            then
+                attack_tired_timer = -1
+                current_attack_subdivision = attack_subdivision.RECOVERY
+
+                -- START RECOVERY OF ATTACK ANIMATION
+                lua_table.AnimationFunctions:PlayAnimation(animation.leash_left_recovery.anim_name, animation.leash_left_recovery.anim_speed, my_UID)
                 
                 -- Execution Timer
                 attack_subdivision_timer = game_time + attack.leash_left.att_recovery_duration
@@ -1754,20 +1758,22 @@ local function HandleLeashRightAttack()
                 lua_table.collider_effect = attack.leash_right.att_effect -- attack_effect.knockback TODO: Figure out how to send knockback to players.
             end
 
-            if game_time > attack_subdivision_timer --Check if execution is finished
+            if game_time >= attack_subdivision_timer and attack_tired_timer == -1 --Check if execution is finished
             then
                 attack_tired_timer = game_time + lua_table.leash_tired_time
+
+                -- ACTIVATE PARTICLES
+                lua_table.ParticlesFunctions:PlayParticleEmitter(particles.dustcloud_leash_right.part_UID)
             end
 
-            if game_time > attack_tired_timer --Check if execution is finished
+            if game_time >= attack_tired_timer and attack_tired_timer ~= -1--Check if execution is finished
             then
+                attack_tired_timer = -1
+
                 current_attack_subdivision = attack_subdivision.RECOVERY
                 
                 -- START EXECUTION OF ATTACK ANIMATION
                 lua_table.AnimationFunctions:PlayAnimation(animation.leash_right_recovery.anim_name, animation.leash_right_recovery.anim_speed, my_UID)
-
-                -- ACTIVATE PARTICLES
-                lua_table.ParticlesFunctions:PlayParticleEmitter(particles.dustcloud_leash_right.part_UID)
                 
                 -- Execution Timer
                 attack_subdivision_timer = game_time + attack.leash_right.att_recovery_duration
