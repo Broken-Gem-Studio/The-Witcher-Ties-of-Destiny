@@ -1,0 +1,312 @@
+{
+    "1126382937": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "120.469383",
+                "positiony": "0.040397",
+                "positionz": "-0.008013",
+                "rotationw": "0.837453",
+                "rotationx": "-0.019960",
+                "rotationy": "0.039393",
+                "rotationz": "0.544723",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1954943066.bone"
+                }
+            }
+        },
+        "Name": "CATRigLLegAnkle",
+        "Parent": "179906221",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "1360343915": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-0.323247",
+                "positiony": "4.701311",
+                "positionz": "181.299606",
+                "rotationw": "0.707107",
+                "rotationx": "0.000000",
+                "rotationy": "-0.707107",
+                "rotationz": "0.000000",
+                "scalex": "1.000004",
+                "scaley": "1.000000",
+                "scalez": "1.000004"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/508438011.bone"
+                }
+            }
+        },
+        "Name": "CATRigHub001",
+        "Parent": "903479645",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "1609456524": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-0.003853",
+                "positiony": "4.790440",
+                "positionz": "-0.125532",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/1985149374.mesh"
+                    }
+                }
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/CityLevel_Final/Dummy/dummyMaterial.mat"
+                    }
+                }
+            }
+        },
+        "Name": "DummyMesh",
+        "Parent": "261273035",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "179906221": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-57.083969",
+                "positiony": "-3.148438",
+                "positionz": "0.537359",
+                "rotationw": "0.012048",
+                "rotationx": "-0.005614",
+                "rotationy": "0.999548",
+                "rotationz": "-0.026966",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Name": "CATRigLLeg1",
+        "Parent": "1360343915",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "246119378": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-3.478653",
+                "positiony": "-19.728432",
+                "positionz": "110.343338",
+                "rotationw": "0.087156",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.996195",
+                "scalex": "1.000004",
+                "scaley": "1.000004",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1872618420.bone"
+                }
+            }
+        },
+        "Name": "CATRigHub001Bone001",
+        "Parent": "1360343915",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "261273035": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/CityLevel_Final/Dummy/DummyScript.lua"
+                },
+                "Script variables": {
+                    "Count": 0
+                }
+            },
+            "14": {
+                "Active": true,
+                "Animations": {
+                    "0": {
+                        "Default": false,
+                        "End": "78",
+                        "Loop": false,
+                        "Name": "rotation",
+                        "Start": "0"
+                    },
+                    "1": {
+                        "Default": false,
+                        "End": "95",
+                        "Loop": false,
+                        "Name": "hit",
+                        "Start": "82"
+                    },
+                    "BlendTime": "0.300000",
+                    "Size": "2",
+                    "UseDefault": false
+                },
+                "Resources": {
+                    "ResourceAnimation": "Library/Animations/1754302327.anim"
+                }
+            },
+            "17": {
+                "contactOffset": "0.010000",
+                "draw": "1",
+                "gravity": "1",
+                "height": "2.000000",
+                "nonWalkableMode": "0",
+                "positionX": "0.000000",
+                "positionY": "0.000000",
+                "positionZ": "0.000000",
+                "radius": "0.500000",
+                "slopeLimit": "45.000000",
+                "stepOffset": "0.300000"
+            },
+            "19": {
+                "Active": true
+            }
+        },
+        "Model": "Assets/CityLevel_Final/Dummy/Dummy_Animations.FBX",
+        "Name": "Dummy",
+        "Parent": "528296634",
+        "PrefabChild": true,
+        "PrefabInstance": true,
+        "Static": false
+    },
+    "305196325": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "44.956787",
+                "positiony": "-21.949707",
+                "positionz": "1.563717",
+                "rotationw": "0.999048",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.043619",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/982236347.bone"
+                }
+            }
+        },
+        "Name": "CATRigHub001Bone002",
+        "Parent": "1360343915",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "870139407": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "61.270050",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "0.981060",
+                "rotationx": "0.007596",
+                "rotationy": "0.086824",
+                "rotationz": "-0.172987",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/989810330.bone"
+                }
+            }
+        },
+        "Name": "CATRigHub001Bone002Bone001",
+        "Parent": "305196325",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "903479645": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-0.002696",
+                "positiony": "0.016766",
+                "positionz": "-0.122633",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            }
+        },
+        "Name": "Dummy_Pivot",
+        "Parent": "261273035",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "PreviewTexture": "Library/Textures/1835024072.dds"
+}

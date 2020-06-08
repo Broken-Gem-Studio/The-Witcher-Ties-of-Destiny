@@ -6,7 +6,7 @@ lua_table.PhysicsFunctions = Scripting.Physics()
 
 local layers = {
 	enemy = 3,
-	prop = 4
+	prop = 5
 }
 
 local attack_collider_GO_UID

@@ -30,7 +30,7 @@ lua_table.bossfight_angle = 40
 -- Orientation
 lua_table.camera_orientation = 0 -- basically = camera_rotation_y
 
-lua_table.bossfight_orientation = -25
+lua_table.bossfight_orientation = -19
 
 -- Smoothing Speed from (from 0 to 1 -- slow to fast)
 lua_table.movement_smooth_speed = 0.2
@@ -47,10 +47,10 @@ lua_table.asymptotic_average_snapping_threshold = 0.01
 -----------------------------------------------------------------------------------------
 
 -- Camera Pivot GO UID
-lua_table.my_UID = 0
+local my_UID = 0
 
 -- Camera UID
-lua_table.camera_UID = 0
+local camera_UID = 0
 
 -- Camera target GO names
 lua_table.camera_GO = "Actual_Camera"
@@ -737,10 +737,10 @@ local function HandleOffset()
 	camera_rotation_x = 180 - current_camera_angle
 
     -- Rotation of the Actual camera
-	lua_table.TransformFunctions:SetObjectRotation(camera_rotation_x, camera_rotation_y, camera_rotation_z, lua_table.camera_UID)
+	lua_table.TransformFunctions:SetObjectRotation(camera_rotation_x, camera_rotation_y, camera_rotation_z, camera_UID)
     
     -- Rotation of the Pivot (supports the orientation)
-	lua_table.TransformFunctions:SetObjectRotation(0, lua_table.current_camera_orientation, 0, lua_table.my_UID)
+	lua_table.TransformFunctions:SetObjectRotation(0, lua_table.current_camera_orientation, 0, my_UID)
 	
 end
 
@@ -776,7 +776,7 @@ local function HandleMovement()
 		end
 
 		-- Setting Camera Position
-		lua_table.TransformFunctions:SetPosition(camera_position_x, camera_position_y, camera_position_z, lua_table.my_UID)
+		lua_table.TransformFunctions:SetPosition(camera_position_x, camera_position_y, camera_position_z, my_UID)
 	end
 end
 
@@ -802,17 +802,17 @@ function lua_table:Awake ()
 	lua_table.SystemFunctions:LOG ("This Log was called from Camera Script on AWAKE")
 
 	-- Get my own UID
-	lua_table.my_UID = lua_table.GameObjectFunctions:GetMyUID()
+	my_UID = lua_table.GameObjectFunctions:GetMyUID()
 
-	if lua_table.my_UID == 0
+	if my_UID == 0
     then
         lua_table.SystemFunctions:LOG ("Camera: can't find my UID ")
     end
 	
     -- Get actual camera UID
-    lua_table.camera_UID = lua_table.GameObjectFunctions:FindGameObject(lua_table.camera_GO)
+    camera_UID = lua_table.GameObjectFunctions:FindGameObject(lua_table.camera_GO)
 
-    if lua_table.camera_UID == 0
+    if camera_UID == 0
     then
         lua_table.SystemFunctions:LOG ("Camera: You need an actual camera inside me, moron")
     end
@@ -898,8 +898,8 @@ function lua_table:Start ()
 
 	-- LookAt
 	-- lua_table["Functions"]:LookAt(lua_table.target_position_x, 0, 0, false)
-    lua_table.TransformFunctions:SetObjectRotation(camera_rotation_x, camera_rotation_y, camera_rotation_z, lua_table.camera_UID)
-    lua_table.TransformFunctions:SetObjectRotation(0, lua_table.current_camera_orientation, 0, lua_table.my_UID)
+    lua_table.TransformFunctions:SetObjectRotation(camera_rotation_x, camera_rotation_y, camera_rotation_z, camera_UID)
+    lua_table.TransformFunctions:SetObjectRotation(0, lua_table.current_camera_orientation, 0, my_UID)
 
 	is_start = false
 end
