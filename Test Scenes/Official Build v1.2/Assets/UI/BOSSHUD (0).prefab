@@ -1,0 +1,229 @@
+{
+    "1068345299": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "4": {
+                "Active": true,
+                "anchor": 7,
+                "position2DxLocal": "0.000000",
+                "position2DyLocal": "90.000000",
+                "priority": "1",
+                "visible": "1"
+            }
+        },
+        "Name": "BOSSHUD",
+        "Parent": "2112418278",
+        "PrefabChild": true,
+        "PrefabInstance": true,
+        "Static": false
+    },
+    "1171947834": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/UI/SCRIPTS/BOSSHP.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "boss_hp",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    }
+                }
+            },
+            "4": {
+                "Active": true,
+                "anchor": 9,
+                "position2DxLocal": "0.000000",
+                "position2DyLocal": "0.000000",
+                "priority": "2",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "ColorA": "1.000000",
+                "ColorB": "1.000000",
+                "ColorG": "1.000000",
+                "ColorR": "1.000000",
+                "IsProgressBar": "0",
+                "MantainAspect": "0",
+                "NumberFrames": "0",
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1591607753.dds"
+                },
+                "anchor": 9,
+                "fullscreen": false,
+                "position2Dx": "-2.000000",
+                "position2Dy": "0.000000",
+                "priority": "1",
+                "size2Dx": "786.000000",
+                "size2Dy": "212.664993",
+                "visible": "1"
+            }
+        },
+        "Name": "BOSSCAPSULE",
+        "Parent": "1068345299",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "256240331": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "5": {
+                "Active": true,
+                "ColorA": "1.000000",
+                "ColorB": "0.000001",
+                "ColorG": "0.000001",
+                "ColorR": "0.000001",
+                "IsProgressBar": "0",
+                "MantainAspect": "1",
+                "NumberFrames": "0",
+                "Resources": {
+                    "ResourceTexture": null
+                },
+                "anchor": 9,
+                "fullscreen": false,
+                "position2Dx": "-2.000000",
+                "position2Dy": "-12.000000",
+                "priority": "-1",
+                "size2Dx": "642.500000",
+                "size2Dy": "30.500000",
+                "visible": "1"
+            }
+        },
+        "Name": "BOSSBACKGROUND",
+        "Parent": "686466796",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "686466796": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "10": {
+                "Active": true,
+                "Color1_A": "1.000000",
+                "Color1_B": "1.000000",
+                "Color1_G": "1.000000",
+                "Color1_R": "1.000000",
+                "Color2_A": "1.000000",
+                "Color2_B": "1.000000",
+                "Color2_G": "1.000000",
+                "Color2_R": "1.000000",
+                "Percentage": 100.0,
+                "Resources": {
+                    "ResourceTexture": null
+                },
+                "constraint": "1",
+                "created": "1",
+                "position2Dx": "-2.000000",
+                "position2Dy": "-12.000000",
+                "priority": "1",
+                "size2Dx": "642.500000",
+                "size2Dy": "30.500000",
+                "visible": "1"
+            },
+            "4": {
+                "Active": true,
+                "anchor": 9,
+                "position2DxLocal": "0.000000",
+                "position2DyLocal": "0.000000",
+                "priority": "-1",
+                "visible": "1"
+            },
+            "5": {
+                "Active": true,
+                "AnimationTime": "6.000000",
+                "ColorA": "1.000000",
+                "ColorB": "0.967003",
+                "ColorG": "0.972376",
+                "ColorR": "0.967227",
+                "EndFrame": "47",
+                "IsProgressBar": "1",
+                "Loop": "1",
+                "MantainAspect": "0",
+                "NumberFrames": "66",
+                "PlayInEditor": "1",
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/259240343.dds"
+                },
+                "ScriptControl": "0",
+                "StartFrame": "1",
+                "TileDivisionX": "3",
+                "TileDivisionY": "22",
+                "anchor": 9,
+                "fullscreen": false,
+                "position2Dx": "-2.000000",
+                "position2Dy": "-12.000000",
+                "priority": "0",
+                "size2Dx": "642.500000",
+                "size2Dy": "30.500000",
+                "visible": "1"
+            }
+        },
+        "Name": "BOSSHP",
+        "Parent": "1068345299",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "PreviewTexture": "Library/Textures/1299344587.dds"
+}
