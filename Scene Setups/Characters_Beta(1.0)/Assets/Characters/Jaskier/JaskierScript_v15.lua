@@ -504,7 +504,7 @@ lua_table.light_3_animation_speed = 60.0
 lua_table.light_3 = { 'N', 'L', 'L', 'L' }
 lua_table.light_3_size = 3
 lua_table.light_3_damage = 34.0
-lua_table.light_3_effect = attack_effects_ID.knockback
+lua_table.light_3_effect = attack_effects_ID.none
 lua_table.light_3_effect_value = 0
 
 --Medium Attack
@@ -546,7 +546,7 @@ lua_table.medium_3 = { 'N', 'M', 'M', 'M' }
 lua_table.medium_3_size = 3
 lua_table.medium_3_damage = 64.0
 lua_table.medium_3_effect = attack_effects_ID.stun
-lua_table.medium_3_effect_value = 500
+lua_table.medium_3_effect_value = 100
 
 --Heavy Attack
 lua_table.heavy_damage = 75.0				--Multiplier of Base Damage
