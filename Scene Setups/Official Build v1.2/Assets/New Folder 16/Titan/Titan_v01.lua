@@ -149,6 +149,7 @@ local speed_up = false
 local punching = false
 local swiping = false
 local smashing = false
+local play_particles = true
 local has_died = false
 
 local rand_death_time = 0
@@ -184,6 +185,7 @@ local function ResetJumpStun()
 	if jumping == true then jumping = false end
 	if speed_up == true then speed_up = false end 
 	if stunning == true then stunning = false end
+	if play_particles == false then play_particles = true end
 end
 
 local function ResetPunch()
@@ -386,8 +388,6 @@ end
 	
 local function JumpStun() -- Smash the ground with a jump, then stun
 
-	local play_particles = true
-	
 	-- Mark the affected area
 	if not start_jump and lua_table.can_jump == true then 
 
