@@ -101,7 +101,8 @@ local particles_library = {
 	potion_power_particles_GO_UID_children = {},
 
 	song_circle_GO_UID_children = {},
-	song_cone_GO_UID_children = {},
+	song_cone_mov_GO_UID_children = {},
+	song_cone_fix_GO_UID_children = {},
 	concert_GO_UID_children = {},
 
 	--Standalone Particles
@@ -650,7 +651,7 @@ lua_table.note_stack = { 'N', 'N', 'N', 'N' }	-- Notes based on attacks performe
 	}
 	local song_2_particles_speed = {
 		forward = 25,
-		y = 25,
+		y = 15,
 		lateral = 75
 	}
 
@@ -1060,8 +1061,11 @@ local function ParticlesShutdown()
 
 	elseif lua_table.current_state == state.song_2
 	then
-		for i = 1, #particles_library.song_cone_GO_UID_children do
-			lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.song_cone_GO_UID_children[i])	--TODO-Particles:
+		for i = 1, #particles_library.song_cone_mov_GO_UID_children do
+			lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.song_cone_mov_GO_UID_children[i])	--TODO-Particles:
+		end
+		for i = 1, #particles_library.song_cone_fix_GO_UID_children do
+			lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.song_cone_fix_GO_UID_children[i])	--TODO-Particles:
 		end
 
 	elseif lua_table.current_state == state.song_3
@@ -2545,7 +2549,8 @@ function lua_table:Awake()
 	particles_library.potion_power_particles_GO_UID_children = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindGameObject("Jaskier_Power_Potion"))
 
 	particles_library.song_circle_GO_UID_children = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindGameObject("Jaskier_Song_Circle"))
-	particles_library.song_cone_GO_UID_children = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindGameObject("Jaskier_Song_Cone"))
+	particles_library.song_cone_mov_GO_UID_children = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindGameObject("Jaskier_Song_Cone_Mov"))
+	particles_library.song_cone_fix_GO_UID_children = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindGameObject("Jaskier_Song_Cone_Fix"))
 	particles_library.concert_GO_UID_children = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindGameObject("Jaskier_Song_Concert"))
 
 	--Get attack_colliders GO_UIDs by name
@@ -2608,8 +2613,11 @@ function lua_table:Start()
 	-- for i = 1, #particles_library.song_circle_GO_UID_children do
 	-- 	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.song_circle_GO_UID_children[i])	--TODO-Particles:
 	-- end
-	-- for i = 1, #particles_library.song_cone_GO_UID_children do
-	-- 	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.song_cone_GO_UID_children[i])	--TODO-Particles:
+	-- for i = 1, #particles_library.song_cone_mov_GO_UID_children do
+	-- 	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.song_cone_mov_GO_UID_children[i])	--TODO-Particles:
+	-- end
+	-- for i = 1, #particles_library.song_cone_fix_GO_UID_children do
+	-- 	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.song_cone_fix_GO_UID_children[i])	--TODO-Particles:
 	-- end
 	-- for i = 1, #particles_library.concert_GO_UID_children do
 	-- 	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.concert_GO_UID_children[i])		--TODO-Particles:
@@ -2640,7 +2648,7 @@ end
 
 function lua_table:Update()
 
-	if gamePaused == nil or gamePaused == false
+	if lua_table.SystemFunctions:IsGamePaused() == 0
 	then
 		dt = lua_table.SystemFunctions:DT()
 		game_time = PerfGameTime()
@@ -2738,8 +2746,11 @@ function lua_table:Update()
 							lua_table.song_1_effect_active = false
 						elseif lua_table.current_state == state.song_2
 						then
-							for i = 1, #particles_library.song_cone_GO_UID_children do
-								lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.song_cone_GO_UID_children[i])	--TODO-Particles:
+							for i = 1, #particles_library.song_cone_mov_GO_UID_children do
+								lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.song_cone_mov_GO_UID_children[i])	--TODO-Particles:
+							end
+							for i = 1, #particles_library.song_cone_fix_GO_UID_children do
+								lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.song_cone_fix_GO_UID_children[i])	--TODO-Particles:
 							end
 							lua_table.song_2_effect_active = false
 						elseif lua_table.current_state == state.song_3
@@ -2965,14 +2976,17 @@ function lua_table:Update()
 								SaveDirection()
 
 								--Direct and Activate Note Particles
-								for i = 1, #particles_library.song_cone_GO_UID_children do
-									lua_table.ParticlesFunctions:SetParticlesVelocity(song_2_particles_speed.forward * rec_direction.x, 0, song_2_particles_speed.forward * rec_direction.z, particles_library.song_cone_GO_UID_children[i])
+								for i = 1, #particles_library.song_cone_mov_GO_UID_children do
+									lua_table.ParticlesFunctions:SetParticlesVelocity(song_2_particles_speed.forward * rec_direction.x, 0, song_2_particles_speed.forward * rec_direction.z, particles_library.song_cone_mov_GO_UID_children[i])
 
 									lua_table.ParticlesFunctions:SetRandomParticlesVelocity(song_2_particles_speed.lateral * rec_direction.z, song_2_particles_speed.y, song_2_particles_speed.lateral * rec_direction.x,
 									-song_2_particles_speed.lateral * rec_direction.z, 0, -song_2_particles_speed.lateral * rec_direction.x,
-									particles_library.song_cone_GO_UID_children[i])
+									particles_library.song_cone_mov_GO_UID_children[i])
 
-									lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.song_cone_GO_UID_children[i])	--TODO-Particles: Activate Aard particles on hand
+									lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.song_cone_mov_GO_UID_children[i])	--TODO-Particles: Activate Aard particles on hand
+								end
+								for i = 1, #particles_library.song_cone_fix_GO_UID_children do
+									lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.song_cone_fix_GO_UID_children[i])	--TODO-Particles: Activate Aard particles on hand
 								end
 
 								Song_Cone_Effect(song_2_trapezoid)
