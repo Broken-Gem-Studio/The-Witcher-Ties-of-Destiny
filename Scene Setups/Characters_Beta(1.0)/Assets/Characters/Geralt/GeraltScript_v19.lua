@@ -408,7 +408,7 @@ lua_table.energy_reg_orig = 7
 	}
 	local attack_effects_durations = {	--Effects Enum
 		2000,	--stun
-		1500	--knockback	(Uses standup_time to get up)
+		2000	--knockback	(Uses standup_time to get up)
 	}
 		--Knockback
 		local knockback_curr_velocity
@@ -1212,6 +1212,13 @@ local function CheckCameraBounds()	--Check if we're currently outside the camera
 			AttackColliderShutdown()
 			ParticlesShutdown()
 			AudioShutdown()
+
+			if enemy_hit_curr_stage == enemy_hit_stages.attack_hit
+			then
+				lua_table.AnimationFunctions:SetAnimationPause(false, geralt_GO_UID)
+				lua_table.AnimationFunctions:SetAnimationPause(false, particles_library.slash_GO_UID)
+				enemy_hit_curr_stage = enemy_hit_stages.attack_finished
+			end
 
 			local geralt_pos = lua_table.TransformFunctions:GetPosition(geralt_GO_UID)	--Look at and set direction from knockback
 			lua_table.TransformFunctions:LookAt(geralt_pos[1] - bounds_vector.x, geralt_pos[2], geralt_pos[3] - bounds_vector.z, geralt_GO_UID)
@@ -2228,6 +2235,13 @@ local function ProcessIncomingHit(collider_GO)
 				ParticlesShutdown()
 				AudioShutdown()
 				ReviveShutdown()
+
+				if enemy_hit_curr_stage == enemy_hit_stages.attack_hit
+				then
+					lua_table.AnimationFunctions:SetAnimationPause(false, geralt_GO_UID)
+					lua_table.AnimationFunctions:SetAnimationPause(false, particles_library.slash_GO_UID)
+					enemy_hit_curr_stage = enemy_hit_stages.attack_finished
+				end
 
 				if enemy_script.collider_effect == attack_effects_ID.stun
 				then
