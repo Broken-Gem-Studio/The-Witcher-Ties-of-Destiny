@@ -330,7 +330,7 @@
 			<ShortName>Props</ShortName>
 			<Path>Props.bnk</Path>
 			<IncludedEvents>
-				<Event Id="27935653" Name="Play_Door_new_sound" ObjectPath="\Events\Default Work Unit\Props\Door\Play_Door_new_sound" GUID="{56883F08-02E1-4004-8017-695927D12122}"/>
+				<Event Id="27935653" Name="Play_Door_new_sound" ObjectPath="\Events\Default Work Unit\Props\Door\Play_Door_new_sound" GUID="{FF15BAA2-81CA-4A31-A3C2-8DDA13770407}"/>
 				<Event Id="2331601197" Name="Play_Potion_drop" ObjectPath="\Events\Default Work Unit\Props\Play_Potion_drop" GUID="{D613BF1A-1B9E-4929-BE38-59CC83B1FEC9}"/>
 				<Event Id="4277472243" Name="Play_Potion_pick_up" ObjectPath="\Events\Default Work Unit\Props\Play_Potion_pick_up" GUID="{4CB9FC1F-13CD-4F97-BEE8-8E359EDB92E2}"/>
 				<Event Id="2533588661" Name="Play_Prop_hit_wood" ObjectPath="\Events\Default Work Unit\Props\Play_Prop_hit_wood" GUID="{B258C721-CD45-4FFE-B057-49ED960DEAA7}"/>
@@ -381,10 +381,6 @@
 					<ShortName>Potion pick up.wav</ShortName>
 					<Path>SFX\Potion pick up_10C4C929.wem</Path>
 				</File>
-				<File Id="616449000" Language="SFX">
-					<ShortName>Door_new_sound.wav</ShortName>
-					<Path>SFX\Door_new_sound_10C4C929.wem</Path>
-				</File>
 				<File Id="671728360" Language="SFX">
 					<ShortName>SFX_Loot_4.wav</ShortName>
 					<Path>SFX\SFX_Loot_4_10C4C929.wem</Path>
@@ -396,6 +392,10 @@
 				<File Id="703546484" Language="SFX">
 					<ShortName>SFX_Loot_2.wav</ShortName>
 					<Path>SFX\SFX_Loot_2_10C4C929.wem</Path>
+				</File>
+				<File Id="712377787" Language="SFX">
+					<ShortName>SFX_Door.wav</ShortName>
+					<Path>SFX\SFX_Door_10C4C929.wem</Path>
 				</File>
 				<File Id="864063706" Language="SFX">
 					<ShortName>SFX_Loot_3.wav</ShortName>
@@ -651,6 +651,29 @@
 				<File Id="1050045866" Language="SFX">
 					<ShortName>Walker_Ghoul_death_1.wav</ShortName>
 					<Path>SFX\Walker_Ghoul_death_1_10C4C929.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
+		</SoundBank>
+		<SoundBank Id="1290008369" GUID="{4D291896-D0DF-4171-AF21-D79892823393}" Language="SFX">
+			<ObjectPath>\SoundBanks\Default Work Unit\Level_1</ObjectPath>
+			<ShortName>Level_1</ShortName>
+			<Path>Level_1.bnk</Path>
+			<IncludedEvents>
+				<Event Id="1483511332" Name="Rain_loop" ObjectPath="\Events\Default Work Unit\Level_1\Rain_loop" GUID="{ECC2DC13-293D-4226-9756-19AD0FBC17DD}"/>
+				<Event Id="186852181" Name="Thunder" ObjectPath="\Events\Default Work Unit\Level_1\Thunder" GUID="{96C50C3D-D494-49DB-92EA-85B2795FA390}"/>
+			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="371197786" Language="SFX">
+					<ShortName>ThunderOne.wav</ShortName>
+					<Path>SFX\ThunderOne_10C4C929.wem</Path>
+				</File>
+				<File Id="895524995" Language="SFX">
+					<ShortName>StormLoop.wav</ShortName>
+					<Path>SFX\StormLoop_D79FB2B7.wem</Path>
+				</File>
+				<File Id="914906870" Language="SFX">
+					<ShortName>ThunderTwo.wav</ShortName>
+					<Path>SFX\ThunderTwo_10C4C929.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>
@@ -1638,9 +1661,13 @@
 				<Event Id="2048014091" Name="Play_Level_2_Music" ObjectPath="\Events\Default Work Unit\Play_Level_2_Music" GUID="{EF000F6C-BC68-4301-9A1E-7DDED98AEF48}"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
-				<File Id="382083512" Language="SFX">
-					<ShortName>Music_Kikimora_Dungeon of shadows.wav</ShortName>
-					<Path>SFX\Music_Kikimora_Dungeon of shadows_D79FB2B7.wem</Path>
+				<File Id="103123323" Language="SFX">
+					<ShortName>Music_Kikimora_Dungeon_of_shadows_loop.wav</ShortName>
+					<Path>SFX\Music_Kikimora_Dungeon_of_shadows_loop_D79FB2B7.wem</Path>
+				</File>
+				<File Id="358228394" Language="SFX">
+					<ShortName>Music_Kikimora_Dungeon_of_shadows_intro.wav</ShortName>
+					<Path>SFX\Music_Kikimora_Dungeon_of_shadows_intro_D79FB2B7.wem</Path>
 				</File>
 				<File Id="394200934" Language="SFX">
 					<ShortName>Music\Music_Combat_The_Dark_Castle.wav</ShortName>

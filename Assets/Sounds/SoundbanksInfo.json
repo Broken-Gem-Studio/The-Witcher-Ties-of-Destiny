@@ -633,7 +633,7 @@
       "Id": "27935653",
       "Name": "Play_Door_new_sound",
       "ObjectPath": "\\Events\\Default Work Unit\\Props\\Door\\Play_Door_new_sound",
-      "GUID": "{56883F08-02E1-4004-8017-695927D12122}"
+      "GUID": "{FF15BAA2-81CA-4A31-A3C2-8DDA13770407}"
      },
      {
       "Id": "2331601197",
@@ -764,12 +764,6 @@
       "Path": "SFX\\Potion pick up_10C4C929.wem"
      },
      {
-      "Id": "616449000",
-      "Language": "SFX",
-      "ShortName": "Door_new_sound.wav",
-      "Path": "SFX\\Door_new_sound_10C4C929.wem"
-     },
-     {
       "Id": "671728360",
       "Language": "SFX",
       "ShortName": "SFX_Loot_4.wav",
@@ -786,6 +780,12 @@
       "Language": "SFX",
       "ShortName": "SFX_Loot_2.wav",
       "Path": "SFX\\SFX_Loot_2_10C4C929.wem"
+     },
+     {
+      "Id": "712377787",
+      "Language": "SFX",
+      "ShortName": "SFX_Door.wav",
+      "Path": "SFX\\SFX_Door_10C4C929.wem"
      },
      {
       "Id": "864063706",
@@ -1284,6 +1284,48 @@
       "Language": "SFX",
       "ShortName": "Walker_Ghoul_death_1.wav",
       "Path": "SFX\\Walker_Ghoul_death_1_10C4C929.wem"
+     }
+    ]
+   },
+   {
+    "Id": "1290008369",
+    "GUID": "{4D291896-D0DF-4171-AF21-D79892823393}",
+    "Language": "SFX",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Level_1",
+    "ShortName": "Level_1",
+    "Path": "Level_1.bnk",
+    "IncludedEvents": [
+     {
+      "Id": "1483511332",
+      "Name": "Rain_loop",
+      "ObjectPath": "\\Events\\Default Work Unit\\Level_1\\Rain_loop",
+      "GUID": "{ECC2DC13-293D-4226-9756-19AD0FBC17DD}"
+     },
+     {
+      "Id": "186852181",
+      "Name": "Thunder",
+      "ObjectPath": "\\Events\\Default Work Unit\\Level_1\\Thunder",
+      "GUID": "{96C50C3D-D494-49DB-92EA-85B2795FA390}"
+     }
+    ],
+    "IncludedMemoryFiles": [
+     {
+      "Id": "371197786",
+      "Language": "SFX",
+      "ShortName": "ThunderOne.wav",
+      "Path": "SFX\\ThunderOne_10C4C929.wem"
+     },
+     {
+      "Id": "895524995",
+      "Language": "SFX",
+      "ShortName": "StormLoop.wav",
+      "Path": "SFX\\StormLoop_D79FB2B7.wem"
+     },
+     {
+      "Id": "914906870",
+      "Language": "SFX",
+      "ShortName": "ThunderTwo.wav",
+      "Path": "SFX\\ThunderTwo_10C4C929.wem"
      }
     ]
    },
@@ -3164,10 +3206,16 @@
     ],
     "IncludedMemoryFiles": [
      {
-      "Id": "382083512",
+      "Id": "103123323",
       "Language": "SFX",
-      "ShortName": "Music_Kikimora_Dungeon of shadows.wav",
-      "Path": "SFX\\Music_Kikimora_Dungeon of shadows_D79FB2B7.wem"
+      "ShortName": "Music_Kikimora_Dungeon_of_shadows_loop.wav",
+      "Path": "SFX\\Music_Kikimora_Dungeon_of_shadows_loop_D79FB2B7.wem"
+     },
+     {
+      "Id": "358228394",
+      "Language": "SFX",
+      "ShortName": "Music_Kikimora_Dungeon_of_shadows_intro.wav",
+      "Path": "SFX\\Music_Kikimora_Dungeon_of_shadows_intro_D79FB2B7.wem"
      },
      {
       "Id": "394200934",

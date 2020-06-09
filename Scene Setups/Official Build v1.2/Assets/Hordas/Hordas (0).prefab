@@ -1,56 +1,12 @@
 {
-    "1247671273": {
+    "1250990249": {
         "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
                 "positionx": "0.000000",
                 "positiony": "0.000000",
-                "positionz": "0.000000",
-                "rotationw": "1.000000",
-                "rotationx": "0.000000",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "1.000000",
-                "scaley": "1.000000",
-                "scalez": "1.000000"
-            },
-            "1": {
-                "Active": true,
-                "Resources": {
-                    "ResourceMesh": {
-                        "PreviewTexture": "",
-                        "path": "Library/Meshes/2.mesh"
-                    }
-                }
-            },
-            "2": {
-                "Active": true,
-                "CastsShadows": true,
-                "LightAffected": true,
-                "OnlyShadows": false,
-                "ReceivesShadows": true,
-                "Resources": {
-                    "ResourceMaterial": {
-                        "path": "DefaultMaterial"
-                    }
-                }
-            }
-        },
-        "Name": "Pos3",
-        "Parent": "1633039014",
-        "PrefabChild": true,
-        "PrefabInstance": false,
-        "Static": false
-    },
-    "1633039014": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "layer": "0",
-                "positionx": "0.000000",
-                "positiony": "0.000000",
-                "positionz": "0.000000",
+                "positionz": "0.000015",
                 "rotationw": "1.000000",
                 "rotationx": "0.000000",
                 "rotationy": "0.000000",
@@ -62,111 +18,125 @@
             "12": {
                 "Active": true,
                 "Resources": {
-                    "ResourceScript": "Assets/Hordas.lua"
+                    "ResourceScript": "Assets/Hordas/Round.lua"
                 },
                 "Script variables": {
-                    "Count": 13,
+                    "Count": 15,
                     "Variable 0": {
-                        "DisplayObjectName": false,
-                        "Name": "begin",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
+                        "DisplayObjectName": true,
+                        "Name": "enemy1",
+                        "ObjectName": "Archer (0).prefab",
+                        "Type": "Double",
+                        "Value": 1285700920.0
                     },
                     "Variable 1": {
                         "DisplayObjectName": true,
-                        "Name": "round0",
-                        "ObjectName": "Round0",
+                        "Name": "enemy2",
+                        "ObjectName": "Archer (0).prefab",
                         "Type": "Double",
-                        "Value": 1731390920.0
+                        "Value": 1285700920.0
                     },
                     "Variable 10": {
                         "DisplayObjectName": false,
-                        "Name": "round9",
+                        "Name": "num_e2",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 0.0
+                        "Value": 1.0
                     },
                     "Variable 11": {
                         "DisplayObjectName": false,
-                        "Name": "spawn_rate",
+                        "Name": "num_e3",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 1.0
                     },
                     "Variable 12": {
                         "DisplayObjectName": false,
-                        "Name": "time",
+                        "Name": "num_e4",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 0.0
+                        "Value": 1.0
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "num_e5",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 14": {
+                        "DisplayObjectName": false,
+                        "Name": "num_e6",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
                     },
                     "Variable 2": {
-                        "DisplayObjectName": false,
-                        "Name": "round1",
-                        "ObjectName": "",
+                        "DisplayObjectName": true,
+                        "Name": "enemy3",
+                        "ObjectName": "Archer (0).prefab",
                         "Type": "Double",
-                        "Value": 0.0
+                        "Value": 1285700920.0
                     },
                     "Variable 3": {
-                        "DisplayObjectName": false,
-                        "Name": "round2",
-                        "ObjectName": "",
+                        "DisplayObjectName": true,
+                        "Name": "enemy4",
+                        "ObjectName": "Archer (0).prefab",
                         "Type": "Double",
-                        "Value": 0.0
+                        "Value": 1285700920.0
                     },
                     "Variable 4": {
-                        "DisplayObjectName": false,
-                        "Name": "round3",
-                        "ObjectName": "",
+                        "DisplayObjectName": true,
+                        "Name": "enemy5",
+                        "ObjectName": "Archer (0).prefab",
                         "Type": "Double",
-                        "Value": 0.0
+                        "Value": 1285700920.0
                     },
                     "Variable 5": {
-                        "DisplayObjectName": false,
-                        "Name": "round4",
-                        "ObjectName": "",
+                        "DisplayObjectName": true,
+                        "Name": "enemy6",
+                        "ObjectName": "Archer (0).prefab",
                         "Type": "Double",
-                        "Value": 0.0
+                        "Value": 1285700920.0
                     },
                     "Variable 6": {
                         "DisplayObjectName": false,
-                        "Name": "round5",
+                        "Name": "final_enemy",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
                     },
                     "Variable 7": {
                         "DisplayObjectName": false,
-                        "Name": "round6",
+                        "Name": "is_final",
                         "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
+                        "Type": "Boolean",
+                        "Value": false
                     },
                     "Variable 8": {
                         "DisplayObjectName": false,
-                        "Name": "round7",
+                        "Name": "is_finished",
                         "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
+                        "Type": "Boolean",
+                        "Value": false
                     },
                     "Variable 9": {
                         "DisplayObjectName": false,
-                        "Name": "round8",
+                        "Name": "num_e1",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 0.0
+                        "Value": 1.0
                     }
                 }
             }
         },
-        "Name": "Hordas",
-        "Parent": "766978090",
+        "Name": "Round0",
+        "Parent": "945785325",
         "PrefabChild": true,
-        "PrefabInstance": true,
+        "PrefabInstance": false,
         "Static": false
     },
-    "1669892272": {
+    "2036448049": {
         "Active": true,
         "Components": {
             "0": {
@@ -205,12 +175,56 @@
             }
         },
         "Name": "Pos2",
-        "Parent": "1633039014",
+        "Parent": "945785325",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false
     },
-    "1729954220": {
+    "376527511": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2.mesh"
+                    }
+                }
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "DefaultMaterial"
+                    }
+                }
+            }
+        },
+        "Name": "Pos3",
+        "Parent": "945785325",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "531760842": {
         "Active": true,
         "Components": {
             "0": {
@@ -249,22 +263,22 @@
             }
         },
         "Name": "Pos1",
-        "Parent": "1633039014",
+        "Parent": "945785325",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false
     },
-    "555660030": {
+    "945785325": {
         "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
-                "positionx": "0.000000",
-                "positiony": "0.000000",
-                "positionz": "0.000000",
-                "rotationw": "1.000000",
+                "positionx": "102.263100",
+                "positiony": "24.866678",
+                "positionz": "-76.658203",
+                "rotationw": "0.818037",
                 "rotationx": "0.000000",
-                "rotationy": "0.000000",
+                "rotationy": "-0.575166",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
                 "scaley": "1.000000",
@@ -273,144 +287,46 @@
             "12": {
                 "Active": true,
                 "Resources": {
-                    "ResourceScript": "Assets/Round.lua"
+                    "ResourceScript": "Assets/Hordas/Hordas.lua"
                 },
                 "Script variables": {
-                    "Count": 18,
+                    "Count": 4,
                     "Variable 0": {
                         "DisplayObjectName": false,
-                        "Name": "enemy1",
+                        "Name": "begin",
                         "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
+                        "Type": "Boolean",
+                        "Value": false
                     },
                     "Variable 1": {
                         "DisplayObjectName": false,
-                        "Name": "enemy2",
+                        "Name": "delay_rounds",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 10": {
-                        "DisplayObjectName": false,
-                        "Name": "num_e2",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 11": {
-                        "DisplayObjectName": false,
-                        "Name": "num_e3",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 12": {
-                        "DisplayObjectName": false,
-                        "Name": "num_e4",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 13": {
-                        "DisplayObjectName": false,
-                        "Name": "num_e5",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 14": {
-                        "DisplayObjectName": false,
-                        "Name": "num_e6",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 15": {
-                        "DisplayObjectName": true,
-                        "Name": "spawn_pos1",
-                        "ObjectName": "Pos1",
-                        "Type": "Double",
-                        "Value": 902919726.0
-                    },
-                    "Variable 16": {
-                        "DisplayObjectName": true,
-                        "Name": "spawn_pos2",
-                        "ObjectName": "Pos2",
-                        "Type": "Double",
-                        "Value": 1364163699.0
-                    },
-                    "Variable 17": {
-                        "DisplayObjectName": true,
-                        "Name": "spawn_pos3",
-                        "ObjectName": "Pos3",
-                        "Type": "Double",
-                        "Value": 1221736927.0
+                        "Value": 10.0
                     },
                     "Variable 2": {
                         "DisplayObjectName": false,
-                        "Name": "enemy3",
+                        "Name": "delay_time",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
                     },
                     "Variable 3": {
                         "DisplayObjectName": false,
-                        "Name": "enemy4",
+                        "Name": "spawn_rate",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 4": {
-                        "DisplayObjectName": false,
-                        "Name": "enemy5",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 5": {
-                        "DisplayObjectName": false,
-                        "Name": "enemy6",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 6": {
-                        "DisplayObjectName": false,
-                        "Name": "final_enemy",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 7": {
-                        "DisplayObjectName": false,
-                        "Name": "is_final",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    },
-                    "Variable 8": {
-                        "DisplayObjectName": false,
-                        "Name": "is_finished",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    },
-                    "Variable 9": {
-                        "DisplayObjectName": false,
-                        "Name": "num_e1",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
+                        "Value": 1.0
                     }
                 }
             }
         },
-        "Name": "Round0",
-        "Parent": "1633039014",
+        "Name": "Hordas",
+        "Parent": "1578632700",
         "PrefabChild": true,
         "PrefabInstance": true,
         "Static": false
     },
-    "PreviewTexture": "Library/Textures/1059468463.dds"
+    "PreviewTexture": "Library/Textures/2024609384.dds"
 }
