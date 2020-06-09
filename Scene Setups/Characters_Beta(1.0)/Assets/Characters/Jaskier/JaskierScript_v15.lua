@@ -701,6 +701,7 @@ lua_table.ultimate_secondary_effect_value = 0
 --Stand Up	(Standing up from knockbacks or being downed)
 lua_table.standing_up_bool = false
 lua_table.stand_up_animation_speed = 90.0
+lua_table.stand_up_duration = 1500
 
 --Revive/Death
 local revive_target				-- Target character script
@@ -1226,6 +1227,8 @@ local function CheckCameraBounds()	--Check if we're currently outside the camera
 				lua_table.AudioFunctions:PlayAudioEventGO(audio_library.knockback, jaskier_GO_UID)	--TODO-AUDIO:
 				current_audio = audio_library.knockback
 			end	--TODO-Audio:
+
+			lua_table.standing_up_bool = false
 
 			lua_table.previous_state = lua_table.current_state
 			lua_table.current_state = state.knocked
@@ -2296,6 +2299,8 @@ local function ProcessIncomingHit(collider_GO)
 					lua_table.AudioFunctions:PlayAudioEventGO(audio_library.knockback, jaskier_GO_UID)	--TODO-AUDIO:
 					current_audio = audio_library.knockback
 
+					lua_table.standing_up_bool = false
+
 					lua_table.previous_state = lua_table.current_state
 					lua_table.current_state = state.knocked
 				end
@@ -3110,7 +3115,7 @@ function lua_table:Update()
 				--IF action ended
 				if time_since_action > lua_table.blend_time_duration	--IF action time > blend time (for blending between actions)
 				and game_time - blending_started_at > lua_table.blend_time_duration	--IF blend manual marking > blend time (to manually mark and control animation swaps, optional use)
-				and lua_table.AnimationFunctions:CurrentAnimationEnded(jaskier_GO_UID) == 1	--IF animation finished (this only works for non-loop animations)
+				and (time_since_action > current_action_duration or lua_table.AnimationFunctions:CurrentAnimationEnded(jaskier_GO_UID) == 1)	--IF action time up or animation finished
 				then
 					local chained_action = false
 
@@ -3127,30 +3132,25 @@ function lua_table:Update()
 							lua_table.AudioFunctions:PlayAudioEventGO(audio_library.stand_up, jaskier_GO_UID)	--TODO-AUDIO:
 							current_audio = audio_library.stand_up
 
+							action_started_at = game_time
+							current_action_duration = lua_table.stand_up_duration
+
 							chained_action = true
 							lua_table.standing_up_bool = true
+						end
+
+					elseif lua_table.current_state == state.stunned	then --IF stunned
+						for i = 1, #particles_library.stun_particles_GO_UID_children do
+							lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.stun_particles_GO_UID_children[i])	--TODO-Particles:
 						end
 					end
 
 					if not chained_action then	--IF action not performed automatically after ending previous one, return to idle/move
-						--Return to move or idle
-						if lua_table.current_state == state.evade then
-							GoDefaultState(false)	--Don't change BlendDuration
-						else
-							GoDefaultState(true)	--Change BlendDuration
-						end
+						GoDefaultState(true)	--Change BlendDuration
 					end
 
 				else	--IF action ongoing
-					if lua_table.current_state == state.stunned and time_since_action > current_action_duration	--IF currently stunned and time passed
-					then
-						for i = 1, #particles_library.stun_particles_GO_UID_children do
-							lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.stun_particles_GO_UID_children[i])	--TODO-Particles:
-						end
-
-						GoDefaultState(true)
-		
-					elseif lua_table.current_state == state.knocked and not lua_table.standing_up_bool and DirectionInBounds(false)	--IF currently knocked
+					if lua_table.current_state == state.knocked and not lua_table.standing_up_bool and DirectionInBounds(false)	--IF currently knocked
 					then
 						knockback_curr_velocity = knockback_curr_velocity + lua_table.knockback_acceleration * dt
 						lua_table.PhysicsFunctions:Move(knockback_curr_velocity * rec_direction.x * dt, knockback_curr_velocity * rec_direction.z * dt, jaskier_GO_UID)
