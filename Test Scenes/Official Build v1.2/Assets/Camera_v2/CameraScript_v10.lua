@@ -185,6 +185,18 @@ local x = 1
 local y = 2
 local z = 3
 
+-- Camera Shake variables
+lua_table.camera_shake_duration = 0
+lua_table.camera_shake_magnitude = 0
+lua_table.camera_shake_activated = false
+local shake_active = false
+
+local elapsed_time = 0
+
+local camera_shake_x = 0
+local camera_shake_y = 0
+local camera_shake_z = 0
+
 -----------------------------------------------------------------------------------------
 -- Methods
 -----------------------------------------------------------------------------------------
@@ -237,6 +249,41 @@ local function Asymptotic_Average(pos, target_pos, speed)
 		return pos + (distance) * speed * dt * 50
 	else
 		return target_pos 
+	end
+end
+
+local function HandleShake()
+
+	if lua_table.camera_shake_activated == true
+	then
+		elapsed_time = 0
+		lua_table.camera_shake_activated = false
+
+		shake_active = true
+	end
+
+	if shake_active == true
+	then
+		if lua_table.camera_shake_duration > elapsed_time
+		then
+			camera_shake_x = lua_table.SystemFunctions:RandomNumberInRange(-1,1) * lua_table.camera_shake_magnitude
+			camera_shake_y = lua_table.SystemFunctions:RandomNumberInRange(-1,1) * lua_table.camera_shake_magnitude
+			camera_shake_z = lua_table.SystemFunctions:RandomNumberInRange(-2,2) * lua_table.camera_shake_magnitude
+
+			elapsed_time = elapsed_time + dt 
+		else 
+			shake_active = false
+			--failsafe to everything
+
+			camera_shake_x = 0
+			camera_shake_y = 0
+			camera_shake_z = 0
+
+			lua_table.camera_shake_duration = 0
+			lua_table.camera_shake_magnitude = 0
+
+			elapsed_time = 1 
+		end
 	end
 end
 
@@ -736,8 +783,8 @@ local function HandleOffset()
     -- to support changes in the angle we must update the camera_rotation_x aswell so it keeps the orientation to the target
 	camera_rotation_x = 180 - current_camera_angle
 
-    -- Rotation of the Actual camera
-	lua_table.TransformFunctions:SetObjectRotation(camera_rotation_x, camera_rotation_y, camera_rotation_z, camera_UID)
+    -- Rotation of the Actual camera (Here we add the rotation shake (only z) too)
+	lua_table.TransformFunctions:SetObjectRotation(camera_rotation_x, camera_rotation_y, camera_rotation_z + camera_shake_z, camera_UID)
     
     -- Rotation of the Pivot (supports the orientation)
 	lua_table.TransformFunctions:SetObjectRotation(0, lua_table.current_camera_orientation, 0, my_UID)
@@ -754,7 +801,7 @@ local function HandleMovement()
 		if is_start == true
 		then
 			-- Camera position is Target + Offset
-			camera_position_x = lua_table.target_position_x + camera_offset_x
+			camera_position_x = lua_table.target_position_x + camera_offset_x 
 			camera_position_y = lua_table.target_position_y + camera_offset_y 	-- Kind of redundant but conceptually organized
 			camera_position_z = lua_table.target_position_z + camera_offset_z
 		
@@ -776,7 +823,7 @@ local function HandleMovement()
 		end
 
 		-- Setting Camera Position
-		lua_table.TransformFunctions:SetPosition(camera_position_x, camera_position_y, camera_position_z, my_UID)
+		lua_table.TransformFunctions:SetPosition(camera_position_x + camera_shake_x, camera_position_y + camera_shake_y, camera_position_z, my_UID)
 	end
 end
 
@@ -786,14 +833,26 @@ local function DebugInputs()
 		if lua_table.InputFunctions:KeyDown("n")
 		then
 			lua_table.camera_orientation = lua_table.camera_orientation - 5
-			lua_table.SystemFunctions:LOG ("Camera: Orientation: " .. lua_table.camera_orientation)
         end
 
         if lua_table.InputFunctions:KeyDown("m")
 		then 
 			lua_table.camera_orientation = lua_table.camera_orientation + 5
-			lua_table.SystemFunctions:LOG ("Camera: Orientation: " .. lua_table.camera_orientation)
-        end
+		end
+		
+		if lua_table.InputFunctions:KeyDown("b")
+		then 
+			lua_table.camera_shake_activated = true
+			lua_table.camera_shake_duration = 0.5
+			lua_table.camera_shake_magnitude = 0.3
+		end 
+		
+		if lua_table.InputFunctions:KeyDown("v")
+		then 
+			lua_table.camera_shake_activated = true
+			lua_table.camera_shake_duration = 2
+			lua_table.camera_shake_magnitude = 0.5
+		end 
 	end
 end
 
@@ -909,11 +968,17 @@ function lua_table:Update ()
 	is_update = true
 
 	DebugInputs()
-	-- Checklua_table.bossfight() done in target
+
+	HandleShake()
+
 	HandleZoomLayers()
+
 	HandleSwitch()
+
 	HandleTarget()
+
 	HandleOffset()
+
 	HandleMovement()
 
 	-- Debug

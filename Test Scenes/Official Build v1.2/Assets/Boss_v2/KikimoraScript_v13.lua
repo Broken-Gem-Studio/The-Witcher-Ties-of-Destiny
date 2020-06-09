@@ -9,6 +9,7 @@ lua_table.AudioFunctions = Scripting.Audio ()
 lua_table.AnimationFunctions = Scripting.Animations ()
 lua_table.InputFunctions = Scripting.Inputs()
 lua_table.SeceneFunctions = Scripting.Scenes()
+lua_table.MaterialsFunctions = Scripting.Materials()
 
 -----------------------------------------------------------------------------------------
 -- Health Variables
@@ -16,7 +17,7 @@ lua_table.SeceneFunctions = Scripting.Scenes()
 
 -- Health Value
 lua_table.current_health = 0
-lua_table.health = 30000
+lua_table.health = 15000
 
 local is_dead = false
 lua_table.despawn_time = 15
@@ -203,12 +204,12 @@ local animation =
     leash = { anim_name = "leash", anim_frames = 68, anim_speed = 30, anim_blendtime = 0 }, --unused
 
     leash_left_anticipation = { anim_name = "leash_left_anticipation", anim_frames = 118, anim_speed = 30, anim_blendtime = 0 },
-    leash_left_execution = { anim_name = "leash_left_execution", anim_frames = 3, anim_speed = 30, anim_blendtime = 0 },
-    leash_left_recovery = { anim_name = "leash_left_recovery", anim_frames = 61, anim_speed = 30, anim_blendtime = 0 },
+    leash_left_execution = { anim_name = "leash_left_execution", anim_frames = 7, anim_speed = 30, anim_blendtime = 0 },
+    leash_left_recovery = { anim_name = "leash_left_recovery", anim_frames = 57, anim_speed = 30, anim_blendtime = 0 },
     
     leash_right_anticipation = { anim_name = "leash_right_anticipation", anim_frames = 118, anim_speed = 30, anim_blendtime = 0 },
-    leash_right_execution = { anim_name = "leash_right_execution", anim_frames = 3, anim_speed = 30, anim_blendtime = 0 },
-    leash_right_recovery = { anim_name = "leash_right_recovery", anim_frames = 61, anim_speed = 30, anim_blendtime = 0 },
+    leash_right_execution = { anim_name = "leash_right_execution", anim_frames = 8, anim_speed = 30, anim_blendtime = 0 },
+    leash_right_recovery = { anim_name = "leash_right_recovery", anim_frames = 56, anim_speed = 30, anim_blendtime = 0 },
     
     sweep_anticipation = { anim_name = "sweep_anticipation", anim_frames = 57, anim_speed = 30, anim_blendtime = 0 },
     sweep_execution = { anim_name = "sweep_execution", anim_frames = 13, anim_speed = 30, anim_blendtime = 0 },
@@ -223,8 +224,8 @@ local animation =
     sweep_right_recovery = { anim_name = "sweep_right_recovery", anim_frames = 34, anim_speed = 30, anim_blendtime = 0 },
     
     stomp_anticipation = { anim_name = "stomp_anticipation", anim_frames = 34, anim_speed = 20, anim_blendtime = 0 }, -- custom speed
-    stomp_execution = { anim_name = "stomp_execution", anim_frames = 3, anim_speed = 30, anim_blendtime = 0 },
-    stomp_recovery = { anim_name = "stomp_recovery", anim_frames = 69, anim_speed = 30, anim_blendtime = 0 },
+    stomp_execution = { anim_name = "stomp_execution", anim_frames = 20, anim_speed = 30, anim_blendtime = 0 },
+    stomp_recovery = { anim_name = "stomp_recovery", anim_frames = 52, anim_speed = 30, anim_blendtime = 0 },
     
     roar_anticipation = { anim_name = "roar_anticipation", anim_frames = 28, anim_speed = 30, anim_blendtime = 0 },
     roar_execution = { anim_name = "roar_execution", anim_frames = 75, anim_speed = 30, anim_blendtime = 0 },
@@ -331,6 +332,9 @@ lua_table.my_position = {}
 lua_table.my_rotation = {}
 local my_mesh_UID = 0
 lua_table.mesh_GO = "Kikimora_Low"
+lua_table.my_material_GO = "Kikimora_mat.mat"
+lua_table.hit_material_GO = "HitMaterial.mat"
+
 
 lua_table.jump_pos_1 = {}
 lua_table.jump_rot_1 = {}
@@ -392,7 +396,12 @@ local jump_attack_timer = 0
 local state_timer = 0
 local animation_timer = 0
 local awakening_timer = 0.5 
+local attack_tired_timer = -1
+local hit_material_timer = 0
 
+lua_table.hit_time = 0.1
+lua_table.stomp_tired_time = 3
+lua_table.leash_tired_time = 4
 lua_table.under_time = 3 --seconds
 lua_table.jump_delay_up = 0.5 --seconds
 lua_table.jump_delay_down = 3
@@ -403,7 +412,7 @@ local awakening_audio_played = false
 local awakening_scream_played = false
 
 local death_audio_played = false
-
+local got_hit = false
 
 -----------------------------------------------------------------------------------------
 -- Methods
@@ -1067,25 +1076,32 @@ local function HandleStompAttack()
                 lua_table.collider_effect = attack.stomp.att_effect -- attack_effect.knockback TODO: Figure out how to send knockback to players.
             end
 
-            if game_time > attack_subdivision_timer --Check if execution is finished
+            if game_time >= attack_subdivision_timer and attack_tired_timer == -1 --Check if execution is finished
             then
-                current_attack_subdivision = attack_subdivision.RECOVERY
-
-                -- START RECOVERY OF ATTACK ANIMATION
-                lua_table.AnimationFunctions:PlayAnimation(animation.stomp_recovery.anim_name, animation.stomp_recovery.anim_speed, my_UID)
+                attack_tired_timer = game_time + lua_table.stomp_tired_time
 
                 -- ACTIVATE PARTICLES
                 lua_table.ParticlesFunctions:PlayParticleEmitter(particles.dustcloud_stomp_left.part_UID)
                 lua_table.ParticlesFunctions:PlayParticleEmitter(particles.dustcloud_stomp_right.part_UID)
-                
-                -- Execution Timer
-                attack_subdivision_timer = game_time + attack.stomp.att_recovery_duration
 
                 -- Deactivate collider
                 lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_collider.stomp.coll_UID)
 
                 -- AUDIO PLAY
                 lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_lash", my_UID)
+            end
+
+            if game_time >= attack_tired_timer and attack_tired_timer ~= -1--Check if execution is finished
+            then
+                attack_tired_timer = -1
+
+                current_attack_subdivision = attack_subdivision.RECOVERY
+
+                -- START RECOVERY OF ATTACK ANIMATION
+                lua_table.AnimationFunctions:PlayAnimation(animation.stomp_recovery.anim_name, animation.stomp_recovery.anim_speed, my_UID)
+                
+                -- Execution Timer
+                attack_subdivision_timer = game_time + attack.stomp.att_recovery_duration    
             end
         end
 
@@ -1170,6 +1186,8 @@ local function HandleSweepAttack()
                 -- ACTIVATE PARTCLES 
                 for i = 1, #particles.kiki_sweep_particle_left.part_childs do
                     lua_table.ParticlesFunctions:PlayParticleEmitter(particles.kiki_sweep_particle_left.part_childs[i])
+                    lua_table.SystemFunctions:LOG ("Kikimora: Sweep PARTIICLESSSSSS")
+                    
                 end
 
                 -- AUDIO PLAY
@@ -1228,17 +1246,15 @@ local function HandleSweepAttack()
                 --attack.sweep_left.att_timer = game_time + attack.sweep_left.att_cooldown_time
 
                 -- DEACTIVATE PARTCLES 
-                for i = 1, #particles.kiki_sweep_particle_left.part_childs do
-                    lua_table.ParticlesFunctions:StopParticleEmitter(particles.kiki_sweep_particle_left.part_childs[i])
-                end
+                -- for i = 1, #particles.kiki_sweep_particle_left.part_childs do
+                --     lua_table.ParticlesFunctions:StopParticleEmitter(particles.kiki_sweep_particle_left.part_childs[i])
+                -- end
 
                 attack_finished = true
                 attack_counter = attack_counter + 1
 
                 current_attack_type = attack_type.TO_BE_DETERMINED
                 current_attack_subdivision = attack_subdivision.TO_BE_DETERMINED
-
-                lua_table.SystemFunctions:LOG ("Kikimora: Sweep Finish")
             end
         end
     end
@@ -1577,11 +1593,7 @@ local function HandleLeashLeftAttack()
                 attack_collider.leash_left.coll_current_rot[y] = attack_collider.leash_left.coll_init_rot[y]
                 attack_collider.leash_left.coll_current_rot[z] = attack_collider.leash_left.coll_init_rot[z]
                 
-                lua_table.TransformFunctions:SetObjectRotation(attack_collider.leash_left.coll_current_rot[x], attack_collider.leash_left.coll_current_rot[y], attack_collider.leash_left.coll_current_rot[z], attack_collider.leash_left.coll_UID)
-            
-                -- AUDIO PLAY
-                lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_lash", my_UID)
-                
+                lua_table.TransformFunctions:SetObjectRotation(attack_collider.leash_left.coll_current_rot[x], attack_collider.leash_left.coll_current_rot[y], attack_collider.leash_left.coll_current_rot[z], attack_collider.leash_left.coll_UID)     
             end
         end
 
@@ -1603,21 +1615,30 @@ local function HandleLeashLeftAttack()
                 lua_table.collider_effect = attack.leash_left.att_effect -- attack_effect.knockback TODO: Figure out how to send knockback to players.
             end
 
-            if game_time > attack_subdivision_timer --Check if execution is finished
+            if game_time >= attack_subdivision_timer and attack_tired_timer == -1 --Check if execution is finished
             then
-                current_attack_subdivision = attack_subdivision.RECOVERY
+                attack_tired_timer = game_time + lua_table.leash_tired_time
                 
-                -- START RECOVERY OF ATTACK ANIMATION
-                lua_table.AnimationFunctions:PlayAnimation(animation.leash_left_recovery.anim_name, animation.leash_left_recovery.anim_speed, my_UID)
-
                 -- ACTIVATE PARTICLES
                 lua_table.ParticlesFunctions:PlayParticleEmitter(particles.dustcloud_leash_left.part_UID)
-                
-                -- Execution Timer
-                attack_subdivision_timer = game_time + attack.leash_left.att_recovery_duration
 
                 -- Deactivate collider
                 lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_collider.leash_left.coll_UID)
+
+                -- AUDIO PLAY
+                lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_lash", my_UID)
+            end
+
+            if game_time >= attack_tired_timer and attack_tired_timer ~= -1--Check if execution is finished
+            then
+                attack_tired_timer = -1
+                current_attack_subdivision = attack_subdivision.RECOVERY
+
+                -- START RECOVERY OF ATTACK ANIMATION
+                lua_table.AnimationFunctions:PlayAnimation(animation.leash_left_recovery.anim_name, animation.leash_left_recovery.anim_speed, my_UID)
+                
+                -- Execution Timer
+                attack_subdivision_timer = game_time + attack.leash_left.att_recovery_duration
             end
         end
 
@@ -1637,8 +1658,6 @@ local function HandleLeashLeftAttack()
 
                 current_attack_type = attack_type.TO_BE_DETERMINED
                 current_attack_subdivision = attack_subdivision.TO_BE_DETERMINED
-
-                lua_table.SystemFunctions:LOG ("Kikimora: Leash Left Finish")
             end
         end
     end
@@ -1712,9 +1731,6 @@ local function HandleLeashRightAttack()
                 
                 lua_table.TransformFunctions:SetObjectRotation(attack_collider.leash_right.coll_current_rot[x], attack_collider.leash_right.coll_current_rot[y], attack_collider.leash_right.coll_current_rot[z], attack_collider.leash_right.coll_UID)
 
-                -- AUDIO PLAY
-                lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_lash", my_UID)
-
             end
         end
 
@@ -1737,21 +1753,34 @@ local function HandleLeashRightAttack()
                 lua_table.collider_effect = attack.leash_right.att_effect -- attack_effect.knockback TODO: Figure out how to send knockback to players.
             end
 
-            if game_time > attack_subdivision_timer --Check if execution is finished
+            if game_time >= attack_subdivision_timer and attack_tired_timer == -1 --Check if execution is finished
             then
+                attack_tired_timer = game_time + lua_table.leash_tired_time
+
+                -- ACTIVATE PARTICLES
+                lua_table.ParticlesFunctions:PlayParticleEmitter(particles.dustcloud_leash_right.part_UID)
+            end
+
+            if game_time >= attack_tired_timer and attack_tired_timer ~= -1--Check if execution is finished
+            then
+                attack_tired_timer = -1
+
                 current_attack_subdivision = attack_subdivision.RECOVERY
                 
                 -- START EXECUTION OF ATTACK ANIMATION
                 lua_table.AnimationFunctions:PlayAnimation(animation.leash_right_recovery.anim_name, animation.leash_right_recovery.anim_speed, my_UID)
-
-                -- ACTIVATE PARTICLES
-                lua_table.ParticlesFunctions:PlayParticleEmitter(particles.dustcloud_leash_right.part_UID)
                 
                 -- Execution Timer
                 attack_subdivision_timer = game_time + attack.leash_right.att_recovery_duration
 
                 -- Deactivates Collider
                 lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_collider.leash_right.coll_UID)
+
+                -- DEACTIVATE PARTICLES
+                lua_table.ParticlesFunctions:StopParticleEmitter(particles.dustcloud_leash_right.part_UID)
+
+                -- AUDIO PLAY
+                lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_lash", my_UID)   
             end
         end
 
@@ -1762,17 +1791,12 @@ local function HandleLeashRightAttack()
             then
                 --attack.leash_right.att_cooldown_bool = true
                 --attack.leash_right.att_timer = game_time + attack.leash_right.att_cooldown_time
-
-                -- DEACTIVATE PARTICLES
-                lua_table.ParticlesFunctions:StopParticleEmitter(particles.dustcloud_leash_right.part_UID)
                 
                 attack_finished = true
                 attack_counter = attack_counter + 1
 
                 current_attack_type = attack_type.TO_BE_DETERMINED
-                current_attack_subdivision = attack_subdivision.TO_BE_DETERMINED
-
-                lua_table.SystemFunctions:LOG ("Kikimora: Leash Right Finish")
+                current_attack_subdivision = attack_subdivision.TO_BE_DETERMINED      
             end
         end
     end
@@ -2126,6 +2150,8 @@ end
 
 local function HandleHits()
     
+    got_hit = false
+
     -- Hit (Legs)
     if lua_table.hits_received > 0
     then
@@ -2135,6 +2161,8 @@ local function HandleHits()
         end
             -- AUDIO PLAY
         lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_damaged", my_UID)
+
+        got_hit = true
     end
     
     -- Critical hit (Head)
@@ -2151,7 +2179,20 @@ local function HandleHits()
         -- Partciles PLAY
         for i = 1, #particles.head_blood_hit.part_childs do
 	        lua_table.ParticlesFunctions:PlayParticleEmitter(particles.head_blood_hit.part_childs[i])
-	    end
+        end
+        got_hit = true
+    end
+
+    if got_hit == true
+    then
+        lua_table.MaterialsFunctions:SetMaterialByName(lua_table.hit_material_GO, my_mesh_UID)
+
+        hit_material_timer = game_time + lua_table.hit_time
+    end
+
+    if game_time >= hit_material_timer
+    then
+        lua_table.MaterialsFunctions:SetMaterialByName(lua_table.my_material_GO, my_mesh_UID)
     end
     
     -- Left Legs Particle Emmiters PLAY
@@ -2323,6 +2364,11 @@ local function HandleStates()
             -- AUDIO PLAY
             lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_scream_1", my_UID)
 
+            -- Camera Shake
+            lua_table.camera_script.camera_shake_activated = true
+			lua_table.camera_script.camera_shake_duration = 2
+			lua_table.camera_script.camera_shake_magnitude = 0.5
+
             lua_table.SystemFunctions:LOG ("Kikimora: AWAKENING ended now scream")
         end
 
@@ -2332,7 +2378,6 @@ local function HandleStates()
             
             current_state = state.IDLE
         end
-
     end
 
     if current_state == state.IDLE
@@ -2413,7 +2458,7 @@ local function HandleStates()
             current_attack_type = attack_type.TO_BE_DETERMINED
             current_attack_subdivision = attack_subdivision.TO_BE_DETERMINED
 
-            -- Play animation
+            -- This is while I don't have a Swapping phase animation (maybe with a stun + roar would make the same effect)
             lua_table.AnimationFunctions:PlayAnimation(animation.swap_phase.anim_name, animation.swap_phase.anim_speed, my_UID)
 
             local swap_phase_duration = animation.swap_phase.anim_frames / animation.swap_phase.anim_speed
@@ -2422,6 +2467,11 @@ local function HandleStates()
     
             -- AUDIO PLAY
             lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_scream_1", my_UID)
+
+            -- Camera Shake
+            lua_table.camera_script.camera_shake_activated = true
+            lua_table.camera_script.camera_shake_duration = 2
+            lua_table.camera_script.camera_shake_magnitude = 0.5
             
         end
     
@@ -2534,27 +2584,27 @@ function lua_table:Awake ()
     my_UID = lua_table.GameObjectFunctions:GetMyUID()
 
     lua_table.jump_pos_1[x] = 966
-    lua_table.jump_pos_1[y] = 13
+    lua_table.jump_pos_1[y] = 11
     lua_table.jump_pos_1[z] = -696
 
     lua_table.jump_rot_1[x] = 0
     lua_table.jump_rot_1[y] = -19
     lua_table.jump_rot_1[z] = 0
 
-    lua_table.jump_pos_2[x] = 932
-    lua_table.jump_pos_2[y] = 13
-    lua_table.jump_pos_2[z] = -674
+    lua_table.jump_pos_2[x] = 930
+    lua_table.jump_pos_2[y] = 10.5
+    lua_table.jump_pos_2[z] = -675.5
     
     lua_table.jump_rot_2[x] = 0
     lua_table.jump_rot_2[y] = 83
     lua_table.jump_rot_2[z] = 0
 
-    lua_table.jump_pos_3[x] = 983
-    lua_table.jump_pos_3[y] = 13
-    lua_table.jump_pos_3[z] = -678
+    lua_table.jump_pos_3[x] = 988
+    lua_table.jump_pos_3[y] = 11
+    lua_table.jump_pos_3[z] = -679.5
     
     lua_table.jump_rot_3[x] = 0
-    lua_table.jump_rot_3[y] = -89
+    lua_table.jump_rot_3[y] = -82
     lua_table.jump_rot_3[z] = 0
 
     -- Get my position
@@ -3072,7 +3122,7 @@ function lua_table:Awake ()
     particles.dustcloud_leash_right.part_UID = lua_table.GameObjectFunctions:FindGameObject(particles.dustcloud_leash_right.part_name)
    
     particles.kiki_sweep_particle_left.part_UID = lua_table.GameObjectFunctions:FindGameObject(particles.kiki_sweep_particle_left.part_name)
-    particles.kiki_sweep_right_particle.part_childs = lua_table.GameObjectFunctions:GetGOChilds(particles.kiki_sweep_right_particle.part_UID)
+    particles.kiki_sweep_particle_left.part_childs = lua_table.GameObjectFunctions:GetGOChilds(particles.kiki_sweep_particle_left.part_UID)
     
     particles.kiki_sweep_particle_right.part_UID = lua_table.GameObjectFunctions:FindGameObject(particles.kiki_sweep_particle_right.part_name)
   
