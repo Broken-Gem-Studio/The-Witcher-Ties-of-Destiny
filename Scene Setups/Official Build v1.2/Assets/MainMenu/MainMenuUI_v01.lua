@@ -299,14 +299,8 @@ function lua_table:Update()
 				lua_table.TransformFuctions:RotateObject(0, lua_table.cameraSpeed * 1.5 * dt, 0, camera_UUID)
 			else 
 				playingGame = false		
-				boardMenu = true
-				lua_table.ObjectFunctions:SetActiveGameObject(false, render)
-				lua_table.InterfaceFunctions:MakeElementVisible("Image", background)
-				lua_table.InterfaceFunctions:MakeElementVisible("Image", level1Marker)
-				lua_table.InterfaceFunctions:MakeElementVisible("Image", firstLevelImage)
-				lua_table.InterfaceFunctions:MakeElementVisible("Image",  showFirstLevel)
+				boardMenu = true		
 				lua_table.InterfaceFunctions:SetUIElementInteractable("Button", showFirstLevel, true)
-				lua_table.InterfaceFunctions:MakeElementVisible("Image", showSecondLevel)		
 				lua_table.InterfaceFunctions:SetUIElementInteractable("Button", showSecondLevel, true)
 			end	
 		end
@@ -334,11 +328,15 @@ function lua_table:PlayGame()
 	lua_table.lastCameraPos = lua_table.TransformFuctions:GetPosition(camera_UUID)
 	
 	lua_table.InterfaceFunctions:MakeElementInvisible("Image", playGameMarker)
-	lua_table.InterfaceFunctions:MakeElementInvisible("Image", quitMarker)
-	lua_table.InterfaceFunctions:MakeElementInvisible("Image", quitButton)
 	lua_table.InterfaceFunctions:SetUIElementInteractable("Button", quitButton, false)
-	lua_table.InterfaceFunctions:MakeElementInvisible("Image", playButton)
 	lua_table.InterfaceFunctions:SetUIElementInteractable("Button", playButton, false)
+
+	lua_table.ObjectFunctions:SetActiveGameObject(false, render)
+	lua_table.InterfaceFunctions:MakeElementVisible("Image", background)
+	lua_table.InterfaceFunctions:MakeElementVisible("Image", level1Marker)
+	lua_table.InterfaceFunctions:MakeElementVisible("Image", firstLevelImage)
+	lua_table.InterfaceFunctions:MakeElementVisible("Image",  showFirstLevel)
+	lua_table.InterfaceFunctions:MakeElementVisible("Image", showSecondLevel)
 end
 
 function lua_table:QuitGame()
