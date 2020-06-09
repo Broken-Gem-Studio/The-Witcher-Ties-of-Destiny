@@ -186,7 +186,7 @@ local function SearchPlayers() -- Check if targets are within range
 		lua_table.currentTargetPos = lua_table.JaskierPos
 	end
 
-	if lua_table.GeraltDistance ~= -1 then -- Geralt alive and Jaskier dead
+	if lua_table.GeraltDistance ~= -1 and lua_table.is_taunt == false then -- Geralt alive and Jaskier dead
 		if lua_table.JaskierDistance == - 1 or lua_table.GeraltDistance < lua_table.JaskierDistance then
 			lua_table.currentTarget = lua_table.geralt
 			lua_table.currentTargetDir = lua_table.GeraltDistance
@@ -194,7 +194,7 @@ local function SearchPlayers() -- Check if targets are within range
 		end
 	end
 
-	if lua_table.JaskierDistance ~= -1 then -- Jaskier alive and Geralt dead
+	if lua_table.JaskierDistance ~= -1 and lua_table.is_taunt == false then -- Jaskier alive and Geralt dead
 		if lua_table.GeraltDistance == - 1 or lua_table.JaskierDistance < lua_table.GeraltDistance then
 			lua_table.currentTarget = lua_table.jaskier
 			lua_table.currentTargetDir = lua_table.JaskierDistance
@@ -362,7 +362,7 @@ local function KnockBack()
 	end
 
 	if knockback_timer + 300 <= lua_table.System:GameTime() * 1000 then
-		lua_table.currentState = State.STUNNED	
+		lua_table.currentState = State.SEEK
 		lua_table.is_knockback = false
 		lua_table.System:LOG("Minion state: STUNNED (5), from KD")
 		
@@ -383,13 +383,13 @@ local function Die()
 		lua_table.Physics:SetActiveController(false, lua_table.MyUID)
 
 		local particles = {}
-		particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Minion_Taunt_Emitter", Recruit_General_Emitter))
+		particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Minion_Stun_Emitter", Minion_General_Emitter))
 		for i = 1, #particles do 
 			lua_table.Particles:StopParticleEmitter(particles[i])
 		end
 
 		local particles = {}
-		particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Minion_Aggro_Emitter", Recruit_General_Emitter))
+		particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Minion_Aggro_Emitter", Minion_General_Emitter))
 		for i = 1, #particles do 
 			lua_table.Particles:StopParticleEmitter(particles[i])
 		end

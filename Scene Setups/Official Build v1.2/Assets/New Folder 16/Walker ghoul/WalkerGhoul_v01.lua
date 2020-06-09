@@ -236,17 +236,8 @@ end
 local function Idle()    
     if lua_table.hit == false and lua_table.stunned == false and currentState ~= State.KNOCKBACK and currentState ~= State.DEATH
     then
-        -- If it is taunted it attacks Jaskier
-        if lua_table.taunted == true
-        then
-            currentState = State.SEEK                 
-            lua_table.ObjectivePosition = lua_table.TransformFunctions:GetPosition(lua_table.AttackDealer_UUID)
-            lua_table.PathCorners = lua_table.NavigationFunctions:CalculatePath(lua_table.MyPosition[1], lua_table.MyPosition[2], lua_table.MyPosition[3], lua_table.ObjectivePosition[1], lua_table.ObjectivePosition[2], lua_table.ObjectivePosition[3], 1 << lua_table.WalkableID)
-            lua_table.AnimationFunctions:PlayAnimation("Run", 30, MyUUID)                             
-            lua_table.SystemFunctions:LOG("Ghoul state is TAUNTED") 
-
         -- Looks for proximity to the players
-        elseif lua_table.ClosestDistance <= lua_table.evadeDistance and lua_table.SystemFunctions:GameTime() > lastTimeEvaded + evadeCooldown and evades > 0
+        if lua_table.ClosestDistance <= lua_table.evadeDistance and lua_table.SystemFunctions:GameTime() > lastTimeEvaded + evadeCooldown and evades > 0 and lua_table.taunted == false
         then 
             currentState = State.EVADE
             lua_table.EvadePosition = lua_table.ClosestPosition
@@ -258,7 +249,7 @@ local function Idle()
 
         elseif lua_table.ClosestDistance <= lua_table.screamDistance
         then
-            if lua_table.SystemFunctions:GameTime() > lastTimeSummoned + summonCooldown
+            if lua_table.SystemFunctions:GameTime() > lastTimeSummoned + summonCooldown and lua_table.taunted == false
             then  
                 currentState = State.SUMMONING
                 lastTimeSummoned = lua_table.SystemFunctions:GameTime()
@@ -266,7 +257,7 @@ local function Idle()
                 lua_table.AudioFunctions:PlayAudioEvent("Play_Screamer_ghoul_scream_variation")
                 lua_table.SystemFunctions:LOG("Ghoul state is SUMMONING")
 
-            elseif lua_table.SystemFunctions:GameTime() > lastTimeScreamed + screamingCooldown
+            elseif lua_table.SystemFunctions:GameTime() > lastTimeScreamed + screamingCooldown and lua_table.taunted == false
             then
                 currentState = State.SCREAMING
                 lastTimeScreamed = lua_table.SystemFunctions:GameTime()                       
@@ -297,17 +288,24 @@ local function Idle()
 
             elseif lua_table.SystemFunctions:GameTime() > lastTimeArrived + waitingForNextPursue
             then
-                currentState = State.SEEK               
-                lua_table.PathCorners = lua_table.NavigationFunctions:CalculatePath(lua_table.MyPosition[1], lua_table.MyPosition[2], lua_table.MyPosition[3], lua_table.ClosestPosition[1], lua_table.ClosestPosition[2], lua_table.ClosestPosition[3], 1 << lua_table.WalkableID)
-                lua_table.AnimationFunctions:PlayAnimation("Run", 30, MyUUID)                             
-                lua_table.SystemFunctions:LOG("Ghoul state is SEEK") 
+                currentState = State.SEEK       
+                lua_table.AnimationFunctions:PlayAnimation("Run", 30, MyUUID)
+                if lua_table.taunted == true
+                then    
+                    local objectivePosition = lua_table.TransformFunctions:GetPosition(lua_table.AttackDealer_UUID)
+                    lua_table.PathCorners = lua_table.NavigationFunctions:CalculatePath(lua_table.MyPosition[1], lua_table.MyPosition[2], lua_table.MyPosition[3], objectivePosition[1], objectivePosition[2], objectivePosition[3], 1 << lua_table.WalkableID)    
+                    lua_table.SystemFunctions:LOG("Ghoul state is TAUNTED")
+                else
+                    lua_table.PathCorners = lua_table.NavigationFunctions:CalculatePath(lua_table.MyPosition[1], lua_table.MyPosition[2], lua_table.MyPosition[3], lua_table.ClosestPosition[1], lua_table.ClosestPosition[2], lua_table.ClosestPosition[3], 1 << lua_table.WalkableID)
+                    lua_table.SystemFunctions:LOG("Ghoul state is SEEK") 
+                end
             end
         end  
     end
 end
 
 local function Seek()
-    if (lua_table.ClosestDistance >= lua_table.screamDistance and lua_table.ClosestDistance <= lua_table.seekDistance and cornerCounter <= #lua_table.PathCorners) or lua_table.taunted == true
+    if ((lua_table.ClosestDistance >= lua_table.screamDistance and lua_table.ClosestDistance <= lua_table.seekDistance) or lua_table.taunted == true) and cornerCounter <= #lua_table.PathCorners
     then               
         -- Calculate distance to the next corner
         local vectorToCorner = {0, 0, 0}
