@@ -5,7 +5,8 @@ lua_table.GameObjectFunctions = Scripting.GameObject()
 lua_table.PhysicsFunctions = Scripting.Physics()
 
 local layers = {
-	enemy = 3
+	enemy = 3,
+	prop = 5
 }
 
 local attack_collider_GO_UID
@@ -15,11 +16,8 @@ function lua_table:OnTriggerEnter()
 	lua_table.SystemFunctions:LOG("On Trigger Enter")
 	
 	local collider_GO = lua_table.PhysicsFunctions:OnTriggerEnter(attack_collider_GO_UID)
-
-	if lua_table.GameObjectFunctions:GetLayerByID(collider_GO) == layers.enemy	--IF collider is tagged as an enemy
-	then
-		my_owner_script:EnemyHit()
-	end
+	local collider_layer = lua_table.GameObjectFunctions:GetLayerByID(collider_GO)
+	if collider_layer == layers.enemy or collider_layer == layers.prop then my_owner_script:EnemyHit() end	--IF collider is tagged as an enemy
 end
 
 --Main Code

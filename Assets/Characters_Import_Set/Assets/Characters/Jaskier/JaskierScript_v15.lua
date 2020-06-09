@@ -505,7 +505,7 @@ lua_table.light_3_animation_speed = 60.0
 lua_table.light_3 = { 'N', 'L', 'L', 'L' }
 lua_table.light_3_size = 3
 lua_table.light_3_damage = 34.0
-lua_table.light_3_effect = attack_effects_ID.none
+lua_table.light_3_effect = attack_effects_ID.knockback
 lua_table.light_3_effect_value = 0
 
 --Medium Attack
@@ -641,12 +641,17 @@ lua_table.note_stack = { 'N', 'N', 'N', 'N' }	-- Notes based on attacks performe
 	local song_2_trapezoid = {
 		offset_x = 0.1,			--Near segment width (Must be > than 0)
 		offset_z = 0.1,			--Near segment forward distance
-		range = 20,				--Trapezoid height
+		range = 10,				--Trapezoid height
 		angle = math.rad(60),	--Trapezoid side angles
 		point_A = { x = 0, z = 0 },	--Far left
 		point_B = { x = 0, z = 0 },	--Far right
 		point_C = { x = 0, z = 0 },	--Near right
 		point_D = { x = 0, z = 0 }	--Near left
+	}
+	local song_2_particles_speed = {
+		forward = 25,
+		y = 25,
+		lateral = 75
 	}
 
 	--Song 3
@@ -2961,8 +2966,12 @@ function lua_table:Update()
 
 								--Direct and Activate Note Particles
 								for i = 1, #particles_library.song_cone_GO_UID_children do
-									lua_table.ParticlesFunctions:SetParticlesVelocity(50 * rec_direction.x, 0, 50 * rec_direction.z, particles_library.song_cone_GO_UID_children[i])
-									lua_table.ParticlesFunctions:SetRandomParticlesVelocity(50 * rec_direction.z, 0, 50 * rec_direction.x, -50 * rec_direction.z, 0, -50 * rec_direction.x, particles_library.song_cone_GO_UID_children[i])
+									lua_table.ParticlesFunctions:SetParticlesVelocity(song_2_particles_speed.forward * rec_direction.x, 0, song_2_particles_speed.forward * rec_direction.z, particles_library.song_cone_GO_UID_children[i])
+
+									lua_table.ParticlesFunctions:SetRandomParticlesVelocity(song_2_particles_speed.lateral * rec_direction.z, song_2_particles_speed.y, song_2_particles_speed.lateral * rec_direction.x,
+									-song_2_particles_speed.lateral * rec_direction.z, 0, -song_2_particles_speed.lateral * rec_direction.x,
+									particles_library.song_cone_GO_UID_children[i])
+
 									lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.song_cone_GO_UID_children[i])	--TODO-Particles: Activate Aard particles on hand
 								end
 
