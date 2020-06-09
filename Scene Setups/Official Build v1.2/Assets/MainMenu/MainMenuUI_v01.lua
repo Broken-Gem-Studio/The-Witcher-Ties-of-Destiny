@@ -93,7 +93,7 @@ end
 
 local function HandleInputs()
 	-- Start game	
-	if currentButton == Buttons.START and lua_table.InputFunctions:IsGamepadButton(1, "BUTTON_START", "DOWN")
+	if currentButton == Buttons.START and lua_table.InputFunctions:IsGamepadButton(1, "BUTTON_A", "DOWN")
 	then
 		lua_table:StartGame()
 	end
@@ -199,12 +199,13 @@ local function HandleInputs()
 		lua_table.loadLevel1 = false
         lua_table.loadLevel2 = false
 
-		lua_table.InterfaceFunctions:MakeElementVisible("Image", background)
+		lua_table.ObjectFunctions:SetActiveGameObject(true, background)
 		lua_table.InterfaceFunctions:MakeElementVisible("Image", showFirstLevel)
 		lua_table.InterfaceFunctions:SetUIElementInteractable("Button", showFirstLevel, true)
 		lua_table.InterfaceFunctions:MakeElementVisible("Image", showSecondLevel)
 		lua_table.InterfaceFunctions:SetUIElementInteractable("Button", showSecondLevel, true)
 		lua_table.InterfaceFunctions:MakeElementVisible("Image", level1Marker)
+		lua_table.InterfaceFunctions:MakeElementVisible("Image", firstLevelImage)
 	end
 end
 
@@ -213,7 +214,6 @@ local function PrepareCharacterSelection()
 	showingLevel2 = false
 	showingLevel1 = false
 	
-	lua_table.InterfaceFunctions:MakeElementInvisible("Image", background)
 	lua_table.InterfaceFunctions:MakeElementInvisible("Image", showFirstLevel)
 	lua_table.InterfaceFunctions:SetUIElementInteractable("Button", showFirstLevel, false)
 	lua_table.InterfaceFunctions:MakeElementInvisible("Image", showSecondLevel)
@@ -236,7 +236,7 @@ function lua_table:Awake()
 	secondLevelPlay = lua_table.ObjectFunctions:FindGameObject("PlaySecondLevelButton")
 	firstLevelImage = lua_table.ObjectFunctions:FindGameObject("FirstLevelImage")
 	secondLevelImage = lua_table.ObjectFunctions:FindGameObject("SecondLevelImage")
-	render = lua_table.ObjectFunctions:FindGameObject("Render")
+	render = lua_table.ObjectFunctions:FindGameObject("Board")
 	background = lua_table.ObjectFunctions:FindGameObject("MapBackground")
 
 	lastTimeFallen = lua_table.SystemFunctions:GameTime()
@@ -332,7 +332,7 @@ function lua_table:PlayGame()
 	lua_table.InterfaceFunctions:SetUIElementInteractable("Button", playButton, false)
 
 	lua_table.ObjectFunctions:SetActiveGameObject(false, render)
-	lua_table.InterfaceFunctions:MakeElementVisible("Image", background)
+	lua_table.ObjectFunctions:SetActiveGameObject(true, background)
 	lua_table.InterfaceFunctions:MakeElementVisible("Image", level1Marker)
 	lua_table.InterfaceFunctions:MakeElementVisible("Image", firstLevelImage)
 	lua_table.InterfaceFunctions:MakeElementVisible("Image",  showFirstLevel)
