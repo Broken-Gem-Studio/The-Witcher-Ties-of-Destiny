@@ -1185,9 +1185,7 @@ local function HandleSweepAttack()
                 
                 -- ACTIVATE PARTCLES 
                 for i = 1, #particles.kiki_sweep_particle_left.part_childs do
-                    lua_table.ParticlesFunctions:PlayParticleEmitter(particles.kiki_sweep_particle_left.part_childs[i])
-                    lua_table.SystemFunctions:LOG ("Kikimora: Sweep PARTIICLESSSSSS")
-                    
+                    lua_table.ParticlesFunctions:PlayParticleEmitter(particles.kiki_sweep_particle_left.part_childs[i])    
                 end
 
                 -- AUDIO PLAY
@@ -1234,6 +1232,11 @@ local function HandleSweepAttack()
 
                 -- Deactivate collider
                 lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_collider.sweep.coll_UID)
+                
+                --DEACTIVATE PARTCLES 
+                for i = 1, #particles.kiki_sweep_particle_left.part_childs do
+                    lua_table.ParticlesFunctions:StopParticleEmitter(particles.kiki_sweep_particle_left.part_childs[i])
+                end
             end
         end
 
@@ -1329,8 +1332,9 @@ local function HandleSweepLeftAttack()
                 lua_table.TransformFunctions:SetObjectRotation(attack_collider.sweep_left.coll_current_rot[x], attack_collider.sweep_left.coll_current_rot[y], attack_collider.sweep_left.coll_current_rot[z], attack_collider.sweep_left.coll_UID)
                 
                 -- ACTIVATE PARTCLES 
-                lua_table.ParticlesFunctions:PlayParticleEmitter(particles.kiki_sweep_left_particle.part_UID)
-
+                for i = 1, #particles.kiki_sweep_left_particle.part_childs do
+                    lua_table.ParticlesFunctions:PlayParticleEmitter(particles.kiki_sweep_left_particle.part_childs[i])
+                end
                 -- AUDIO PLAY
                 lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_sweep", my_UID)
 
@@ -1368,6 +1372,10 @@ local function HandleSweepLeftAttack()
                 -- Deactivate collider
                 lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_collider.sweep_left.coll_UID)
                 
+                -- DEACTIVATE PARTCLES
+                for i = 1, #particles.kiki_sweep_left_particle.part_childs do
+                    lua_table.ParticlesFunctions:StopParticleEmitter(particles.kiki_sweep_left_particle.part_childs[i])
+                end
             end
         end
 
@@ -1463,8 +1471,9 @@ local function HandleSweepRightAttack()
                 lua_table.TransformFunctions:SetObjectRotation(attack_collider.sweep_right.coll_current_rot[x], attack_collider.sweep_right.coll_current_rot[y], attack_collider.sweep_right.coll_current_rot[z], attack_collider.sweep_right.coll_UID)
                 
                 -- ACTIVATE PARTCLES 
-                lua_table.ParticlesFunctions:PlayParticleEmitter(particles.kiki_sweep_right_particle.part_UID)
-
+                for i = 1, #particles.kiki_sweep_right_particle.part_childs do
+                    lua_table.ParticlesFunctions:PlayParticleEmitter(particles.kiki_sweep_right_particle.part_childs[i])
+                end
                 -- AUDIO PLAY
                 lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_sweep", my_UID)
             end
@@ -1500,7 +1509,9 @@ local function HandleSweepRightAttack()
                 attack_subdivision_timer = game_time + attack.sweep_right.att_recovery_duration
 
                 -- Deactivates Collider
-                lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_collider.sweep_right.coll_UID)
+                for i = 1, #particles.kiki_sweep_right_particle.part_childs do
+                    lua_table.ParticlesFunctions:StopParticleEmitter(particles.kiki_sweep_right_particle.part_childs[i])
+                end
             end
         end
 
@@ -1967,6 +1978,16 @@ local function HandleJump()
 
         -- Particles STOP (ATTACKS ONLY)
         lua_table.ParticlesFunctions:StopParticleEmitter(particles.scream.part_UID)
+
+        for i = 1, #particles.kiki_sweep_particle_left.part_childs do
+            lua_table.ParticlesFunctions:StopParticleEmitter(particles.kiki_sweep_particle_left.part_childs[i])
+        end
+        for i = 1, #particles.kiki_sweep_particle_right.part_childs do
+            lua_table.ParticlesFunctions:StopParticleEmitter(particles.kiki_sweep_particle_right.part_childs[i])
+        end
+        for i = 1, #particles.kiki_sweep_left_particle.part_childs do
+            lua_table.ParticlesFunctions:StopParticleEmitter(particles.kiki_sweep_left_particle.part_childs[i])
+        end
         
         start_jumping = false
 
@@ -2458,6 +2479,17 @@ local function HandleStates()
             current_attack_type = attack_type.TO_BE_DETERMINED
             current_attack_subdivision = attack_subdivision.TO_BE_DETERMINED
 
+            lua_table.ParticlesFunctions:StopParticleEmitter(particles.scream.part_UID)
+            for i = 1, #particles.kiki_sweep_particle_left.part_childs do
+                lua_table.ParticlesFunctions:StopParticleEmitter(particles.kiki_sweep_particle_left.part_childs[i])
+            end
+            for i = 1, #particles.kiki_sweep_particle_right.part_childs do
+                lua_table.ParticlesFunctions:StopParticleEmitter(particles.kiki_sweep_particle_right.part_childs[i])
+            end
+            for i = 1, #particles.kiki_sweep_left_particle.part_childs do
+                lua_table.ParticlesFunctions:StopParticleEmitter(particles.kiki_sweep_left_particle.part_childs[i])
+            end
+
             -- This is while I don't have a Swapping phase animation (maybe with a stun + roar would make the same effect)
             lua_table.AnimationFunctions:PlayAnimation(animation.swap_phase.anim_name, animation.swap_phase.anim_speed, my_UID)
 
@@ -2524,6 +2556,16 @@ local function HandleStates()
         -- Partciles STOP
         lua_table.ParticlesFunctions:StopParticleEmitter(particles.rage_aura_2.part_UID)
         lua_table.ParticlesFunctions:StopParticleEmitter(particles.scream.part_UID)
+
+        for i = 1, #particles.kiki_sweep_particle_left.part_childs do
+            lua_table.ParticlesFunctions:StopParticleEmitter(particles.kiki_sweep_particle_left.part_childs[i])
+        end
+        for i = 1, #particles.kiki_sweep_particle_right.part_childs do
+            lua_table.ParticlesFunctions:StopParticleEmitter(particles.kiki_sweep_particle_right.part_childs[i])
+        end
+        for i = 1, #particles.kiki_sweep_left_particle.part_childs do
+            lua_table.ParticlesFunctions:StopParticleEmitter(particles.kiki_sweep_left_particle.part_childs[i])
+        end
 
         -- Play death animation
         lua_table.AnimationFunctions:PlayAnimation(animation.death.anim_name, animation.death.anim_speed, my_UID)
@@ -3127,6 +3169,7 @@ function lua_table:Awake ()
     particles.kiki_sweep_particle_right.part_UID = lua_table.GameObjectFunctions:FindGameObject(particles.kiki_sweep_particle_right.part_name)
   
     particles.kiki_sweep_left_particle.part_UID = lua_table.GameObjectFunctions:FindGameObject(particles.kiki_sweep_left_particle.part_name)
+    particles.kiki_sweep_left_particle.part_childs = lua_table.GameObjectFunctions:GetGOChilds(particles.kiki_sweep_left_particle.part_UID)
     particles.kiki_sweep_right_particle.part_UID = lua_table.GameObjectFunctions:FindGameObject(particles.kiki_sweep_right_particle.part_name)
     particles.kiki_sweep_right_particle.part_childs = lua_table.GameObjectFunctions:GetGOChilds(particles.kiki_sweep_right_particle.part_UID)
 
