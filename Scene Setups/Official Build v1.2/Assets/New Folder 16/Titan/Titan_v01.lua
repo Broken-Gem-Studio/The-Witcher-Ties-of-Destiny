@@ -149,6 +149,7 @@ local speed_up = false
 local punching = false
 local swiping = false
 local smashing = false
+local play_particles = true
 local has_died = false
 
 local rand_death_time = 0
@@ -184,6 +185,7 @@ local function ResetJumpStun()
 	if jumping == true then jumping = false end
 	if speed_up == true then speed_up = false end 
 	if stunning == true then stunning = false end
+	if play_particles == false then play_particles = true end
 end
 
 local function ResetPunch()
@@ -248,7 +250,7 @@ local function SearchPlayers() -- Check if targets are within range
 		lua_table.currentTargetPos = lua_table.JaskierPos
 	end
 
-	if lua_table.GeraltDistance ~= -1 then -- Geralt alive and Jaskier dead
+	if lua_table.GeraltDistance ~= -1 and lua_table.is_taunt == false then -- Geralt alive and Jaskier dead
 		if lua_table.JaskierDistance == - 1 or lua_table.GeraltDistance < lua_table.JaskierDistance then
 			lua_table.currentTarget = lua_table.geralt
 			lua_table.currentTargetDir = lua_table.GeraltDistance
@@ -256,7 +258,7 @@ local function SearchPlayers() -- Check if targets are within range
 		end
 	end
 
-	if lua_table.JaskierDistance ~= -1 then -- Jaskier alive and Geralt dead
+	if lua_table.JaskierDistance ~= -1 and lua_table.is_taunt == false then -- Jaskier alive and Geralt dead
 		if lua_table.GeraltDistance == - 1 or lua_table.JaskierDistance < lua_table.GeraltDistance then
 			lua_table.currentTarget = lua_table.jaskier
 			lua_table.currentTargetDir = lua_table.JaskierDistance
@@ -386,8 +388,6 @@ end
 	
 local function JumpStun() -- Smash the ground with a jump, then stun
 
-	local play_particles = true
-	
 	-- Mark the affected area
 	if not start_jump and lua_table.can_jump == true then 
 

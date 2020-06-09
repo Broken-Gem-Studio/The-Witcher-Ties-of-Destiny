@@ -514,8 +514,8 @@ lua_table.light_3_animation_speed = 60.0	--Slow time: 320ms
 lua_table.light_3 = { 'N', 'L', 'L', 'L' }
 lua_table.light_3_size = 3
 lua_table.light_3_damage = 34.0
-lua_table.light_3_effect = attack_effects_ID.none
-lua_table.light_3_effect_value = 0
+lua_table.light_3_effect = attack_effects_ID.stun
+lua_table.light_3_effect_value = 100
 
 --Medium Attack
 lua_table.medium_damage = 50.0					--Multiplier of Base Damage
