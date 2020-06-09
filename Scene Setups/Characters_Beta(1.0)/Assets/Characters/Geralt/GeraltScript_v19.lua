@@ -267,7 +267,7 @@ local item_library_size = 3
 local item_effects = {		--Item library and required data to operate
 	{ health_recovery = 4, health_regen = 0.1 },
 	{ speed_increase = 0.5, energy_regen = 2 },
-	{ damage_increase = 1, critical_chance_increase = 10 }
+	{ damage_increase = 0.5, critical_chance_increase = 10 }
 }
 lua_table.inventory = {	--Character inventory (number of each item)
 	3,
@@ -285,7 +285,7 @@ lua_table.item_pickup_range = 2
 
 	--Potions
 	lua_table.potion_in_effect = 0
-	lua_table.potion_duration = 5000	--Duration in ms
+	lua_table.potion_duration = 10000	--Duration in ms
 	local potion_taken_at = 0
 	lua_table.potion_active = false
 
