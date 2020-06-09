@@ -1,56 +1,58 @@
 {
-    "1311034479": {
+    "1019582971": {
         "Active": true,
         "Components": {
             "0": {
-                "layer": "7",
-                "positionx": "0.000000",
+                "layer": "0",
+                "positionx": "-0.000002",
                 "positiony": "0.000000",
                 "positionz": "0.000000",
-                "rotationw": "0.862414",
+                "rotationw": "1.000000",
                 "rotationx": "0.000000",
-                "rotationy": "0.506204",
+                "rotationy": "0.000000",
                 "rotationz": "0.000000",
-                "scalex": "0.025000",
-                "scaley": "0.020000",
-                "scalez": "0.020000"
-            },
-            "1": {
-                "Active": true,
-                "Resources": {
-                    "ResourceMesh": {
-                        "PreviewTexture": "",
-                        "path": "Library/Meshes/776218225.mesh"
-                    }
-                }
-            },
-            "2": {
-                "Active": true,
-                "CastsShadows": true,
-                "LightAffected": true,
-                "OnlyShadows": false,
-                "ReceivesShadows": true,
-                "Resources": {
-                    "ResourceMaterial": {
-                        "path": "Assets/New Folder 16/Breakable Prop/BottleRed.mat"
-                    }
-                }
+                "scalex": "4.000000",
+                "scaley": "4.000000",
+                "scalez": "4.000000"
             }
         },
-        "Name": "bottle_low_uvs2:pSphere1",
-        "Parent": "1955693803",
+        "Name": "Chest_Particles",
+        "Parent": "26206582",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false
     },
-    "1615975522": {
+    "1080156877": {
         "Active": true,
         "Components": {
             "0": {
-                "layer": "6",
-                "positionx": "0.000000",
-                "positiony": "0.000000",
-                "positionz": "0.000000",
+                "layer": "0",
+                "positionx": "3.055647",
+                "positiony": "4.000000",
+                "positionz": "-2.323990",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "4.000000",
+                "scaley": "4.000000",
+                "scalez": "4.000000"
+            }
+        },
+        "Name": "spwn3",
+        "Parent": "26206582",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "1148569341": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-2.206376",
+                "positiony": "9.453781",
+                "positionz": "63.984589",
                 "rotationw": "1.000000",
                 "rotationx": "0.000000",
                 "rotationy": "0.000000",
@@ -59,11 +61,40 @@
                 "scaley": "1.000000",
                 "scalez": "1.000000"
             },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/540709121.bone"
+                }
+            }
+        },
+        "Name": "Cage_Static",
+        "Parent": "314089856",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "1314829119": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "6",
+                "positionx": "0.000000",
+                "positiony": "4.411719",
+                "positionz": "-1.001598",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "15.999988",
+                "scaley": "15.999968",
+                "scalez": "15.999972"
+            },
             "18": {
                 "Active": true,
                 "CollisionsActivated": false,
                 "Duration": "1000",
-                "GradientColor": true,
+                "GradientColor": false,
                 "HorizontalBill": "0",
                 "Loop": true,
                 "PartAutoBlending": true,
@@ -76,34 +107,22 @@
                 "PartOnlyShadows": false,
                 "PartReceiveShadows": false,
                 "PartSceneColorAffected": false,
-                "ParticlesBill": true,
+                "ParticlesBill": false,
                 "ParticlesCustomMesh": false,
                 "ParticlesFaceCulling": true,
-                "PlayOnAwake": true,
+                "PlayOnAwake": false,
                 "Resources": {
                     "ResourceMesh": null,
-                    "ResourceTexture": "Library/Textures/1053900002.dds"
+                    "ResourceTexture": "Library/Textures/429630654.dds"
                 },
                 "VerticalBill": "0",
                 "animation": "0",
                 "colors": [
                     {
-                        "a": "1.000000",
-                        "x": "1.000000",
-                        "y": "0.000000",
-                        "z": "0.000000"
-                    },
-                    {
-                        "a": "1.000000",
-                        "x": "0.874510",
-                        "y": "0.227451",
-                        "z": "0.227451"
-                    },
-                    {
-                        "a": "1.000000",
-                        "x": "1.000000",
-                        "y": "0.000000",
-                        "z": "0.000000"
+                        "a": "0.453039",
+                        "x": "0.966127",
+                        "y": "1.000000",
+                        "z": "0.430939"
                     }
                 ],
                 "curves": [
@@ -153,60 +172,46 @@
                     }
                 ],
                 "cycles": "1.000000",
-                "emisionRate": "300.000000",
+                "emisionRate": "5000.000000",
                 "externalAccelerationX": "0.000000",
-                "externalAccelerationY": "10.000000",
+                "externalAccelerationY": "9.800000",
                 "externalAccelerationZ": "0.000000",
-                "followEmitterPosition": true,
+                "followEmitterPosition": false,
                 "followEmitterRotation": false,
-                "grad_duration": "850",
-                "gradients": [
-                    {
-                        "a": "0.000000",
-                        "x": "-0.000148",
-                        "y": "0.000268",
-                        "z": "0.000268"
-                    },
-                    {
-                        "a": "0.000000",
-                        "x": "0.000148",
-                        "y": "-0.000268",
-                        "z": "-0.000268"
-                    }
-                ],
+                "grad_duration": "0",
                 "maxInitialRotation": [
                     "0",
                     "0",
                     "0"
                 ],
                 "minInitialRotation": [
-                    "0",
-                    "0",
+                    "25",
+                    "-180",
                     "0"
                 ],
-                "num_colors": "3",
+                "num_colors": "1",
                 "num_curves": "2",
-                "num_gradients": "2",
+                "num_gradients": "0",
                 "particleScaleOverTime": "0.000000",
                 "particleScaleRandomFactor1": "1.000000",
                 "particleScaleRandomFactor2": "1.000000",
-                "particlesLifeTime": "1700",
-                "particlesPerCreation": "5",
-                "particlesScaleX": "0.200000",
-                "particlesScaleY": "0.500000",
+                "particlesLifeTime": "5000",
+                "particlesPerCreation": "1",
+                "particlesScaleX": "3.000000",
+                "particlesScaleY": "3.000000",
                 "particlesScaleZ": "1.000000",
                 "particlesVelocityX": "0.000000",
-                "particlesVelocityY": "1.000000",
+                "particlesVelocityY": "0.000000",
                 "particlesVelocityZ": "0.000000",
                 "positionX": "0.000000",
                 "positionY": "0.000000",
                 "positionZ": "0.000000",
                 "randomInitialRotation": false,
-                "randomStartFrame": true,
+                "randomStartFrame": false,
                 "rotationOvertime1": [
                     "0",
                     "0",
-                    "0"
+                    "20"
                 ],
                 "rotationOvertime2": [
                     "0",
@@ -219,206 +224,7 @@
                 "rotationZ": "0.000000",
                 "rotationconstants": "0",
                 "scaleconstants": "0",
-                "separateAxis": "0",
-                "separateAxisScale": "0",
-                "sizeX": "0.300000",
-                "sizeY": "0.010000",
-                "sizeZ": "0.300000",
-                "startFrame": "0",
-                "tiles_X": "1",
-                "tiles_Y": "1",
-                "velocityRandomFactor1X": "0.750000",
-                "velocityRandomFactor1Y": "0.000000",
-                "velocityRandomFactor1Z": "0.750000",
-                "velocityRandomFactor2X": "-0.750000",
-                "velocityRandomFactor2Y": "0.000000",
-                "velocityRandomFactor2Z": "-0.750000",
-                "velocityconstants": "0"
-            }
-        },
-        "Name": "Star",
-        "Parent": "1955693803",
-        "PrefabChild": true,
-        "PrefabInstance": false,
-        "Static": false
-    },
-    "1743648778": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "layer": "6",
-                "positionx": "0.000000",
-                "positiony": "0.095235",
-                "positionz": "0.000000",
-                "rotationw": "1.000000",
-                "rotationx": "0.000000",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "1.000000",
-                "scaley": "1.000000",
-                "scalez": "1.000000"
-            },
-            "18": {
-                "Active": true,
-                "CollisionsActivated": false,
-                "Duration": "1000",
-                "GradientColor": true,
-                "HorizontalBill": "1",
-                "Loop": true,
-                "PartAutoBlending": true,
-                "PartBlendEquation": 0,
-                "PartBlendFunc": 2,
-                "PartCastShadows": false,
-                "PartLightAffected": false,
-                "PartMBlFuncDst": 7,
-                "PartMBlFuncSrc": 6,
-                "PartOnlyShadows": false,
-                "PartReceiveShadows": false,
-                "PartSceneColorAffected": false,
-                "ParticlesBill": true,
-                "ParticlesCustomMesh": false,
-                "ParticlesFaceCulling": true,
-                "PlayOnAwake": true,
-                "Resources": {
-                    "ResourceMesh": null,
-                    "ResourceTexture": "Library/Textures/596003088.dds"
-                },
-                "VerticalBill": "0",
-                "animation": "0",
-                "colors": [
-                    {
-                        "a": "1.000000",
-                        "x": "1.000000",
-                        "y": "0.000000",
-                        "z": "0.000000"
-                    },
-                    {
-                        "a": "1.000000",
-                        "x": "0.872928",
-                        "y": "0.226672",
-                        "z": "0.226672"
-                    },
-                    {
-                        "a": "1.000000",
-                        "x": "1.000000",
-                        "y": "0.000000",
-                        "z": "0.000000"
-                    }
-                ],
-                "curves": [
-                    {
-                        "0": {
-                            "NextX": "0.100000",
-                            "NextY": "0.100000",
-                            "PX": "0.000000",
-                            "PY": "0.000000",
-                            "PrevX": "0.000000",
-                            "PrevY": "0.000000"
-                        },
-                        "1": {
-                            "NextX": "1.000000",
-                            "NextY": "1.000000",
-                            "PX": "1.000000",
-                            "PY": "1.000000",
-                            "PrevX": "-0.100000",
-                            "PrevY": "-0.100000"
-                        },
-                        "multiplier": "1.000000",
-                        "name": "##scale",
-                        "num_points": "2",
-                        "type": "0"
-                    },
-                    {
-                        "0": {
-                            "NextX": "0.100000",
-                            "NextY": "0.100000",
-                            "PX": "0.000000",
-                            "PY": "0.000000",
-                            "PrevX": "0.000000",
-                            "PrevY": "0.000000"
-                        },
-                        "1": {
-                            "NextX": "1.000000",
-                            "NextY": "1.000000",
-                            "PX": "1.000000",
-                            "PY": "1.000000",
-                            "PrevX": "-0.100000",
-                            "PrevY": "-0.100000"
-                        },
-                        "multiplier": "1.000000",
-                        "name": "##rotation",
-                        "num_points": "2",
-                        "type": "0"
-                    }
-                ],
-                "cycles": "1.000000",
-                "emisionRate": "1000.000000",
-                "externalAccelerationX": "0.000000",
-                "externalAccelerationY": "9.800000",
-                "externalAccelerationZ": "0.000000",
-                "followEmitterPosition": true,
-                "followEmitterRotation": false,
-                "grad_duration": "500",
-                "gradients": [
-                    {
-                        "a": "0.000000",
-                        "x": "-0.000254",
-                        "y": "0.000453",
-                        "z": "0.000453"
-                    },
-                    {
-                        "a": "0.000000",
-                        "x": "0.000254",
-                        "y": "-0.000453",
-                        "z": "-0.000453"
-                    }
-                ],
-                "maxInitialRotation": [
-                    "0",
-                    "0",
-                    "0"
-                ],
-                "minInitialRotation": [
-                    "0",
-                    "0",
-                    "0"
-                ],
-                "num_colors": "3",
-                "num_curves": "2",
-                "num_gradients": "2",
-                "particleScaleOverTime": "0.000000",
-                "particleScaleRandomFactor1": "1.000000",
-                "particleScaleRandomFactor2": "1.000000",
-                "particlesLifeTime": "1000",
-                "particlesPerCreation": "1",
-                "particlesScaleX": "2.000000",
-                "particlesScaleY": "2.000000",
-                "particlesScaleZ": "1.000000",
-                "particlesVelocityX": "0.000000",
-                "particlesVelocityY": "0.000000",
-                "particlesVelocityZ": "0.000000",
-                "positionX": "0.000000",
-                "positionY": "0.000000",
-                "positionZ": "0.000000",
-                "randomInitialRotation": false,
-                "randomStartFrame": true,
-                "rotationOvertime1": [
-                    "0",
-                    "0",
-                    "0"
-                ],
-                "rotationOvertime2": [
-                    "0",
-                    "0",
-                    "0"
-                ],
-                "rotationType": "0",
-                "rotationX": "0.000000",
-                "rotationY": "0.000000",
-                "rotationZ": "0.000000",
-                "rotationconstants": "1",
-                "scaleconstants": "0",
-                "separateAxis": "0",
+                "separateAxis": "1",
                 "separateAxisScale": "0",
                 "sizeX": "0.000000",
                 "sizeY": "0.000000",
@@ -435,17 +241,61 @@
                 "velocityconstants": "0"
             }
         },
-        "Name": "Circle",
-        "Parent": "1955693803",
+        "Name": "Sparkle",
+        "Parent": "26206582",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false
     },
-    "1955693803": {
+    "131504284": {
         "Active": true,
         "Components": {
             "0": {
-                "layer": "7",
+                "layer": "0",
+                "positionx": "1.315123",
+                "positiony": "2.857223",
+                "positionz": "-0.373831",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.012074",
+                "scaley": "0.012074",
+                "scalez": "0.012074"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/484922179.mesh"
+                    }
+                }
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/New Folder 16/Props/Chest.mat"
+                    }
+                }
+            }
+        },
+        "Name": "Coins_DecoMesh",
+        "Parent": "26206582",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "1461556053": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "6",
                 "positionx": "0.000000",
                 "positiony": "0.000000",
                 "positionz": "0.000000",
@@ -457,34 +307,289 @@
                 "scaley": "1.000000",
                 "scalez": "1.000000"
             },
+            "18": {
+                "Active": true,
+                "CollisionsActivated": true,
+                "Duration": "900",
+                "GradientColor": false,
+                "HorizontalBill": "0",
+                "Loop": false,
+                "PartAutoBlending": true,
+                "PartBlendEquation": 0,
+                "PartBlendFunc": 0,
+                "PartCastShadows": false,
+                "PartLightAffected": true,
+                "PartMBlFuncDst": 7,
+                "PartMBlFuncSrc": 6,
+                "PartOnlyShadows": false,
+                "PartReceiveShadows": false,
+                "PartSceneColorAffected": true,
+                "ParticlesBill": true,
+                "ParticlesCustomMesh": false,
+                "ParticlesFaceCulling": true,
+                "PlayOnAwake": false,
+                "Resources": {
+                    "ResourceMesh": null,
+                    "ResourceTexture": "Library/Textures/1863459330.dds"
+                },
+                "VerticalBill": "0",
+                "animation": "0",
+                "colors": [
+                    {
+                        "a": "1.000000",
+                        "x": "0.698039",
+                        "y": "0.447059",
+                        "z": "0.164706"
+                    }
+                ],
+                "curves": [
+                    {
+                        "0": {
+                            "NextX": "0.100000",
+                            "NextY": "0.100000",
+                            "PX": "0.000000",
+                            "PY": "0.000000",
+                            "PrevX": "0.000000",
+                            "PrevY": "0.000000"
+                        },
+                        "1": {
+                            "NextX": "1.000000",
+                            "NextY": "1.000000",
+                            "PX": "1.000000",
+                            "PY": "1.000000",
+                            "PrevX": "-0.100000",
+                            "PrevY": "-0.100000"
+                        },
+                        "multiplier": "1.000000",
+                        "name": "##scale",
+                        "num_points": "2",
+                        "type": "0"
+                    },
+                    {
+                        "0": {
+                            "NextX": "0.100000",
+                            "NextY": "0.100000",
+                            "PX": "0.000000",
+                            "PY": "0.000000",
+                            "PrevX": "0.000000",
+                            "PrevY": "0.000000"
+                        },
+                        "1": {
+                            "NextX": "1.000000",
+                            "NextY": "1.000000",
+                            "PX": "1.000000",
+                            "PY": "1.000000",
+                            "PrevX": "-0.100000",
+                            "PrevY": "-0.100000"
+                        },
+                        "multiplier": "1.000000",
+                        "name": "##rotation",
+                        "num_points": "2",
+                        "type": "0"
+                    }
+                ],
+                "cycles": "1.000000",
+                "emisionRate": "1100.000000",
+                "externalAccelerationX": "0.000000",
+                "externalAccelerationY": "0.000000",
+                "externalAccelerationZ": "0.000000",
+                "followEmitterPosition": false,
+                "followEmitterRotation": false,
+                "grad_duration": "0",
+                "maxInitialRotation": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "minInitialRotation": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "num_colors": "1",
+                "num_curves": "2",
+                "num_gradients": "0",
+                "particleScaleOverTime": "0.000000",
+                "particleScaleRandomFactor1": "0.100000",
+                "particleScaleRandomFactor2": "0.700000",
+                "particlesLifeTime": "1000",
+                "particlesPerCreation": "15",
+                "particlesScaleX": "1.000000",
+                "particlesScaleY": "1.000000",
+                "particlesScaleZ": "1.000000",
+                "particlesVelocityX": "0.000000",
+                "particlesVelocityY": "5.000000",
+                "particlesVelocityZ": "0.000000",
+                "positionX": "0.000000",
+                "positionY": "0.000000",
+                "positionZ": "0.000000",
+                "randomInitialRotation": false,
+                "randomStartFrame": true,
+                "rotationOvertime1": [
+                    "0",
+                    "0",
+                    "-100"
+                ],
+                "rotationOvertime2": [
+                    "0",
+                    "0",
+                    "100"
+                ],
+                "rotationType": "0",
+                "rotationX": "0.000000",
+                "rotationY": "0.000000",
+                "rotationZ": "0.000000",
+                "rotationconstants": "1",
+                "scaleconstants": "1",
+                "separateAxis": "0",
+                "separateAxisScale": "0",
+                "sizeX": "1.000000",
+                "sizeY": "0.500000",
+                "sizeZ": "1.000000",
+                "startFrame": "0",
+                "tiles_X": "1",
+                "tiles_Y": "1",
+                "velocityRandomFactor1X": "-7.000000",
+                "velocityRandomFactor1Y": "0.000000",
+                "velocityRandomFactor1Z": "-7.000000",
+                "velocityRandomFactor2X": "7.000000",
+                "velocityRandomFactor2Y": "0.000000",
+                "velocityRandomFactor2Z": "7.000000",
+                "velocityconstants": "0"
+            }
+        },
+        "Name": "Astilla",
+        "Parent": "1019582971",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "1571370822": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-2.206376",
+                "positiony": "-136.188965",
+                "positionz": "126.681557",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1468864878.bone"
+                }
+            }
+        },
+        "Name": "Cage_Open",
+        "Parent": "314089856",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "26206582": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "5",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.250002",
+                "scaley": "0.250000",
+                "scalez": "0.250002"
+            },
             "12": {
                 "Active": true,
                 "Resources": {
-                    "ResourceScript": "Assets/Particles/Drops/Potion_Script.lua"
+                    "ResourceScript": "Assets/New Folder 16/Props/Chest.lua"
                 },
                 "Script variables": {
-                    "Count": 3,
+                    "Count": 6,
                     "Variable 0": {
                         "DisplayObjectName": false,
-                        "Name": "item_id",
+                        "Name": "health",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 1.0
+                        "Value": 2.0
                     },
                     "Variable 1": {
+                        "DisplayObjectName": true,
+                        "Name": "health_potion",
+                        "ObjectName": "Drop_Particle_Red (0).prefab",
+                        "Type": "Double",
+                        "Value": 2009469253.0
+                    },
+                    "Variable 2": {
                         "DisplayObjectName": false,
-                        "Name": "my_UID",
+                        "Name": "myUID",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
                     },
-                    "Variable 2": {
+                    "Variable 3": {
                         "DisplayObjectName": false,
                         "Name": "player_owner",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": true,
+                        "Name": "power_potion",
+                        "ObjectName": "Drop_Particle_Purple (0).prefab",
+                        "Type": "Double",
+                        "Value": 1013338032.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": true,
+                        "Name": "stamina_potion",
+                        "ObjectName": "Drop_Particle_Yellow (0).prefab",
+                        "Type": "Double",
+                        "Value": 775736879.0
                     }
+                }
+            },
+            "14": {
+                "Active": true,
+                "Animations": {
+                    "0": {
+                        "Default": false,
+                        "End": "0",
+                        "Loop": false,
+                        "Name": "Idle",
+                        "Start": "0"
+                    },
+                    "1": {
+                        "Default": false,
+                        "End": "15",
+                        "Loop": false,
+                        "Name": "Hit",
+                        "Start": "1"
+                    },
+                    "2": {
+                        "Default": false,
+                        "End": "41",
+                        "Loop": false,
+                        "Name": "Open",
+                        "Start": "15"
+                    },
+                    "BlendTime": "0.300000",
+                    "Size": "3",
+                    "UseDefault": false
+                },
+                "Resources": {
+                    "ResourceAnimation": "Library/Animations/1398095237.anim"
                 }
             },
             "15": {
@@ -497,16 +602,16 @@
                 "freezePosition_X": "0",
                 "freezePosition_Y": "0",
                 "freezePosition_Z": "0",
-                "freezeRotation_X": "1",
-                "freezeRotation_Y": "1",
-                "freezeRotation_Z": "1",
-                "is_kinematic": "0",
+                "freezeRotation_X": "0",
+                "freezeRotation_Y": "0",
+                "freezeRotation_Z": "0",
+                "is_kinematic": "1",
                 "linear_damping": "0.000000",
                 "linear_velx": "0.000000",
                 "linear_vely": "0.000000",
                 "linear_velz": "0.000000",
                 "mass": "10.000000",
-                "use_gravity": "1"
+                "use_gravity": "0"
             },
             "16": {
                 "Active": true,
@@ -516,7 +621,7 @@
                 "firstCreation": "1",
                 "globalMatrixw": "1.000000",
                 "globalMatrixx": "0.000000",
-                "globalMatrixy": "1.000000",
+                "globalMatrixy": "1.011250",
                 "globalMatrixz": "0.000000",
                 "globalPositionx": "1.000000",
                 "globalPositiony": "1.000000",
@@ -528,10 +633,10 @@
                 "lastIndex": "1",
                 "localMatrixw": "1.000000",
                 "localMatrixx": "0.000000",
-                "localMatrixy": "1.000000",
+                "localMatrixy": "4.045000",
                 "localMatrixz": "0.000000",
                 "localPositionx": "0.000000",
-                "localPositiony": "1.000000",
+                "localPositiony": "4.045000",
                 "localPositionz": "0.000000",
                 "offsetx": "0.000000",
                 "offsety": "0.000000",
@@ -540,21 +645,93 @@
                 "originalScaley": "1.000000",
                 "originalScalez": "1.000000",
                 "radius": "1.000000",
-                "scalex": "1.000000",
-                "scaley": "1.890000",
-                "scalez": "1.000000",
-                "tmpScalex": "1.000000",
-                "tmpScaley": "1.890000",
-                "tmpScalez": "1.000000"
+                "scalex": "15.000000",
+                "scaley": "9.760000",
+                "scalez": "8.200000",
+                "tmpScalex": "3.750000",
+                "tmpScaley": "2.440000",
+                "tmpScalez": "2.050000"
+            },
+            "19": {
+                "Active": true
             }
         },
-        "Name": "Drop_Particle_Red",
-        "Parent": "2023823616",
+        "Name": "Chest",
+        "Parent": "2083354369",
         "PrefabChild": true,
         "PrefabInstance": true,
         "Static": false
     },
-    "452587922": {
+    "314089856": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            }
+        },
+        "Name": "CagePivot",
+        "Parent": "26206582",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "330937688": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-5.000000",
+                "positiony": "4.000241",
+                "positionz": "-1.915418",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "4.000000",
+                "scaley": "4.000000",
+                "scalez": "4.000000"
+            }
+        },
+        "Name": "spwn4",
+        "Parent": "26206582",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "736969203": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "5.000000",
+                "positiony": "4.000000",
+                "positionz": "-1.661736",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "4.000000",
+                "scaley": "4.000000",
+                "scalez": "4.000000"
+            }
+        },
+        "Name": "spwn1",
+        "Parent": "26206582",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "776320112": {
         "Active": true,
         "Components": {
             "0": {
@@ -572,49 +749,43 @@
             },
             "18": {
                 "Active": true,
-                "CollisionsActivated": false,
-                "Duration": "1000",
+                "CollisionsActivated": true,
+                "Duration": "900",
                 "GradientColor": true,
                 "HorizontalBill": "0",
-                "Loop": true,
+                "Loop": false,
                 "PartAutoBlending": true,
                 "PartBlendEquation": 0,
-                "PartBlendFunc": 2,
+                "PartBlendFunc": 0,
                 "PartCastShadows": false,
-                "PartLightAffected": false,
+                "PartLightAffected": true,
                 "PartMBlFuncDst": 7,
                 "PartMBlFuncSrc": 6,
                 "PartOnlyShadows": false,
                 "PartReceiveShadows": false,
-                "PartSceneColorAffected": false,
+                "PartSceneColorAffected": true,
                 "ParticlesBill": true,
                 "ParticlesCustomMesh": false,
                 "ParticlesFaceCulling": true,
-                "PlayOnAwake": true,
+                "PlayOnAwake": false,
                 "Resources": {
                     "ResourceMesh": null,
-                    "ResourceTexture": "Library/Textures/651962314.dds"
+                    "ResourceTexture": "Library/Textures/2119931366.dds"
                 },
-                "VerticalBill": "1",
-                "animation": "0",
+                "VerticalBill": "0",
+                "animation": "1",
                 "colors": [
                     {
-                        "a": "1.000000",
-                        "x": "1.000000",
-                        "y": "0.000000",
-                        "z": "0.000000"
+                        "a": "0.149020",
+                        "x": "0.839216",
+                        "y": "0.686275",
+                        "z": "0.462745"
                     },
                     {
-                        "a": "1.000000",
-                        "x": "0.874510",
-                        "y": "0.227451",
-                        "z": "0.227451"
-                    },
-                    {
-                        "a": "1.000000",
+                        "a": "0.000000",
                         "x": "1.000000",
-                        "y": "0.000000",
-                        "z": "0.000000"
+                        "y": "0.999996",
+                        "z": "0.999990"
                     }
                 ],
                 "curves": [
@@ -663,26 +834,20 @@
                         "type": "0"
                     }
                 ],
-                "cycles": "1.000000",
-                "emisionRate": "1000.000000",
+                "cycles": "0.500000",
+                "emisionRate": "1100.000000",
                 "externalAccelerationX": "0.000000",
                 "externalAccelerationY": "10.000000",
                 "externalAccelerationZ": "0.000000",
-                "followEmitterPosition": true,
+                "followEmitterPosition": false,
                 "followEmitterRotation": false,
-                "grad_duration": "500",
+                "grad_duration": "1000",
                 "gradients": [
                     {
-                        "a": "0.000000",
-                        "x": "-0.000251",
-                        "y": "0.000455",
-                        "z": "0.000455"
-                    },
-                    {
-                        "a": "0.000000",
-                        "x": "0.000251",
-                        "y": "-0.000455",
-                        "z": "-0.000455"
+                        "a": "-0.000149",
+                        "x": "0.000161",
+                        "y": "0.000314",
+                        "z": "0.000537"
                     }
                 ],
                 "maxInitialRotation": [
@@ -695,63 +860,130 @@
                     "0",
                     "0"
                 ],
-                "num_colors": "3",
+                "num_colors": "2",
                 "num_curves": "2",
-                "num_gradients": "2",
+                "num_gradients": "1",
                 "particleScaleOverTime": "0.000000",
-                "particleScaleRandomFactor1": "1.000000",
-                "particleScaleRandomFactor2": "1.000000",
+                "particleScaleRandomFactor1": "3.000000",
+                "particleScaleRandomFactor2": "7.000000",
                 "particlesLifeTime": "1000",
-                "particlesPerCreation": "1",
-                "particlesScaleX": "0.700000",
-                "particlesScaleY": "5.000000",
+                "particlesPerCreation": "10",
+                "particlesScaleX": "1.000000",
+                "particlesScaleY": "1.000000",
                 "particlesScaleZ": "1.000000",
                 "particlesVelocityX": "0.000000",
                 "particlesVelocityY": "0.000000",
-                "particlesVelocityZ": "0.000000",
+                "particlesVelocityZ": "2.000000",
                 "positionX": "0.000000",
-                "positionY": "2.400000",
+                "positionY": "0.000000",
                 "positionZ": "0.000000",
                 "randomInitialRotation": false,
                 "randomStartFrame": true,
                 "rotationOvertime1": [
                     "0",
                     "0",
-                    "0"
+                    "4"
                 ],
                 "rotationOvertime2": [
                     "0",
                     "0",
-                    "0"
+                    "15"
                 ],
                 "rotationType": "0",
                 "rotationX": "0.000000",
                 "rotationY": "0.000000",
-                "rotationZ": "0.000000",
-                "rotationconstants": "0",
-                "scaleconstants": "0",
+                "rotationZ": "90.000000",
+                "rotationconstants": "1",
+                "scaleconstants": "1",
                 "separateAxis": "0",
                 "separateAxisScale": "0",
-                "sizeX": "0.000000",
-                "sizeY": "0.000000",
-                "sizeZ": "0.000000",
+                "sizeX": "1.000000",
+                "sizeY": "0.500000",
+                "sizeZ": "1.000000",
                 "startFrame": "0",
-                "tiles_X": "1",
-                "tiles_Y": "1",
-                "velocityRandomFactor1X": "0.000000",
-                "velocityRandomFactor1Y": "0.000000",
+                "tiles_X": "5",
+                "tiles_Y": "3",
+                "velocityRandomFactor1X": "2.500000",
+                "velocityRandomFactor1Y": "2.000000",
                 "velocityRandomFactor1Z": "0.000000",
-                "velocityRandomFactor2X": "0.000000",
-                "velocityRandomFactor2Y": "0.000000",
+                "velocityRandomFactor2X": "-2.500000",
+                "velocityRandomFactor2Y": "-2.500000",
                 "velocityRandomFactor2Z": "0.000000",
                 "velocityconstants": "0"
             }
         },
-        "Name": "Cone",
-        "Parent": "1955693803",
+        "Name": "Smoke",
+        "Parent": "1019582971",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false
     },
-    "PreviewTexture": "Library/Textures/1331035500.dds"
+    "845010069": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/1628887855.mesh"
+                    }
+                }
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/New Folder 16/Props/ChestMat.mat"
+                    }
+                }
+            }
+        },
+        "Name": "Chest_Mesh",
+        "Parent": "26206582",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "853587939": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-3.098404",
+                "positiony": "4.000000",
+                "positionz": "-2.323990",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "4.000000",
+                "scaley": "4.000000",
+                "scalez": "4.000000"
+            }
+        },
+        "Name": "spwn2",
+        "Parent": "26206582",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "PreviewTexture": "Library/Textures/398337140.dds"
 }

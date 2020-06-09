@@ -1,0 +1,195 @@
+{
+    "1219581544": {
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            }
+        },
+        "Name": "CagePivot",
+        "Parent": "652556398",
+        "PrefabChild": true,
+        "PrefabInstance": false
+    },
+    "1460837598": {
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "1.315123",
+                "positiony": "2.857223",
+                "positionz": "-0.373831",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.012074",
+                "scaley": "0.012074",
+                "scalez": "0.012074"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/484922179.mesh"
+                    }
+                }
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/23 - Default.mat"
+                    }
+                }
+            }
+        },
+        "Name": "Coins_DecoMesh",
+        "Parent": "652556398",
+        "PrefabChild": true,
+        "PrefabInstance": false
+    },
+    "1882042878": {
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-2.206376",
+                "positiony": "-136.188965",
+                "positionz": "126.681557",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1468864878.bone"
+                }
+            }
+        },
+        "Name": "Cage_Open",
+        "Parent": "1219581544",
+        "PrefabChild": true,
+        "PrefabInstance": false
+    },
+    "2092194902": {
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/1628887855.mesh"
+                    }
+                }
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/14 - Default.mat"
+                    }
+                }
+            }
+        },
+        "Name": "Chest_Mesh",
+        "Parent": "652556398",
+        "PrefabChild": true,
+        "PrefabInstance": false
+    },
+    "606467618": {
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-2.206376",
+                "positiony": "9.453781",
+                "positionz": "63.984589",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/540709121.bone"
+                }
+            }
+        },
+        "Name": "Cage_Static",
+        "Parent": "1219581544",
+        "PrefabChild": true,
+        "PrefabInstance": false
+    },
+    "652556398": {
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "14": {
+                "Active": true,
+                "Animations": {
+                    "BlendTime": "0.300000",
+                    "Size": "0",
+                    "UseDefault": false
+                },
+                "Resources": {
+                    "ResourceAnimation": "Library/Animations/1398095237.anim"
+                }
+            }
+        },
+        "Model": "Assets/New Folder 16/Props/Chest_Animation.FBX",
+        "Name": "GameObject(0)",
+        "Parent": "1470299446",
+        "PrefabChild": false,
+        "PrefabInstance": true
+    },
+    "PreviewTexture": "Library/Textures/28956982.dds"
+}
