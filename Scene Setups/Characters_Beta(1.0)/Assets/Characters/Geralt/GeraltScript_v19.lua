@@ -1704,7 +1704,7 @@ local function ActionInputs()	--Process Action Inputs
 				--IF magnitude between Geralt and Jaskier revive is < revive_range
 				if math.sqrt((jaskier_revive_pos[1] - geralt_pos[1]) ^ 2 + (jaskier_revive_pos[3] - geralt_pos[3]) ^ 2) < lua_table.revive_range
 				then
-					revive_target = lua_table.GameObjectFunctions:GetScript(jaskier_GO_UID)
+					revive_target = jaskier_script
 	
 					if revive_target.current_state == state.down and not revive_target.falling_down_bool and not revive_target.being_revived	--IF player downed and no one reviving
 					then
