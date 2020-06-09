@@ -10768,6 +10768,25 @@
 										<ActiveSource Name="Door_new_sound" ID="{C8624AAE-438F-4BC6-871A-8623FAB93BE0}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
+								<Sound Name="SFX_Door_latest_included" ID="{D28B34D7-140C-4126-A111-4BB1A2B99695}" ShortID="475939896">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="SFX_Door" ID="{3B7A40AF-1B31-4D50-A285-7C0D033399EB}" ShortID="712377787">
+											<Language>SFX</Language>
+											<AudioFile>SFX_Door.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="SFX_Door" ID="{3B7A40AF-1B31-4D50-A285-7C0D033399EB}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
 							</ChildrenList>
 						</Folder>
 						<Folder Name="Loot" ID="{546DEFFB-0B8C-487F-AFA4-B871F39FBD1D}" ShortID="437777144">

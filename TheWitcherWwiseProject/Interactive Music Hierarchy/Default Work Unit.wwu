@@ -1318,10 +1318,9 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<MusicSegment Name="Music_Kikimora_Dungeon of shadows" ID="{F35D49E7-A615-40D6-BA55-45537A57DD82}" ShortID="714450605">
+										<MusicSegment Name="Music_Kikimora_Dungeon_of_shadows_intro" ID="{4698A22C-F967-4BFF-9726-F79FC6E9F5D6}" ShortID="151716101">
 											<PropertyList>
-												<Property Name="EnableAttenuation" Type="bool" Value="False"/>
-												<Property Name="EndPosition" Type="Real64" Value="141322.448979592"/>
+												<Property Name="EndPosition" Type="Real64" Value="37388.5714285714"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -1332,20 +1331,20 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<MusicTrack Name="Music_Kikimora_Dungeon of shadows" ID="{F8AEBDBA-D12B-4E5B-8252-26E83785F7F4}" ShortID="850686107">
+												<MusicTrack Name="Music_Kikimora_Dungeon_of_shadows_intro" ID="{D59A88E3-D5F4-4FD5-A19F-4F454389A680}" ShortID="842196441">
 													<ReferenceList>
 														<Reference Name="OutputBus">
 															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
-														<AudioFileSource Name="Music_Kikimora_Dungeon of shadows" ID="{F75B6E92-A162-44E9-848A-C0E3CC70BB9D}" ShortID="382083512">
+														<AudioFileSource Name="Music_Kikimora_Dungeon_of_shadows_intro" ID="{B3FC6620-32C3-4893-BCD9-F74441913F33}" ShortID="358228394">
 															<Language>SFX</Language>
-															<AudioFile>Music_Kikimora_Dungeon of shadows.wav</AudioFile>
+															<AudioFile>Music_Kikimora_Dungeon_of_shadows_intro.wav</AudioFile>
 														</AudioFileSource>
 													</ChildrenList>
 													<TransitionList>
-														<MusicTransition Name="Root" ID="{931217D2-8F8E-4F98-90D2-FF04DEC27052}">
+														<MusicTransition Name="Root" ID="{08FAB193-65E8-4BB8-90E6-E6FD5E5D7CA4}">
 															<PropertyList>
 																<Property Name="IsFolder" Type="bool" Value="True"/>
 															</PropertyList>
@@ -1353,15 +1352,15 @@
 														</MusicTransition>
 													</TransitionList>
 													<SequenceList>
-														<MusicTrackSequence Name="" ID="{DB1E8C83-D47B-4562-B9C5-D6C8B70CD74B}">
+														<MusicTrackSequence Name="" ID="{DABCCF6D-DCA2-4874-8F7C-24E185516A17}">
 															<ClipList>
-																<MusicClip Name="Music_Kikimora_Dungeon of shadows" ID="{E48AD7DF-D3F6-4749-BE4F-C12489A4F682}">
+																<MusicClip Name="Music_Kikimora_Dungeon_of_shadows_intro" ID="{73536B8C-2FEB-4DE2-882C-CFD28AF3915D}">
 																	<PropertyList>
-																		<Property Name="EndTrimOffset" Type="Real64" Value="141322.448979592"/>
+																		<Property Name="EndTrimOffset" Type="Real64" Value="37388.5714285714"/>
 																		<Property Name="FadeInMode" Type="int16" Value="0"/>
 																		<Property Name="FadeOutMode" Type="int16" Value="0"/>
 																	</PropertyList>
-																	<AudioSourceRef Name="Music_Kikimora_Dungeon of shadows" ID="{F75B6E92-A162-44E9-848A-C0E3CC70BB9D}"/>
+																	<AudioSourceRef Name="Music_Kikimora_Dungeon_of_shadows_intro" ID="{B3FC6620-32C3-4893-BCD9-F74441913F33}"/>
 																</MusicClip>
 															</ClipList>
 														</MusicTrackSequence>
@@ -1369,11 +1368,70 @@
 												</MusicTrack>
 											</ChildrenList>
 											<CueList>
-												<MusicCue Name="Entry Cue" ID="{413B21E4-B4ED-40E6-AB0E-829E0EFAC1CE}"/>
-												<MusicCue Name="Exit Cue" ID="{FBB45197-EFB3-420F-8EEA-1D786EB555EB}">
+												<MusicCue Name="Entry Cue" ID="{3671132E-9280-47A3-8B01-6FB1BA79C9E5}"/>
+												<MusicCue Name="Exit Cue" ID="{88353B8B-1C19-43AE-80B1-A22720D87214}">
 													<PropertyList>
 														<Property Name="CueType" Type="int16" Value="1"/>
-														<Property Name="TimeMs" Type="Real64" Value="141322.448979592"/>
+														<Property Name="TimeMs" Type="Real64" Value="37388.5714285714"/>
+													</PropertyList>
+												</MusicCue>
+											</CueList>
+										</MusicSegment>
+										<MusicSegment Name="Music_Kikimora_Dungeon_of_shadows_loop" ID="{4E39E495-0533-48CF-8DF6-9E56C5F29460}" ShortID="363622733">
+											<PropertyList>
+												<Property Name="EndPosition" Type="Real64" Value="100334.920634921"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<MusicTrack Name="Music_Kikimora_Dungeon_of_shadows_loop" ID="{1BE279A3-F749-49C1-9956-2215D6AC721F}" ShortID="179348171">
+													<ReferenceList>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Music_Kikimora_Dungeon_of_shadows_loop" ID="{3652AE01-B790-4E82-BFFD-0332A1CBD7FB}" ShortID="103123323">
+															<Language>SFX</Language>
+															<AudioFile>Music_Kikimora_Dungeon_of_shadows_loop.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<TransitionList>
+														<MusicTransition Name="Root" ID="{D64BB70C-A814-4257-8A6A-EF86BB96D829}">
+															<PropertyList>
+																<Property Name="IsFolder" Type="bool" Value="True"/>
+															</PropertyList>
+															<TransitionInfo/>
+														</MusicTransition>
+													</TransitionList>
+													<SequenceList>
+														<MusicTrackSequence Name="" ID="{D6817E1B-4949-4A7A-9760-651C913F8403}">
+															<ClipList>
+																<MusicClip Name="Music_Kikimora_Dungeon_of_shadows_loop" ID="{3A9462BB-1FE5-49A0-9DCE-96C5B2292C78}">
+																	<PropertyList>
+																		<Property Name="EndTrimOffset" Type="Real64" Value="100334.920634921"/>
+																		<Property Name="FadeInMode" Type="int16" Value="0"/>
+																		<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																	</PropertyList>
+																	<AudioSourceRef Name="Music_Kikimora_Dungeon_of_shadows_loop" ID="{3652AE01-B790-4E82-BFFD-0332A1CBD7FB}"/>
+																</MusicClip>
+															</ClipList>
+														</MusicTrackSequence>
+													</SequenceList>
+												</MusicTrack>
+											</ChildrenList>
+											<CueList>
+												<MusicCue Name="Entry Cue" ID="{4667AEBD-C3D2-408F-86D1-FFF4C3F2D0F4}"/>
+												<MusicCue Name="Exit Cue" ID="{A6DD12F6-6A4B-49AE-919C-CD320656E33D}">
+													<PropertyList>
+														<Property Name="CueType" Type="int16" Value="1"/>
+														<Property Name="TimeMs" Type="Real64" Value="100334.920634921"/>
 													</PropertyList>
 												</MusicCue>
 											</CueList>
@@ -1395,11 +1453,18 @@
 									<Playlist>
 										<MusicPlaylistItem Name="" ID="{B3DBCB5D-5B9E-429C-9E2A-780634E6AC1D}" ShortID="1023152427">
 											<ChildrenList>
-												<MusicPlaylistItem Name="" ID="{F24D1ADA-F6CE-44CD-A6BE-469314444AF1}" ShortID="327081570">
+												<MusicPlaylistItem Name="" ID="{C5C973E7-1A48-401F-BCDE-A8DD1DD68DE5}" ShortID="407267877">
 													<PropertyList>
 														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
 													</PropertyList>
-													<SegmentRef Name="Music_Kikimora_Dungeon of shadows" ID="{F35D49E7-A615-40D6-BA55-45537A57DD82}"/>
+													<SegmentRef Name="Music_Kikimora_Dungeon_of_shadows_intro" ID="{4698A22C-F967-4BFF-9726-F79FC6E9F5D6}"/>
+												</MusicPlaylistItem>
+												<MusicPlaylistItem Name="" ID="{69DD40DA-320E-494F-9B69-EBA08DAC8F28}" ShortID="814754667">
+													<PropertyList>
+														<Property Name="LoopCount" Type="int16" Value="0"/>
+														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+													</PropertyList>
+													<SegmentRef Name="Music_Kikimora_Dungeon_of_shadows_loop" ID="{4E39E495-0533-48CF-8DF6-9E56C5F29460}"/>
 												</MusicPlaylistItem>
 											</ChildrenList>
 										</MusicPlaylistItem>
@@ -1738,7 +1803,7 @@
 						</MusicSegment>
 					</ChildrenList>
 				</Folder>
-				<MusicPlaylistContainer Name="Kikimora_2" ID="{AFEBAE03-4D8C-49EA-ABA9-DA52488B7349}" ShortID="384943491">
+				<MusicPlaylistContainer Name="Kikimora_Complete_unused" ID="{AFEBAE03-4D8C-49EA-ABA9-DA52488B7349}" ShortID="384943491">
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -1748,10 +1813,10 @@
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
-						<MusicSegment Name="Music_Kikimora_Dungeon_of_shadows_intro" ID="{4698A22C-F967-4BFF-9726-F79FC6E9F5D6}" ShortID="151716101">
+						<MusicSegment Name="Music_Kikimora_Dungeon of shadows" ID="{F35D49E7-A615-40D6-BA55-45537A57DD82}" ShortID="714450605">
 							<PropertyList>
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
-								<Property Name="EndPosition" Type="Real64" Value="37388.5714285714"/>
+								<Property Name="EndPosition" Type="Real64" Value="141322.448979592"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -1762,20 +1827,20 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<MusicTrack Name="Music_Kikimora_Dungeon_of_shadows_intro" ID="{D59A88E3-D5F4-4FD5-A19F-4F454389A680}" ShortID="842196441">
+								<MusicTrack Name="Music_Kikimora_Dungeon of shadows" ID="{F8AEBDBA-D12B-4E5B-8252-26E83785F7F4}" ShortID="850686107">
 									<ReferenceList>
 										<Reference Name="OutputBus">
 											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="Music_Kikimora_Dungeon_of_shadows_intro" ID="{B3FC6620-32C3-4893-BCD9-F74441913F33}" ShortID="358228394">
+										<AudioFileSource Name="Music_Kikimora_Dungeon of shadows" ID="{F75B6E92-A162-44E9-848A-C0E3CC70BB9D}" ShortID="382083512">
 											<Language>SFX</Language>
-											<AudioFile>Music_Kikimora_Dungeon_of_shadows_intro.wav</AudioFile>
+											<AudioFile>Music_Kikimora_Dungeon of shadows.wav</AudioFile>
 										</AudioFileSource>
 									</ChildrenList>
 									<TransitionList>
-										<MusicTransition Name="Root" ID="{08FAB193-65E8-4BB8-90E6-E6FD5E5D7CA4}">
+										<MusicTransition Name="Root" ID="{931217D2-8F8E-4F98-90D2-FF04DEC27052}">
 											<PropertyList>
 												<Property Name="IsFolder" Type="bool" Value="True"/>
 											</PropertyList>
@@ -1783,15 +1848,15 @@
 										</MusicTransition>
 									</TransitionList>
 									<SequenceList>
-										<MusicTrackSequence Name="" ID="{DABCCF6D-DCA2-4874-8F7C-24E185516A17}">
+										<MusicTrackSequence Name="" ID="{DB1E8C83-D47B-4562-B9C5-D6C8B70CD74B}">
 											<ClipList>
-												<MusicClip Name="Music_Kikimora_Dungeon_of_shadows_intro" ID="{73536B8C-2FEB-4DE2-882C-CFD28AF3915D}">
+												<MusicClip Name="Music_Kikimora_Dungeon of shadows" ID="{E48AD7DF-D3F6-4749-BE4F-C12489A4F682}">
 													<PropertyList>
-														<Property Name="EndTrimOffset" Type="Real64" Value="37388.5714285714"/>
+														<Property Name="EndTrimOffset" Type="Real64" Value="141322.448979592"/>
 														<Property Name="FadeInMode" Type="int16" Value="0"/>
 														<Property Name="FadeOutMode" Type="int16" Value="0"/>
 													</PropertyList>
-													<AudioSourceRef Name="Music_Kikimora_Dungeon_of_shadows_intro" ID="{B3FC6620-32C3-4893-BCD9-F74441913F33}"/>
+													<AudioSourceRef Name="Music_Kikimora_Dungeon of shadows" ID="{F75B6E92-A162-44E9-848A-C0E3CC70BB9D}"/>
 												</MusicClip>
 											</ClipList>
 										</MusicTrackSequence>
@@ -1799,71 +1864,11 @@
 								</MusicTrack>
 							</ChildrenList>
 							<CueList>
-								<MusicCue Name="Entry Cue" ID="{3671132E-9280-47A3-8B01-6FB1BA79C9E5}"/>
-								<MusicCue Name="Exit Cue" ID="{88353B8B-1C19-43AE-80B1-A22720D87214}">
+								<MusicCue Name="Entry Cue" ID="{413B21E4-B4ED-40E6-AB0E-829E0EFAC1CE}"/>
+								<MusicCue Name="Exit Cue" ID="{FBB45197-EFB3-420F-8EEA-1D786EB555EB}">
 									<PropertyList>
 										<Property Name="CueType" Type="int16" Value="1"/>
-										<Property Name="TimeMs" Type="Real64" Value="37388.5714285714"/>
-									</PropertyList>
-								</MusicCue>
-							</CueList>
-						</MusicSegment>
-						<MusicSegment Name="Music_Kikimora_Dungeon_of_shadows_loop" ID="{4E39E495-0533-48CF-8DF6-9E56C5F29460}" ShortID="363622733">
-							<PropertyList>
-								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
-								<Property Name="EndPosition" Type="Real64" Value="100334.920634921"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<MusicTrack Name="Music_Kikimora_Dungeon_of_shadows_loop" ID="{1BE279A3-F749-49C1-9956-2215D6AC721F}" ShortID="179348171">
-									<ReferenceList>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Music_Kikimora_Dungeon_of_shadows_loop" ID="{3652AE01-B790-4E82-BFFD-0332A1CBD7FB}" ShortID="103123323">
-											<Language>SFX</Language>
-											<AudioFile>Music_Kikimora_Dungeon_of_shadows_loop.wav</AudioFile>
-										</AudioFileSource>
-									</ChildrenList>
-									<TransitionList>
-										<MusicTransition Name="Root" ID="{D64BB70C-A814-4257-8A6A-EF86BB96D829}">
-											<PropertyList>
-												<Property Name="IsFolder" Type="bool" Value="True"/>
-											</PropertyList>
-											<TransitionInfo/>
-										</MusicTransition>
-									</TransitionList>
-									<SequenceList>
-										<MusicTrackSequence Name="" ID="{D6817E1B-4949-4A7A-9760-651C913F8403}">
-											<ClipList>
-												<MusicClip Name="Music_Kikimora_Dungeon_of_shadows_loop" ID="{3A9462BB-1FE5-49A0-9DCE-96C5B2292C78}">
-													<PropertyList>
-														<Property Name="EndTrimOffset" Type="Real64" Value="100334.920634921"/>
-														<Property Name="FadeInMode" Type="int16" Value="0"/>
-														<Property Name="FadeOutMode" Type="int16" Value="0"/>
-													</PropertyList>
-													<AudioSourceRef Name="Music_Kikimora_Dungeon_of_shadows_loop" ID="{3652AE01-B790-4E82-BFFD-0332A1CBD7FB}"/>
-												</MusicClip>
-											</ClipList>
-										</MusicTrackSequence>
-									</SequenceList>
-								</MusicTrack>
-							</ChildrenList>
-							<CueList>
-								<MusicCue Name="Entry Cue" ID="{4667AEBD-C3D2-408F-86D1-FFF4C3F2D0F4}"/>
-								<MusicCue Name="Exit Cue" ID="{A6DD12F6-6A4B-49AE-919C-CD320656E33D}">
-									<PropertyList>
-										<Property Name="CueType" Type="int16" Value="1"/>
-										<Property Name="TimeMs" Type="Real64" Value="100334.920634921"/>
+										<Property Name="TimeMs" Type="Real64" Value="141322.448979592"/>
 									</PropertyList>
 								</MusicCue>
 							</CueList>
@@ -1887,21 +1892,6 @@
 							<PropertyList>
 								<Property Name="PlayMode" Type="int16" Value="1"/>
 							</PropertyList>
-							<ChildrenList>
-								<MusicPlaylistItem Name="" ID="{9DCE8821-85F1-4E41-A17E-DFD0A7A578FB}" ShortID="42032900">
-									<PropertyList>
-										<Property Name="PlaylistItemType" Type="int16" Value="1"/>
-									</PropertyList>
-									<SegmentRef Name="Music_Kikimora_Dungeon_of_shadows_intro" ID="{4698A22C-F967-4BFF-9726-F79FC6E9F5D6}"/>
-								</MusicPlaylistItem>
-								<MusicPlaylistItem Name="" ID="{AF564031-BE02-415B-B6D0-B593BE0BE548}" ShortID="886938393">
-									<PropertyList>
-										<Property Name="LoopCount" Type="int16" Value="20"/>
-										<Property Name="PlaylistItemType" Type="int16" Value="1"/>
-									</PropertyList>
-									<SegmentRef Name="Music_Kikimora_Dungeon_of_shadows_loop" ID="{4E39E495-0533-48CF-8DF6-9E56C5F29460}"/>
-								</MusicPlaylistItem>
-							</ChildrenList>
 						</MusicPlaylistItem>
 					</Playlist>
 				</MusicPlaylistContainer>
