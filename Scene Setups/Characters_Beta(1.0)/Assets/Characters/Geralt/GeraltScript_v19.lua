@@ -267,7 +267,7 @@ local item_library_size = 3
 local item_effects = {		--Item library and required data to operate
 	{ health_recovery = 4, health_regen = 0.1 },
 	{ speed_increase = 0.5, energy_regen = 2 },
-	{ damage_increase = 1, critical_chance_increase = 10 }
+	{ damage_increase = 0.5, critical_chance_increase = 10 }
 }
 lua_table.inventory = {	--Character inventory (number of each item)
 	3,
@@ -285,7 +285,7 @@ lua_table.item_pickup_range = 2
 
 	--Potions
 	lua_table.potion_in_effect = 0
-	lua_table.potion_duration = 5000	--Duration in ms
+	lua_table.potion_duration = 10000	--Duration in ms
 	local potion_taken_at = 0
 	lua_table.potion_active = false
 
@@ -346,10 +346,14 @@ lua_table.input_walk_threshold = 0.95
 --Camera Limitations (IF angle between forward character vector and plane normal > 90º (45º on corners) then all velocities = 0)
 local camera_GO
 local camera_script
+
 local camera_bounds_ratio = 0.85
-local off_bounds = false
 local bounds_vector = { x = 0, z = 0 }
 local bounds_angle
+
+local off_bounds = false
+local left_bounds_at = 0
+local left_bounds_time_limit = 3000
 
 --Direction
 local rot_y = 0.0
@@ -509,8 +513,8 @@ lua_table.light_3_animation_speed = 60.0	--Slow time: 320ms
 lua_table.light_3 = { 'N', 'L', 'L', 'L' }
 lua_table.light_3_size = 3
 lua_table.light_3_damage = 34.0
-lua_table.light_3_effect = attack_effects_ID.stun
-lua_table.light_3_effect_value = 100
+lua_table.light_3_effect = attack_effects_ID.none
+lua_table.light_3_effect_value = 0
 
 --Medium Attack
 lua_table.medium_damage = 50.0					--Multiplier of Base Damage
@@ -589,7 +593,7 @@ lua_table.heavy_3 = { 'N', 'H', 'H', 'H' }
 lua_table.heavy_3_size = 3
 lua_table.heavy_3_damage = 100.0
 lua_table.heavy_3_effect = attack_effects_ID.stun
-lua_table.heavy_3_effect_value = 1000
+lua_table.heavy_3_effect_value = 500
 
 --Evade		
 lua_table.evade_velocity = 20			--12
@@ -1188,6 +1192,9 @@ local function CheckCameraBounds()	--Check if we're currently outside the camera
 
 	--4. If character off bounds, calculate the return angle and flag the off bounds status
 	if bounds_vector.x ~= 0 or bounds_vector.z ~= 0 then
+
+		if not off_bounds then left_bounds_at = game_time end
+		off_bounds = true
 		bounds_angle = math.rad(bounds_angle)
 
 		if camera_script.current_camera_orientation ~= nil then
@@ -1197,9 +1204,7 @@ local function CheckCameraBounds()	--Check if we're currently outside the camera
 			bounds_vector.z = orig_vector.z * math.cos(camera_Y_rot) - orig_vector.x * math.sin(camera_Y_rot)
 		end
 
-		off_bounds = true
-
-		if lua_table.current_state > state.idle then
+		if game_time - left_bounds_at > left_bounds_time_limit and lua_table.current_state > state.idle then
 			lua_table.AnimationFunctions:SetBlendTime(0.1, geralt_GO_UID)
 
 			AttackColliderShutdown()
