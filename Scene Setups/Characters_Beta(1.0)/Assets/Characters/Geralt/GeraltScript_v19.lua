@@ -258,6 +258,7 @@ local item_prefabs = {	--Table that saves the prefab values
 }
 
 lua_table.item_library = {	--Used to flag a readable name with a number id, allows for item indexing based on number
+	none = 0,
 	health_potion = 1,
 	stamina_potion = 2,
 	power_potion = 3
@@ -284,7 +285,7 @@ lua_table.item_type_max = 3
 lua_table.item_pickup_range = 2
 
 	--Potions
-	lua_table.potion_in_effect = 0
+	lua_table.potion_in_effect = lua_table.item_library.none
 	lua_table.potion_duration = 10000	--Duration in ms
 	local potion_taken_at = 0
 	lua_table.potion_active = false
@@ -2032,6 +2033,7 @@ local function EndPotion()
 	elseif lua_table.potion_in_effect == lua_table.item_library.stamina_potion then EndStaminaPotion()
 	elseif lua_table.potion_in_effect == lua_table.item_library.power_potion then EndPowerPotion() end
 
+	lua_table.potion_in_effect = lua_table.item_library.none
 	lua_table.potion_active = false	--Mark potion off effect
 	must_update_stats = true	--Flag stats for update
 end
@@ -2170,7 +2172,7 @@ local function Die()
 
 	lua_table.enemies_nearby = false
 	
-	if lua_table.potion_active then EndPotion(lua_table.potion_in_effect) end				--IF potion in effect, turn off
+	if lua_table.potion_active then EndPotion() end				--IF potion in effect, turn off
 	if lua_table.ultimate_active then UltimateState(false) end	--IF ultimate on, go off
 end
 
@@ -2624,7 +2626,7 @@ function lua_table:Update()
 				lua_table.ability_performed = false
 			end
 
-			if lua_table.potion_active and game_time - potion_taken_at > lua_table.potion_duration then EndPotion(lua_table.potion_in_effect) end
+			if lua_table.potion_active and game_time - potion_taken_at > lua_table.potion_duration then EndPotion() end
 		end
 
 		if lua_table.current_state > state.down and lua_table.current_health > 0	--IF alive
