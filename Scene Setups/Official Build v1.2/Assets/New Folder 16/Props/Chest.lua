@@ -133,10 +133,10 @@ function lua_table:Update ()
 		if lua_table.SystemFunctions:GameTime() - timer > 0.7 then
 			lua_table.ParticlesFunctions:PlayParticleEmitter(Sparkle)
 			   
-			newPotion(-2,1)
-			newPotion(-0.5,2)
-			newPotion(0.5,3)
-			newPotion(2,4)
+			newPotion(1,1)
+			newPotion(-1,2)
+			newPotion(-1,3)
+			newPotion(1,4)
 			
 			current_state = state.OPENED
 		end
