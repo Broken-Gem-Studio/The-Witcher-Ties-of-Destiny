@@ -93,7 +93,7 @@ end
 
 local function HandleInputs()
 	-- Start game	
-	if currentButton == Buttons.START and lua_table.InputFunctions:IsGamepadButton(1, "BUTTON_START", "DOWN")
+	if currentButton == Buttons.START and lua_table.InputFunctions:IsGamepadButton(1, "BUTTON_A", "DOWN")
 	then
 		lua_table:StartGame()
 	end
