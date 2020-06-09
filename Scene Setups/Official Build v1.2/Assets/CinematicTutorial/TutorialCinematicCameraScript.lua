@@ -31,7 +31,7 @@ function GetTableTutorialCinematicCameraScript()
 
     -- Camera target IDs
     local cube_ID = {}
-    local BarID = 0
+    --local BarID = 0
     local FadeScreen = 1
     local fade_speed = 0
 
@@ -85,6 +85,7 @@ function GetTableTutorialCinematicCameraScript()
     end
 
     local function SkipButton()
+        --[[
         if lua_table.skip_threshold <= 0.00 then
             lua_table.skip_threshold = 0.00
         end
@@ -99,14 +100,15 @@ function GetTableTutorialCinematicCameraScript()
             lua_table.skip_threshold = lua_table.skip_threshold - 0.6
             skip_button_is_being_pressed = false
         end
+        --]]
 
-        if lua_table.skip_threshold >= 100 and next_scene == true then
+        if lua_table.Input:IsGamepadButton(1, "BUTTON_A", "DOWN") and next_scene == true then
             lua_table.Audio:PlayAudioEvent("Play_Skipped_Cinematic")
             lua_table.Audio:StopAudioEvent("Play_Music_Cinematic_lvl1_The_Ocean_Takes_It_All")
             changeScene_nextFrame = true
         end
 
-        lua_table.UI:SetUICircularBarPercentage(lua_table.skip_threshold, BarID)
+        --lua_table.UI:SetUICircularBarPercentage(lua_table.skip_threshold, BarID)
     end
 
     function lua_table:Start()
@@ -132,7 +134,7 @@ function GetTableTutorialCinematicCameraScript()
         minion1 = lua_table.GameObjectFunctions:FindGameObject("Minion1")
         minion2 = lua_table.GameObjectFunctions:FindGameObject("Minion_Gank")
 
-        BarID = lua_table.GameObjectFunctions:FindGameObject("SkipBar")
+        --BarID = lua_table.GameObjectFunctions:FindGameObject("SkipBar")
         FadeScreen = lua_table.GameObjectFunctions:FindGameObject("TutorialFadeScreen")
 
         -- Disable "gaking" enemies
