@@ -2382,33 +2382,46 @@ end
 
 --Debug END 	----------------------------------------------------------------------------
 
-function lua_table:BattleStart()
+function lua_table:StartBattle()
 	lua_table.AudioFunctions:PlayAudioEventGO(audio_library.voice_battle_start, jaskier_GO_UID)	--TODO-AUDIO:
 	lua_table.AudioFunctions:StopAudioEventGO(audio_library.voice_battle_end, jaskier_GO_UID)	--TODO-AUDIO:
-	lua_table.enemies_nearby = true
 end
 
-function lua_table:BattleEnd()
+function lua_table:EndBattle()
 	lua_table.AudioFunctions:PlayAudioEventGO(audio_library.voice_battle_end, jaskier_GO_UID)	--TODO-AUDIO:
 	lua_table.AudioFunctions:StopAudioEventGO(audio_library.voice_battle_start, jaskier_GO_UID)	--TODO-AUDIO:
-	lua_table.enemies_nearby = false
 end
 
-local function DetectNearbyEnemies()
+local function EnemiesNearby()
+	local ret = false
+	local jaskier_pos = lua_table.TransformFunctions:GetPosition(jaskier_GO_UID)
+	local enemy_list = lua_table.PhysicsFunctions:OverlapSphere(jaskier_pos[1], jaskier_pos[2], jaskier_pos[3], lua_table.enemy_detection_range, layers.enemy)
+	if enemy_list[1] ~= nil then ret = true end
+	return ret
+end
+
+local function CheckCombatStatus()
 	if game_time - enemy_detection_started_at > enemy_detection_time
 	then
-		local jaskier_pos = lua_table.TransformFunctions:GetPosition(jaskier_GO_UID)
-		local enemy_list = lua_table.PhysicsFunctions:OverlapSphere(jaskier_pos[1], jaskier_pos[2], jaskier_pos[3], lua_table.enemy_detection_range, layers.enemy)
-
 		if lua_table.enemies_nearby then
-			if enemy_list[1] == nil and geralt_script ~= nil and not geralt_script.enemies_nearby then
-				lua_table:BattleEnd()
-				geralt_script.BattleEnd()
+			if not EnemiesNearby() then
+				lua_table.enemies_nearby = false
+
+				if geralt_script ~= nil and not geralt_script.enemies_nearby then
+					lua_table:EndBattle()
+					if geralt_script.current_state > state.down then geralt_script:EndBattle() end
+					--lua_table.SystemFunctions:LOG("JASKIER END BATTLE ---------------------")
+				end
 			end
 		else
-			if enemy_list[1] ~= nil then
-				lua_table.BattleStart()
-				if geralt_script ~= nil and not geralt_script.enemies_nearby then geralt_script.BattleStart() end
+			if EnemiesNearby() then
+				lua_table.enemies_nearby = true
+				
+				if geralt_script ~= nil and not geralt_script.enemies_nearby then
+					lua_table:StartBattle()
+					if geralt_script.current_state > state.down then geralt_script:StartBattle() end
+					--lua_table.SystemFunctions:LOG("JASKIER START BATTLE ---------------------")
+				end
 			end
 		end
 
@@ -2473,6 +2486,9 @@ function lua_table:Awake()
 
 	geralt_revive_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt_Revive_Pos")
 	jaskier_revive_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Revive_Pos")
+
+	lua_table.PhysicsFunctions:SetActiveController(false, jaskier_GO_UID)
+	lua_table.PhysicsFunctions:SetActiveController(true, jaskier_GO_UID)
 
 	--Assign Prefabs
 	item_prefabs[1] = lua_table.potion_health_prefab
@@ -2576,14 +2592,14 @@ function lua_table:Start()
 	lua_table.GameObjectFunctions:SetActiveGameObject(false, particles_library.slash_mesh_GO_UID)
 	lua_table.GameObjectFunctions:SetActiveGameObject(false, jaskier_lute_concert_mesh_GO_UID)
 
-	-- Set initial values
+	--Set initial values
 	lua_table.previous_state = state.idle
 	lua_table.current_state = state.idle
 	lua_table.current_health = lua_table.max_health_real
 	lua_table.current_energy = lua_table.max_energy_real
 	lua_table.current_ultimate = 0.0
 
-	-- Default Starting Animations
+	--Default Starting Animations
 	lua_table.AnimationFunctions:PlayAnimation(animation_library.idle, lua_table.idle_animation_speed, jaskier_GO_UID)
 	current_animation = animation_library.idle
 end
@@ -2602,7 +2618,7 @@ function lua_table:Update()
 
 		if lua_table.current_state ~= state.dead	--IF not dead (stuff done while downed too)
 		then
-			DetectNearbyEnemies()
+			CheckCombatStatus()
 			CheckCameraBounds()
 
 			--Energy Regeneration
@@ -3285,8 +3301,8 @@ function lua_table:Update()
 	--if lua_table.current_state == state.down then lua_table.SystemFunctions:LOG((game_time - lua_table.death_started_at)) end
 
 	-- Enemies Nearby
-	--if lua_table.enemies_nearby then lua_table.SystemFunctions:LOG("Enemies Nearby!")
-	--else lua_table.SystemFunctions:LOG("Enemies not nearby.") end
+	--if lua_table.enemies_nearby then lua_table.SystemFunctions:LOG("Jaskier enemies Nearby!")
+	--else lua_table.SystemFunctions:LOG("Jaskier enemies not nearby.") end
 	
 	--Stats LOGS
 	--lua_table.SystemFunctions:LOG("Jaskier Health: " .. lua_table.current_health)

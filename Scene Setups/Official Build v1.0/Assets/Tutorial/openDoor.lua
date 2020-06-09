@@ -4,6 +4,7 @@ lua_table.SystemFunctions = Scripting.System()
 lua_table.ObjectFunctions = Scripting.GameObject()
 lua_table.PhysicsFunctions = Scripting.Physics()
 lua_table.AnimationFunctions = Scripting.Animations()
+lua_table.Audio = Scripting.Audio()
 
 local manager
 local managerTable
@@ -23,6 +24,9 @@ function lua_table:OnTriggerEnter()
         then
             lua_table.ObjectFunctions:SetActiveGameObject(false, doorCollider)
             lua_table.AnimationFunctions:PlayAnimation("open", 30, doorGO)
+            
+            lua_table.Audio:PlayAudioEventGO("Play_Locked_And_No_Key_In_Sight", MyUUID)
+
             hasOpened = true
         end
     end

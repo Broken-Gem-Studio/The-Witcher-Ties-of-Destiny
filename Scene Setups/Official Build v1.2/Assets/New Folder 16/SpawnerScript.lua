@@ -67,7 +67,12 @@ local function Spawn()
     if lua_table.humanoid_spawner == true and leader_chosen == false then
         lua_table.enemies = enemy
         leader_chosen = true
-        lua_table.leader_script = lua_table.GameObjectFunctions:GetScript(lua_table.enemies)
+        if lua_table.enemies ~= 0 
+        then
+            lua_table.leader_script = lua_table.GameObjectFunctions:GetScript(lua_table.enemies)
+        else
+            leader_chosen = false
+        end
     end
 
 end
