@@ -69,7 +69,7 @@ lua_table.AggroRange = 35
 lua_table.minDistance = 2.5 -- If entity is inside this distance, then attack
 lua_table.maxDistance = 5
 --
-lua_table.stun_duration = 2000
+lua_table.stun_duration = 3000
 
 local knock_force = {0, 0, 0}
 
@@ -382,6 +382,18 @@ local function Die()
 
 		lua_table.Physics:SetActiveController(false, lua_table.MyUID)
 
+		local particles = {}
+		particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Minion_Taunt_Emitter", Recruit_General_Emitter))
+		for i = 1, #particles do 
+			lua_table.Particles:StopParticleEmitter(particles[i])
+		end
+
+		local particles = {}
+		particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Minion_Aggro_Emitter", Recruit_General_Emitter))
+		for i = 1, #particles do 
+			lua_table.Particles:StopParticleEmitter(particles[i])
+		end
+
 		lua_table.System:LOG("Im dying")
 		lua_table.Animations:PlayAnimation("Death", random_death_time, lua_table.MyUID)
 
@@ -425,6 +437,10 @@ function lua_table:OnTriggerEnter()
 				if script.collider_effect == attack_effects.stun then ----------------------------------------------------- React to stun effect
 					AttackColliderShutdown()
 					lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
+
+					if script.collider_stun_duration ~= nil then
+						lua_table.stun_duration = script.collider_stun_duration
+					end
 
 					local particles = {}
 					particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Minion_Stun_Emitter", Minion_General_Emitter))
@@ -544,6 +560,10 @@ function lua_table:RequestedTrigger(collider_GO)
 			if script.collider_effect == attack_effects.stun then ----------------------------------------------------- React to stun effect
 				AttackColliderShutdown()
 				lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
+
+				if script.collider_stun_duration ~= nil then
+					lua_table.stun_duration = script.collider_stun_duration
+				end
 
 				local particles = {}
 				particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Minion_Stun_Emitter", Minion_General_Emitter))
