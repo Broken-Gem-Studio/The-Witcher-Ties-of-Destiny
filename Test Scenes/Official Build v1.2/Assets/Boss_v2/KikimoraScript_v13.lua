@@ -400,7 +400,10 @@ lua_table.jump_delay_down = 3
 local randy = 0
 
 local awakening_audio_played = false
+local awakening_scream_played = false
+
 local death_audio_played = false
+
 
 -----------------------------------------------------------------------------------------
 -- Methods
@@ -2305,12 +2308,31 @@ local function HandleStates()
             lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_damaged", my_UID)
         end
 
-        if game_time >= state_timer
+        if game_time >= state_timer and awakening_scream_played == false
         then
+            awakening_scream_played = true
             awakening_audio_played = false
-            current_state = state.IDLE
-            lua_table.SystemFunctions:LOG ("Kikimora: AWAKENING ended now idle")
+
+            -- Play animation
+            lua_table.AnimationFunctions:PlayAnimation(animation.swap_phase.anim_name, animation.swap_phase.anim_speed, my_UID)
+
+            local swap_phase_duration = animation.swap_phase.anim_frames / animation.swap_phase.anim_speed
+
+            animation_timer = game_time + swap_phase_duration
+    
+            -- AUDIO PLAY
+            lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_scream_1", my_UID)
+
+            lua_table.SystemFunctions:LOG ("Kikimora: AWAKENING ended now scream")
         end
+
+        if game_time >= animation_timer and awakening_scream_played == true
+        then
+            awakening_scream_played = false
+            
+            current_state = state.IDLE
+        end
+
     end
 
     if current_state == state.IDLE
@@ -2391,7 +2413,7 @@ local function HandleStates()
             current_attack_type = attack_type.TO_BE_DETERMINED
             current_attack_subdivision = attack_subdivision.TO_BE_DETERMINED
 
-            -- This is while I don't have a Swapping phase animation (maybe with a stun + roar would make the same effect)
+            -- Play animation
             lua_table.AnimationFunctions:PlayAnimation(animation.swap_phase.anim_name, animation.swap_phase.anim_speed, my_UID)
 
             local swap_phase_duration = animation.swap_phase.anim_frames / animation.swap_phase.anim_speed

@@ -1815,6 +1815,9 @@ local function UltimateState(active)
 		
 		if sword_particles_GO_UID ~= 0 then lua_table.ParticlesFunctions:PlayParticleEmitter(sword_particles_GO_UID) end	--TODO-Particles:
 
+		lua_table.GameObjectFunctions:SetActiveGameObject(true, attack_colliders.aard_circle_1.GO_UID)
+		attack_colliders.aard_circle_1.active = true
+
 		lua_table.current_ultimate = 0.0
 		ultimate_effect_started_at = game_time
 	else
@@ -2733,6 +2736,10 @@ function lua_table:Update()
 							attack_colliders.aard_circle_1.active = false
 
 							--lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.aard_hand_particles_GO_UID)	--TODO-Particles: Deactivate Aard particles on hand
+
+						elseif lua_table.current_state == state.ultimate then
+							lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders.aard_circle_1.GO_UID)
+							attack_colliders.aard_circle_1.active = false
 
 						elseif lua_table.current_state >= state.light_1 and lua_table.current_state <= state.heavy_3	--IF attack finished
 						then
