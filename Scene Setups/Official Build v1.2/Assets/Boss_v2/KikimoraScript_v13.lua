@@ -1969,7 +1969,16 @@ local function HandleJump()
         attack_collider.jump.coll_active = false
 
         -- Particles STOP (ATTACKS ONLY)
-        lua_table.ParticlesFunctions:StopParticleEmitter(particles.scream.part_UID)
+        lua_table.ParticlesFunctions:StopParticleEmitter(particles.scream.part_UID) 
+        for i = 1, #particles.kiki_sweep_particle_left.part_childs do
+            lua_table.ParticlesFunctions:StopParticleEmitter(particles.kiki_sweep_particle_left.part_childs[i])
+        end
+        for i = 1, #particles.kiki_sweep_particle_right.part_childs do
+            lua_table.ParticlesFunctions:StopParticleEmitter(particles.kiki_sweep_particle_right.part_childs[i])
+        end
+        for i = 1, #particles.kiki_sweep_left_particle.part_childs do
+            lua_table.ParticlesFunctions:StopParticleEmitter(particles.kiki_sweep_left_particle.part_childs[i])
+        end
         
         start_jumping = false
 
@@ -2438,6 +2447,17 @@ local function HandleStates()
             current_attack_type = attack_type.TO_BE_DETERMINED
             current_attack_subdivision = attack_subdivision.TO_BE_DETERMINED
 
+            lua_table.ParticlesFunctions:StopParticleEmitter(particles.scream.part_UID)
+            for i = 1, #particles.kiki_sweep_particle_left.part_childs do
+                lua_table.ParticlesFunctions:StopParticleEmitter(particles.kiki_sweep_particle_left.part_childs[i])
+            end
+            for i = 1, #particles.kiki_sweep_particle_right.part_childs do
+                lua_table.ParticlesFunctions:StopParticleEmitter(particles.kiki_sweep_particle_right.part_childs[i])
+            end
+            for i = 1, #particles.kiki_sweep_left_particle.part_childs do
+                lua_table.ParticlesFunctions:StopParticleEmitter(particles.kiki_sweep_left_particle.part_childs[i])
+            end
+
             -- This is while I don't have a Swapping phase animation (maybe with a stun + roar would make the same effect)
             lua_table.AnimationFunctions:PlayAnimation(animation.swap_phase.anim_name, animation.swap_phase.anim_speed, my_UID)
 
@@ -2499,6 +2519,15 @@ local function HandleStates()
         -- Partciles STOP
         lua_table.ParticlesFunctions:StopParticleEmitter(particles.rage_aura_2.part_UID)
         lua_table.ParticlesFunctions:StopParticleEmitter(particles.scream.part_UID)
+        for i = 1, #particles.kiki_sweep_particle_left.part_childs do
+            lua_table.ParticlesFunctions:StopParticleEmitter(particles.kiki_sweep_particle_left.part_childs[i])
+        end
+        for i = 1, #particles.kiki_sweep_particle_right.part_childs do
+            lua_table.ParticlesFunctions:StopParticleEmitter(particles.kiki_sweep_particle_right.part_childs[i])
+        end
+        for i = 1, #particles.kiki_sweep_left_particle.part_childs do
+            lua_table.ParticlesFunctions:StopParticleEmitter(particles.kiki_sweep_left_particle.part_childs[i])
+        end
 
         -- Play death animation
         lua_table.AnimationFunctions:PlayAnimation(animation.death.anim_name, animation.death.anim_speed, my_UID)
