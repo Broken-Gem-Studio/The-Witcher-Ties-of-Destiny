@@ -1,4 +1,4 @@
-function GetTableLUM_REDO_V5_1()
+function GetTableLUM_REDO_V5_3()
 local lua_table = {}
 lua_table.System = Scripting.System()
 
@@ -1256,22 +1256,6 @@ function lua_table:OnTriggerEnter()
         material_time = PerfGameTime()
         changed_material = true
 
-		--if collider_GO == lua_table.Geralt_UID
-		--then
-		--	local particles = {}
-		--	particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("BloodHitParticles", lua_table.General_Emitter_UID))
-		--	for i = 1, #particles do 
-		--		lua_table.ParticleSystem:PlayParticleEmitter(particles[i])
-		--		lua_table.SystemFunctions:LOG ("LUMBERJACK PARTICLES HIT NOW") 
-		--	end
-		--else
-		--	local particles = {}
-		--	particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("HitParticles", lua_table.General_Emitter_UID))
-		--	for i = 1, #particles do 
-		--		lua_table.ParticleSystem:PlayParticleEmitter(particles[i])
-		--		--lua_table.SystemFunctions:LOG ("LUMBERJACK PARTICLES HIT NOW") 
-		--	end
-		--end
 
 		if collider_GO == lua_table.Geralt_UID
 		then
