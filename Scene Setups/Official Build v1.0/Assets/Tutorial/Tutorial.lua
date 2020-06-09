@@ -8,6 +8,7 @@ function GetTableTutorial()
     lua_table.InterfaceFunctions = Scripting.Interface()
     lua_table.SceneFunctions = Scripting.Scenes()
     lua_table.AnimationFunctions = Scripting.Animations()
+    lua_table.Audio = Scripting.Audio()
     
     ------------------------------------------------------------------------------
     -- VARIABLES
@@ -253,6 +254,9 @@ function GetTableTutorial()
     
             lua_table.AnimationFunctions:PlayAnimation("open", 30, doorsGO.door1)
             lua_table.ObjectFunctions:SetActiveGameObject(false, doorsColliders.door1)
+
+            --Play the Sound Effect for the door opening, the voiceline is just a placeholder
+            lua_table.Audio:PlayAudioEventGO("Play_Locked_Portal_Need_To_Find_Key", lua_table.MyUUID)
     
             lua_table.InterfaceFunctions:MakeElementInvisible("Image", littleCards.dummy)
     
@@ -278,6 +282,9 @@ function GetTableTutorial()
         then
             lua_table.AnimationFunctions:PlayAnimation("open", 30, doorsGO.door2)
             lua_table.ObjectFunctions:SetActiveGameObject(false, doorsColliders.door2)
+
+            --Same as with door 1
+            lua_table.Audio:PlayAudioEventGO("Play_Locked_Portal_Need_To_Find_Key", lua_table.MyUUID)
     
             lua_table.InterfaceFunctions:MakeElementInvisible("Text", lua_table.textUID)
             lua_table.InterfaceFunctions:SetText(" ", lua_table.textUID)
