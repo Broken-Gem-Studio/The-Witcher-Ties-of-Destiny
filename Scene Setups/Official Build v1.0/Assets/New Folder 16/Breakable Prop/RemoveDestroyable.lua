@@ -6,11 +6,12 @@ lua_table.GameObject = Scripting.GameObject()
 
 local timer = 0
 local passed_time = 0
-lua_table.scale = 0.025
+lua_table.scale = {}
 
 function lua_table:Awake()
 	lua_table.myUID = lua_table.GameObject:GetMyUID()
 	lua_table.parent = lua_table.GameObject:GetGameObjectParent(lua_table.myUID)
+	lua_table.scale = lua_table.Transform:GetScale(lua_table.myUID)
 end
 
 function lua_table:Start()
@@ -22,8 +23,10 @@ function lua_table:Update()
 	if current_time - passed_time > 5
 	then
 		timer = lua_table.System:RealDT()
-		lua_table.scale = lua_table.scale - 0.0001 * lua_table.scale
-		lua_table.Transform:SetScale(lua_table.scale,lua_table.scale,lua_table.scale,lua_table.myUID)
+		lua_table.scale[1] = lua_table.scale[1] - 0.0001 * lua_table.scale[1]
+		lua_table.scale[2] = lua_table.scale[1]
+		lua_table.scale[3] = lua_table.scale[1]
+		lua_table.Transform:SetScale(lua_table.scale[1],lua_table.scale[2],lua_table.scale[3],lua_table.myUID)
 	end
 
 	
