@@ -2648,7 +2648,7 @@ end
 
 function lua_table:Update()
 
-	if gamePaused == nil or gamePaused == false
+	if lua_table.SystemFunctions:IsGamePaused() == 0
 	then
 		dt = lua_table.SystemFunctions:DT()
 		game_time = PerfGameTime()
