@@ -1223,6 +1223,7 @@ local function CheckCameraBounds()	--Check if we're currently outside the camera
 
 			lua_table.AnimationFunctions:PlayAnimation(animation_library.knockback, 60.0, geralt_GO_UID)
 			current_animation = animation_library.knockback
+			blending_started_at = game_time	--Manually mark animation swap
 
 			if lua_table.current_health > 0
 			then
@@ -1761,7 +1762,7 @@ local function ActionInputs()	--Process Action Inputs
 	if action_made 	--IF action performed
 	then
 		lua_table.AnimationFunctions:SetBlendTime(0.1, geralt_GO_UID)
-		blending_started_at = game_time
+		blending_started_at = game_time	--Manually mark animation swap
 		
 		AttackColliderShutdown()
 
@@ -2131,7 +2132,7 @@ function lua_table:Resurrect()
 
 	lua_table.AnimationFunctions:PlayAnimation(animation_library.stand_up, lua_table.stand_up_animation_speed, geralt_GO_UID)	--TODO-Animations: Stand up
 	current_animation = animation_library.stand_up
-	blending_started_at = game_time
+	blending_started_at = game_time	--Manually mark animation swap
 
 	lua_table.AudioFunctions:PlayAudioEventGO(audio_library.stand_up, geralt_GO_UID)
 	current_audio = audio_library.stand_up
@@ -2154,6 +2155,7 @@ local function Die()
 	lua_table.AnimationFunctions:SetBlendTime(0.1, geralt_GO_UID)
 	lua_table.AnimationFunctions:PlayAnimation(animation_library.death, 30.0, geralt_GO_UID)
 	current_animation = animation_library.death
+	blending_started_at = game_time	--Manually mark animation swap
 	
 	lua_table.AudioFunctions:StopAudioEventGO(audio_library.voice_low_health, geralt_GO_UID)	--TODO-AUDIO:
 	near_death_playing = false
@@ -2251,7 +2253,7 @@ local function ProcessIncomingHit(collider_GO)
 					end
 					
 					lua_table.TransformFunctions:LookAt(knockback_pos[1], geralt_pos[2], knockback_pos[3], geralt_GO_UID)
-					
+
 					rec_direction.x = geralt_pos[1] - knockback_pos[1]
 					rec_direction.z = geralt_pos[3] - knockback_pos[3]
 					local magnitude = math.sqrt(rec_direction.x ^ 2 + rec_direction.z ^ 2)
@@ -2272,6 +2274,7 @@ local function ProcessIncomingHit(collider_GO)
 
 				current_action_duration = attack_effects_durations[enemy_script.collider_effect]
 				action_started_at = game_time
+				blending_started_at = game_time	--Manually mark animation swap
 				lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.medium.intensity, controller_shake.medium.duration)
 			end
 		end
@@ -2837,7 +2840,7 @@ function lua_table:Update()
 									if time_since_action > attack_slow_start and not input_slow_active then 
 										lua_table.AnimationFunctions:SetCurrentAnimationSpeed(lua_table.animation_slow_speed, geralt_GO_UID)
 										lua_table.AnimationFunctions:SetCurrentAnimationSpeed(lua_table.animation_slow_speed, particles_library.slash_GO_UID)
-										blending_started_at = game_time
+										blending_started_at = game_time	--Manually mark animation swap
 										input_slow_active = true
 									end
 								end
@@ -2872,7 +2875,7 @@ function lua_table:Update()
 									if time_since_action > attack_slow_start and not input_slow_active then 
 										lua_table.AnimationFunctions:SetCurrentAnimationSpeed(lua_table.animation_slow_speed, geralt_GO_UID)
 										lua_table.AnimationFunctions:SetCurrentAnimationSpeed(lua_table.animation_slow_speed, particles_library.slash_GO_UID)
-										blending_started_at = game_time
+										blending_started_at = game_time	--Manually mark animation swap
 										input_slow_active = true
 									end
 								end
@@ -2913,7 +2916,7 @@ function lua_table:Update()
 									if time_since_action > attack_slow_start and not input_slow_active then 
 										lua_table.AnimationFunctions:SetCurrentAnimationSpeed(lua_table.animation_slow_speed, geralt_GO_UID)
 										lua_table.AnimationFunctions:SetCurrentAnimationSpeed(lua_table.animation_slow_speed, particles_library.slash_GO_UID)
-										blending_started_at = game_time
+										blending_started_at = game_time	--Manually mark animation swap
 										input_slow_active = true
 									end
 								end
@@ -2987,7 +2990,6 @@ function lua_table:Update()
 						else
 							lua_table.AnimationFunctions:PlayAnimation(animation_library.stand_up, lua_table.stand_up_animation_speed, geralt_GO_UID)
 							current_animation = animation_library.stand_up
-
 							blending_started_at = game_time	--Manually mark animation swap
 
 							lua_table.AudioFunctions:PlayAudioEventGO(audio_library.stand_up, geralt_GO_UID)	--TODO-AUDIO:
@@ -3071,12 +3073,11 @@ function lua_table:Update()
 
 							lua_table.AnimationFunctions:PlayAnimation(animation_library.stand_up, lua_table.stand_up_animation_speed, geralt_GO_UID)	--TODO-Animations: Stand up
 							current_animation = animation_library.stand_up
+							blending_started_at = game_time	--Manually mark animation swap
 
 							for i = 1, #particles_library.revive_particles_GO_UID_children do
 								lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.revive_particles_GO_UID_children[i])	--TODO-Particles:
 							end
-
-							blending_started_at = game_time
 
 							lua_table.AudioFunctions:PlayAudioEventGO(audio_library.stand_up, geralt_GO_UID)	--TODO-AUDIO: Stand Up Sound
 							current_audio = audio_library.stand_up
