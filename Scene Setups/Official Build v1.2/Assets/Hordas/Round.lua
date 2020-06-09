@@ -68,7 +68,7 @@ function lua_table:Spawn()
             lua_table.is_finished = true
         else
             --random enemy
-            while (correct == false)
+            while correct == false
             do
                 lua_table.enemy_spawn = math.random(1,6)
                 if lua_table.enemy_spawn == 1 and e1_counter > 0
@@ -91,7 +91,8 @@ function lua_table:Spawn()
                     correct = true
                 end
             end
-
+            correct = false
+            
             --enemies
             if lua_table.enemy_spawn == 1 and e1_counter > 0 --enemy 1
             then

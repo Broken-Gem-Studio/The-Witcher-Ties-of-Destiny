@@ -1,5 +1,5 @@
 {
-    "1042231046": {
+    "1081055104": {
         "Active": true,
         "Components": {
             "0": {
@@ -187,118 +187,12 @@
             }
         },
         "Name": "Cone",
-        "Parent": "1677378274",
+        "Parent": "199677435",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false
     },
-    "1677378274": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "layer": "7",
-                "positionx": "0.000000",
-                "positiony": "0.000000",
-                "positionz": "0.000000",
-                "rotationw": "1.000000",
-                "rotationx": "0.000000",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "1.000000",
-                "scaley": "1.000000",
-                "scalez": "1.000000"
-            },
-            "12": {
-                "Active": true,
-                "Resources": {
-                    "ResourceScript": "Assets/Particles/Drops/Potion_Script.lua"
-                },
-                "Script variables": {
-                    "Count": 2,
-                    "Variable 0": {
-                        "DisplayObjectName": false,
-                        "Name": "item_id",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 1.0
-                    },
-                    "Variable 1": {
-                        "DisplayObjectName": false,
-                        "Name": "my_UID",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    }
-                }
-            },
-            "15": {
-                "Active": true,
-                "angular_damping": "0.000000",
-                "angular_velx": "0.000000",
-                "angular_vely": "0.000000",
-                "angular_velz": "0.000000",
-                "density": "1.000000",
-                "freezePosition_X": "1",
-                "freezePosition_Y": "0",
-                "freezePosition_Z": "1",
-                "freezeRotation_X": "1",
-                "freezeRotation_Y": "1",
-                "freezeRotation_Z": "1",
-                "is_kinematic": "0",
-                "linear_damping": "0.000000",
-                "linear_velx": "0.000000",
-                "linear_vely": "0.000000",
-                "linear_velz": "0.000000",
-                "mass": "10.000000",
-                "use_gravity": "1"
-            },
-            "16": {
-                "Active": true,
-                "colliderType": "1",
-                "draggedUID": "0",
-                "draw": "1",
-                "firstCreation": "1",
-                "globalMatrixw": "1.000000",
-                "globalMatrixx": "0.000000",
-                "globalMatrixy": "1.000000",
-                "globalMatrixz": "0.000000",
-                "globalPositionx": "1.000000",
-                "globalPositiony": "1.000000",
-                "globalPositionz": "1.000000",
-                "hasBeenDeactivated": "0",
-                "height": "1.000000",
-                "isConvex": "0",
-                "isTrigger": "0",
-                "lastIndex": "1",
-                "localMatrixw": "1.000000",
-                "localMatrixx": "0.000000",
-                "localMatrixy": "1.000000",
-                "localMatrixz": "0.000000",
-                "localPositionx": "0.000000",
-                "localPositiony": "1.000000",
-                "localPositionz": "0.000000",
-                "offsetx": "0.000000",
-                "offsety": "0.000000",
-                "offsetz": "0.000000",
-                "originalScalex": "1.000000",
-                "originalScaley": "1.000000",
-                "originalScalez": "1.000000",
-                "radius": "1.000000",
-                "scalex": "1.000000",
-                "scaley": "1.890000",
-                "scalez": "1.000000",
-                "tmpScalex": "1.000000",
-                "tmpScaley": "1.890000",
-                "tmpScalez": "1.000000"
-            }
-        },
-        "Name": "Drop_Particle_Red",
-        "Parent": "67481539",
-        "PrefabChild": true,
-        "PrefabInstance": true,
-        "Static": false
-    },
-    "533330956": {
+    "1278019175": {
         "Active": true,
         "Components": {
             "0": {
@@ -486,12 +380,169 @@
             }
         },
         "Name": "Circle",
-        "Parent": "1677378274",
+        "Parent": "199677435",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false
     },
-    "592090294": {
+    "199677435": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "7",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/Particles/Drops/Potion_Script.lua"
+                },
+                "Script variables": {
+                    "Count": 3,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "item_id",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "my_UID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "player_owner",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    }
+                }
+            },
+            "15": {
+                "Active": true,
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "1.000000",
+                "freezePosition_X": "0",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "0",
+                "freezeRotation_X": "1",
+                "freezeRotation_Y": "1",
+                "freezeRotation_Z": "1",
+                "is_kinematic": "0",
+                "linear_damping": "0.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "0.000000",
+                "linear_velz": "0.000000",
+                "mass": "10.000000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": true,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "1",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "0.000000",
+                "globalMatrixy": "1.000000",
+                "globalMatrixz": "0.000000",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "0",
+                "isTrigger": "0",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "1.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "1.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.890000",
+                "scalez": "1.000000",
+                "tmpScalex": "1.000000",
+                "tmpScaley": "1.890000",
+                "tmpScalez": "1.000000"
+            }
+        },
+        "Name": "Drop_Particle_Red",
+        "Parent": "706744908",
+        "PrefabChild": true,
+        "PrefabInstance": true,
+        "Static": false
+    },
+    "2123376179": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "7",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "0.862414",
+                "rotationx": "0.000000",
+                "rotationy": "0.506204",
+                "rotationz": "0.000000",
+                "scalex": "0.025000",
+                "scaley": "0.020000",
+                "scalez": "0.020000"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/776218225.mesh"
+                    }
+                }
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/New Folder 16/Breakable Prop/BottleRed.mat"
+                    }
+                }
+            }
+        },
+        "Name": "bottle_low_uvs2:pSphere1",
+        "Parent": "199677435",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "283036524": {
         "Active": true,
         "Components": {
             "0": {
@@ -679,54 +730,10 @@
             }
         },
         "Name": "Star",
-        "Parent": "1677378274",
+        "Parent": "199677435",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false
     },
-    "969754409": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "layer": "7",
-                "positionx": "0.000000",
-                "positiony": "0.000000",
-                "positionz": "0.000000",
-                "rotationw": "0.862414",
-                "rotationx": "0.000000",
-                "rotationy": "0.506204",
-                "rotationz": "0.000000",
-                "scalex": "0.025000",
-                "scaley": "0.020000",
-                "scalez": "0.020000"
-            },
-            "1": {
-                "Active": true,
-                "Resources": {
-                    "ResourceMesh": {
-                        "PreviewTexture": "",
-                        "path": "Library/Meshes/776218225.mesh"
-                    }
-                }
-            },
-            "2": {
-                "Active": true,
-                "CastsShadows": true,
-                "LightAffected": true,
-                "OnlyShadows": false,
-                "ReceivesShadows": true,
-                "Resources": {
-                    "ResourceMaterial": {
-                        "path": "Assets/New Folder 16/Breakable Prop/BottleRed.mat"
-                    }
-                }
-            }
-        },
-        "Name": "bottle_low_uvs2:pSphere1",
-        "Parent": "1677378274",
-        "PrefabChild": true,
-        "PrefabInstance": false,
-        "Static": false
-    },
-    "PreviewTexture": "Library/Textures/106132074.dds"
+    "PreviewTexture": "Library/Textures/1319196511.dds"
 }

@@ -42,8 +42,8 @@ function lua_table:OnTriggerEnter()
                 --deactivate spawners on forest level
                 if winlose_script.current_level == 2
                 then
-                    lua_table.GO:SetActiveGameObject(false), spawner1)
-                    lua_table.GO:SetActiveGameObject(false), spawner2)
+                    lua_table.GO:SetActiveGameObject(false, spawner1)
+                    lua_table.GO:SetActiveGameObject(false, spawner2)
                 end
 
             elseif lua_table.checkpoint == 2
