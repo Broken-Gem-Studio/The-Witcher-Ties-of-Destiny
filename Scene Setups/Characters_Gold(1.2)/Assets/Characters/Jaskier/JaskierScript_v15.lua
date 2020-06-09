@@ -650,7 +650,7 @@ lua_table.note_stack = { 'N', 'N', 'N', 'N' }	-- Notes based on attacks performe
 	}
 	local song_2_particles_speed = {
 		forward = 25,
-		y = 50,
+		y = 25,
 		lateral = 75
 	}
 
@@ -2967,7 +2967,7 @@ function lua_table:Update()
 								--Direct and Activate Note Particles
 								for i = 1, #particles_library.song_cone_GO_UID_children do
 									lua_table.ParticlesFunctions:SetParticlesVelocity(song_2_particles_speed.forward * rec_direction.x, 0, song_2_particles_speed.forward * rec_direction.z, particles_library.song_cone_GO_UID_children[i])
-									
+
 									lua_table.ParticlesFunctions:SetRandomParticlesVelocity(song_2_particles_speed.lateral * rec_direction.z, song_2_particles_speed.y, song_2_particles_speed.lateral * rec_direction.x,
 									-song_2_particles_speed.lateral * rec_direction.z, 0, -song_2_particles_speed.lateral * rec_direction.x,
 									particles_library.song_cone_GO_UID_children[i])
