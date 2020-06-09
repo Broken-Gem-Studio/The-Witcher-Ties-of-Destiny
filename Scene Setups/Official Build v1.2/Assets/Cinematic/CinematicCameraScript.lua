@@ -31,7 +31,7 @@ local position_z = {}
 
 -- Jaskier UID
 local Cube_ID = 0
-local BarID = 0 -- Ciruclar bar for skip
+--local BarID = 0 -- Ciruclar bar for skip
 
 -- Time management
 local time = 0
@@ -100,7 +100,7 @@ local function GoTo(position, speed)
 end
 
 local function SkipButton()
-
+    --[[
     -- Skip Scene code
     if lua_table.skip_threshold <= 0.00 then
        lua_table.skip_threshold = 0.00
@@ -116,8 +116,9 @@ local function SkipButton()
        lua_table.skip_threshold = lua_table.skip_threshold - 0.6
        skip_button_is_being_pressed = false
    end
+   --]]
 
-   if lua_table.skip_threshold >= 100 and next_scene == true then
+   if lua_table.Input:IsGamepadButton(1, "BUTTON_A", "DOWN") and next_scene == true then
 
        lua_table.Audio:PlayAudioEvent("Play_Skipped_Cinematic")
        lua_table.Audio:StopAudioEvent("Play_lvl2_Intro_conversation_Cutscene")
@@ -128,7 +129,7 @@ local function SkipButton()
        changeScene_nextFrame = true
    end
 
-   lua_table.UI:SetUICircularBarPercentage(lua_table.skip_threshold, BarID)
+   --lua_table.UI:SetUICircularBarPercentage(lua_table.skip_threshold, BarID)
 
 end
 
@@ -142,7 +143,7 @@ function lua_table:Start()
     lua_table.Transform:SetObjectRotation(132.264, 38.413, -147.605, lua_table.GameObjectFunctions:GetMyUID())
 
     Cube_ID = lua_table.GameObjectFunctions:FindGameObject(lua_table.cube)
-    BarID = lua_table.GameObjectFunctions:FindGameObject("SkipBarForest")
+    --BarID = lua_table.GameObjectFunctions:FindGameObject("SkipBarForest")
     Fade = lua_table.GameObjectFunctions:FindGameObject("Fade")
 
     minion = lua_table.GameObjectFunctions:FindGameObject("Minion_Ghoul")
