@@ -33,6 +33,9 @@ local jaskier_GO_UID
 local geralt_mesh_GO_UID
 local geralt_pivot_GO_UID
 
+--Ally Script
+local jaskier_script
+
 -- Revive GOs
 local geralt_revive_GO_UID
 local jaskier_revive_GO_UID
@@ -1644,31 +1647,34 @@ local function ActionInputs()	--Process Action Inputs
 			else
 				lua_table.AudioFunctions:PlayAudioEventGO(audio_library.not_possible, geralt_GO_UID)	--TODO-Audio: Not possible sound
 			end
-
-		elseif lua_table.InputFunctions:IsTriggerState(lua_table.player_ID, lua_table.key_ultimate_1, key_state.key_down) and lua_table.InputFunctions:IsTriggerState(lua_table.player_ID, lua_table.key_ultimate_2, key_state.key_repeat)
-		or lua_table.InputFunctions:IsTriggerState(lua_table.player_ID, lua_table.key_ultimate_1, key_state.key_repeat) and lua_table.InputFunctions:IsTriggerState(lua_table.player_ID, lua_table.key_ultimate_2, key_state.key_down)		--Ultimate Input
+			
+		elseif lua_table.current_ultimate >= lua_table.max_ultimate	--Ultimate Success Input
+		and lua_table.InputFunctions:IsTriggerState(lua_table.player_ID, lua_table.key_ultimate_1, key_state.key_repeat)
+		and lua_table.InputFunctions:IsTriggerState(lua_table.player_ID, lua_table.key_ultimate_2, key_state.key_repeat)
 		then
-			if lua_table.current_ultimate >= lua_table.max_ultimate
-			then
-				action_started_at = game_time							--Set timer start mark
-				ultimate_started_at = action_started_at
-	
-				current_action_block_time = lua_table.ultimate_duration
-				current_action_duration = lua_table.ultimate_duration
-	
-				--Do Ultimate
-				lua_table.AnimationFunctions:PlayAnimation(animation_library.ultimate, lua_table.ultimate_animation_speed, geralt_GO_UID)
-				current_animation = animation_library.ultimate
-	
-				lua_table.AudioFunctions:PlayAudioEventGO(audio_library.ultimate, geralt_GO_UID)	--TODO-AUDIO: Ultimate Sound
-				current_audio = audio_library.ultimate
-	
-				lua_table.previous_state = lua_table.current_state
-				lua_table.current_state = state.ultimate
-				action_made = true
-			else
-				lua_table.AudioFunctions:PlayAudioEventGO(audio_library.not_possible, geralt_GO_UID)	--TODO-Audio: Not possible sound
-			end
+
+			action_started_at = game_time							--Set timer start mark
+			ultimate_started_at = action_started_at
+
+			current_action_block_time = lua_table.ultimate_duration
+			current_action_duration = lua_table.ultimate_duration
+
+			--Do Ultimate
+			lua_table.AnimationFunctions:PlayAnimation(animation_library.ultimate, lua_table.ultimate_animation_speed, geralt_GO_UID)
+			current_animation = animation_library.ultimate
+
+			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.ultimate, geralt_GO_UID)	--TODO-AUDIO: Ultimate Sound
+			current_audio = audio_library.ultimate
+
+			lua_table.previous_state = lua_table.current_state
+			lua_table.current_state = state.ultimate
+			action_made = true
+
+		elseif lua_table.current_ultimate < lua_table.max_ultimate	--Ultimate Failed Input
+		and (lua_table.InputFunctions:IsTriggerState(lua_table.player_ID, lua_table.key_ultimate_1, key_state.key_repeat) and lua_table.InputFunctions:IsTriggerState(lua_table.player_ID, lua_table.key_ultimate_2, key_state.key_down)
+		or lua_table.InputFunctions:IsTriggerState(lua_table.player_ID, lua_table.key_ultimate_1, key_state.key_down) and lua_table.InputFunctions:IsTriggerState(lua_table.player_ID, lua_table.key_ultimate_2, key_state.key_repeat))
+		then
+			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.not_possible, geralt_GO_UID)	--TODO-Audio: Not possible sound
 
 		elseif lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_revive, key_state.key_down)	--Revive Input
 		then
@@ -2297,34 +2303,6 @@ end
 
 --Collider Calls END
 
---General BEGIN
-
-local function DetectNearbyEnemies()
-	if game_time - enemy_detection_started_at > enemy_detection_time
-	then
-		local geralt_pos = lua_table.TransformFunctions:GetPosition(geralt_GO_UID)
-		local enemy_list = lua_table.PhysicsFunctions:OverlapSphere(geralt_pos[1], geralt_pos[2], geralt_pos[3], lua_table.enemy_detection_range, layers.enemy)
-
-		if lua_table.enemies_nearby then
-			if enemy_list[1] == nil then
-				lua_table.AudioFunctions:PlayAudioEventGO(audio_library.voice_battle_end, geralt_GO_UID)	--TODO-AUDIO:
-				lua_table.AudioFunctions:StopAudioEventGO(audio_library.voice_battle_start, geralt_GO_UID)	--TODO-AUDIO:
-				lua_table.enemies_nearby = false
-			end
-		else
-			if enemy_list[1] ~= nil then
-				lua_table.AudioFunctions:PlayAudioEventGO(audio_library.voice_battle_start, geralt_GO_UID)	--TODO-AUDIO:
-				lua_table.AudioFunctions:StopAudioEventGO(audio_library.voice_battle_end, geralt_GO_UID)	--TODO-AUDIO:
-				lua_table.enemies_nearby = true
-			end
-		end
-
-		enemy_detection_started_at = game_time
-	end
-end
-
---General END
-
 --Debug BEGIN 	----------------------------------------------------------------------------
 
 local function DebugInputs()
@@ -2376,6 +2354,53 @@ end
 
 --Debug END 	----------------------------------------------------------------------------
 
+function lua_table:StartBattle()
+	lua_table.AudioFunctions:PlayAudioEventGO(audio_library.voice_battle_start, geralt_GO_UID)	--TODO-AUDIO:
+	lua_table.AudioFunctions:StopAudioEventGO(audio_library.voice_battle_end, geralt_GO_UID)	--TODO-AUDIO:
+end
+
+function lua_table:EndBattle()
+	lua_table.AudioFunctions:PlayAudioEventGO(audio_library.voice_battle_end, geralt_GO_UID)	--TODO-AUDIO:
+	lua_table.AudioFunctions:StopAudioEventGO(audio_library.voice_battle_start, geralt_GO_UID)	--TODO-AUDIO:
+end
+
+local function EnemiesNearby()
+	local ret = false
+	local geralt_pos = lua_table.TransformFunctions:GetPosition(geralt_GO_UID)
+	local enemy_list = lua_table.PhysicsFunctions:OverlapSphere(geralt_pos[1], geralt_pos[2], geralt_pos[3], lua_table.enemy_detection_range, layers.enemy)
+	if enemy_list[1] ~= nil then ret = true end
+	return ret
+end
+
+local function CheckCombatStatus()
+	if game_time - enemy_detection_started_at > enemy_detection_time
+	then
+		if lua_table.enemies_nearby then
+			if not EnemiesNearby() then
+				lua_table.enemies_nearby = false
+
+				if jaskier_script ~= nil and not jaskier_script.enemies_nearby then
+					lua_table:EndBattle()
+					if jaskier_script.current_state > state.down then jaskier_script:EndBattle() end
+					--lua_table.SystemFunctions:LOG("GERALT END BATTLE ---------------------")
+				end
+			end
+		else
+			if EnemiesNearby() then
+				lua_table.enemies_nearby = true
+				
+				if jaskier_script ~= nil and not jaskier_script.enemies_nearby then
+					lua_table:StartBattle()
+					if jaskier_script.current_state > state.down then jaskier_script:StartBattle() end
+					--lua_table.SystemFunctions:LOG("GERALT START BATTLE ---------------------")
+				end
+			end
+		end
+
+		enemy_detection_started_at = game_time
+	end
+end
+
 local function CalculateAbilityTrapezoid()
 	ability_trapezoid.point_B.x = lua_table.ability_offset_x + math.tan(lua_table.ability_angle) * (lua_table.ability_range - lua_table.ability_offset_z)
 	ability_trapezoid.point_B.z = lua_table.ability_range
@@ -2419,6 +2444,8 @@ function lua_table:Awake()
 	geralt_GO_UID = lua_table.GameObjectFunctions:GetMyUID()
 	jaskier_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier")
 
+	if jaskier_GO_UID ~= 0 then jaskier_script = lua_table.GameObjectFunctions:GetScript(jaskier_GO_UID) end
+
 	geralt_mesh_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt_Mesh")
 	geralt_pivot_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt_Pivot")
 
@@ -2433,6 +2460,9 @@ function lua_table:Awake()
 
 	geralt_revive_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt_Revive_Pos")
 	jaskier_revive_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Revive_Pos")
+
+	lua_table.PhysicsFunctions:SetActiveController(false, geralt_GO_UID)
+	lua_table.PhysicsFunctions:SetActiveController(true, geralt_GO_UID)
 
 	--Assign Prefabs
 	item_prefabs[1] = lua_table.potion_health_prefab
@@ -2538,14 +2568,14 @@ function lua_table:Start()
 	lua_table.GameObjectFunctions:SetActiveGameObject(false, particles_library.aard_cone_mesh_GO_UID)
 	lua_table.GameObjectFunctions:SetActiveGameObject(false, particles_library.aard_circle_mesh_GO_UID)
 
-	-- Set initial values
+	--Set initial values
 	lua_table.previous_state = state.idle
 	lua_table.current_state = state.idle
 	lua_table.current_health = lua_table.max_health_real
 	lua_table.current_energy = lua_table.max_energy_real
 	lua_table.current_ultimate = 0.0
 
-	-- Default Starting animations
+	--Default Starting animations
 	lua_table.AnimationFunctions:PlayAnimation(animation_library.idle, lua_table.idle_animation_speed, geralt_GO_UID)
 	current_animation = animation_library.idle
 end
@@ -2564,7 +2594,7 @@ function lua_table:Update()
 		
 		if lua_table.current_state ~= state.dead	--IF not dead (stuff done while downed too)
 		then
-			DetectNearbyEnemies()
+			CheckCombatStatus()
 			CheckCameraBounds()
 
 			--Energy Regeneration
@@ -3137,8 +3167,8 @@ function lua_table:Update()
 	--if lua_table.current_state == state.down then lua_table.SystemFunctions:LOG((game_time - lua_table.death_started_at)) end
 
 	-- Enemies Nearby
-	--if lua_table.enemies_nearby then lua_table.SystemFunctions:LOG("Enemies Nearby!")
-	--else lua_table.SystemFunctions:LOG("Enemies not nearby.") end
+	--if lua_table.enemies_nearby then lua_table.SystemFunctions:LOG("Geralt enemies Nearby!")
+	--else lua_table.SystemFunctions:LOG("Geralt enemies not nearby.") end
 
 	--Item LOGS
 	--lua_table.SystemFunctions:LOG("Geralt Item: " .. lua_table.item_selected)
