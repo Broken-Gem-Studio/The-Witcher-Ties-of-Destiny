@@ -3,6 +3,7 @@ local lua_table = {}
 lua_table.System = Scripting.System()
 lua_table.Transform = Scripting.Transform()
 lua_table.Scene = Scripting.Scenes()
+lua_table.GO = Scripting.GameObject()
 
 lua_table.enemy1 = 0
 lua_table.enemy2 = 0
@@ -21,11 +22,11 @@ lua_table.num_e6 = 0
 lua_table.final_enemy = 0
 lua_table.is_final = false
 
-lua_table.spawn_pos1 = 0
-lua_table.spawn_pos2 = 0
-lua_table.spawn_pos3 = 0
-
 lua_table.is_finished = false
+
+local spawn_pos1 = 0
+local spawn_pos2 = 0
+local spawn_pos3 = 0
 
 local e1_counter = 0
 local e2_counter = 0
@@ -34,8 +35,8 @@ local e4_counter = 0
 local e5_counter = 0
 local e6_counter = 0
 
-lua_table.enemy_spawn = 0
-lua_table.position_spawn = 0
+local enemy_spawn = 0
+local position_spawn = 0
 local pos = 0
 local correct = false
 
@@ -49,16 +50,16 @@ function lua_table:Spawn()
     if lua_table.is_finished == false
     then
         --get spawn position
-        lua_table.position_spawn = math.random(1,3)
-        if lua_table.position_spawn == 1
+        position_spawn = math.random(1,3)
+        if position_spawn == 1
         then
-            pos = lua_table.Transform:GetPosition(lua_table.spawn_pos1)
-        elseif lua_table.position_spawn == 2
+            pos = lua_table.Transform:GetPosition(spawn_pos1)
+        elseif position_spawn == 2
         then
-            pos = lua_table.Transform:GetPosition(lua_table.spawn_pos2)
-        elseif lua_table.position_spawn == 3
+            pos = lua_table.Transform:GetPosition(spawn_pos2)
+        elseif position_spawn == 3
         then
-            pos = lua_table.Transform:GetPosition(lua_table.spawn_pos3)
+            pos = lua_table.Transform:GetPosition(spawn_pos3)
         end
 
         --spawn enemy
@@ -70,23 +71,23 @@ function lua_table:Spawn()
             --random enemy
             while correct == false
             do
-                lua_table.enemy_spawn = math.random(1,6)
-                if lua_table.enemy_spawn == 1 and e1_counter > 0
+                enemy_spawn = math.random(1,6)
+                if enemy_spawn == 1 and e1_counter > 0
                 then
                     correct = true
-                elseif lua_table.enemy_spawn == 2 and e2_counter > 0
+                elseif enemy_spawn == 2 and e2_counter > 0
                 then
                     correct = true
-                elseif lua_table.enemy_spawn == 3 and e3_counter > 0
+                elseif enemy_spawn == 3 and e3_counter > 0
                 then
                     correct = true
-                elseif lua_table.enemy_spawn == 4 and e4_counter > 0
+                elseif enemy_spawn == 4 and e4_counter > 0
                 then
                     correct = true
-                elseif lua_table.enemy_spawn == 5 and e5_counter > 0
+                elseif enemy_spawn == 5 and e5_counter > 0
                 then
                     correct = true
-                elseif lua_table.enemy_spawn == 6 and e6_counter > 0
+                elseif enemy_spawn == 6 and e6_counter > 0
                 then
                     correct = true
                 end
@@ -94,27 +95,27 @@ function lua_table:Spawn()
             correct = false
             
             --enemies
-            if lua_table.enemy_spawn == 1 and e1_counter > 0 --enemy 1
+            if enemy_spawn == 1 and e1_counter > 0 --enemy 1
             then
                 lua_table.Scene:Instantiate(lua_table.enemy1, pos[1], pos[2], pos[3], 0, 0, 0)
                 e1_counter = e1_counter - 1
-            elseif lua_table.enemy_spawn == 2 and e2_counter > 0 --enemy 2
+            elseif enemy_spawn == 2 and e2_counter > 0 --enemy 2
             then
                 lua_table.Scene:Instantiate(lua_table.enemy2, pos[1], pos[2], pos[3], 0, 0, 0)
                 e2_counter = e2_counter - 1
-            elseif lua_table.enemy_spawn == 3 and e3_counter > 0 --enemy 3
+            elseif enemy_spawn == 3 and e3_counter > 0 --enemy 3
             then
                 lua_table.Scene:Instantiate(lua_table.enemy3, pos[1], pos[2], pos[3], 0, 0, 0)
                 e3_counter = e3_counter - 1
-            elseif lua_table.enemy_spawn == 4 and e4_counter > 0 --enemy 4
+            elseif enemy_spawn == 4 and e4_counter > 0 --enemy 4
             then
                 lua_table.Scene:Instantiate(lua_table.enemy4, pos[1], pos[2], pos[3], 0, 0, 0)
                 e4_counter = e4_counter - 1
-            elseif lua_table.enemy_spawn == 5 and e5_counter > 0 --enemy 5
+            elseif enemy_spawn == 5 and e5_counter > 0 --enemy 5
             then
                 lua_table.Scene:Instantiate(lua_table.enemy5, pos[1], pos[2], pos[3], 0, 0, 0)
                 e5_counter = e5_counter - 1
-            elseif lua_table.enemy_spawn == 6 and e6_counter > 0 --enemy 6
+            elseif enemy_spawn == 6 and e6_counter > 0 --enemy 6
             then
                 lua_table.Scene:Instantiate(lua_table.enemy6, pos[1], pos[2], pos[3], 0, 0, 0)
                 e6_counter = e6_counter - 1
@@ -148,6 +149,10 @@ function lua_table:Awake()
     then
         e6_counter = lua_table.num_e6
     end
+
+    spawn_pos1 = lua_table.GO:FindGameObject("Pos1")
+    spawn_pos2 = lua_table.GO:FindGameObject("Pos2")
+    spawn_pos3 = lua_table.GO:FindGameObject("Pos3")
 end
 
 function lua_table:Start()
