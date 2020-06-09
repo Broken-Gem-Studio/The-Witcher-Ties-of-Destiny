@@ -1081,6 +1081,12 @@ local function HandleStompAttack()
                 -- ACTIVATE PARTICLES
                 lua_table.ParticlesFunctions:PlayParticleEmitter(particles.dustcloud_stomp_left.part_UID)
                 lua_table.ParticlesFunctions:PlayParticleEmitter(particles.dustcloud_stomp_right.part_UID)
+
+                -- Deactivate collider
+                lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_collider.stomp.coll_UID)
+
+                -- AUDIO PLAY
+                lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_lash", my_UID)
             end
 
             if game_time >= attack_tired_timer and attack_tired_timer ~= -1--Check if execution is finished
@@ -1093,13 +1099,7 @@ local function HandleStompAttack()
                 lua_table.AnimationFunctions:PlayAnimation(animation.stomp_recovery.anim_name, animation.stomp_recovery.anim_speed, my_UID)
                 
                 -- Execution Timer
-                attack_subdivision_timer = game_time + attack.stomp.att_recovery_duration
-
-                -- Deactivate collider
-                lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_collider.stomp.coll_UID)
-
-                -- AUDIO PLAY
-                lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_lash", my_UID)
+                attack_subdivision_timer = game_time + attack.stomp.att_recovery_duration    
             end
         end
 
@@ -1591,11 +1591,7 @@ local function HandleLeashLeftAttack()
                 attack_collider.leash_left.coll_current_rot[y] = attack_collider.leash_left.coll_init_rot[y]
                 attack_collider.leash_left.coll_current_rot[z] = attack_collider.leash_left.coll_init_rot[z]
                 
-                lua_table.TransformFunctions:SetObjectRotation(attack_collider.leash_left.coll_current_rot[x], attack_collider.leash_left.coll_current_rot[y], attack_collider.leash_left.coll_current_rot[z], attack_collider.leash_left.coll_UID)
-            
-                -- AUDIO PLAY
-                lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_lash", my_UID)
-                
+                lua_table.TransformFunctions:SetObjectRotation(attack_collider.leash_left.coll_current_rot[x], attack_collider.leash_left.coll_current_rot[y], attack_collider.leash_left.coll_current_rot[z], attack_collider.leash_left.coll_UID)     
             end
         end
 
@@ -1624,6 +1620,11 @@ local function HandleLeashLeftAttack()
                 -- ACTIVATE PARTICLES
                 lua_table.ParticlesFunctions:PlayParticleEmitter(particles.dustcloud_leash_left.part_UID)
 
+                -- Deactivate collider
+                lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_collider.leash_left.coll_UID)
+
+                -- AUDIO PLAY
+                lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_lash", my_UID)
             end
 
             if game_time >= attack_tired_timer and attack_tired_timer ~= -1--Check if execution is finished
@@ -1636,9 +1637,6 @@ local function HandleLeashLeftAttack()
                 
                 -- Execution Timer
                 attack_subdivision_timer = game_time + attack.leash_left.att_recovery_duration
-
-                -- Deactivate collider
-                lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_collider.leash_left.coll_UID)
             end
         end
 
@@ -1658,8 +1656,6 @@ local function HandleLeashLeftAttack()
 
                 current_attack_type = attack_type.TO_BE_DETERMINED
                 current_attack_subdivision = attack_subdivision.TO_BE_DETERMINED
-
-                lua_table.SystemFunctions:LOG ("Kikimora: Leash Left Finish")
             end
         end
     end
@@ -1733,9 +1729,6 @@ local function HandleLeashRightAttack()
                 
                 lua_table.TransformFunctions:SetObjectRotation(attack_collider.leash_right.coll_current_rot[x], attack_collider.leash_right.coll_current_rot[y], attack_collider.leash_right.coll_current_rot[z], attack_collider.leash_right.coll_UID)
 
-                -- AUDIO PLAY
-                lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_lash", my_UID)
-
             end
         end
 
@@ -1780,6 +1773,12 @@ local function HandleLeashRightAttack()
 
                 -- Deactivates Collider
                 lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_collider.leash_right.coll_UID)
+
+                -- DEACTIVATE PARTICLES
+                lua_table.ParticlesFunctions:StopParticleEmitter(particles.dustcloud_leash_right.part_UID)
+
+                -- AUDIO PLAY
+                lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_lash", my_UID)   
             end
         end
 
@@ -1790,17 +1789,12 @@ local function HandleLeashRightAttack()
             then
                 --attack.leash_right.att_cooldown_bool = true
                 --attack.leash_right.att_timer = game_time + attack.leash_right.att_cooldown_time
-
-                -- DEACTIVATE PARTICLES
-                lua_table.ParticlesFunctions:StopParticleEmitter(particles.dustcloud_leash_right.part_UID)
                 
                 attack_finished = true
                 attack_counter = attack_counter + 1
 
                 current_attack_type = attack_type.TO_BE_DETERMINED
-                current_attack_subdivision = attack_subdivision.TO_BE_DETERMINED
-
-                lua_table.SystemFunctions:LOG ("Kikimora: Leash Right Finish")
+                current_attack_subdivision = attack_subdivision.TO_BE_DETERMINED      
             end
         end
     end
