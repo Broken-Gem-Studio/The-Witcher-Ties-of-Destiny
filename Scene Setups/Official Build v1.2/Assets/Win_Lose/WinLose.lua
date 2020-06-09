@@ -471,6 +471,8 @@ function GetTableWinLose()
     function lua_table:Start()
         --respawn on last checkpoint
         GetCheckpointPos()
+        lua_table.Physics:SetActiveController(true, Geralt)
+        lua_table.Physics:SetActiveController(true, Jaskier)
         lua_table.Physics:SetCharacterPosition(geralt_x, geralt_y, geralt_z, Geralt)
         lua_table.Physics:SetCharacterPosition(jaskier_x, jaskier_y, jaskier_z, Jaskier)
     end

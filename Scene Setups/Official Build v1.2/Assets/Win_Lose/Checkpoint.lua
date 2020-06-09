@@ -42,8 +42,8 @@ function lua_table:OnTriggerEnter()
                 --deactivate spawners on forest level
                 if winlose_script.current_level == 2
                 then
-                    lua_table.GO:SetActiveGameObject(true, spawner1)
-                    lua_table.GO:SetActiveGameObject(true, spawner2)
+                    lua_table.GO:SetActiveGameObject(false, spawner1)
+                    lua_table.GO:SetActiveGameObject(false, spawner2)
                 end
 
             elseif lua_table.checkpoint == 2
@@ -54,10 +54,10 @@ function lua_table:OnTriggerEnter()
                 --deactivate spawners on forest level
                 if winlose_script.current_level == 2
                 then
-                    lua_table.GO:SetActiveGameObject(true, spawner1)
-                    lua_table.GO:SetActiveGameObject(true, spawner2)
-                    lua_table.GO:SetActiveGameObject(true, spawner3)
-                    lua_table.GO:SetActiveGameObject(true, spawner4)
+                    lua_table.GO:SetActiveGameObject(false, spawner1)
+                    lua_table.GO:SetActiveGameObject(false, spawner2)
+                    lua_table.GO:SetActiveGameObject(false, spawner3)
+                    lua_table.GO:SetActiveGameObject(false, spawner4)
                 end
             end
 
@@ -78,7 +78,7 @@ function lua_table:Awake()
     bonfire2_particles[1] = lua_table.GO:FindChildGameObjectFromGO("FireParticles1", bonfire_2)
     bonfire2_particles[2] = lua_table.GO:FindChildGameObjectFromGO("FireParticles2", bonfire_2)
 
-    spawner1 = lua_table.GO:FindGameObject("Spawnersv2_audio")
+    spawner1 = lua_table.GO:FindGameObject("Spwanersv2_audio")
     spawner2 = lua_table.GO:FindGameObject("Spawners_2ndPart")
     spawner3 = lua_table.GO:FindGameObject("Spawners_PreKiki")
     spawner4 = lua_table.GO:FindGameObject("Spawners_AfterBridge")
