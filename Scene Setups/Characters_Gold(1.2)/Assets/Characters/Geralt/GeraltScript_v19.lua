@@ -79,8 +79,6 @@ lua_table.blend_time_duration = 200	--Animation is marked as ended during blend 
 local particles_library = {
 	none = 0,
 
-	--sword_particles_GO_UID = 0,
-
 	--Particle Tables
 	run_particles_GO_UID_children = {},
 	blood_particles_GO_UID_children = {},
@@ -97,6 +95,7 @@ local particles_library = {
 	ultimate_particles_GO_UID_children = {},
 
 	--Standalone Particles
+	sword_particles_GO_UID = 0,
 	--aard_hand_particles_GO_UID = 0,
 
 	--FBX Particles
@@ -1069,8 +1068,6 @@ local function ParticlesShutdown()
 		lua_table.AnimationFunctions:PlayAnimation(animation_library.evade, lua_table.evade_animation_speed, particles_library.slash_GO_UID)
 		lua_table.GameObjectFunctions:SetActiveGameObject(false, particles_library.slash_mesh_GO_UID)
 
-		--lua_table.ParticlesFunctions:StopParticleEmitter(sword_particles_GO_UID)
-
 	elseif lua_table.current_state == state.ability
 	then
 		lua_table.AnimationFunctions:PlayAnimation(animation_library.evade, lua_table.evade_animation_speed, particles_library.aard_cone_GO_UID)
@@ -1683,6 +1680,10 @@ local function ActionInputs()	--Process Action Inputs
 			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.ultimate, geralt_GO_UID)	--TODO-AUDIO: Ultimate Sound
 			current_audio = audio_library.ultimate
 
+			for i = 1, #particles_library.ultimate_particles_GO_UID_children do
+				lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.ultimate_particles_GO_UID_children[i])	--TODO-Particles:
+			end
+
 			lua_table.previous_state = lua_table.current_state
 			lua_table.current_state = state.ultimate
 			action_made = true
@@ -1783,7 +1784,6 @@ local function ActionInputs()	--Process Action Inputs
 			enemy_hit_curr_stage = enemy_hit_stages.awaiting_attack
 		else
 			lua_table.GameObjectFunctions:SetActiveGameObject(false, particles_library.slash_mesh_GO_UID)
-			--lua_table.ParticlesFunctions:StopParticleEmitter(sword_particles_GO_UID)	--TODO-Particles: Deactivate Particles on Sword
 		end
 		
 		if lua_table.previous_state == state.walk or lua_table.previous_state == state.run
@@ -1810,12 +1810,10 @@ local function UltimateState(active)
 	lua_table.base_damage_mod = lua_table.base_damage_mod + lua_table.ultimate_damage_mod_increase * ultimate_stat_mod
 
 	if active then
-		for i = 1, #particles_library.ultimate_particles_GO_UID_children do
-			lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.ultimate_particles_GO_UID_children[i])	--TODO-Particles:
-		end
-
 		lua_table.AudioFunctions:PlayAudioEventGO(audio_library.ultimate_scream, geralt_GO_UID)	--TODO-AUDIO: Play run sound
 		lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.big.intensity, controller_shake.big.duration)
+		
+		if sword_particles_GO_UID ~= 0 then lua_table.ParticlesFunctions:PlayParticleEmitter(sword_particles_GO_UID) end	--TODO-Particles:
 
 		lua_table.current_ultimate = 0.0
 		ultimate_effect_started_at = game_time
@@ -1823,6 +1821,7 @@ local function UltimateState(active)
 		for i = 1, #particles_library.ultimate_particles_GO_UID_children do
 			lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.ultimate_particles_GO_UID_children[i])	--TODO-Particles:
 		end
+		if sword_particles_GO_UID ~= 0 then lua_table.ParticlesFunctions:StopParticleEmitter(sword_particles_GO_UID) end	--TODO-Particles:
 
 		lua_table.AudioFunctions:StopAudioEventGO(audio_library.ultimate, geralt_GO_UID)	--TODO-AUDIO: Ultimate Sound
 		current_audio = audio_library.none
@@ -2499,7 +2498,7 @@ function lua_table:Awake()
 	item_prefabs[3] = lua_table.potion_power_prefab
 
 	--Get Particle Emitters GO_UID
-	--sword_particles_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt_Sword")
+	sword_particles_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Particles_Ult_Sword")
 
 	particles_library.run_particles_GO_UID_children = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindGameObject("Geralt_Run"))
 	particles_library.blood_particles_GO_UID_children = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindGameObject("Geralt_Blood"))
@@ -2579,8 +2578,8 @@ function lua_table:Start()
 	-- for i = 1, #particles_library.ultimate_particles_GO_UID_children do
 	-- 	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.ultimate_particles_GO_UID_children[i])	--TODO-Particles:
 	-- end
-
 	--lua_table.ParticlesFunctions:StopParticleEmitter(sword_particles_GO_UID)			--TODO-Particles: Uncomment when ready
+
 	--lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.aard_hand_particles_GO_UID)	--TODO-Particles: Uncomment when ready
 
 	--Set Particle GO Animations to for smooth blending to required animations
@@ -2734,11 +2733,7 @@ function lua_table:Update()
 							attack_colliders.aard_circle_1.active = false
 
 							--lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.aard_hand_particles_GO_UID)	--TODO-Particles: Deactivate Aard particles on hand
-						elseif lua_table.current_state == state.ultimate
-						then
-							-- for i = 1, #particles_library.ultimate_particles_GO_UID_children do
-							-- 	lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.ultimate_particles_GO_UID_children[i])	--TODO-Particles:
-							-- end
+
 						elseif lua_table.current_state >= state.light_1 and lua_table.current_state <= state.heavy_3	--IF attack finished
 						then
 							if attack_input_given	--IF attack input was given before time ran out, process it instantly
@@ -2750,8 +2745,6 @@ function lua_table:Update()
 								lua_table.AnimationFunctions:PlayAnimation(animation_library.evade, lua_table.evade_animation_speed, particles_library.slash_GO_UID)
 								lua_table.GameObjectFunctions:SetActiveGameObject(false, particles_library.slash_mesh_GO_UID)
 							end
-
-							--lua_table.ParticlesFunctions:StopParticleEmitter(sword_particles_GO_UID)	--TODO-Particles: Deactivate Particles on Sword
 						end
 
 						AttackColliderShutdown()
