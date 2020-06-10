@@ -843,15 +843,15 @@ local function DebugInputs()
 		if lua_table.InputFunctions:KeyDown("b")
 		then 
 			lua_table.camera_shake_activated = true
-			lua_table.camera_shake_duration = 0.5
-			lua_table.camera_shake_magnitude = 0.3
+			lua_table.camera_shake_duration = 0.2
+			lua_table.camera_shake_magnitude = 0.1
 		end 
 		
 		if lua_table.InputFunctions:KeyDown("v")
 		then 
 			lua_table.camera_shake_activated = true
-			lua_table.camera_shake_duration = 1
-			lua_table.camera_shake_magnitude = 1
+			lua_table.camera_shake_duration = 0.5
+			lua_table.camera_shake_magnitude = 0.3
 		end 
 	end
 end
