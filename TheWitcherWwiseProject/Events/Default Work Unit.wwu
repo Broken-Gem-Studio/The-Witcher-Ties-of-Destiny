@@ -1043,6 +1043,17 @@
 								</Event>
 							</ChildrenList>
 						</Folder>
+						<Event Name="Play_Coin_Collision" ID="{1111FDED-C5DD-4E1A-8A7E-FAAD9442C837}">
+							<ChildrenList>
+								<Action Name="" ID="{D404F056-5217-4DF6-9713-947997C5215C}" ShortID="318708703">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Coins_Collide" ID="{D0DFDDA2-DC45-4E89-A404-B689EA05A585}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Level_2" ID="{F1FB1A6C-A2D4-47C1-92F3-4F5788AAE2C8}" ShortID="90313207">
@@ -1945,10 +1956,10 @@
 						</Event>
 						<Event Name="Rain_loop" ID="{ECC2DC13-293D-4226-9756-19AD0FBC17DD}">
 							<ChildrenList>
-								<Action Name="" ID="{F2206AD7-A414-4D21-938A-144012D6D32B}" ShortID="251078912">
+								<Action Name="" ID="{8B76F103-8675-41D2-9B45-9C5C23DF6DBE}" ShortID="989278258">
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="StormLoop" ID="{E4FEA753-71D2-4D93-9830-AA5B98AEFA58}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+											<ObjectRef Name="StormLoopNoThunder" ID="{F57FBAE2-69C8-4E17-BFC4-7032716114BE}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

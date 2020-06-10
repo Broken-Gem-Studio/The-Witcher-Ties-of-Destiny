@@ -280,6 +280,13 @@
 					<GameSyncExclusionList/>
 				</SoundBank>
 				<SoundBank Name="Level_1" ID="{4D291896-D0DF-4171-AF21-D79892823393}">
+					<PropertyList>
+						<Property Name="Maximum" Type="int32">
+							<ValueList>
+								<Value>99000000</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ObjectInclusionList>
 						<ObjectRef Name="Level_1" ID="{28DD66F0-3ED1-4267-AB30-5EB0E16F4777}" WorkUnitID="{704E5E75-56AA-4381-96D8-951456C36A40}" Filter="7" Origin="Manual"/>
 					</ObjectInclusionList>
