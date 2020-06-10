@@ -1,0 +1,203 @@
+{
+    "GameObject(6)": {
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "14": {
+                "Active": true,
+                "Animations": {
+                    "BlendTime": "0.300000",
+                    "Size": "0",
+                    "UseDefault": false
+                },
+                "Resources": {
+                    "ResourceAnimation": "Library/Animations/1300839458.anim"
+                }
+            }
+        },
+        "Model": "Assets/Characters/Geralt/Geralt_Slash.FBX",
+        "Parent": "356793465",
+        "PrefabChild": false,
+        "PrefabInstance": true,
+        "UID": "1656351152"
+    },
+    "In_Side": {
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "0.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.500000",
+                "scalex": "0.000000",
+                "scaley": "0.000000",
+                "scalez": "0.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/726533881.bone"
+                }
+            }
+        },
+        "Parent": "1621706418",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "UID": "308222542"
+    },
+    "Out_Side": {
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "0.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.500000",
+                "scalex": "0.000000",
+                "scaley": "0.000000",
+                "scalez": "0.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1602981237.bone"
+                }
+            }
+        },
+        "Parent": "1621706418",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "UID": "665728307"
+    },
+    "Position_Ring": {
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "101.977699",
+                "rotationw": "0.087064",
+                "rotationx": "0.388476",
+                "rotationy": "0.030072",
+                "rotationz": "0.916844",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/185507663.bone"
+                }
+            }
+        },
+        "Parent": "78264302",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "UID": "295741364"
+    },
+    "PreviewTexture": "Library/Textures/9634173.dds",
+    "Slash_Controller": {
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "0.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.500000",
+                "scalex": "0.000000",
+                "scaley": "0.000000",
+                "scalez": "0.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/262352665.bone"
+                }
+            }
+        },
+        "Parent": "295741364",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "UID": "1621706418"
+    },
+    "Slash_Geralt": {
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            }
+        },
+        "Parent": "1656351152",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "UID": "78264302"
+    },
+    "Slash_Mesh": {
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "2.540000",
+                "scaley": "2.540000",
+                "scalez": "2.540000"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/37957307.mesh"
+                    }
+                }
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/05 - Default.mat"
+                    }
+                }
+            }
+        },
+        "Parent": "1656351152",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "UID": "1867881185"
+    }
+}

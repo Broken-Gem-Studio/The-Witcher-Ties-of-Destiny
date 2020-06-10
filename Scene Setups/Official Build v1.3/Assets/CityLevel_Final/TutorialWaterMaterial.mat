@@ -1,0 +1,60 @@
+{
+    "AmbientColor": {
+        "A": 1.0,
+        "B": 1.0,
+        "G": 1.0,
+        "R": 1.0
+    },
+    "Culling": true,
+    "MatAlphaFunc": 0,
+    "MatAutoBlending": true,
+    "MatBlendEquation": 0,
+    "MatManualAlphaFuncDst": 7,
+    "MatManualAlphaFuncSrc": 6,
+    "MaterialShininess": 1.0,
+    "PreviewTexture": "Library/Textures/128645201.dds",
+    "ResourceDiffuse": "Assets/CityLevel_Final/Water_Texture.png",
+    "ResourceNormalTexture": null,
+    "ResourceSpecular": null,
+    "SceneColorAffected": true,
+    "Transparencies": false,
+    "TutorialWaterMaterial.mat": null,
+    "shader": {
+        "ResourceShader": "Assets/Shaders/FINALWATERSHADER.glsl",
+        "uniforms": {
+            "None_Reflect_Refract": {
+                "type": 5124,
+                "x": 0
+            },
+            "Velocity": {
+                "type": 5126,
+                "x": 3.0
+            },
+            "Wave1_dir_steep_waveLength": {
+                "type": 35666,
+                "w": 60.0,
+                "x": 100.0,
+                "y": -100.0,
+                "z": 50.0
+            },
+            "Wave2": {
+                "type": 35666,
+                "w": 100.0,
+                "x": -100.0,
+                "y": 3000.0,
+                "z": 1500.0
+            },
+            "Wave3": {
+                "type": 35666,
+                "w": 90.0,
+                "x": 2000.0,
+                "y": -100.0,
+                "z": -200.0
+            },
+            "refractive_reflective_index": {
+                "type": 5126,
+                "x": 0.0
+            }
+        }
+    }
+}

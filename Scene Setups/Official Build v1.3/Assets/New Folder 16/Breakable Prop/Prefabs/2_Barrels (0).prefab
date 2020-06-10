@@ -1,0 +1,4136 @@
+{
+    "1004898606": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "18": {
+                "Active": true,
+                "CollisionsActivated": true,
+                "Duration": "1000",
+                "GradientColor": true,
+                "HorizontalBill": "0",
+                "Loop": false,
+                "PartAutoBlending": true,
+                "PartBlendEquation": 0,
+                "PartBlendFunc": 0,
+                "PartCastShadows": true,
+                "PartLightAffected": true,
+                "PartMBlFuncDst": 7,
+                "PartMBlFuncSrc": 6,
+                "PartOnlyShadows": false,
+                "PartReceiveShadows": true,
+                "PartSceneColorAffected": true,
+                "ParticlesBill": true,
+                "ParticlesFaceCulling": true,
+                "PlayOnAwake": false,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/2119931366.dds"
+                },
+                "VerticalBill": "0",
+                "animation": "1",
+                "colors": [
+                    {
+                        "a": "0.149020",
+                        "x": "0.839216",
+                        "y": "0.686275",
+                        "z": "0.462745"
+                    },
+                    {
+                        "a": "0.000000",
+                        "x": "1.000000",
+                        "y": "0.999996",
+                        "z": "0.999990"
+                    }
+                ],
+                "curves": [
+                    {
+                        "0": {
+                            "NextX": "0.100000",
+                            "NextY": "0.100000",
+                            "PX": "0.000000",
+                            "PY": "0.000000",
+                            "PrevX": "0.000000",
+                            "PrevY": "0.000000"
+                        },
+                        "1": {
+                            "NextX": "1.000000",
+                            "NextY": "1.000000",
+                            "PX": "1.000000",
+                            "PY": "1.000000",
+                            "PrevX": "-0.100000",
+                            "PrevY": "-0.100000"
+                        },
+                        "multiplier": "1.000000",
+                        "name": "##scale",
+                        "num_points": "2",
+                        "type": "0"
+                    },
+                    {
+                        "0": {
+                            "NextX": "0.100000",
+                            "NextY": "0.100000",
+                            "PX": "0.000000",
+                            "PY": "0.000000",
+                            "PrevX": "0.000000",
+                            "PrevY": "0.000000"
+                        },
+                        "1": {
+                            "NextX": "1.000000",
+                            "NextY": "1.000000",
+                            "PX": "1.000000",
+                            "PY": "1.000000",
+                            "PrevX": "-0.100000",
+                            "PrevY": "-0.100000"
+                        },
+                        "multiplier": "1.000000",
+                        "name": "##rotation",
+                        "num_points": "2",
+                        "type": "0"
+                    }
+                ],
+                "cycles": "0.500000",
+                "emisionRate": "1000.000000",
+                "externalAccelerationX": "0.000000",
+                "externalAccelerationY": "10.000000",
+                "externalAccelerationZ": "0.000000",
+                "followEmitter": true,
+                "grad_duration": "1000",
+                "gradients": [
+                    {
+                        "a": "-0.000149",
+                        "x": "0.000161",
+                        "y": "0.000314",
+                        "z": "0.000537"
+                    }
+                ],
+                "maxInitialRotation": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "minInitialRotation": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "num_colors": "2",
+                "num_curves": "2",
+                "num_gradients": "1",
+                "particleScaleOverTime": "0.000000",
+                "particleScaleRandomFactor1": "3.000000",
+                "particleScaleRandomFactor2": "7.000000",
+                "particlesLifeTime": "1000",
+                "particlesPerCreation": "10",
+                "particlesScaleX": "1.000000",
+                "particlesScaleY": "1.000000",
+                "particlesVelocityX": "0.000000",
+                "particlesVelocityY": "0.000000",
+                "particlesVelocityZ": "2.000000",
+                "positionX": "0.000000",
+                "positionY": "0.000000",
+                "positionZ": "0.000000",
+                "randomInitialRotation": false,
+                "randomStartFrame": true,
+                "rotationOvertime1": [
+                    "0",
+                    "0",
+                    "4"
+                ],
+                "rotationOvertime2": [
+                    "0",
+                    "0",
+                    "15"
+                ],
+                "rotationX": "0.000000",
+                "rotationY": "0.000000",
+                "rotationZ": "90.000000",
+                "rotationconstants": "1",
+                "scaleconstants": "1",
+                "separateAxis": "0",
+                "sizeX": "1.000000",
+                "sizeY": "0.500000",
+                "sizeZ": "1.000000",
+                "startFrame": "0",
+                "tiles_X": "5",
+                "tiles_Y": "3",
+                "velocityRandomFactor1X": "2.500000",
+                "velocityRandomFactor1Y": "2.000000",
+                "velocityRandomFactor1Z": "0.000000",
+                "velocityRandomFactor2X": "-2.500000",
+                "velocityRandomFactor2Y": "-2.500000",
+                "velocityRandomFactor2Z": "0.000000",
+                "velocityconstants": "0"
+            }
+        },
+        "Name": "Smoke",
+        "Parent": "318930738",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "1140267064": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "layer": "5",
+                "positionx": "-0.003421",
+                "positiony": "2.322806",
+                "positionz": "-0.000565",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": false,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2083640069.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": false,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/RemoveDestroyable.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "scale",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.025
+                    }
+                }
+            },
+            "15": {
+                "Active": false,
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "50.000000",
+                "freezePosition_X": "0",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "0",
+                "freezeRotation_X": "0",
+                "freezeRotation_Y": "0",
+                "freezeRotation_Z": "0",
+                "is_kinematic": "0",
+                "linear_damping": "1.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "0.000000",
+                "linear_velz": "0.000000",
+                "mass": "80.000000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": false,
+                "colliderType": "4",
+                "draggedUID": "309205488",
+                "draw": "0",
+                "firstCreation": "0",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "22.198849",
+                "globalMatrixy": "1.091480",
+                "globalMatrixz": "20.778503",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "1",
+                "isTrigger": "0",
+                "lastIndex": "0",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "0.020320",
+                "tmpScaley": "0.025400",
+                "tmpScalez": "0.025400"
+            },
+            "2": {
+                "Active": false,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/New Folder 16/Breakable Prop/Barrel.mat"
+                    }
+                }
+            }
+        },
+        "Name": "Object2828",
+        "Parent": "1707045322",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "1196767993": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "layer": "5",
+                "positionx": "0.528621",
+                "positiony": "1.160499",
+                "positionz": "-0.698535",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": false,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/1082595182.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": false,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/RemoveDestroyable.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "scale",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.025
+                    }
+                }
+            },
+            "15": {
+                "Active": false,
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "50.000000",
+                "freezePosition_X": "0",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "0",
+                "freezeRotation_X": "0",
+                "freezeRotation_Y": "0",
+                "freezeRotation_Z": "0",
+                "is_kinematic": "0",
+                "linear_damping": "1.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "0.000000",
+                "linear_velz": "0.000000",
+                "mass": "80.000000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": false,
+                "colliderType": "4",
+                "draggedUID": "1606082870",
+                "draw": "0",
+                "firstCreation": "0",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "23.251352",
+                "globalMatrixy": "0.384899",
+                "globalMatrixz": "21.535894",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "1",
+                "isTrigger": "0",
+                "lastIndex": "0",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "0.020320",
+                "tmpScaley": "0.025400",
+                "tmpScalez": "0.025400"
+            },
+            "2": {
+                "Active": false,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/New Folder 16/Breakable Prop/Barrel.mat"
+                    }
+                }
+            }
+        },
+        "Name": "Object2825",
+        "Parent": "1707045322",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "1202413805": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "layer": "5",
+                "positionx": "0.528621",
+                "positiony": "1.160499",
+                "positionz": "-0.698535",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": false,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/1082595182.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": false,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/RemoveDestroyable.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "scale",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.025
+                    }
+                }
+            },
+            "15": {
+                "Active": false,
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "50.000000",
+                "freezePosition_X": "0",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "0",
+                "freezeRotation_X": "0",
+                "freezeRotation_Y": "0",
+                "freezeRotation_Z": "0",
+                "is_kinematic": "0",
+                "linear_damping": "1.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "0.000000",
+                "linear_velz": "0.000000",
+                "mass": "80.000000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": false,
+                "colliderType": "4",
+                "draggedUID": "514207629",
+                "draw": "0",
+                "firstCreation": "0",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "25.410664",
+                "globalMatrixy": "1.160498",
+                "globalMatrixz": "20.335087",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "1",
+                "isTrigger": "0",
+                "lastIndex": "0",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "0.020320",
+                "tmpScaley": "0.025400",
+                "tmpScalez": "0.025400"
+            },
+            "2": {
+                "Active": false,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/New Folder 16/Breakable Prop/Barrel.mat"
+                    }
+                }
+            }
+        },
+        "Name": "Object2825",
+        "Parent": "1323596360",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "1323596360": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "layer": "5",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.100000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": false,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/Destroyed_Prop.lua"
+                },
+                "Script variables": {
+                    "Count": 6,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "Random",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": true,
+                        "Name": "health_potion",
+                        "ObjectName": "Drop_Particle_Red (0).prefab",
+                        "Type": "Double",
+                        "Value": 2009469253.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "myUID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": true,
+                        "Name": "power_potion",
+                        "ObjectName": "Drop_Particle_Purple (0).prefab",
+                        "Type": "Double",
+                        "Value": 1013338032.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": true,
+                        "Name": "stamina_potion",
+                        "ObjectName": "Drop_Particle_Yellow (0).prefab",
+                        "Type": "Double",
+                        "Value": 775736879.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": false,
+                        "Name": "type",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    }
+                }
+            },
+            "19": {
+                "Active": false
+            }
+        },
+        "Name": "Destructed",
+        "Parent": "454356488",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "1443483965": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "18": {
+                "Active": true,
+                "CollisionsActivated": true,
+                "Duration": "1000",
+                "GradientColor": false,
+                "HorizontalBill": "0",
+                "Loop": false,
+                "PartAutoBlending": true,
+                "PartBlendEquation": 0,
+                "PartBlendFunc": 0,
+                "PartCastShadows": true,
+                "PartLightAffected": true,
+                "PartMBlFuncDst": 7,
+                "PartMBlFuncSrc": 6,
+                "PartOnlyShadows": false,
+                "PartReceiveShadows": true,
+                "PartSceneColorAffected": true,
+                "ParticlesBill": true,
+                "ParticlesFaceCulling": true,
+                "PlayOnAwake": false,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1863459330.dds"
+                },
+                "VerticalBill": "0",
+                "animation": "0",
+                "colors": [
+                    {
+                        "a": "1.000000",
+                        "x": "0.698039",
+                        "y": "0.447059",
+                        "z": "0.164706"
+                    }
+                ],
+                "curves": [
+                    {
+                        "0": {
+                            "NextX": "0.100000",
+                            "NextY": "0.100000",
+                            "PX": "0.000000",
+                            "PY": "0.000000",
+                            "PrevX": "0.000000",
+                            "PrevY": "0.000000"
+                        },
+                        "1": {
+                            "NextX": "1.000000",
+                            "NextY": "1.000000",
+                            "PX": "1.000000",
+                            "PY": "1.000000",
+                            "PrevX": "-0.100000",
+                            "PrevY": "-0.100000"
+                        },
+                        "multiplier": "1.000000",
+                        "name": "##scale",
+                        "num_points": "2",
+                        "type": "0"
+                    },
+                    {
+                        "0": {
+                            "NextX": "0.100000",
+                            "NextY": "0.100000",
+                            "PX": "0.000000",
+                            "PY": "0.000000",
+                            "PrevX": "0.000000",
+                            "PrevY": "0.000000"
+                        },
+                        "1": {
+                            "NextX": "1.000000",
+                            "NextY": "1.000000",
+                            "PX": "1.000000",
+                            "PY": "1.000000",
+                            "PrevX": "-0.100000",
+                            "PrevY": "-0.100000"
+                        },
+                        "multiplier": "1.000000",
+                        "name": "##rotation",
+                        "num_points": "2",
+                        "type": "0"
+                    }
+                ],
+                "cycles": "1.000000",
+                "emisionRate": "1000.000000",
+                "externalAccelerationX": "0.000000",
+                "externalAccelerationY": "0.000000",
+                "externalAccelerationZ": "0.000000",
+                "followEmitter": true,
+                "grad_duration": "0",
+                "maxInitialRotation": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "minInitialRotation": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "num_colors": "1",
+                "num_curves": "2",
+                "num_gradients": "0",
+                "particleScaleOverTime": "0.000000",
+                "particleScaleRandomFactor1": "0.100000",
+                "particleScaleRandomFactor2": "0.700000",
+                "particlesLifeTime": "1000",
+                "particlesPerCreation": "15",
+                "particlesScaleX": "1.000000",
+                "particlesScaleY": "1.000000",
+                "particlesVelocityX": "0.000000",
+                "particlesVelocityY": "5.000000",
+                "particlesVelocityZ": "0.000000",
+                "positionX": "0.000000",
+                "positionY": "0.000000",
+                "positionZ": "0.000000",
+                "randomInitialRotation": false,
+                "randomStartFrame": true,
+                "rotationOvertime1": [
+                    "0",
+                    "0",
+                    "-100"
+                ],
+                "rotationOvertime2": [
+                    "0",
+                    "0",
+                    "100"
+                ],
+                "rotationX": "0.000000",
+                "rotationY": "0.000000",
+                "rotationZ": "0.000000",
+                "rotationconstants": "1",
+                "scaleconstants": "1",
+                "separateAxis": "0",
+                "sizeX": "1.000000",
+                "sizeY": "0.500000",
+                "sizeZ": "1.000000",
+                "startFrame": "0",
+                "tiles_X": "1",
+                "tiles_Y": "1",
+                "velocityRandomFactor1X": "-7.000000",
+                "velocityRandomFactor1Y": "0.000000",
+                "velocityRandomFactor1Z": "-7.000000",
+                "velocityRandomFactor2X": "7.000000",
+                "velocityRandomFactor2Y": "0.000000",
+                "velocityRandomFactor2Z": "7.000000",
+                "velocityconstants": "0"
+            }
+        },
+        "Name": "Astilla",
+        "Parent": "318930738",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "1486310671": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "layer": "5",
+                "positionx": "-0.011240",
+                "positiony": "0.646922",
+                "positionz": "0.005139",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": false,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/1480106351.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": false,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/RemoveDestroyable.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "scale",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.025
+                    }
+                }
+            },
+            "15": {
+                "Active": false,
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "50.000000",
+                "freezePosition_X": "0",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "0",
+                "freezeRotation_X": "0",
+                "freezeRotation_Y": "0",
+                "freezeRotation_Z": "0",
+                "is_kinematic": "0",
+                "linear_damping": "1.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "0.000000",
+                "linear_velz": "0.000000",
+                "mass": "80.000000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": false,
+                "colliderType": "4",
+                "draggedUID": "1726001322",
+                "draw": "0",
+                "firstCreation": "0",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "24.816816",
+                "globalMatrixy": "0.646921",
+                "globalMatrixz": "21.038761",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "1",
+                "isTrigger": "0",
+                "lastIndex": "0",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "0.020320",
+                "tmpScaley": "0.025400",
+                "tmpScalez": "0.025400"
+            },
+            "2": {
+                "Active": false,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/New Folder 16/Breakable Prop/Barrel.mat"
+                    }
+                }
+            }
+        },
+        "Name": "Object2820",
+        "Parent": "1323596360",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "1578886790": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "layer": "5",
+                "positionx": "-0.835778",
+                "positiony": "1.160949",
+                "positionz": "0.159061",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": false,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/761469283.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": false,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/RemoveDestroyable.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "scale",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.025
+                    }
+                }
+            },
+            "15": {
+                "Active": false,
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "50.000000",
+                "freezePosition_X": "0",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "0",
+                "freezeRotation_X": "0",
+                "freezeRotation_Y": "0",
+                "freezeRotation_Z": "0",
+                "is_kinematic": "0",
+                "linear_damping": "1.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "0.000000",
+                "linear_velz": "0.000000",
+                "mass": "80.000000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": false,
+                "colliderType": "4",
+                "draggedUID": "1915310692",
+                "draw": "0",
+                "firstCreation": "0",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "23.909824",
+                "globalMatrixy": "1.160948",
+                "globalMatrixz": "21.192684",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "1",
+                "isTrigger": "0",
+                "lastIndex": "0",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "0.020320",
+                "tmpScaley": "0.025400",
+                "tmpScalez": "0.025400"
+            },
+            "2": {
+                "Active": false,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/New Folder 16/Breakable Prop/Barrel.mat"
+                    }
+                }
+            }
+        },
+        "Name": "Cylinder002",
+        "Parent": "1323596360",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "162370688": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "layer": "5",
+                "positionx": "-0.835778",
+                "positiony": "1.160949",
+                "positionz": "0.159061",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": false,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/761469283.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": false,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/RemoveDestroyable.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "scale",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.025
+                    }
+                }
+            },
+            "15": {
+                "Active": false,
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "50.000000",
+                "freezePosition_X": "0",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "0",
+                "freezeRotation_X": "0",
+                "freezeRotation_Y": "0",
+                "freezeRotation_Z": "0",
+                "is_kinematic": "0",
+                "linear_damping": "1.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "0.000000",
+                "linear_velz": "0.000000",
+                "mass": "80.000000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": false,
+                "colliderType": "4",
+                "draggedUID": "1074171326",
+                "draw": "0",
+                "firstCreation": "0",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "21.916880",
+                "globalMatrixy": "1.234692",
+                "globalMatrixz": "22.232363",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "1",
+                "isTrigger": "0",
+                "lastIndex": "0",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "0.020320",
+                "tmpScaley": "0.025400",
+                "tmpScalez": "0.025400"
+            },
+            "2": {
+                "Active": false,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/New Folder 16/Breakable Prop/Barrel.mat"
+                    }
+                }
+            }
+        },
+        "Name": "Cylinder002",
+        "Parent": "1707045322",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "1641352744": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "5",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/31802940.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/Prop_Script.lua"
+                },
+                "Script variables": {
+                    "Count": 4,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "current_type",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "health",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "myUID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "parent",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    }
+                }
+            },
+            "15": {
+                "Active": true,
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "50.000000",
+                "freezePosition_X": "0",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "0",
+                "freezeRotation_X": "0",
+                "freezeRotation_Y": "0",
+                "freezeRotation_Z": "0",
+                "is_kinematic": "0",
+                "linear_damping": "0.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "0.000000",
+                "linear_velz": "0.000000",
+                "mass": "1500.000000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": true,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "0",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "24.856710",
+                "globalMatrixy": "1.165449",
+                "globalMatrixz": "21.056713",
+                "globalPositionx": "84.555069",
+                "globalPositiony": "84.812271",
+                "globalPositionz": "94.199867",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "0",
+                "isTrigger": "0",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "1.083885",
+                "localMatrixy": "-0.909091",
+                "localMatrixz": "45.883839",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "1.083885",
+                "offsety": "-0.909091",
+                "offsetz": "45.883839",
+                "originalScalex": "84.555069",
+                "originalScaley": "84.812271",
+                "originalScalez": "94.199867",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "2.147699",
+                "tmpScaley": "2.154233",
+                "tmpScalez": "2.392678"
+            },
+            "19": {
+                "Active": true
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/New Folder 16/Breakable Prop/Barrel.mat"
+                    }
+                }
+            }
+        },
+        "Name": "Prop",
+        "Parent": "454356488",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "1707045322": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "layer": "5",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.100000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": false,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/Destroyed_Prop.lua"
+                },
+                "Script variables": {
+                    "Count": 6,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "Random",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": true,
+                        "Name": "health_potion",
+                        "ObjectName": "Drop_Particle_Red (0).prefab",
+                        "Type": "Double",
+                        "Value": 2009469253.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "myUID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": true,
+                        "Name": "power_potion",
+                        "ObjectName": "Drop_Particle_Purple (0).prefab",
+                        "Type": "Double",
+                        "Value": 1013338032.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": true,
+                        "Name": "stamina_potion",
+                        "ObjectName": "Drop_Particle_Yellow (0).prefab",
+                        "Type": "Double",
+                        "Value": 775736879.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": false,
+                        "Name": "type",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    }
+                }
+            },
+            "19": {
+                "Active": false
+            }
+        },
+        "Name": "Destructed",
+        "Parent": "3182102",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "1763542162": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "layer": "5",
+                "positionx": "-0.009166",
+                "positiony": "1.689015",
+                "positionz": "0.002624",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": false,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/735991151.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": false,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/RemoveDestroyable.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "scale",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.025
+                    }
+                }
+            },
+            "15": {
+                "Active": false,
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "50.000000",
+                "freezePosition_X": "0",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "0",
+                "freezeRotation_X": "0",
+                "freezeRotation_Y": "0",
+                "freezeRotation_Z": "0",
+                "is_kinematic": "0",
+                "linear_damping": "1.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "0.000000",
+                "linear_velz": "0.000000",
+                "mass": "80.000000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": false,
+                "colliderType": "4",
+                "draggedUID": "140957165",
+                "draw": "0",
+                "firstCreation": "0",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "24.819098",
+                "globalMatrixy": "1.689014",
+                "globalMatrixz": "21.036247",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "1",
+                "isTrigger": "0",
+                "lastIndex": "0",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "0.020320",
+                "tmpScaley": "0.025400",
+                "tmpScalez": "0.025400"
+            },
+            "2": {
+                "Active": false,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/New Folder 16/Breakable Prop/Barrel.mat"
+                    }
+                }
+            }
+        },
+        "Name": "Object2819",
+        "Parent": "1323596360",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "1795932943": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "18": {
+                "Active": true,
+                "CollisionsActivated": true,
+                "Duration": "1000",
+                "GradientColor": true,
+                "HorizontalBill": "0",
+                "Loop": false,
+                "PartAutoBlending": true,
+                "PartBlendEquation": 0,
+                "PartBlendFunc": 0,
+                "PartCastShadows": true,
+                "PartLightAffected": true,
+                "PartMBlFuncDst": 7,
+                "PartMBlFuncSrc": 6,
+                "PartOnlyShadows": false,
+                "PartReceiveShadows": true,
+                "PartSceneColorAffected": true,
+                "ParticlesBill": true,
+                "ParticlesFaceCulling": true,
+                "PlayOnAwake": false,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/2119931366.dds"
+                },
+                "VerticalBill": "0",
+                "animation": "1",
+                "colors": [
+                    {
+                        "a": "0.149020",
+                        "x": "0.839216",
+                        "y": "0.686275",
+                        "z": "0.462745"
+                    },
+                    {
+                        "a": "0.000000",
+                        "x": "1.000000",
+                        "y": "0.999996",
+                        "z": "0.999990"
+                    }
+                ],
+                "curves": [
+                    {
+                        "0": {
+                            "NextX": "0.100000",
+                            "NextY": "0.100000",
+                            "PX": "0.000000",
+                            "PY": "0.000000",
+                            "PrevX": "0.000000",
+                            "PrevY": "0.000000"
+                        },
+                        "1": {
+                            "NextX": "1.000000",
+                            "NextY": "1.000000",
+                            "PX": "1.000000",
+                            "PY": "1.000000",
+                            "PrevX": "-0.100000",
+                            "PrevY": "-0.100000"
+                        },
+                        "multiplier": "1.000000",
+                        "name": "##scale",
+                        "num_points": "2",
+                        "type": "0"
+                    },
+                    {
+                        "0": {
+                            "NextX": "0.100000",
+                            "NextY": "0.100000",
+                            "PX": "0.000000",
+                            "PY": "0.000000",
+                            "PrevX": "0.000000",
+                            "PrevY": "0.000000"
+                        },
+                        "1": {
+                            "NextX": "1.000000",
+                            "NextY": "1.000000",
+                            "PX": "1.000000",
+                            "PY": "1.000000",
+                            "PrevX": "-0.100000",
+                            "PrevY": "-0.100000"
+                        },
+                        "multiplier": "1.000000",
+                        "name": "##rotation",
+                        "num_points": "2",
+                        "type": "0"
+                    }
+                ],
+                "cycles": "0.500000",
+                "emisionRate": "1000.000000",
+                "externalAccelerationX": "0.000000",
+                "externalAccelerationY": "10.000000",
+                "externalAccelerationZ": "0.000000",
+                "followEmitter": true,
+                "grad_duration": "1000",
+                "gradients": [
+                    {
+                        "a": "-0.000149",
+                        "x": "0.000161",
+                        "y": "0.000314",
+                        "z": "0.000537"
+                    }
+                ],
+                "maxInitialRotation": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "minInitialRotation": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "num_colors": "2",
+                "num_curves": "2",
+                "num_gradients": "1",
+                "particleScaleOverTime": "0.000000",
+                "particleScaleRandomFactor1": "3.000000",
+                "particleScaleRandomFactor2": "7.000000",
+                "particlesLifeTime": "1000",
+                "particlesPerCreation": "10",
+                "particlesScaleX": "1.000000",
+                "particlesScaleY": "1.000000",
+                "particlesVelocityX": "0.000000",
+                "particlesVelocityY": "0.000000",
+                "particlesVelocityZ": "2.000000",
+                "positionX": "0.000000",
+                "positionY": "0.000000",
+                "positionZ": "0.000000",
+                "randomInitialRotation": false,
+                "randomStartFrame": true,
+                "rotationOvertime1": [
+                    "0",
+                    "0",
+                    "4"
+                ],
+                "rotationOvertime2": [
+                    "0",
+                    "0",
+                    "15"
+                ],
+                "rotationX": "0.000000",
+                "rotationY": "0.000000",
+                "rotationZ": "90.000000",
+                "rotationconstants": "1",
+                "scaleconstants": "1",
+                "separateAxis": "0",
+                "sizeX": "1.000000",
+                "sizeY": "0.500000",
+                "sizeZ": "1.000000",
+                "startFrame": "0",
+                "tiles_X": "5",
+                "tiles_Y": "3",
+                "velocityRandomFactor1X": "2.500000",
+                "velocityRandomFactor1Y": "2.000000",
+                "velocityRandomFactor1Z": "0.000000",
+                "velocityRandomFactor2X": "-2.500000",
+                "velocityRandomFactor2Y": "-2.500000",
+                "velocityRandomFactor2Z": "0.000000",
+                "velocityconstants": "0"
+            }
+        },
+        "Name": "Smoke",
+        "Parent": "350307701",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "1797036046": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "layer": "5",
+                "positionx": "0.824146",
+                "positiony": "1.159988",
+                "positionz": "-0.117859",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": false,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/568032547.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": false,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/RemoveDestroyable.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "scale",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.025
+                    }
+                }
+            },
+            "15": {
+                "Active": false,
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "50.000000",
+                "freezePosition_X": "0",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "0",
+                "freezeRotation_X": "0",
+                "freezeRotation_Y": "0",
+                "freezeRotation_Z": "0",
+                "is_kinematic": "0",
+                "linear_damping": "1.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "0.000000",
+                "linear_velz": "0.000000",
+                "mass": "80.000000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": false,
+                "colliderType": "4",
+                "draggedUID": "1661538332",
+                "draw": "0",
+                "firstCreation": "0",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "23.540585",
+                "globalMatrixy": "0.967222",
+                "globalMatrixz": "21.394068",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "1",
+                "isTrigger": "0",
+                "lastIndex": "0",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "0.020320",
+                "tmpScaley": "0.025400",
+                "tmpScalez": "0.025400"
+            },
+            "2": {
+                "Active": false,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/New Folder 16/Breakable Prop/Barrel.mat"
+                    }
+                }
+            }
+        },
+        "Name": "Object2824",
+        "Parent": "1707045322",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "1832532678": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "layer": "5",
+                "positionx": "0.117831",
+                "positiony": "1.160035",
+                "positionz": "0.842968",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": false,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/190934513.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": false,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/RemoveDestroyable.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "scale",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.025
+                    }
+                }
+            },
+            "15": {
+                "Active": false,
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "50.000000",
+                "freezePosition_X": "0",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "0",
+                "freezeRotation_X": "0",
+                "freezeRotation_Y": "0",
+                "freezeRotation_Z": "0",
+                "is_kinematic": "0",
+                "linear_damping": "1.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "0.000000",
+                "linear_velz": "0.000000",
+                "mass": "80.000000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": false,
+                "colliderType": "4",
+                "draggedUID": "1357006356",
+                "draw": "0",
+                "firstCreation": "0",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "24.958794",
+                "globalMatrixy": "1.160034",
+                "globalMatrixz": "21.876591",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "1",
+                "isTrigger": "0",
+                "lastIndex": "0",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "0.020320",
+                "tmpScaley": "0.025400",
+                "tmpScalez": "0.025400"
+            },
+            "2": {
+                "Active": false,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/New Folder 16/Breakable Prop/Barrel.mat"
+                    }
+                }
+            }
+        },
+        "Name": "Object2822",
+        "Parent": "1323596360",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "1859504252": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "layer": "5",
+                "positionx": "-0.003421",
+                "positiony": "2.322806",
+                "positionz": "-0.000565",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": false,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2083640069.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": false,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/RemoveDestroyable.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "scale",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.025
+                    }
+                }
+            },
+            "15": {
+                "Active": false,
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "50.000000",
+                "freezePosition_X": "0",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "0",
+                "freezeRotation_X": "0",
+                "freezeRotation_Y": "0",
+                "freezeRotation_Z": "0",
+                "is_kinematic": "0",
+                "linear_damping": "1.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "0.000000",
+                "linear_velz": "0.000000",
+                "mass": "80.000000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": false,
+                "colliderType": "4",
+                "draggedUID": "474586717",
+                "draw": "0",
+                "firstCreation": "0",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "24.825417",
+                "globalMatrixy": "2.322805",
+                "globalMatrixz": "21.033058",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "1",
+                "isTrigger": "0",
+                "lastIndex": "0",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "0.020320",
+                "tmpScaley": "0.025400",
+                "tmpScalez": "0.025400"
+            },
+            "2": {
+                "Active": false,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/New Folder 16/Breakable Prop/Barrel.mat"
+                    }
+                }
+            }
+        },
+        "Name": "Object2828",
+        "Parent": "1323596360",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "1935694996": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "layer": "5",
+                "positionx": "-0.548970",
+                "positiony": "1.160083",
+                "positionz": "0.707902",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": false,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/1628945323.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": false,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/RemoveDestroyable.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "scale",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.025
+                    }
+                }
+            },
+            "15": {
+                "Active": false,
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "50.000000",
+                "freezePosition_X": "0",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "0",
+                "freezeRotation_X": "0",
+                "freezeRotation_Y": "0",
+                "freezeRotation_Z": "0",
+                "is_kinematic": "0",
+                "linear_damping": "1.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "0.000000",
+                "linear_velz": "0.000000",
+                "mass": "80.000000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": false,
+                "colliderType": "4",
+                "draggedUID": "1343087430",
+                "draw": "0",
+                "firstCreation": "0",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "24.225313",
+                "globalMatrixy": "1.160082",
+                "globalMatrixz": "21.741526",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "1",
+                "isTrigger": "0",
+                "lastIndex": "0",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "0.020320",
+                "tmpScaley": "0.025400",
+                "tmpScalez": "0.025400"
+            },
+            "2": {
+                "Active": false,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/New Folder 16/Breakable Prop/Barrel.mat"
+                    }
+                }
+            }
+        },
+        "Name": "Object2821",
+        "Parent": "1323596360",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "1948155989": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "18": {
+                "Active": true,
+                "CollisionsActivated": true,
+                "Duration": "1000",
+                "GradientColor": false,
+                "HorizontalBill": "0",
+                "Loop": false,
+                "PartAutoBlending": true,
+                "PartBlendEquation": 0,
+                "PartBlendFunc": 0,
+                "PartCastShadows": true,
+                "PartLightAffected": true,
+                "PartMBlFuncDst": 7,
+                "PartMBlFuncSrc": 6,
+                "PartOnlyShadows": false,
+                "PartReceiveShadows": true,
+                "PartSceneColorAffected": true,
+                "ParticlesBill": true,
+                "ParticlesFaceCulling": true,
+                "PlayOnAwake": false,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/1863459330.dds"
+                },
+                "VerticalBill": "0",
+                "animation": "0",
+                "colors": [
+                    {
+                        "a": "1.000000",
+                        "x": "0.698039",
+                        "y": "0.447059",
+                        "z": "0.164706"
+                    }
+                ],
+                "curves": [
+                    {
+                        "0": {
+                            "NextX": "0.100000",
+                            "NextY": "0.100000",
+                            "PX": "0.000000",
+                            "PY": "0.000000",
+                            "PrevX": "0.000000",
+                            "PrevY": "0.000000"
+                        },
+                        "1": {
+                            "NextX": "1.000000",
+                            "NextY": "1.000000",
+                            "PX": "1.000000",
+                            "PY": "1.000000",
+                            "PrevX": "-0.100000",
+                            "PrevY": "-0.100000"
+                        },
+                        "multiplier": "1.000000",
+                        "name": "##scale",
+                        "num_points": "2",
+                        "type": "0"
+                    },
+                    {
+                        "0": {
+                            "NextX": "0.100000",
+                            "NextY": "0.100000",
+                            "PX": "0.000000",
+                            "PY": "0.000000",
+                            "PrevX": "0.000000",
+                            "PrevY": "0.000000"
+                        },
+                        "1": {
+                            "NextX": "1.000000",
+                            "NextY": "1.000000",
+                            "PX": "1.000000",
+                            "PY": "1.000000",
+                            "PrevX": "-0.100000",
+                            "PrevY": "-0.100000"
+                        },
+                        "multiplier": "1.000000",
+                        "name": "##rotation",
+                        "num_points": "2",
+                        "type": "0"
+                    }
+                ],
+                "cycles": "1.000000",
+                "emisionRate": "1000.000000",
+                "externalAccelerationX": "0.000000",
+                "externalAccelerationY": "0.000000",
+                "externalAccelerationZ": "0.000000",
+                "followEmitter": true,
+                "grad_duration": "0",
+                "maxInitialRotation": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "minInitialRotation": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "num_colors": "1",
+                "num_curves": "2",
+                "num_gradients": "0",
+                "particleScaleOverTime": "0.000000",
+                "particleScaleRandomFactor1": "0.100000",
+                "particleScaleRandomFactor2": "0.700000",
+                "particlesLifeTime": "1000",
+                "particlesPerCreation": "15",
+                "particlesScaleX": "1.000000",
+                "particlesScaleY": "1.000000",
+                "particlesVelocityX": "0.000000",
+                "particlesVelocityY": "5.000000",
+                "particlesVelocityZ": "0.000000",
+                "positionX": "0.000000",
+                "positionY": "0.000000",
+                "positionZ": "0.000000",
+                "randomInitialRotation": false,
+                "randomStartFrame": true,
+                "rotationOvertime1": [
+                    "0",
+                    "0",
+                    "-100"
+                ],
+                "rotationOvertime2": [
+                    "0",
+                    "0",
+                    "100"
+                ],
+                "rotationX": "0.000000",
+                "rotationY": "0.000000",
+                "rotationZ": "0.000000",
+                "rotationconstants": "1",
+                "scaleconstants": "1",
+                "separateAxis": "0",
+                "sizeX": "1.000000",
+                "sizeY": "0.500000",
+                "sizeZ": "1.000000",
+                "startFrame": "0",
+                "tiles_X": "1",
+                "tiles_Y": "1",
+                "velocityRandomFactor1X": "-7.000000",
+                "velocityRandomFactor1Y": "0.000000",
+                "velocityRandomFactor1Z": "-7.000000",
+                "velocityRandomFactor2X": "7.000000",
+                "velocityRandomFactor2Y": "0.000000",
+                "velocityRandomFactor2Z": "7.000000",
+                "velocityconstants": "0"
+            }
+        },
+        "Name": "Astilla",
+        "Parent": "350307701",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "1986686918": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "24.829180",
+                "positiony": "-0.000001",
+                "positionz": "21.033623",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Name": "2_Barrels",
+        "Parent": "820244984",
+        "PrefabChild": true,
+        "PrefabInstance": true,
+        "Static": false
+    },
+    "2113904347": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "layer": "5",
+                "positionx": "-0.159377",
+                "positiony": "1.160802",
+                "positionz": "-0.821647",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": false,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/1125607263.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": false,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/RemoveDestroyable.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "scale",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.025
+                    }
+                }
+            },
+            "15": {
+                "Active": false,
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "50.000000",
+                "freezePosition_X": "0",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "0",
+                "freezeRotation_X": "0",
+                "freezeRotation_Y": "0",
+                "freezeRotation_Z": "0",
+                "is_kinematic": "0",
+                "linear_damping": "1.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "0.000000",
+                "linear_velz": "0.000000",
+                "mass": "80.000000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": false,
+                "colliderType": "4",
+                "draggedUID": "1916960274",
+                "draw": "0",
+                "firstCreation": "0",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "22.578409",
+                "globalMatrixy": "0.257881",
+                "globalMatrixz": "21.880745",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "1",
+                "isTrigger": "0",
+                "lastIndex": "0",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "0.020320",
+                "tmpScaley": "0.025400",
+                "tmpScalez": "0.025400"
+            },
+            "2": {
+                "Active": false,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/New Folder 16/Breakable Prop/Barrel.mat"
+                    }
+                }
+            }
+        },
+        "Name": "Object2826",
+        "Parent": "1707045322",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "2134576719": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "layer": "5",
+                "positionx": "0.824146",
+                "positiony": "1.159988",
+                "positionz": "-0.117859",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": false,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/568032547.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": false,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/RemoveDestroyable.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "scale",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.025
+                    }
+                }
+            },
+            "15": {
+                "Active": false,
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "50.000000",
+                "freezePosition_X": "0",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "0",
+                "freezeRotation_X": "0",
+                "freezeRotation_Y": "0",
+                "freezeRotation_Z": "0",
+                "is_kinematic": "0",
+                "linear_damping": "1.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "0.000000",
+                "linear_velz": "0.000000",
+                "mass": "80.000000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": false,
+                "colliderType": "4",
+                "draggedUID": "1601158312",
+                "draw": "0",
+                "firstCreation": "0",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "25.735741",
+                "globalMatrixy": "1.159987",
+                "globalMatrixz": "20.915764",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "1",
+                "isTrigger": "0",
+                "lastIndex": "0",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "0.020320",
+                "tmpScaley": "0.025400",
+                "tmpScalez": "0.025400"
+            },
+            "2": {
+                "Active": false,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/New Folder 16/Breakable Prop/Barrel.mat"
+                    }
+                }
+            }
+        },
+        "Name": "Object2824",
+        "Parent": "1323596360",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "268484483": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "layer": "5",
+                "positionx": "-0.011240",
+                "positiony": "0.646922",
+                "positionz": "0.005139",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": false,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/1480106351.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": false,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/RemoveDestroyable.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "scale",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.025
+                    }
+                }
+            },
+            "15": {
+                "Active": false,
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "50.000000",
+                "freezePosition_X": "0",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "0",
+                "freezeRotation_X": "0",
+                "freezeRotation_Y": "0",
+                "freezeRotation_Z": "0",
+                "is_kinematic": "0",
+                "linear_damping": "1.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "0.000000",
+                "linear_velz": "0.000000",
+                "mass": "80.000000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": false,
+                "colliderType": "4",
+                "draggedUID": "1392394461",
+                "draw": "0",
+                "firstCreation": "0",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "22.958576",
+                "globalMatrixy": "1.080307",
+                "globalMatrixz": "22.272293",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "1",
+                "isTrigger": "0",
+                "lastIndex": "0",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "0.020320",
+                "tmpScaley": "0.025400",
+                "tmpScalez": "0.025400"
+            },
+            "2": {
+                "Active": false,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/New Folder 16/Breakable Prop/Barrel.mat"
+                    }
+                }
+            }
+        },
+        "Name": "Object2820",
+        "Parent": "1707045322",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "3182102": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-1.563391",
+                "positiony": "1.068735",
+                "positionz": "1.808037",
+                "rotationw": "0.691077",
+                "rotationx": "-0.683313",
+                "rotationy": "0.165633",
+                "rotationz": "0.167515",
+                "scalex": "1.000006",
+                "scaley": "1.000005",
+                "scalez": "1.000013"
+            }
+        },
+        "Name": "Barrel_1",
+        "Parent": "1986686918",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "318930738": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.919112",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Name": "Barrel_Particles",
+        "Parent": "454356488",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "350307701": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.919112",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Name": "Barrel_Particles",
+        "Parent": "3182102",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "354470549": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "layer": "5",
+                "positionx": "-0.720282",
+                "positiony": "1.160887",
+                "positionz": "-0.527279",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": false,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2077494646.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": false,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/RemoveDestroyable.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "scale",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.025
+                    }
+                }
+            },
+            "15": {
+                "Active": false,
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "50.000000",
+                "freezePosition_X": "0",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "0",
+                "freezeRotation_X": "0",
+                "freezeRotation_Y": "0",
+                "freezeRotation_Z": "0",
+                "is_kinematic": "0",
+                "linear_damping": "1.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "0.000000",
+                "linear_velz": "0.000000",
+                "mass": "80.000000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": false,
+                "colliderType": "4",
+                "draggedUID": "1463433285",
+                "draw": "0",
+                "firstCreation": "0",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "24.036869",
+                "globalMatrixy": "1.160886",
+                "globalMatrixz": "20.506344",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "1",
+                "isTrigger": "0",
+                "lastIndex": "0",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "0.020320",
+                "tmpScaley": "0.025400",
+                "tmpScalez": "0.025400"
+            },
+            "2": {
+                "Active": false,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/New Folder 16/Breakable Prop/Barrel.mat"
+                    }
+                }
+            }
+        },
+        "Name": "Object2827",
+        "Parent": "1323596360",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "431767601": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "layer": "5",
+                "positionx": "-0.003972",
+                "positiony": "-0.012332",
+                "positionz": "0.008169",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": false,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/1471641901.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": false,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/RemoveDestroyable.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "scale",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.025
+                    }
+                }
+            },
+            "15": {
+                "Active": false,
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "50.000000",
+                "freezePosition_X": "0",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "0",
+                "freezeRotation_X": "0",
+                "freezeRotation_Y": "0",
+                "freezeRotation_Z": "0",
+                "is_kinematic": "0",
+                "linear_damping": "1.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "0.000000",
+                "linear_velz": "0.000000",
+                "mass": "80.000000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": false,
+                "colliderType": "4",
+                "draggedUID": "1968366763",
+                "draw": "0",
+                "firstCreation": "0",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "24.824810",
+                "globalMatrixy": "-0.012333",
+                "globalMatrixz": "21.041792",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "1",
+                "isTrigger": "0",
+                "lastIndex": "0",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "0.020320",
+                "tmpScaley": "0.025400",
+                "tmpScalez": "0.025400"
+            },
+            "2": {
+                "Active": false,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/New Folder 16/Breakable Prop/Barrel.mat"
+                    }
+                }
+            }
+        },
+        "Name": "Object2818",
+        "Parent": "1323596360",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "43990551": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "layer": "5",
+                "positionx": "-0.159377",
+                "positiony": "1.160802",
+                "positionz": "-0.821647",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": false,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/1125607263.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": false,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/RemoveDestroyable.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "scale",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.025
+                    }
+                }
+            },
+            "15": {
+                "Active": false,
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "50.000000",
+                "freezePosition_X": "0",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "0",
+                "freezeRotation_X": "0",
+                "freezeRotation_Y": "0",
+                "freezeRotation_Z": "0",
+                "is_kinematic": "0",
+                "linear_damping": "1.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "0.000000",
+                "linear_velz": "0.000000",
+                "mass": "80.000000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": false,
+                "colliderType": "4",
+                "draggedUID": "1096943119",
+                "draw": "0",
+                "firstCreation": "0",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "24.653866",
+                "globalMatrixy": "1.160801",
+                "globalMatrixz": "20.211975",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "1",
+                "isTrigger": "0",
+                "lastIndex": "0",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "0.020320",
+                "tmpScaley": "0.025400",
+                "tmpScalez": "0.025400"
+            },
+            "2": {
+                "Active": false,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/New Folder 16/Breakable Prop/Barrel.mat"
+                    }
+                }
+            }
+        },
+        "Name": "Object2826",
+        "Parent": "1323596360",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "451094845": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "layer": "5",
+                "positionx": "0.117831",
+                "positiony": "1.160035",
+                "positionz": "0.842968",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": false,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/190934513.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": false,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/RemoveDestroyable.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "scale",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.025
+                    }
+                }
+            },
+            "15": {
+                "Active": false,
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "50.000000",
+                "freezePosition_X": "0",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "0",
+                "freezeRotation_X": "0",
+                "freezeRotation_Y": "0",
+                "freezeRotation_Z": "0",
+                "is_kinematic": "0",
+                "linear_damping": "1.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "0.000000",
+                "linear_velz": "0.000000",
+                "mass": "80.000000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": false,
+                "colliderType": "4",
+                "draggedUID": "1179758409",
+                "draw": "0",
+                "firstCreation": "0",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "22.849846",
+                "globalMatrixy": "1.923981",
+                "globalMatrixz": "21.760618",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "1",
+                "isTrigger": "0",
+                "lastIndex": "0",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "0.020320",
+                "tmpScaley": "0.025400",
+                "tmpScalez": "0.025400"
+            },
+            "2": {
+                "Active": false,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/New Folder 16/Breakable Prop/Barrel.mat"
+                    }
+                }
+            }
+        },
+        "Name": "Object2822",
+        "Parent": "1707045322",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "454356488": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Name": "Barrel2_Down",
+        "Parent": "1986686918",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "460527455": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "layer": "5",
+                "positionx": "-0.548970",
+                "positiony": "1.160083",
+                "positionz": "0.707902",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": false,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/1628945323.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": false,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/RemoveDestroyable.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "scale",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.025
+                    }
+                }
+            },
+            "15": {
+                "Active": false,
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "50.000000",
+                "freezePosition_X": "0",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "0",
+                "freezeRotation_X": "0",
+                "freezeRotation_Y": "0",
+                "freezeRotation_Z": "0",
+                "is_kinematic": "0",
+                "linear_damping": "1.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "0.000000",
+                "linear_velz": "0.000000",
+                "mass": "80.000000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": false,
+                "colliderType": "4",
+                "draggedUID": "335460054",
+                "draw": "0",
+                "firstCreation": "0",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "22.197750",
+                "globalMatrixy": "1.785128",
+                "globalMatrixz": "22.094883",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "1",
+                "isTrigger": "0",
+                "lastIndex": "0",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "0.020320",
+                "tmpScaley": "0.025400",
+                "tmpScalez": "0.025400"
+            },
+            "2": {
+                "Active": false,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/New Folder 16/Breakable Prop/Barrel.mat"
+                    }
+                }
+            }
+        },
+        "Name": "Object2821",
+        "Parent": "1707045322",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "505284095": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "5",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/31802940.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/Prop_Script.lua"
+                },
+                "Script variables": {
+                    "Count": 4,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "current_type",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "health",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 2.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "myUID",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "parent",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    }
+                }
+            },
+            "15": {
+                "Active": true,
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "50.000000",
+                "freezePosition_X": "0",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "0",
+                "freezeRotation_X": "0",
+                "freezeRotation_Y": "0",
+                "freezeRotation_Z": "0",
+                "is_kinematic": "0",
+                "linear_damping": "0.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "0.000000",
+                "linear_velz": "0.000000",
+                "mass": "1500.000000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": true,
+                "colliderType": "1",
+                "draggedUID": "0",
+                "draw": "0",
+                "firstCreation": "1",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "22.756613",
+                "globalMatrixy": "1.103671",
+                "globalMatrixz": "21.793282",
+                "globalPositionx": "84.555054",
+                "globalPositiony": "84.812271",
+                "globalPositionz": "94.199875",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "0",
+                "isTrigger": "0",
+                "lastIndex": "1",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "1.083837",
+                "localMatrixy": "-0.909085",
+                "localMatrixz": "45.883831",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "1.083837",
+                "offsety": "-0.909085",
+                "offsetz": "45.883831",
+                "originalScalex": "84.555054",
+                "originalScaley": "84.812271",
+                "originalScalez": "94.199875",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "2.147699",
+                "tmpScaley": "2.154233",
+                "tmpScalez": "2.392678"
+            },
+            "19": {
+                "Active": true
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/New Folder 16/Breakable Prop/Barrel.mat"
+                    }
+                }
+            }
+        },
+        "Name": "Prop",
+        "Parent": "3182102",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "55751440": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "layer": "5",
+                "positionx": "-0.003972",
+                "positiony": "-0.012332",
+                "positionz": "0.008169",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": false,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/1471641901.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": false,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/RemoveDestroyable.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "scale",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.025
+                    }
+                }
+            },
+            "15": {
+                "Active": false,
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "50.000000",
+                "freezePosition_X": "0",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "0",
+                "freezeRotation_X": "0",
+                "freezeRotation_Y": "0",
+                "freezeRotation_Z": "0",
+                "is_kinematic": "0",
+                "linear_damping": "1.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "0.000000",
+                "linear_velz": "0.000000",
+                "mass": "80.000000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": false,
+                "colliderType": "4",
+                "draggedUID": "543349216",
+                "draw": "0",
+                "firstCreation": "0",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "23.267551",
+                "globalMatrixy": "1.076756",
+                "globalMatrixz": "22.854715",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "1",
+                "isTrigger": "0",
+                "lastIndex": "0",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "0.020320",
+                "tmpScaley": "0.025400",
+                "tmpScalez": "0.025400"
+            },
+            "2": {
+                "Active": false,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/New Folder 16/Breakable Prop/Barrel.mat"
+                    }
+                }
+            }
+        },
+        "Name": "Object2818",
+        "Parent": "1707045322",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "754106768": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "layer": "5",
+                "positionx": "0.680375",
+                "positiony": "1.160035",
+                "positionz": "0.562583",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": false,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/127954643.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": false,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/RemoveDestroyable.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "scale",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.025
+                    }
+                }
+            },
+            "15": {
+                "Active": false,
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "50.000000",
+                "freezePosition_X": "0",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "0",
+                "freezeRotation_X": "0",
+                "freezeRotation_Y": "0",
+                "freezeRotation_Z": "0",
+                "is_kinematic": "0",
+                "linear_damping": "1.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "0.000000",
+                "linear_velz": "0.000000",
+                "mass": "80.000000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": false,
+                "colliderType": "4",
+                "draggedUID": "1891428605",
+                "draw": "0",
+                "firstCreation": "0",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "25.577593",
+                "globalMatrixy": "1.160034",
+                "globalMatrixz": "21.596207",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "1",
+                "isTrigger": "0",
+                "lastIndex": "0",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "0.020320",
+                "tmpScaley": "0.025400",
+                "tmpScalez": "0.025400"
+            },
+            "2": {
+                "Active": false,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/New Folder 16/Breakable Prop/Barrel.mat"
+                    }
+                }
+            }
+        },
+        "Name": "Object2823",
+        "Parent": "1323596360",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "785246283": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "layer": "5",
+                "positionx": "-0.720282",
+                "positiony": "1.160887",
+                "positionz": "-0.527279",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": false,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2077494646.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": false,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/RemoveDestroyable.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "scale",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.025
+                    }
+                }
+            },
+            "15": {
+                "Active": false,
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "50.000000",
+                "freezePosition_X": "0",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "0",
+                "freezeRotation_X": "0",
+                "freezeRotation_Y": "0",
+                "freezeRotation_Z": "0",
+                "is_kinematic": "0",
+                "linear_damping": "1.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "0.000000",
+                "linear_velz": "0.000000",
+                "mass": "80.000000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": false,
+                "colliderType": "4",
+                "draggedUID": "1025026045",
+                "draw": "0",
+                "firstCreation": "0",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "22.029854",
+                "globalMatrixy": "0.549043",
+                "globalMatrixz": "22.166494",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "1",
+                "isTrigger": "0",
+                "lastIndex": "0",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "0.020320",
+                "tmpScaley": "0.025400",
+                "tmpScalez": "0.025400"
+            },
+            "2": {
+                "Active": false,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/New Folder 16/Breakable Prop/Barrel.mat"
+                    }
+                }
+            }
+        },
+        "Name": "Object2827",
+        "Parent": "1707045322",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "873350017": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "layer": "5",
+                "positionx": "0.680375",
+                "positiony": "1.160035",
+                "positionz": "0.562583",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": false,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/127954643.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": false,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/RemoveDestroyable.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "scale",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.025
+                    }
+                }
+            },
+            "15": {
+                "Active": false,
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "50.000000",
+                "freezePosition_X": "0",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "0",
+                "freezeRotation_X": "0",
+                "freezeRotation_Y": "0",
+                "freezeRotation_Z": "0",
+                "is_kinematic": "0",
+                "linear_damping": "1.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "0.000000",
+                "linear_velz": "0.000000",
+                "mass": "80.000000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": false,
+                "colliderType": "4",
+                "draggedUID": "1153146180",
+                "draw": "0",
+                "firstCreation": "0",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "23.399967",
+                "globalMatrixy": "1.646811",
+                "globalMatrixz": "21.474125",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "1",
+                "isTrigger": "0",
+                "lastIndex": "0",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "0.020320",
+                "tmpScaley": "0.025400",
+                "tmpScalez": "0.025400"
+            },
+            "2": {
+                "Active": false,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/New Folder 16/Breakable Prop/Barrel.mat"
+                    }
+                }
+            }
+        },
+        "Name": "Object2823",
+        "Parent": "1707045322",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "968054111": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "layer": "5",
+                "positionx": "-0.009166",
+                "positiony": "1.689015",
+                "positionz": "0.002624",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": false,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/735991151.mesh"
+                    }
+                }
+            },
+            "12": {
+                "Active": false,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/Breakable Prop/RemoveDestroyable.lua"
+                },
+                "Script variables": {
+                    "Count": 1,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "scale",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.025
+                    }
+                }
+            },
+            "15": {
+                "Active": false,
+                "angular_damping": "0.000000",
+                "angular_velx": "0.000000",
+                "angular_vely": "0.000000",
+                "angular_velz": "0.000000",
+                "density": "50.000000",
+                "freezePosition_X": "0",
+                "freezePosition_Y": "0",
+                "freezePosition_Z": "0",
+                "freezeRotation_X": "0",
+                "freezeRotation_Y": "0",
+                "freezeRotation_Z": "0",
+                "is_kinematic": "0",
+                "linear_damping": "1.000000",
+                "linear_velx": "0.000000",
+                "linear_vely": "0.000000",
+                "linear_velz": "0.000000",
+                "mass": "80.000000",
+                "use_gravity": "1"
+            },
+            "16": {
+                "Active": false,
+                "colliderType": "4",
+                "draggedUID": "591325231",
+                "draw": "0",
+                "firstCreation": "0",
+                "globalMatrixw": "1.000000",
+                "globalMatrixx": "22.483438",
+                "globalMatrixy": "1.088270",
+                "globalMatrixz": "21.344845",
+                "globalPositionx": "1.000000",
+                "globalPositiony": "1.000000",
+                "globalPositionz": "1.000000",
+                "hasBeenDeactivated": "0",
+                "height": "1.000000",
+                "isConvex": "1",
+                "isTrigger": "0",
+                "lastIndex": "0",
+                "localMatrixw": "1.000000",
+                "localMatrixx": "0.000000",
+                "localMatrixy": "0.000000",
+                "localMatrixz": "0.000000",
+                "localPositionx": "0.000000",
+                "localPositiony": "0.000000",
+                "localPositionz": "0.000000",
+                "offsetx": "0.000000",
+                "offsety": "0.000000",
+                "offsetz": "0.000000",
+                "originalScalex": "1.000000",
+                "originalScaley": "1.000000",
+                "originalScalez": "1.000000",
+                "radius": "1.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000",
+                "tmpScalex": "0.020320",
+                "tmpScaley": "0.025400",
+                "tmpScalez": "0.025400"
+            },
+            "2": {
+                "Active": false,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/New Folder 16/Breakable Prop/Barrel.mat"
+                    }
+                }
+            }
+        },
+        "Name": "Object2819",
+        "Parent": "1707045322",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "PreviewTexture": "Library/Textures/1696152274.dds"
+}

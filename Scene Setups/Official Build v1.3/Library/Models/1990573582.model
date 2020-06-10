@@ -1,0 +1,122 @@
+{
+    "Circle_Wind": {
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.060962",
+                "positiony": "0.000000",
+                "positionz": "-0.141431",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/734555706.mesh"
+                    }
+                }
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/01 - Default.mat"
+                    }
+                }
+            }
+        },
+        "Parent": "13676924",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "UID": "320622022"
+    },
+    "GameObject(0)": {
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "14": {
+                "Active": true,
+                "Animations": {
+                    "BlendTime": "0.300000",
+                    "Size": "0",
+                    "UseDefault": false
+                },
+                "Resources": {
+                    "ResourceAnimation": "Library/Animations/2114118552.anim"
+                }
+            }
+        },
+        "Model": "Assets/Characters/Geralt/Geralt_Aard_Circle_Wind.FBX",
+        "Parent": "356793465",
+        "PrefabChild": false,
+        "PrefabInstance": true,
+        "UID": "13676924"
+    },
+    "PreviewTexture": "Library/Textures/1053508985.dds",
+    "Wind_Circle_Pivot": {
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            }
+        },
+        "Parent": "13676924",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "UID": "1740546213"
+    },
+    "Wind_Controller": {
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.000010",
+                "scaley": "0.000010",
+                "scalez": "0.000010"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/428408959.bone"
+                }
+            }
+        },
+        "Parent": "1740546213",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "UID": "1295155973"
+    }
+}
