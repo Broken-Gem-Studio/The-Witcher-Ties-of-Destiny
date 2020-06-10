@@ -16,7 +16,6 @@ lua_table.skip_threshold = 0
 lua_table.NextScene = 0
 
 local Fade = 0
-local changeScene_nextFrame = false
 
 local minion = 0
 local minion1 = 0
@@ -32,6 +31,7 @@ local position_z = {}
 -- Jaskier UID
 local Cube_ID = 0
 --local BarID = 0 -- Ciruclar bar for skip
+local loading_screen = 0
 
 -- Time management
 local time = 0
@@ -67,7 +67,7 @@ local ZoomToTown_Time = 0
 local FadeOut3 = false
 local FadeOut3_Time = 0
 local skip_button_is_being_pressed = false
-
+local actual_scene_timer = 0
 
 local conversation_finished = false
 local start_motion = false
@@ -75,7 +75,7 @@ local start_motion = false
 -- Dummy bools
 local music_played = false
 local cube_moved = false
-local next_scene = true
+local next_scene = false
 
 local function Lerp(start, end_, value)
 
@@ -121,8 +121,7 @@ local function SkipButton()
    end
    --]]
 
-    if lua_table.Input:IsGamepadButton(1, "BUTTON_A", "DOWN") and next_scene == true 
-    then
+    if lua_table.Input:IsGamepadButton(1, "BUTTON_A", "DOWN") then
         lua_table.Audio:PlayAudioEvent("Play_Skipped_Cinematic")
 
         lua_table.Audio:StopAudioEvent("Play_lvl2_Intro_conversation_Cutscene")
@@ -130,8 +129,8 @@ local function SkipButton()
         lua_table.Audio:StopAudioEvent("Play_Lvl2_Ambience_Crickets_Loop")
         lua_table.Audio:StopAudioEvent("Play_Music_Cinematic_lvl2_Elven_Forest")
         A_time = lua_table.System:GameTime()
+
         fade_button = true
-        next_scene = false
     end
 
    --lua_table.UI:SetUICircularBarPercentage(lua_table.skip_threshold, BarID)
@@ -158,6 +157,8 @@ function lua_table:Start()
     minion4 = lua_table.GameObjectFunctions:FindGameObject("Minion_Ghoul4")
     minion5 = lua_table.GameObjectFunctions:FindGameObject("Minion_Ghoul5")
 
+    loading_screen = lua_table.GameObjectFunctions:FindGameObject("LoadingScreenCanvas")
+
     lua_table.Audio:PlayAudioEvent("Play_lvl2_Intro_conversation_Cutscene")
     lua_table.Audio:PlayAudioEvent("Play_Lvl2_Ambience_Wind_Loop")
     lua_table.Audio:PlayAudioEvent("Play_Lvl2_Ambience_Crickets_Loop")
@@ -167,30 +168,33 @@ function lua_table:Start()
 end
 
 
+
 function lua_table:Update()
     time = lua_table.System:GameTime() - started_time
     CurrentCameraPos = lua_table.Transform:GetPosition(lua_table.GameObjectFunctions:GetMyUID())
 
-    if fade_button == true 
-        then
+    if actual_scene_timer + 1000 <= lua_table.System:GameTime() * 1000 and next_scene == true then
+        lua_table.Scene:LoadScene(lua_table.NextScene)
+        next_scene = false
+    end
+
+    if fade_button == true then
             local fade_time = time - A_time
             local value = fade_time / 3
             local alpha = Lerp(0, 1, value)
             lua_table.UI:ChangeUIComponentColor("Image",0,0,0, alpha, Fade)
     
-            if value >= 1 
-            then
-                changeScene_nextFrame = true
+            if value >= 1 and next_scene == false then
+
+                lua_table.GameObjectFunctions:SetActiveGameObject(true, loading_screen)
+
+                actual_scene_timer = lua_table.System:GameTime() * 1000
+                next_scene = true
+                lua_table.System:LOG ("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+
+
                 fade_button = false
             end
-        end
-
-    if changeScene_nextFrame == true then
-        
-
-        lua_table.Scene:LoadScene(lua_table.NextScene)
-
-        next_scene = false
     end
 
     SkipButton()
@@ -315,10 +319,14 @@ function lua_table:Update()
             local alpha = Lerp(0, 1, value)
             lua_table.UI:ChangeUIComponentColor("Image",0,0,0, alpha, Fade)
     
-            if value >= 1 
+            if value >= 1 and next_scene == false
             then
                 FadeOut3 = false
-                lua_table.Scene:LoadScene(lua_table.NextScene)
+                lua_table.GameObjectFunctions:SetActiveGameObject(true, loading_screen)
+                
+                actual_scene_timer = lua_table.System:GameTime() * 1000
+                next_scene = true
+
             end
         end
     end
