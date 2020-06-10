@@ -42,8 +42,8 @@ local function Reset()
 	step = 1
 	activatePause = false
 	showingCombos = false
-	lua_table.gamePaused = false
 	lua_table.SystemFunctions:ResumeGame()
+	lua_table.gamePaused = false
 	lua_table.InterfaceFunctions:MakeElementInvisible("Image", lua_table.parchmentImage_UUID)	
 	lua_table.InterfaceFunctions:MakeElementInvisible("Image", lua_table.background_UUID)	
 
@@ -72,9 +72,9 @@ function lua_table:Awake()
 	tutorialGO = lua_table.ObjectFunctions:FindGameObject("TutorialManager")
 	
 	if tutorialGO ~= 0
-    then
-        tutoScript = lua_table.ObjectFunctions:GetScript(tutorialGO)
-    end
+	then
+		tutoScript = lua_table.ObjectFunctions:GetScript(tutorialGO)
+	end
 end
 
 function lua_table:Start()
@@ -97,7 +97,7 @@ function lua_table:Update()
 		activatePause = true
 	end
 
-	if activatePause == true
+	if activatePause == true and (tutorialGO == 0 or (tutorialGO ~= 0 and tutoScript.tutorialPause == false))
 	then 
 		lua_table.AudioFunctions:PlayAudioEvent("Play_Pause")
 		if lua_table.gamePaused == false
