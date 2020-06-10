@@ -18,7 +18,9 @@ function lua_table:OnCollisionEnter()
 
     if lua_table.final_coin
     then
-        scoreboard_script.coins_finished = scoreboard_script.coins_finished + 1
+        if scoreboard_script ~= nil and scoreboard_script.coins_finished ~= nil then
+            scoreboard_script.coins_finished = scoreboard_script.coins_finished + 1
+        end
         lua_table.final_coin = false
     end
 end

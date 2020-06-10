@@ -1662,10 +1662,10 @@
 				</Folder>
 				<Event Name="Play_Music_Menu_Comparison_Pirate_Dance" ID="{D8C2E418-7AE3-46EA-8E37-6727F19E5260}">
 					<ChildrenList>
-						<Action Name="" ID="{2621D4E5-F68A-4077-8053-17F034649017}" ShortID="790901236">
+						<Action Name="" ID="{66774560-B2E8-44E9-B305-0B2FAD309426}" ShortID="849831764">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Music_Menu_Comparison_Pirate_Dance" ID="{DAB31115-792B-4900-B848-D52D07AE3ABE}" WorkUnitID="{900849B3-5BE8-4F7B-8EC5-9E5DD796D73F}"/>
+									<ObjectRef Name="Comparison_Menu" ID="{5C5A7B80-F0A1-4E8C-8814-45427288C7C2}" WorkUnitID="{900849B3-5BE8-4F7B-8EC5-9E5DD796D73F}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -1967,6 +1967,17 @@
 						</Event>
 					</ChildrenList>
 				</Folder>
+				<Event Name="Play_Credits_Menu_Music" ID="{5073CA68-BE46-4666-8E85-A0E1DA4DA298}">
+					<ChildrenList>
+						<Action Name="" ID="{09B61F00-28DD-4FC1-8493-21F4054B1F34}" ShortID="457008547">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Credits_Menu" ID="{1719199A-9306-4A33-8E90-4BB85616B99E}" WorkUnitID="{900849B3-5BE8-4F7B-8EC5-9E5DD796D73F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
