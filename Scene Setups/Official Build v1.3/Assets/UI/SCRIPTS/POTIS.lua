@@ -91,6 +91,10 @@ function GetTablePOTIS()
     local p2ID = 0
     lua_table.p2 = {}
 
+    --prefab pause 
+    local pause_prefab = 0
+    lua_table.pause = {}
+
     local function HidePotis(player)
 
         if player == 1
@@ -220,6 +224,10 @@ function GetTablePOTIS()
 
        p2ID = lua_table["GameObject"]:FindGameObject("Jaskier")
        lua_table.p2 = lua_table["GameObject"]:GetScript(p2ID)
+
+       --pause prefab
+       pause_prefab = lua_table["GameObject"]:FindGameObject("ButtonManager")
+       lua_table.pause = lua_table["GameObject"]:GetScript(pause_prefab)
 
     end
     
@@ -768,22 +776,25 @@ function GetTablePOTIS()
     
 
         --SOUND FX
-        if lua_table["Inputs"]:IsGamepadButton(1,"BUTTON_DPAD_LEFT","DOWN") or lua_table["Inputs"]:IsGamepadButton(1,"BUTTON_DPAD_RIGHT","DOWN")
+        if (lua_table["Inputs"]:IsGamepadButton(1,"BUTTON_DPAD_LEFT","DOWN") or lua_table["Inputs"]:IsGamepadButton(1,"BUTTON_DPAD_RIGHT","DOWN"))
+        and lua_table.pause.gamePaused == false
         then
             lua_table["Audio"]:PlayAudioEventGO("Play_HUD_Switch_Potion", POTID)
         end
 
-        if lua_table["Inputs"]:IsGamepadButton(2,"BUTTON_DPAD_LEFT","DOWN") or lua_table["Inputs"]:IsGamepadButton(2,"BUTTON_DPAD_RIGHT","DOWN")
+        if (lua_table["Inputs"]:IsGamepadButton(2,"BUTTON_DPAD_LEFT","DOWN") or lua_table["Inputs"]:IsGamepadButton(2,"BUTTON_DPAD_RIGHT","DOWN"))
+        and lua_table.pause.gamePaused == false
         then
             lua_table["Audio"]:PlayAudioEventGO("Play_HUD_Switch_Potion", POTID)
         end
 
-        if on_hp == true and lua_table["Inputs"]:IsGamepadButton(1,"BUTTON_RIGHTSHOULDER","DOWN") and hp_potis == 0 or
+        if (on_hp == true and lua_table["Inputs"]:IsGamepadButton(1,"BUTTON_RIGHTSHOULDER","DOWN") and hp_potis == 0 or
         on_hp2 == true and lua_table["Inputs"]:IsGamepadButton(2,"BUTTON_RIGHTSHOULDER","DOWN") and hp_potis2 == 0 or
         on_energy == true and lua_table["Inputs"]:IsGamepadButton(1,"BUTTON_RIGHTSHOULDER","DOWN") and eng_potis == 0 or
         on_energy2 == true and lua_table["Inputs"]:IsGamepadButton(2,"BUTTON_RIGHTSHOULDER","DOWN") and eng_potis2 == 0 or
         on_dmg == true and lua_table["Inputs"]:IsGamepadButton(1,"BUTTON_RIGHTSHOULDER","DOWN") and dmg_potis == 0 or
-        on_dmg2 == true and lua_table["Inputs"]:IsGamepadButton(2,"BUTTON_RIGHTSHOULDER","DOWN") and dmg_potis2 == 0 
+        on_dmg2 == true and lua_table["Inputs"]:IsGamepadButton(2,"BUTTON_RIGHTSHOULDER","DOWN") and dmg_potis2 == 0)
+        and lua_table.pause.gamePaused == false
         then
             lua_table["Audio"]:PlayAudioEvent("Play_No_potion")
         end
