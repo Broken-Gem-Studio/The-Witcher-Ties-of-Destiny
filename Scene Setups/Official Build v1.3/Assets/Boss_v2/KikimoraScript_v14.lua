@@ -953,8 +953,8 @@ local function HandleRoarAttack()
 
                 -- Camera shake
                 lua_table.camera_script.camera_shake_activated = true
-			    lua_table.camera_script.camera_shake_duration = 2
-			    lua_table.camera_script.camera_shake_magnitude = 0.8
+			    lua_table.camera_script.camera_shake_duration = 1
+			    lua_table.camera_script.camera_shake_magnitude = 0.3
             end
         end
 
@@ -1097,8 +1097,8 @@ local function HandleStompAttack()
 
                 -- Camera shake
                 lua_table.camera_script.camera_shake_activated = true
-                lua_table.camera_script.camera_shake_duration = 1
-                lua_table.camera_script.camera_shake_magnitude = 0.4
+                lua_table.camera_script.camera_shake_duration = 0.2
+                lua_table.camera_script.camera_shake_magnitude = 0.1
             end
 
             if game_time >= attack_tired_timer and attack_tired_timer ~= -1--Check if execution is finished
@@ -1645,8 +1645,8 @@ local function HandleLeashLeftAttack()
 
                 -- Camera shake
                 lua_table.camera_script.camera_shake_activated = true
-                lua_table.camera_script.camera_shake_duration = 1
-                lua_table.camera_script.camera_shake_magnitude = 0.4
+			    lua_table.camera_script.camera_shake_duration = 1
+			    lua_table.camera_script.camera_shake_magnitude = 0.3
             end
 
             if game_time >= attack_tired_timer and attack_tired_timer ~= -1--Check if execution is finished
@@ -1804,8 +1804,8 @@ local function HandleLeashRightAttack()
                 
                 -- Camera shake
                 lua_table.camera_script.camera_shake_activated = true
-                lua_table.camera_script.camera_shake_duration = 1
-                lua_table.camera_script.camera_shake_magnitude = 0.4
+                lua_table.camera_script.camera_shake_duration = 0.2
+                lua_table.camera_script.camera_shake_magnitude = 0.1
             end
         end
 
@@ -2169,8 +2169,8 @@ local function HandleJump()
 
         -- Camera shake
         lua_table.camera_script.camera_shake_activated = true
-        lua_table.camera_script.camera_shake_duration = 1
-        lua_table.camera_script.camera_shake_magnitude = 0.4
+        lua_table.camera_script.camera_shake_duration = 0.2
+        lua_table.camera_script.camera_shake_magnitude = 0.1
     end
 
     -- When finishes downwards movement animation
@@ -2389,8 +2389,8 @@ local function HandleStates()
 
             -- Camera shake
             lua_table.camera_script.camera_shake_activated = true
-            lua_table.camera_script.camera_shake_duration = 1
-            lua_table.camera_script.camera_shake_magnitude = 0.4
+            lua_table.camera_script.camera_shake_duration = 0.2
+            lua_table.camera_script.camera_shake_magnitude = 0.1
         end
 
         if game_time >= state_timer and awakening_scream_played == false
@@ -2524,8 +2524,8 @@ local function HandleStates()
 
             -- Camera shake
             lua_table.camera_script.camera_shake_activated = true
-            lua_table.camera_script.camera_shake_duration = 2.5
-            lua_table.camera_script.camera_shake_magnitude = 0.8   
+            lua_table.camera_script.camera_shake_duration = 2
+            lua_table.camera_script.camera_shake_magnitude = 0.3  
         end
     
         if game_time >= animation_timer
@@ -2598,6 +2598,11 @@ local function HandleStates()
         -- AUDIO PLAY
         lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_death", my_UID)
 
+        -- Camera shake
+        lua_table.camera_script.camera_shake_activated = true
+        lua_table.camera_script.camera_shake_duration = 1
+        lua_table.camera_script.camera_shake_magnitude = 0.3
+
         local death_duration = animation.death.anim_frames / animation.death.anim_speed
         
         animation_timer = game_time + death_duration
@@ -2621,6 +2626,11 @@ local function HandleStates()
             
             -- AUDIO PLAY
             lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_lash", my_UID)
+
+            -- Camera shake
+            lua_table.camera_script.camera_shake_activated = true
+            lua_table.camera_script.camera_shake_duration = 0.2
+            lua_table.camera_script.camera_shake_magnitude = 0.1
         end
 
         if game_time >= state_timer
