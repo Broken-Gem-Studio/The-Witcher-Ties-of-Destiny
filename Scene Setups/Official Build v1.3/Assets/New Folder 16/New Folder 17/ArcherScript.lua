@@ -661,7 +661,7 @@ function lua_table:Update()
     GetClosestPlayer()
 
     if position[2] <= -100 then
-        lua_table.Transform:SetPosition(position[1], 100, position[3], MyUID)
+        lua_table.GameObjectFunctions:DestroyGameObject(MyUID)
     end
 
     lua_table.speed = 8 * lua_table.System:DT()
