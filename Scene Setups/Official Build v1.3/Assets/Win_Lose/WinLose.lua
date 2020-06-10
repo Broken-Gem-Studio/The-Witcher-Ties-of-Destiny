@@ -82,6 +82,9 @@ function GetTableWinLose()
     local play_win = false
     local play_lose = false
 
+    local loading_UID = 0
+    local load_timer = 0
+
     local function Victory()
         lua_table.System:PauseGame()
 
@@ -211,9 +214,11 @@ function GetTableWinLose()
             --load current level
             if lua_table.current_level == 1
             then
+               
                 load_level1 = true
             elseif lua_table.current_level == 2
             then
+                
                 load_level2 = true
             end
         end
@@ -248,6 +253,7 @@ function GetTableWinLose()
         --load main menu
         last_checkpoint = 0
         load_mainmenu = true
+        
     end
 
     function lua_table:GoToNextLevel()
@@ -277,6 +283,7 @@ function GetTableWinLose()
         lua_table.System:ResumeGame()
 
         --load next level (level 2)
+
         last_checkpoint = 0
         load_level2 = true
     end
@@ -308,10 +315,10 @@ function GetTableWinLose()
 
         --reload level
         last_checkpoint = 0
-        if lua_table.current_level == 1
+        if lua_table.current_level == 1 and load_level1 == false
         then
             load_level1 = true
-        elseif lua_table.current_level == 2
+        elseif lua_table.current_level == 2 and load_level2 == false
         then
             load_level2 = true
         end
@@ -466,6 +473,8 @@ function GetTableWinLose()
         lua_table.UI:SetUIElementInteractable("Button", only_mainmenu, false)
         lua_table.GO:SetActiveGameObject(false, only_retry)
         lua_table.UI:SetUIElementInteractable("Button", only_retry, false)
+
+        loading_UID = lua_table.GO:FindGameObject("LoadingScreenCanvas")
     end
 
     function lua_table:Start()
@@ -539,21 +548,36 @@ function GetTableWinLose()
         --change scene
         if load_level1 == true
         then
-            load_level1 = false
+            load_timer = load_timer + lua_table.System:DT()
+            if load_timer >= 1 then 
+                lua_table.Scene:LoadScene(lua_table.level1_uid)
+                load_level1 = false
+            else 
+                lua_table.GO:SetActiveGameObject(true, loading_UID)
+            end
+            
             is_lose = false
-            --set loading screen**
-            lua_table.Scene:LoadScene(lua_table.level1_uid)
-        elseif load_level2 == true
+            
+        elseif load_level2 == true 
         then
-            load_level2 = false
+            load_timer = load_timer + lua_table.System:DT()
+            if load_timer >= 1 then 
+                lua_table.Scene:LoadScene(lua_table.level2_uid)
+                load_level2 = false
+            else 
+                lua_table.GO:SetActiveGameObject(true, loading_UID)
+            end
             is_lose = false
-            --set loading screen**
-            lua_table.Scene:LoadScene(lua_table.level2_uid)
+            
         elseif load_mainmenu == true
         then
-            load_mainmenu = false
-            --set loading screen**
-            lua_table.Scene:LoadScene(lua_table.mm_uid)
+            load_timer = load_timer + lua_table.System:DT()
+            if load_timer >= 1 then 
+                lua_table.Scene:LoadScene(lua_table.mm_uid)
+                load_mainmenu = false
+            else 
+                lua_table.GO:SetActiveGameObject(true, loading_UID)
+            end
         end
 
         -- controllers

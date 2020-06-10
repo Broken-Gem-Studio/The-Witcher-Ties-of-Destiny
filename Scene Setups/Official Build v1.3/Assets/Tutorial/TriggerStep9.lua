@@ -10,7 +10,6 @@ local managerTable
 local geraltUID
 local jaskierUID
 local MyUUID
-local text
 local justonce = false
 
 function lua_table:OnTriggerEnter()
@@ -22,7 +21,6 @@ function lua_table:OnTriggerEnter()
         then
             managerTable.PauseStep9 = true
             justonce = true
-            lua_table.InterfaceFunctions:SetText("Kill the lumberjack!", text)    
         end
     end
 end
@@ -33,7 +31,6 @@ function lua_table:Awake()
     managerTable = lua_table.ObjectFunctions:GetScript(manager)
     geraltUID = lua_table.ObjectFunctions:FindGameObject("Geralt")
     jaskierUID = lua_table.ObjectFunctions:FindGameObject("Jaskier")
-    text = lua_table.ObjectFunctions:FindGameObject("Text")
 end
 
 function lua_table:Start()
