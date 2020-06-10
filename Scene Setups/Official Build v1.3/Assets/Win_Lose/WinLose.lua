@@ -559,7 +559,7 @@ function GetTableWinLose()
         -- controllers
         if select_ui == true 
         then
-            if lua_table.InputFunctions:IsGamepadButton(1, "BUTTON_A", "DOWN") or lua_table.InputFunctions:IsGamepadButton(2, "BUTTON_A", "DOWN")
+            if lua_table.Input:IsGamepadButton(1, "BUTTON_A", "DOWN") or lua_table.Input:IsGamepadButton(2, "BUTTON_A", "DOWN")
             then
                 if currentButton == Buttons.MAINMENU
                 then
@@ -572,18 +572,18 @@ function GetTableWinLose()
                     lua_table:GoToRetry()
                 end
             end
-			if lua_table.InputFunctions:IsGamepadButton(1, "BUTTON_DPAD_RIGHT", "DOWN") or lua_table.InputFunctions:IsGamepadButton(2, "BUTTON_DPAD_RIGHT", "DOWN")
+			if lua_table.Input:IsGamepadButton(1, "BUTTON_DPAD_RIGHT", "DOWN") or lua_table.Input:IsGamepadButton(2, "BUTTON_DPAD_RIGHT", "DOWN")
 			then 
-				lua_table.AudioFunctions:PlayAudioEvent("Play_Mouse_over")
+				lua_table.Audio:PlayAudioEvent("Play_Mouse_over")
 				currentButton = currentButton + 1
 				if currentButton >= Buttons.RETRY
 				then
 					currentButton = Buttons.RETRY
 				end
 			end
-			if lua_table.InputFunctions:IsGamepadButton(1, "BUTTON_DPAD_LEFT", "DOWN") or lua_table.InputFunctions:IsGamepadButton(2, "BUTTON_DPAD_LEFT", "DOWN")
+			if lua_table.Input:IsGamepadButton(1, "BUTTON_DPAD_LEFT", "DOWN") or lua_table.Input:IsGamepadButton(2, "BUTTON_DPAD_LEFT", "DOWN")
 			then 
-				lua_table.AudioFunctions:PlayAudioEvent("Play_Mouse_over")
+				lua_table.Audio:PlayAudioEvent("Play_Mouse_over")
 				currentButton = currentButton - 1
 				if currentButton <= Buttons.MAINMENU
 				then
