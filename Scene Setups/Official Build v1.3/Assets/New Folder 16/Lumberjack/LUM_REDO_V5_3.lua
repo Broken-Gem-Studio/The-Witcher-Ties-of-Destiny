@@ -120,7 +120,7 @@ local CalculatePathTimer = 0
 
 --jump_attack()
 
-local MinDistanceToJump = 10
+local MinDistanceToJump = 11
 local OptimalDistanceJumpAttack = false
 local DoJump = false
 local JumpAttackPathCreated = false
@@ -181,7 +181,7 @@ lua_table.GeraltDistance = 0 --updated when call PlayersArround()
 lua_table.JaskierDistance = 0
 
 local CurrentTarget_UID = 0 
-local MinDistanceFromPlayer = 1
+local MinDistanceFromPlayer = 2
 
 local CurrentTime = 0
 

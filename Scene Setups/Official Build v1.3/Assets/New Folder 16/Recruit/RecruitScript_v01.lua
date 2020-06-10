@@ -128,6 +128,8 @@ local random_death_anim = 0
 local random_death_time = 0
 local dt = 0
 
+local curr_dmg_dealer = 0
+
 -- ______________________SCRIPT FUNCTIONS______________________
 
 local function ResetNavigation()
@@ -223,9 +225,8 @@ local function Idle()
 			lua_table.System:LOG("Recruit state: SEEK (1)") 
 		end
 	end
-	
 end
-	
+
 local function Seek()
 	
 	-- Now we get the direction vector and then we normalize it and aply a velocity in every component
@@ -346,6 +347,7 @@ local function Stun()
 		end
 	
 		lua_table.currentState = State.SEEK	
+		lua_table.Animations:PlayAnimation("Run", 45.0, lua_table.MyUID)
 		lua_table.System:LOG("Recruit state: SEEK (1), from stun")
 	end
 	
@@ -359,6 +361,7 @@ local function KnockBack()
 
 	if knockback_timer + 300 <= lua_table.System:GameTime() * 1000 then
 		lua_table.currentState = State.SEEK	
+		lua_table.Animations:PlayAnimation("Run", 45.0, lua_table.MyUID)
 		lua_table.is_knockback = false
 		lua_table.System:LOG("Recruit state: STUNNED (5), from KD")
 		
@@ -426,6 +429,21 @@ function lua_table:OnTriggerEnter()
 
 			lua_table.health = lua_table.health - script.collider_damage
 
+			curr_dmg_dealer = parent
+
+			-- Check if our entity is dead
+			if lua_table.health <= 0 then 
+
+				if curr_dmg_dealer == lua_table.geralt then
+					script.geralt_score[2] = script.geralt_score[2] + 1
+				else 
+					script.jaskier_score[2] = script.jaskier_score[2] + 1
+				end 
+
+				lua_table.currentState = State.DEATH
+				lua_table.System:LOG("Recruit state: Death (5)")
+			end
+
 			lua_table.Material:SetMaterialByName("HitMaterial.mat", Recruit_Material_UID)
       		material_timer = lua_table.System:GameTime() * 1000
 			start_material  = true
@@ -448,6 +466,37 @@ function lua_table:OnTriggerEnter()
 						lua_table.Particles:PlayParticleEmitter(particles[i])
 					end
 
+					if parent == lua_table.geralt then
+						------- Stun dmg marker
+						if script.geralt_score ~= nil then
+							if script.geralt_score[1] ~= nil then
+								script.geralt_score[1] = script.geralt_score[1] + script.collider_damage
+							end
+						end
+				
+						------- Actual stun dmg marker
+						if script.geralt_score ~= nil then
+							if script.geralt_score[4] ~= nil then
+								script.geralt_score[4] = script.geralt_score[4] + 1
+							end
+						end
+				
+					else 
+						------- Stun dmg marker
+						if script.jaskier_score ~= nil then
+							if script.jaskier_score[1] ~= nil then
+								script.jaskier_score[1] = script.jaskier_score[1] + script.collider_damage
+							end
+						end
+				
+						------- Actual stun dmg marker
+						if script.jaskier_score ~= nil then
+							if script.jaskier_score[4] ~= nil then
+								script.jaskier_score[4] = script.jaskier_score[4] + 1
+							end
+						end
+					end
+
 					start_stun = true
 					lua_table.currentState = State.STUNNED
 							
@@ -468,6 +517,37 @@ function lua_table:OnTriggerEnter()
 						particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Recruit_Hit_Emitter", Recruit_General_Emitter))
 						for i = 1, #particles do 
 							lua_table.Particles:PlayParticleEmitter(particles[i])
+						end
+					end
+
+					if parent == lua_table.geralt then
+						------- Stun dmg marker
+						if script.geralt_score ~= nil then
+							if script.geralt_score[1] ~= nil then
+								script.geralt_score[1] = script.geralt_score[1] + script.collider_damage
+							end
+						end
+				
+						------- Actual stun dmg marker
+						if script.geralt_score ~= nil then
+							if script.geralt_score[4] ~= nil then
+								script.geralt_score[4] = script.geralt_score[4] + 1
+							end
+						end
+				
+					else 
+						------- Stun dmg marker
+						if script.jaskier_score ~= nil then
+							if script.jaskier_score[1] ~= nil then
+								script.jaskier_score[1] = script.jaskier_score[1] + script.collider_damage
+							end
+						end
+				
+						------- Actual stun dmg marker
+						if script.jaskier_score ~= nil then
+							if script.jaskier_score[4] ~= nil then
+								script.jaskier_score[4] = script.jaskier_score[4] + 1
+							end
 						end
 					end
 
@@ -532,6 +612,37 @@ function lua_table:OnTriggerEnter()
 					end
 				end
 
+				if parent == lua_table.geralt then
+					------- Stun dmg marker
+					if script.geralt_score ~= nil then
+						if script.geralt_score[1] ~= nil then
+							script.geralt_score[1] = script.geralt_score[1] + script.collider_damage
+						end
+					end
+			
+					------- Actual stun dmg marker
+					if script.geralt_score ~= nil then
+						if script.geralt_score[4] ~= nil then
+							script.geralt_score[4] = script.geralt_score[4] + 1
+						end
+					end
+			
+				else 
+					------- Stun dmg marker
+					if script.jaskier_score ~= nil then
+						if script.jaskier_score[1] ~= nil then
+							script.jaskier_score[1] = script.jaskier_score[1] + script.collider_damage
+						end
+					end
+			
+					------- Actual stun dmg marker
+					if script.jaskier_score ~= nil then
+						if script.jaskier_score[4] ~= nil then
+							script.jaskier_score[4] = script.jaskier_score[4] + 1
+						end
+					end
+				end
+
 				lua_table.System:LOG("Hit registered")
 			end
 		end
@@ -552,6 +663,19 @@ function lua_table:RequestedTrigger(collider_GO)
 
 		lua_table.health = lua_table.health - script.collider_damage
 
+		curr_dmg_dealer = parent
+
+		if lua_table.health <= 0 then 
+			if curr_dmg_dealer == lua_table.geralt then
+				script.geralt_score[2] = script.geralt_score[2] + 1
+			else 
+				script.jaskier_score[2] = script.jaskier_score[2] + 1
+			end 
+			
+			lua_table.currentState = State.DEATH
+			lua_table.System:LOG("Recruit state: Death (5)")
+		end
+
 		lua_table.Material:SetMaterialByName("HitMaterial.mat", Recruit_Material_UID)
       	material_timer = lua_table.System:GameTime() * 1000
 		start_material  = true
@@ -570,6 +694,37 @@ function lua_table:RequestedTrigger(collider_GO)
 				particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Recruit_Stun_Emitter", Recruit_General_Emitter))
 				for i = 1, #particles do 
 					lua_table.Particles:PlayParticleEmitter(particles[i])
+				end
+				
+				if collider_GO == lua_table.geralt then
+					------- Stun dmg marker
+					if script.geralt_score ~= nil then
+						if script.geralt_score[1] ~= nil then
+							script.geralt_score[1] = script.geralt_score[1] + script.collider_damage
+						end
+					end
+			
+					------- Actual stun dmg marker
+					if script.geralt_score ~= nil then
+						if script.geralt_score[4] ~= nil then
+							script.geralt_score[4] = script.geralt_score[4] + 1
+						end
+					end
+			
+				else 
+					------- Stun dmg marker
+					if script.jaskier_score ~= nil then
+						if script.jaskier_score[1] ~= nil then
+							script.jaskier_score[1] = script.jaskier_score[1] + script.collider_damage
+						end
+					end
+			
+					------- Actual stun dmg marker
+					if script.jaskier_score ~= nil then
+						if script.jaskier_score[4] ~= nil then
+							script.jaskier_score[4] = script.jaskier_score[4] + 1
+						end
+					end
 				end
 
 				start_stun = true
@@ -594,6 +749,37 @@ function lua_table:RequestedTrigger(collider_GO)
 					end
 				end
 
+				if collider_GO == lua_table.geralt then
+					------- Stun dmg marker
+					if script.geralt_score ~= nil then
+						if script.geralt_score[1] ~= nil then
+							script.geralt_score[1] = script.geralt_score[1] + script.collider_damage
+						end
+					end
+			
+					------- Actual stun dmg marker
+					if script.geralt_score ~= nil then
+						if script.geralt_score[4] ~= nil then
+							script.geralt_score[4] = script.geralt_score[4] + 1
+						end
+					end
+			
+				else 
+					------- Stun dmg marker
+					if script.jaskier_score ~= nil then
+						if script.jaskier_score[1] ~= nil then
+							script.jaskier_score[1] = script.jaskier_score[1] + script.collider_damage
+						end
+					end
+			
+					------- Actual stun dmg marker
+					if script.jaskier_score ~= nil then
+						if script.jaskier_score[4] ~= nil then
+							script.jaskier_score[4] = script.jaskier_score[4] + 1
+						end
+					end
+				end
+
 				local coll_pos = lua_table.Transform:GetPosition(collider_GO)
 				local knock_vector = {0, 0, 0}
 				knock_vector[1] = lua_table.RecruitPos[1] - coll_pos[1]
@@ -615,6 +801,19 @@ function lua_table:RequestedTrigger(collider_GO)
 
 			elseif script.collider_effect == attack_effects.taunt then ---------------------------------------------------- React to taunt effect
 				AttackColliderShutdown()
+
+				if script.jaskier_score ~= nil then
+					if script.jaskier_score[1] ~= nil then
+						script.jaskier_score[1] = script.jaskier_score[1] + script.collider_damage
+					end
+				end
+		
+				------- Actual stun dmg marker
+				if script.jaskier_score ~= nil then
+					if script.jaskier_score[4] ~= nil then
+						script.jaskier_score[4] = script.jaskier_score[4] + 1
+					end
+				end
 
 				start_taunt = true
 
@@ -651,6 +850,37 @@ function lua_table:RequestedTrigger(collider_GO)
 				particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Recruit_Hit_Emitter", Recruit_General_Emitter))
 				for i = 1, #particles do 
 					lua_table.Particles:PlayParticleEmitter(particles[i])
+				end
+			end
+
+			if collider_GO == lua_table.geralt then
+				------- Stun dmg marker
+				if script.geralt_score ~= nil then
+					if script.geralt_score[1] ~= nil then
+						script.geralt_score[1] = script.geralt_score[1] + script.collider_damage
+					end
+				end
+		
+				------- Actual stun dmg marker
+				if script.geralt_score ~= nil then
+					if script.geralt_score[4] ~= nil then
+						script.geralt_score[4] = script.geralt_score[4] + 1
+					end
+				end
+		
+			else 
+				------- Stun dmg marker
+				if script.jaskier_score ~= nil then
+					if script.jaskier_score[1] ~= nil then
+						script.jaskier_score[1] = script.jaskier_score[1] + script.collider_damage
+					end
+				end
+		
+				------- Actual stun dmg marker
+				if script.jaskier_score ~= nil then
+					if script.jaskier_score[4] ~= nil then
+						script.jaskier_score[4] = script.jaskier_score[4] + 1
+					end
 				end
 			end
 
@@ -712,12 +942,6 @@ function lua_table:Update()
 	SearchPlayers() -- Constantly calculate distances between entity and players
 
 	if lua_table.RecruitPos[2] <= -30 then lua_table.Transform:SetPosition(lua_table.RecruitPos[1], 50, lua_table.RecruitPos[3], lua_table.MyUID) end
-
-	-- Check if our entity is dead
-	if lua_table.health <= 0 then 
-		lua_table.currentState = State.DEATH
-		lua_table.System:LOG("Recruit state: Death (5)")
-	end
 
 	-- Check which state the entity is in and then handle them accordingly
 	if lua_table.currentState == State.IDLE then 

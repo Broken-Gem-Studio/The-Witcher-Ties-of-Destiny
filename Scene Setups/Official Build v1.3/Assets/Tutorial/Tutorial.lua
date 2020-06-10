@@ -310,12 +310,12 @@ local function Step6()
         lua_table.PauseStep6 = false
     end
 
-    if lua_table.InputFunctions:IsGamepadButton(lua_table.GeraltNumber, "BUTTON_A", KeyState.DOWN) == true
+    if tableGeralt.current_state == 3
     then
         geraltRoll = true
     end
 
-    if lua_table.InputFunctions:IsGamepadButton(lua_table.JaskierNumber, "BUTTON_A", KeyState.DOWN) == true
+    if tableJaskier.current_state == 3
     then
         jaskierRoll = true
     end
@@ -355,6 +355,7 @@ local function Step7()
     if scriptSpawnerStep7.auxCounter == 0 and checkStep7 == true
     then
         lua_table.InterfaceFunctions:MakeElementInvisible("Image", littleCards.enemy)
+        lua_table.ObjectFunctions:SetActiveGameObject(true, step8)
         lua_table.currentStep = Step.STEP_8
     end
 
@@ -464,6 +465,8 @@ local function Step11()
         TABLE_CARTAS.continue_meter2_full = false
         lua_table.PauseStep11 = false
         lua_table.InterfaceFunctions:MakeElementVisible("Image", littleCards.abilities)
+        tableGeralt.ability_cooldown = 5000.0
+        tableJaskier.ability_cooldown = 1000.0
     end
     
     if tableGeralt.current_state == 4
@@ -515,6 +518,8 @@ local function Step12()
         TABLE_CARTAS.continue_meter1_full = false
         TABLE_CARTAS.continue_meter2_full = false
         lua_table.PauseStep12 = false
+        tableGeralt.current_ultimate = tableGeralt.max_ultimate
+        tableJaskier.current_ultimate = tableJaskier.max_ultimate
     end
 
 
@@ -762,7 +767,7 @@ function lua_table:Update()
     if showedPotions == false
     then
         FindPotions()
-        if tableGeralt.current_health <= 100 or tableJaskier.current_health <= 100 or potionDropped == true
+        if potionDropped == true --or tableGeralt.current_health <= 100 or tableJaskier.current_health <= 100
         then
             lua_table.potionsCards = true
             PotionsCards()
