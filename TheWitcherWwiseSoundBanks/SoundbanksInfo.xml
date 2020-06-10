@@ -330,6 +330,7 @@
 			<ShortName>Props</ShortName>
 			<Path>Props.bnk</Path>
 			<IncludedEvents>
+				<Event Id="2637631400" Name="Play_Coin_Collision" ObjectPath="\Events\Default Work Unit\Props\Play_Coin_Collision"/>
 				<Event Id="27935653" Name="Play_Door_new_sound" ObjectPath="\Events\Default Work Unit\Props\Door\Play_Door_new_sound"/>
 				<Event Id="2331601197" Name="Play_Potion_drop" ObjectPath="\Events\Default Work Unit\Props\Play_Potion_drop"/>
 				<Event Id="4277472243" Name="Play_Potion_pick_up" ObjectPath="\Events\Default Work Unit\Props\Play_Potion_pick_up"/>
@@ -373,17 +374,21 @@
 					<ShortName>SFX_Loot_1.wav</ShortName>
 					<Path>SFX\SFX_Loot_1_10C4C929.wem</Path>
 				</File>
+				<File Id="511060225" Language="SFX">
+					<ShortName>CoinSeven.wav</ShortName>
+					<Path>SFX\CoinSeven_10C4C929.wem</Path>
+				</File>
 				<File Id="518464496" Language="SFX">
 					<ShortName>SFX_Door_1.wav</ShortName>
 					<Path>SFX\SFX_Door_1_10C4C929.wem</Path>
 				</File>
+				<File Id="535881056" Language="SFX">
+					<ShortName>CoinSix.wav</ShortName>
+					<Path>SFX\CoinSix_10C4C929.wem</Path>
+				</File>
 				<File Id="604885141" Language="SFX">
 					<ShortName>Potion pick up.wav</ShortName>
 					<Path>SFX\Potion pick up_10C4C929.wem</Path>
-				</File>
-				<File Id="616449000" Language="SFX">
-					<ShortName>Door_new_sound.wav</ShortName>
-					<Path>SFX\Door_new_sound_10C4C929.wem</Path>
 				</File>
 				<File Id="671728360" Language="SFX">
 					<ShortName>SFX_Loot_4.wav</ShortName>
@@ -393,9 +398,21 @@
 					<ShortName>Prop_wood_break_1.wav</ShortName>
 					<Path>SFX\Prop_wood_break_1_10C4C929.wem</Path>
 				</File>
+				<File Id="688655095" Language="SFX">
+					<ShortName>CoinFour.wav</ShortName>
+					<Path>SFX\CoinFour_10C4C929.wem</Path>
+				</File>
 				<File Id="703546484" Language="SFX">
 					<ShortName>SFX_Loot_2.wav</ShortName>
 					<Path>SFX\SFX_Loot_2_10C4C929.wem</Path>
+				</File>
+				<File Id="712377787" Language="SFX">
+					<ShortName>SFX_Door.wav</ShortName>
+					<Path>SFX\SFX_Door_10C4C929.wem</Path>
+				</File>
+				<File Id="821591404" Language="SFX">
+					<ShortName>CoinThree.wav</ShortName>
+					<Path>SFX\CoinThree_10C4C929.wem</Path>
 				</File>
 				<File Id="864063706" Language="SFX">
 					<ShortName>SFX_Loot_3.wav</ShortName>
@@ -663,13 +680,13 @@
 				<Event Id="186852181" Name="Thunder" ObjectPath="\Events\Default Work Unit\Level_1\Thunder"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
+				<File Id="296231150" Language="SFX">
+					<ShortName>StormLoopNoThunder.wav</ShortName>
+					<Path>SFX\StormLoopNoThunder_D79FB2B7.wem</Path>
+				</File>
 				<File Id="371197786" Language="SFX">
 					<ShortName>ThunderOne.wav</ShortName>
 					<Path>SFX\ThunderOne_10C4C929.wem</Path>
-				</File>
-				<File Id="895524995" Language="SFX">
-					<ShortName>StormLoop.wav</ShortName>
-					<Path>SFX\StormLoop_D79FB2B7.wem</Path>
 				</File>
 				<File Id="914906870" Language="SFX">
 					<ShortName>ThunderTwo.wav</ShortName>
@@ -723,14 +740,9 @@
 			<IncludedEvents>
 				<Event Id="3007158762" Name="Play_Lost_Menu_Music" ObjectPath="\Events\Default Work Unit\Play_Lost_Menu_Music"/>
 				<Event Id="2895168921" Name="Play_Main_Menu_Music" ObjectPath="\Events\Default Work Unit\Play_Main_Menu_Music"/>
-				<Event Id="1913521131" Name="Play_Music_Menu_Comparison_Pirate_Dance" ObjectPath="\Events\Default Work Unit\Play_Music_Menu_Comparison_Pirate_Dance"/>
 				<Event Id="2973513758" Name="Play_Win_Menu_Music" ObjectPath="\Events\Default Work Unit\Play_Win_Menu_Music"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
-				<File Id="237417088" Language="SFX">
-					<ShortName>Music_Menu_Comparison_Pirate_Dance.wav</ShortName>
-					<Path>SFX\Music_Menu_Comparison_Pirate_Dance_D79FB2B7.wem</Path>
-				</File>
 				<File Id="665589033" Language="SFX">
 					<ShortName>Music_Menu_Win.wav</ShortName>
 					<Path>SFX\Music_Menu_Win_D79FB2B7.wem</Path>
@@ -1040,6 +1052,30 @@
 					<Path>SFX\Main_Menu_play_2_10C4C929.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
+		</SoundBank>
+		<SoundBank Id="2148133496" Language="SFX">
+			<ObjectPath>\SoundBanks\Default Work Unit\Music_Menus_2</ObjectPath>
+			<ShortName>Music_Menus_2</ShortName>
+			<Path>Music_Menus_2.bnk</Path>
+			<IncludedEvents>
+				<Event Id="2592368262" Name="Play_Credits_Menu_Music" ObjectPath="\Events\Default Work Unit\Play_Credits_Menu_Music"/>
+				<Event Id="1913521131" Name="Play_Music_Menu_Comparison_Pirate_Dance" ObjectPath="\Events\Default Work Unit\Play_Music_Menu_Comparison_Pirate_Dance"/>
+			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="237417088" Language="SFX">
+					<ShortName>Music_Menu_Comparison_Pirate_Dance.wav</ShortName>
+					<Path>SFX\Music_Menu_Comparison_Pirate_Dance_D79FB2B7.wem</Path>
+				</File>
+				<File Id="361051095" Language="SFX">
+					<ShortName>Music_Credits_Home.wav</ShortName>
+					<Path>SFX\Music_Credits_Home_D79FB2B7.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
+		</SoundBank>
+		<SoundBank Id="2244718989" Language="SFX">
+			<ObjectPath>\SoundBanks\Default Work Unit\Music_Level_1_1</ObjectPath>
+			<ShortName>Music_Level_1_1</ShortName>
+			<Path>Music_Level_1_1.bnk</Path>
 		</SoundBank>
 		<SoundBank Id="2380338445" Language="SFX">
 			<ObjectPath>\SoundBanks\Default Work Unit\Human_enemies</ObjectPath>
@@ -1647,11 +1683,13 @@
 					<ShortName>Music\Music_Lvl_1_Broken_Village.wav</ShortName>
 					<Path>SFX\Music\Music_Lvl_1_Broken_Village_D79FB2B7.wem</Path>
 				</File>
+			</IncludedMemoryFiles>
+			<ExcludedMemoryFiles>
 				<File Id="1022100902" Language="SFX">
 					<ShortName>Music\Music_Menu_Pause_Relaxing_Green_Nature.wav</ShortName>
 					<Path>SFX\Music\Music_Menu_Pause_Relaxing_Green_Nature_D79FB2B7.wem</Path>
 				</File>
-			</IncludedMemoryFiles>
+			</ExcludedMemoryFiles>
 		</SoundBank>
 		<SoundBank Id="3508274218" Language="SFX">
 			<ObjectPath>\SoundBanks\Default Work Unit\Music_Level_2</ObjectPath>
@@ -1661,9 +1699,9 @@
 				<Event Id="2048014091" Name="Play_Level_2_Music" ObjectPath="\Events\Default Work Unit\Play_Level_2_Music"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
-				<File Id="382083512" Language="SFX">
-					<ShortName>Music_Kikimora_Dungeon of shadows.wav</ShortName>
-					<Path>SFX\Music_Kikimora_Dungeon of shadows_D79FB2B7.wem</Path>
+				<File Id="358228394" Language="SFX">
+					<ShortName>Music_Kikimora_Dungeon_of_shadows_intro.wav</ShortName>
+					<Path>SFX\Music_Kikimora_Dungeon_of_shadows_intro_D79FB2B7.wem</Path>
 				</File>
 				<File Id="394200934" Language="SFX">
 					<ShortName>Music\Music_Combat_The_Dark_Castle.wav</ShortName>
@@ -1673,15 +1711,21 @@
 					<ShortName>Music\Music_Combat_Viking_Ship.wav</ShortName>
 					<Path>SFX\Music\Music_Combat_Viking_Ship_D79FB2B7.wem</Path>
 				</File>
+				<File Id="593693911" Language="SFX">
+					<ShortName>Kikimora_Fight_Loop.wav</ShortName>
+					<Path>SFX\Kikimora_Fight_Loop_D79FB2B7.wem</Path>
+				</File>
 				<File Id="621261315" Language="SFX">
 					<ShortName>Music\Music_Lvl_2_Loop_The village.wav</ShortName>
 					<Path>SFX\Music\Music_Lvl_2_Loop_The village_D79FB2B7.wem</Path>
 				</File>
+			</IncludedMemoryFiles>
+			<ExcludedMemoryFiles>
 				<File Id="1022100902" Language="SFX">
 					<ShortName>Music\Music_Menu_Pause_Relaxing_Green_Nature.wav</ShortName>
 					<Path>SFX\Music\Music_Menu_Pause_Relaxing_Green_Nature_D79FB2B7.wem</Path>
 				</File>
-			</IncludedMemoryFiles>
+			</ExcludedMemoryFiles>
 		</SoundBank>
 	</SoundBanks>
 </SoundBanksInfo>
