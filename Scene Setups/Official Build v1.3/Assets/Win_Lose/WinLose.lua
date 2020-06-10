@@ -12,6 +12,7 @@ function GetTableWinLose()
     lua_table.level1_uid = 0
     lua_table.level2_uid = 0
     lua_table.mm_uid = 0
+    lua_table.score = 0
 
     lua_table.current_level = 0
     lua_table.played_music = false
@@ -549,8 +550,10 @@ function GetTableWinLose()
         if load_level1 == true
         then
             load_timer = load_timer + lua_table.System:DT()
-            if load_timer >= 1 then 
-                lua_table.Scene:LoadScene(lua_table.level1_uid)
+            if load_timer >= 1 
+            then
+                next_scene = lua_table.level1_uid
+                lua_table.Scene:LoadScene(lua_table.score)
                 load_level1 = false
             else 
                 lua_table.GO:SetActiveGameObject(true, loading_UID)
@@ -561,8 +564,10 @@ function GetTableWinLose()
         elseif load_level2 == true 
         then
             load_timer = load_timer + lua_table.System:DT()
-            if load_timer >= 1 then 
-                lua_table.Scene:LoadScene(lua_table.level2_uid)
+            if load_timer >= 1 
+            then
+                next_scene = lua_table.level2_uid
+                lua_table.Scene:LoadScene(lua_table.score)
                 load_level2 = false
             else 
                 lua_table.GO:SetActiveGameObject(true, loading_UID)
@@ -572,8 +577,10 @@ function GetTableWinLose()
         elseif load_mainmenu == true
         then
             load_timer = load_timer + lua_table.System:DT()
-            if load_timer >= 1 then 
-                lua_table.Scene:LoadScene(lua_table.mm_uid)
+            if load_timer >= 1 
+            then 
+                next_scene = lua_table.mm_uid
+                lua_table.Scene:LoadScene(lua_table.score)
                 load_mainmenu = false
             else 
                 lua_table.GO:SetActiveGameObject(true, loading_UID)
