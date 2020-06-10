@@ -50,7 +50,6 @@ lua_table.MyUUID = 0
 lua_table.GeraltNumber = 1
 lua_table.JaskierNumber = 2
 local tableGeralt, tableJaskier
-lua_table.textUID = 0
 
 ------------------------------------------------------------------------------
 -- SPAWNERS
@@ -171,15 +170,17 @@ local littleCards = {
     chest,
     dummy,
     enemy,
-    move
+    move,
+    lumberjack,
+    ultimate,
+    abilities,
+    bonfire
 }
 ------------------------------------------------------------------------------
 -- STEPS
 ------------------------------------------------------------------------------
 
 local function Step1()
-    lua_table.InterfaceFunctions:MakeElementVisible("Text", lua_table.textUID)
-    lua_table.InterfaceFunctions:SetText("Use the left joystick to move the player", lua_table.textUID)
     lua_table.InterfaceFunctions:MakeElementVisible("Image", littleCards.move)
     lua_table.SystemFunctions:LOG("OSCAR L_MOVE: "..littleCards.move)
 
@@ -195,17 +196,12 @@ local function Step1()
     
     if geraltHasMoved == true and jaskierHasMoved == true and lua_table.StartStep2 == true
     then
-        lua_table.InterfaceFunctions:MakeElementInvisible("Text", lua_table.textUID)
-        lua_table.InterfaceFunctions:SetText(" ", lua_table.textUID)
         lua_table.InterfaceFunctions:MakeElementInvisible("Image", littleCards.move)
-
         lua_table.currentStep = Step.STEP_2
     end
 end
 
 local function Step2()
-    lua_table.InterfaceFunctions:MakeElementVisible("Text", lua_table.textUID)
-
     if showedAttacks == false
     then
         lua_table.SystemFunctions:PauseGame()  
@@ -221,7 +217,6 @@ local function Step2()
         lua_table.tutorialPause = false
         TABLE_CARTAS.continue_meter1_full = false
         TABLE_CARTAS.continue_meter2_full = false
-        lua_table.InterfaceFunctions:SetText("Press Y to make a light attack. Press B to make a medium attack, Press both to make a heavy attack!", lua_table.textUID)
         lua_table.InterfaceFunctions:MakeElementVisible("Image", littleCards.dummy)
     end
 
@@ -257,9 +252,6 @@ local function Step2()
 
     if geraltAttackY == true and geraltAttackB == true and jaskierAttackY == true and jaskierAttackB == true and geraltAttackHeavy == true and jaskierAttackHeavy == true
     then
-        lua_table.InterfaceFunctions:MakeElementInvisible("Text", lua_table.textUID)
-        lua_table.InterfaceFunctions:SetText(" ", lua_table.textUID)
-
         lua_table.AnimationFunctions:PlayAnimation("open", 30, doorsGO.door1)
         lua_table.ObjectFunctions:SetActiveGameObject(false, doorsColliders.door1)
 
@@ -275,8 +267,6 @@ local function Step3()
 end
 
 local function Step4()
-    lua_table.InterfaceFunctions:MakeElementVisible("Text", lua_table.textUID)
-
     scriptSpawnerStep4.CheckEnemies()
     if scriptSpawnerStep4.auxCounter == 4
     then
@@ -287,10 +277,6 @@ local function Step4()
     then
         lua_table.AnimationFunctions:PlayAnimation("open", 30, doorsGO.door2)
         lua_table.ObjectFunctions:SetActiveGameObject(false, doorsColliders.door2)
-
-        lua_table.InterfaceFunctions:MakeElementInvisible("Text", lua_table.textUID)
-        lua_table.InterfaceFunctions:SetText(" ", lua_table.textUID)
-
         lua_table.InterfaceFunctions:MakeElementInvisible("Image", littleCards.enemy)
 
         lua_table.currentStep = Step.STEP_6
@@ -304,8 +290,6 @@ local function Step5()
 end
 
 local function Step6()
-    lua_table.InterfaceFunctions:MakeElementVisible("Text", lua_table.textUID)
-
     if lua_table.PauseStep6 == true
     then
         lua_table.SystemFunctions:PauseGame()     
@@ -323,7 +307,6 @@ local function Step6()
         lua_table.ObjectFunctions:SetActiveGameObject(true, spawnerStep6_2)
         TABLE_CARTAS.continue_meter1_full = false
         TABLE_CARTAS.continue_meter2_full = false
-        lua_table.InterfaceFunctions:SetText("Press A to move great distances and dodge attacks. Consumes 1 energy bar (yellow). Kill all the enemies!", lua_table.textUID)   
         lua_table.PauseStep6 = false
     end
 
@@ -357,15 +340,11 @@ local function Step6()
     then
         lua_table.ObjectFunctions:SetActiveGameObject(true, spawnerStep7)
         lua_table.currentStep = Step.STEP_7
-        lua_table.InterfaceFunctions:MakeElementInvisible("Text", lua_table.textUID)
-        lua_table.InterfaceFunctions:SetText(" ", lua_table.textUID)
     end
 end
 
 
 local function Step7()
-    lua_table.InterfaceFunctions:MakeElementVisible("Text", lua_table.textUID)
-
     scriptSpawnerStep7.CheckEnemies()
 
     if scriptSpawnerStep7.auxCounter == 8
@@ -377,8 +356,6 @@ local function Step7()
     then
         lua_table.InterfaceFunctions:MakeElementInvisible("Image", littleCards.enemy)
         lua_table.currentStep = Step.STEP_8
-        lua_table.InterfaceFunctions:MakeElementInvisible("Text", lua_table.textUID)
-        lua_table.InterfaceFunctions:SetText(" ", lua_table.textUID)
     end
 
 end
@@ -386,13 +363,9 @@ end
 local function Step8()
     lua_table.ObjectFunctions:SetActiveGameObject(true, spawnerStep9)
     lua_table.currentStep = Step.STEP_9
-    lua_table.InterfaceFunctions:MakeElementInvisible("Text", lua_table.textUID)
-    lua_table.InterfaceFunctions:SetText(" ", lua_table.textUID)
 end
 
 local function Step9()
-    lua_table.InterfaceFunctions:MakeElementVisible("Text", lua_table.textUID)
-
     if lua_table.PauseStep9 == true and moveStep9 == false
     then
         lua_table.SystemFunctions:PauseGame()     
@@ -409,6 +382,7 @@ local function Step9()
         TABLE_CARTAS.continue_meter1_full = false
         TABLE_CARTAS.continue_meter2_full = false
         lua_table.PauseStep9 = false
+        lua_table.InterfaceFunctions:MakeElementVisible("Image", littleCards.lumberjack)
     end
 
     scriptSpawnerStep9.CheckEnemies()
@@ -425,16 +399,13 @@ local function Step9()
         lua_table.ObjectFunctions:SetActiveGameObject(true, spawnerStep10_3)
 
         activateEnemiesStep10 = true
+        lua_table.InterfaceFunctions:MakeElementInvisible("Image", littleCards.lumberjack)
         lua_table.currentStep = Step.STEP_10
-        lua_table.InterfaceFunctions:MakeElementInvisible("Text", lua_table.textUID)
-        lua_table.InterfaceFunctions:SetText(" ", lua_table.textUID)
     end
 end
 
 
 local function Step10()
-    lua_table.InterfaceFunctions:MakeElementVisible("Text", lua_table.textUID)
-
     if lua_table.PauseStep10 == true and lua_table.moveStep10 == false
     then
         lua_table.SystemFunctions:PauseGame() 
@@ -452,7 +423,6 @@ local function Step10()
         TABLE_CARTAS.continue_meter1_full = false
         TABLE_CARTAS.continue_meter2_full = false
         lua_table.PauseStep10 = false
-        lua_table.InterfaceFunctions:SetText("Kill the enemies! Try different combos!", lua_table.textUID)
     end
 
     scriptSpawnerStep10_1.CheckEnemies()
@@ -469,16 +439,12 @@ local function Step10()
         lua_table.ObjectFunctions:SetActiveGameObject(true, spawnerArcher1)
         lua_table.ObjectFunctions:SetActiveGameObject(true, spawnerArcher2)
         lua_table.ObjectFunctions:SetActiveGameObject(true, spawnerArcher3)
-        lua_table.InterfaceFunctions:MakeElementInvisible("Text", lua_table.textUID)
-        lua_table.InterfaceFunctions:SetText(" ", lua_table.textUID)
         lua_table.currentStep = Step.STEP_11
     end
 end
 
 
 local function Step11()
-    lua_table.InterfaceFunctions:MakeElementVisible("Text", lua_table.textUID)
-
     if lua_table.PauseStep11 == true and moveStep11 == false
     then
         lua_table.SystemFunctions:PauseGame()
@@ -497,7 +463,7 @@ local function Step11()
         TABLE_CARTAS.continue_meter1_full = false
         TABLE_CARTAS.continue_meter2_full = false
         lua_table.PauseStep11 = false
-        lua_table.InterfaceFunctions:SetText("Use your abilities (BUTTON_X) and kill all the enemies!", lua_table.textUID)
+        lua_table.InterfaceFunctions:MakeElementVisible("Image", littleCards.abilities)
     end
     
     if tableGeralt.current_state == 4
@@ -525,16 +491,13 @@ local function Step11()
         lua_table.ObjectFunctions:SetActiveGameObject(true, spawnerStep12_2)
         lua_table.ObjectFunctions:SetActiveGameObject(true, spawnerStep12_3)
 
+        lua_table.InterfaceFunctions:MakeElementInvisible("Image", littleCards.abilities)
         lua_table.currentStep = Step.STEP_12
-        lua_table.InterfaceFunctions:MakeElementInvisible("Text", lua_table.textUID)
-        lua_table.InterfaceFunctions:SetText(" ", lua_table.textUID)
     end
 end
 
 
 local function Step12()
-    lua_table.InterfaceFunctions:MakeElementVisible("Text", lua_table.textUID)
-
     if lua_table.PauseStep12 == true and moveStep12 == false
     then
         lua_table.SystemFunctions:PauseGame()    
@@ -545,13 +508,13 @@ local function Step12()
     if TABLE_CARTAS.continue_meter1_full == true and TABLE_CARTAS.continue_meter2_full == true
     then
         lua_table.SystemFunctions:ResumeGame()
+        lua_table.InterfaceFunctions:MakeElementVisible("Image", littleCards.ultimate)
         buttonManagerScript.gamePaused = false
         lua_table.tutorialPause = false
         moveStep12 = true
         TABLE_CARTAS.continue_meter1_full = false
         TABLE_CARTAS.continue_meter2_full = false
         lua_table.PauseStep12 = false
-        lua_table.InterfaceFunctions:SetText("Use your ultimates to defeat the enemies!", lua_table.textUID)
     end
 
 
@@ -578,29 +541,26 @@ local function Step12()
     if scriptSpawnerStep12_1.auxCounter == 0 and checkStep12_1 == true and scriptSpawnerStep12_2.auxCounter == 0 and checkStep12_2 == true  and scriptSpawnerStep12_3.auxCounter == 0 and checkStep12_3 == true
     and geraltUlt == true and jaskierUlt == true 
     then
+        lua_table.InterfaceFunctions:MakeElementInvisible("Image", littleCards.ultimate)
         lua_table.currentStep = Step.STEP_13
-        lua_table.InterfaceFunctions:MakeElementInvisible("Text", lua_table.textUID)
-        lua_table.InterfaceFunctions:SetText(" ", lua_table.textUID)
     end
 end
 
 
 local function Step13()
-    lua_table.InterfaceFunctions:MakeElementVisible("Text", lua_table.textUID)
-    lua_table.InterfaceFunctions:SetText("Go to the bonfire to save the game", lua_table.textUID)
+    lua_table.InterfaceFunctions:MakeElementVisible("Image", littleCards.bonfire)
 
     if lua_table.SaveGame13 == true and hasSaved== false
     then
         lua_table.SystemFunctions:PauseGame()    
         buttonManagerScript.gamePaused = true
         lua_table.tutorialPause = true
-        lua_table.InterfaceFunctions:MakeElementInvisible("Text", lua_table.textUID)
-        lua_table.InterfaceFunctions:SetText(" ", lua_table.textUID) 
     end
 
     if TABLE_CARTAS.continue_meter1_full == true and TABLE_CARTAS.continue_meter2_full == true
     then
         lua_table.SystemFunctions:ResumeGame()
+        lua_table.InterfaceFunctions:MakeElementInvisible("Image", littleCards.bonfire)
         buttonManagerScript.gamePaused = false
         lua_table.tutorialPause = false
         hasSaved = true
@@ -737,7 +697,6 @@ function lua_table:Awake()
     step8 = lua_table.ObjectFunctions:FindGameObject("STEP 8")
 
     lua_table.MyUUID = lua_table.ObjectFunctions:GetMyUID()
-    lua_table.textUID = lua_table.ObjectFunctions:FindGameObject("Text")
     
     lua_table.Geralt_UUID = lua_table.ObjectFunctions:FindGameObject("Geralt")
     lua_table.Jaskier_UUID = lua_table.ObjectFunctions:FindGameObject("Jaskier") 
@@ -762,6 +721,11 @@ function lua_table:Awake()
     littleCards.dummy = lua_table.ObjectFunctions:FindGameObject("L_DUMMY")
     littleCards.enemy = lua_table.ObjectFunctions:FindGameObject("L_ENEMY")
     littleCards.move = lua_table.ObjectFunctions:FindGameObject("L_MOVE")
+    littleCards.lumberjack = lua_table.ObjectFunctions:FindGameObject("L_LUMBERJACK")
+    littleCards.ultimate = lua_table.ObjectFunctions:FindGameObject("L_ULTIMATE")
+    littleCards.abilities = lua_table.ObjectFunctions:FindGameObject("L_ABILITIES")
+    littleCards.bonfire = lua_table.ObjectFunctions:FindGameObject("L_BONFIRE")
+
 end
 
 function lua_table:Start()
@@ -788,6 +752,10 @@ function lua_table:Start()
     lua_table.InterfaceFunctions:MakeElementInvisible("Image", littleCards.dummy)
     lua_table.InterfaceFunctions:MakeElementInvisible("Image", littleCards.enemy)
     lua_table.InterfaceFunctions:MakeElementInvisible("Image", littleCards.move)
+    lua_table.InterfaceFunctions:MakeElementInvisible("Image", littleCards.lumberjack)
+    lua_table.InterfaceFunctions:MakeElementInvisible("Image", littleCards.ultimate)
+    lua_table.InterfaceFunctions:MakeElementInvisible("Image", littleCards.abilities)
+    lua_table.InterfaceFunctions:MakeElementInvisible("Image", littleCards.bonfire)
 end
 
 function lua_table:Update()
