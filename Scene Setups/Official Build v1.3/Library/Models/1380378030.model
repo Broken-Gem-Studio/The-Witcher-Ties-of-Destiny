@@ -1,0 +1,203 @@
+{
+    "GameObject (6)": {
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "14": {
+                "Active": true,
+                "Animations": {
+                    "BlendTime": "0.300000",
+                    "Size": "0",
+                    "UseDefault": false
+                },
+                "Resources": {
+                    "ResourceAnimation": "Library/Animations/572527622.anim"
+                }
+            }
+        },
+        "Model": "Assets/Jaskier_Slash.FBX",
+        "Parent": "164379640",
+        "PrefabChild": false,
+        "PrefabInstance": true,
+        "UID": "1258139733"
+    },
+    "In_Side": {
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "0.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.500000",
+                "scalex": "0.000000",
+                "scaley": "0.000000",
+                "scalez": "0.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/664858296.bone"
+                }
+            }
+        },
+        "Parent": "1794758552",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "UID": "512392403"
+    },
+    "Out_Side": {
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "0.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.500000",
+                "scalex": "0.000000",
+                "scaley": "0.000000",
+                "scalez": "0.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1101003234.bone"
+                }
+            }
+        },
+        "Parent": "1794758552",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "UID": "168457956"
+    },
+    "Position_Ring": {
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "101.977699",
+                "rotationw": "0.087064",
+                "rotationx": "0.388476",
+                "rotationy": "0.030072",
+                "rotationz": "0.916844",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/1236898378.bone"
+                }
+            }
+        },
+        "Parent": "1219115274",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "UID": "1361986994"
+    },
+    "PreviewTexture": "Library/Textures/722960866.dds",
+    "SlashMesh_Jaskier": {
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "2.540000",
+                "scaley": "2.540000",
+                "scalez": "2.540000"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/375951041.mesh"
+                    }
+                }
+            },
+            "2": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/2.mat"
+                    }
+                }
+            }
+        },
+        "Parent": "1258139733",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "UID": "501599295"
+    },
+    "Slash_Controller": {
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "0.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.500000",
+                "scalex": "0.000000",
+                "scaley": "0.000000",
+                "scalez": "0.000000"
+            },
+            "13": {
+                "Active": true,
+                "Resources": {
+                    "ResourceBone": "Library/Bones/7730038.bone"
+                }
+            }
+        },
+        "Parent": "1361986994",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "UID": "1794758552"
+    },
+    "Slash_Jaskier": {
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            }
+        },
+        "Parent": "1258139733",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "UID": "1219115274"
+    }
+}
