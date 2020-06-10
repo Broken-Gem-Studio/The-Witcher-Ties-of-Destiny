@@ -16,6 +16,7 @@ lua_table.Forest_Kiki_Nest = false
 lua_table.City_Door_locked = false
 lua_table.CityBeforeHorde = false
 lua_table.Forest_Enemies_Close = false
+lua_table.Kiki_music = false
 
 local geralt_UID = 0
 local jaskier_UID = 0
@@ -104,6 +105,11 @@ function lua_table:OnTriggerEnter()
                 if lua_table.CityBeforeHorde == true then
                     lua_table.System:LOG("Triggered Voiceline: Hordes start")
                     lua_table.lore_manager_script:HordesStart()
+                end
+
+                if lua_table.Kiki_music == true then
+                    lua_table.System:LOG("Triggered Boss Fight")
+                    lua_table.lore_manager_script:PlayBossMusic()
                 end
 
 

@@ -5,6 +5,7 @@ lua_table.AudioFunctions = Scripting.Audio()
 lua_table.GameObjectFunctions = Scripting.GameObject()
 
 lua_table.Enemies_Nearby = false
+lua_table.Boss_Fight = false
 lua_table.Level = "1"
 
 -- GOs
@@ -43,12 +44,14 @@ end
 function lua_table:Update()
 	
 	if pause_script.gamePaused == false then
-		if geralt_script.enemies_nearby == true or jaskier_script.enemies_nearby == true then
-			lua_table.Enemies_Nearby = true
-			lua_table.AudioFunctions:SetAudioSwitch("Lvl_" .. lua_table.Level .. "_Music_Switch","Combat",my_UID)
-		elseif geralt_script.enemies_nearby == false and jaskier_script.enemies_nearby == false then
-			lua_table.Enemies_Nearby = false
-			lua_table.AudioFunctions:SetAudioSwitch("Lvl_" .. lua_table.Level .. "_Music_Switch","Exploration",my_UID)
+		if lua_table.Boss_Fight == false then
+			if geralt_script.enemies_nearby == true or jaskier_script.enemies_nearby == true then
+				lua_table.Enemies_Nearby = true
+				lua_table.AudioFunctions:SetAudioSwitch("Lvl_" .. lua_table.Level .. "_Music_Switch","Combat",my_UID)
+			elseif geralt_script.enemies_nearby == false and jaskier_script.enemies_nearby == false then
+				lua_table.Enemies_Nearby = false
+				lua_table.AudioFunctions:SetAudioSwitch("Lvl_" .. lua_table.Level .. "_Music_Switch","Exploration",my_UID)
+			end
 		end
 	elseif pause_script.gamePaused == true then
 
@@ -60,6 +63,11 @@ end
 function lua_table:StopMusic()
 	local audio_event = "Play_Level_" .. lua_table.Level .. "_Music"
 	lua_table.AudioFunctions:StopAudioEventGO(audio_event, my_UID)
+end
+
+function lua_table:PlayBoss()
+	lua_table.AudioFunctions:SetAudioSwitch("Lvl_" .. lua_table.Level .. "_Music_Switch","BossFight",my_UID)
+	lua_table.Boss_Fight = true
 end
 
 return lua_table
