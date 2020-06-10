@@ -189,7 +189,7 @@ lua_table.Nvec3x = 1
 lua_table.Nvec3z = 1
 
 lua_table.CurrentHealth = 0
-lua_table.MaxHealth = 1000
+lua_table.MaxHealth = 600
 lua_table.collider_damage = 0
 lua_table.collider_effect = 0
 
