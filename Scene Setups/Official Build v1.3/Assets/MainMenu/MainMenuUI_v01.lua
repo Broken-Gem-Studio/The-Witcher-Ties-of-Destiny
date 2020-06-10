@@ -23,7 +23,6 @@ lua_table.cameraSpeed = 25
 -- Local variables
 local render = 0
 local background = 0
-local startButton = 0
 local quitButton = 0
 local playButton = 0
 local firstLevelButton = 0
@@ -200,7 +199,6 @@ end
 
 function lua_table:Awake()
 	camera_UUID = lua_table.ObjectFunctions:FindGameObject("Camera")
-	startButton = lua_table.ObjectFunctions:FindGameObject("StartButton")
 	playButton = lua_table.ObjectFunctions:FindGameObject("PlayButton")
 	quitButton = lua_table.ObjectFunctions:FindGameObject("QuitButton")
 	showFirstLevel = lua_table.ObjectFunctions:FindGameObject("ShowFirstLevelButton")
