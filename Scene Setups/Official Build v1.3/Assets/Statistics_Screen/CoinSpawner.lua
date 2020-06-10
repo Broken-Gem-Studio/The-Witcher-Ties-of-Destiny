@@ -1,9 +1,11 @@
 function GetTableCoinSpawner()
 local lua_table = {}
-lua_table.System = Scripting.System()
-lua_table.Scene = Scripting.Scenes()
-lua_table.TransformFunc =  Scripting.Transform()
+lua_table.SystemFunctions = Scripting.System()
+lua_table.SceneFunctions = Scripting.Scenes()
+lua_table.TransformFunctions =  Scripting.Transform()
 lua_table.GameObjectFunctions = Scripting.GameObject()
+lua_table.UIFunctions = Scripting.Interface()
+lua_table.AnimationFunctions = Scripting.Animations()
 
 --LEGACY
 -- local randTime = 0
@@ -14,15 +16,14 @@ lua_table.GameObjectFunctions = Scripting.GameObject()
 -- local CurrentPhase = 0
 -- local phasetochange = false
 
---TESTING
 --Good Scores
 geralt_score = {
     5873,--damage_dealt  --Exception, this numbers value_per_instance ratio is 1, since this will collect the real value already
 	43, --minion_kills
-	14,  --special_kills
+	11,  --special_kills
     32, --incapacitations
     23,  --objects destroyed         
-	6,  --chests opened
+	0,  --chests opened
 	8,  --potions_shared
 	12   --ally_revived
 }
@@ -31,10 +32,10 @@ geralt_score = {
 jaskier_score = {
 	2571, --damage_dealt  --Exception, this numbers value_per_instance ratio is 1, since this will collect the real value already
 	17,  --minion_kills
-	6,   --special_kills
+	11,   --special_kills
     8,   --incapacitations
     3,  --objects destroyed
-	0,   --chests opened
+	6,   --chests opened
 	3,  --potions_shared
 	0    --ally_revived
 }
@@ -54,46 +55,74 @@ local scoreboard_data = {
 --VARS
 lua_table.coin_prefab = 0
 
+local geralt_GO_data = {
+    GO_UID = 0,
+    anim_started_at = -300,
+    clapping = false,
+    win_string = "Geralt is on fire!",
+    final_win_string = "Geralt Wins!",
+    win_UI = 0,
+    final_win_UI = 0
+}
+local jaskier_GO_data = {
+    GO_UID = 0,
+    anim_started_at = -150,
+    clapping = false,
+    win_string = "Jaskier rocks!",
+    final_win_string = "Jaskier Wins!",
+    win_UI = 0,
+    final_win_UI = 0
+}
+local animation_duration = 1700
+
+local geralt_spawn_positions = {}
+local jaskier_spawn_positions = {}
+
+local phase_UI_titles = {}
+local geralt_UI_titles = {}
+local jaskier_UI_titles = {}
+local match_result_UI_titles = {}
+
 local game_time = 0
 local timestamp = 0
 
 local cycle_stages = {
-	ready = { stage = 1, duration = 1000 },
-	showing_title = { stage = 2, duration = 1000 },
-    spawning_coins = { stage = 3, duration = 0, duration_min = 150, duration_max = 250 },	--duration = time_between coin spawns
-	showing_score = { stage = 4, duration = 1000 }
+	ready = { stage = 1, duration = 500 },
+	showing_title = { stage = 2, duration = 500 },
+    spawning_coins = { stage = 3, duration = 0, duration_min = 50, duration_max = 150 },	--duration = time_between coin spawns
+    showing_score = { stage = 4, duration = 1500 },
+    showing_winner = { stage = 5, duration = 1500 },
+    final_winner = { stage = 0, duration = 4000 }
 }
 local current_stage = cycle_stages.ready.stage
 local current_phase = 1
-local max_phases = 9
+local total_phases = 8
+local character_winner = nil
 
 lua_table.coins_finished = 0
 
-local jaskier_spawn_positions = {}
-local geralt_spawn_positions = {}
-
-local stage_title = ""
-local geralt_results = { coins = 0, result_title = "", score_title = "" }
-local jaskier_results = { coins = 0, result_title = "", score_title = "" }
+local phase_title = ""
+local geralt_results = { coins = 0, result_score = 0, result_title = "", }
+local jaskier_results = { coins = 0, result_score = 0, result_title = "", }
 
 --FUNCTIONS
 local function InstantiateCoin(spawn_position, prefab_UID)
-    return lua_table.Scene:Instantiate(prefab_UID, spawn_position[1] + lua_table.System:RandomNumberInRange(-0.015, 0.015), spawn_position[2], spawn_position[3] + lua_table.System:RandomNumberInRange(-0.015, 0.015), -90, 0.0, lua_table.System:RandomNumberInRange(0, 360))
+    return lua_table.SceneFunctions:Instantiate(prefab_UID, spawn_position[1] + lua_table.SystemFunctions:RandomNumberInRange(-0.015, 0.015), spawn_position[2], spawn_position[3] + lua_table.SystemFunctions:RandomNumberInRange(-0.015, 0.015), -90, 0.0, lua_table.SystemFunctions:RandomNumberInRange(0, 360))
 end
 
 local function CalculateCoinsToThrow(character_score, current_phase)
     return character_score[current_phase] * scoreboard_data[current_phase].coin_ratio
 end
 
-local function BuildScoreStrings(character_results, character_score, current_phase)
-    character_results.score_title = scoreboard_data[current_phase].title_start .. character_score[current_phase] .. scoreboard_data[current_phase].title_end
-    character_results.result_title = "" .. scoreboard_data[current_phase].score_value * character_score[current_phase]
+local function CalculateCharacterResults(character_results, character_score, current_phase)
+    character_results.result_title = scoreboard_data[current_phase].title_start .. character_score[current_phase] .. scoreboard_data[current_phase].title_end
+    character_results.result_score = scoreboard_data[current_phase].score_value * character_score[current_phase]
 end
 
 local function CalculatePhaseData(current_phase)
-    stage_title =  scoreboard_data[current_phase].title_phase
-    BuildScoreStrings(geralt_results, geralt_score, current_phase)
-    BuildScoreStrings(jaskier_results, jaskier_score, current_phase)
+    phase_title =  scoreboard_data[current_phase].title_phase
+    CalculateCharacterResults(geralt_results, geralt_score, current_phase)
+    CalculateCharacterResults(jaskier_results, jaskier_score, current_phase)
 
     geralt_results.coins = math.floor(CalculateCoinsToThrow(geralt_score, current_phase))
     jaskier_results.coins = math.floor(CalculateCoinsToThrow(jaskier_score, current_phase))
@@ -102,23 +131,77 @@ local function CalculatePhaseData(current_phase)
     if jaskier_results.coins == 0 then lua_table.coins_finished = lua_table.coins_finished + 1 end
 end
 
-local function ShowPhaseTitle()
-    lua_table.System:LOG("TITLE: " .. stage_title)
-    --TODO-UI: Show current title
+local function WinnerClap(character_data)
+    lua_table.AnimationFunctions:PlayAnimation("clap", 30.0, character_data.GO_UID)
+    character_data.anim_started_at = game_time
+    character_data.clapping = true
 end
 
-local function ShowCharacterScores()
-    lua_table.System:LOG("Geralt: " .. geralt_results.result_title .. " SCORE: " .. geralt_results.score_title)
-    lua_table.System:LOG("Jaskier: " .. jaskier_results.result_title .. " SCORE: " .. jaskier_results.score_title)
-    --TODO-UI: Show character score titles
+local function DecideWinner(character_data)
+    local geralt_final_score = 0
+    local jaskier_final_score = 0
+    
+    for i = 1, total_phases, 1 do
+        geralt_final_score = scoreboard_data[i].score_value * geralt_score[i]
+        jaskier_final_score = scoreboard_data[i].score_value * jaskier_score[i]
+
+        geralt_score[i] = 0
+        jaskier_score[i] = 0
+    end
+
+    if character_data ~= nil then
+        WinnerClap(character_data)
+        lua_table.UIFunctions:MakeElementVisible("Image", character_data.final_win_UI)
+        lua_table.SystemFunctions:LOG(character_data.final_win_string)
+    else
+        WinnerClap(geralt_GO_data)
+        WinnerClap(jaskier_GO_data)
+        --lua_table.UIFunctions:MakeElementVisible("Image", character_data.final_win_UI)    --TODO: Show it's a final tie UI
+        lua_table.SystemFunctions:LOG("Amazing! It's a tie!")
+    end
 end
 
-local function HideCharacterScores()
-    --TODO-UI: Hide character scores titles
+local function ShowPhaseTitle(current_phase)
+    lua_table.UIFunctions:MakeElementVisible("Image", phase_UI_titles[current_phase])
+    lua_table.SystemFunctions:LOG("" .. phase_UI_titles[current_phase])
 end
 
-local function HidePhaseTitle() 
-    --TODO-UI: Hide current title
+local function HidePhaseTitle(current_phase) 
+    lua_table.UIFunctions:MakeElementInvisible("Image", phase_UI_titles[current_phase])
+end
+
+local function ShowCharacterScores(current_phase)
+    lua_table.UIFunctions:MakeElementVisible("Image", geralt_UI_titles[current_phase])
+    lua_table.UIFunctions:MakeElementVisible("Image", jaskier_UI_titles[current_phase])
+
+    lua_table.SystemFunctions:LOG("Geralt: " .. geralt_results.result_title .. " SCORE: " .. geralt_results.result_score)
+    lua_table.SystemFunctions:LOG("Jaskier: " .. jaskier_results.result_title .. " SCORE: " .. jaskier_results.result_score)
+end
+
+local function HideCharacterScores(current_phase)
+    lua_table.UIFunctions:MakeElementInvisible("Image", geralt_UI_titles[current_phase])
+    lua_table.UIFunctions:MakeElementInvisible("Image", jaskier_UI_titles[current_phase])
+end
+
+local function ShowPhaseWinner(character_data)
+    if character_data == nil then
+        --TODO: Show it's a tie UI
+        lua_table.SystemFunctions:LOG("It's a tie!")
+    else
+        lua_table.AnimationFunctions:SetBlendTime(0.5, character_data.GO_UID)
+        lua_table.AnimationFunctions:PlayAnimation("quick_clap", 30.0, character_data.GO_UID)
+        character_data.anim_started_at = game_time
+        character_data.clapping = true
+
+        lua_table.UIFunctions:MakeElementVisible("Image", character_data.win_UI)
+        lua_table.SystemFunctions:LOG(character_data.win_string)
+    end
+end
+
+local function HidePhaseWinner(character_data)
+    if character_data ~= nil then
+        lua_table.UIFunctions:MakeElementInvisible("Image", character_data.win_UI)
+    end
 end
 
 local function SpawnCoins(current_phase)
@@ -150,39 +233,66 @@ local function SpawnCoins(current_phase)
     return ret
 end
 
-function lua_table:Awake()
-    geralt_spawn_positions = {
-        lua_table.TransformFunc:GetPosition(lua_table.GameObjectFunctions:FindGameObject("geralt_coins_damage_dealt")),
-        lua_table.TransformFunc:GetPosition(lua_table.GameObjectFunctions:FindGameObject("geralt_coins_minion_kills")),
-        lua_table.TransformFunc:GetPosition(lua_table.GameObjectFunctions:FindGameObject("geralt_coins_special_kills")),
-        lua_table.TransformFunc:GetPosition(lua_table.GameObjectFunctions:FindGameObject("geralt_coins_incapacitations")),
-        lua_table.TransformFunc:GetPosition(lua_table.GameObjectFunctions:FindGameObject("geralt_coins_objects_destroyed")),
-        lua_table.TransformFunc:GetPosition(lua_table.GameObjectFunctions:FindGameObject("geralt_coins_chests_found")),
-        lua_table.TransformFunc:GetPosition(lua_table.GameObjectFunctions:FindGameObject("geralt_coins_potions_shared")),
-        lua_table.TransformFunc:GetPosition(lua_table.GameObjectFunctions:FindGameObject("geralt_coins_ally_revived"))
-    }
+local function CharacterIdleAnim(character_data)
+    if not character_data.clapping then
+        if game_time - character_data.anim_started_at > animation_duration then
+            lua_table.AnimationFunctions:PlayAnimation("idle_forward", 2.0, character_data.GO_UID)
+            character_data.anim_started_at = game_time
+        end
+    elseif game_time - character_data.anim_started_at > 1000 and lua_table.AnimationFunctions:CurrentAnimationEnded(character_data.GO_UID) == 1 then
+        lua_table.AnimationFunctions:SetBlendTime(0.4, character_data.GO_UID)
+        character_data.clapping = false
+    end
+end
 
-    jaskier_spawn_positions = {
-        lua_table.TransformFunc:GetPosition(lua_table.GameObjectFunctions:FindGameObject("jaskier_coins_damage_dealt")),
-        lua_table.TransformFunc:GetPosition(lua_table.GameObjectFunctions:FindGameObject("jaskier_coins_minion_kills")),
-        lua_table.TransformFunc:GetPosition(lua_table.GameObjectFunctions:FindGameObject("jaskier_coins_special_kills")),
-        lua_table.TransformFunc:GetPosition(lua_table.GameObjectFunctions:FindGameObject("jaskier_coins_incapacitations")),
-        lua_table.TransformFunc:GetPosition(lua_table.GameObjectFunctions:FindGameObject("jaskier_coins_objects_destroyed")),
-        lua_table.TransformFunc:GetPosition(lua_table.GameObjectFunctions:FindGameObject("jaskier_coins_chests_found")),
-        lua_table.TransformFunc:GetPosition(lua_table.GameObjectFunctions:FindGameObject("jaskier_coins_potions_shared")),
-        lua_table.TransformFunc:GetPosition(lua_table.GameObjectFunctions:FindGameObject("jaskier_coins_ally_revived"))
-    }
+function lua_table:Awake()
+    geralt_GO_data.GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt_Score")
+    jaskier_GO_data.GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Score")
+
+    for i = 1, total_phases, 1 do
+        geralt_spawn_positions[i] = lua_table.TransformFunctions:GetPosition(lua_table.GameObjectFunctions:FindGameObject("geralt_coins_" .. i))
+        jaskier_spawn_positions[i] = lua_table.TransformFunctions:GetPosition(lua_table.GameObjectFunctions:FindGameObject("jaskier_coins_" .. i))
+        phase_UI_titles[i] = lua_table.GameObjectFunctions:FindGameObject("Phase_Title_" .. i)
+        geralt_UI_titles[i] = lua_table.GameObjectFunctions:FindGameObject("Geralt_Title_" .. i)
+        jaskier_UI_titles[i] = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Title_" .. i)
+    end
+
+    -- match_result_UI_titles = {
+    --     lua_table.GameObjectFunctions:FindGameObject("Title_Tie"),
+    --     lua_table.GameObjectFunctions:FindGameObject("Final_Title_Tie")
+    -- }
+
+    geralt_GO_data.win_UI = lua_table.GameObjectFunctions:FindGameObject("Geralt_Title_Round")
+    jaskier_GO_data.win_UI = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Title_Round")
+
+    geralt_GO_data.final_win_UI = lua_table.GameObjectFunctions:FindGameObject("Geralt_Title_Wins")
+    jaskier_GO_data.final_win_UI = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Title_Wins")
 end
 
 function lua_table:Start()
+    lua_table.UIFunctions:MakeElementInvisible("Image", geralt_GO_data.win_UI)
+    lua_table.UIFunctions:MakeElementInvisible("Image", geralt_GO_data.final_win_UI)
+    lua_table.UIFunctions:MakeElementInvisible("Image", jaskier_GO_data.win_UI)
+    lua_table.UIFunctions:MakeElementInvisible("Image", jaskier_GO_data.final_win_UI)
 
+    for i = 1, total_phases, 1 do
+        lua_table.UIFunctions:MakeElementInvisible("Image", phase_UI_titles[i])
+        lua_table.UIFunctions:MakeElementInvisible("Image", geralt_UI_titles[i])
+        lua_table.UIFunctions:MakeElementInvisible("Image", jaskier_UI_titles[i])
+    end
+
+    -- for i = 1, 3, 1 do
+    --     lua_table.UIFunctions:MakeElementInvisible("Image", match_result_UI_titles[i])
+    -- end
 end
 
 function lua_table:Update()
-    game_time = lua_table.System:GameTime() * 1000
+    game_time = lua_table.SystemFunctions:GameTime() * 1000
 
-    if current_phase < max_phases then
+    CharacterIdleAnim(geralt_GO_data)
+    CharacterIdleAnim(jaskier_GO_data)
 
+    if current_phase <= total_phases then
         if current_stage == cycle_stages.ready.stage and game_time - timestamp > cycle_stages.ready.duration
         then
             CalculatePhaseData(current_phase)	--Both Characters, calculate data such as score of each and coins to throw
@@ -192,32 +302,48 @@ function lua_table:Update()
 
         elseif current_stage == cycle_stages.showing_title.stage and game_time - timestamp > cycle_stages.showing_title.duration
         then
+            timestamp = game_time
             current_stage = cycle_stages.spawning_coins.stage
-            cycle_stages.spawning_coins.duration = lua_table.System:RandomNumberInRange(cycle_stages.spawning_coins.duration_min, cycle_stages.spawning_coins.duration_max)
+            cycle_stages.spawning_coins.duration = lua_table.SystemFunctions:RandomNumberInRange(cycle_stages.spawning_coins.duration_min, cycle_stages.spawning_coins.duration_max)
         elseif current_stage == cycle_stages.spawning_coins.stage and game_time - timestamp > cycle_stages.spawning_coins.duration
         then
             if SpawnCoins(current_phase)	-- Function returns true if any of the two has the counter > 0 after spawning coin
             then
-                cycle_stages.spawning_coins.duration = lua_table.System:RandomNumberInRange(cycle_stages.spawning_coins.duration_min, cycle_stages.spawning_coins.duration_max)
+                cycle_stages.spawning_coins.duration = lua_table.SystemFunctions:RandomNumberInRange(cycle_stages.spawning_coins.duration_min, cycle_stages.spawning_coins.duration_max)
                 timestamp = game_time
             elseif lua_table.coins_finished == 2 or game_time - timestamp > 3000	--3000 = time failsave
             then
-                ShowCharacterScores()
+                ShowCharacterScores(current_phase)
                 lua_table.coins_finished = 0
                 timestamp = game_time
-                current_stage = cycle_stages.showing_score.stage
+                current_stage = cycle_stages.showing_winner.stage
             end
-            
+
+        elseif current_stage == cycle_stages.showing_winner.stage and game_time - timestamp > cycle_stages.showing_winner.duration
+        then
+            if geralt_results.result_score > jaskier_results.result_score then character_winner = geralt_GO_data
+            elseif geralt_results.result_score < jaskier_results.result_score then character_winner = jaskier_GO_data
+            else character_winner = nil end
+
+            ShowPhaseWinner(character_winner)
+
+            timestamp = game_time
+            current_stage = cycle_stages.showing_score.stage
+
         elseif current_stage == cycle_stages.showing_score.stage and game_time - timestamp > cycle_stages.showing_score.duration
         then
-            HideCharacterScores()
-            HidePhaseTitle()
+            HideCharacterScores(current_phase)
+            HidePhaseTitle(current_phase)
+            HidePhaseWinner(character_winner)
             timestamp = game_time
             current_phase = current_phase + 1
             current_stage = cycle_stages.ready.stage
+            lua_table.SystemFunctions:LOG(" --- ROUND FINISHED --- ")
         end
-    else
-        lua_table.System:LOG("I AM FINISHED")
+    elseif game_time - timestamp > cycle_stages.final_winner.duration and current_phase == (total_phases + 1)
+    then
+        DecideWinner(character_winner)
+        current_phase = current_phase + 1
     end
 
     ----------------------------------------------SpawnCoins
@@ -238,7 +364,7 @@ function lua_table:Update()
     --     then
     --         for i,j in pairs(SpawnerList) do
     --         InstantiateCoin(j,lua_table.coin_prefab)
-    --         randTime =  lua_table.System:RandomNumberInRange(lua_table.MinTimeBetweenCoins,lua_table.MaxTimeBetweenCoins)   
+    --         randTime =  lua_table.SystemFunctions:RandomNumberInRange(lua_table.MinTimeBetweenCoins,lua_table.MaxTimeBetweenCoins)   
     --         currentTimeToSpawn = 0
 
     --         end

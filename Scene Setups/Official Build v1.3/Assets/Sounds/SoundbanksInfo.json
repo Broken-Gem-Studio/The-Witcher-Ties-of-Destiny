@@ -595,6 +595,11 @@
     "Path": "Props.bnk",
     "IncludedEvents": [
      {
+      "Id": "2637631400",
+      "Name": "Play_Coin_Collision",
+      "ObjectPath": "\\Events\\Default Work Unit\\Props\\Play_Coin_Collision"
+     },
+     {
       "Id": "27935653",
       "Name": "Play_Door_new_sound",
       "ObjectPath": "\\Events\\Default Work Unit\\Props\\Door\\Play_Door_new_sound"
@@ -704,22 +709,28 @@
       "Path": "SFX\\SFX_Loot_1_10C4C929.wem"
      },
      {
+      "Id": "511060225",
+      "Language": "SFX",
+      "ShortName": "CoinSeven.wav",
+      "Path": "SFX\\CoinSeven_10C4C929.wem"
+     },
+     {
       "Id": "518464496",
       "Language": "SFX",
       "ShortName": "SFX_Door_1.wav",
       "Path": "SFX\\SFX_Door_1_10C4C929.wem"
      },
      {
+      "Id": "535881056",
+      "Language": "SFX",
+      "ShortName": "CoinSix.wav",
+      "Path": "SFX\\CoinSix_10C4C929.wem"
+     },
+     {
       "Id": "604885141",
       "Language": "SFX",
       "ShortName": "Potion pick up.wav",
       "Path": "SFX\\Potion pick up_10C4C929.wem"
-     },
-     {
-      "Id": "616449000",
-      "Language": "SFX",
-      "ShortName": "Door_new_sound.wav",
-      "Path": "SFX\\Door_new_sound_10C4C929.wem"
      },
      {
       "Id": "671728360",
@@ -734,10 +745,28 @@
       "Path": "SFX\\Prop_wood_break_1_10C4C929.wem"
      },
      {
+      "Id": "688655095",
+      "Language": "SFX",
+      "ShortName": "CoinFour.wav",
+      "Path": "SFX\\CoinFour_10C4C929.wem"
+     },
+     {
       "Id": "703546484",
       "Language": "SFX",
       "ShortName": "SFX_Loot_2.wav",
       "Path": "SFX\\SFX_Loot_2_10C4C929.wem"
+     },
+     {
+      "Id": "712377787",
+      "Language": "SFX",
+      "ShortName": "SFX_Door.wav",
+      "Path": "SFX\\SFX_Door_10C4C929.wem"
+     },
+     {
+      "Id": "821591404",
+      "Language": "SFX",
+      "ShortName": "CoinThree.wav",
+      "Path": "SFX\\CoinThree_10C4C929.wem"
      },
      {
       "Id": "864063706",
@@ -1232,16 +1261,16 @@
     ],
     "IncludedMemoryFiles": [
      {
+      "Id": "296231150",
+      "Language": "SFX",
+      "ShortName": "StormLoopNoThunder.wav",
+      "Path": "SFX\\StormLoopNoThunder_D79FB2B7.wem"
+     },
+     {
       "Id": "371197786",
       "Language": "SFX",
       "ShortName": "ThunderOne.wav",
       "Path": "SFX\\ThunderOne_10C4C929.wem"
-     },
-     {
-      "Id": "895524995",
-      "Language": "SFX",
-      "ShortName": "StormLoop.wav",
-      "Path": "SFX\\StormLoop_D79FB2B7.wem"
      },
      {
       "Id": "914906870",
@@ -1342,23 +1371,12 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Play_Main_Menu_Music"
      },
      {
-      "Id": "1913521131",
-      "Name": "Play_Music_Menu_Comparison_Pirate_Dance",
-      "ObjectPath": "\\Events\\Default Work Unit\\Play_Music_Menu_Comparison_Pirate_Dance"
-     },
-     {
       "Id": "2973513758",
       "Name": "Play_Win_Menu_Music",
       "ObjectPath": "\\Events\\Default Work Unit\\Play_Win_Menu_Music"
      }
     ],
     "IncludedMemoryFiles": [
-     {
-      "Id": "237417088",
-      "Language": "SFX",
-      "ShortName": "Music_Menu_Comparison_Pirate_Dance.wav",
-      "Path": "SFX\\Music_Menu_Comparison_Pirate_Dance_D79FB2B7.wem"
-     },
      {
       "Id": "665589033",
       "Language": "SFX",
@@ -1916,6 +1934,46 @@
       "Path": "SFX\\Main_Menu_play_2_10C4C929.wem"
      }
     ]
+   },
+   {
+    "Id": "2148133496",
+    "Language": "SFX",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Music_Menus_2",
+    "ShortName": "Music_Menus_2",
+    "Path": "Music_Menus_2.bnk",
+    "IncludedEvents": [
+     {
+      "Id": "2592368262",
+      "Name": "Play_Credits_Menu_Music",
+      "ObjectPath": "\\Events\\Default Work Unit\\Play_Credits_Menu_Music"
+     },
+     {
+      "Id": "1913521131",
+      "Name": "Play_Music_Menu_Comparison_Pirate_Dance",
+      "ObjectPath": "\\Events\\Default Work Unit\\Play_Music_Menu_Comparison_Pirate_Dance"
+     }
+    ],
+    "IncludedMemoryFiles": [
+     {
+      "Id": "237417088",
+      "Language": "SFX",
+      "ShortName": "Music_Menu_Comparison_Pirate_Dance.wav",
+      "Path": "SFX\\Music_Menu_Comparison_Pirate_Dance_D79FB2B7.wem"
+     },
+     {
+      "Id": "361051095",
+      "Language": "SFX",
+      "ShortName": "Music_Credits_Home.wav",
+      "Path": "SFX\\Music_Credits_Home_D79FB2B7.wem"
+     }
+    ]
+   },
+   {
+    "Id": "2244718989",
+    "Language": "SFX",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Music_Level_1_1",
+    "ShortName": "Music_Level_1_1",
+    "Path": "Music_Level_1_1.bnk"
    },
    {
     "Id": "2380338445",
@@ -2996,7 +3054,9 @@
       "Language": "SFX",
       "ShortName": "Music\\Music_Lvl_1_Broken_Village.wav",
       "Path": "SFX\\Music\\Music_Lvl_1_Broken_Village_D79FB2B7.wem"
-     },
+     }
+    ],
+    "ExcludedMemoryFiles": [
      {
       "Id": "1022100902",
       "Language": "SFX",
@@ -3020,10 +3080,10 @@
     ],
     "IncludedMemoryFiles": [
      {
-      "Id": "382083512",
+      "Id": "358228394",
       "Language": "SFX",
-      "ShortName": "Music_Kikimora_Dungeon of shadows.wav",
-      "Path": "SFX\\Music_Kikimora_Dungeon of shadows_D79FB2B7.wem"
+      "ShortName": "Music_Kikimora_Dungeon_of_shadows_intro.wav",
+      "Path": "SFX\\Music_Kikimora_Dungeon_of_shadows_intro_D79FB2B7.wem"
      },
      {
       "Id": "394200934",
@@ -3038,11 +3098,19 @@
       "Path": "SFX\\Music\\Music_Combat_Viking_Ship_D79FB2B7.wem"
      },
      {
+      "Id": "593693911",
+      "Language": "SFX",
+      "ShortName": "Kikimora_Fight_Loop.wav",
+      "Path": "SFX\\Kikimora_Fight_Loop_D79FB2B7.wem"
+     },
+     {
       "Id": "621261315",
       "Language": "SFX",
       "ShortName": "Music\\Music_Lvl_2_Loop_The village.wav",
       "Path": "SFX\\Music\\Music_Lvl_2_Loop_The village_D79FB2B7.wem"
-     },
+     }
+    ],
+    "ExcludedMemoryFiles": [
      {
       "Id": "1022100902",
       "Language": "SFX",

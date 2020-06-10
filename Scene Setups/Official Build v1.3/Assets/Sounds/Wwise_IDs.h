@@ -28,6 +28,8 @@ namespace AK
         static const AkUniqueID PLAY_CHARACTER_HOVER = 2315361796U;
         static const AkUniqueID PLAY_CHARACTER_SELECTED = 4128046305U;
         static const AkUniqueID PLAY_CHARACTER_UNSELECTED = 993611128U;
+        static const AkUniqueID PLAY_COIN_COLLISION = 2637631400U;
+        static const AkUniqueID PLAY_CREDITS_MENU_MUSIC = 2592368262U;
         static const AkUniqueID PLAY_DANDELION_MADE_SOME_INTERESTING_FRIENDS = 2311913118U;
         static const AkUniqueID PLAY_DIALOGUE_1 = 542320736U;
         static const AkUniqueID PLAY_DIALOGUE_2 = 542320739U;
@@ -267,8 +269,10 @@ namespace AK
         static const AkUniqueID MAIN_MENU = 2005704188U;
         static const AkUniqueID MONSTER_ENEMIES = 1016515008U;
         static const AkUniqueID MUSIC_LEVEL_1 = 3508274217U;
+        static const AkUniqueID MUSIC_LEVEL_1_1 = 2244718989U;
         static const AkUniqueID MUSIC_LEVEL_2 = 3508274218U;
         static const AkUniqueID MUSIC_MENUS = 1614123467U;
+        static const AkUniqueID MUSIC_MENUS_2 = 2148133496U;
         static const AkUniqueID PAUSE_MENU = 3422541661U;
         static const AkUniqueID PAUSE_MUSIC = 2735935537U;
         static const AkUniqueID PROPS = 968010305U;
