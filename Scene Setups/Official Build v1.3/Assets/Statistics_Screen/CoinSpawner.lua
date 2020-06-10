@@ -62,7 +62,9 @@ local geralt_GO_data = {
     win_string = "Geralt is on fire!",
     final_win_string = "Geralt Wins!",
     win_UI = 0,
-    final_win_UI = 0
+    final_win_UI = 0,
+    text_units_UI = 0,
+    text_score_UI = 0
 }
 local jaskier_GO_data = {
     GO_UID = 0,
@@ -71,7 +73,9 @@ local jaskier_GO_data = {
     win_string = "Jaskier rocks!",
     final_win_string = "Jaskier Wins!",
     win_UI = 0,
-    final_win_UI = 0
+    final_win_UI = 0,
+    text_units_UI = 0,
+    text_score_UI = 0
 }
 local animation_duration = 1700
 
@@ -114,15 +118,18 @@ local function CalculateCoinsToThrow(character_score, current_phase)
     return character_score[current_phase] * scoreboard_data[current_phase].coin_ratio
 end
 
-local function CalculateCharacterResults(character_results, character_score, current_phase)
+local function CalculateCharacterResults(character_results, character_score, character_data, current_phase)
     character_results.result_title = scoreboard_data[current_phase].title_start .. character_score[current_phase] .. scoreboard_data[current_phase].title_end
     character_results.result_score = scoreboard_data[current_phase].score_value * character_score[current_phase]
+
+    lua_table.UIFunctions:SetText("" .. character_score[current_phase], character_data.text_units_UI)
+    lua_table.UIFunctions:SetText("Score: " .. character_results.result_score, character_data.text_score_UI)
 end
 
 local function CalculatePhaseData(current_phase)
     phase_title =  scoreboard_data[current_phase].title_phase
-    CalculateCharacterResults(geralt_results, geralt_score, current_phase)
-    CalculateCharacterResults(jaskier_results, jaskier_score, current_phase)
+    CalculateCharacterResults(geralt_results, geralt_score, geralt_GO_data, current_phase)
+    CalculateCharacterResults(jaskier_results, jaskier_score, jaskier_GO_data, current_phase)
 
     geralt_results.coins = math.floor(CalculateCoinsToThrow(geralt_score, current_phase))
     jaskier_results.coins = math.floor(CalculateCoinsToThrow(jaskier_score, current_phase))
@@ -174,6 +181,11 @@ local function ShowCharacterScores(current_phase)
     lua_table.UIFunctions:MakeElementVisible("Image", geralt_UI_titles[current_phase])
     lua_table.UIFunctions:MakeElementVisible("Image", jaskier_UI_titles[current_phase])
 
+    lua_table.UIFunctions:MakeElementVisible("Text", geralt_GO_data.text_units_UI)
+    lua_table.UIFunctions:MakeElementVisible("Text", geralt_GO_data.text_score_UI)
+    lua_table.UIFunctions:MakeElementVisible("Text", jaskier_GO_data.text_units_UI)
+    lua_table.UIFunctions:MakeElementVisible("Text", jaskier_GO_data.text_score_UI)
+
     lua_table.SystemFunctions:LOG("Geralt: " .. geralt_results.result_title .. " SCORE: " .. geralt_results.result_score)
     lua_table.SystemFunctions:LOG("Jaskier: " .. jaskier_results.result_title .. " SCORE: " .. jaskier_results.result_score)
 end
@@ -181,6 +193,11 @@ end
 local function HideCharacterScores(current_phase)
     lua_table.UIFunctions:MakeElementInvisible("Image", geralt_UI_titles[current_phase])
     lua_table.UIFunctions:MakeElementInvisible("Image", jaskier_UI_titles[current_phase])
+
+    lua_table.UIFunctions:MakeElementInvisible("Text", geralt_GO_data.text_units_UI)
+    lua_table.UIFunctions:MakeElementInvisible("Text", geralt_GO_data.text_score_UI)
+    lua_table.UIFunctions:MakeElementInvisible("Text", jaskier_GO_data.text_units_UI)
+    lua_table.UIFunctions:MakeElementInvisible("Text", jaskier_GO_data.text_score_UI)
 end
 
 local function ShowPhaseWinner(character_data)
@@ -245,6 +262,20 @@ local function CharacterIdleAnim(character_data)
     end
 end
 
+local function CharacterUIAwakeSetup(character_data, string_name)
+    character_data.win_UI = lua_table.GameObjectFunctions:FindGameObject(string_name .. "_Title_Round")
+    character_data.final_win_UI = lua_table.GameObjectFunctions:FindGameObject(string_name .. "_Title_Wins")
+    character_data.text_units_UI = lua_table.GameObjectFunctions:FindGameObject(string_name .. "_Text_Units")
+    character_data.text_score_UI = lua_table.GameObjectFunctions:FindGameObject(string_name .. "_Text_Score")
+end
+
+local function CharacterUIStartSetup(character_data)
+    lua_table.UIFunctions:MakeElementInvisible("Image", character_data.win_UI)
+    lua_table.UIFunctions:MakeElementInvisible("Image", character_data.final_win_UI)
+    lua_table.UIFunctions:MakeElementInvisible("Text", character_data.text_units_UI)
+    lua_table.UIFunctions:MakeElementInvisible("Text", character_data.text_score_UI)
+end
+
 function lua_table:Awake()
     geralt_GO_data.GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt_Score")
     jaskier_GO_data.GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Score")
@@ -262,18 +293,13 @@ function lua_table:Awake()
     --     lua_table.GameObjectFunctions:FindGameObject("Final_Title_Tie")
     -- }
 
-    geralt_GO_data.win_UI = lua_table.GameObjectFunctions:FindGameObject("Geralt_Title_Round")
-    jaskier_GO_data.win_UI = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Title_Round")
-
-    geralt_GO_data.final_win_UI = lua_table.GameObjectFunctions:FindGameObject("Geralt_Title_Wins")
-    jaskier_GO_data.final_win_UI = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Title_Wins")
+    CharacterUIAwakeSetup(geralt_GO_data, "Geralt")
+    CharacterUIAwakeSetup(jaskier_GO_data, "Jaskier")
 end
 
 function lua_table:Start()
-    lua_table.UIFunctions:MakeElementInvisible("Image", geralt_GO_data.win_UI)
-    lua_table.UIFunctions:MakeElementInvisible("Image", geralt_GO_data.final_win_UI)
-    lua_table.UIFunctions:MakeElementInvisible("Image", jaskier_GO_data.win_UI)
-    lua_table.UIFunctions:MakeElementInvisible("Image", jaskier_GO_data.final_win_UI)
+    CharacterUIStartSetup(geralt_GO_data)
+    CharacterUIStartSetup(jaskier_GO_data)
 
     for i = 1, total_phases, 1 do
         lua_table.UIFunctions:MakeElementInvisible("Image", phase_UI_titles[i])
