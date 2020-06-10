@@ -60,14 +60,18 @@ local geralt_GO_data = {
     anim_started_at = -300,
     clapping = false,
     win_string = "Geralt is on fire!",
-    final_win_string = "Geralt Wins!"
+    final_win_string = "Geralt Wins!",
+    win_UI = 0,
+    final_win_UI = 0
 }
 local jaskier_GO_data = {
     GO_UID = 0,
     anim_started_at = -150,
     clapping = false,
     win_string = "Jaskier rocks!",
-    final_win_string = "Jaskier Wins!"
+    final_win_string = "Jaskier Wins!",
+    win_UI = 0,
+    final_win_UI = 0
 }
 local animation_duration = 1700
 
@@ -93,6 +97,7 @@ local cycle_stages = {
 local current_stage = cycle_stages.ready.stage
 local current_phase = 1
 local total_phases = 8
+local character_winner = nil
 
 lua_table.coins_finished = 0
 
@@ -126,37 +131,13 @@ local function CalculatePhaseData(current_phase)
     if jaskier_results.coins == 0 then lua_table.coins_finished = lua_table.coins_finished + 1 end
 end
 
-local function ShowPhaseTitle()
-    lua_table.SystemFunctions:LOG("TITLE: " .. phase_title)
-    --TODO-UI: Show current title
-end
-
-local function ShowCharacterScores()
-    lua_table.SystemFunctions:LOG("Geralt: " .. geralt_results.result_title .. " SCORE: " .. geralt_results.result_score)
-    lua_table.SystemFunctions:LOG("Jaskier: " .. jaskier_results.result_title .. " SCORE: " .. jaskier_results.result_score)
-    --TODO-UI: Show character score titles
-end
-
-local function ShowPhaseWinner(character_data)
-    if character_data == nil then
-        lua_table.SystemFunctions:LOG("It's a tie!")
-    else
-        lua_table.SystemFunctions:LOG(character_data.win_string)
-        lua_table.AnimationFunctions:SetBlendTime(0.5, character_data.GO_UID)
-        lua_table.AnimationFunctions:PlayAnimation("quick_clap", 30.0, character_data.GO_UID)
-        character_data.anim_started_at = game_time
-        character_data.clapping = true
-    end
-end
-
 local function WinnerClap(character_data)
     lua_table.AnimationFunctions:PlayAnimation("clap", 30.0, character_data.GO_UID)
     character_data.anim_started_at = game_time
     character_data.clapping = true
-    lua_table.SystemFunctions:LOG(character_data.final_win_string)
 end
 
-local function DecideWinner()
+local function DecideWinner(character_data)
     local geralt_final_score = 0
     local jaskier_final_score = 0
     
@@ -168,27 +149,61 @@ local function DecideWinner()
         jaskier_score[i] = 0
     end
 
-    if geralt_final_score > jaskier_final_score then
-        WinnerClap(geralt_GO_data)
-    elseif geralt_final_score < jaskier_final_score then
-        WinnerClap(jaskier_GO_data)
+    if character_data = nil then
+        WinnerClap(character_data)
+        lua_table.UIFunctions:MakeElementVisible("Image", character_data.final_win_UI)
+        lua_table.SystemFunctions:LOG(character_data.final_win_string)
     else
         WinnerClap(geralt_GO_data)
         WinnerClap(jaskier_GO_data)
+        --lua_table.UIFunctions:MakeElementVisible("Image", character_data.final_win_UI)    --TODO: Show it's a final tie UI
         lua_table.SystemFunctions:LOG("Amazing! It's a tie!")
+    end
+        
     end
 end
 
-local function HidePhaseWinner()
-
+local function ShowPhaseTitle(current_phase)
+    lua_table.UIFunctions:MakeElementVisible("Image", phase_UI_titles[current_phase])
+    lua_table.SystemFunctions:LOG("" .. phase_UI_titles[current_phase])
 end
 
-local function HideCharacterScores()
-    --TODO-UI: Hide character scores titles
+local function HidePhaseTitle(current_phase) 
+    lua_table.UIFunctions:MakeElementInvisible("Image", phase_UI_titles[current_phase])
 end
 
-local function HidePhaseTitle() 
-    --TODO-UI: Hide current title
+local function ShowCharacterScores(current_phase)
+    lua_table.UIFunctions:MakeElementVisible("Image", geralt_UI_titles[current_phase])
+    lua_table.UIFunctions:MakeElementVisible("Image", jaskier_UI_titles[current_phase])
+
+    lua_table.SystemFunctions:LOG("Geralt: " .. geralt_results.result_title .. " SCORE: " .. geralt_results.result_score)
+    lua_table.SystemFunctions:LOG("Jaskier: " .. jaskier_results.result_title .. " SCORE: " .. jaskier_results.result_score)
+end
+
+local function HideCharacterScores(current_phase)
+    lua_table.UIFunctions:MakeElementInvisible("Image", geralt_UI_titles[current_phase])
+    lua_table.UIFunctions:MakeElementInvisible("Image", jaskier_UI_titles[current_phase])
+end
+
+local function ShowPhaseWinner(character_data)
+    if character_data == nil then
+        --TODO: Show it's a tie UI
+        lua_table.SystemFunctions:LOG("It's a tie!")
+    else
+        lua_table.AnimationFunctions:SetBlendTime(0.5, character_data.GO_UID)
+        lua_table.AnimationFunctions:PlayAnimation("quick_clap", 30.0, character_data.GO_UID)
+        character_data.anim_started_at = game_time
+        character_data.clapping = true
+
+        lua_table.UIFunctions:MakeElementVisible("Image", character_data.win_UI)
+        lua_table.SystemFunctions:LOG(character_data.win_string)
+    end
+end
+
+local function HidePhaseWinner(character_data)
+    if character_data ~= nil then
+        lua_table.UIFunctions:MakeElementInvisible("Image", character_data.win_UI)
+    end
 end
 
 local function SpawnCoins(current_phase)
@@ -244,23 +259,33 @@ function lua_table:Awake()
         jaskier_UI_titles[i] = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Title_" .. i)
     end
 
-    match_result_UI_titles = {
-        lua_table.GameObjectFunctions:FindGameObject("Geralt_Title_Wins"),
-        lua_table.GameObjectFunctions:FindGameObject("Jaskier_Title_Wins"),
-        lua_table.GameObjectFunctions:FindGameObject("Title_Tie")
-    }
+    -- match_result_UI_titles = {
+    --     lua_table.GameObjectFunctions:FindGameObject("Title_Tie"),
+    --     lua_table.GameObjectFunctions:FindGameObject("Final_Title_Tie")
+    -- }
+
+    geralt_GO_data.win_UI = lua_table.GameObjectFunctions:FindGameObject("Geralt_Title_Round")
+    jaskier_GO_data.win_UI = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Title_Round")
+
+    geralt_GO_data.final_win_UI = lua_table.GameObjectFunctions:FindGameObject("Geralt_Title_Wins")
+    jaskier_GO_data.final_win_UI = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Title_Wins")
 end
 
 function lua_table:Start()
+    lua_table.UIFunctions:MakeElementInvisible("Image", geralt_GO_data.win_UI)
+    lua_table.UIFunctions:MakeElementInvisible("Image", geralt_GO_data.final_win_UI)
+    lua_table.UIFunctions:MakeElementInvisible("Image", jaskier_GO_data.win_UI)
+    lua_table.UIFunctions:MakeElementInvisible("Image", jaskier_GO_data.final_win_UI)
+
     for i = 1, total_phases, 1 do
         lua_table.UIFunctions:MakeElementInvisible("Image", phase_UI_titles[i])
         lua_table.UIFunctions:MakeElementInvisible("Image", geralt_UI_titles[i])
         lua_table.UIFunctions:MakeElementInvisible("Image", jaskier_UI_titles[i])
     end
 
-    for i = 1, 3, 1 do
-        lua_table.UIFunctions:MakeElementInvisible("Image", match_result_UI_titles[i])
-    end
+    -- for i = 1, 3, 1 do
+    --     lua_table.UIFunctions:MakeElementInvisible("Image", match_result_UI_titles[i])
+    -- end
 end
 
 function lua_table:Update()
@@ -290,7 +315,7 @@ function lua_table:Update()
                 timestamp = game_time
             elseif lua_table.coins_finished == 2 or game_time - timestamp > 3000	--3000 = time failsave
             then
-                ShowCharacterScores()
+                ShowCharacterScores(current_phase)
                 lua_table.coins_finished = 0
                 timestamp = game_time
                 current_stage = cycle_stages.showing_winner.stage
@@ -298,18 +323,20 @@ function lua_table:Update()
 
         elseif current_stage == cycle_stages.showing_winner.stage and game_time - timestamp > cycle_stages.showing_winner.duration
         then
-            if geralt_results.result_score > jaskier_results.result_score then ShowPhaseWinner(geralt_GO_data)
-            elseif geralt_results.result_score < jaskier_results.result_score then ShowPhaseWinner(jaskier_GO_data)
-            else ShowPhaseWinner(nil) end
+            if geralt_results.result_score > jaskier_results.result_score then character_winner = geralt_GO_data
+            elseif geralt_results.result_score < jaskier_results.result_score then character_winner = jaskier_GO_data
+            else character_winner = nil end
+
+            ShowPhaseWinner(character_winner)
 
             timestamp = game_time
             current_stage = cycle_stages.showing_score.stage
 
         elseif current_stage == cycle_stages.showing_score.stage and game_time - timestamp > cycle_stages.showing_score.duration
         then
-            HideCharacterScores()
-            HidePhaseTitle()
-            HidePhaseWinner()
+            HideCharacterScores(current_phase)
+            HidePhaseTitle(current_phase)
+            HidePhaseWinner(character_winner)
             timestamp = game_time
             current_phase = current_phase + 1
             current_stage = cycle_stages.ready.stage
@@ -317,7 +344,7 @@ function lua_table:Update()
         end
     elseif game_time - timestamp > cycle_stages.final_winner.duration and current_phase == (total_phases + 1)
     then
-        DecideWinner()
+        DecideWinner(character_winner)
         current_phase = current_phase + 1
     end
 

@@ -22,8 +22,8 @@ local current_time_to_next_lighting = 0
 
 local time_to_lighting_appearing = 0.2
 local time_to_lighting_vanishing = 0.8
-local time_to_next_lighting_max = 5
-local time_to_next_lighting_min = 1
+local time_to_next_lighting_max = 8
+local time_to_next_lighting_min = 5
 local time_to_next_lighting = 0
 
 -- Light Controller
