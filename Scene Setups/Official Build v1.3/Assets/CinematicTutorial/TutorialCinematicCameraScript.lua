@@ -111,7 +111,7 @@ function GetTableTutorialCinematicCameraScript()
         -- Bridge recruits
         recruit_bridge1 = lua_table.GameObject:FindGameObject("Recruit_Bridge1")
         recruit_bridge2 = lua_table.GameObject:FindGameObject("Recruit_Bridge2")
-        --lumber_bridge = lua_table.GameObject:FindGameObject("Lumber_Bridge")
+        lumber_bridge = lua_table.GameObject:FindGameObject("Lumber_Bridge")
 
         warrior1 = lua_table.GameObject:FindGameObject("Warrior_City1")
         warrior2 = lua_table.GameObject:FindGameObject("Warrior_City2")
@@ -126,7 +126,7 @@ function GetTableTutorialCinematicCameraScript()
 
         lua_table.GameObject:SetActiveGameObject(false, recruit_bridge1)
         lua_table.GameObject:SetActiveGameObject(false, recruit_bridge2)
-        --lua_table.GameObject:SetActiveGameObject(false, lumber_bridge)
+        lua_table.GameObject:SetActiveGameObject(false, lumber_bridge)
 
         --Play music
         lua_table.Audio:PlayAudioEvent("Play_Music_Cinematic_lvl1_The_Ocean_Takes_It_All")
@@ -195,7 +195,7 @@ function GetTableTutorialCinematicCameraScript()
 
             lua_table.GameObject:SetActiveGameObject(true, recruit_bridge1)
             lua_table.GameObject:SetActiveGameObject(true, recruit_bridge2)
-            --lua_table.GameObject:SetActiveGameObject(true, lumber_bridge)
+            lua_table.GameObject:SetActiveGameObject(true, lumber_bridge)
         end
 
         if time > 13 and time < 15
