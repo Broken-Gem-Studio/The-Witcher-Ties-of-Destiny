@@ -5,6 +5,10 @@ lua_table.GO = Scripting.GameObject()
 lua_table.Physics = Scripting.Physics()
 lua_table.UI = Scripting.Interface()
 
+local camera_GO
+local camera_script = {}
+local camera_UID = 0
+
 local next_round = 0
 local last_round = 0
 local counter = 0
@@ -42,6 +46,10 @@ function lua_table:OnTriggerEnter()
     if lua_table.GO:GetLayerByID(collider) == 1 and first == true
     then
         --set camera angle and lock**
+        if camera_script ~= nil
+        then
+            camera_script.hoardfight = true
+        end
         
         lua_table.GO:SetActiveGameObject(true, next_round)
         lua_table.GO:SetActiveGameObject(true, counter)
@@ -58,6 +66,12 @@ function lua_table:Awake()
     next_round = lua_table.GO:FindGameObject("NextRoundIn")
     last_round = lua_table.GO:FindGameObject("LastRoundIn")
     counter = lua_table.GO:FindGameObject("Counter")
+
+    camera_UID = lua_table.GO:FindGameObject("Camera")
+    if camera_UID > 0
+    then
+        camera_script = lua_table.GO:GetScript(camera_UID)
+    end
 
     hordas = lua_table.GO:FindGameObject("HordasTutorial")
     if hordas > 0

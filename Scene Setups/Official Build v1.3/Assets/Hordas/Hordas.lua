@@ -148,7 +148,7 @@ function lua_table:Update()
             else
                 if next_round == 0 and round0 > 0 --round 0
                 then
-                    if round0_script.is_finished == false
+                    if round0_script.is_finished == false and round0_script.auxCounter == 0
                     then
                         round0_script:Spawn()
                     else
@@ -158,7 +158,7 @@ function lua_table:Update()
                     end
                 elseif next_round == 1 and round1 > 0 --round 1
                 then
-                    if round1_script.is_finished == false
+                    if round1_script.is_finished == false and round1_script.auxCounter == 0
                     then
                         round1_script:Spawn()
                     else
@@ -168,7 +168,7 @@ function lua_table:Update()
                     end
                 elseif next_round == 2 and round2 > 0 --round 2
                 then
-                    if round2_script.is_finished == false
+                    if round2_script.is_finished == false and round2_script.auxCounter == 0
                     then
                         round2_script:Spawn()
                     else
@@ -178,7 +178,7 @@ function lua_table:Update()
                     end
                 elseif next_round == 3 and round3 > 0 --round 3
                 then
-                    if round3_script.is_finished == false
+                    if round3_script.is_finished == false and round3_script.auxCounter == 0
                     then
                         round3_script:Spawn()
                     else
@@ -188,7 +188,7 @@ function lua_table:Update()
                     end
                 elseif next_round == 4 and round4 > 0 --round 4
                 then
-                    if round4_script.is_finished == false
+                    if round4_script.is_finished == false and round4_script.auxCounter == 0
                     then
                         round4_script:Spawn()
                     else
@@ -198,7 +198,7 @@ function lua_table:Update()
                     end
                 elseif next_round == 5 and round5 > 0 --round 5
                 then
-                    if round5_script.is_finished == false
+                    if round5_script.is_finished == false and round5_script.auxCounter == 0
                     then
                         round5_script:Spawn()
                     else
@@ -208,7 +208,7 @@ function lua_table:Update()
                     end
                 elseif next_round == 6 and round6 > 0 --round 6
                 then
-                    if round6_script.is_finished == false
+                    if round6_script.is_finished == false and round6_script.auxCounter == 0
                     then
                         round6_script:Spawn()
                     else
@@ -218,7 +218,7 @@ function lua_table:Update()
                     end
                 elseif next_round == 7 and round7 > 0 --round 7
                 then
-                    if round7_script.is_finished == false
+                    if round7_script.is_finished == false and round7_script.auxCounter == 0
                     then
                         round7_script:Spawn()
                     else
@@ -228,7 +228,7 @@ function lua_table:Update()
                     end
                 elseif next_round == 8 and round8 > 0 --round 8
                 then
-                    if round8_script.is_finished == false
+                    if round8_script.is_finished == false and round8_script.auxCounter == 0
                     then
                         round8_script:Spawn()
                     else
@@ -238,7 +238,7 @@ function lua_table:Update()
                     end
                 elseif next_round == 9 and round9 > 0 --round 9
                 then
-                    if round8_script.is_finished == false
+                    if round8_script.is_finished == false and round9_script.auxCounter == 0
                     then
                         round8_script:Spawn()
                     else
