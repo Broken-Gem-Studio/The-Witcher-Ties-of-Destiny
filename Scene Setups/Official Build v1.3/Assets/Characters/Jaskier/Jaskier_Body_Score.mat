@@ -5,8 +5,8 @@
         "G": 1.0,
         "R": 1.0
     },
-    "ArcherCinematic.mat": null,
     "Culling": true,
+    "Jaskier_Body_Score.mat": null,
     "MatAlphaFunc": 0,
     "MatAutoBlending": true,
     "MatBlendEquation": 0,
@@ -15,7 +15,7 @@
     "MaterialRimLightPower": 1.0,
     "MaterialRimLightSmoothX": 0.0,
     "MaterialRimLightSmoothY": 1.0,
-    "MaterialShininess": 1.0,
+    "MaterialShininess": 1.5,
     "OccludedOutlineColor": {
         "A": 1.0,
         "B": 1.0,
@@ -29,9 +29,9 @@
         "R": 0.0
     },
     "OutlineThickness": 100.0,
-    "PreviewTexture": "Library/Textures/1384032380.dds",
-    "ResourceDiffuse": "Assets/New Folder 16/New Folder 17/Bandit2_AlbedoMap.png",
-    "ResourceNormalTexture": "Assets/New Folder 16/New Folder 17/Bandit2_NormalMap.png",
+    "PreviewTexture": "Library/Textures/195883668.dds",
+    "ResourceDiffuse": "Assets/Characters/Jaskier/Jaskier_Albedo.png",
+    "ResourceNormalTexture": null,
     "ResourceSpecular": null,
     "SceneColorAffected": true,
     "Transparencies": false,
@@ -40,11 +40,6 @@
     "UseRimLight": false,
     "shader": {
         "ResourceShader": "Assets/Shaders/ToonShader.glsl",
-        "uniforms": {
-            "u_Steps": {
-                "type": 5124,
-                "x": 0
-            }
-        }
+        "uniforms": null
     }
 }

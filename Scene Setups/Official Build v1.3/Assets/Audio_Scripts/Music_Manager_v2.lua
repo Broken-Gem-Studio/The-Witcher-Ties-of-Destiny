@@ -66,7 +66,9 @@ function lua_table:StopMusic()
 end
 
 function lua_table:PlayBoss()
+	lua_table.SystemFunctions:LOG("PLAYING BOSS MUSIC")
 	lua_table.AudioFunctions:SetAudioSwitch("Lvl_" .. lua_table.Level .. "_Music_Switch","BossFight",my_UID)
+	lua_table.SystemFunctions:LOG("PLAYED_ BOSS MUSIC")
 	lua_table.Boss_Fight = true
 end
 
