@@ -555,74 +555,6 @@
 												</MusicCue>
 											</CueList>
 										</MusicSegment>
-										<MusicSegment Name="Music_Combat_The_Dark_Castle" ID="{33768BCC-9F1E-4E28-9282-F5328E27BCE5}" ShortID="257280445">
-											<PropertyList>
-												<Property Name="EndPosition" Type="Real64" Value="131423.94595987"/>
-												<Property Name="OverrideClockSettings" Type="bool" Value="True"/>
-												<Property Name="Tempo" Type="Real64" Value="131"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<MusicTrack Name="Music_Combat_The_Dark_Castle" ID="{0468D602-BA24-4AC4-8BE8-129B88CFE10F}" ShortID="216988332">
-													<ReferenceList>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Music_Combat_The_Dark_Castle" ID="{3371739B-0583-4489-BBAE-3A7D45DC2B6E}" ShortID="997267315">
-															<Language>SFX</Language>
-															<AudioFile>Music\Music_Combat_The_Dark_Castle.wav</AudioFile>
-															<ConvertedFileIDList>
-																<File ID="394200934"/>
-															</ConvertedFileIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<TransitionList>
-														<MusicTransition Name="Root" ID="{8F3BE6ED-3A8F-4E5D-921C-930CB537DF15}">
-															<PropertyList>
-																<Property Name="IsFolder" Type="bool" Value="True"/>
-															</PropertyList>
-															<TransitionInfo/>
-														</MusicTransition>
-													</TransitionList>
-													<SequenceList>
-														<MusicTrackSequence Name="" ID="{5B8F21BC-74A2-4316-ABE5-98FF93C75BC3}">
-															<ClipList>
-																<MusicClip Name="Music_Combat_The_Dark_Castle" ID="{260ACA3C-97BC-4EFB-AA4E-B053ED8EBC7A}">
-																	<PropertyList>
-																		<Property Name="EndTrimOffset" Type="Real64" Value="131056.326530612"/>
-																		<Property Name="FadeInMode" Type="int16" Value="0"/>
-																		<Property Name="FadeOutMode" Type="int16" Value="0"/>
-																	</PropertyList>
-																	<AudioSourceRef Name="Music_Combat_The_Dark_Castle" ID="{3371739B-0583-4489-BBAE-3A7D45DC2B6E}"/>
-																</MusicClip>
-															</ClipList>
-														</MusicTrackSequence>
-													</SequenceList>
-												</MusicTrack>
-											</ChildrenList>
-											<CueList>
-												<MusicCue Name="Entry Cue" ID="{BF710F8C-6B02-4EA5-B23A-2B9926A97C33}">
-													<PropertyList>
-														<Property Name="TimeMs" Type="Real64" Value="58625.9541984733"/>
-													</PropertyList>
-												</MusicCue>
-												<MusicCue Name="Exit Cue" ID="{5193DF32-70C2-4471-86D3-EEA84127551F}">
-													<PropertyList>
-														<Property Name="CueType" Type="int16" Value="1"/>
-														<Property Name="TimeMs" Type="Real64" Value="124580.152671756"/>
-													</PropertyList>
-												</MusicCue>
-											</CueList>
-										</MusicSegment>
 									</ChildrenList>
 									<TransitionList>
 										<MusicTransition Name="Root" ID="{478BF422-67D2-48F0-A9DA-1A9B2F313913}">
@@ -701,7 +633,7 @@
 									<ChildrenList>
 										<MusicSegment Name="Music_Menu_Pause_Relaxing_Green_Nature" ID="{D5665A92-A63A-4F1F-8D3B-0CF56101F4E2}" ShortID="456047220">
 											<PropertyList>
-												<Property Name="EndPosition" Type="Real64" Value="318928.979591837"/>
+												<Property Name="EndPosition" Type="Real64" Value="483553.990929705"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -712,23 +644,23 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<MusicTrack Name="Music_Menu_Pause_Relaxing_Green_Nature" ID="{A0B72E60-AB32-4B10-9941-16849A32A45F}" ShortID="171893604">
+												<MusicTrack Name="Music_Menu_Pause_Relaxing_Green_Nature_Reduced_Loop" ID="{C6B37BDC-45B1-4EA9-93B2-8FABEFAFA237}" ShortID="447310877">
 													<ReferenceList>
 														<Reference Name="OutputBus">
 															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
-														<AudioFileSource Name="Music_Menu_Pause_Relaxing_Green_Nature" ID="{6AC85CA1-4B1D-43EB-B082-A59478310285}" ShortID="849114426">
+														<AudioFileSource Name="Music_Menu_Pause_Relaxing_Green_Nature_Reduced_Loop" ID="{BC9CE7F7-7DA6-43E7-82AE-AD7B12C25A95}" ShortID="604775108">
 															<Language>SFX</Language>
-															<AudioFile>Music\Music_Menu_Pause_Relaxing_Green_Nature.wav</AudioFile>
+															<AudioFile>Music_Menu_Pause_Relaxing_Green_Nature_Reduced_Loop.wav</AudioFile>
 															<ConvertedFileIDList>
-																<File ID="1022100902"/>
+																<File ID="1026238351"/>
 															</ConvertedFileIDList>
 														</AudioFileSource>
 													</ChildrenList>
 													<TransitionList>
-														<MusicTransition Name="Root" ID="{A5FEB6F9-E00D-4F96-BD84-13CF586B75DF}">
+														<MusicTransition Name="Root" ID="{411CF96C-536C-4C97-B131-CFA78D702DE2}">
 															<PropertyList>
 																<Property Name="IsFolder" Type="bool" Value="True"/>
 															</PropertyList>
@@ -736,15 +668,15 @@
 														</MusicTransition>
 													</TransitionList>
 													<SequenceList>
-														<MusicTrackSequence Name="" ID="{DF9EE7F6-5E8A-406A-A485-5246F05FE502}">
+														<MusicTrackSequence Name="" ID="{6F0A5D8E-87E4-4278-9568-DF8148572B90}">
 															<ClipList>
-																<MusicClip Name="Music_Menu_Pause_Relaxing_Green_Nature" ID="{77DB4825-8708-41DA-983A-AB2C6B76DF50}">
+																<MusicClip Name="Music_Menu_Pause_Relaxing_Green_Nature_Reduced_Loop" ID="{A570323F-7F48-49A0-A5B0-7A73F75EB589}">
 																	<PropertyList>
-																		<Property Name="EndTrimOffset" Type="Real64" Value="318928.979591837"/>
+																		<Property Name="EndTrimOffset" Type="Real64" Value="164625.011337868"/>
 																		<Property Name="FadeInMode" Type="int16" Value="0"/>
 																		<Property Name="FadeOutMode" Type="int16" Value="0"/>
 																	</PropertyList>
-																	<AudioSourceRef Name="Music_Menu_Pause_Relaxing_Green_Nature" ID="{6AC85CA1-4B1D-43EB-B082-A59478310285}"/>
+																	<AudioSourceRef Name="Music_Menu_Pause_Relaxing_Green_Nature_Reduced_Loop" ID="{BC9CE7F7-7DA6-43E7-82AE-AD7B12C25A95}"/>
 																</MusicClip>
 															</ClipList>
 														</MusicTrackSequence>
@@ -1014,71 +946,6 @@
 												</MusicCue>
 											</CueList>
 										</MusicSegment>
-										<MusicSegment Name="Music_Combat_The_Dark_Castle" ID="{2A29D3C3-3FA5-455E-A69F-A9692CE4389E}" ShortID="523488048">
-											<PropertyList>
-												<Property Name="EndPosition" Type="Real64" Value="131423.94595987"/>
-												<Property Name="OverrideClockSettings" Type="bool" Value="True"/>
-												<Property Name="Tempo" Type="Real64" Value="131"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="convert_to_OGG" ID="{1B9F26BD-F88B-48F8-9572-41879691A9CA}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<MusicTrack Name="Music_Combat_The_Dark_Castle" ID="{F8F5E529-60B7-4A24-8901-6FB0F7675526}" ShortID="116674882">
-													<ReferenceList>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Music_Combat_The_Dark_Castle" ID="{4C897D8E-9915-4AF9-B0E4-674EB1A48C55}" ShortID="394200934">
-															<Language>SFX</Language>
-															<AudioFile>Music\Music_Combat_The_Dark_Castle.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<TransitionList>
-														<MusicTransition Name="Root" ID="{62BB593A-F2FD-4FAB-A8EE-B83222C04108}">
-															<PropertyList>
-																<Property Name="IsFolder" Type="bool" Value="True"/>
-															</PropertyList>
-															<TransitionInfo/>
-														</MusicTransition>
-													</TransitionList>
-													<SequenceList>
-														<MusicTrackSequence Name="" ID="{DEC2F111-5D27-4508-8E6E-306570A7F1B0}">
-															<ClipList>
-																<MusicClip Name="Music_Combat_The_Dark_Castle" ID="{800E0302-04E4-47D5-AB4C-39B1C1CAB66A}">
-																	<PropertyList>
-																		<Property Name="EndTrimOffset" Type="Real64" Value="131056.326530612"/>
-																		<Property Name="FadeInMode" Type="int16" Value="0"/>
-																		<Property Name="FadeOutMode" Type="int16" Value="0"/>
-																	</PropertyList>
-																	<AudioSourceRef Name="Music_Combat_The_Dark_Castle" ID="{4C897D8E-9915-4AF9-B0E4-674EB1A48C55}"/>
-																</MusicClip>
-															</ClipList>
-														</MusicTrackSequence>
-													</SequenceList>
-												</MusicTrack>
-											</ChildrenList>
-											<CueList>
-												<MusicCue Name="Entry Cue" ID="{20BBC828-E300-404C-83A8-2DC971EC8227}">
-													<PropertyList>
-														<Property Name="TimeMs" Type="Real64" Value="58625.9541984733"/>
-													</PropertyList>
-												</MusicCue>
-												<MusicCue Name="Exit Cue" ID="{3EB39505-551C-4765-BB7C-22BE38419397}">
-													<PropertyList>
-														<Property Name="CueType" Type="int16" Value="1"/>
-														<Property Name="TimeMs" Type="Real64" Value="124580.152671756"/>
-													</PropertyList>
-												</MusicCue>
-											</CueList>
-										</MusicSegment>
 									</ChildrenList>
 									<TransitionList>
 										<MusicTransition Name="Root" ID="{D74715D5-B678-474E-84A5-C8BDA5A86577}">
@@ -1232,20 +1099,20 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<MusicTrack Name="Music_Menu_Pause_Relaxing_Green_Nature" ID="{960F6EC2-D2C4-4D53-A819-0BCBD382030F}" ShortID="660660993">
+												<MusicTrack Name="Music_Menu_Pause_Relaxing_Green_Nature_Reduced_Loop" ID="{EF3D22F3-CB9E-4C0D-BA95-9D7C52CAF410}" ShortID="849602538">
 													<ReferenceList>
 														<Reference Name="OutputBus">
 															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CD1E1BC-1857-4C22-83C6-75865E04A4D1}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
-														<AudioFileSource Name="Music_Menu_Pause_Relaxing_Green_Nature" ID="{BC998BAF-3A18-4742-BB04-E516167EE312}" ShortID="1022100902">
+														<AudioFileSource Name="Music_Menu_Pause_Relaxing_Green_Nature_Reduced_Loop" ID="{5DD1F867-ADB1-4C91-96DB-1BB930210D40}" ShortID="1026238351">
 															<Language>SFX</Language>
-															<AudioFile>Music\Music_Menu_Pause_Relaxing_Green_Nature.wav</AudioFile>
+															<AudioFile>Music_Menu_Pause_Relaxing_Green_Nature_Reduced_Loop.wav</AudioFile>
 														</AudioFileSource>
 													</ChildrenList>
 													<TransitionList>
-														<MusicTransition Name="Root" ID="{D12BD890-9FE8-4264-A018-6E9E2C9AE9C8}">
+														<MusicTransition Name="Root" ID="{AC76DBD9-48C7-4C34-ACC3-D800A6DCE497}">
 															<PropertyList>
 																<Property Name="IsFolder" Type="bool" Value="True"/>
 															</PropertyList>
@@ -1253,15 +1120,15 @@
 														</MusicTransition>
 													</TransitionList>
 													<SequenceList>
-														<MusicTrackSequence Name="" ID="{38F1D269-1B06-495E-B84F-0F4EBF388875}">
+														<MusicTrackSequence Name="" ID="{6079798E-BF4B-4E57-B38E-D890DB3E91E6}">
 															<ClipList>
-																<MusicClip Name="Music_Menu_Pause_Relaxing_Green_Nature" ID="{B0FBAC53-5C8E-41A1-8E44-B2BE5F83435E}">
+																<MusicClip Name="Music_Menu_Pause_Relaxing_Green_Nature_Reduced_Loop" ID="{F719DF44-DA90-460D-A893-D0F0FF41EFB0}">
 																	<PropertyList>
-																		<Property Name="EndTrimOffset" Type="Real64" Value="318928.979591837"/>
+																		<Property Name="EndTrimOffset" Type="Real64" Value="164625.011337868"/>
 																		<Property Name="FadeInMode" Type="int16" Value="0"/>
 																		<Property Name="FadeOutMode" Type="int16" Value="0"/>
 																	</PropertyList>
-																	<AudioSourceRef Name="Music_Menu_Pause_Relaxing_Green_Nature" ID="{BC998BAF-3A18-4742-BB04-E516167EE312}"/>
+																	<AudioSourceRef Name="Music_Menu_Pause_Relaxing_Green_Nature_Reduced_Loop" ID="{5DD1F867-ADB1-4C91-96DB-1BB930210D40}"/>
 																</MusicClip>
 															</ClipList>
 														</MusicTrackSequence>
@@ -1452,6 +1319,9 @@
 									</TransitionList>
 									<Playlist>
 										<MusicPlaylistItem Name="" ID="{B3DBCB5D-5B9E-429C-9E2A-780634E6AC1D}" ShortID="1023152427">
+											<PropertyList>
+												<Property Name="LoopCount" Type="int16" Value="0"/>
+											</PropertyList>
 											<ChildrenList>
 												<MusicPlaylistItem Name="" ID="{C5C973E7-1A48-401F-BCDE-A8DD1DD68DE5}" ShortID="407267877">
 													<PropertyList>

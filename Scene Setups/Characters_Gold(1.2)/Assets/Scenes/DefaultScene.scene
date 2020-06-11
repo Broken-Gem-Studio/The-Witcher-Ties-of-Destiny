@@ -1283,8 +1283,8 @@
                 "rotationx": "-0.000169",
                 "rotationy": "-0.004364",
                 "rotationz": "0.999931",
-                "scalex": "1.002020",
-                "scaley": "1.001999",
+                "scalex": "1.002088",
+                "scaley": "1.002063",
                 "scalez": "1.000000"
             },
             "13": {
@@ -1544,8 +1544,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.001010",
-                "scalez": "1.001010"
+                "scaley": "1.001044",
+                "scalez": "1.001044"
             }
         },
         "Index": 0,
@@ -1570,8 +1570,8 @@
                 "rotationy": "-0.000000",
                 "rotationz": "-0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.001010",
-                "scalez": "1.001010"
+                "scaley": "1.001044",
+                "scalez": "1.001044"
             }
         },
         "Index": 0,
@@ -2075,8 +2075,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.001010",
-                "scalez": "1.001010"
+                "scaley": "1.001044",
+                "scalez": "1.001044"
             }
         },
         "Index": 0,
@@ -2963,8 +2963,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.070461",
-                "scaley": "15.162436",
-                "scalez": "1.368660"
+                "scaley": "15.162727",
+                "scalez": "1.368694"
             },
             "1": {
                 "Active": true,
@@ -3626,7 +3626,7 @@
                     "ResourceScript": "Assets/Characters/Jaskier/JaskierScript_v15.lua"
                 },
                 "Script variables": {
-                    "Count": 229,
+                    "Count": 230,
                     "Variable 0": {
                         "DisplayObjectName": false,
                         "Name": "ability_cooldown",
@@ -3814,7 +3814,7 @@
                         "Name": "medium_1_block_time",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 400.0
+                        "Value": 375.0
                     },
                     "Variable 122": {
                         "DisplayObjectName": false,
@@ -4399,17 +4399,17 @@
                     },
                     "Variable 198": {
                         "DisplayObjectName": false,
+                        "Name": "song_3_saved_direction",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 199": {
+                        "DisplayObjectName": false,
                         "Name": "song_3_secondary_animation_name",
                         "ObjectName": "",
                         "Type": "String",
                         "Value": "guitar_slam_two_handed"
-                    },
-                    "Variable 199": {
-                        "DisplayObjectName": false,
-                        "Name": "song_3_secondary_animation_speed",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 50.0
                     },
                     "Variable 2": {
                         "DisplayObjectName": false,
@@ -4427,73 +4427,73 @@
                     },
                     "Variable 200": {
                         "DisplayObjectName": false,
+                        "Name": "song_3_secondary_animation_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 50.0
+                    },
+                    "Variable 201": {
+                        "DisplayObjectName": false,
                         "Name": "song_3_secondary_damage",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 125.0
                     },
-                    "Variable 201": {
+                    "Variable 202": {
                         "DisplayObjectName": false,
                         "Name": "song_3_secondary_effect_active",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": false
                     },
-                    "Variable 202": {
+                    "Variable 203": {
                         "DisplayObjectName": false,
                         "Name": "song_3_secondary_effect_end",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 2950.0
                     },
-                    "Variable 203": {
+                    "Variable 204": {
                         "DisplayObjectName": false,
                         "Name": "song_3_secondary_effect_start",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 2850.0
                     },
-                    "Variable 204": {
+                    "Variable 205": {
                         "DisplayObjectName": false,
                         "Name": "song_3_secondary_effect_value",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
                     },
-                    "Variable 205": {
+                    "Variable 206": {
                         "DisplayObjectName": false,
                         "Name": "song_3_secondary_status_effect",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 2.0
                     },
-                    "Variable 206": {
+                    "Variable 207": {
                         "DisplayObjectName": false,
                         "Name": "song_3_size",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 4.0
                     },
-                    "Variable 207": {
+                    "Variable 208": {
                         "DisplayObjectName": false,
                         "Name": "song_3_status_effect",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 3.0
                     },
-                    "Variable 208": {
+                    "Variable 209": {
                         "DisplayObjectName": false,
                         "Name": "stand_up_animation_speed",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 90.0
-                    },
-                    "Variable 209": {
-                        "DisplayObjectName": false,
-                        "Name": "stand_up_duration",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 1500.0
                     },
                     "Variable 21": {
                         "DisplayObjectName": false,
@@ -4504,73 +4504,73 @@
                     },
                     "Variable 210": {
                         "DisplayObjectName": false,
-                        "Name": "standing_up_bool",
+                        "Name": "stand_up_duration",
                         "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
+                        "Type": "Double",
+                        "Value": 1500.0
                     },
                     "Variable 211": {
                         "DisplayObjectName": false,
-                        "Name": "ultimate_active",
+                        "Name": "standing_up_bool",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": false
                     },
                     "Variable 212": {
                         "DisplayObjectName": false,
+                        "Name": "ultimate_active",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 213": {
+                        "DisplayObjectName": false,
                         "Name": "ultimate_animation_speed",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 30.0
                     },
-                    "Variable 213": {
+                    "Variable 214": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_damage",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 100.0
                     },
-                    "Variable 214": {
+                    "Variable 215": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_damage_interval",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 1100.0
                     },
-                    "Variable 215": {
+                    "Variable 216": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_duration",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 5000.0
                     },
-                    "Variable 216": {
+                    "Variable 217": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_effect_active",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": false
                     },
-                    "Variable 217": {
+                    "Variable 218": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_effect_end",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 3300.0
                     },
-                    "Variable 218": {
+                    "Variable 219": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_reg_mod",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 1.0
-                    },
-                    "Variable 219": {
-                        "DisplayObjectName": false,
-                        "Name": "ultimate_reg_orig",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 1.5
                     },
                     "Variable 22": {
                         "DisplayObjectName": false,
@@ -4581,61 +4581,68 @@
                     },
                     "Variable 220": {
                         "DisplayObjectName": false,
+                        "Name": "ultimate_reg_orig",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.5
+                    },
+                    "Variable 221": {
+                        "DisplayObjectName": false,
                         "Name": "ultimate_secondary_animation_speed",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 50.0
                     },
-                    "Variable 221": {
+                    "Variable 222": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_secondary_damage",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 200.0
                     },
-                    "Variable 222": {
+                    "Variable 223": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_secondary_effect_active",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": false
                     },
-                    "Variable 223": {
+                    "Variable 224": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_secondary_effect_end",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 4250.0
                     },
-                    "Variable 224": {
+                    "Variable 225": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_secondary_effect_start",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 4150.0
                     },
-                    "Variable 225": {
+                    "Variable 226": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_secondary_effect_value",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
                     },
-                    "Variable 226": {
+                    "Variable 227": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_secondary_status_effect",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 2.0
                     },
-                    "Variable 227": {
+                    "Variable 228": {
                         "DisplayObjectName": false,
                         "Name": "ultimate_status_effect",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
                     },
-                    "Variable 228": {
+                    "Variable 229": {
                         "DisplayObjectName": false,
                         "Name": "walk_animation_speed",
                         "ObjectName": "",
@@ -4703,7 +4710,7 @@
                         "Name": "heavy_1_block_time",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 600.0
+                        "Value": 575.0
                     },
                     "Variable 31": {
                         "DisplayObjectName": false,
@@ -4766,7 +4773,7 @@
                         "Name": "heavy_2_block_time",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 550.0
+                        "Value": 575.0
                     },
                     "Variable 4": {
                         "DisplayObjectName": false,
@@ -5130,7 +5137,7 @@
                         "Name": "light_1_block_time",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 350.0
+                        "Value": 325.0
                     },
                     "Variable 87": {
                         "DisplayObjectName": false,
@@ -5179,7 +5186,7 @@
                         "Name": "light_2_block_time",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 250.0
+                        "Value": 225.0
                     },
                     "Variable 93": {
                         "DisplayObjectName": false,
@@ -5290,8 +5297,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.540000",
-                "scaley": "2.541250",
-                "scalez": "2.541250"
+                "scaley": "2.541292",
+                "scalez": "2.541292"
             },
             "1": {
                 "Active": false,
@@ -5486,8 +5493,8 @@
                 "rotationx": "-0.000534",
                 "rotationy": "-0.000084",
                 "rotationz": "0.999921",
-                "scalex": "1.002011",
-                "scaley": "1.002013",
+                "scalex": "1.002079",
+                "scaley": "1.002081",
                 "scalez": "1.000000"
             },
             "13": {
@@ -6115,8 +6122,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.001010",
-                "scalez": "1.001010"
+                "scaley": "1.001044",
+                "scalez": "1.001044"
             }
         },
         "Index": 0,
@@ -6327,11 +6334,11 @@
             },
             "3": {
                 "ACTIVECAM": true,
-                "ASPECTRATIO": 1.7298171520233154,
+                "ASPECTRATIO": 1.9687293767929077,
                 "Active": true,
                 "CULLINGCAM": true,
                 "FARPLANE": 1000.0,
-                "FOV": 56.206382751464844,
+                "FOV": 43.31641387939453,
                 "NEARPLANE": 0.10000000149011612,
                 "UID": 271918684,
                 "index": 1
@@ -6777,8 +6784,8 @@
                 "rotationx": "0.388476",
                 "rotationy": "0.030072",
                 "rotationz": "0.916844",
-                "scalex": "1.002016",
-                "scaley": "1.002016",
+                "scalex": "1.002084",
+                "scaley": "1.002084",
                 "scalez": "1.000000"
             },
             "13": {
@@ -7807,8 +7814,8 @@
                 "rotationx": "0.000205",
                 "rotationy": "-0.005509",
                 "rotationz": "0.999924",
-                "scalex": "1.001236",
-                "scaley": "1.001513",
+                "scalex": "1.001270",
+                "scaley": "1.001561",
                 "scalez": "1.000000"
             },
             "13": {
@@ -7961,8 +7968,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.001010",
-                "scalez": "1.001010"
+                "scaley": "1.001044",
+                "scalez": "1.001044"
             }
         },
         "Index": 0,
@@ -8089,8 +8096,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.001010",
-                "scalez": "1.001010"
+                "scaley": "1.001044",
+                "scalez": "1.001044"
             }
         },
         "Index": 0,
@@ -8115,8 +8122,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.001010",
-                "scalez": "1.001010"
+                "scaley": "1.001044",
+                "scalez": "1.001044"
             }
         },
         "Index": 0,
@@ -8201,8 +8208,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.001010",
-                "scalez": "1.001010"
+                "scaley": "1.001044",
+                "scalez": "1.001044"
             }
         },
         "Index": 0,
@@ -8305,8 +8312,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "2.540000",
-                "scaley": "2.541251",
-                "scalez": "2.541251"
+                "scaley": "2.541293",
+                "scalez": "2.541293"
             },
             "1": {
                 "Active": false,
@@ -8449,8 +8456,8 @@
                 "rotationx": "0.388476",
                 "rotationy": "0.030072",
                 "rotationz": "0.916844",
-                "scalex": "1.002014",
-                "scaley": "1.002014",
+                "scalex": "1.002082",
+                "scaley": "1.002082",
                 "scalez": "1.000000"
             },
             "13": {
@@ -8543,8 +8550,8 @@
                 "rotationx": "0.000598",
                 "rotationy": "0.002538",
                 "rotationz": "0.999918",
-                "scalex": "0.998990",
-                "scaley": "0.998990",
+                "scalex": "0.998956",
+                "scaley": "0.998956",
                 "scalez": "1.000000"
             },
             "13": {
@@ -8697,8 +8704,8 @@
                 "rotationy": "0.000028",
                 "rotationz": "-0.000027",
                 "scalex": "2.540000",
-                "scaley": "2.541253",
-                "scalez": "2.541253"
+                "scaley": "2.541296",
+                "scalez": "2.541296"
             },
             "13": {
                 "Active": true,
@@ -9209,9 +9216,9 @@
                 "rotationx": "-0.550319",
                 "rotationy": "-0.440850",
                 "rotationz": "0.555183",
-                "scalex": "1.001010",
-                "scaley": "1.001010",
-                "scalez": "1.001010"
+                "scalex": "1.001044",
+                "scaley": "1.001044",
+                "scalez": "1.001044"
             },
             "13": {
                 "Active": true,
@@ -9304,8 +9311,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.001010",
-                "scalez": "1.001010"
+                "scaley": "1.001044",
+                "scalez": "1.001044"
             }
         },
         "Index": 0,
@@ -9424,8 +9431,8 @@
                 "rotationy": "0.000040",
                 "rotationz": "-0.000037",
                 "scalex": "1.000000",
-                "scaley": "1.001010",
-                "scalez": "1.001010"
+                "scaley": "1.001044",
+                "scalez": "1.001044"
             },
             "13": {
                 "Active": true,
@@ -9458,8 +9465,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.001010",
-                "scalez": "1.001010"
+                "scaley": "1.001044",
+                "scalez": "1.001044"
             }
         },
         "Index": 0,
@@ -9702,8 +9709,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.001010",
-                "scalez": "1.001010"
+                "scaley": "1.001044",
+                "scalez": "1.001044"
             }
         },
         "Index": 0,
@@ -11881,9 +11888,9 @@
                 "rotationx": "0.536806",
                 "rotationy": "-0.449375",
                 "rotationz": "0.566528",
-                "scalex": "0.998990",
-                "scaley": "0.998990",
-                "scalez": "0.998990"
+                "scalex": "0.998956",
+                "scaley": "0.998956",
+                "scalez": "0.998956"
             },
             "13": {
                 "Active": true,
@@ -11916,8 +11923,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.001010",
-                "scalez": "1.001010"
+                "scaley": "1.001044",
+                "scalez": "1.001044"
             }
         },
         "Index": 0,
@@ -12114,8 +12121,8 @@
                 "rotationy": "0.000000",
                 "rotationz": "0.000000",
                 "scalex": "1.000000",
-                "scaley": "1.001010",
-                "scalez": "1.001010"
+                "scaley": "1.001044",
+                "scalez": "1.001044"
             }
         },
         "Index": 0,
@@ -12180,7 +12187,7 @@
             "12": {
                 "Active": true,
                 "Resources": {
-                    "ResourceScript": "Assets/Characters/Testing/CameraScript_v9.lua"
+                    "ResourceScript": "Assets/Characters/Testing/CameraScript_v10.lua"
                 },
                 "Script variables": {
                     "Count": 38,
@@ -12200,17 +12207,17 @@
                     },
                     "Variable 10": {
                         "DisplayObjectName": false,
+                        "Name": "bossfight_orientation",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": -25.0
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
                         "Name": "camera_GO",
                         "ObjectName": "",
                         "Type": "String",
                         "Value": "Actual_Camera"
-                    },
-                    "Variable 11": {
-                        "DisplayObjectName": false,
-                        "Name": "camera_UID",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
                     },
                     "Variable 12": {
                         "DisplayObjectName": false,
@@ -12263,10 +12270,10 @@
                     },
                     "Variable 19": {
                         "DisplayObjectName": false,
-                        "Name": "ciri_GO",
+                        "Name": "camera_shake_activated",
                         "ObjectName": "",
-                        "Type": "String",
-                        "Value": "Ciri"
+                        "Type": "Boolean",
+                        "Value": false
                     },
                     "Variable 2": {
                         "DisplayObjectName": false,
@@ -12277,73 +12284,73 @@
                     },
                     "Variable 20": {
                         "DisplayObjectName": false,
-                        "Name": "current_camera_orientation",
+                        "Name": "camera_shake_duration",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
                     },
                     "Variable 21": {
                         "DisplayObjectName": false,
-                        "Name": "current_gameplay",
+                        "Name": "camera_shake_magnitude",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
                     },
                     "Variable 22": {
                         "DisplayObjectName": false,
+                        "Name": "ciri_GO",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Ciri"
+                    },
+                    "Variable 23": {
+                        "DisplayObjectName": false,
+                        "Name": "current_camera_orientation",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 24": {
+                        "DisplayObjectName": false,
+                        "Name": "current_gameplay",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 25": {
+                        "DisplayObjectName": false,
                         "Name": "current_state",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 1.0
                     },
-                    "Variable 23": {
+                    "Variable 26": {
                         "DisplayObjectName": false,
                         "Name": "current_zoom_layer",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 1.0
                     },
-                    "Variable 24": {
+                    "Variable 27": {
                         "DisplayObjectName": false,
                         "Name": "geralt_GO",
                         "ObjectName": "",
                         "Type": "String",
                         "Value": "Geralt"
                     },
-                    "Variable 25": {
+                    "Variable 28": {
                         "DisplayObjectName": false,
                         "Name": "jaskier_GO",
                         "ObjectName": "",
                         "Type": "String",
                         "Value": "Jaskier"
                     },
-                    "Variable 26": {
+                    "Variable 29": {
                         "DisplayObjectName": false,
                         "Name": "kikimora_GO",
                         "ObjectName": "",
                         "Type": "String",
                         "Value": "Kikimora"
-                    },
-                    "Variable 27": {
-                        "DisplayObjectName": false,
-                        "Name": "light_GO",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "Light"
-                    },
-                    "Variable 28": {
-                        "DisplayObjectName": false,
-                        "Name": "light_UID",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 29": {
-                        "DisplayObjectName": false,
-                        "Name": "light_angle",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 30.0
                     },
                     "Variable 3": {
                         "DisplayObjectName": false,
@@ -12354,38 +12361,38 @@
                     },
                     "Variable 30": {
                         "DisplayObjectName": false,
-                        "Name": "light_distance",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 20.0
-                    },
-                    "Variable 31": {
-                        "DisplayObjectName": false,
-                        "Name": "light_orientation",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 180.0
-                    },
-                    "Variable 32": {
-                        "DisplayObjectName": false,
                         "Name": "movement_smooth_speed",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.2
                     },
+                    "Variable 31": {
+                        "DisplayObjectName": false,
+                        "Name": "orientation_smooth_speed",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.1
+                    },
+                    "Variable 32": {
+                        "DisplayObjectName": false,
+                        "Name": "target_position_x",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
                     "Variable 33": {
                         "DisplayObjectName": false,
-                        "Name": "my_UID",
+                        "Name": "target_position_y",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
                     },
                     "Variable 34": {
                         "DisplayObjectName": false,
-                        "Name": "orientation_smooth_speed",
+                        "Name": "target_position_z",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 0.1
+                        "Value": 0.0
                     },
                     "Variable 35": {
                         "DisplayObjectName": false,
@@ -12441,17 +12448,17 @@
                         "Name": "bossfight_angle",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 50.0
+                        "Value": 40.0
                     },
                     "Variable 9": {
                         "DisplayObjectName": false,
                         "Name": "bossfight_distance",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 40.0
+                        "Value": 45.0
                     }
                 },
-                "UID": 1225632882,
+                "UID": 1280853099,
                 "index": 1
             }
         },

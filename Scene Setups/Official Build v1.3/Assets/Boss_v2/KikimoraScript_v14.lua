@@ -215,12 +215,12 @@ local animation =
     sweep_execution = { anim_name = "sweep_execution", anim_frames = 13, anim_speed = 30, anim_blendtime = 0 },
     sweep_recovery = { anim_name = "sweep_recovery", anim_frames = 39, anim_speed = 30, anim_blendtime = 0 },
     
-    sweep_left_anticipation = { anim_name = "sweep_left_anticipation", anim_frames = 59, anim_speed = 30, anim_blendtime = 0 },
-    sweep_left_execution = { anim_name = "sweep_left_execution", anim_frames = 5, anim_speed = 30, anim_blendtime = 0 },
+    sweep_left_anticipation = { anim_name = "sweep_left_anticipation", anim_frames = 60, anim_speed = 30, anim_blendtime = 0 },
+    sweep_left_execution = { anim_name = "sweep_left_execution", anim_frames = 4, anim_speed = 30, anim_blendtime = 0 },
     sweep_left_recovery = { anim_name = "sweep_left_recovery", anim_frames = 34, anim_speed = 30, anim_blendtime = 0 },
     
-    sweep_right_anticipation = { anim_name = "sweep_right_anticipation", anim_frames = 57, anim_speed = 30, anim_blendtime = 0 },
-    sweep_right_execution = { anim_name = "sweep_right_execution", anim_frames = 5, anim_speed = 30, anim_blendtime = 0 },
+    sweep_right_anticipation = { anim_name = "sweep_right_anticipation", anim_frames = 58, anim_speed = 30, anim_blendtime = 0 },
+    sweep_right_execution = { anim_name = "sweep_right_execution", anim_frames = 4, anim_speed = 30, anim_blendtime = 0 },
     sweep_right_recovery = { anim_name = "sweep_right_recovery", anim_frames = 34, anim_speed = 30, anim_blendtime = 0 },
     
     stomp_anticipation = { anim_name = "stomp_anticipation", anim_frames = 34, anim_speed = 20, anim_blendtime = 0 }, -- custom speed
@@ -281,11 +281,11 @@ local particles =
 {
     scream = { part_name = "KikimoraScream", part_UID = 0, part_active = false, part_pos = {} },
 
-    dustcloud_stomp_left = { part_name = "DustCloud_Stomp_Left", part_UID = 0, part_childs = {}, part_active = false, part_pos = {} },
-    dustcloud_stomp_right = { part_name = "DustCloud_Stomp_Right", part_UID = 0, part_childs = {}, part_active = false, part_pos = {} },
+    groundslam_stomp_left = { part_name = "GroundSlam_Stomp_Left", part_UID = 0, part_childs = {}, part_active = false, part_pos = {} },
+    groundslam_stomp_right = { part_name = "GroundSlam_Stomp_Right", part_UID = 0, part_childs = {}, part_active = false, part_pos = {} },
   
-    dustcloud_leash_left = { part_name = "DustCloud_Leash_Left", part_UID = 0, part_childs = {}, part_active = false, part_pos = {} },
-    dustcloud_leash_right = { part_name = "DustCloud_Leash_Right", part_UID = 0, part_childs = {}, part_active = false, part_pos = {} },
+    groundslam_leash_left = { part_name = "GroundSlam_Leash_Left", part_UID = 0, part_childs = {}, part_active = false, part_pos = {} },
+    groundslam_leash_right = { part_name = "GroundSlam_Leash_Right", part_UID = 0, part_childs = {}, part_active = false, part_pos = {} },
     
     kiki_sweep_particle_left = { part_name = "Kiki_Sweep_Particle_Left", part_UID = 0, part_childs = {}, part_active = false, part_pos = {} }, --this has childs??
     kiki_sweep_particle_right = { part_name = "Kiki_Sweep_Particle_Right", part_UID = 0, part_childs = {}, part_active = false, part_pos = {} },
@@ -294,6 +294,7 @@ local particles =
     kiki_sweep_right_particle = { part_name = "Kiki_Sweep_Right_Particle", part_UID = 0, part_childs = {}, part_active = false, part_pos = {} },
 
     jump_area = { part_name = "Jump_Area", part_UID = 0, part_childs = {}, part_active = false, part_pos = {} },
+    groundslam_jump = { part_name = "GroundSlam_Jump", part_UID = 0, part_childs = {}, part_active = false, part_pos = {} },
 
     rage_aura_1 = { part_name = "Rage_Aura_1", part_UID = 0, part_childs = {}, part_active = false, part_pos = {} },
     rage_aura_2 = { part_name = "Rage_Aura_2", part_UID = 0, part_childs = {}, part_active = false, part_pos = {} },
@@ -404,7 +405,7 @@ lua_table.stomp_tired_time = 3
 lua_table.leash_tired_time = 4
 lua_table.under_time = 3 --seconds
 lua_table.jump_delay_up = 0.5 --seconds
-lua_table.jump_delay_down = 3
+lua_table.jump_delay_down = 2
 
 local randy = 0
 
@@ -1086,8 +1087,10 @@ local function HandleStompAttack()
                 attack_tired_timer = game_time + lua_table.stomp_tired_time
 
                 -- ACTIVATE PARTICLES
-                lua_table.ParticlesFunctions:PlayParticleEmitter(particles.dustcloud_stomp_left.part_UID)
-                lua_table.ParticlesFunctions:PlayParticleEmitter(particles.dustcloud_stomp_right.part_UID)
+                for i = 1, #particles.groundslam_stomp_left.part_childs do
+                    lua_table.ParticlesFunctions:PlayParticleEmitter(particles.groundslam_stomp_left.part_childs[i])
+                    lua_table.ParticlesFunctions:PlayParticleEmitter(particles.groundslam_stomp_right.part_childs[i])
+                end
 
                 -- Deactivate collider
                 lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_collider.stomp.coll_UID)
@@ -1109,6 +1112,12 @@ local function HandleStompAttack()
 
                 -- START RECOVERY OF ATTACK ANIMATION
                 lua_table.AnimationFunctions:PlayAnimation(animation.stomp_recovery.anim_name, animation.stomp_recovery.anim_speed, my_UID)
+
+                -- DEACTIVATE PARTICLES
+                for i = 1, #particles.groundslam_stomp_left.part_childs do
+                    lua_table.ParticlesFunctions:StopParticleEmitter(particles.groundslam_stomp_left.part_childs[i])
+                    lua_table.ParticlesFunctions:StopParticleEmitter(particles.groundslam_stomp_right.part_childs[i])
+                end
                 
                 -- Execution Timer
                 attack_subdivision_timer = game_time + attack.stomp.att_recovery_duration    
@@ -1122,10 +1131,6 @@ local function HandleStompAttack()
             then
                 --attack.stomp.att_cooldown_bool = true
                 --attack.stomp.att_timer = game_time + attack.stomp.att_cooldown_time
-
-                -- DEACTIVATE PARTICLES
-                lua_table.ParticlesFunctions:StopParticleEmitter(particles.dustcloud_stomp_left.part_UID)
-                lua_table.ParticlesFunctions:StopParticleEmitter(particles.dustcloud_stomp_right.part_UID)
                 
                 attack_finished = true
                 attack_counter = attack_counter + 1
@@ -1196,6 +1201,7 @@ local function HandleSweepAttack()
                 -- ACTIVATE PARTCLES 
                 for i = 1, #particles.kiki_sweep_particle_left.part_childs do
                     lua_table.ParticlesFunctions:PlayParticleEmitter(particles.kiki_sweep_particle_left.part_childs[i])
+                    lua_table.SystemFunctions:LOG ("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
                 end
 
                 -- AUDIO PLAY
@@ -1243,10 +1249,7 @@ local function HandleSweepAttack()
                 -- Deactivate collider
                 lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_collider.sweep.coll_UID)
             
-                --DEACTIVATE PARTCLES 
-                for i = 1, #particles.kiki_sweep_particle_left.part_childs do
-                    lua_table.ParticlesFunctions:StopParticleEmitter(particles.kiki_sweep_particle_left.part_childs[i])
-                end
+                
             end
         end
 
@@ -1257,6 +1260,12 @@ local function HandleSweepAttack()
             then
                 --attack.sweep_left.att_cooldown_bool = true
                 --attack.sweep_left.att_timer = game_time + attack.sweep_left.att_cooldown_time
+
+                --DEACTIVATE PARTCLES 
+                for i = 1, #particles.kiki_sweep_particle_left.part_childs do
+                    lua_table.ParticlesFunctions:StopParticleEmitter(particles.kiki_sweep_particle_left.part_childs[i])
+                    lua_table.SystemFunctions:LOG ("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+                end
 
                 attack_finished = true
                 attack_counter = attack_counter + 1
@@ -1378,10 +1387,7 @@ local function HandleSweepLeftAttack()
                 -- Deactivate collider
                 lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_collider.sweep_left.coll_UID)
                 
-                -- DEACTIVATE PARTCLES
-                for i = 1, #particles.kiki_sweep_left_particle.part_childs do
-                    lua_table.ParticlesFunctions:StopParticleEmitter(particles.kiki_sweep_left_particle.part_childs[i])
-                end
+                
             end
         end
 
@@ -1392,6 +1398,11 @@ local function HandleSweepLeftAttack()
             then
                 --attack.sweep_left.att_cooldown_bool = true
                 --attack.sweep_left.att_timer = game_time + attack.sweep_left.att_cooldown_time
+
+                -- DEACTIVATE PARTCLES
+                for i = 1, #particles.kiki_sweep_left_particle.part_childs do
+                    lua_table.ParticlesFunctions:StopParticleEmitter(particles.kiki_sweep_left_particle.part_childs[i])
+                end
 
                 attack_finished = true
                 attack_counter = attack_counter + 1
@@ -1515,10 +1526,7 @@ local function HandleSweepRightAttack()
                 -- Deactivates Collider
                 lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_collider.sweep_right.coll_UID)
            
-                -- DEACTIVATE PARTCLES 
-                for i = 1, #particles.kiki_sweep_right_particle.part_childs do
-                    lua_table.ParticlesFunctions:StopParticleEmitter(particles.kiki_sweep_right_particle.part_childs[i])
-                end
+                
             end
         end
 
@@ -1529,6 +1537,11 @@ local function HandleSweepRightAttack()
             then
                 --attack.sweep_right.att_cooldown_bool = true
                 --attack.sweep_right.att_timer = game_time + attack.sweep_right.att_cooldown_time
+
+                -- DEACTIVATE PARTCLES 
+                for i = 1, #particles.kiki_sweep_right_particle.part_childs do
+                    lua_table.ParticlesFunctions:StopParticleEmitter(particles.kiki_sweep_right_particle.part_childs[i])
+                end
 
                 attack_finished = true
                 attack_counter = attack_counter + 1
@@ -1635,8 +1648,9 @@ local function HandleLeashLeftAttack()
                 attack_tired_timer = game_time + lua_table.leash_tired_time
                 
                 -- ACTIVATE PARTICLES
-                lua_table.ParticlesFunctions:PlayParticleEmitter(particles.dustcloud_leash_left.part_UID)
-
+                for i = 1, #particles.groundslam_leash_left.part_childs do
+                    lua_table.ParticlesFunctions:PlayParticleEmitter(particles.groundslam_leash_left.part_childs[i])
+                end
                 -- Deactivate collider
                 lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_collider.leash_left.coll_UID)
 
@@ -1671,7 +1685,9 @@ local function HandleLeashLeftAttack()
                 --attack.leash_left.att_timer = game_time + attack.leash_left.att_cooldown_time
 
                 -- DEACTIVATE PARTICLES
-                lua_table.ParticlesFunctions:StopParticleEmitter(particles.dustcloud_leash_left.part_UID)
+                for i = 1, #particles.groundslam_leash_left.part_childs do
+                    lua_table.ParticlesFunctions:StopParticleEmitter(particles.groundslam_leash_left.part_childs[i])
+                end
 
                 attack_finished = true
                 attack_counter = attack_counter + 1
@@ -1778,7 +1794,9 @@ local function HandleLeashRightAttack()
                 attack_tired_timer = game_time + lua_table.leash_tired_time
 
                 -- ACTIVATE PARTICLES
-                lua_table.ParticlesFunctions:PlayParticleEmitter(particles.dustcloud_leash_right.part_UID)
+                for i = 1, #particles.groundslam_leash_right.part_childs do
+                    lua_table.ParticlesFunctions:PlayParticleEmitter(particles.groundslam_leash_right.part_childs[i])
+                end
             end
 
             if game_time >= attack_tired_timer and attack_tired_timer ~= -1--Check if execution is finished
@@ -1795,9 +1813,6 @@ local function HandleLeashRightAttack()
 
                 -- Deactivates Collider
                 lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_collider.leash_right.coll_UID)
-
-                -- DEACTIVATE PARTICLES
-                lua_table.ParticlesFunctions:StopParticleEmitter(particles.dustcloud_leash_right.part_UID)
 
                 -- AUDIO PLAY
                 lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_lash", my_UID) 
@@ -1816,6 +1831,11 @@ local function HandleLeashRightAttack()
             then
                 --attack.leash_right.att_cooldown_bool = true
                 --attack.leash_right.att_timer = game_time + attack.leash_right.att_cooldown_time
+
+                -- DEACTIVATE PARTICLES
+                for i = 1, #particles.groundslam_leash_right.part_childs do
+                    lua_table.ParticlesFunctions:StopParticleEmitter(particles.groundslam_leash_right.part_childs[i])
+                end
                 
                 attack_finished = true
                 attack_counter = attack_counter + 1
@@ -2151,7 +2171,7 @@ local function HandleJump()
     end
 
     -- When Hits the ground
-    if game_time >= animation_timer + 0.5 and awakening_audio_played == false
+    if game_time >= animation_timer + 0.5 and awakening_audio_played == false and current_jumping_state == jumping_state.DOWNWARDS
     then
         awakening_audio_played = true
 
@@ -2163,6 +2183,11 @@ local function HandleJump()
         -- Collider active
         lua_table.GameObjectFunctions:SetActiveGameObject(true, attack_collider.jump.coll_UID)
         attack_collider.jump.coll_active = true
+
+        -- Activates Particles
+        for i = 1, #particles.groundslam_jump.part_childs do
+            lua_table.ParticlesFunctions:PlayParticleEmitter(particles.groundslam_jump.part_childs[i])
+        end
 
         -- AUDIO PLAY
         lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_damaged", my_UID)
@@ -2184,6 +2209,11 @@ local function HandleJump()
         -- Collider unactive
         lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_collider.jump.coll_UID)
         attack_collider.jump.coll_active = false
+
+        -- Deactivates Particles
+        for i = 1, #particles.groundslam_jump.part_childs do
+            lua_table.ParticlesFunctions:StopParticleEmitter(particles.groundslam_jump.part_childs[i])
+        end
     end
 end
 
@@ -2381,9 +2411,16 @@ local function HandleStates()
             lua_table.GameObjectFunctions:SetActiveGameObject(true, my_mesh_UID)
         end
 
+        -- When hits the ground
         if game_time >= animation_timer + 0.5 and awakening_audio_played == false
         then
             awakening_audio_played = true
+
+            -- Activates Particles
+            for i = 1, #particles.groundslam_jump.part_childs do
+                lua_table.ParticlesFunctions:PlayParticleEmitter(particles.groundslam_jump.part_childs[i])
+            end
+
             -- AUDIO PLAY
             lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_damaged", my_UID)
 
@@ -2393,6 +2430,7 @@ local function HandleStates()
             lua_table.camera_script.camera_shake_magnitude = 0.1
         end
 
+        -- When finishes dropping animation
         if game_time >= state_timer and awakening_scream_played == false
         then
             awakening_scream_played = true
@@ -2404,6 +2442,11 @@ local function HandleStates()
             local swap_phase_duration = animation.swap_phase.anim_frames / animation.swap_phase.anim_speed
 
             animation_timer = game_time + swap_phase_duration
+
+            -- Deactivates Particles
+            for i = 1, #particles.groundslam_jump.part_childs do
+                lua_table.ParticlesFunctions:StopParticleEmitter(particles.groundslam_jump.part_childs[i])
+            end
     
             -- AUDIO PLAY
             lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_scream_1", my_UID)
@@ -2416,6 +2459,7 @@ local function HandleStates()
             lua_table.SystemFunctions:LOG ("Kikimora: AWAKENING ended now scream")
         end
 
+        -- When finishes screaming animation
         if game_time >= animation_timer and awakening_scream_played == true
         then
             awakening_scream_played = false
@@ -2901,10 +2945,10 @@ function lua_table:Awake ()
     attack_collider.leash_left_pivot.coll_growth_velocity[y] = (attack_collider.leash_left_pivot.coll_init_scale[y] - attack_collider.leash_left_pivot.coll_final_scale[y]) / attack.leash_left.att_execution_duration 
     attack_collider.leash_left_pivot.coll_growth_velocity[z] = (attack_collider.leash_left_pivot.coll_init_scale[z] - attack_collider.leash_left_pivot.coll_final_scale[z]) / attack.leash_left.att_execution_duration
 
-    attack_collider.leash_left.coll_init_pos[x] = 6
+    attack_collider.leash_left.coll_init_pos[x] = 7
     attack_collider.leash_left.coll_init_pos[y] = 0
     attack_collider.leash_left.coll_init_pos[z] = 0
-    attack_collider.leash_left.coll_final_pos[x] = 6
+    attack_collider.leash_left.coll_final_pos[x] = 7
     attack_collider.leash_left.coll_final_pos[y] = 0
     attack_collider.leash_left.coll_final_pos[z] = 0
     attack_collider.leash_left.coll_velocity[x] = (attack_collider.leash_left.coll_final_pos[x] - attack_collider.leash_left.coll_init_pos[x]) / attack.leash_left.att_execution_duration 
@@ -2919,10 +2963,10 @@ function lua_table:Awake ()
     attack_collider.leash_left.coll_ang_velocity[x] = (attack_collider.leash_left.coll_final_rot[x] - attack_collider.leash_left.coll_init_rot[x]) / attack.leash_left.att_execution_duration 
     attack_collider.leash_left.coll_ang_velocity[y] = (attack_collider.leash_left.coll_final_rot[y] - attack_collider.leash_left.coll_init_rot[y]) / attack.leash_left.att_execution_duration 
     attack_collider.leash_left.coll_ang_velocity[z] = (attack_collider.leash_left.coll_final_rot[z] - attack_collider.leash_left.coll_init_rot[z]) / attack.leash_left.att_execution_duration 
-    attack_collider.leash_left.coll_init_scale[x] = 12
+    attack_collider.leash_left.coll_init_scale[x] = 14
     attack_collider.leash_left.coll_init_scale[y] = 3
     attack_collider.leash_left.coll_init_scale[z] = 3
-    attack_collider.leash_left.coll_final_scale[x] = 12
+    attack_collider.leash_left.coll_final_scale[x] = 14
     attack_collider.leash_left.coll_final_scale[y] = 3
     attack_collider.leash_left.coll_final_scale[z] = 3
     attack_collider.leash_left.coll_growth_velocity[x] = (attack_collider.leash_left.coll_init_scale[x] - attack_collider.leash_left.coll_final_scale[x]) / attack.leash_left.att_execution_duration 
@@ -2957,10 +3001,10 @@ function lua_table:Awake ()
     attack_collider.leash_right_pivot.coll_growth_velocity[y] = (attack_collider.leash_right_pivot.coll_init_scale[y] - attack_collider.leash_right_pivot.coll_final_scale[y]) / attack.leash_right.att_execution_duration 
     attack_collider.leash_right_pivot.coll_growth_velocity[z] = (attack_collider.leash_right_pivot.coll_init_scale[z] - attack_collider.leash_right_pivot.coll_final_scale[z]) / attack.leash_right.att_execution_duration
 
-    attack_collider.leash_right.coll_init_pos[x] = -6
+    attack_collider.leash_right.coll_init_pos[x] = -7
     attack_collider.leash_right.coll_init_pos[y] = 0
     attack_collider.leash_right.coll_init_pos[z] = 0
-    attack_collider.leash_right.coll_final_pos[x] = -6
+    attack_collider.leash_right.coll_final_pos[x] = -7
     attack_collider.leash_right.coll_final_pos[y] = 0
     attack_collider.leash_right.coll_final_pos[z] = 0
     attack_collider.leash_right.coll_velocity[x] = (attack_collider.leash_right.coll_final_pos[x] - attack_collider.leash_right.coll_init_pos[x]) / attack.leash_right.att_execution_duration 
@@ -2975,10 +3019,10 @@ function lua_table:Awake ()
     attack_collider.leash_right.coll_ang_velocity[x] = (attack_collider.leash_right.coll_final_rot[x] - attack_collider.leash_right.coll_init_rot[x]) / attack.leash_left.att_execution_duration 
     attack_collider.leash_right.coll_ang_velocity[y] = (attack_collider.leash_right.coll_final_rot[y] - attack_collider.leash_right.coll_init_rot[y]) / attack.leash_left.att_execution_duration 
     attack_collider.leash_right.coll_ang_velocity[z] = (attack_collider.leash_right.coll_final_rot[z] - attack_collider.leash_right.coll_init_rot[z]) / attack.leash_left.att_execution_duration 
-    attack_collider.leash_right.coll_init_scale[x] = 12
+    attack_collider.leash_right.coll_init_scale[x] = 14
     attack_collider.leash_right.coll_init_scale[y] = 3
     attack_collider.leash_right.coll_init_scale[z] = 3
-    attack_collider.leash_right.coll_final_scale[x] = 12
+    attack_collider.leash_right.coll_final_scale[x] = 14
     attack_collider.leash_right.coll_final_scale[y] = 3
     attack_collider.leash_right.coll_final_scale[z] = 3
     attack_collider.leash_right.coll_growth_velocity[x] = (attack_collider.leash_right.coll_init_scale[x] - attack_collider.leash_right.coll_final_scale[x]) / attack.leash_right.att_execution_duration 
@@ -3187,11 +3231,15 @@ function lua_table:Awake ()
 
     particles.scream.part_UID = lua_table.GameObjectFunctions:FindGameObject(particles.scream.part_name)
     
-    particles.dustcloud_stomp_left.part_UID = lua_table.GameObjectFunctions:FindGameObject(particles.dustcloud_stomp_left.part_name)
-    particles.dustcloud_stomp_right.part_UID = lua_table.GameObjectFunctions:FindGameObject(particles.dustcloud_stomp_right.part_name)
+    particles.groundslam_stomp_left.part_UID = lua_table.GameObjectFunctions:FindGameObject(particles.groundslam_stomp_left.part_name)
+    particles.groundslam_stomp_left.part_childs = lua_table.GameObjectFunctions:GetGOChilds(particles.groundslam_stomp_left.part_UID)
+    particles.groundslam_stomp_right.part_UID = lua_table.GameObjectFunctions:FindGameObject(particles.groundslam_stomp_right.part_name)
+    particles.groundslam_stomp_right.part_childs = lua_table.GameObjectFunctions:GetGOChilds(particles.groundslam_stomp_right.part_UID)
     
-    particles.dustcloud_leash_left.part_UID = lua_table.GameObjectFunctions:FindGameObject(particles.dustcloud_leash_left.part_name)
-    particles.dustcloud_leash_right.part_UID = lua_table.GameObjectFunctions:FindGameObject(particles.dustcloud_leash_right.part_name)
+    particles.groundslam_leash_left.part_UID = lua_table.GameObjectFunctions:FindGameObject(particles.groundslam_leash_left.part_name)
+    particles.groundslam_leash_left.part_childs = lua_table.GameObjectFunctions:GetGOChilds(particles.groundslam_leash_left.part_UID)
+    particles.groundslam_leash_right.part_UID = lua_table.GameObjectFunctions:FindGameObject(particles.groundslam_leash_right.part_name)
+    particles.groundslam_leash_right.part_childs = lua_table.GameObjectFunctions:GetGOChilds(particles.groundslam_leash_right.part_UID)
    
     particles.kiki_sweep_particle_left.part_UID = lua_table.GameObjectFunctions:FindGameObject(particles.kiki_sweep_particle_left.part_name)
     particles.kiki_sweep_particle_left.part_childs = lua_table.GameObjectFunctions:GetGOChilds(particles.kiki_sweep_particle_left.part_UID)
@@ -3204,6 +3252,8 @@ function lua_table:Awake ()
 
     particles.jump_area.part_UID = lua_table.GameObjectFunctions:FindGameObject(particles.jump_area.part_name)
     particles.jump_area.part_childs = lua_table.GameObjectFunctions:GetGOChilds(particles.jump_area.part_UID)
+    particles.groundslam_jump.part_UID = lua_table.GameObjectFunctions:FindGameObject(particles.groundslam_jump.part_name)
+    particles.groundslam_jump.part_childs = lua_table.GameObjectFunctions:GetGOChilds(particles.groundslam_jump.part_UID)
 
     particles.rage_aura_1.part_UID = lua_table.GameObjectFunctions:FindGameObject(particles.rage_aura_1.part_name)
     particles.rage_aura_2.part_UID = lua_table.GameObjectFunctions:FindGameObject(particles.rage_aura_2.part_name)
