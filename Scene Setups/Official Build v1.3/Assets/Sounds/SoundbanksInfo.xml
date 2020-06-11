@@ -733,30 +733,6 @@
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 		</SoundBank>
-		<SoundBank Id="1614123467" Language="SFX">
-			<ObjectPath>\SoundBanks\Default Work Unit\Music_Menus</ObjectPath>
-			<ShortName>Music_Menus</ShortName>
-			<Path>Music_Menus.bnk</Path>
-			<IncludedEvents>
-				<Event Id="3007158762" Name="Play_Lost_Menu_Music" ObjectPath="\Events\Default Work Unit\Play_Lost_Menu_Music"/>
-				<Event Id="2895168921" Name="Play_Main_Menu_Music" ObjectPath="\Events\Default Work Unit\Play_Main_Menu_Music"/>
-				<Event Id="2973513758" Name="Play_Win_Menu_Music" ObjectPath="\Events\Default Work Unit\Play_Win_Menu_Music"/>
-			</IncludedEvents>
-			<IncludedMemoryFiles>
-				<File Id="665589033" Language="SFX">
-					<ShortName>Music_Menu_Win.wav</ShortName>
-					<Path>SFX\Music_Menu_Win_D79FB2B7.wem</Path>
-				</File>
-				<File Id="689347614" Language="SFX">
-					<ShortName>Music_Menu_Lost.wav</ShortName>
-					<Path>SFX\Music_Menu_Lost_D79FB2B7.wem</Path>
-				</File>
-				<File Id="697497514" Language="SFX">
-					<ShortName>Music\Music_Menu_Main_Captains_Tribute.wav</ShortName>
-					<Path>SFX\Music\Music_Menu_Main_Captains_Tribute_D79FB2B7.wem</Path>
-				</File>
-			</IncludedMemoryFiles>
-		</SoundBank>
 		<SoundBank Id="1735538792" Language="SFX">
 			<ObjectPath>\SoundBanks\Default Work Unit\Jaskier</ObjectPath>
 			<ShortName>Jaskier</ShortName>
@@ -1053,30 +1029,6 @@
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>
-		<SoundBank Id="2148133496" Language="SFX">
-			<ObjectPath>\SoundBanks\Default Work Unit\Music_Menus_2</ObjectPath>
-			<ShortName>Music_Menus_2</ShortName>
-			<Path>Music_Menus_2.bnk</Path>
-			<IncludedEvents>
-				<Event Id="2592368262" Name="Play_Credits_Menu_Music" ObjectPath="\Events\Default Work Unit\Play_Credits_Menu_Music"/>
-				<Event Id="1913521131" Name="Play_Music_Menu_Comparison_Pirate_Dance" ObjectPath="\Events\Default Work Unit\Play_Music_Menu_Comparison_Pirate_Dance"/>
-			</IncludedEvents>
-			<IncludedMemoryFiles>
-				<File Id="237417088" Language="SFX">
-					<ShortName>Music_Menu_Comparison_Pirate_Dance.wav</ShortName>
-					<Path>SFX\Music_Menu_Comparison_Pirate_Dance_D79FB2B7.wem</Path>
-				</File>
-				<File Id="361051095" Language="SFX">
-					<ShortName>Music_Credits_Home.wav</ShortName>
-					<Path>SFX\Music_Credits_Home_D79FB2B7.wem</Path>
-				</File>
-			</IncludedMemoryFiles>
-		</SoundBank>
-		<SoundBank Id="2244718989" Language="SFX">
-			<ObjectPath>\SoundBanks\Default Work Unit\Music_Level_1_1</ObjectPath>
-			<ShortName>Music_Level_1_1</ShortName>
-			<Path>Music_Level_1_1.bnk</Path>
-		</SoundBank>
 		<SoundBank Id="2380338445" Language="SFX">
 			<ObjectPath>\SoundBanks\Default Work Unit\Human_enemies</ObjectPath>
 			<ShortName>Human_enemies</ShortName>
@@ -1279,17 +1231,6 @@
 				<File Id="1066614702" Language="SFX">
 					<ShortName>Archer_Ranged_Attack_01.wav</ShortName>
 					<Path>SFX\Archer_Ranged_Attack_01_10C4C929.wem</Path>
-				</File>
-			</IncludedMemoryFiles>
-		</SoundBank>
-		<SoundBank Id="2735935537" Language="SFX">
-			<ObjectPath>\SoundBanks\Default Work Unit\Pause_Music</ObjectPath>
-			<ShortName>Pause_Music</ShortName>
-			<Path>Pause_Music.bnk</Path>
-			<IncludedMemoryFiles>
-				<File Id="1022100902" Language="SFX">
-					<ShortName>Music\Music_Menu_Pause_Relaxing_Green_Nature.wav</ShortName>
-					<Path>SFX\Music\Music_Menu_Pause_Relaxing_Green_Nature_D79FB2B7.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>
@@ -1662,70 +1603,6 @@
 					<Path>SFX\Button_main_menu_10C4C929.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
-		</SoundBank>
-		<SoundBank Id="3508274217" Language="SFX">
-			<ObjectPath>\SoundBanks\Default Work Unit\Music_Level_1</ObjectPath>
-			<ShortName>Music_Level_1</ShortName>
-			<Path>Music_Level_1.bnk</Path>
-			<IncludedEvents>
-				<Event Id="814842324" Name="Play_Level_1_Music" ObjectPath="\Events\Default Work Unit\Play_Level_1_Music"/>
-			</IncludedEvents>
-			<IncludedMemoryFiles>
-				<File Id="394200934" Language="SFX">
-					<ShortName>Music\Music_Combat_The_Dark_Castle.wav</ShortName>
-					<Path>SFX\Music\Music_Combat_The_Dark_Castle_D79FB2B7.wem</Path>
-				</File>
-				<File Id="483066541" Language="SFX">
-					<ShortName>Music\Music_Combat_Viking_Ship.wav</ShortName>
-					<Path>SFX\Music\Music_Combat_Viking_Ship_D79FB2B7.wem</Path>
-				</File>
-				<File Id="967037437" Language="SFX">
-					<ShortName>Music\Music_Lvl_1_Broken_Village.wav</ShortName>
-					<Path>SFX\Music\Music_Lvl_1_Broken_Village_D79FB2B7.wem</Path>
-				</File>
-			</IncludedMemoryFiles>
-			<ExcludedMemoryFiles>
-				<File Id="1022100902" Language="SFX">
-					<ShortName>Music\Music_Menu_Pause_Relaxing_Green_Nature.wav</ShortName>
-					<Path>SFX\Music\Music_Menu_Pause_Relaxing_Green_Nature_D79FB2B7.wem</Path>
-				</File>
-			</ExcludedMemoryFiles>
-		</SoundBank>
-		<SoundBank Id="3508274218" Language="SFX">
-			<ObjectPath>\SoundBanks\Default Work Unit\Music_Level_2</ObjectPath>
-			<ShortName>Music_Level_2</ShortName>
-			<Path>Music_Level_2.bnk</Path>
-			<IncludedEvents>
-				<Event Id="2048014091" Name="Play_Level_2_Music" ObjectPath="\Events\Default Work Unit\Play_Level_2_Music"/>
-			</IncludedEvents>
-			<IncludedMemoryFiles>
-				<File Id="358228394" Language="SFX">
-					<ShortName>Music_Kikimora_Dungeon_of_shadows_intro.wav</ShortName>
-					<Path>SFX\Music_Kikimora_Dungeon_of_shadows_intro_D79FB2B7.wem</Path>
-				</File>
-				<File Id="394200934" Language="SFX">
-					<ShortName>Music\Music_Combat_The_Dark_Castle.wav</ShortName>
-					<Path>SFX\Music\Music_Combat_The_Dark_Castle_D79FB2B7.wem</Path>
-				</File>
-				<File Id="483066541" Language="SFX">
-					<ShortName>Music\Music_Combat_Viking_Ship.wav</ShortName>
-					<Path>SFX\Music\Music_Combat_Viking_Ship_D79FB2B7.wem</Path>
-				</File>
-				<File Id="593693911" Language="SFX">
-					<ShortName>Kikimora_Fight_Loop.wav</ShortName>
-					<Path>SFX\Kikimora_Fight_Loop_D79FB2B7.wem</Path>
-				</File>
-				<File Id="621261315" Language="SFX">
-					<ShortName>Music\Music_Lvl_2_Loop_The village.wav</ShortName>
-					<Path>SFX\Music\Music_Lvl_2_Loop_The village_D79FB2B7.wem</Path>
-				</File>
-			</IncludedMemoryFiles>
-			<ExcludedMemoryFiles>
-				<File Id="1022100902" Language="SFX">
-					<ShortName>Music\Music_Menu_Pause_Relaxing_Green_Nature.wav</ShortName>
-					<Path>SFX\Music\Music_Menu_Pause_Relaxing_Green_Nature_D79FB2B7.wem</Path>
-				</File>
-			</ExcludedMemoryFiles>
 		</SoundBank>
 	</SoundBanks>
 </SoundBanksInfo>
