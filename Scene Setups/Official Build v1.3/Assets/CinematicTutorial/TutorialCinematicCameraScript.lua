@@ -185,7 +185,7 @@ function GetTableTutorialCinematicCameraScript()
             GoTo(2, 3.33 * dt)
         end
 
-        if time > 19 and disable_fight == true 
+        if time > 20 and disable_fight == true 
         then
             lua_table.GameObject:SetActiveGameObject(false, recruit1)
             lua_table.GameObject:SetActiveGameObject(false, recruit2)

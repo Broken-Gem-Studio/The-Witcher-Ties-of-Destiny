@@ -28,6 +28,9 @@ local timerdeath1 = 0
 local timer2ID = 0
 local timerdeath2 = 0
 
+local revived = false
+local revived2 = false
+
 
 function lua_table:Awake()
 
@@ -90,7 +93,18 @@ function lua_table:Update()
     if lua_table.p1.being_revived == true
     then
         lua_table["UI"]:MakeElementVisible("Image", revivaval1ID)
-        lua_table["UI"]:PlayUIAnimation(revivaval1ID)
+
+        if revived == false
+        then
+            lua_table["UI"]:PlayUIAnimation(revivaval1ID)
+            revived = true
+        end
+
+        if lua_table["UI"]:UIAnimationFinished(revivaval1ID) == true
+        then
+            revived = false
+        end
+      
     
         --lua_table["UI"]:MakeElementInvisible("Image", revive1ID)
         lua_table["UI"]:MakeElementInvisible("Image", death1ID)
@@ -133,7 +147,17 @@ function lua_table:Update()
     if lua_table.p2.being_revived == true
     then
         lua_table["UI"]:MakeElementVisible("Image", revivaval2ID)
-        lua_table["UI"]:PlayUIAnimation(revivaval2ID)
+
+        if revived2 == false
+        then
+            lua_table["UI"]:PlayUIAnimation(revivaval2ID)
+            revived2 = true
+        end
+
+        if lua_table["UI"]:UIAnimationFinished(revivaval2ID) == true
+        then
+            revived2 = false
+        end
         --lua_table["UI"]:MakeElementInvisible("Image", revive2ID)
         lua_table["UI"]:MakeElementInvisible("Image", death2ID)
         lua_table["UI"]:SetText("REVIVING", timer2ID)
