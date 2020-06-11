@@ -5,57 +5,40 @@ Event	ID	Name			Wwise Object Path	Notes
 	1788677754	J_Combo_1			\Default Work Unit\Jaskier\J_Combo_1	
 	1916833811	Play_Jaskier_guitar_smash			\Default Work Unit\Jaskier\Play_Jaskier_guitar_smash	
 	2312986841	Play_Jaskier_fall_down_get_up			\Default Work Unit\Jaskier\Play_Jaskier_fall_down_get_up	
-	2646163561	Play_Jaskier_walk_run_concrete			\Default Work Unit\Jaskier\Play_Jaskier_walk_run_concrete	
 	2721777174	Play_Jaskier_potion_fx			\Default Work Unit\Jaskier\Play_Jaskier_potion_fx	
 	2870416861	J_Ult			\Default Work Unit\Jaskier\J_Ult	
 	3175770957	Play_Jaskier_Ultimate_Available			\Default Work Unit\Jaskier\Play_Jaskier_Ultimate_Available	
 	3196706884	J_moonwalk			\Default Work Unit\Jaskier\J_moonwalk	
+	3460662205	Play_Jaskier_Run_dirt			\Default Work Unit\Jaskier\Play_Jaskier_Run_dirt	
 	4022547377	Play_Jaskier_guitar_swing			\Default Work Unit\Jaskier\Play_Jaskier_guitar_swing	
 	4116481551	Play_Jaskier_revive			\Default Work Unit\Jaskier\Play_Jaskier_revive	
 	4169710139	Play_Jaskier_hit_sound			\Default Work Unit\Jaskier\Play_Jaskier_hit_sound	
-	4243245347	Play_Jaskier_walk_run_dirt			\Default Work Unit\Jaskier\Play_Jaskier_walk_run_dirt	
-
-Switch Group	ID	Name			Wwise Object Path	Notes
-	2577655901	Jaskier_walk_run_switch			\Default Work Unit\Jaskier_walk_run_switch	
-
-Switch	ID	Name	Switch Group			Notes
-	712161704	Run	Jaskier_walk_run_switch			
-	2108779966	Walk	Jaskier_walk_run_switch			
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	26022165	Jaskier_guitar_swing_7	E:\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_guitar_swing_7_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_guitar_swing\Jaskier_guitar_swing_7		24650
-	31365157	Potion_fx	E:\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Potion_fx_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Potion_fx		1128064
-	99508910	Jaskier_guitar_swing_1	E:\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_guitar_swing_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_guitar_swing\Jaskier_guitar_swing_1		43048
-	163990787	Jaskier_guitar_swing_4	E:\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_guitar_swing_4_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_guitar_swing\Jaskier_guitar_swing_4		147064
-	215839451	Jaskier_walk_run_concrete_1	E:\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_walk_run_concrete_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_walk_run_concrete\Jaskier_walk_run_concrete_1		1664064
-	286403294	Jaskier_guitar_swing_8	E:\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_guitar_swing_8_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_guitar_swing\Jaskier_guitar_swing_8		23220
-	324687624	Jaskier_Walk_dirt_4	E:\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_Walk_dirt_4_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_walk_run_dirt\Jaskier_walk_dirt\Jaskier_Walk_dirt_4		48100
-	345663131	Jaskier_Walk_dirt_3	E:\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_Walk_dirt_3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_walk_run_dirt\Jaskier_walk_dirt\Jaskier_Walk_dirt_3		48100
-	417883437	Jaskier_walk_run_concrete_4	E:\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_walk_run_concrete_4_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_walk_run_concrete\Jaskier_walk_run_concrete_4		10471488
-	420840914	jaskier song 1	E:\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\jaskier song 1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\jaskier song 1		529264
-	437857490	Jaskier_guitar_swing_2	E:\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_guitar_swing_2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_guitar_swing\Jaskier_guitar_swing_2		35856
-	454737914	Jaskier_guitar_swing_6	E:\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_guitar_swing_6_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_guitar_swing\Jaskier_guitar_swing_6		132364
-	509597881	Character_fall_down_get_up	E:\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Character_fall_down_get_up_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Geralt\Character_fall_down_get_up		221412
-	586003345	Jaskier_jump	E:\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_jump_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_jump		60168
-	586777340	Jaskier_Walk_dirt_5	E:\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_Walk_dirt_5_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_walk_run_dirt\Jaskier_walk_dirt\Jaskier_Walk_dirt_5		48100
-	590511381	Jaskier_guitar_swing_5	E:\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_guitar_swing_5_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_guitar_swing\Jaskier_guitar_swing_5		88264
-	622300700	Jaskier_walk_run_concrete_2	E:\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_walk_run_concrete_2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_walk_run_concrete\Jaskier_walk_run_concrete_2		137280
-	696598848	jaskier song 2-3	E:\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\jaskier song 2-3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\jaskier song 2-3		529264
-	768107901	Jaskier_guitar_swing_9	E:\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_guitar_swing_9_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_guitar_swing\Jaskier_guitar_swing_9		25764
-	768909275	Jaskier_hit_sound_2	E:\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_hit_sound_2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_hit_sound\Jaskier_hit_sound_2		157104
-	778216361	Jaskier_walk_run_dirt_5	E:\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_walk_run_dirt_5_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_walk_run_dirt\Jaskier_walk_run_dirt\Jaskier_walk_run_dirt_5		29138
-	808607622	Jaskier_walk_run_dirt_1	E:\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_walk_run_dirt_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_walk_run_dirt\Jaskier_walk_run_dirt\Jaskier_walk_run_dirt_1		29138
-	809240755	Jaskier_Walk_dirt_2	E:\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_Walk_dirt_2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_walk_run_dirt\Jaskier_walk_dirt\Jaskier_Walk_dirt_2		48100
-	847161361	Jaskier_hit_sound_1	E:\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_hit_sound_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_hit_sound\Jaskier_hit_sound_1		120648
-	853122775	Jaskier_moonwalk	E:\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_moonwalk_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_moonwalk		189724
-	858627309	Jaskier_Ultimate	E:\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_Ultimate_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_Ultimate		926160
-	871442106	Jaskier_guitar_swing_3	E:\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_guitar_swing_3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_guitar_swing\Jaskier_guitar_swing_3		198512
-	885822206	Jaskier_Ultimate_Available	E:\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_Ultimate_Available_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_Ultimate_Available		178240
-	890223427	Jaskier_revive	E:\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_revive_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_revive		551192
-	901958049	Jaskier_walk_run_dirt_4	E:\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_walk_run_dirt_4_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_walk_run_dirt\Jaskier_walk_run_dirt\Jaskier_walk_run_dirt_4		29138
-	950570503	Jaskier_guitar_smash	E:\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_guitar_smash_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_guitar_smash		72280
-	972374554	Jaskier_Walk_dirt_1	E:\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_Walk_dirt_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_walk_run_dirt\Jaskier_walk_dirt\Jaskier_Walk_dirt_1		48100
-	995710726	Jaskier_walk_run_concrete_3	E:\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_walk_run_concrete_3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_walk_run_concrete\Jaskier_walk_run_concrete_3		11436096
-	1004558716	Jaskier_walk_run_dirt_2	E:\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_walk_run_dirt_2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_walk_run_dirt\Jaskier_walk_run_dirt\Jaskier_walk_run_dirt_2		29138
-	1034730759	Jaskier_guitar_swing_10	E:\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_guitar_swing_10_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_guitar_swing\Jaskier_guitar_swing_10		29608
+	26022165	Jaskier_guitar_swing_7	F:\Github2\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_guitar_swing_7_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_guitar_swing\Jaskier_guitar_swing_7		24650
+	31365157	Potion_fx	F:\Github2\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Potion_fx_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Potion_fx		1128064
+	99508910	Jaskier_guitar_swing_1	F:\Github2\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_guitar_swing_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_guitar_swing\Jaskier_guitar_swing_1		43048
+	163990787	Jaskier_guitar_swing_4	F:\Github2\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_guitar_swing_4_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_guitar_swing\Jaskier_guitar_swing_4		147064
+	286403294	Jaskier_guitar_swing_8	F:\Github2\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_guitar_swing_8_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_guitar_swing\Jaskier_guitar_swing_8		23220
+	420840914	jaskier song 1	F:\Github2\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\jaskier song 1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\jaskier song 1		529264
+	437857490	Jaskier_guitar_swing_2	F:\Github2\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_guitar_swing_2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_guitar_swing\Jaskier_guitar_swing_2		35856
+	454737914	Jaskier_guitar_swing_6	F:\Github2\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_guitar_swing_6_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_guitar_swing\Jaskier_guitar_swing_6		132364
+	509597881	Character_fall_down_get_up	F:\Github2\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Character_fall_down_get_up_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Geralt\Character_fall_down_get_up		221412
+	586003345	Jaskier_jump	F:\Github2\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_jump_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_jump		60168
+	590511381	Jaskier_guitar_swing_5	F:\Github2\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_guitar_swing_5_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_guitar_swing\Jaskier_guitar_swing_5		88264
+	696598848	jaskier song 2-3	F:\Github2\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\jaskier song 2-3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\jaskier song 2-3		529264
+	768107901	Jaskier_guitar_swing_9	F:\Github2\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_guitar_swing_9_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_guitar_swing\Jaskier_guitar_swing_9		25764
+	768909275	Jaskier_hit_sound_2	F:\Github2\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_hit_sound_2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_hit_sound\Jaskier_hit_sound_2		157104
+	778216361	Jaskier_walk_run_dirt_5	F:\Github2\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_walk_run_dirt_5_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_run\Jaskier_walk_run_dirt_5		29138
+	808607622	Jaskier_walk_run_dirt_1	F:\Github2\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_walk_run_dirt_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_run\Jaskier_walk_run_dirt_1		29138
+	847161361	Jaskier_hit_sound_1	F:\Github2\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_hit_sound_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_hit_sound\Jaskier_hit_sound_1		120648
+	853122775	Jaskier_moonwalk	F:\Github2\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_moonwalk_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_moonwalk		189724
+	858627309	Jaskier_Ultimate	F:\Github2\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_Ultimate_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_Ultimate		926160
+	871442106	Jaskier_guitar_swing_3	F:\Github2\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_guitar_swing_3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_guitar_swing\Jaskier_guitar_swing_3		198512
+	885822206	Jaskier_Ultimate_Available	F:\Github2\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_Ultimate_Available_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_Ultimate_Available		178240
+	890223427	Jaskier_revive	F:\Github2\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_revive_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_revive		551192
+	901958049	Jaskier_walk_run_dirt_4	F:\Github2\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_walk_run_dirt_4_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_run\Jaskier_walk_run_dirt_4		29138
+	950570503	Jaskier_guitar_smash	F:\Github2\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_guitar_smash_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_guitar_smash		72280
+	1004558716	Jaskier_walk_run_dirt_2	F:\Github2\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_walk_run_dirt_2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_run\Jaskier_walk_run_dirt_2		29138
+	1034730759	Jaskier_guitar_swing_10	F:\Github2\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\SFX\Jaskier_guitar_swing_10_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jaskier\Jaskier_guitar_swing\Jaskier_guitar_swing_10		29608
 
