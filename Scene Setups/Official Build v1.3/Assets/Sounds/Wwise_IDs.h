@@ -61,6 +61,7 @@ namespace AK
         static const AkUniqueID PLAY_GERALT_NAKED_ROLL = 1207104021U;
         static const AkUniqueID PLAY_GERALT_POTION_FX = 355904118U;
         static const AkUniqueID PLAY_GERALT_REVIVE = 966697903U;
+        static const AkUniqueID PLAY_GERALT_RUN_DIRT = 1216492189U;
         static const AkUniqueID PLAY_GERALT_SWORD_METAL = 2896484239U;
         static const AkUniqueID PLAY_GERALT_SWORD_SWING = 780578552U;
         static const AkUniqueID PLAY_GERALT_ULTIMATE = 3955362993U;
@@ -74,8 +75,6 @@ namespace AK
         static const AkUniqueID PLAY_GERALT_VL_REVIVE = 3801663046U;
         static const AkUniqueID PLAY_GERALT_VL_START_BATTLE = 2725600168U;
         static const AkUniqueID PLAY_GERALT_VL_START_LVL_1 = 2692582580U;
-        static const AkUniqueID PLAY_GERALT_WALK_RUN_CONCRETE = 4167477001U;
-        static const AkUniqueID PLAY_GERALT_WALK_RUN_DIRT = 2190072003U;
         static const AkUniqueID PLAY_GUARD_LINE = 2670411694U;
         static const AkUniqueID PLAY_HUD_NO_POTION = 137305017U;
         static const AkUniqueID PLAY_HUD_NO_STAMINA = 1291293387U;
@@ -90,6 +89,7 @@ namespace AK
         static const AkUniqueID PLAY_JASKIER_JUMP = 1018718152U;
         static const AkUniqueID PLAY_JASKIER_POTION_FX = 2721777174U;
         static const AkUniqueID PLAY_JASKIER_REVIVE = 4116481551U;
+        static const AkUniqueID PLAY_JASKIER_RUN_DIRT = 3460662205U;
         static const AkUniqueID PLAY_JASKIER_ULTIMATE_AVAILABLE = 3175770957U;
         static const AkUniqueID PLAY_JASKIER_VL_BOSS_FIGHT = 2934211061U;
         static const AkUniqueID PLAY_JASKIER_VL_DEATH = 1058780181U;
@@ -97,8 +97,6 @@ namespace AK
         static const AkUniqueID PLAY_JASKIER_VL_KILLED_BOSS = 3193415746U;
         static const AkUniqueID PLAY_JASKIER_VL_LOW_HEALTH = 1214978798U;
         static const AkUniqueID PLAY_JASKIER_VL_START_BATTLE = 2365110024U;
-        static const AkUniqueID PLAY_JASKIER_WALK_RUN_CONCRETE = 2646163561U;
-        static const AkUniqueID PLAY_JASKIER_WALK_RUN_DIRT = 4243245347U;
         static const AkUniqueID PLAY_KIKIMORA_DAMAGED = 2779782817U;
         static const AkUniqueID PLAY_KIKIMORA_DEATH = 4129361266U;
         static const AkUniqueID PLAY_KIKIMORA_FALL = 360314807U;
@@ -110,6 +108,8 @@ namespace AK
         static const AkUniqueID PLAY_KIKIMORA_SWEEP = 287198644U;
         static const AkUniqueID PLAY_KIKIMORA_SWEEP_PHASE_2 = 2567188251U;
         static const AkUniqueID PLAY_KIKIMORA_SWEEP_PHASE_3 = 2567188250U;
+        static const AkUniqueID PLAY_LEVEL_1_MUSIC = 814842324U;
+        static const AkUniqueID PLAY_LEVEL_2_MUSIC = 2048014091U;
         static const AkUniqueID PLAY_LOCKED_AND_NO_KEY_IN_SIGHT = 863110628U;
         static const AkUniqueID PLAY_LOCKED_PORTAL_NEED_TO_FIND_KEY = 683466454U;
         static const AkUniqueID PLAY_LUMBERJACK_AXE_SWING_ATTACK = 1511621515U;
@@ -252,6 +252,8 @@ namespace AK
         static const AkUniqueID JASKIER = 1735538792U;
         static const AkUniqueID MAIN_MENU = 2005704188U;
         static const AkUniqueID MONSTER_ENEMIES = 1016515008U;
+        static const AkUniqueID MUSIC_LEVEL_1 = 3508274217U;
+        static const AkUniqueID MUSIC_LEVEL_2 = 3508274218U;
         static const AkUniqueID PAUSE_MENU = 3422541661U;
         static const AkUniqueID PROPS = 968010305U;
         static const AkUniqueID VOICELINES_2 = 3285923249U;
