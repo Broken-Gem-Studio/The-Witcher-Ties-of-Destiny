@@ -97,6 +97,7 @@ local material_timer = 0
 
 -- Flow control conditionals
 local attacked = false
+local has_died = false
 
 -- Recast navigation
 local navID = 0
@@ -431,19 +432,6 @@ function lua_table:OnTriggerEnter()
 
 			curr_dmg_dealer = parent
 
-			-- Check if our entity is dead
-			if lua_table.health <= 0 then 
-
-				if curr_dmg_dealer == lua_table.geralt then
-					script.geralt_score[2] = script.geralt_score[2] + 1
-				else 
-					script.jaskier_score[2] = script.jaskier_score[2] + 1
-				end 
-
-				lua_table.currentState = State.DEATH
-				lua_table.System:LOG("Recruit state: Death (5)")
-			end
-
 			lua_table.Material:SetMaterialByName("HitMaterial.mat", Recruit_Material_UID)
       		material_timer = lua_table.System:GameTime() * 1000
 			start_material  = true
@@ -578,6 +566,19 @@ function lua_table:OnTriggerEnter()
 
 					if start_taunt then 
 
+						if script.jaskier_score ~= nil then
+							if script.jaskier_score[1] ~= nil then
+								script.jaskier_score[1] = script.jaskier_score[1] + script.collider_damage
+							end
+						end
+				
+						------- Actual stun dmg marker
+						if script.jaskier_score ~= nil then
+							if script.jaskier_score[4] ~= nil then
+								script.jaskier_score[4] = script.jaskier_score[4] + 1
+							end
+						end
+
 						
 						local particles = {}
 						particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Recruit_Taunt_Emitter", Recruit_General_Emitter))
@@ -663,18 +664,7 @@ function lua_table:RequestedTrigger(collider_GO)
 
 		lua_table.health = lua_table.health - script.collider_damage
 
-		curr_dmg_dealer = parent
-
-		if lua_table.health <= 0 then 
-			if curr_dmg_dealer == lua_table.geralt then
-				script.geralt_score[2] = script.geralt_score[2] + 1
-			else 
-				script.jaskier_score[2] = script.jaskier_score[2] + 1
-			end 
-			
-			lua_table.currentState = State.DEATH
-			lua_table.System:LOG("Recruit state: Death (5)")
-		end
+		curr_dmg_dealer = collider_GO
 
 		lua_table.Material:SetMaterialByName("HitMaterial.mat", Recruit_Material_UID)
       	material_timer = lua_table.System:GameTime() * 1000
@@ -938,10 +928,34 @@ end
 function lua_table:Update()
 
 	dt = lua_table.System:DT()
+
+	-- Check if our entity is dead
+	if lua_table.health <= 0 and has_died == false then 
+
+		local score = lua_table.GameObject:GetScript(curr_dmg_dealer)
+
+		if curr_dmg_dealer == lua_table.geralt then
+			if score.geralt_score ~= nil then
+				if score.geralt_score[2] ~= nil then
+					score.geralt_score[2] = score.geralt_score[2] + 1
+				end
+			end
+		else 
+			if score.jaskier_score ~= nil then
+				if score.jaskier_score[2] ~= nil then
+					score.jaskier_score[2] = score.jaskier_score[2] + 1
+				end
+			end
+		end 
+
+		lua_table.currentState = State.DEATH
+		lua_table.System:LOG("Recruit state: Death (5)")
+		has_died = true
+	end
 	
 	SearchPlayers() -- Constantly calculate distances between entity and players
 
-	if lua_table.RecruitPos[2] <= -30 then lua_table.Transform:SetPosition(lua_table.RecruitPos[1], 50, lua_table.RecruitPos[3], lua_table.MyUID) end
+	if lua_table.RecruitPos[2] <= -30 then lua_table.GameObject:DestroyGameObject(lua_table.MyUID) end
 
 	-- Check which state the entity is in and then handle them accordingly
 	if lua_table.currentState == State.IDLE then 

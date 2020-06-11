@@ -835,19 +835,6 @@ function lua_table:OnTriggerEnter()
 
 		curr_dmg_dealer = parent
 		
-		if lua_table.health <= 0 and has_died == false then 
-
-			if curr_dmg_dealer == lua_table.geralt then
-				script.geralt_score[3] = script.geralt_score[3] + 1
-			else 
-				script.jaskier_score[3] = script.jaskier_score[3] + 1
-			end 
-			
-			lua_table.currentState = State.DEATH
-			lua_table.System:LOG("Titan state: Death (6)")
-			has_died = true
-		end
-
 		lua_table.Material:SetMaterialByName("HitMaterial.mat", MyMesh_UID)
         material_timer = lua_table.System:GameTime() * 1000
 		start_material  = true
@@ -921,13 +908,9 @@ function lua_table:RequestedTrigger(collider_GO)
 
 	local script = lua_table.GameObject:GetScript(collider_GO)
 
+	curr_dmg_dealer = collider_GO
+
 	lua_table.health = lua_table.health - script.collider_damage
-		
-	if lua_table.health <= 0 and has_died == false then 
-		lua_table.currentState = State.DEATH
-		lua_table.System:LOG("Titan state: Death (6)")
-		has_died = true
-	end
 	
 	if lua_table.currentState ~= State.DEATH and lua_table.currentState ~= State.JUMP then
 
@@ -1037,6 +1020,29 @@ end
 function lua_table:Update()
 
 	dt = lua_table.System:DT()
+
+	if lua_table.health <= 0 and has_died == false then 
+
+		local score = lua_table.GameObject:GetScript(curr_dmg_dealer)
+
+		if curr_dmg_dealer == lua_table.geralt then
+			if score.geralt_score ~= nil then
+				if score.geralt_score[3] ~= nil then
+					score.geralt_score[3] = score.geralt_score[3] + 1
+				end
+			end
+		else 
+			if score.jaskier_score ~= nil then
+				if score.jaskier_score[3] ~= nil then
+					score.jaskier_score[3] = score.jaskier_score[3] + 1
+				end
+			end
+		end 
+
+		lua_table.currentState = State.DEATH
+		lua_table.System:LOG("Titan state: Death (6)")
+		has_died = true
+	end
 
 	SearchPlayers() -- Constantly calculate distances between entity and players
 
