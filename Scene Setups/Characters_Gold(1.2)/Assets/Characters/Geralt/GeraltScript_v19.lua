@@ -2881,6 +2881,7 @@ function lua_table:Update()
 
 								if lua_table.current_state >= state.combo_1 and lua_table.current_state <= state.combo_3 then
 									lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.big.intensity, controller_shake.big.duration)
+									ShakeCamera(camera_shake.medium.duration, camera_shake.medium.intensity)
 								elseif lua_table.current_state == state.light_3 or lua_table.current_state == state.medium_3 or lua_table.current_state == state.heavy_3 then
 									lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.medium.intensity, controller_shake.medium.duration)
 								else
