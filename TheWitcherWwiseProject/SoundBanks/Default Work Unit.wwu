@@ -201,6 +201,38 @@
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
 				</SoundBank>
+				<Folder Name="Levels_Music" ID="{8C76E296-BAFD-4833-8D36-0AED95A9850D}" ShortID="627491282">
+					<ChildrenList>
+						<SoundBank Name="Music_Level_1" ID="{92123DF1-8CDD-4777-B967-5F6ACCC7CF16}">
+							<PropertyList>
+								<Property Name="Maximum" Type="int32">
+									<ValueList>
+										<Value>99000000</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ObjectInclusionList>
+								<ObjectRef Name="Play_Level_1_Music" ID="{8B5CD85E-0112-4C48-93BF-7901B8D477D0}" WorkUnitID="{704E5E75-56AA-4381-96D8-951456C36A40}" Filter="7" Origin="Manual"/>
+							</ObjectInclusionList>
+							<ObjectExclusionList/>
+							<GameSyncExclusionList/>
+						</SoundBank>
+						<SoundBank Name="Music_Level_2" ID="{A820782D-2432-44BF-97D5-6DF4674FCB0B}">
+							<PropertyList>
+								<Property Name="Maximum" Type="int32">
+									<ValueList>
+										<Value>99000000</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ObjectInclusionList>
+								<ObjectRef Name="Play_Level_2_Music" ID="{EF000F6C-BC68-4301-9A1E-7DDED98AEF48}" WorkUnitID="{704E5E75-56AA-4381-96D8-951456C36A40}" Filter="7" Origin="Manual"/>
+							</ObjectInclusionList>
+							<ObjectExclusionList/>
+							<GameSyncExclusionList/>
+						</SoundBank>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</SoundBanks>
