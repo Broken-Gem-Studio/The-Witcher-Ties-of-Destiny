@@ -5,17 +5,6 @@
 			<ChildrenList>
 				<Folder Name="Jaskier" ID="{61844BFC-F40A-4789-BD92-6D1F13AA59BD}" ShortID="378331022">
 					<ChildrenList>
-						<Event Name="Play_Jaskier_walk_run_concrete" ID="{CEF515A0-3A35-4D80-ABBE-80896FDC014D}">
-							<ChildrenList>
-								<Action Name="" ID="{50AFF24D-60B0-4DF9-AAA3-A0F8C13C13A0}" ShortID="318813419">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Jaskier_walk_run_concrete" ID="{8BB4F6A5-2B41-4B37-B965-733214935F79}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
 						<Event Name="Play_Jaskier_potion_fx" ID="{97D9103B-715E-4F39-A245-62CD1D1FD58A}">
 							<ChildrenList>
 								<Action Name="" ID="{80B3851D-028A-4542-85E7-053C3C3D1145}" ShortID="255015783">
@@ -137,12 +126,12 @@
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="Play_Jaskier_walk_run_dirt" ID="{60241958-49FA-4053-BFF1-E558632409A8}">
+						<Event Name="Play_Jaskier_Run_dirt" ID="{60241958-49FA-4053-BFF1-E558632409A8}">
 							<ChildrenList>
-								<Action Name="" ID="{8EE5F199-DB04-4E44-8780-7B182C14578A}" ShortID="374785250">
+								<Action Name="" ID="{4BCAD57E-7395-4B78-A5F1-84B47A09F87A}" ShortID="728245460">
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="Jaskier_walk_run_dirt" ID="{02EDDF6F-93D1-4019-BBCD-A99809EBA72C}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+											<ObjectRef Name="Jaskier_run" ID="{7FC9860F-3BA8-4D6F-A4C1-A80797D71059}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -229,17 +218,6 @@
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="Play_Geralt_walk_run_concrete" ID="{28DB0522-5142-4910-AC7D-81A996B21BC0}">
-							<ChildrenList>
-								<Action Name="" ID="{E00DB60F-4D8E-4AAA-A77A-BD59E9F24C88}" ShortID="983726575">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Geralt_walk_run_concrete" ID="{94DEEF79-D141-4039-813A-EAC5CA7F39BD}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
 						<Event Name="Play_Geralt_aard" ID="{86EE0A63-2B4F-45CF-A5F5-BEBABB0C76DA}">
 							<ChildrenList>
 								<Action Name="" ID="{DD31FC2E-BC68-4E44-8666-0148BE818A1F}" ShortID="407661906">
@@ -317,12 +295,12 @@
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="Play_Geralt_walk_run_dirt" ID="{3B9809C1-9081-421A-BA9F-EDFEB48BA985}">
+						<Event Name="Play_Geralt_Run_dirt" ID="{3B9809C1-9081-421A-BA9F-EDFEB48BA985}">
 							<ChildrenList>
-								<Action Name="" ID="{971636F5-1A4A-4AB3-A3A6-823C45D5CE08}" ShortID="147262599">
+								<Action Name="" ID="{2CCE5783-3266-491C-9DF1-8ADB4712A600}" ShortID="47330010">
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="Geralt_walk_run_dirt" ID="{6E44A74D-1B42-49CE-8517-E6155E932D53}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+											<ObjectRef Name="Geralt_run" ID="{477F5E15-5EDC-44DE-8F09-CD927B6CA9D0}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -623,10 +601,10 @@
 							<ChildrenList>
 								<Event Name="Play_Minion_both_arms_attack" ID="{56C17EC2-C080-474C-B9F4-CD455579920C}">
 									<ChildrenList>
-										<Action Name="" ID="{369E48B2-ADB6-4001-8BA9-4B16C2603251}" ShortID="976156025">
+										<Action Name="" ID="{EEA2EE1F-2F84-4B66-BE7B-5DE4F51595B1}" ShortID="1036629052">
 											<ReferenceList>
 												<Reference Name="Target">
-													<ObjectRef Name="Minion_both_arms_attack" ID="{2EE2E7ED-1EDE-4383-8942-06AB431F7837}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+													<ObjectRef Name="Bot_arms_attack" ID="{819B6235-03EA-4271-9F7D-02C388468FBD}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
 												</Reference>
 											</ReferenceList>
 										</Action>
@@ -634,10 +612,10 @@
 								</Event>
 								<Event Name="Play_Minion_right_punch" ID="{0FAC7F38-23E5-4EB9-82A9-7CF4A8A95CBF}">
 									<ChildrenList>
-										<Action Name="" ID="{444627E6-8DC2-4902-B471-1F26C7B9A2B7}" ShortID="210559974">
+										<Action Name="" ID="{F6D7390D-6B6A-48A0-BFCE-1FFAC1ACCE7D}" ShortID="654197571">
 											<ReferenceList>
 												<Reference Name="Target">
-													<ObjectRef Name="Minion_right_punch" ID="{51D63A0D-C4F6-4395-B129-593DF194153F}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+													<ObjectRef Name="Right_punch" ID="{18C2D52A-FD26-4662-9903-AC68782CBB86}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
 												</Reference>
 											</ReferenceList>
 										</Action>
@@ -1043,6 +1021,17 @@
 								</Event>
 							</ChildrenList>
 						</Folder>
+						<Event Name="Play_Coin_Collision" ID="{1111FDED-C5DD-4E1A-8A7E-FAAD9442C837}">
+							<ChildrenList>
+								<Action Name="" ID="{D404F056-5217-4DF6-9713-947997C5215C}" ShortID="318708703">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Coins_Collide" ID="{D0DFDDA2-DC45-4E89-A404-B689EA05A585}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Level_2" ID="{F1FB1A6C-A2D4-47C1-92F3-4F5788AAE2C8}" ShortID="90313207">
@@ -1651,10 +1640,10 @@
 				</Folder>
 				<Event Name="Play_Music_Menu_Comparison_Pirate_Dance" ID="{D8C2E418-7AE3-46EA-8E37-6727F19E5260}">
 					<ChildrenList>
-						<Action Name="" ID="{2621D4E5-F68A-4077-8053-17F034649017}" ShortID="790901236">
+						<Action Name="" ID="{66774560-B2E8-44E9-B305-0B2FAD309426}" ShortID="849831764">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Music_Menu_Comparison_Pirate_Dance" ID="{DAB31115-792B-4900-B848-D52D07AE3ABE}" WorkUnitID="{900849B3-5BE8-4F7B-8EC5-9E5DD796D73F}"/>
+									<ObjectRef Name="Comparison_Menu" ID="{5C5A7B80-F0A1-4E8C-8814-45427288C7C2}" WorkUnitID="{900849B3-5BE8-4F7B-8EC5-9E5DD796D73F}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -1945,10 +1934,10 @@
 						</Event>
 						<Event Name="Rain_loop" ID="{ECC2DC13-293D-4226-9756-19AD0FBC17DD}">
 							<ChildrenList>
-								<Action Name="" ID="{F2206AD7-A414-4D21-938A-144012D6D32B}" ShortID="251078912">
+								<Action Name="" ID="{8B76F103-8675-41D2-9B45-9C5C23DF6DBE}" ShortID="989278258">
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="StormLoop" ID="{E4FEA753-71D2-4D93-9830-AA5B98AEFA58}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
+											<ObjectRef Name="StormLoopNoThunder" ID="{F57FBAE2-69C8-4E17-BFC4-7032716114BE}" WorkUnitID="{B9BCC859-0F77-4ECF-8AC3-F22626276A08}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -1956,6 +1945,17 @@
 						</Event>
 					</ChildrenList>
 				</Folder>
+				<Event Name="Play_Credits_Menu_Music" ID="{5073CA68-BE46-4666-8E85-A0E1DA4DA298}">
+					<ChildrenList>
+						<Action Name="" ID="{09B61F00-28DD-4FC1-8493-21F4054B1F34}" ShortID="457008547">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Credits_Menu" ID="{1719199A-9306-4A33-8E90-4BB85616B99E}" WorkUnitID="{900849B3-5BE8-4F7B-8EC5-9E5DD796D73F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

@@ -97,6 +97,7 @@ local material_timer = 0
 
 -- Flow control conditionals
 local attacked = false
+local has_died = false
 
 -- Recast navigation
 local navID = 0
@@ -127,6 +128,7 @@ local random_attack = 0
 local random_death_time = 0
 local dt = 0
 
+local curr_dmg_dealer = 0
 -- ______________________SCRIPT FUNCTIONS______________________
 
 local function ResetNavigation()
@@ -428,6 +430,8 @@ function lua_table:OnTriggerEnter()
 
 			lua_table.health = lua_table.health - script.collider_damage
 
+			curr_dmg_dealer = parent
+
 			lua_table.Material:SetMaterialByName("HitMaterial.mat", Material_UID)
       		material_timer = lua_table.System:GameTime() * 1000
 			start_material  = true
@@ -446,6 +450,37 @@ function lua_table:OnTriggerEnter()
 					particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Minion_Stun_Emitter", Minion_General_Emitter))
 					for i = 1, #particles do 
 					    lua_table.Particles:PlayParticleEmitter(particles[i])
+					end
+
+					if parent == lua_table.geralt then
+						------- Stun dmg marker
+						if script.geralt_score ~= nil then
+							if script.geralt_score[1] ~= nil then
+								script.geralt_score[1] = script.geralt_score[1] + script.collider_damage
+							end
+						end
+				
+						------- Actual stun dmg marker
+						if script.geralt_score ~= nil then
+							if script.geralt_score[4] ~= nil then
+								script.geralt_score[4] = script.geralt_score[4] + 1
+							end
+						end
+				
+					else 
+						------- Stun dmg marker
+						if script.jaskier_score ~= nil then
+							if script.jaskier_score[1] ~= nil then
+								script.jaskier_score[1] = script.jaskier_score[1] + script.collider_damage
+							end
+						end
+				
+						------- Actual stun dmg marker
+						if script.jaskier_score ~= nil then
+							if script.jaskier_score[4] ~= nil then
+								script.jaskier_score[4] = script.jaskier_score[4] + 1
+							end
+						end
 					end
 
 					start_stun = true
@@ -467,6 +502,37 @@ function lua_table:OnTriggerEnter()
 						particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Minion_Hit_Emitter", Minion_General_Emitter))
 						for i = 1, #particles do 
 						    lua_table.Particles:PlayParticleEmitter(particles[i])
+						end
+					end
+
+					if parent == lua_table.geralt then
+						------- Stun dmg marker
+						if script.geralt_score ~= nil then
+							if script.geralt_score[1] ~= nil then
+								script.geralt_score[1] = script.geralt_score[1] + script.collider_damage
+							end
+						end
+				
+						------- Actual stun dmg marker
+						if script.geralt_score ~= nil then
+							if script.geralt_score[4] ~= nil then
+								script.geralt_score[4] = script.geralt_score[4] + 1
+							end
+						end
+				
+					else 
+						------- Stun dmg marker
+						if script.jaskier_score ~= nil then
+							if script.jaskier_score[1] ~= nil then
+								script.jaskier_score[1] = script.jaskier_score[1] + script.collider_damage
+							end
+						end
+				
+						------- Actual stun dmg marker
+						if script.jaskier_score ~= nil then
+							if script.jaskier_score[4] ~= nil then
+								script.jaskier_score[4] = script.jaskier_score[4] + 1
+							end
 						end
 					end
 
@@ -494,6 +560,19 @@ function lua_table:OnTriggerEnter()
 					AttackColliderShutdown()
 
 					start_taunt = true
+
+					if script.jaskier_score ~= nil then
+						if script.jaskier_score[1] ~= nil then
+							script.jaskier_score[1] = script.jaskier_score[1] + script.collider_damage
+						end
+					end
+			
+					------- Actual stun dmg marker
+					if script.jaskier_score ~= nil then
+						if script.jaskier_score[4] ~= nil then
+							script.jaskier_score[4] = script.jaskier_score[4] + 1
+						end
+					end
 
 					if start_taunt then 
 						taunt_timer = lua_table.System:GameTime() * 1000
@@ -531,6 +610,37 @@ function lua_table:OnTriggerEnter()
 					end
 				end
 
+				if parent == lua_table.geralt then
+					------- Stun dmg marker
+					if script.geralt_score ~= nil then
+						if script.geralt_score[1] ~= nil then
+							script.geralt_score[1] = script.geralt_score[1] + script.collider_damage
+						end
+					end
+			
+					------- Actual stun dmg marker
+					if script.geralt_score ~= nil then
+						if script.geralt_score[4] ~= nil then
+							script.geralt_score[4] = script.geralt_score[4] + 1
+						end
+					end
+			
+				else 
+					------- Stun dmg marker
+					if script.jaskier_score ~= nil then
+						if script.jaskier_score[1] ~= nil then
+							script.jaskier_score[1] = script.jaskier_score[1] + script.collider_damage
+						end
+					end
+			
+					------- Actual stun dmg marker
+					if script.jaskier_score ~= nil then
+						if script.jaskier_score[4] ~= nil then
+							script.jaskier_score[4] = script.jaskier_score[4] + 1
+						end
+					end
+				end
+
 				lua_table.System:LOG("Hit registered")
 			end
 		end
@@ -548,6 +658,8 @@ function lua_table:RequestedTrigger(collider_GO)
 	local script = lua_table.GameObject:GetScript(collider_GO)
 	
 	if lua_table.currentState ~= State.DEATH then
+
+		curr_dmg_dealer = collider_GO
 
 		lua_table.health = lua_table.health - script.collider_damage
 
@@ -571,6 +683,37 @@ function lua_table:RequestedTrigger(collider_GO)
 				    lua_table.Particles:PlayParticleEmitter(particles[i])
 				end
 
+				if collider_GO == lua_table.geralt then
+					------- Stun dmg marker
+					if script.geralt_score ~= nil then
+						if script.geralt_score[1] ~= nil then
+							script.geralt_score[1] = script.geralt_score[1] + script.collider_damage
+						end
+					end
+			
+					------- Actual stun dmg marker
+					if script.geralt_score ~= nil then
+						if script.geralt_score[4] ~= nil then
+							script.geralt_score[4] = script.geralt_score[4] + 1
+						end
+					end
+			
+				else 
+					------- Stun dmg marker
+					if script.jaskier_score ~= nil then
+						if script.jaskier_score[1] ~= nil then
+							script.jaskier_score[1] = script.jaskier_score[1] + script.collider_damage
+						end
+					end
+			
+					------- Actual stun dmg marker
+					if script.jaskier_score ~= nil then
+						if script.jaskier_score[4] ~= nil then
+							script.jaskier_score[4] = script.jaskier_score[4] + 1
+						end
+					end
+				end
+
 				start_stun = true
 				lua_table.currentState = State.STUNNED
 				
@@ -589,6 +732,37 @@ function lua_table:RequestedTrigger(collider_GO)
 					particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Minion_Hit_Emitter", Minion_General_Emitter))
 					for i = 1, #particles do 
 						lua_table.Particles:PlayParticleEmitter(particles[i])
+					end
+				end
+
+				if collider_GO == lua_table.geralt then
+					------- Stun dmg marker
+					if script.geralt_score ~= nil then
+						if script.geralt_score[1] ~= nil then
+							script.geralt_score[1] = script.geralt_score[1] + script.collider_damage
+						end
+					end
+			
+					------- Actual stun dmg marker
+					if script.geralt_score ~= nil then
+						if script.geralt_score[4] ~= nil then
+							script.geralt_score[4] = script.geralt_score[4] + 1
+						end
+					end
+			
+				else 
+					------- Stun dmg marker
+					if script.jaskier_score ~= nil then
+						if script.jaskier_score[1] ~= nil then
+							script.jaskier_score[1] = script.jaskier_score[1] + script.collider_damage
+						end
+					end
+			
+					------- Actual stun dmg marker
+					if script.jaskier_score ~= nil then
+						if script.jaskier_score[4] ~= nil then
+							script.jaskier_score[4] = script.jaskier_score[4] + 1
+						end
 					end
 				end
 
@@ -615,6 +789,19 @@ function lua_table:RequestedTrigger(collider_GO)
 				AttackColliderShutdown()
 
 				start_taunt = true
+
+				if script.jaskier_score ~= nil then
+					if script.jaskier_score[1] ~= nil then
+						script.jaskier_score[1] = script.jaskier_score[1] + script.collider_damage
+					end
+				end
+		
+				------- Actual stun dmg marker
+				if script.jaskier_score ~= nil then
+					if script.jaskier_score[4] ~= nil then
+						script.jaskier_score[4] = script.jaskier_score[4] + 1
+					end
+				end
 
 				if start_taunt then 
 					taunt_timer = lua_table.System:GameTime() * 1000
@@ -647,6 +834,37 @@ function lua_table:RequestedTrigger(collider_GO)
 				particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Minion_Hit_Emitter", Minion_General_Emitter))
 				for i = 1, #particles do 
 					lua_table.Particles:PlayParticleEmitter(particles[i])
+				end
+			end
+
+			if collider_GO == lua_table.geralt then
+				------- Stun dmg marker
+				if script.geralt_score ~= nil then
+					if script.geralt_score[1] ~= nil then
+						script.geralt_score[1] = script.geralt_score[1] + script.collider_damage
+					end
+				end
+		
+				------- Actual stun dmg marker
+				if script.geralt_score ~= nil then
+					if script.geralt_score[4] ~= nil then
+						script.geralt_score[4] = script.geralt_score[4] + 1
+					end
+				end
+		
+			else 
+				------- Stun dmg marker
+				if script.jaskier_score ~= nil then
+					if script.jaskier_score[1] ~= nil then
+						script.jaskier_score[1] = script.jaskier_score[1] + script.collider_damage
+					end
+				end
+		
+				------- Actual stun dmg marker
+				if script.jaskier_score ~= nil then
+					if script.jaskier_score[4] ~= nil then
+						script.jaskier_score[4] = script.jaskier_score[4] + 1
+					end
 				end
 			end
 
@@ -706,12 +924,30 @@ function lua_table:Update()
 	
 	SearchPlayers() -- Constantly calculate distances between entity and players
 
-	if lua_table.GhoulPos[2] <= -100 then lua_table.Transform:SetPosition(lua_table.GhoulPos[1], 100, lua_table.GhoulPos[3], lua_table.MyUID) end 
+	if lua_table.GhoulPos[2] <= -100 then lua_table.GameObject:DestroyGameObject(lua_table.MyUID) end 
 
 	-- Check if our entity is dead
-	if lua_table.health <= 0 then 
+	if lua_table.health <= 0 and has_died == false then 
+
+		local score = lua_table.GameObject:GetScript(curr_dmg_dealer)
+
+		if curr_dmg_dealer == lua_table.geralt then
+			if score.geralt_score ~= nil then
+				if score.geralt_score[2] ~= nil then
+					score.geralt_score[2] = score.geralt_score[2] + 1
+				end
+			end
+		else 
+			if score.jaskier_score ~= nil then
+				if score.jaskier_score[2] ~= nil then
+					score.jaskier_score[2] = score.jaskier_score[2] + 1
+				end
+			end
+		end 
+
 		lua_table.currentState = State.DEATH
 		lua_table.System:LOG("Minion state: Death (5)")
+		has_died = true
 	end
 
 	-- Check which state the entity is in and then handle them accordingly

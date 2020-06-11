@@ -103,24 +103,6 @@
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
 				</SoundBank>
-				<SoundBank Name="Level_2" ID="{78BFC6AA-4E68-4E49-82CB-5C1C3F74E88D}">
-					<PropertyList>
-						<Property Name="Maximum" Type="int32">
-							<ValueList>
-								<Value>99000000</Value>
-							</ValueList>
-						</Property>
-					</PropertyList>
-					<ObjectInclusionList>
-						<ObjectRef Name="Level_2" ID="{F1FB1A6C-A2D4-47C1-92F3-4F5788AAE2C8}" WorkUnitID="{704E5E75-56AA-4381-96D8-951456C36A40}" Filter="7" Origin="Manual"/>
-					</ObjectInclusionList>
-					<ObjectExclusionList>
-						<ObjectRef Name="Cinematic_Level_2" ID="{722EE7E0-4879-4302-B66F-78C0983E3E19}" WorkUnitID="{704E5E75-56AA-4381-96D8-951456C36A40}"/>
-						<ObjectRef Name="Play_Lvl2_wind_4" ID="{3E76D509-A20F-4946-AC76-7A8F991A25CD}" WorkUnitID="{704E5E75-56AA-4381-96D8-951456C36A40}"/>
-						<ObjectRef Name="Play_Lvl2_wind_3" ID="{FA93AB2A-27FA-4BFE-8E13-9EB898DA2578}" WorkUnitID="{704E5E75-56AA-4381-96D8-951456C36A40}"/>
-					</ObjectExclusionList>
-					<GameSyncExclusionList/>
-				</SoundBank>
 				<SoundBank Name="Cinematic_Level_2" ID="{072960AB-CBAC-463C-BD02-D96B3FEB600A}">
 					<PropertyList>
 						<Property Name="Maximum" Type="int32">
@@ -131,66 +113,6 @@
 					</PropertyList>
 					<ObjectInclusionList>
 						<ObjectRef Name="Cinematic_Level_2" ID="{722EE7E0-4879-4302-B66F-78C0983E3E19}" WorkUnitID="{704E5E75-56AA-4381-96D8-951456C36A40}" Filter="7" Origin="Manual"/>
-					</ObjectInclusionList>
-					<ObjectExclusionList/>
-					<GameSyncExclusionList/>
-				</SoundBank>
-				<SoundBank Name="Music_Menus" ID="{DAB2BABB-64A4-497F-8337-6E304FFC60B6}">
-					<PropertyList>
-						<Property Name="Maximum" Type="int32">
-							<ValueList>
-								<Value>99000000</Value>
-							</ValueList>
-						</Property>
-					</PropertyList>
-					<ObjectInclusionList>
-						<ObjectRef Name="Play_Main_Menu_Music" ID="{0AE28D7A-BA48-4317-84A9-E9DDB2BC5B03}" WorkUnitID="{704E5E75-56AA-4381-96D8-951456C36A40}" Filter="7" Origin="Manual"/>
-						<ObjectRef Name="Play_Win_Menu_Music" ID="{3A638A68-A0A5-4630-BA90-82ECDB08B5BB}" WorkUnitID="{704E5E75-56AA-4381-96D8-951456C36A40}" Filter="7" Origin="Manual"/>
-						<ObjectRef Name="Play_Music_Menu_Comparison_Pirate_Dance" ID="{D8C2E418-7AE3-46EA-8E37-6727F19E5260}" WorkUnitID="{704E5E75-56AA-4381-96D8-951456C36A40}" Filter="7" Origin="Manual"/>
-						<ObjectRef Name="Play_Lost_Menu_Music" ID="{CEB9E95B-8248-49FE-B2DD-BA1A76BCE546}" WorkUnitID="{704E5E75-56AA-4381-96D8-951456C36A40}" Filter="7" Origin="Manual"/>
-					</ObjectInclusionList>
-					<ObjectExclusionList/>
-					<GameSyncExclusionList/>
-				</SoundBank>
-				<SoundBank Name="Music_Level_2" ID="{16ED2784-FE6B-4C34-BBAB-EE25CB5C8659}">
-					<PropertyList>
-						<Property Name="Maximum" Type="int32">
-							<ValueList>
-								<Value>99000000</Value>
-							</ValueList>
-						</Property>
-					</PropertyList>
-					<ObjectInclusionList>
-						<ObjectRef Name="Play_Level_2_Music" ID="{EF000F6C-BC68-4301-9A1E-7DDED98AEF48}" WorkUnitID="{704E5E75-56AA-4381-96D8-951456C36A40}" Filter="7" Origin="Manual"/>
-					</ObjectInclusionList>
-					<ObjectExclusionList/>
-					<GameSyncExclusionList/>
-				</SoundBank>
-				<SoundBank Name="Music_Level_1" ID="{63225A51-D0D4-4EAB-8A48-03D3213FCA2D}">
-					<PropertyList>
-						<Property Name="Maximum" Type="int32">
-							<ValueList>
-								<Value>99000000</Value>
-							</ValueList>
-						</Property>
-					</PropertyList>
-					<ObjectInclusionList>
-						<ObjectRef Name="Play_Level_1_Music" ID="{8B5CD85E-0112-4C48-93BF-7901B8D477D0}" WorkUnitID="{704E5E75-56AA-4381-96D8-951456C36A40}" Filter="7" Origin="Manual"/>
-					</ObjectInclusionList>
-					<ObjectExclusionList/>
-					<GameSyncExclusionList/>
-				</SoundBank>
-				<SoundBank Name="Pause_Music" ID="{C7789FB4-07A8-4159-93BC-8404554678DC}">
-					<PropertyList>
-						<Property Name="Maximum" Type="int32">
-							<ValueList>
-								<Value>99000000</Value>
-							</ValueList>
-						</Property>
-					</PropertyList>
-					<ObjectInclusionList>
-						<ObjectRef Name="Pause_Music" ID="{D0907844-E468-49B5-BD0F-1935FA75AB99}" WorkUnitID="{900849B3-5BE8-4F7B-8EC5-9E5DD796D73F}" Filter="7" Origin="Manual"/>
-						<ObjectRef Name="Pause_2" ID="{38CEB53B-F80E-4A81-AAE1-AB20D5ED9ED7}" WorkUnitID="{900849B3-5BE8-4F7B-8EC5-9E5DD796D73F}" Filter="7" Origin="Manual"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
@@ -279,13 +201,38 @@
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
 				</SoundBank>
-				<SoundBank Name="Level_1" ID="{4D291896-D0DF-4171-AF21-D79892823393}">
-					<ObjectInclusionList>
-						<ObjectRef Name="Level_1" ID="{28DD66F0-3ED1-4267-AB30-5EB0E16F4777}" WorkUnitID="{704E5E75-56AA-4381-96D8-951456C36A40}" Filter="7" Origin="Manual"/>
-					</ObjectInclusionList>
-					<ObjectExclusionList/>
-					<GameSyncExclusionList/>
-				</SoundBank>
+				<Folder Name="Levels_Music" ID="{8C76E296-BAFD-4833-8D36-0AED95A9850D}" ShortID="627491282">
+					<ChildrenList>
+						<SoundBank Name="Music_Level_1" ID="{92123DF1-8CDD-4777-B967-5F6ACCC7CF16}">
+							<PropertyList>
+								<Property Name="Maximum" Type="int32">
+									<ValueList>
+										<Value>99000000</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ObjectInclusionList>
+								<ObjectRef Name="Play_Level_1_Music" ID="{8B5CD85E-0112-4C48-93BF-7901B8D477D0}" WorkUnitID="{704E5E75-56AA-4381-96D8-951456C36A40}" Filter="7" Origin="Manual"/>
+							</ObjectInclusionList>
+							<ObjectExclusionList/>
+							<GameSyncExclusionList/>
+						</SoundBank>
+						<SoundBank Name="Music_Level_2" ID="{A820782D-2432-44BF-97D5-6DF4674FCB0B}">
+							<PropertyList>
+								<Property Name="Maximum" Type="int32">
+									<ValueList>
+										<Value>99000000</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ObjectInclusionList>
+								<ObjectRef Name="Play_Level_2_Music" ID="{EF000F6C-BC68-4301-9A1E-7DDED98AEF48}" WorkUnitID="{704E5E75-56AA-4381-96D8-951456C36A40}" Filter="7" Origin="Manual"/>
+							</ObjectInclusionList>
+							<ObjectExclusionList/>
+							<GameSyncExclusionList/>
+						</SoundBank>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</SoundBanks>

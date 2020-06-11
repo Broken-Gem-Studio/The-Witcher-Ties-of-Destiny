@@ -73,6 +73,11 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_revive"
      },
      {
+      "Id": "1216492189",
+      "Name": "Play_Geralt_Run_dirt",
+      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_Run_dirt"
+     },
+     {
       "Id": "2896484239",
       "Name": "Play_Geralt_sword_metal",
       "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_sword_metal"
@@ -96,16 +101,6 @@
       "Id": "1968004141",
       "Name": "Play_Geralt_Ultimate_Available",
       "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_Ultimate_Available"
-     },
-     {
-      "Id": "4167477001",
-      "Name": "Play_Geralt_walk_run_concrete",
-      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_walk_run_concrete"
-     },
-     {
-      "Id": "2190072003",
-      "Name": "Play_Geralt_walk_run_dirt",
-      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_walk_run_dirt"
      }
     ],
     "IncludedMemoryFiles": [
@@ -128,28 +123,10 @@
       "Path": "SFX\\Geralt_aard_2_10C4C929.wem"
      },
      {
-      "Id": "50241550",
-      "Language": "SFX",
-      "ShortName": "Geralt_Walk_dirt_5.wav",
-      "Path": "SFX\\Geralt_Walk_dirt_5_10C4C929.wem"
-     },
-     {
       "Id": "73997410",
       "Language": "SFX",
       "ShortName": "Geralt_sword_metal_1.wav",
       "Path": "SFX\\Geralt_sword_metal_1_10C4C929.wem"
-     },
-     {
-      "Id": "79634573",
-      "Language": "SFX",
-      "ShortName": "Geralt_walk_run_concrete_1.wav",
-      "Path": "SFX\\Geralt_walk_run_concrete_1_10C4C929.wem"
-     },
-     {
-      "Id": "81104822",
-      "Language": "SFX",
-      "ShortName": "Geralt_Walk_dirt_3.wav",
-      "Path": "SFX\\Geralt_Walk_dirt_3_10C4C929.wem"
      },
      {
       "Id": "117949325",
@@ -162,12 +139,6 @@
       "Language": "SFX",
       "ShortName": "Geralt_Ultimate_Updated.wav",
       "Path": "SFX\\Geralt_Ultimate_Updated_10C4C929.wem"
-     },
-     {
-      "Id": "140420438",
-      "Language": "SFX",
-      "ShortName": "Geralt_Walk_dirt_4.wav",
-      "Path": "SFX\\Geralt_Walk_dirt_4_10C4C929.wem"
      },
      {
       "Id": "171157079",
@@ -198,12 +169,6 @@
       "Language": "SFX",
       "ShortName": "Geralt_sword_swing_6.wav",
       "Path": "SFX\\Geralt_sword_swing_6_10C4C929.wem"
-     },
-     {
-      "Id": "299164818",
-      "Language": "SFX",
-      "ShortName": "Geralt_walk_run_concrete_3.wav",
-      "Path": "SFX\\Geralt_walk_run_concrete_3_10C4C929.wem"
      },
      {
       "Id": "420091269",
@@ -284,12 +249,6 @@
       "Path": "SFX\\Geralt_Walk_run_dirt_2_10C4C929.wem"
      },
      {
-      "Id": "791529419",
-      "Language": "SFX",
-      "ShortName": "Geralt_walk-_run_concrete_4.wav",
-      "Path": "SFX\\Geralt_walk-_run_concrete_4_10C4C929.wem"
-     },
-     {
       "Id": "797279493",
       "Language": "SFX",
       "ShortName": "Geralt_sword_swing_8.wav",
@@ -314,18 +273,6 @@
       "Path": "SFX\\Geralt_aard_3_10C4C929.wem"
      },
      {
-      "Id": "887117839",
-      "Language": "SFX",
-      "ShortName": "Geralt_walk_run_concrete_2.wav",
-      "Path": "SFX\\Geralt_walk_run_concrete_2_10C4C929.wem"
-     },
-     {
-      "Id": "887235156",
-      "Language": "SFX",
-      "ShortName": "Geralt_Walk_dirt_1.wav",
-      "Path": "SFX\\Geralt_Walk_dirt_1_10C4C929.wem"
-     },
-     {
       "Id": "912795110",
       "Language": "SFX",
       "ShortName": "Geralt_sword_swing_4.wav",
@@ -348,12 +295,6 @@
       "Language": "SFX",
       "ShortName": "Geralt_revive.wav",
       "Path": "SFX\\Geralt_revive_10C4C929.wem"
-     },
-     {
-      "Id": "1002873227",
-      "Language": "SFX",
-      "ShortName": "Geralt_Walk_dirt_2.wav",
-      "Path": "SFX\\Geralt_Walk_dirt_2_10C4C929.wem"
      },
      {
       "Id": "1044808801",
@@ -595,6 +536,11 @@
     "Path": "Props.bnk",
     "IncludedEvents": [
      {
+      "Id": "2637631400",
+      "Name": "Play_Coin_Collision",
+      "ObjectPath": "\\Events\\Default Work Unit\\Props\\Play_Coin_Collision"
+     },
+     {
       "Id": "27935653",
       "Name": "Play_Door_new_sound",
       "ObjectPath": "\\Events\\Default Work Unit\\Props\\Door\\Play_Door_new_sound"
@@ -704,22 +650,28 @@
       "Path": "SFX\\SFX_Loot_1_10C4C929.wem"
      },
      {
+      "Id": "511060225",
+      "Language": "SFX",
+      "ShortName": "CoinSeven.wav",
+      "Path": "SFX\\CoinSeven_10C4C929.wem"
+     },
+     {
       "Id": "518464496",
       "Language": "SFX",
       "ShortName": "SFX_Door_1.wav",
       "Path": "SFX\\SFX_Door_1_10C4C929.wem"
      },
      {
+      "Id": "535881056",
+      "Language": "SFX",
+      "ShortName": "CoinSix.wav",
+      "Path": "SFX\\CoinSix_10C4C929.wem"
+     },
+     {
       "Id": "604885141",
       "Language": "SFX",
       "ShortName": "Potion pick up.wav",
       "Path": "SFX\\Potion pick up_10C4C929.wem"
-     },
-     {
-      "Id": "616449000",
-      "Language": "SFX",
-      "ShortName": "Door_new_sound.wav",
-      "Path": "SFX\\Door_new_sound_10C4C929.wem"
      },
      {
       "Id": "671728360",
@@ -734,10 +686,28 @@
       "Path": "SFX\\Prop_wood_break_1_10C4C929.wem"
      },
      {
+      "Id": "688655095",
+      "Language": "SFX",
+      "ShortName": "CoinFour.wav",
+      "Path": "SFX\\CoinFour_10C4C929.wem"
+     },
+     {
       "Id": "703546484",
       "Language": "SFX",
       "ShortName": "SFX_Loot_2.wav",
       "Path": "SFX\\SFX_Loot_2_10C4C929.wem"
+     },
+     {
+      "Id": "712377787",
+      "Language": "SFX",
+      "ShortName": "SFX_Door.wav",
+      "Path": "SFX\\SFX_Door_10C4C929.wem"
+     },
+     {
+      "Id": "821591404",
+      "Language": "SFX",
+      "ShortName": "CoinThree.wav",
+      "Path": "SFX\\CoinThree_10C4C929.wem"
      },
      {
       "Id": "864063706",
@@ -929,22 +899,10 @@
       "Path": "SFX\\Kikimora_scream_3_10C4C929.wem"
      },
      {
-      "Id": "29980648",
-      "Language": "SFX",
-      "ShortName": "Minion_take_damage_scream_2.wav",
-      "Path": "SFX\\Minion_take_damage_scream_2_10C4C929.wem"
-     },
-     {
       "Id": "74048227",
       "Language": "SFX",
       "ShortName": "Kikimora_damaged_2.wav",
       "Path": "SFX\\Kikimora_damaged_2_10C4C929.wem"
-     },
-     {
-      "Id": "91784012",
-      "Language": "SFX",
-      "ShortName": "Minion_death_2.wav",
-      "Path": "SFX\\Minion_death_2_10C4C929.wem"
      },
      {
       "Id": "95769308",
@@ -953,16 +911,16 @@
       "Path": "SFX\\Walker_Ghoul_minion_spawn_2_10C4C929.wem"
      },
      {
+      "Id": "130689485",
+      "Language": "SFX",
+      "ShortName": "Right_punch.wav",
+      "Path": "SFX\\Right_punch_10C4C929.wem"
+     },
+     {
       "Id": "165102061",
       "Language": "SFX",
       "ShortName": "Kikimora_sweep_phase_3.wav",
       "Path": "SFX\\Kikimora_sweep_phase_3_10C4C929.wem"
-     },
-     {
-      "Id": "207123423",
-      "Language": "SFX",
-      "ShortName": "Minion_right_punch.wav",
-      "Path": "SFX\\Minion_right_punch_10C4C929.wem"
      },
      {
       "Id": "209745940",
@@ -977,16 +935,16 @@
       "Path": "SFX\\Walker_Ghoul_fall_back_2_10C4C929.wem"
      },
      {
+      "Id": "253635516",
+      "Language": "SFX",
+      "ShortName": "Death_1.wav",
+      "Path": "SFX\\Death_1_10C4C929.wem"
+     },
+     {
       "Id": "279734841",
       "Language": "SFX",
       "ShortName": "Walker_Ghoul_take_damage_4.wav",
       "Path": "SFX\\Walker_Ghoul_take_damage_4_10C4C929.wem"
-     },
-     {
-      "Id": "300951795",
-      "Language": "SFX",
-      "ShortName": "Minion_take_damage_2.wav",
-      "Path": "SFX\\Minion_take_damage_2_10C4C929.wem"
      },
      {
       "Id": "340309384",
@@ -1005,12 +963,6 @@
       "Language": "SFX",
       "ShortName": "Red_Ghoul_scream_variation_3.wav",
       "Path": "SFX\\Red_Ghoul_scream_variation_3_10C4C929.wem"
-     },
-     {
-      "Id": "365638502",
-      "Language": "SFX",
-      "ShortName": "Minion_take_damage_1.wav",
-      "Path": "SFX\\Minion_take_damage_1_10C4C929.wem"
      },
      {
       "Id": "375540798",
@@ -1055,12 +1007,6 @@
       "Path": "SFX\\Red_Ghoul_damaged_2_10C4C929.wem"
      },
      {
-      "Id": "478261543",
-      "Language": "SFX",
-      "ShortName": "Minion_both_arms_attack.wav",
-      "Path": "SFX\\Minion_both_arms_attack_10C4C929.wem"
-     },
-     {
       "Id": "486913171",
       "Language": "SFX",
       "ShortName": "Kikimora_scream_1.wav",
@@ -1091,22 +1037,16 @@
       "Path": "SFX\\Walker_Ghoul_fall_back_1_10C4C929.wem"
      },
      {
-      "Id": "547501419",
+      "Id": "549667623",
       "Language": "SFX",
-      "ShortName": "Minion_death_1.wav",
-      "Path": "SFX\\Minion_death_1_10C4C929.wem"
+      "ShortName": "Death_2.wav",
+      "Path": "SFX\\Death_2_10C4C929.wem"
      },
      {
       "Id": "564748602",
       "Language": "SFX",
       "ShortName": "Walker_Ghoul_take_damage_1.wav",
       "Path": "SFX\\Walker_Ghoul_take_damage_1_10C4C929.wem"
-     },
-     {
-      "Id": "597063675",
-      "Language": "SFX",
-      "ShortName": "Minion_death_3.wav",
-      "Path": "SFX\\Minion_death_3_10C4C929.wem"
      },
      {
       "Id": "608064169",
@@ -1121,10 +1061,22 @@
       "Path": "SFX\\Kikimora_lash_10C4C929.wem"
      },
      {
+      "Id": "663083579",
+      "Language": "SFX",
+      "ShortName": "Bot_arms_attack.wav",
+      "Path": "SFX\\Bot_arms_attack_10C4C929.wem"
+     },
+     {
       "Id": "696452794",
       "Language": "SFX",
       "ShortName": "Walker_Ghoul_minion_spawn_1.wav",
       "Path": "SFX\\Walker_Ghoul_minion_spawn_1_10C4C929.wem"
+     },
+     {
+      "Id": "704114508",
+      "Language": "SFX",
+      "ShortName": "Take_damage_2.wav",
+      "Path": "SFX\\Take_damage_2_10C4C929.wem"
      },
      {
       "Id": "713683945",
@@ -1137,6 +1089,12 @@
       "Language": "SFX",
       "ShortName": "Screamer_ghoul_scream_attack_4.wav",
       "Path": "SFX\\Screamer_ghoul_scream_attack_4_10C4C929.wem"
+     },
+     {
+      "Id": "720572374",
+      "Language": "SFX",
+      "ShortName": "Take_damage_scream_1.wav",
+      "Path": "SFX\\Take_damage_scream_1_10C4C929.wem"
      },
      {
       "Id": "728864066",
@@ -1169,6 +1127,12 @@
       "Path": "SFX\\Red_Ghoul_death_1_10C4C929.wem"
      },
      {
+      "Id": "924353288",
+      "Language": "SFX",
+      "ShortName": "Take_Damage_scream_2.wav",
+      "Path": "SFX\\Take_Damage_scream_2_10C4C929.wem"
+     },
+     {
       "Id": "955305240",
       "Language": "SFX",
       "ShortName": "Red_Ghoul_damaged_1.wav",
@@ -1179,6 +1143,12 @@
       "Language": "SFX",
       "ShortName": "Red_Ghoul_scream_variation_2.wav",
       "Path": "SFX\\Red_Ghoul_scream_variation_2_10C4C929.wem"
+     },
+     {
+      "Id": "977470841",
+      "Language": "SFX",
+      "ShortName": "Death_3.wav",
+      "Path": "SFX\\Death_3_10C4C929.wem"
      },
      {
       "Id": "1008028608",
@@ -1199,10 +1169,10 @@
       "Path": "SFX\\Red_Ghoul_death_3_10C4C929.wem"
      },
      {
-      "Id": "1047616197",
+      "Id": "1046506443",
       "Language": "SFX",
-      "ShortName": "Minion_take_damage_scream_1.wav",
-      "Path": "SFX\\Minion_take_damage_scream_1_10C4C929.wem"
+      "ShortName": "Take_damage_1.wav",
+      "Path": "SFX\\Take_damage_1_10C4C929.wem"
      },
      {
       "Id": "1050045866",
@@ -1213,171 +1183,11 @@
     ]
    },
    {
-    "Id": "1290008369",
-    "Language": "SFX",
-    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Level_1",
-    "ShortName": "Level_1",
-    "Path": "Level_1.bnk",
-    "IncludedEvents": [
-     {
-      "Id": "1483511332",
-      "Name": "Rain_loop",
-      "ObjectPath": "\\Events\\Default Work Unit\\Level_1\\Rain_loop"
-     },
-     {
-      "Id": "186852181",
-      "Name": "Thunder",
-      "ObjectPath": "\\Events\\Default Work Unit\\Level_1\\Thunder"
-     }
-    ],
-    "IncludedMemoryFiles": [
-     {
-      "Id": "371197786",
-      "Language": "SFX",
-      "ShortName": "ThunderOne.wav",
-      "Path": "SFX\\ThunderOne_10C4C929.wem"
-     },
-     {
-      "Id": "895524995",
-      "Language": "SFX",
-      "ShortName": "StormLoop.wav",
-      "Path": "SFX\\StormLoop_D79FB2B7.wem"
-     },
-     {
-      "Id": "914906870",
-      "Language": "SFX",
-      "ShortName": "ThunderTwo.wav",
-      "Path": "SFX\\ThunderTwo_10C4C929.wem"
-     }
-    ]
-   },
-   {
-    "Id": "1290008370",
-    "Language": "SFX",
-    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Level_2",
-    "ShortName": "Level_2",
-    "Path": "Level_2.bnk",
-    "IncludedEvents": [
-     {
-      "Id": "4115872312",
-      "Name": "Play_Lvl2_fire_ambience_1",
-      "ObjectPath": "\\Events\\Default Work Unit\\Level_2\\Play_Lvl2_fire_ambience_1"
-     },
-     {
-      "Id": "4115872315",
-      "Name": "Play_Lvl2_fire_ambience_2",
-      "ObjectPath": "\\Events\\Default Work Unit\\Level_2\\Play_Lvl2_fire_ambience_2"
-     },
-     {
-      "Id": "4115872314",
-      "Name": "Play_Lvl2_fire_ambience_3",
-      "ObjectPath": "\\Events\\Default Work Unit\\Level_2\\Play_Lvl2_fire_ambience_3"
-     },
-     {
-      "Id": "2013879219",
-      "Name": "Play_Lvl2_wind_1",
-      "ObjectPath": "\\Events\\Default Work Unit\\Level_2\\Play_Lvl2_wind_1"
-     },
-     {
-      "Id": "2013879216",
-      "Name": "Play_Lvl2_wind_2",
-      "ObjectPath": "\\Events\\Default Work Unit\\Level_2\\Play_Lvl2_wind_2"
-     }
-    ],
-    "IncludedMemoryFiles": [
-     {
-      "Id": "303593917",
-      "Language": "SFX",
-      "ShortName": "Lvl2_fire_ambience_3.wav",
-      "Path": "SFX\\Lvl2_fire_ambience_3_D79FB2B7.wem"
-     },
-     {
-      "Id": "380592605",
-      "Language": "SFX",
-      "ShortName": "Lvl2_fire_ambience_1.wav",
-      "Path": "SFX\\Lvl2_fire_ambience_1_D79FB2B7.wem"
-     },
-     {
-      "Id": "490493165",
-      "Language": "SFX",
-      "ShortName": "Lvl2_wind_2.wav",
-      "Path": "SFX\\Lvl2_wind_2_D79FB2B7.wem"
-     },
-     {
-      "Id": "526975984",
-      "Language": "SFX",
-      "ShortName": "Lvl2_wind_1.wav",
-      "Path": "SFX\\Lvl2_wind_1_D79FB2B7.wem"
-     },
-     {
-      "Id": "823104144",
-      "Language": "SFX",
-      "ShortName": "Lvl2_fire ambience_2.wav",
-      "Path": "SFX\\Lvl2_fire ambience_2_D79FB2B7.wem"
-     }
-    ]
-   },
-   {
     "Id": "1355168291",
     "Language": "SFX",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk"
-   },
-   {
-    "Id": "1614123467",
-    "Language": "SFX",
-    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Music_Menus",
-    "ShortName": "Music_Menus",
-    "Path": "Music_Menus.bnk",
-    "IncludedEvents": [
-     {
-      "Id": "3007158762",
-      "Name": "Play_Lost_Menu_Music",
-      "ObjectPath": "\\Events\\Default Work Unit\\Play_Lost_Menu_Music"
-     },
-     {
-      "Id": "2895168921",
-      "Name": "Play_Main_Menu_Music",
-      "ObjectPath": "\\Events\\Default Work Unit\\Play_Main_Menu_Music"
-     },
-     {
-      "Id": "1913521131",
-      "Name": "Play_Music_Menu_Comparison_Pirate_Dance",
-      "ObjectPath": "\\Events\\Default Work Unit\\Play_Music_Menu_Comparison_Pirate_Dance"
-     },
-     {
-      "Id": "2973513758",
-      "Name": "Play_Win_Menu_Music",
-      "ObjectPath": "\\Events\\Default Work Unit\\Play_Win_Menu_Music"
-     }
-    ],
-    "IncludedMemoryFiles": [
-     {
-      "Id": "237417088",
-      "Language": "SFX",
-      "ShortName": "Music_Menu_Comparison_Pirate_Dance.wav",
-      "Path": "SFX\\Music_Menu_Comparison_Pirate_Dance_D79FB2B7.wem"
-     },
-     {
-      "Id": "665589033",
-      "Language": "SFX",
-      "ShortName": "Music_Menu_Win.wav",
-      "Path": "SFX\\Music_Menu_Win_D79FB2B7.wem"
-     },
-     {
-      "Id": "689347614",
-      "Language": "SFX",
-      "ShortName": "Music_Menu_Lost.wav",
-      "Path": "SFX\\Music_Menu_Lost_D79FB2B7.wem"
-     },
-     {
-      "Id": "697497514",
-      "Language": "SFX",
-      "ShortName": "Music\\Music_Menu_Main_Captains_Tribute.wav",
-      "Path": "SFX\\Music\\Music_Menu_Main_Captains_Tribute_D79FB2B7.wem"
-     }
-    ]
    },
    {
     "Id": "1735538792",
@@ -1447,19 +1257,14 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_revive"
      },
      {
+      "Id": "3460662205",
+      "Name": "Play_Jaskier_Run_dirt",
+      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_Run_dirt"
+     },
+     {
       "Id": "3175770957",
       "Name": "Play_Jaskier_Ultimate_Available",
       "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_Ultimate_Available"
-     },
-     {
-      "Id": "2646163561",
-      "Name": "Play_Jaskier_walk_run_concrete",
-      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_walk_run_concrete"
-     },
-     {
-      "Id": "4243245347",
-      "Name": "Play_Jaskier_walk_run_dirt",
-      "ObjectPath": "\\Events\\Default Work Unit\\Jaskier\\Play_Jaskier_walk_run_dirt"
      }
     ],
     "IncludedMemoryFiles": [
@@ -1488,34 +1293,10 @@
       "Path": "SFX\\Jaskier_guitar_swing_4_10C4C929.wem"
      },
      {
-      "Id": "215839451",
-      "Language": "SFX",
-      "ShortName": "Jaskier_walk_run_concrete_1.wav",
-      "Path": "SFX\\Jaskier_walk_run_concrete_1_10C4C929.wem"
-     },
-     {
       "Id": "286403294",
       "Language": "SFX",
       "ShortName": "Jaskier_guitar_swing_8.wav",
       "Path": "SFX\\Jaskier_guitar_swing_8_10C4C929.wem"
-     },
-     {
-      "Id": "324687624",
-      "Language": "SFX",
-      "ShortName": "Jaskier_Walk_dirt_4.wav",
-      "Path": "SFX\\Jaskier_Walk_dirt_4_10C4C929.wem"
-     },
-     {
-      "Id": "345663131",
-      "Language": "SFX",
-      "ShortName": "Jaskier_Walk_dirt_3.wav",
-      "Path": "SFX\\Jaskier_Walk_dirt_3_10C4C929.wem"
-     },
-     {
-      "Id": "417883437",
-      "Language": "SFX",
-      "ShortName": "Jaskier_walk_run_concrete_4.wav",
-      "Path": "SFX\\Jaskier_walk_run_concrete_4_10C4C929.wem"
      },
      {
       "Id": "420840914",
@@ -1548,22 +1329,10 @@
       "Path": "SFX\\Jaskier_jump_10C4C929.wem"
      },
      {
-      "Id": "586777340",
-      "Language": "SFX",
-      "ShortName": "Jaskier_Walk_dirt_5.wav",
-      "Path": "SFX\\Jaskier_Walk_dirt_5_10C4C929.wem"
-     },
-     {
       "Id": "590511381",
       "Language": "SFX",
       "ShortName": "Jaskier_guitar_swing_5.wav",
       "Path": "SFX\\Jaskier_guitar_swing_5_10C4C929.wem"
-     },
-     {
-      "Id": "622300700",
-      "Language": "SFX",
-      "ShortName": "Jaskier_walk_run_concrete_2.wav",
-      "Path": "SFX\\Jaskier_walk_run_concrete_2_10C4C929.wem"
      },
      {
       "Id": "696598848",
@@ -1594,12 +1363,6 @@
       "Language": "SFX",
       "ShortName": "Jaskier_walk_run_dirt_1.wav",
       "Path": "SFX\\Jaskier_walk_run_dirt_1_10C4C929.wem"
-     },
-     {
-      "Id": "809240755",
-      "Language": "SFX",
-      "ShortName": "Jaskier_Walk_dirt_2.wav",
-      "Path": "SFX\\Jaskier_Walk_dirt_2_10C4C929.wem"
      },
      {
       "Id": "847161361",
@@ -1648,18 +1411,6 @@
       "Language": "SFX",
       "ShortName": "Jaskier_guitar_smash.wav",
       "Path": "SFX\\Jaskier_guitar_smash_10C4C929.wem"
-     },
-     {
-      "Id": "972374554",
-      "Language": "SFX",
-      "ShortName": "Jaskier_Walk_dirt_1.wav",
-      "Path": "SFX\\Jaskier_Walk_dirt_1_10C4C929.wem"
-     },
-     {
-      "Id": "995710726",
-      "Language": "SFX",
-      "ShortName": "Jaskier_walk_run_concrete_3.wav",
-      "Path": "SFX\\Jaskier_walk_run_concrete_3_10C4C929.wem"
      },
      {
       "Id": "1004558716",
@@ -2247,21 +1998,6 @@
       "Language": "SFX",
       "ShortName": "Archer_Ranged_Attack_01.wav",
       "Path": "SFX\\Archer_Ranged_Attack_01_10C4C929.wem"
-     }
-    ]
-   },
-   {
-    "Id": "2735935537",
-    "Language": "SFX",
-    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Pause_Music",
-    "ShortName": "Pause_Music",
-    "Path": "Pause_Music.bnk",
-    "IncludedMemoryFiles": [
-     {
-      "Id": "1022100902",
-      "Language": "SFX",
-      "ShortName": "Music\\Music_Menu_Pause_Relaxing_Green_Nature.wav",
-      "Path": "SFX\\Music\\Music_Menu_Pause_Relaxing_Green_Nature_D79FB2B7.wem"
      }
     ]
    },
@@ -2968,7 +2704,7 @@
    {
     "Id": "3508274217",
     "Language": "SFX",
-    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Music_Level_1",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Levels_Music\\Music_Level_1",
     "ShortName": "Music_Level_1",
     "Path": "Music_Level_1.bnk",
     "IncludedEvents": [
@@ -2979,12 +2715,6 @@
      }
     ],
     "IncludedMemoryFiles": [
-     {
-      "Id": "394200934",
-      "Language": "SFX",
-      "ShortName": "Music\\Music_Combat_The_Dark_Castle.wav",
-      "Path": "SFX\\Music\\Music_Combat_The_Dark_Castle_D79FB2B7.wem"
-     },
      {
       "Id": "483066541",
       "Language": "SFX",
@@ -2998,17 +2728,17 @@
       "Path": "SFX\\Music\\Music_Lvl_1_Broken_Village_D79FB2B7.wem"
      },
      {
-      "Id": "1022100902",
+      "Id": "1026238351",
       "Language": "SFX",
-      "ShortName": "Music\\Music_Menu_Pause_Relaxing_Green_Nature.wav",
-      "Path": "SFX\\Music\\Music_Menu_Pause_Relaxing_Green_Nature_D79FB2B7.wem"
+      "ShortName": "Music_Menu_Pause_Relaxing_Green_Nature_Reduced_Loop.wav",
+      "Path": "SFX\\Music_Menu_Pause_Relaxing_Green_Nature_Reduced_Loop_D79FB2B7.wem"
      }
     ]
    },
    {
     "Id": "3508274218",
     "Language": "SFX",
-    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Music_Level_2",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Levels_Music\\Music_Level_2",
     "ShortName": "Music_Level_2",
     "Path": "Music_Level_2.bnk",
     "IncludedEvents": [
@@ -3020,16 +2750,10 @@
     ],
     "IncludedMemoryFiles": [
      {
-      "Id": "382083512",
+      "Id": "358228394",
       "Language": "SFX",
-      "ShortName": "Music_Kikimora_Dungeon of shadows.wav",
-      "Path": "SFX\\Music_Kikimora_Dungeon of shadows_D79FB2B7.wem"
-     },
-     {
-      "Id": "394200934",
-      "Language": "SFX",
-      "ShortName": "Music\\Music_Combat_The_Dark_Castle.wav",
-      "Path": "SFX\\Music\\Music_Combat_The_Dark_Castle_D79FB2B7.wem"
+      "ShortName": "Music_Kikimora_Dungeon_of_shadows_intro.wav",
+      "Path": "SFX\\Music_Kikimora_Dungeon_of_shadows_intro_D79FB2B7.wem"
      },
      {
       "Id": "483066541",
@@ -3038,16 +2762,22 @@
       "Path": "SFX\\Music\\Music_Combat_Viking_Ship_D79FB2B7.wem"
      },
      {
+      "Id": "593693911",
+      "Language": "SFX",
+      "ShortName": "Kikimora_Fight_Loop.wav",
+      "Path": "SFX\\Kikimora_Fight_Loop_D79FB2B7.wem"
+     },
+     {
       "Id": "621261315",
       "Language": "SFX",
       "ShortName": "Music\\Music_Lvl_2_Loop_The village.wav",
       "Path": "SFX\\Music\\Music_Lvl_2_Loop_The village_D79FB2B7.wem"
      },
      {
-      "Id": "1022100902",
+      "Id": "1026238351",
       "Language": "SFX",
-      "ShortName": "Music\\Music_Menu_Pause_Relaxing_Green_Nature.wav",
-      "Path": "SFX\\Music\\Music_Menu_Pause_Relaxing_Green_Nature_D79FB2B7.wem"
+      "ShortName": "Music_Menu_Pause_Relaxing_Green_Nature_Reduced_Loop.wav",
+      "Path": "SFX\\Music_Menu_Pause_Relaxing_Green_Nature_Reduced_Loop_D79FB2B7.wem"
      }
     ]
    }

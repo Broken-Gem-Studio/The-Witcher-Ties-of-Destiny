@@ -126,10 +126,10 @@ local audio_library = {
 	-- stun = "Play_Jaskier_stun",
 	hurt = "Play_Jaskier_hit_sound",
 
-	move = "Play_Jaskier_walk_run_dirt",
-	move_switch = "Jaskier_walk_run_switch",
-	walk_state = "Walk",
-	run_state = "Run",
+	move = "Play_Jaskier_Run_dirt",
+	-- move_switch = "Jaskier_walk_run_switch",
+	-- walk_state = "Walk",
+	-- run_state = "Run",
 
 	evade = "Play_Jaskier_jump",
 	ultimate_recharged = "Play_Jaskier_Ultimate_Available",
@@ -456,6 +456,12 @@ lua_table.energy_reg_orig = 7
 		medium = { intensity = 1.0, duration = 200 },
 		big = { intensity = 1.0, duration = 300 }
 	}
+	local camera_shake = {
+		small = { intensity = 0.1, duration = 0.2 },
+		medium = { intensity = 0.2, duration = 0.4 },
+		big = { intensity = 0.4, duration = 0.7 },
+		yeet = { intensity = 1.5, duration = 3.0 }
+	}
 
 	--Attack Inputs
 	local rightside = true		-- Last attack side, marks the animation of next attack
@@ -482,14 +488,14 @@ lua_table.light_3_movement_2_velocity = -6.0
 lua_table.light_3_movement_2_start = 600
 lua_table.light_3_movement_2_end = 800
 
-lua_table.light_1_block_time = 300			--Input block duration	(block new attacks)
+lua_table.light_1_block_time = 325			--Input block duration	(block new attacks)
 lua_table.light_1_collider_front_start = 300	--Collider activation time
 lua_table.light_1_collider_front_end = 400	--Collider deactivation time
 lua_table.light_1_duration = 500			--Attack end (return to idle)
 lua_table.light_1_animation_speed = 80.0
 lua_table.light_1_slow_start = 400
 
-lua_table.light_2_block_time = 200			--Input block duration	(block new attacks)
+lua_table.light_2_block_time = 225			--Input block duration	(block new attacks)
 lua_table.light_2_collider_front_start = 200	--Collider activation time
 lua_table.light_2_collider_front_end = 300	--Collider deactivation time
 lua_table.light_2_duration = 450			--Attack end (return to idle)
@@ -523,14 +529,14 @@ lua_table.medium_3_movement_2_velocity = -4.0
 lua_table.medium_3_movement_2_start = 850
 lua_table.medium_3_movement_2_end = 1150
 
-lua_table.medium_1_block_time = 350			--Input block duration	(block new attacks)
+lua_table.medium_1_block_time = 375			--Input block duration	(block new attacks)
 lua_table.medium_1_collider_front_start = 350	--Collider activation time
 lua_table.medium_1_collider_front_end = 450	--Collider deactivation time
 lua_table.medium_1_duration = 425			--Attack end (return to idle)
 lua_table.medium_1_animation_speed = 40.0
 lua_table.medium_1_slow_start = 500
 
-lua_table.medium_2_block_time = 400			--Input block duration	(block new attacks)
+lua_table.medium_2_block_time = 500			--Input block duration	(block new attacks)
 lua_table.medium_2_collider_front_start = 400	--Collider activation time
 lua_table.medium_2_collider_front_end = 500	--Collider deactivation time
 lua_table.medium_2_duration = 530			--Attack end (return to idle)
@@ -565,14 +571,14 @@ lua_table.heavy_3_movement_2_velocity = -3.0
 lua_table.heavy_3_movement_2_start = 1000
 lua_table.heavy_3_movement_2_end = 1400
 
-lua_table.heavy_1_block_time = 550			--Input block duration	(block new attacks)
+lua_table.heavy_1_block_time = 575			--Input block duration	(block new attacks)
 lua_table.heavy_1_collider_front_start = 350	--Collider activation time
 lua_table.heavy_1_collider_front_end = 550	--Collider deactivation time
 lua_table.heavy_1_duration = 1200			--Attack end (return to idle)
 lua_table.heavy_1_animation_speed = 30.0
 lua_table.heavy_1_slow_start = 850
 
-lua_table.heavy_2_block_time = 500			--Input block duration	(block new attacks)
+lua_table.heavy_2_block_time = 575			--Input block duration	(block new attacks)
 lua_table.heavy_2_collider_front_start = 300	--Collider activation time
 lua_table.heavy_2_collider_front_end = 450	--Collider deactivation time
 lua_table.heavy_2_duration = 830			--Attack end (return to idle)
@@ -667,6 +673,7 @@ lua_table.note_stack = { 'N', 'N', 'N', 'N' }	-- Notes based on attacks performe
 	lua_table.song_3_damage = 0.0
 	lua_table.song_3_status_effect = attack_effects_ID.taunt
 	lua_table.song_3_effect_value = 0
+	lua_table.song_3_saved_direction = false
 
 	lua_table.song_3_secondary_effect_start = 2850
 	lua_table.song_3_secondary_effect_end = 2950
@@ -840,7 +847,7 @@ local function GoDefaultState(change_blend_time)
 			current_animation = animation_library.run
 
 			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.move, jaskier_GO_UID)	--TODO-AUDIO: Play run sound
-			lua_table.AudioFunctions:SetAudioSwitch(audio_library.move_switch, audio_library.run_state, jaskier_GO_UID)
+			--lua_table.AudioFunctions:SetAudioSwitch(audio_library.move_switch, audio_library.run_state, jaskier_GO_UID)
 			current_audio = audio_library.move
 
 			lua_table.current_velocity = run_velocity
@@ -853,9 +860,9 @@ local function GoDefaultState(change_blend_time)
 			lua_table.AnimationFunctions:PlayAnimation(animation_library.walk, lua_table.walk_animation_speed, jaskier_GO_UID)
 			current_animation = animation_library.walk
 
-			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.move, jaskier_GO_UID)	--TODO-AUDIO: Play walk sound
-			lua_table.AudioFunctions:SetAudioSwitch(audio_library.move_switch, audio_library.walk_state, jaskier_GO_UID)
-			current_audio = audio_library.move
+			-- lua_table.AudioFunctions:PlayAudioEventGO(audio_library.move, jaskier_GO_UID)	--TODO-AUDIO: Play walk sound
+			-- lua_table.AudioFunctions:SetAudioSwitch(audio_library.move_switch, audio_library.walk_state, jaskier_GO_UID)
+			-- current_audio = audio_library.move
 
 			lua_table.current_velocity = walk_velocity
 			lua_table.current_state = state.walk
@@ -1141,6 +1148,14 @@ local function SaveDirection()
 	end
 end
 
+local function ShakeCamera(duration, magnitude)
+	if camera_script ~= nil and camera_script ~= 0 then
+		camera_script.camera_shake_duration = duration
+		camera_script.camera_shake_magnitude = magnitude
+		camera_script.camera_shake_activated = true
+	end
+end
+
 local function DirectionInBounds(use_Y_angle)	--Every time we try to set a velocity, this is checked first to allow it
 	local ret = true
 	local vec_x, vec_z
@@ -1252,6 +1267,7 @@ local function CheckCameraBounds()	--Check if we're currently outside the camera
 			current_action_duration = attack_effects_durations[attack_effects_ID.knockback]
 			action_started_at = game_time
 			lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.medium.intensity, controller_shake.medium.duration)
+			ShakeCamera(camera_shake.small.duration, camera_shake.small.intensity)
 		end
 
 	else
@@ -1307,7 +1323,7 @@ local function MovementInputs()	--Process Movement Inputs
 				current_animation = animation_library.run
 
 				lua_table.AudioFunctions:PlayAudioEventGO(audio_library.move, jaskier_GO_UID)	--TODO-AUDIO: Play run sound
-				lua_table.AudioFunctions:SetAudioSwitch(audio_library.move_switch, audio_library.run_state, jaskier_GO_UID)
+				--lua_table.AudioFunctions:SetAudioSwitch(audio_library.move_switch, audio_library.run_state, jaskier_GO_UID)
 				current_audio = audio_library.move
 
 				for i = 1, #particles_library.run_particles_GO_UID_children do
@@ -1320,9 +1336,9 @@ local function MovementInputs()	--Process Movement Inputs
 				lua_table.AnimationFunctions:PlayAnimation(animation_library.walk, lua_table.walk_animation_speed, jaskier_GO_UID)
 				current_animation = animation_library.walk
 
-				lua_table.AudioFunctions:PlayAudioEventGO(audio_library.move, jaskier_GO_UID)	--TODO-AUDIO: Play walk sound
-				lua_table.AudioFunctions:SetAudioSwitch(audio_library.move_switch, audio_library.walk_state, jaskier_GO_UID)
-				current_audio = audio_library.move
+				-- lua_table.AudioFunctions:PlayAudioEventGO(audio_library.move, jaskier_GO_UID)	--TODO-AUDIO: Play walk sound
+				-- lua_table.AudioFunctions:SetAudioSwitch(audio_library.move_switch, audio_library.walk_state, jaskier_GO_UID)
+				-- current_audio = audio_library.move
 
 				lua_table.current_state = state.walk
 			end
@@ -1334,7 +1350,9 @@ local function MovementInputs()	--Process Movement Inputs
 			lua_table.AnimationFunctions:PlayAnimation(animation_library.run, lua_table.run_animation_speed, jaskier_GO_UID)
 			current_animation = animation_library.run
 
-			lua_table.AudioFunctions:SetAudioSwitch(audio_library.move_switch, audio_library.run_state, jaskier_GO_UID)	--TODO-AUDIO: Switch to run
+			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.move, jaskier_GO_UID)	--TODO-AUDIO: Play run sound
+			--lua_table.AudioFunctions:SetAudioSwitch(audio_library.move_switch, audio_library.run_state, jaskier_GO_UID)
+			current_audio = audio_library.move
 
 			for i = 1, #particles_library.run_particles_GO_UID_children do
 				lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.run_particles_GO_UID_children[i])	--TODO-Particles:
@@ -1349,7 +1367,9 @@ local function MovementInputs()	--Process Movement Inputs
 			lua_table.AnimationFunctions:PlayAnimation(animation_library.walk, lua_table.walk_animation_speed, jaskier_GO_UID)
 			current_animation = animation_library.walk
 
-			lua_table.AudioFunctions:SetAudioSwitch(audio_library.move_switch, audio_library.walk_state, jaskier_GO_UID)	--TODO-AUDIO: Switch to walk
+			lua_table.AudioFunctions:StopAudioEventGO(audio_library.move, jaskier_GO_UID)	--TODO-AUDIO: Play run sound
+			current_audio = audio_library.none
+			--lua_table.AudioFunctions:SetAudioSwitch(audio_library.move_switch, audio_library.walk_state, jaskier_GO_UID)	--TODO-AUDIO: Switch to walk
 
 			for i = 1, #particles_library.run_particles_GO_UID_children do
 				lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.run_particles_GO_UID_children[i])	--TODO-Particles:
@@ -1604,224 +1624,199 @@ local function RegularAttack(attack_type)
 	rightside = not rightside
 end
 
-local function ActionInputs()	--Process Action Inputs
+local function PerformEvade()
+	action_made = false
+
+	if lua_table.current_energy > lua_table.evade_cost
+	then
+		action_started_at = game_time							--Set timer start mark
+		current_action_block_time = lua_table.evade_duration
+		current_action_duration = lua_table.evade_duration
+		
+		SaveDirection()
+
+		--Do Evade
+		local position = lua_table.TransformFunctions:GetPosition(jaskier_GO_UID)	--Rotate to direction
+		lua_table.TransformFunctions:LookAt(position[1] + rec_direction.x, position[2], position[3] + rec_direction.z, jaskier_GO_UID)
+
+		lua_table.AnimationFunctions:PlayAnimation(animation_library.evade, lua_table.evade_animation_speed, jaskier_GO_UID)
+		current_animation = animation_library.evade
+
+		lua_table.AudioFunctions:PlayAudioEventGO(audio_library.evade, jaskier_GO_UID)
+		current_audio = audio_library.evade
+
+		lua_table.current_energy = lua_table.current_energy - lua_table.evade_cost
+
+		lua_table.previous_state = lua_table.current_state
+		lua_table.current_state = state.evade
+
+		for i = 1, #particles_library.run_particles_GO_UID_children do
+			lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.run_particles_GO_UID_children[i])	--TODO-Particles:
+		end
+
+		action_made = true
+	else
+		lua_table.AudioFunctions:PlayAudioEventGO(audio_library.not_possible, jaskier_GO_UID)	--TODO-Audio: Not possible sound
+	end
+
+	return action_made
+end
+
+local function ActionInputs(evade_only)	--Process Action Inputs
 	local action_made = false
 	local combo_achieved = false
 	
-	RegisterAttackInputs()	--Check for Attack Inputs
+	if not evade_only then
+		RegisterAttackInputs()	--Check for Attack Inputs
 
-	if attack_input_given then	--IF attack input made
-		if game_time - attack_input_started_at > attack_input_timeframe		--IF surpassed double press timeframe
-		or attack_inputs[lua_table.key_light] and attack_inputs[lua_table.key_medium]				--IF both buttons have been pressed
-		then
-			if attack_inputs[lua_table.key_light] and attack_inputs[lua_table.key_medium]		--Both inputs (Heavy)
+		if attack_input_given then	--IF attack input made
+			if game_time - attack_input_started_at > attack_input_timeframe		--IF surpassed double press timeframe
+			or attack_inputs[lua_table.key_light] and attack_inputs[lua_table.key_medium]				--IF both buttons have been pressed
 			then
-				action_started_at = game_time		--Set timer start mark
+				if attack_inputs[lua_table.key_light] and attack_inputs[lua_table.key_medium]		--Both inputs (Heavy)
+				then
+					action_started_at = game_time		--Set timer start mark
 
-				RegisterAttack('H')
-				combo_achieved = CheckCombos()
+					RegisterAttack('H')
+					combo_achieved = CheckCombos()
 
-				if not combo_achieved then
-					RegularAttack("heavy")
-				end
+					if not combo_achieved then
+						RegularAttack("heavy")
+					end
 
-				SaveDirection()
+					SaveDirection()
 
-				local position = lua_table.TransformFunctions:GetPosition(jaskier_GO_UID)	--Rotate to direction
-				lua_table.TransformFunctions:LookAt(position[1] + rec_direction.x, position[2], position[3] + rec_direction.z, jaskier_GO_UID)
+					local position = lua_table.TransformFunctions:GetPosition(jaskier_GO_UID)	--Rotate to direction
+					lua_table.TransformFunctions:LookAt(position[1] + rec_direction.x, position[2], position[3] + rec_direction.z, jaskier_GO_UID)
 
-				action_made = true
+					action_made = true
 
-			elseif attack_inputs[lua_table.key_light]		--Light Input
-			then
-				action_started_at = game_time		--Set timer start mark
+				elseif attack_inputs[lua_table.key_light]		--Light Input
+				then
+					action_started_at = game_time		--Set timer start mark
 
-				RegisterAttack('L')
-				combo_achieved = CheckCombos()
+					RegisterAttack('L')
+					combo_achieved = CheckCombos()
 
-				if not combo_achieved then
-					RegularAttack("light")
-				end
-				
-				SaveDirection()
+					if not combo_achieved then
+						RegularAttack("light")
+					end
+					
+					SaveDirection()
 
-				local position = lua_table.TransformFunctions:GetPosition(jaskier_GO_UID)	--Rotate to direction
-				lua_table.TransformFunctions:LookAt(position[1] + rec_direction.x, position[2], position[3] + rec_direction.z, jaskier_GO_UID)
+					local position = lua_table.TransformFunctions:GetPosition(jaskier_GO_UID)	--Rotate to direction
+					lua_table.TransformFunctions:LookAt(position[1] + rec_direction.x, position[2], position[3] + rec_direction.z, jaskier_GO_UID)
 
-				action_made = true
+					action_made = true
 
-			elseif attack_inputs[lua_table.key_medium]	--Medium Input
-			then
-				action_started_at = game_time		--Set timer start mark
+				elseif attack_inputs[lua_table.key_medium]	--Medium Input
+				then
+					action_started_at = game_time		--Set timer start mark
 
-				RegisterAttack('M')
-				combo_achieved = CheckCombos()
+					RegisterAttack('M')
+					combo_achieved = CheckCombos()
 
-				if not combo_achieved then
-					RegularAttack("medium")
-				end
+					if not combo_achieved then
+						RegularAttack("medium")
+					end
 
-				SaveDirection()
-		
-				local position = lua_table.TransformFunctions:GetPosition(jaskier_GO_UID)	--Rotate to direction
-				lua_table.TransformFunctions:LookAt(position[1] + rec_direction.x, position[2], position[3] + rec_direction.z, jaskier_GO_UID)
-		
-				action_made = true
-			end
-
-			attack_input_given, attack_inputs[lua_table.key_light], attack_inputs[lua_table.key_medium] = false, false, false
-			--local time_between = game_time - attack_input_started_at
-			--lua_table.SystemFunctions:LOG("Time Between inputs: " .. time_between)
-		end
-	else	--IF attack input not made, allow for any other kind of input
-		if lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_evade, key_state.key_down)	--Evade Input
-		then
-			if lua_table.current_energy > lua_table.evade_cost
-			then
-				action_started_at = game_time							--Set timer start mark
-				current_action_block_time = lua_table.evade_duration
-				current_action_duration = lua_table.evade_duration
-				
-				SaveDirection()
-	
-				--Do Evade
-				local position = lua_table.TransformFunctions:GetPosition(jaskier_GO_UID)	--Rotate to direction
-				lua_table.TransformFunctions:LookAt(position[1] + rec_direction.x, position[2], position[3] + rec_direction.z, jaskier_GO_UID)
-	
-				lua_table.AnimationFunctions:PlayAnimation(animation_library.evade, lua_table.evade_animation_speed, jaskier_GO_UID)
-				current_animation = animation_library.evade
-	
-				lua_table.AudioFunctions:PlayAudioEventGO(audio_library.evade, jaskier_GO_UID)
-				current_audio = audio_library.evade
-	
-				lua_table.current_energy = lua_table.current_energy - lua_table.evade_cost
-	
-				lua_table.previous_state = lua_table.current_state
-				lua_table.current_state = state.evade
-	
-				for i = 1, #particles_library.run_particles_GO_UID_children do
-					lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.run_particles_GO_UID_children[i])	--TODO-Particles:
-				end
-	
-				action_made = true
-			else
-				lua_table.AudioFunctions:PlayAudioEventGO(audio_library.not_possible, jaskier_GO_UID)	--TODO-Audio: Not possible sound
-			end
+					SaveDirection()
 			
-		elseif lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_ability, key_state.key_down)	--IF cooldown over and Ability Input
-		then
-			if game_time - ability_started_at >= lua_table.ability_cooldown
+					local position = lua_table.TransformFunctions:GetPosition(jaskier_GO_UID)	--Rotate to direction
+					lua_table.TransformFunctions:LookAt(position[1] + rec_direction.x, position[2], position[3] + rec_direction.z, jaskier_GO_UID)
+			
+					action_made = true
+				end
+
+				attack_input_given, attack_inputs[lua_table.key_light], attack_inputs[lua_table.key_medium] = false, false, false
+				--local time_between = game_time - attack_input_started_at
+				--lua_table.SystemFunctions:LOG("Time Between inputs: " .. time_between)
+			end
+		else	--IF attack input not made, allow for any other kind of input
+			if lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_evade, key_state.key_down)	--Evade Input
 			then
-				if CheckSongs(true) then
-					action_started_at = game_time								--Set timer start mark
-					ability_started_at = action_started_at
-	
-					lua_table.ability_performed = true
+				action_made = PerformEvade()
+				
+			elseif lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_ability, key_state.key_down)	--IF cooldown over and Ability Input
+			then
+				if game_time - ability_started_at >= lua_table.ability_cooldown
+				then
+					if CheckSongs(true) then
+						action_started_at = game_time								--Set timer start mark
+						ability_started_at = action_started_at
+
+						lua_table.ability_performed = true
+					else
+						lua_table.AudioFunctions:PlayAudioEventGO(audio_library.not_possible, jaskier_GO_UID)	--TODO-Audio: Not possible sound
+					end
+					
+					lua_table.note_num = 0
+					action_made = true
 				else
 					lua_table.AudioFunctions:PlayAudioEventGO(audio_library.not_possible, jaskier_GO_UID)	--TODO-Audio: Not possible sound
 				end
-				
-				lua_table.note_num = 0
-				action_made = true
-			else
-				lua_table.AudioFunctions:PlayAudioEventGO(audio_library.not_possible, jaskier_GO_UID)	--TODO-Audio: Not possible sound
-			end
 
-		elseif lua_table.current_ultimate >= lua_table.max_ultimate	--Ultimate Success Input
-		and lua_table.InputFunctions:IsTriggerState(lua_table.player_ID, lua_table.key_ultimate_1, key_state.key_repeat)
-		and lua_table.InputFunctions:IsTriggerState(lua_table.player_ID, lua_table.key_ultimate_2, key_state.key_repeat)
-		then
-			action_started_at = game_time							--Set timer start mark
-			ultimate_started_at = action_started_at
-
-			current_action_block_time = lua_table.ultimate_duration
-			current_action_duration = lua_table.ultimate_duration
-
-			--Do Ultimate
-			lua_table.AnimationFunctions:PlayAnimation(animation_library.concert, lua_table.ultimate_animation_speed, jaskier_GO_UID)
-			current_animation = animation_library.concert
-
-			lua_table.AnimationFunctions:PlayAnimation(animation_library.concert, lua_table.ultimate_animation_speed, jaskier_lute_concert_GO_UID)
-			lua_table.GameObjectFunctions:SetActiveGameObject(true, jaskier_lute_concert_mesh_GO_UID)
-			lua_table.GameObjectFunctions:SetActiveGameObject(false, jaskier_lute_regular_GO_UID)
-
-			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.concert, jaskier_GO_UID)
-			current_audio = audio_library.concert
-
-			lua_table.collider_damage = base_damage_real * lua_table.ultimate_damage * dt
-			lua_table.collider_effect = lua_table.ultimate_status_effect
-
-			lua_table.ultimate_active = true
-			lua_table.current_ultimate = 0.0
-
-			lua_table.previous_state = lua_table.current_state
-			lua_table.current_state = state.ultimate
-			action_made = true
-
-		elseif lua_table.current_ultimate < lua_table.max_ultimate	--Ultimate Failed Input
-		and (lua_table.InputFunctions:IsTriggerState(lua_table.player_ID, lua_table.key_ultimate_1, key_state.key_repeat) and lua_table.InputFunctions:IsTriggerState(lua_table.player_ID, lua_table.key_ultimate_2, key_state.key_down)
-		or lua_table.InputFunctions:IsTriggerState(lua_table.player_ID, lua_table.key_ultimate_1, key_state.key_down) and lua_table.InputFunctions:IsTriggerState(lua_table.player_ID, lua_table.key_ultimate_2, key_state.key_repeat))
-		then
-			lua_table.AudioFunctions:PlayAudioEventGO(audio_library.not_possible, jaskier_GO_UID)	--TODO-Audio: Not possible sound
-
-		elseif lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_revive, key_state.key_down)	--Revive Input
-		then
-			local jaskier_pos = lua_table.TransformFunctions:GetPosition(jaskier_GO_UID)
-
-			if geralt_revive_GO_UID ~= nil and geralt_revive_GO_UID ~= 0
+			elseif lua_table.current_ultimate >= lua_table.max_ultimate	--Ultimate Success Input
+			and lua_table.InputFunctions:IsTriggerState(lua_table.player_ID, lua_table.key_ultimate_1, key_state.key_repeat)
+			and lua_table.InputFunctions:IsTriggerState(lua_table.player_ID, lua_table.key_ultimate_2, key_state.key_repeat)
 			then
-				local geralt_revive_pos = lua_table.TransformFunctions:GetPosition(geralt_revive_GO_UID)
+				action_started_at = game_time							--Set timer start mark
+				ultimate_started_at = action_started_at
 
-				--IF magnitude between Geralt and Jaskier revive is < revive_range
-				if math.sqrt((geralt_revive_pos[1] - jaskier_pos[1]) ^ 2 + (geralt_revive_pos[3] - jaskier_pos[3]) ^ 2) < lua_table.revive_range
+				current_action_block_time = lua_table.ultimate_duration
+				current_action_duration = lua_table.ultimate_duration
+
+				--Do Ultimate
+				lua_table.AnimationFunctions:PlayAnimation(animation_library.concert, lua_table.ultimate_animation_speed, jaskier_GO_UID)
+				current_animation = animation_library.concert
+
+				lua_table.AnimationFunctions:PlayAnimation(animation_library.concert, lua_table.ultimate_animation_speed, jaskier_lute_concert_GO_UID)
+				lua_table.GameObjectFunctions:SetActiveGameObject(true, jaskier_lute_concert_mesh_GO_UID)
+				lua_table.GameObjectFunctions:SetActiveGameObject(false, jaskier_lute_regular_GO_UID)
+
+				lua_table.AudioFunctions:PlayAudioEventGO(audio_library.concert, jaskier_GO_UID)
+				current_audio = audio_library.concert
+
+				lua_table.collider_damage = base_damage_real * lua_table.ultimate_damage * dt
+				lua_table.collider_effect = lua_table.ultimate_status_effect
+
+				lua_table.ultimate_active = true
+				lua_table.current_ultimate = 0.0
+
+				lua_table.previous_state = lua_table.current_state
+				lua_table.current_state = state.ultimate
+				action_made = true
+
+			elseif lua_table.current_ultimate < lua_table.max_ultimate	--Ultimate Failed Input
+			and (lua_table.InputFunctions:IsTriggerState(lua_table.player_ID, lua_table.key_ultimate_1, key_state.key_repeat) and lua_table.InputFunctions:IsTriggerState(lua_table.player_ID, lua_table.key_ultimate_2, key_state.key_down)
+			or lua_table.InputFunctions:IsTriggerState(lua_table.player_ID, lua_table.key_ultimate_1, key_state.key_down) and lua_table.InputFunctions:IsTriggerState(lua_table.player_ID, lua_table.key_ultimate_2, key_state.key_repeat))
+			then
+				lua_table.AudioFunctions:PlayAudioEventGO(audio_library.not_possible, jaskier_GO_UID)	--TODO-Audio: Not possible sound
+
+			elseif lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_revive, key_state.key_down)	--Revive Input
+			then
+				local jaskier_pos = lua_table.TransformFunctions:GetPosition(jaskier_GO_UID)
+
+				if geralt_revive_GO_UID ~= nil and geralt_revive_GO_UID ~= 0
 				then
-					revive_target = geralt_script
-	
-					if revive_target.current_state == state.down and not revive_target.falling_down_bool and not revive_target.being_revived	--IF player downed and no one reviving
+					local geralt_revive_pos = lua_table.TransformFunctions:GetPosition(geralt_revive_GO_UID)
+
+					--IF magnitude between Geralt and Jaskier revive is < revive_range
+					if math.sqrt((geralt_revive_pos[1] - jaskier_pos[1]) ^ 2 + (geralt_revive_pos[3] - jaskier_pos[3]) ^ 2) < lua_table.revive_range
 					then
-						action_started_at = game_time		--Set timer start mark
-						pulsation_started_at = game_time	--Set pulsation start mark
-						current_action_block_time = lua_table.revive_time
-						current_action_duration = lua_table.revive_time
+						revive_target = geralt_script
 
-						--Do Revive
-						revive_target.being_revived = true
-	
-						lua_table.TransformFunctions:LookAt(geralt_revive_pos[1], jaskier_pos[2], geralt_revive_pos[3], jaskier_GO_UID)
-						lua_table.AnimationFunctions:PlayAnimation(animation_library.revive, lua_table.revive_animation_speed, jaskier_GO_UID)
-						current_animation = animation_library.revive
-
-						lua_table.AudioFunctions:PlayAudioEventGO(audio_library.voice_revive_ally, jaskier_GO_UID)	--TODO-Audio: Not possible sound
-						current_audio = audio_library.voice_revive_ally
-
-						lua_table.previous_state = lua_table.current_state
-						lua_table.current_state = state.revive
-						action_made = true
-					end
-				end
-				if not action_made then lua_table.AudioFunctions:PlayAudioEventGO(audio_library.not_possible, jaskier_GO_UID) end	--TODO-Audio: Not possible sound
-
-			else
-				--LEGACY REVIVE (used when needed revive GO doesn't exist)
-				local downed_list = lua_table.PhysicsFunctions:OverlapSphere(jaskier_pos[1], jaskier_pos[2], jaskier_pos[3], 3.0, layers.player)
-	
-				for i = 1, #downed_list do	--Check nearby players
-					if downed_list[i] ~= jaskier_GO_UID	--IF player is not me
-					then
-						revive_target = lua_table.GameObjectFunctions:GetScript(downed_list[i])
-	
 						if revive_target.current_state == state.down and not revive_target.falling_down_bool and not revive_target.being_revived	--IF player downed and no one reviving
 						then
 							action_started_at = game_time		--Set timer start mark
 							pulsation_started_at = game_time	--Set pulsation start mark
 							current_action_block_time = lua_table.revive_time
 							current_action_duration = lua_table.revive_time
-	
-							revive_target.being_revived = true
-	
+
 							--Do Revive
 							revive_target.being_revived = true
-	
+
+							lua_table.TransformFunctions:LookAt(geralt_revive_pos[1], jaskier_pos[2], geralt_revive_pos[3], jaskier_GO_UID)
 							lua_table.AnimationFunctions:PlayAnimation(animation_library.revive, lua_table.revive_animation_speed, jaskier_GO_UID)
 							current_animation = animation_library.revive
 
@@ -1831,15 +1826,53 @@ local function ActionInputs()	--Process Action Inputs
 							lua_table.previous_state = lua_table.current_state
 							lua_table.current_state = state.revive
 							action_made = true
-	
-							break
 						end
 					end
-				end
-				if not action_made then lua_table.AudioFunctions:PlayAudioEventGO(audio_library.not_possible, jaskier_GO_UID) end	--TODO-Audio: Not possible sound
+					if not action_made then lua_table.AudioFunctions:PlayAudioEventGO(audio_library.not_possible, jaskier_GO_UID) end	--TODO-Audio: Not possible sound
 
+				else
+					--LEGACY REVIVE (used when needed revive GO doesn't exist)
+					local downed_list = lua_table.PhysicsFunctions:OverlapSphere(jaskier_pos[1], jaskier_pos[2], jaskier_pos[3], 3.0, layers.player)
+
+					for i = 1, #downed_list do	--Check nearby players
+						if downed_list[i] ~= jaskier_GO_UID	--IF player is not me
+						then
+							revive_target = lua_table.GameObjectFunctions:GetScript(downed_list[i])
+
+							if revive_target.current_state == state.down and not revive_target.falling_down_bool and not revive_target.being_revived	--IF player downed and no one reviving
+							then
+								action_started_at = game_time		--Set timer start mark
+								pulsation_started_at = game_time	--Set pulsation start mark
+								current_action_block_time = lua_table.revive_time
+								current_action_duration = lua_table.revive_time
+
+								revive_target.being_revived = true
+
+								--Do Revive
+								revive_target.being_revived = true
+
+								lua_table.AnimationFunctions:PlayAnimation(animation_library.revive, lua_table.revive_animation_speed, jaskier_GO_UID)
+								current_animation = animation_library.revive
+
+								lua_table.AudioFunctions:PlayAudioEventGO(audio_library.voice_revive_ally, jaskier_GO_UID)	--TODO-Audio: Not possible sound
+								current_audio = audio_library.voice_revive_ally
+
+								lua_table.previous_state = lua_table.current_state
+								lua_table.current_state = state.revive
+								action_made = true
+
+								break
+							end
+						end
+					end
+					if not action_made then lua_table.AudioFunctions:PlayAudioEventGO(audio_library.not_possible, jaskier_GO_UID) end	--TODO-Audio: Not possible sound
+
+				end
 			end
 		end
+	elseif lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_evade, key_state.key_down)	--Evade Input
+	then
+		action_made = PerformEvade()
 	end
 
 	if action_made 	--IF action performed
@@ -1859,13 +1892,12 @@ local function ActionInputs()	--Process Action Inputs
 			--lua_table.ParticlesFunctions:StopParticleEmitter(guitar_GO_UID)	--TODO-Particles: Deactivate Particles on Guitar
 		end
 
-		if lua_table.previous_state == state.walk or lua_table.previous_state == state.run
+		if lua_table.previous_state == state.run
 		then
 			for i = 1, #particles_library.run_particles_GO_UID_children do
 				lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.run_particles_GO_UID_children[i])	--TODO-Particles:
 			end
-
-			if lua_table.previous_state == state.walk or lua_table.previous_state == state.run then lua_table.AudioFunctions:StopAudioEventGO(audio_library.move, jaskier_GO_UID) end
+			lua_table.AudioFunctions:StopAudioEventGO(audio_library.move, jaskier_GO_UID)
 		end
 	end
 
@@ -2086,15 +2118,22 @@ local function PickupItem()
 		if nearby_items[i] ~= nil then
 			local item_script = lua_table.GameObjectFunctions:GetScript(nearby_items[i])
 	
-			if lua_table.inventory[item_script.item_id] < lua_table.item_type_max then
-				lua_table.GameObjectFunctions:DestroyGameObject(item_script.myUID)	--Alternative: item_script.GameObjectFunctions:GetMyUID()
-				lua_table.AudioFunctions:PlayAudioEventGO(audio_library.potion_pickup, jaskier_GO_UID)	--TODO-Audio: Drop potion sound
+			if item_script.item_id ~= nil and item_script.item_id >= 1 and item_script.item_id <= 3
+			then
+				if lua_table.inventory[item_script.item_id] < lua_table.item_type_max then
+					lua_table.GameObjectFunctions:DestroyGameObject(item_script.myUID)	--Alternative: item_script.GameObjectFunctions:GetMyUID()
+					lua_table.AudioFunctions:PlayAudioEventGO(audio_library.potion_pickup, jaskier_GO_UID)	--TODO-Audio: Drop potion sound
+		
+					if item_script.player_owner ~= nil and item_script.player_owner == geralt_GO_UID then lua_table.shared_inventory[item_script.item_id] = lua_table.shared_inventory[item_script.item_id] + 1 end	--TODO-Score
+					lua_table.inventory[item_script.item_id] = lua_table.inventory[item_script.item_id] + 1	--Add potion to inventory
 	
-				if item_script.player_owner ~= nil and item_script.player_owner == geralt_GO_UID then lua_table.shared_inventory[item_script.item_id] = lua_table.shared_inventory[item_script.item_id] + 1 end	--TODO-Score
-				lua_table.inventory[item_script.item_id] = lua_table.inventory[item_script.item_id] + 1	--Add potion to inventory
-
-				item_picked_up = true
-				break
+					item_picked_up = true
+					break
+				end
+			else
+				if item_script.myUID ~= nil then
+					lua_table.GameObjectFunctions:DestroyGameObject(item_script.myUID)	--Alternative: item_script.GameObjectFunctions:GetMyUID()
+				end
 			end
 		end
 	end
@@ -2332,6 +2371,7 @@ local function ProcessIncomingHit(collider_GO)
 				action_started_at = game_time
 				blending_started_at = game_time	--Manually mark animation swap
 				lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.medium.intensity, controller_shake.medium.duration)
+				ShakeCamera(camera_shake.small.duration, camera_shake.small.intensity)
 			end
 		end
 	end
@@ -2410,8 +2450,14 @@ local function DebugInputs()
 					lua_table.PhysicsFunctions:SetCharacterPosition(geralt_pos[1], geralt_pos[2] + 5.0, geralt_pos[3], jaskier_GO_UID)
 				end
 			end
-
-		elseif lua_table.InputFunctions:KeyDown("6")	--Keyboard Mode
+		elseif lua_table.InputFunctions:KeyDown("7")	--Reposition Jaskier to Geralt
+		then
+			if lua_table.current_state > state.down and geralt_GO_UID ~= nil and geralt_GO_UID ~= 0
+			then
+				local geralt_pos = lua_table.TransformFunctions:GetPosition(geralt_GO_UID)
+				lua_table.PhysicsFunctions:SetCharacterPosition(geralt_pos[1], geralt_pos[2] + 5.0, geralt_pos[3], jaskier_GO_UID)
+			end
+		elseif lua_table.InputFunctions:KeyDown("8")	--Keyboard Mode
 		then
 			keyboard_mode = not keyboard_mode
 		end
@@ -2717,10 +2763,16 @@ function lua_table:Update()
 
 				--IF state == idle/move or action_input_block_time has ended (Input-allowed environment)
 				if lua_table.current_state == state.idle and idle_blend_finished
-				or lua_table.current_state == state.run
+				or lua_table.current_state == state.walk or lua_table.current_state == state.run
 				or lua_table.current_state > state.run and time_since_action > current_action_block_time
 				then
-					if ActionInputs() then time_since_action = game_time - action_started_at end	-- Recalculate time passed if action performed
+					if ActionInputs(false) then time_since_action = game_time - action_started_at end	-- Recalculate time passed if action performed
+
+				elseif lua_table.current_state >= state.light_1 and lua_table.current_state <= state.heavy_2
+				and lua_table.current_state ~= state.light_3 and lua_table.current_state ~= state.medium_3
+				and game_time - blending_started_at > lua_table.blend_time_duration
+				then
+					if ActionInputs(true) then time_since_action = game_time - action_started_at end	-- Recalculate time passed if action performed
 				end
 
 				--IF there's no action being performed
@@ -2775,7 +2827,7 @@ function lua_table:Update()
 							if attack_input_given	--IF attack input was given before time ran out, process it instantly
 							then
 								attack_input_timeframe = 0
-								chained_action = ActionInputs()
+								chained_action = ActionInputs(false)
 								attack_input_timeframe = 70
 							else
 								lua_table.AnimationFunctions:PlayAnimation(animation_library.evade, lua_table.evade_animation_speed, particles_library.slash_GO_UID)
@@ -2957,6 +3009,7 @@ function lua_table:Update()
 						then
 							if not lua_table.song_1_effect_active then
 								lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.big.intensity, controller_shake.big.duration)
+								ShakeCamera(camera_shake.small.duration, camera_shake.small.intensity)
 								--lua_table.ParticlesFunctions:PlayParticleEmitter(jaskier_song_1_GO_UID)	--TODO-Particles:
 								lua_table.song_1_effect_active = true
 							end
@@ -2972,6 +3025,7 @@ function lua_table:Update()
 						then
 							if not lua_table.song_2_effect_active then
 								lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.big.intensity, controller_shake.big.duration)
+								ShakeCamera(camera_shake.small.duration, camera_shake.small.intensity)
 
 								SaveDirection()
 
@@ -3000,6 +3054,8 @@ function lua_table:Update()
 								if not lua_table.song_3_secondary_effect_active	--IF effect unactive, activate
 								then
 									lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.big.intensity, controller_shake.big.duration)
+									ShakeCamera(camera_shake.small.duration, camera_shake.small.intensity)
+
 									for i = 1, #particles_library.song_circle_GO_UID_children do
 										lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.song_circle_GO_UID_children[i])	--TODO-Particles:
 									end
@@ -3053,14 +3109,22 @@ function lua_table:Update()
 									lua_table.GameObjectFunctions:SetActiveGameObject(true, attack_colliders.circle_1.GO_UID)	--TODO-Colliders: Check
 									attack_colliders.circle_1.active = true
 
+									lua_table.song_3_saved_direction = false
+
 									lua_table.song_3_effect_active = true
 									lua_table.song_3_secondary_effect_active = false
 								end
 
 								if mov_input.used_input.x == 0.0 and mov_input.used_input.z == 0.0
 								then
-									SaveDirection()
+									if not lua_table.song_3_saved_direction then
+										SaveDirection()
+										lua_table.song_3_saved_direction = true
+									end
+
 									mov_input.used_input.x, mov_input.used_input.z = -rec_direction.x, -rec_direction.z
+								else
+									lua_table.song_3_saved_direction = false
 								end
 
 								MoveCharacter(true)
@@ -3080,6 +3144,7 @@ function lua_table:Update()
 									attack_colliders.concert.active = true
 
 									lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.big.intensity, controller_shake.big.duration)
+									ShakeCamera(camera_shake.medium.duration, camera_shake.medium.intensity)
 
 									lua_table.ultimate_secondary_effect_active = true
 								end
@@ -3136,6 +3201,7 @@ function lua_table:Update()
 									end
 
 									lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.medium.intensity, controller_shake.medium.duration)
+									ShakeCamera(camera_shake.small.duration, camera_shake.small.intensity)
 									
 									interval_started_at = game_time
 

@@ -565,9 +565,10 @@ local function Stun()
 		    lua_table.Particles:StopParticleEmitter(particles[i])
 		end
 
-		lua_table.Animations:PlayAnimation("Walk", 50.0, lua_table.MyUID)
+		
 		lua_table.is_knockback = false
-
+		
+		lua_table.Animations:PlayAnimation("Walk", 50.0, lua_table.MyUID)
 		lua_table.currentState = State.SEEK	
 		lua_table.System:LOG("Titan state: SEEK (1), from stun")
 	end
@@ -581,9 +582,9 @@ local function KnockBack()
 	end
 
 	if knockback_timer + 1500 <= lua_table.System:GameTime() * 1000 then
+		lua_table.Animations:PlayAnimation("Walk", 50.0, lua_table.MyUID)
 		lua_table.currentState = State.SEEK
 		lua_table.System:LOG("Titan state: STUNNED (5), from KD")
-		
 	else 
 		lua_table.Physics:Move(knock_force[1] * lua_table.knock_speed * dt, knock_force[3] * lua_table.knock_speed * dt, lua_table.MyUID)
 
@@ -634,19 +635,19 @@ local function ReactToStun(passed_player, player_script)
 			lua_table.Particles:PlayParticleEmitter(particles[i])
 		end
 
-		--------- Stun dmg marker
-		-- if passed_player.geralt_score ~= nil then
-		-- 	if passed_player.geralt_score[1] ~= nil then
-		-- 		passed_player.geralt_score[1] = passed_player.geralt_score[1] + passed_player.collider_damage
-		--    end
-		-- end
+		------- Stun dmg marker
+		if player_script.geralt_score ~= nil then
+			if player_script.geralt_score[1] ~= nil then
+				player_script.geralt_score[1] = player_script.geralt_score[1] + player_script.collider_damage
+		    end
+		end
 
-		--------- Actual stun dmg marker
-		-- if passed_player.geralt_score ~= nil then
-		-- 	if passed_player.geralt_score[4] ~= nil then
-		-- 		passed_player.geralt_score[4] = passed_player.geralt_score[4] + 1
-		--    end
-		-- end
+		------- Actual stun dmg marker
+		if player_script.geralt_score ~= nil then
+			if player_script.geralt_score[4] ~= nil then
+				player_script.geralt_score[4] = player_script.geralt_score[4] + 1
+		    end
+		end
 
 	else 
 		local particles = {}
@@ -655,19 +656,19 @@ local function ReactToStun(passed_player, player_script)
 			lua_table.Particles:PlayParticleEmitter(particles[i])
 		end
 
-		--------- Stun dmg marker
-		-- if passed_player.jaskier_score ~= nil then
-		-- 	if passed_player.jaskier_score[1] ~= nil then
-		-- 		passed_player.jaskier_score[1] = passed_player.jaskier_score[1] + passed_player.collider_damage
-		--    end
-		-- end
+		------- Stun dmg marker
+		if player_script.jaskier_score ~= nil then
+			if player_script.jaskier_score[1] ~= nil then
+				player_script.jaskier_score[1] = player_script.jaskier_score[1] + player_script.collider_damage
+		    end
+		end
 
-		--------- Actual stun dmg marker
-		-- if passed_player.jaskier_score ~= nil then
-		-- 	if passed_player.jaskier_score[4] ~= nil then
-		-- 		passed_player.jaskier_score[4] = passed_player.jaskier_score[4] + 1
-		--    end
-		-- end
+		------- Actual stun dmg marker
+		if player_script.jaskier_score ~= nil then
+			if player_script.jaskier_score[4] ~= nil then
+				player_script.jaskier_score[4] = player_script.jaskier_score[4] + 1
+		    end
+		end
 	end
 
 	lua_table.Audio:PlayAudioEvent("Play_Titan_ghoul_take_damage")
@@ -679,7 +680,7 @@ local function ReactToStun(passed_player, player_script)
 
 end
 
-local function ReactToKB() --col_ID, forward
+local function ReactToKB(my_script) --col_ID, forward
 	AttackColliderShutdown()
 
 	--local tmp = lua_table.Transform:GetPosition(col_ID)
@@ -703,6 +704,38 @@ local function ReactToKB() --col_ID, forward
 	-- knock_force[2] = knock_vector[2]
 	-- knock_force[3] = knock_vector[3] / module
 
+	if curr_dmg_dealer == lua_table.geralt then
+		------- Stun dmg marker
+		if my_script.geralt_score ~= nil then
+			if my_script.geralt_score[1] ~= nil then
+				my_script.geralt_score[1] = my_script.geralt_score[1] + my_script.collider_damage
+		    end
+		end
+
+		------- Actual stun dmg marker
+		if my_script.geralt_score ~= nil then
+			if my_script.geralt_score[4] ~= nil then
+				my_script.geralt_score[4] = my_script.geralt_score[4] + 1
+		    end
+		end
+
+	else 
+		------- Stun dmg marker
+		if my_script.jaskier_score ~= nil then
+			if my_script.jaskier_score[1] ~= nil then
+				my_script.jaskier_score[1] = my_script.jaskier_score[1] + my_script.collider_damage
+		    end
+		end
+
+		------- Actual stun dmg marker
+		if my_script.jaskier_score ~= nil then
+			if my_script.jaskier_score[4] ~= nil then
+				my_script.jaskier_score[4] = my_script.jaskier_score[4] + 1
+		    end
+		end
+	end
+
+
 	lua_table.Animations:PlayAnimation("Hit", 30.0, lua_table.MyUID)
 
 	lua_table.currentState = State.KNOCKBACK
@@ -712,7 +745,7 @@ local function ReactToKB() --col_ID, forward
 
 end
 
-local function ReactToTaunt()
+local function ReactToTaunt(my_script)
 	AttackColliderShutdown()
 
 	start_taunt = true
@@ -726,13 +759,27 @@ local function ReactToTaunt()
 			lua_table.Particles:PlayParticleEmitter(particles[i])
 		end
 
+		------- Stun dmg marker
+		if my_script.jaskier_score ~= nil then
+			if my_script.jaskier_score[1] ~= nil then
+				my_script.jaskier_score[1] = my_script.jaskier_score[1] + my_script.collider_damage
+		    end
+		end
+
+		------- Actual stun dmg marker
+		if my_script.jaskier_score ~= nil then
+			if my_script.jaskier_score[4] ~= nil then
+				my_script.jaskier_score[4] = my_script.jaskier_score[4] + 1
+		    end
+		end
+
 		lua_table.is_taunt = true
 		lua_table.System:LOG("Getting taunted by Jaskier") 
 		start_taunt = false
 	end
 end
 
-local function ReactToHeavyHit(passed_player)
+local function ReactToHeavyHit(passed_player, my_script)
 	AttackColliderShutdown()
 				
 	start_hit = true
@@ -748,12 +795,12 @@ local function ReactToHeavyHit(passed_player)
 			lua_table.Particles:PlayParticleEmitter(particles[i])
 		end
 
-		--------- Actual stun dmg marker
-		-- if script.geralt_score ~= nil then
-		-- 	if script.geralt_score[1] ~= nil then
-		-- 		script.geralt_score[1] = script.geralt_score[1] + script.collider_damage
-		--    end
-		-- end
+		------- Actual stun dmg marker
+		if my_script.geralt_score ~= nil then
+			if my_script.geralt_score[1] ~= nil then
+				my_script.geralt_score[1] = my_script.geralt_score[1] + my_script.collider_damage
+		    end
+		end
 
 	else 
 		local particles = {}
@@ -762,12 +809,12 @@ local function ReactToHeavyHit(passed_player)
 			lua_table.Particles:PlayParticleEmitter(particles[i])
 		end
 
-		--------- Actual stun dmg marker
-		-- if script.jaskier_score ~= nil then
-		-- 	if script.jaskier_score[1] ~= nil then
-		-- 		script.jaskier_score[1] = script.jaskier_score[1] + script.collider_damage
-		--    end
-		-- end
+		------- Actual stun dmg marker
+		if my_script.jaskier_score ~= nil then
+			if my_script.jaskier_score[1] ~= nil then
+				my_script.jaskier_score[1] = my_script.jaskier_score[1] + my_script.collider_damage
+		    end
+		end
 
 	end
 
@@ -785,13 +832,9 @@ function lua_table:OnTriggerEnter()
 		local player_state = script.current_state
 
 		lua_table.health = lua_table.health - script.collider_damage
-		
-		if lua_table.health <= 0 and has_died == false then 
-			lua_table.currentState = State.DEATH
-			lua_table.System:LOG("Titan state: Death (6)")
-			has_died = true
-		end
 
+		curr_dmg_dealer = parent
+		
 		lua_table.Material:SetMaterialByName("HitMaterial.mat", MyMesh_UID)
         material_timer = lua_table.System:GameTime() * 1000
 		start_material  = true
@@ -804,16 +847,16 @@ function lua_table:OnTriggerEnter()
 					ReactToStun(parent, script)
 
 				elseif script.collider_effect == attack_effects.knockback then  ------ React to kb effect
-					ReactToKB()
+					ReactToKB(script)
 
 				elseif script.collider_effect == attack_effects.taunt then ----------- React to taunt effect
-					ReactToTaunt()
+					ReactToTaunt(script)
 
 				end
 	
 			else
 				if player_state >= 14 and lua_table.currentState ~= State.JUMP then -- State == heavy_1/heavy_2/heavy_3 and combos cancel animation
-					ReactToHeavyHit(parent)
+					ReactToHeavyHit(parent, script)
 					
 				else --if player_state <= 13 then // Light/Medium attacks
 					
@@ -825,12 +868,12 @@ function lua_table:OnTriggerEnter()
 						    lua_table.Particles:PlayParticleEmitter(particles[i])
 						end
 
-						--------- Actual stun dmg marker
-						-- if script.geralt_score ~= nil then
-						-- 	if script.geralt_score[1] ~= nil then
-						-- 		script.geralt_score[1] = script.geralt_score[1] + script.collider_damage
-						--    end
-						-- end
+						------- Actual stun dmg marker
+						if script.geralt_score ~= nil then
+							if script.geralt_score[1] ~= nil then
+								script.geralt_score[1] = script.geralt_score[1] + script.collider_damage
+						    end
+						end
 
 					else 
 						local particles = {}
@@ -839,12 +882,12 @@ function lua_table:OnTriggerEnter()
 						    lua_table.Particles:PlayParticleEmitter(particles[i])
 						end
 
-						--------- Actual stun dmg marker
-						-- if script.jaskier_score ~= nil then
-						-- 	if script.jaskier_score[1] ~= nil then
-						-- 		script.jaskier_score[1] = script.jaskier_score[1] + script.collider_damage
-						--    end
-						-- end
+						------- Actual stun dmg marker
+						if script.jaskier_score ~= nil then
+							if script.jaskier_score[1] ~= nil then
+								script.jaskier_score[1] = script.jaskier_score[1] + script.collider_damage
+						    end
+						end
 
 					end
 
@@ -865,13 +908,9 @@ function lua_table:RequestedTrigger(collider_GO)
 
 	local script = lua_table.GameObject:GetScript(collider_GO)
 
+	curr_dmg_dealer = collider_GO
+
 	lua_table.health = lua_table.health - script.collider_damage
-		
-	if lua_table.health <= 0 and has_died == false then 
-		lua_table.currentState = State.DEATH
-		lua_table.System:LOG("Titan state: Death (6)")
-		has_died = true
-	end
 	
 	if lua_table.currentState ~= State.DEATH and lua_table.currentState ~= State.JUMP then
 
@@ -882,16 +921,16 @@ function lua_table:RequestedTrigger(collider_GO)
 				ReactToStun(collider_GO, script)
 
 			elseif script.collider_effect == attack_effects.knockback then ------- React to kb effect
-				ReactToKB()
+				ReactToKB(script)
 
 			elseif script.collider_effect == attack_effects.taunt then ----------- React to taunt effect
-				ReactToTaunt()
+				ReactToTaunt(script)
 
 			end
 
 		else
 			if player_state >= 14 and lua_table.currentState ~= State.JUMP then -- State == heavy_1/heavy_2/heavy_3 and combos cancel animation
-				ReactToHeavyHit(collider_GO)
+				ReactToHeavyHit(collider_GO, script)
 
 			else --if player_state <= 13 then // Light/Medium attacks
 
@@ -902,12 +941,27 @@ function lua_table:RequestedTrigger(collider_GO)
 						lua_table.Particles:PlayParticleEmitter(particles[i])
 					end
 
+					------- Actual stun dmg marker
+					if script.geralt_score ~= nil then
+						if script.geralt_score[1] ~= nil then
+							script.geralt_score[1] = script.geralt_score[1] + script.collider_damage
+					    end
+					end
+
 				else 
 					local particles = {}
 					particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Titan_Hit_Emitter", General_Emitter_UID))
 					for i = 1, #particles do 
 						lua_table.Particles:PlayParticleEmitter(particles[i])
 					end
+
+					------- Actual stun dmg marker
+					if script.jaskier_score ~= nil then
+						if script.jaskier_score[1] ~= nil then
+							script.jaskier_score[1] = script.jaskier_score[1] + script.collider_damage
+					    end
+					end
+
 				end
 
 				lua_table.System:LOG("Hit registered")
@@ -967,9 +1021,30 @@ function lua_table:Update()
 
 	dt = lua_table.System:DT()
 
-	SearchPlayers() -- Constantly calculate distances between entity and players
+	if lua_table.health <= 0 and has_died == false then 
 
-	
+		local score = lua_table.GameObject:GetScript(curr_dmg_dealer)
+
+		if curr_dmg_dealer == lua_table.geralt then
+			if score.geralt_score ~= nil then
+				if score.geralt_score[3] ~= nil then
+					score.geralt_score[3] = score.geralt_score[3] + 1
+				end
+			end
+		else 
+			if score.jaskier_score ~= nil then
+				if score.jaskier_score[3] ~= nil then
+					score.jaskier_score[3] = score.jaskier_score[3] + 1
+				end
+			end
+		end 
+
+		lua_table.currentState = State.DEATH
+		lua_table.System:LOG("Titan state: Death (6)")
+		has_died = true
+	end
+
+	SearchPlayers() -- Constantly calculate distances between entity and players
 
 	if lua_table.currentTarget == -1  and lua_table.currentTargetDir == -1 and lua_table.currentTargetPos == -1 then 
 		lua_table.currentState = State.IDLE
@@ -978,8 +1053,8 @@ function lua_table:Update()
 		lua_table.currentTargetPos = 0
 	end
 
-	-- Falling enemy fail save
-	if lua_table.TitanPos[2] <= -100 then lua_table.Transform:SetPosition(lua_table.TitanPos[1], 100, lua_table.TitanPos[3], lua_table.MyUID) end
+	-- Falling enemy fail save, kill it
+	if lua_table.TitanPos[2] <= -100 then lua_table.GameObject:DestroyGameObject(lua_table.MyUID) end
 
 	-- Check which state the entity is in and then handle them accordingly
 	if lua_table.currentState == State.IDLE then 

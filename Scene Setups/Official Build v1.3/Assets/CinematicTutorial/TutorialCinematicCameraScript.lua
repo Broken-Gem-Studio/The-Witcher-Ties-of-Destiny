@@ -2,7 +2,7 @@ function GetTableTutorialCinematicCameraScript()
     local lua_table = {}
     lua_table.System = Scripting.System()
     lua_table.Transform = Scripting.Transform()
-    lua_table.GameObjectFunctions = Scripting.GameObject()
+    lua_table.GameObject = Scripting.GameObject()
     lua_table.Audio = Scripting.Audio()
     lua_table.Scene = Scripting.Scenes()
     lua_table.Input = Scripting.Inputs()
@@ -24,8 +24,6 @@ function GetTableTutorialCinematicCameraScript()
     local archer2 = 0
     local recruit1 = 0
     local recruit2 = 0
-    local minion1 = 0
-    local minion2 = 0
 
     local disable_fight = true
 
@@ -37,9 +35,8 @@ function GetTableTutorialCinematicCameraScript()
 
     -- Time management
     local time = 0
+    local skip_time = 0
     local started_time = 0
-    local start_motion_time = 0
-    lua_table.skip_threshold = 0
 
     --Values declaration
     local values = {}
@@ -51,11 +48,11 @@ function GetTableTutorialCinematicCameraScript()
 
     -- Scene variables
     lua_table.scene_uid = 0
-    local next_scene = true
+    local next_scene = false
 
-    -- Skip
-    local skip_button_is_being_pressed = false
-    local changeScene_nextFrame = false
+    -- Loading UIDs
+    local AButton = 0
+    local loading_screen = 0
 
     local function Lerp(start, end_, value)
         if value > 1.0
@@ -84,66 +81,34 @@ function GetTableTutorialCinematicCameraScript()
         lua_table.System:LOG ("This Log was called from CinematicCameraScript on AWAKE")
     end
 
-    local function SkipButton()
-        --[[
-        if lua_table.skip_threshold <= 0.00 then
-            lua_table.skip_threshold = 0.00
-        end
-
-        if lua_table.Input:IsGamepadButton(1, "BUTTON_A", "REPEAT") and next_scene == true then
-            lua_table.skip_threshold = lua_table.skip_threshold + 0.4
-            if skip_button_is_being_pressed == false then
-                lua_table.Audio:PlayAudioEvent("Play_Pressed_Skip_Button")
-                skip_button_is_being_pressed = true
-           end
-        else 
-            lua_table.skip_threshold = lua_table.skip_threshold - 0.6
-            skip_button_is_being_pressed = false
-        end
-        --]]
-
-        if lua_table.Input:IsGamepadButton(1, "BUTTON_A", "DOWN") and next_scene == true then
-            lua_table.Audio:PlayAudioEvent("Play_Skipped_Cinematic")
-            lua_table.Audio:StopAudioEvent("Play_Music_Cinematic_lvl1_The_Ocean_Takes_It_All")
-            changeScene_nextFrame = true
-        end
-
-        --lua_table.UI:SetUICircularBarPercentage(lua_table.skip_threshold, BarID)
-    end
-
     function lua_table:Start()
-        lua_table.MyUID = lua_table.GameObjectFunctions:GetMyUID()
+        lua_table.MyUID = lua_table.GameObject:GetMyUID()
         -- Camera initial position (Players unseen)
         lua_table.Transform:SetPosition(-23, 13, 257, lua_table.MyUID)
 
-        cube_ID[1] = lua_table.GameObjectFunctions:FindGameObject("Cube_1")
-        cube_ID[2] = lua_table.GameObjectFunctions:FindGameObject("Cube_2")
-        cube_ID[3] = lua_table.GameObjectFunctions:FindGameObject("Cube_3")
+        cube_ID[1] = lua_table.GameObject:FindGameObject("Cube_1")
+        cube_ID[2] = lua_table.GameObject:FindGameObject("Cube_2")
+        cube_ID[3] = lua_table.GameObject:FindGameObject("Cube_3")
 
-        lumber1 = lua_table.GameObjectFunctions:FindGameObject("Lumber1")
-        lumber2 = lua_table.GameObjectFunctions:FindGameObject("Lumber2")
-        lumber3 = lua_table.GameObjectFunctions:FindGameObject("Lumber3")
+        lumber1 = lua_table.GameObject:FindGameObject("Lumber1")
+        lumber2 = lua_table.GameObject:FindGameObject("Lumber2")
+        lumber3 = lua_table.GameObject:FindGameObject("Lumber3")
 
-        archer1 = lua_table.GameObjectFunctions:FindGameObject("Archer1")
-        archer2 = lua_table.GameObjectFunctions:FindGameObject("Archer2")
+        archer1 = lua_table.GameObject:FindGameObject("Archer1")
+        archer2 = lua_table.GameObject:FindGameObject("Archer2")
 
         -- This are the moving enemies
-        recruit1 = lua_table.GameObjectFunctions:FindGameObject("Recruit1")
-        recruit2 = lua_table.GameObjectFunctions:FindGameObject("Recruit_Gank")
+        recruit1 = lua_table.GameObject:FindGameObject("Recruit1")
+        recruit2 = lua_table.GameObject:FindGameObject("Recruit_Gank")
 
-        minion1 = lua_table.GameObjectFunctions:FindGameObject("Minion1")
-        minion2 = lua_table.GameObjectFunctions:FindGameObject("Minion_Gank")
-
-        --BarID = lua_table.GameObjectFunctions:FindGameObject("SkipBar")
-        FadeScreen = lua_table.GameObjectFunctions:FindGameObject("TutorialFadeScreen")
+        FadeScreen = lua_table.GameObject:FindGameObject("TutorialFadeScreen")
+        loading_screen = lua_table.GameObject:FindGameObject("LoadingScreenCanvas")
+        AButton = lua_table.GameObject:FindGameObject("TutorialCanvas")
 
         -- Disable "gaking" enemies
-
-        lua_table.GameObjectFunctions:SetActiveGameObject(false, recruit2)
-        lua_table.GameObjectFunctions:SetActiveGameObject(false, minion2)
+        lua_table.GameObject:SetActiveGameObject(false, recruit2)
 
         --Play music
-
         lua_table.Audio:PlayAudioEvent("Play_Music_Cinematic_lvl1_The_Ocean_Takes_It_All")
 
         started_time = lua_table.System:GameTime()
@@ -154,14 +119,22 @@ function GetTableTutorialCinematicCameraScript()
 
         dt = lua_table.System:DT()
 
-        --Skip scene
+        if lua_table.Input:IsGamepadButton(1, "BUTTON_A", "DOWN") then
+            lua_table.Audio:PlayAudioEvent("Play_Skipped_Cinematic")
+            lua_table.Audio:StopAudioEvent("Play_Music_Cinematic_lvl1_The_Ocean_Takes_It_All")
 
-        if changeScene_nextFrame == true then
+            lua_table.GameObject:SetActiveGameObject(false, AButton)
+            lua_table.GameObject:SetActiveGameObject(true, loading_screen)
+            
+            skip_time =  lua_table.System:GameTime() * 1000
+
+            next_scene = true
+        end
+
+        if skip_time + 1000 <= lua_table.System:GameTime() * 1000 and next_scene == true then 
             lua_table.Scene:LoadScene(lua_table.scene_uid)
             next_scene = false
         end
-
-        SkipButton()
 
         -- Camera movements, rotations, fade to blacks and fade from blacks
 
@@ -192,14 +165,13 @@ function GetTableTutorialCinematicCameraScript()
             lua_table.Transform:SetPosition(-67, 7, 101, lua_table.MyUID)
             lua_table.Transform:SetObjectRotation(179, 18, 179, lua_table.MyUID)
 
-            lua_table.GameObjectFunctions:SetActiveGameObject(false, lumber1)
-            lua_table.GameObjectFunctions:SetActiveGameObject(false, lumber2)
-            lua_table.GameObjectFunctions:SetActiveGameObject(false, lumber3)
-            lua_table.GameObjectFunctions:SetActiveGameObject(false, archer1)
-            lua_table.GameObjectFunctions:SetActiveGameObject(false, archer2)
+            lua_table.GameObject:SetActiveGameObject(false, lumber1)
+            lua_table.GameObject:SetActiveGameObject(false, lumber2)
+            lua_table.GameObject:SetActiveGameObject(false, lumber3)
+            lua_table.GameObject:SetActiveGameObject(false, archer1)
+            lua_table.GameObject:SetActiveGameObject(false, archer2)
 
-            lua_table.GameObjectFunctions:SetActiveGameObject(true, recruit2)
-            lua_table.GameObjectFunctions:SetActiveGameObject(true, minion2)
+            lua_table.GameObject:SetActiveGameObject(true, recruit2)
         end
 
         if time > 13 and time < 15
@@ -213,15 +185,11 @@ function GetTableTutorialCinematicCameraScript()
             GoTo(2, 3.33 * dt)
         end
 
-        if time > 19 and disable_fight == true 
+        if time > 20 and disable_fight == true 
         then
-            lua_table.GameObjectFunctions:SetActiveGameObject(false, recruit1)
-            lua_table.GameObjectFunctions:SetActiveGameObject(false, recruit2)
+            lua_table.GameObject:SetActiveGameObject(false, recruit1)
+            lua_table.GameObject:SetActiveGameObject(false, recruit2)
             
-            lua_table.GameObjectFunctions:SetActiveGameObject(false, minion1)
-            lua_table.GameObjectFunctions:SetActiveGameObject(false, minion2)
-           
-
         end
 
         if time > 30 and time < 32
@@ -253,10 +221,14 @@ function GetTableTutorialCinematicCameraScript()
             lua_table.UI:ChangeUIComponentAlpha("Image", fade_speed, FadeScreen)
         end
         
-        if time > 55 and next_scene == true
+        if time > 55 and next_scene == false
         then
-            lua_table.Scene:LoadScene(lua_table.scene_uid)
-            next_scene = false
+            lua_table.Audio:StopAudioEvent("Play_Music_Cinematic_lvl1_The_Ocean_Takes_It_All")
+            lua_table.GameObject:SetActiveGameObject(false, AButton)
+            lua_table.GameObject:SetActiveGameObject(true, loading_screen)
+
+            skip_time =  lua_table.System:GameTime() * 1000
+            next_scene = true
         end   
     end
 

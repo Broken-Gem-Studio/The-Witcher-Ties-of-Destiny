@@ -35,7 +35,8 @@ local PrintLogs = true
 
 
 --########################################### STATES ######################################################
-
+lua_table.camera_script = {} 
+local camera_UID = 0
 
 local State = {
 	NONE = 0,
@@ -119,7 +120,7 @@ local CalculatePathTimer = 0
 
 --jump_attack()
 
-local MinDistanceToJump = 10
+local MinDistanceToJump = 11
 local OptimalDistanceJumpAttack = false
 local DoJump = false
 local JumpAttackPathCreated = false
@@ -180,7 +181,7 @@ lua_table.GeraltDistance = 0 --updated when call PlayersArround()
 lua_table.JaskierDistance = 0
 
 local CurrentTarget_UID = 0 
-local MinDistanceFromPlayer = 1
+local MinDistanceFromPlayer = 2
 
 local CurrentTime = 0
 
@@ -189,7 +190,7 @@ lua_table.Nvec3x = 1
 lua_table.Nvec3z = 1
 
 lua_table.CurrentHealth = 0
-lua_table.MaxHealth = 1000
+lua_table.MaxHealth = 600
 lua_table.collider_damage = 0
 lua_table.collider_effect = 0
 
@@ -631,6 +632,12 @@ local function CalculateJumpAttackVelocity()
 			for i = 1, #particles do 
 			    lua_table.ParticleSystem:PlayParticleEmitter(particles[i])
 				--lua_table.SystemFunctions:LOG ("LUMBERJACK PARTICLES JUMP ATTACK NOW") 
+				if lua_table.camera_script ~= nil
+				then
+					lua_table.camera_script.camera_shake_activated = true
+					lua_table.camera_script.camera_shake_duration = 0.2
+					lua_table.camera_script.camera_shake_magnitude = 0.1
+				end
 			end
 			JumpStage = 4
 			lua_table.CurrentVelocity = 0
@@ -1390,6 +1397,12 @@ function lua_table:Awake()
 	lua_table.General_Emitter_UID = lua_table.GameObjectFunctions:FindChildGameObject("LumberJack_Particles")
 	---SET MAT UID---
 	mesh_gameobject_UID = lua_table.GameObjectFunctions:FindChildGameObject("Bandit_ToUvs")
+	---set camera script---
+	camera_UID = lua_table.GameObjectFunctions:FindGameObject("Camera")
+	if camera_UID ~= 0
+    then
+        lua_table.camera_script = lua_table.GameObjectFunctions:GetScript(camera_UID)
+    end
 	
 end
 

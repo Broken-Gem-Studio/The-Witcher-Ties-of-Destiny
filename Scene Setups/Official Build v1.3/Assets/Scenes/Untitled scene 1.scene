@@ -300,13 +300,13 @@
                 "positionx": "-3.356087",
                 "positiony": "7.812502",
                 "positionz": "-0.060703",
-                "rotationw": "0.685394",
+                "rotationw": "0.685395",
                 "rotationx": "0.717461",
                 "rotationy": "0.034930",
                 "rotationz": "0.119432",
                 "scalex": "1.000000",
-                "scaley": "0.999776",
-                "scalez": "0.999776"
+                "scaley": "0.999775",
+                "scalez": "0.999775"
             },
             "13": {
                 "Active": true,
@@ -709,7 +709,7 @@
                 "positionx": "349.002838",
                 "positiony": "38.612278",
                 "positionz": "-313.026642",
-                "rotationw": "0.579227",
+                "rotationw": "0.579228",
                 "rotationx": "-0.579228",
                 "rotationy": "0.405580",
                 "rotationz": "0.405580",
@@ -908,8 +908,8 @@
                 "rotationx": "0.534082",
                 "rotationy": "-0.436153",
                 "rotationz": "0.618214",
-                "scalex": "0.999754",
-                "scaley": "0.999754",
+                "scalex": "0.999751",
+                "scaley": "0.999751",
                 "scalez": "0.999999"
             },
             "13": {
@@ -1233,6 +1233,56 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "2109684699",
+        "Static": false
+    },
+    "1255981312": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "UID": 1239492252,
+                "index": 0,
+                "layer": "0",
+                "positionx": "1.015591",
+                "positiony": "0.000000",
+                "positionz": "-8.823235",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "5": {
+                "Active": false,
+                "ColorA": "1.000000",
+                "ColorB": "0.000001",
+                "ColorG": "0.000001",
+                "ColorR": "0.000001",
+                "IsProgressBar": "0",
+                "MantainAspect": "1",
+                "NumberFrames": "0",
+                "Resources": {
+                    "ResourceTexture": null
+                },
+                "UID": 207205444,
+                "anchor": 9,
+                "fullscreen": true,
+                "index": 1,
+                "is3d": "0",
+                "position2Dx": "0.000000",
+                "position2Dy": "0.000000",
+                "priority": "-1",
+                "size2Dx": "1298.119995",
+                "size2Dy": "588.900024",
+                "visible": "1"
+            }
+        },
+        "Index": 0,
+        "Name": "LoadingScreen_BG",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1434304481",
         "Static": false
     },
     "1262875606": {
@@ -1871,13 +1921,13 @@
                 "positionx": "-0.002605",
                 "positiony": "3.794401",
                 "positionz": "0.000008",
-                "rotationw": "0.793440",
+                "rotationw": "0.793439",
                 "rotationx": "0.608569",
                 "rotationy": "-0.000102",
                 "rotationz": "-0.009876",
                 "scalex": "1.000000",
-                "scaley": "1.000000",
-                "scalez": "1.000000"
+                "scaley": "1.000001",
+                "scalez": "1.000001"
             },
             "13": {
                 "Active": true,
@@ -2037,8 +2087,8 @@
                 "rotationx": "0.000517",
                 "rotationy": "0.004675",
                 "rotationz": "0.999952",
-                "scalex": "1.000080",
-                "scaley": "1.000079",
+                "scalex": "1.000086",
+                "scaley": "1.000085",
                 "scalez": "1.000000"
             },
             "13": {
@@ -2387,6 +2437,92 @@
         "Parent": "1398703413",
         "Static": false
     },
+    "1434304481": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "UID": 324434431,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "4": {
+                "Active": false,
+                "UID": 216521505,
+                "anchor": 4,
+                "index": 1,
+                "position2DxLocal": "0.000000",
+                "position2DyLocal": "0.000000",
+                "priority": "5",
+                "visible": "1"
+            }
+        },
+        "Index": 11,
+        "Name": "LoadingScreenCanvas",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "-1",
+        "Static": false
+    },
+    "1435784206": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "UID": 1620114383,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "5": {
+                "Active": false,
+                "ColorA": "1.000000",
+                "ColorB": "1.000000",
+                "ColorG": "1.000000",
+                "ColorR": "1.000000",
+                "IsProgressBar": "0",
+                "MantainAspect": "1",
+                "NumberFrames": "0",
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/962985622.dds"
+                },
+                "UID": 1699867462,
+                "anchor": 4,
+                "fullscreen": false,
+                "index": 1,
+                "is3d": "0",
+                "position2Dx": "0.000000",
+                "position2Dy": "0.000000",
+                "priority": "0",
+                "size2Dx": "540.000000",
+                "size2Dy": "540.000000",
+                "visible": "1"
+            }
+        },
+        "Index": 1,
+        "Name": "TheWitcher_Wolf",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1434304481",
+        "Static": false
+    },
     "1440291538": {
         "Active": false,
         "Components": {
@@ -2517,7 +2653,7 @@
                 "positionx": "0.000198",
                 "positiony": "3.040703",
                 "positionz": "0.000000",
-                "rotationw": "0.999077",
+                "rotationw": "0.999078",
                 "rotationx": "0.042280",
                 "rotationy": "-0.000133",
                 "rotationz": "-0.007526",
@@ -2862,8 +2998,8 @@
                 "rotationx": "-0.050385",
                 "rotationy": "0.320698",
                 "rotationz": "0.945665",
-                "scalex": "0.999754",
-                "scaley": "0.999754",
+                "scalex": "0.999751",
+                "scaley": "0.999751",
                 "scalez": "1.000000"
             },
             "13": {
@@ -2931,8 +3067,8 @@
                 "rotationy": "0.000014",
                 "rotationz": "-0.000013",
                 "scalex": "1.000000",
-                "scaley": "1.000040",
-                "scalez": "1.000040"
+                "scaley": "1.000043",
+                "scalez": "1.000043"
             },
             "13": {
                 "Active": false,
@@ -4808,6 +4944,56 @@
         "Parent": "4806708",
         "Static": false
     },
+    "1810889017": {
+        "Active": false,
+        "Components": {
+            "0": {
+                "UID": 1927571701,
+                "index": 0,
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "5": {
+                "Active": false,
+                "ColorA": "1.000000",
+                "ColorB": "1.000000",
+                "ColorG": "1.000000",
+                "ColorR": "1.000000",
+                "IsProgressBar": "0",
+                "MantainAspect": "1",
+                "NumberFrames": "0",
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/671354647.dds"
+                },
+                "UID": 1068810644,
+                "anchor": 8,
+                "fullscreen": false,
+                "index": 1,
+                "is3d": "0",
+                "position2Dx": "0.000000",
+                "position2Dy": "0.000000",
+                "priority": "0",
+                "size2Dx": "322.000000",
+                "size2Dy": "69.000000",
+                "visible": "1"
+            }
+        },
+        "Index": 2,
+        "Name": "FakeLoadingImage",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "1434304481",
+        "Static": false
+    },
     "1811060820": {
         "Active": true,
         "Components": {
@@ -5929,9 +6115,9 @@
                 "rotationx": "-0.577789",
                 "rotationy": "-0.412076",
                 "rotationz": "0.582328",
-                "scalex": "1.000246",
-                "scaley": "1.000246",
-                "scalez": "1.000246"
+                "scalex": "1.000249",
+                "scaley": "1.000249",
+                "scalez": "1.000249"
             },
             "13": {
                 "Active": true,
@@ -6083,7 +6269,7 @@
                 "rotationy": "-0.048441",
                 "rotationz": "0.074520",
                 "scalex": "1.000000",
-                "scaley": "0.999754",
+                "scaley": "0.999751",
                 "scalez": "0.999791"
             },
             "13": {
@@ -6696,8 +6882,8 @@
                 "rotationx": "0.072736",
                 "rotationy": "0.384123",
                 "rotationz": "0.916252",
-                "scalex": "0.999508",
-                "scaley": "0.999542",
+                "scalex": "0.999502",
+                "scaley": "0.999537",
                 "scalez": "1.000000"
             },
             "13": {
@@ -7057,7 +7243,7 @@
                 "positionx": "0.000000",
                 "positiony": "34.603004",
                 "positionz": "-0.000004",
-                "rotationw": "0.866902",
+                "rotationw": "0.866903",
                 "rotationx": "-0.495264",
                 "rotationy": "0.049589",
                 "rotationz": "0.027102",
@@ -7095,8 +7281,8 @@
                 "rotationx": "0.060465",
                 "rotationy": "0.189634",
                 "rotationz": "0.979214",
-                "scalex": "0.999754",
-                "scaley": "0.999754",
+                "scalex": "0.999751",
+                "scaley": "0.999751",
                 "scalez": "1.000000"
             },
             "13": {
@@ -7896,8 +8082,8 @@
                 "position2Dx": "0.000000",
                 "position2Dy": "0.000000",
                 "priority": "1",
-                "size2Dx": "1350.060059",
-                "size2Dy": "654.599976",
+                "size2Dx": "1382.400024",
+                "size2Dy": "629.400024",
                 "visible": "1"
             }
         },
@@ -8440,7 +8626,7 @@
                 "positionx": "-2.622000",
                 "positiony": "2.480305",
                 "positionz": "1.968895",
-                "rotationw": "0.961826",
+                "rotationw": "0.961827",
                 "rotationx": "0.217290",
                 "rotationy": "0.059016",
                 "rotationz": "0.155538",
@@ -8742,8 +8928,8 @@
                 "rotationx": "-0.000233",
                 "rotationy": "0.009275",
                 "rotationz": "0.999919",
-                "scalex": "0.999960",
-                "scaley": "0.999960",
+                "scalex": "0.999957",
+                "scaley": "0.999957",
                 "scalez": "1.000000"
             },
             "13": {
@@ -8866,7 +9052,7 @@
                 "positionx": "-0.001099",
                 "positiony": "3.421003",
                 "positionz": "0.000000",
-                "rotationw": "0.915679",
+                "rotationw": "0.915680",
                 "rotationx": "0.400620",
                 "rotationy": "-0.016911",
                 "rotationz": "-0.027361",
@@ -9929,9 +10115,9 @@
                 "rotationx": "0.553365",
                 "rotationy": "-0.426469",
                 "rotationz": "0.586562",
-                "scalex": "0.999960",
-                "scaley": "0.999960",
-                "scalez": "0.999960"
+                "scalex": "0.999957",
+                "scaley": "0.999957",
+                "scalez": "0.999957"
             },
             "13": {
                 "Active": false,
@@ -10255,7 +10441,7 @@
                 "rotationz": "-0.072094",
                 "scalex": "1.000000",
                 "scaley": "1.000019",
-                "scalez": "1.000244"
+                "scalez": "1.000247"
             },
             "13": {
                 "Active": true,
@@ -11300,9 +11486,9 @@
                 "rotationx": "-0.349618",
                 "rotationy": "0.929542",
                 "rotationz": "0.105091",
-                "scalex": "0.999754",
+                "scalex": "0.999751",
                 "scaley": "1.000000",
-                "scalez": "0.999754"
+                "scalez": "0.999751"
             },
             "1": {
                 "Active": true,
