@@ -16,13 +16,19 @@ uniform vec2 UVsDirection = vec2(1.0, 1.0);
 uniform float velocity = 1.0;
 
 out vec4 v_Color; 
-out vec2 v_TexCoord; 
+out vec2 v_TexCoord; //sd
 
 void main()
-{ 
+{
+    vec2 waterDir = vec2(0.1, -2.0);
+    //waterDir = UVsDirection;
+
+    float vel = 0.1;
+   vel = velocity;
+
     gl_Position = u_Proj * u_View * u_Model * vec4(a_Position, 1.0f); 
     v_Color = u_Color; 
-    v_TexCoord = a_TexCoord + UVsDirection * velocity * time; 
+    v_TexCoord = a_TexCoord + waterDir * vel * time; 
 }
 #endif //VERTEX_SHADER
 
@@ -33,7 +39,9 @@ in vec4 v_Color;
 in vec2 v_TexCoord; 
 
 uniform int u_UseTextures;
-uniform sampler2D u_AlbedoTexture; 
+uniform sampler2D u_AlbedoTexture;
+
+uniform float u_GammaCorrection = 1.8;
 
 out vec4 color;
 
@@ -43,5 +51,8 @@ void main()
     color = v_Color;
     if(u_UseTextures == 1)
         color = texture(u_AlbedoTexture, v_TexCoord);
+
+    color = pow(color, vec4(vec3(1.0/u_GammaCorrection), 1.0));
+
 } 
 #endif //FRAGMENT_SHADER
