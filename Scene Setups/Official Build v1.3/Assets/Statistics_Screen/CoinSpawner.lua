@@ -114,6 +114,7 @@ local jaskier_player = {
     skipped = false
 }
 
+local my_UID = 0
 local game_time = 0
 local timestamp = 0
 
@@ -197,7 +198,7 @@ local function DecideFinalWinner()
     CalculateWinner(geralt_final_score, jaskier_final_score)
 
     if character_winner ~= nil then
-        lua_table.AudioFunctions:PlayAudioEventGO(character_winner.win_audio, lua_table.GameObjectFunctions:GetMyUID())
+        lua_table.AudioFunctions:PlayAudioEventGO(character_winner.win_audio, my_UID)
         WinnerClap(character_winner)
         lua_table.UIFunctions:MakeElementVisible("Image", character_winner.final_win_UI)
         lua_table.SystemFunctions:LOG(character_winner.final_win_string)
@@ -373,6 +374,7 @@ function lua_table:Awake()
         jaskier_player.player_ID = 2
     end
     
+    my_UID = lua_table.GameObjectFunctions:GetMyUID()
     geralt_GO_data.GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt_Score")
     jaskier_GO_data.GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Score")
 
@@ -406,6 +408,9 @@ function lua_table:Start()
     for i = 1, 2, 1 do
         lua_table.UIFunctions:MakeElementInvisible("Image", match_tie_UI_titles[i])
     end
+
+    lua_table.AudioFunctions:PlayAudioEventGO("Play_Music_Menu_Comparison_Pirate_Dance", my_UID)
+    lua_table.AudioFunctions:SetVolume(0.3, my_UID)
 end
 
 function lua_table:Update()
