@@ -108,6 +108,7 @@ local DoSeek = false
 local CurrentTargetPosition = {}
 local RunAnimationController = true
 local DistanceMagnitude = 0
+lua_table.aggro_distance = 20
 
 --Navigation
 
@@ -256,21 +257,6 @@ end
 
 local function DoDieNow(bool)
 	DoDie = bool
-
-
-	tuto_manager = lua_table.GameObjectFunctions:FindGameObject("TutorialManager")
-    if tuto_manager ~= 0 
-    then
-        tuto_table = lua_table.GameObjectFunctions:GetScript(tuto_manager)
-
-        if tuto_table.currentStep == 9
-        then
-            tuto_table.enemiesToKill_Step9 = tuto_table.enemiesToKill_Step9 - 1
-        elseif tuto_table.currentStep == 10
-        then
-            tuto_table.enemiesToKill_Step10 = tuto_table.enemiesToKill_Step10 - 1
-        end
-    end
 end
 
 --#################################################### MAIN FUNCTIONS ####################################
@@ -289,6 +275,12 @@ end
 local function VariablesUpdate()
 
 	MyPosition = lua_table.TransformFunctions:GetPosition(MyUID)
+
+	if MyPosition[2] < -200
+	then
+		CurrentState  = State.DEAD
+	end
+
 	dt = lua_table.SystemFunctions:DT()
 
 	if changed_material == true
@@ -418,7 +410,7 @@ local function PlayersArround() --Returns a boolean if players are or not arroun
 		lua_table.JaskierDistance = CalculateDistanceTo(JaskierPos)
 	end
 
-	if lua_table.JaskierDistance < 20 or lua_table.GeraltDistance < 20
+	if lua_table.JaskierDistance < lua_table.aggro_distance or lua_table.GeraltDistance < lua_table.aggro_distance
 	then
 		ret = true	
 	end
@@ -814,6 +806,14 @@ local function Die()
 	
 	if DieAnimation_Controller == false
 	then	
+
+		local particles = {}
+		particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("DeathParticles", lua_table.General_Emitter_UID))
+		for i = 1, #particles do 
+		    lua_table.ParticleSystem:PlayParticleEmitter(particles[i])
+			--lua_table.SystemFunctions:LOG ("LUMBERJACK PARTICLES SCREAM NOW OFF") 
+		end
+
 		CurrentVelocity = 0
 		lua_table.PhysicsSystem:SetActiveController(false, MyUID)
 		lua_table.AnimationSystem:PlayAnimation("DEATH",30.0,MyUID)
@@ -1294,10 +1294,10 @@ function lua_table:OnTriggerEnter()
 		end
 
 
-		if collider_GO == lua_table.Geralt_UID
+		if collider_parent == lua_table.Geralt_UID
 		then
 			local particles = {}
-			particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("JumpAttackParticles", lua_table.General_Emitter_UID))
+			particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("BloodHitParticles", lua_table.General_Emitter_UID))
 			for i = 1, #particles do 
 				lua_table.ParticleSystem:PlayParticleEmitter(particles[i])
 				lua_table.SystemFunctions:LOG ("LUMBERJACK PARTICLES HIT NOW") 
@@ -1419,6 +1419,8 @@ function lua_table:Update()
 	
 	VariablesUpdate() -- postions for example
 	
+	
+
 	if lua_table.CurrentHealth < 1
 	then
 		CurrentState = State.DEAD

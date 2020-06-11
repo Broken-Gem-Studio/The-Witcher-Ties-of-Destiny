@@ -89,6 +89,8 @@ function GetTableCharacterSelection()
 
     --
     local SELECTION = 0
+    local load_timer = 0
+    local loading_screen = 0
 
 
     local function Hide()
@@ -300,6 +302,8 @@ function GetTableCharacterSelection()
         PLAYER1_NOT_AVAILABLE= lua_table["GameObject"]:FindGameObject("PLAYER1NOTAVAILABLE")
         PLAYER2_READY= lua_table["GameObject"]:FindGameObject("PLAYER2READY")
         PLAYER2_NOT_AVAILABLE= lua_table["GameObject"]:FindGameObject("PLAYER2NOTAVAILABLE")
+
+        loading_screen = lua_table["GameObject"]:FindGameObject("LoadingScreenCanvas")
     end
     
     function lua_table:Start()
@@ -492,17 +496,34 @@ function GetTableCharacterSelection()
             if lua_table.main_menu.loadLevel1 == true and geraltfinished == true and jaskierfinished == true
             then
                 lua_table["System"]:LOG("LOADING SCENE1")
-                lua_table["Scenes"]:LoadScene(lua_table.scene1)
+                
+                load_timer = load_timer + lua_table["System"]:DT()
+
+                if load_timer >= 1 
+                then
+                    lua_table["Scenes"]:LoadScene(lua_table.scene1)
+                    lua_table.main_menu.loadLevel1 = false
+                else 
+                    lua_table["GameObject"]:SetActiveGameObject(true, loading_screen)
+                end
+
             end
 
             if lua_table.main_menu.loadLevel2 == true and geraltfinished == true and jaskierfinished == true
             then
                 lua_table["System"]:LOG("LOADING SCENE2")
-                lua_table["Scenes"]:LoadScene(lua_table.scene2)
+            
+                load_timer = load_timer + lua_table["System"]:DT()
+
+                if load_timer >= 1 
+                then
+                    lua_table["Scenes"]:LoadScene(lua_table.scene2)
+                    lua_table.main_menu.loadLevel2 = false
+                else 
+                    lua_table["GameObject"]:SetActiveGameObject(true, loading_screen)
+                end
             end
-        end
-        
-        
+        end  
         
 
         if player1_locked == true and player2_locked == true
