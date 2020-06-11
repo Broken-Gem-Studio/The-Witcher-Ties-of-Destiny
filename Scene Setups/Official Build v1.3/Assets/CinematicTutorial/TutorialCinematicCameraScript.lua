@@ -24,8 +24,6 @@ function GetTableTutorialCinematicCameraScript()
     local archer2 = 0
     local recruit1 = 0
     local recruit2 = 0
-    local minion1 = 0
-    local minion2 = 0
 
     local disable_fight = true
 
@@ -103,16 +101,12 @@ function GetTableTutorialCinematicCameraScript()
         recruit1 = lua_table.GameObject:FindGameObject("Recruit1")
         recruit2 = lua_table.GameObject:FindGameObject("Recruit_Gank")
 
-        minion1 = lua_table.GameObject:FindGameObject("Minion1")
-        minion2 = lua_table.GameObject:FindGameObject("Minion_Gank")
-
         FadeScreen = lua_table.GameObject:FindGameObject("TutorialFadeScreen")
         loading_screen = lua_table.GameObject:FindGameObject("LoadingScreenCanvas")
         AButton = lua_table.GameObject:FindGameObject("TutorialCanvas")
 
         -- Disable "gaking" enemies
         lua_table.GameObject:SetActiveGameObject(false, recruit2)
-        lua_table.GameObject:SetActiveGameObject(false, minion2)
 
         --Play music
         lua_table.Audio:PlayAudioEvent("Play_Music_Cinematic_lvl1_The_Ocean_Takes_It_All")
@@ -178,7 +172,6 @@ function GetTableTutorialCinematicCameraScript()
             lua_table.GameObject:SetActiveGameObject(false, archer2)
 
             lua_table.GameObject:SetActiveGameObject(true, recruit2)
-            lua_table.GameObject:SetActiveGameObject(true, minion2)
         end
 
         if time > 13 and time < 15
@@ -197,10 +190,6 @@ function GetTableTutorialCinematicCameraScript()
             lua_table.GameObject:SetActiveGameObject(false, recruit1)
             lua_table.GameObject:SetActiveGameObject(false, recruit2)
             
-            lua_table.GameObject:SetActiveGameObject(false, minion1)
-            lua_table.GameObject:SetActiveGameObject(false, minion2)
-           
-
         end
 
         if time > 30 and time < 32
