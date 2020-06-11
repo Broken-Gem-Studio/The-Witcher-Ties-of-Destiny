@@ -118,7 +118,7 @@ local state = -- not in use rn
 {
 	STATIC = 0, 
 	DYNAMIC = 1,
-	SWITCHING = 2
+	SWITCHING = 2,
 }
 lua_table.current_state = state.DYNAMIC -- Should initialize at awake(?)
 
@@ -132,8 +132,8 @@ local zoom = -- not in use rn
 	LAYER_1 = 1, 
 	LAYER_2 = 2, 
     LAYER_3 = 3,
-	LAYER_BOSS = 4
-	LAYER_HOARD = 5
+	LAYER_BOSS = 4,
+	LAYER_HOARD = 5,
 }
 lua_table.current_zoom_layer = zoom.LAYER_1 -- Shoul initialize at awake(?)
 
@@ -750,14 +750,14 @@ local function HandleTarget()
 				lua_table.target_position_y = lua_table.P1_pos[y]		-- Kind of redundant but organized
 				lua_table.target_position_z = lua_table.P1_pos[z]
 
-			elseif lua_table.bossfight = true
+			elseif lua_table.bossfight == true
 			then
 				-- Target is Midpoint between P1 and BOSS positions
 				lua_table.target_position_x = Centroid2P(lua_table.P1_pos[x], lua_table.Kikimora_pos[x])
 				lua_table.target_position_y = Centroid2P(lua_table.P1_pos[y], lua_table.Kikimora_pos[y])
 				lua_table.target_position_z = Centroid2P(lua_table.P1_pos[z], lua_table.Kikimora_pos[z])
 
-			elseif lua_table.hoardfight = true
+			elseif lua_table.hoardfight == true
 			then
 				-- Target is Midpoint between P1 and BOSS positions
 				lua_table.target_position_x = Centroid2P(lua_table.P1_pos[x], lua_table.hoard_pos[x])
@@ -782,14 +782,14 @@ local function HandleTarget()
 				lua_table.target_position_y = lua_table.P2_pos[y]		-- Kind of redundant but organized
 				lua_table.target_position_z = lua_table.P2_pos[z]
 
-			elseif lua_table.bossfight = true
+			elseif lua_table.bossfight == true
 			then
 				-- Target is Midpoint between P1 and BOSS positions
 				lua_table.target_position_x = Centroid2P(lua_table.P2_pos[x], lua_table.Kikimora_pos[x])
 				lua_table.target_position_y = Centroid2P(lua_table.P2_pos[y], lua_table.Kikimora_pos[y])
 				lua_table.target_position_z = Centroid2P(lua_table.P2_pos[z], lua_table.Kikimora_pos[z])
 
-			elseif lua_table.hoardfight = true
+			elseif lua_table.hoardfight == true
 			then
 				-- Target is Midpoint between P1 and BOSS positions
 				lua_table.target_position_x = Centroid2P(lua_table.P2_pos[x], lua_table.hoard_pos[x])
@@ -824,14 +824,14 @@ local function HandleTarget()
 			lua_table.target_position_y = Centroid2P(lua_table.P1_pos[y], lua_table.P2_pos[y])
 			lua_table.target_position_z = Centroid2P(lua_table.P1_pos[z], lua_table.P2_pos[z])
 
-		elseif lua_table.bossfight = true
+		elseif lua_table.bossfight == true
 		then
 			-- Target is Midpoint between P1, P2 and Boss positions
 			lua_table.target_position_x = Centroid3P(lua_table.P1_pos[x], lua_table.P2_pos[x], lua_table.Kikimora_pos[x])
 			lua_table.target_position_y = Centroid3P(lua_table.P1_pos[y], lua_table.P2_pos[y], lua_table.Kikimora_pos[y])
 			lua_table.target_position_z = Centroid3P(lua_table.P1_pos[z], lua_table.P2_pos[z], lua_table.Kikimora_pos[z])
 
-		elseif lua_table.hoardfight = true
+		elseif lua_table.hoardfight == true
 		then
 			-- Target is Midpoint between P1, P2 and Boss positions
 			lua_table.target_position_x = Centroid3P(lua_table.P1_pos[x], lua_table.P2_pos[x], lua_table.hoard_pos[x])
