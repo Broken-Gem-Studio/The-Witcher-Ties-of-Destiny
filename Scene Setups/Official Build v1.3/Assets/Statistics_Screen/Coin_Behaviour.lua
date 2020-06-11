@@ -3,8 +3,10 @@ local lua_table = {}
 lua_table.System = Scripting.System()
 lua_table.PhysicsFunctions = Scripting.Physics()
 lua_table.GameObjectFunctions = Scripting.GameObject()
+lua_table.AudioFunctions = Scripting.Audio()
 
 local my_UID = 0
+local first_collision = false
 local scoreboard_script = {}
 lua_table.final_coin = false
 
@@ -15,6 +17,11 @@ end
 
 function lua_table:OnCollisionEnter()
     lua_table.PhysicsFunctions:SetKinematic(true, my_UID)
+
+    if not first_collision then
+        lua_table.AudioFunctions:PlayAudioEventGO("Play_Coin_Collision", my_UID)
+        first_collision = true
+    end
 
     if lua_table.final_coin
     then

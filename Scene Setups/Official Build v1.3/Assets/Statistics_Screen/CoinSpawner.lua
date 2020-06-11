@@ -6,6 +6,8 @@ lua_table.TransformFunctions =  Scripting.Transform()
 lua_table.GameObjectFunctions = Scripting.GameObject()
 lua_table.UIFunctions = Scripting.Interface()
 lua_table.AnimationFunctions = Scripting.Animations()
+lua_table.AudioFunctions = Scripting.Audio()
+lua_table.InputFunctions = Scripting.Inputs()
 
 --LEGACY
 -- local randTime = 0
@@ -65,7 +67,8 @@ local geralt_GO_data = {
     final_win_UI = 0,
     text_units_UI = 0,
     secondary_text_units_UI = 0,
-    text_score_UI = 0
+    text_score_UI = 0,
+    win_audio = "Play_Performance_Geralt_win"
 }
 local jaskier_GO_data = {
     GO_UID = 0,
@@ -77,7 +80,8 @@ local jaskier_GO_data = {
     final_win_UI = 0,
     text_units_UI = 0,
     secondary_text_units_UI = 0,
-    text_score_UI = 0
+    text_score_UI = 0,
+    win_audio = "Play_Performance_Jaskier_win"
 }
 local animation_duration = 1700
 
@@ -98,11 +102,14 @@ local cycle_stages = {
     spawning_coins = { stage = 3, duration = 0, duration_min = 50, duration_max = 150 },	--duration = time_between coin spawns
     showing_score = { stage = 4, duration = 1500 },
     showing_winner = { stage = 5, duration = 1500 },
-    final_winner = { stage = 0, duration = 4000 }
+    final_winner = { stage = 0, duration = 4000 },
+    next_scene = { stage = 0, duration = 7000 },
 }
 local current_stage = cycle_stages.ready.stage
 local current_phase = 1
 local total_phases = 8
+local p1_skip = false
+local p2_skip = false
 local character_winner = nil
 
 lua_table.coins_finished = 0
@@ -144,13 +151,19 @@ local function CalculatePhaseData(current_phase)
     if jaskier_results.coins == 0 then lua_table.coins_finished = lua_table.coins_finished + 1 end
 end
 
+local function CalculateWinner(geralt_score, jaskier_score)
+    if geralt_score > jaskier_score then character_winner = geralt_GO_data
+    elseif geralt_score < jaskier_score then character_winner = jaskier_GO_data
+    else character_winner = nil end
+end
+
 local function WinnerClap(character_data)
     lua_table.AnimationFunctions:PlayAnimation("clap", 30.0, character_data.GO_UID)
     character_data.anim_started_at = game_time
     character_data.clapping = true
 end
 
-local function DecideWinner(character_data)
+local function DecideFinalWinner()
     local geralt_final_score = 0
     local jaskier_final_score = 0
     
@@ -162,14 +175,17 @@ local function DecideWinner(character_data)
         jaskier_score[i] = 0
     end
 
-    if character_data ~= nil then
-        WinnerClap(character_data)
-        lua_table.UIFunctions:MakeElementVisible("Image", character_data.final_win_UI)
-        lua_table.SystemFunctions:LOG(character_data.final_win_string)
+    CalculateWinner(geralt_final_score, jaskier_final_score)
+
+    if character_winner ~= nil then
+        lua_table.AudioFunctions:PlayAudioEventGO(character_winner.win_audio, lua_table.GameObjectFunctions:GetMyUID())
+        WinnerClap(character_winner)
+        lua_table.UIFunctions:MakeElementVisible("Image", character_winner.final_win_UI)
+        lua_table.SystemFunctions:LOG(character_winner.final_win_string)
     else
         WinnerClap(geralt_GO_data)
         WinnerClap(jaskier_GO_data)
-        --lua_table.UIFunctions:MakeElementVisible("Image", character_data.final_win_UI)    --TODO: Show it's a final tie UI
+        --lua_table.UIFunctions:MakeElementVisible("Image", tie_go_UID)    --TODO: Show it's a final tie UI
         lua_table.SystemFunctions:LOG("Amazing! It's a tie!")
     end
 end
@@ -338,7 +354,16 @@ function lua_table:Update()
     CharacterIdleAnim(geralt_GO_data)
     CharacterIdleAnim(jaskier_GO_data)
 
-    if current_phase <= total_phases then
+    if not p1_skip and lua_table.InputFunctions:IsGamepadButton(1, "BUTTON_A", "DOWN") then
+        --TODO: Change P1 UI
+        p1_skip = true
+    end
+    if not p2_skip and lua_table.InputFunctions:IsGamepadButton(2, "BUTTON_A", "DOWN") then
+        --TODO: Change P2 UI
+        p2_skip = true
+    end
+
+    if current_phase <= total_phases and not p1_skip and not p2_skip then
         if current_stage == cycle_stages.ready.stage and game_time - timestamp > cycle_stages.ready.duration
         then
             CalculatePhaseData(current_phase)	--Both Characters, calculate data such as score of each and coins to throw
@@ -367,10 +392,7 @@ function lua_table:Update()
 
         elseif current_stage == cycle_stages.showing_winner.stage and game_time - timestamp > cycle_stages.showing_winner.duration
         then
-            if geralt_results.result_score > jaskier_results.result_score then character_winner = geralt_GO_data
-            elseif geralt_results.result_score < jaskier_results.result_score then character_winner = jaskier_GO_data
-            else character_winner = nil end
-
+            CalculateWinner(geralt_results.result_score, jaskier_results.result_score)
             ShowPhaseWinner(character_winner)
 
             timestamp = game_time
@@ -387,9 +409,16 @@ function lua_table:Update()
             lua_table.SystemFunctions:LOG(" --- ROUND FINISHED --- ")
         end
     elseif game_time - timestamp > cycle_stages.final_winner.duration and current_phase == (total_phases + 1)
+    or p1_skip and p2_skip and current_phase <= total_phases
     then
-        DecideWinner(character_winner)
-        current_phase = current_phase + 1
+        DecideFinalWinner()
+        timestamp = game_time
+        current_phase = total_phases + 2
+
+    elseif current_phase == (total_phases + 2) and game_time - timestamp > cycle_stages.next_scene.duration
+    then
+        lua_table.SystemFunctions:LOG(" --- LOAD SCENE --- ")
+        --lua_table.SceneFunctions:LoadScene(scoreboard_next_scene_GO_UID)
     end
 
     ----------------------------------------------SpawnCoins
