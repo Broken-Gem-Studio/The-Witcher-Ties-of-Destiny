@@ -171,11 +171,11 @@ function lua_table:Start()
 end
 
 function lua_table:Update()
-    if stop == false and enemy_counter > 0
+    lua_table.auxCounter = enemy_counter
+    if stop == false and lua_table.is_finished == true
     then
-        lua_table.auxCounter = enemy_counter
         
-        for i = 1, #spawned_enemies 
+        for i = 1, #spawned_enemies, i = i + 1
         do
             if lua_table.GO:GetLayerByID(spawnedEnemies[i]) == -1 
             then
