@@ -233,9 +233,6 @@ function lua_table:OnTriggerEnter()
                             script.geralt_score[4] = script.geralt_score[4] + 1
                         end
                     end
-                    
-                    
-        
                 else 
 
                     if script.jaskier_score ~= nil then
@@ -261,6 +258,22 @@ function lua_table:OnTriggerEnter()
                 lua_table.start_knockback = true
                 lua_table.AnimationSystem:PlayAnimation("Hit",30.0, MyUID)
                 knockback_time = PerfGameTime()
+
+                if parent == Geralt_ID then
+
+                    if script.geralt_score ~= nil then
+                        if script.geralt_score[4] ~= nil then
+                            script.geralt_score[4] = script.geralt_score[4] + 1
+                        end
+                    end        
+                else 
+
+                    if script.jaskier_score ~= nil then
+                        if script.jaskier_score[4] ~= nil then
+                            script.jaskier_score[4] = script.jaskier_score[4] + 1
+                        end
+                    end
+                end
                 
             elseif script.collider_effect == Effects.TAUNT then
                 start_taunt = true
@@ -272,6 +285,23 @@ function lua_table:OnTriggerEnter()
                 for i=1, #particles do 
                     lua_table.Particles:PlayParticleEmitter(particles[i])
                 end
+
+                if parent == Geralt_ID then
+
+                    if script.geralt_score ~= nil then
+                        if script.geralt_score[4] ~= nil then
+                            script.geralt_score[4] = script.geralt_score[4] + 1
+                        end
+                    end
+                else 
+
+                    if script.jaskier_score ~= nil then
+                        if script.jaskier_score[4] ~= nil then
+                            script.jaskier_score[4] = script.jaskier_score[4] + 1
+                        end
+                    end
+                end
+
             end
         else -- animatio hit
             lua_table.AnimationSystem:PlayAnimation("Hit",30.0, MyUID)
@@ -367,6 +397,24 @@ function lua_table:RequestedTrigger(collider_GO)
                 lua_table.AnimationSystem:PlayAnimation("Hit",30.0, MyUID)
                 knockback_time = PerfGameTime()
 
+                if collider_GO == Geralt_ID then
+
+                    if script.geralt_score ~= nil then
+                        if player_script.geralt_score[4] ~= nil then
+                            player_script.geralt_score[4] = player_script.geralt_score[4] + 1
+                        end
+                    end
+                    
+        
+                else 
+                    if script.jaskier_score ~= nil then
+                        if player_script.jaskier_score[4] ~= nil then
+                            player_script.jaskier_score[4] = player_script.jaskier_score[4] + 1
+                        end
+                    end
+                   
+                end
+
             elseif player_script.collider_effect == Effects.TAUNT then
                 start_taunt = true
                 taunt_time = PerfGameTime()
@@ -375,6 +423,24 @@ function lua_table:RequestedTrigger(collider_GO)
                 particles = lua_table.GameObjectFunctions:GetGOChilds(lua_table.GameObjectFunctions:FindChildGameObjectFromGO("AggroParticles", Particles_GO))
                 for i=1, #particles do 
                     lua_table.Particles:PlayParticleEmitter(particles[i])
+                end
+
+                if collider_GO == Geralt_ID then
+
+                    if script.geralt_score ~= nil then
+                        if player_script.geralt_score[4] ~= nil then
+                            player_script.geralt_score[4] = player_script.geralt_score[4] + 1
+                        end
+                    end
+                    
+        
+                else 
+                    if script.jaskier_score ~= nil then
+                        if player_script.jaskier_score[4] ~= nil then
+                            player_script.jaskier_score[4] = player_script.jaskier_score[4] + 1
+                        end
+                    end
+                   
                 end
 
             end
@@ -808,16 +874,17 @@ function lua_table:Update()
                 
                 local script = lua_table.GameObjectFunctions:GetScript(last_player_hit)
 
-                -- if script ~= nil then
-                --     if last_player_hit == Geralt_ID then
-                --         if script.geralt_score[3] ~= nil then 
-                --             script.geralt_score[3] = script.geralt_score[3] + 1 
-                --         end
-                --     else
-                --         if script.jaskier_score[3] ~= nil then script.jaskier_score[3] = script.jaskier_score[3] + 1 
-                --         end
-                --     end
-                -- end
+                if script ~= nil then
+                    if last_player_hit == Geralt_ID then
+                        if script.geralt_score[3] ~= nil then 
+                            script.geralt_score[3] = script.geralt_score[3] + 1 
+                        end
+                    else
+                        if script.jaskier_score[3] ~= nil then 
+                            script.jaskier_score[3] = script.jaskier_score[3] + 1 
+                        end
+                    end
+                end
                
 
                 local tuto_manager = lua_table.GameObjectFunctions:FindGameObject("TutorialManager")
