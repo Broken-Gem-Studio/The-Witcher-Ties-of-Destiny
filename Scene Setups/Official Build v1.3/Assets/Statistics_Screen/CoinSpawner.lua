@@ -68,6 +68,9 @@ local geralt_GO_data = {
     text_units_UI = 0,
     secondary_text_units_UI = 0,
     text_score_UI = 0,
+    press_to_skip_UI = 0,
+    p1_skipped_UI = 0,
+    p2_skipped_UI = 0,
     win_audio = "Play_Performance_Geralt_win"
 }
 local jaskier_GO_data = {
@@ -81,6 +84,9 @@ local jaskier_GO_data = {
     text_units_UI = 0,
     secondary_text_units_UI = 0,
     text_score_UI = 0,
+    press_to_skip_UI = 0,
+    p1_skipped_UI = 0,
+    p2_skipped_UI = 0,
     win_audio = "Play_Performance_Jaskier_win"
 }
 local animation_duration = 1700
@@ -91,7 +97,22 @@ local jaskier_spawn_positions = {}
 local phase_UI_titles = {}
 local geralt_UI_titles = {}
 local jaskier_UI_titles = {}
-local match_result_UI_titles = {}
+local match_tie_UI_titles = {}
+
+local character_ID = {
+	geralt = 0,
+	jaskier = 1,
+	yennefer = 2,
+	ciri = 3
+}
+local geralt_player = {
+    player_ID = 1,
+    skipped = false
+}
+local jaskier_player = {
+    player_ID = 1,
+    skipped = false
+}
 
 local game_time = 0
 local timestamp = 0
@@ -103,13 +124,11 @@ local cycle_stages = {
     showing_score = { stage = 4, duration = 1500 },
     showing_winner = { stage = 5, duration = 1500 },
     final_winner = { stage = 0, duration = 4000 },
-    next_scene = { stage = 0, duration = 7000 },
+    next_scene = { stage = 0, duration = 9000 },
 }
 local current_stage = cycle_stages.ready.stage
 local current_phase = 1
 local total_phases = 8
-local p1_skip = false
-local p2_skip = false
 local character_winner = nil
 
 lua_table.coins_finished = 0
@@ -185,7 +204,7 @@ local function DecideFinalWinner()
     else
         WinnerClap(geralt_GO_data)
         WinnerClap(jaskier_GO_data)
-        --lua_table.UIFunctions:MakeElementVisible("Image", tie_go_UID)    --TODO: Show it's a final tie UI
+        lua_table.UIFunctions:MakeElementVisible("Image", match_tie_UI_titles[2])
         lua_table.SystemFunctions:LOG("Amazing! It's a tie!")
     end
 end
@@ -236,7 +255,7 @@ end
 
 local function ShowPhaseWinner(character_data)
     if character_data == nil then
-        --TODO: Show it's a tie UI
+        lua_table.UIFunctions:MakeElementVisible("Image", match_tie_UI_titles[1])
         lua_table.SystemFunctions:LOG("It's a tie!")
     else
         lua_table.AnimationFunctions:SetBlendTime(0.5, character_data.GO_UID)
@@ -252,6 +271,8 @@ end
 local function HidePhaseWinner(character_data)
     if character_data ~= nil then
         lua_table.UIFunctions:MakeElementInvisible("Image", character_data.win_UI)
+    else
+        lua_table.UIFunctions:MakeElementInvisible("Image", match_tie_UI_titles[1])
     end
 end
 
@@ -296,23 +317,62 @@ local function CharacterIdleAnim(character_data)
     end
 end
 
+local function CheckPlayerSkip(player_character, character_data)
+    if not player_character.skipped and lua_table.InputFunctions:IsGamepadButton(player_character.player_ID, "BUTTON_A", "DOWN") then
+        if player_character.player_ID == 1 then
+            lua_table.UIFunctions:MakeElementVisible("Image", character_data.p1_skipped_UI)
+        else
+            lua_table.UIFunctions:MakeElementVisible("Image", character_data.p2_skipped_UI)
+        end
+
+        lua_table.UIFunctions:MakeElementInvisible("Image", character_data.press_to_skip_UI)
+        player_character.skipped = true
+    end
+end
+
 local function CharacterUIAwakeSetup(character_data, string_name)
     character_data.win_UI = lua_table.GameObjectFunctions:FindGameObject(string_name .. "_Title_Round")
     character_data.final_win_UI = lua_table.GameObjectFunctions:FindGameObject(string_name .. "_Title_Wins")
     character_data.text_units_UI = lua_table.GameObjectFunctions:FindGameObject(string_name .. "_Text_Units")
+
     character_data.secondary_text_units_UI = lua_table.GameObjectFunctions:FindGameObject(string_name .. "_Text_Units_2")
     character_data.text_score_UI = lua_table.GameObjectFunctions:FindGameObject(string_name .. "_Text_Score")
+
+    character_data.press_to_skip_UI = lua_table.GameObjectFunctions:FindGameObject(string_name .. "_Press_Skip")
+    character_data.p1_skipped_UI = lua_table.GameObjectFunctions:FindGameObject(string_name .. "_P1_Skip")
+    character_data.p2_skipped_UI = lua_table.GameObjectFunctions:FindGameObject(string_name .. "_P2_Skip")
 end
 
 local function CharacterUIStartSetup(character_data)
     lua_table.UIFunctions:MakeElementInvisible("Image", character_data.win_UI)
     lua_table.UIFunctions:MakeElementInvisible("Image", character_data.final_win_UI)
+
     lua_table.UIFunctions:MakeElementInvisible("Text", character_data.text_units_UI)
     lua_table.UIFunctions:MakeElementInvisible("Text", character_data.secondary_text_units_UI)
     lua_table.UIFunctions:MakeElementInvisible("Text", character_data.text_score_UI)
+
+    --lua_table.UIFunctions:MakeElementInvisible("Image", character_data.press_to_skip_UI)
+    lua_table.UIFunctions:MakeElementInvisible("Image", character_data.p1_skipped_UI)
+    lua_table.UIFunctions:MakeElementInvisible("Image", character_data.p2_skipped_UI)
 end
 
 function lua_table:Awake()
+    --Assign Controller
+    if player1_focus ~= nil and player1_focus == character_ID.geralt 
+    or player2_focus ~= nil and player2_focus == character_ID.jaskier
+    then
+        geralt_player.player_ID = 1
+        jaskier_player.player_ID = 2
+    elseif player1_focus ~= nil and player1_focus == character_ID.jaskier 
+    or player2_focus ~= nil and player2_focus == character_ID.geralt
+    then
+        geralt_player.player_ID = 2
+        jaskier_player.player_ID = 1
+    else
+        geralt_player.player_ID = 1
+        jaskier_player.player_ID = 2
+    end
+    
     geralt_GO_data.GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt_Score")
     jaskier_GO_data.GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Score")
 
@@ -324,10 +384,10 @@ function lua_table:Awake()
         jaskier_UI_titles[i] = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Title_" .. i)
     end
 
-    -- match_result_UI_titles = {
-    --     lua_table.GameObjectFunctions:FindGameObject("Title_Tie"),
-    --     lua_table.GameObjectFunctions:FindGameObject("Final_Title_Tie")
-    -- }
+    match_tie_UI_titles = {
+        lua_table.GameObjectFunctions:FindGameObject("Title_Tie"),
+        lua_table.GameObjectFunctions:FindGameObject("Final_Title_Tie")
+    }
 
     CharacterUIAwakeSetup(geralt_GO_data, "Geralt")
     CharacterUIAwakeSetup(jaskier_GO_data, "Jaskier")
@@ -343,9 +403,9 @@ function lua_table:Start()
         lua_table.UIFunctions:MakeElementInvisible("Image", jaskier_UI_titles[i])
     end
 
-    -- for i = 1, 3, 1 do
-    --     lua_table.UIFunctions:MakeElementInvisible("Image", match_result_UI_titles[i])
-    -- end
+    for i = 1, 2, 1 do
+        lua_table.UIFunctions:MakeElementInvisible("Image", match_tie_UI_titles[i])
+    end
 end
 
 function lua_table:Update()
@@ -354,16 +414,10 @@ function lua_table:Update()
     CharacterIdleAnim(geralt_GO_data)
     CharacterIdleAnim(jaskier_GO_data)
 
-    if not p1_skip and lua_table.InputFunctions:IsGamepadButton(1, "BUTTON_A", "DOWN") then
-        --TODO: Change P1 UI
-        p1_skip = true
-    end
-    if not p2_skip and lua_table.InputFunctions:IsGamepadButton(2, "BUTTON_A", "DOWN") then
-        --TODO: Change P2 UI
-        p2_skip = true
-    end
+    CheckPlayerSkip(geralt_player, geralt_GO_data)
+    CheckPlayerSkip(jaskier_player, jaskier_GO_data)
 
-    if current_phase <= total_phases and not p1_skip and not p2_skip then
+    if current_phase <= total_phases and (not geralt_player.skipped or not jaskier_player.skipped) then
         if current_stage == cycle_stages.ready.stage and game_time - timestamp > cycle_stages.ready.duration
         then
             CalculatePhaseData(current_phase)	--Both Characters, calculate data such as score of each and coins to throw
@@ -409,7 +463,7 @@ function lua_table:Update()
             lua_table.SystemFunctions:LOG(" --- ROUND FINISHED --- ")
         end
     elseif game_time - timestamp > cycle_stages.final_winner.duration and current_phase == (total_phases + 1)
-    or p1_skip and p2_skip and current_phase <= total_phases
+    or geralt_player.skipped and jaskier_player.skipped and current_phase <= total_phases
     then
         DecideFinalWinner()
         timestamp = game_time
