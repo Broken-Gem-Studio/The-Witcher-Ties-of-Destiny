@@ -7,6 +7,8 @@ lua_table.GameObjectFunctions = Scripting.GameObject()
 local MyUID = 0
 local play = true
 
+lua_table.anim_name = "Idle" 
+
 function lua_table:Awake()
 end
 
@@ -17,7 +19,7 @@ end
 function lua_table:Update()
 
     if play == true then 
-        lua_table.AnimationSystem:PlayAnimation("Idle",30.0, MyUID) 
+        lua_table.AnimationSystem:PlayAnimation(lua_table.anim_name,30.0, MyUID) 
         play = false
     end
 

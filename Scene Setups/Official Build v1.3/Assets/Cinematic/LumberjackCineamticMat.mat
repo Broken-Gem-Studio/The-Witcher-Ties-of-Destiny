@@ -5,8 +5,8 @@
         "G": 1.0,
         "R": 1.0
     },
-    "ArcherCinematic.mat": null,
     "Culling": true,
+    "LumberjackCineamticMat.mat": null,
     "MatAlphaFunc": 0,
     "MatAutoBlending": true,
     "MatBlendEquation": 0,
@@ -29,9 +29,9 @@
         "R": 0.0
     },
     "OutlineThickness": 100.0,
-    "PreviewTexture": "Library/Textures/1384032380.dds",
-    "ResourceDiffuse": "Assets/New Folder 16/New Folder 17/Bandit2_AlbedoMap.png",
-    "ResourceNormalTexture": "Assets/New Folder 16/New Folder 17/Bandit2_NormalMap.png",
+    "PreviewTexture": "Library/Textures/1522879364.dds",
+    "ResourceDiffuse": "Assets/New Folder 16/Lumberjack/Bandit1_AlbedoMap.png",
+    "ResourceNormalTexture": "Assets/New Folder 16/Lumberjack/Bandit1_NormalMap.png",
     "ResourceSpecular": null,
     "SceneColorAffected": true,
     "Transparencies": false,
@@ -39,12 +39,7 @@
     "UseOutline": true,
     "UseRimLight": false,
     "shader": {
-        "ResourceShader": "Assets/Shaders/ToonShader.glsl",
-        "uniforms": {
-            "u_Steps": {
-                "type": 5124,
-                "x": 0
-            }
-        }
+        "ResourceShader": "Assets/Shaders/Standard.glsl",
+        "uniforms": null
     }
 }
