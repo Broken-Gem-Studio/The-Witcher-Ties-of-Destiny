@@ -84,6 +84,9 @@ function GetTableWinLose()
 
     local restart = false
 
+    local tutorialGO = 0
+    local cartasGO = 0
+
     local function Victory()
         lua_table.System:PauseGame()
 
@@ -418,6 +421,9 @@ function GetTableWinLose()
         if music_manager_UID ~= 0 then
             lua_table.music_manager_script = lua_table.GO:GetScript(music_manager_UID)
         end
+        tutorialGO = lua_table.GO:FindGameObject("TutorialManager")
+        cartasGO = lua_table.GO:FindGameObject("CARTAS")
+
         --UI
         win = lua_table.GO:FindGameObject("Victory")
         lose = lua_table.GO:FindGameObject("Defeat")
@@ -513,18 +519,30 @@ function GetTableWinLose()
             load_level2 = true
         elseif lua_table.Input:KeyRepeat("F5") --checkpoint0
         then
+            if tutorialGO ~= nil and tutorialGO ~= 0 then
+                lua_table.GO:SetActiveGameObject(false, tutorialGO)
+                lua_table.GO:SetActiveGameObject(false, cartasGO)
+            end
             last_checkpoint = 0
             tp_geralt = true
             tp_jaskier = true
             lua_table.Checkpoint()
         elseif lua_table.Input:KeyRepeat("F6") --checkpoint1
         then
+            if tutorialGO ~= nil and tutorialGO ~= 0 then
+                lua_table.GO:SetActiveGameObject(false, tutorialGO)
+                lua_table.GO:SetActiveGameObject(false, cartasGO)
+            end
             last_checkpoint = 1
             tp_geralt = true
             tp_jaskier = true
             lua_table.Checkpoint()
         elseif lua_table.Input:KeyRepeat("F7") --checkpoint2
         then
+            if tutorialGO ~= nil and tutorialGO ~= 0 then
+                lua_table.GO:SetActiveGameObject(false, tutorialGO)
+                lua_table.GO:SetActiveGameObject(false, cartasGO)
+            end
             last_checkpoint = 2
             tp_geralt = true
             tp_jaskier = true
