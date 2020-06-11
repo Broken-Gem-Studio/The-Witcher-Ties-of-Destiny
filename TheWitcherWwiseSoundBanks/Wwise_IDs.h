@@ -108,6 +108,8 @@ namespace AK
         static const AkUniqueID PLAY_KIKIMORA_SWEEP = 287198644U;
         static const AkUniqueID PLAY_KIKIMORA_SWEEP_PHASE_2 = 2567188251U;
         static const AkUniqueID PLAY_KIKIMORA_SWEEP_PHASE_3 = 2567188250U;
+        static const AkUniqueID PLAY_LEVEL_1_MUSIC = 814842324U;
+        static const AkUniqueID PLAY_LEVEL_2_MUSIC = 2048014091U;
         static const AkUniqueID PLAY_LOCKED_AND_NO_KEY_IN_SIGHT = 863110628U;
         static const AkUniqueID PLAY_LOCKED_PORTAL_NEED_TO_FIND_KEY = 683466454U;
         static const AkUniqueID PLAY_LUMBERJACK_AXE_SWING_ATTACK = 1511621515U;
@@ -250,6 +252,8 @@ namespace AK
         static const AkUniqueID JASKIER = 1735538792U;
         static const AkUniqueID MAIN_MENU = 2005704188U;
         static const AkUniqueID MONSTER_ENEMIES = 1016515008U;
+        static const AkUniqueID MUSIC_LEVEL_1 = 3508274217U;
+        static const AkUniqueID MUSIC_LEVEL_2 = 3508274218U;
         static const AkUniqueID PAUSE_MENU = 3422541661U;
         static const AkUniqueID PROPS = 968010305U;
         static const AkUniqueID VOICELINES_2 = 3285923249U;
