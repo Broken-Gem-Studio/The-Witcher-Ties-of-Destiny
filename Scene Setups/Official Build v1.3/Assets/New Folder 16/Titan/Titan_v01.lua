@@ -168,6 +168,10 @@ local General_Emitter_UID = 0
 local MyMesh_UID = 0
 local curr_dmg_dealer = 0
 
+lua_table.camera_GO = "Camera"
+local camera_UID = 0
+lua_table.camera_script = {}
+
 local dt = 0
 
 -- ______________________SCRIPT FUNCTIONS______________________
@@ -420,7 +424,6 @@ local function JumpStun() -- Smash the ground with a jump, then stun
 	-- Accelerate the fall
 	if jump_timer + 800 <= lua_table.System:GameTime() * 1000 and speed_up == false then
 		lua_table.Animations:SetCurrentAnimationSpeed(40.0, lua_table.MyUID)
-		lua_table.System:LOG("fucking speeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeed")
 		speed_up = true
 	end
 
@@ -429,6 +432,11 @@ local function JumpStun() -- Smash the ground with a jump, then stun
 
 	-- Leave crack in the ground
 	if jump_timer + 1250 <= lua_table.System:GameTime() * 1000 and play_particles == true then
+
+		-- Camera shake
+		lua_table.camera_script.camera_shake_activated = true
+		lua_table.camera_script.camera_shake_duration = 0.2
+		lua_table.camera_script.camera_shake_magnitude = 0.1
 
 		local particles = {}
 		particles = lua_table.GameObject:GetGOChilds(lua_table.GameObject:FindChildGameObjectFromGO("Titan_Circle_Emitter", General_Emitter_UID))
@@ -975,6 +983,16 @@ function lua_table:Awake()
 	lua_table.System:LOG("Titan AWAKE")
 
 	General_Emitter_UID = lua_table.GameObject:FindChildGameObject("Titan_General_Emitter")
+
+	-- Get camera UID
+    camera_UID = lua_table.GameObject:FindGameObject(lua_table.camera_GO)
+
+    -- Get camera script
+    if camera_UID ~= 0
+    then
+        lua_table.camera_script = lua_table.GameObject:GetScript(camera_UID)
+	end
+	
 
 end
 
