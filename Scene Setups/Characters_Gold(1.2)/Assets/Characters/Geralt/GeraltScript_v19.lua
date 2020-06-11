@@ -2722,7 +2722,7 @@ function lua_table:Update()
 
 				--IF state == idle/move or action_input_block_time has ended (Input-allowed environment)
 				if lua_table.current_state == state.idle and idle_blend_finished
-				or lua_table.current_state == state.run
+				or lua_table.current_state == state.walk or lua_table.current_state == state.run
 				or lua_table.current_state > state.run and time_since_action > current_action_block_time
 				then
 					if ActionInputs(false) then time_since_action = game_time - action_started_at end	-- Recalculate time passed if action performed

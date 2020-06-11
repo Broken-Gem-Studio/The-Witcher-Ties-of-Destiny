@@ -482,14 +482,14 @@ lua_table.light_3_movement_2_velocity = -6.0
 lua_table.light_3_movement_2_start = 600
 lua_table.light_3_movement_2_end = 800
 
-lua_table.light_1_block_time = 350			--Input block duration	(block new attacks)
+lua_table.light_1_block_time = 325			--Input block duration	(block new attacks)
 lua_table.light_1_collider_front_start = 300	--Collider activation time
 lua_table.light_1_collider_front_end = 400	--Collider deactivation time
 lua_table.light_1_duration = 500			--Attack end (return to idle)
 lua_table.light_1_animation_speed = 80.0
 lua_table.light_1_slow_start = 400
 
-lua_table.light_2_block_time = 250			--Input block duration	(block new attacks)
+lua_table.light_2_block_time = 225			--Input block duration	(block new attacks)
 lua_table.light_2_collider_front_start = 200	--Collider activation time
 lua_table.light_2_collider_front_end = 300	--Collider deactivation time
 lua_table.light_2_duration = 450			--Attack end (return to idle)
@@ -523,7 +523,7 @@ lua_table.medium_3_movement_2_velocity = -4.0
 lua_table.medium_3_movement_2_start = 850
 lua_table.medium_3_movement_2_end = 1150
 
-lua_table.medium_1_block_time = 400			--Input block duration	(block new attacks)
+lua_table.medium_1_block_time = 375			--Input block duration	(block new attacks)
 lua_table.medium_1_collider_front_start = 350	--Collider activation time
 lua_table.medium_1_collider_front_end = 450	--Collider deactivation time
 lua_table.medium_1_duration = 425			--Attack end (return to idle)
@@ -565,14 +565,14 @@ lua_table.heavy_3_movement_2_velocity = -3.0
 lua_table.heavy_3_movement_2_start = 1000
 lua_table.heavy_3_movement_2_end = 1400
 
-lua_table.heavy_1_block_time = 600			--Input block duration	(block new attacks)
+lua_table.heavy_1_block_time = 575			--Input block duration	(block new attacks)
 lua_table.heavy_1_collider_front_start = 350	--Collider activation time
 lua_table.heavy_1_collider_front_end = 550	--Collider deactivation time
 lua_table.heavy_1_duration = 1200			--Attack end (return to idle)
 lua_table.heavy_1_animation_speed = 30.0
 lua_table.heavy_1_slow_start = 850
 
-lua_table.heavy_2_block_time = 550			--Input block duration	(block new attacks)
+lua_table.heavy_2_block_time = 575			--Input block duration	(block new attacks)
 lua_table.heavy_2_collider_front_start = 300	--Collider activation time
 lua_table.heavy_2_collider_front_end = 450	--Collider deactivation time
 lua_table.heavy_2_duration = 830			--Attack end (return to idle)
@@ -667,6 +667,7 @@ lua_table.note_stack = { 'N', 'N', 'N', 'N' }	-- Notes based on attacks performe
 	lua_table.song_3_damage = 0.0
 	lua_table.song_3_status_effect = attack_effects_ID.taunt
 	lua_table.song_3_effect_value = 0
+	lua_table.song_3_saved_direction = false
 
 	lua_table.song_3_secondary_effect_start = 2850
 	lua_table.song_3_secondary_effect_end = 2950
@@ -2746,7 +2747,7 @@ function lua_table:Update()
 
 				--IF state == idle/move or action_input_block_time has ended (Input-allowed environment)
 				if lua_table.current_state == state.idle and idle_blend_finished
-				or lua_table.current_state == state.run
+				or lua_table.current_state == state.walk or lua_table.current_state == state.run
 				or lua_table.current_state > state.run and time_since_action > current_action_block_time
 				then
 					if ActionInputs(false) then time_since_action = game_time - action_started_at end	-- Recalculate time passed if action performed
@@ -3088,14 +3089,22 @@ function lua_table:Update()
 									lua_table.GameObjectFunctions:SetActiveGameObject(true, attack_colliders.circle_1.GO_UID)	--TODO-Colliders: Check
 									attack_colliders.circle_1.active = true
 
+									lua_table.song_3_saved_direction = false
+
 									lua_table.song_3_effect_active = true
 									lua_table.song_3_secondary_effect_active = false
 								end
 
 								if mov_input.used_input.x == 0.0 and mov_input.used_input.z == 0.0
 								then
-									SaveDirection()
+									if not lua_table.song_3_saved_direction then
+										SaveDirection()
+										lua_table.song_3_saved_direction = true
+									end
+
 									mov_input.used_input.x, mov_input.used_input.z = -rec_direction.x, -rec_direction.z
+								else
+									lua_table.song_3_saved_direction = false
 								end
 
 								MoveCharacter(true)
