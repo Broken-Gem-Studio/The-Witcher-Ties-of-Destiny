@@ -68,7 +68,6 @@ end
 function lua_table:Update ()
 	if lua_table.health <= 0 and current_state == state.NORMAL
 	then
-		lua_table.GameObjectFunctions:SetActiveGameObject(false,lua_table.myUID)
 		Destroyable = lua_table.GameObjectFunctions:FindChildGameObjectFromGO("Destructed",lua_table.parent)
 		local script = lua_table.GameObjectFunctions:GetScript(Destroyable)
 		script.player_owner = lua_table.Player
@@ -79,7 +78,7 @@ function lua_table:Update ()
 		local geralt = lua_table.GameObjectFunctions:FindGameObject("Geralt")
 		local jaskier = lua_table.GameObjectFunctions:FindGameObject("Jaskier")
 
-		if script_player ~= nil then
+		if script_player ~= nil and script_player ~= 0 then  
 			if jaskier == lua_table.Player and script_player.jaskier_score ~= nil then
 				script_player.jaskier_score[5] = script_player.jaskier_score[5] + 1
 			elseif geralt == lua_table.Player and script_player.geralt_score ~= nil then
@@ -89,6 +88,7 @@ function lua_table:Update ()
 
 		playParticles()
 		current_state = state.DESTROYED
+		lua_table.GameObjectFunctions:SetActiveGameObject(false,lua_table.myUID)
 	end
 end
 
