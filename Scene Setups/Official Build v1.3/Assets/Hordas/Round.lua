@@ -42,7 +42,7 @@ local correct = false
 
 local spawned_enemies = {}
 local enemy_counter = 0
-local auxCounter = 0
+lua_table.auxCounter = 0
 
 local stop = false
 
@@ -171,19 +171,19 @@ function lua_table:Start()
 end
 
 function lua_table:Update()
-    if stop == false
+    if stop == false and enemy_counter > 0
     then
-        auxCounter = enemy_counter
+        lua_table.auxCounter = enemy_counter
         
         for i = 1, #spawned_enemies 
         do
-            local alive = lua_table.GO:GetLayerByID(spawnedEnemies[i])
-            if alive == -1 
+            if lua_table.GO:GetLayerByID(spawnedEnemies[i]) == -1 
             then
-                auxCounter = auxCounter - 1
+                lua_table.auxCounter = lua_table.auxCounter - 1
             end
         end
-        if auxCounter == 0
+
+        if lua_table.auxCounter == 0
         then
             stop = true
         end
