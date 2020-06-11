@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="11" SoundbankVersion="134">
 	<RootPaths>
-		<ProjectRoot>F:\Github2\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\</ProjectRoot>
-		<SourceFilesRoot>F:\Github2\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>F:\Github2\The-Witcher-Ties-of-Destiny\TheWitcherWwiseSoundBanks\</SoundBanksRoot>
+		<ProjectRoot>E:\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\</ProjectRoot>
+		<SourceFilesRoot>E:\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>E:\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseSoundBanks\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>F:\Github2\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>E:\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
@@ -1470,6 +1470,58 @@
 				<File Id="1046985453" Language="SFX">
 					<ShortName>Button_main_menu.wav</ShortName>
 					<Path>SFX\Button_main_menu_10C4C929.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
+		</SoundBank>
+		<SoundBank Id="3508274217" Language="SFX">
+			<ObjectPath>\SoundBanks\Default Work Unit\Levels_Music\Music_Level_1</ObjectPath>
+			<ShortName>Music_Level_1</ShortName>
+			<Path>Music_Level_1.bnk</Path>
+			<IncludedEvents>
+				<Event Id="814842324" Name="Play_Level_1_Music" ObjectPath="\Events\Default Work Unit\Play_Level_1_Music"/>
+			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="483066541" Language="SFX">
+					<ShortName>Music\Music_Combat_Viking_Ship.wav</ShortName>
+					<Path>SFX\Music\Music_Combat_Viking_Ship_D79FB2B7.wem</Path>
+				</File>
+				<File Id="967037437" Language="SFX">
+					<ShortName>Music\Music_Lvl_1_Broken_Village.wav</ShortName>
+					<Path>SFX\Music\Music_Lvl_1_Broken_Village_D79FB2B7.wem</Path>
+				</File>
+				<File Id="1026238351" Language="SFX">
+					<ShortName>Music_Menu_Pause_Relaxing_Green_Nature_Reduced_Loop.wav</ShortName>
+					<Path>SFX\Music_Menu_Pause_Relaxing_Green_Nature_Reduced_Loop_D79FB2B7.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
+		</SoundBank>
+		<SoundBank Id="3508274218" Language="SFX">
+			<ObjectPath>\SoundBanks\Default Work Unit\Levels_Music\Music_Level_2</ObjectPath>
+			<ShortName>Music_Level_2</ShortName>
+			<Path>Music_Level_2.bnk</Path>
+			<IncludedEvents>
+				<Event Id="2048014091" Name="Play_Level_2_Music" ObjectPath="\Events\Default Work Unit\Play_Level_2_Music"/>
+			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="358228394" Language="SFX">
+					<ShortName>Music_Kikimora_Dungeon_of_shadows_intro.wav</ShortName>
+					<Path>SFX\Music_Kikimora_Dungeon_of_shadows_intro_D79FB2B7.wem</Path>
+				</File>
+				<File Id="483066541" Language="SFX">
+					<ShortName>Music\Music_Combat_Viking_Ship.wav</ShortName>
+					<Path>SFX\Music\Music_Combat_Viking_Ship_D79FB2B7.wem</Path>
+				</File>
+				<File Id="593693911" Language="SFX">
+					<ShortName>Kikimora_Fight_Loop.wav</ShortName>
+					<Path>SFX\Kikimora_Fight_Loop_D79FB2B7.wem</Path>
+				</File>
+				<File Id="621261315" Language="SFX">
+					<ShortName>Music\Music_Lvl_2_Loop_The village.wav</ShortName>
+					<Path>SFX\Music\Music_Lvl_2_Loop_The village_D79FB2B7.wem</Path>
+				</File>
+				<File Id="1026238351" Language="SFX">
+					<ShortName>Music_Menu_Pause_Relaxing_Green_Nature_Reduced_Loop.wav</ShortName>
+					<Path>SFX\Music_Menu_Pause_Relaxing_Green_Nature_Reduced_Loop_D79FB2B7.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>

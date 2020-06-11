@@ -45,5 +45,10 @@ function lua_table:Start()
 	
 end
 
+function lua_table:Update()
+	--lua_table.SystemFunctions:LOG("CharacterAttackScript UPDATE")
+	
+end
+
 return lua_table
 end
