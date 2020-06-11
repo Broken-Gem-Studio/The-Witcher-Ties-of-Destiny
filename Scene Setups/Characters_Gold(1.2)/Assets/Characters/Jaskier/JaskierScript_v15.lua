@@ -456,6 +456,12 @@ lua_table.energy_reg_orig = 7
 		medium = { intensity = 1.0, duration = 200 },
 		big = { intensity = 1.0, duration = 300 }
 	}
+	local camera_shake = {
+		small = { intensity = 0.1, duration = 0.2 },
+		medium = { intensity = 0.2, duration = 0.4 },
+		big = { intensity = 0.4, duration = 0.7 },
+		yeet = { intensity = 1.5, duration = 3.0 }
+	}
 
 	--Attack Inputs
 	local rightside = true		-- Last attack side, marks the animation of next attack
@@ -1142,6 +1148,14 @@ local function SaveDirection()
 	end
 end
 
+local function ShakeCamera(duration, magnitude)
+	if camera_script ~= nil and camera_script ~= 0 then
+		camera_script.camera_shake_duration = duration
+		camera_script.camera_shake_magnitude = magnitude
+		camera_script.camera_shake_activated = true
+	end
+end
+
 local function DirectionInBounds(use_Y_angle)	--Every time we try to set a velocity, this is checked first to allow it
 	local ret = true
 	local vec_x, vec_z
@@ -1253,6 +1267,7 @@ local function CheckCameraBounds()	--Check if we're currently outside the camera
 			current_action_duration = attack_effects_durations[attack_effects_ID.knockback]
 			action_started_at = game_time
 			lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.medium.intensity, controller_shake.medium.duration)
+			ShakeCamera(camera_shake.small.duration, camera_shake.small.intensity)
 		end
 
 	else
@@ -2356,6 +2371,7 @@ local function ProcessIncomingHit(collider_GO)
 				action_started_at = game_time
 				blending_started_at = game_time	--Manually mark animation swap
 				lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.medium.intensity, controller_shake.medium.duration)
+				ShakeCamera(camera_shake.small.duration, camera_shake.small.intensity)
 			end
 		end
 	end
@@ -2993,6 +3009,7 @@ function lua_table:Update()
 						then
 							if not lua_table.song_1_effect_active then
 								lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.big.intensity, controller_shake.big.duration)
+								ShakeCamera(camera_shake.small.duration, camera_shake.small.intensity)
 								--lua_table.ParticlesFunctions:PlayParticleEmitter(jaskier_song_1_GO_UID)	--TODO-Particles:
 								lua_table.song_1_effect_active = true
 							end
@@ -3008,6 +3025,7 @@ function lua_table:Update()
 						then
 							if not lua_table.song_2_effect_active then
 								lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.big.intensity, controller_shake.big.duration)
+								ShakeCamera(camera_shake.small.duration, camera_shake.small.intensity)
 
 								SaveDirection()
 
@@ -3036,6 +3054,8 @@ function lua_table:Update()
 								if not lua_table.song_3_secondary_effect_active	--IF effect unactive, activate
 								then
 									lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.big.intensity, controller_shake.big.duration)
+									ShakeCamera(camera_shake.small.duration, camera_shake.small.intensity)
+
 									for i = 1, #particles_library.song_circle_GO_UID_children do
 										lua_table.ParticlesFunctions:PlayParticleEmitter(particles_library.song_circle_GO_UID_children[i])	--TODO-Particles:
 									end
@@ -3124,6 +3144,7 @@ function lua_table:Update()
 									attack_colliders.concert.active = true
 
 									lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.big.intensity, controller_shake.big.duration)
+									ShakeCamera(camera_shake.medium.duration, camera_shake.medium.intensity)
 
 									lua_table.ultimate_secondary_effect_active = true
 								end
@@ -3180,6 +3201,7 @@ function lua_table:Update()
 									end
 
 									lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.medium.intensity, controller_shake.medium.duration)
+									ShakeCamera(camera_shake.small.duration, camera_shake.small.intensity)
 									
 									interval_started_at = game_time
 
