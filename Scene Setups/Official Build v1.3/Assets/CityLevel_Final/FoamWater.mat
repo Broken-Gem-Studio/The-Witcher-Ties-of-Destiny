@@ -15,7 +15,7 @@
     "MaterialRimLightPower": 1.0,
     "MaterialRimLightSmoothX": 0.0,
     "MaterialRimLightSmoothY": 1.0,
-    "MaterialShininess": 0.7170000076293945,
+    "MaterialShininess": 1.031999945640564,
     "OccludedOutlineColor": {
         "A": 1.0,
         "B": 1.0,
@@ -29,7 +29,7 @@
         "R": 0.0
     },
     "OutlineThickness": 100.0,
-    "PreviewTexture": "Library/Textures/1784833175.dds",
+    "PreviewTexture": "Library/Textures/1215462750.dds",
     "ResourceDiffuse": "Assets/CityLevel_Final/Foam_2.png",
     "ResourceNormalTexture": null,
     "ResourceSpecular": null,
@@ -40,6 +40,11 @@
     "UseRimLight": false,
     "shader": {
         "ResourceShader": "Assets/Shaders/WaterShaders/UVMoveShader.glsl",
-        "uniforms": null
+        "uniforms": {
+            "velocity": {
+                "type": 5126,
+                "x": 0.02500000037252903
+            }
+        }
     }
 }

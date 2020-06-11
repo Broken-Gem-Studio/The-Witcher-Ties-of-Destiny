@@ -17,12 +17,8 @@ function GetTableWinLose()
     lua_table.current_level = 0
     lua_table.played_music = false
 
-    local Buttons = {
-        MAINMENU = 1,
-        NEXTLEVEL = 2,
-        RETRY = 3
-    }
-    local currentButton = Buttons.MAINMENU
+    local Buttons = {}
+    local currentButton = 0
     local select_ui = false
 
     local pos = 0
@@ -85,6 +81,11 @@ function GetTableWinLose()
 
     local loading_UID = 0
     local load_timer = 0
+
+    local restart = false
+
+    local tutorialGO = 0
+    local cartasGO = 0
 
     local function Victory()
         lua_table.System:PauseGame()
@@ -200,6 +201,18 @@ function GetTableWinLose()
         --reset level
         if fade_flag == true
         then
+            --set score to 0
+            if geralt_score ~= nil then
+                for i = 1, #geralt_score do
+                    geralt_score[i] = 0
+                end
+            end
+            if jaskier_score ~= nil then
+                for i = 1, #jaskier_score do
+                    jaskier_score[i] = 0
+                end
+            end
+
             --reset variables
             lose_flag = false
             fade_flag = false
@@ -215,11 +228,11 @@ function GetTableWinLose()
             --load current level
             if lua_table.current_level == 1
             then
-               
+                restart = true
                 load_level1 = true
             elseif lua_table.current_level == 2
             then
-                
+                restart = true
                 load_level2 = true
             end
         end
@@ -408,6 +421,9 @@ function GetTableWinLose()
         if music_manager_UID ~= 0 then
             lua_table.music_manager_script = lua_table.GO:GetScript(music_manager_UID)
         end
+        tutorialGO = lua_table.GO:FindGameObject("TutorialManager")
+        cartasGO = lua_table.GO:FindGameObject("CARTAS")
+
         --UI
         win = lua_table.GO:FindGameObject("Victory")
         lose = lua_table.GO:FindGameObject("Defeat")
@@ -503,18 +519,30 @@ function GetTableWinLose()
             load_level2 = true
         elseif lua_table.Input:KeyRepeat("F5") --checkpoint0
         then
+            if tutorialGO ~= nil and tutorialGO ~= 0 then
+                lua_table.GO:SetActiveGameObject(false, tutorialGO)
+                lua_table.GO:SetActiveGameObject(false, cartasGO)
+            end
             last_checkpoint = 0
             tp_geralt = true
             tp_jaskier = true
             lua_table.Checkpoint()
         elseif lua_table.Input:KeyRepeat("F6") --checkpoint1
         then
+            if tutorialGO ~= nil and tutorialGO ~= 0 then
+                lua_table.GO:SetActiveGameObject(false, tutorialGO)
+                lua_table.GO:SetActiveGameObject(false, cartasGO)
+            end
             last_checkpoint = 1
             tp_geralt = true
             tp_jaskier = true
             lua_table.Checkpoint()
         elseif lua_table.Input:KeyRepeat("F7") --checkpoint2
         then
+            if tutorialGO ~= nil and tutorialGO ~= 0 then
+                lua_table.GO:SetActiveGameObject(false, tutorialGO)
+                lua_table.GO:SetActiveGameObject(false, cartasGO)
+            end
             last_checkpoint = 2
             tp_geralt = true
             tp_jaskier = true
@@ -550,38 +578,49 @@ function GetTableWinLose()
         if load_level1 == true
         then
             load_timer = load_timer + lua_table.System:DT()
+            is_lose = false
             if load_timer >= 1 
             then
-                next_scene = lua_table.level1_uid
-                lua_table.Scene:LoadScene(lua_table.score)
-                load_level1 = false
+                if restart == true
+                then
+                    lua_table.Scene:LoadScene(lua_table.level1_uid)
+                    restart = false
+                    load_level1 = false
+                else
+                    next_scene_score = lua_table.level1_uid
+                    lua_table.Scene:LoadScene(lua_table.score)
+                    load_level1 = false
+                end
             else 
                 lua_table.GO:SetActiveGameObject(true, loading_UID)
-            end
-            
-            is_lose = false
-            
+            end 
         elseif load_level2 == true 
         then
             load_timer = load_timer + lua_table.System:DT()
+            is_lose = false
             if load_timer >= 1 
             then
-                next_scene = lua_table.level2_uid
-                lua_table.Scene:LoadScene(lua_table.score)
-                load_level2 = false
+                if restart == true
+                then
+                    restart = false
+                    load_level2 = false
+                    lua_table.Scene:LoadScene(lua_table.level2_uid)
+                else
+                    load_level2 = false
+                    next_scene_score = lua_table.level2_uid
+                    lua_table.Scene:LoadScene(lua_table.score)
+                end
             else 
                 lua_table.GO:SetActiveGameObject(true, loading_UID)
             end
-            is_lose = false
-            
         elseif load_mainmenu == true
         then
             load_timer = load_timer + lua_table.System:DT()
             if load_timer >= 1 
-            then 
-                next_scene = lua_table.mm_uid
-                lua_table.Scene:LoadScene(lua_table.score)
+            then
                 load_mainmenu = false
+                next_scene_score = lua_table.mm_uid
+                lua_table.Scene:LoadScene(lua_table.score)
             else 
                 lua_table.GO:SetActiveGameObject(true, loading_UID)
             end
@@ -590,6 +629,23 @@ function GetTableWinLose()
         -- controllers
         if select_ui == true 
         then
+            if lua_table.current_level == 1
+            then
+                Buttons = {
+                    MAINMENU = 1,
+                    NEXTLEVEL = 2,
+                    RETRY = 3
+                }
+                currentButton = Buttons.MAINMENU
+            elseif lua_table.current_level == 2
+            then
+                Buttons = {
+                    MAINMENU = 1,
+                    RETRY = 2
+                }
+                currentButton = Buttons.MAINMENU
+            end
+
             if lua_table.Input:IsGamepadButton(1, "BUTTON_A", "DOWN") or lua_table.Input:IsGamepadButton(2, "BUTTON_A", "DOWN")
             then
                 if currentButton == Buttons.MAINMENU

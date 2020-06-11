@@ -464,6 +464,12 @@ lua_table.energy_reg_orig = 7
 		medium = { intensity = 1.0, duration = 200 },
 		big = { intensity = 1.0, duration = 300 }
 	}
+	local camera_shake = {
+		small = { intensity = 0.1, duration = 0.2 },
+		medium = { intensity = 0.2, duration = 0.4 },
+		big = { intensity = 0.4, duration = 0.7 },
+		yeet = { intensity = 1.5, duration = 3.0 }
+	}
 
 	--Attack Inputs
 	local rightside = true		-- Last attack side, marks the animation of next attack
@@ -1133,6 +1139,14 @@ local function SaveDirection()
 	end
 end
 
+local function ShakeCamera(duration, magnitude)
+	if camera_script ~= nil and camera_script ~= 0 then
+		camera_script.camera_shake_duration = duration
+		camera_script.camera_shake_magnitude = magnitude
+		camera_script.camera_shake_activated = true
+	end
+end
+
 local function DirectionInBounds(use_Y_angle)	--Every time we try to set a velocity, this is checked first to allow it
 	local ret = true
 	local vec_x, vec_z
@@ -1244,6 +1258,7 @@ local function CheckCameraBounds()	--Check if we're currently outside the camera
 			current_action_duration = attack_effects_durations[attack_effects_ID.knockback]
 			action_started_at = game_time
 			lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.medium.intensity, controller_shake.medium.duration)
+			ShakeCamera(camera_shake.small.duration, camera_shake.small.intensity)
 		end
 
 	else
@@ -1829,6 +1844,7 @@ local function UltimateState(active)
 	if active then
 		lua_table.AudioFunctions:PlayAudioEventGO(audio_library.ultimate_scream, geralt_GO_UID)	--TODO-AUDIO: Play run sound
 		lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.big.intensity, controller_shake.big.duration)
+		ShakeCamera(camera_shake.big.duration, camera_shake.big.intensity)
 		
 		if sword_particles_GO_UID ~= 0 then lua_table.ParticlesFunctions:PlayParticleEmitter(sword_particles_GO_UID) end	--TODO-Particles:
 
@@ -2321,6 +2337,7 @@ local function ProcessIncomingHit(collider_GO)
 				action_started_at = game_time
 				blending_started_at = game_time	--Manually mark animation swap
 				lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.medium.intensity, controller_shake.medium.duration)
+				ShakeCamera(camera_shake.small.duration, camera_shake.small.intensity)
 			end
 		end
 	end
@@ -2722,7 +2739,7 @@ function lua_table:Update()
 
 				--IF state == idle/move or action_input_block_time has ended (Input-allowed environment)
 				if lua_table.current_state == state.idle and idle_blend_finished
-				or lua_table.current_state == state.run
+				or lua_table.current_state == state.walk or lua_table.current_state == state.run
 				or lua_table.current_state > state.run and time_since_action > current_action_block_time
 				then
 					if ActionInputs(false) then time_since_action = game_time - action_started_at end	-- Recalculate time passed if action performed
@@ -2823,6 +2840,7 @@ function lua_table:Update()
 						then
 							AardPush()
 							lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.big.intensity, controller_shake.big.duration)
+							ShakeCamera(camera_shake.small.duration, camera_shake.small.intensity)
 
 							--Activate Aard Sphere Collider
 							lua_table.GameObjectFunctions:SetActiveGameObject(true, attack_colliders.aard_circle_1.GO_UID)
@@ -2863,6 +2881,7 @@ function lua_table:Update()
 
 								if lua_table.current_state >= state.combo_1 and lua_table.current_state <= state.combo_3 then
 									lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.big.intensity, controller_shake.big.duration)
+									ShakeCamera(camera_shake.medium.duration, camera_shake.medium.intensity)
 								elseif lua_table.current_state == state.light_3 or lua_table.current_state == state.medium_3 or lua_table.current_state == state.heavy_3 then
 									lua_table.InputFunctions:ShakeController(lua_table.player_ID, controller_shake.medium.intensity, controller_shake.medium.duration)
 								else

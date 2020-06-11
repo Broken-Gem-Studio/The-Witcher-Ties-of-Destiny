@@ -25,6 +25,14 @@ function GetTableTutorialCinematicCameraScript()
     local recruit1 = 0
     local recruit2 = 0
 
+    local warrior1 = 0
+    local warrior2 = 0
+    local warrior3 = 0
+
+    local recruit_bridge1 = 0
+    local recruit_bridge2 = 0
+    local lumber_bridge = 0
+
     local disable_fight = true
 
     -- Camera target IDs
@@ -100,6 +108,14 @@ function GetTableTutorialCinematicCameraScript()
         -- This are the moving enemies
         recruit1 = lua_table.GameObject:FindGameObject("Recruit1")
         recruit2 = lua_table.GameObject:FindGameObject("Recruit_Gank")
+        -- Bridge recruits
+        recruit_bridge1 = lua_table.GameObject:FindGameObject("Recruit_Bridge1")
+        recruit_bridge2 = lua_table.GameObject:FindGameObject("Recruit_Bridge2")
+        --lumber_bridge = lua_table.GameObject:FindGameObject("Lumber_Bridge")
+
+        warrior1 = lua_table.GameObject:FindGameObject("Warrior_City1")
+        warrior2 = lua_table.GameObject:FindGameObject("Warrior_City2")
+        warrior3 = lua_table.GameObject:FindGameObject("Warrior_City3")
 
         FadeScreen = lua_table.GameObject:FindGameObject("TutorialFadeScreen")
         loading_screen = lua_table.GameObject:FindGameObject("LoadingScreenCanvas")
@@ -107,6 +123,10 @@ function GetTableTutorialCinematicCameraScript()
 
         -- Disable "gaking" enemies
         lua_table.GameObject:SetActiveGameObject(false, recruit2)
+
+        lua_table.GameObject:SetActiveGameObject(false, recruit_bridge1)
+        lua_table.GameObject:SetActiveGameObject(false, recruit_bridge2)
+        --lua_table.GameObject:SetActiveGameObject(false, lumber_bridge)
 
         --Play music
         lua_table.Audio:PlayAudioEvent("Play_Music_Cinematic_lvl1_The_Ocean_Takes_It_All")
@@ -172,6 +192,10 @@ function GetTableTutorialCinematicCameraScript()
             lua_table.GameObject:SetActiveGameObject(false, archer2)
 
             lua_table.GameObject:SetActiveGameObject(true, recruit2)
+
+            lua_table.GameObject:SetActiveGameObject(true, recruit_bridge1)
+            lua_table.GameObject:SetActiveGameObject(true, recruit_bridge2)
+            --lua_table.GameObject:SetActiveGameObject(true, lumber_bridge)
         end
 
         if time > 13 and time < 15
@@ -189,6 +213,10 @@ function GetTableTutorialCinematicCameraScript()
         then
             lua_table.GameObject:SetActiveGameObject(false, recruit1)
             lua_table.GameObject:SetActiveGameObject(false, recruit2)
+
+            lua_table.GameObject:SetActiveGameObject(false, warrior1)
+            lua_table.GameObject:SetActiveGameObject(false, warrior2)
+            lua_table.GameObject:SetActiveGameObject(false, warrior3)
             
         end
 
