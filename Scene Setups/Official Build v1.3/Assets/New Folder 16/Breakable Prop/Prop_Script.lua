@@ -44,9 +44,9 @@ lua_table.current_type = type.BOX
 -----------------------------------------------------------------------------------------
 -- Methods
 -----------------------------------------------------------------------------------------
-local barrel_particles
-local barrel_particles_parent
-
+local barrel_particles = 0
+local barrel_particles_parent = 0
+local script_player = 0
 -- Main Code
 function lua_table:Awake ()
 	-- Get my own UID
@@ -72,8 +72,10 @@ function lua_table:Update ()
 		local script = lua_table.GameObjectFunctions:GetScript(Destroyable)
 		script.player_owner = lua_table.Player
 		lua_table.GameObjectFunctions:SetActiveGameObject(true,Destroyable)
-
-		local script_player = lua_table.GameObjectFunctions:GetScript(lua_table.Player)
+		
+		if lua_table.Player ~= 0 then
+			script_player = lua_table.GameObjectFunctions:GetScript(lua_table.Player)
+		end
 		
 		local geralt = lua_table.GameObjectFunctions:FindGameObject("Geralt")
 		local jaskier = lua_table.GameObjectFunctions:FindGameObject("Jaskier")
