@@ -2385,8 +2385,14 @@ local function DebugInputs()
 					lua_table.PhysicsFunctions:SetCharacterPosition(jaskier_pos[1], jaskier_pos[2] + 5.0, jaskier_pos[3], geralt_GO_UID)
 				end
 			end
-
-		elseif lua_table.InputFunctions:KeyDown("6")	--Keyboard Mode
+		elseif lua_table.InputFunctions:KeyDown("6")	--Reposition Geralt to Jaskier
+		then
+			if lua_table.current_state > state.down and jaskier_GO_UID ~= nil and jaskier_GO_UID ~= 0
+			then
+				local jaskier_pos = lua_table.TransformFunctions:GetPosition(jaskier_GO_UID)
+				lua_table.PhysicsFunctions:SetCharacterPosition(jaskier_pos[1], jaskier_pos[2] + 5.0, jaskier_pos[3], geralt_GO_UID)
+			end
+		elseif lua_table.InputFunctions:KeyDown("8")	--Keyboard Mode
 		then
 			keyboard_mode = not keyboard_mode
 		end
