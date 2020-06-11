@@ -5,11 +5,11 @@
   "SchemaVersion": "11",
   "SoundbankVersion": "134",
   "RootPaths": {
-   "ProjectRoot": "E:\\GitHub\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\",
-   "SourceFilesRoot": "E:\\GitHub\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\.cache\\Windows\\",
-   "SoundBanksRoot": "E:\\GitHub\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseSoundBanks\\",
+   "ProjectRoot": "F:\\Github2\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\",
+   "SourceFilesRoot": "F:\\Github2\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\.cache\\Windows\\",
+   "SoundBanksRoot": "F:\\Github2\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseSoundBanks\\",
    "ExternalSourcesInputFile": "",
-   "ExternalSourcesOutputRoot": "E:\\GitHub\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\GeneratedSoundBanks\\Windows"
+   "ExternalSourcesOutputRoot": "F:\\Github2\\The-Witcher-Ties-of-Destiny\\TheWitcherWwiseProject\\GeneratedSoundBanks\\Windows"
   },
   "SoundBanks": [
    {
@@ -70,6 +70,11 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_revive"
      },
      {
+      "Id": "1216492189",
+      "Name": "Play_Geralt_Run_dirt",
+      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_Run_dirt"
+     },
+     {
       "Id": "2896484239",
       "Name": "Play_Geralt_sword_metal",
       "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_sword_metal"
@@ -93,16 +98,6 @@
       "Id": "1968004141",
       "Name": "Play_Geralt_Ultimate_Available",
       "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_Ultimate_Available"
-     },
-     {
-      "Id": "4167477001",
-      "Name": "Play_Geralt_walk_run_concrete",
-      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_walk_run_concrete"
-     },
-     {
-      "Id": "2190072003",
-      "Name": "Play_Geralt_walk_run_dirt",
-      "ObjectPath": "\\Events\\Default Work Unit\\Geralt\\Play_Geralt_walk_run_dirt"
      }
     ],
     "IncludedMemoryFiles": [
@@ -125,28 +120,10 @@
       "Path": "SFX\\Geralt_aard_2_10C4C929.wem"
      },
      {
-      "Id": "50241550",
-      "Language": "SFX",
-      "ShortName": "Geralt_Walk_dirt_5.wav",
-      "Path": "SFX\\Geralt_Walk_dirt_5_10C4C929.wem"
-     },
-     {
       "Id": "73997410",
       "Language": "SFX",
       "ShortName": "Geralt_sword_metal_1.wav",
       "Path": "SFX\\Geralt_sword_metal_1_10C4C929.wem"
-     },
-     {
-      "Id": "79634573",
-      "Language": "SFX",
-      "ShortName": "Geralt_walk_run_concrete_1.wav",
-      "Path": "SFX\\Geralt_walk_run_concrete_1_10C4C929.wem"
-     },
-     {
-      "Id": "81104822",
-      "Language": "SFX",
-      "ShortName": "Geralt_Walk_dirt_3.wav",
-      "Path": "SFX\\Geralt_Walk_dirt_3_10C4C929.wem"
      },
      {
       "Id": "117949325",
@@ -159,12 +136,6 @@
       "Language": "SFX",
       "ShortName": "Geralt_Ultimate_Updated.wav",
       "Path": "SFX\\Geralt_Ultimate_Updated_10C4C929.wem"
-     },
-     {
-      "Id": "140420438",
-      "Language": "SFX",
-      "ShortName": "Geralt_Walk_dirt_4.wav",
-      "Path": "SFX\\Geralt_Walk_dirt_4_10C4C929.wem"
      },
      {
       "Id": "171157079",
@@ -195,12 +166,6 @@
       "Language": "SFX",
       "ShortName": "Geralt_sword_swing_6.wav",
       "Path": "SFX\\Geralt_sword_swing_6_10C4C929.wem"
-     },
-     {
-      "Id": "299164818",
-      "Language": "SFX",
-      "ShortName": "Geralt_walk_run_concrete_3.wav",
-      "Path": "SFX\\Geralt_walk_run_concrete_3_10C4C929.wem"
      },
      {
       "Id": "420091269",
@@ -281,12 +246,6 @@
       "Path": "SFX\\Geralt_Walk_run_dirt_2_10C4C929.wem"
      },
      {
-      "Id": "791529419",
-      "Language": "SFX",
-      "ShortName": "Geralt_walk-_run_concrete_4.wav",
-      "Path": "SFX\\Geralt_walk-_run_concrete_4_10C4C929.wem"
-     },
-     {
       "Id": "797279493",
       "Language": "SFX",
       "ShortName": "Geralt_sword_swing_8.wav",
@@ -311,18 +270,6 @@
       "Path": "SFX\\Geralt_aard_3_10C4C929.wem"
      },
      {
-      "Id": "887117839",
-      "Language": "SFX",
-      "ShortName": "Geralt_walk_run_concrete_2.wav",
-      "Path": "SFX\\Geralt_walk_run_concrete_2_10C4C929.wem"
-     },
-     {
-      "Id": "887235156",
-      "Language": "SFX",
-      "ShortName": "Geralt_Walk_dirt_1.wav",
-      "Path": "SFX\\Geralt_Walk_dirt_1_10C4C929.wem"
-     },
-     {
       "Id": "912795110",
       "Language": "SFX",
       "ShortName": "Geralt_sword_swing_4.wav",
@@ -345,12 +292,6 @@
       "Language": "SFX",
       "ShortName": "Geralt_revive.wav",
       "Path": "SFX\\Geralt_revive_10C4C929.wem"
-     },
-     {
-      "Id": "1002873227",
-      "Language": "SFX",
-      "ShortName": "Geralt_Walk_dirt_2.wav",
-      "Path": "SFX\\Geralt_Walk_dirt_2_10C4C929.wem"
      },
      {
       "Id": "1044808801",
