@@ -667,6 +667,7 @@ lua_table.note_stack = { 'N', 'N', 'N', 'N' }	-- Notes based on attacks performe
 	lua_table.song_3_damage = 0.0
 	lua_table.song_3_status_effect = attack_effects_ID.taunt
 	lua_table.song_3_effect_value = 0
+	lua_table.song_3_saved_direction = false
 
 	lua_table.song_3_secondary_effect_start = 2850
 	lua_table.song_3_secondary_effect_end = 2950
@@ -2746,7 +2747,7 @@ function lua_table:Update()
 
 				--IF state == idle/move or action_input_block_time has ended (Input-allowed environment)
 				if lua_table.current_state == state.idle and idle_blend_finished
-				or lua_table.current_state == state.run
+				or lua_table.current_state == state.walk or lua_table.current_state == state.run
 				or lua_table.current_state > state.run and time_since_action > current_action_block_time
 				then
 					if ActionInputs(false) then time_since_action = game_time - action_started_at end	-- Recalculate time passed if action performed
@@ -3088,14 +3089,22 @@ function lua_table:Update()
 									lua_table.GameObjectFunctions:SetActiveGameObject(true, attack_colliders.circle_1.GO_UID)	--TODO-Colliders: Check
 									attack_colliders.circle_1.active = true
 
+									lua_table.song_3_saved_direction = false
+
 									lua_table.song_3_effect_active = true
 									lua_table.song_3_secondary_effect_active = false
 								end
 
 								if mov_input.used_input.x == 0.0 and mov_input.used_input.z == 0.0
 								then
-									SaveDirection()
+									if not lua_table.song_3_saved_direction then
+										SaveDirection()
+										lua_table.song_3_saved_direction = true
+									end
+
 									mov_input.used_input.x, mov_input.used_input.z = -rec_direction.x, -rec_direction.z
+								else
+									lua_table.song_3_saved_direction = false
 								end
 
 								MoveCharacter(true)
