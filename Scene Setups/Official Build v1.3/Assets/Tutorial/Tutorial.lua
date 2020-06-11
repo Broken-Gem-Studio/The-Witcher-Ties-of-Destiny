@@ -8,6 +8,7 @@ lua_table.TransformFunctions = Scripting.Transform()
 lua_table.InterfaceFunctions = Scripting.Interface()
 lua_table.SceneFunctions = Scripting.Scenes()
 lua_table.AnimationFunctions = Scripting.Animations()
+lua_table.PhysicsFunctions = Scripting.Physics()
 
 ------------------------------------------------------------------------------
 -- VARIABLES
@@ -16,6 +17,15 @@ lua_table.AnimationFunctions = Scripting.Animations()
 local buttonManagerGO = 0
 local buttonManagerScript = 0
 lua_table.tutorialPause = false
+
+local geralt_mesh_GO_UID = 0
+local geralt_pivot_GO_UID = 0
+local jaskier_mesh_GO_UID = 0
+local jaskier_pivot_GO_UID = 0
+
+local checkPlayersHealth = false
+local geraltDead = false
+local jaskierDead = false
 
 local CARTAS = 0
 local TABLE_CARTAS = 0
@@ -176,13 +186,50 @@ local littleCards = {
     abilities,
     bonfire
 }
+
+
+local function RevivePlayers()
+    if tableGeralt.current_state == -4
+    then
+        lua_table.ObjectFunctions:SetActiveGameObject(true, geralt_mesh_GO_UID)
+        lua_table.ObjectFunctions:SetActiveGameObject(true, geralt_pivot_GO_UID)
+        lua_table.PhysicsFunctions:SetActiveController(true, lua_table.Geralt_UUID)
+        tableGeralt:Start()
+
+        if lua_table.Jaskier_UUID  ~= nil and lua_table.Jaskier_UUID ~= 0
+        then
+            local jaskier_pos = lua_table.TransformFunctions:GetPosition(lua_table.Jaskier_UUID)
+            lua_table.PhysicsFunctions:SetCharacterPosition(jaskier_pos[1], jaskier_pos[2] + 5.0, jaskier_pos[3], lua_table.Geralt_UUID)
+        end
+    elseif tableGeralt.current_state == -3
+    then
+        tableGeralt.being_revived = true
+    end
+
+    if tableJaskier.current_state == -4
+    then
+        lua_table.ObjectFunctions:SetActiveGameObject(true, jaskier_mesh_GO_UID)
+        lua_table.ObjectFunctions:SetActiveGameObject(true, jaskier_pivot_GO_UID)
+        lua_table.PhysicsFunctions:SetActiveController(true, lua_table.Jaskier_UUID)
+        tableJaskier:Start()
+
+        if lua_table.Geralt_UUID  ~= nil and lua_table.Geralt_UUID ~= 0
+        then
+            local geralt_pos = lua_table.TransformFunctions:GetPosition(lua_table.Geralt_UUID)
+            lua_table.PhysicsFunctions:SetCharacterPosition(geralt_pos[1], geralt_pos[2] + 5.0, geralt_pos[3], lua_table.Jaskier_UUID)
+        end
+    elseif tableJaskier.current_state == -3
+    then
+        tableJaskier.being_revived = true
+    end
+end
+
 ------------------------------------------------------------------------------
 -- STEPS
 ------------------------------------------------------------------------------
 
 local function Step1()
     lua_table.InterfaceFunctions:MakeElementVisible("Image", littleCards.move)
-    lua_table.SystemFunctions:LOG("OSCAR L_MOVE: "..littleCards.move)
 
     if lua_table.InputFunctions:GetAxisValue(lua_table.GeraltNumber, "AXIS_LEFT" .. "X", 0.01) > 0 or lua_table.InputFunctions:GetAxisValue(lua_table.GeraltNumber, "AXIS_LEFT" .. "Y", 0.01) > 0
     then
@@ -290,6 +337,13 @@ local function Step5()
 end
 
 local function Step6()
+
+    if checkPlayersHealth == false
+    then
+        RevivePlayers()
+        checkPlayersHealth = true
+    end
+
     if lua_table.PauseStep6 == true
     then
         lua_table.SystemFunctions:PauseGame()     
@@ -310,12 +364,12 @@ local function Step6()
         lua_table.PauseStep6 = false
     end
 
-    if tableGeralt.current_state == 3
+    if tableGeralt.current_state == 3 or tableGeralt.current_state == -4
     then
         geraltRoll = true
     end
 
-    if tableJaskier.current_state == 3
+    if tableJaskier.current_state == 3 or tableJaskier.current_state == -4
     then
         jaskierRoll = true
     end
@@ -333,11 +387,9 @@ local function Step6()
         checkStep6_2 = true
     end
 
-    lua_table.SystemFunctions:LOG("OSCAR spawner 6_1: "..scriptSpawnerStep6_1.auxCounter)
-    lua_table.SystemFunctions:LOG("OSCAR spawner 6_2: "..scriptSpawnerStep6_2.auxCounter)
-
     if geraltRoll == true and jaskierRoll == true and scriptSpawnerStep6_1.auxCounter == 0 and checkStep6_1 == true and scriptSpawnerStep6_2.auxCounter == 0 and checkStep6_2 == true
     then
+        checkPlayersHealth = false
         lua_table.ObjectFunctions:SetActiveGameObject(true, spawnerStep7)
         lua_table.currentStep = Step.STEP_7
     end
@@ -347,6 +399,12 @@ end
 local function Step7()
     scriptSpawnerStep7.CheckEnemies()
 
+    if checkPlayersHealth == false
+    then
+        RevivePlayers()
+        checkPlayersHealth = true
+    end
+
     if scriptSpawnerStep7.auxCounter == 8
     then
         checkStep7 = true
@@ -354,6 +412,7 @@ local function Step7()
 
     if scriptSpawnerStep7.auxCounter == 0 and checkStep7 == true
     then
+        checkPlayersHealth = false
         lua_table.InterfaceFunctions:MakeElementInvisible("Image", littleCards.enemy)
         lua_table.ObjectFunctions:SetActiveGameObject(true, step8)
         lua_table.currentStep = Step.STEP_8
@@ -367,6 +426,12 @@ local function Step8()
 end
 
 local function Step9()
+    if checkPlayersHealth == false
+    then
+        RevivePlayers()
+        checkPlayersHealth = true
+    end
+
     if lua_table.PauseStep9 == true and moveStep9 == false
     then
         lua_table.SystemFunctions:PauseGame()     
@@ -399,6 +464,7 @@ local function Step9()
         lua_table.ObjectFunctions:SetActiveGameObject(true, spawnerStep10_2)
         lua_table.ObjectFunctions:SetActiveGameObject(true, spawnerStep10_3)
 
+        checkPlayersHealth = false
         activateEnemiesStep10 = true
         lua_table.InterfaceFunctions:MakeElementInvisible("Image", littleCards.lumberjack)
         lua_table.currentStep = Step.STEP_10
@@ -407,6 +473,12 @@ end
 
 
 local function Step10()
+    if checkPlayersHealth == false
+    then
+        RevivePlayers()
+        checkPlayersHealth = true
+    end
+
     if lua_table.PauseStep10 == true and lua_table.moveStep10 == false
     then
         lua_table.SystemFunctions:PauseGame() 
@@ -440,12 +512,19 @@ local function Step10()
         lua_table.ObjectFunctions:SetActiveGameObject(true, spawnerArcher1)
         lua_table.ObjectFunctions:SetActiveGameObject(true, spawnerArcher2)
         lua_table.ObjectFunctions:SetActiveGameObject(true, spawnerArcher3)
+        checkPlayersHealth = false
         lua_table.currentStep = Step.STEP_11
     end
 end
 
 
 local function Step11()
+    if checkPlayersHealth == false
+    then
+        RevivePlayers()
+        checkPlayersHealth = true
+    end
+
     if lua_table.PauseStep11 == true and moveStep11 == false
     then
         lua_table.SystemFunctions:PauseGame()
@@ -469,12 +548,12 @@ local function Step11()
         tableJaskier.ability_cooldown = 1000.0
     end
     
-    if tableGeralt.current_state == 4
+    if tableGeralt.current_state == 4 or tableGeralt.current_state == -4
     then
         geraltSpell = true
     end
 
-    if tableJaskier.current_state == 4
+    if tableJaskier.current_state == 4 or  tableJaskier.current_state == -4
     then
         jaskierSpell = true
     end 
@@ -495,12 +574,20 @@ local function Step11()
         lua_table.ObjectFunctions:SetActiveGameObject(true, spawnerStep12_3)
 
         lua_table.InterfaceFunctions:MakeElementInvisible("Image", littleCards.abilities)
+
+        checkPlayersHealth = false
         lua_table.currentStep = Step.STEP_12
     end
 end
 
 
 local function Step12()
+    if checkPlayersHealth == false
+    then
+        RevivePlayers()
+        checkPlayersHealth = true
+    end
+
     if lua_table.PauseStep12 == true and moveStep12 == false
     then
         lua_table.SystemFunctions:PauseGame()    
@@ -523,20 +610,18 @@ local function Step12()
     end
 
 
-    if tableGeralt.current_state == 5
+    if tableGeralt.current_state == 5 or tableGeralt.current_state == -4
     then
         geraltUlt = true
     end
     
-    if tableJaskier.current_state == 5
+    if tableJaskier.current_state == 5 or tableJaskier.current_state == -4
     then
         jaskierUlt = true
     end
 
     scriptSpawnerStep12_1.CheckEnemies()
-    scriptSpawnerStep12_2.CheckEnemies()
-
-    
+    scriptSpawnerStep12_2.CheckEnemies()    
     scriptSpawnerStep12_3.CheckEnemies()
 
     if scriptSpawnerStep12_1.auxCounter == 8 then checkStep12_1 = true end
@@ -547,6 +632,7 @@ local function Step12()
     and geraltUlt == true and jaskierUlt == true 
     then
         lua_table.InterfaceFunctions:MakeElementInvisible("Image", littleCards.ultimate)
+        checkPlayersHealth = false
         lua_table.currentStep = Step.STEP_13
     end
 end
@@ -554,6 +640,12 @@ end
 
 local function Step13()
     lua_table.InterfaceFunctions:MakeElementVisible("Image", littleCards.bonfire)
+
+    if checkPlayersHealth == false
+    then
+        RevivePlayers()
+        checkPlayersHealth = true
+    end
 
     if lua_table.SaveGame13 == true and hasSaved== false
     then
@@ -574,21 +666,11 @@ local function Step13()
         lua_table.SaveGame13 = false
     end
     
-    --[[
-    if lua_table.SaveGame13 == true and hasSaved == false
-    then
-        hasSaved = true
-
-        -- SAVE GAME FUNCTION
-    end
-    --]]
     if hasSaved == true
     then
+        checkPlayersHealth = false
         lua_table.currentStep = Step.NONE
     end
-    
-    
-    
 end
 
 local function ReviveCard()   
@@ -621,7 +703,6 @@ local function ChestCard()
 
     if lua_table.SystemFunctions:GameTime() > lastTime + chestTime
     then
-        lua_table.SystemFunctions:LOG("OSCAR CHEST 4s")
         lua_table.InterfaceFunctions:MakeElementInvisible("Image", littleCards.chest)
         showedChest = true
         lua_table.chestCard = false
@@ -660,6 +741,7 @@ local function FindPotions()
     end
 end
 
+
 function lua_table:Awake()
 
     spawnerStep4 = lua_table.ObjectFunctions:FindGameObject("spawnerStep4")
@@ -696,6 +778,11 @@ function lua_table:Awake()
     scriptSpawnerStep12_2 = lua_table.ObjectFunctions:GetScript(spawnerStep12_2)
     scriptSpawnerStep12_3 = lua_table.ObjectFunctions:GetScript(spawnerStep12_3)
 
+    geralt_mesh_GO_UID = lua_table.ObjectFunctions:FindGameObject("Geralt_Mesh")
+    geralt_pivot_GO_UID = lua_table.ObjectFunctions:FindGameObject("Geralt_Pivot")
+    jaskier_mesh_GO_UID = lua_table.ObjectFunctions:FindGameObject("Jaskier_Mesh")
+    jaskier_pivot_GO_UID = lua_table.ObjectFunctions:FindGameObject("Jaskier_Pivot")
+    
     CARTAS = lua_table.ObjectFunctions:FindGameObject("CARTAS")
     TABLE_CARTAS = lua_table.ObjectFunctions:GetScript(CARTAS)
 
@@ -730,7 +817,6 @@ function lua_table:Awake()
     littleCards.ultimate = lua_table.ObjectFunctions:FindGameObject("L_ULTIMATE")
     littleCards.abilities = lua_table.ObjectFunctions:FindGameObject("L_ABILITIES")
     littleCards.bonfire = lua_table.ObjectFunctions:FindGameObject("L_BONFIRE")
-
 end
 
 function lua_table:Start()
@@ -761,6 +847,8 @@ function lua_table:Start()
     lua_table.InterfaceFunctions:MakeElementInvisible("Image", littleCards.ultimate)
     lua_table.InterfaceFunctions:MakeElementInvisible("Image", littleCards.abilities)
     lua_table.InterfaceFunctions:MakeElementInvisible("Image", littleCards.bonfire)
+
+    checkPlayersHealth = false
 end
 
 function lua_table:Update()
