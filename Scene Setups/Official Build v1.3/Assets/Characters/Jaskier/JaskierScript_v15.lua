@@ -1277,7 +1277,7 @@ local function CheckCameraBounds()	--Check if we're currently outside the camera
 	end
 end
 
-local function MoveCharacter(reversed_rotation)	--Bool param used to mark moonwalk mainly
+local function MoveCharacter(reversed_rotation, use_camera)	--Bool param used to mark moonwalk mainly
 	local magnitude = math.sqrt(mov_input.used_input.x ^ 2 + mov_input.used_input.z ^ 2)
 
 	--Move character
@@ -1287,7 +1287,7 @@ local function MoveCharacter(reversed_rotation)	--Bool param used to mark moonwa
 	}
 
 	local mov_velocity = {}
-	if camera_script.current_camera_orientation ~= nil then
+	if camera_script.current_camera_orientation ~= nil and use_camera then
 		local camera_Y_rot = math.rad(camera_script.current_camera_orientation)
 		mov_velocity.x = orig_mov_velocity.z * math.sin(camera_Y_rot) + orig_mov_velocity.x * math.cos(camera_Y_rot)	--Magnitude into vectorial values through input values
 		mov_velocity.z = orig_mov_velocity.z * math.cos(camera_Y_rot) - orig_mov_velocity.x * math.sin(camera_Y_rot)
@@ -1381,7 +1381,7 @@ local function MovementInputs()	--Process Movement Inputs
 			lua_table.current_state = state.walk
 		end
 
-		MoveCharacter(false)
+		MoveCharacter(false, true)
 
 	elseif lua_table.current_state == state.run or lua_table.current_state == state.walk
 	then
@@ -3132,7 +3132,7 @@ function lua_table:Update()
 										lua_table.song_3_saved_direction = false
 									end
 
-									MoveCharacter(true)
+									MoveCharacter(true, not lua_table.song_3_saved_direction)
 								end
 
 							elseif lua_table.current_state == state.ultimate
