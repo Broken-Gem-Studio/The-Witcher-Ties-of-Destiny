@@ -267,10 +267,6 @@ local function SetDefaultValues()
 
 	CurrentState = State.PRE_DETECTION
 	lua_table.CurrentHealth = lua_table.MaxHealth
-	if lua_table.GO_Missing == true
-	then
-		CurrentState = State.none
-	end
 end
 
 
