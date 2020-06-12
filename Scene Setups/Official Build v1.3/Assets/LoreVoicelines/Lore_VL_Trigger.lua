@@ -5,6 +5,7 @@ lua_table.GO = Scripting.GameObject()
 lua_table.PhysicsFunctions = Scripting.Physics()
 
 lua_table.lore_manager = 0
+lua_table.Final_Door_UID = 0
 lua_table.my_UID = 0
 lua_table.entered = false
 
@@ -20,6 +21,7 @@ lua_table.Kiki_music = false
 
 local geralt_UID = 0
 local jaskier_UID = 0
+local door_script = {}
 
 
 lua_table.lore_manager_script = {}
@@ -45,6 +47,12 @@ function lua_table:Awake()
 
     geralt_UID = lua_table.GO:FindGameObject("Geralt")
     jaskier_UID = lua_table.GO:FindGameObject("Jaskier")
+
+    lua_table.Final_Door_UID = lua_table.GO:FindGameObject("Door_3")
+
+    if lua_table.Final_Door_UID ~= 0 then
+        door_script = lua_table.GO:GetScript(lua_table.Final_Door_UID)
+    end
 end
 
 function lua_table:Start()
@@ -99,7 +107,9 @@ function lua_table:OnTriggerEnter()
 
                 if lua_table.City_Door_locked == true then
                     lua_table.System:LOG("Triggered Voiceline: Door_Locked")
+                    if door_script ~= nil and door_script.door_unlocked == false    then
                     lua_table.lore_manager_script:PlayDoorLocked()
+                    end
                 end
 
                 if lua_table.CityBeforeHorde == true then

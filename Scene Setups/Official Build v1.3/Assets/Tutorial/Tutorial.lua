@@ -9,6 +9,7 @@ lua_table.InterfaceFunctions = Scripting.Interface()
 lua_table.SceneFunctions = Scripting.Scenes()
 lua_table.AnimationFunctions = Scripting.Animations()
 lua_table.PhysicsFunctions = Scripting.Physics()
+lua_table.Audio = Scripting.Audio()
 
 ------------------------------------------------------------------------------
 -- VARIABLES
@@ -101,10 +102,11 @@ local jaskierAttackHeavy = false
 lua_table.MoveEnemies = false
 
 -- Variables STEP 6
-local geraltRoll = false
-local jaskierRoll = false
 local geraltStart6 = false
 local jaskierStart6 = false
+local enemiesIdleState = true
+local enemiesStep6 = { enemy1, enemy2, enemy3, enemy4}
+local enemiesScriptStep6 = { enemy1, enemy2, enemy3, enemy4}
 lua_table.PauseStep6 = false
 
 -- Variables STEP 7
@@ -300,6 +302,10 @@ local function Step2()
     if geraltAttackY == true and geraltAttackB == true and jaskierAttackY == true and jaskierAttackB == true and geraltAttackHeavy == true and jaskierAttackHeavy == true
     then
         lua_table.AnimationFunctions:PlayAnimation("open", 30, doorsGO.door1)
+
+         --Play the Sound Effect for the door opening
+         lua_table.Audio:PlayAudioEventGO("Play_Door_new_sound", lua_table.MyUUID)
+
         lua_table.ObjectFunctions:SetActiveGameObject(false, doorsColliders.door1)
 
         lua_table.InterfaceFunctions:MakeElementInvisible("Image", littleCards.dummy)
@@ -323,9 +329,14 @@ local function Step4()
     if scriptSpawnerStep4.auxCounter == 0 and checkStep4 == true
     then
         lua_table.AnimationFunctions:PlayAnimation("open", 30, doorsGO.door2)
+
+        --Play the Sound Effect for the door opening
+        lua_table.Audio:PlayAudioEventGO("Play_Door_new_sound", lua_table.MyUUID)
+        
         lua_table.ObjectFunctions:SetActiveGameObject(false, doorsColliders.door2)
         lua_table.InterfaceFunctions:MakeElementInvisible("Image", littleCards.enemy)
-
+        lua_table.ObjectFunctions:SetActiveGameObject(true, spawnerStep6_1)
+        lua_table.ObjectFunctions:SetActiveGameObject(true, spawnerStep6_2)
         lua_table.currentStep = Step.STEP_6
     end
 end
@@ -357,21 +368,19 @@ local function Step6()
         lua_table.SystemFunctions:ResumeGame()
         buttonManagerScript.gamePaused = false
         lua_table.tutorialPause = false
-        lua_table.ObjectFunctions:SetActiveGameObject(true, spawnerStep6_1)
-        lua_table.ObjectFunctions:SetActiveGameObject(true, spawnerStep6_2)
         TABLE_CARTAS.continue_meter1_full = false
         TABLE_CARTAS.continue_meter2_full = false
         lua_table.PauseStep6 = false
-    end
+        enemiesIdleState = false
 
-    if tableGeralt.current_state == 3 or tableGeralt.current_state == -4
-    then
-        geraltRoll = true
-    end
-
-    if tableJaskier.current_state == 3 or tableJaskier.current_state == -4
-    then
-        jaskierRoll = true
+        if enemiesStep6.enemy1 ~= nil and enemiesStep6.enemy1 ~= 0 and enemiesStep6.enemy2 ~= nil and enemiesStep6.enemy2 ~= 0
+        and enemiesStep6.enemy3 ~= nil and enemiesStep6.enemy3 ~= 0 and enemiesStep6.enemy4 ~= nil and enemiesStep6.enemy4 ~= 0
+        then
+            enemiesScriptStep6.enemy1.AggroRange = 35
+            enemiesScriptStep6.enemy2.AggroRange = 35
+            enemiesScriptStep6.enemy3.AggroRange = 35
+            enemiesScriptStep6.enemy4.AggroRange = 35
+        end
     end
     
     scriptSpawnerStep6_1.CheckEnemies()
@@ -380,14 +389,40 @@ local function Step6()
     if scriptSpawnerStep6_1.auxCounter == 2
     then
         checkStep6_1 = true
+        if enemiesIdleState == true 
+        then
+            enemiesStep6.enemy1 = scriptSpawnerStep6_1.spawnedEnemies[1]
+            enemiesStep6.enemy2 = scriptSpawnerStep6_1.spawnedEnemies[2]
+
+            if enemiesStep6.enemy1 ~= nil and enemiesStep6.enemy1 ~= 0 and enemiesStep6.enemy2 ~= nil and enemiesStep6.enemy2 ~= 0
+            then
+                enemiesScriptStep6.enemy1 = lua_table.ObjectFunctions:GetScript(enemiesStep6.enemy1)
+                enemiesScriptStep6.enemy2 = lua_table.ObjectFunctions:GetScript(enemiesStep6.enemy2)
+                enemiesScriptStep6.enemy1.AggroRange = 1
+                enemiesScriptStep6.enemy2.AggroRange = 1
+            end
+        end
     end
 
     if scriptSpawnerStep6_2.auxCounter == 2
     then
         checkStep6_2 = true
+        if enemiesIdleState == true 
+        then
+            enemiesStep6.enemy3 = scriptSpawnerStep6_2.spawnedEnemies[1]
+            enemiesStep6.enemy4 = scriptSpawnerStep6_2.spawnedEnemies[2]
+            
+            if enemiesStep6.enemy3 ~= nil and enemiesStep6.enemy3 ~= 0 and enemiesStep6.enemy4 ~= nil and enemiesStep6.enemy4 ~= 0
+            then
+                enemiesScriptStep6.enemy3 = lua_table.ObjectFunctions:GetScript(enemiesStep6.enemy3)
+                enemiesScriptStep6.enemy4 = lua_table.ObjectFunctions:GetScript(enemiesStep6.enemy4)
+                enemiesScriptStep6.enemy3.AggroRange = 1
+                enemiesScriptStep6.enemy4.AggroRange = 1
+            end
+        end
     end
 
-    if geraltRoll == true and jaskierRoll == true and scriptSpawnerStep6_1.auxCounter == 0 and checkStep6_1 == true and scriptSpawnerStep6_2.auxCounter == 0 and checkStep6_2 == true
+    if scriptSpawnerStep6_1.auxCounter == 0 and checkStep6_1 == true and scriptSpawnerStep6_2.auxCounter == 0 and checkStep6_2 == true
     then
         checkPlayersHealth = false
         lua_table.ObjectFunctions:SetActiveGameObject(true, spawnerStep7)
@@ -421,7 +456,6 @@ local function Step7()
 end
 
 local function Step8()
-    lua_table.ObjectFunctions:SetActiveGameObject(true, spawnerStep9)
     lua_table.currentStep = Step.STEP_9
 end
 
@@ -435,6 +469,7 @@ local function Step9()
     if lua_table.PauseStep9 == true and moveStep9 == false
     then
         lua_table.SystemFunctions:PauseGame()     
+        lua_table.ObjectFunctions:SetActiveGameObject(true, spawnerStep9)
         lua_table.tutorialPause = true
         buttonManagerScript.gamePaused = true
     end
@@ -453,7 +488,7 @@ local function Step9()
 
     scriptSpawnerStep9.CheckEnemies()
 
-    if scriptSpawnerStep9.auxCounter == 1
+    if scriptSpawnerStep9.auxCounter == 1 
     then
         checkStep9 = true
     end
