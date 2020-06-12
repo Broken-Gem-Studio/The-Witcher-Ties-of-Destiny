@@ -34,21 +34,17 @@ local camera_UID = 0
 local camera_pos = {}
 lua_table.DistanceToCamera = 0
 local counter = 0
-local spawnedEnemies = {}
-local spawnedEnemiesChild = {}
+lua_table.spawnedEnemies = {}
 lua_table.auxCounter = 0 
 local tutoGO = 0
 
 function lua_table:CheckEnemies()
     lua_table.auxCounter = counter
 
-    for i = 1, #spawnedEnemies do
-        lua_table.System:LOG("OSCAR spawnedEnemies: "..spawnedEnemies[i])
-        local alive = lua_table.GameObjectFunctions:GetLayerByID(spawnedEnemies[i])
-        --lua_table.System:LOG("OSCAR alive variable: "..alive)
+    for i = 1, #lua_table.spawnedEnemies do
+        local alive = lua_table.GameObjectFunctions:GetLayerByID(lua_table.spawnedEnemies[i])
         if alive == -1 
         then
-            --lua_table.System:LOG("OSCAR ALIVE false")
             lua_table.auxCounter = lua_table.auxCounter - 1
         end
     end   
@@ -62,7 +58,7 @@ local function Spawn()
 
     local enemy =  lua_table.Scene:Instantiate(lua_table.Enemy_Prefab, position[1]+pos_randX, position[2], position[3] + pos_randZ, 0, 0, 0)
     counter = counter + 1
-    spawnedEnemies[counter] = enemy
+    lua_table.spawnedEnemies[counter] = enemy
 
     if lua_table.humanoid_spawner == true and leader_chosen == false then
         lua_table.enemies = enemy
