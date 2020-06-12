@@ -464,6 +464,7 @@ function GetTableWinLose()
         elseif load_score == true
         then
             load_timer = load_timer + lua_table.System:DT()
+            is_win = false
             if load_timer >= 1 
             then
                 if lua_table.current_level == 1

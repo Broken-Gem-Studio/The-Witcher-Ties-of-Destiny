@@ -119,12 +119,11 @@ function lua_table:Update ()
 		--Assign Chest to Player
 		local geralt = lua_table.GameObjectFunctions:FindGameObject("Geralt")
 		local jaskier = lua_table.GameObjectFunctions:FindGameObject("Jaskier")
-		if script_player ~= nil then
-			if jaskier == lua_table.player_owner and script_player.jaskier_score ~= nil then
-				script_player.jaskier_score[6] = script_player.jaskier_score[6] + 1
-			elseif geralt == lua_table.player_owner and script_player.geralt_score ~= nil then
-				script_player.geralt_score[6] = script_player.geralt_score[6] + 1
-			end
+
+		if jaskier == lua_table.player_owner and jaskier_score ~= nil then
+			jaskier_score[6] = jaskier_score[6] + 1
+		elseif geralt == lua_table.player_owner and geralt_score ~= nil then
+			geralt_score[6] = geralt_score[6] + 1
 		end
 
 		playParticles()
