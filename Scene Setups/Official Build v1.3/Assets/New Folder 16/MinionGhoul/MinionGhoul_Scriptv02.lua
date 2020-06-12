@@ -811,8 +811,10 @@ function lua_table:Update()
 	
 	SearchPlayers() -- Constantly calculate distances between entity and players
 
+	-- Far/falling enemy failsave
 	if lua_table.GhoulPos[2] <= -100 then lua_table.GameObject:DestroyGameObject(lua_table.MyUID) end 
-
+	if lua_table.currentTargetDir >= 150 then lua_table.GameObject:DestroyGameObject(lua_table.MyUID) end 
+	
 	-- Check if our entity is dead
 	if lua_table.health <= 0 and has_died == false then 
 
