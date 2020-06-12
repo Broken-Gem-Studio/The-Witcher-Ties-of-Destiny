@@ -11,7 +11,7 @@ lua_table.main_menu = 0
 
 lua_table.credits = false
 lua_table.credits_endtime = 60
-local credits_time = 0
+lua_table.credits_time = 0
 local time = 0
 local delay_time = 0
 local delay = false
@@ -44,7 +44,7 @@ local last_round = 0
 function lua_table:Awake()
     last_round = 0
     next_round = 0
-    credits_time = 0
+    lua_table.credits_time = 0
 
     round0 = lua_table.GO:FindGameObject("Round0")
     round1 = lua_table.GO:FindGameObject("Round1")
@@ -123,7 +123,7 @@ end
 
 function lua_table:Update()
     time = time + lua_table.System:DT()
-    if lua_table.credits == true then credits_time = credits_time + lua_table.System:DT() end
+    if lua_table.credits == true then lua_table.credits_time = lua_table.credits_time + lua_table.System:DT() end
     delay_time = delay_time + lua_table.System:DT()
     
     if next_round > last_round
@@ -131,7 +131,7 @@ function lua_table:Update()
         lua_table.begin = false
     end
     
-    if lua_table.begin == true and credits_time < 130
+    if lua_table.begin == true and lua_table.credits_time < lua_table.credits_endtime
     then
         if time >= lua_table.spawn_rate
         then
@@ -250,7 +250,7 @@ function lua_table:Update()
         end
     else
         if lua_table.credits == true then
-            if credits_time < 130 then
+            if lua_table.credits_time < lua_table.credits_endtime then
                 round0_script:Reset()
                 round1_script:Reset()
                 round2_script:Reset()
