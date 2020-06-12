@@ -99,10 +99,11 @@ function lua_table:Spawn()
                 end
             end
             correct = false
-            
+            lua_table.System:LOG("SPAWN")
             --enemies
             if enemy_spawn == 1 and e1_counter > 0 --enemy 1
             then
+            
                 enemy_counter = enemy_counter + 1
                 spawned_enemies[enemy_counter] = lua_table.Scene:Instantiate(lua_table.enemy1, pos[1], pos[2], pos[3], 0, 0, 0)
                 e1_counter = e1_counter - 1
@@ -175,8 +176,7 @@ function lua_table:Update()
     if stop == false and lua_table.is_finished == true
     then
         
-        for i = 1, #spawned_enemies, i = i + 1
-        do
+        for i = 1, #spawned_enemies do
             if lua_table.GO:GetLayerByID(spawnedEnemies[i]) == -1 
             then
                 lua_table.auxCounter = lua_table.auxCounter - 1

@@ -164,7 +164,7 @@ local knockback_player_UID = 0
 local StunDuration = 0
 
 --################################################ VARIABLES ############################################
-
+lua_table.GO_Missing = false -- if any necessary game object is missing this is true
 lua_table.player_1 = "Geralt"
 lua_table.player_2 = "Jaskier"
 
@@ -267,7 +267,10 @@ local function SetDefaultValues()
 
 	CurrentState = State.PRE_DETECTION
 	lua_table.CurrentHealth = lua_table.MaxHealth
-
+	if lua_table.GO_Missing == true
+	then
+		CurrentState = State.none
+	end
 end
 
 
@@ -1377,33 +1380,58 @@ function lua_table:Awake()
 	if lua_table.Geralt_UID == 0 
 	then 
 		if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK A random Lumberjack Script: Null Geralt id, called from Lumberjack AWAKE") end
+		lua_table.GO_Missing = true
 	end
     if lua_table.Jaskier_UID == 0 
 	then 
 		if PrintLogs == true then lua_table.SystemFunctions:LOG ("LUMBERJACK A random Lumberjack Script: Null Jaskier id, called from Lumberjack AWAKE") end
+		lua_table.GO_Missing = true
     end
 
     ---GET LUMBERJACK ID---
 	MyUID = lua_table.GameObjectFunctions:GetMyUID()
 	if MyUID == 0 
 	then 
+		lua_table.GO_Missing = true
 		if PrintLogs == true then lua_table.SystemFunctions:LOG ("A random Lumberjack Script: Null id for the GameObject that contains the Lumberjack Script, called from Lumberjack AWAKE") end
 	end
 
 	---SET COLLIDERS---
 	attack_colliders.jump_attack.GO_UID = lua_table.GameObjectFunctions:FindChildGameObject(attack_colliders.jump_attack.GO_name)
 	attack_colliders.front.GO_UID = lua_table.GameObjectFunctions:FindChildGameObject(attack_colliders.front.GO_name)
+
+	if attack_colliders.jump_attack.GO_UID == 0 or attack_colliders.front.GO_UID == 0
+	then
+		if PrintLogs == true then lua_table.SystemFunctions:LOG ("A random Lumberjack Script: Null id for the Lumberjack colliders ") end
+		lua_table.GO_Missing = true
+	end
+
 	---SET PARTICLES---
 	lua_table.General_Emitter_UID = lua_table.GameObjectFunctions:FindChildGameObject("LumberJack_Particles")
+	if lua_table.General_Emitter_UID == 0
+	then
+		if PrintLogs == true then lua_table.SystemFunctions:LOG ("A random Lumberjack Script: Null id for the Lumberjack Particle handler Game Object ")end
+		lua_table.GO_Missing = true
+	end
 	---SET MAT UID---
 	mesh_gameobject_UID = lua_table.GameObjectFunctions:FindChildGameObject("Bandit_ToUvs")
+	if mesh_gameobject_UID == 0
+	then
+		if PrintLogs == true then lua_table.SystemFunctions:LOG ("A random Lumberjack Script: Null id for the Lumberjack mesh ")end
+		lua_table.GO_Missing = true
+	end
 	---set camera script---
 	camera_UID = lua_table.GameObjectFunctions:FindGameObject("Camera")
 	if camera_UID ~= 0
     then
         lua_table.camera_script = lua_table.GameObjectFunctions:GetScript(camera_UID)
+	else
+		lua_table.GO_Missing = true
+		if PrintLogs == true then lua_table.SystemFunctions:LOG ("A random Lumberjack Script: Null id for the camera script ") end
     end
 	
+	
+
 end
 
 

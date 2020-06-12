@@ -128,120 +128,125 @@ end
 function lua_table:Update()
     time = time + lua_table.System:DT()
     delay_time = delay_time + lua_table.System:DT()
-
+    
     if next_round > last_round
     then
         lua_table.begin = false
+        lua_table.System:LOG("last")
     end
     
     if lua_table.begin == true
     then
+        lua_table.System:LOG("begin")
         if time >= lua_table.spawn_rate
         then
             if delay == true --delay
             then
+                lua_table.System:LOG("true")
                 if delay_time >= lua_table.delay_rounds
                 then
                     delay_time = 0
                     delay = false
                 end
             else
+                lua_table.System:LOG("false")
                 if next_round == 0 and round0 > 0 --round 0
                 then
-                    if round0_script.is_finished == false and round0_script.auxCounter == 0
+                    if round0_script.is_finished == false
                     then
                         round0_script:Spawn()
-                    else
+                        lua_table.System:LOG("SPAWN HORDAS")
+                    elseif round0_script.is_finished == true and round0_script.auxCounter == 0 then
                         next_round = next_round + 1
                         delay = true
                         delay_time = 0
                     end
                 elseif next_round == 1 and round1 > 0 --round 1
                 then
-                    if round1_script.is_finished == false and round1_script.auxCounter == 0
+                    if round1_script.is_finished == false
                     then
                         round1_script:Spawn()
-                    else
+                    elseif round1_script.is_finished == true and round1_script.auxCounter == 0 then
                         next_round = next_round + 1
                         delay = true
                         delay_time = 0
                     end
                 elseif next_round == 2 and round2 > 0 --round 2
                 then
-                    if round2_script.is_finished == false and round2_script.auxCounter == 0
+                    if round2_script.is_finished == false
                     then
                         round2_script:Spawn()
-                    else
+                    elseif round2_script.is_finished == true and round2_script.auxCounter == 0 then
                         next_round = next_round + 1
                         delay = true
                         delay_time = 0
                     end
                 elseif next_round == 3 and round3 > 0 --round 3
                 then
-                    if round3_script.is_finished == false and round3_script.auxCounter == 0
+                    if round3_script.is_finished == false
                     then
                         round3_script:Spawn()
-                    else
+                    elseif round3_script.is_finished == true and round3_script.auxCounter == 0 then
                         next_round = next_round + 1
                         delay = true
                         delay_time = 0
                     end
                 elseif next_round == 4 and round4 > 0 --round 4
                 then
-                    if round4_script.is_finished == false and round4_script.auxCounter == 0
+                    if round4_script.is_finished == false
                     then
                         round4_script:Spawn()
-                    else
+                    elseif round4_script.is_finished == true and round4_script.auxCounter == 0 then
                         next_round = next_round + 1
                         delay = true
                         delay_time = 0
                     end
                 elseif next_round == 5 and round5 > 0 --round 5
                 then
-                    if round5_script.is_finished == false and round5_script.auxCounter == 0
+                    if round5_script.is_finished == false
                     then
                         round5_script:Spawn()
-                    else
+                   elseif round5_script.is_finished == true and round5_script.auxCounter == 0 then
                         next_round = next_round + 1
                         delay = true
                         delay_time = 0
                     end
                 elseif next_round == 6 and round6 > 0 --round 6
                 then
-                    if round6_script.is_finished == false and round6_script.auxCounter == 0
+                    if round6_script.is_finished == false
                     then
                         round6_script:Spawn()
-                    else
+                    elseif round6_script.is_finished == true and round6_script.auxCounter == 0 then
                         next_round = next_round + 1
                         delay = true
                         delay_time = 0
                     end
                 elseif next_round == 7 and round7 > 0 --round 7
                 then
-                    if round7_script.is_finished == false and round7_script.auxCounter == 0
+                    if round7_script.is_finished == false
                     then
                         round7_script:Spawn()
-                    else
+                    elseif round7_script.is_finished == true and round7_script.auxCounter == 0 then
                         next_round = next_round + 1
                         delay = true
                         delay_time = 0
                     end
                 elseif next_round == 8 and round8 > 0 --round 8
                 then
-                    if round8_script.is_finished == false and round8_script.auxCounter == 0
+                    if round8_script.is_finished == false
                     then
                         round8_script:Spawn()
-                    else
+                    elseif round8_script.is_finished == true and round8_script.auxCounter == 0 then
                         next_round = next_round + 1
                         delay = true
                         delay_time = 0
                     end
                 elseif next_round == 9 and round9 > 0 --round 9
                 then
-                    if round8_script.is_finished == false and round9_script.auxCounter == 0
+                    if round8_script.is_finished == false
                     then
                         round8_script:Spawn()
-                    else
+                    elseif round9_script.is_finished == true and round9_script.auxCounter == 0 then
                         next_round = next_round + 1
                         delay = true
                         delay_time = 0
