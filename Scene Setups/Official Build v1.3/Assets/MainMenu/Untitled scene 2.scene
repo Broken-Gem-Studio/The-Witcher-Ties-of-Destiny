@@ -2026,9 +2026,9 @@
                 "rotationx": "0.557283",
                 "rotationy": "-0.424742",
                 "rotationz": "0.580694",
-                "scalex": "1.000221",
-                "scaley": "1.000221",
-                "scalez": "1.000221"
+                "scalex": "1.000229",
+                "scaley": "1.000229",
+                "scalez": "1.000229"
             },
             "13": {
                 "Active": true,
@@ -2896,7 +2896,7 @@
                 "ReceivesShadows": true,
                 "Resources": {
                     "ResourceMaterial": {
-                        "path": "Assets/Characters/Geralt/Geralt_Body.mat"
+                        "path": "Assets/Characters/Geralt/Geralt_Body_Score.mat"
                     }
                 },
                 "UID": 1436538945,
@@ -3244,8 +3244,8 @@
                 "rotationy": "0.000040",
                 "rotationz": "-0.000037",
                 "scalex": "1.000000",
-                "scaley": "1.000221",
-                "scalez": "1.000221"
+                "scaley": "1.000229",
+                "scalez": "1.000229"
             },
             "13": {
                 "Active": true,
@@ -3473,9 +3473,9 @@
                 "rotationx": "-0.002922",
                 "rotationy": "-0.707101",
                 "rotationz": "0.707101",
-                "scalex": "1.000487",
-                "scaley": "1.000487",
-                "scalez": "1.000487"
+                "scalex": "1.000495",
+                "scaley": "1.000495",
+                "scalez": "1.000495"
             },
             "13": {
                 "Active": true,
@@ -3541,9 +3541,9 @@
                 "rotationx": "-0.000001",
                 "rotationy": "0.999970",
                 "rotationz": "0.000001",
-                "scalex": "0.999928",
+                "scalex": "0.999912",
                 "scaley": "0.999999",
-                "scalez": "0.999928"
+                "scalez": "0.999912"
             },
             "2": {
                 "Active": true,
@@ -4394,8 +4394,8 @@
                 "rotationx": "0.000389",
                 "rotationy": "0.017847",
                 "rotationz": "0.999831",
-                "scalex": "1.000221",
-                "scaley": "1.000221",
+                "scalex": "1.000229",
+                "scaley": "1.000229",
                 "scalez": "1.000000"
             },
             "13": {
@@ -6011,8 +6011,8 @@
                 "rotationx": "-0.000498",
                 "rotationy": "0.001196",
                 "rotationz": "0.999934",
-                "scalex": "1.000222",
-                "scaley": "1.000222",
+                "scalex": "1.000230",
+                "scaley": "1.000230",
                 "scalez": "1.000000"
             },
             "13": {
@@ -6411,8 +6411,8 @@
                 "rotationy": "0.000028",
                 "rotationz": "-0.000027",
                 "scalex": "1.000000",
-                "scaley": "1.000222",
-                "scalez": "1.000222"
+                "scaley": "1.000230",
+                "scalez": "1.000230"
             },
             "13": {
                 "Active": true,
@@ -6904,8 +6904,8 @@
                 "rotationx": "-0.000413",
                 "rotationy": "0.019338",
                 "rotationz": "0.999803",
-                "scalex": "1.000442",
-                "scaley": "1.000442",
+                "scalex": "1.000458",
+                "scaley": "1.000458",
                 "scalez": "1.000000"
             },
             "13": {
@@ -7598,9 +7598,9 @@
                 "rotationx": "0.000000",
                 "rotationy": "-0.707236",
                 "rotationz": "0.000000",
-                "scalex": "2.500074",
+                "scalex": "2.500090",
                 "scaley": "1.900001",
-                "scalez": "2.500074"
+                "scalez": "2.500090"
             },
             "5": {
                 "Active": true,
@@ -8414,7 +8414,7 @@
                 "rotationx": "0.000000",
                 "rotationy": "-0.704138",
                 "rotationz": "0.000000",
-                "scalex": "2.499976",
+                "scalex": "2.499968",
                 "scaley": "1.900000",
                 "scalez": "2.200010"
             },
@@ -8661,6 +8661,56 @@
         "Navigation Area": 0,
         "Navigation Static": false,
         "Parent": "873395929",
+        "Static": false
+    },
+    "699374687": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "UID": 1268355196,
+                "index": 0,
+                "layer": "0",
+                "positionx": "-19.816391",
+                "positiony": "-13.381756",
+                "positionz": "19.356018",
+                "rotationw": "0.999883",
+                "rotationx": "0.000000",
+                "rotationy": "-0.015271",
+                "rotationz": "0.000000",
+                "scalex": "41.162994",
+                "scaley": "12.904000",
+                "scalez": "2.394162"
+            },
+            "5": {
+                "Active": true,
+                "ColorA": "1.000000",
+                "ColorB": "1.000000",
+                "ColorG": "1.000000",
+                "ColorR": "1.000000",
+                "IsProgressBar": "0",
+                "MantainAspect": "1",
+                "NumberFrames": "0",
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/373290726.dds"
+                },
+                "UID": 1777019723,
+                "anchor": 9,
+                "fullscreen": false,
+                "index": 1,
+                "is3d": "1",
+                "position2Dx": "0.000000",
+                "position2Dy": "0.000000",
+                "priority": "0",
+                "size2Dx": "450.000000",
+                "size2Dy": "200.000000",
+                "visible": "0"
+            }
+        },
+        "Index": 4,
+        "Name": "Continue",
+        "Navigation Area": 0,
+        "Navigation Static": false,
+        "Parent": "2083318770",
         "Static": false
     },
     "707470924": {
@@ -8973,8 +9023,8 @@
                 "rotationx": "0.000580",
                 "rotationy": "0.001942",
                 "rotationz": "0.999933",
-                "scalex": "0.999556",
-                "scaley": "0.999556",
+                "scalex": "0.999540",
+                "scaley": "0.999540",
                 "scalez": "1.000000"
             },
             "13": {
@@ -9081,8 +9131,8 @@
                 "position2Dx": "0.000000",
                 "position2Dy": "0.000000",
                 "priority": "1",
-                "size2Dx": "1267.739990",
-                "size2Dy": "595.200012",
+                "size2Dx": "1240.300049",
+                "size2Dy": "633.900024",
                 "visible": "0"
             }
         },
@@ -9601,7 +9651,7 @@
                 "ReceivesShadows": true,
                 "Resources": {
                     "ResourceMaterial": {
-                        "path": "Assets/Characters/Jaskier/Jaskier_Body.mat"
+                        "path": "Assets/Characters/Jaskier/Jaskier_Body_Score.mat"
                     }
                 },
                 "UID": 952999402,

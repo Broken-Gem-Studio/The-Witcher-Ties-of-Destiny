@@ -22,6 +22,7 @@ lua_table.cameraSpeed = 25
 
 -- Local variables
 local render = 0
+local continue = 0
 local background = 0
 local quitButton = 0
 local playButton = 0
@@ -209,6 +210,7 @@ function lua_table:Awake()
 	secondLevelImage = lua_table.ObjectFunctions:FindGameObject("SecondLevelImage")
 	render = lua_table.ObjectFunctions:FindGameObject("Board")
 	background = lua_table.ObjectFunctions:FindGameObject("MapBackground")
+	continue = lua_table.ObjectFunctions:FindGameObject("Continue")
 
 	lastTimeFallen = lua_table.SystemFunctions:GameTime()
 	SELECTION = lua_table.ObjectFunctions:FindGameObject("SELECTION")
@@ -228,6 +230,12 @@ function lua_table:Update()
 	time = lua_table.SystemFunctions:GameTime() - started_time
 	dt = lua_table.SystemFunctions:DT()
 	lua_table.currentCameraPos = lua_table.TransformFuctions:GetPosition(camera_UUID)
+	
+	-- Show start message
+	if lua_table.SystemFunctions:GameTime() > lastTimeFallen + 7.4 and currentButton == Buttons.START
+	then		
+		lua_table.InterfaceFunctions:MakeElementVisible("Image", continue)
+	end
 
 	-- Button management
 	HandleInputs()
@@ -286,6 +294,7 @@ function lua_table:StartGame()
 		startingGame = true
 		currentButton = Buttons.PLAY;
 		lua_table.lastCameraPos = lua_table.TransformFuctions:GetPosition(camera_UUID)
+		lua_table.InterfaceFunctions:MakeElementInvisible("Image", continue)
 	end
 end
 
