@@ -2699,28 +2699,28 @@ function lua_table:Awake ()
 	-- Get my own UID
     my_UID = lua_table.GameObjectFunctions:GetMyUID()
 
-    lua_table.jump_pos_1[x] = 966
+    lua_table.jump_pos_1[x] = 967.5
     lua_table.jump_pos_1[y] = 11
-    lua_table.jump_pos_1[z] = -696
+    lua_table.jump_pos_1[z] = -697
 
     lua_table.jump_rot_1[x] = 0
-    lua_table.jump_rot_1[y] = -19
+    lua_table.jump_rot_1[y] = -7.5
     lua_table.jump_rot_1[z] = 0
 
-    lua_table.jump_pos_2[x] = 930
+    lua_table.jump_pos_2[x] = 935
     lua_table.jump_pos_2[y] = 10.5
-    lua_table.jump_pos_2[z] = -675.5
+    lua_table.jump_pos_2[z] = -671
     
     lua_table.jump_rot_2[x] = 0
-    lua_table.jump_rot_2[y] = 83
+    lua_table.jump_rot_2[y] = 58.5
     lua_table.jump_rot_2[z] = 0
 
-    lua_table.jump_pos_3[x] = 988
+    lua_table.jump_pos_3[x] = 988.5
     lua_table.jump_pos_3[y] = 11
-    lua_table.jump_pos_3[z] = -679.5
+    lua_table.jump_pos_3[z] = -675.5
     
     lua_table.jump_rot_3[x] = 0
-    lua_table.jump_rot_3[y] = -82
+    lua_table.jump_rot_3[y] = -77.5
     lua_table.jump_rot_3[z] = 0
 
     -- Get my position

@@ -32,7 +32,7 @@ lua_table.hoardfight_angle = 50
 -- Orientation
 lua_table.camera_orientation = 0 -- basically = camera_rotation_y
 
-lua_table.bossfight_orientation = -25
+lua_table.bossfight_orientation = -7.5
 lua_table.hoardfight_orientation = 0
 
 -- Smoothing Speed from (from 0 to 1 -- slow to fast)
