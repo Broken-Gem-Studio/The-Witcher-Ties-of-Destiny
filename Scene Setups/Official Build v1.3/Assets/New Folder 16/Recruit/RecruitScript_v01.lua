@@ -221,8 +221,8 @@ end
 local function Idle() 
 	if lua_table.GeraltDistance ~= -1 or lua_table.JaskierDistance ~= -1 then
 		if lua_table.currentTargetDir <= lua_table.AggroRange then
-			lua_table.currentState = State.SEEK
 			lua_table.Animations:PlayAnimation("Run", 45.0, lua_table.MyUID)
+			lua_table.currentState = State.SEEK
 			lua_table.System:LOG("Recruit state: SEEK (1)") 
 		end
 	end
@@ -278,10 +278,9 @@ end
 local function Attack()
 
 	if lua_table.currentTargetDir >= lua_table.maxDistance then
+		lua_table.Animations:PlayAnimation("Run", 45.0, lua_table.MyUID)
 		lua_table.currentState = State.SEEK	
 		lua_table.System:LOG("Recruit state: SEEK (1), target out of range")    
-		lua_table.Animations:PlayAnimation("Run", 45.0, lua_table.MyUID)
-
 		return
 	end
 
@@ -324,8 +323,8 @@ local function Attack()
 	
 	-- After he finished, switch state
 	if attack_timer + 1000 <= lua_table.System:GameTime() * 1000 then
-		lua_table.currentState = State.SEEK	
 		lua_table.Animations:PlayAnimation("Run", 45.0, lua_table.MyUID)
+		lua_table.currentState = State.SEEK	
 		lua_table.System:LOG("Recruit state: SEEK (1), cycle to seek")
 	end
 	
@@ -347,8 +346,8 @@ local function Stun()
 			lua_table.Particles:StopParticleEmitter(particles[i])
 		end
 	
-		lua_table.currentState = State.SEEK	
 		lua_table.Animations:PlayAnimation("Run", 45.0, lua_table.MyUID)
+		lua_table.currentState = State.SEEK	
 		lua_table.System:LOG("Recruit state: SEEK (1), from stun")
 	end
 	
@@ -361,8 +360,8 @@ local function KnockBack()
 	end
 
 	if knockback_timer + 300 <= lua_table.System:GameTime() * 1000 then
-		lua_table.currentState = State.SEEK	
 		lua_table.Animations:PlayAnimation("Run", 45.0, lua_table.MyUID)
+		lua_table.currentState = State.SEEK	
 		lua_table.is_knockback = false
 		lua_table.System:LOG("Recruit state: STUNNED (5), from KD")
 		

@@ -17,10 +17,6 @@ function GetTableWinLose()
     lua_table.current_level = 0
     lua_table.played_music = false
 
-    local Buttons = {}
-    local currentButton = 0
-    local select_ui = false
-
     local pos = 0
     local winlose = 0
     local music_manager_UID = 0 --We need this UID in order to stop the music!
@@ -36,11 +32,6 @@ function GetTableWinLose()
     local fade = 0
     local win = 0
     local lose = 0
-    local mainmenu = 0
-    local nextlevel = 0
-    local retry = 0
-    local only_mainmenu = 0
-    local only_retry = 0
     local background = 0
 
     local Geralt = 0
@@ -75,14 +66,13 @@ function GetTableWinLose()
     local load_level1 = false
     local load_level2 = false
     local load_mainmenu = false
+    local load_score = false
 
     local play_win = false
     local play_lose = false
 
     local loading_UID = 0
     local load_timer = 0
-
-    local restart = false
 
     local tutorialGO = 0
     local cartasGO = 0
@@ -131,26 +121,18 @@ function GetTableWinLose()
             end
         end
 
-        --buttons
+        --reset variables
         if fade_flag == true
         then
-            select_ui = true
-            lua_table.GO:SetActiveGameObject(true, background)
-            if lua_table.current_level == 1
-            then
-                lua_table.GO:SetActiveGameObject(true, mainmenu)
-                lua_table.UI:SetUIElementInteractable("Button", mainmenu, true)
-                lua_table.GO:SetActiveGameObject(true, nextlevel)
-                lua_table.UI:SetUIElementInteractable("Button", nextlevel, true)
-                lua_table.GO:SetActiveGameObject(true, retry)
-                lua_table.UI:SetUIElementInteractable("Button", retry, true)
-            elseif lua_table.current_level == 2
-            then
-                lua_table.GO:SetActiveGameObject(true, only_mainmenu)
-                lua_table.UI:SetUIElementInteractable("Button", only_mainmenu, true)
-                lua_table.GO:SetActiveGameObject(true, only_retry)
-                lua_table.UI:SetUIElementInteractable("Button", only_retry, true)
-            end
+            is_win = false
+            win_flag = false
+            fade_flag = false
+            fade_alpha = 0
+
+            --unpause game
+            lua_table.System:ResumeGame()
+
+            load_score = true
         end
     end
 
@@ -228,113 +210,11 @@ function GetTableWinLose()
             --load current level
             if lua_table.current_level == 1
             then
-                restart = true
                 load_level1 = true
             elseif lua_table.current_level == 2
             then
-                restart = true
                 load_level2 = true
             end
-        end
-    end
-
-    function lua_table:GoToMainMenu()
-        --reset variables
-        select_ui = false
-        is_win = false
-        win_flag = false
-        fade_flag = false
-        fade_alpha = 0
-
-        --set ui inactive
-        lua_table.GO:SetActiveGameObject(false, win)
-        lua_table.GO:SetActiveGameObject(false, fade)
-        lua_table.GO:SetActiveGameObject(false, background)
-        lua_table.GO:SetActiveGameObject(false, mainmenu)
-        lua_table.UI:SetUIElementInteractable("Button", mainmenu, false)
-        lua_table.GO:SetActiveGameObject(false, nextlevel)
-        lua_table.UI:SetUIElementInteractable("Button", nextlevel, false)
-        lua_table.GO:SetActiveGameObject(false, retry)
-        lua_table.UI:SetUIElementInteractable("Button", retry, false)
-        lua_table.GO:SetActiveGameObject(false, only_mainmenu)
-        lua_table.UI:SetUIElementInteractable("Button", only_mainmenu, false)
-        lua_table.GO:SetActiveGameObject(false, only_retry)
-        lua_table.UI:SetUIElementInteractable("Button", only_retry, false)
-
-        --unpause game
-        lua_table.System:ResumeGame()
-
-        --load main menu
-        last_checkpoint = 0
-        load_mainmenu = true
-        
-    end
-
-    function lua_table:GoToNextLevel()
-        --reset variables
-        select_ui = false
-        is_win = false
-        win_flag = false
-        fade_flag = false
-        fade_alpha = 0
-
-        --set ui inactive
-        lua_table.GO:SetActiveGameObject(false, win)
-        lua_table.GO:SetActiveGameObject(false, fade)
-        lua_table.GO:SetActiveGameObject(false, background)
-        lua_table.GO:SetActiveGameObject(false, mainmenu)
-        lua_table.UI:SetUIElementInteractable("Button", mainmenu, false)
-        lua_table.GO:SetActiveGameObject(false, nextlevel)
-        lua_table.UI:SetUIElementInteractable("Button", nextlevel, false)
-        lua_table.GO:SetActiveGameObject(false, retry)
-        lua_table.UI:SetUIElementInteractable("Button", retry, false)
-        lua_table.GO:SetActiveGameObject(false, only_mainmenu)
-        lua_table.UI:SetUIElementInteractable("Button", only_mainmenu, false)
-        lua_table.GO:SetActiveGameObject(false, only_retry)
-        lua_table.UI:SetUIElementInteractable("Button", only_retry, false)
-
-        --unpause game
-        lua_table.System:ResumeGame()
-
-        --load next level (level 2)
-
-        last_checkpoint = 0
-        load_level2 = true
-    end
-
-    function lua_table:GoToRetry()
-        --reset variables
-        select_ui = false
-        is_win = false
-        win_flag = false
-        fade_flag = false
-        fade_alpha = 0
-
-        --set ui inactive
-        lua_table.GO:SetActiveGameObject(false, win)
-        lua_table.GO:SetActiveGameObject(false, fade)
-        lua_table.GO:SetActiveGameObject(false, background)
-        lua_table.UI:SetUIElementInteractable("Button", mainmenu, false)
-        lua_table.GO:SetActiveGameObject(false, nextlevel)
-        lua_table.UI:SetUIElementInteractable("Button", nextlevel, false)
-        lua_table.GO:SetActiveGameObject(false, retry)
-        lua_table.UI:SetUIElementInteractable("Button", retry, false)
-        lua_table.GO:SetActiveGameObject(false, only_mainmenu)
-        lua_table.UI:SetUIElementInteractable("Button", only_mainmenu, false)
-        lua_table.GO:SetActiveGameObject(false, only_retry)
-        lua_table.UI:SetUIElementInteractable("Button", only_retry, false)
-
-        --unpause game
-        lua_table.System:ResumeGame()
-
-        --reload level
-        last_checkpoint = 0
-        if lua_table.current_level == 1 and load_level1 == false
-        then
-            load_level1 = true
-        elseif lua_table.current_level == 2 and load_level2 == false
-        then
-            load_level2 = true
         end
     end
 
@@ -428,12 +308,6 @@ function GetTableWinLose()
         win = lua_table.GO:FindGameObject("Victory")
         lose = lua_table.GO:FindGameObject("Defeat")
         fade = lua_table.GO:FindGameObject("Fade")
-        mainmenu = lua_table.GO:FindGameObject("MainMenu")
-        nextlevel = lua_table.GO:FindGameObject("NextLevel")
-        retry = lua_table.GO:FindGameObject("Retry")
-        only_mainmenu = lua_table.GO:FindGameObject("OnlyMainMenu")
-        only_retry = lua_table.GO:FindGameObject("OnlyRetry")
-        background = lua_table.GO:FindGameObject("WL_Background")
 
         --Geralt
         Geralt = lua_table.GO:FindGameObject("Geralt")
@@ -480,17 +354,7 @@ function GetTableWinLose()
         lua_table.GO:SetActiveGameObject(false, win)
         lua_table.GO:SetActiveGameObject(false, fade)
         lua_table.GO:SetActiveGameObject(false, background)
-        lua_table.GO:SetActiveGameObject(false, mainmenu)
-        lua_table.UI:SetUIElementInteractable("Button", mainmenu, false)
-        lua_table.GO:SetActiveGameObject(false, nextlevel)
-        lua_table.UI:SetUIElementInteractable("Button", nextlevel, false)
-        lua_table.GO:SetActiveGameObject(false, retry)
-        lua_table.UI:SetUIElementInteractable("Button", retry, false)
-        lua_table.GO:SetActiveGameObject(false, only_mainmenu)
-        lua_table.UI:SetUIElementInteractable("Button", only_mainmenu, false)
-        lua_table.GO:SetActiveGameObject(false, only_retry)
-        lua_table.UI:SetUIElementInteractable("Button", only_retry, false)
-
+        
         loading_UID = lua_table.GO:FindGameObject("LoadingScreenCanvas")
     end
 
@@ -581,16 +445,8 @@ function GetTableWinLose()
             is_lose = false
             if load_timer >= 1 
             then
-                if restart == true
-                then
-                    lua_table.Scene:LoadScene(lua_table.level1_uid)
-                    restart = false
-                    load_level1 = false
-                else
-                    next_scene_score = lua_table.level1_uid
-                    lua_table.Scene:LoadScene(lua_table.score)
-                    load_level1 = false
-                end
+                load_level1 = false
+                lua_table.Scene:LoadScene(lua_table.level1_uid)
             else 
                 lua_table.GO:SetActiveGameObject(true, loading_UID)
             end 
@@ -600,84 +456,28 @@ function GetTableWinLose()
             is_lose = false
             if load_timer >= 1 
             then
-                if restart == true
-                then
-                    restart = false
-                    load_level2 = false
-                    lua_table.Scene:LoadScene(lua_table.level2_uid)
-                else
-                    load_level2 = false
-                    next_scene_score = lua_table.level2_uid
-                    lua_table.Scene:LoadScene(lua_table.score)
-                end
+                load_level2 = false
+                lua_table.Scene:LoadScene(lua_table.level2_uid)
             else 
                 lua_table.GO:SetActiveGameObject(true, loading_UID)
             end
-        elseif load_mainmenu == true
+        elseif load_score == true
         then
             load_timer = load_timer + lua_table.System:DT()
             if load_timer >= 1 
             then
-                load_mainmenu = false
-                next_scene_score = lua_table.mm_uid
+                if current_level == 1
+                then
+                    current_scene_score = 1
+                elseif current_level == 2
+                then
+                    current_scene_score = 2
+                end
                 lua_table.Scene:LoadScene(lua_table.score)
             else 
                 lua_table.GO:SetActiveGameObject(true, loading_UID)
             end
         end
-
-        -- controllers
-        if select_ui == true 
-        then
-            if lua_table.current_level == 1
-            then
-                Buttons = {
-                    MAINMENU = 1,
-                    NEXTLEVEL = 2,
-                    RETRY = 3
-                }
-                currentButton = Buttons.MAINMENU
-            elseif lua_table.current_level == 2
-            then
-                Buttons = {
-                    MAINMENU = 1,
-                    RETRY = 2
-                }
-                currentButton = Buttons.MAINMENU
-            end
-
-            if lua_table.Input:IsGamepadButton(1, "BUTTON_A", "DOWN") or lua_table.Input:IsGamepadButton(2, "BUTTON_A", "DOWN")
-            then
-                if currentButton == Buttons.MAINMENU
-                then
-                    lua_table:GoToMainMenu()			
-                elseif currentButton == Buttons.NEXTLEVEL
-                then
-                    lua_table:GoToNextLevel()			
-                elseif currentButton == Buttons.RETRY
-                then
-                    lua_table:GoToRetry()
-                end
-            end
-			if lua_table.Input:IsGamepadButton(1, "BUTTON_DPAD_RIGHT", "DOWN") or lua_table.Input:IsGamepadButton(2, "BUTTON_DPAD_RIGHT", "DOWN")
-			then 
-				lua_table.Audio:PlayAudioEvent("Play_Mouse_over")
-				currentButton = currentButton + 1
-				if currentButton >= Buttons.RETRY
-				then
-					currentButton = Buttons.RETRY
-				end
-			end
-			if lua_table.Input:IsGamepadButton(1, "BUTTON_DPAD_LEFT", "DOWN") or lua_table.Input:IsGamepadButton(2, "BUTTON_DPAD_LEFT", "DOWN")
-			then 
-				lua_table.Audio:PlayAudioEvent("Play_Mouse_over")
-				currentButton = currentButton - 1
-				if currentButton <= Buttons.MAINMENU
-				then
-					currentButton = Buttons.MAINMENU
-				end
-			end
-		end
     end
 
     return lua_table
