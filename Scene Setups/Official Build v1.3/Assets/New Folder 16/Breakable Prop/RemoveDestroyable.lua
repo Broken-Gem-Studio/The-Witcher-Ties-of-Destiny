@@ -24,7 +24,7 @@ function lua_table:Update()
 	if current_time - passed_time > 5
 	then
 		if deactivated == 0 then
-			--lua_table.Physics:SetActiveCollider(false,lua_table.myUID)
+			lua_table.Physics:SetActiveCollider(false,lua_table.myUID)
 			deactivated = 1
 		end
 		lua_table.scale = lua_table.scale - 0.0001 * 2

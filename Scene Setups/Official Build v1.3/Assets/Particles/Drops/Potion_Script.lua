@@ -20,10 +20,10 @@ end
 
 function lua_table:Update()
 local current_time = lua_table.System:GameTime()
-	if current_time - passed_time > 3
+	if current_time - passed_time > 2
 	then
-		--lua_table.Physics:FreezePositionX(true,lua_table.myUID)
-		--lua_table.Physics:FreezePositionX(true,lua_table.myUID)
+		lua_table.Physics:FreezePositionX(true,lua_table.myUID)
+		lua_table.Physics:FreezePositionZ(true,lua_table.myUID)
 	end
 	if current_time - passed_time > 120
 	then
