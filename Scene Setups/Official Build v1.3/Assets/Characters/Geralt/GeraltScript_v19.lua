@@ -27,6 +27,7 @@ local game_paused = false
 --Debug
 local keyboard_mode = false
 local godmode = false
+lua_table.immortal = false
 
 --GO UIDs
 local geralt_GO_UID
@@ -2253,7 +2254,9 @@ local function ProcessIncomingHit(collider_GO)
 			enemy_script = lua_table.GameObjectFunctions:GetScript(collider_GO)
 		end
 
-		lua_table.current_health = lua_table.current_health - enemy_script.collider_damage
+		if not lua_table.immortal then
+			lua_table.current_health = lua_table.current_health - enemy_script.collider_damage
+		end
 
 		lua_table.AudioFunctions:PlayAudioEventGO(audio_library.hurt, geralt_GO_UID)	--TODO-AUDIO:
 		--current_audio = audio_library.hurt
