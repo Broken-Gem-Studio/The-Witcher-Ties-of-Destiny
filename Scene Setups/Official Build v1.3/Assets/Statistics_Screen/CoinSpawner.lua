@@ -18,29 +18,29 @@ lua_table.InputFunctions = Scripting.Inputs()
 -- local CurrentPhase = 0
 -- local phasetochange = false
 
---Good Scores
-jaskier_score = {
-    5873,--damage_dealt  --Exception, this numbers value_per_instance ratio is 1, since this will collect the real value already
-	43, --minion_kills
-	11,  --special_kills
-    32, --incapacitations
-    23,  --objects destroyed         
-	0,  --chests opened
-	8,  --potions_shared
-	12   --ally_revived
-}
+-- --Good Scores
+-- geralt_score = {
+--     5873,--damage_dealt  --Exception, this numbers value_per_instance ratio is 1, since this will collect the real value already
+-- 	43, --minion_kills
+-- 	11,  --special_kills
+--     32, --incapacitations
+--     23,  --objects destroyed         
+-- 	0,  --chests opened
+-- 	8,  --potions_shared
+-- 	12   --ally_revived
+-- }
 
---Bad Scores
-geralt_score = {
-	2571, --damage_dealt  --Exception, this numbers value_per_instance ratio is 1, since this will collect the real value already
-	17,  --minion_kills
-	11,   --special_kills
-    8,   --incapacitations
-    3,  --objects destroyed
-	6,   --chests opened
-	3,  --potions_shared
-	0    --ally_revived
-}
+-- --Bad Scores
+-- jaskier_score = {
+-- 	2571, --damage_dealt  --Exception, this numbers value_per_instance ratio is 1, since this will collect the real value already
+-- 	17,  --minion_kills
+-- 	11,   --special_kills
+--     8,   --incapacitations
+--     3,  --objects destroyed
+-- 	6,   --chests opened
+-- 	3,  --potions_shared
+-- 	0    --ally_revived
+-- }
 
 --SCOREBOARD DATA
 local scoreboard_data = {
@@ -369,6 +369,34 @@ local function CharacterUIStartSetup(character_data)
 end
 
 function lua_table:Awake()
+    --FAILSAVE
+    --Scoreboard Setup (if not done yet)
+	if geralt_score == nil then
+		geralt_score = {
+			0,  --damage_dealt  --Exception, this numbers value_per_instance ratio is 1:1, since this will collect the real value already
+			0,  --minion_kills
+			0,  --special_kills
+			0,  --incapacitations
+			0,  --objects_destroyed
+			0,	--chests opened
+			0,  --potions_shared
+			0   --ally_revived
+		}
+    end
+    --Scoreboard Setup (if not done yet)
+	if jaskier_score == nil then
+		jaskier_score = {
+			0,  --damage_dealt  --Exception, this numbers value_per_instance ratio is 1:1, since this will collect the real value already
+			0,  --minion_kills
+			0,  --special_kills
+			0,  --incapacitations
+			0,  --objects_destroyed
+			0,	--chests opened
+			0,  --potions_shared
+			0   --ally_revived
+		}
+	end
+
     --Assign Controller
     if player1_focus ~= nil and player1_focus == character_ID.geralt 
     or player2_focus ~= nil and player2_focus == character_ID.jaskier

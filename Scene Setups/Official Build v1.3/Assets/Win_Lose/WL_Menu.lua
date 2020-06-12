@@ -90,8 +90,6 @@ local select = {
 --     end
 -- end
 
-current_scene_score = 1
-
 function lua_table:ShowMenu()
     lua_table.UI:MakeElementVisible("Image", background)
     lua_table.UI:MakeElementVisible("Image", mainmenu)
@@ -118,6 +116,9 @@ function lua_table:ShowMenu()
 end
 
 function lua_table:Awake()
+    --Failsave
+    if current_scene_score == nil then current_scene_score = 1 end
+
     mainmenu = lua_table.GO:FindGameObject("MainMenu")
     nextlevel = lua_table.GO:FindGameObject("NextLevel")
     retry = lua_table.GO:FindGameObject("Retry")
