@@ -30,7 +30,6 @@ function GetTableTutorialCinematicCameraScript()
     local warrior3 = 0
 
     local recruit_bridge1 = 0
-    local recruit_bridge2 = 0
     local lumber_bridge = 0
 
     local disable_fight = true
@@ -110,7 +109,6 @@ function GetTableTutorialCinematicCameraScript()
         recruit2 = lua_table.GameObject:FindGameObject("Recruit_Gank")
         -- Bridge recruits
         recruit_bridge1 = lua_table.GameObject:FindGameObject("Recruit_Bridge1")
-        recruit_bridge2 = lua_table.GameObject:FindGameObject("Recruit_Bridge2")
         lumber_bridge = lua_table.GameObject:FindGameObject("Lumber_Bridge")
 
         warrior1 = lua_table.GameObject:FindGameObject("Warrior_City1")
@@ -125,7 +123,6 @@ function GetTableTutorialCinematicCameraScript()
         lua_table.GameObject:SetActiveGameObject(false, recruit2)
 
         lua_table.GameObject:SetActiveGameObject(false, recruit_bridge1)
-        lua_table.GameObject:SetActiveGameObject(false, recruit_bridge2)
         lua_table.GameObject:SetActiveGameObject(false, lumber_bridge)
 
         --Play music
@@ -194,7 +191,6 @@ function GetTableTutorialCinematicCameraScript()
             lua_table.GameObject:SetActiveGameObject(true, recruit2)
 
             lua_table.GameObject:SetActiveGameObject(true, recruit_bridge1)
-            lua_table.GameObject:SetActiveGameObject(true, recruit_bridge2)
             lua_table.GameObject:SetActiveGameObject(true, lumber_bridge)
         end
 
