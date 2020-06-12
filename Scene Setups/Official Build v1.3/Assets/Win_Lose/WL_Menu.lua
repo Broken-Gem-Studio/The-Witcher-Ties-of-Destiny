@@ -17,7 +17,8 @@ local scene_to_load = {}
 local has_to_load = false
 local currentButton = 1
 
-local loading = 0
+local loading = {}
+local background = 0
 local credits = 0
 local mainmenu = 0
 local nextlevel = 0
@@ -123,12 +124,12 @@ function lua_table:Awake()
     nextlevel = lua_table.GO:FindGameObject("NextLevel")
     retry = lua_table.GO:FindGameObject("Retry")
     background = lua_table.GO:FindGameObject("WL_Background")
-    loading = lua_table.GO:FindGameObject("Loading")
+    loading_GO = lua_table.GO:FindGameObject("LoadingScreenCanvas")
     --credits = lua_table.GO:FindGameObject("Credits")
 
+    loading = { lua_table.GO:FindGameObject("LoadingScreen_BG"), lua_table.GO:FindGameObject("TheWitcher_Wolf"), lua_table.GO:FindGameObject("FakeLoadingImage") }
     --set elements inactive
     lua_table.UI:MakeElementInvisible("Image", background)
-    lua_table.UI:MakeElementInvisible("Image", loading)
 
     lua_table.UI:MakeElementInvisible("Image", mainmenu)
     lua_table.UI:SetUIElementInteractable("Button", mainmenu, false)
@@ -151,6 +152,10 @@ function lua_table:Awake()
 
     for i = 1, #select do
         select[i] = lua_table.GO:FindGameObject("Select_" .. i)
+    end
+
+    for i = 1, #loading do
+        lua_table.UI:MakeElementInvisible("Image", loading[i])
     end
 
     lua_table.GO:SetActiveGameObject(false, lua_table.GO:GetMyUID())
@@ -195,8 +200,10 @@ function lua_table:Update()
             --lua_table.UI:SetUIElementInteractable("Button", credits, false)
         end
 
-        lua_table.UI:MakeElementVisible("Image", loading)
         lua_table.UI:MakeElementInvisible("Image", select[currentButton])
+        for i = 1, #loading do
+            lua_table.UI:MakeElementVisible("Image", loading[i])
+        end
         has_to_load = true
 
     elseif has_to_load then

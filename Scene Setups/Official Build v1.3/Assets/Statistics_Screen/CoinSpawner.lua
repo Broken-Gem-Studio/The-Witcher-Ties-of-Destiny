@@ -460,7 +460,7 @@ function lua_table:Update()
     CharacterIdleAnim(geralt_GO_data)
     CharacterIdleAnim(jaskier_GO_data)
 
-    if not geralt_player.skipped or not jaskier_player.skipped then
+    if current_phase < (total_phases + 1) and (not geralt_player.skipped or not jaskier_player.skipped) then
         CheckPlayerSkip(geralt_player, geralt_GO_data)
         CheckPlayerSkip(jaskier_player, jaskier_GO_data)
 
