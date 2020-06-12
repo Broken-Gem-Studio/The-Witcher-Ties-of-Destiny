@@ -44,13 +44,13 @@ lua_table.InputFunctions = Scripting.Inputs()
 
 --SCOREBOARD DATA
 local scoreboard_data = {
-	{ coin_ratio = 0.003, score_value = 1, title_start = "", title_end = " damage dealed", title_phase = "That's gotta hurt!" },                 --damage_dealt
-	{ coin_ratio = 0.3, score_value = 100, title_start = "", title_end = " minions killed", title_phase = "And stay down!" },                   --minion_kills
-	{ coin_ratio = 1.0, score_value = 300, title_start = "", title_end = " special enemies killed", title_phase = "The bigger they are..." },   --special_kills
-    { coin_ratio = 0.5, score_value = 50, title_start = "", title_end = " enemies incapacitated", title_phase = "Crowd controller!" },            --incapacitations
-    { coin_ratio = 0.5, score_value = 20, title_start = "", title_end = " objects destroyed", title_phase = "Collateral damage!" },               --objects_destroyed
-    { coin_ratio = 2.0, score_value = 500, title_start = "", title_end = " secret chests found", title_phase = "Jackpot!" },                      --chests opened
-	{ coin_ratio = 1.0, score_value = 200, title_start = "Potions shared ", title_end = " times with ally", title_phase = "Sharing is caring!" }, --items_shared
+	{ coin_ratio = 0.0034, score_value = 1, title_start = "", title_end = " damage dealed", title_phase = "That's gotta hurt!" },                 --damage_dealt
+	{ coin_ratio = 0.34, score_value = 100, title_start = "", title_end = " minions killed", title_phase = "And stay down!" },                   --minion_kills
+	{ coin_ratio = 0.5, score_value = 150, title_start = "", title_end = " special enemies killed", title_phase = "The bigger they are..." },   --special_kills
+    { coin_ratio = 0.25, score_value = 75, title_start = "", title_end = " enemies incapacitated", title_phase = "Crowd controller!" },            --incapacitations
+    { coin_ratio = 0.2, score_value = 60, title_start = "", title_end = " objects destroyed", title_phase = "Collateral damage!" },               --objects_destroyed
+    { coin_ratio = 2.0, score_value = 600, title_start = "", title_end = " secret chests found", title_phase = "Jackpot!" },                      --chests opened
+	{ coin_ratio = 0.5, score_value = 150, title_start = "Potions shared ", title_end = " times with ally", title_phase = "Sharing is caring!" }, --items_shared
 	{ coin_ratio = 1.0, score_value = 300, title_start = "Revived ally ", title_end = " times", title_phase = "No one left behind!" }             --ally_revived
 }
 
@@ -137,8 +137,8 @@ local character_winner = nil
 lua_table.coins_finished = 0
 
 local phase_title = ""
-local geralt_results = { coins = 0, result_score = 0, result_title = "", }
-local jaskier_results = { coins = 0, result_score = 0, result_title = "", }
+local geralt_results = { coins = 0, result_score = 0, result_title = "" }
+local jaskier_results = { coins = 0, result_score = 0, result_title = "" }
 
 --FUNCTIONS
 local function InstantiateCoin(spawn_position, prefab_UID)
@@ -150,13 +150,13 @@ local function CalculateCoinsToThrow(character_score, current_phase)
 end
 
 local function CalculateCharacterResults(character_results, character_score, character_data, current_phase)
-    character_results.result_title = scoreboard_data[current_phase].title_start .. character_score[current_phase] .. scoreboard_data[current_phase].title_end
+    character_results.result_title = scoreboard_data[current_phase].title_start .. math.floor(character_score[current_phase]) .. scoreboard_data[current_phase].title_end
     character_results.result_score = scoreboard_data[current_phase].score_value * character_score[current_phase]
 
     if current_phase < total_phases - 1 then
-        lua_table.UIFunctions:SetText("" .. character_score[current_phase], character_data.text_units_UI)
+        lua_table.UIFunctions:SetText("" .. math.floor(character_score[current_phase]), character_data.text_units_UI)
     else
-        lua_table.UIFunctions:SetText("" .. character_score[current_phase], character_data.secondary_text_units_UI)
+        lua_table.UIFunctions:SetText("" .. math.floor(character_score[current_phase]), character_data.secondary_text_units_UI)
     end
     lua_table.UIFunctions:SetText("Score: " .. character_results.result_score, character_data.text_score_UI)
 end
@@ -173,9 +173,9 @@ local function CalculatePhaseData(current_phase)
     if jaskier_results.coins == 0 then lua_table.coins_finished = lua_table.coins_finished + 1 end
 end
 
-local function CalculateWinner(geralt_score, jaskier_score)
-    if geralt_score > jaskier_score then character_winner = geralt_GO_data
-    elseif geralt_score < jaskier_score then character_winner = jaskier_GO_data
+local function CalculateWinner(geralt_param_score, jaskier_param_score)
+    if geralt_param_score > jaskier_param_score then character_winner = geralt_GO_data
+    elseif geralt_param_score < jaskier_param_score then character_winner = jaskier_GO_data
     else character_winner = nil end
 end
 
@@ -190,8 +190,8 @@ local function DecideFinalWinner()
     local jaskier_final_score = 0
     
     for i = 1, total_phases, 1 do
-        geralt_final_score = scoreboard_data[i].score_value * geralt_score[i]
-        jaskier_final_score = scoreboard_data[i].score_value * jaskier_score[i]
+        geralt_final_score = geralt_final_score + scoreboard_data[i].score_value * geralt_score[i]
+        jaskier_final_score = jaskier_final_score + scoreboard_data[i].score_value * jaskier_score[i]
 
         geralt_score[i] = 0
         jaskier_score[i] = 0

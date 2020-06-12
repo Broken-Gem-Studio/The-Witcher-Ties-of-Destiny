@@ -80,12 +80,10 @@ function lua_table:Update ()
 		local geralt = lua_table.GameObjectFunctions:FindGameObject("Geralt")
 		local jaskier = lua_table.GameObjectFunctions:FindGameObject("Jaskier")
 
-		if script_player ~= nil and script_player ~= 0 then  
-			if jaskier == lua_table.Player and script_player.jaskier_score ~= nil then
-				script_player.jaskier_score[5] = script_player.jaskier_score[5] + 1
-			elseif geralt == lua_table.Player and script_player.geralt_score ~= nil then
-				script_player.geralt_score[5] = script_player.geralt_score[5] + 1
-			end
+		if jaskier == lua_table.player_owner and jaskier_score ~= nil then
+			jaskier_score[5] = jaskier_score[5] + 1
+		elseif geralt == lua_table.player_owner and geralt_score ~= nil then
+			geralt_score[5] = geralt_score[5] + 1
 		end
 
 		playParticles()
