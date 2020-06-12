@@ -150,13 +150,13 @@ local function CalculateCoinsToThrow(character_score, current_phase)
 end
 
 local function CalculateCharacterResults(character_results, character_score, character_data, current_phase)
-    character_results.result_title = scoreboard_data[current_phase].title_start .. character_score[current_phase] .. scoreboard_data[current_phase].title_end
-    character_results.result_score = math.floor(scoreboard_data[current_phase].score_value * character_score[current_phase])
+    character_results.result_title = scoreboard_data[current_phase].title_start .. math.floor(character_score[current_phase]) .. scoreboard_data[current_phase].title_end
+    character_results.result_score = scoreboard_data[current_phase].score_value * character_score[current_phase]
 
     if current_phase < total_phases - 1 then
-        lua_table.UIFunctions:SetText("" .. character_score[current_phase], character_data.text_units_UI)
+        lua_table.UIFunctions:SetText("" .. math.floor(character_score[current_phase]), character_data.text_units_UI)
     else
-        lua_table.UIFunctions:SetText("" .. character_score[current_phase], character_data.secondary_text_units_UI)
+        lua_table.UIFunctions:SetText("" .. math.floor(character_score[current_phase]), character_data.secondary_text_units_UI)
     end
     lua_table.UIFunctions:SetText("Score: " .. character_results.result_score, character_data.text_score_UI)
 end
@@ -173,9 +173,9 @@ local function CalculatePhaseData(current_phase)
     if jaskier_results.coins == 0 then lua_table.coins_finished = lua_table.coins_finished + 1 end
 end
 
-local function CalculateWinner(geralt_score, jaskier_score)
-    if geralt_score > jaskier_score then character_winner = geralt_GO_data
-    elseif geralt_score < jaskier_score then character_winner = jaskier_GO_data
+local function CalculateWinner(geralt_param_score, jaskier_param_score)
+    if geralt_param_score > jaskier_param_score then character_winner = geralt_GO_data
+    elseif geralt_param_score < jaskier_param_score then character_winner = jaskier_GO_data
     else character_winner = nil end
 end
 
@@ -190,8 +190,8 @@ local function DecideFinalWinner()
     local jaskier_final_score = 0
     
     for i = 1, total_phases, 1 do
-        geralt_final_score = scoreboard_data[i].score_value * geralt_score[i]
-        jaskier_final_score = scoreboard_data[i].score_value * jaskier_score[i]
+        geralt_final_score = geralt_final_score + scoreboard_data[i].score_value * geralt_score[i]
+        jaskier_final_score = jaskier_final_score + scoreboard_data[i].score_value * jaskier_score[i]
 
         geralt_score[i] = 0
         jaskier_score[i] = 0
