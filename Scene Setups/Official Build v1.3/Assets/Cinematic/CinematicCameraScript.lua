@@ -17,12 +17,8 @@ lua_table.NextScene = 0
 
 local Fade = 0
 
-local minion = 0
-local minion1 = 0
-local minion2 = 0
-local minion3 = 0
-local minion4 = 0
-local minion5 = 0
+local village_enemies = 0
+local kikimora_enemies = 0
 
 -- Camera position
 local offset = {}
@@ -103,23 +99,6 @@ local function GoTo(position, speed)
 end
 
 local function SkipButton()
-    --[[
-    -- Skip Scene code
-    if lua_table.skip_threshold <= 0.00 then
-       lua_table.skip_threshold = 0.00
-   end
-
-   if lua_table.Input:IsGamepadButton(1, "BUTTON_A", "REPEAT") and next_scene == true then
-       lua_table.skip_threshold = lua_table.skip_threshold + 0.4
-       if skip_button_is_being_pressed == false then
-        lua_table.Audio:PlayAudioEvent("Play_Pressed_Skip_Button")
-        skip_button_is_being_pressed = true
-   end
-   else 
-       lua_table.skip_threshold = lua_table.skip_threshold - 0.6
-       skip_button_is_being_pressed = false
-   end
-   --]]
 
     if lua_table.Input:IsGamepadButton(1, "BUTTON_A", "DOWN") then
         lua_table.Audio:PlayAudioEvent("Play_Skipped_Cinematic")
@@ -150,14 +129,10 @@ function lua_table:Start()
     --BarID = lua_table.GameObjectFunctions:FindGameObject("SkipBarForest")
     Fade = lua_table.GameObjectFunctions:FindGameObject("Fade")
 
-    minion = lua_table.GameObjectFunctions:FindGameObject("Minion_Ghoul")
-    minion1 = lua_table.GameObjectFunctions:FindGameObject("Minion_Ghoul1")
-    minion2 = lua_table.GameObjectFunctions:FindGameObject("Minion_Ghoul2")
-    minion3 = lua_table.GameObjectFunctions:FindGameObject("Minion_Ghoul3")
-    minion4 = lua_table.GameObjectFunctions:FindGameObject("Minion_Ghoul4")
-    minion5 = lua_table.GameObjectFunctions:FindGameObject("Minion_Ghoul5")
-
     loading_screen = lua_table.GameObjectFunctions:FindGameObject("LoadingScreenCanvas")
+
+    village_enemies = lua_table.GameObjectFunctions:FindGameObject("EnemiesVillage")
+    kikimora_enemies = lua_table.GameObjectFunctions:FindGameObject("EnemiesKikimora")
 
     lua_table.Audio:PlayAudioEvent("Play_lvl2_Intro_conversation_Cutscene")
     lua_table.Audio:PlayAudioEvent("Play_Lvl2_Ambience_Wind_Loop")
@@ -190,7 +165,6 @@ function lua_table:Update()
 
                 actual_scene_timer = lua_table.System:GameTime() * 1000
                 next_scene = true
-                lua_table.System:LOG ("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
 
 
                 fade_button = false
@@ -225,15 +199,10 @@ function lua_table:Update()
                 FadeOut1 = false
                 FadeIn2 = true
                 FadeIn2_Time = time
+                lua_table.GameObjectFunctions:SetActiveGameObject(false, village_enemies)
+                lua_table.GameObjectFunctions:SetActiveGameObject(true, kikimora_enemies)
                 lua_table.Transform:SetPosition(889.392, 23.327, -365.724, lua_table.GameObjectFunctions:GetMyUID())
                 lua_table.Transform:SetObjectRotation(159.255, 0, 180.000, lua_table.GameObjectFunctions:GetMyUID())
-    
-                lua_table.GameObjectFunctions:SetActiveGameObject(false, minion)
-                lua_table.GameObjectFunctions:SetActiveGameObject(false, minion1)
-                lua_table.GameObjectFunctions:SetActiveGameObject(false, minion2)
-                lua_table.GameObjectFunctions:SetActiveGameObject(false, minion3)
-                lua_table.GameObjectFunctions:SetActiveGameObject(false, minion4)
-                lua_table.GameObjectFunctions:SetActiveGameObject(false, minion5)
             end
         end
     
@@ -264,6 +233,7 @@ function lua_table:Update()
                 FadeOut2 = false
                 FadeIn3 = true
                 FadeIn3_Time = time
+                lua_table.GameObjectFunctions:SetActiveGameObject(false, kikimora_enemies)
                 lua_table.Transform:SetPosition(345.595, 37.109, -332.500, lua_table.GameObjectFunctions:GetMyUID())
                 lua_table.Transform:SetObjectRotation(42.666, 74.933, -41.272, lua_table.GameObjectFunctions:GetMyUID())
             end
