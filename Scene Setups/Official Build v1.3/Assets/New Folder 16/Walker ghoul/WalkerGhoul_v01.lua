@@ -525,9 +525,10 @@ local function ReceiveEffect(player_table, attackState)
         lastTimeStunned = lua_table.SystemFunctions:GameTime()
         if player_table.collider_stun_duration ~= 0
         then
-            stunTime = player_table.collider_stun_duration
+            stunTime = player_table.collider_stun_duration / 1000
         end
         PlayParticles(lua_table.StunEmitter_UUID)
+        lua_table.AnimationFunctions:PlayAnimation("Idle", 30, MyUUID) 
 
 	elseif player_table.collider_effect == Effect.KNOCKBACK
     then
