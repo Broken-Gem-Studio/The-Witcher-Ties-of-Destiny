@@ -158,7 +158,7 @@ local function CalculateCharacterResults(character_results, character_score, cha
     else
         lua_table.UIFunctions:SetText("" .. math.floor(character_score[current_phase]), character_data.secondary_text_units_UI)
     end
-    lua_table.UIFunctions:SetText("Score: " .. character_results.result_score, character_data.text_score_UI)
+    lua_table.UIFunctions:SetText("Score: " .. math.floor(character_results.result_score), character_data.text_score_UI)
 end
 
 local function CalculatePhaseData(current_phase)
