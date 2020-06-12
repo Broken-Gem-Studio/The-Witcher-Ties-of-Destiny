@@ -177,7 +177,7 @@ function lua_table:Update()
     then
         
         for i = 1, #spawned_enemies do
-            if lua_table.GO:GetLayerByID(spawnedEnemies[i]) == -1 
+            if lua_table.GO:GetLayerByID(spawned_enemies[i]) == -1 
             then
                 lua_table.auxCounter = lua_table.auxCounter - 1
             end

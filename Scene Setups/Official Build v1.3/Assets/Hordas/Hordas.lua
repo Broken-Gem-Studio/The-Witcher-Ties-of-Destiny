@@ -129,6 +129,7 @@ function lua_table:Update()
     time = time + lua_table.System:DT()
     delay_time = delay_time + lua_table.System:DT()
     
+    lua_table.System:LOG(next_round .. "..." .. last_round)
     if next_round > last_round
     then
         lua_table.begin = false
@@ -155,7 +156,7 @@ function lua_table:Update()
                     if round0_script.is_finished == false
                     then
                         round0_script:Spawn()
-                        lua_table.System:LOG("SPAWN HORDAS")
+                        lua_table.System:LOG("SPAWN 1")
                     elseif round0_script.is_finished == true and round0_script.auxCounter == 0 then
                         next_round = next_round + 1
                         delay = true
@@ -165,6 +166,7 @@ function lua_table:Update()
                 then
                     if round1_script.is_finished == false
                     then
+                        lua_table.System:LOG("SPAWN 2")
                         round1_script:Spawn()
                     elseif round1_script.is_finished == true and round1_script.auxCounter == 0 then
                         next_round = next_round + 1
@@ -175,6 +177,7 @@ function lua_table:Update()
                 then
                     if round2_script.is_finished == false
                     then
+                        lua_table.System:LOG("SPAWN 3")
                         round2_script:Spawn()
                     elseif round2_script.is_finished == true and round2_script.auxCounter == 0 then
                         next_round = next_round + 1
@@ -183,6 +186,7 @@ function lua_table:Update()
                     end
                 elseif next_round == 3 and round3 > 0 --round 3
                 then
+                        lua_table.System:LOG("SPAWN 4")
                     if round3_script.is_finished == false
                     then
                         round3_script:Spawn()
@@ -195,6 +199,7 @@ function lua_table:Update()
                 then
                     if round4_script.is_finished == false
                     then
+                        lua_table.System:LOG("SPAWN 5")
                         round4_script:Spawn()
                     elseif round4_script.is_finished == true and round4_script.auxCounter == 0 then
                         next_round = next_round + 1
@@ -205,6 +210,7 @@ function lua_table:Update()
                 then
                     if round5_script.is_finished == false
                     then
+                        lua_table.System:LOG("SPAWN 6")
                         round5_script:Spawn()
                    elseif round5_script.is_finished == true and round5_script.auxCounter == 0 then
                         next_round = next_round + 1
@@ -215,6 +221,7 @@ function lua_table:Update()
                 then
                     if round6_script.is_finished == false
                     then
+                        lua_table.System:LOG("SPAWN 7")
                         round6_script:Spawn()
                     elseif round6_script.is_finished == true and round6_script.auxCounter == 0 then
                         next_round = next_round + 1
@@ -225,6 +232,7 @@ function lua_table:Update()
                 then
                     if round7_script.is_finished == false
                     then
+                        lua_table.System:LOG("SPAWN 8")
                         round7_script:Spawn()
                     elseif round7_script.is_finished == true and round7_script.auxCounter == 0 then
                         next_round = next_round + 1
@@ -236,6 +244,7 @@ function lua_table:Update()
                     if round8_script.is_finished == false
                     then
                         round8_script:Spawn()
+                        lua_table.System:LOG("SPAWN 9")
                     elseif round8_script.is_finished == true and round8_script.auxCounter == 0 then
                         next_round = next_round + 1
                         delay = true
