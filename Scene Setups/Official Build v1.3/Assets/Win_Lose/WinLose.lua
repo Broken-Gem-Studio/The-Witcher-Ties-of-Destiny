@@ -466,10 +466,10 @@ function GetTableWinLose()
             load_timer = load_timer + lua_table.System:DT()
             if load_timer >= 1 
             then
-                if current_level == 1
+                if lua_table.current_level == 1
                 then
                     current_scene_score = 1
-                elseif current_level == 2
+                elseif lua_table.current_level == 2
                 then
                     current_scene_score = 2
                 end
