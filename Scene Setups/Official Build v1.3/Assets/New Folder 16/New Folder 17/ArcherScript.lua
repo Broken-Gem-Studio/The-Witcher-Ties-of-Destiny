@@ -807,7 +807,11 @@ function lua_table:Update()
                 end
                 
                 if found_score_table == true then
-                    character_score[3] = character_score[3] + 1
+                    if last_player_hit == Geralt_ID then
+                        geralt_score[3] = geralt_score[3] + 1
+                    else
+                        jaskier_score[3] = jaskier_score[3] + 1
+                    end
                 end
                
 
