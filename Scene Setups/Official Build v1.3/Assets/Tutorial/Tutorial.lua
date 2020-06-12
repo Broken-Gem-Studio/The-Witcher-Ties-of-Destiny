@@ -9,6 +9,7 @@ lua_table.InterfaceFunctions = Scripting.Interface()
 lua_table.SceneFunctions = Scripting.Scenes()
 lua_table.AnimationFunctions = Scripting.Animations()
 lua_table.PhysicsFunctions = Scripting.Physics()
+lua_table.Audio = Scripting.Audio()
 
 ------------------------------------------------------------------------------
 -- VARIABLES
@@ -301,6 +302,10 @@ local function Step2()
     if geraltAttackY == true and geraltAttackB == true and jaskierAttackY == true and jaskierAttackB == true and geraltAttackHeavy == true and jaskierAttackHeavy == true
     then
         lua_table.AnimationFunctions:PlayAnimation("open", 30, doorsGO.door1)
+
+         --Play the Sound Effect for the door opening
+         lua_table.Audio:PlayAudioEventGO("Play_Door_new_sound", lua_table.MyUUID)
+
         lua_table.ObjectFunctions:SetActiveGameObject(false, doorsColliders.door1)
 
         lua_table.InterfaceFunctions:MakeElementInvisible("Image", littleCards.dummy)
@@ -324,6 +329,10 @@ local function Step4()
     if scriptSpawnerStep4.auxCounter == 0 and checkStep4 == true
     then
         lua_table.AnimationFunctions:PlayAnimation("open", 30, doorsGO.door2)
+
+        --Play the Sound Effect for the door opening
+        lua_table.Audio:PlayAudioEventGO("Play_Door_new_sound", lua_table.MyUUID)
+        
         lua_table.ObjectFunctions:SetActiveGameObject(false, doorsColliders.door2)
         lua_table.InterfaceFunctions:MakeElementInvisible("Image", littleCards.enemy)
         lua_table.ObjectFunctions:SetActiveGameObject(true, spawnerStep6_1)

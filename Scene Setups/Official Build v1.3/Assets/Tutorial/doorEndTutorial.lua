@@ -4,6 +4,8 @@ lua_table.SystemFunctions = Scripting.System()
 lua_table.ObjectFunctions = Scripting.GameObject()
 lua_table.AnimationFunctions = Scripting.Animations()
 
+lua_table.door_unlocked = false
+
 local recruiterGO = 0
 local archerGO = 0
 local tutorialGO = 0
@@ -37,6 +39,10 @@ function lua_table:Update()
         if recruiterGO == 0 and archerGO == 0 and firstEnemy == true
         then
             lua_table.AnimationFunctions:PlayAnimation("open", 30, doorGO)
+
+            --Door unlocked, this bool serves for other scripts
+            lua_table.door_unlocked = true
+
             lua_table.ObjectFunctions:SetActiveGameObject(false, doorCollider)
             lua_table.ObjectFunctions:SetActiveGameObject(true, spawnerGO)
             doorOpened = true
