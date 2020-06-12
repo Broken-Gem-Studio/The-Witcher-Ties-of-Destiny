@@ -1797,6 +1797,9 @@ local function HandleLeashRightAttack()
                 for i = 1, #particles.groundslam_leash_right.part_childs do
                     lua_table.ParticlesFunctions:PlayParticleEmitter(particles.groundslam_leash_right.part_childs[i])
                 end
+
+                -- AUDIO PLAY
+                lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_lash", my_UID) 
             end
 
             if game_time >= attack_tired_timer and attack_tired_timer ~= -1--Check if execution is finished
@@ -1813,9 +1816,6 @@ local function HandleLeashRightAttack()
 
                 -- Deactivates Collider
                 lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_collider.leash_right.coll_UID)
-
-                -- AUDIO PLAY
-                lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_lash", my_UID) 
                 
                 -- Camera shake
                 lua_table.camera_script.camera_shake_activated = true
