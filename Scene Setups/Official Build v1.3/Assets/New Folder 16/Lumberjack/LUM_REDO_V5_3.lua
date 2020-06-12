@@ -212,7 +212,6 @@ end
 
 
 local function CalculateDistanceTo(Position)
-	
 	A = Position[1] - MyPosition[1]	
 	B = Position[3] - MyPosition[3]
 	Distance = math.sqrt(A^2+B^2)
@@ -399,8 +398,8 @@ local function PlayersArround() --Returns a boolean if players are or not arroun
 	
 	ret = false
 
-	lua_table.Geralt_UID = lua_table.GameObjectFunctions:FindGameObject(lua_table.player_1)
-    lua_table.Jaskier_UID = lua_table.GameObjectFunctions:FindGameObject(lua_table.player_2)
+	lua_table.Geralt_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt")
+    lua_table.Jaskier_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier")
 
 	if lua_table.Geralt_UID ~= 0
 	then
