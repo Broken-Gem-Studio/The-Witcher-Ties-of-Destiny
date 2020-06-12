@@ -18,29 +18,29 @@ lua_table.InputFunctions = Scripting.Inputs()
 -- local CurrentPhase = 0
 -- local phasetochange = false
 
---Good Scores
-geralt_score = {
-    5873,--damage_dealt  --Exception, this numbers value_per_instance ratio is 1, since this will collect the real value already
-	43, --minion_kills
-	11,  --special_kills
-    32, --incapacitations
-    23,  --objects destroyed         
-	0,  --chests opened
-	8,  --potions_shared
-	12   --ally_revived
-}
+-- --Good Scores
+-- geralt_score = {
+--     5873,--damage_dealt  --Exception, this numbers value_per_instance ratio is 1, since this will collect the real value already
+-- 	43, --minion_kills
+-- 	11,  --special_kills
+--     32, --incapacitations
+--     23,  --objects destroyed         
+-- 	0,  --chests opened
+-- 	8,  --potions_shared
+-- 	12   --ally_revived
+-- }
 
---Bad Scores
-jaskier_score = {
-	2571, --damage_dealt  --Exception, this numbers value_per_instance ratio is 1, since this will collect the real value already
-	17,  --minion_kills
-	11,   --special_kills
-    8,   --incapacitations
-    3,  --objects destroyed
-	6,   --chests opened
-	3,  --potions_shared
-	0    --ally_revived
-}
+-- --Bad Scores
+-- jaskier_score = {
+-- 	2571, --damage_dealt  --Exception, this numbers value_per_instance ratio is 1, since this will collect the real value already
+-- 	17,  --minion_kills
+-- 	11,   --special_kills
+--     8,   --incapacitations
+--     3,  --objects destroyed
+-- 	6,   --chests opened
+-- 	3,  --potions_shared
+-- 	0    --ally_revived
+-- }
 
 --SCOREBOARD DATA
 local scoreboard_data = {
@@ -115,17 +115,19 @@ local jaskier_player = {
 }
 
 local my_UID = 0
+local menu_GO_UID = 0
+
 local game_time = 0
 local timestamp = 0
 
 local cycle_stages = {
-	ready = { stage = 1, duration = 500 },
-	showing_title = { stage = 2, duration = 500 },
-    spawning_coins = { stage = 3, duration = 0, duration_min = 50, duration_max = 150 },	--duration = time_between coin spawns
-    showing_score = { stage = 4, duration = 1500 },
-    showing_winner = { stage = 5, duration = 1500 },
-    final_winner = { stage = 0, duration = 4000 },
-    next_scene = { stage = 0, duration = 9000 },
+	ready = { stage = 1, duration = 250 },
+	showing_title = { stage = 2, duration = 250 },
+    spawning_coins = { stage = 3, duration = 0, duration_min = 50, duration_max = 100 },	--duration = time_between coin spawns
+    showing_score = { stage = 4, duration = 1000 },
+    showing_winner = { stage = 5, duration = 1000 },
+    final_winner = { stage = 0, duration = 2000 },
+    next_scene = { stage = 0, duration = 5000 },
 }
 local current_stage = cycle_stages.ready.stage
 local current_phase = 1
@@ -207,6 +209,15 @@ local function DecideFinalWinner()
         WinnerClap(jaskier_GO_data)
         lua_table.UIFunctions:MakeElementVisible("Image", match_tie_UI_titles[2])
         lua_table.SystemFunctions:LOG("Amazing! It's a tie!")
+    end
+end
+
+local function HideFinalWinner()
+    if character_winner ~= nil then
+        --lua_table.AudioFunctions:StopAudioEventGO(character_winner.win_audio, my_UID)
+        lua_table.UIFunctions:MakeElementInvisible("Image", character_winner.final_win_UI)
+    else
+        lua_table.UIFunctions:MakeElementInvisible("Image", match_tie_UI_titles[2])
     end
 end
 
@@ -358,6 +369,34 @@ local function CharacterUIStartSetup(character_data)
 end
 
 function lua_table:Awake()
+    --FAILSAVE
+    --Scoreboard Setup (if not done yet)
+	if geralt_score == nil then
+		geralt_score = {
+			0,  --damage_dealt  --Exception, this numbers value_per_instance ratio is 1:1, since this will collect the real value already
+			0,  --minion_kills
+			0,  --special_kills
+			0,  --incapacitations
+			0,  --objects_destroyed
+			0,	--chests opened
+			0,  --potions_shared
+			0   --ally_revived
+		}
+    end
+    --Scoreboard Setup (if not done yet)
+	if jaskier_score == nil then
+		jaskier_score = {
+			0,  --damage_dealt  --Exception, this numbers value_per_instance ratio is 1:1, since this will collect the real value already
+			0,  --minion_kills
+			0,  --special_kills
+			0,  --incapacitations
+			0,  --objects_destroyed
+			0,	--chests opened
+			0,  --potions_shared
+			0   --ally_revived
+		}
+	end
+
     --Assign Controller
     if player1_focus ~= nil and player1_focus == character_ID.geralt 
     or player2_focus ~= nil and player2_focus == character_ID.jaskier
@@ -374,6 +413,8 @@ function lua_table:Awake()
         jaskier_player.player_ID = 2
     end
     
+    menu_GO_UID = lua_table.GameObjectFunctions:FindGameObject("Canvas_Menu")
+
     my_UID = lua_table.GameObjectFunctions:GetMyUID()
     geralt_GO_data.GO_UID = lua_table.GameObjectFunctions:FindGameObject("Geralt_Score")
     jaskier_GO_data.GO_UID = lua_table.GameObjectFunctions:FindGameObject("Jaskier_Score")
@@ -419,8 +460,16 @@ function lua_table:Update()
     CharacterIdleAnim(geralt_GO_data)
     CharacterIdleAnim(jaskier_GO_data)
 
-    CheckPlayerSkip(geralt_player, geralt_GO_data)
-    CheckPlayerSkip(jaskier_player, jaskier_GO_data)
+    if not geralt_player.skipped or not jaskier_player.skipped then
+        CheckPlayerSkip(geralt_player, geralt_GO_data)
+        CheckPlayerSkip(jaskier_player, jaskier_GO_data)
+
+        if geralt_player.skipped and jaskier_player.skipped then
+            HideCharacterScores(current_phase)
+            HidePhaseTitle(current_phase)
+            HidePhaseWinner(character_winner)
+        end
+    end
 
     if current_phase <= total_phases and (not geralt_player.skipped or not jaskier_player.skipped) then
         if current_stage == cycle_stages.ready.stage and game_time - timestamp > cycle_stages.ready.duration
@@ -476,8 +525,13 @@ function lua_table:Update()
 
     elseif current_phase == (total_phases + 2) and game_time - timestamp > cycle_stages.next_scene.duration
     then
-        lua_table.SystemFunctions:LOG(" --- LOAD SCENE --- ")
-        --lua_table.SceneFunctions:LoadScene(scoreboard_next_scene_GO_UID)
+        HideFinalWinner()
+        lua_table.SystemFunctions:LOG(" --- SHOW MENU --- ")
+        if menu_GO_UID ~= nil then
+            lua_table.GameObjectFunctions:SetActiveGameObject(true, menu_GO_UID)
+            lua_table.GameObjectFunctions:GetScript(menu_GO_UID):ShowMenu()
+        end
+        current_phase = total_phases + 3
     end
 
     ----------------------------------------------SpawnCoins
