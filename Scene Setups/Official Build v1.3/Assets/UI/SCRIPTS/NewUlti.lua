@@ -99,9 +99,9 @@ function GetTableNewUlti()
     
     function lua_table:Update()
         timer = lua_table["System"]:GameTime()
-        lua_table["System"]:LOG("TIME: " .. timer)
-        lua_table["System"]:LOG("TIMEpassed: " .. timepassed)
-        lua_table["System"]:LOG("TIMEpassed2: " .. timepassed2)
+        --lua_table["System"]:LOG("TIME: " .. timer)
+        --lua_table["System"]:LOG("TIMEpassed: " .. timepassed)
+        --lua_table["System"]:LOG("TIMEpassed2: " .. timepassed2)
 
         lua_table.ultimatelocal = lua_table.ultiP1.current_ultimate
         lua_table["System"]:LOG ("ULTIMATE UPDATE: " .. lua_table.ultimatelocal)
