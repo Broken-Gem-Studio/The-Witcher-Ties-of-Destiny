@@ -43,10 +43,10 @@ function lua_table:OnTriggerEnter()
 
     if lua_table.GO:GetLayerByID(collider) == 1 and first == true
     then
-        --if camera_script ~= nil
-        --then
-        --    camera_script.hoardfight = true
-        --end
+        if camera_script ~= nil
+        then
+            camera_script.hoardfight = true
+        end
         
         lua_table.GO:SetActiveGameObject(true, survive)
         counting = true
