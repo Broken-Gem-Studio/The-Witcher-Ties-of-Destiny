@@ -2480,7 +2480,7 @@ local function CheckCombatStatus()
 			if not EnemiesNearby() then
 				lua_table.enemies_nearby = false
 
-				if jaskier_script ~= nil and not jaskier_script.enemies_nearby then
+				if jaskier_script ~= nil and not jaskier_script.enemies_nearby and lua_table.SystemFunctions:RandomNumberInRange(0, 100) < 25 then
 					if lua_table.current_state > state.down then lua_table:EndBattle() end
 					if jaskier_script.current_state > state.down then jaskier_script:EndBattle() end
 					--lua_table.SystemFunctions:LOG("GERALT END BATTLE ---------------------")
@@ -2490,7 +2490,7 @@ local function CheckCombatStatus()
 			if EnemiesNearby() then
 				lua_table.enemies_nearby = true
 				
-				if jaskier_script ~= nil and not jaskier_script.enemies_nearby then
+				if jaskier_script ~= nil and not jaskier_script.enemies_nearby and lua_table.SystemFunctions:RandomNumberInRange(0, 100) < 25 then
 					if lua_table.current_state > state.down then lua_table:StartBattle() end
 					if jaskier_script.current_state > state.down then jaskier_script:StartBattle() end
 					--lua_table.SystemFunctions:LOG("GERALT START BATTLE ---------------------")
