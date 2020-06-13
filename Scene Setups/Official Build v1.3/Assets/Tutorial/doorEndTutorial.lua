@@ -7,6 +7,8 @@ lua_table.Audio = Scripting.Audio()
 
 lua_table.door_unlocked = false
 
+local my_UID = 0
+
 local recruiterGO = 0
 local archerGO = 0
 local tutorialGO = 0
@@ -23,6 +25,7 @@ function lua_table:Awake()
     doorGO = lua_table.ObjectFunctions:FindGameObject("Door_3")
     doorCollider = lua_table.ObjectFunctions:FindGameObject("colliderDoor3")
     spawnerGO = lua_table.ObjectFunctions:FindGameObject("CityLevelSpawners2_audio")    
+    my_UID = lua_table.ObjectFunctions:GetMyUID()
 end
 
 function lua_table:Start()
@@ -40,8 +43,8 @@ function lua_table:Update()
         if recruiterGO == 0 and archerGO == 0 and firstEnemy == true
         then
             lua_table.AnimationFunctions:PlayAnimation("open", 30, doorGO)
-            lua_table.Audio:PlayAudioEventGO("Play_Door_new_sound", doorGO)
-
+            lua_table.Audio:PlayAudioEventGO("Play_Door_new_sound", my_UID)
+            
             --Door unlocked, this bool serves for other scripts
             lua_table.door_unlocked = true
 
