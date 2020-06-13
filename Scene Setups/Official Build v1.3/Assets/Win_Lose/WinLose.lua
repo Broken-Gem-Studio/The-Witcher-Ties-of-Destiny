@@ -475,6 +475,7 @@ function GetTableWinLose()
                 then
                     current_scene_score = 2
                 end
+                last_checkpoint = 0
                 lua_table.Scene:LoadScene(lua_table.score)
             else 
                 lua_table.GO:SetActiveGameObject(true, loading_UID)
