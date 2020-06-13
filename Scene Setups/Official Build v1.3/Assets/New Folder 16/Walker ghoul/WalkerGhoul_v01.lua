@@ -668,7 +668,7 @@ function lua_table:Update()
     dt = lua_table.SystemFunctions:DT()
 
     -- Check if the ghoul is falling into the void and delete it
-    if lua_table.MyPosition[2] < -100
+    if lua_table.MyPosition[2] < -100 or lua_table.ClosestDistance > 150
     then
         lua_table.ObjectFunctions:DestroyGameObject(MyUUID)
     end
