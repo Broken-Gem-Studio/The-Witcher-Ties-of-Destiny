@@ -45,11 +45,11 @@ function lua_table:OnTriggerEnter()
 
     if lua_table.GO:GetLayerByID(collider) == 1 and first == true
     then
-        --set camera angle and lock**
-        if camera_script ~= nil
-        then
-            camera_script.hoardfight = true
-        end
+        ----set camera angle and lock**
+        -- if camera_script ~= nil
+        -- then
+        --     camera_script.hoardfight = true
+        -- end
         
         lua_table.GO:SetActiveGameObject(true, next_round)
         lua_table.GO:SetActiveGameObject(true, counter)
