@@ -3,6 +3,7 @@ local lua_table = {}
 lua_table.SystemFunctions = Scripting.System()
 lua_table.ObjectFunctions = Scripting.GameObject()
 lua_table.AnimationFunctions = Scripting.Animations()
+lua_table.Audio = Scripting.Audio()
 
 lua_table.door_unlocked = false
 
@@ -43,7 +44,7 @@ function lua_table:Update()
         then
             lua_table.AnimationFunctions:PlayAnimation("open", 30, doorGO)
             lua_table.Audio:PlayAudioEventGO("Play_Door_new_sound", my_UID)
-
+            
             --Door unlocked, this bool serves for other scripts
             lua_table.door_unlocked = true
 
