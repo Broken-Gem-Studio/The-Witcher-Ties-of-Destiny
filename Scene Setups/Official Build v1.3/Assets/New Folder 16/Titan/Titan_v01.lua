@@ -318,7 +318,7 @@ local function IsTargetInRange()
 		AttackColliderShutdown()
 		lua_table.Animations:PlayAnimation("Walk", 50.0, lua_table.MyUID)
 		lua_table.currentState = State.SEEK	
-		lua_table.System:LOG("Titan state: SEEK (1), target out of range")    
+		-- lua_table.System:LOG("Titan state: SEEK (1), target out of range")    
 		
 		return true
 	else 
@@ -332,7 +332,7 @@ local function Idle()
 		if lua_table.currentTargetDir <= lua_table.AggroRange then
 			lua_table.Animations:PlayAnimation("Walk", 50.0, lua_table.MyUID)
 			lua_table.currentState = State.SEEK
-			lua_table.System:LOG("Titan state: SEEK (1)") 
+			-- lua_table.System:LOG("Titan state: SEEK (1)") 
 		end
 	else 
 		AttackColliderShutdown()
@@ -385,10 +385,10 @@ local function Seek()
 	
 	if lua_table.currentTargetDir <= lua_table.minDistance and lua_table.can_jump == true then
 		lua_table.currentState = State.JUMP
-		lua_table.System:LOG("Titan state: JUMP (2)")
+		-- lua_table.System:LOG("Titan state: JUMP (2)")
 	elseif lua_table.currentTargetDir <= lua_table.minDistance and lua_table.can_jump == false then
 		lua_table.currentState = State.PUNCH
-		lua_table.System:LOG("Titan state: Punch (3)")
+		-- lua_table.System:LOG("Titan state: Punch (3)")
 	end
 end
 
@@ -413,13 +413,13 @@ local function JumpStun() -- Smash the ground with a jump, then stun
 	end
 	-- Play jump anticipation
 	if jump_timer <= lua_table.System:GameTime() * 1000 and jumping == false then
-		lua_table.System:LOG("Jump")
+		-- lua_table.System:LOG("Jump")
 		lua_table.Animations:PlayAnimation("Jump_Stun_1", 50.0, lua_table.MyUID)
 		jumping = true
 	end
 	-- Play actual jump
 	if jump_timer + 500 <= lua_table.System:GameTime() * 1000 and stunning == false then
-		lua_table.System:LOG("Land and stun")
+		-- lua_table.System:LOG("Land and stun")
 		lua_table.Animations:PlayAnimation("Jump_Stun_2", 25.0, lua_table.MyUID)
 		stunning = true
 	end
@@ -458,7 +458,7 @@ local function JumpStun() -- Smash the ground with a jump, then stun
 		
 	if jump_timer + 1850 <= lua_table.System:GameTime() * 1000 then
 		lua_table.currentState = State.PUNCH
-		lua_table.System:LOG("Titan state: PUNCH (3)")  
+		-- lua_table.System:LOG("Titan state: PUNCH (3)")  
 	end
 end
 	
@@ -476,7 +476,7 @@ local function Punch()
 	lua_table.Transform:LookAt(lua_table.currentTargetPos[1], lua_table.TitanPos[2], lua_table.currentTargetPos[3], lua_table.MyUID)
 
 	if punch_timer <= lua_table.System:GameTime() * 1000 and not punching then
-		lua_table.System:LOG("Punch to target")
+		-- lua_table.System:LOG("Punch to target")
 		lua_table.Animations:PlayAnimation("Punch", 40.0, lua_table.MyUID)
 		lua_table.Audio:PlayAudioEvent("Play_Titan_ghoul_scream_attack")
 		punching = true
@@ -506,7 +506,7 @@ local function Swipe()
 	lua_table.Transform:LookAt(lua_table.currentTargetPos[1], lua_table.TitanPos[2], lua_table.currentTargetPos[3], lua_table.MyUID)
 
 	if swipe_timer <= lua_table.System:GameTime() * 1000 and not swiping then
-		lua_table.System:LOG("Swipe to target")
+		-- lua_table.System:LOG("Swipe to target")
 		lua_table.Animations:PlayAnimation("Swipe", 45.0, lua_table.MyUID)
 		lua_table.Audio:PlayAudioEvent("Play_Titan_ghoul_scream_attack")
 		swiping = true
@@ -523,7 +523,7 @@ local function Swipe()
 			lua_table.currentState = State.SMASH
 		end
 		
-		lua_table.System:LOG("Titan state: SEEK (1), cycle to jump")
+		-- lua_table.System:LOG("Titan state: SEEK (1), cycle to jump")
 	end
 end
 
@@ -537,7 +537,7 @@ local function Smash()
 	lua_table.Transform:LookAt(lua_table.currentTargetPos[1], lua_table.TitanPos[2], lua_table.currentTargetPos[3], lua_table.MyUID)
 
 	if smash_timer <= lua_table.System:GameTime() * 1000 and not smashing then
-		lua_table.System:LOG("Crush to target")
+		-- lua_table.System:LOG("Crush to target")
 		lua_table.Animations:PlayAnimation("Smash", 50.0, lua_table.MyUID)
 		lua_table.Audio:PlayAudioEvent("Play_Titan_ghoul_scream_attack")
 		smashing = true
@@ -549,7 +549,7 @@ local function Smash()
 	if smash_timer + 1400 <= lua_table.System:GameTime() * 1000 then
 		lua_table.Animations:PlayAnimation("Walk", 50.0, lua_table.MyUID)
 		lua_table.currentState = State.SEEK
-		lua_table.System:LOG("Titan state: SEEK (1), cycle to jump")
+		-- lua_table.System:LOG("Titan state: SEEK (1), cycle to jump")
 	end
 
 end
@@ -581,7 +581,7 @@ local function Stun()
 		
 		lua_table.Animations:PlayAnimation("Walk", 50.0, lua_table.MyUID)
 		lua_table.currentState = State.SEEK	
-		lua_table.System:LOG("Titan state: SEEK (1), from stun")
+		-- lua_table.System:LOG("Titan state: SEEK (1), from stun")
 	end
 	
 end
@@ -595,7 +595,7 @@ local function KnockBack()
 	if knockback_timer + 1500 <= lua_table.System:GameTime() * 1000 then
 		lua_table.Animations:PlayAnimation("Walk", 50.0, lua_table.MyUID)
 		lua_table.currentState = State.SEEK
-		lua_table.System:LOG("Titan state: STUNNED (5), from KD")
+		-- lua_table.System:LOG("Titan state: STUNNED (5), from KD")
 	else 
 		lua_table.Physics:Move(knock_force[1] * lua_table.knock_speed * dt, knock_force[3] * lua_table.knock_speed * dt, lua_table.MyUID)
 
@@ -660,7 +660,7 @@ local function ReactToStun(passed_player, player_script, tmp_score)
 	start_stun = true
 	lua_table.currentState = State.STUNNED
 	
-	lua_table.System:LOG("Titan state: STUNNED (5)")  
+	-- lua_table.System:LOG("Titan state: STUNNED (5)")  
 
 	if has_score == true then
 		tmp_score[4] = tmp_score[4] + 1
@@ -698,7 +698,7 @@ local function ReactToKB(tmp_score) --col_ID, forward
 	lua_table.currentState = State.KNOCKBACK
 	start_knockback = true
 	lua_table.is_knockback = true
-	lua_table.System:LOG("Titan state: KNOCKBACK (4)") 
+	-- lua_table.System:LOG("Titan state: KNOCKBACK (4)") 
 
 	if has_score == true then
 		tmp_score[4] = tmp_score[4] + 1
@@ -721,7 +721,7 @@ local function ReactToTaunt(tmp_score)
 		end
 
 		lua_table.is_taunt = true
-		lua_table.System:LOG("Getting taunted by Jaskier") 
+		-- lua_table.System:LOG("Getting taunted by Jaskier") 
 		start_taunt = false
 
 		if has_score == true then
@@ -755,7 +755,7 @@ local function ReactToHeavyHit(passed_player)
 
 	end
 
-	lua_table.System:LOG("Heavy hit registered")
+	-- lua_table.System:LOG("Heavy hit registered")
 end
 
 -- ______________________COLLISIONS______________________
@@ -846,7 +846,7 @@ function lua_table:OnTriggerEnter()
 						
 					end
 
-					lua_table.System:LOG("Light/Medium registered")
+					-- lua_table.System:LOG("Light/Medium registered")
 				end
 			end
 		end
@@ -859,7 +859,7 @@ function lua_table:OnCollisionEnter()
 end
 
 function lua_table:RequestedTrigger(collider_GO)
-	lua_table.System:LOG("RequestedTrigger activated")
+	-- lua_table.System:LOG("RequestedTrigger activated")
 
 	local script = lua_table.GameObject:GetScript(collider_GO)
 	local player_score = {}
@@ -941,7 +941,7 @@ function lua_table:RequestedTrigger(collider_GO)
 
 				end
 
-				lua_table.System:LOG("Hit registered")
+				-- lua_table.System:LOG("Hit registered")
 			end
 		end
 	end
@@ -949,7 +949,7 @@ end
 
 -- ______________________MAIN CODE______________________
 function lua_table:Awake()
-	lua_table.System:LOG("Titan AWAKE")
+	-- lua_table.System:LOG("Titan AWAKE")
 
 	General_Emitter_UID = lua_table.GameObject:FindChildGameObject("Titan_General_Emitter")
 
@@ -966,7 +966,7 @@ function lua_table:Awake()
 end
 
 function lua_table:Start()
-	lua_table.System:LOG("Titan START")
+	-- lua_table.System:LOG("Titan START")
 
 	-- Getting Entity and Player UIDs
 	lua_table.MyUID = lua_table.GameObject:GetMyUID()
@@ -978,20 +978,20 @@ function lua_table:Start()
 
 	-- Check if both players are in the scene
 	if lua_table.geralt == 0 then 
-		lua_table.System:LOG ("Geralt not found in scene, add it")
+		-- lua_table.System:LOG ("Geralt not found in scene, add it")
 		else 
-			lua_table.System:LOG ("Geralt detected")
+			-- lua_table.System:LOG ("Geralt detected")
 	end
 	   
 	if lua_table.jaskier == 0 then 
-		lua_table.System:LOG ("Jaskier not found in scene, add it")
+		-- lua_table.System:LOG ("Jaskier not found in scene, add it")
 		else 
-			lua_table.System:LOG ("Jaskier detected")
+			-- lua_table.System:LOG ("Jaskier detected")
 	end
 
 	lua_table.currentState = State.IDLE
 	lua_table.Animations:PlayAnimation("Idle", 30.0, lua_table.MyUID)
-	lua_table.System:LOG("Titan state: IDLE (0)") 
+	-- lua_table.System:LOG("Titan state: IDLE (0)") 
 	lua_table.health = lua_table.max_hp
 
 	-- Get colliders
@@ -1024,7 +1024,7 @@ function lua_table:Update()
 		end
 
 		lua_table.currentState = State.DEATH
-		lua_table.System:LOG("Titan state: Death (6)")
+		-- lua_table.System:LOG("Titan state: Death (6)")
 		has_died = true
 	end
 
@@ -1131,7 +1131,7 @@ function lua_table:Update()
 	-- 	start_stun = true
 	-- 	lua_table.currentState = State.STUNNED
 		
-	-- 	lua_table.System:LOG("Titan state: STUNNED (5)")  
+	-- 	-- lua_table.System:LOG("Titan state: STUNNED (5)")  
 	-- end
 
 	-- ------------------------------------------------ TEST KD
@@ -1153,7 +1153,7 @@ function lua_table:Update()
 	-- 	lua_table.currentState = State.KNOCKBACK
 	-- 	start_knockback = true
 	-- 	lua_table.is_knockback = true
-	-- 	lua_table.System:LOG("Titan state: KNOCKBACK (4)") 
+	-- 	-- lua_table.System:LOG("Titan state: KNOCKBACK (4)") 
 	
 	-- end
 	-- ------------------------------------------------ TEST TAUNT
@@ -1164,7 +1164,7 @@ function lua_table:Update()
 	-- 		taunt_timer = lua_table.System:GameTime() * 1000
 	-- 		lua_table.PlayParticleEmitter(TauntedEmitter_UID)
 	-- 		lua_table.is_taunt = true
-	-- 		lua_table.System:LOG("Getting taunted by Jaskier") 
+	-- 		-- lua_table.System:LOG("Getting taunted by Jaskier") 
 	-- 		start_taunt = false
 	-- 	end
 

@@ -226,7 +226,7 @@ local function Idle()
 		if lua_table.currentTargetDir <= lua_table.AggroRange then
 			lua_table.Animations:PlayAnimation("Run", 45.0, lua_table.MyUID)
 			lua_table.currentState = State.SEEK
-			lua_table.System:LOG("Recruit state: SEEK (1)") 
+			-- lua_table.System:LOG("Recruit state: SEEK (1)") 
 		end
 	end
 end
@@ -274,7 +274,7 @@ local function Seek()
 	
 	if lua_table.currentTargetDir <= lua_table.minDistance then
 		lua_table.currentState = State.ATTACK
-		lua_table.System:LOG("Recruit state: ATTACK (2)")
+		-- lua_table.System:LOG("Recruit state: ATTACK (2)")
 	end
 end
 	
@@ -283,7 +283,7 @@ local function Attack()
 	if lua_table.currentTargetDir >= lua_table.maxDistance then
 		lua_table.Animations:PlayAnimation("Run", 45.0, lua_table.MyUID)
 		lua_table.currentState = State.SEEK	
-		lua_table.System:LOG("Recruit state: SEEK (1), target out of range")    
+		-- lua_table.System:LOG("Recruit state: SEEK (1), target out of range")    
 		return
 	end
 
@@ -301,10 +301,10 @@ local function Attack()
 		random_attack = math.random(1, 2)
 
 		if random_attack == 1 then 
-			lua_table.System:LOG("Attack1 chosen")
+			-- lua_table.System:LOG("Attack1 chosen")
 			lua_table.Animations:PlayAnimation("Attack1", 45.0, lua_table.MyUID)
 		elseif random_attack == 2 then 
-			lua_table.System:LOG("Attack2 chosen")
+			-- lua_table.System:LOG("Attack2 chosen")
 			lua_table.Animations:PlayAnimation("Attack2", 45.0, lua_table.MyUID)
 		end
 		
@@ -328,7 +328,7 @@ local function Attack()
 	if attack_timer + 1000 <= lua_table.System:GameTime() * 1000 then
 		lua_table.Animations:PlayAnimation("Run", 45.0, lua_table.MyUID)
 		lua_table.currentState = State.SEEK	
-		lua_table.System:LOG("Recruit state: SEEK (1), cycle to seek")
+		-- lua_table.System:LOG("Recruit state: SEEK (1), cycle to seek")
 	end
 	
 end
@@ -351,7 +351,7 @@ local function Stun()
 	
 		lua_table.Animations:PlayAnimation("Run", 45.0, lua_table.MyUID)
 		lua_table.currentState = State.SEEK	
-		lua_table.System:LOG("Recruit state: SEEK (1), from stun")
+		-- lua_table.System:LOG("Recruit state: SEEK (1), from stun")
 	end
 	
 end
@@ -366,7 +366,7 @@ local function KnockBack()
 		lua_table.Animations:PlayAnimation("Run", 45.0, lua_table.MyUID)
 		lua_table.currentState = State.SEEK	
 		lua_table.is_knockback = false
-		lua_table.System:LOG("Recruit state: STUNNED (5), from KD")
+		-- lua_table.System:LOG("Recruit state: STUNNED (5), from KD")
 		
 	else 
 		lua_table.Physics:Move(knock_force[1] * lua_table.knock_speed * dt, knock_force[3] * lua_table.knock_speed * dt, lua_table.MyUID)
@@ -413,7 +413,7 @@ local function Die()
 	end
 
 	if death_timer + 3000 <= lua_table.System:GameTime() * 1000 then
-		lua_table.System:LOG("Im dead!!!!!!!!!")  
+		-- lua_table.System:LOG("Im dead!!!!!!!!!")  
 		lua_table.GameObject:DestroyGameObject(lua_table.MyUID) -- Delete GO from scene
 	end
 	
@@ -490,7 +490,7 @@ function lua_table:OnTriggerEnter()
 					start_stun = true
 					lua_table.currentState = State.STUNNED
 							
-					lua_table.System:LOG("Recruit state: STUNNED (5)")  
+					-- lua_table.System:LOG("Recruit state: STUNNED (5)")  
 
 					if has_score == true then
 						player_score[4] = player_score[4] + 1
@@ -532,7 +532,7 @@ function lua_table:OnTriggerEnter()
 					lua_table.currentState = State.KNOCKBACK
 					start_knockback = true
 					lua_table.is_knockback = true
-					lua_table.System:LOG("Recruit state: KNOCKBACK (4)") 
+					-- lua_table.System:LOG("Recruit state: KNOCKBACK (4)") 
 
 					if has_score == true then
 						player_score[4] = player_score[4] + 1
@@ -553,7 +553,7 @@ function lua_table:OnTriggerEnter()
 
 						taunt_timer = lua_table.System:GameTime() * 1000
 						lua_table.is_taunt = true
-						lua_table.System:LOG("Getting taunted by Jaskier") 
+						-- lua_table.System:LOG("Getting taunted by Jaskier") 
 						start_taunt = false
 
 						if has_score == true then
@@ -582,7 +582,7 @@ function lua_table:OnTriggerEnter()
 					end
 				end
 
-				lua_table.System:LOG("Hit registered")
+				-- lua_table.System:LOG("Hit registered")
 			end
 		end
 	end
@@ -594,7 +594,7 @@ function lua_table:OnCollisionEnter()
 end
 
 function lua_table:RequestedTrigger(collider_GO)
-	lua_table.System:LOG("RequestedTrigger activated")
+	-- lua_table.System:LOG("RequestedTrigger activated")
 
 	local script = lua_table.GameObject:GetScript(collider_GO)
 	
@@ -659,7 +659,7 @@ function lua_table:RequestedTrigger(collider_GO)
 				start_stun = true
 				lua_table.currentState = State.STUNNED
 				
-				lua_table.System:LOG("Recruit state: STUNNED (5)")  
+				-- lua_table.System:LOG("Recruit state: STUNNED (5)")  
 
 				if has_score == true then
 					player_score[4] = player_score[4] + 1
@@ -700,7 +700,7 @@ function lua_table:RequestedTrigger(collider_GO)
 				lua_table.currentState = State.KNOCKBACK
 				start_knockback = true
 				lua_table.is_knockback = true
-				lua_table.System:LOG("Recruit state: KNOCKBACK (4)") 
+				-- lua_table.System:LOG("Recruit state: KNOCKBACK (4)") 
 
 				if has_score == true then
 					player_score[4] = player_score[4] + 1
@@ -722,7 +722,7 @@ function lua_table:RequestedTrigger(collider_GO)
 					end
 
 					lua_table.is_taunt = true
-					lua_table.System:LOG("Getting taunted by Jaskier") 
+					-- lua_table.System:LOG("Getting taunted by Jaskier") 
 					start_taunt = false
 				end
 
@@ -751,21 +751,21 @@ function lua_table:RequestedTrigger(collider_GO)
 				end
 			end
 
-			lua_table.System:LOG("Hit registered")
+			-- lua_table.System:LOG("Hit registered")
 		end
 	end
 end
 
 -- ______________________MAIN CODE______________________
 function lua_table:Awake()
-	lua_table.System:LOG("Recruit AWAKE")
+	-- lua_table.System:LOG("Recruit AWAKE")
 
 	Recruit_General_Emitter = lua_table.GameObject:FindChildGameObject("Recruit_General_Particles")
 
 end
 
 function lua_table:Start()
-	lua_table.System:LOG("Recruit START")
+	-- lua_table.System:LOG("Recruit START")
 
 	-- Getting Entity and Player UIDs
 	lua_table.MyUID = lua_table.GameObject:GetMyUID()
@@ -776,20 +776,20 @@ function lua_table:Start()
 
 	-- Check if both players are in the scene
 	if lua_table.geralt == 0 then 
-		lua_table.System:LOG ("Geralt not found in scene, add it")
+		-- lua_table.System:LOG ("Geralt not found in scene, add it")
 		else 
-			lua_table.System:LOG ("Geralt detected")
+			-- lua_table.System:LOG ("Geralt detected")
 	end
 	
 	if lua_table.jaskier == 0 then 
-		lua_table.System:LOG ("Jaskier not found in scene, add it")
+		-- lua_table.System:LOG ("Jaskier not found in scene, add it")
 		else 
-			lua_table.System:LOG ("Jaskier detected")
+			-- lua_table.System:LOG ("Jaskier detected")
 	end
 
 	lua_table.currentState = State.IDLE
 	lua_table.Animations:PlayAnimation("Idle", 30.0, lua_table.MyUID)
-	lua_table.System:LOG("Recruit state: IDLE (0)") 
+	-- lua_table.System:LOG("Recruit state: IDLE (0)") 
 	lua_table.health = lua_table.max_hp
 
 	-- Get colliders
@@ -824,7 +824,7 @@ function lua_table:Update()
 		end
 
 		lua_table.currentState = State.DEATH
-		lua_table.System:LOG("Recruit state: Death (5)")
+		-- lua_table.System:LOG("Recruit state: Death (5)")
 		has_died = true
 	end
 	
@@ -887,7 +887,7 @@ function lua_table:Update()
 	-- 	start_stun = true
 	-- 	lua_table.currentState = State.STUNNED
 		
-	-- 	lua_table.System:LOG("Recruit state: STUNNED (5)")  
+	-- 	-- lua_table.System:LOG("Recruit state: STUNNED (5)")  
 	-- end
 
 	-- ------------------------------------------------ TEST KD
@@ -909,7 +909,7 @@ function lua_table:Update()
 	-- 	lua_table.currentState = State.KNOCKBACK
 	-- 	start_knockback = true
 	-- 	lua_table.is_knockback = true
-	-- 	lua_table.System:LOG("Recruit state: KNOCKBACK (4)") 
+	-- 	-- lua_table.System:LOG("Recruit state: KNOCKBACK (4)") 
 	
 	-- end
 	-- ------------------------------------------------ TEST TAUNT
@@ -919,7 +919,7 @@ function lua_table:Update()
 	-- 	if start_taunt then 
 	-- 		taunt_timer = lua_table.System:GameTime() * 1000
 	-- 		lua_table.is_taunt = true
-	-- 		lua_table.System:LOG("Getting taunted by Jaskier") 
+	-- 		-- lua_table.System:LOG("Getting taunted by Jaskier") 
 	-- 		start_taunt = false
 	-- 	end
 	-- end
