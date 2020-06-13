@@ -33,6 +33,8 @@ local menuMarker = 0
 
 local tutorialGO = 0
 local tutoScript = 0
+local loading_screen = 0
+local loading_timer = 0
 
 -- Core
 local function Reset()	
@@ -81,6 +83,9 @@ function lua_table:Start()
 	resumeMarker = lua_table.ObjectFunctions:FindGameObject("ResumeMarker")
 	combosMarker = lua_table.ObjectFunctions:FindGameObject("CombosMarker")
 	menuMarker = lua_table.ObjectFunctions:FindGameObject("MenuMarker")
+
+	loading_screen = lua_table.ObjectFunctions:FindGameObject("LoadingScreenCanvas")
+	
 end
 
 function lua_table:Update()
@@ -197,7 +202,14 @@ function lua_table:Update()
 	-- Scene loading management
 	if goMenu == true
 	then
-		lua_table.SceneFunctions:LoadScene(lua_table.mainMenu_UUID)
+		loading_timer = loading_timer + lua_table.SystemFunctions:DT()
+        if loading_timer >= 1 
+		then
+			lua_table.SceneFunctions:LoadScene(lua_table.mainMenu_UUID)
+			goMenu = false
+        else 
+			lua_table.ObjectFunctions:SetActiveGameObject(true, loading_screen)
+        end 
 	end
 
 	-- Combos deployment
