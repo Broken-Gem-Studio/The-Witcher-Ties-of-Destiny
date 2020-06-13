@@ -69,9 +69,15 @@ function GetTableScriptCredits()
         HUD_IMAGES[lua_table.HUD_LIBRARY.UI] = lua_table.GO:FindGameObject("UI")
         HUD_IMAGES[lua_table.HUD_LIBRARY.VFX] = lua_table.GO:FindGameObject("VFX")
 
+
     end
     
-    function lua_table:Start()
+    function lua_table:Start()    
+        local cam = lua_table.GO:FindGameObject("Camera")
+        if cam ~= nil then
+            local script_cam = lua_table.GO:GetScript(cam)
+            script_cam.bossfight = true
+        end
     end
 
     function lua_table:showImage()
