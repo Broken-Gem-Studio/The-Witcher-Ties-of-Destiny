@@ -25,7 +25,7 @@ local player_num = 0
 
 
 local function CheckAlpha(player)
-    lua_table["System"]:LOG("ENTERING")
+    --lua_table["System"]:LOG("ENTERING")
 
     if player == 1
     then
@@ -161,7 +161,7 @@ local function BloodRegulation()
             player_num = 1
 
         else
-            lua_table["System"]:LOG("PLAYER2 LOW")
+            --lua_table["System"]:LOG("PLAYER2 LOW")
             player_num = 2
         end
 

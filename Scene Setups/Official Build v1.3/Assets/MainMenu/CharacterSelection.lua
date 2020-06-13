@@ -130,7 +130,7 @@ function GetTableCharacterSelection()
         
         local current_selection = player1_focus
 
-        lua_table["System"]:LOG("SELECTION: " .. current_selection)
+        --lua_table["System"]:LOG("SELECTION: " .. current_selection)
      
         if current_selection < 3
         then
@@ -158,7 +158,7 @@ function GetTableCharacterSelection()
         
         local current_selection2 = player2_focus
 
-        lua_table["System"]:LOG("SELECTION2: " .. current_selection2)
+        --lua_table["System"]:LOG("SELECTION2: " .. current_selection2)
      
         if current_selection2 < 3
         then
@@ -332,7 +332,7 @@ function GetTableCharacterSelection()
         if lua_table.main_menu.loadLevel1 == true or lua_table.main_menu.loadLevel2 == true
         then
             lua_table["GameObject"]:SetActiveGameObject(true, SELECTION)
-            lua_table["System"]:LOG("Enter")
+            --lua_table["System"]:LOG("Enter")
             --fade
             --[[if lua_table.fading == false
             then
@@ -370,7 +370,7 @@ function GetTableCharacterSelection()
       
         if lua_table.main_menu.loadLevel1 == true 
         then
-            lua_table["System"]:LOG("LEVEL1 SELECTED")  
+            --lua_table["System"]:LOG("LEVEL1 SELECTED")  
 
             if lua_table.fading == false
             then
@@ -412,7 +412,7 @@ function GetTableCharacterSelection()
 
         if lua_table.main_menu.loadLevel2 == true 
         then
-            lua_table["System"]:LOG("LEVEL2 SELECTED")
+            --lua_table["System"]:LOG("LEVEL2 SELECTED")
 
             if lua_table.fading == false
             then
@@ -451,7 +451,7 @@ function GetTableCharacterSelection()
 
         if lua_table.main_menu.loadLevel1 == false and lua_table.main_menu.loadLevel2 == false
         then
-            lua_table["System"]:LOG("NONE SELECTED")
+            --lua_table["System"]:LOG("NONE SELECTED")
         end
         --
 
@@ -491,11 +491,11 @@ function GetTableCharacterSelection()
         
         if next == true
         then
-            lua_table["System"]:LOG("NEXT SCENE")--cambiar de escena
+            --lua_table["System"]:LOG("NEXT SCENE")--cambiar de escena
 
             if lua_table.main_menu.loadLevel1 == true and geraltfinished == true and jaskierfinished == true
             then
-                lua_table["System"]:LOG("LOADING SCENE1")
+                --lua_table["System"]:LOG("LOADING SCENE1")
                 
                 load_timer = load_timer + lua_table["System"]:DT()
 
@@ -511,7 +511,7 @@ function GetTableCharacterSelection()
 
             if lua_table.main_menu.loadLevel2 == true and geraltfinished == true and jaskierfinished == true
             then
-                lua_table["System"]:LOG("LOADING SCENE2")
+                --lua_table["System"]:LOG("LOADING SCENE2")
             
                 load_timer = load_timer + lua_table["System"]:DT()
 
@@ -729,7 +729,7 @@ function GetTableCharacterSelection()
 
             if player1_focus == 0 and animgeralt == false
             then
-                lua_table["System"]:LOG("GERARDINHO")
+                --lua_table["System"]:LOG("GERARDINHO")
                 lua_table["Animation"]:PlayAnimation("Selected", 30, GERALT)
                 lua_table["Audio"]:PlayAudioEventGO("Play_Select_Geralt", SELECTION)
                 geralttime = lua_table["System"]:GameTime()
@@ -739,7 +739,7 @@ function GetTableCharacterSelection()
             if player1_focus == 1 and animjaskier == false
             then
 
-                lua_table["System"]:LOG("JASKIERINHO")
+                --lua_table["System"]:LOG("JASKIERINHO")
                 lua_table["Animation"]:PlayAnimation("Selected", 30, JASKIER)
                 lua_table["Audio"]:PlayAudioEventGO("Play_Select_Jaskier", SELECTION)
                 jaskiertime = lua_table["System"]:GameTime()
@@ -749,7 +749,7 @@ function GetTableCharacterSelection()
 
         elseif player1_locked == false
         then
-            lua_table["System"]:LOG("IDLE")
+            --lua_table["System"]:LOG("IDLE")
             --lua_table["Animation"]:PlayAnimation("Idle", 30, GERALT)
             --lua_table["Animation"]:PlayAnimation("Idle", 30, JASKIER)
         end
@@ -759,7 +759,7 @@ function GetTableCharacterSelection()
 
             if player2_focus == 0 and animgeralt2 == false
             then
-                lua_table["System"]:LOG("GERARDINHO2")
+                --lua_table["System"]:LOG("GERARDINHO2")
                 lua_table["Animation"]:PlayAnimation("Selected", 30, GERALT)
                 lua_table["Audio"]:PlayAudioEventGO("Play_Select_Geralt", SELECTION)
                 geralttime = lua_table["System"]:GameTime()
@@ -768,7 +768,7 @@ function GetTableCharacterSelection()
 
             if player2_focus == 1 and animjaskier2 == false
             then
-                lua_table["System"]:LOG("JASKIERINHO2")
+                --lua_table["System"]:LOG("JASKIERINHO2")
                 lua_table["Animation"]:PlayAnimation("Selected", 30, JASKIER)
                 lua_table["Audio"]:PlayAudioEventGO("Play_Select_Jaskier", SELECTION)
                 jaskiertime = lua_table["System"]:GameTime()
@@ -778,7 +778,7 @@ function GetTableCharacterSelection()
             
         elseif player2_locked == false
         then
-            lua_table["System"]:LOG("IDLE")
+            --lua_table["System"]:LOG("IDLE")
             --lua_table["Animation"]:PlayAnimation("Idle", 30, GERALT)
             --lua_table["Animation"]:PlayAnimation("Idle", 30, JASKIER)
         end
@@ -808,9 +808,9 @@ function GetTableCharacterSelection()
         end
 
     
-        lua_table["System"]:LOG("ALPHA: " .. alpha)
-        lua_table["System"]:LOG("P1 FOCUS: " .. player1_focus)
-        lua_table["System"]:LOG("P2 FOCUS: " .. player2_focus)
+        --lua_table["System"]:LOG("ALPHA: " .. alpha)
+        --lua_table["System"]:LOG("P1 FOCUS: " .. player1_focus)
+        --lua_table["System"]:LOG("P2 FOCUS: " .. player2_focus)
 
     --end--
 

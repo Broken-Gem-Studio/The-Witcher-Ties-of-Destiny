@@ -71,11 +71,11 @@ end
 function lua_table:Update()
 
     timer = lua_table["System"]:GameTime()
-    lua_table["System"]:LOG("TIMER: " .. timer)
-    lua_table["System"]:LOG("REVIVE TIME: " .. lua_table.p1.revive_time)
-    lua_table["System"]:LOG("REVIVE STARTED AT: " .. lua_table.p1.revive_started_at)
-    lua_table["System"]:LOG("DOWN: " .. lua_table.p1.down_time)
-    lua_table["System"]:LOG("DEATH STARTED AT: " .. lua_table.p1.death_started_at)
+    --lua_table["System"]:LOG("TIMER: " .. timer)
+    --lua_table["System"]:LOG("REVIVE TIME: " .. lua_table.p1.revive_time)
+    --lua_table["System"]:LOG("REVIVE STARTED AT: " .. lua_table.p1.revive_started_at)
+    --lua_table["System"]:LOG("DOWN: " .. lua_table.p1.down_time)
+    --lua_table["System"]:LOG("DEATH STARTED AT: " .. lua_table.p1.death_started_at)
    
 
     --GERALT
@@ -184,7 +184,7 @@ function lua_table:Update()
         lua_table["UI"]:MakeElementInvisible("Text", timer2ID)
     end
 
-   lua_table["System"]:LOG("TIME TEST: " .. timerdeath2)
+   --lua_table["System"]:LOG("TIME TEST: " .. timerdeath2)
 
 end
 

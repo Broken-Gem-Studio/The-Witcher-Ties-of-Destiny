@@ -159,10 +159,10 @@ function GetTableCOMBO()
     
     function lua_table:Update()
         timer = lua_table["System"]:GameTime()
-        lua_table["System"]:LOG("COMBO: " .. lua_table.p1.combo_num )
-        lua_table["System"]:LOG("STATE: " .. lua_table.p1.current_state )
-        lua_table["System"]:LOG("NOTES: " .. lua_table.p2.note_num )
-        lua_table["System"]:LOG("STATE2: " .. lua_table.p2.current_state )
+        --lua_table["System"]:LOG("COMBO: " .. lua_table.p1.combo_num )
+        --lua_table["System"]:LOG("STATE: " .. lua_table.p1.current_state )
+        --lua_table["System"]:LOG("NOTES: " .. lua_table.p2.note_num )
+        --lua_table["System"]:LOG("STATE2: " .. lua_table.p2.current_state )
 
         --GERALT
         if lua_table.p1.current_state < 8 and sword_on == true --and combo == false
@@ -229,10 +229,10 @@ function GetTableCOMBO()
 
     -------------------------------------
 
-        lua_table["System"]:LOG("COMBO 1: " .. lua_table.p1.combo_stack[4])
-        lua_table["System"]:LOG("COMBO 2: " .. lua_table.p1.combo_stack[3])
-        lua_table["System"]:LOG("COMBO 3: " .. lua_table.p1.combo_stack[2])
-        lua_table["System"]:LOG("COMBO 4: " .. lua_table.p1.combo_stack[1])
+        --lua_table["System"]:LOG("COMBO 1: " .. lua_table.p1.combo_stack[4])
+        --lua_table["System"]:LOG("COMBO 2: " .. lua_table.p1.combo_stack[3])
+        --lua_table["System"]:LOG("COMBO 3: " .. lua_table.p1.combo_stack[2])
+        --lua_table["System"]:LOG("COMBO 4: " .. lua_table.p1.combo_stack[1])
 
         if lua_table.p1.combo_num == 0
         then
@@ -599,7 +599,7 @@ function GetTableCOMBO()
 
         if lua_table.p2.current_state < 17 and lua_table["Inputs"]:IsGamepadButton(2,"BUTTON_X","DOWN")
         then
-            lua_table["System"]:LOG("ABILITY failed")
+            --lua_table["System"]:LOG("ABILITY failed")
             --lua_table["Audio"]:PlayAudioEvent("Play_Wrong_Jaskier")--fail combo
         end
 
@@ -611,14 +611,14 @@ function GetTableCOMBO()
         
         -------------------------------------
 
-        lua_table["System"]:LOG("STACK 1: " .. lua_table.p2.note_stack[4])
-        lua_table["System"]:LOG("FIRSTSPACE: " .. firstspace)
-        lua_table["System"]:LOG("STACK 2: " .. lua_table.p2.note_stack[3])
-        lua_table["System"]:LOG("SECONDSPACE: " .. secondspace)
-        lua_table["System"]:LOG("STACK 3: " .. lua_table.p2.note_stack[2])
-        lua_table["System"]:LOG("THIRDSPACE: " .. thirdspace)
-        lua_table["System"]:LOG("STACK 4: " .. lua_table.p2.note_stack[1])
-        lua_table["System"]:LOG("FOURTHSPACE: " .. fourthspace)
+        --lua_table["System"]:LOG("STACK 1: " .. lua_table.p2.note_stack[4])
+        --lua_table["System"]:LOG("FIRSTSPACE: " .. firstspace)
+        --lua_table["System"]:LOG("STACK 2: " .. lua_table.p2.note_stack[3])
+        --lua_table["System"]:LOG("SECONDSPACE: " .. secondspace)
+        --lua_table["System"]:LOG("STACK 3: " .. lua_table.p2.note_stack[2])
+        --lua_table["System"]:LOG("THIRDSPACE: " .. thirdspace)
+        --lua_table["System"]:LOG("STACK 4: " .. lua_table.p2.note_stack[1])
+        --lua_table["System"]:LOG("FOURTHSPACE: " .. fourthspace)
 
         --PRINTEO DE NOTAS POR NOTE_STACKS
 

@@ -237,7 +237,7 @@ function GetTableCardsTuto()
                 then
                     lua_table["UI"]:ChangeUIComponentAlpha("Image", 1.0, P1_ARROW)
                     alpha1 = true
-                    lua_table["System"]:LOG("FIRST INPUT")
+                    --lua_table["System"]:LOG("FIRST INPUT")
                     lua_table.continue_meter1_full = true
                     
                 end
@@ -246,7 +246,7 @@ function GetTableCardsTuto()
                 then
                     lua_table["UI"]:ChangeUIComponentAlpha("Image", 1.0, P2_ARROW)
                     alpha2 = true
-                    lua_table["System"]:LOG("SECOND INPUT")
+                    --lua_table["System"]:LOG("SECOND INPUT")
                     lua_table.continue_meter2_full = true
                     
                 end
@@ -309,7 +309,7 @@ function GetTableCardsTuto()
                 then
                     lua_table["UI"]:ChangeUIComponentAlpha("Image", 1.0, P1_ARROW)
                     alpha1 = true
-                    lua_table["System"]:LOG("FIRST INPUT")
+                    --lua_table["System"]:LOG("FIRST INPUT")
                     lua_table.continue_meter1_full = true
                     
                 end
@@ -318,7 +318,7 @@ function GetTableCardsTuto()
                 then
                     lua_table["UI"]:ChangeUIComponentAlpha("Image", 1.0, P2_ARROW)
                     alpha2 = true
-                    lua_table["System"]:LOG("SECOND INPUT")
+                    --lua_table["System"]:LOG("SECOND INPUT")
                     lua_table.continue_meter2_full = true
                     
                 end
@@ -424,7 +424,7 @@ function GetTableCardsTuto()
                 then
                     lua_table["UI"]:ChangeUIComponentAlpha("Image", 1.0, P1_ARROW)
                     alpha1 = true
-                    lua_table["System"]:LOG("FIRST INPUT")
+                    --lua_table["System"]:LOG("FIRST INPUT")
                     lua_table.continue_meter1_full = true
                     
                 end
@@ -433,7 +433,7 @@ function GetTableCardsTuto()
                 then
                     lua_table["UI"]:ChangeUIComponentAlpha("Image", 1.0, P2_ARROW)
                     alpha2 = true
-                    lua_table["System"]:LOG("SECOND INPUT")
+                    --lua_table["System"]:LOG("SECOND INPUT")
                     lua_table.continue_meter2_full = true
                     
                 end
@@ -464,7 +464,7 @@ function GetTableCardsTuto()
                 alpha2 = false
                 HideCard()
                 
-                lua_table["System"]:LOG("HOLA showedcard10")
+                --lua_table["System"]:LOG("HOLA showedcard10")
                 showedCard10 = true
             end
 
@@ -500,7 +500,7 @@ function GetTableCardsTuto()
                 then
                     lua_table["UI"]:ChangeUIComponentAlpha("Image", 1.0, P1_ARROW)
                     alpha1 = true
-                    lua_table["System"]:LOG("FIRST INPUT")
+                    --lua_table["System"]:LOG("FIRST INPUT")
                     lua_table.continue_meter1_full = true
                 end
     
@@ -508,7 +508,7 @@ function GetTableCardsTuto()
                 then
                     lua_table["UI"]:ChangeUIComponentAlpha("Image", 1.0, P2_ARROW)
                     alpha2 = true
-                    lua_table["System"]:LOG("SECOND INPUT")
+                    --lua_table["System"]:LOG("SECOND INPUT")
                     lua_table.continue_meter2_full = true
                 end
                 

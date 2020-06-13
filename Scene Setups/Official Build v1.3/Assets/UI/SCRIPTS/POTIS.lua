@@ -314,17 +314,17 @@ function GetTablePOTIS()
         hp_potis = lua_table.p1.inventory[1] 
         eng_potis = lua_table.p1.inventory[2]
         dmg_potis = lua_table.p1.inventory[3]
-        lua_table["System"]:LOG("HP POTIS: " .. hp_potis)
-        lua_table["System"]:LOG("ENG POTIS: " .. eng_potis)
-        lua_table["System"]:LOG("DMG POTIS: " .. dmg_potis)
-        lua_table["System"]:LOG("SELECTED: " .. lua_table.p1.item_selected)
+        --lua_table["System"]:LOG("HP POTIS: " .. hp_potis)
+        --lua_table["System"]:LOG("ENG POTIS: " .. eng_potis)
+        --lua_table["System"]:LOG("DMG POTIS: " .. dmg_potis)
+        --lua_table["System"]:LOG("SELECTED: " .. lua_table.p1.item_selected)
         hp_potis2 = lua_table.p2.inventory[1] 
         eng_potis2 = lua_table.p2.inventory[2]
         dmg_potis2 = lua_table.p2.inventory[3]
-        lua_table["System"]:LOG("HP2 POTIS: " .. hp_potis2)
-        lua_table["System"]:LOG("ENG2 POTIS: " .. eng_potis2)
-        lua_table["System"]:LOG("DMG2 POTIS: " .. dmg_potis2)
-        lua_table["System"]:LOG("SELECTED2: " .. lua_table.p2.item_selected)
+        --lua_table["System"]:LOG("HP2 POTIS: " .. hp_potis2)
+        --lua_table["System"]:LOG("ENG2 POTIS: " .. eng_potis2)
+        --lua_table["System"]:LOG("DMG2 POTIS: " .. dmg_potis2)
+        --lua_table["System"]:LOG("SELECTED2: " .. lua_table.p2.item_selected)
 
         lua_table["UI"]:SetTextNumber(hp_potis, HPPOTID)
         lua_table["UI"]:SetTextNumber(eng_potis, ENGPOTID)
@@ -421,7 +421,7 @@ function GetTablePOTIS()
             HidePotis(1)
             lua_table["UI"]:MakeElementVisible("Image", POTID)
             
-            lua_table["System"]:LOG("ON HP EMPTY")
+            --lua_table["System"]:LOG("ON HP EMPTY")
         end
 
         if eng_potis == 0 and hp_potis == 0 and dmg_potis == 0 and on_hp == true--ALL EMPTY WHEN WE HAVE SELECTED THE HP POTIS
@@ -429,7 +429,7 @@ function GetTablePOTIS()
             HidePotis(1)
             lua_table["UI"]:MakeElementVisible("Image", POTID5)
             
-            lua_table["System"]:LOG("ON HP EMPTY")
+            --lua_table["System"]:LOG("ON HP EMPTY")
         end 
 
         if eng_potis == 0 and on_hp == true and hp_potis ~= 0 and dmg_potis ~= 0--SI NO HAY POTIS DE ENG pero si hay de demas desde perspectiva HP
@@ -479,7 +479,7 @@ function GetTablePOTIS()
             HidePotis(1)
             lua_table["UI"]:MakeElementVisible("Image", POTID2)
             
-            lua_table["System"]:LOG("ON HP EMPTY")
+            --lua_table["System"]:LOG("ON HP EMPTY")
         end
 
         if eng_potis == 0 and hp_potis == 0 and dmg_potis == 0 and on_energy == true--ALL EMPTY WHEN WE HAVE SELECTED THE ENG POTIS
@@ -487,7 +487,7 @@ function GetTablePOTIS()
             HidePotis(1)
             lua_table["UI"]:MakeElementVisible("Image", POTID6)
             
-            lua_table["System"]:LOG("ON ENG EMPTY")
+            --lua_table["System"]:LOG("ON ENG EMPTY")
         end 
 
         if eng_potis == 0 and on_energy == true and hp_potis ~= 0 and dmg_potis ~= 0--SI NO HAY POTIS DE ENG pero si hay de demas desde perspectiva eng
@@ -539,7 +539,7 @@ function GetTablePOTIS()
             HidePotis(1)
             lua_table["UI"]:MakeElementVisible("Image", POTID10)
             
-            lua_table["System"]:LOG("ON HP EMPTY")
+            --lua_table["System"]:LOG("ON HP EMPTY")
         end
 
         if eng_potis == 0 and hp_potis == 0 and dmg_potis == 0 and on_dmg == true--ALL EMPTY WHEN WE HAVE SELECTED THE DMG POTIS
@@ -548,7 +548,7 @@ function GetTablePOTIS()
             HidePotis(1)
             lua_table["UI"]:MakeElementVisible("Image", POTID9)
 
-            lua_table["System"]:LOG("ON HP EMPTY")
+            --lua_table["System"]:LOG("ON HP EMPTY")
         end 
 
         if eng_potis == 0 and on_dmg == true and hp_potis ~= 0 and dmg_potis ~= 0--SI NO HAY POTIS DE ENG pero si hay de demas desde perspectiva dmg
@@ -601,7 +601,7 @@ function GetTablePOTIS()
             HidePotis(2)
             lua_table["UI"]:MakeElementVisible("Image", POTID_J)
             
-            lua_table["System"]:LOG("ON HP EMPTY")
+            --lua_table["System"]:LOG("ON HP EMPTY")
         end
 
         if eng_potis2 == 0 and hp_potis2 == 0 and dmg_potis2 == 0 and on_hp2 == true--ALL EMPTY WHEN WE HAVE SELECTED THE HP POTIS
@@ -609,7 +609,7 @@ function GetTablePOTIS()
             HidePotis(2)
             lua_table["UI"]:MakeElementVisible("Image", POTID5_J)
             
-            lua_table["System"]:LOG("ON HP EMPTY")
+            --lua_table["System"]:LOG("ON HP EMPTY")
         end 
 
         if eng_potis2 == 0 and on_hp2 == true and hp_potis2 ~= 0 and dmg_potis2 ~= 0--SI NO HAY POTIS DE ENG pero si hay de demas desde perspectiva HP
@@ -659,7 +659,7 @@ function GetTablePOTIS()
             HidePotis(2)
             lua_table["UI"]:MakeElementVisible("Image", POTID2_J)
             
-            lua_table["System"]:LOG("ON HP EMPTY")
+            --lua_table["System"]:LOG("ON HP EMPTY")
         end
 
         if eng_potis2 == 0 and hp_potis2 == 0 and dmg_potis2 == 0 and on_energy2 == true--ALL EMPTY WHEN WE HAVE SELECTED THE ENG POTIS
@@ -667,7 +667,7 @@ function GetTablePOTIS()
             HidePotis(2)
             lua_table["UI"]:MakeElementVisible("Image", POTID6_J)
             
-            lua_table["System"]:LOG("ON ENG EMPTY")
+            --lua_table["System"]:LOG("ON ENG EMPTY")
         end 
 
         if eng_potis2 == 0 and on_energy2 == true and hp_potis2 ~= 0 and dmg_potis2 ~= 0--SI NO HAY POTIS DE ENG pero si hay de demas desde perspectiva eng
@@ -719,7 +719,7 @@ function GetTablePOTIS()
             HidePotis(2)
             lua_table["UI"]:MakeElementVisible("Image", POTID10_J)
             
-            lua_table["System"]:LOG("ON HP EMPTY")
+            --lua_table["System"]:LOG("ON HP EMPTY")
         end
 
         if eng_potis2 == 0 and hp_potis2 == 0 and dmg_potis2 == 0 and on_dmg2 == true--ALL EMPTY WHEN WE HAVE SELECTED THE DMG POTIS
@@ -728,7 +728,7 @@ function GetTablePOTIS()
             HidePotis(2)
             lua_table["UI"]:MakeElementVisible("Image", POTID9_J)
 
-            lua_table["System"]:LOG("ON HP EMPTY")
+            --lua_table["System"]:LOG("ON HP EMPTY")
         end 
 
         if eng_potis2 == 0 and on_dmg2 == true and hp_potis2 ~= 0 and dmg_potis2 ~= 0--SI NO HAY POTIS DE ENG pero si hay de demas desde perspectiva dmg
