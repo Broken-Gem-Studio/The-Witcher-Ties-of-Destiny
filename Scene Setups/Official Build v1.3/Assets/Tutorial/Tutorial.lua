@@ -320,6 +320,19 @@ local function Step3()
 end
 
 local function Step4()
+
+    if startTimer == false and lua_table.MoveEnemies == true
+    then
+        lastTime = lua_table.SystemFunctions:GameTime()
+        lua_table.InterfaceFunctions:MakeElementVisible("Image", littleCards.enemy)
+        startTimer = true
+    end
+
+    if lua_table.MoveEnemies == true and lua_table.SystemFunctions:GameTime() > lastTime + 4
+    then
+        lua_table.InterfaceFunctions:MakeElementInvisible("Image", littleCards.enemy)
+    end
+
     scriptSpawnerStep4.CheckEnemies()
     if scriptSpawnerStep4.auxCounter == 4
     then
@@ -337,6 +350,7 @@ local function Step4()
         lua_table.InterfaceFunctions:MakeElementInvisible("Image", littleCards.enemy)
         lua_table.ObjectFunctions:SetActiveGameObject(true, spawnerStep6_1)
         lua_table.ObjectFunctions:SetActiveGameObject(true, spawnerStep6_2)
+        startTimer = false
         lua_table.currentStep = Step.STEP_6
     end
 end
