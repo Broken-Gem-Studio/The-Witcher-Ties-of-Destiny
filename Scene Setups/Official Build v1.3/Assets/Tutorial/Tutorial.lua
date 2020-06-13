@@ -117,6 +117,10 @@ local moveStep9 = false
 local activateEnemiesStep10 = false
 local geraltStart9 = false
 local jaskierStart9 = false
+local lumberjackGO = 0
+local lumberjackScript = 0
+local lumberjackDead = false
+local step9Time = 0
 lua_table.PauseStep9 = false
 
 -- Variables STEP 10
@@ -477,6 +481,7 @@ local function Step9()
     then
         RevivePlayers()
         checkPlayersHealth = true
+        step9Time = lua_table.SystemFunctions:GameTime()
     end
 
     if lua_table.PauseStep9 == true and moveStep9 == false
@@ -501,16 +506,32 @@ local function Step9()
 
     scriptSpawnerStep9.CheckEnemies()
 
-    if scriptSpawnerStep9.auxCounter == 1 
+    if lumberjackScript ~= 0 and lumberjackScript ~= nil
     then
-        checkStep9 = true
+        if lua_table.SystemFunctions:GameTime() > step9Time + 2 then
+            if lumberjackScript.CurrentHealth < 0
+            then
+                lumberjackDead = true
+            end
+        end
     end
 
-    if scriptSpawnerStep9.auxCounter == 0 and checkStep9 == true
+    if scriptSpawnerStep9.auxCounter == 1 and checkStep9 == false
+    then
+        checkStep9 = true
+        lumberjackGO = scriptSpawnerStep9.spawnedEnemies[1]
+        if lumberjackGO ~= 0 and lumberjackGO ~= nil 
+        then
+            lumberjackScript = lua_table.ObjectFunctions:GetScript(lumberjackGO)
+        end
+    end
+
+    if lumberjackDead == true and checkStep9 == true
     then
         lua_table.ObjectFunctions:SetActiveGameObject(true, spawnerStep10_1)
         lua_table.ObjectFunctions:SetActiveGameObject(true, spawnerStep10_2)
         lua_table.ObjectFunctions:SetActiveGameObject(true, spawnerStep10_3)
+        lua_table.ObjectFunctions:SetActiveGameObject(true, spawnerArcher1)
 
         checkPlayersHealth = false
         activateEnemiesStep10 = true
@@ -557,7 +578,6 @@ local function Step10()
     if scriptSpawnerStep10_1.auxCounter == 0 and checkStep10_1 == true and scriptSpawnerStep10_2.auxCounter == 0 
     and checkStep10_2 == true and scriptSpawnerStep10_3.auxCounter == 0 and checkStep10_3 == true
     then
-        lua_table.ObjectFunctions:SetActiveGameObject(true, spawnerArcher1)
         lua_table.ObjectFunctions:SetActiveGameObject(true, spawnerArcher2)
         lua_table.ObjectFunctions:SetActiveGameObject(true, spawnerArcher3)
         checkPlayersHealth = false

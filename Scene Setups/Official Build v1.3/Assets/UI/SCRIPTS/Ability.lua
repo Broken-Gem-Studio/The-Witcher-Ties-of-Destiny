@@ -131,7 +131,7 @@ function lua_table:Update()
 
     if used == false and timer - tiempopasado >= (lua_table.cdP1.ability_cooldown / 1000) and counter == 0
     then
-        lua_table["System"]:LOG("TRY")
+        --lua_table["System"]:LOG("TRY")
         PlayingSound()
         counter = 1
     end
@@ -157,7 +157,7 @@ function lua_table:Update()
 
     if used2 == false and timer - tiempopasado2 >= (lua_table.cdP2.ability_cooldown / 1000) and counter2 == 0
     then
-        lua_table["System"]:LOG("TRY2")
+        --lua_table["System"]:LOG("TRY2")
         --PlayingSound()
         counter2 = 1
     end

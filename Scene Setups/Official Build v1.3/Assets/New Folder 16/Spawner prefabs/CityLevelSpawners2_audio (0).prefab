@@ -1,12 +1,12 @@
 {
-    "1928926826": {
+    "1207538418": {
         "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
-                "positionx": "-45.131802",
-                "positiony": "2.592509",
-                "positionz": "-59.635654",
+                "positionx": "-41.907982",
+                "positiony": "4.278720",
+                "positionz": "-73.693436",
                 "rotationw": "1.000000",
                 "rotationx": "0.000000",
                 "rotationy": "0.000000",
@@ -21,13 +21,13 @@
                     "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
                 },
                 "Script variables": {
-                    "Count": 14,
+                    "Count": 15,
                     "Variable 0": {
                         "DisplayObjectName": false,
                         "Name": "ActiveDistance",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 60.0
+                        "Value": 100.0
                     },
                     "Variable 1": {
                         "DisplayObjectName": false,
@@ -38,26 +38,33 @@
                     },
                     "Variable 10": {
                         "DisplayObjectName": false,
+                        "Name": "had_conversation",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
                         "Name": "humanoid_spawner",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": true
                     },
-                    "Variable 11": {
+                    "Variable 12": {
                         "DisplayObjectName": false,
                         "Name": "is_cinematic",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": false
                     },
-                    "Variable 12": {
+                    "Variable 13": {
                         "DisplayObjectName": false,
                         "Name": "shouted_at_players",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": false
                     },
-                    "Variable 13": {
+                    "Variable 14": {
                         "DisplayObjectName": false,
                         "Name": "time",
                         "ObjectName": "",
@@ -67,9 +74,9 @@
                     "Variable 2": {
                         "DisplayObjectName": true,
                         "Name": "Enemy_Prefab",
-                        "ObjectName": "Recruit_Bandit (1).prefab",
+                        "ObjectName": "Recruit_Bandit (0).prefab",
                         "Type": "Double",
-                        "Value": 1238040519.0
+                        "Value": 928383356.0
                     },
                     "Variable 3": {
                         "DisplayObjectName": false,
@@ -83,7 +90,7 @@
                         "Name": "SpawnRadius",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 5.0
+                        "Value": 3.0
                     },
                     "Variable 5": {
                         "DisplayObjectName": false,
@@ -94,31 +101,31 @@
                     },
                     "Variable 6": {
                         "DisplayObjectName": false,
+                        "Name": "auxCounter",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": false,
                         "Name": "camera_name",
                         "ObjectName": "",
                         "Type": "String",
                         "Value": "Camera"
                     },
-                    "Variable 7": {
+                    "Variable 8": {
                         "DisplayObjectName": false,
                         "Name": "enemies",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
                     },
-                    "Variable 8": {
+                    "Variable 9": {
                         "DisplayObjectName": false,
                         "Name": "enemies_chat",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": true
-                    },
-                    "Variable 9": {
-                        "DisplayObjectName": false,
-                        "Name": "had_conversation",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
                     }
                 }
             },
@@ -127,145 +134,12 @@
             }
         },
         "Name": "EnemySpawner8",
-        "Parent": "438875626",
+        "Parent": "1555918152",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false
     },
-    "424623655": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "layer": "0",
-                "positionx": "42.528461",
-                "positiony": "23.559057",
-                "positionz": "-100.414665",
-                "rotationw": "1.000000",
-                "rotationx": "0.000000",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "1.000000",
-                "scaley": "1.000000",
-                "scalez": "1.000000"
-            },
-            "12": {
-                "Active": true,
-                "Resources": {
-                    "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
-                },
-                "Script variables": {
-                    "Count": 14,
-                    "Variable 0": {
-                        "DisplayObjectName": false,
-                        "Name": "ActiveDistance",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 60.0
-                    },
-                    "Variable 1": {
-                        "DisplayObjectName": false,
-                        "Name": "DistanceToCamera",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 10": {
-                        "DisplayObjectName": false,
-                        "Name": "humanoid_spawner",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": true
-                    },
-                    "Variable 11": {
-                        "DisplayObjectName": false,
-                        "Name": "is_cinematic",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    },
-                    "Variable 12": {
-                        "DisplayObjectName": false,
-                        "Name": "shouted_at_players",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    },
-                    "Variable 13": {
-                        "DisplayObjectName": false,
-                        "Name": "time",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 2": {
-                        "DisplayObjectName": true,
-                        "Name": "Enemy_Prefab",
-                        "ObjectName": "Archer (0).prefab",
-                        "Type": "Double",
-                        "Value": 989450319.0
-                    },
-                    "Variable 3": {
-                        "DisplayObjectName": false,
-                        "Name": "NumberofEnemies",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 3.0
-                    },
-                    "Variable 4": {
-                        "DisplayObjectName": false,
-                        "Name": "SpawnRadius",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 5": {
-                        "DisplayObjectName": false,
-                        "Name": "SpawnRate",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 2.0
-                    },
-                    "Variable 6": {
-                        "DisplayObjectName": false,
-                        "Name": "camera_name",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "Camera"
-                    },
-                    "Variable 7": {
-                        "DisplayObjectName": false,
-                        "Name": "enemies",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 8": {
-                        "DisplayObjectName": false,
-                        "Name": "enemies_chat",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    },
-                    "Variable 9": {
-                        "DisplayObjectName": false,
-                        "Name": "had_conversation",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    }
-                }
-            },
-            "19": {
-                "Active": true
-            }
-        },
-        "Name": "EnemySpawner11",
-        "Parent": "438875626",
-        "PrefabChild": true,
-        "PrefabInstance": false,
-        "Static": false
-    },
-    "438875626": {
+    "1555918152": {
         "Active": true,
         "Components": {
             "0": {
@@ -283,19 +157,19 @@
             }
         },
         "Name": "CityLevelSpawners2_audio",
-        "Parent": "255581793",
+        "Parent": "281415464",
         "PrefabChild": true,
         "PrefabInstance": true,
         "Static": false
     },
-    "463600153": {
+    "1610336097": {
         "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
-                "positionx": "-35.551044",
-                "positiony": "2.795556",
-                "positionz": "-98.583778",
+                "positionx": "20.304369",
+                "positiony": "22.111025",
+                "positionz": "-132.976028",
                 "rotationw": "1.000000",
                 "rotationx": "0.000000",
                 "rotationy": "0.000000",
@@ -310,7 +184,7 @@
                     "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
                 },
                 "Script variables": {
-                    "Count": 14,
+                    "Count": 15,
                     "Variable 0": {
                         "DisplayObjectName": false,
                         "Name": "ActiveDistance",
@@ -327,26 +201,33 @@
                     },
                     "Variable 10": {
                         "DisplayObjectName": false,
+                        "Name": "had_conversation",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
                         "Name": "humanoid_spawner",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": true
                     },
-                    "Variable 11": {
+                    "Variable 12": {
                         "DisplayObjectName": false,
                         "Name": "is_cinematic",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": false
                     },
-                    "Variable 12": {
+                    "Variable 13": {
                         "DisplayObjectName": false,
                         "Name": "shouted_at_players",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": false
                     },
-                    "Variable 13": {
+                    "Variable 14": {
                         "DisplayObjectName": false,
                         "Name": "time",
                         "ObjectName": "",
@@ -356,16 +237,16 @@
                     "Variable 2": {
                         "DisplayObjectName": true,
                         "Name": "Enemy_Prefab",
-                        "ObjectName": "Archer (0).prefab",
+                        "ObjectName": "Recruit_Bandit (0).prefab",
                         "Type": "Double",
-                        "Value": 989450319.0
+                        "Value": 928383356.0
                     },
                     "Variable 3": {
                         "DisplayObjectName": false,
                         "Name": "NumberofEnemies",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 3.0
+                        "Value": 10.0
                     },
                     "Variable 4": {
                         "DisplayObjectName": false,
@@ -383,28 +264,168 @@
                     },
                     "Variable 6": {
                         "DisplayObjectName": false,
+                        "Name": "auxCounter",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": false,
                         "Name": "camera_name",
                         "ObjectName": "",
                         "Type": "String",
                         "Value": "Camera"
                     },
-                    "Variable 7": {
+                    "Variable 8": {
                         "DisplayObjectName": false,
                         "Name": "enemies",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
                     },
-                    "Variable 8": {
+                    "Variable 9": {
                         "DisplayObjectName": false,
                         "Name": "enemies_chat",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": true
+                    }
+                }
+            },
+            "19": {
+                "Active": true
+            }
+        },
+        "Name": "EnemySpawner10",
+        "Parent": "1555918152",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "1678133955": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-51.490562",
+                "positiony": "4.032984",
+                "positionz": "-35.751301",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
+                },
+                "Script variables": {
+                    "Count": 15,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "ActiveDistance",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 60.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "DistanceToCamera",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "had_conversation",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "humanoid_spawner",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": true
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "is_cinematic",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "shouted_at_players",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 14": {
+                        "DisplayObjectName": false,
+                        "Name": "time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": true,
+                        "Name": "Enemy_Prefab",
+                        "ObjectName": "Recruit_Bandit (0).prefab",
+                        "Type": "Double",
+                        "Value": 928383356.0
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "NumberofEnemies",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 4.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRadius",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 3.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRate",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.5
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": false,
+                        "Name": "auxCounter",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_name",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Camera"
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": false,
+                        "Name": "enemies",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
                     },
                     "Variable 9": {
                         "DisplayObjectName": false,
-                        "Name": "had_conversation",
+                        "Name": "enemies_chat",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": false
@@ -415,13 +436,13 @@
                 "Active": true
             }
         },
-        "Name": "EnemySpawner9",
-        "Parent": "438875626",
+        "Name": "EnemySpawner7",
+        "Parent": "1555918152",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false
     },
-    "562628230": {
+    "237840727": {
         "Active": true,
         "Components": {
             "0": {
@@ -443,7 +464,7 @@
                     "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
                 },
                 "Script variables": {
-                    "Count": 14,
+                    "Count": 15,
                     "Variable 0": {
                         "DisplayObjectName": false,
                         "Name": "ActiveDistance",
@@ -460,26 +481,33 @@
                     },
                     "Variable 10": {
                         "DisplayObjectName": false,
+                        "Name": "had_conversation",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
                         "Name": "humanoid_spawner",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": true
                     },
-                    "Variable 11": {
+                    "Variable 12": {
                         "DisplayObjectName": false,
                         "Name": "is_cinematic",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": false
                     },
-                    "Variable 12": {
+                    "Variable 13": {
                         "DisplayObjectName": false,
                         "Name": "shouted_at_players",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": false
                     },
-                    "Variable 13": {
+                    "Variable 14": {
                         "DisplayObjectName": false,
                         "Name": "time",
                         "ObjectName": "",
@@ -489,9 +517,9 @@
                     "Variable 2": {
                         "DisplayObjectName": true,
                         "Name": "Enemy_Prefab",
-                        "ObjectName": "Recruit_Bandit (1).prefab",
+                        "ObjectName": "Recruit_Bandit (0).prefab",
                         "Type": "Double",
-                        "Value": 1238040519.0
+                        "Value": 928383356.0
                     },
                     "Variable 3": {
                         "DisplayObjectName": false,
@@ -516,31 +544,31 @@
                     },
                     "Variable 6": {
                         "DisplayObjectName": false,
+                        "Name": "auxCounter",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": false,
                         "Name": "camera_name",
                         "ObjectName": "",
                         "Type": "String",
                         "Value": "Camera"
                     },
-                    "Variable 7": {
+                    "Variable 8": {
                         "DisplayObjectName": false,
                         "Name": "enemies",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
                     },
-                    "Variable 8": {
+                    "Variable 9": {
                         "DisplayObjectName": false,
                         "Name": "enemies_chat",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": true
-                    },
-                    "Variable 9": {
-                        "DisplayObjectName": false,
-                        "Name": "had_conversation",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
                     }
                 }
             },
@@ -549,19 +577,19 @@
             }
         },
         "Name": "EnemySpawner12",
-        "Parent": "438875626",
+        "Parent": "1555918152",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false
     },
-    "638279550": {
+    "244452762": {
         "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
-                "positionx": "20.304369",
-                "positiony": "22.111025",
-                "positionz": "-132.976028",
+                "positionx": "-35.551044",
+                "positiony": "2.795556",
+                "positionz": "-98.583778",
                 "rotationw": "1.000000",
                 "rotationx": "0.000000",
                 "rotationy": "0.000000",
@@ -576,7 +604,7 @@
                     "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
                 },
                 "Script variables": {
-                    "Count": 14,
+                    "Count": 15,
                     "Variable 0": {
                         "DisplayObjectName": false,
                         "Name": "ActiveDistance",
@@ -593,26 +621,33 @@
                     },
                     "Variable 10": {
                         "DisplayObjectName": false,
+                        "Name": "had_conversation",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
                         "Name": "humanoid_spawner",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": true
                     },
-                    "Variable 11": {
+                    "Variable 12": {
                         "DisplayObjectName": false,
                         "Name": "is_cinematic",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": false
                     },
-                    "Variable 12": {
+                    "Variable 13": {
                         "DisplayObjectName": false,
                         "Name": "shouted_at_players",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": false
                     },
-                    "Variable 13": {
+                    "Variable 14": {
                         "DisplayObjectName": false,
                         "Name": "time",
                         "ObjectName": "",
@@ -622,16 +657,16 @@
                     "Variable 2": {
                         "DisplayObjectName": true,
                         "Name": "Enemy_Prefab",
-                        "ObjectName": "Recruit_Bandit (1).prefab",
+                        "ObjectName": "Archer (0).prefab",
                         "Type": "Double",
-                        "Value": 1238040519.0
+                        "Value": 1224343174.0
                     },
                     "Variable 3": {
                         "DisplayObjectName": false,
                         "Name": "NumberofEnemies",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 10.0
+                        "Value": 3.0
                     },
                     "Variable 4": {
                         "DisplayObjectName": false,
@@ -649,31 +684,31 @@
                     },
                     "Variable 6": {
                         "DisplayObjectName": false,
+                        "Name": "auxCounter",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": false,
                         "Name": "camera_name",
                         "ObjectName": "",
                         "Type": "String",
                         "Value": "Camera"
                     },
-                    "Variable 7": {
+                    "Variable 8": {
                         "DisplayObjectName": false,
                         "Name": "enemies",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
                     },
-                    "Variable 8": {
+                    "Variable 9": {
                         "DisplayObjectName": false,
                         "Name": "enemies_chat",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": true
-                    },
-                    "Variable 9": {
-                        "DisplayObjectName": false,
-                        "Name": "had_conversation",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
                     }
                 }
             },
@@ -681,20 +716,20 @@
                 "Active": true
             }
         },
-        "Name": "EnemySpawner10",
-        "Parent": "438875626",
+        "Name": "EnemySpawner9",
+        "Parent": "1555918152",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false
     },
-    "924687801": {
+    "342386822": {
         "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
-                "positionx": "-51.562157",
-                "positiony": "3.109998",
-                "positionz": "-35.449196",
+                "positionx": "42.528461",
+                "positiony": "23.559057",
+                "positionz": "-100.414665",
                 "rotationw": "1.000000",
                 "rotationx": "0.000000",
                 "rotationy": "0.000000",
@@ -709,7 +744,7 @@
                     "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
                 },
                 "Script variables": {
-                    "Count": 14,
+                    "Count": 15,
                     "Variable 0": {
                         "DisplayObjectName": false,
                         "Name": "ActiveDistance",
@@ -726,26 +761,33 @@
                     },
                     "Variable 10": {
                         "DisplayObjectName": false,
+                        "Name": "had_conversation",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
                         "Name": "humanoid_spawner",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": true
                     },
-                    "Variable 11": {
+                    "Variable 12": {
                         "DisplayObjectName": false,
                         "Name": "is_cinematic",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": false
                     },
-                    "Variable 12": {
+                    "Variable 13": {
                         "DisplayObjectName": false,
                         "Name": "shouted_at_players",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": false
                     },
-                    "Variable 13": {
+                    "Variable 14": {
                         "DisplayObjectName": false,
                         "Name": "time",
                         "ObjectName": "",
@@ -755,55 +797,55 @@
                     "Variable 2": {
                         "DisplayObjectName": true,
                         "Name": "Enemy_Prefab",
-                        "ObjectName": "Recruit_Bandit (1).prefab",
+                        "ObjectName": "Archer (0).prefab",
                         "Type": "Double",
-                        "Value": 1238040519.0
+                        "Value": 1224343174.0
                     },
                     "Variable 3": {
                         "DisplayObjectName": false,
                         "Name": "NumberofEnemies",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 4.0
+                        "Value": 3.0
                     },
                     "Variable 4": {
                         "DisplayObjectName": false,
                         "Name": "SpawnRadius",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 5.0
+                        "Value": 1.0
                     },
                     "Variable 5": {
                         "DisplayObjectName": false,
                         "Name": "SpawnRate",
                         "ObjectName": "",
                         "Type": "Double",
-                        "Value": 0.5
+                        "Value": 2.0
                     },
                     "Variable 6": {
+                        "DisplayObjectName": false,
+                        "Name": "auxCounter",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 7": {
                         "DisplayObjectName": false,
                         "Name": "camera_name",
                         "ObjectName": "",
                         "Type": "String",
                         "Value": "Camera"
                     },
-                    "Variable 7": {
+                    "Variable 8": {
                         "DisplayObjectName": false,
                         "Name": "enemies",
                         "ObjectName": "",
                         "Type": "Double",
                         "Value": 0.0
                     },
-                    "Variable 8": {
-                        "DisplayObjectName": false,
-                        "Name": "enemies_chat",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    },
                     "Variable 9": {
                         "DisplayObjectName": false,
-                        "Name": "had_conversation",
+                        "Name": "enemies_chat",
                         "ObjectName": "",
                         "Type": "Boolean",
                         "Value": false
@@ -814,11 +856,11 @@
                 "Active": true
             }
         },
-        "Name": "EnemySpawner7",
-        "Parent": "438875626",
+        "Name": "EnemySpawner11",
+        "Parent": "1555918152",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false
     },
-    "PreviewTexture": "Library/Textures/264350896.dds"
+    "PreviewTexture": "Library/Textures/768163933.dds"
 }
