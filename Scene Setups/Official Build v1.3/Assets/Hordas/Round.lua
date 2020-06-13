@@ -190,21 +190,23 @@ function lua_table:Update()
     then
         lua_table.auxCounter = enemy_counter
         for i = 1, #spawned_enemies do
-            --[[local active = lua_table.GO:GetLayerByID(spawned_enemies[i])
+            local active = lua_table.GO:GetLayerByID(spawned_enemies[i])
             if  active == -1 
             then
-                lua_table.auxCounter = lua_table.auxCounter - 1
-            end]]
+                spawned_enemies[i] = 0
+            end
 
-            if spawned_enemies[i] ~= 0 then 
+            if spawned_enemies[i] ~= 0 then
                 local script = lua_table.GO:GetScript(spawned_enemies[i])
-                if script.health <= 0 then 
-                    lua_table.auxCounter = lua_table.auxCounter - 1
+                if script.health <= 0 then
                     spawned_enemies[i] = 0
                 end
-            else
+            end
+            
+            if spawned_enemies[i] == 0 then 
                 lua_table.auxCounter = lua_table.auxCounter - 1
             end
+            
         end
 
         if lua_table.auxCounter == 0 and lua_table.is_finished == true

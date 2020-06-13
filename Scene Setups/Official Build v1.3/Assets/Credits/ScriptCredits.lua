@@ -75,8 +75,8 @@ function GetTableScriptCredits()
     end
     
     function lua_table:Start()
+        current_HUD = lua_table.HUD_LIBRARY.Producer
         lua_table.Audio:PlayAudioEvent("Play_Level_2_Music")
-
         lua_table.Audio:SetAudioSwitch("Lvl_2_Music_Switch","Combat",my_UID)
         lua_table.Audio:SetVolume(0.3,my_UID)
     end
