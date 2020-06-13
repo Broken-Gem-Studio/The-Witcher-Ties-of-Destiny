@@ -9,7 +9,6 @@ lua_table.Input = Scripting.Inputs()
 lua_table.UI = Scripting.Interface()
 
 -- Camera target GO names
-lua_table.cube = "Cube"
 lua_table.value_ = 0
 lua_table.skip_threshold = 0
 
@@ -48,6 +47,7 @@ local follow_jaskier = false
 
 local A_time = 0
 local fade_button = false
+local dt_time = 0
 
 local camera_panning = true
 local FadeOut1 = true
@@ -107,7 +107,7 @@ local function SkipButton()
         lua_table.Audio:StopAudioEvent("Play_Lvl2_Ambience_Wind_Loop")
         lua_table.Audio:StopAudioEvent("Play_Lvl2_Ambience_Crickets_Loop")
         lua_table.Audio:StopAudioEvent("Play_Music_Cinematic_lvl2_Elven_Forest")
-        A_time = lua_table.System:GameTime()
+        A_time = lua_table.System:GameTime() - started_time
 
         fade_button = true
     end
@@ -124,8 +124,6 @@ function lua_table:Start()
     -- Camera initial position (Players unseen)
     lua_table.Transform:SetPosition(424.949, 57.469, -266.669, lua_table.GameObjectFunctions:GetMyUID())
     lua_table.Transform:SetObjectRotation(132.264, 38.413, -147.605, lua_table.GameObjectFunctions:GetMyUID())
-
-    Cube_ID = lua_table.GameObjectFunctions:FindGameObject(lua_table.cube)
     --BarID = lua_table.GameObjectFunctions:FindGameObject("SkipBarForest")
     Fade = lua_table.GameObjectFunctions:FindGameObject("Fade")
 
@@ -148,9 +146,18 @@ function lua_table:Update()
     time = lua_table.System:GameTime() - started_time
     CurrentCameraPos = lua_table.Transform:GetPosition(lua_table.GameObjectFunctions:GetMyUID())
 
-    if actual_scene_timer + 1000 <= lua_table.System:GameTime() * 1000 and next_scene == true then
-        lua_table.Scene:LoadScene(lua_table.NextScene)
-        next_scene = false
+    
+    if next_scene == true 
+    then
+        
+        dt_time = dt_time + lua_table.System:DT()
+
+        if dt_time >= 1
+        then
+            lua_table.Scene:LoadScene(lua_table.NextScene)
+            next_scene = false
+            lua_table.System:LOG("CHANGE SCENE")
+        end
     end
 
     if fade_button == true then
@@ -159,19 +166,18 @@ function lua_table:Update()
             local alpha = Lerp(0, 1, value)
             lua_table.UI:ChangeUIComponentColor("Image",0,0,0, alpha, Fade)
     
-            if value >= 1 and next_scene == false then
+            if value >= 1 
+            then
 
                 lua_table.GameObjectFunctions:SetActiveGameObject(true, loading_screen)
-
-                actual_scene_timer = lua_table.System:GameTime() * 1000
                 next_scene = true
+                lua_table.System:LOG("NEXT SCENE TRUE")
 
-
-                fade_button = false
             end
     end
 
     SkipButton()
+
     if fade_button == false 
     then
         if camera_panning -- Camera pans sideways

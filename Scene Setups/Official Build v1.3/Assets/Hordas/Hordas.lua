@@ -38,10 +38,16 @@ local round7_script = 0
 local round8_script = 0
 local round9_script = 0
 
+lua_table.credits_script = 0
+
 local next_round = 0
 local last_round = 0
 
 function lua_table:Awake()
+
+end
+
+function lua_table:Start()
     last_round = 0
     next_round = 0
     lua_table.credits_time = 0
@@ -56,13 +62,19 @@ function lua_table:Awake()
     round7 = lua_table.GO:FindGameObject("Round7")
     round8 = lua_table.GO:FindGameObject("Round8")
     round9 = lua_table.GO:FindGameObject("Round9")
-    
+
+    local creditsGO = lua_table.GO:FindGameObject("Credits")
+    if creditsGO > 0 then
+        lua_table.credits_script = lua_table.GO:GetScript(creditsGO)
+    end
+
+
     if round0 > 0 --round 0
     then
         round0_script = lua_table.GO:GetScript(round0)
         last_round = 0
     end
-    
+
     if round1 > 0 --round 1
     then
         round1_script = lua_table.GO:GetScript(round1)
@@ -74,25 +86,25 @@ function lua_table:Awake()
         round2_script = lua_table.GO:GetScript(round2)
         last_round = 2
     end
-    
+
     if round3 > 0 --round 3
     then
         round3_script = lua_table.GO:GetScript(round3)
         last_round = 3
     end
-    
+
     if round4 > 0 --round 4
     then
         round4_script = lua_table.GO:GetScript(round4)
         last_round = 4
     end
-    
+
     if round5 > 0 --round 5
     then
         round5_script = lua_table.GO:GetScript(round5)
         last_round = 5
     end
-    
+
     if round6 > 0 --round 6
     then
         round6_script = lua_table.GO:GetScript(round6)
@@ -116,21 +128,21 @@ function lua_table:Awake()
         round9_script = lua_table.GO:GetScript(round9)
         last_round = 9
     end
-end
 
-function lua_table:Start()
+    if lua_table.credits == true then lua_table.credits_script:showImage(lua_table.credits_script.HUD_LIBRARY.Producer) end
 end
 
 function lua_table:Update()
     time = time + lua_table.System:DT()
     if lua_table.credits == true then lua_table.credits_time = lua_table.credits_time + lua_table.System:DT() end
     delay_time = delay_time + lua_table.System:DT()
-    
-    if next_round > last_round or (lua_table.credits_time < lua_table.credits_endtime and lua_table.credits == true)
+
+    if next_round > last_round or (lua_table.credits_time > lua_table.credits_endtime and lua_table.credits == true)
     then
         lua_table.begin = false
     end
-    
+
+    if lua_table.credits == true then if lua_table.credits_script.finished == true then lua_table.begin = false end end
 
     if lua_table.begin == true
     then
@@ -153,6 +165,7 @@ function lua_table:Update()
                         next_round = next_round + 1
                         delay = true
                         delay_time = 0
+                        --if lua_table.credits == true then lua_table.credits_script:showImage() end
                     end
                 elseif next_round == 1 and round1 > 0 --round 1
                 then
@@ -163,6 +176,7 @@ function lua_table:Update()
                         next_round = next_round + 1
                         delay = true
                         delay_time = 0
+                        --if lua_table.credits == true then lua_table.credits_script:showImage() end
                     end
                 elseif next_round == 2 and round2 > 0 --round 2
                 then
@@ -173,6 +187,7 @@ function lua_table:Update()
                         next_round = next_round + 1
                         delay = true
                         delay_time = 0
+                        --if lua_table.credits == true then lua_table.credits_script:showImage() end
                     end
                 elseif next_round == 3 and round3 > 0 --round 3
                 then
@@ -183,6 +198,7 @@ function lua_table:Update()
                         next_round = next_round + 1
                         delay = true
                         delay_time = 0
+                        --if lua_table.credits == true then lua_table.credits_script:showImage() end
                     end
                 elseif next_round == 4 and round4 > 0 --round 4
                 then
@@ -193,6 +209,7 @@ function lua_table:Update()
                         next_round = next_round + 1
                         delay = true
                         delay_time = 0
+                        --if lua_table.credits == true then lua_table.credits_script:showImage() end
                     end
                 elseif next_round == 5 and round5 > 0 --round 5
                 then
@@ -203,6 +220,7 @@ function lua_table:Update()
                         next_round = next_round + 1
                         delay = true
                         delay_time = 0
+                        --if lua_table.credits == true then lua_table.credits_script:showImage() end
                     end
                 elseif next_round == 6 and round6 > 0 --round 6
                 then
@@ -213,6 +231,7 @@ function lua_table:Update()
                         next_round = next_round + 1
                         delay = true
                         delay_time = 0
+                        --if lua_table.credits == true then lua_table.credits_script:showImage() end
                     end
                 elseif next_round == 7 and round7 > 0 --round 7
                 then
@@ -223,6 +242,7 @@ function lua_table:Update()
                         next_round = next_round + 1
                         delay = true
                         delay_time = 0
+                        --if lua_table.credits == true then lua_table.credits_script:showImage() end
                     end
                 elseif next_round == 8 and round8 > 0 --round 8
                 then
@@ -233,6 +253,7 @@ function lua_table:Update()
                         next_round = next_round + 1
                         delay = true
                         delay_time = 0
+                        --if lua_table.credits == true then lua_table.credits_script:showImage() end
                     end
                 elseif next_round == 9 and round9 > 0 --round 9
                 then
@@ -243,6 +264,7 @@ function lua_table:Update()
                         next_round = next_round + 1
                         delay = true
                         delay_time = 0
+                        --if lua_table.credits == true then lua_table.credits_script:showImage() end
                     end
                 end
             end
@@ -251,7 +273,8 @@ function lua_table:Update()
         end
     else
         if lua_table.credits == true then
-            if lua_table.credits_time < lua_table.credits_endtime then
+            local reset = false
+            if lua_table.credits_script.finished == false then
                 round0_script:Reset()
                 round1_script:Reset()
                 round2_script:Reset()
