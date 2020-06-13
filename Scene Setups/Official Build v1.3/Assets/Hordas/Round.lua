@@ -198,7 +198,9 @@ function lua_table:Update()
 
             if spawned_enemies[i] ~= 0 then
                 local script = lua_table.GO:GetScript(spawned_enemies[i])
-                if script.health <= 0 then
+                if script == nil then 
+                    spawned_enemies[i] = 0
+                elseif script.health <= 0 then
                     spawned_enemies[i] = 0
                 end
             end
