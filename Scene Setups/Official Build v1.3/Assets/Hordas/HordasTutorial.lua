@@ -139,7 +139,7 @@ function lua_table:Update()
                 hordas_script.begin = true
                 begin = true
             else
-                if round0_script.is_finished == true and flag0 == false
+                if round0_script.is_finished == true and round0_script.stop == true and flag0 == false
                 then
                     lua_table.GO:SetActiveGameObject(true, next_round)
                     lua_table.GO:SetActiveGameObject(true, counter)    
@@ -150,7 +150,7 @@ function lua_table:Update()
                     flag0 = true
                 end
 
-                if round1_script.is_finished == true and flag1 == false
+                if round1_script.is_finished == true and round1_script.stop == true and flag1 == false
                 then
                     lua_table.GO:SetActiveGameObject(true, next_round)
                     lua_table.GO:SetActiveGameObject(true, counter)    
@@ -161,7 +161,7 @@ function lua_table:Update()
                     flag1 = true
                 end
 
-                if round2_script.is_finished == true and flag2 == false
+                if round2_script.is_finished == true and round2_script.stop == true and flag2 == false
                 then
                     lua_table.GO:SetActiveGameObject(true, next_round)
                     lua_table.GO:SetActiveGameObject(true, counter)    
@@ -172,7 +172,7 @@ function lua_table:Update()
                     flag2 = true
                 end
 
-                if round3_script.is_finished == true and flag3 == false
+                if round3_script.is_finished == true and round3_script.stop == true and flag3 == false
                 then
                     lua_table.GO:SetActiveGameObject(true, last_round)
                     lua_table.GO:SetActiveGameObject(true, counter)    
