@@ -17,6 +17,7 @@ lua_table.camera_distance_layer_3 = 45
 
 lua_table.bossfight_distance = 45
 lua_table.hoardfight_distance = 35
+lua_table.creditsfight_distance = 35
 
 -- Angle of the camera in degrees (0 Horizontal 90 Vertical)
 -- lua_table.camera_angle = 70
@@ -28,12 +29,15 @@ lua_table.camera_angle_layer_3 = 70
 
 lua_table.bossfight_angle = 45
 lua_table.hoardfight_angle = 50
+lua_table.creditsfight_angle = 50
 
 -- Orientation
 lua_table.camera_orientation = 0 -- basically = camera_rotation_y
 
+-- not used lol
 lua_table.bossfight_orientation = -7.5
 lua_table.hoardfight_orientation = 0
+lua_table.creditsfight_orientation = 0
 
 -- Smoothing Speed from (from 0 to 1 -- slow to fast)
 lua_table.movement_smooth_speed = 0.2
@@ -125,6 +129,7 @@ lua_table.current_state = state.DYNAMIC -- Should initialize at awake(?)
 -- Level stage 
 lua_table.bossfight = false -- Will be true when Kikimora gets inside frustum
 lua_table.hoardfight = false
+lua_table.creditsfight = false
 
 -- Zoom layers
 local zoom = -- not in use rn
@@ -133,7 +138,8 @@ local zoom = -- not in use rn
 	LAYER_2 = 2, 
     LAYER_3 = 3,
 	LAYER_BOSS = 4,
-	LAYER_HOARD = 5,
+    LAYER_HOARD = 5,
+    LAYER_CREDITS = 6,
 }
 lua_table.current_zoom_layer = zoom.LAYER_1 -- Shoul initialize at awake(?)
 
@@ -344,6 +350,17 @@ local function HandleZoomLayers()
 					lua_table.current_state = state.SWITCHING
                     lua_table.SystemFunctions:LOG ("Camera: Switching to Boss Layer")
                 end
+            end
+
+			if lua_table.creditsfight == true
+            then
+                if lua_table.current_zoom_layer ~= zoom.LAYER_CREDITS
+                then 
+                    -- Switch up to Layer Boss
+					lua_table.current_zoom_layer = zoom.LAYER_CREDITS
+					lua_table.current_state = state.SWITCHING
+                    lua_table.SystemFunctions:LOG ("Camera: Switching to Boss Layer")
+                end
 				-- -- Layer 1
 				-- if lua_table.current_zoom_layer == zoom.LAYER_1
 				-- then
@@ -481,8 +498,18 @@ local function HandleZoomLayers()
 				-- Switch up to Layer Boss
 					lua_table.current_zoom_layer = zoom.LAYER_HOARD
 					lua_table.current_state = state.SWITCHING
-					lua_table.SystemFunctions:LOG ("Camera: Switching to Boss Layer")
-				end
+					lua_table.SystemFunctions:LOG ("Camera: Switching to Hoard Layer")
+                end
+
+			elseif lua_table.creditsfight == true
+            then
+                if lua_table.current_zoom_layer ~= zoom.LAYER_CREDITS
+                then 
+                    -- Switch up to Layer Boss
+					lua_table.current_zoom_layer = zoom.LAYER_CREDITS
+					lua_table.current_state = state.SWITCHING
+                    lua_table.SystemFunctions:LOG ("Camera: Switching to Credits Layer")
+                end
 				-- -- Layer 1
 				-- if lua_table.current_zoom_layer == zoom.LAYER_1
 				-- then
@@ -641,6 +668,24 @@ local function HandleSwitch()
 				lua_table.current_state = state.DYNAMIC -- Enables Position Checking again
 				-- lua_table.current_state = state.STATIC
 				lua_table.SystemFunctions:LOG ("Camera: Switching to Zoom Layer HOARD COMPLETE")
+            end
+
+        elseif lua_table.current_zoom_layer == zoom.LAYER_CREDITS
+        then
+            desired_distance = lua_table.creditsfight_distance
+            current_camera_distance = Asymptotic_Average(current_camera_distance, desired_distance, lua_table.zoom_distance_smooth_speed)
+            
+            desired_angle = lua_table.creditsfight_angle
+            current_camera_angle = Asymptotic_Average(current_camera_angle, desired_angle, lua_table.zoom_angle_smooth_speed) --Smoothens angle transition
+			
+            if lua_table.SystemFunctions:CompareFloats(current_camera_distance, desired_distance) == 1
+			and lua_table.SystemFunctions:CompareFloats(current_camera_angle, desired_angle) == 1
+			-- local dis = current_camera_distance - desired_distance
+			-- if math.abs(dis) > lua_table.asymptotic_average_snapping_threshold
+			then
+				lua_table.current_state = state.DYNAMIC -- Enables Position Checking again
+				-- lua_table.current_state = state.STATIC
+				lua_table.SystemFunctions:LOG ("Camera: Switching to Zoom Layer HOARD COMPLETE")
 			end
 			
 			--lua_table.camera_orientation = lua_table.bossfight_orientation
@@ -678,57 +723,63 @@ local function HandleTarget()
 		end
 	end
 
-	--Death checkers
-	if lua_table.current_gameplay == gameplay.SOLO
+    if lua_table.creditsfight ~= true
     then
-        if P2_id == 0 --Truly Solo gameplay
+        --Death checkers
+        if lua_table.current_gameplay == gameplay.SOLO
         then
-		
-		    if lua_table.P1_script.current_state == -4 --DEAD
-		    then
-			    lua_table.current_gameplay = gameplay.NULL
-            end
-
-        else -- Solo gameplay because was duo but one player died
-            if P1_dead == true
+            if P2_id == 0 --Truly Solo gameplay
             then
-                if lua_table.P1_script.current_state ~= -4 --NOT DEAD (revived)
+            
+                if lua_table.P1_script.current_state == -4 --DEAD
                 then
-                    lua_table.current_gameplay = gameplay.DUO
+                    lua_table.current_gameplay = gameplay.NULL
                 end
 
-            elseif P2_dead == true
-            then
-                if lua_table.P2_script.current_state ~= -4 --NOT DEAD (revived)
+            else -- Solo gameplay because was duo but one player died
+                if P1_dead == true
                 then
-                    lua_table.current_gameplay = gameplay.DUO
+                    if lua_table.P1_script.current_state ~= -4 --NOT DEAD (revived)
+                    then
+                        lua_table.current_gameplay = gameplay.DUO
+                    end
+
+                elseif P2_dead == true
+                then
+                    if lua_table.P2_script.current_state ~= -4 --NOT DEAD (revived)
+                    then
+                        lua_table.current_gameplay = gameplay.DUO
+                    end
                 end
             end
         end
+
+
+        --Death checkers
+        if lua_table.current_gameplay == gameplay.DUO
+        then
+            
+            if lua_table.P1_script.current_state == -4 --DEAD
+            then
+                lua_table.current_gameplay = gameplay.SOLO
+                P1_dead = true
+            end
+
+            if lua_table.P2_script.current_state == -4 --DEAD
+            then
+                lua_table.current_gameplay = gameplay.SOLO
+                P2_dead = true
+            end
+
+            if lua_table.P1_script.current_state == -4 and lua_table.P2_script.current_state == -4
+            then
+                lua_table.current_gameplay = gameplay.NULL
+            end
+        end
+    else
+        lua_table.current_gameplay = gameplay.SOLO
     end
-    
 
-	--Death checkers
-	if lua_table.current_gameplay == gameplay.DUO
-	then
-		
-		if lua_table.P1_script.current_state == -4 --DEAD
-		then
-            lua_table.current_gameplay = gameplay.SOLO
-            P1_dead = true
-		end
-
-		if lua_table.P2_script.current_state == -4 --DEAD
-		then
-            lua_table.current_gameplay = gameplay.SOLO
-            P2_dead = true
-		end
-
-		if lua_table.P1_script.current_state == -4 and lua_table.P2_script.current_state == -4
-		then
-			lua_table.current_gameplay = gameplay.NULL
-		end
-	end
 
 	-- 1 Player Target Calculations
 	if lua_table.current_gameplay == gameplay.SOLO
@@ -743,7 +794,7 @@ local function HandleTarget()
 				lua_table.SystemFunctions:LOG ("Camera: Player 1 position nil")
 			end
 
-			if lua_table.bossfight == false and lua_table.hoardfight == false
+			if lua_table.bossfight == false and lua_table.hoardfight == false and lua_table.creditsfight == false
 			then
 				-- Target is P1 position
 				lua_table.target_position_x = lua_table.P1_pos[x]
@@ -762,7 +813,14 @@ local function HandleTarget()
 				-- Target is Midpoint between P1 and BOSS positions
 				lua_table.target_position_x = Centroid2P(lua_table.P1_pos[x], lua_table.hoard_pos[x])
 				lua_table.target_position_y = Centroid2P(lua_table.P1_pos[y], lua_table.hoard_pos[y])
-				lua_table.target_position_z = Centroid2P(lua_table.P1_pos[z], lua_table.hoard_pos[z])
+                lua_table.target_position_z = Centroid2P(lua_table.P1_pos[z], lua_table.hoard_pos[z])
+                
+            elseif lua_table.creditsfight == true
+            then
+                -- Target is Midpoint between P1 and BOSS positions
+				lua_table.target_position_x = lua_table.hoard_pos[x]
+				lua_table.target_position_y = lua_table.hoard_pos[y]
+                lua_table.target_position_z = lua_table.hoard_pos[z]
 			end	
 
 		elseif P2_id ~= 0 and P1_dead == true
@@ -794,7 +852,14 @@ local function HandleTarget()
 				-- Target is Midpoint between P1 and BOSS positions
 				lua_table.target_position_x = Centroid2P(lua_table.P2_pos[x], lua_table.hoard_pos[x])
 				lua_table.target_position_y = Centroid2P(lua_table.P2_pos[y], lua_table.hoard_pos[y])
-				lua_table.target_position_z = Centroid2P(lua_table.P2_pos[z], lua_table.hoard_pos[z])
+                lua_table.target_position_z = Centroid2P(lua_table.P2_pos[z], lua_table.hoard_pos[z])
+                
+			elseif lua_table.creditsfight == true
+            then
+                -- Target is Midpoint between P1 and BOSS positions
+				lua_table.target_position_x = lua_table.hoard_pos[x]
+				lua_table.target_position_y = lua_table.hoard_pos[y]
+                lua_table.target_position_z = lua_table.hoard_pos[z]
 			end	
 		end
 	
@@ -836,8 +901,15 @@ local function HandleTarget()
 			-- Target is Midpoint between P1, P2 and Boss positions
 			lua_table.target_position_x = Centroid3P(lua_table.P1_pos[x], lua_table.P2_pos[x], lua_table.hoard_pos[x])
 			lua_table.target_position_y = Centroid3P(lua_table.P1_pos[y], lua_table.P2_pos[y], lua_table.hoard_pos[y])
-			lua_table.target_position_z = Centroid3P(lua_table.P1_pos[z], lua_table.P2_pos[z], lua_table.hoard_pos[z])
-		end	
+            lua_table.target_position_z = Centroid3P(lua_table.P1_pos[z], lua_table.P2_pos[z], lua_table.hoard_pos[z])
+            
+		elseif lua_table.creditsfight == true
+        then
+            -- Target is Midpoint between P1 and BOSS positions
+            lua_table.target_position_x = lua_table.hoard_pos[x]
+            lua_table.target_position_y = lua_table.hoard_pos[y]
+            lua_table.target_position_z = lua_table.hoard_pos[z]
+        end		
 	end
 	-- 3 Players Target Calculations
 	-- 4 Players Target Calculations

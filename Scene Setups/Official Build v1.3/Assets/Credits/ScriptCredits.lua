@@ -24,12 +24,12 @@ function GetTableScriptCredits()
         GameDesign = 10,
         Gameplay = 11,
         Environment = 12,
-        Music = 13,
-        VFX = 14,
-        QA = 15,
-        Marketing = 16,
-        ExternalSoftwareArt = 17,
-        ExternalSoftwareEngine = 18,
+        VFX = 13,
+        QA = 14,
+        Marketing = 15,
+        ExternalSoftwareArt = 16,
+        ExternalSoftwareEngine = 17,
+        Music = 18,
         SpecialThanks = 19
     }
 
@@ -47,6 +47,8 @@ function GetTableScriptCredits()
     local time = 0
     local index = 0
     lua_table.finished = false
+
+    local my_UID = 0
     
     function lua_table:Awake()
         HUD_IMAGES[lua_table.HUD_LIBRARY.Animations] = lua_table.GO:FindGameObject("Animations")
@@ -69,20 +71,19 @@ function GetTableScriptCredits()
         HUD_IMAGES[lua_table.HUD_LIBRARY.UI] = lua_table.GO:FindGameObject("UI")
         HUD_IMAGES[lua_table.HUD_LIBRARY.VFX] = lua_table.GO:FindGameObject("VFX")
 
-
+        my_UID = lua_table.GO:GetMyUID()
     end
     
-    function lua_table:Start()    
-        local cam = lua_table.GO:FindGameObject("Camera")
-        if cam ~= nil then
-            local script_cam = lua_table.GO:GetScript(cam)
-            script_cam.bossfight = true
-        end
+    function lua_table:Start()
+        lua_table.Audio:PlayAudioEvent("Play_Level_2_Music")
+
+        lua_table.Audio:SetAudioSwitch("Lvl_2_Music_Switch","Combat",my_UID)
+        lua_table.Audio:SetVolume(0.3,my_UID)
     end
 
     function lua_table:showImage()
-            index = index + 1
         if current_state == lua_table.states.FADE_IN then
+            index = index + 1
             current_HUD = index
             show_flag = true
         end

@@ -43,6 +43,8 @@ lua_table.credits_script = 0
 local next_round = 0
 local last_round = 0
 
+local fade = 0
+
 function lua_table:Awake()
 
 end
@@ -62,6 +64,8 @@ function lua_table:Start()
     round7 = lua_table.GO:FindGameObject("Round7")
     round8 = lua_table.GO:FindGameObject("Round8")
     round9 = lua_table.GO:FindGameObject("Round9")
+
+    fade = lua_table.GO:FindGameObject("Black_Screen")
 
     local creditsGO = lua_table.GO:FindGameObject("Credits")
     if creditsGO > 0 then
@@ -137,7 +141,7 @@ function lua_table:Update()
     if lua_table.credits == true then lua_table.credits_time = lua_table.credits_time + lua_table.System:DT() end
     delay_time = delay_time + lua_table.System:DT()
 
-    if next_round > last_round or (lua_table.credits_time > lua_table.credits_endtime and lua_table.credits == true)
+    if next_round > last_round or lua_table.credits_script.finished == true
     then
         lua_table.begin = false
     end
@@ -288,7 +292,14 @@ function lua_table:Update()
                 next_round = 0
                 lua_table.begin = true
             else
-                lua_table.Scenes:LoadScene(lua_table.main_menu)
+                lua_table.GO:SetActiveGameObject(true, fade)
+                fade_alpha = fade_alpha + 0.01
+                lua_table.UI:ChangeUIComponentAlpha("Image", fade_alpha, fade)
+
+                if fade_alpha >= 1.0
+                then
+                    lua_table.Scenes:LoadScene(lua_table.main_menu)
+                end
             end
         end
     end
