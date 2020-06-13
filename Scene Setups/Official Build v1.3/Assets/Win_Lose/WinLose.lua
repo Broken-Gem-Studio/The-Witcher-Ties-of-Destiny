@@ -183,15 +183,15 @@ function GetTableWinLose()
         --reset level
         if fade_flag == true
         then
-            --set score to 0
-            if geralt_score ~= nil then
+            --Reload Score
+            if geralt_score ~= nil then 
                 for i = 1, #geralt_score do
-                    geralt_score[i] = 0
+                    geralt_score[i] = saved_geralt_score[i]
                 end
             end
-            if jaskier_score ~= nil then
+            if jaskier_score ~= nil then 
                 for i = 1, #jaskier_score do
-                    jaskier_score[i] = 0
+                    jaskier_score[i] = saved_jaskier_score[i]
                 end
             end
 
@@ -221,6 +221,9 @@ function GetTableWinLose()
     local function GetCheckpointPos()
         if last_checkpoint == nil or last_checkpoint == 0
         then
+            saved_geralt_score = { 0, 0, 0, 0, 0, 0, 0, 0 }
+            saved_jaskier_score = { 0, 0, 0, 0, 0, 0, 0, 0 }
+
             pos = lua_table.Transform:GetPosition(geralt_pos0)
             geralt_x = pos[1]
             geralt_y = pos[2]
@@ -258,6 +261,18 @@ function GetTableWinLose()
     function lua_table:Checkpoint()
         --get characters' respawn pos
         GetCheckpointPos()
+
+        --save score
+        if geralt_score ~= nil then 
+            for i = 1, #geralt_score do
+                saved_geralt_score[i] = geralt_score[i]
+            end
+        end
+        if jaskier_score ~= nil then 
+            for i = 1, #jaskier_score do
+                saved_jaskier_score[i] = jaskier_score[i]
+            end
+        end
 
         --Geralt Dead
         if geralt_script.current_state <= -4
@@ -303,6 +318,10 @@ function GetTableWinLose()
         end
         tutorialGO = lua_table.GO:FindGameObject("TutorialManager")
         cartasGO = lua_table.GO:FindGameObject("CARTAS")
+
+        --just in case
+        if saved_geralt_score == nil then saved_geralt_score = { 0, 0, 0, 0, 0, 0, 0, 0 } end
+        if saved_jaskier_score == nil then saved_jaskier_score = { 0, 0, 0, 0, 0, 0, 0, 0 } end
 
         --UI
         win = lua_table.GO:FindGameObject("Victory")
