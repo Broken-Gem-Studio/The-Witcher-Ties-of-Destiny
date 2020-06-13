@@ -70,6 +70,7 @@ lua_table.minDistance = 2.5 -- If entity is inside this distance, then attack
 lua_table.maxDistance = 5
 --
 lua_table.stun_duration = 3000
+lua_table.max_dying_distance = 150
 
 local knock_force = {0, 0, 0}
 
@@ -809,7 +810,7 @@ function lua_table:Update()
 	
 	-- Far/falling enemy failsave
 	if lua_table.RecruitPos[2] <= -30 then lua_table.GameObject:DestroyGameObject(lua_table.MyUID) end
-	if lua_table.currentTargetDir >= 150 then lua_table.GameObject:DestroyGameObject(lua_table.MyUID) end 
+	if lua_table.currentTargetDir >= lua_table.max_dying_distance then lua_table.GameObject:DestroyGameObject(lua_table.MyUID) end 
 
 	-- Check if our entity is dead
 	if lua_table.health <= 0 and has_died == false then 
