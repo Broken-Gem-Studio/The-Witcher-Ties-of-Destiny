@@ -1110,7 +1110,17 @@ local function CheckMapBoundaries()
 	if game_time - interval_calculation_started_at > interval_calculation_time
 	then
 		local geralt_pos = lua_table.TransformFunctions:GetPosition(geralt_GO_UID)	--Look at and set direction from knockback
-		if geralt_pos[2] < -300 then lua_table.PhysicsFunctions:SetCharacterPosition(geralt_pos[1], 500.0, geralt_pos[3], geralt_GO_UID) end
+		if geralt_pos[2] < -300 then
+			lua_table.PhysicsFunctions:SetActiveController(false, geralt_GO_UID)
+			lua_table.PhysicsFunctions:SetActiveController(true, geralt_GO_UID)
+
+			if jaskier_GO_UID ~= nil and jaskier_GO_UID ~= 0 then
+				local jaskier_pos = lua_table.TransformFunctions:GetPosition(jaskier_GO_UID)
+				lua_table.PhysicsFunctions:SetCharacterPosition(jaskier_pos[1], jaskier_pos[2] + 5.0, jaskier_pos[3], geralt_GO_UID)				
+			else
+				lua_table.PhysicsFunctions:SetCharacterPosition(jaskier_pos[1], 500.0, jaskier_pos[3], geralt_GO_UID) 
+			end
+		end
 		
 		interval_calculation_started_at = game_time
 	end
@@ -2421,13 +2431,21 @@ local function DebugInputs()
 					lua_table.PhysicsFunctions:SetCharacterPosition(jaskier_pos[1], jaskier_pos[2] + 5.0, jaskier_pos[3], geralt_GO_UID)
 				end
 			end
-		elseif lua_table.InputFunctions:KeyDown("6")	--Reposition Geralt to Jaskier
+
+		elseif lua_table.InputFunctions:KeyDown("6")	--Reset character and reposition Geralt to Jaskier
 		then
-			if lua_table.current_state > state.down and jaskier_GO_UID ~= nil and jaskier_GO_UID ~= 0
+			lua_table.PhysicsFunctions:SetActiveController(false, geralt_GO_UID)
+			lua_table.PhysicsFunctions:SetActiveController(true, geralt_GO_UID)
+			lua_table.GameObjectFunctions:SetActiveGameObject(true, geralt_mesh_GO_UID)
+			lua_table.GameObjectFunctions:SetActiveGameObject(true, geralt_pivot_GO_UID)
+			lua_table:Start()
+
+			if jaskier_GO_UID ~= nil and jaskier_GO_UID ~= 0
 			then
 				local jaskier_pos = lua_table.TransformFunctions:GetPosition(jaskier_GO_UID)
 				lua_table.PhysicsFunctions:SetCharacterPosition(jaskier_pos[1], jaskier_pos[2] + 5.0, jaskier_pos[3], geralt_GO_UID)
 			end
+
 		elseif lua_table.InputFunctions:KeyDown("8")	--Keyboard Mode
 		then
 			keyboard_mode = not keyboard_mode
