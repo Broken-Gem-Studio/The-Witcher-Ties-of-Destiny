@@ -2497,7 +2497,7 @@ local function CheckCombatStatus()
 				lua_table.enemies_nearby = false
 
 				if geralt_script ~= nil and not geralt_script.enemies_nearby then
-					lua_table:EndBattle()
+					if lua_table.current_state > state.down then lua_table:EndBattle() end
 					if geralt_script.current_state > state.down then geralt_script:EndBattle() end
 					--lua_table.SystemFunctions:LOG("JASKIER END BATTLE ---------------------")
 				end
@@ -2507,7 +2507,7 @@ local function CheckCombatStatus()
 				lua_table.enemies_nearby = true
 				
 				if geralt_script ~= nil and not geralt_script.enemies_nearby then
-					lua_table:StartBattle()
+					if lua_table.current_state > state.down then lua_table:StartBattle() end
 					if geralt_script.current_state > state.down then geralt_script:StartBattle() end
 					--lua_table.SystemFunctions:LOG("JASKIER START BATTLE ---------------------")
 				end
