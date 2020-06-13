@@ -29,38 +29,38 @@ local function CheckAlpha(player)
 
     if player == 1
     then
-        if lua_table.geralt.current_health <= 50.0 and lua_table.geralt.current_health >= 40.0 
+        if lua_table.geralt.current_health <= 100.0 and lua_table.geralt.current_health >= 80.0 
         then
             lua_table["UI"]:ChangeUIComponentAlpha("Image", 0.3, BLOODSCREEN)
 
-        elseif lua_table.geralt.current_health < 40.0 and lua_table.geralt.current_health >= 30.0 
+        elseif lua_table.geralt.current_health < 80.0 and lua_table.geralt.current_health >= 60.0 
         then
             lua_table["UI"]:ChangeUIComponentAlpha("Image", 0.45, BLOODSCREEN)
 
-        elseif lua_table.geralt.current_health < 30.0 and lua_table.geralt.current_health >= 20.0 
+        elseif lua_table.geralt.current_health < 60.0 and lua_table.geralt.current_health >= 40.0 
         then
             lua_table["UI"]:ChangeUIComponentAlpha("Image", 0.6, BLOODSCREEN)
 
-        elseif lua_table.geralt.current_health < 20.0 and lua_table.geralt.current_health >= 0.0 
+        elseif lua_table.geralt.current_health < 40.0 and lua_table.geralt.current_health >= 0.0 
         then
             lua_table["UI"]:ChangeUIComponentAlpha("Image", 0.7, BLOODSCREEN)
 
         end
     elseif player == 2
     then
-        if lua_table.jaskier.current_health <= 50.0 and lua_table.jaskier.current_health >= 40.0
+        if lua_table.jaskier.current_health <= 100.0 and lua_table.jaskier.current_health >= 80.0
         then
             lua_table["UI"]:ChangeUIComponentAlpha("Image", 0.3, BLOODSCREEN)
 
-        elseif lua_table.jaskier.current_health < 40.0 and lua_table.jaskier.current_health >= 30.0 
+        elseif lua_table.jaskier.current_health < 80.0 and lua_table.jaskier.current_health >= 60.0 
         then
             lua_table["UI"]:ChangeUIComponentAlpha("Image", 0.45, BLOODSCREEN)
 
-        elseif lua_table.jaskier.current_health < 30.0 and lua_table.jaskier.current_health >= 20.0 
+        elseif lua_table.jaskier.current_health < 60.0 and lua_table.jaskier.current_health >= 40.0 
         then
             lua_table["UI"]:ChangeUIComponentAlpha("Image", 0.6, BLOODSCREEN)
 
-        elseif lua_table.jaskier.current_health < 20.0 and lua_table.jaskier.current_health >= 0.0 
+        elseif lua_table.jaskier.current_health < 40.0 and lua_table.jaskier.current_health >= 0.0 
         then
             lua_table["UI"]:ChangeUIComponentAlpha("Image", 0.7, BLOODSCREEN)
 
@@ -96,7 +96,7 @@ end
 local function BloodRegulation()
 
 
-    if lua_table.geralt.current_health <= 50 
+    if lua_table.geralt.current_health <= 100 
     then
         if lua_table.geralt.current_state > -3 
         then
@@ -110,14 +110,14 @@ local function BloodRegulation()
         end
     
 
-    elseif lua_table.geralt.current_health > 50 
+    elseif lua_table.geralt.current_health > 100 
     then
         lua_table["UI"]:MakeElementInvisible("Image", BLOODSCREEN)
         bleed = false
     end
 
 --------------
-    if lua_table.jaskier.current_health <= 50 
+    if lua_table.jaskier.current_health <= 100 
     then
         if lua_table.jaskier.current_state > -3 
         then
@@ -131,7 +131,7 @@ local function BloodRegulation()
         end
     
 
-    elseif lua_table.jaskier.current_health > 50 
+    elseif lua_table.jaskier.current_health > 100 
     then
         lua_table["UI"]:MakeElementInvisible("Image", BLOODSCREEN)
         bleed2 = false
