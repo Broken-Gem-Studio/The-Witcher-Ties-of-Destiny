@@ -3,6 +3,7 @@ local lua_table = {}
 lua_table.SystemFunctions = Scripting.System()
 lua_table.ObjectFunctions = Scripting.GameObject()
 lua_table.AnimationFunctions = Scripting.Animations()
+lua_table.Audio = Scripting.Audio()
 
 lua_table.door_unlocked = false
 
@@ -39,6 +40,7 @@ function lua_table:Update()
         if recruiterGO == 0 and archerGO == 0 and firstEnemy == true
         then
             lua_table.AnimationFunctions:PlayAnimation("open", 30, doorGO)
+            lua_table.Audio:PlayAudioEventGO("Play_Door_new_sound", doorGO)
 
             --Door unlocked, this bool serves for other scripts
             lua_table.door_unlocked = true
