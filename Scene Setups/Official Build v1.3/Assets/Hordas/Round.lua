@@ -46,6 +46,9 @@ lua_table.auxCounter = 0
 
 local stop = false
 
+local final_spawned = 0
+local spawn_final = false
+
 function lua_table:Reset()
     lua_table.is_finished = false
     enemy_counter = 0
@@ -58,7 +61,7 @@ end
 
 function lua_table:Spawn()
     --finished
-    if e1_counter + e2_counter + e3_counter + e4_counter + e5_counter + e6_counter == enemy_counter
+    if e1_counter + e2_counter + e3_counter + e4_counter + e5_counter + e6_counter == enemy_counter and lua_table.is_final == false
     then 
         lua_table.is_finished = true
     end
@@ -81,8 +84,10 @@ function lua_table:Spawn()
         --spawn enemy
         if lua_table.is_final == true --final enemy
         then
-            lua_table.Scene:Instantiate(lua_table.final_enemy, pos[1], pos[2], pos[3], 0, 0, 0)
+            final_spawned = lua_table.Scene:Instantiate(lua_table.final_enemy, pos[1], pos[2], pos[3], 0, 0, 0)
             lua_table.is_finished = true
+            enemy_counter = 1
+            spawn_final = true
         else
             --random enemy
             while correct == false
@@ -176,6 +181,15 @@ function lua_table:Start()
 end
 
 function lua_table:Update()
+    if spawn_final == true
+    then
+        local active = lua_table.GO:GetLayerByID(final_spawned)
+        if  active == -1 
+        then
+            win_level1 = true
+        end
+    end
+
     if stop == false and lua_table.is_finished == true
     then
         lua_table.auxCounter = enemy_counter

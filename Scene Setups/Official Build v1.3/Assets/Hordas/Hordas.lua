@@ -126,12 +126,13 @@ function lua_table:Update()
     if lua_table.credits == true then lua_table.credits_time = lua_table.credits_time + lua_table.System:DT() end
     delay_time = delay_time + lua_table.System:DT()
     
-    if next_round > last_round
+    if next_round > last_round or (lua_table.credits_time < lua_table.credits_endtime and lua_table.credits == true)
     then
         lua_table.begin = false
     end
     
-    if lua_table.begin == true and lua_table.credits_time < lua_table.credits_endtime
+
+    if lua_table.begin == true
     then
         if time >= lua_table.spawn_rate
         then
