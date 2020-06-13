@@ -3,6 +3,7 @@ local lua_table = {}
 lua_table.System = Scripting.System()
 lua_table.Scenes = Scripting.Scenes()
 lua_table.GO = Scripting.GameObject()
+lua_table.UI = Scripting.Interface()
 
 lua_table.begin = false
 lua_table.spawn_rate = 0
@@ -44,6 +45,7 @@ local next_round = 0
 local last_round = 0
 
 local fade = 0
+local fade_alpha = 0
 
 function lua_table:Awake()
 
@@ -141,7 +143,7 @@ function lua_table:Update()
     if lua_table.credits == true then lua_table.credits_time = lua_table.credits_time + lua_table.System:DT() end
     delay_time = delay_time + lua_table.System:DT()
 
-    if next_round > last_round or lua_table.credits_script.finished == true
+    if next_round > last_round
     then
         lua_table.begin = false
     end
@@ -277,7 +279,6 @@ function lua_table:Update()
         end
     else
         if lua_table.credits == true then
-            local reset = false
             if lua_table.credits_script.finished == false then
                 round0_script:Reset()
                 round1_script:Reset()

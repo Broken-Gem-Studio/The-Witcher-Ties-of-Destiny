@@ -91,7 +91,7 @@ function GetTableScriptCredits()
     
     function lua_table:Update()
     
-        if show_flag == true
+        if show_flag == true and lua_table.finished == false
         then
             if current_state == lua_table.states.FADE_IN then
                 lua_table.System:LOG("FADE IN")
@@ -117,12 +117,13 @@ function GetTableScriptCredits()
     
                 if alpha <= 0.0
                 then
-                    current_state = lua_table.states.FADE_IN
-                    --show_flag = false
-                    index = index + 1
-                    current_HUD = index
-                    if current_HUD > 19 then
+                    if current_HUD > 1 then
                         lua_table.finished = true
+                    else
+                        current_state = lua_table.states.FADE_IN
+                        --show_flag = false
+                        index = index + 1
+                        current_HUD = index
                     end
                 end
             end
