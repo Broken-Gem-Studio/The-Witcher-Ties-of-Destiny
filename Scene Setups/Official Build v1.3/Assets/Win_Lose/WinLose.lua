@@ -427,6 +427,7 @@ function GetTableWinLose()
         if lua_table.current_level == 1 and win_level1 ~= nil and win_level1 == true and is_win == false
         then
             is_win = true
+            win_level1 = false
         elseif lua_table.current_level == 2 and Kikimora > 0 and kikimora_script.dead == true and is_win == false
         then
             is_win = true
@@ -474,6 +475,7 @@ function GetTableWinLose()
                 then
                     current_scene_score = 2
                 end
+                last_checkpoint = 0
                 lua_table.Scene:LoadScene(lua_table.score)
             else 
                 lua_table.GO:SetActiveGameObject(true, loading_UID)
