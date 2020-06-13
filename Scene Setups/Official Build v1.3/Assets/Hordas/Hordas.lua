@@ -4,6 +4,7 @@ lua_table.System = Scripting.System()
 lua_table.Scenes = Scripting.Scenes()
 lua_table.GO = Scripting.GameObject()
 lua_table.UI = Scripting.Interface()
+lua_table.Audio = Scripting.Audio()
 
 lua_table.begin = false
 lua_table.spawn_rate = 0
@@ -299,6 +300,7 @@ function lua_table:Update()
 
                 if fade_alpha >= 1.0
                 then
+                    lua_table.Audio:StopAudioEvent("Play_Level_2_Music")
                     lua_table.Scenes:LoadScene(lua_table.main_menu)
                 end
             end
