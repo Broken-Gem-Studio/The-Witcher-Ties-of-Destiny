@@ -111,9 +111,9 @@ function GetTableScriptCredits()
                 if alpha <= 0.0
                 then
                     current_state = lua_table.states.FADE_IN
-                    show_flag = false
-                    --index = index + 1
-                    --current_HUD = index
+                    --show_flag = false
+                    index = index + 1
+                    current_HUD = index
                     if current_HUD > 19 then
                         lua_table.finished = true
                     end
