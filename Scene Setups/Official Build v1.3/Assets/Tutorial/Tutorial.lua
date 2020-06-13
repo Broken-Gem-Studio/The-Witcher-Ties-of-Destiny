@@ -452,14 +452,14 @@ local function Step7()
         checkPlayersHealth = true
     end
 
-    if startTimer == false and lua_table.MoveEnemies7 == true
+    if startTimer == false
     then
         lastTime = lua_table.SystemFunctions:GameTime()
         lua_table.InterfaceFunctions:MakeElementVisible("Image", littleCards.enemy)
         startTimer = true
     end
 
-    if lua_table.MoveEnemies7 == true and lua_table.SystemFunctions:GameTime() > lastTime + 4
+    if lua_table.SystemFunctions:GameTime() > lastTime + 4
     then
         lua_table.InterfaceFunctions:MakeElementInvisible("Image", littleCards.enemy)
         startTimer = false
