@@ -384,6 +384,8 @@ function GetTableWinLose()
         elseif lua_table.Input:KeyRepeat("F5") --checkpoint0
         then
             if tutorialGO ~= nil and tutorialGO ~= 0 then
+                local tutorialScript = lua_table.GO:GetScript(tutorialGO)
+                tutorialScript.currentStep = 0
                 lua_table.GO:SetActiveGameObject(false, tutorialGO)
                 lua_table.GO:SetActiveGameObject(false, cartasGO)
             end
@@ -394,6 +396,8 @@ function GetTableWinLose()
         elseif lua_table.Input:KeyRepeat("F6") --checkpoint1
         then
             if tutorialGO ~= nil and tutorialGO ~= 0 then
+                local tutorialScript = lua_table.GO:GetScript(tutorialGO)
+                tutorialScript.currentStep = 0
                 lua_table.GO:SetActiveGameObject(false, tutorialGO)
                 lua_table.GO:SetActiveGameObject(false, cartasGO)
             end
@@ -404,6 +408,8 @@ function GetTableWinLose()
         elseif lua_table.Input:KeyRepeat("F7") --checkpoint2
         then
             if tutorialGO ~= nil and tutorialGO ~= 0 then
+                local tutorialScript = lua_table.GO:GetScript(tutorialGO)
+                tutorialScript.currentStep = 0
                 lua_table.GO:SetActiveGameObject(false, tutorialGO)
                 lua_table.GO:SetActiveGameObject(false, cartasGO)
             end
