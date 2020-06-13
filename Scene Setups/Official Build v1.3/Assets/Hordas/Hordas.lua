@@ -68,13 +68,13 @@ function lua_table:Start()
         lua_table.credits_script = lua_table.GO:GetScript(creditsGO)
     end
 
-    
+
     if round0 > 0 --round 0
     then
         round0_script = lua_table.GO:GetScript(round0)
         last_round = 0
     end
-    
+
     if round1 > 0 --round 1
     then
         round1_script = lua_table.GO:GetScript(round1)
@@ -86,25 +86,25 @@ function lua_table:Start()
         round2_script = lua_table.GO:GetScript(round2)
         last_round = 2
     end
-    
+
     if round3 > 0 --round 3
     then
         round3_script = lua_table.GO:GetScript(round3)
         last_round = 3
     end
-    
+
     if round4 > 0 --round 4
     then
         round4_script = lua_table.GO:GetScript(round4)
         last_round = 4
     end
-    
+
     if round5 > 0 --round 5
     then
         round5_script = lua_table.GO:GetScript(round5)
         last_round = 5
     end
-    
+
     if round6 > 0 --round 6
     then
         round6_script = lua_table.GO:GetScript(round6)
@@ -128,7 +128,7 @@ function lua_table:Start()
         round9_script = lua_table.GO:GetScript(round9)
         last_round = 9
     end
-    
+
     if lua_table.credits == true then lua_table.credits_script:showImage(lua_table.credits_script.HUD_LIBRARY.Producer) end
 end
 
@@ -136,15 +136,15 @@ function lua_table:Update()
     time = time + lua_table.System:DT()
     if lua_table.credits == true then lua_table.credits_time = lua_table.credits_time + lua_table.System:DT() end
     delay_time = delay_time + lua_table.System:DT()
-    
-    if next_round > last_round or lua_table.credits == false --lua_table.credits_time < lua_table.credits_endtime
+
+    if next_round > last_round or (lua_table.credits_time < lua_table.credits_endtime and lua_table.credits == true)
     then
         lua_table.begin = false
     end
 
     if lua_table.credits == true then if lua_table.credits_script.finished == true then lua_table.begin = false end end
-    
-    if lua_table.begin == true 
+
+    if lua_table.begin == true
     then
         if time >= lua_table.spawn_rate
         then

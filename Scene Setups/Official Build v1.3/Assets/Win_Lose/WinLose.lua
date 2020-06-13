@@ -424,7 +424,7 @@ function GetTableWinLose()
         end
 
         --win condition
-        if lua_table.current_level == 1 and FinalEnemy > 0 and finalenemy_script.CurrentHealth <= 0 and is_win == false
+        if lua_table.current_level == 1 and win_level1 ~= nil and win_level1 == true and is_win == false
         then
             is_win = true
         elseif lua_table.current_level == 2 and Kikimora > 0 and kikimora_script.dead == true and is_win == false

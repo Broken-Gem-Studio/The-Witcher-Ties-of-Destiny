@@ -92,28 +92,20 @@ local select = {
 -- end
 
 function lua_table:ShowMenu()
-    lua_table.UI:MakeElementVisible("Image", background)
-    lua_table.UI:MakeElementVisible("Image", mainmenu)
-    lua_table.UI:SetUIElementInteractable("Button", mainmenu, true)
-    lua_table.UI:MakeElementVisible("Image", retry)
-    lua_table.UI:SetUIElementInteractable("Button", retry, true)
-
     if current_scene_score == 1
     then
+        lua_table.UI:MakeElementVisible("Image", background)
+        lua_table.UI:MakeElementVisible("Image", mainmenu)
+        lua_table.UI:SetUIElementInteractable("Button", mainmenu, true)
+        lua_table.UI:MakeElementVisible("Image", retry)
+        lua_table.UI:SetUIElementInteractable("Button", retry, true)
         lua_table.UI:MakeElementVisible("Image", nextlevel)
         lua_table.UI:SetUIElementInteractable("Button", nextlevel, true)
         
-    elseif current_scene_score == 2
-    then
-        --lua_table.UI:MakeElementVisible("Image", credits)
-        --lua_table.UI:SetUIElementInteractable("Button", credits, true)
+        lua_table.UI:MakeElementVisible("Image", select[currentButton])
+    else
+        currentButton = 3
     end
-
-    for i = 1, #select do
-        lua_table.UI:MakeElementInvisible("Image", select[i])
-    end
-
-    lua_table.UI:MakeElementVisible("Image", select[currentButton])
 end
 
 function lua_table:Awake()
@@ -153,6 +145,9 @@ function lua_table:Awake()
     for i = 1, #select do
         select[i] = lua_table.GO:FindGameObject("Select_" .. i)
     end
+    for i = 1, #select do
+        lua_table.UI:MakeElementInvisible("Image", select[i])
+    end
 
     for i = 1, #loading do
         lua_table.UI:MakeElementInvisible("Image", loading[i])
@@ -179,28 +174,23 @@ function lua_table:Update()
         currentButton = currentButton - 1
         if currentButton < 1 then currentButton = 3 end
         lua_table.UI:MakeElementVisible("Image", select[currentButton])
-    elseif lua_table.Input:IsGamepadButton(1, "BUTTON_A", "DOWN")-- or lua_table.Input:IsGamepadButton(2, "BUTTON_A", "DOWN")
+    elseif not has_to_load and (lua_table.Input:IsGamepadButton(1, "BUTTON_A", "DOWN") or current_scene_score == 2) -- or lua_table.Input:IsGamepadButton(2, "BUTTON_A", "DOWN")
     then
         last_checkpoint = 0
 
-        lua_table.UI:MakeElementInvisible("Image", background)
-        lua_table.UI:MakeElementInvisible("Image", mainmenu)
-        lua_table.UI:SetUIElementInteractable("Button", mainmenu, false)
-        lua_table.UI:MakeElementInvisible("Image", retry)
-        lua_table.UI:SetUIElementInteractable("Button", retry, false)
-
         if current_scene_score == 1
         then
+            lua_table.UI:MakeElementInvisible("Image", background)
+            lua_table.UI:MakeElementInvisible("Image", mainmenu)
+            lua_table.UI:SetUIElementInteractable("Button", mainmenu, false)
+            lua_table.UI:MakeElementInvisible("Image", retry)
+            lua_table.UI:SetUIElementInteractable("Button", retry, false)
             lua_table.UI:MakeElementInvisible("Image", nextlevel)
             lua_table.UI:SetUIElementInteractable("Button", nextlevel, false)
             
-        elseif current_scene_score == 2
-        then
-            --lua_table.UI:MakeElementInvisible("Image", credits)
-            --lua_table.UI:SetUIElementInteractable("Button", credits, false)
+            lua_table.UI:MakeElementInvisible("Image", select[currentButton])
         end
 
-        lua_table.UI:MakeElementInvisible("Image", select[currentButton])
         for i = 1, #loading do
             lua_table.UI:MakeElementVisible("Image", loading[i])
         end

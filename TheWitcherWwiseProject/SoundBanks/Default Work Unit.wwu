@@ -233,6 +233,37 @@
 						</SoundBank>
 					</ChildrenList>
 				</Folder>
+				<SoundBank Name="Music_Menus" ID="{192BD923-89A2-49AD-96E6-B52EA2E2813C}">
+					<PropertyList>
+						<Property Name="Maximum" Type="int32">
+							<ValueList>
+								<Value>99000000</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ObjectInclusionList>
+						<ObjectRef Name="Play_Main_Menu_Music" ID="{0AE28D7A-BA48-4317-84A9-E9DDB2BC5B03}" WorkUnitID="{704E5E75-56AA-4381-96D8-951456C36A40}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Play_Credits_Menu_Music" ID="{5073CA68-BE46-4666-8E85-A0E1DA4DA298}" WorkUnitID="{704E5E75-56AA-4381-96D8-951456C36A40}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Play_Music_Menu_Comparison_Pirate_Dance" ID="{D8C2E418-7AE3-46EA-8E37-6727F19E5260}" WorkUnitID="{704E5E75-56AA-4381-96D8-951456C36A40}" Filter="7" Origin="Manual"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="Music_WinLose" ID="{0D165C7E-397D-4FA8-88C9-7548600496E2}">
+					<PropertyList>
+						<Property Name="Maximum" Type="int32">
+							<ValueList>
+								<Value>99000000</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ObjectInclusionList>
+						<ObjectRef Name="Play_Win_Menu_Music" ID="{3A638A68-A0A5-4630-BA90-82ECDB08B5BB}" WorkUnitID="{704E5E75-56AA-4381-96D8-951456C36A40}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Play_Lost_Menu_Music" ID="{CEB9E95B-8248-49FE-B2DD-BA1A76BCE546}" WorkUnitID="{704E5E75-56AA-4381-96D8-951456C36A40}" Filter="7" Origin="Manual"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
 			</ChildrenList>
 		</WorkUnit>
 	</SoundBanks>

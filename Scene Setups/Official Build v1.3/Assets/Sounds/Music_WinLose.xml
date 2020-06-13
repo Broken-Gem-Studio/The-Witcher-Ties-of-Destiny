@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="11" SoundbankVersion="134">
+	<RootPaths>
+		<ProjectRoot>E:\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\</ProjectRoot>
+		<SourceFilesRoot>E:\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>E:\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseSoundBanks\</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>E:\GitHub\The-Witcher-Ties-of-Destiny\TheWitcherWwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<SoundBanks>
+		<SoundBank Id="4262019654" Language="SFX">
+			<ObjectPath>\SoundBanks\Default Work Unit\Music_WinLose</ObjectPath>
+			<ShortName>Music_WinLose</ShortName>
+			<Path>Music_WinLose.bnk</Path>
+			<IncludedEvents>
+				<Event Id="3007158762" Name="Play_Lost_Menu_Music" ObjectPath="\Events\Default Work Unit\Play_Lost_Menu_Music"/>
+				<Event Id="2973513758" Name="Play_Win_Menu_Music" ObjectPath="\Events\Default Work Unit\Play_Win_Menu_Music"/>
+			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="665589033" Language="SFX">
+					<ShortName>Music_Menu_Win.wav</ShortName>
+					<Path>SFX\Music_Menu_Win_D79FB2B7.wem</Path>
+				</File>
+				<File Id="689347614" Language="SFX">
+					<ShortName>Music_Menu_Lost.wav</ShortName>
+					<Path>SFX\Music_Menu_Lost_D79FB2B7.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
+		</SoundBank>
+	</SoundBanks>
+</SoundBanksInfo>

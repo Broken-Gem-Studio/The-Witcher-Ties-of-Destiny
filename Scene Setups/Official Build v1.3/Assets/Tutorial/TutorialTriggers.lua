@@ -10,7 +10,6 @@ local managerTable
 local geraltUID
 local jaskierUID
 local MyUUID
-local enemyCard
 
 function lua_table:OnTriggerEnter()
     local colliderGO = lua_table.PhysicsFunctions:OnTriggerEnter(MyUUID)
@@ -20,7 +19,6 @@ function lua_table:OnTriggerEnter()
         if colliderGO == geraltUID or colliderGO == jaskierUID
         then
             managerTable.MoveEnemies = true
-            lua_table.InterfaceFunctions:MakeElementVisible("Image", enemyCard)
         end
     end
 end
@@ -31,7 +29,6 @@ function lua_table:Awake()
     managerTable = lua_table.ObjectFunctions:GetScript(manager)
     geraltUID = lua_table.ObjectFunctions:FindGameObject("Geralt")
     jaskierUID = lua_table.ObjectFunctions:FindGameObject("Jaskier")
-    enemyCard = lua_table.ObjectFunctions:FindGameObject("L_ENEMY")
 end
 
 function lua_table:Start()

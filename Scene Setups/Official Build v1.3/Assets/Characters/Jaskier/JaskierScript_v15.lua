@@ -27,6 +27,7 @@ local game_paused = false
 --Debug
 local keyboard_mode = false
 local godmode = false
+lua_table.immortal = false
 
 --GO UIDs
 local geralt_GO_UID
@@ -2286,7 +2287,9 @@ local function ProcessIncomingHit(collider_GO)
 			enemy_script = lua_table.GameObjectFunctions:GetScript(collider_GO)
 		end
 
-		lua_table.current_health = lua_table.current_health - enemy_script.collider_damage
+		if not lua_table.immortal then
+			lua_table.current_health = lua_table.current_health - enemy_script.collider_damage
+		end
 
 		lua_table.AudioFunctions:PlayAudioEventGO(audio_library.hurt, jaskier_GO_UID)	--TODO-AUDIO:
 		--current_audio = audio_library.hurt
@@ -2729,6 +2732,10 @@ function lua_table:Update()
 							lua_table.AudioFunctions:PlayAudioEventGO(audio_library.ultimate_recharged, jaskier_GO_UID)	--TODO-AUDIO:
 						end
 					end
+				elseif lua_table.current_state ~= state.ultimate then
+					lua_table.ultimate_active = false
+					lua_table.ultimate_effect_active = false
+					lua_table.ultimate_secondary_effect_active = false
 				end
 
 				if lua_table.potion_active and game_time - potion_taken_at > lua_table.potion_duration then EndPotion() end
@@ -2825,8 +2832,9 @@ function lua_table:Update()
 								for i = 1, #particles_library.song_circle_GO_UID_children do
 									lua_table.ParticlesFunctions:StopParticleEmitter(particles_library.song_circle_GO_UID_children[i])	--TODO-Particles:
 								end
-								lua_table.ultimate_secondary_effect_active = false
 								lua_table.ultimate_active = false
+								lua_table.ultimate_effect_active = false
+								lua_table.ultimate_secondary_effect_active = false
 							elseif lua_table.current_state >= state.light_1 and lua_table.current_state <= state.heavy_3	--IF attack finished
 							then
 								if attack_input_given	--IF attack input was given before time ran out, process it instantly
