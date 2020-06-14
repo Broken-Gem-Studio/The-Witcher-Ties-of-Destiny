@@ -2453,11 +2453,11 @@ local function DebugInputs()
 		then
 			lua_table.current_ultimate = lua_table.max_ultimate
 
-		elseif lua_table.InputFunctions:KeyDown("5")	--Instakill/Revive Jaskier
+		elseif lua_table.InputFunctions:KeyDown("4")	--Hurt/Revive/Respawn Jaskier
 		then
 			if lua_table.current_health > 0
 			then
-				lua_table.current_health = lua_table.current_health - 25
+				lua_table.current_health = lua_table.current_health - 50
 				lua_table.AudioFunctions:PlayAudioEventGO(audio_library.hurt, jaskier_GO_UID)	--TODO-AUDIO:
 				if lua_table.current_health <= 0 then Die() end
 
@@ -2478,7 +2478,15 @@ local function DebugInputs()
 				end
 			end
 
-		elseif lua_table.InputFunctions:KeyDown("7")	--	--Reset character and reposition Jaskier to Geralt
+		elseif lua_table.InputFunctions:KeyDown("5")	--	--Reset character
+		then
+			lua_table.PhysicsFunctions:SetActiveController(false, jaskier_GO_UID)
+			lua_table.PhysicsFunctions:SetActiveController(true, jaskier_GO_UID)
+			lua_table.GameObjectFunctions:SetActiveGameObject(true, jaskier_mesh_GO_UID)
+			lua_table.GameObjectFunctions:SetActiveGameObject(true, jaskier_pivot_GO_UID)
+			lua_table:Start()
+
+		elseif lua_table.InputFunctions:KeyDown("6")	--	--Reset character and reposition Jaskier to Geralt
 		then
 			lua_table.PhysicsFunctions:SetActiveController(false, jaskier_GO_UID)
 			lua_table.PhysicsFunctions:SetActiveController(true, jaskier_GO_UID)
@@ -2492,7 +2500,7 @@ local function DebugInputs()
 				lua_table.PhysicsFunctions:SetCharacterPosition(geralt_pos[1], geralt_pos[2] + 5.0, geralt_pos[3], jaskier_GO_UID)
 			end
 
-		elseif lua_table.InputFunctions:KeyDown("8")	--Keyboard Mode
+		elseif lua_table.InputFunctions:KeyDown("7")	--Keyboard Mode
 		then
 			keyboard_mode = not keyboard_mode
 		end
@@ -2515,7 +2523,7 @@ local function EnemiesNearby()
 	local ret = false
 	local jaskier_pos = lua_table.TransformFunctions:GetPosition(jaskier_GO_UID)
 	local enemy_list = lua_table.PhysicsFunctions:OverlapSphere(jaskier_pos[1], jaskier_pos[2], jaskier_pos[3], lua_table.enemy_detection_range, layers.enemy)
-	if next(enemy_list) ~= nil then ret = true end
+	if enemy_list ~= nil and #enemy_list > 0 then ret = true end
 	return ret
 end
 

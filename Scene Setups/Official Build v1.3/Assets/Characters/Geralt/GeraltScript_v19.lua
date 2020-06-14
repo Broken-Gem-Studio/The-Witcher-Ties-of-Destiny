@@ -2405,7 +2405,7 @@ end
 --Debug BEGIN 	----------------------------------------------------------------------------
 
 local function DebugInputs()
-	if lua_table.InputFunctions:KeyRepeat("Left Ctrl") then
+	if lua_table.InputFunctions:KeyRepeat("Left Shift") then
 		if lua_table.InputFunctions:KeyDown("1")	--God mode
 		then
 			godmode = not godmode
@@ -2419,11 +2419,11 @@ local function DebugInputs()
 		then
 			lua_table.current_ultimate = lua_table.max_ultimate
 
-		elseif lua_table.InputFunctions:KeyDown("4")	--Instakill/Revive/Respawn Geralt
+		elseif lua_table.InputFunctions:KeyDown("4")	--Hurt/Revive/Respawn Geralt
 		then
 			if lua_table.current_health > 0
 			then
-				lua_table.current_health = lua_table.current_health - 25
+				lua_table.current_health = lua_table.current_health - 50
 				lua_table.AudioFunctions:PlayAudioEventGO(audio_library.hurt, geralt_GO_UID)	--TODO-AUDIO:
 				if lua_table.current_health <= 0 then Die() end
 
@@ -2444,6 +2444,14 @@ local function DebugInputs()
 				end
 			end
 
+		elseif lua_table.InputFunctions:KeyDown("5")	--Reset character
+		then
+			lua_table.PhysicsFunctions:SetActiveController(false, geralt_GO_UID)
+			lua_table.PhysicsFunctions:SetActiveController(true, geralt_GO_UID)
+			lua_table.GameObjectFunctions:SetActiveGameObject(true, geralt_mesh_GO_UID)
+			lua_table.GameObjectFunctions:SetActiveGameObject(true, geralt_pivot_GO_UID)
+			lua_table:Start()
+
 		elseif lua_table.InputFunctions:KeyDown("6")	--Reset character and reposition Geralt to Jaskier
 		then
 			lua_table.PhysicsFunctions:SetActiveController(false, geralt_GO_UID)
@@ -2457,8 +2465,8 @@ local function DebugInputs()
 				local jaskier_pos = lua_table.TransformFunctions:GetPosition(jaskier_GO_UID)
 				lua_table.PhysicsFunctions:SetCharacterPosition(jaskier_pos[1], jaskier_pos[2] + 5.0, jaskier_pos[3], geralt_GO_UID)
 			end
-
-		elseif lua_table.InputFunctions:KeyDown("8")	--Keyboard Mode
+			
+		elseif lua_table.InputFunctions:KeyDown("7")	--Keyboard Mode
 		then
 			keyboard_mode = not keyboard_mode
 		end
@@ -2481,7 +2489,7 @@ local function EnemiesNearby()
 	local ret = false
 	local geralt_pos = lua_table.TransformFunctions:GetPosition(geralt_GO_UID)
 	local enemy_list = lua_table.PhysicsFunctions:OverlapSphere(geralt_pos[1], geralt_pos[2], geralt_pos[3], lua_table.enemy_detection_range, layers.enemy)
-	if next(enemy_list) ~= nil then ret = true end
+	if enemy_list ~= nil and #enemy_list > 0 then ret = true end
 	return ret
 end
 
