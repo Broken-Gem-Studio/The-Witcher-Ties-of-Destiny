@@ -2465,8 +2465,7 @@ local function DebugInputs()
 				local jaskier_pos = lua_table.TransformFunctions:GetPosition(jaskier_GO_UID)
 				lua_table.PhysicsFunctions:SetCharacterPosition(jaskier_pos[1], jaskier_pos[2] + 5.0, jaskier_pos[3], geralt_GO_UID)
 			end
-		end
-
+			
 		elseif lua_table.InputFunctions:KeyDown("7")	--Keyboard Mode
 		then
 			keyboard_mode = not keyboard_mode
