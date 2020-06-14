@@ -226,6 +226,7 @@ void main()
 	color = vec4(colorResult, 1.0) + texture(u_AlbedoTexture, v_TexCoords) * u_AmbientColor * u_Color;
 	color += reflectingColor;
 	color = pow(color, vec4(vec3(1.0/u_GammaCorrection), 1.0));
+	color.a = u_Color.a;
 }
 
 

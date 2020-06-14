@@ -50,9 +50,9 @@ void main()
     //vec2 tCoords = v_TexCoord + UVsDirection * velocity;
     color = v_Color;
     if(u_UseTextures == 1)
-        color = texture(u_AlbedoTexture, v_TexCoord);
+        color *= texture(u_AlbedoTexture, v_TexCoord);
 
     color = pow(color, vec4(vec3(1.0/u_GammaCorrection), 1.0));
-
+    color.a = v_Color.a;
 } 
 #endif //FRAGMENT_SHADER

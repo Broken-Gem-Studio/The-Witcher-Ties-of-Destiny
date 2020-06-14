@@ -29,7 +29,7 @@
         "R": 0.0
     },
     "OutlineThickness": 100.0,
-    "PreviewTexture": "Library/Textures/911366675.dds",
+    "PreviewTexture": "Library/Textures/1801184914.dds",
     "ResourceDiffuse": "Assets/ForestLevel_Final/TreeLeafs/Tree_FolliageAlbedo.png",
     "ResourceNormalTexture": null,
     "ResourceSpecular": null,
@@ -39,7 +39,33 @@
     "UseOutline": false,
     "UseRimLight": false,
     "shader": {
-        "ResourceShader": "Assets/Shaders/Standard.glsl",
-        "uniforms": null
+        "ResourceShader": "Assets/Shaders/FolliageShader/FINALVEGETATIONSHADER.glsl",
+        "uniforms": {
+            "Velocity": {
+                "type": 5126,
+                "x": 2.0
+            },
+            "Wave1": {
+                "type": 35666,
+                "w": 50.0,
+                "x": 15.0,
+                "y": 15.0,
+                "z": 1.0
+            },
+            "Wave2": {
+                "type": 35666,
+                "w": 1.0,
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "Wave3": {
+                "type": 35666,
+                "w": 1.0,
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        }
     }
 }
