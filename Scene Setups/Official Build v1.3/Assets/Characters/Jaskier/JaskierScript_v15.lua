@@ -1142,9 +1142,9 @@ local function CheckMapBoundaries()
 
 			if geralt_GO_UID ~= nil and geralt_GO_UID ~= 0 then
 				local geralt_pos = lua_table.TransformFunctions:GetPosition(geralt_GO_UID)
-				lua_table.PhysicsFunctions:SetCharacterPosition(geralt_pos[1], geralt_pos[2] + 5.0, geralt_pos[3], jaskier_GO_UID)				
+				lua_table.PhysicsFunctions:SetCharacterPosition(geralt_pos[1], 300.0, geralt_pos[3], jaskier_GO_UID)				
 			else
-				lua_table.PhysicsFunctions:SetCharacterPosition(jaskier_pos[1], 500.0, jaskier_pos[3], jaskier_GO_UID) 
+				lua_table.PhysicsFunctions:SetCharacterPosition(jaskier_pos[1], 300.0, jaskier_pos[3], jaskier_GO_UID) 
 			end
 		end
 		
@@ -2548,9 +2548,12 @@ local function CheckCombatStatus()
 			if not EnemiesNearby() then
 				lua_table.enemies_nearby = false
 
-				if geralt_script ~= nil and not geralt_script.enemies_nearby and lua_table.SystemFunctions:RandomNumberInRange(0, 100) < 25 then
-					if lua_table.current_state > state.down then lua_table:EndBattle() end
-					if geralt_script.current_state > state.down then geralt_script:EndBattle() end
+				if geralt_script ~= nil and not geralt_script.enemies_nearby and lua_table.SystemFunctions:RandomNumberInRange(0, 100) < 50 then
+					if lua_table.SystemFunctions:RandomNumberInRange(0, 100) < 50 then
+						if lua_table.current_state > state.down then lua_table:EndBattle() end
+					else
+						if geralt_script.current_state > state.down then geralt_script:EndBattle() end
+					end
 					--lua_table.SystemFunctions:LOG("JASKIER END BATTLE ---------------------")
 				end
 			end
@@ -2558,9 +2561,12 @@ local function CheckCombatStatus()
 			if EnemiesNearby() then
 				lua_table.enemies_nearby = true
 				
-				if geralt_script ~= nil and not geralt_script.enemies_nearby and lua_table.SystemFunctions:RandomNumberInRange(0, 100) < 25 then
-					if lua_table.current_state > state.down then lua_table:StartBattle() end
-					if geralt_script.current_state > state.down then geralt_script:StartBattle() end
+				if geralt_script ~= nil and not geralt_script.enemies_nearby and lua_table.SystemFunctions:RandomNumberInRange(0, 100) < 50 then
+					if lua_table.SystemFunctions:RandomNumberInRange(0, 100) < 50 then
+						if lua_table.current_state > state.down then lua_table:StartBattle() end
+					else
+						if geralt_script.current_state > state.down then geralt_script:StartBattle() end
+					end
 					--lua_table.SystemFunctions:LOG("JASKIER START BATTLE ---------------------")
 				end
 			end
