@@ -1027,7 +1027,7 @@ local function AttackColliderCheck(attack_type, collider_id, collider_num)	--Che
 end
 
 local function AttackReturnToIdle(frame)
-	if not returning_to_idle and lua_table.AnimationFunctions:GetCurrentFrame() > frame then
+	if not returning_to_idle and lua_table.AnimationFunctions:GetCurrentFrame(jaskier_GO_UID) > frame then
 		lua_table.AnimationFunctions:PlayAnimation(animation_library.evade, lua_table.evade_animation_speed, particles_library.slash_GO_UID)
 		lua_table.GameObjectFunctions:SetActiveGameObject(false, particles_library.slash_mesh_GO_UID)
 		returning_to_idle = true
