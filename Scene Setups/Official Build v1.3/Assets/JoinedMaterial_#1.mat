@@ -1,8 +1,8 @@
 {
     "AmbientColor": {
         "A": 1.0,
-        "B": 1.0,
-        "G": 1.0,
+        "B": 0.9999899864196777,
+        "G": 0.9999899864196777,
         "R": 1.0
     },
     "Culling": true,
@@ -12,14 +12,60 @@
     "MatBlendEquation": 0,
     "MatManualAlphaFuncDst": 7,
     "MatManualAlphaFuncSrc": 6,
+    "MaterialRimLightPower": 1.0,
+    "MaterialRimLightSmoothX": 0.0,
+    "MaterialRimLightSmoothY": 1.0,
     "MaterialShininess": 1.5,
-    "PreviewTexture": "Library/Textures/1446932961.dds",
+    "OccludedOutlineColor": {
+        "A": 1.0,
+        "B": 1.0,
+        "G": 1.0,
+        "R": 1.0
+    },
+    "OutlineColor": {
+        "A": 0.0,
+        "B": 0.0,
+        "G": 0.0,
+        "R": 0.0
+    },
+    "OutlineThickness": 100.0,
+    "PreviewTexture": "Library/Textures/847734877.dds",
     "ResourceDiffuse": "Assets/ForestLevel_Final/Forest_Level/Grass_Part2_Baked.png",
     "ResourceNormalTexture": null,
     "ResourceSpecular": null,
+    "SceneColorAffected": true,
     "Transparencies": false,
+    "UseOccludedOutline": false,
+    "UseOutline": false,
+    "UseRimLight": false,
     "shader": {
-        "ResourceShader": "Assets/Shaders/Standard.glsl",
-        "uniforms": null
+        "ResourceShader": "Assets/Shaders/FolliageShader/FINALVEGETATIONSHADER.glsl",
+        "uniforms": {
+            "Velocity": {
+                "type": 5126,
+                "x": 2.0
+            },
+            "Wave1": {
+                "type": 35666,
+                "w": 50.0,
+                "x": 15.0,
+                "y": 15.0,
+                "z": 1.0
+            },
+            "Wave2": {
+                "type": 35666,
+                "w": 1.0,
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "Wave3": {
+                "type": 35666,
+                "w": 1.0,
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        }
     }
 }

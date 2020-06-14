@@ -20,14 +20,14 @@ uniform mat4 u_LightSpace;
 uniform vec4 u_Color = vec4(1.0); //Color
 uniform vec3 u_CameraPosition;
 
-//Wave Uniforms
+//Wave Uniforms - Will mainly work as water shader
 uniform float time = 0.0;
 uniform float Velocity = 10.0;
-uniform vec4 Wave1_dir_steep_waveLength = vec4(0.0, 0.0, 1.0, 1.0); //direction (vec2), steepness, wavelength
+uniform vec4 Wave1 = vec4(0.0, 0.0, 1.0, 1.0); //direction (vec2), steepness, wavelength
 uniform vec4 Wave2 = vec4(0.0, 0.0, 1.0, 1.0);
 uniform vec4 Wave3 = vec4(0.0, 0.0, 1.0, 1.0);
 
-//Variables
+//Variables --
 const float pi = 3.14159;
 
 //Varyings
@@ -90,7 +90,7 @@ void main()
 	vec3 tangent = vec3(1.0, 0.0, 0.0);
 	vec3 binormal = vec3(0.0, 0.0, 1.0);
 
-	p += GrestnerWave(Wave1_dir_steep_waveLength, pos, tangent, binormal);
+	p += GrestnerWave(Wave1, pos, tangent, binormal);
 	p += GrestnerWave(Wave2, pos, tangent, binormal);
 	p += GrestnerWave(Wave3, pos, tangent, binormal);
 	v_Normal = normalize(vec3(cross(binormal, tangent)));

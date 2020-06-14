@@ -58,6 +58,7 @@ function GetTableCardsTuto()
     local ATTACKS = 0
     local REVIVE = 0
     --
+    local NEW_A = 0
     local PRESS_A = 0
     local P1_ARROW = 0
     local P2_ARROW = 0
@@ -87,6 +88,7 @@ function GetTableCardsTuto()
         lua_table["UI"]:MakeElementInvisible("Image", PRESS_A)
         lua_table["UI"]:MakeElementInvisible("Image", P1_ARROW)
         lua_table["UI"]:MakeElementInvisible("Image", P2_ARROW)
+        lua_table["UI"]:MakeElementInvisible("Image", NEW_A)
 
         lua_table["UI"]:ChangeUIComponentAlpha("Image", 0.4, P1_ARROW)
         lua_table["UI"]:ChangeUIComponentAlpha("Image", 0.4, P2_ARROW)
@@ -113,6 +115,7 @@ function GetTableCardsTuto()
         P1_ARROW = lua_table["GameObject"]:FindGameObject("P1_CONFIRM")
         P2_ARROW = lua_table["GameObject"]:FindGameObject("P2_CONFIRM")
         PRESS_A = lua_table["GameObject"]:FindGameObject("PRESS_A")
+        NEW_A = lua_table["GameObject"]:FindGameObject("NEW_A_BUTTON")
 
         
         TUTOMANAGER = lua_table["GameObject"]:FindGameObject("TutorialManager")
@@ -136,9 +139,10 @@ function GetTableCardsTuto()
         if lua_table.tuto.currentStep == 2 and showedCard2 == false--attacks
         then
             
-            lua_table["UI"]:MakeElementVisible("Image", PRESS_A)
+            --lua_table["UI"]:MakeElementVisible("Image", PRESS_A)
             lua_table["UI"]:MakeElementVisible("Image", P1_ARROW)
             lua_table["UI"]:MakeElementVisible("Image", P2_ARROW)
+            lua_table["UI"]:MakeElementVisible("Image", NEW_A)
 
             if lua_table.continue_meter1_full == false and lua_table.continue_meter2_full == false
             then
@@ -290,9 +294,10 @@ function GetTableCardsTuto()
             
             if step35 == true and step35b == true
             then
-                
+                lua_table["UI"]:MakeElementInvisible("Image", PRESS_A)
                 lua_table["UI"]:MakeElementInvisible("Image", SPECIAL)
                 lua_table["UI"]:MakeElementVisible("Image", SPECIAL2)
+                lua_table["UI"]:MakeElementVisible("Image", NEW_A)
 
                 if alpha1 == false
                 then
@@ -358,9 +363,10 @@ function GetTableCardsTuto()
         if lua_table.tuto.currentStep == 9 and lua_table.tuto.PauseStep9 == true and showedCard9 == false--enemies 9
         then      
 
-            lua_table["UI"]:MakeElementVisible("Image", PRESS_A)
+            --lua_table["UI"]:MakeElementVisible("Image", PRESS_A)
             lua_table["UI"]:MakeElementVisible("Image", P1_ARROW)
             lua_table["UI"]:MakeElementVisible("Image", P2_ARROW)
+            lua_table["UI"]:MakeElementVisible("Image", NEW_A)
 
             if lua_table.continue_meter1_full == false and lua_table.continue_meter2_full == false
             then
@@ -482,9 +488,10 @@ function GetTableCardsTuto()
 
             if step65 == true and step65b == true
             then
-                
+                lua_table["UI"]:MakeElementInvisible("Image", PRESS_A)
                 lua_table["UI"]:MakeElementInvisible("Image", POTIS)
                 lua_table["UI"]:MakeElementVisible("Image", POTIS2)
+                lua_table["UI"]:MakeElementVisible("Image", NEW_A)
                 
                 if alpha1 == false
                 then
