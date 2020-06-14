@@ -519,7 +519,7 @@ lua_table.light_3_size = 3
 lua_table.light_3_damage = 34.0
 lua_table.light_3_effect = attack_effects_ID.knockback
 lua_table.light_3_effect_value = 0
-lua_table.light_3_idle_at = 1259	--frame
+lua_table.light_3_idle_at = 1262	--frame
 
 --Medium Attack
 lua_table.medium_damage = 50.0					--Multiplier of Base Damage
@@ -561,7 +561,7 @@ lua_table.medium_3_size = 3
 lua_table.medium_3_damage = 64.0
 lua_table.medium_3_effect = attack_effects_ID.stun
 lua_table.medium_3_effect_value = 100
-lua_table.medium_3_idle_at = 1515	--frame
+lua_table.medium_3_idle_at = 1518	--frame
 
 --Heavy Attack
 lua_table.heavy_damage = 75.0				--Multiplier of Base Damage
@@ -604,7 +604,7 @@ lua_table.heavy_3_size = 3
 lua_table.heavy_3_damage = 100.0
 lua_table.heavy_3_effect = attack_effects_ID.knockback
 lua_table.heavy_3_effect_value = 0
-lua_table.heavy_3_idle_at = 1406	--frame
+lua_table.heavy_3_idle_at = 1409	--frame
 
 --Evade		
 lua_table.evade_velocity = 25			--12
