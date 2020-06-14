@@ -171,6 +171,8 @@ namespace AK
         static const AkUniqueID PLAY_TITAN_GHOULL_DEATH = 547580181U;
         static const AkUniqueID PLAY_WAVE_INCOMING = 2682362844U;
         static const AkUniqueID PLAY_WIN_MENU_MUSIC = 2973513758U;
+        static const AkUniqueID RAIN_LOOP = 1483511332U;
+        static const AkUniqueID THUNDER = 186852181U;
     } // namespace EVENTS
 
     namespace SWITCHES
