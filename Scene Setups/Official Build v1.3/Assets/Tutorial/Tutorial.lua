@@ -137,12 +137,8 @@ lua_table.PauseStep11 = false
 
 -- Variables STEP 12
 local moveStep12 = false
-local jaskierUlt = false
-local geraltUlt = false
 local geraltStart12 = false
 local jaskierStart12 = false
-local geraltSpell = false
-local jaskierSpell = false
 lua_table.PauseStep12 = false
 
 -- Variables STEP 13
@@ -615,16 +611,6 @@ local function Step11()
         tableGeralt.ability_cooldown = 5000.0
         tableJaskier.ability_cooldown = 1000.0
     end
-    
-    if tableGeralt.current_state == 4 or tableGeralt.current_state == -4
-    then
-        geraltSpell = true
-    end
-
-    if tableJaskier.current_state == 4 or  tableJaskier.current_state == -4
-    then
-        jaskierSpell = true
-    end 
 
     scriptSpawnerStep11_1.CheckEnemies()
     scriptSpawnerStep11_2.CheckEnemies()
@@ -632,7 +618,7 @@ local function Step11()
     if scriptSpawnerStep11_1.auxCounter == 8 then checkStep11_1 = true end
     if scriptSpawnerStep11_2.auxCounter == 1 then checkStep11_2 = true end
 
-    if scriptSpawnerStep11_1.auxCounter == 0 and checkStep11_1 == true and scriptSpawnerStep11_2.auxCounter == 0 and checkStep11_2 == true and geraltSpell == true --and jaskierSpell == true 
+    if scriptSpawnerStep11_1.auxCounter == 0 and checkStep11_1 == true and scriptSpawnerStep11_2.auxCounter == 0 and checkStep11_2 == true
     then
         lua_table.ObjectFunctions:SetActiveGameObject(false, doorsColliders.door5)
         lua_table.AnimationFunctions:PlayAnimation("open", 30, doorsGO.door5)
@@ -677,17 +663,6 @@ local function Step12()
         tableJaskier.current_ultimate = tableJaskier.max_ultimate
     end
 
-
-    if tableGeralt.current_state == 5 or tableGeralt.current_state == -4
-    then
-        geraltUlt = true
-    end
-    
-    if tableJaskier.current_state == 5 or tableJaskier.current_state == -4
-    then
-        jaskierUlt = true
-    end
-
     scriptSpawnerStep12_1.CheckEnemies()
     scriptSpawnerStep12_2.CheckEnemies()    
     scriptSpawnerStep12_3.CheckEnemies()
@@ -697,7 +672,6 @@ local function Step12()
     if scriptSpawnerStep12_3.auxCounter == 2 then checkStep12_3 = true end
 
     if scriptSpawnerStep12_1.auxCounter == 0 and checkStep12_1 == true and scriptSpawnerStep12_2.auxCounter == 0 and checkStep12_2 == true  and scriptSpawnerStep12_3.auxCounter == 0 and checkStep12_3 == true
-    and geraltUlt == true and jaskierUlt == true 
     then
         lua_table.InterfaceFunctions:MakeElementInvisible("Image", littleCards.ultimate)
         checkPlayersHealth = false
