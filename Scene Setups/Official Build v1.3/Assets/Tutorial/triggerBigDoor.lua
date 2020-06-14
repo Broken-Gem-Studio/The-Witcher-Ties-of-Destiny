@@ -11,6 +11,8 @@ local bigDoorScript = 0
 local keyCard = 0
 local geraltUID = 0
 local jaskierUID = 0
+local tutorialGO = 0
+local tutorialScript = 0
 
 lua_table.openDoor = false
 
@@ -19,10 +21,11 @@ function lua_table:OnTriggerEnter()
 
     if colliderGO == geraltUID or colliderGO == jaskierUID
     then
-        if bigDoorScript.keyFound == false
+        if bigDoorScript.keyFound == false and tutorialScript.currentStep == 0
         then  
             lua_table.InterfaceFunctions:MakeElementVisible("Image", keyCard)
-        else
+        elseif bigDoorScript.keyFound == true 
+        then
             lua_table.openDoor = true
         end
     end
@@ -35,6 +38,8 @@ function lua_table:Awake()
     keyCard = lua_table.ObjectFunctions:FindGameObject("L_KEY")
     geraltUID = lua_table.ObjectFunctions:FindGameObject("Geralt")
     jaskierUID = lua_table.ObjectFunctions:FindGameObject("Jaskier")
+    tutorialGO = lua_table.ObjectFunctions:FindGameObject("TutorialManager")
+    tutorialScript = lua_table.ObjectFunctions:GetScript(tutorialGO)
 end
 
 function lua_table:Start()
