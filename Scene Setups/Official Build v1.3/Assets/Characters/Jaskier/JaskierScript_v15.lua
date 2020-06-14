@@ -3104,7 +3104,7 @@ function lua_table:Update()
 
 								--Collider Evaluation
 								AttackColliderCheck("song_1", "line", 1)
-								--AttackReturnToIdle(lua_table.song_1_idle_at)
+								AttackReturnToIdle(lua_table.song_1_idle_at)
 
 								if attack_colliders.line_1.active then
 									lua_table.TransformFunctions:Translate(0.0, 0.0, lua_table.song_1_collider_speed * dt, attack_colliders.line_1.GO_UID)
