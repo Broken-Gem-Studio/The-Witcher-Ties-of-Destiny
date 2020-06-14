@@ -123,7 +123,7 @@ local timestamp = 0
 local cycle_stages = {
 	ready = { stage = 1, duration = 250 },
 	showing_title = { stage = 2, duration = 250 },
-    spawning_coins = { stage = 3, duration = 0, duration_min = 50, duration_max = 100 },	--duration = time_between coin spawns
+    spawning_coins = { stage = 3, duration = 0, duration_min = 90, duration_max = 100 },	--duration = time_between coin spawns
     showing_score = { stage = 4, duration = 2000 },
     showing_winner = { stage = 5, duration = 1500 },
     final_winner = { stage = 0, duration = 2000 },
