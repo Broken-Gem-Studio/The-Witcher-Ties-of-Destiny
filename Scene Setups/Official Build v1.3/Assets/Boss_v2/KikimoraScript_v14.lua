@@ -17,7 +17,7 @@ lua_table.MaterialsFunctions = Scripting.Materials()
 
 -- Health Value
 lua_table.current_health = 0
-lua_table.health = 15000
+lua_table.health = 10000
 
 local is_dead = false
 lua_table.despawn_time = 15
@@ -301,15 +301,15 @@ local particles =
 
     head_blood_hit = { part_name = "Head_Blood_Hit", part_UID = 0, part_childs = {}, part_active = false, part_pos = {} },
 
-    left_leg_1_blood_hit = { part_name = "Left_Leg_1_Blood_Hit", part_UID = 0, part_childs = {}, part_active = false, part_pos = {} },
-    left_leg_2_blood_hit = { part_name = "Left_Leg_2_Blood_Hit", part_UID = 0, part_childs = {}, part_active = false, part_pos = {} },
-    left_leg_3_blood_hit = { part_name = "Left_Leg_3_Blood_Hit", part_UID = 0, part_childs = {}, part_active = false, part_pos = {} },
-    left_leg_4_blood_hit = { part_name = "Left_Leg_4_Blood_Hit", part_UID = 0, part_childs = {}, part_active = false, part_pos = {} },
+    -- left_leg_1_blood_hit = { part_name = "Left_Leg_1_Blood_Hit", part_UID = 0, part_childs = {}, part_active = false, part_pos = {} },
+    -- left_leg_2_blood_hit = { part_name = "Left_Leg_2_Blood_Hit", part_UID = 0, part_childs = {}, part_active = false, part_pos = {} },
+    -- left_leg_3_blood_hit = { part_name = "Left_Leg_3_Blood_Hit", part_UID = 0, part_childs = {}, part_active = false, part_pos = {} },
+    -- left_leg_4_blood_hit = { part_name = "Left_Leg_4_Blood_Hit", part_UID = 0, part_childs = {}, part_active = false, part_pos = {} },
 
-    right_leg_1_blood_hit = { part_name = "Right_Leg_1_Blood_Hit", part_UID = 0, part_childs = {}, part_active = false, part_pos = {} },
-    right_leg_2_blood_hit = { part_name = "Right_Leg_2_Blood_Hit", part_UID = 0, part_childs = {}, part_active = false, part_pos = {} },
-    right_leg_3_blood_hit = { part_name = "Right_Leg_3_Blood_Hit", part_UID = 0, part_childs = {}, part_active = false, part_pos = {} },
-    right_leg_4_blood_hit = { part_name = "Right_Leg_4_Blood_Hit", part_UID = 0, part_childs = {}, part_active = false, part_pos = {} },
+    -- right_leg_1_blood_hit = { part_name = "Right_Leg_1_Blood_Hit", part_UID = 0, part_childs = {}, part_active = false, part_pos = {} },
+    -- right_leg_2_blood_hit = { part_name = "Right_Leg_2_Blood_Hit", part_UID = 0, part_childs = {}, part_active = false, part_pos = {} },
+    -- right_leg_3_blood_hit = { part_name = "Right_Leg_3_Blood_Hit", part_UID = 0, part_childs = {}, part_active = false, part_pos = {} },
+    -- right_leg_4_blood_hit = { part_name = "Right_Leg_4_Blood_Hit", part_UID = 0, part_childs = {}, part_active = false, part_pos = {} },
 
     death_blood = { part_name = "Death_Blood", part_UID = 0, part_childs = {}, part_active = false, part_pos = {} },
 }
@@ -413,7 +413,7 @@ local awakening_audio_played = false
 local awakening_scream_played = false
 
 local death_audio_played = false
-local got_hit = false
+lua_table.swapped_material = false
 
 -----------------------------------------------------------------------------------------
 -- Methods
@@ -949,13 +949,14 @@ local function HandleRoarAttack()
                 
                 lua_table.TransformFunctions:SetObjectRotation(attack_collider.roar.coll_current_rot[x], attack_collider.roar.coll_current_rot[y], attack_collider.roar.coll_current_rot[z], attack_collider.roar.coll_UID)
             
+                -- Camera shake
+                lua_table.camera_script.camera_shake_activated = true
+			    lua_table.camera_script.camera_shake_duration = 2
+                lua_table.camera_script.camera_shake_magnitude = 0.8
+                
                 -- AUDIO PLAY
                 lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_scream", my_UID)
 
-                -- Camera shake
-                lua_table.camera_script.camera_shake_activated = true
-			    lua_table.camera_script.camera_shake_duration = 1
-			    lua_table.camera_script.camera_shake_magnitude = 0.3
             end
         end
 
@@ -1095,13 +1096,14 @@ local function HandleStompAttack()
                 -- Deactivate collider
                 lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_collider.stomp.coll_UID)
 
-                -- AUDIO PLAY
-                lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_lash", my_UID)
-
                 -- Camera shake
                 lua_table.camera_script.camera_shake_activated = true
                 lua_table.camera_script.camera_shake_duration = 0.2
                 lua_table.camera_script.camera_shake_magnitude = 0.1
+
+                -- AUDIO PLAY
+                lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_lash", my_UID)
+
             end
 
             if game_time >= attack_tired_timer and attack_tired_timer ~= -1--Check if execution is finished
@@ -1654,13 +1656,13 @@ local function HandleLeashLeftAttack()
                 -- Deactivate collider
                 lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_collider.leash_left.coll_UID)
 
-                -- AUDIO PLAY
-                lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_lash", my_UID)
-
                 -- Camera shake
                 lua_table.camera_script.camera_shake_activated = true
-			    lua_table.camera_script.camera_shake_duration = 1
-			    lua_table.camera_script.camera_shake_magnitude = 0.3
+			    lua_table.camera_script.camera_shake_duration = 0.2
+			    lua_table.camera_script.camera_shake_magnitude = 0.1
+
+                -- AUDIO PLAY
+                lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_lash", my_UID)
             end
 
             if game_time >= attack_tired_timer and attack_tired_timer ~= -1--Check if execution is finished
@@ -1793,10 +1795,18 @@ local function HandleLeashRightAttack()
             then
                 attack_tired_timer = game_time + lua_table.leash_tired_time
 
+                -- Deactivates Collider
+                lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_collider.leash_right.coll_UID)
+
                 -- ACTIVATE PARTICLES
                 for i = 1, #particles.groundslam_leash_right.part_childs do
                     lua_table.ParticlesFunctions:PlayParticleEmitter(particles.groundslam_leash_right.part_childs[i])
                 end
+
+                -- Camera shake
+                lua_table.camera_script.camera_shake_activated = true
+                lua_table.camera_script.camera_shake_duration = 0.2
+                lua_table.camera_script.camera_shake_magnitude = 0.1
 
                 -- AUDIO PLAY
                 lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_lash", my_UID) 
@@ -1813,14 +1823,6 @@ local function HandleLeashRightAttack()
                 
                 -- Execution Timer
                 attack_subdivision_timer = game_time + attack.leash_right.att_recovery_duration
-
-                -- Deactivates Collider
-                lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_collider.leash_right.coll_UID)
-                
-                -- Camera shake
-                lua_table.camera_script.camera_shake_activated = true
-                lua_table.camera_script.camera_shake_duration = 0.2
-                lua_table.camera_script.camera_shake_magnitude = 0.1
             end
         end
 
@@ -2145,6 +2147,8 @@ local function HandleJump()
         end
         current_jumping_state = jumping_state.LEVITATING
 
+        lua_table.GameObjectFunctions:SetActiveGameObject(true, particles.jump_area.part_UID)
+
         -- Partciles PLAY
         for i = 1, #particles.jump_area.part_childs do
             lua_table.ParticlesFunctions:PlayParticleEmitter(particles.jump_area.part_childs[i])
@@ -2163,6 +2167,8 @@ local function HandleJump()
         animation_timer = game_time + awakening_timer
 
         jump_timer = game_time + awakening_duration
+
+        lua_table.GameObjectFunctions:SetActiveGameObject(false, particles.jump_area.part_UID)
 
         -- Partciles STOP
         for i = 1, #particles.jump_area.part_childs do
@@ -2189,13 +2195,15 @@ local function HandleJump()
             lua_table.ParticlesFunctions:PlayParticleEmitter(particles.groundslam_jump.part_childs[i])
         end
 
-        -- AUDIO PLAY
-        lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_damaged", my_UID)
-
         -- Camera shake
         lua_table.camera_script.camera_shake_activated = true
         lua_table.camera_script.camera_shake_duration = 0.2
-        lua_table.camera_script.camera_shake_magnitude = 0.1
+        lua_table.camera_script.camera_shake_magnitude = 0.3
+
+        -- AUDIO PLAY
+        lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_damaged", my_UID)
+
+        
     end
 
     -- When finishes downwards movement animation
@@ -2218,111 +2226,17 @@ local function HandleJump()
 end
 
 local function HandleHits()
-    
-    got_hit = false
 
-    -- Hit (Legs)
-    if lua_table.hits_received > 0
+    if lua_table.swapped_material == true
     then
-        for i = lua_table.hits_received, 0, -1 do
-            lua_table.hits_received = lua_table.hits_received - 1
-            lua_table.current_health = lua_table.current_health - lua_table.damage_received
-        end
-            -- AUDIO PLAY
-        lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_damaged", my_UID)
-
-        got_hit = true
-    end
-    
-    -- Critical hit (Head)
-    if lua_table.critical_hits_received > 0
-    then 
-        for i = lua_table.critical_hits_received, 0, -1 do
-            lua_table.critical_hits_received = lua_table.critical_hits_received - 1
-            lua_table.current_health = lua_table.current_health - (lua_table.damage_received * lua_table.damage_received_mod)
-        end
-
-        -- AUDIO PLAY
-        lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_damaged", my_UID)
-
-        -- Partciles PLAY
-        for i = 1, #particles.head_blood_hit.part_childs do
-	        lua_table.ParticlesFunctions:PlayParticleEmitter(particles.head_blood_hit.part_childs[i])
-        end
-        got_hit = true
-    end
-
-    if got_hit == true
-    then
-        lua_table.MaterialsFunctions:SetMaterialByName(lua_table.hit_material_GO, my_mesh_UID)
-
         hit_material_timer = game_time + lua_table.hit_time
+        lua_table.swapped_material = false
     end
 
-    if game_time >= hit_material_timer
+    if game_time >= hit_material_timer and lua_table.swapped_material == false
     then
         lua_table.MaterialsFunctions:SetMaterialByName(lua_table.my_material_GO, my_mesh_UID)
     end
-    
-    -- Left Legs Particle Emmiters PLAY
-    if lua_table.left_leg_1_hit == true
-    then
-        lua_table.left_leg_1_hit = false
-        for i = 1, #particles.left_leg_1_blood_hit.part_childs do
-	        lua_table.ParticlesFunctions:PlayParticleEmitter(particles.left_leg_1_blood_hit.part_childs[i])
-	    end
-    end
-    if lua_table.left_leg_2_hit == true
-    then
-        lua_table.left_leg_2_hit = false
-        for i = 1, #particles.left_leg_2_blood_hit.part_childs do
-	        lua_table.ParticlesFunctions:PlayParticleEmitter(particles.left_leg_2_blood_hit.part_childs[i])
-	    end
-    end
-    if lua_table.left_leg_3_hit == true
-    then
-        lua_table.left_leg_3_hit = false
-        for i = 1, #particles.left_leg_3_blood_hit.part_childs do
-	        lua_table.ParticlesFunctions:PlayParticleEmitter(particles.left_leg_3_blood_hit.part_childs[i])
-	    end
-    end
-    if lua_table.left_leg_4_hit == true
-    then
-        lua_table.left_leg_4_hit = false
-        for i = 1, #particles.left_leg_4_blood_hit.part_childs do
-	        lua_table.ParticlesFunctions:PlayParticleEmitter(particles.left_leg_4_blood_hit.part_childs[i])
-	    end
-    end
-
-    -- Right Legs Particle Emmiters PLAY
-    if lua_table.right_leg_1_hit == true
-    then
-        lua_table.right_leg_1_hit = false
-        for i = 1, #particles.right_leg_1_blood_hit.part_childs do
-	        lua_table.ParticlesFunctions:PlayParticleEmitter(particles.right_leg_1_blood_hit.part_childs[i])
-	    end
-    end
-    if lua_table.right_leg_2_hit == true
-    then
-        lua_table.right_leg_2_hit = false
-        for i = 1, #particles.right_leg_2_blood_hit.part_childs do
-	        lua_table.ParticlesFunctions:PlayParticleEmitter(particles.right_leg_2_blood_hit.part_childs[i])
-	    end
-    end
-    if lua_table.right_leg_3_hit == true
-    then
-        lua_table.right_leg_3_hit = false
-        for i = 1, #particles.right_leg_3_blood_hit.part_childs do
-	        lua_table.ParticlesFunctions:PlayParticleEmitter(particles.right_leg_3_blood_hit.part_childs[i])
-	    end
-    end
-    if lua_table.right_leg_4_hit == true
-    then
-        lua_table.right_leg_4_hit = false
-        for i = 1, #particles.right_leg_4_blood_hit.part_childs do
-	        lua_table.ParticlesFunctions:PlayParticleEmitter(particles.right_leg_4_blood_hit.part_childs[i])
-	    end
-    end      
 end
 
 local function HandlePlayerPosition()
@@ -2421,13 +2335,13 @@ local function HandleStates()
                 lua_table.ParticlesFunctions:PlayParticleEmitter(particles.groundslam_jump.part_childs[i])
             end
 
-            -- AUDIO PLAY
-            lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_damaged", my_UID)
-
             -- Camera shake
             lua_table.camera_script.camera_shake_activated = true
             lua_table.camera_script.camera_shake_duration = 0.2
-            lua_table.camera_script.camera_shake_magnitude = 0.1
+            lua_table.camera_script.camera_shake_magnitude = 0.3
+
+            -- AUDIO PLAY
+            lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_damaged", my_UID)
         end
 
         -- When finishes dropping animation
@@ -2447,14 +2361,14 @@ local function HandleStates()
             for i = 1, #particles.groundslam_jump.part_childs do
                 lua_table.ParticlesFunctions:StopParticleEmitter(particles.groundslam_jump.part_childs[i])
             end
-    
-            -- AUDIO PLAY
-            lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_scream_1", my_UID)
 
             -- Camera shake
             lua_table.camera_script.camera_shake_activated = true
             lua_table.camera_script.camera_shake_duration = 2.5
             lua_table.camera_script.camera_shake_magnitude = 0.8
+    
+            -- AUDIO PLAY
+            lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_scream_1", my_UID)
 
             lua_table.SystemFunctions:LOG ("Kikimora: AWAKENING ended now scream")
         end
@@ -2562,14 +2476,14 @@ local function HandleStates()
             local swap_phase_duration = animation.swap_phase.anim_frames / animation.swap_phase.anim_speed
 
             animation_timer = game_time + swap_phase_duration
-    
-            -- AUDIO PLAY
-            lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_scream_1", my_UID)
 
             -- Camera shake
             lua_table.camera_script.camera_shake_activated = true
-            lua_table.camera_script.camera_shake_duration = 2
-            lua_table.camera_script.camera_shake_magnitude = 0.3  
+            lua_table.camera_script.camera_shake_duration = 2.5
+            lua_table.camera_script.camera_shake_magnitude = 0.8
+    
+            -- AUDIO PLAY
+            lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_scream_1", my_UID) 
         end
     
         if game_time >= animation_timer
@@ -2644,8 +2558,8 @@ local function HandleStates()
 
         -- Camera shake
         lua_table.camera_script.camera_shake_activated = true
-        lua_table.camera_script.camera_shake_duration = 1
-        lua_table.camera_script.camera_shake_magnitude = 0.3
+        lua_table.camera_script.camera_shake_duration = 2
+        lua_table.camera_script.camera_shake_magnitude = 0.8
 
         local death_duration = animation.death.anim_frames / animation.death.anim_speed
         
@@ -2673,7 +2587,7 @@ local function HandleStates()
 
             -- Camera shake
             lua_table.camera_script.camera_shake_activated = true
-            lua_table.camera_script.camera_shake_duration = 0.2
+            lua_table.camera_script.camera_shake_duration = 0.1
             lua_table.camera_script.camera_shake_magnitude = 0.1
         end
 
@@ -3252,32 +3166,33 @@ function lua_table:Awake ()
 
     particles.jump_area.part_UID = lua_table.GameObjectFunctions:FindGameObject(particles.jump_area.part_name)
     particles.jump_area.part_childs = lua_table.GameObjectFunctions:GetGOChilds(particles.jump_area.part_UID)
+    lua_table.GameObjectFunctions:SetActiveGameObject(false, particles.jump_area.part_UID)
     particles.groundslam_jump.part_UID = lua_table.GameObjectFunctions:FindGameObject(particles.groundslam_jump.part_name)
     particles.groundslam_jump.part_childs = lua_table.GameObjectFunctions:GetGOChilds(particles.groundslam_jump.part_UID)
 
     particles.rage_aura_1.part_UID = lua_table.GameObjectFunctions:FindGameObject(particles.rage_aura_1.part_name)
     particles.rage_aura_2.part_UID = lua_table.GameObjectFunctions:FindGameObject(particles.rage_aura_2.part_name)
 
-    particles.head_blood_hit.part_UID = lua_table.GameObjectFunctions:FindGameObject(particles.head_blood_hit.part_name)
-	particles.head_blood_hit.part_childs = lua_table.GameObjectFunctions:GetGOChilds(particles.head_blood_hit.part_UID)
+    -- particles.head_blood_hit.part_UID = lua_table.GameObjectFunctions:FindGameObject(particles.head_blood_hit.part_name)
+	-- particles.head_blood_hit.part_childs = lua_table.GameObjectFunctions:GetGOChilds(particles.head_blood_hit.part_UID)
 
-    particles.left_leg_1_blood_hit.part_UID = lua_table.GameObjectFunctions:FindGameObject(particles.left_leg_1_blood_hit.part_name)
-    particles.left_leg_1_blood_hit.part_childs = lua_table.GameObjectFunctions:GetGOChilds(particles.left_leg_1_blood_hit.part_UID)
-    particles.left_leg_2_blood_hit.part_UID = lua_table.GameObjectFunctions:FindGameObject(particles.left_leg_2_blood_hit.part_name)
-    particles.left_leg_2_blood_hit.part_childs = lua_table.GameObjectFunctions:GetGOChilds(particles.left_leg_2_blood_hit.part_UID)
-    particles.left_leg_3_blood_hit.part_UID = lua_table.GameObjectFunctions:FindGameObject(particles.left_leg_3_blood_hit.part_name)
-    particles.left_leg_3_blood_hit.part_childs = lua_table.GameObjectFunctions:GetGOChilds(particles.left_leg_3_blood_hit.part_UID)
-    particles.left_leg_4_blood_hit.part_UID = lua_table.GameObjectFunctions:FindGameObject(particles.left_leg_4_blood_hit.part_name)
-    particles.left_leg_4_blood_hit.part_childs = lua_table.GameObjectFunctions:GetGOChilds(particles.left_leg_4_blood_hit.part_UID)
+    -- particles.left_leg_1_blood_hit.part_UID = lua_table.GameObjectFunctions:FindGameObject(particles.left_leg_1_blood_hit.part_name)
+    -- particles.left_leg_1_blood_hit.part_childs = lua_table.GameObjectFunctions:GetGOChilds(particles.left_leg_1_blood_hit.part_UID)
+    -- particles.left_leg_2_blood_hit.part_UID = lua_table.GameObjectFunctions:FindGameObject(particles.left_leg_2_blood_hit.part_name)
+    -- particles.left_leg_2_blood_hit.part_childs = lua_table.GameObjectFunctions:GetGOChilds(particles.left_leg_2_blood_hit.part_UID)
+    -- particles.left_leg_3_blood_hit.part_UID = lua_table.GameObjectFunctions:FindGameObject(particles.left_leg_3_blood_hit.part_name)
+    -- particles.left_leg_3_blood_hit.part_childs = lua_table.GameObjectFunctions:GetGOChilds(particles.left_leg_3_blood_hit.part_UID)
+    -- particles.left_leg_4_blood_hit.part_UID = lua_table.GameObjectFunctions:FindGameObject(particles.left_leg_4_blood_hit.part_name)
+    -- particles.left_leg_4_blood_hit.part_childs = lua_table.GameObjectFunctions:GetGOChilds(particles.left_leg_4_blood_hit.part_UID)
 
-    particles.right_leg_1_blood_hit.part_UID = lua_table.GameObjectFunctions:FindGameObject(particles.right_leg_1_blood_hit.part_name)
-    particles.right_leg_1_blood_hit.part_childs = lua_table.GameObjectFunctions:GetGOChilds(particles.right_leg_1_blood_hit.part_UID)
-    particles.right_leg_2_blood_hit.part_UID = lua_table.GameObjectFunctions:FindGameObject(particles.right_leg_2_blood_hit.part_name)
-    particles.right_leg_2_blood_hit.part_childs = lua_table.GameObjectFunctions:GetGOChilds(particles.right_leg_2_blood_hit.part_UID)
-    particles.right_leg_3_blood_hit.part_UID = lua_table.GameObjectFunctions:FindGameObject(particles.right_leg_3_blood_hit.part_name)
-    particles.right_leg_3_blood_hit.part_childs = lua_table.GameObjectFunctions:GetGOChilds(particles.right_leg_3_blood_hit.part_UID)
-    particles.right_leg_4_blood_hit.part_UID = lua_table.GameObjectFunctions:FindGameObject(particles.right_leg_4_blood_hit.part_name)
-    particles.right_leg_4_blood_hit.part_childs = lua_table.GameObjectFunctions:GetGOChilds(particles.right_leg_4_blood_hit.part_UID)
+    -- particles.right_leg_1_blood_hit.part_UID = lua_table.GameObjectFunctions:FindGameObject(particles.right_leg_1_blood_hit.part_name)
+    -- particles.right_leg_1_blood_hit.part_childs = lua_table.GameObjectFunctions:GetGOChilds(particles.right_leg_1_blood_hit.part_UID)
+    -- particles.right_leg_2_blood_hit.part_UID = lua_table.GameObjectFunctions:FindGameObject(particles.right_leg_2_blood_hit.part_name)
+    -- particles.right_leg_2_blood_hit.part_childs = lua_table.GameObjectFunctions:GetGOChilds(particles.right_leg_2_blood_hit.part_UID)
+    -- particles.right_leg_3_blood_hit.part_UID = lua_table.GameObjectFunctions:FindGameObject(particles.right_leg_3_blood_hit.part_name)
+    -- particles.right_leg_3_blood_hit.part_childs = lua_table.GameObjectFunctions:GetGOChilds(particles.right_leg_3_blood_hit.part_UID)
+    -- particles.right_leg_4_blood_hit.part_UID = lua_table.GameObjectFunctions:FindGameObject(particles.right_leg_4_blood_hit.part_name)
+    -- particles.right_leg_4_blood_hit.part_childs = lua_table.GameObjectFunctions:GetGOChilds(particles.right_leg_4_blood_hit.part_UID)
 
     particles.death_blood.part_UID = lua_table.GameObjectFunctions:FindGameObject(particles.death_blood.part_name)
     particles.death_blood.part_childs = lua_table.GameObjectFunctions:GetGOChilds(particles.death_blood.part_UID)
