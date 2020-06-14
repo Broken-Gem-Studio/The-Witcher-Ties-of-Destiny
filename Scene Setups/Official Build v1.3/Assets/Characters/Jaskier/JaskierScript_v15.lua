@@ -2172,6 +2172,7 @@ local function DropItem()
 		
 		if item_GO ~= nil and item_GO ~= 0 then
 			local item_script = lua_table.GameObjectFunctions:GetScript(item_GO)
+			if item_script ~= nil and item_script.myUID ~= nil then item_script.myUID = item_GO end
 			if item_script ~= nil and item_script.player_owner ~= nil then item_script.player_owner = jaskier_GO_UID end
 		end
 
