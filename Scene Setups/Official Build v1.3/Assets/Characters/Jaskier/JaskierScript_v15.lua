@@ -2179,7 +2179,20 @@ local function DropItem()
 	end
 end
 
-local function SecondaryInputs()	--Process Secondary Inputs
+local function SwapItemInputs()
+	if lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_prev_consumable, key_state.key_down)	--Previous Consumable
+	or keyboard_mode and lua_table.InputFunctions:KeyDown("K")
+	then
+		if not PrevItem() then lua_table.AudioFunctions:PlayAudioEventGO(audio_library.not_possible, jaskier_GO_UID) end	--TODO-Audio: Not possible sound
+	
+	elseif lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_next_consumable, key_state.key_down)	--Next Consumable
+	or keyboard_mode and lua_table.InputFunctions:KeyDown("L")
+	then
+		if not NextItem() then lua_table.AudioFunctions:PlayAudioEventGO(audio_library.not_possible, jaskier_GO_UID) end	--TODO-Audio: Not possible sound
+	end
+end
+
+local function UseItemInputs()	--Process Secondary Inputs
 	if not lua_table.potion_active then
 		if lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_use_item, key_state.key_down)		--Take potion
 		or keyboard_mode and lua_table.InputFunctions:KeyDown("J")
@@ -2190,17 +2203,7 @@ local function SecondaryInputs()	--Process Secondary Inputs
 		end
 	end
 	
-	if lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_prev_consumable, key_state.key_down)	--Previous Consumable
-	or keyboard_mode and lua_table.InputFunctions:KeyDown("K")
-	then
-		if not PrevItem() then lua_table.AudioFunctions:PlayAudioEventGO(audio_library.not_possible, jaskier_GO_UID) end	--TODO-Audio: Not possible sound
-	
-	elseif lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_next_consumable, key_state.key_down)	--Next Consumable
-	or keyboard_mode and lua_table.InputFunctions:KeyDown("L")
-	then
-		if not NextItem() then lua_table.AudioFunctions:PlayAudioEventGO(audio_library.not_possible, jaskier_GO_UID) end	--TODO-Audio: Not possible sound
-
-	elseif lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_pickup_item, key_state.key_down)
+	if lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_pickup_item, key_state.key_down)
 	then	--Take Consumable
 		PickupItem()
 	elseif lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_drop_consumable, key_state.key_down)	--Drop Consumable
@@ -2761,6 +2764,9 @@ function lua_table:Update()
 
 			if lua_table.current_state > state.down and lua_table.current_health > 0	--IF alive
 			then
+				--Change Item
+				SwapItemInputs()
+				
 				--Health Regeneration
 				if health_reg_real > 0	--IF health regen online
 				then
@@ -2809,7 +2815,7 @@ function lua_table:Update()
 					if lua_table.current_state <= state.run
 					then
 						MovementInputs()	--Movement orders
-						SecondaryInputs()	--Minor actions with no timer or special animations
+						UseItemInputs()	--Minor actions with no timer or special animations
 
 					else	--ELSE (action being performed)
 						--LEGACY: time_since_action > current_action_duration

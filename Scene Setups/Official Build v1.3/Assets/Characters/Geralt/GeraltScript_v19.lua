@@ -2154,17 +2154,7 @@ local function DropItem()
 	end
 end
 
-local function SecondaryInputs()	--Process Secondary Inputs
-	if not lua_table.potion_active then
-		if lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_use_item, key_state.key_down)		--Take potion
-		or keyboard_mode and lua_table.InputFunctions:KeyDown("R")
-		then
-			TakePotion()
-
-			--if lua_table.inventory[lua_table.item_selected] == 0 then NextItem() end	--IF no more if that type of item, jump to next
-		end
-	end
-	
+local function SwapItemInputs()
 	if lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_prev_consumable, key_state.key_down)	--Previous Consumable
 	or keyboard_mode and lua_table.InputFunctions:KeyDown("Q")
 	then
@@ -2174,8 +2164,21 @@ local function SecondaryInputs()	--Process Secondary Inputs
 	or keyboard_mode and lua_table.InputFunctions:KeyDown("E")
 	then
 		if not NextItem() then lua_table.AudioFunctions:PlayAudioEventGO(audio_library.not_possible, geralt_GO_UID) end	--TODO-Audio: Not possible sound
+	end
+end
 
-	elseif lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_pickup_item, key_state.key_down)
+local function UseItemInputs()	--Process Secondary Inputs
+	if not lua_table.potion_active then
+		if lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_use_item, key_state.key_down)		--Take potion
+		or keyboard_mode and lua_table.InputFunctions:KeyDown("R")
+		then
+			TakePotion()
+
+			--if lua_table.inventory[lua_table.item_selected] == 0 then NextItem() end	--IF no more if that type of item, jump to next
+		end
+	end
+
+	if lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_pickup_item, key_state.key_down)
 	then	--Take Consumable
 		PickupItem()
 	elseif lua_table.InputFunctions:IsGamepadButton(lua_table.player_ID, lua_table.key_drop_consumable, key_state.key_down)	--Drop Consumable
@@ -2728,6 +2731,9 @@ function lua_table:Update()
 
 			if lua_table.current_state > state.down and lua_table.current_health > 0	--IF alive
 			then
+				--Change Item
+				SwapItemInputs()
+
 				--Health Regeneration
 				if health_reg_real > 0	--IF health regen online
 				then
@@ -2781,7 +2787,7 @@ function lua_table:Update()
 					if lua_table.current_state <= state.run
 					then
 						MovementInputs()	--Movement orders
-						SecondaryInputs()	--Minor actions with no timer or special animations
+						UseItemInputs()	--Minor actions with no timer or special animations
 
 					else	--ELSE (action being performed)
 						if lua_table.current_state == state.ultimate and not lua_table.ultimate_active and time_since_action > lua_table.ultimate_scream_start	--IF ultimate state, ultimate unactive, and scream started
