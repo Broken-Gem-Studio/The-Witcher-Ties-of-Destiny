@@ -640,6 +640,7 @@ lua_table.note_stack = { 'N', 'N', 'N', 'N' }	-- Notes based on attacks performe
 	lua_table.song_1_collider_line_start = 800
 	lua_table.song_1_collider_line_end = 1200
 	lua_table.song_1_collider_speed = 35.0
+	lua_table.song_1_idle_at = 1705
 
 	--Song 2
 	lua_table.song_2 = { 'M', 'L', 'L', 'M' }	--Large Stun Cone (AoE applied once, gives animation_library.stun effect)
@@ -3103,6 +3104,7 @@ function lua_table:Update()
 
 								--Collider Evaluation
 								AttackColliderCheck("song_1", "line", 1)
+								AttackReturnToIdle(lua_table.song_1_idle_at)
 
 								if attack_colliders.line_1.active then
 									lua_table.TransformFunctions:Translate(0.0, 0.0, lua_table.song_1_collider_speed * dt, attack_colliders.line_1.GO_UID)
