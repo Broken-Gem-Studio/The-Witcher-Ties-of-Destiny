@@ -1065,6 +1065,10 @@ end
 
 --Character Particles BEGIN	----------------------------------------------------------------------------
 
+local function InputShutdown()
+	attack_input_given, attack_inputs[lua_table.key_light], attack_inputs[lua_table.key_medium] = false, false, false
+end
+
 local function ParticlesShutdown()
 	if lua_table.current_state == state.run or lua_table.current_state == state.evade
 	then
@@ -1235,6 +1239,7 @@ local function CheckCameraBounds()	--Check if we're currently outside the camera
 
 			AttackColliderShutdown()
 			ParticlesShutdown()
+			InputShutdown()
 			AudioShutdown()
 
 			if enemy_hit_curr_stage == enemy_hit_stages.attack_hit
@@ -2213,6 +2218,7 @@ local function Die()
 
 	AttackColliderShutdown()
 	ParticlesShutdown()
+	InputShutdown()
 	AudioShutdown()
 	ReviveShutdown()
 
@@ -2293,6 +2299,7 @@ local function ProcessIncomingHit(collider_GO)
 
 				AttackColliderShutdown()
 				ParticlesShutdown()
+				InputShutdown()
 				AudioShutdown()
 				ReviveShutdown()
 
