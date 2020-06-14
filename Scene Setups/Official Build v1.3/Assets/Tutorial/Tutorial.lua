@@ -481,7 +481,6 @@ local function Step9()
     then
         RevivePlayers()
         checkPlayersHealth = true
-        step9Time = lua_table.SystemFunctions:GameTime()
     end
 
     if lua_table.PauseStep9 == true and moveStep9 == false
@@ -492,9 +491,10 @@ local function Step9()
         buttonManagerScript.gamePaused = true
     end
 
-    if TABLE_CARTAS.continue_meter1_full == true and TABLE_CARTAS.continue_meter2_full == true
+    if TABLE_CARTAS.continue_meter1_full == true and TABLE_CARTAS.continue_meter2_full == true and checkStep9 == false
     then
         lua_table.SystemFunctions:ResumeGame()
+        step9Time = lua_table.SystemFunctions:GameTime()
         lua_table.tutorialPause = false
         buttonManagerScript.gamePaused = false
         moveStep9 = true
@@ -508,8 +508,8 @@ local function Step9()
 
     if lumberjackScript ~= 0 and lumberjackScript ~= nil
     then
-        if lua_table.SystemFunctions:GameTime() > step9Time + 2 then
-            if lumberjackScript.CurrentHealth < 0
+        if lua_table.SystemFunctions:GameTime() > step9Time + 1 then
+            if lumberjackScript.CurrentHealth <= 1
             then
                 lumberjackDead = true
             end
