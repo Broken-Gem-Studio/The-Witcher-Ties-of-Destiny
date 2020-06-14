@@ -4,6 +4,7 @@ lua_table.System = Scripting.System()
 lua_table.ObjectFunctions = Scripting.GameObject()
 lua_table.InterfaceFunctions = Scripting.Interface()
 lua_table.PhysicsFunctions = Scripting.Physics()
+lua_table.Audio = Scripting.Audio()
 
 local MyUUID = 0
 local bigDoorGO = 0
@@ -13,6 +14,7 @@ local geraltUID = 0
 local jaskierUID = 0
 local tutorialGO = 0
 local tutorialScript = 0
+local playOnce = false
 
 lua_table.openDoor = false
 
@@ -46,9 +48,11 @@ function lua_table:Start()
 end
 
 function lua_table:Update()
-    if bigDoorScript.keyFound == true 
+    if bigDoorScript.keyFound == true and playOnce == false
     then
         lua_table.InterfaceFunctions:MakeElementInvisible("Image", keyCard)
+        lua_table.Audio:PlayAudioEventGO("Play_Must_Be_The_Key", MyUUID)
+        playOnce = true
     end
 end
 
