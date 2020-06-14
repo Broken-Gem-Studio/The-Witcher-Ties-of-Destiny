@@ -489,6 +489,8 @@ lua_table.energy_reg_orig = 7
 	local attack_slow_start = 0
 	lua_table.animation_slow_speed = 20.0
 
+	local returning_to_idle = false
+
 --NOTE: The visual slow for both characters lasts ~430ms * 30/anim_speed
 --Light Attack
 lua_table.light_damage = 25.0					--Multiplier of Base Damage
@@ -524,6 +526,7 @@ lua_table.light_3_size = 3
 lua_table.light_3_damage = 34.0
 lua_table.light_3_effect = attack_effects_ID.stun
 lua_table.light_3_effect_value = 100
+lua_table.light_3_idle_at = 477	--frame
 
 --Medium Attack
 lua_table.medium_damage = 50.0					--Multiplier of Base Damage
@@ -562,6 +565,7 @@ lua_table.medium_3_size = 3
 lua_table.medium_3_damage = 64.0
 lua_table.medium_3_effect = attack_effects_ID.knockback
 lua_table.medium_3_effect_value = 0
+lua_table.medium_3_idle_at = 2407	--frame
 
 --Heavy Attack
 lua_table.heavy_damage = 75.0				--Multiplier of Base Damage
@@ -603,6 +607,7 @@ lua_table.heavy_3_size = 3
 lua_table.heavy_3_damage = 100.0
 lua_table.heavy_3_effect = attack_effects_ID.stun
 lua_table.heavy_3_effect_value = 500
+lua_table.medium_3_idle_at = 606	--frame
 
 --Evade		
 lua_table.evade_velocity = 20			--12
@@ -1025,6 +1030,14 @@ local function AttackColliderCheck(attack_type, collider_id, collider_num)	--Che
 	then
 		lua_table.GameObjectFunctions:SetActiveGameObject(false, attack_colliders[collider_id .. "_" .. collider_num].GO_UID)	--TODO-Colliders: Check
 		attack_colliders[collider_id .. "_" .. collider_num].active = false
+	end
+end
+
+local function AttackReturnToIdle(frame)
+	if not returning_to_idle and lua_table.AnimationFunctions:GetCurrentFrame() > frame then
+		lua_table.AnimationFunctions:PlayAnimation(animation_library.evade, lua_table.evade_animation_speed, particles_library.slash_GO_UID)
+		lua_table.GameObjectFunctions:SetActiveGameObject(false, particles_library.slash_mesh_GO_UID)
+		returning_to_idle = true
 	end
 end
 
@@ -1831,6 +1844,7 @@ local function ActionInputs(evade_only)	--Process Action Inputs
 		if lua_table.current_state <= state.combo_3 and lua_table.current_state >= state.light_1	--IF attack
 		then
 			input_slow_active = false
+			returning_to_idle = false
 			lua_table.GameObjectFunctions:SetActiveGameObject(true, particles_library.slash_mesh_GO_UID)
 			enemy_hit_curr_stage = enemy_hit_stages.awaiting_attack
 		else
@@ -2956,7 +2970,10 @@ function lua_table:Update()
 										--Collider Evaluation
 										if lua_table.current_state == state.light_1 then AttackColliderCheck("light_1", "front", 1)
 										elseif lua_table.current_state == state.light_2 then AttackColliderCheck("light_2", "front", 1)
-										elseif lua_table.current_state == state.light_3 then AttackColliderCheck("light_3", "front", 1)
+										elseif lua_table.current_state == state.light_3
+										then
+											AttackColliderCheck("light_3", "front", 1)
+											AttackReturnToIdle(lua_table.light_3_idle_at)
 										end
 
 										--Slow Animation End
@@ -2991,7 +3008,10 @@ function lua_table:Update()
 										--Collider Evaluation
 										if lua_table.current_state == state.medium_1 then AttackColliderCheck("medium_1", "front", 2)
 										elseif lua_table.current_state == state.medium_2 then AttackColliderCheck("medium_2", "front", 2)
-										elseif lua_table.current_state == state.medium_3 then AttackColliderCheck("medium_3", "front", 3)
+										elseif lua_table.current_state == state.medium_3
+										then
+											AttackColliderCheck("medium_3", "front", 3)
+											AttackReturnToIdle(lua_table.medium_3_idle_at)
 										end
 
 										--Slow Animation End
@@ -3032,7 +3052,10 @@ function lua_table:Update()
 										--Collider Evaluation
 										if lua_table.current_state == state.heavy_1 then AttackColliderCheck("heavy_1", "front", 2)
 										elseif lua_table.current_state == state.heavy_2 then AttackColliderCheck("heavy_2", "front", 2)
-										elseif lua_table.current_state == state.heavy_3 then AttackColliderCheck("heavy_3", "front", 2)
+										elseif lua_table.current_state == state.heavy_3
+										then
+											AttackColliderCheck("heavy_3", "front", 2)
+											AttackReturnToIdle(lua_table.heavy_3_idle_at)
 										end
 
 										--Slow Animation End
