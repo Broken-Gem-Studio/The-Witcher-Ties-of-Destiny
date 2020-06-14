@@ -111,6 +111,11 @@ function lua_table:Update()
         lua_table["UI"]:SetText("REVIVING", timer1ID)
     end
 
+    if lua_table.p1.being_revived == false
+    then
+        revived = false
+    end
+
     if lua_table.p1.current_state == -3 and lua_table.p1.being_revived == false--REVIVE STATE
     then
         timerdeath1 = (lua_table.p1.down_time/1000) - (timer -  lua_table.p1.death_started_at / 1000)
@@ -161,6 +166,11 @@ function lua_table:Update()
         --lua_table["UI"]:MakeElementInvisible("Image", revive2ID)
         lua_table["UI"]:MakeElementInvisible("Image", death2ID)
         lua_table["UI"]:SetText("REVIVING", timer2ID)
+    end
+
+    if lua_table.p2.being_revived == false
+    then
+        revived2 = false
     end
 
     if lua_table.p2.current_state == -3 and lua_table.p2.being_revived == false--REVIVE STATE
