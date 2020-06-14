@@ -44,14 +44,14 @@ lua_table.InputFunctions = Scripting.Inputs()
 
 --SCOREBOARD DATA
 local scoreboard_data = {
-	{ coin_ratio = 0.0034, score_value = 1, title_start = "", title_end = " damage dealed", title_phase = "That's gotta hurt!" },                 --damage_dealt
-	{ coin_ratio = 0.34, score_value = 100, title_start = "", title_end = " minions killed", title_phase = "And stay down!" },                   --minion_kills
-	{ coin_ratio = 0.5, score_value = 150, title_start = "", title_end = " special enemies killed", title_phase = "The bigger they are..." },   --special_kills
-    { coin_ratio = 0.25, score_value = 75, title_start = "", title_end = " enemies incapacitated", title_phase = "Crowd controller!" },            --incapacitations
-    { coin_ratio = 0.2, score_value = 60, title_start = "", title_end = " objects destroyed", title_phase = "Collateral damage!" },               --objects_destroyed
-    { coin_ratio = 2.0, score_value = 600, title_start = "", title_end = " secret chests found", title_phase = "Jackpot!" },                      --chests opened
-	{ coin_ratio = 0.5, score_value = 150, title_start = "Potions shared ", title_end = " times with ally", title_phase = "Sharing is caring!" }, --items_shared
-	{ coin_ratio = 1.0, score_value = 300, title_start = "Revived ally ", title_end = " times", title_phase = "No one left behind!" }             --ally_revived
+	{ coin_ratio = 0.002, score_value = 1, title_start = "", title_end = " damage dealed", title_phase = "That's gotta hurt!" },                 --damage_dealt
+	{ coin_ratio = 0.5, score_value = 250, title_start = "", title_end = " minions killed", title_phase = "And stay down!" },                   --minion_kills
+	{ coin_ratio = 1.0, score_value = 500, title_start = "", title_end = " special enemies killed", title_phase = "The bigger they are..." },   --special_kills
+    { coin_ratio = 0.25, score_value = 125, title_start = "", title_end = " enemies incapacitated", title_phase = "Crowd controller!" },            --incapacitations
+    { coin_ratio = 0.5, score_value = 250, title_start = "", title_end = " objects destroyed", title_phase = "Collateral damage!" },               --objects_destroyed
+    { coin_ratio = 2.0, score_value = 1000, title_start = "", title_end = " secret chests found", title_phase = "Jackpot!" },                      --chests opened
+	{ coin_ratio = 1.0, score_value = 500, title_start = "Potions shared ", title_end = " times with ally", title_phase = "Sharing is caring!" }, --items_shared
+	{ coin_ratio = 2.0, score_value = 1000, title_start = "Revived ally ", title_end = " times", title_phase = "No one left behind!" }             --ally_revived
 }
 
 --VARS
