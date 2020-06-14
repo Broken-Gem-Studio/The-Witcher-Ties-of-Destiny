@@ -459,13 +459,13 @@ local function Step7()
     if startTimer == false
     then
         lastTime = lua_table.SystemFunctions:GameTime()
-        lua_table.InterfaceFunctions:MakeElementVisible("Image", littleCards.enemy)
+        --lua_table.InterfaceFunctions:MakeElementVisible("Image", littleCards.enemy)
         startTimer = true
     end
 
     if lua_table.SystemFunctions:GameTime() > lastTime + 4
     then
-        lua_table.InterfaceFunctions:MakeElementInvisible("Image", littleCards.enemy)
+        --lua_table.InterfaceFunctions:MakeElementInvisible("Image", littleCards.enemy)
         startTimer = false
         lua_table.ObjectFunctions:SetActiveGameObject(true, step8)
         lua_table.currentStep = Step.STEP_8
