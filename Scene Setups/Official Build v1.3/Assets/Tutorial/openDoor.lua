@@ -25,7 +25,7 @@ function lua_table:OnTriggerEnter()
             lua_table.ObjectFunctions:SetActiveGameObject(false, doorCollider)
             lua_table.AnimationFunctions:PlayAnimation("open", 30, doorGO)
             
-            lua_table.Audio:PlayAudioEventGO("Play_Locked_And_No_Key_In_Sight", MyUUID)
+            lua_table.Audio:PlayAudioEventGO("Play_Door_new_sound", MyUUID)
 
             hasOpened = true
         end

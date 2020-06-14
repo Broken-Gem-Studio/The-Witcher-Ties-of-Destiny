@@ -217,7 +217,7 @@ function lua_table:Update()
 	then
 		if step == 1
 		then
-			if positionSum > 550
+			if positionSum > 450
 			then
 				increment = increment + 1
 				positionSum = positionSum - increment
@@ -228,7 +228,7 @@ function lua_table:Update()
 			
 		elseif step == 2
 		then
-			if positionSum > 350 
+			if positionSum > 110 
 			then
 				increment = increment + 3
 				positionSum = positionSum - increment
@@ -239,7 +239,7 @@ function lua_table:Update()
 
 		elseif step == 3
 		then
-			if positionSum > 50 
+			if positionSum > -246 
 			then
 				increment = increment + 0.75
 				positionSum = positionSum - increment
@@ -253,6 +253,7 @@ end
 function lua_table:GoToMainMenu()
 	lua_table.AudioFunctions:PlayAudioEvent("Play_Button_main_menu")
 	goMenu = true
+	last_checkpoint = 0
 	Reset()
 end
 

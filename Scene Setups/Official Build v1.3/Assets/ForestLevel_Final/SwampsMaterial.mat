@@ -1,0 +1,88 @@
+{
+    "AmbientColor": {
+        "A": 0.6187845468521118,
+        "B": 0.8235294222831726,
+        "G": 0.8235294222831726,
+        "R": 0.8235294222831726
+    },
+    "Culling": true,
+    "MatAlphaFunc": 0,
+    "MatAutoBlending": true,
+    "MatBlendEquation": 0,
+    "MatManualAlphaFuncDst": 7,
+    "MatManualAlphaFuncSrc": 6,
+    "MaterialRimLightPower": 1.0,
+    "MaterialRimLightSmoothX": 0.0,
+    "MaterialRimLightSmoothY": 1.0,
+    "MaterialShininess": 1.0,
+    "OccludedOutlineColor": {
+        "A": 1.0,
+        "B": 1.0,
+        "G": 1.0,
+        "R": 1.0
+    },
+    "OutlineColor": {
+        "A": 0.0,
+        "B": 0.0,
+        "G": 0.0,
+        "R": 0.0
+    },
+    "OutlineThickness": 100.0,
+    "PreviewTexture": "Library/Textures/177667409.dds",
+    "ResourceDiffuse": "Assets/ForestLevel_Final/LevelFinalVersion/Water_Texture_Pantano.png",
+    "ResourceNormalTexture": null,
+    "ResourceSpecular": null,
+    "SceneColorAffected": true,
+    "SwampsMaterial.mat": null,
+    "Transparencies": false,
+    "UseOccludedOutline": false,
+    "UseOutline": false,
+    "UseRimLight": false,
+    "shader": {
+        "ResourceShader": "Assets/Shaders/WaterShaders/RiverShader.glsl",
+        "uniforms": {
+            "None_Reflect_Refract": {
+                "type": 5124,
+                "x": 0
+            },
+            "RiverVelocity": {
+                "type": 5126,
+                "x": 0.8999999761581421
+            },
+            "UVsDirection": {
+                "type": 35664,
+                "x": 0.0,
+                "y": 0.0
+            },
+            "Velocity": {
+                "type": 5126,
+                "x": 13.5
+            },
+            "Wave1_dir_steep_waveLength": {
+                "type": 35666,
+                "w": 850.0,
+                "x": -15.0,
+                "y": -15.0,
+                "z": 0.009999999776482582
+            },
+            "Wave2": {
+                "type": 35666,
+                "w": 1500.0,
+                "x": -1.0,
+                "y": -1.0,
+                "z": 0.009999999776482582
+            },
+            "Wave3": {
+                "type": 35666,
+                "w": 300.0,
+                "x": 1.0,
+                "y": 1.0,
+                "z": 0.019999999552965164
+            },
+            "refractive_reflective_index": {
+                "type": 5126,
+                "x": 0.0
+            }
+        }
+    }
+}

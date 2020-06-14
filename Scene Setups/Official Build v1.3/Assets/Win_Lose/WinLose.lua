@@ -183,15 +183,15 @@ function GetTableWinLose()
         --reset level
         if fade_flag == true
         then
-            --set score to 0
-            if geralt_score ~= nil then
+            --Reload Score
+            if geralt_score ~= nil then 
                 for i = 1, #geralt_score do
-                    geralt_score[i] = 0
+                    geralt_score[i] = saved_geralt_score[i]
                 end
             end
-            if jaskier_score ~= nil then
+            if jaskier_score ~= nil then 
                 for i = 1, #jaskier_score do
-                    jaskier_score[i] = 0
+                    jaskier_score[i] = saved_jaskier_score[i]
                 end
             end
 
@@ -221,6 +221,9 @@ function GetTableWinLose()
     local function GetCheckpointPos()
         if last_checkpoint == nil or last_checkpoint == 0
         then
+            saved_geralt_score = { 0, 0, 0, 0, 0, 0, 0, 0 }
+            saved_jaskier_score = { 0, 0, 0, 0, 0, 0, 0, 0 }
+
             pos = lua_table.Transform:GetPosition(geralt_pos0)
             geralt_x = pos[1]
             geralt_y = pos[2]
@@ -253,11 +256,34 @@ function GetTableWinLose()
             jaskier_y = pos[2]
             jaskier_z = pos[3]
         end
+
+        if last_checkpoint == 1 or last_checkpoint == 2 
+        then
+            if tutorialGO ~= nil and tutorialGO ~= 0 
+            then
+                local tutorialScript = lua_table.GO:GetScript(tutorialGO)
+                tutorialScript.currentStep = 0
+                lua_table.GO:SetActiveGameObject(false, tutorialGO)
+                lua_table.GO:SetActiveGameObject(false, cartasGO)
+            end
+        end
     end
 
     function lua_table:Checkpoint()
         --get characters' respawn pos
         GetCheckpointPos()
+
+        --save score
+        if geralt_score ~= nil then 
+            for i = 1, #geralt_score do
+                saved_geralt_score[i] = geralt_score[i]
+            end
+        end
+        if jaskier_score ~= nil then 
+            for i = 1, #jaskier_score do
+                saved_jaskier_score[i] = jaskier_score[i]
+            end
+        end
 
         --Geralt Dead
         if geralt_script.current_state <= -4
@@ -303,6 +329,10 @@ function GetTableWinLose()
         end
         tutorialGO = lua_table.GO:FindGameObject("TutorialManager")
         cartasGO = lua_table.GO:FindGameObject("CARTAS")
+
+        --just in case
+        if saved_geralt_score == nil then saved_geralt_score = { 0, 0, 0, 0, 0, 0, 0, 0 } end
+        if saved_jaskier_score == nil then saved_jaskier_score = { 0, 0, 0, 0, 0, 0, 0, 0 } end
 
         --UI
         win = lua_table.GO:FindGameObject("Victory")
@@ -383,36 +413,18 @@ function GetTableWinLose()
             load_level2 = true
         elseif lua_table.Input:KeyRepeat("F5") --checkpoint0
         then
-            if tutorialGO ~= nil and tutorialGO ~= 0 then
-                local tutorialScript = lua_table.GO:GetScript(tutorialGO)
-                tutorialScript.currentStep = 0
-                lua_table.GO:SetActiveGameObject(false, tutorialGO)
-                lua_table.GO:SetActiveGameObject(false, cartasGO)
-            end
             last_checkpoint = 0
             tp_geralt = true
             tp_jaskier = true
             lua_table.Checkpoint()
         elseif lua_table.Input:KeyRepeat("F6") --checkpoint1
         then
-            if tutorialGO ~= nil and tutorialGO ~= 0 then
-                local tutorialScript = lua_table.GO:GetScript(tutorialGO)
-                tutorialScript.currentStep = 0
-                lua_table.GO:SetActiveGameObject(false, tutorialGO)
-                lua_table.GO:SetActiveGameObject(false, cartasGO)
-            end
             last_checkpoint = 1
             tp_geralt = true
             tp_jaskier = true
             lua_table.Checkpoint()
         elseif lua_table.Input:KeyRepeat("F7") --checkpoint2
         then
-            if tutorialGO ~= nil and tutorialGO ~= 0 then
-                local tutorialScript = lua_table.GO:GetScript(tutorialGO)
-                tutorialScript.currentStep = 0
-                lua_table.GO:SetActiveGameObject(false, tutorialGO)
-                lua_table.GO:SetActiveGameObject(false, cartasGO)
-            end
             last_checkpoint = 2
             tp_geralt = true
             tp_jaskier = true

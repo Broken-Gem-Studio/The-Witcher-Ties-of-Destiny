@@ -117,6 +117,10 @@ local moveStep9 = false
 local activateEnemiesStep10 = false
 local geraltStart9 = false
 local jaskierStart9 = false
+local lumberjackGO = 0
+local lumberjackScript = 0
+local lumberjackDead = false
+local step9Time = 0
 lua_table.PauseStep9 = false
 
 -- Variables STEP 10
@@ -133,12 +137,8 @@ lua_table.PauseStep11 = false
 
 -- Variables STEP 12
 local moveStep12 = false
-local jaskierUlt = false
-local geraltUlt = false
 local geraltStart12 = false
 local jaskierStart12 = false
-local geraltSpell = false
-local jaskierSpell = false
 lua_table.PauseStep12 = false
 
 -- Variables STEP 13
@@ -455,13 +455,13 @@ local function Step7()
     if startTimer == false
     then
         lastTime = lua_table.SystemFunctions:GameTime()
-        lua_table.InterfaceFunctions:MakeElementVisible("Image", littleCards.enemy)
+        --lua_table.InterfaceFunctions:MakeElementVisible("Image", littleCards.enemy)
         startTimer = true
     end
 
     if lua_table.SystemFunctions:GameTime() > lastTime + 4
     then
-        lua_table.InterfaceFunctions:MakeElementInvisible("Image", littleCards.enemy)
+        --lua_table.InterfaceFunctions:MakeElementInvisible("Image", littleCards.enemy)
         startTimer = false
         lua_table.ObjectFunctions:SetActiveGameObject(true, step8)
         lua_table.currentStep = Step.STEP_8
@@ -487,9 +487,10 @@ local function Step9()
         buttonManagerScript.gamePaused = true
     end
 
-    if TABLE_CARTAS.continue_meter1_full == true and TABLE_CARTAS.continue_meter2_full == true
+    if TABLE_CARTAS.continue_meter1_full == true and TABLE_CARTAS.continue_meter2_full == true and checkStep9 == false
     then
         lua_table.SystemFunctions:ResumeGame()
+        step9Time = lua_table.SystemFunctions:GameTime()
         lua_table.tutorialPause = false
         buttonManagerScript.gamePaused = false
         moveStep9 = true
@@ -501,16 +502,32 @@ local function Step9()
 
     scriptSpawnerStep9.CheckEnemies()
 
-    if scriptSpawnerStep9.auxCounter == 1 
+    if lumberjackScript ~= 0 and lumberjackScript ~= nil
     then
-        checkStep9 = true
+        if lua_table.SystemFunctions:GameTime() > step9Time + 1 then
+            if lumberjackScript.CurrentHealth <= 1
+            then
+                lumberjackDead = true
+            end
+        end
     end
 
-    if scriptSpawnerStep9.auxCounter == 0 and checkStep9 == true
+    if scriptSpawnerStep9.auxCounter == 1 and checkStep9 == false
+    then
+        checkStep9 = true
+        lumberjackGO = scriptSpawnerStep9.spawnedEnemies[1]
+        if lumberjackGO ~= 0 and lumberjackGO ~= nil 
+        then
+            lumberjackScript = lua_table.ObjectFunctions:GetScript(lumberjackGO)
+        end
+    end
+
+    if lumberjackDead == true and checkStep9 == true
     then
         lua_table.ObjectFunctions:SetActiveGameObject(true, spawnerStep10_1)
         lua_table.ObjectFunctions:SetActiveGameObject(true, spawnerStep10_2)
         lua_table.ObjectFunctions:SetActiveGameObject(true, spawnerStep10_3)
+        lua_table.ObjectFunctions:SetActiveGameObject(true, spawnerArcher1)
 
         checkPlayersHealth = false
         activateEnemiesStep10 = true
@@ -557,7 +574,6 @@ local function Step10()
     if scriptSpawnerStep10_1.auxCounter == 0 and checkStep10_1 == true and scriptSpawnerStep10_2.auxCounter == 0 
     and checkStep10_2 == true and scriptSpawnerStep10_3.auxCounter == 0 and checkStep10_3 == true
     then
-        lua_table.ObjectFunctions:SetActiveGameObject(true, spawnerArcher1)
         lua_table.ObjectFunctions:SetActiveGameObject(true, spawnerArcher2)
         lua_table.ObjectFunctions:SetActiveGameObject(true, spawnerArcher3)
         checkPlayersHealth = false
@@ -595,16 +611,6 @@ local function Step11()
         tableGeralt.ability_cooldown = 5000.0
         tableJaskier.ability_cooldown = 1000.0
     end
-    
-    if tableGeralt.current_state == 4 or tableGeralt.current_state == -4
-    then
-        geraltSpell = true
-    end
-
-    if tableJaskier.current_state == 4 or  tableJaskier.current_state == -4
-    then
-        jaskierSpell = true
-    end 
 
     scriptSpawnerStep11_1.CheckEnemies()
     scriptSpawnerStep11_2.CheckEnemies()
@@ -612,7 +618,7 @@ local function Step11()
     if scriptSpawnerStep11_1.auxCounter == 8 then checkStep11_1 = true end
     if scriptSpawnerStep11_2.auxCounter == 1 then checkStep11_2 = true end
 
-    if scriptSpawnerStep11_1.auxCounter == 0 and checkStep11_1 == true and scriptSpawnerStep11_2.auxCounter == 0 and checkStep11_2 == true and geraltSpell == true --and jaskierSpell == true 
+    if scriptSpawnerStep11_1.auxCounter == 0 and checkStep11_1 == true and scriptSpawnerStep11_2.auxCounter == 0 and checkStep11_2 == true
     then
         lua_table.ObjectFunctions:SetActiveGameObject(false, doorsColliders.door5)
         lua_table.AnimationFunctions:PlayAnimation("open", 30, doorsGO.door5)
@@ -657,17 +663,6 @@ local function Step12()
         tableJaskier.current_ultimate = tableJaskier.max_ultimate
     end
 
-
-    if tableGeralt.current_state == 5 or tableGeralt.current_state == -4
-    then
-        geraltUlt = true
-    end
-    
-    if tableJaskier.current_state == 5 or tableJaskier.current_state == -4
-    then
-        jaskierUlt = true
-    end
-
     scriptSpawnerStep12_1.CheckEnemies()
     scriptSpawnerStep12_2.CheckEnemies()    
     scriptSpawnerStep12_3.CheckEnemies()
@@ -677,7 +672,6 @@ local function Step12()
     if scriptSpawnerStep12_3.auxCounter == 2 then checkStep12_3 = true end
 
     if scriptSpawnerStep12_1.auxCounter == 0 and checkStep12_1 == true and scriptSpawnerStep12_2.auxCounter == 0 and checkStep12_2 == true  and scriptSpawnerStep12_3.auxCounter == 0 and checkStep12_3 == true
-    and geraltUlt == true and jaskierUlt == true 
     then
         lua_table.InterfaceFunctions:MakeElementInvisible("Image", littleCards.ultimate)
         checkPlayersHealth = false

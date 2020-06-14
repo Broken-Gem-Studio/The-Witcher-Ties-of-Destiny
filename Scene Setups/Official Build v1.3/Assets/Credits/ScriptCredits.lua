@@ -94,7 +94,6 @@ function GetTableScriptCredits()
         if show_flag == true and lua_table.finished == false
         then
             if current_state == lua_table.states.FADE_IN then
-                lua_table.System:LOG("FADE IN")
                 alpha = alpha + lua_table.fade_in
                 lua_table.UI:ChangeUIComponentAlpha("Image", alpha, HUD_IMAGES[current_HUD])
     
@@ -103,7 +102,6 @@ function GetTableScriptCredits()
                     current_state = lua_table.states.NORMAL
                 end
             elseif current_state == lua_table.states.NORMAL then
-                lua_table.System:LOG("NORMAL")
                 time = time + lua_table.System:DT()
                 if time >= lua_table.wait
                 then
@@ -111,7 +109,6 @@ function GetTableScriptCredits()
                     time = 0
                 end
             elseif current_state == lua_table.states.FADE_OUT then
-                lua_table.System:LOG("FADE OUT")
                 alpha = alpha - lua_table.fade_out
                 lua_table.UI:ChangeUIComponentAlpha("Image", alpha, HUD_IMAGES[current_HUD])
     

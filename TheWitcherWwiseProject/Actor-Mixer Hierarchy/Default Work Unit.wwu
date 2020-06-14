@@ -8,6 +8,19 @@
 						<Sound Name="Geralt_fall_down_get_up" ID="{C8F47D34-98CC-4C66-832B-39DCDF0166C8}" ShortID="614659028">
 							<PropertyList>
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{E8946B9B-1ED1-4C21-8F1C-D036605A0FDC}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="800"/>
+													<Property Name="Min" Type="Real64" Value="-300"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-6</Value>
@@ -678,6 +691,19 @@
 							<ChildrenList>
 								<Sound Name="Geralt_hit_sound_1" ID="{BBD8AF85-7304-4B2A-9E9A-0A1CE5AF026B}" ShortID="40017974">
 									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{794C461E-C597-45AD-8BD4-A0467EC7B904}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="400"/>
+															<Property Name="Min" Type="Real64" Value="-400"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-6</Value>
@@ -704,6 +730,19 @@
 								</Sound>
 								<Sound Name="Geralt_hit_sound_2" ID="{85500133-E92D-4EAD-BCC4-71CE8FE2E107}" ShortID="326463926">
 									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{9DE1713B-7CEA-4D83-9DEA-30BBA6CD2C28}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="400"/>
+															<Property Name="Min" Type="Real64" Value="-400"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-6</Value>
@@ -800,6 +839,19 @@
 							<ChildrenList>
 								<Sound Name="Geralt_sword_metal_1" ID="{6B8B63A6-1E72-4736-9725-FF9404673EBC}" ShortID="156217341">
 									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{637888D5-DC27-4CE4-8D5A-7767DEB045EB}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="200"/>
+															<Property Name="Min" Type="Real64" Value="-758"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-6</Value>
@@ -826,6 +878,19 @@
 								</Sound>
 								<Sound Name="Geralt_sword_metal_2" ID="{8964E794-86E6-4849-B106-593AD7887586}" ShortID="287014801">
 									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{FF27A6E9-4CDB-4031-B018-7EC2BC078C0E}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="400"/>
+															<Property Name="Min" Type="Real64" Value="-300"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-6</Value>
@@ -1599,6 +1664,21 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Character_fall_down_get_up" ID="{C790ED16-85C0-4C9C-BFE7-70DFFC66A328}" ShortID="293312894">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{132ED278-02A6-4192-9449-427371718908}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="800"/>
+													<Property Name="Min" Type="Real64" Value="-300"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -1638,6 +1718,19 @@
 							<ChildrenList>
 								<Sound Name="Geralt_Walk_run_dirt_5" ID="{289C1096-9346-49EB-B21D-B05B3E3CA5AC}" ShortID="949218858">
 									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{C8546540-58F4-4823-ACE1-288625373711}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="800"/>
+															<Property Name="Min" Type="Real64" Value="-300"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-6</Value>
@@ -1664,6 +1757,19 @@
 								</Sound>
 								<Sound Name="Geralt_Walk_run_dirt_2" ID="{F5397440-A138-4211-9D2D-01718BF7C044}" ShortID="208209398">
 									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{C4841111-FD41-4011-98FA-73F5FF0B6BE8}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="800"/>
+															<Property Name="Min" Type="Real64" Value="-300"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-6</Value>
@@ -1690,6 +1796,19 @@
 								</Sound>
 								<Sound Name="Geralt_Walk_run_dirt_4" ID="{D5A976B0-6785-44DF-94E5-2A55B337E48F}" ShortID="691051686">
 									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{84313C83-34FF-469E-89E3-EF092C40CED2}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="800"/>
+															<Property Name="Min" Type="Real64" Value="-300"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-6</Value>
@@ -1716,6 +1835,19 @@
 								</Sound>
 								<Sound Name="Geralt_Walk_run_dirt_1" ID="{874984F7-327E-4E53-9213-1FDE7FEA25F6}" ShortID="158084073">
 									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{DA2A57F5-240A-44F1-BF1B-D2142127133A}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="800"/>
+															<Property Name="Min" Type="Real64" Value="-300"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-6</Value>
@@ -1749,6 +1881,19 @@
 						<Sound Name="Jaskier_fall_down_get_up" ID="{8E7589BF-DD2F-49B1-923B-7D5CE20609DF}" ShortID="178904935">
 							<PropertyList>
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{547F6EF5-0C78-4661-8A00-8878F903F9E4}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="800"/>
+													<Property Name="Min" Type="Real64" Value="-300"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-6</Value>
@@ -2446,6 +2591,19 @@
 							<ChildrenList>
 								<Sound Name="Jaskier_hit_sound_1" ID="{F279FF4D-386D-496F-91C9-DEDE02D730E6}" ShortID="899800136">
 									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{AF2F7973-1F5A-498F-B9CA-97901B57B5B0}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="800"/>
+															<Property Name="Min" Type="Real64" Value="-800"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-6</Value>
@@ -2472,6 +2630,19 @@
 								</Sound>
 								<Sound Name="Jaskier_hit_sound_2" ID="{85B9283F-75C8-474A-ABBA-585658C2838A}" ShortID="249934108">
 									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{2FF8427B-1F4D-4C1D-B52E-AD0C4411AEE5}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="800"/>
+															<Property Name="Min" Type="Real64" Value="-300"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-6</Value>
@@ -2832,6 +3003,19 @@
 						<Sound Name="Jaskier_guitar_smash" ID="{38D3E2DC-39B4-49D3-A5E5-C04C0DE9AB83}" ShortID="916263479">
 							<PropertyList>
 								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{27FB9F50-D04B-4176-9B10-E1F44F4B854D}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="800"/>
+													<Property Name="Min" Type="Real64" Value="-800"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-6</Value>
@@ -3177,6 +3361,19 @@
 							<ChildrenList>
 								<Sound Name="Jaskier_walk_run_dirt_1" ID="{5AFD7D5F-9376-4B95-8278-A47F91240614}" ShortID="559422322">
 									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{D5738370-CEB2-43D3-98D9-F273FE966A1E}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="800"/>
+															<Property Name="Min" Type="Real64" Value="-300"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-6</Value>
@@ -3203,6 +3400,19 @@
 								</Sound>
 								<Sound Name="Jaskier_walk_run_dirt_2" ID="{5CB2477B-8D52-47B6-83AF-292DB7F28097}" ShortID="413655339">
 									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{6BD062D6-12EF-4D11-8E9E-5075313B5394}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="800"/>
+															<Property Name="Min" Type="Real64" Value="-300"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-6</Value>
@@ -3229,6 +3439,19 @@
 								</Sound>
 								<Sound Name="Jaskier_walk_run_dirt_4" ID="{C0B7E700-318B-4295-8F2C-D59B6538AC88}" ShortID="265590832">
 									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{C9AEC18D-DC21-4A6C-921F-F330BFAE410A}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="800"/>
+															<Property Name="Min" Type="Real64" Value="-300"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-6</Value>
@@ -3255,6 +3478,19 @@
 								</Sound>
 								<Sound Name="Jaskier_walk_run_dirt_5" ID="{C1CEAAC2-7DAB-434A-AC00-6599B6391F02}" ShortID="415955529">
 									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{5FE54070-1F6C-4C36-87A0-4CC6134A78CA}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="800"/>
+															<Property Name="Min" Type="Real64" Value="-300"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-6</Value>
@@ -3290,6 +3526,19 @@
 								<Sound Name="Kikimora_death" ID="{026FDE39-2550-4A1A-A044-759D452032D7}" ShortID="822307547">
 									<PropertyList>
 										<Property Name="EnableAttenuation" Type="bool" Value="False"/>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{F09994DD-1408-40DA-8D47-220E7D9DD373}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="400"/>
+															<Property Name="Min" Type="Real64" Value="-400"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-6</Value>
@@ -3364,10 +3613,18 @@
 								<Sound Name="Kikimora_fall" ID="{B7F4BF93-57A0-471C-8FC4-F2F1E0A5CE16}" ShortID="403580649">
 									<PropertyList>
 										<Property Name="EnableAttenuation" Type="bool" Value="False"/>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-6</Value>
-											</ValueList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{E02C5572-3A28-4B71-91D6-8BF6ED5A7F91}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="400"/>
+															<Property Name="Min" Type="Real64" Value="-400"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
 										</Property>
 									</PropertyList>
 									<ReferenceList>
@@ -3438,6 +3695,19 @@
 								<Sound Name="Kikimora_lash" ID="{3C6B446F-BBA8-4E0B-94AB-487F6E558CBC}" ShortID="11379155">
 									<PropertyList>
 										<Property Name="EnableAttenuation" Type="bool" Value="False"/>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{18A24C0D-4548-4C1B-BB03-7F3BE53E1108}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="400"/>
+															<Property Name="Min" Type="Real64" Value="-400"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-3</Value>
@@ -3512,6 +3782,19 @@
 								<Sound Name="Kikimora_punch" ID="{92DB71F3-91DA-46E7-A6A8-6A07459751CB}" ShortID="966147081">
 									<PropertyList>
 										<Property Name="EnableAttenuation" Type="bool" Value="False"/>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{8BD9A8DC-1D01-4318-9D00-10144932B6EB}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="400"/>
+															<Property Name="Min" Type="Real64" Value="-400"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-6</Value>
@@ -3586,6 +3869,19 @@
 								<Sound Name="Kikimora_scream_1" ID="{DAC870CE-68B3-411B-A392-CD73034E82D2}" ShortID="555897811">
 									<PropertyList>
 										<Property Name="EnableAttenuation" Type="bool" Value="False"/>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{8F097591-A140-48B3-A506-758E9AA1C99D}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="400"/>
+															<Property Name="Min" Type="Real64" Value="-400"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>6</Value>
@@ -3660,6 +3956,19 @@
 								<Sound Name="Kikimora_scream_4" ID="{38CC8634-FC5B-427A-B07B-631823C3D531}" ShortID="765681237">
 									<PropertyList>
 										<Property Name="EnableAttenuation" Type="bool" Value="False"/>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{5E05CADD-1ED8-408D-B0A9-34A0712016E0}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="400"/>
+															<Property Name="Min" Type="Real64" Value="-400"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>6</Value>
@@ -3734,6 +4043,19 @@
 								<Sound Name="Kikimora_sweep" ID="{DF37CA47-1CC3-4C1D-B543-6CB2569A49E5}" ShortID="880121078">
 									<PropertyList>
 										<Property Name="EnableAttenuation" Type="bool" Value="False"/>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{E173233B-E416-499D-824C-0E66DBC39CBA}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="400"/>
+															<Property Name="Min" Type="Real64" Value="-400"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-6</Value>
@@ -3876,6 +4198,26 @@
 									<ChildrenList>
 										<Sound Name="Kikimora_damaged_1" ID="{102EF251-104E-446D-84D0-8B1EC7011491}" ShortID="423986500">
 											<PropertyList>
+												<Property Name="InitialDelay" Type="Real64">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{D6EDEDE6-39A9-4BBD-A2C2-601C018AC7EA}"/>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{C3357E73-512D-4D0D-83AC-0FE5850D40AD}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="400"/>
+																	<Property Name="Min" Type="Real64" Value="-400"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
 														<Value>-6</Value>
@@ -3902,6 +4244,19 @@
 										</Sound>
 										<Sound Name="Kikimora_damaged_2" ID="{E0BFF2BE-DB6B-43F7-9FFD-50A12CFBB827}" ShortID="367053022">
 											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{564252B4-B6E0-4BE0-B514-D18DC0180FE6}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="400"/>
+																	<Property Name="Min" Type="Real64" Value="-400"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
 														<Value>-6</Value>
@@ -3928,6 +4283,19 @@
 										</Sound>
 										<Sound Name="Kikimora_damaged_3" ID="{84C7DA11-E029-4EF6-9C71-E73C5937DA8D}" ShortID="287577641">
 											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{C72C1693-839F-4CBC-B445-776907EB78A3}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="400"/>
+																	<Property Name="Min" Type="Real64" Value="-400"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
 														<Value>-6</Value>
@@ -4021,6 +4389,19 @@
 									<ChildrenList>
 										<Sound Name="Kikimora_scream_2" ID="{F445165A-DA17-4293-8609-41544D6696D4}" ShortID="631117601">
 											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{0B314101-36A2-4EEF-895D-1E4A34EABB1B}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="400"/>
+																	<Property Name="Min" Type="Real64" Value="-400"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
 														<Value>-6</Value>
@@ -4047,6 +4428,19 @@
 										</Sound>
 										<Sound Name="Kikimora_scream_3" ID="{9FF1DF37-CB78-44A2-869F-A22CE119D738}" ShortID="180454925">
 											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{C9426A16-0755-486C-89A3-40118CC0AC3E}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="400"/>
+																	<Property Name="Min" Type="Real64" Value="-400"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
 														<Value>-6</Value>
@@ -4075,6 +4469,19 @@
 								</RandomSequenceContainer>
 								<Sound Name="Kikimora_sweep_phase_2" ID="{E449097E-76A2-42D5-91CE-73AC0609F4B5}" ShortID="581964446">
 									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{13A94A4A-C04E-4BF5-B252-EE42B9021DD9}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="400"/>
+															<Property Name="Min" Type="Real64" Value="-400"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-3</Value>
@@ -4101,6 +4508,19 @@
 								</Sound>
 								<Sound Name="Kikimora_sweep_phase_3" ID="{48ACC2AA-CF89-45A6-85D8-75CBB9866B77}" ShortID="584542997">
 									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{13911989-FC43-43DF-BD4F-E63FE34A213A}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="400"/>
+															<Property Name="Min" Type="Real64" Value="-400"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-3</Value>
@@ -4196,9 +4616,35 @@
 									<ChildrenList>
 										<Sound Name="Screamer_ghoul_damaged_1" ID="{1806009D-A88C-45A8-95A0-B2DED271386E}" ShortID="372254941">
 											<PropertyList>
+												<Property Name="InitialDelay" Type="Real64">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{360C7068-166E-4D71-97CC-1E12D5D58DFA}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="0.5"/>
+																	<Property Name="Min" Type="Real64" Value="-0.5"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{C6ACAA20-D6F9-4B98-BF1E-34FD7526EDFD}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="400"/>
+																	<Property Name="Min" Type="Real64" Value="-400"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-6</Value>
+														<Value>-10</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -4222,9 +4668,35 @@
 										</Sound>
 										<Sound Name="Screamer_ghoul_damaged_2" ID="{C5363E2D-1F8D-4EBD-AFDC-18110CC92854}" ShortID="714008018">
 											<PropertyList>
+												<Property Name="InitialDelay" Type="Real64">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{44F2D8E5-4803-4803-9224-DFA34D3A8A73}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="0.5"/>
+																	<Property Name="Min" Type="Real64" Value="-0.5"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{FCB7379E-3426-4143-9756-09187AA9F6F7}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="400"/>
+																	<Property Name="Min" Type="Real64" Value="-400"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-6</Value>
+														<Value>-10</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -4315,9 +4787,22 @@
 									<ChildrenList>
 										<Sound Name="Screamer_ghoul_death_1" ID="{604F6499-296F-4199-B5DE-66E9547D1A09}" ShortID="856787903">
 											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{EE9DD709-36E9-45D1-8522-1355F3010383}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="400"/>
+																	<Property Name="Min" Type="Real64" Value="-400"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-6</Value>
+														<Value>-16</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -4341,9 +4826,22 @@
 										</Sound>
 										<Sound Name="Screamer_ghoul_death_2" ID="{2565D73C-E8BF-4551-8087-CE13D9DFE7DC}" ShortID="1021974435">
 											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{13585D4E-F1A2-4385-9444-DA405E2FDEA5}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="400"/>
+																	<Property Name="Min" Type="Real64" Value="-400"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-6</Value>
+														<Value>-10</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -4367,9 +4865,22 @@
 										</Sound>
 										<Sound Name="Screamer_ghoul_death_3" ID="{2EB93E14-74E6-4771-ACC7-F97495F5B42B}" ShortID="827495475">
 											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{8625E288-2523-411D-A902-7CDDB2E4F913}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="400"/>
+																	<Property Name="Min" Type="Real64" Value="-400"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-6</Value>
+														<Value>-15</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -4460,6 +4971,19 @@
 									<ChildrenList>
 										<Sound Name="Screamer_ghoul_killed_1" ID="{B40BF757-1424-444C-B04E-C8A3B649175F}" ShortID="279572501">
 											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{9160DB36-FD63-4DFF-BB5F-0653D63AEFA9}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="400"/>
+																	<Property Name="Min" Type="Real64" Value="-400"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
 														<Value>-6</Value>
@@ -4486,6 +5010,19 @@
 										</Sound>
 										<Sound Name="Screamer_ghoul_killed_2" ID="{6F98E74C-CA38-4781-AE34-44EC8D1E1638}" ShortID="465803504">
 											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{5FF193E7-AEAD-42F9-B76A-AAC6C2737738}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="400"/>
+																	<Property Name="Min" Type="Real64" Value="-400"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
 														<Value>-6</Value>
@@ -4578,6 +5115,26 @@
 									</ReferenceList>
 									<ChildrenList>
 										<Sound Name="Screamer_ghoul_scream_attack_1" ID="{AA9522E8-56B4-43B8-ABBC-F5660D2BE6E1}" ShortID="119907086">
+											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{757A81EE-BA6F-4278-869F-F0DA7A0E72CD}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="400"/>
+																	<Property Name="Min" Type="Real64" Value="-400"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-8</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -4597,6 +5154,26 @@
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="Screamer_ghoul_scream_attack_2" ID="{7DFE43F1-FAC7-485F-93EE-D5730BDA7398}" ShortID="426815281">
+											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{A00DD8F1-84AD-4971-A255-6062419CABB6}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="400"/>
+																	<Property Name="Min" Type="Real64" Value="-400"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-12</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -4616,6 +5193,26 @@
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="Screamer_ghoul_scream_attack_3" ID="{8480BAC6-25BA-480B-9CF2-777264D277F6}" ShortID="950873768">
+											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{618CF6A4-2651-4CFA-A7F6-F4A7D7C787E7}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="400"/>
+																	<Property Name="Min" Type="Real64" Value="-400"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-14</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -4635,6 +5232,26 @@
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="Screamer_ghoul_scream_attack_4" ID="{8E9D2C7A-CB7D-4136-BFBE-B603129C334C}" ShortID="848406226">
+											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{DF387653-2337-41DB-9B8D-DC32C0AD2F20}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="400"/>
+																	<Property Name="Min" Type="Real64" Value="-400"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-17</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0085A44F-AA16-49DB-B6B2-CDBDAA013C9A}"/>
@@ -4722,9 +5339,22 @@
 									<ChildrenList>
 										<Sound Name="Screamer_ghoul_scream_variation_1" ID="{A540F315-67CD-4D1F-837E-F5CACAEAE489}" ShortID="690249705">
 											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{9046782A-073A-4589-A9BA-ECD7F27BA022}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="400"/>
+																	<Property Name="Min" Type="Real64" Value="-400"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-6</Value>
+														<Value>-15</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -4748,9 +5378,22 @@
 										</Sound>
 										<Sound Name="Screamer_ghoul_scream_variation_2" ID="{D1AA1242-BB1A-43EF-8775-31199F158F02}" ShortID="1022219043">
 											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{496CB6AA-E8C4-462C-ABD8-534F5DF9777E}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="400"/>
+																	<Property Name="Min" Type="Real64" Value="-400"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-6</Value>
+														<Value>-18</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -4774,9 +5417,22 @@
 										</Sound>
 										<Sound Name="Screamer_ghoul_scream_variation_3" ID="{5AFFEAE3-0555-44AC-8C8C-9FCB5549EF7A}" ShortID="211328459">
 											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{A47A0103-4D40-4E31-B61B-02C35E689273}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="400"/>
+																	<Property Name="Min" Type="Real64" Value="-400"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-6</Value>
+														<Value>-16</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -4871,9 +5527,22 @@
 									<ChildrenList>
 										<Sound Name="Titan_ghoull_death_1" ID="{E623DD29-4071-4248-928C-4DAFFFAA1654}" ShortID="361689871">
 											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{06176AEA-8F42-443E-80FD-8C3C207C0A1C}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="400"/>
+																	<Property Name="Min" Type="Real64" Value="-400"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-6</Value>
+														<Value>-11</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -4897,9 +5566,22 @@
 										</Sound>
 										<Sound Name="Titan_ghoul_death_2" ID="{75E5BF98-00BA-44D9-9F81-A4B8D2D26F54}" ShortID="841748994">
 											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{E1CE46CB-28CE-4368-8750-FDB5A2B15CD2}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="400"/>
+																	<Property Name="Min" Type="Real64" Value="-400"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-6</Value>
+														<Value>-12</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -4990,6 +5672,19 @@
 									<ChildrenList>
 										<Sound Name="Titan_ghoul_fall_back_1" ID="{0DD9FB5D-F437-4F6D-9022-D6405CE6F3C9}" ShortID="897076046">
 											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{02C71887-0A5C-49CA-89FE-A663F8D46DC0}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="400"/>
+																	<Property Name="Min" Type="Real64" Value="-400"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
 														<Value>-6</Value>
@@ -5016,6 +5711,19 @@
 										</Sound>
 										<Sound Name="Titan_ghoul_fall_back_2" ID="{8EAF6838-14CC-4BA2-A194-51CA507C8735}" ShortID="130558377">
 											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{35F39353-9384-4290-BBAD-0A12CE81531E}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="400"/>
+																	<Property Name="Min" Type="Real64" Value="-400"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
 														<Value>-6</Value>
@@ -5109,6 +5817,19 @@
 									<ChildrenList>
 										<Sound Name="Titan_ghoul_minion_spawn_1" ID="{3463DC31-61AD-4786-8695-B36046C96115}" ShortID="350367017">
 											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{766D885E-7D7D-48A5-A979-368C5E1B98C8}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="400"/>
+																	<Property Name="Min" Type="Real64" Value="-400"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
 														<Value>-6</Value>
@@ -5135,6 +5856,19 @@
 										</Sound>
 										<Sound Name="Titan_ghoul_minion_spawn_2" ID="{076EA2F7-EEB2-4A0B-906C-323A489558BB}" ShortID="1035232899">
 											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{B5CDB28C-200F-4BB0-9F7B-0EA0BEA2FA3E}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="400"/>
+																	<Property Name="Min" Type="Real64" Value="-400"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
 														<Value>-6</Value>
@@ -5228,6 +5962,26 @@
 									<ChildrenList>
 										<Sound Name="Titan_ghoul_take_damage_1" ID="{812741F1-94BE-4C85-8C27-5D647D87D55D}" ShortID="925469400">
 											<PropertyList>
+												<Property Name="InitialDelay" Type="Real64">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{AF1B93A7-0020-44EC-A929-02431157FE9D}"/>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{0B7310F9-1A68-4FE4-8BE3-A0CBCE323FB8}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="400"/>
+																	<Property Name="Min" Type="Real64" Value="-400"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
 														<Value>-6</Value>
@@ -5254,6 +6008,19 @@
 										</Sound>
 										<Sound Name="Titan_ghoul_take_damage_2" ID="{7B051D91-7D71-4A95-B62C-CBED3C685A4E}" ShortID="610485526">
 											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{B5478DE4-7FAC-430F-9301-FD0DEFCD4454}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="400"/>
+																	<Property Name="Min" Type="Real64" Value="-400"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
 														<Value>-6</Value>
@@ -5280,6 +6047,19 @@
 										</Sound>
 										<Sound Name="Titan_ghoul_take_damage_3" ID="{654E07A3-CF09-4F37-A57B-BF18319A359C}" ShortID="276008963">
 											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{59F07ED5-9286-494D-A6C3-01961F3E22B1}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="400"/>
+																	<Property Name="Min" Type="Real64" Value="-400"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
 														<Value>-6</Value>
@@ -5306,6 +6086,19 @@
 										</Sound>
 										<Sound Name="Titan_ghoul_take_damage_4" ID="{0F41D663-664A-476A-BDB0-01AE30B0BE25}" ShortID="858474144">
 											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{3A0B3C34-D692-49A5-A285-9D4980A25B3A}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="400"/>
+																	<Property Name="Min" Type="Real64" Value="-400"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
 														<Value>-6</Value>
@@ -5399,6 +6192,19 @@
 									<ChildrenList>
 										<Sound Name="Titan_ghoul_scream_attack_1" ID="{39C83A0D-CBE1-4BA1-893B-A1CFC1BBFBBC}" ShortID="585624472">
 											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{26878086-C844-4894-89C5-C082445875FE}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="400"/>
+																	<Property Name="Min" Type="Real64" Value="-400"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
 														<Value>-6</Value>
@@ -5425,6 +6231,19 @@
 										</Sound>
 										<Sound Name="Titan_ghoul_scream_attack_2" ID="{578EE6AE-B027-444E-835D-C669908572D6}" ShortID="793759285">
 											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{FB24CD7F-6F01-4CCC-A985-A2C33BC1BA74}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="400"/>
+																	<Property Name="Min" Type="Real64" Value="-400"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
 														<Value>-6</Value>
@@ -5451,6 +6270,19 @@
 										</Sound>
 										<Sound Name="Titan_ghoul_scream_attack_3" ID="{6492B559-F3CE-47BC-994A-8176319D8652}" ShortID="441623103">
 											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{0E786153-6090-4E39-AA75-2D33400E737A}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="400"/>
+																	<Property Name="Min" Type="Real64" Value="-400"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
 														<Value>-6</Value>
@@ -5477,6 +6309,19 @@
 										</Sound>
 										<Sound Name="Titan_ghoul_scream_attack_4" ID="{58D5D61B-4F0E-4C59-B24B-F8E1C51A5431}" ShortID="787569231">
 											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{EE232DF7-E5B4-4E60-99EF-0A3A558ED045}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="400"/>
+																	<Property Name="Min" Type="Real64" Value="-400"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
 														<Value>-6</Value>
@@ -5591,8 +6436,8 @@
 															<Modifier Name="" ID="{8CECFC93-2C55-49E5-A9E6-217411B4F8B2}">
 																<PropertyList>
 																	<Property Name="Enabled" Type="bool" Value="True"/>
-																	<Property Name="Max" Type="Real64" Value="0.25"/>
-																	<Property Name="Min" Type="Real64" Value="-0.25"/>
+																	<Property Name="Max" Type="Real64" Value="0.5"/>
+																	<Property Name="Min" Type="Real64" Value="-0.5"/>
 																</PropertyList>
 															</Modifier>
 														</ModifierInfo>
@@ -5643,8 +6488,8 @@
 															<Modifier Name="" ID="{81899430-275B-4D17-BEDC-A7B9079239DC}">
 																<PropertyList>
 																	<Property Name="Enabled" Type="bool" Value="True"/>
-																	<Property Name="Max" Type="Real64" Value="0.25"/>
-																	<Property Name="Min" Type="Real64" Value="-0.25"/>
+																	<Property Name="Max" Type="Real64" Value="0.5"/>
+																	<Property Name="Min" Type="Real64" Value="-0.5"/>
 																</PropertyList>
 															</Modifier>
 														</ModifierInfo>
@@ -5762,8 +6607,8 @@
 															<Modifier Name="" ID="{266FB39E-5AB7-47BA-8DE8-C7196062C9CA}">
 																<PropertyList>
 																	<Property Name="Enabled" Type="bool" Value="True"/>
-																	<Property Name="Max" Type="Real64" Value="0.25"/>
-																	<Property Name="Min" Type="Real64" Value="-0.25"/>
+																	<Property Name="Max" Type="Real64" Value="0.5"/>
+																	<Property Name="Min" Type="Real64" Value="-0.5"/>
 																</PropertyList>
 															</Modifier>
 														</ModifierInfo>
@@ -5814,8 +6659,8 @@
 															<Modifier Name="" ID="{9B5236FC-01D6-4AE2-8F78-96ABBC62D24C}">
 																<PropertyList>
 																	<Property Name="Enabled" Type="bool" Value="True"/>
-																	<Property Name="Max" Type="Real64" Value="0.25"/>
-																	<Property Name="Min" Type="Real64" Value="-0.25"/>
+																	<Property Name="Max" Type="Real64" Value="0.5"/>
+																	<Property Name="Min" Type="Real64" Value="-0.5"/>
 																</PropertyList>
 															</Modifier>
 														</ModifierInfo>
@@ -5927,6 +6772,19 @@
 									<ChildrenList>
 										<Sound Name="Death_1" ID="{1DC18498-C666-4067-8FE9-6F05666DF776}" ShortID="786782442">
 											<PropertyList>
+												<Property Name="InitialDelay" Type="Real64">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{4DE4749A-AB6D-40F3-ADC0-1673ACBA1A13}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="0.25"/>
+																	<Property Name="Min" Type="Real64" Value="-0.25"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
 												<Property Name="Pitch" Type="int32">
 													<ModifierList>
 														<ModifierInfo>
@@ -5971,6 +6829,19 @@
 										</Sound>
 										<Sound Name="Death_3" ID="{D1159F48-FCF3-4AC6-A802-3D27D23C9E60}" ShortID="782130225">
 											<PropertyList>
+												<Property Name="InitialDelay" Type="Real64">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{3869A710-5D72-4048-ACBE-00FC5F6CC675}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="0.25"/>
+																	<Property Name="Min" Type="Real64" Value="-0.25"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
 												<Property Name="Pitch" Type="int32">
 													<ModifierList>
 														<ModifierInfo>
@@ -6010,6 +6881,19 @@
 										</Sound>
 										<Sound Name="Death_2" ID="{A41E37E3-7EE0-46F0-BFF8-0B77233AC9B3}" ShortID="756165170">
 											<PropertyList>
+												<Property Name="InitialDelay" Type="Real64">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{A42C7CE7-EC3A-40C6-87FB-C16BF138222E}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="0.25"/>
+																	<Property Name="Min" Type="Real64" Value="-0.25"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
 												<Property Name="Pitch" Type="int32">
 													<ModifierList>
 														<ModifierInfo>
@@ -6057,8 +6941,8 @@
 													<Modifier Name="" ID="{B9819261-DB62-4CCB-BE74-81772B781C1A}">
 														<PropertyList>
 															<Property Name="Enabled" Type="bool" Value="True"/>
-															<Property Name="Max" Type="Real64" Value="0.25"/>
-															<Property Name="Min" Type="Real64" Value="-0.25"/>
+															<Property Name="Max" Type="Real64" Value="0.5"/>
+															<Property Name="Min" Type="Real64" Value="-0.5"/>
 														</PropertyList>
 													</Modifier>
 												</ModifierInfo>
@@ -6074,6 +6958,16 @@
 															<Property Name="Min" Type="Real64" Value="-250"/>
 														</PropertyList>
 													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-28</Value>
+											</ValueList>
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{E4A7AAB3-88C5-42EF-986D-240092560B47}"/>
 												</ModifierInfo>
 											</ModifierList>
 										</Property>
@@ -6104,8 +6998,8 @@
 													<Modifier Name="" ID="{7197514F-81A0-4933-B67F-F1D1D895E16C}">
 														<PropertyList>
 															<Property Name="Enabled" Type="bool" Value="True"/>
-															<Property Name="Max" Type="Real64" Value="0.25"/>
-															<Property Name="Min" Type="Real64" Value="-0.25"/>
+															<Property Name="Max" Type="Real64" Value="0.5"/>
+															<Property Name="Min" Type="Real64" Value="-0.5"/>
 														</PropertyList>
 													</Modifier>
 												</ModifierInfo>
@@ -6123,6 +7017,11 @@
 													</Modifier>
 												</ModifierInfo>
 											</ModifierList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-19</Value>
+											</ValueList>
 										</Property>
 									</PropertyList>
 									<ReferenceList>

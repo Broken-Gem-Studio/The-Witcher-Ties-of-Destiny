@@ -1,553 +1,5 @@
 {
-    "1040827065": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "layer": "0",
-                "positionx": "747.294067",
-                "positiony": "39.943748",
-                "positionz": "-520.926331",
-                "rotationw": "1.000000",
-                "rotationx": "0.000000",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "0.400017",
-                "scaley": "0.400000",
-                "scalez": "0.400017"
-            },
-            "12": {
-                "Active": true,
-                "Resources": {
-                    "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
-                },
-                "Script variables": {
-                    "Count": 15,
-                    "Variable 0": {
-                        "DisplayObjectName": false,
-                        "Name": "ActiveDistance",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 60.0
-                    },
-                    "Variable 1": {
-                        "DisplayObjectName": false,
-                        "Name": "DistanceToCamera",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 10": {
-                        "DisplayObjectName": false,
-                        "Name": "had_conversation",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    },
-                    "Variable 11": {
-                        "DisplayObjectName": false,
-                        "Name": "humanoid_spawner",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    },
-                    "Variable 12": {
-                        "DisplayObjectName": false,
-                        "Name": "is_cinematic",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    },
-                    "Variable 13": {
-                        "DisplayObjectName": false,
-                        "Name": "shouted_at_players",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    },
-                    "Variable 14": {
-                        "DisplayObjectName": false,
-                        "Name": "time",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 2": {
-                        "DisplayObjectName": true,
-                        "Name": "Enemy_Prefab",
-                        "ObjectName": "NewScreamer (0).prefab",
-                        "Type": "Double",
-                        "Value": 396140210.0
-                    },
-                    "Variable 3": {
-                        "DisplayObjectName": false,
-                        "Name": "NumberofEnemies",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 1.0
-                    },
-                    "Variable 4": {
-                        "DisplayObjectName": false,
-                        "Name": "SpawnRadius",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 5": {
-                        "DisplayObjectName": false,
-                        "Name": "SpawnRate",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 1.0
-                    },
-                    "Variable 6": {
-                        "DisplayObjectName": false,
-                        "Name": "auxCounter",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 7": {
-                        "DisplayObjectName": false,
-                        "Name": "camera_name",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "Camera"
-                    },
-                    "Variable 8": {
-                        "DisplayObjectName": false,
-                        "Name": "enemies",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 9": {
-                        "DisplayObjectName": false,
-                        "Name": "enemies_chat",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    }
-                }
-            }
-        },
-        "Name": "ScreamerRuins",
-        "Parent": "1700300982",
-        "PrefabChild": true,
-        "PrefabInstance": false,
-        "Static": false
-    },
-    "108467177": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "layer": "0",
-                "positionx": "727.623108",
-                "positiony": "49.065346",
-                "positionz": "-471.395538",
-                "rotationw": "1.000000",
-                "rotationx": "0.000000",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "0.400017",
-                "scaley": "0.400000",
-                "scalez": "0.400017"
-            },
-            "12": {
-                "Active": false,
-                "Resources": {
-                    "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
-                },
-                "Script variables": {
-                    "Count": 15,
-                    "Variable 0": {
-                        "DisplayObjectName": false,
-                        "Name": "ActiveDistance",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 60.0
-                    },
-                    "Variable 1": {
-                        "DisplayObjectName": false,
-                        "Name": "DistanceToCamera",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 10": {
-                        "DisplayObjectName": false,
-                        "Name": "had_conversation",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    },
-                    "Variable 11": {
-                        "DisplayObjectName": false,
-                        "Name": "humanoid_spawner",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    },
-                    "Variable 12": {
-                        "DisplayObjectName": false,
-                        "Name": "is_cinematic",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    },
-                    "Variable 13": {
-                        "DisplayObjectName": false,
-                        "Name": "shouted_at_players",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    },
-                    "Variable 14": {
-                        "DisplayObjectName": false,
-                        "Name": "time",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 2": {
-                        "DisplayObjectName": true,
-                        "Name": "Enemy_Prefab",
-                        "ObjectName": "Minion_Ghoul (0).prefab",
-                        "Type": "Double",
-                        "Value": 1238792523.0
-                    },
-                    "Variable 3": {
-                        "DisplayObjectName": false,
-                        "Name": "NumberofEnemies",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 5.0
-                    },
-                    "Variable 4": {
-                        "DisplayObjectName": false,
-                        "Name": "SpawnRadius",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 5.0
-                    },
-                    "Variable 5": {
-                        "DisplayObjectName": false,
-                        "Name": "SpawnRate",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.5
-                    },
-                    "Variable 6": {
-                        "DisplayObjectName": false,
-                        "Name": "auxCounter",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 7": {
-                        "DisplayObjectName": false,
-                        "Name": "camera_name",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "Camera"
-                    },
-                    "Variable 8": {
-                        "DisplayObjectName": false,
-                        "Name": "enemies",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 9": {
-                        "DisplayObjectName": false,
-                        "Name": "enemies_chat",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    }
-                }
-            }
-        },
-        "Name": "MinionsAfterBridge4",
-        "Parent": "1700300982",
-        "PrefabChild": true,
-        "PrefabInstance": false,
-        "Static": false
-    },
-    "1173995815": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "layer": "0",
-                "positionx": "744.115295",
-                "positiony": "36.735905",
-                "positionz": "-529.798340",
-                "rotationw": "1.000000",
-                "rotationx": "0.000000",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "0.400017",
-                "scaley": "0.400000",
-                "scalez": "0.400017"
-            },
-            "12": {
-                "Active": true,
-                "Resources": {
-                    "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
-                },
-                "Script variables": {
-                    "Count": 15,
-                    "Variable 0": {
-                        "DisplayObjectName": false,
-                        "Name": "ActiveDistance",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 60.0
-                    },
-                    "Variable 1": {
-                        "DisplayObjectName": false,
-                        "Name": "DistanceToCamera",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 10": {
-                        "DisplayObjectName": false,
-                        "Name": "had_conversation",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    },
-                    "Variable 11": {
-                        "DisplayObjectName": false,
-                        "Name": "humanoid_spawner",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    },
-                    "Variable 12": {
-                        "DisplayObjectName": false,
-                        "Name": "is_cinematic",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    },
-                    "Variable 13": {
-                        "DisplayObjectName": false,
-                        "Name": "shouted_at_players",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    },
-                    "Variable 14": {
-                        "DisplayObjectName": false,
-                        "Name": "time",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 2": {
-                        "DisplayObjectName": true,
-                        "Name": "Enemy_Prefab",
-                        "ObjectName": "Minion_Ghoul (0).prefab",
-                        "Type": "Double",
-                        "Value": 1238792523.0
-                    },
-                    "Variable 3": {
-                        "DisplayObjectName": false,
-                        "Name": "NumberofEnemies",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 5.0
-                    },
-                    "Variable 4": {
-                        "DisplayObjectName": false,
-                        "Name": "SpawnRadius",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 5.0
-                    },
-                    "Variable 5": {
-                        "DisplayObjectName": false,
-                        "Name": "SpawnRate",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.5
-                    },
-                    "Variable 6": {
-                        "DisplayObjectName": false,
-                        "Name": "auxCounter",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 7": {
-                        "DisplayObjectName": false,
-                        "Name": "camera_name",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "Camera"
-                    },
-                    "Variable 8": {
-                        "DisplayObjectName": false,
-                        "Name": "enemies",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 9": {
-                        "DisplayObjectName": false,
-                        "Name": "enemies_chat",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    }
-                }
-            }
-        },
-        "Name": "MinionsRuins1",
-        "Parent": "1700300982",
-        "PrefabChild": true,
-        "PrefabInstance": false,
-        "Static": false
-    },
-    "1535031295": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "layer": "0",
-                "positionx": "714.178894",
-                "positiony": "39.943748",
-                "positionz": "-517.079102",
-                "rotationw": "1.000000",
-                "rotationx": "0.000000",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "0.400017",
-                "scaley": "0.400000",
-                "scalez": "0.400017"
-            },
-            "12": {
-                "Active": true,
-                "Resources": {
-                    "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
-                },
-                "Script variables": {
-                    "Count": 15,
-                    "Variable 0": {
-                        "DisplayObjectName": false,
-                        "Name": "ActiveDistance",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 30.0
-                    },
-                    "Variable 1": {
-                        "DisplayObjectName": false,
-                        "Name": "DistanceToCamera",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 10": {
-                        "DisplayObjectName": false,
-                        "Name": "had_conversation",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    },
-                    "Variable 11": {
-                        "DisplayObjectName": false,
-                        "Name": "humanoid_spawner",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    },
-                    "Variable 12": {
-                        "DisplayObjectName": false,
-                        "Name": "is_cinematic",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    },
-                    "Variable 13": {
-                        "DisplayObjectName": false,
-                        "Name": "shouted_at_players",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    },
-                    "Variable 14": {
-                        "DisplayObjectName": false,
-                        "Name": "time",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 2": {
-                        "DisplayObjectName": true,
-                        "Name": "Enemy_Prefab",
-                        "ObjectName": "Minion_Ghoul (0).prefab",
-                        "Type": "Double",
-                        "Value": 1238792523.0
-                    },
-                    "Variable 3": {
-                        "DisplayObjectName": false,
-                        "Name": "NumberofEnemies",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 5.0
-                    },
-                    "Variable 4": {
-                        "DisplayObjectName": false,
-                        "Name": "SpawnRadius",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 5.0
-                    },
-                    "Variable 5": {
-                        "DisplayObjectName": false,
-                        "Name": "SpawnRate",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.5
-                    },
-                    "Variable 6": {
-                        "DisplayObjectName": false,
-                        "Name": "auxCounter",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 7": {
-                        "DisplayObjectName": false,
-                        "Name": "camera_name",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "Camera"
-                    },
-                    "Variable 8": {
-                        "DisplayObjectName": false,
-                        "Name": "enemies",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 9": {
-                        "DisplayObjectName": false,
-                        "Name": "enemies_chat",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    }
-                }
-            }
-        },
-        "Name": "MinionsFlanking",
-        "Parent": "1700300982",
-        "PrefabChild": true,
-        "PrefabInstance": false,
-        "Static": false
-    },
-    "1602207208": {
+    "1299975527": {
         "Active": true,
         "Components": {
             "0": {
@@ -679,309 +131,12 @@
             }
         },
         "Name": "TitanRuins",
-        "Parent": "1700300982",
+        "Parent": "932568214",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false
     },
-    "1700300982": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "layer": "0",
-                "positionx": "0.000000",
-                "positiony": "0.000000",
-                "positionz": "0.000000",
-                "rotationw": "1.000000",
-                "rotationx": "0.000000",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "1.000000",
-                "scaley": "1.000000",
-                "scalez": "1.000000"
-            }
-        },
-        "Name": "Spawners_AfterBridge",
-        "Parent": "1517078484",
-        "PrefabChild": true,
-        "PrefabInstance": true,
-        "Static": false
-    },
-    "1809759541": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "layer": "0",
-                "positionx": "691.055786",
-                "positiony": "46.333370",
-                "positionz": "-547.804382",
-                "rotationw": "1.000000",
-                "rotationx": "0.000000",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "0.400017",
-                "scaley": "0.400000",
-                "scalez": "0.400017"
-            },
-            "12": {
-                "Active": true,
-                "Resources": {
-                    "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
-                },
-                "Script variables": {
-                    "Count": 15,
-                    "Variable 0": {
-                        "DisplayObjectName": false,
-                        "Name": "ActiveDistance",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 40.0
-                    },
-                    "Variable 1": {
-                        "DisplayObjectName": false,
-                        "Name": "DistanceToCamera",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 10": {
-                        "DisplayObjectName": false,
-                        "Name": "had_conversation",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    },
-                    "Variable 11": {
-                        "DisplayObjectName": false,
-                        "Name": "humanoid_spawner",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    },
-                    "Variable 12": {
-                        "DisplayObjectName": false,
-                        "Name": "is_cinematic",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    },
-                    "Variable 13": {
-                        "DisplayObjectName": false,
-                        "Name": "shouted_at_players",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    },
-                    "Variable 14": {
-                        "DisplayObjectName": false,
-                        "Name": "time",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 2": {
-                        "DisplayObjectName": true,
-                        "Name": "Enemy_Prefab",
-                        "ObjectName": "Minion_Ghoul (0).prefab",
-                        "Type": "Double",
-                        "Value": 1238792523.0
-                    },
-                    "Variable 3": {
-                        "DisplayObjectName": false,
-                        "Name": "NumberofEnemies",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 6.0
-                    },
-                    "Variable 4": {
-                        "DisplayObjectName": false,
-                        "Name": "SpawnRadius",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 4.0
-                    },
-                    "Variable 5": {
-                        "DisplayObjectName": false,
-                        "Name": "SpawnRate",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.5
-                    },
-                    "Variable 6": {
-                        "DisplayObjectName": false,
-                        "Name": "auxCounter",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 7": {
-                        "DisplayObjectName": false,
-                        "Name": "camera_name",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "Camera"
-                    },
-                    "Variable 8": {
-                        "DisplayObjectName": false,
-                        "Name": "enemies",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 9": {
-                        "DisplayObjectName": false,
-                        "Name": "enemies_chat",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    }
-                }
-            }
-        },
-        "Name": "MinionsFire",
-        "Parent": "1700300982",
-        "PrefabChild": true,
-        "PrefabInstance": false,
-        "Static": false
-    },
-    "268394250": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "layer": "0",
-                "positionx": "763.182251",
-                "positiony": "39.943748",
-                "positionz": "-535.714722",
-                "rotationw": "1.000000",
-                "rotationx": "0.000000",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "0.400017",
-                "scaley": "0.400000",
-                "scalez": "0.400017"
-            },
-            "12": {
-                "Active": true,
-                "Resources": {
-                    "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
-                },
-                "Script variables": {
-                    "Count": 15,
-                    "Variable 0": {
-                        "DisplayObjectName": false,
-                        "Name": "ActiveDistance",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 60.0
-                    },
-                    "Variable 1": {
-                        "DisplayObjectName": false,
-                        "Name": "DistanceToCamera",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 10": {
-                        "DisplayObjectName": false,
-                        "Name": "had_conversation",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    },
-                    "Variable 11": {
-                        "DisplayObjectName": false,
-                        "Name": "humanoid_spawner",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    },
-                    "Variable 12": {
-                        "DisplayObjectName": false,
-                        "Name": "is_cinematic",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    },
-                    "Variable 13": {
-                        "DisplayObjectName": false,
-                        "Name": "shouted_at_players",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    },
-                    "Variable 14": {
-                        "DisplayObjectName": false,
-                        "Name": "time",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 2": {
-                        "DisplayObjectName": true,
-                        "Name": "Enemy_Prefab",
-                        "ObjectName": "Minion_Ghoul (0).prefab",
-                        "Type": "Double",
-                        "Value": 1238792523.0
-                    },
-                    "Variable 3": {
-                        "DisplayObjectName": false,
-                        "Name": "NumberofEnemies",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 5.0
-                    },
-                    "Variable 4": {
-                        "DisplayObjectName": false,
-                        "Name": "SpawnRadius",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 5.0
-                    },
-                    "Variable 5": {
-                        "DisplayObjectName": false,
-                        "Name": "SpawnRate",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.5
-                    },
-                    "Variable 6": {
-                        "DisplayObjectName": false,
-                        "Name": "auxCounter",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 7": {
-                        "DisplayObjectName": false,
-                        "Name": "camera_name",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "Camera"
-                    },
-                    "Variable 8": {
-                        "DisplayObjectName": false,
-                        "Name": "enemies",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 9": {
-                        "DisplayObjectName": false,
-                        "Name": "enemies_chat",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    }
-                }
-            }
-        },
-        "Name": "MinionsRuins2",
-        "Parent": "1700300982",
-        "PrefabChild": true,
-        "PrefabInstance": false,
-        "Static": false
-    },
-    "524952047": {
+    "1458527143": {
         "Active": true,
         "Components": {
             "0": {
@@ -1113,19 +268,156 @@
             }
         },
         "Name": "ScreamerAfterBridge",
-        "Parent": "1700300982",
+        "Parent": "932568214",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false
     },
-    "620866703": {
+    "1460003237": {
         "Active": true,
         "Components": {
             "0": {
                 "layer": "0",
-                "positionx": "764.703918",
+                "positionx": "747.294067",
                 "positiony": "39.943748",
-                "positionz": "-521.256531",
+                "positionz": "-520.926331",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.400017",
+                "scaley": "0.400000",
+                "scalez": "0.400017"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
+                },
+                "Script variables": {
+                    "Count": 15,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "ActiveDistance",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 60.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "DistanceToCamera",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "had_conversation",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "humanoid_spawner",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "is_cinematic",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "shouted_at_players",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 14": {
+                        "DisplayObjectName": false,
+                        "Name": "time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": true,
+                        "Name": "Enemy_Prefab",
+                        "ObjectName": "NewScreamer (0).prefab",
+                        "Type": "Double",
+                        "Value": 396140210.0
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "NumberofEnemies",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRadius",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRate",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": false,
+                        "Name": "auxCounter",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_name",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Camera"
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": false,
+                        "Name": "enemies",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "enemies_chat",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    }
+                }
+            }
+        },
+        "Name": "ScreamerRuins",
+        "Parent": "932568214",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "1667492733": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "744.115295",
+                "positiony": "36.735905",
+                "positionz": "-529.798340",
                 "rotationw": "1.000000",
                 "rotationx": "0.000000",
                 "rotationy": "0.000000",
@@ -1249,287 +541,13 @@
                 }
             }
         },
-        "Name": "MinionsRuins3",
-        "Parent": "1700300982",
+        "Name": "MinionsRuins1",
+        "Parent": "932568214",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false
     },
-    "809882747": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "layer": "0",
-                "positionx": "705.195679",
-                "positiony": "49.065346",
-                "positionz": "-472.132874",
-                "rotationw": "1.000000",
-                "rotationx": "0.000000",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "0.400017",
-                "scaley": "0.400000",
-                "scalez": "0.400017"
-            },
-            "12": {
-                "Active": true,
-                "Resources": {
-                    "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
-                },
-                "Script variables": {
-                    "Count": 15,
-                    "Variable 0": {
-                        "DisplayObjectName": false,
-                        "Name": "ActiveDistance",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 60.0
-                    },
-                    "Variable 1": {
-                        "DisplayObjectName": false,
-                        "Name": "DistanceToCamera",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 10": {
-                        "DisplayObjectName": false,
-                        "Name": "had_conversation",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    },
-                    "Variable 11": {
-                        "DisplayObjectName": false,
-                        "Name": "humanoid_spawner",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    },
-                    "Variable 12": {
-                        "DisplayObjectName": false,
-                        "Name": "is_cinematic",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    },
-                    "Variable 13": {
-                        "DisplayObjectName": false,
-                        "Name": "shouted_at_players",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    },
-                    "Variable 14": {
-                        "DisplayObjectName": false,
-                        "Name": "time",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 2": {
-                        "DisplayObjectName": true,
-                        "Name": "Enemy_Prefab",
-                        "ObjectName": "Minion_Ghoul (0).prefab",
-                        "Type": "Double",
-                        "Value": 1238792523.0
-                    },
-                    "Variable 3": {
-                        "DisplayObjectName": false,
-                        "Name": "NumberofEnemies",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 5.0
-                    },
-                    "Variable 4": {
-                        "DisplayObjectName": false,
-                        "Name": "SpawnRadius",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 5.0
-                    },
-                    "Variable 5": {
-                        "DisplayObjectName": false,
-                        "Name": "SpawnRate",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.5
-                    },
-                    "Variable 6": {
-                        "DisplayObjectName": false,
-                        "Name": "auxCounter",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 7": {
-                        "DisplayObjectName": false,
-                        "Name": "camera_name",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "Camera"
-                    },
-                    "Variable 8": {
-                        "DisplayObjectName": false,
-                        "Name": "enemies",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 9": {
-                        "DisplayObjectName": false,
-                        "Name": "enemies_chat",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    }
-                }
-            }
-        },
-        "Name": "MinionsAfterBridge3",
-        "Parent": "1700300982",
-        "PrefabChild": true,
-        "PrefabInstance": false,
-        "Static": false
-    },
-    "880391644": {
-        "Active": true,
-        "Components": {
-            "0": {
-                "layer": "0",
-                "positionx": "716.707642",
-                "positiony": "49.065346",
-                "positionz": "-460.693817",
-                "rotationw": "1.000000",
-                "rotationx": "0.000000",
-                "rotationy": "0.000000",
-                "rotationz": "0.000000",
-                "scalex": "0.400017",
-                "scaley": "0.400000",
-                "scalez": "0.400017"
-            },
-            "12": {
-                "Active": true,
-                "Resources": {
-                    "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
-                },
-                "Script variables": {
-                    "Count": 15,
-                    "Variable 0": {
-                        "DisplayObjectName": false,
-                        "Name": "ActiveDistance",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 65.0
-                    },
-                    "Variable 1": {
-                        "DisplayObjectName": false,
-                        "Name": "DistanceToCamera",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 10": {
-                        "DisplayObjectName": false,
-                        "Name": "had_conversation",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    },
-                    "Variable 11": {
-                        "DisplayObjectName": false,
-                        "Name": "humanoid_spawner",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    },
-                    "Variable 12": {
-                        "DisplayObjectName": false,
-                        "Name": "is_cinematic",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    },
-                    "Variable 13": {
-                        "DisplayObjectName": false,
-                        "Name": "shouted_at_players",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    },
-                    "Variable 14": {
-                        "DisplayObjectName": false,
-                        "Name": "time",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 2": {
-                        "DisplayObjectName": true,
-                        "Name": "Enemy_Prefab",
-                        "ObjectName": "Minion_Ghoul (0).prefab",
-                        "Type": "Double",
-                        "Value": 1238792523.0
-                    },
-                    "Variable 3": {
-                        "DisplayObjectName": false,
-                        "Name": "NumberofEnemies",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 5.0
-                    },
-                    "Variable 4": {
-                        "DisplayObjectName": false,
-                        "Name": "SpawnRadius",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 5.0
-                    },
-                    "Variable 5": {
-                        "DisplayObjectName": false,
-                        "Name": "SpawnRate",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.5
-                    },
-                    "Variable 6": {
-                        "DisplayObjectName": false,
-                        "Name": "auxCounter",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 7": {
-                        "DisplayObjectName": false,
-                        "Name": "camera_name",
-                        "ObjectName": "",
-                        "Type": "String",
-                        "Value": "Camera"
-                    },
-                    "Variable 8": {
-                        "DisplayObjectName": false,
-                        "Name": "enemies",
-                        "ObjectName": "",
-                        "Type": "Double",
-                        "Value": 0.0
-                    },
-                    "Variable 9": {
-                        "DisplayObjectName": false,
-                        "Name": "enemies_chat",
-                        "ObjectName": "",
-                        "Type": "Boolean",
-                        "Value": false
-                    }
-                }
-            }
-        },
-        "Name": "MinionsAfterBridge2",
-        "Parent": "1700300982",
-        "PrefabChild": true,
-        "PrefabInstance": false,
-        "Static": false
-    },
-    "890096240": {
+    "1677410043": {
         "Active": true,
         "Components": {
             "0": {
@@ -1661,12 +679,286 @@
             }
         },
         "Name": "MinionsAfterBridge1",
-        "Parent": "1700300982",
+        "Parent": "932568214",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false
     },
-    "913594241": {
+    "1690194538": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "716.707642",
+                "positiony": "49.065346",
+                "positionz": "-460.693817",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.400017",
+                "scaley": "0.400000",
+                "scalez": "0.400017"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
+                },
+                "Script variables": {
+                    "Count": 15,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "ActiveDistance",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 65.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "DistanceToCamera",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "had_conversation",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "humanoid_spawner",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "is_cinematic",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "shouted_at_players",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 14": {
+                        "DisplayObjectName": false,
+                        "Name": "time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": true,
+                        "Name": "Enemy_Prefab",
+                        "ObjectName": "Minion_Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 1238792523.0
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "NumberofEnemies",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 5.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRadius",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 5.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRate",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.5
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": false,
+                        "Name": "auxCounter",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_name",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Camera"
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": false,
+                        "Name": "enemies",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "enemies_chat",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    }
+                }
+            }
+        },
+        "Name": "MinionsAfterBridge2",
+        "Parent": "932568214",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "1693091020": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "691.055786",
+                "positiony": "46.333370",
+                "positionz": "-547.804382",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.400017",
+                "scaley": "0.400000",
+                "scalez": "0.400017"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
+                },
+                "Script variables": {
+                    "Count": 15,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "ActiveDistance",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 40.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "DistanceToCamera",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "had_conversation",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "humanoid_spawner",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "is_cinematic",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "shouted_at_players",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 14": {
+                        "DisplayObjectName": false,
+                        "Name": "time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": true,
+                        "Name": "Enemy_Prefab",
+                        "ObjectName": "Minion_Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 1238792523.0
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "NumberofEnemies",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 6.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRadius",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 4.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRate",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.5
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": false,
+                        "Name": "auxCounter",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_name",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Camera"
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": false,
+                        "Name": "enemies",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "enemies_chat",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    }
+                }
+            }
+        },
+        "Name": "MinionsFire",
+        "Parent": "932568214",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "353974408": {
         "Active": true,
         "Components": {
             "0": {
@@ -1798,10 +1090,718 @@
             }
         },
         "Name": "ZomboidsAfterBridge",
-        "Parent": "1700300982",
+        "Parent": "932568214",
         "PrefabChild": true,
         "PrefabInstance": false,
         "Static": false
     },
-    "PreviewTexture": "Library/Textures/1389730520.dds"
+    "41899726": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "714.178894",
+                "positiony": "39.943748",
+                "positionz": "-517.079102",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.400017",
+                "scaley": "0.400000",
+                "scalez": "0.400017"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
+                },
+                "Script variables": {
+                    "Count": 15,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "ActiveDistance",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 30.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "DistanceToCamera",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "had_conversation",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "humanoid_spawner",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "is_cinematic",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "shouted_at_players",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 14": {
+                        "DisplayObjectName": false,
+                        "Name": "time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": true,
+                        "Name": "Enemy_Prefab",
+                        "ObjectName": "Minion_Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 1238792523.0
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "NumberofEnemies",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 5.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRadius",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 5.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRate",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.5
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": false,
+                        "Name": "auxCounter",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_name",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Camera"
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": false,
+                        "Name": "enemies",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "enemies_chat",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    }
+                }
+            }
+        },
+        "Name": "MinionsFlanking",
+        "Parent": "932568214",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "507553556": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "705.195679",
+                "positiony": "49.065346",
+                "positionz": "-472.132874",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.400017",
+                "scaley": "0.400000",
+                "scalez": "0.400017"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
+                },
+                "Script variables": {
+                    "Count": 15,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "ActiveDistance",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 60.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "DistanceToCamera",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "had_conversation",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "humanoid_spawner",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "is_cinematic",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "shouted_at_players",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 14": {
+                        "DisplayObjectName": false,
+                        "Name": "time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": true,
+                        "Name": "Enemy_Prefab",
+                        "ObjectName": "Minion_Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 1238792523.0
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "NumberofEnemies",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 5.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRadius",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 5.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRate",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.5
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": false,
+                        "Name": "auxCounter",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_name",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Camera"
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": false,
+                        "Name": "enemies",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "enemies_chat",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    }
+                }
+            }
+        },
+        "Name": "MinionsAfterBridge3",
+        "Parent": "932568214",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "656396196": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "727.623108",
+                "positiony": "49.065346",
+                "positionz": "-471.395538",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.400017",
+                "scaley": "0.400000",
+                "scalez": "0.400017"
+            },
+            "12": {
+                "Active": false,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
+                },
+                "Script variables": {
+                    "Count": 15,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "ActiveDistance",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 60.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "DistanceToCamera",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "had_conversation",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "humanoid_spawner",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "is_cinematic",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "shouted_at_players",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 14": {
+                        "DisplayObjectName": false,
+                        "Name": "time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": true,
+                        "Name": "Enemy_Prefab",
+                        "ObjectName": "Minion_Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 1238792523.0
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "NumberofEnemies",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 5.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRadius",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 5.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRate",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.5
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": false,
+                        "Name": "auxCounter",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_name",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Camera"
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": false,
+                        "Name": "enemies",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "enemies_chat",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    }
+                }
+            }
+        },
+        "Name": "MinionsAfterBridge4",
+        "Parent": "932568214",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "818031220": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "763.182251",
+                "positiony": "39.943748",
+                "positionz": "-535.714722",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.400017",
+                "scaley": "0.400000",
+                "scalez": "0.400017"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
+                },
+                "Script variables": {
+                    "Count": 15,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "ActiveDistance",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 60.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "DistanceToCamera",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "had_conversation",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "humanoid_spawner",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "is_cinematic",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "shouted_at_players",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 14": {
+                        "DisplayObjectName": false,
+                        "Name": "time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": true,
+                        "Name": "Enemy_Prefab",
+                        "ObjectName": "Minion_Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 1238792523.0
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "NumberofEnemies",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 5.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRadius",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 5.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRate",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.5
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": false,
+                        "Name": "auxCounter",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_name",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Camera"
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": false,
+                        "Name": "enemies",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "enemies_chat",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    }
+                }
+            }
+        },
+        "Name": "MinionsRuins2",
+        "Parent": "932568214",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "885249180": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "764.703918",
+                "positiony": "39.943748",
+                "positionz": "-521.256531",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.400017",
+                "scaley": "0.400000",
+                "scalez": "0.400017"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
+                },
+                "Script variables": {
+                    "Count": 15,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "ActiveDistance",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 60.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "DistanceToCamera",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "had_conversation",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "humanoid_spawner",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "is_cinematic",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "shouted_at_players",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 14": {
+                        "DisplayObjectName": false,
+                        "Name": "time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": true,
+                        "Name": "Enemy_Prefab",
+                        "ObjectName": "Minion_Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 1238792523.0
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "NumberofEnemies",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 5.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRadius",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 5.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRate",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.5
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": false,
+                        "Name": "auxCounter",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_name",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Camera"
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": false,
+                        "Name": "enemies",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "enemies_chat",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    }
+                }
+            }
+        },
+        "Name": "MinionsRuins3",
+        "Parent": "932568214",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "932568214": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Name": "Spawners_AfterBridge",
+        "Parent": "206914620",
+        "PrefabChild": true,
+        "PrefabInstance": true,
+        "Static": false
+    },
+    "PreviewTexture": "Library/Textures/609980059.dds"
 }

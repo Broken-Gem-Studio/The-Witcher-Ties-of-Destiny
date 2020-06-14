@@ -18,9 +18,9 @@ lua_table.InputFunctions = Scripting.Inputs()
 -- local CurrentPhase = 0
 -- local phasetochange = false
 
--- --Good Scores
+--Good Scores
 -- geralt_score = {
---     5873,--damage_dealt  --Exception, this numbers value_per_instance ratio is 1, since this will collect the real value already
+--     17773,--damage_dealt  --Exception, this numbers value_per_instance ratio is 1, since this will collect the real value already
 -- 	43, --minion_kills
 -- 	11,  --special_kills
 --     32, --incapacitations
@@ -32,7 +32,7 @@ lua_table.InputFunctions = Scripting.Inputs()
 
 -- --Bad Scores
 -- jaskier_score = {
--- 	2571, --damage_dealt  --Exception, this numbers value_per_instance ratio is 1, since this will collect the real value already
+-- 	10071, --damage_dealt  --Exception, this numbers value_per_instance ratio is 1, since this will collect the real value already
 -- 	17,  --minion_kills
 -- 	11,   --special_kills
 --     8,   --incapacitations
@@ -44,14 +44,14 @@ lua_table.InputFunctions = Scripting.Inputs()
 
 --SCOREBOARD DATA
 local scoreboard_data = {
-	{ coin_ratio = 0.0034, score_value = 1, title_start = "", title_end = " damage dealed", title_phase = "That's gotta hurt!" },                 --damage_dealt
-	{ coin_ratio = 0.34, score_value = 100, title_start = "", title_end = " minions killed", title_phase = "And stay down!" },                   --minion_kills
-	{ coin_ratio = 0.5, score_value = 150, title_start = "", title_end = " special enemies killed", title_phase = "The bigger they are..." },   --special_kills
-    { coin_ratio = 0.25, score_value = 75, title_start = "", title_end = " enemies incapacitated", title_phase = "Crowd controller!" },            --incapacitations
-    { coin_ratio = 0.2, score_value = 60, title_start = "", title_end = " objects destroyed", title_phase = "Collateral damage!" },               --objects_destroyed
-    { coin_ratio = 2.0, score_value = 600, title_start = "", title_end = " secret chests found", title_phase = "Jackpot!" },                      --chests opened
-	{ coin_ratio = 0.5, score_value = 150, title_start = "Potions shared ", title_end = " times with ally", title_phase = "Sharing is caring!" }, --items_shared
-	{ coin_ratio = 1.0, score_value = 300, title_start = "Revived ally ", title_end = " times", title_phase = "No one left behind!" }             --ally_revived
+	{ coin_ratio = 0.002, score_value = 1, title_start = "", title_end = " damage dealed", title_phase = "That's gotta hurt!" },                 --damage_dealt
+	{ coin_ratio = 0.5, score_value = 250, title_start = "", title_end = " minions killed", title_phase = "And stay down!" },                   --minion_kills
+	{ coin_ratio = 1.0, score_value = 500, title_start = "", title_end = " special enemies killed", title_phase = "The bigger they are..." },   --special_kills
+    { coin_ratio = 0.25, score_value = 125, title_start = "", title_end = " enemies incapacitated", title_phase = "Crowd controller!" },            --incapacitations
+    { coin_ratio = 0.5, score_value = 250, title_start = "", title_end = " objects destroyed", title_phase = "Collateral damage!" },               --objects_destroyed
+    { coin_ratio = 2.0, score_value = 1000, title_start = "", title_end = " secret chests found", title_phase = "Jackpot!" },                      --chests opened
+	{ coin_ratio = 1.0, score_value = 500, title_start = "Potions shared ", title_end = " times with ally", title_phase = "Sharing is caring!" }, --items_shared
+	{ coin_ratio = 2.0, score_value = 1000, title_start = "Revived ally ", title_end = " times", title_phase = "No one left behind!" }             --ally_revived
 }
 
 --VARS
@@ -124,8 +124,8 @@ local cycle_stages = {
 	ready = { stage = 1, duration = 250 },
 	showing_title = { stage = 2, duration = 250 },
     spawning_coins = { stage = 3, duration = 0, duration_min = 50, duration_max = 100 },	--duration = time_between coin spawns
-    showing_score = { stage = 4, duration = 1000 },
-    showing_winner = { stage = 5, duration = 1000 },
+    showing_score = { stage = 4, duration = 2000 },
+    showing_winner = { stage = 5, duration = 1500 },
     final_winner = { stage = 0, duration = 2000 },
     next_scene = { stage = 0, duration = 5000 },
 }
@@ -196,6 +196,11 @@ local function DecideFinalWinner()
         geralt_score[i] = 0
         jaskier_score[i] = 0
     end
+    lua_table.UIFunctions:SetText("Score: " .. math.floor(geralt_final_score), geralt_GO_data.text_score_UI)
+    lua_table.UIFunctions:SetText("Score: " .. math.floor(jaskier_final_score), jaskier_GO_data.text_score_UI)
+
+    lua_table.UIFunctions:MakeElementVisible("Text", geralt_GO_data.text_score_UI)
+    lua_table.UIFunctions:MakeElementVisible("Text", jaskier_GO_data.text_score_UI)
 
     CalculateWinner(geralt_final_score, jaskier_final_score)
 
@@ -219,6 +224,9 @@ local function HideFinalWinner()
     else
         lua_table.UIFunctions:MakeElementInvisible("Image", match_tie_UI_titles[2])
     end
+
+    lua_table.UIFunctions:MakeElementInvisible("Text", geralt_GO_data.text_score_UI)
+    lua_table.UIFunctions:MakeElementInvisible("Text", jaskier_GO_data.text_score_UI)
 end
 
 local function ShowPhaseTitle(current_phase)

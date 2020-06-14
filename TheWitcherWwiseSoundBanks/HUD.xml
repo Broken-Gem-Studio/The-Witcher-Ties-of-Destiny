@@ -17,8 +17,10 @@
 				<Event Id="1291293387" Name="Play_HUD_No_Stamina" ObjectPath="\Events\Default Work Unit\HUD\Play_HUD_No_Stamina"/>
 				<Event Id="446899183" Name="Play_HUD_Special_Up" ObjectPath="\Events\Default Work Unit\HUD\Play_HUD_Special_Up"/>
 				<Event Id="2197850542" Name="Play_HUD_Switch_Potion" ObjectPath="\Events\Default Work Unit\HUD\Play_HUD_Switch_Potion"/>
+				<Event Id="3007158762" Name="Play_Lost_Menu_Music" ObjectPath="\Events\Default Work Unit\Play_Lost_Menu_Music"/>
 				<Event Id="1949045457" Name="Play_Pressed_Skip_Button" ObjectPath="\Events\Default Work Unit\HUD\Play_Pressed_Skip_Button"/>
 				<Event Id="2299046044" Name="Play_Skipped_Cinematic" ObjectPath="\Events\Default Work Unit\HUD\Play_Skipped_Cinematic"/>
+				<Event Id="2973513758" Name="Play_Win_Menu_Music" ObjectPath="\Events\Default Work Unit\Play_Win_Menu_Music"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
 				<File Id="165486728" Language="SFX">
@@ -40,6 +42,14 @@
 				<File Id="656657404" Language="SFX">
 					<ShortName>HUD_Switch_Potion.wav</ShortName>
 					<Path>SFX\HUD_Switch_Potion_10C4C929.wem</Path>
+				</File>
+				<File Id="665589033" Language="SFX">
+					<ShortName>Music_Menu_Win.wav</ShortName>
+					<Path>SFX\Music_Menu_Win_D79FB2B7.wem</Path>
+				</File>
+				<File Id="689347614" Language="SFX">
+					<ShortName>Music_Menu_Lost.wav</ShortName>
+					<Path>SFX\Music_Menu_Lost_D79FB2B7.wem</Path>
 				</File>
 				<File Id="805925722" Language="SFX">
 					<ShortName>HUD_Special_Up.wav</ShortName>
