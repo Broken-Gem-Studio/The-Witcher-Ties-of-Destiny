@@ -1133,9 +1133,9 @@ local function CheckMapBoundaries()
 
 			if jaskier_GO_UID ~= nil and jaskier_GO_UID ~= 0 then
 				local jaskier_pos = lua_table.TransformFunctions:GetPosition(jaskier_GO_UID)
-				lua_table.PhysicsFunctions:SetCharacterPosition(jaskier_pos[1], jaskier_pos[2] + 5.0, jaskier_pos[3], geralt_GO_UID)				
+				lua_table.PhysicsFunctions:SetCharacterPosition(jaskier_pos[1], 300.0, jaskier_pos[3], geralt_GO_UID)				
 			else
-				lua_table.PhysicsFunctions:SetCharacterPosition(jaskier_pos[1], 500.0, jaskier_pos[3], geralt_GO_UID) 
+				lua_table.PhysicsFunctions:SetCharacterPosition(geralt_pos[1], 300.0, geralt_pos[3], geralt_GO_UID) 
 			end
 		end
 		
