@@ -94,7 +94,7 @@ function lua_table:OnTriggerEnter()
 	        lua_table.ParticlesFunctions:PlayParticleEmitter(particles.right_leg_2_blood_hit.part_childs[i], particles.right_leg_2_blood_hit.part_UID)
         end
         
-        lua_table.MaterialsFunctions:SetMaterialByName(lua_table.kikimora_script.hit_material_GO, kikimora_id)
+        lua_table.MaterialsFunctions:SetMaterialByName(lua_table.kikimora_script.hit_material_GO, lua_table.kikimora_script.my_mesh_UID)
         lua_table.kikimora_script.swapped_material = true
 
         lua_table.kikimora_script.AudioFunctions:PlayAudioEventGO("Play_Kikimora_damaged", kikimora_id)
@@ -114,7 +114,7 @@ function lua_table:RequestedTrigger(character_UID)
         lua_table.ParticlesFunctions:PlayParticleEmitter(particles.right_leg_2_blood_hit.part_childs[i], particles.right_leg_2_blood_hit.part_UID)
     end
     
-    lua_table.MaterialsFunctions:SetMaterialByName(lua_table.kikimora_script.hit_material_GO, kikimora_id)
+    lua_table.MaterialsFunctions:SetMaterialByName(lua_table.kikimora_script.hit_material_GO, lua_table.kikimora_script.my_mesh_UID)
     lua_table.kikimora_script.swapped_material = true
 
     lua_table.kikimora_script.AudioFunctions:PlayAudioEventGO("Play_Kikimora_damaged", kikimora_id)

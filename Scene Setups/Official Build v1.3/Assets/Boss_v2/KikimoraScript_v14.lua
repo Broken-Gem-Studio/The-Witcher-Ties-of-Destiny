@@ -331,7 +331,7 @@ lua_table.right_leg_4_hit = false
 local my_UID = 0
 lua_table.my_position = {}
 lua_table.my_rotation = {}
-local my_mesh_UID = 0
+lua_table.my_mesh_UID = 0
 lua_table.mesh_GO = "Kikimora_Low"
 lua_table.my_material_GO = "Kikimora_mat.mat"
 lua_table.hit_material_GO = "HitMaterial.mat"
@@ -2235,7 +2235,7 @@ local function HandleHits()
 
     if game_time >= hit_material_timer and lua_table.swapped_material == false
     then
-        lua_table.MaterialsFunctions:SetMaterialByName(lua_table.my_material_GO, my_mesh_UID)
+        lua_table.MaterialsFunctions:SetMaterialByName(lua_table.my_material_GO, lua_table.my_mesh_UID)
     end
 end
 
@@ -2322,7 +2322,7 @@ local function HandleStates()
 
         if game_time >= animation_timer
         then
-            lua_table.GameObjectFunctions:SetActiveGameObject(true, my_mesh_UID)
+            lua_table.GameObjectFunctions:SetActiveGameObject(true, lua_table.my_mesh_UID)
         end
 
         -- When hits the ground
@@ -2594,7 +2594,7 @@ local function HandleStates()
         if game_time >= state_timer
         then
             -- DESPAWN BOSS
-            --  lua_table.GameObjectFunctions:SetActiveGameObject(false, my_mesh_UID)
+            --  lua_table.GameObjectFunctions:SetActiveGameObject(false, lua_table.my_mesh_UID)
         
             if lua_table.scene_UID ~= 0
             then
@@ -2646,10 +2646,10 @@ function lua_table:Awake ()
     lua_table.my_rotation = lua_table.jump_rot_1
 
     -- Get my own mesh
-    my_mesh_UID = lua_table.GameObjectFunctions:FindGameObject(lua_table.mesh_GO)
+    lua_table.my_mesh_UID = lua_table.GameObjectFunctions:FindGameObject(lua_table.mesh_GO)
 
     -- Setting mesh unactive
-    lua_table.GameObjectFunctions:SetActiveGameObject(false, my_mesh_UID)
+    lua_table.GameObjectFunctions:SetActiveGameObject(false, lua_table.my_mesh_UID)
 
     -- Get camera UID
     camera_UID = lua_table.GameObjectFunctions:FindGameObject(lua_table.camera_GO)
