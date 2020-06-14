@@ -228,7 +228,7 @@ function lua_table:Update()
 			
 		elseif step == 2
 		then
-			if positionSum > 120 
+			if positionSum > 110 
 			then
 				increment = increment + 3
 				positionSum = positionSum - increment
@@ -239,7 +239,7 @@ function lua_table:Update()
 
 		elseif step == 3
 		then
-			if positionSum > -220 
+			if positionSum > -246 
 			then
 				increment = increment + 0.75
 				positionSum = positionSum - increment
