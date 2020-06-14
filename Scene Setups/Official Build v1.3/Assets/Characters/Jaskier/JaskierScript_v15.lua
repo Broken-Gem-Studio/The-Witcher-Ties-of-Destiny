@@ -519,7 +519,7 @@ lua_table.light_3_size = 3
 lua_table.light_3_damage = 34.0
 lua_table.light_3_effect = attack_effects_ID.knockback
 lua_table.light_3_effect_value = 0
-lua_table.light_3_idle_at = 1269	--frame
+lua_table.light_3_idle_at = 1264	--frame
 
 --Medium Attack
 lua_table.medium_damage = 50.0					--Multiplier of Base Damage
