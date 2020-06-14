@@ -12,7 +12,6 @@ local deactivated = 0
 function lua_table:Awake()
 	lua_table.myUID = lua_table.GameObject:GetMyUID()
 	lua_table.parent = lua_table.GameObject:GetGameObjectParent(lua_table.myUID)
-	lua_table.scale = lua_table.Transform:SetScale(lua_table.myUID)
 end
 
 function lua_table:Start()

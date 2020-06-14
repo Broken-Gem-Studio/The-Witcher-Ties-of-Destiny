@@ -739,17 +739,32 @@ local function HandleTarget()
             else -- Solo gameplay because was duo but one player died
                 if P1_dead == true
                 then
-                    if lua_table.P1_script.current_state ~= -4 --NOT DEAD (revived)
-                    then
-                        lua_table.current_gameplay = gameplay.DUO
-                    end
-
+                    if lua_table.P1_script.resurrecting == nil -- this is futureproofing
+					then
+						if lua_table.P1_script.current_state ~= -4 --NOT DEAD (revived)
+						then
+							lua_table.current_gameplay = gameplay.DUO
+						end
+					else
+						if lua_table.P1_script.current_state ~= -4 and lua_table.P1_script.resurrecting == false--NOT DEAD (revived)
+						then
+							lua_table.current_gameplay = gameplay.DUO
+						end
+					end
                 elseif P2_dead == true
                 then
-                    if lua_table.P2_script.current_state ~= -4 --NOT DEAD (revived)
-                    then
-                        lua_table.current_gameplay = gameplay.DUO
-                    end
+                    if lua_table.P2_script.resurrecting == nil -- this is futureproofing
+					then
+						if lua_table.P2_script.current_state ~= -4--NOT DEAD (revived)
+						then
+							lua_table.current_gameplay = gameplay.DUO
+						end
+					else
+						if lua_table.P2_script.current_state ~= -4 and lua_table.P2_script.resurrecting == false--NOT DEAD (revived)
+						then
+							lua_table.current_gameplay = gameplay.DUO
+						end
+					end
                 end
             end
         end
