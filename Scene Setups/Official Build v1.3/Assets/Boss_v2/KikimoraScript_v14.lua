@@ -179,7 +179,7 @@ local attack =
 	stomp = { att_damage = 50, att_effect = attack_effect.KNOCKBACK, att_duration = 0, att_anticipation_duration = 0, att_execution_duration = 0, att_recovery_duration = 0, att_cooldown_time = 16, att_cooldown_bool = false, att_timer = 0},
 	roar = { att_damage = 0, att_effect = attack_effect.STUN, att_duration = 0, att_anticipation_duration = 0, att_execution_duration = 0, att_recovery_duration = 0, att_cooldown_time = 30, att_cooldown_bool = false, att_timer = 0},
 
-    jump = { att_damage = 0, att_effect = attack_effect.KNOCKBACK, att_duration = 0, att_anticipation_duration = 0, att_execution_duration = 0, att_recovery_duration = 0, att_cooldown_time = 30, att_cooldown_bool = false, att_timer = 0},
+    jump = { att_damage = 70, att_effect = attack_effect.KNOCKBACK, att_duration = 0, att_anticipation_duration = 0, att_execution_duration = 0, att_recovery_duration = 0, att_cooldown_time = 30, att_cooldown_bool = false, att_timer = 0},
 }
 
 local attack_finished = false
