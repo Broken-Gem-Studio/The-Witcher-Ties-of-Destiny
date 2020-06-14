@@ -253,6 +253,7 @@ end
 function lua_table:GoToMainMenu()
 	lua_table.AudioFunctions:PlayAudioEvent("Play_Button_main_menu")
 	goMenu = true
+	last_checkpoint = 0
 	Reset()
 end
 
