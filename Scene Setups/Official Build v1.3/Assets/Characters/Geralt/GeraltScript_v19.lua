@@ -2489,7 +2489,7 @@ local function EnemiesNearby()
 	local ret = false
 	local geralt_pos = lua_table.TransformFunctions:GetPosition(geralt_GO_UID)
 	local enemy_list = lua_table.PhysicsFunctions:OverlapSphere(geralt_pos[1], geralt_pos[2], geralt_pos[3], lua_table.enemy_detection_range, layers.enemy)
-	if next(enemy_list) ~= nil then ret = true end
+	if enemy_list ~= nil and #enemy_list > 0 then ret = true end
 	return ret
 end
 
