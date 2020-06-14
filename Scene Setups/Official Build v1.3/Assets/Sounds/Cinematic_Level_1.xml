@@ -14,11 +14,25 @@
 			<Path>Cinematic_Level_1.bnk</Path>
 			<IncludedEvents>
 				<Event Id="4153214231" Name="Play_Music_Cinematic_lvl1_The_Ocean_Takes_It_All" ObjectPath="\Events\Default Work Unit\Cinematic_Level_1\Play_Music_Cinematic_lvl1_The_Ocean_Takes_It_All"/>
+				<Event Id="1483511332" Name="Rain_loop" ObjectPath="\Events\Default Work Unit\Level_1\Rain_loop"/>
+				<Event Id="186852181" Name="Thunder" ObjectPath="\Events\Default Work Unit\Level_1\Thunder"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
+				<File Id="296231150" Language="SFX">
+					<ShortName>StormLoopNoThunder.wav</ShortName>
+					<Path>SFX\StormLoopNoThunder_D79FB2B7.wem</Path>
+				</File>
+				<File Id="371197786" Language="SFX">
+					<ShortName>ThunderOne.wav</ShortName>
+					<Path>SFX\ThunderOne_10C4C929.wem</Path>
+				</File>
 				<File Id="419561649" Language="SFX">
 					<ShortName>Music_Cinematic_lvl1_The_Ocean_Takes_It_All.wav</ShortName>
 					<Path>SFX\Music_Cinematic_lvl1_The_Ocean_Takes_It_All_D79FB2B7.wem</Path>
+				</File>
+				<File Id="914906870" Language="SFX">
+					<ShortName>ThunderTwo.wav</ShortName>
+					<Path>SFX\ThunderTwo_10C4C929.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>
