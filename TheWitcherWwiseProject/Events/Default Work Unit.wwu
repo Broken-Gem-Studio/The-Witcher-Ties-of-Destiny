@@ -1207,17 +1207,6 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="Play_Main_Menu_Music" ID="{0AE28D7A-BA48-4317-84A9-E9DDB2BC5B03}">
-					<ChildrenList>
-						<Action Name="" ID="{7492C9AF-DE56-48AE-8A01-E22DCD21E3E5}" ShortID="692903178">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Music_Menu_Main_Loop" ID="{E9D2D858-2ACA-4100-B6FE-0E3F6574679B}" WorkUnitID="{900849B3-5BE8-4F7B-8EC5-9E5DD796D73F}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
 				<Event Name="Play_Win_Menu_Music" ID="{3A638A68-A0A5-4630-BA90-82ECDB08B5BB}">
 					<ChildrenList>
 						<Action Name="" ID="{98EA2F0F-2EC5-46C2-8ACB-8E9229BC5C93}" ShortID="54574839">
@@ -1638,17 +1627,6 @@
 						</Folder>
 					</ChildrenList>
 				</Folder>
-				<Event Name="Play_Music_Menu_Comparison_Pirate_Dance" ID="{D8C2E418-7AE3-46EA-8E37-6727F19E5260}">
-					<ChildrenList>
-						<Action Name="" ID="{66774560-B2E8-44E9-B305-0B2FAD309426}" ShortID="849831764">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Comparison_Menu" ID="{5C5A7B80-F0A1-4E8C-8814-45427288C7C2}" WorkUnitID="{900849B3-5BE8-4F7B-8EC5-9E5DD796D73F}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
 				<Folder Name="Cinematic_Level_1" ID="{AFE2E0D6-5F41-448B-9AA7-46DD8851016C}" ShortID="604335379">
 					<ChildrenList>
 						<Event Name="Play_Music_Cinematic_lvl1_The_Ocean_Takes_It_All" ID="{33219AC0-862C-4B64-88B5-262738085FCD}">
@@ -1945,17 +1923,43 @@
 						</Event>
 					</ChildrenList>
 				</Folder>
-				<Event Name="Play_Credits_Menu_Music" ID="{5073CA68-BE46-4666-8E85-A0E1DA4DA298}">
+				<Folder Name="Menus Music" ID="{720F5EC9-D944-48E1-8EE1-9E571EE270C0}" ShortID="771859334">
 					<ChildrenList>
-						<Action Name="" ID="{09B61F00-28DD-4FC1-8493-21F4054B1F34}" ShortID="457008547">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Credits_Menu" ID="{1719199A-9306-4A33-8E90-4BB85616B99E}" WorkUnitID="{900849B3-5BE8-4F7B-8EC5-9E5DD796D73F}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
+						<Event Name="Play_Credits_Menu_Music" ID="{5073CA68-BE46-4666-8E85-A0E1DA4DA298}">
+							<ChildrenList>
+								<Action Name="" ID="{09B61F00-28DD-4FC1-8493-21F4054B1F34}" ShortID="457008547">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Credits_Menu" ID="{1719199A-9306-4A33-8E90-4BB85616B99E}" WorkUnitID="{900849B3-5BE8-4F7B-8EC5-9E5DD796D73F}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Main_Menu_Music" ID="{0AE28D7A-BA48-4317-84A9-E9DDB2BC5B03}">
+							<ChildrenList>
+								<Action Name="" ID="{7492C9AF-DE56-48AE-8A01-E22DCD21E3E5}" ShortID="692903178">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Music_Menu_Main_Loop" ID="{E9D2D858-2ACA-4100-B6FE-0E3F6574679B}" WorkUnitID="{900849B3-5BE8-4F7B-8EC5-9E5DD796D73F}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Music_Menu_Comparison_Pirate_Dance" ID="{D8C2E418-7AE3-46EA-8E37-6727F19E5260}">
+							<ChildrenList>
+								<Action Name="" ID="{66774560-B2E8-44E9-B305-0B2FAD309426}" ShortID="849831764">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Comparison_Menu" ID="{5C5A7B80-F0A1-4E8C-8814-45427288C7C2}" WorkUnitID="{900849B3-5BE8-4F7B-8EC5-9E5DD796D73F}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
-				</Event>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

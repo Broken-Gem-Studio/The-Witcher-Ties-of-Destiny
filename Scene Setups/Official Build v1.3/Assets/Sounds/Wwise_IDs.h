@@ -259,8 +259,6 @@ namespace AK
         static const AkUniqueID MONSTER_ENEMIES = 1016515008U;
         static const AkUniqueID MUSIC_LEVEL_1 = 3508274217U;
         static const AkUniqueID MUSIC_LEVEL_2 = 3508274218U;
-        static const AkUniqueID MUSIC_MENUS = 1614123467U;
-        static const AkUniqueID MUSIC_WINLOSE = 4262019654U;
         static const AkUniqueID PAUSE_MENU = 3422541661U;
         static const AkUniqueID PROPS = 968010305U;
         static const AkUniqueID VOICELINES_2 = 3285923249U;
