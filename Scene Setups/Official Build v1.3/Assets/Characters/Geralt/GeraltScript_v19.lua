@@ -584,7 +584,7 @@ lua_table.heavy_1_duration = 1200			--Attack end (return to idle)
 lua_table.heavy_1_animation_speed = 35.0	--Slow time: 430ms
 lua_table.heavy_1_slow_start = 900
 
-lua_table.heavy_2_block_time = 600			--Input block duration	(block new attacks)
+lua_table.heavy_2_block_time = 575			--Input block duration	(block new attacks)
 lua_table.heavy_2_collider_front_start = 350	--Collider activation time
 lua_table.heavy_2_collider_front_end = 550	--Collider deactivation time
 lua_table.heavy_2_duration = 1000			--Attack end (return to idle)
