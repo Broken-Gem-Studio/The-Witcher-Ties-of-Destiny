@@ -5,10 +5,6 @@ lua_table.GO = Scripting.GameObject()
 lua_table.Physics = Scripting.Physics()
 lua_table.UI = Scripting.Interface()
 
-local camera_GO
-local camera_script = {}
-local camera_UID = 0
-
 local survive = 0
 local uid = 0
 
@@ -38,12 +34,7 @@ function lua_table:OnTriggerEnter()
     local collider = lua_table.Physics:OnTriggerEnter(uid)
 
     if lua_table.GO:GetLayerByID(collider) == 1 and first == true
-    then
-        if camera_script ~= nil
-        then
-            camera_script.hoardfight = true
-        end
-        
+    then        
         lua_table.GO:SetActiveGameObject(true, survive)
         counting = true
         count = hordas_script.delay_rounds
@@ -55,12 +46,6 @@ end
 function lua_table:Awake()
     uid = lua_table.GO:GetMyUID()
     survive = lua_table.GO:FindGameObject("Survive")
-
-    camera_UID = lua_table.GO:FindGameObject("Camera")
-    if camera_UID > 0
-    then
-        camera_script = lua_table.GO:GetScript(camera_UID)
-    end
 
     hordas = lua_table.GO:FindGameObject("HordasTutorial")
     if hordas > 0
