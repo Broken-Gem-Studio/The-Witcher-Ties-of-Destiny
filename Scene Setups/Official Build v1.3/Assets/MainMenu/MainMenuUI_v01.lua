@@ -278,6 +278,7 @@ function lua_table:StartGame()
 end
 
 function lua_table:PlayGame()
+    lua_table.AudioFunctions:PlayAudioEvent("Play_Skipped_Cinematic")
 	playingGame = true
 	startMenu = false
 	currentButton = Buttons.LEVEL1;
