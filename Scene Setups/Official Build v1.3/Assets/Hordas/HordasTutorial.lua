@@ -162,6 +162,13 @@ function lua_table:Update()
                     time = 0
                     flag3 = true
                 end
+
+                if round4_script.is_finished == true and round4_script.stop == true and flag4 == false
+                then
+                    flag4 = true
+                    begin = false
+                    win_level1 = true
+                end
             end  
         end
     end

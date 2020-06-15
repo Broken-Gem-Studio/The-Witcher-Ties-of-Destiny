@@ -17,6 +17,7 @@ lua_table.credits_time = 0
 local time = 0
 local delay_time = 0
 local delay = false
+local stop_fading = false
 
 local round0 = 0
 local round1 = 0
@@ -51,6 +52,7 @@ local fade_alpha = 0
 
 local loading_screen = 0
 local loading_timer = 0
+lua_table.next_scene = false
 
 function lua_table:Awake()
 
@@ -299,22 +301,29 @@ function lua_table:Update()
                 next_round = 0
                 lua_table.begin = true
             else
-                lua_table.GO:SetActiveGameObject(true, fade)
-                fade_alpha = fade_alpha + 0.01
-                lua_table.UI:ChangeUIComponentAlpha("Image", fade_alpha, fade)
+                if stop_fading == false then
+                    lua_table.GO:SetActiveGameObject(true, fade)
+                    fade_alpha = fade_alpha + 0.01
+                    lua_table.UI:ChangeUIComponentAlpha("Image", fade_alpha, fade)
+                end 
 
-                if fade_alpha >= 1.0
-                then
+                if fade_alpha >= 1 and stop_fading == false then
                     lua_table.Audio:StopAudioEventGO("Play_Level_2_Music",creditsGO)
-                    loading_timer = loading_timer + lua_table.System:DT()
-                    if loading_timer >= 1 
-                    then
-                        lua_table.Scenes:LoadScene(lua_table.main_menu)
-                    else 
-                        lua_table.ObjectFunctions:SetActiveGameObject(true, loading_screen)
-                    end
-
+                    lua_table.GO:SetActiveGameObject(false, fade)
+                    lua_table.GO:SetActiveGameObject(true, loading_screen)
+                    lua_table.next_scene = true
+                    stop_fading = true
                 end
+
+                if lua_table.next_scene == true then
+                    loading_timer = loading_timer + lua_table.System:DT()
+            
+                    if loading_timer >= 1 then 
+                    lua_table.Scenes:LoadScene(lua_table.main_menu)
+                    lua_table.next_scene = false
+                    end
+                end
+
             end
         end
     end
