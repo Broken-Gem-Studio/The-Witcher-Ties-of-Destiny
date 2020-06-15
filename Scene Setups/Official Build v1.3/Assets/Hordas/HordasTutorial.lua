@@ -5,10 +5,6 @@ lua_table.GO = Scripting.GameObject()
 lua_table.Physics = Scripting.Physics()
 lua_table.UI = Scripting.Interface()
 
-local camera_GO
-local camera_script = {}
-local camera_UID = 0
-
 local survive = 0
 local uid = 0
 
@@ -23,16 +19,12 @@ local round4 = 0
 local round0_script = 0
 local round1_script = 0
 local round2_script = 0
-local round3_script = 0
-local round4_script = 0
 
 local first = true
 local begin = false
 local flag0 = false
 local flag1 = false
 local flag2 = false
-local flag3 = false
-local flag4 = false
 
 local counting = false
 local count = 0
@@ -42,12 +34,7 @@ function lua_table:OnTriggerEnter()
     local collider = lua_table.Physics:OnTriggerEnter(uid)
 
     if lua_table.GO:GetLayerByID(collider) == 1 and first == true
-    then
-        if camera_script ~= nil
-        then
-            camera_script.hoardfight = true
-        end
-        
+    then        
         lua_table.GO:SetActiveGameObject(true, survive)
         counting = true
         count = hordas_script.delay_rounds
@@ -59,12 +46,6 @@ end
 function lua_table:Awake()
     uid = lua_table.GO:GetMyUID()
     survive = lua_table.GO:FindGameObject("Survive")
-
-    camera_UID = lua_table.GO:FindGameObject("Camera")
-    if camera_UID > 0
-    then
-        camera_script = lua_table.GO:GetScript(camera_UID)
-    end
 
     hordas = lua_table.GO:FindGameObject("HordasTutorial")
     if hordas > 0
@@ -86,16 +67,6 @@ function lua_table:Awake()
     if round2 > 0
     then
         round2_script = lua_table.GO:GetScript(round2)
-    end
-    round3 = lua_table.GO:FindGameObject("Round3")
-    if round3 > 0
-    then
-        round3_script = lua_table.GO:GetScript(round3)
-    end
-    round4 = lua_table.GO:FindGameObject("Round4")
-    if round4 > 0
-    then
-        round4_script = lua_table.GO:GetScript(round4)
     end
 
     lua_table.GO:SetActiveGameObject(false, survive)
@@ -147,25 +118,7 @@ function lua_table:Update()
 
                 if round2_script.is_finished == true and round2_script.stop == true and flag2 == false
                 then
-                    lua_table.GO:SetActiveGameObject(true, survive)  
-                    counting = true
-                    count = hordas_script.delay_rounds
-                    time = 0
                     flag2 = true
-                end
-
-                if round3_script.is_finished == true and round3_script.stop == true and flag3 == false
-                then
-                    lua_table.GO:SetActiveGameObject(true, survive)  
-                    counting = true
-                    count = hordas_script.delay_rounds
-                    time = 0
-                    flag3 = true
-                end
-
-                if round4_script.is_finished == true and round4_script.stop == true and flag4 == false
-                then
-                    flag4 = true
                     begin = false
                     win_level1 = true
                 end
