@@ -1,0 +1,67 @@
+{
+    "1873691661": {
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Model": "Assets/CityLevel_Final/TutorialLevel_final_collider_v3.FBX",
+        "Name": "GameObject(2765)",
+        "Parent": "784622231",
+        "PrefabChild": false,
+        "PrefabInstance": true
+    },
+    "528891002": {
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-112.415405",
+                "positiony": "43.695961",
+                "positionz": "-168.430283",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2076269346.mesh"
+                    }
+                }
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/DefaultMaterial.mat"
+                    }
+                }
+            }
+        },
+        "Name": "MeshCollider_walls",
+        "Parent": "1873691661",
+        "PrefabChild": true,
+        "PrefabInstance": false
+    },
+    "PreviewTexture": "Library/Textures/1977270289.dds"
+}
