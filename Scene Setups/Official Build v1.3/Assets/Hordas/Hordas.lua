@@ -309,8 +309,8 @@ function lua_table:Update()
 
                 if fade_alpha >= 1 and stop_fading == false then
                     lua_table.Audio:StopAudioEventGO("Play_Level_2_Music",creditsGO)
-                    lua_table.GO:SetActiveGameObject(false, fade)
                     lua_table.GO:SetActiveGameObject(true, loading_screen)
+                    lua_table.GO:SetActiveGameObject(false, fade)
                     lua_table.next_scene = true
                     stop_fading = true
                 end
