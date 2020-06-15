@@ -2201,7 +2201,7 @@ local function HandleJump()
         lua_table.camera_script.camera_shake_magnitude = 0.3
 
         -- AUDIO PLAY
-        lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_damaged", my_UID)
+        lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_lash", my_UID)
 
         
     end
@@ -2341,7 +2341,7 @@ local function HandleStates()
             lua_table.camera_script.camera_shake_magnitude = 0.3
 
             -- AUDIO PLAY
-            lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_damaged", my_UID)
+            lua_table.AudioFunctions:PlayAudioEventGO("Play_Kikimora_lash", my_UID)
         end
 
         -- When finishes dropping animation
