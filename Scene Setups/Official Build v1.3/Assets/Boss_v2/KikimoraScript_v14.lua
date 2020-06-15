@@ -3276,6 +3276,10 @@ function lua_table:OnTriggerEnter()
     end
 end
 
+function lua_table:RequestedTrigger(character_UID)
+
+end
+
 function lua_table:OnTriggerExit()
 	local collider = lua_table.PhysicsFunctions:OnTriggerExit(my_UID)
 	local layer = lua_table.GameObjectFunctions:GetLayerByID(collider)
