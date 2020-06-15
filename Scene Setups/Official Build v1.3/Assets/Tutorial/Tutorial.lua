@@ -31,6 +31,8 @@ local jaskierDead = false
 local CARTAS = 0
 local TABLE_CARTAS = 0
 
+local MyUID = 0
+
 local KeyState = {
     IDLE = "IDLE",
     DOWN = "DOWN",
@@ -622,7 +624,7 @@ local function Step11()
     then
         lua_table.ObjectFunctions:SetActiveGameObject(false, doorsColliders.door5)
         lua_table.AnimationFunctions:PlayAnimation("open", 30, doorsGO.door5)
-
+        lua_table.Audio:PlayAudioEventGO("Play_Door_new_sound", MyUID)
         lua_table.ObjectFunctions:SetActiveGameObject(true, spawnerStep12_1)
         lua_table.ObjectFunctions:SetActiveGameObject(true, spawnerStep12_2)
         lua_table.ObjectFunctions:SetActiveGameObject(true, spawnerStep12_3)
@@ -820,6 +822,7 @@ function lua_table:Awake()
     scriptSpawnerStep12_2 = lua_table.ObjectFunctions:GetScript(spawnerStep12_2)
     scriptSpawnerStep12_3 = lua_table.ObjectFunctions:GetScript(spawnerStep12_3)
 
+    MyUID = lua_table.ObjectFunctions:GetMyUID()
     geralt_mesh_GO_UID = lua_table.ObjectFunctions:FindGameObject("Geralt_Mesh")
     geralt_pivot_GO_UID = lua_table.ObjectFunctions:FindGameObject("Geralt_Pivot")
     jaskier_mesh_GO_UID = lua_table.ObjectFunctions:FindGameObject("Jaskier_Mesh")
