@@ -245,7 +245,7 @@ function GetTableTutorialCinematicCameraScript()
             lua_table.UI:ChangeUIComponentAlpha("Image", fade_speed, FadeScreen)
         end
         
-        if time > 55 and next_scene == false
+        if time > 51 and next_scene == false
         then
             lua_table.Audio:StopAudioEvent("Play_Music_Cinematic_lvl1_The_Ocean_Takes_It_All")
             lua_table.GameObject:SetActiveGameObject(false, AButton)
