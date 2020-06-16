@@ -1,0 +1,325 @@
+{
+    "1305090436": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "102.263100",
+                "positiony": "24.866678",
+                "positionz": "-76.658203",
+                "rotationw": "0.818037",
+                "rotationx": "0.000000",
+                "rotationy": "-0.575166",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/Hordas/Hordas.lua"
+                },
+                "Script variables": {
+                    "Count": 3,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "begin",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "delay_rounds",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "spawn_rate",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    }
+                }
+            }
+        },
+        "Name": "Hordas",
+        "Parent": "638311745",
+        "PrefabChild": true,
+        "PrefabInstance": true,
+        "Static": false
+    },
+    "1668140186": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000015",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/Hordas/Round.lua"
+                },
+                "Script variables": {
+                    "Count": 15,
+                    "Variable 0": {
+                        "DisplayObjectName": true,
+                        "Name": "enemy1",
+                        "ObjectName": "LumberjackvPrefab_LAST_VERSION (0).prefab",
+                        "Type": "Double",
+                        "Value": 1046741174.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": true,
+                        "Name": "enemy2",
+                        "ObjectName": "Minion_Ghoul (0).prefab",
+                        "Type": "Double",
+                        "Value": 1238792523.0
+                    },
+                    "Variable 10": {
+                        "DisplayObjectName": false,
+                        "Name": "num_e2",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 11": {
+                        "DisplayObjectName": false,
+                        "Name": "num_e3",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 12": {
+                        "DisplayObjectName": false,
+                        "Name": "num_e4",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 13": {
+                        "DisplayObjectName": false,
+                        "Name": "num_e5",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 14": {
+                        "DisplayObjectName": false,
+                        "Name": "num_e6",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": true,
+                        "Name": "enemy3",
+                        "ObjectName": "Archer (0).prefab",
+                        "Type": "Double",
+                        "Value": 1285700920.0
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": true,
+                        "Name": "enemy4",
+                        "ObjectName": "Recruit_Bandit (0).prefab",
+                        "Type": "Double",
+                        "Value": 877667036.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": true,
+                        "Name": "enemy5",
+                        "ObjectName": "Titan_Ghoul_New (0).prefab",
+                        "Type": "Double",
+                        "Value": 1977948901.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": true,
+                        "Name": "enemy6",
+                        "ObjectName": "NewScreamer (0).prefab",
+                        "Type": "Double",
+                        "Value": 1799208972.0
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": false,
+                        "Name": "final_enemy",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": false,
+                        "Name": "is_final",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 8": {
+                        "DisplayObjectName": false,
+                        "Name": "is_finished",
+                        "ObjectName": "",
+                        "Type": "Boolean",
+                        "Value": false
+                    },
+                    "Variable 9": {
+                        "DisplayObjectName": false,
+                        "Name": "num_e1",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    }
+                }
+            }
+        },
+        "Name": "Round0",
+        "Parent": "1305090436",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "1672259746": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-12.649302",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2.mesh"
+                    }
+                }
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "DefaultMaterial"
+                    }
+                }
+            }
+        },
+        "Name": "Pos2",
+        "Parent": "1305090436",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "2043319783": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "10.850325",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2.mesh"
+                    }
+                }
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "DefaultMaterial"
+                    }
+                }
+            }
+        },
+        "Name": "Pos1",
+        "Parent": "1305090436",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "717337808": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/2.mesh"
+                    }
+                }
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "DefaultMaterial"
+                    }
+                }
+            }
+        },
+        "Name": "Pos3",
+        "Parent": "1305090436",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "PreviewTexture": "Library/Textures/922942263.dds"
+}

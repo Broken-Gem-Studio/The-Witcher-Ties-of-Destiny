@@ -1,0 +1,91 @@
+{
+    "EnemySpawner": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            },
+            "12": {
+                "Active": true,
+                "Resources": {
+                    "ResourceScript": "Assets/New Folder 16/SpawnerScript.lua"
+                },
+                "Script variables": {
+                    "Count": 8,
+                    "Variable 0": {
+                        "DisplayObjectName": false,
+                        "Name": "ActiveDistance",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 60.0
+                    },
+                    "Variable 1": {
+                        "DisplayObjectName": false,
+                        "Name": "DistanceToCamera",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 2": {
+                        "DisplayObjectName": false,
+                        "Name": "Enemy_Prefab",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    },
+                    "Variable 3": {
+                        "DisplayObjectName": false,
+                        "Name": "NumberofEnemies",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 4": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRadius",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 5.0
+                    },
+                    "Variable 5": {
+                        "DisplayObjectName": false,
+                        "Name": "SpawnRate",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 1.0
+                    },
+                    "Variable 6": {
+                        "DisplayObjectName": false,
+                        "Name": "camera_name",
+                        "ObjectName": "",
+                        "Type": "String",
+                        "Value": "Camera"
+                    },
+                    "Variable 7": {
+                        "DisplayObjectName": false,
+                        "Name": "time",
+                        "ObjectName": "",
+                        "Type": "Double",
+                        "Value": 0.0
+                    }
+                }
+            }
+        },
+        "Parent": "440033003",
+        "PrefabChild": true,
+        "PrefabInstance": true,
+        "Static": false,
+        "UID": "1043592601"
+    },
+    "PreviewTexture": "Library/Textures/941538249.dds"
+}

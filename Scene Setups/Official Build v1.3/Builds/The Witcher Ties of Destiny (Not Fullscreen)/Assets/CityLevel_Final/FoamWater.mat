@@ -1,0 +1,50 @@
+{
+    "AmbientColor": {
+        "A": 1.0,
+        "B": 0.9999899864196777,
+        "G": 0.9999899864196777,
+        "R": 1.0
+    },
+    "Culling": true,
+    "FoamWater.mat": null,
+    "MatAlphaFunc": 0,
+    "MatAutoBlending": true,
+    "MatBlendEquation": 0,
+    "MatManualAlphaFuncDst": 7,
+    "MatManualAlphaFuncSrc": 6,
+    "MaterialRimLightPower": 1.0,
+    "MaterialRimLightSmoothX": 0.0,
+    "MaterialRimLightSmoothY": 1.0,
+    "MaterialShininess": 1.031999945640564,
+    "OccludedOutlineColor": {
+        "A": 1.0,
+        "B": 1.0,
+        "G": 1.0,
+        "R": 1.0
+    },
+    "OutlineColor": {
+        "A": 0.0,
+        "B": 0.0,
+        "G": 0.0,
+        "R": 0.0
+    },
+    "OutlineThickness": 100.0,
+    "PreviewTexture": "Library/Textures/285055637.dds",
+    "ResourceDiffuse": "Assets/CityLevel_Final/Foam_2.png",
+    "ResourceNormalTexture": null,
+    "ResourceSpecular": null,
+    "SceneColorAffected": true,
+    "Transparencies": true,
+    "UseOccludedOutline": false,
+    "UseOutline": false,
+    "UseRimLight": false,
+    "shader": {
+        "ResourceShader": "Assets/Shaders/WaterShaders/UVMoveShader.glsl",
+        "uniforms": {
+            "velocity": {
+                "type": 5126,
+                "x": 0.10999999940395355
+            }
+        }
+    }
+}

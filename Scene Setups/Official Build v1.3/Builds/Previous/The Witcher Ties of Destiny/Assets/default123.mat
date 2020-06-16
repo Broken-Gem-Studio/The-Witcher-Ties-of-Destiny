@@ -1,0 +1,88 @@
+{
+    "AmbientColor": {
+        "A": 1.0,
+        "B": 1.0,
+        "G": 1.0,
+        "R": 1.0
+    },
+    "Culling": true,
+    "MatAlphaFunc": 0,
+    "MatAutoBlending": true,
+    "MatBlendEquation": 0,
+    "MatManualAlphaFuncDst": 7,
+    "MatManualAlphaFuncSrc": 6,
+    "MaterialRimLightPower": 1.0,
+    "MaterialRimLightSmoothX": 0.0,
+    "MaterialRimLightSmoothY": 1.0,
+    "MaterialShininess": 1.0,
+    "OccludedOutlineColor": {
+        "A": 1.0,
+        "B": 1.0,
+        "G": 1.0,
+        "R": 1.0
+    },
+    "OutlineColor": {
+        "A": 0.0,
+        "B": 0.0,
+        "G": 0.0,
+        "R": 0.0
+    },
+    "OutlineThickness": 100.0,
+    "PreviewTexture": "Library/Textures/472158227.dds",
+    "ResourceDiffuse": "Assets/CityLevel_Final/Water_Texture.png",
+    "ResourceNormalTexture": null,
+    "ResourceSpecular": null,
+    "SceneColorAffected": true,
+    "Transparencies": false,
+    "UseOccludedOutline": false,
+    "UseOutline": false,
+    "UseRimLight": false,
+    "default123.mat": null,
+    "shader": {
+        "ResourceShader": "Assets/Shaders/WaterShaders/RiverShader.glsl",
+        "uniforms": {
+            "None_Reflect_Refract": {
+                "type": 5124,
+                "x": 0
+            },
+            "RiverVelocity": {
+                "type": 5126,
+                "x": 0.8999999761581421
+            },
+            "UVsDirection": {
+                "type": 35664,
+                "x": 0.0,
+                "y": 0.0
+            },
+            "Velocity": {
+                "type": 5126,
+                "x": 10.0
+            },
+            "Wave1_dir_steep_waveLength": {
+                "type": 35666,
+                "w": 850.0,
+                "x": 15.0,
+                "y": 15.0,
+                "z": 0.25
+            },
+            "Wave2": {
+                "type": 35666,
+                "w": 1500.0,
+                "x": -1.0,
+                "y": -1.0,
+                "z": 0.25
+            },
+            "Wave3": {
+                "type": 35666,
+                "w": 300.0,
+                "x": 1.0,
+                "y": 1.0,
+                "z": 0.25
+            },
+            "refractive_reflective_index": {
+                "type": 5126,
+                "x": 0.0
+            }
+        }
+    }
+}

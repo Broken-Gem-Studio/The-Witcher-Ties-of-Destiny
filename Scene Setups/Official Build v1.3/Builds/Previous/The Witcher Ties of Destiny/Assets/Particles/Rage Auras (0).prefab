@@ -1,0 +1,460 @@
+{
+    "1242243791": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "-0.000000",
+                "rotationz": "-0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Name": "Rage Auras",
+        "Parent": "657010774",
+        "PrefabChild": true,
+        "PrefabInstance": true,
+        "Static": false
+    },
+    "129790765": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "6",
+                "positionx": "0.000122",
+                "positiony": "-0.001953",
+                "positionz": "-0.000977",
+                "rotationw": "0.936016",
+                "rotationx": "0.155775",
+                "rotationy": "-0.311325",
+                "rotationz": "-0.051812",
+                "scalex": "0.999979",
+                "scaley": "1.000006",
+                "scalez": "0.999959"
+            },
+            "18": {
+                "Active": true,
+                "CollisionsActivated": true,
+                "Duration": "800",
+                "GradientColor": true,
+                "HorizontalBill": "0",
+                "Loop": true,
+                "PartAutoBlending": true,
+                "PartBlendEquation": 0,
+                "PartBlendFunc": 2,
+                "PartCastShadows": false,
+                "PartLightAffected": false,
+                "PartMBlFuncDst": 7,
+                "PartMBlFuncSrc": 6,
+                "PartOnlyShadows": false,
+                "PartReceiveShadows": false,
+                "PartSceneColorAffected": false,
+                "ParticlesBill": true,
+                "ParticlesFaceCulling": true,
+                "PlayOnAwake": false,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/148356139.dds"
+                },
+                "VerticalBill": "0",
+                "animation": "0",
+                "colors": [
+                    {
+                        "a": "1.000000",
+                        "x": "1.000000",
+                        "y": "0.000000",
+                        "z": "0.000000"
+                    },
+                    {
+                        "a": "0.613260",
+                        "x": "1.000000",
+                        "y": "0.165746",
+                        "z": "0.000000"
+                    },
+                    {
+                        "a": "0.000000",
+                        "x": "1.000000",
+                        "y": "0.000000",
+                        "z": "0.988636"
+                    }
+                ],
+                "curves": [
+                    {
+                        "0": {
+                            "NextX": "0.098083",
+                            "NextY": "0.098083",
+                            "PX": "0.000000",
+                            "PY": "0.000000",
+                            "PrevX": "0.000000",
+                            "PrevY": "0.000000"
+                        },
+                        "1": {
+                            "NextX": "0.106452",
+                            "NextY": "0.000000",
+                            "PX": "0.277419",
+                            "PY": "1.000000",
+                            "PrevX": "-0.138710",
+                            "PrevY": "0.000000"
+                        },
+                        "2": {
+                            "NextX": "0.115929",
+                            "NextY": "0.006819",
+                            "PX": "0.490323",
+                            "PY": "0.853333",
+                            "PrevX": "-0.106268",
+                            "PrevY": "0.006251"
+                        },
+                        "3": {
+                            "NextX": "0.138710",
+                            "NextY": "0.000000",
+                            "PX": "0.722581",
+                            "PY": "1.000000",
+                            "PrevX": "-0.116129",
+                            "PrevY": "0.000000"
+                        },
+                        "4": {
+                            "NextX": "0.200000",
+                            "NextY": "0.000000",
+                            "PX": "1.000000",
+                            "PY": "1.000000",
+                            "PrevX": "-0.138710",
+                            "PrevY": "0.000000"
+                        },
+                        "multiplier": "14.000000",
+                        "name": "##scale",
+                        "num_points": "5",
+                        "type": "1"
+                    },
+                    {
+                        "0": {
+                            "NextX": "0.100000",
+                            "NextY": "0.100000",
+                            "PX": "0.000000",
+                            "PY": "0.000000",
+                            "PrevX": "0.000000",
+                            "PrevY": "0.000000"
+                        },
+                        "1": {
+                            "NextX": "1.000000",
+                            "NextY": "1.000000",
+                            "PX": "1.000000",
+                            "PY": "1.000000",
+                            "PrevX": "-0.100000",
+                            "PrevY": "-0.100000"
+                        },
+                        "multiplier": "1.000000",
+                        "name": "##rotation",
+                        "num_points": "2",
+                        "type": "0"
+                    }
+                ],
+                "cycles": "1.000000",
+                "emisionRate": "200.000000",
+                "externalAccelerationX": "0.000000",
+                "externalAccelerationY": "9.800000",
+                "externalAccelerationZ": "0.000000",
+                "followEmitter": true,
+                "grad_duration": "1500",
+                "gradients": [
+                    {
+                        "a": "-0.000258",
+                        "x": "0.000000",
+                        "y": "0.000110",
+                        "z": "0.000000"
+                    },
+                    {
+                        "a": "-0.000409",
+                        "x": "0.000000",
+                        "y": "-0.000110",
+                        "z": "0.000659"
+                    }
+                ],
+                "maxInitialRotation": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "minInitialRotation": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "num_colors": "3",
+                "num_curves": "2",
+                "num_gradients": "2",
+                "particleScaleOverTime": "13.913787",
+                "particleScaleRandomFactor1": "1.000000",
+                "particleScaleRandomFactor2": "1.000000",
+                "particlesLifeTime": "3000",
+                "particlesPerCreation": "2",
+                "particlesScaleX": "1.000000",
+                "particlesScaleY": "1.000000",
+                "particlesVelocityX": "0.000000",
+                "particlesVelocityY": "1.600000",
+                "particlesVelocityZ": "0.000000",
+                "positionX": "0.000000",
+                "positionY": "-0.400000",
+                "positionZ": "-1.100000",
+                "randomInitialRotation": false,
+                "randomStartFrame": true,
+                "rotationOvertime1": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "rotationOvertime2": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "rotationX": "0.000000",
+                "rotationY": "10.950000",
+                "rotationZ": "0.000000",
+                "rotationconstants": "0",
+                "scaleconstants": "2",
+                "separateAxis": "0",
+                "sizeX": "3.550000",
+                "sizeY": "2.300000",
+                "sizeZ": "6.200000",
+                "startFrame": "0",
+                "tiles_X": "1",
+                "tiles_Y": "1",
+                "velocityRandomFactor1X": "0.000000",
+                "velocityRandomFactor1Y": "0.000000",
+                "velocityRandomFactor1Z": "0.000000",
+                "velocityRandomFactor2X": "0.000000",
+                "velocityRandomFactor2Y": "0.000000",
+                "velocityRandomFactor2Z": "0.000000",
+                "velocityconstants": "0"
+            }
+        },
+        "Name": "Rage Aura 2",
+        "Parent": "1242243791",
+        "PrefabChild": true,
+        "PrefabInstance": false,
+        "Static": false
+    },
+    "646057580": {
+        "Active": true,
+        "Components": {
+            "0": {
+                "layer": "6",
+                "positionx": "0.000122",
+                "positiony": "-0.001953",
+                "positionz": "-0.000977",
+                "rotationw": "0.936016",
+                "rotationx": "0.155775",
+                "rotationy": "-0.311325",
+                "rotationz": "-0.051812",
+                "scalex": "0.999979",
+                "scaley": "1.000006",
+                "scalez": "0.999958"
+            },
+            "18": {
+                "Active": true,
+                "CollisionsActivated": true,
+                "Duration": "800",
+                "GradientColor": true,
+                "HorizontalBill": "0",
+                "Loop": true,
+                "PartAutoBlending": true,
+                "PartBlendEquation": 0,
+                "PartBlendFunc": 2,
+                "PartCastShadows": false,
+                "PartLightAffected": false,
+                "PartMBlFuncDst": 7,
+                "PartMBlFuncSrc": 6,
+                "PartOnlyShadows": false,
+                "PartReceiveShadows": false,
+                "PartSceneColorAffected": false,
+                "ParticlesBill": true,
+                "ParticlesFaceCulling": true,
+                "PlayOnAwake": false,
+                "Resources": {
+                    "ResourceTexture": "Library/Textures/148356139.dds"
+                },
+                "VerticalBill": "0",
+                "animation": "0",
+                "colors": [
+                    {
+                        "a": "1.000000",
+                        "x": "1.000000",
+                        "y": "0.000000",
+                        "z": "0.000000"
+                    },
+                    {
+                        "a": "1.000000",
+                        "x": "1.000000",
+                        "y": "0.000000",
+                        "z": "0.000000"
+                    },
+                    {
+                        "a": "0.000000",
+                        "x": "1.000000",
+                        "y": "0.000000",
+                        "z": "0.000000"
+                    }
+                ],
+                "curves": [
+                    {
+                        "0": {
+                            "NextX": "0.098083",
+                            "NextY": "0.098083",
+                            "PX": "0.000000",
+                            "PY": "0.000000",
+                            "PrevX": "0.000000",
+                            "PrevY": "0.000000"
+                        },
+                        "1": {
+                            "NextX": "0.106452",
+                            "NextY": "0.000000",
+                            "PX": "0.277419",
+                            "PY": "1.000000",
+                            "PrevX": "-0.138710",
+                            "PrevY": "0.000000"
+                        },
+                        "2": {
+                            "NextX": "0.115929",
+                            "NextY": "0.006819",
+                            "PX": "0.490323",
+                            "PY": "0.853333",
+                            "PrevX": "-0.106268",
+                            "PrevY": "0.006251"
+                        },
+                        "3": {
+                            "NextX": "0.138710",
+                            "NextY": "0.000000",
+                            "PX": "0.722581",
+                            "PY": "1.000000",
+                            "PrevX": "-0.116129",
+                            "PrevY": "0.000000"
+                        },
+                        "4": {
+                            "NextX": "0.200000",
+                            "NextY": "0.000000",
+                            "PX": "1.000000",
+                            "PY": "1.000000",
+                            "PrevX": "-0.138710",
+                            "PrevY": "0.000000"
+                        },
+                        "multiplier": "8.000000",
+                        "name": "##scale",
+                        "num_points": "5",
+                        "type": "1"
+                    },
+                    {
+                        "0": {
+                            "NextX": "0.100000",
+                            "NextY": "0.100000",
+                            "PX": "0.000000",
+                            "PY": "0.000000",
+                            "PrevX": "0.000000",
+                            "PrevY": "0.000000"
+                        },
+                        "1": {
+                            "NextX": "1.000000",
+                            "NextY": "1.000000",
+                            "PX": "1.000000",
+                            "PY": "1.000000",
+                            "PrevX": "-0.100000",
+                            "PrevY": "-0.100000"
+                        },
+                        "multiplier": "1.000000",
+                        "name": "##rotation",
+                        "num_points": "2",
+                        "type": "0"
+                    }
+                ],
+                "cycles": "1.000000",
+                "emisionRate": "200.000000",
+                "externalAccelerationX": "0.000000",
+                "externalAccelerationY": "9.800000",
+                "externalAccelerationZ": "0.000000",
+                "followEmitter": true,
+                "grad_duration": "1000",
+                "gradients": [
+                    {
+                        "a": "0.000000",
+                        "x": "0.000000",
+                        "y": "0.000000",
+                        "z": "0.000000"
+                    },
+                    {
+                        "a": "-0.001000",
+                        "x": "0.000000",
+                        "y": "0.000000",
+                        "z": "0.000000"
+                    }
+                ],
+                "maxInitialRotation": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "minInitialRotation": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "num_colors": "3",
+                "num_curves": "2",
+                "num_gradients": "2",
+                "particleScaleOverTime": "7.314675",
+                "particleScaleRandomFactor1": "1.000000",
+                "particleScaleRandomFactor2": "1.000000",
+                "particlesLifeTime": "2000",
+                "particlesPerCreation": "2",
+                "particlesScaleX": "1.000000",
+                "particlesScaleY": "1.000000",
+                "particlesVelocityX": "0.000000",
+                "particlesVelocityY": "1.600000",
+                "particlesVelocityZ": "0.000000",
+                "positionX": "0.000000",
+                "positionY": "-0.400000",
+                "positionZ": "-1.800000",
+                "randomInitialRotation": false,
+                "randomStartFrame": true,
+                "rotationOvertime1": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "rotationOvertime2": [
+                    "0",
+                    "0",
+                    "0"
+                ],
+                "rotationX": "0.000000",
+                "rotationY": "0.000000",
+                "rotationZ": "0.000000",
+                "rotationconstants": "0",
+                "scaleconstants": "2",
+                "separateAxis": "0",
+                "sizeX": "3.550000",
+                "sizeY": "2.300000",
+                "sizeZ": "6.250000",
+                "startFrame": "0",
+                "tiles_X": "1",
+                "tiles_Y": "1",
+                "velocityRandomFactor1X": "0.000000",
+                "velocityRandomFactor1Y": "0.000000",
+                "velocityRandomFactor1Z": "0.000000",
+                "velocityRandomFactor2X": "0.000000",
+                "velocityRandomFactor2Y": "0.000000",
+                "velocityRandomFactor2Z": "0.000000",
+                "velocityconstants": "0"
+            }
+        },
+        "Name": "Rage Aura 1",
+        "Parent": "1242243791",
+        "PrefabChild": true,
+        "PrefabInstance": true,
+        "Static": false
+    },
+    "PreviewTexture": "Library/Textures/1544104884.dds"
+}
