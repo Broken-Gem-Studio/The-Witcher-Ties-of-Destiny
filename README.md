@@ -1,5 +1,5 @@
 # TheWitcher
-This is the repository for The Withcer: Ties of Destiny game. In here, there will be a release of the Broken Engine in order to develop the videogame.
+This is the repository for The Witcher: Ties of Destiny game. In here, there will be a release of the Broken Engine in order to develop the videogame.
 
 Folder Structure:
 1. Assets: Base Assets folder. Ready to copy-paste to any build.
