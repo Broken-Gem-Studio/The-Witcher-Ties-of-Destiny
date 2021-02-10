@@ -1,0 +1,79 @@
+{
+    "AmbientColor": {
+        "A": 1.0,
+        "B": 1.0,
+        "G": 0.9999935626983643,
+        "R": 0.9999899864196777
+    },
+    "Culling": true,
+    "MatAlphaFunc": 0,
+    "MatAutoBlending": true,
+    "MatBlendEquation": 0,
+    "MatManualAlphaFuncDst": 7,
+    "MatManualAlphaFuncSrc": 6,
+    "MaterialRimLightPower": 1.0,
+    "MaterialRimLightSmoothX": 0.0,
+    "MaterialRimLightSmoothY": 1.0,
+    "MaterialShininess": 8.312000274658203,
+    "NewMaterial53465.mat": null,
+    "OccludedOutlineColor": {
+        "A": 1.0,
+        "B": 1.0,
+        "G": 1.0,
+        "R": 1.0
+    },
+    "OutlineColor": {
+        "A": 0.0,
+        "B": 0.0,
+        "G": 0.0,
+        "R": 0.0
+    },
+    "OutlineThickness": 100.0,
+    "PreviewTexture": "Library/Textures/1278177703.dds",
+    "ResourceDiffuse": "Assets/water-sea-open-sea-water-texture.jpg",
+    "ResourceNormalTexture": null,
+    "ResourceSpecular": null,
+    "SceneColorAffected": true,
+    "Transparencies": false,
+    "UseOccludedOutline": false,
+    "UseOutline": false,
+    "UseRimLight": false,
+    "shader": {
+        "ResourceShader": "Assets/Shaders/WaterShaders/TrochoidalWaterTest_v2.glsl",
+        "uniforms": {
+            "None_Reflect_Refract": {
+                "type": 5124,
+                "x": 0
+            },
+            "Velocity": {
+                "type": 5126,
+                "x": 1.0
+            },
+            "Wave1_dir_steep_waveLength": {
+                "type": 35666,
+                "w": 500.0,
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1000.0
+            },
+            "Wave2": {
+                "type": 35666,
+                "w": 250.0,
+                "x": -1.0,
+                "y": 1.0,
+                "z": 1500.0
+            },
+            "Wave3": {
+                "type": 35666,
+                "w": 125.0,
+                "x": 0.5,
+                "y": -1.0,
+                "z": 2000.0
+            },
+            "refractive_reflective_index": {
+                "type": 5126,
+                "x": 1.0
+            }
+        }
+    }
+}

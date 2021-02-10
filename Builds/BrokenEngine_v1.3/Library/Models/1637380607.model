@@ -1,0 +1,67 @@
+{
+    "1200806246": {
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "0.000000",
+                "positiony": "0.000000",
+                "positionz": "0.000000",
+                "rotationw": "1.000000",
+                "rotationx": "0.000000",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "1.000000",
+                "scaley": "1.000000",
+                "scalez": "1.000000"
+            }
+        },
+        "Model": "Assets/Water_Tutorial .FBX",
+        "Name": "GameObject(1)",
+        "Parent": "242260167",
+        "PrefabChild": false,
+        "PrefabInstance": true
+    },
+    "763536526": {
+        "Components": {
+            "0": {
+                "layer": "0",
+                "positionx": "-61.826923",
+                "positiony": "-6.999449",
+                "positionz": "-29.786808",
+                "rotationw": "0.707107",
+                "rotationx": "-0.707107",
+                "rotationy": "0.000000",
+                "rotationz": "0.000000",
+                "scalex": "0.025400",
+                "scaley": "0.025400",
+                "scalez": "0.025400"
+            },
+            "1": {
+                "Active": true,
+                "Resources": {
+                    "ResourceMesh": {
+                        "PreviewTexture": "",
+                        "path": "Library/Meshes/38075970.mesh"
+                    }
+                }
+            },
+            "2": {
+                "Active": true,
+                "CastsShadows": true,
+                "LightAffected": true,
+                "OnlyShadows": false,
+                "ReceivesShadows": true,
+                "Resources": {
+                    "ResourceMaterial": {
+                        "path": "Assets/Water_Mateiral.mat"
+                    }
+                }
+            }
+        },
+        "Name": "Plane001",
+        "Parent": "1200806246",
+        "PrefabChild": true,
+        "PrefabInstance": false
+    },
+    "PreviewTexture": "Library/Textures/789650067.dds"
+}
